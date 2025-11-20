@@ -78,13 +78,7 @@ jobs:
               echo "✅ Disabled $MOVED workflow(s)"
               
               git add .github/workflows/
-              git commit -m "DISABLE scheduled workflows: Stop autopilot cron jobs
-
-- Moved $MOVED scheduled workflow(s) to disabled/ folder
-- Prevents automated runs during manual deployment work
-- Focus on fix2 repository deployment
-
-Co-authored-by: Ona <no-reply@ona.com>" || true
+              git commit -m "DISABLE scheduled workflows: Stop autopilot cron jobs - Moved $MOVED scheduled workflow(s) to disabled/ folder - Co-authored-by: Ona <no-reply@ona.com>" || true
               
               if [ "${{ github.event.inputs.dry_run }}" != "true" ]; then
                 git push origin HEAD || echo "⚠️  Failed to push"
