@@ -4,7 +4,7 @@ import { requireAdmin } from "@/lib/rbac";
 const VERCEL_API_BASE = "https://api.vercel.com";
 
 interface RouteParams {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function POST(req: NextRequest, { params }: RouteParams) {
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest, { params }: RouteParams) {
   const token = process.env.VERCEL_API_TOKEN;
   const projectId = process.env.VERCEL_PROJECT_ID;
   const teamId = process.env.VERCEL_TEAM_ID;
-  const { id: deploymentId } = params;
+  const { id: deploymentId } = await params;
 
   if (!token || !projectId || !deploymentId) {
     return NextResponse.json(
