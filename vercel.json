@@ -2,6 +2,11 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install",
   "framework": "nextjs",
+  "build": {
+    "env": {
+      "TURBOPACK": "0"
+    }
+  },
   "git": {
     "deploymentEnabled": {
       "main": true
