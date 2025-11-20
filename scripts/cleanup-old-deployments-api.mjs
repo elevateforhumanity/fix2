@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Cleanup Old Vercel Deployments via API
- * 
+ *
  * Deletes all deployments except the latest one
  */
 
@@ -21,19 +21,21 @@ console.log('=====================================\n');
 
 async function fetchDeployments() {
   console.log('📋 Fetching deployments...');
-  
+
   const response = await fetch(
     `https://api.vercel.com/v6/deployments?projectId=${PROJECT_ID}&teamId=${TEAM_ID}&limit=100`,
     {
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`
-      }
+        Authorization: `Bearer ${VERCEL_TOKEN}`,
+      },
     }
   );
 
   if (!response.ok) {
     const error = await response.json();
-    throw new Error(`API Error: ${error.error?.message || response.statusText}`);
+    throw new Error(
+      `API Error: ${error.error?.message || response.statusText}`
+    );
   }
 
   const data = await response.json();
@@ -46,14 +48,16 @@ async function deleteDeployment(deploymentId) {
     {
       method: 'DELETE',
       headers: {
-        'Authorization': `Bearer ${VERCEL_TOKEN}`
-      }
+        Authorization: `Bearer ${VERCEL_TOKEN}`,
+      },
     }
   );
 
   if (!response.ok) {
     const error = await response.json();
-    throw new Error(`Delete failed: ${error.error?.message || response.statusText}`);
+    throw new Error(
+      `Delete failed: ${error.error?.message || response.statusText}`
+    );
   }
 
   return response.json();
@@ -63,7 +67,7 @@ async function main() {
   try {
     // Fetch all deployments
     const deployments = await fetchDeployments();
-    
+
     if (deployments.length === 0) {
       console.log('ℹ️  No deployments found');
       return;
@@ -106,9 +110,11 @@ async function main() {
       const dep = toDelete[i];
       const date = new Date(dep.created).toLocaleString();
       const branch = dep.meta?.githubCommitRef || 'unknown';
-      
-      process.stdout.write(`   [${i + 1}/${toDelete.length}] ${dep.uid} (${branch}) - ${date}... `);
-      
+
+      process.stdout.write(
+        `   [${i + 1}/${toDelete.length}] ${dep.uid} (${branch}) - ${date}... `
+      );
+
       try {
         await deleteDeployment(dep.uid);
         console.log('✅');
@@ -119,7 +125,7 @@ async function main() {
       }
 
       // Rate limiting - wait 100ms between requests
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise((resolve) => setTimeout(resolve, 100));
     }
 
     console.log('');
@@ -134,19 +140,21 @@ async function main() {
     console.log('🔍 Verify at:');
     console.log('   https://vercel.com/elevate-48e460c9/fix2-gpql/deployments');
     console.log('');
-
   } catch (error) {
     console.error('');
     console.error('❌ Error:', error.message);
     console.error('');
-    
-    if (error.message.includes('forbidden') || error.message.includes('Not authorized')) {
+
+    if (
+      error.message.includes('forbidden') ||
+      error.message.includes('Not authorized')
+    ) {
       console.error('💡 Token issue:');
       console.error('   1. Get new token: https://vercel.com/account/tokens');
       console.error('   2. Set: export VERCEL_TOKEN="your-new-token"');
       console.error('   3. Run again: pnpm cleanup:deployments-api');
     }
-    
+
     process.exit(1);
   }
 }
