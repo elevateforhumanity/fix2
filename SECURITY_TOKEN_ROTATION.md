@@ -54,6 +54,7 @@ VERCEL_TOKEN=your_new_token_here
 #### D. Any CI/CD Systems
 
 If you use:
+
 - GitHub Actions → Update secrets
 - GitLab CI → Update variables
 - CircleCI → Update environment variables
