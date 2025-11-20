@@ -1,13 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/rbac";
+import { NextRequest, NextResponse } from 'next/server';
+import { requireAdmin } from '@/lib/rbac';
 
-const VERCEL_API_BASE = "https://api.vercel.com";
+const VERCEL_API_BASE = 'https://api.vercel.com';
 
 export async function GET(req: NextRequest) {
   try {
     await requireAdmin();
   } catch (error) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const token = process.env.VERCEL_API_TOKEN;
@@ -16,29 +16,29 @@ export async function GET(req: NextRequest) {
 
   if (!token || !projectId) {
     return NextResponse.json(
-      { error: "Missing Vercel API configuration" },
+      { error: 'Missing Vercel API configuration' },
       { status: 500 }
     );
   }
 
   const url = new URL(`${VERCEL_API_BASE}/v6/deployments`);
-  url.searchParams.set("projectId", projectId);
-  url.searchParams.set("limit", "20");
-  url.searchParams.set("sort", "createdAt");
-  url.searchParams.set("direction", "desc");
-  if (teamId) url.searchParams.set("teamId", teamId);
+  url.searchParams.set('projectId', projectId);
+  url.searchParams.set('limit', '20');
+  url.searchParams.set('sort', 'createdAt');
+  url.searchParams.set('direction', 'desc');
+  if (teamId) url.searchParams.set('teamId', teamId);
 
   const res = await fetch(url.toString(), {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    cache: "no-store",
+    cache: 'no-store',
   });
 
   if (!res.ok) {
     const text = await res.text();
     return NextResponse.json(
-      { error: "Failed to fetch deployments", details: text },
+      { error: 'Failed to fetch deployments', details: text },
       { status: 500 }
     );
   }

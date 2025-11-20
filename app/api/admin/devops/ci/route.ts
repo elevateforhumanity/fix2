@@ -1,13 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/rbac";
+import { NextRequest, NextResponse } from 'next/server';
+import { requireAdmin } from '@/lib/rbac';
 
-const GITHUB_API_BASE = "https://api.github.com";
+const GITHUB_API_BASE = 'https://api.github.com';
 
 export async function GET(req: NextRequest) {
   try {
     await requireAdmin();
   } catch (error) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const token = process.env.GITHUB_TOKEN;
@@ -16,29 +16,27 @@ export async function GET(req: NextRequest) {
 
   if (!token || !owner || !repo) {
     return NextResponse.json(
-      { error: "Missing GitHub CI configuration" },
+      { error: 'Missing GitHub CI configuration' },
       { status: 500 }
     );
   }
 
-  const url = new URL(
-    `${GITHUB_API_BASE}/repos/${owner}/${repo}/actions/runs`
-  );
-  url.searchParams.set("per_page", "15");
+  const url = new URL(`${GITHUB_API_BASE}/repos/${owner}/${repo}/actions/runs`);
+  url.searchParams.set('per_page', '15');
 
   const res = await fetch(url.toString(), {
     headers: {
       Authorization: `Bearer ${token}`,
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
+      Accept: 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
     },
-    cache: "no-store",
+    cache: 'no-store',
   });
 
   if (!res.ok) {
     const text = await res.text();
     return NextResponse.json(
-      { error: "Failed to fetch CI runs", details: text },
+      { error: 'Failed to fetch CI runs', details: text },
       { status: 500 }
     );
   }
