@@ -3,8 +3,8 @@ export default function StructuredData() {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
     name: 'Elevate for Humanity',
-    url: 'https://elevateconnectsdirectory.org',
-    logo: 'https://elevateconnectsdirectory.org/assets/logo-efh.svg',
+    url: 'https://www.elevateforhumanity.org',
+    logo: 'https://www.elevateforhumanity.org/assets/logo-efh.svg',
     description:
       'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
     address: {

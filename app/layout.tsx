@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     title: 'Elevate for Humanity | Workforce Training & Career Development',
     description:
       'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
-    url: 'https://elevateconnectsdirectory.org',
+    url: 'https://www.elevateforhumanity.org',
     siteName: 'Elevate for Humanity',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://elevateconnectsdirectory.org/assets/og-image.jpg',
+        url: 'https://www.elevateforhumanity.org/assets/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Elevate for Humanity - Workforce Training',
