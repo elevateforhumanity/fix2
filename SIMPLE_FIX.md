@@ -61,6 +61,7 @@ This will deploy from the correct branch!
 ## What's Needed
 
 The core issue is:
+
 - ✅ Code is ready
 - ✅ Scripts are ready
 - ✅ Automation is ready
