@@ -19,6 +19,7 @@ Look for the workflow named **"Fix Vercel Configuration"** in the left sidebar.
 ### Step 4: Wait
 
 The workflow will:
+
 - ✅ Get token from secrets automatically
 - ✅ Configure everything
 - ✅ Clean up old deployments
@@ -29,6 +30,7 @@ Takes about 3-5 minutes total.
 ### Step 5: Verify
 
 After the workflow completes:
+
 1. Open: https://www.elevateforhumanity.org
 2. Hard refresh: `Ctrl+Shift+R` or `Cmd+Shift+R`
 3. Look for build marker
@@ -51,6 +53,7 @@ Watch the workflow run:
 https://github.com/elevateforhumanity/fix2/actions
 
 You'll see:
+
 - ✅ Checkout code
 - ✅ Install dependencies
 - ✅ Run Ultimate Fix
