@@ -1,0 +1,38 @@
+name: Update Vercel Environment Variables
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/update-vercel-env-vars.yml'
+
+jobs:
+  update-env-vars:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Update Vercel Environment Variables
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_TEAM_ID: ${{ secrets.VERCEL_ORG_ID }}
+        run: |
+          echo "🔧 Updating Vercel Environment Variables"
+          echo "========================================"
+          node scripts/update-vercel-env-vars.mjs
+          
+      - name: Summary
+        run: |
+          echo "✅ Vercel environment variables updated!"
+          echo "🚀 New deployment triggered"
+          echo "📊 Monitor at: https://vercel.com/elevate-48e460c9/fix2-gpql/deployments"
