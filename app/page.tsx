@@ -72,10 +72,7 @@ export default function HomePage() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source
-              src="https://cdn.coverr.co/videos/coverr-students-studying-together-in-library-5337/1080p.mp4"
-              type="video/mp4"
-            />
+            {/* Video URL removed - external source unavailable */}
             {/* Fallback to image if video doesn't load */}
             <Image
               src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&q=80"
