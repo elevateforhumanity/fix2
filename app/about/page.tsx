@@ -1,461 +1,508 @@
 import Link from "next/link";
 
 export default function AboutPage() {
-  const values = [
-    {
-      name: "People First",
-      description:
-        "We design every program around the real barriers our learners face – childcare, transportation, housing, and confidence – not just test scores.",
-    },
-    {
-      name: "Compliance With Compassion",
-      description:
-        "We speak the language of WIOA, DOL, and state workforce boards so our partners don't have to, while keeping the human at the center.",
-    },
-    {
-      name: "Pathways, Not One-Off Classes",
-      description:
-        "We build full pathways – outreach, training, wraparound support, work experience, and job placement – not just a single course.",
-    },
-    {
-      name: "Community Ownership",
-      description:
-        "We partner with barbershops, clinics, churches, schools, and small businesses so opportunities live inside the neighborhoods we serve.",
-    },
-  ];
-
-  const milestones = [
-    {
-      year: "2018–2020",
-      title: "Seeds of Elevate for Humanity",
-      description:
-        "Grassroots community work, pop-up trainings, and early partnerships with local schools, barbers, and healthcare providers in Indiana.",
-    },
-    {
-      year: "2021",
-      title: "Formalizing the Vision",
-      description:
-        "Selfish Inc. 501(c)(3) begins operating as the philanthropic umbrella, aligning workforce development, wraparound supports, and compliance under one roof.",
-    },
-    {
-      year: "2022–2023",
-      title: "Building the Ecosystem",
-      description:
-        "Launch of Elevate for Humanity as a training and workforce development platform, integrating ETPL/WIOA pathways, program partners, and employer relationships.",
-    },
-    {
-      year: "2024–Present",
-      title: "From Programs to Pipelines",
-      description:
-        "Scaling an integrated ecosystem that connects learners, employers, credentialing partners, and government funding into one seamless experience.",
-    },
-  ];
-
-  const stats = [
-    {
-      label: "Career-Focused Pathways",
-      value: "10+",
-      description: "In-demand tracks in trades, healthcare, technology, and entrepreneurship.",
-    },
-    {
-      label: "Community & Employer Partners",
-      value: "50+",
-      description: "From barbershops and clinics to workforce boards and training providers.",
-    },
-    {
-      label: "Learners Served & Supported",
-      value: "1,000+",
-      description: "Individuals touched through training, coaching, and community initiatives.",
-    },
-    {
-      label: "States & Regions",
-      value: "Multi-Region",
-      description: "Indiana-anchored with an ecosystem designed to scale nationwide.",
-    },
-  ];
-
-  const pillars = [
-    {
-      title: "Workforce Training & Upskilling",
-      description:
-        "Short-term, credential-aligned training in partnership with accredited schools, industry partners, and state workforce boards.",
-      bullets: [
-        "Employer-driven curriculum and real labor market alignment",
-        "State-approved program partners and credentialing organizations",
-        "Built-in support for WIOA, WRG, OJT, WEX, and apprenticeships",
-      ],
-    },
-    {
-      title: "Wraparound & Community Support",
-      description:
-        "We recognize that people don't drop out of programs because they are lazy – they drop out because life is heavy. We build in support.",
-      bullets: [
-        "Navigation and case management in collaboration with partners",
-        "Referrals for childcare, transportation, and housing support",
-        "Mental wellness, mentorship, and peer support spaces",
-      ],
-    },
-    {
-      title: "Government & Philanthropic Alignment",
-      description:
-        "We sit at the intersection of community and compliance – translating grant requirements into real opportunities for people.",
-      bullets: [
-        "Alignment with WIOA and state workforce priorities",
-        "Support for DOL apprenticeships and registered pathways",
-        "Fiscal intermediary and backbone support for community partners",
-      ],
-    },
-  ];
-
-  const badges = [
-    "Workforce Development & Training Institute",
-    "Community-Based Philanthropic Backbone",
-    "Employer & Industry Partnership Hub",
-    "Government & Grant-Aligned Ecosystem",
-  ];
-
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Hero */}
-      <section className="border-b border-slate-200 bg-white/70 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-4 py-16 lg:py-20">
-          <div className="grid gap-10 lg:grid-cols-[3fr,2fr] items-center">
+      <div className="max-w-6xl mx-auto px-4 py-10 lg:py-16">
+        {/* HERO */}
+        <section className="mb-10 lg:mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-blue-700">
+            <span>About</span>
+            <span className="h-1 w-1 rounded-full bg-blue-500" />
+            <span>Elevate for Humanity</span>
+          </div>
+
+          <div className="mt-5 grid gap-8 lg:grid-cols-[1.6fr,1.2fr] lg:items-center">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700 mb-4">
-                About Elevate for Humanity
-              </p>
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight">
-                Turning{" "}
-                <span className="underline decoration-blue-400 decoration-4 underline-offset-4">
-                  training programs
-                </span>{" "}
-                into real careers and community stability.
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                Workforce development for people who{" "}
+                <span className="bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent">
+                  can&apos;t afford to be left behind.
+                </span>
               </h1>
-              <p className="text-lg text-slate-600 mb-6">
-                Elevate for Humanity is a workforce development ecosystem that connects learners, employers,
-                credentialing partners, and government funding – so people can move from surviving to thriving
-                without getting lost in the system.
-              </p>
-              <p className="text-slate-600 mb-6">
-                We are the bridge between{" "}
-                <span className="font-semibold text-slate-900">community need</span> and{" "}
-                <span className="font-semibold text-slate-900">systems that have resources</span> – translating
-                the language of grants, policy, and compliance into real seats in classrooms, real skills, and
-                real paychecks.
+              <p className="mt-4 text-sm md:text-base text-slate-600 max-w-xl">
+                Elevate for Humanity is a workforce and learning ecosystem
+                designed for real people with real barriers—parents, returning
+                citizens, career changers, and anyone who needs a second
+                chance, not a second job filling out forms. We connect training,
+                wraparound support, employers, and funding so learners can
+                actually finish.
               </p>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3 text-xs">
+                <span className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 font-semibold text-slate-800 border border-slate-200">
+                  🎓 Workforce training & credentials
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 font-semibold text-slate-800 border border-slate-200">
+                  🤝 Employers & community partners
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 font-semibold text-slate-800 border border-slate-200">
+                  🏛️ Funding-aligned (WIOA, grants, apprenticeships)
+                </span>
+              </div>
+
+              <div className="mt-7 flex flex-wrap gap-3">
                 <Link
                   href="/programs"
-                  className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-blue-700 transition"
+                  className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-xs md:text-sm font-semibold text-white shadow-sm hover:bg-blue-700 transition"
                 >
-                  Explore Programs
+                  Explore training programs
                 </Link>
                 <Link
                   href="/workforce-partners"
-                  className="inline-flex items-center justify-center rounded-lg bg-slate-100 px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-200 transition"
+                  className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-xs md:text-sm font-semibold text-slate-900 border border-slate-200 hover:bg-slate-50 transition"
                 >
-                  Partner With Us
+                  Become a workforce partner
                 </Link>
               </div>
             </div>
 
-            <div className="lg:pl-6">
-              <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-slate-50 p-6 shadow-sm">
-                <p className="text-xs font-semibold text-blue-700 uppercase tracking-wide mb-2">
-                  Philanthropic & Legal Backbone
+            <div className="grid gap-4 text-xs">
+              <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                  Our Mission
                 </p>
-                <p className="text-sm text-slate-700 mb-2">
-                  <span className="font-semibold text-slate-900">Legal Entity:</span> Selfish Inc. 501(c)(3)
-                  <br />
-                  <span className="font-semibold text-slate-900">Doing Business As:</span> Elevate for Humanity
+                <p className="mt-2 text-sm font-semibold text-slate-900">
+                  To remove the friction between{" "}
+                  <span className="underline decoration-blue-400 decoration-2 underline-offset-4">
+                    people who are ready to work
+                  </span>{" "}
+                  and the training, credentials, and employers that need them.
                 </p>
-                <p className="text-sm text-slate-700 mb-4">
-                  <span className="font-semibold text-slate-900">Role:</span> Philanthropic umbrella, fiscal
-                  intermediary, and workforce backbone organization for a network of training providers and
-                  employers.
-                </p>
-                <div className="grid grid-cols-2 gap-3 text-xs">
-                  <div className="rounded-xl bg-white/70 p-3 shadow-sm">
-                    <p className="font-semibold text-slate-900 mb-1">What We Handle</p>
-                    <ul className="space-y-1 text-slate-600">
-                      <li>• Compliance & reporting</li>
-                      <li>• Grant & fiscal management</li>
-                      <li>• Data, systems & tech</li>
-                    </ul>
-                  </div>
-                  <div className="rounded-xl bg-white/70 p-3 shadow-sm">
-                    <p className="font-semibold text-slate-900 mb-1">What Partners Do</p>
-                    <ul className="space-y-1 text-slate-600">
-                      <li>• Deliver hands-on training</li>
-                      <li>• Mentor & coach learners</li>
-                      <li>• Hire & host participants</li>
-                    </ul>
-                  </div>
+              </div>
+              <div className="grid grid-cols-3 gap-3">
+                <div className="rounded-xl border border-slate-100 bg-slate-900 text-slate-50 p-3">
+                  <p className="text-[10px] uppercase tracking-wide text-slate-300">
+                    Focus
+                  </p>
+                  <p className="mt-1 text-sm font-semibold">
+                    Indiana workforce & beyond
+                  </p>
                 </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {badges.map((badge) => (
-                    <span
-                      key={badge}
-                      className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-[11px] font-medium text-blue-800 border border-blue-100"
-                    >
-                      {badge}
-                    </span>
-                  ))}
+                <div className="rounded-xl border border-slate-100 bg-white p-3">
+                  <p className="text-[10px] uppercase tracking-wide text-slate-500">
+                    Pathways
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-slate-900">
+                    Trades · Healthcare · Transportation
+                  </p>
+                </div>
+                <div className="rounded-xl border border-slate-100 bg-white p-3">
+                  <p className="text-[10px] uppercase tracking-wide text-slate-500">
+                    Model
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-slate-900">
+                    Training + support + employers
+                  </p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Stats */}
-      <section className="border-b border-slate-200 bg-slate-50/80">
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="grid gap-6 md:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="rounded-xl bg-white p-5 shadow-sm border border-slate-100">
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
-                  {stat.label}
-                </p>
-                <p className="text-3xl font-bold text-slate-900 mb-1">{stat.value}</p>
-                <p className="text-xs text-slate-600">{stat.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Values */}
-      <section className="max-w-6xl mx-auto px-4 py-16 lg:py-20">
-        <div className="grid gap-10 lg:grid-cols-[2fr,3fr] items-start">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Mission & Vision</h2>
-            <p className="text-slate-600 mb-4">
-              <span className="font-semibold text-slate-900">Mission:</span> To remove the invisible red tape
-              that keeps people out of training and quality jobs by building an ecosystem where community
-              organizations, training providers, employers, and government systems actually work together.
-            </p>
-            <p className="text-slate-600 mb-4">
-              <span className="font-semibold text-slate-900">Vision:</span> A world where your ZIP code, past
-              barriers, or bank account no longer decide your access to skills, credentials, and fair-wage
-              careers.
-            </p>
-            <p className="text-slate-600">
-              We do this by blending <strong>technology</strong>, <strong>compliance expertise</strong>, and <strong>deep community partnership</strong>
-              – so learners get more than a login and a syllabus. They get a guided pathway, real humans, and a
-              village around them.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {values.map((value) => (
-              <div
-                key={value.name}
-                className="rounded-xl border border-slate-100 bg-white p-5 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <p className="text-sm font-semibold text-slate-900 mb-1">{value.name}</p>
-                <p className="text-sm text-slate-600">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Story & Timeline */}
-      <section className="border-t border-b border-slate-200 bg-slate-50/70">
-        <div className="max-w-6xl mx-auto px-4 py-16 lg:py-20">
-          <div className="grid gap-10 lg:grid-cols-[2fr,3fr] items-start">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">How Elevate for Humanity Began</h2>
-              <p className="text-slate-600 mb-4">
-                Elevate for Humanity did not start as a piece of software – it started as a response to real
-                people stuck between systems: people told they "didn't qualify," "missed the deadline," or "need
-                one more form" while bills piled up.
-              </p>
-              <p className="text-slate-600 mb-4">
-                From hauling chairs into community rooms, to helping people fill out workforce forms by hand, to
-                standing in the gap between agencies that don&apos;t talk to each other – this work grew into a
-                structured ecosystem and eventually a full technology platform.
-              </p>
-              <p className="text-slate-600">
-                Today, Elevate for Humanity serves as a <strong>backbone organization</strong>: aligning community partners,
-                credentialing providers, employers, and government programs into one coordinated, human-centered
-                pipeline.
-              </p>
-            </div>
-
-            <div className="relative">
-              <div className="absolute left-4 top-0 bottom-0 w-px bg-slate-200 md:left-1/2" />
-              <div className="space-y-8 md:space-y-10">
-                {milestones.map((milestone, index) => (
-                  <div
-                    key={milestone.year}
-                    className={`relative flex flex-col gap-2 md:w-1/2 ${
-                      index % 2 === 0 ? "md:ml-auto md:pl-8" : "md:pr-8"
-                    }`}
-                  >
-                    <div
-                      className={`absolute h-3 w-3 rounded-full border-2 border-blue-500 bg-white top-1 ${
-                        index % 2 === 0 ? "md:-left-1.5" : "md:-right-1.5"
-                      } left-0.5 md:left-1/2`}
-                    />
-                    <p className="text-xs font-semibold uppercase tracking-wide text-blue-700 pl-6 md:pl-0">
-                      {milestone.year}
-                    </p>
-                    <p className="text-sm font-semibold text-slate-900 pl-6 md:pl-0">{milestone.title}</p>
-                    <p className="text-sm text-slate-600 pl-6 md:pl-0">{milestone.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pillars */}
-      <section className="max-w-6xl mx-auto px-4 py-16 lg:py-20">
-        <div className="mb-10 max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">What We Actually Do</h2>
-          <p className="text-slate-600 mb-4">
-            Elevate for Humanity is not just "another school" and not just "another platform." We are the{" "}
-            <span className="font-semibold text-slate-900">connective tissue</span> that keeps people from falling
-            through the cracks between community organizations, training providers, employers, and government
-            programs.
-          </p>
-          <p className="text-slate-600">
-            Our work can be understood in three core pillars that work together as one ecosystem.
-          </p>
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-3">
-          {pillars.map((pillar) => (
-            <div
-              key={pillar.title}
-              className="flex flex-col rounded-2xl border border-slate-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">{pillar.title}</h3>
-              <p className="text-sm text-slate-600 mb-4">{pillar.description}</p>
-              <ul className="space-y-2 text-sm text-slate-600">
-                {pillar.bullets.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-500 flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Partners & Compliance */}
-      <section className="border-t border-b border-slate-200 bg-slate-50/80">
-        <div className="max-w-6xl mx-auto px-4 py-16 lg:py-20">
-          <div className="grid gap-10 lg:grid-cols-[3fr,2fr] items-start">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                Partners, Approvals & Compliance Alignment
+        {/* MISSION · VISION · VALUES */}
+        <section className="mb-10 lg:mb-14">
+          <div className="grid gap-6 lg:grid-cols-3">
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <h2 className="text-sm font-semibold text-slate-900">
+                Mission
               </h2>
-              <p className="text-slate-600 mb-4">
-                Elevate for Humanity is intentionally built to sit in alignment with <strong>state and federal workforce
-                systems</strong> – not in competition with them. We work alongside workforce boards, schools, and
-                employers to make funding and opportunity easier to access, not harder.
-              </p>
-              <p className="text-slate-600 mb-4">
-                Our ecosystem is designed to plug into WIOA, WRG, JRI, WEX, OJT, and DOL apprenticeship pathways,
-                as well as state ETPL processes and other workforce initiatives – so that every seat in a class
-                can be paired with a sustainable funding path wherever possible.
-              </p>
-              <p className="text-slate-600">
-                We also support our partners with documentation, MOUs, reporting, and systems that make compliance
-                feel less like a barrier and more like a bridge to resources.
+              <p className="mt-2 text-xs text-slate-600">
+                Elevate for Humanity exists to build career pathways for people
+                who are usually overlooked by traditional systems—connecting
+                them to high-demand careers, supportive services, and employers
+                who believe in second chances.
               </p>
             </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-3">
-                Examples of How We Align
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <h2 className="text-sm font-semibold text-slate-900">
+                Vision
+              </h2>
+              <p className="mt-2 text-xs text-slate-600">
+                A world where zip code, background, and past mistakes do not
+                decide a person&apos;s future. Our vision is a network of community
+                hubs, training partners, and employers that move in sync to
+                lift entire families, not just fill job openings.
               </p>
-              <ul className="space-y-2 text-sm text-slate-700 mb-5">
-                <li>• Workforce Board partnerships and referral pipelines</li>
-                <li>• ETPL-aligned training programs with approved providers</li>
-                <li>• Registered apprenticeship and State Earn & Learn pathways</li>
-                <li>• Grant-ready documentation, budgets, and compliance support</li>
+            </div>
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <h2 className="text-sm font-semibold text-slate-900">
+                Values
+              </h2>
+              <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
+                <li>
+                  <span className="font-semibold text-slate-900">
+                    People first:
+                  </span>{" "}
+                  Systems should bend around people, not the other way around.
+                </li>
+                <li>
+                  <span className="font-semibold text-slate-900">
+                    Clarity & compliance:
+                  </span>{" "}
+                  We build with workforce boards, funders, and auditors in mind
+                  from day one.
+                </li>
+                <li>
+                  <span className="font-semibold text-slate-900">
+                    Collaboration:
+                  </span>{" "}
+                  Schools, employers, and community partners all belong at the
+                  same table.
+                </li>
+                <li>
+                  <span className="font-semibold text-slate-900">
+                    Dignity:
+                  </span>{" "}
+                  Every learner deserves respect, clear options, and a real
+                  chance to finish.
+                </li>
               </ul>
-              <div className="rounded-xl bg-slate-50 p-4 text-xs text-slate-600">
-                <p className="font-semibold text-slate-900 mb-1">For Workforce & Government Partners</p>
-                <p className="mb-3">
-                  If you represent a workforce board, city, county, or state agency and want to explore how
-                  Elevate for Humanity can support your goals, we are ready to plug into your existing priorities
-                  and funding streams.
+            </div>
+          </div>
+        </section>
+
+        {/* IMPACT / WHAT WE DO */}
+        <section className="mb-10 lg:mb-14">
+          <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <h2 className="text-lg md:text-xl font-semibold text-slate-900">
+              What Elevate for Humanity actually does
+            </h2>
+            <p className="text-[11px] text-slate-500 max-w-sm">
+              We don&apos;t just &quot;list courses.&quot; We orchestrate an ecosystem of
+              programs, partners, and support so people can enroll, persist, and
+              get hired.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                Training & credentials
+              </p>
+              <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
+                <li>• HVAC, Building Maintenance, CDL, Barber, and more</li>
+                <li>• Healthcare pathways powered by credentialing partners</li>
+                <li>• Blended learning (online + hands-on labs)</li>
+                <li>• Certificates, industry credentials, and apprenticeship tracks</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                Support & wraparound services
+              </p>
+              <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
+                <li>• Barrier-aware coaching and case management approach</li>
+                <li>• Referrals for childcare, transportation, and mental health</li>
+                <li>• Soft skills, work readiness, and life skills content</li>
+                <li>• Peer support & community discussion spaces</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                Employer & workforce alignment
+              </p>
+              <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
+                <li>• Work-based learning, WEX, OJT, and apprenticeship models</li>
+                <li>• Employer advisory input on curriculum and hiring needs</li>
+                <li>• Employer directory and partner onboarding</li>
+                <li>• Designed to align with WIOA, WRG, and other funding streams</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* LEGAL / STRUCTURE */}
+        <section className="mb-10 lg:mb-14">
+          <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+            <div className="grid gap-6 md:grid-cols-2">
+              <div>
+                <h2 className="text-lg md:text-xl font-semibold text-slate-900 mb-2">
+                  How everything is structured
+                </h2>
+                <p className="text-xs text-slate-600 mb-3">
+                  Elevate for Humanity is intentionally built as an ecosystem
+                  rather than a single program. Different entities play
+                  different roles, but they work together around one mission:
+                  making workforce training accessible and sustainable.
                 </p>
-                <Link
-                  href="/workforce-partners"
-                  className="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-[11px] font-semibold text-white hover:bg-blue-700 transition"
-                >
-                  View Workforce & Government Partner Info
-                </Link>
+
+                <dl className="space-y-2 text-xs text-slate-700">
+                  <div>
+                    <dt className="font-semibold text-slate-900">
+                      Philanthropic Umbrella / Fiscal Intermediary
+                    </dt>
+                    <dd className="text-slate-600">
+                      Selfish Inc. – serving as the philanthropic and fiscal
+                      backbone to support mission-aligned initiatives,
+                      sponsorships, and compliant use of public and private
+                      funds.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-slate-900">
+                      Training & Program Delivery
+                    </dt>
+                    <dd className="text-slate-600">
+                      A network of schools, instructors, and program holders
+                      that provide day-to-day instruction, labs, and hands-on
+                      training, while Elevate manages compliance, reporting,
+                      and the digital learning environment.
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="font-semibold text-slate-900">
+                      Technology & LMS
+                    </dt>
+                    <dd className="text-slate-600">
+                      A modern learning platform that connects enrollment,
+                      courses, video, assessments, certificates, and employer
+                      tracking in one place.
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div className="space-y-3 text-xs">
+                <div className="rounded-xl border border-slate-100 bg-slate-900 text-slate-50 p-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-300">
+                    For workforce boards & funders
+                  </p>
+                  <p className="mt-2 text-sm font-semibold">
+                    A partner that speaks both human and compliance.
+                  </p>
+                  <p className="mt-2 text-[11px] text-slate-200">
+                    We design programs and documentation with workforce boards,
+                    auditors, and grant managers in mind—attendance, outcomes,
+                    documentation, and alignment with approved pathways.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                    For training partners & program holders
+                  </p>
+                  <p className="mt-2 text-[11px] text-slate-600">
+                    You focus on high-quality instruction and hands-on
+                    learning. Elevate helps with LMS, documentation, reporting,
+                    and connecting learners to funding and employers.
+                  </p>
+                  <p className="mt-2 text-[11px] text-slate-500">
+                    <span className="font-semibold text-slate-900">
+                      Interested in partnering?
+                    </span>{" "}
+                    Start with our{" "}
+                    <Link
+                      href="/onboarding/partner"
+                      className="font-semibold text-blue-700 underline underline-offset-2"
+                    >
+                      partner onboarding form
+                    </Link>
+                    .
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Leadership & CTA */}
-      <section className="max-w-6xl mx-auto px-4 py-16 lg:py-20">
-        <div className="grid gap-10 lg:grid-cols-[2fr,3fr] items-start">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Leadership & Backbone Team</h2>
-            <p className="text-slate-600 mb-4">
-              Elevate for Humanity is led by practitioners who have sat at every table: the parent trying to
-              enroll in a program, the small business owner trying to hire, the nonprofit leader writing grants,
-              and the partner trying to keep up with state and federal compliance.
+        {/* TEAM / LEADERSHIP */}
+        <section className="mb-10 lg:mb-14">
+          <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+            <h2 className="text-lg md:text-xl font-semibold text-slate-900">
+              Leadership & ecosystem roles
+            </h2>
+            <p className="text-[11px] text-slate-500 max-w-sm">
+              The work sits at the intersection of community, training, and
+              systems. The leadership model reflects that.
             </p>
-            <p className="text-slate-600 mb-4">
-              Our leadership blends <strong>lived experience</strong>, <strong>policy and compliance expertise</strong>, and <strong>hands-on
-              program management</strong> – so we can build systems that honor real life, not just paperwork.
-            </p>
-            <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-              <p className="text-sm font-semibold text-slate-900 mb-1">
-                Elizabeth L. Greene – Founder & Ecosystem Architect
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                Founder & Ecosystem Architect
               </p>
-              <p className="text-sm text-slate-600">
-                Elizabeth has spent years building bridges between schools, workforce boards, government agencies,
-                and community partners – designing Elevate for Humanity as a living ecosystem that makes it easier
-                for learners and employers to actually meet in the middle.
+              <p className="mt-2 text-sm font-semibold text-slate-900">
+                Elizabeth L. Greene
+              </p>
+              <p className="mt-2 text-xs text-slate-600">
+                Leads strategy, ecosystem design, and multi-partner coordination
+                across training providers, employers, and community organizations.
+                Focused on building a model that&apos;s deeply human and deeply
+                compliant at the same time.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                Program & Instructional Leads
+              </p>
+              <p className="mt-2 text-xs text-slate-600">
+                Instructors, coaches, and program holders who bring real-world
+                experience from barbering, HVAC, building maintenance,
+                healthcare, CDL, and more. Their role is to deliver high-quality
+                training while Elevate supports structure, tools, and reporting.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                Employers & ecosystem partners
+              </p>
+              <p className="mt-2 text-xs text-slate-600">
+                Employers, workforce boards, community agencies, and other
+                training institutions who believe in giving people a real shot.
+                They advise on skills, host work-based learning, and hire
+                talent coming through the Elevate pipeline.
               </p>
             </div>
           </div>
+        </section>
 
-          <div className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-slate-50 p-8 shadow-sm">
-            <h3 className="text-2xl font-bold text-slate-900 mb-3">Let&apos;s Build Pathways Together</h3>
-            <p className="text-sm text-slate-700 mb-4">
-              Whether you are an individual looking for a new career path, an employer seeking talent, a school or
-              training provider, or a workforce/government partner – Elevate for Humanity was built to work{" "}
-              <span className="font-semibold text-slate-900">with</span> you, not around you.
-            </p>
-            <p className="text-sm text-slate-700 mb-6">
-              Tell us who you are and what you&apos;re trying to solve, and we will help map the right mix of
-              programs, partners, and support.
-            </p>
-            <div className="flex flex-wrap gap-3">
+        {/* MILESTONES / APPROACH */}
+        <section className="mb-10 lg:mb-14">
+          <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+            <div className="grid gap-6 md:grid-cols-2">
+              <div>
+                <h2 className="text-lg md:text-xl font-semibold text-slate-900 mb-2">
+                  How we&apos;re building the ecosystem
+                </h2>
+                <p className="text-xs text-slate-600 mb-3">
+                  Elevate for Humanity isn&apos;t a &quot;launch and leave&quot; project. It&apos;s
+                  being built in deliberate phases so it can actually support
+                  learners, partners, and compliance long-term.
+                </p>
+
+                <ol className="space-y-2 text-xs text-slate-700 list-decimal list-inside">
+                  <li>
+                    <span className="font-semibold text-slate-900">
+                      Phase 1 – Foundation:
+                    </span>{" "}
+                    Build core tech, LMS, and enrollment flows; map workforce
+                    processes and compliance requirements.
+                  </li>
+                  <li>
+                    <span className="font-semibold text-slate-900">
+                      Phase 2 – Programs:
+                    </span>{" "}
+                    Launch flagship pathways (HVAC, CDL, Barber, Building
+                    Maintenance, Medical Assistant) with strong employer input.
+                  </li>
+                  <li>
+                    <span className="font-semibold text-slate-900">
+                      Phase 3 – Ecosystem:
+                    </span>{" "}
+                    Add employer directory, multi-partner onboarding, and
+                    stronger reporting views for workforce boards and funders.
+                  </li>
+                  <li>
+                    <span className="font-semibold text-slate-900">
+                      Phase 4 – Scale:
+                    </span>{" "}
+                    Expand to additional regions and partners while maintaining
+                    tight standards for quality and compliance.
+                  </li>
+                </ol>
+              </div>
+
+              <div className="space-y-3 text-xs">
+                <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                    Our design promises
+                  </p>
+                  <ul className="mt-2 space-y-1.5 text-slate-600">
+                    <li>• Human-friendly for learners, not just portals</li>
+                    <li>• Clear documentation trails for funders & auditors</li>
+                    <li>• Built to integrate training providers, not replace them</li>
+                    <li>• Grounded in real career outcomes, not vanity metrics</li>
+                  </ul>
+                </div>
+                <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
+                  <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                    Where you fit in
+                  </p>
+                  <ul className="mt-2 space-y-1.5 text-slate-600">
+                    <li>
+                      Students & jobseekers – join a program and get a clear
+                      plan, not just a brochure.
+                    </li>
+                    <li>
+                      Employers – co-create pipelines that actually deliver
+                      people who are trained for your environment.
+                    </li>
+                    <li>
+                      Training partners – plug your expertise into a broader
+                      ecosystem with shared infrastructure.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA ROW */}
+        <section className="mb-4 lg:mb-8">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-100 bg-slate-900 text-slate-50 p-5 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-300">
+                I&apos;m a student / jobseeker
+              </p>
+              <p className="mt-2 text-xs text-slate-200">
+                Explore programs, check eligibility, and get on a path that
+                leads to a real job, not just a certificate.
+              </p>
+              <Link
+                href="/programs"
+                className="mt-3 inline-flex items-center text-[11px] font-semibold text-emerald-200 hover:text-emerald-100"
+              >
+                View training options →
+              </Link>
+            </div>
+
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                I&apos;m an employer
+              </p>
+              <p className="mt-2 text-xs text-slate-600">
+                Build a pipeline of candidates trained specifically for your
+                roles—especially in trades, healthcare, and transportation.
+              </p>
+              <Link
+                href="/onboarding/employer"
+                className="mt-3 inline-flex items-center text-[11px] font-semibold text-blue-700 hover:underline"
+              >
+                Get started as an employer →
+              </Link>
+            </div>
+
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                I&apos;m a partner / funder
+              </p>
+              <p className="mt-2 text-xs text-slate-600">
+                Explore how Elevate for Humanity can serve as a structured,
+                compliant hub for your workforce or philanthropic initiatives.
+              </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-blue-700 transition"
+                className="mt-3 inline-flex items-center text-[11px] font-semibold text-blue-700 hover:underline"
               >
-                Contact the Elevate Team
-              </Link>
-              <Link
-                href="/enroll"
-                className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-blue-700 border border-blue-200 hover:bg-blue-50 transition"
-              >
-                I&apos;m Ready to Get Started
+                Talk with the Elevate team →
               </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <footer className="mt-6 border-t border-slate-100 pt-4">
+          <p className="text-[11px] text-slate-500">
+            Elevate for Humanity is part of a broader ecosystem of mission-driven
+            initiatives focused on workforce, community, and economic mobility.
+          </p>
+        </footer>
+      </div>
     </main>
   );
 }
