@@ -3,12 +3,22 @@ import { createClient } from '@supabase/supabase-js';
 import { requireAuth } from '@/lib/auth/getSession';
 import { redirect } from 'next/navigation';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 async function getSuccessMetrics() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  
+  if (!supabaseUrl || !supabaseKey) {
+    return {
+      totalStudents: 0,
+      totalPartners: 0,
+      enrollments: 0,
+      completedEnrollments: 0,
+      completionRate: 0,
+      activeTenants: 0,
+    };
+  }
+
+  const supabase = createClient(supabaseUrl, supabaseKey);
   const [
     { count: totalStudents },
     { count: totalPartners },

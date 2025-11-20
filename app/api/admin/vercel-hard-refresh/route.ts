@@ -3,9 +3,9 @@ import { requireAdmin } from "@/lib/rbac";
 
 export async function POST(req: NextRequest) {
   // Check if user is admin
-  const { isAdmin } = await requireAdmin();
-  
-  if (!isAdmin) {
+  try {
+    await requireAdmin();
+  } catch (error) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

@@ -3,12 +3,15 @@ import { createClient } from '@supabase/supabase-js';
 import { requireAuth } from '@/lib/auth/getSession';
 import { redirect } from 'next/navigation';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 async function getDeletionRequests() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  
+  if (!supabaseUrl || !supabaseKey) {
+    return [];
+  }
+
+  const supabase = createClient(supabaseUrl, supabaseKey);
   const { data } = await supabase
     .from('account_deletion_requests')
     .select('*')

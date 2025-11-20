@@ -114,7 +114,7 @@ export async function requireRole(allowedRoles: AppRole[] | string[]) {
 
   const role = (user.role || profile.role) as string;
 
-  if (!allowedRoles.includes(role)) {
+  if (!allowedRoles.includes(role as AppRole)) {
     throw new Error('FORBIDDEN');
   }
 
