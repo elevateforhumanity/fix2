@@ -28,7 +28,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.elevateforhumanity.org'),
   title: {
-    default: 'Elevate for Humanity - Workforce Training & Career Development Programs',
+    default:
+      'Elevate for Humanity - Workforce Training & Career Development Programs',
     template: '%s | Elevate for Humanity',
   },
   description:
@@ -70,7 +71,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    title: 'Elevate for Humanity - Workforce Training & Career Development Programs',
+    title:
+      'Elevate for Humanity - Workforce Training & Career Development Programs',
     description:
       'Transform your career with 100% funded workforce training. Barber, HVAC, medical assistant, CDL & more. Indianapolis, Indiana.',
     url: 'https://www.elevateforhumanity.org',
@@ -88,7 +90,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Elevate for Humanity - Workforce Training Programs',
-    description: 'Transform your career with 100% funded workforce training programs.',
+    description:
+      'Transform your career with 100% funded workforce training programs.',
     images: ['https://www.elevateforhumanity.org/og-image.jpg'],
   },
   alternates: {
@@ -133,20 +136,20 @@ export default function RootLayout({
           position="top-right"
           toastOptions={{
             style: {
-              borderRadius: "12px",
-              fontSize: "0.875rem",
-              padding: "12px 16px",
+              borderRadius: '12px',
+              fontSize: '0.875rem',
+              padding: '12px 16px',
             },
             success: {
               iconTheme: {
-                primary: "#22c55e",
-                secondary: "#fff",
+                primary: '#22c55e',
+                secondary: '#fff',
               },
             },
             error: {
               iconTheme: {
-                primary: "#ef4444",
-                secondary: "#fff",
+                primary: '#ef4444',
+                secondary: '#fff',
               },
             },
           }}
