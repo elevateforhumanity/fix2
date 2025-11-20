@@ -5,7 +5,7 @@ const VERCEL_API_BASE = "https://api.vercel.com";
 
 export async function GET(req: NextRequest) {
   try {
-    await requireAdmin(req);
+    await requireAdmin();
   } catch (error) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
