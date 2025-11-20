@@ -1,0 +1,35 @@
+import { NextRequest, NextResponse } from "next/server";
+import { sendEmail } from "@/lib/email";
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
+    const { contactId, email, name, interest, subject, body: emailBody } = body;
+
+    if (!email || !subject || !emailBody) {
+      return NextResponse.json(
+        { error: "Email, subject, and body are required" },
+        { status: 400 }
+      );
+    }
+
+    // Send email using the existing email utility
+    await sendEmail({
+      to: email,
+      subject: subject,
+      text: emailBody,
+      html: emailBody.replace(/\n/g, "<br>"),
+    });
+
+    return NextResponse.json({ 
+      success: true,
+      message: "Welcome email sent successfully" 
+    });
+  } catch (err: any) {
+    console.error("Error sending welcome email:", err);
+    return NextResponse.json(
+      { error: err.message || "Failed to send email" },
+      { status: 500 }
+    );
+  }
+}
