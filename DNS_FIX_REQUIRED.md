@@ -27,12 +27,14 @@ CNAME www  7d1b6750df07f5d0.vercel-dns-017.com     ✅ CORRECT
 Go to Durable Dashboard: https://durable.co/website/domain/elevateforhumanity.org
 
 ### DELETE THIS:
+
 ```
 Type   Name   Target                          Status
 CNAME  www    elevateproduction.netlify.app   ❌ WRONG
 ```
 
 ### Correct DNS Should Be:
+
 ```
 Type   Name   Target                    Status
 CNAME  www    [durablesites.co target]  ✅ CORRECT
@@ -111,6 +113,7 @@ Then add www.elevateforhumanity.org as a custom domain in Netlify.
 Based on your documentation, the recommended setup is:
 
 ### Marketing Site (Durablesites.co)
+
 ```
 Domain: www.elevateforhumanity.org
 Purpose: Public marketing, program information, lead generation
@@ -119,6 +122,7 @@ Content: Homepage, About, Programs, Contact, Blog
 ```
 
 ### LMS Platform (Netlify - this repo)
+
 ```
 Domain: www.elevateconnectsdirectory.org
 Purpose: Learning Management System, student portal, courses
@@ -127,6 +131,7 @@ Content: Student dashboard, courses, certificates, admin portal
 ```
 
 ### DNS Configuration:
+
 ```
 # elevateforhumanity.org (Marketing)
 A      @      [Durablesites IP]
@@ -230,12 +235,15 @@ If no results, it's not indexed yet. Can take 1-7 days.
 ## 📞 NEED HELP?
 
 ### Check DNS Propagation:
+
 https://dnschecker.org/#CNAME/www.elevateforhumanity.org
 
 ### Check SSL Certificate:
+
 https://www.ssllabs.com/ssltest/analyze.html?d=www.elevateforhumanity.org
 
 ### Test Website:
+
 https://www.elevateforhumanity.org
 
 ---
