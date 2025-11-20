@@ -37,10 +37,12 @@ export default function proxy(request: NextRequest) {
              request.headers.get('x-real-ip') || 
              'unknown';
   
-  // Skip middleware for static files and public routes
+  // Skip middleware for static files, public routes, and LMS
   if (
     path.startsWith('/_next') ||
     path.startsWith('/static') ||
+    path.startsWith('/lms') ||  // LMS routes are public
+    path.startsWith('/courses') ||  // Course catalog is public
     path.includes('.') // files with extensions
   ) {
     return NextResponse.next();
