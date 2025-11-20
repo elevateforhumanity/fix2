@@ -64,23 +64,47 @@ done
 echo "  ✅ Git branches cleaned"
 
 # ============================================
-# STEP 2: Delete Extra Projects
+# STEP 2: Delete Projects in ALL Teams
 # ============================================
 echo ""
-echo "💥 Step 2/7: Deleting extra projects..."
+echo "💥 Step 2/7: Deleting projects in ALL teams..."
 
-# Get all projects in the team
-ALL_PROJECTS=$(curl -s "https://api.vercel.com/v9/projects?teamId=$CORRECT_TEAM" \
-  -H "Authorization: Bearer $VERCEL_TOKEN" | grep -o '"name":"[^"]*"' | cut -d'"' -f4)
+# Get all teams
+ALL_TEAMS=$(curl -s "https://api.vercel.com/v2/teams" \
+  -H "Authorization: Bearer $VERCEL_TOKEN" | grep -o '"id":"[^"]*"' | cut -d'"' -f4)
 
-for project in $ALL_PROJECTS; do
-  if [ "$project" != "$CORRECT_PROJECT" ]; then
-    echo "  🗑️  Deleting: $project"
-    npx vercel remove "$project" --yes --token=$VERCEL_TOKEN 2>/dev/null || true
+for team in $ALL_TEAMS; do
+  TEAM_NAME=$(curl -s "https://api.vercel.com/v2/teams/$team" \
+    -H "Authorization: Bearer $VERCEL_TOKEN" | grep -o '"name":"[^"]*"' | cut -d'"' -f4 | head -1)
+  
+  echo "  Team: $TEAM_NAME ($team)"
+  
+  # Get all projects in this team
+  TEAM_PROJECTS=$(curl -s "https://api.vercel.com/v9/projects?teamId=$team" \
+    -H "Authorization: Bearer $VERCEL_TOKEN" | grep -o '"name":"[^"]*"' | cut -d'"' -f4)
+  
+  if [ -n "$TEAM_PROJECTS" ]; then
+    for project in $TEAM_PROJECTS; do
+      # Keep only fix2-gpql in the correct team
+      if [ "$team" = "$CORRECT_TEAM" ] && [ "$project" = "$CORRECT_PROJECT" ]; then
+        echo "    ✅ Keeping: $project"
+      else
+        echo "    🗑️  Deleting: $project"
+        
+        # Get project ID
+        PROJECT_ID=$(curl -s "https://api.vercel.com/v9/projects/$project?teamId=$team" \
+          -H "Authorization: Bearer $VERCEL_TOKEN" | grep -o '"id":"[^"]*"' | head -1 | cut -d'"' -f4)
+        
+        if [ -n "$PROJECT_ID" ]; then
+          curl -s -X DELETE "https://api.vercel.com/v9/projects/$PROJECT_ID?teamId=$team" \
+            -H "Authorization: Bearer $VERCEL_TOKEN" > /dev/null || true
+        fi
+      fi
+    done
   fi
 done
 
-echo "  ✅ Extra projects deleted"
+echo "  ✅ All extra projects deleted"
 
 # ============================================
 # STEP 3: Delete ALL Deployments
