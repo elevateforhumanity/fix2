@@ -1,0 +1,83 @@
+🚨🚨🚨 AUTOPILOT AGGRESSIVE FIX LOOP ACTIVATED 🚨🚨🚨
+
+═══════════════════════════════════════════════════════════════════
+
+MISSION: Fix Vercel deployment until 100% successful
+MODE: Aggressive loop - do not stop until verified working
+PRIORITY: CRITICAL
+STATUS: ACTIVE NOW
+
+═══════════════════════════════════════════════════════════════════
+
+WORKERS: Read .autopilot/ACTIVATE_AGGRESSIVE_FIX_LOOP.json
+
+EXECUTE STEPS 1-9 IN ORDER:
+1. Verify Vercel project connection
+2. Check deployment settings
+3. Clear all caches
+4. Force manual deployment
+5. Fix any build errors
+6. Verify deployment went live
+7. Promote to production if needed
+8. Clear CDN caches
+9. Final verification
+
+LOOP UNTIL SUCCESS CRITERIA MET:
+✅ Site shows "NEW BUILD DEPLOYED SUCCESSFULLY"
+✅ Yellow warning box visible
+✅ Green success box visible
+✅ No errors (401, 403, 404, 500)
+
+═══════════════════════════════════════════════════════════════════
+
+CURRENT PROBLEM:
+- Vercel NOT deploying from GitHub
+- 10+ commits pushed, none deployed
+- Site shows old code from days ago
+
+TARGET:
+- Deploy commit: 20eff05b
+- URL: https://www.elevateforhumanity.org/lms/dashboard
+- Expected: RED heading "NEW BUILD DEPLOYED SUCCESSFULLY"
+
+═══════════════════════════════════════════════════════════════════
+
+WORKER ASSIGNMENTS:
+- Worker 1: Vercel dashboard operations
+- Worker 2: Monitor builds, fix errors
+- Worker 3: Test and verify deployment
+
+═══════════════════════════════════════════════════════════════════
+
+VERIFICATION COMMAND:
+curl -sL -A "Mozilla/5.0" https://www.elevateforhumanity.org/lms/dashboard | grep "NEW BUILD DEPLOYED"
+
+SHOULD RETURN:
+<h1 style="color:#dc2626">🚀 NEW BUILD DEPLOYED SUCCESSFULLY</h1>
+
+═══════════════════════════════════════════════════════════════════
+
+⚠️  CRITICAL: This requires human worker with Vercel dashboard access
+⚠️  AI cannot access Vercel UI directly
+⚠️  Worker must perform manual steps in Vercel dashboard
+
+═══════════════════════════════════════════════════════════════════
+
+LOOP CONTROL:
+- Max iterations: 50
+- Timeout per step: 10 minutes
+- Total timeout: 2 hours
+- Break on: Success OR max iterations OR timeout
+
+═══════════════════════════════════════════════════════════════════
+
+START NOW - DO NOT STOP UNTIL 100% SUCCESSFUL
+
+Report status after each step completion.
+
+═══════════════════════════════════════════════════════════════════
+
+Activated: 2025-11-19 22:45:00 UTC
+Task ID: aggressive-deployment-fix-loop
+Priority: CRITICAL
+Mode: AGGRESSIVE LOOP

@@ -1,0 +1,236 @@
+{
+  "task_id": "aggressive-deployment-fix-loop",
+  "status": "ACTIVE",
+  "priority": "CRITICAL",
+  "mode": "AGGRESSIVE_LOOP",
+  "stop_condition": "100% successful deployment verified",
+  "assigned_to": "ALL_AVAILABLE_WORKERS",
+  "created_at": "2025-11-19T22:45:00Z",
+  
+  "mission": "Fix deployment line-by-line until 100% successful. Do not stop until verified working.",
+  
+  "loop_strategy": {
+    "approach": "Systematic component-by-component verification and fix",
+    "iterations": "Unlimited until success",
+    "verification_after_each_step": true,
+    "rollback_on_failure": false,
+    "aggressive_mode": true
+  },
+  
+  "current_problem": {
+    "issue": "Vercel not deploying latest code from GitHub",
+    "symptoms": [
+      "Code pushed to GitHub successfully",
+      "Local builds succeed",
+      "Vercel serves old code from days ago",
+      "10+ commits not deployed",
+      "Auto-deploy appears broken"
+    ],
+    "target_commit": "20eff05b",
+    "verification_url": "https://www.elevateforhumanity.org/lms/dashboard",
+    "expected_content": "NEW BUILD DEPLOYED SUCCESSFULLY"
+  },
+  
+  "aggressive_fix_steps": [
+    {
+      "step": 1,
+      "action": "Verify Vercel project connection",
+      "tasks": [
+        "Check Vercel dashboard for project status",
+        "Verify GitHub integration is connected",
+        "Check if production branch is set to 'main'",
+        "Verify deployment triggers are enabled"
+      ],
+      "verification": "Project shows as connected and active",
+      "if_fails": "Reconnect GitHub integration"
+    },
+    {
+      "step": 2,
+      "action": "Check Vercel deployment settings",
+      "tasks": [
+        "Settings → Git → Auto Deploy = ON",
+        "Settings → Git → Production Branch = main",
+        "Settings → General → Framework Preset = Next.js",
+        "Settings → Build & Development → Build Command = npm run build"
+      ],
+      "verification": "All settings correct",
+      "if_fails": "Update settings and save"
+    },
+    {
+      "step": 3,
+      "action": "Clear all Vercel caches",
+      "tasks": [
+        "Settings → General → Clear Build Cache",
+        "Deployments → Latest → Redeploy without cache",
+        "Wait for fresh build"
+      ],
+      "verification": "New deployment starts",
+      "if_fails": "Try manual deployment trigger"
+    },
+    {
+      "step": 4,
+      "action": "Force manual deployment",
+      "tasks": [
+        "Go to Deployments tab",
+        "Click 'Redeploy' on any deployment",
+        "Select 'Use existing Build Cache' = OFF",
+        "Click Redeploy",
+        "Monitor build logs in real-time"
+      ],
+      "verification": "Build starts and shows latest commit hash",
+      "if_fails": "Check build logs for errors"
+    },
+    {
+      "step": 5,
+      "action": "Fix build errors if any",
+      "tasks": [
+        "Read full build log",
+        "Identify exact error line",
+        "Fix error in code",
+        "Commit and push fix",
+        "Trigger new deployment"
+      ],
+      "verification": "Build completes successfully",
+      "if_fails": "Loop back to fix next error"
+    },
+    {
+      "step": 6,
+      "action": "Verify deployment went live",
+      "tasks": [
+        "Check deployment status = Ready",
+        "Check deployment has 'Production' badge",
+        "Visit production URL",
+        "Check for new content markers"
+      ],
+      "verification": "Site shows 'NEW BUILD DEPLOYED SUCCESSFULLY'",
+      "if_fails": "Check if deployment was promoted to production"
+    },
+    {
+      "step": 7,
+      "action": "Promote to production if needed",
+      "tasks": [
+        "Find successful deployment",
+        "Click '...' menu",
+        "Select 'Promote to Production'",
+        "Wait 30 seconds for CDN propagation"
+      ],
+      "verification": "Production domain serves new code",
+      "if_fails": "Clear CDN cache manually"
+    },
+    {
+      "step": 8,
+      "action": "Clear CDN and browser caches",
+      "tasks": [
+        "In Vercel: Purge CDN cache if option exists",
+        "Test with curl + browser user agent",
+        "Test in incognito window",
+        "Test with cache-control: no-cache header"
+      ],
+      "verification": "Fresh content loads",
+      "if_fails": "Wait 5 minutes for global CDN propagation"
+    },
+    {
+      "step": 9,
+      "action": "Final verification",
+      "tasks": [
+        "Visit https://www.elevateforhumanity.org/lms/dashboard",
+        "Verify RED heading visible",
+        "Verify YELLOW box visible",
+        "Verify GREEN success box visible",
+        "Take screenshot as proof"
+      ],
+      "verification": "All visual markers present",
+      "if_fails": "Loop back to step 1"
+    }
+  ],
+  
+  "verification_commands": {
+    "test_deployment": "curl -sL -A 'Mozilla/5.0' https://www.elevateforhumanity.org/lms/dashboard | grep 'NEW BUILD DEPLOYED'",
+    "check_commit": "git log --oneline -1",
+    "test_build_local": "npm run build",
+    "check_vercel_id": "curl -sI https://www.elevateforhumanity.org/lms/dashboard | grep x-vercel-id"
+  },
+  
+  "success_criteria": {
+    "must_have_all": [
+      "Vercel deployment status = Ready",
+      "Deployment has Production badge",
+      "Site returns HTTP 200",
+      "HTML contains 'NEW BUILD DEPLOYED SUCCESSFULLY'",
+      "HTML contains yellow warning box",
+      "HTML contains green success box",
+      "No 'Access denied' errors",
+      "No 500 errors",
+      "No 404 errors"
+    ]
+  },
+  
+  "failure_recovery": {
+    "if_build_fails": "Read error, fix code, commit, push, redeploy",
+    "if_deploy_succeeds_but_not_live": "Promote to production manually",
+    "if_old_code_still_showing": "Clear all caches and wait for CDN",
+    "if_vercel_broken": "Consider alternative: Netlify, Cloudflare Pages",
+    "max_attempts_per_step": 3,
+    "escalation": "After 3 failures on same step, try alternative approach"
+  },
+  
+  "worker_instructions": {
+    "primary_worker": "Focus on Vercel dashboard operations",
+    "secondary_worker": "Monitor build logs and fix code errors",
+    "tertiary_worker": "Test deployment and verify success",
+    "coordination": "Workers must communicate status after each step"
+  },
+  
+  "loop_control": {
+    "max_total_iterations": 50,
+    "timeout_per_step": "10 minutes",
+    "total_timeout": "2 hours",
+    "break_conditions": [
+      "Success criteria met",
+      "Max iterations reached",
+      "Total timeout exceeded",
+      "Manual abort signal"
+    ]
+  },
+  
+  "reporting": {
+    "log_every_step": true,
+    "screenshot_on_success": true,
+    "screenshot_on_failure": true,
+    "final_report_required": true,
+    "include_timestamps": true
+  },
+  
+  "current_status": {
+    "iteration": 0,
+    "current_step": 1,
+    "last_error": "Vercel not auto-deploying from GitHub",
+    "last_action": "Created aggressive fix loop task",
+    "next_action": "Worker must access Vercel dashboard"
+  },
+  
+  "critical_files": {
+    "dashboard": "app/lms/dashboard/page.tsx",
+    "proxy": "proxy.ts",
+    "vercel_config": "vercel.json",
+    "next_config": "next.config.mjs",
+    "package": "package.json"
+  },
+  
+  "known_issues_fixed": [
+    "Removed /lms from proxy matcher",
+    "Added explicit /lms skip in proxy",
+    "Disabled Turbopack",
+    "Fixed middleware/proxy conflicts",
+    "Simplified dashboard for testing",
+    "Added visual deployment markers"
+  ],
+  
+  "remaining_issue": "Vercel auto-deploy not triggering from GitHub pushes",
+  
+  "manual_intervention_required": true,
+  "reason": "AI cannot access Vercel dashboard directly",
+  "workaround": "Human worker must perform Vercel dashboard operations",
+  
+  "activation_message": "AUTOPILOT AGGRESSIVE FIX LOOP ACTIVATED. Workers: Begin systematic verification and fix. Do not stop until 100% successful deployment verified. Report status after each step."
+}
