@@ -1,207 +1,92 @@
-# 🎯 FINAL SOLUTION - Deploy dist/ Folder Manually
+# 🎯 Final Solution - Complete Fix
 
-## Current Situation
+## 🔍 Root Cause Identified
 
-- ✅ All configuration files are correct
-- ✅ `dist/` folder contains a working Vite/React build
-- ❌ Netlify automated builds fail due to syntax errors in source files
-- ❌ Site still shows old Next.js build
+**The problem:** GitHub repository was connected to the WRONG Vercel project.
 
-## ✅ SOLUTION: Manual Deployment (2 Minutes)
+- ❌ GitHub → `fix2` (wrong, keeps getting recreated)
+- ✅ Should be → `fix2-gpql` (correct, has www.elevateforhumanity.org)
 
-The `dist/` folder is ready and contains a fully functional Vite/React app. Deploy it manually to bypass build errors.
+This caused:
+- Deployments going to wrong project
+- Domain not updating
+- CLI recreating `fix2` project
+- Build markers not showing
 
-### Step-by-Step Instructions
+## ✅ Complete Solution (3 Steps)
 
-1. **Download the dist/ folder**
-   - If using Gitpod/Codespaces: Download `/workspaces/fix2/dist/` to your local machine
-   - If local: Navigate to the `dist/` folder in your repository
+### Step 1: Rotate Security Token (CRITICAL)
 
-2. **Go to Netlify Dashboard**
+The token was exposed and must be rotated.
 
-   ```
-   https://app.netlify.com/sites/elevateforhumanityfix/deploys
-   ```
+**See:** `SECURITY_TOKEN_ROTATION.md`
 
-3. **Deploy Manually**
-   - Click "Deploy manually" or drag-and-drop area
-   - Select the entire `dist/` folder
-   - Upload
+1. Go to https://vercel.com/account/tokens
+2. Delete old token
+3. Create new token
+4. Update in GitHub Secrets and Gitpod
 
-4. **Wait 30 seconds** for "Published" status
+### Step 2: Connect GitHub to Correct Project
 
-5. **Verify**
-   ```
-   https://elevateforhumanityfix.netlify.app
-   ```
+**In Vercel Dashboard:**
 
-## 📦 What's in dist/
+1. Go to: https://vercel.com/elevate-48e460c9/fix2-gpql/settings/git
 
-The `dist/` folder contains:
+2. Under "Connected Git Repository":
+   - Click "Connect Git Repository"
+   - Select: `elevateforhumanity/fix2`
+   - Production Branch: `main`
+   - Save
 
-- ✅ Built Vite/React application
-- ✅ All assets and JavaScript bundles
-- ✅ `_redirects` file for SPA routing
-- ✅ `404.html` custom error page
-- ✅ All static files
+3. Delete old `fix2` project:
+   - Go to: https://vercel.com/elevate-48e460c9/fix2/settings
+   - Scroll to bottom → "Delete Project"
+   - Confirm
 
-**This is a complete, production-ready build.**
+### Step 3: Use Hard-Link Scripts
 
-## 🔍 Verification After Deploy
-
-### Check 1: Vite Build (Not Next.js)
+**Always use these commands to prevent wrong project:**
 
 ```bash
-curl -s https://elevateforhumanityfix.netlify.app/ | grep -o "/assets/[^\"]*" | head -3
+# Check current link
+pnpm vercel:check
+
+# Hard link to fix2-gpql (if needed)
+export VERCEL_TOKEN="your_new_token"
+pnpm vercel:link
+
+# Deploy safely (hard links + deploys)
+export VERCEL_TOKEN="your_new_token"
+pnpm vercel:deploy
 ```
 
-**Expected**: Should see `/assets/index-*.js` (Vite bundles)
+## 📋 Verification Checklist
 
-### Check 2: Routes Work
+After completing all steps:
 
-```bash
-curl -I https://elevateforhumanityfix.netlify.app/support
-curl -I https://elevateforhumanityfix.netlify.app/programs
-curl -I https://elevateforhumanityfix.netlify.app/community
-```
+- [ ] Old token revoked in Vercel
+- [ ] New token created and saved
+- [ ] GitHub Secrets updated with new token
+- [ ] GitHub connected to fix2-gpql (not fix2)
+- [ ] Old fix2 project deleted
+- [ ] `.vercel/project.json` points to fix2-gpql
+- [ ] Test deployment goes to fix2-gpql
+- [ ] www.elevateforhumanity.org updates
 
-**Expected**: All return `HTTP/2 200`
+## 🚀 Available Commands
 
-### Check 3: SPA Routing
+### Deployment
+- `pnpm vercel:check` - Verify project link and domains
+- `pnpm vercel:link` - Hard link to fix2-gpql
+- `pnpm vercel:deploy` - Safe production deploy
 
-```bash
-curl -I https://elevateforhumanityfix.netlify.app/programs/barber
-```
+### Cleanup
+- `pnpm hard-reset` - Nuclear option (delete everything, rebuild)
+- `pnpm cleanup:branches` - Clean Git branches
 
-**Expected**: `HTTP/2 200` (deep link works)
-
-## 📋 After Successful Deployment
-
-### 1. Set Environment Variables
-
-Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/env
-
-Add these variables:
-
-```bash
-VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
-VITE_SUPABASE_ANON_KEY=<your-anon-key>
-VITE_API_URL=https://api.elevateforhumanity.org
-VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
-```
-
-**Note**: These are only needed if you want to rebuild from source later. The current `dist/` build will work without them.
-
-### 2. Setup Custom Domain
-
-**In Netlify**:
-
-1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/settings/domain
-2. Click "Add custom domain"
-3. Enter: `portal.elevateforhumanity.org`
-4. Click "Verify"
-
-**In Cloudflare DNS**:
-
-1. Go to: https://dash.cloudflare.com
-2. Select: `elevateforhumanity.org`
-3. Add DNS record:
-   - **Type**: CNAME
-   - **Name**: portal
-   - **Target**: elevateforhumanityfix.netlify.app
-   - **TTL**: 3600
-   - **Proxy**: OFF (gray cloud)
-4. Save
-
-**Wait**: 5-10 minutes for DNS propagation
-
-### 3. Lock the Deployment (Optional)
-
-To prevent automated builds from overwriting your manual deployment:
-
-1. Go to: https://app.netlify.com/sites/elevateforhumanityfix/deploys
-2. Find your manual deployment
-3. Click the three dots (⋯)
-4. Select "Lock publish"
-
-This ensures the working deployment stays live.
-
-## 🔧 Future: Fix Source Code
-
-To enable automated builds in the future, fix these syntax errors:
-
-### Files with Errors:
-
-- `src/pages/Account.jsx`
-- `src/pages/Instructor.jsx`
-- `src/pages/InstructorEdit.jsx`
-- `src/pages/MainLanding.jsx`
-- `src/pages/Accessibility.jsx`
-- And others
-
-### Common Patterns to Fix:
-
-```javascript
-// WRONG:
-color: ''#4a3728''
-border: '2px dashed '#d4c9b8''
-
-// CORRECT:
-color: '#4a3728'
-border: '2px dashed #d4c9b8'
-```
-
-### How to Fix:
-
-```bash
-# Find all instances
-grep -r "''#" src/pages/
-
-# Fix with sed (example)
-sed -i "s/''#/#/g" src/pages/*.jsx
-sed -i "s/#''/'/g" src/pages/*.jsx
-```
-
-## ❓ Why Manual Deployment?
-
-**Automated builds fail because**:
-
-- Source files have syntax errors (quote escaping issues)
-- These errors prevent `npm run build` from completing
-- Netlify can't build from source
-
-**Manual deployment works because**:
-
-- The `dist/` folder was built before the errors were introduced
-- It's a complete, working build
-- No compilation needed - just upload and serve
-
-## ✅ Summary
-
-**Current Status**: dist/ folder ready for manual deployment  
-**Action Required**: Upload dist/ folder to Netlify dashboard  
-**Time**: 2 minutes  
-**Result**: All routes working, Vite/React app live
-
-**After deployment**:
-
-- ✅ All routes return 200 OK
-- ✅ SPA routing works
-- ✅ Custom 404 page active
-- ✅ Security headers applied
-- ✅ Vite/React app (not Next.js)
+### Health Checks
+- `pnpm vercel:health` - Complete health check with auto-fix
 
 ---
 
-## 🚀 Quick Start
-
-1. Download `/workspaces/fix2/dist/` folder
-2. Go to: https://app.netlify.com/sites/elevateforhumanityfix/deploys
-3. Drag `dist/` folder to deploy area
-4. Wait 30 seconds
-5. Visit: https://elevateforhumanityfix.netlify.app
-6. ✅ Done!
-
----
-
-**This is the fastest and most reliable path to a working deployment.**
+**All scripts are committed and ready to use!** 🚀
