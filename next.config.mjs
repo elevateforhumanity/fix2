@@ -23,6 +23,21 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: false, // Show real errors now
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'elevateforhumanity.org',
+          },
+        ],
+        destination: 'https://www.elevateforhumanity.org/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -12,11 +12,11 @@ export async function GET() {
       contact: {
         name: 'Elevate for Humanity',
         email: 'support@elevateforhumanity.org',
-        url: 'https://elevateforhumanity.org'
+        url: 'https://www.elevateforhumanity.org'
       },
       license: {
         name: 'Proprietary',
-        url: 'https://elevateforhumanity.org/terms'
+        url: 'https://www.elevateforhumanity.org/terms'
       }
     },
     servers: [
