@@ -1,15 +1,25 @@
 // lib/auth/getSession.ts
 // Helper to require authentication in server components
-import { auth } from '@/app/api/auth/[...nextauth]/route';
+import { createClient } from '@/lib/supabase/server';
 
 export async function requireAuth() {
-  const session = await auth();
-  if (!session) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  
+  if (!user) {
     throw new Error('UNAUTHENTICATED');
   }
-  return session;
+  
+  return { user };
 }
 
 export async function getSession() {
-  return auth();
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  
+  return user ? { user } : null;
 }
