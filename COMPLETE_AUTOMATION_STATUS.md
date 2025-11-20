@@ -24,6 +24,7 @@
 https://github.com/elevateforhumanity/fix2/actions
 
 **Actions:**
+
 1. ✅ Disabling Vercel password protection
 2. 🔄 Updating environment variables
 3. 🔄 Triggering Vercel deployment
