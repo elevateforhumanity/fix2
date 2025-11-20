@@ -1,11 +1,14 @@
 {
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": "nextjs",
   "git": {
     "deploymentEnabled": {
       "main": true
     }
   },
   "github": {
-    "silent": true,
-    "autoJobCancelation": true
+    "silent": false,
+    "autoJobCancelation": false
   }
 }
