@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { StarRating } from "@/components/ui/StarRating";
 import { Toaster, toast } from "react-hot-toast";
+import InteractiveVideoPlayer from "@/components/lms/InteractiveVideoPlayer";
 
 // ---- Mock course data: swap with real DB/API later ----
 type Lesson = {
@@ -239,20 +240,74 @@ export default function CoursePlayerPage() {
               {/* LEFT: video + notes */}
               <div className="space-y-4">
                 <Card className="overflow-hidden">
-                  {/* Simple video area with playback controls */}
                   <div className="aspect-video w-full bg-slate-900">
-                    {/* Replace this with your actual video player (Mux, etc.) */}
-                    <video
-                      key={currentLesson.id}
-                      controls
-                      className="h-full w-full"
-                      controlsList="nodownload"
-                      playsInline
-                      muted={false}
-                    >
-                      <source src={course.videoUrl} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
+                    {currentLesson.type === "video" ? (
+                      <InteractiveVideoPlayer
+                        videoUrl={
+                          (currentLesson as any).videoUrl ??
+                          "https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        }
+                        title={currentLesson.title}
+                        quizzes={[
+                          {
+                            id: "q1",
+                            timestamp: 30,
+                            question: "What is the most important safety equipment?",
+                            options: [
+                              "Hard hat",
+                              "Safety glasses",
+                              "Steel-toe boots",
+                              "All of the above",
+                            ],
+                            correctAnswer: 3,
+                            explanation:
+                              "All safety equipment works together to protect you on the job.",
+                          },
+                        ]}
+                        transcript={[
+                          {
+                            start: 0,
+                            end: 10,
+                            text: `Welcome to this lesson on ${currentLesson.title}.`,
+                          },
+                          {
+                            start: 10,
+                            end: 20,
+                            text: "In this video, we'll cover the fundamentals you need to know to stay safe and job-ready.",
+                          },
+                        ]}
+                        onProgress={(progress) => {
+                          // Simple front-end progress tracking.
+                          // If you already store this in Supabase, you can call your mutation here.
+                          // Example: if 80% watched, auto-mark complete once.
+                          if (progress >= 0.8 && !completedIds.includes(currentLesson.id)) {
+                            handleMarkComplete();
+                            toast.success("Lesson marked complete based on video progress.");
+                          }
+                        }}
+                        onComplete={() => {
+                          // Called when the video hits 100% in the player
+                          if (!completedIds.includes(currentLesson.id)) {
+                            handleMarkComplete();
+                            toast.success("Great job! You've completed this video lesson.");
+                          }
+                        }}
+                      />
+                    ) : (
+                      // Fallback for non-video lessons (PDF, text, etc.)
+                      <video
+                        key={currentLesson.id}
+                        controls
+                        className="h-full w-full"
+                        controlsList="nodownload"
+                        playsInline
+                      >
+                        {(currentLesson as any).mediaUrl && (
+                          <source src={(currentLesson as any).mediaUrl} />
+                        )}
+                        Your browser does not support the video tag.
+                      </video>
+                    )}
                   </div>
 
                   <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 px-4 py-3 text-[11px] text-slate-600">
