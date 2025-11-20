@@ -17,16 +17,16 @@ import { createClient } from '@/lib/supabase/server';
  */
 
 export type AppRole =
-  | "admin"
-  | "hr_admin"
-  | "super_admin"
-  | "delegate"
-  | "program_holder"
-  | "student"
-  | "staff"
-  | "marketing_admin"
-  | "manager"
-  | "provider_admin";
+  | 'admin'
+  | 'hr_admin'
+  | 'super_admin'
+  | 'delegate'
+  | 'program_holder'
+  | 'student'
+  | 'staff'
+  | 'marketing_admin'
+  | 'manager'
+  | 'provider_admin';
 
 export interface SessionUser {
   id: string;
@@ -39,7 +39,12 @@ export interface SessionUser {
  */
 export async function getCurrentUserWithRole(): Promise<{
   user: SessionUser | null;
-  profile: { id: string; role?: string | null; full_name?: string; email?: string } | null;
+  profile: {
+    id: string;
+    role?: string | null;
+    full_name?: string;
+    email?: string;
+  } | null;
 }> {
   const supabase = await createClient();
 
@@ -53,9 +58,9 @@ export async function getCurrentUserWithRole(): Promise<{
   }
 
   const { data: profile, error: profileError } = await supabase
-    .from("profiles")
-    .select("id, role, full_name, email")
-    .eq("id", user.id)
+    .from('profiles')
+    .select('id, role, full_name, email')
+    .eq('id', user.id)
     .single();
 
   if (profileError) {
@@ -85,18 +90,18 @@ export async function getCurrentUserWithRole(): Promise<{
  * Throws an Error if not authorized.
  */
 export async function requireAdmin(
-  allowedRoles: AppRole[] = ["admin", "hr_admin", "super_admin"]
+  allowedRoles: AppRole[] = ['admin', 'hr_admin', 'super_admin']
 ) {
   const { user, profile } = await getCurrentUserWithRole();
 
   if (!user || !profile) {
-    throw new Error("Not authenticated");
+    throw new Error('Not authenticated');
   }
 
   const role = (user.role || profile.role) as AppRole | string | null;
 
   if (!role || !allowedRoles.includes(role as AppRole)) {
-    throw new Error("Not authorized");
+    throw new Error('Not authorized');
   }
 
   return { user, profile, role };
