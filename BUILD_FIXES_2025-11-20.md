@@ -1,14 +1,17 @@
 # Build Fixes Applied - November 20, 2025
 
 ## Summary
+
 Fixed critical build errors preventing successful Vercel deployments. All TypeScript errors resolved and build now completes successfully.
 
 ## Issues Fixed
 
 ### 1. Missing Supabase Client for Browser
+
 **Problem:** Files importing `@/lib/supabase/client` were failing because the file didn't exist.
 
 **Files Affected:**
+
 - `app/admin/contacts/page.tsx`
 - `app/partner-application/page.tsx`
 
@@ -26,9 +29,11 @@ export function createClient() {
 ```
 
 ### 2. Module-Level Supabase Client Initialization
+
 **Problem:** Supabase clients were being created at module level, causing build-time errors when environment variables weren't available.
 
 **Files Affected:**
+
 - `app/admin/success/page.tsx`
 - `app/admin/tenants/page.tsx`
 - `app/admin/compliance/deletions/page.tsx`
@@ -40,7 +45,7 @@ export function createClient() {
 async function getData() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  
+
   if (!supabaseUrl || !supabaseKey) {
     return []; // or default data
   }
@@ -51,6 +56,7 @@ async function getData() {
 ```
 
 ### 3. Incorrect requireAdmin Usage
+
 **Problem:** `app/api/admin/vercel-hard-refresh/route.ts` was trying to destructure `{ isAdmin }` from `requireAdmin()`, but the function returns `{ user, profile, role }`.
 
 **Solution:** Changed to use try-catch pattern:
@@ -59,16 +65,18 @@ async function getData() {
 try {
   await requireAdmin();
 } catch (error) {
-  return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 }
 ```
 
 ### 4. Invalid Email Options
+
 **Problem:** `app/api/marketing/send-welcome/route.ts` was passing a `text` property to `sendEmail()`, but the `EmailOptions` interface only accepts `to`, `subject`, `html`, and optional `from`.
 
 **Solution:** Removed the `text` property, keeping only `html`.
 
 ### 5. TypeScript Type Casting Error
+
 **Problem:** In `lib/rbac.ts`, the `requireRole` function had a type mismatch when checking if a string role was in the allowed roles array.
 
 **Solution:** Added proper type casting:
@@ -82,6 +90,7 @@ if (!allowedRoles.includes(role as AppRole)) {
 ## Build Verification
 
 ✅ **Local build successful:**
+
 ```bash
 npm run build
 # ✓ Compiled successfully
@@ -90,6 +99,7 @@ npm run build
 ```
 
 ✅ **All pages compiled:**
+
 - 200+ routes successfully built
 - No TypeScript errors
 - No module resolution errors
@@ -97,10 +107,12 @@ npm run build
 ## Deployment Status
 
 **Commits:**
+
 1. `301130e9` - Fix build errors: Add missing Supabase client and fix TypeScript issues
 2. `7bf40aee` - Update deployment timestamp to trigger fresh build
 
 **Vercel Deployment:**
+
 - Pushed to `main` branch
 - Automatic deployment triggered
 - Site: [fix2-one.vercel.app](https://fix2-one.vercel.app)
