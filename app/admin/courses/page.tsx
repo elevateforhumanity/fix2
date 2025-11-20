@@ -5,6 +5,9 @@ import { Badge } from '@/components/ui/Badge';
 import { BookOpen, Plus, Edit, Eye } from 'lucide-react';
 import { requireAdmin, createServerSupabaseClient } from '@/lib/auth';
 
+// Force dynamic rendering - always fresh data
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: 'Manage Courses | Admin',
   description: 'Manage all courses in the system',

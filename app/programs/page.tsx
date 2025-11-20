@@ -4,6 +4,9 @@ import { Section } from "@/components/ui/Section";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { Button } from "@/components/ui/Button";
 
+// Force dynamic rendering - no stale cache
+export const dynamic = "force-dynamic";
+
 const programs = [
   {
     slug: "medical-assistant",
