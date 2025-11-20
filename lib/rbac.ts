@@ -112,9 +112,9 @@ export async function requireRole(allowedRoles: AppRole[] | string[]) {
     throw new Error('UNAUTHENTICATED');
   }
 
-  const role = (user.role || profile.role) as string;
+  const role = (user.role || profile.role) as AppRole;
 
-  if (!allowedRoles.includes(role)) {
+  if (!allowedRoles.includes(role as AppRole)) {
     throw new Error('FORBIDDEN');
   }
 

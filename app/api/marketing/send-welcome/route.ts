@@ -17,7 +17,6 @@ export async function POST(req: NextRequest) {
     await sendEmail({
       to: email,
       subject: subject,
-      text: emailBody,
       html: emailBody.replace(/\n/g, "<br>"),
     });
 
