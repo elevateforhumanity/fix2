@@ -27,6 +27,7 @@ The build warning you're seeing means these variables are missing. Add them to V
 7. **Copy the token immediately** (you won't see it again)
 
 **Example value:**
+
 ```
 vercel_1a2b3c4d5e6f7g8h9i0j
 ```
@@ -46,6 +47,7 @@ vercel_1a2b3c4d5e6f7g8h9i0j
 5. Copy the value (starts with `prj_`)
 
 **Example value:**
+
 ```
 prj_abc123def456ghi789
 ```
@@ -65,6 +67,7 @@ prj_abc123def456ghi789
 5. Copy the value (starts with `team_`)
 
 **Example value:**
+
 ```
 team_xyz789abc123def456
 ```
@@ -90,6 +93,7 @@ team_xyz789abc123def456
 7. **Copy the token immediately** (starts with `ghp_`)
 
 **Example value:**
+
 ```
 ghp_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0
 ```
@@ -101,6 +105,7 @@ ghp_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0
 **What it does:** Specifies the GitHub organization or username.
 
 **Value:**
+
 ```
 elevateforhumanity
 ```
@@ -114,6 +119,7 @@ elevateforhumanity
 **What it does:** Specifies the GitHub repository name.
 
 **Value:**
+
 ```
 fix2
 ```
@@ -187,6 +193,7 @@ After adding the environment variables and redeploying:
 **Problem:** Invalid or missing API tokens.
 
 **Solution:**
+
 1. Verify `VERCEL_API_TOKEN` is correct
 2. Verify `GITHUB_TOKEN` has `repo` scope
 3. Check that tokens haven't expired
@@ -196,6 +203,7 @@ After adding the environment variables and redeploying:
 **Problem:** Wrong `VERCEL_PROJECT_ID` or `VERCEL_TEAM_ID`.
 
 **Solution:**
+
 1. Double-check the Project ID from Vercel settings
 2. If using a team, verify the Team ID
 3. If using personal account, remove `VERCEL_TEAM_ID` entirely
@@ -205,6 +213,7 @@ After adding the environment variables and redeploying:
 **Problem:** Wrong `GITHUB_OWNER` or `GITHUB_REPO`.
 
 **Solution:**
+
 1. Verify the repository is `elevateforhumanity/fix2`
 2. Check that the GitHub token has access to this repository
 
@@ -213,6 +222,7 @@ After adding the environment variables and redeploying:
 **Problem:** Environment variables not applied to the build.
 
 **Solution:**
+
 1. After adding variables, trigger a new deployment
 2. Go to Vercel dashboard → Deployments → Click "Redeploy"
 3. Wait for build to complete
