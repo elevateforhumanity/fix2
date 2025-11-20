@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 const DOMAIN = 'https://www.elevateforhumanity.org';
 const TODAY = new Date().toISOString().split('T')[0];
 
-// ALL public pages
+// ALL public pages - COMPREHENSIVE LIST
 const pages = [
   // Main pages
   { url: '/', priority: 1.0, changefreq: 'daily' },
@@ -24,31 +24,46 @@ const pages = [
   { url: '/partners', priority: 0.8, changefreq: 'weekly' },
   { url: '/contact', priority: 0.8, changefreq: 'monthly' },
   
-  // Program pages
+  // Program pages - ALL variations
   { url: '/programs/barber-apprenticeship', priority: 0.9, changefreq: 'weekly' },
+  { url: '/programs/barber', priority: 0.9, changefreq: 'weekly' },
   { url: '/programs/hvac-technician', priority: 0.9, changefreq: 'weekly' },
+  { url: '/programs/hvac', priority: 0.9, changefreq: 'weekly' },
+  { url: '/programs/hvac-tech', priority: 0.9, changefreq: 'weekly' },
   { url: '/programs/medical-assistant', priority: 0.9, changefreq: 'weekly' },
   { url: '/programs/building-maintenance', priority: 0.9, changefreq: 'weekly' },
+  { url: '/programs/building-tech', priority: 0.9, changefreq: 'weekly' },
   { url: '/programs/truck-driving', priority: 0.9, changefreq: 'weekly' },
   { url: '/programs/cdl', priority: 0.9, changefreq: 'weekly' },
   { url: '/programs/workforce-readiness', priority: 0.9, changefreq: 'weekly' },
   
-  // Enrollment
+  // Enrollment & Application
   { url: '/enroll', priority: 0.9, changefreq: 'weekly' },
+  { url: '/enroll/apply', priority: 0.8, changefreq: 'weekly' },
+  { url: '/enroll/success', priority: 0.5, changefreq: 'monthly' },
   { url: '/partner-application', priority: 0.8, changefreq: 'weekly' },
+  { url: '/partners/enroll', priority: 0.8, changefreq: 'weekly' },
   
   // Auth
   { url: '/login', priority: 0.7, changefreq: 'monthly' },
   { url: '/signup', priority: 0.7, changefreq: 'monthly' },
   
-  // LMS Public
+  // LMS Public Pages
   { url: '/lms', priority: 0.8, changefreq: 'weekly' },
   { url: '/lms/dashboard', priority: 0.7, changefreq: 'daily' },
   { url: '/lms/courses', priority: 0.8, changefreq: 'daily' },
   { url: '/lms/certificates', priority: 0.7, changefreq: 'weekly' },
   { url: '/lms/progress', priority: 0.6, changefreq: 'weekly' },
+  { url: '/lms/calendar', priority: 0.6, changefreq: 'weekly' },
+  { url: '/lms/resources', priority: 0.6, changefreq: 'weekly' },
+  { url: '/lms/help', priority: 0.6, changefreq: 'weekly' },
   
-  // Legal
+  // Student Portal (public info pages)
+  { url: '/student/dashboard', priority: 0.6, changefreq: 'daily' },
+  { url: '/student/courses', priority: 0.7, changefreq: 'daily' },
+  { url: '/student/certificates', priority: 0.6, changefreq: 'weekly' },
+  
+  // Legal & Compliance
   { url: '/privacy', priority: 0.5, changefreq: 'monthly' },
   { url: '/privacy-policy', priority: 0.5, changefreq: 'monthly' },
   { url: '/terms', priority: 0.5, changefreq: 'monthly' },
@@ -56,11 +71,20 @@ const pages = [
   { url: '/cookies', priority: 0.4, changefreq: 'monthly' },
   { url: '/accessibility', priority: 0.5, changefreq: 'monthly' },
   
-  // Resources
+  // Resources & Support
   { url: '/resources', priority: 0.6, changefreq: 'weekly' },
   { url: '/faq', priority: 0.6, changefreq: 'weekly' },
   { url: '/help', priority: 0.6, changefreq: 'weekly' },
   { url: '/support', priority: 0.6, changefreq: 'weekly' },
+  
+  // Additional Pages
+  { url: '/compare', priority: 0.5, changefreq: 'monthly' },
+  { url: '/demo', priority: 0.6, changefreq: 'monthly' },
+  { url: '/pricing', priority: 0.7, changefreq: 'monthly' },
+  { url: '/success-stories', priority: 0.6, changefreq: 'weekly' },
+  { url: '/employers', priority: 0.7, changefreq: 'weekly' },
+  { url: '/wioa-eligibility', priority: 0.7, changefreq: 'monthly' },
+  { url: '/financial-aid', priority: 0.7, changefreq: 'monthly' },
 ];
 
 function generateSitemap() {
