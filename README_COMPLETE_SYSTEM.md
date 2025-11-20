@@ -151,17 +151,20 @@
 ### Common Tasks
 
 **Start development:**
+
 ```bash
 npm install
 npm run dev
 ```
 
 **Force new deployment:**
+
 ```bash
 npm run autopilot:vercel:hard-refresh
 ```
 
 **Run database migrations:**
+
 ```bash
 # Go to Supabase SQL Editor
 # Run: supabase/CREATE_COURSES_TABLE.sql
@@ -169,6 +172,7 @@ npm run autopilot:vercel:hard-refresh
 ```
 
 **Add new admin page:**
+
 1. Copy `EMPLOYEES_LIST_TEMPLATE.tsx`
 2. Update types and API endpoint
 3. Add `export const dynamic = "force-dynamic";`
@@ -179,6 +183,7 @@ npm run autopilot:vercel:hard-refresh
 ## 📋 Implementation Phases
 
 ### ✅ Phase 1: UI Completion (Weeks 1-2)
+
 - HR admin pages
 - Employee self-service
 - Force-dynamic on dashboards
@@ -188,6 +193,7 @@ npm run autopilot:vercel:hard-refresh
 **Guide:** `GITPOD_START_HERE.md` Days 1-5
 
 ### ⏳ Phase 2: Enterprise Features (Weeks 3-4)
+
 - Validation (Zod)
 - RBAC strengthening
 - Audit logging
@@ -197,6 +203,7 @@ npm run autopilot:vercel:hard-refresh
 **Guide:** `GITPOD_START_HERE.md` Days 6-10
 
 ### ⏳ Phase 3: Optimization (Week 5)
+
 - Database indexes
 - Query optimization
 - Image optimization
@@ -206,6 +213,7 @@ npm run autopilot:vercel:hard-refresh
 **Guide:** `GITPOD_START_HERE.md` Days 11-14
 
 ### 📝 Phase 4: Advanced Features (Ongoing)
+
 - Reporting & analytics
 - Mobile app (Capacitor)
 - Third-party integrations
@@ -219,6 +227,7 @@ npm run autopilot:vercel:hard-refresh
 ## 🏗️ Architecture
 
 ### Frontend
+
 - **Framework:** Next.js 16 (App Router)
 - **Styling:** Tailwind CSS
 - **UI Components:** Radix UI + Custom
@@ -226,12 +235,14 @@ npm run autopilot:vercel:hard-refresh
 - **Forms:** React Hook Form + Zod
 
 ### Backend
+
 - **Database:** Supabase (PostgreSQL)
 - **Auth:** Supabase Auth
 - **Storage:** Supabase Storage
 - **API:** Next.js API Routes
 
 ### Deployment
+
 - **Hosting:** Vercel
 - **Domain:** elevateconnectsdirectory.org
 - **CDN:** Vercel Edge Network
@@ -242,6 +253,7 @@ npm run autopilot:vercel:hard-refresh
 ## 📊 Current Status
 
 ### ✅ Completed
+
 - [x] Courses table (17 courses)
 - [x] Marketing contacts table (17 contacts)
 - [x] Admin contacts interface
@@ -253,12 +265,14 @@ npm run autopilot:vercel:hard-refresh
 - [x] Developer onboarding guide
 
 ### 🚧 In Progress
+
 - [ ] HR admin pages (Phase 1)
 - [ ] Employee self-service pages
 - [ ] ISR on all public pages
 - [ ] No-cache headers on APIs
 
 ### 📝 Planned
+
 - [ ] Validation system (Phase 2)
 - [ ] Enhanced RBAC (Phase 2)
 - [ ] Audit logging (Phase 2)
@@ -271,16 +285,19 @@ npm run autopilot:vercel:hard-refresh
 ## 🎓 Learning Resources
 
 ### Next.js
+
 - [App Router Docs](https://nextjs.org/docs/app)
 - [Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching)
 - [Caching](https://nextjs.org/docs/app/building-your-application/caching)
 
 ### Supabase
+
 - [JavaScript Client](https://supabase.com/docs/reference/javascript/introduction)
 - [Auth](https://supabase.com/docs/guides/auth)
 - [Database](https://supabase.com/docs/guides/database)
 
 ### Vercel
+
 - [Deployment](https://vercel.com/docs/deployments/overview)
 - [Environment Variables](https://vercel.com/docs/projects/environment-variables)
 - [Edge Functions](https://vercel.com/docs/functions/edge-functions)
@@ -290,16 +307,19 @@ npm run autopilot:vercel:hard-refresh
 ## 🆘 Getting Help
 
 ### Documentation
+
 1. Check this index for the right doc
 2. Read the specific guide
 3. Follow step-by-step
 
 ### Troubleshooting
+
 1. Check `GITPOD_START_HERE.md` troubleshooting section
 2. Check error messages carefully
 3. Search existing issues on GitHub
 
 ### Team Support
+
 1. Ask in team chat
 2. Create GitHub issue
 3. Schedule pair programming session
@@ -309,18 +329,21 @@ npm run autopilot:vercel:hard-refresh
 ## 🎉 Success Metrics
 
 ### Performance
+
 - **Dashboard load:** < 1 second
 - **Public pages:** < 2 seconds
 - **API response:** < 500ms
 - **Cache hit rate:** > 80% (public pages)
 
 ### Quality
+
 - **Test coverage:** > 70%
 - **Lighthouse score:** > 90
 - **Zero console errors**
 - **Accessibility:** WCAG AA
 
 ### User Experience
+
 - **No stale data on dashboards**
 - **Fast public pages**
 - **Smooth navigation**
