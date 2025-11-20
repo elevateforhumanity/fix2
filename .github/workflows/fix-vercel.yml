@@ -1,0 +1,45 @@
+name: Fix Vercel Configuration
+
+on:
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  fix-vercel:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      
+      - name: Install dependencies
+        run: pnpm install
+      
+      - name: Run Ultimate Fix
+        env:
+          VERCELACESSTOKEN: ${{ secrets.VERCELACESSTOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "🚀 Running Ultimate Fix with token from secrets"
+          node scripts/ultimate-fix.mjs
+      
+      - name: Summary
+        run: |
+          echo "✅ Fix completed!"
+          echo ""
+          echo "🔍 Check deployment:"
+          echo "https://vercel.com/elevate-48e460c9/fix2-gpql/deployments"
+          echo ""
+          echo "🌐 Verify site:"
+          echo "https://www.elevateforhumanity.org"
