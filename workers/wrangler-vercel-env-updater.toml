@@ -1,0 +1,15 @@
+name = "vercel-env-updater"
+main = "vercel-env-updater.ts"
+compatibility_date = "2024-01-01"
+
+# Vercel credentials (set via wrangler secret)
+# wrangler secret put VERCEL_TOKEN
+# wrangler secret put VERCEL_PROJECT_ID
+# wrangler secret put VERCEL_TEAM_ID
+
+[env.production]
+name = "vercel-env-updater"
+route = "vercel-env-updater.elevateforhumanity.workers.dev"
+
+[env.development]
+name = "vercel-env-updater-dev"
