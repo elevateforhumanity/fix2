@@ -22,6 +22,7 @@ pnpm ultimate-fix
 ## What It Does
 
 The script will automatically:
+
 1. ✅ Validate token
 2. ✅ Configure www.elevateforhumanity.org
 3. ✅ Set production branch to 'main'
@@ -37,6 +38,7 @@ The script will automatically:
 ## After Running
 
 Wait 2-3 minutes, then:
+
 1. Open: https://www.elevateforhumanity.org
 2. Hard refresh: `Ctrl+Shift+R` or `Cmd+Shift+R`
 3. Look for build marker in bottom-right corner
@@ -46,6 +48,7 @@ Wait 2-3 minutes, then:
 ## Success!
 
 You'll know it worked when:
+
 - ✅ Site loads with fresh content
 - ✅ Build marker shows current timestamp
 - ✅ No more old build issues
