@@ -1,0 +1,72 @@
+🚨 CRITICAL: VERCEL AUTO-DEPLOY IS BROKEN
+
+PROBLEM:
+- Code is pushed to GitHub (commit: 20eff05b)
+- Vercel is NOT auto-deploying
+- Site still shows old code from days ago
+- Multiple commits pushed, none deployed
+
+PROOF:
+- Latest commit: 20eff05b "CRITICAL: Add visual markers"
+- Dashboard should show RED heading "NEW BUILD DEPLOYED SUCCESSFULLY"
+- Dashboard should show YELLOW warning box
+- Currently shows OLD complex dashboard with imports
+
+ROOT CAUSE:
+Vercel auto-deploy from GitHub is disabled or broken
+
+SOLUTION - MANUAL STEPS REQUIRED:
+
+1. Go to Vercel Dashboard
+   https://vercel.com/dashboard
+
+2. Find the fix2 project
+   Click on it
+
+3. Go to Settings → Git
+   Check if "Auto Deploy" is enabled
+   If disabled, enable it
+
+4. Go to Deployments tab
+   Click "Redeploy" button (top right)
+   Select latest commit: 20eff05b
+   UNCHECK "Use existing Build Cache"
+   Click "Redeploy"
+
+5. Wait 2-3 minutes for build
+
+6. Test deployment:
+   Visit: https://www.elevateforhumanity.org/lms/dashboard
+   Should see RED heading "NEW BUILD DEPLOYED SUCCESSFULLY"
+   Should see YELLOW box with checkmark
+   Should see GREEN success box at bottom
+
+VERIFICATION COMMAND:
+curl -sL -A "Mozilla/5.0" https://www.elevateforhumanity.org/lms/dashboard | grep "NEW BUILD DEPLOYED"
+
+Should return: <h1 style="color:#dc2626">🚀 NEW BUILD DEPLOYED SUCCESSFULLY</h1>
+
+CURRENT STATUS:
+❌ Auto-deploy: BROKEN
+❌ Latest code: NOT DEPLOYED
+❌ Manual intervention: REQUIRED
+
+URGENCY: CRITICAL
+This has been broken for hours. Code changes are not reaching production.
+
+LATEST COMMITS NOT DEPLOYED:
+- 20eff05b: Visual markers for deployment test
+- d4525fb4: Simplified dashboard
+- 16c5a9df: Disable turbopack
+- 6ca2992c: Skip /lms in middleware
+- 665de49b: Add middleware.ts
+- 5584e1a3: Disable Turbopack
+- 4307756d: Remove /lms from proxy
+- ea319e8b: Remove middleware.ts
+- 3318c720: Add /lms skip in proxy
+- fd18bdc4: Autopilot task
+- bfa3a9ac: Force deployment
+- e7038d23: Fix build errors
+- ff4c43fc: Student dashboard (THE ONE WE WANT!)
+
+ALL OF THESE ARE IN GITHUB BUT NOT ON VERCEL!
