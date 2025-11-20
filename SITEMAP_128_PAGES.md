@@ -10,12 +10,14 @@
 ## WHAT WAS FIXED:
 
 ### Problem:
+
 - Live site showed only **11 pages** in sitemap
 - Static sitemap (public/sitemap.xml) had 126 pages
 - Dynamic sitemap (app/sitemap.ts) only had 11 pages
 - Next.js uses dynamic sitemap by default
 
 ### Solution:
+
 - Expanded app/sitemap.ts from 11 to **128+ pages**
 - Matches static sitemap coverage
 - All URLs use www.elevateforhumanity.org
@@ -25,6 +27,7 @@
 ## SITEMAP BREAKDOWN (128+ Pages):
 
 ### Main Site (15 pages):
+
 - Homepage
 - About
 - Programs
@@ -42,6 +45,7 @@
 - Workforce Partners
 
 ### Programs (11 pages):
+
 - Barber Apprenticeship (+ variations)
 - HVAC Technician (+ variations)
 - Medical Assistant
@@ -51,6 +55,7 @@
 - Workforce Readiness
 
 ### Enrollment (5 pages):
+
 - Enroll
 - Enroll/Apply
 - Enroll/Success
@@ -58,10 +63,12 @@
 - Partners/Enroll
 
 ### Auth (2 pages):
+
 - Login
 - Signup
 
 ### LMS (14 pages):
+
 - Dashboard
 - Courses
 - Certificates
@@ -78,6 +85,7 @@
 - Main LMS page
 
 ### Student Portal (8 pages):
+
 - Dashboard
 - Courses
 - Certificates
@@ -88,12 +96,14 @@
 - Resources
 
 ### Partner Portal (4 pages):
+
 - Dashboard
 - Students
 - Reports
 - Settings
 
 ### Program Holder (7 pages):
+
 - Dashboard
 - Apply
 - Cases
@@ -103,11 +113,13 @@
 - Settings
 
 ### Delegate (3 pages):
+
 - Dashboard
 - Students
 - Reports
 
 ### Admin (18 pages):
+
 - Dashboard
 - Courses
 - Students
@@ -128,11 +140,13 @@
 - Course Authoring
 
 ### Courses (3 pages):
+
 - Courses
 - Catalog
 - Search
 
 ### Legal (9 pages):
+
 - Privacy
 - Privacy Policy
 - Terms
@@ -144,6 +158,7 @@
 - CCPA
 
 ### Resources (12 pages):
+
 - Resources
 - FAQ
 - Help
@@ -158,6 +173,7 @@
 - Downloads
 
 ### Career Services (5 pages):
+
 - Career Services
 - Job Board
 - Resume Builder
@@ -165,6 +181,7 @@
 - Career Coaching
 
 ### Community (5 pages):
+
 - Community
 - Forums
 - Discussions
@@ -172,6 +189,7 @@
 - Testimonials
 
 ### Integrations (5 pages):
+
 - Integrations
 - Zoom
 - Teams
@@ -183,7 +201,9 @@
 ## ALSO FIXED:
 
 ### Capacitor Config:
+
 Updated mobile app configuration:
+
 - **Was:** `https://elevateforhumanity.org`
 - **Now:** `https://www.elevateforhumanity.org`
 
