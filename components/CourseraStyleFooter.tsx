@@ -168,16 +168,16 @@ export default function CourseraStyleFooter() {
             <div className="space-y-3">
               <a href="#" className="block">
                 <img
-                  src="https://www.coursera.org/images/app-store-badge.svg"
+                  src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
                   alt="Download on App Store"
                   className="h-10"
                 />
               </a>
               <a href="#" className="block">
                 <img
-                  src="https://www.coursera.org/images/google-play-badge.svg"
+                  src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
                   alt="Get it on Google Play"
-                  className="h-10"
+                  className="h-12"
                 />
               </a>
             </div>
@@ -198,32 +198,47 @@ export default function CourseraStyleFooter() {
             {/* Social Links */}
             <div className="flex items-center gap-4">
               <a
-                href="#"
+                href="https://facebook.com/elevateforhumanity"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-600 transition"
+                aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://twitter.com/elevate4humanity"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-600 transition"
+                aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://linkedin.com/company/elevate-for-humanity"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-600 transition"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://instagram.com/elevateforhumanity"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-600 transition"
+                aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://youtube.com/@elevateforhumanity"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-600 transition"
+                aria-label="YouTube"
               >
                 <Youtube className="w-5 h-5" />
               </a>

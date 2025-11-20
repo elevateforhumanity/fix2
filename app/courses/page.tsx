@@ -60,11 +60,18 @@ export default async function CoursesPage() {
                   <p className="text-gray-600 mb-4 line-clamp-3">
                     {course.description}
                   </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">
-                      {course.duration || 'Self-paced'}
-                    </span>
-                    <span className="text-blue-600 font-semibold">
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-500">
+                        📅 {course.duration || 'Self-paced'}
+                      </span>
+                      {course.start_date && (
+                        <span className="text-gray-500">
+                          Starts: {new Date(course.start_date).toLocaleDateString()}
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-blue-600 font-semibold text-right">
                       View Course →
                     </span>
                   </div>
