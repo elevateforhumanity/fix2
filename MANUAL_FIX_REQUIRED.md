@@ -27,6 +27,7 @@ The GitHub Actions CANNOT run because they need the VERCEL_TOKEN secret, which I
    - Apply to: Production, Preview, Development
 
 **Then:**
+
 - Go to: https://vercel.com/elevate-48e460c9/fix2-gpql/deployments
 - Click "Redeploy" on latest deployment
 - **UNCHECK** "Use existing Build Cache"
@@ -45,6 +46,7 @@ node scripts/update-vercel-env-vars.mjs
 ```
 
 This will:
+
 1. Update both environment variables
 2. Trigger fresh deployment
 3. Complete in 5 minutes
@@ -79,6 +81,7 @@ This will:
 ## After You Update:
 
 The new deployment will have:
+
 - ✅ www.elevateforhumanity.org everywhere
 - ✅ 51-page sitemap
 - ✅ Complete SEO optimization
@@ -90,11 +93,13 @@ The new deployment will have:
 ## Verification:
 
 After redeploying, run:
+
 ```bash
 node scripts/verify-deployment.mjs
 ```
 
 Should show:
+
 ```
 ✅ buildInfo
 ✅ health
