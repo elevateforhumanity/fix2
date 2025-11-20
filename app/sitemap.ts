@@ -23,7 +23,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/unauthorized',
     '/workforce-partners',
 
-    
     // Program pages
     '/programs/barber-apprenticeship',
     '/programs/barber',
@@ -37,18 +36,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/programs/cdl',
     '/programs/workforce-readiness',
 
-    
     // Enrollment
     '/enroll',
     '/enroll/apply',
     '/enroll/success',
     '/partner-application',
     '/partners/enroll',
-    
+
     // Auth
     '/login',
     '/signup',
-    
+
     // LMS
     '/lms',
     '/lms/dashboard',
@@ -64,7 +62,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/lms/notifications',
     '/lms/achievements',
     '/lms/leaderboard',
-    
+
     // Student Portal
     '/student/dashboard',
     '/student/courses',
@@ -74,13 +72,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/student/grades',
     '/student/schedule',
     '/student/resources',
-    
+
     // Partner Portal
     '/partner/dashboard',
     '/partner/students',
     '/partner/reports',
     '/partner/settings',
-    
+
     // Program Holder
     '/program-holder/dashboard',
     '/program-holder/apply',
@@ -89,12 +87,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/program-holder/certificates',
     '/program-holder/reports',
     '/program-holder/settings',
-    
+
     // Delegate
     '/delegate/dashboard',
     '/delegate/students',
     '/delegate/reports',
-    
+
     // Admin
     '/admin/dashboard',
     '/admin/courses',
@@ -114,12 +112,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/admin/applications',
     '/admin/contacts',
     '/admin/course-authoring',
-    
+
     // Courses
     '/courses',
     '/courses/catalog',
     '/courses/search',
-    
+
     // Legal
     '/privacy',
     '/privacy-policy',
@@ -130,7 +128,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/compliance',
     '/gdpr',
     '/ccpa',
-    
+
     // Resources
     '/resources',
     '/faq',
@@ -144,21 +142,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/events',
     '/webinars',
     '/downloads',
-    
+
     // Career Services
     '/career-services',
     '/job-board',
     '/resume-builder',
     '/interview-prep',
     '/career-coaching',
-    
+
     // Community
     '/community',
     '/forums',
     '/discussions',
     '/alumni',
     '/testimonials',
-    
+
     // Integrations
     '/integrations',
     '/integrations/zoom',
@@ -176,8 +174,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     // Skip dynamic content during build if no database connection
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || 
-        process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder')) {
+    if (
+      !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+      process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder')
+    ) {
       console.log('Sitemap: Using static routes only (no database connection)');
       return staticSitemap;
     }
@@ -204,7 +204,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       // Program pages
       ...(programs || []).map((program) => ({
         url: `${baseUrl}/programs/${program.slug}`,
-        lastModified: program.created_at ? new Date(program.created_at) : new Date(),
+        lastModified: program.created_at
+          ? new Date(program.created_at)
+          : new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.7,
       })),
