@@ -40,6 +40,41 @@ const nextConfig = {
   },
   async headers() {
     return [
+      // HTML pages - short cache, must revalidate
+      {
+        source: '/:path((?!_next|api|.*\\.).*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate',
+          },
+          {
+            key: 'X-Build-Time',
+            value: new Date().toISOString(),
+          },
+        ],
+      },
+      // Static assets - long cache with immutable
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Images - moderate cache
+      {
+        source: '/:path*\\.(jpg|jpeg|png|gif|webp|avif|svg|ico)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, stale-while-revalidate=604800',
+          },
+        ],
+      },
+      // Security headers for all routes
       {
         source: '/:path*',
         headers: [
