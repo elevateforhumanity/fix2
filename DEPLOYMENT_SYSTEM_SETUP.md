@@ -71,6 +71,7 @@ Replace `your-deploy-hook-url-here` with the actual URL.
 ### Step 5: Test the System
 
 #### Test Auto-Deploy:
+
 ```bash
 git commit --allow-empty -m "Test auto-deploy"
 git push origin main
@@ -79,11 +80,13 @@ git push origin main
 Watch GitHub Actions: https://github.com/elevateforhumanity/fix2/actions
 
 #### Test Admin Button:
+
 1. Visit: https://www.elevateforhumanity.org/admin/tools/force-deploy
 2. Click "🚀 Force Fresh Deploy"
 3. Should see success message
 
 #### Test Gitpod Script:
+
 ```bash
 ./.gitpod.d/force-vercel-redeploy.sh
 ```
@@ -119,16 +122,19 @@ Should output: "🔥 Fresh deployment started!"
 ### Manual Deployment Options:
 
 **Option A: Admin Panel**
+
 - Visit `/admin/tools/force-deploy`
 - Click button
 - Wait for success message
 
 **Option B: Gitpod Terminal**
+
 ```bash
 ./.gitpod.d/force-vercel-redeploy.sh
 ```
 
 **Option C: Direct API Call**
+
 ```bash
 curl -X POST "$VERCEL_DEPLOY_HOOK_URL"
 ```
@@ -138,9 +144,11 @@ curl -X POST "$VERCEL_DEPLOY_HOOK_URL"
 ## Admin Panel Features
 
 ### Force Deploy Page
+
 **URL:** `/admin/tools/force-deploy`
 
 **Features:**
+
 - One-click deployment trigger
 - Success/error messaging
 - Direct link to Vercel dashboard
@@ -148,9 +156,11 @@ curl -X POST "$VERCEL_DEPLOY_HOOK_URL"
 - Alternative methods documentation
 
 ### Deployment Logs Page
+
 **URL:** `/admin/tools/deployment-logs`
 
 **Features:**
+
 - Recent deployment history
 - Status badges (Building, Ready, Error)
 - Deployment duration tracking
@@ -165,17 +175,21 @@ curl -X POST "$VERCEL_DEPLOY_HOOK_URL"
 After setup, verify everything works:
 
 ### 1. Check Headers
+
 ```bash
 curl -I https://www.elevateforhumanity.org
 ```
 
 Should show:
+
 ```
 Cache-Control: no-store, max-age=0, must-revalidate
 ```
 
 ### 2. Check Build ID
+
 View page source, look for:
+
 ```html
 <script src="/_next/static/build-1234567890-abc123/...">
 ```
@@ -183,11 +197,13 @@ View page source, look for:
 Build ID should change with every deployment.
 
 ### 3. Check GitHub Action
+
 Visit: https://github.com/elevateforhumanity/fix2/actions
 
 Should see "Auto Fresh Deploy to Vercel" workflow running on every push.
 
 ### 4. Check Vercel Deployments
+
 Visit: https://vercel.com/elevate-48e460c9/fix2-gpql
 
 Should see new deployments appearing automatically.
@@ -199,11 +215,13 @@ Should see new deployments appearing automatically.
 ### GitHub Action Not Running
 
 **Check:**
+
 1. Is `VERCEL_DEPLOY_HOOK_URL` added to GitHub secrets?
 2. Is the workflow file at `.github/workflows/vercel-force.yml`?
 3. Are you pushing to the `main` branch?
 
 **Fix:**
+
 ```bash
 git push origin main
 ```
@@ -211,6 +229,7 @@ git push origin main
 ### Admin Button Returns Error
 
 **Check:**
+
 1. Is `VERCEL_DEPLOY_HOOK_URL` in Vercel environment variables?
 2. Are you logged in as admin?
 3. Is the API route at `/app/api/admin/force-redeploy/route.ts`?
@@ -221,10 +240,12 @@ Add environment variable in Vercel dashboard.
 ### Gitpod Script Fails
 
 **Check:**
+
 1. Is `VERCEL_DEPLOY_HOOK_URL` in `.env.local`?
 2. Is the script executable?
 
 **Fix:**
+
 ```bash
 chmod +x .gitpod.d/force-vercel-redeploy.sh
 echo "VERCEL_DEPLOY_HOOK_URL=your-url" >> .env.local
@@ -233,6 +254,7 @@ echo "VERCEL_DEPLOY_HOOK_URL=your-url" >> .env.local
 ### Still Seeing Old Content
 
 **Try:**
+
 1. Hard refresh: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
 2. Clear browser cache
 3. Force redeploy from admin panel
@@ -243,9 +265,11 @@ echo "VERCEL_DEPLOY_HOOK_URL=your-url" >> .env.local
 ## Maintenance
 
 ### Regular Tasks:
+
 - **None required** - System is fully automated
 
 ### Optional Enhancements:
+
 - Add Vercel API integration for real-time logs
 - Add deployment notifications (Slack, email)
 - Add rollback functionality
@@ -256,11 +280,13 @@ echo "VERCEL_DEPLOY_HOOK_URL=your-url" >> .env.local
 ## Security Notes
 
 ### Deploy Hook URL:
+
 - Keep secret - anyone with URL can trigger deployments
 - Rotate if compromised
 - Don't commit to git (use environment variables)
 
 ### Admin Access:
+
 - Only admins can access `/admin/tools/*` pages
 - Protected by `requireAdmin` middleware
 - Uses RBAC system
@@ -270,10 +296,12 @@ echo "VERCEL_DEPLOY_HOOK_URL=your-url" >> .env.local
 ## Support
 
 ### Documentation:
+
 - Main docs: `/CACHE_BUSTING_SYSTEM.md`
 - This setup guide: `/DEPLOYMENT_SYSTEM_SETUP.md`
 
 ### Links:
+
 - Vercel Dashboard: https://vercel.com/elevate-48e460c9/fix2-gpql
 - GitHub Actions: https://github.com/elevateforhumanity/fix2/actions
 - Admin Panel: https://www.elevateforhumanity.org/admin/tools/force-deploy

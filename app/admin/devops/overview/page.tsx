@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 type Deployment = {
   id: string;
@@ -53,17 +53,17 @@ export default function DevOpsOverviewPage() {
     setDeployLoading(true);
     setMessage(null);
     try {
-      const res = await fetch("/api/admin/devops/deployments", {
-        method: "GET",
+      const res = await fetch('/api/admin/devops/deployments', {
+        method: 'GET',
       });
       const data = await res.json();
       if (!res.ok) {
-        setMessage(data.error || "Failed to load deployments.");
+        setMessage(data.error || 'Failed to load deployments.');
       } else {
         setDeployments(data.deployments || []);
       }
     } catch (err: any) {
-      setMessage(err?.message || "Error loading deployments.");
+      setMessage(err?.message || 'Error loading deployments.');
     } finally {
       setDeployLoading(false);
     }
@@ -72,15 +72,15 @@ export default function DevOpsOverviewPage() {
   async function refreshCiRuns() {
     setCiLoading(true);
     try {
-      const res = await fetch("/api/admin/devops/ci", { method: "GET" });
+      const res = await fetch('/api/admin/devops/ci', { method: 'GET' });
       const data = await res.json();
       if (!res.ok) {
-        if (!message) setMessage(data.error || "Failed to load CI runs.");
+        if (!message) setMessage(data.error || 'Failed to load CI runs.');
       } else {
         setCiRuns(data.runs || []);
       }
     } catch (err: any) {
-      if (!message) setMessage(err?.message || "Error loading CI runs.");
+      if (!message) setMessage(err?.message || 'Error loading CI runs.');
     } finally {
       setCiLoading(false);
     }
@@ -91,18 +91,17 @@ export default function DevOpsOverviewPage() {
     setLogsForId(id);
     setLogsLoading(true);
     try {
-      const res = await fetch(
-        `/api/admin/devops/deployments/${id}/logs`,
-        { method: "GET" }
-      );
+      const res = await fetch(`/api/admin/devops/deployments/${id}/logs`, {
+        method: 'GET',
+      });
       const data = await res.json();
       if (!res.ok) {
-        setMessage(data.error || "Failed to load logs.");
+        setMessage(data.error || 'Failed to load logs.');
       } else {
         setLogs(data.lines || []);
       }
     } catch (err: any) {
-      setMessage(err?.message || "Error loading logs.");
+      setMessage(err?.message || 'Error loading logs.');
     } finally {
       setLogsLoading(false);
     }
@@ -110,30 +109,29 @@ export default function DevOpsOverviewPage() {
 
   async function rollback(id: string) {
     const confirmText =
-      "Are you sure you want to instant rollback production to this deployment?\n\n" +
-      "⚠ This uses Vercel Instant Rollback and may pause auto-assign of production domains until you reset it in Vercel. Proceed?";
+      'Are you sure you want to instant rollback production to this deployment?\n\n' +
+      '⚠ This uses Vercel Instant Rollback and may pause auto-assign of production domains until you reset it in Vercel. Proceed?';
     if (!window.confirm(confirmText)) return;
 
     setRollbackLoadingId(id);
     setMessage(null);
 
     try {
-      const res = await fetch(
-        `/api/admin/devops/deployments/${id}/rollback`,
-        { method: "POST" }
-      );
+      const res = await fetch(`/api/admin/devops/deployments/${id}/rollback`, {
+        method: 'POST',
+      });
       const data = await res.json();
       if (!res.ok) {
-        setMessage(data.error || "Rollback failed.");
+        setMessage(data.error || 'Rollback failed.');
       } else {
         setMessage(
           data.message ||
-            "Rollback triggered. Check Vercel dashboard for status."
+            'Rollback triggered. Check Vercel dashboard for status.'
         );
         setTimeout(refreshDeployments, 3000);
       }
     } catch (err: any) {
-      setMessage(err?.message || "Error triggering rollback.");
+      setMessage(err?.message || 'Error triggering rollback.');
     } finally {
       setRollbackLoadingId(null);
     }
@@ -145,7 +143,7 @@ export default function DevOpsOverviewPage() {
   }
 
   function shortSha(sha?: string) {
-    if (!sha) return "";
+    if (!sha) return '';
     return sha.slice(0, 7);
   }
 
@@ -153,10 +151,7 @@ export default function DevOpsOverviewPage() {
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="mb-6">
-          <Link
-            href="/admin"
-            className="text-sm text-blue-600 hover:underline"
-          >
+          <Link href="/admin" className="text-sm text-blue-600 hover:underline">
             ← Back to Admin
           </Link>
         </div>
@@ -166,8 +161,8 @@ export default function DevOpsOverviewPage() {
             DevOps & CI/CD Dashboard
           </h1>
           <p className="text-sm text-slate-600 mt-2">
-            See all deployments, inspect build logs, trigger instant rollback, and
-            monitor GitHub Actions runs in one place.
+            See all deployments, inspect build logs, trigger instant rollback,
+            and monitor GitHub Actions runs in one place.
           </p>
         </header>
 
@@ -194,7 +189,7 @@ export default function DevOpsOverviewPage() {
               disabled={deployLoading}
               className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition disabled:opacity-50"
             >
-              {deployLoading ? "Refreshing..." : "Refresh"}
+              {deployLoading ? 'Refreshing...' : 'Refresh'}
             </button>
           </div>
 
@@ -246,17 +241,17 @@ export default function DevOpsOverviewPage() {
                       </td>
                       <td className="px-4 py-3">
                         <span className="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">
-                          {d.target || "—"}
+                          {d.target || '—'}
                         </span>
                       </td>
                       <td className="px-4 py-3">
                         <span
                           className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ${
-                            d.state === "READY"
-                              ? "bg-emerald-50 text-emerald-700"
-                              : d.state === "ERROR"
-                              ? "bg-rose-50 text-rose-700"
-                              : "bg-blue-50 text-blue-700"
+                            d.state === 'READY'
+                              ? 'bg-emerald-50 text-emerald-700'
+                              : d.state === 'ERROR'
+                                ? 'bg-rose-50 text-rose-700'
+                                : 'bg-blue-50 text-blue-700'
                           }`}
                         >
                           {d.state}
@@ -300,18 +295,18 @@ export default function DevOpsOverviewPage() {
                             className="inline-flex items-center justify-center rounded-lg bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-200 transition"
                           >
                             {logsLoading && logsForId === d.id
-                              ? "Loading..."
-                              : "View Logs"}
+                              ? 'Loading...'
+                              : 'View Logs'}
                           </button>
-                          {d.target === "production" && (
+                          {d.target === 'production' && (
                             <button
                               onClick={() => rollback(d.id)}
                               disabled={rollbackLoadingId === d.id}
                               className="inline-flex items-center justify-center rounded-lg bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-700 hover:bg-rose-100 transition disabled:opacity-50"
                             >
                               {rollbackLoadingId === d.id
-                                ? "Rolling back..."
-                                : "Rollback"}
+                                ? 'Rolling back...'
+                                : 'Rollback'}
                             </button>
                           )}
                         </div>
@@ -341,10 +336,10 @@ export default function DevOpsOverviewPage() {
               </div>
               <pre className="px-4 py-3 text-xs text-emerald-200 max-h-96 overflow-auto whitespace-pre-wrap">
                 {logsLoading
-                  ? "Loading logs..."
+                  ? 'Loading logs...'
                   : logs && logs.length > 0
-                  ? logs.join("\n")
-                  : "No logs available."}
+                    ? logs.join('\n')
+                    : 'No logs available.'}
               </pre>
             </div>
           )}
@@ -358,8 +353,8 @@ export default function DevOpsOverviewPage() {
                 GitHub Actions – CI/CD Runs
               </h2>
               <p className="text-xs text-slate-500 mt-1">
-                Mirrors your GitHub Actions runs so you don&apos;t have to leave your LMS
-                admin.
+                Mirrors your GitHub Actions runs so you don&apos;t have to leave
+                your LMS admin.
               </p>
             </div>
             <button
@@ -367,7 +362,7 @@ export default function DevOpsOverviewPage() {
               disabled={ciLoading}
               className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition disabled:opacity-50"
             >
-              {ciLoading ? "Refreshing..." : "Refresh"}
+              {ciLoading ? 'Refreshing...' : 'Refresh'}
             </button>
           </div>
 
@@ -461,7 +456,7 @@ export default function DevOpsOverviewPage() {
             💡 Pro Tip: Real-time deployment tracking
           </p>
           <p className="text-xs text-blue-800">
-            To see real-time deployment logs, visit the{" "}
+            To see real-time deployment logs, visit the{' '}
             <a
               href="https://vercel.com/elevate-48e460c9/fix2-gpql"
               target="_blank"
@@ -470,8 +465,8 @@ export default function DevOpsOverviewPage() {
             >
               Vercel Dashboard
             </a>
-            . This admin panel integrates the Vercel API to show live logs directly
-            without leaving your LMS.
+            . This admin panel integrates the Vercel API to show live logs
+            directly without leaving your LMS.
           </p>
         </div>
       </div>
