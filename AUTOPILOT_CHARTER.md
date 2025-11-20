@@ -71,9 +71,9 @@ Keep **elevateforhumanity.org** online and healthy by:
 | `NEXT_PUBLIC_SUPABASE_URL`      | `https://cuxzzpsyufcewtmicszk.supabase.co` | Hardcoded                   |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Value from GitHub Secret                   | `SUPABASE_ANON_KEY`         |
 | `SUPABASE_SERVICE_ROLE_KEY`     | Value from GitHub Secret                   | `SUPABASE_SERVICE_ROLE_KEY` |
-| `NEXT_PUBLIC_APP_URL`           | `https://www.elevateforhumanity.org`     | Hardcoded                   |
-| `NEXT_PUBLIC_SITE_URL`          | `https://www.elevateforhumanity.org`     | Hardcoded                   |
-| `NEXT_PUBLIC_BASE_URL`          | `https://www.elevateforhumanity.org`     | Hardcoded                   |
+| `NEXT_PUBLIC_APP_URL`           | `https://www.elevateforhumanity.org`       | Hardcoded                   |
+| `NEXT_PUBLIC_SITE_URL`          | `https://www.elevateforhumanity.org`       | Hardcoded                   |
+| `NEXT_PUBLIC_BASE_URL`          | `https://www.elevateforhumanity.org`       | Hardcoded                   |
 | `NODE_ENV`                      | `production`                               | Hardcoded                   |
 
 **Behavior Per Variable**:

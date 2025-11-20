@@ -192,7 +192,10 @@ All program pages now have proper canonical URLs:
 
 ```html
 <!-- Example for Barber Program -->
-<link rel="canonical" href="https://www.elevateforhumanity.org/programs/barber" />
+<link
+  rel="canonical"
+  href="https://www.elevateforhumanity.org/programs/barber"
+/>
 ```
 
 **Benefits:**

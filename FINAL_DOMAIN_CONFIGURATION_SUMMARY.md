@@ -3,12 +3,14 @@
 ## ✅ CORRECT SETUP (Confirmed)
 
 ### Marketing Site - www.elevateforhumanity.org
+
 - **Platform**: Durable (durablesites.co)
 - **Purpose**: Public marketing, lead generation, program information
 - **Status**: ⚠️ NEEDS CONFIGURATION (currently pointing to Cloudflare incorrectly)
 - **Action Required**: Run Cloudflare cleanup script and configure in Durable
 
 ### LMS Platform - www.elevateforhumanity.org
+
 - **Platform**: Vercel (fix2-gpql project)
 - **Repository**: elevateforhumanity/fix2
 - **Vercel Project**: https://vercel.com/elevate-48e460c9/fix2-gpql
@@ -24,6 +26,7 @@
 ### ✅ What's Working
 
 **www.elevateforhumanity.org (LMS)**
+
 ```bash
 curl -I https://www.elevateforhumanity.org
 # HTTP/2 200
@@ -34,6 +37,7 @@ curl -I https://www.elevateforhumanity.org
 ```
 
 **Apex redirect**
+
 ```bash
 curl -I https://www.elevateforhumanity.org
 # HTTP/2 307
@@ -44,6 +48,7 @@ curl -I https://www.elevateforhumanity.org
 ### ❌ What's NOT Working
 
 **www.elevateforhumanity.org (Marketing)**
+
 ```bash
 curl -I https://www.elevateforhumanity.org
 # SSL handshake failure
@@ -56,11 +61,13 @@ curl -I https://www.elevateforhumanity.org
 ## 🚀 DEPLOYMENT STATUS
 
 ### GitHub Repository
+
 - **Latest Commit**: 85fabc12
 - **Status**: ✅ Pushed to GitHub
 - **Content**: Cloudflare cleanup automation + domain guides
 
 ### Vercel Deployment
+
 - **Project**: fix2-gpql
 - **Domain**: www.elevateforhumanity.org
 - **Status**: ✅ DEPLOYED AND WORKING
@@ -68,6 +75,7 @@ curl -I https://www.elevateforhumanity.org
 - **SSL**: ✅ Valid
 
 ### What Was Deployed
+
 1. TikTok-style video features
 2. Social media automation scripts
 3. Comprehensive deployment system
@@ -101,6 +109,7 @@ export CLOUDFLARE_API_TOKEN="your-token-here"
 **Option 2: Manual**
 
 1. Update DNS for www.elevateforhumanity.org:
+
    ```
    Type: CNAME
    Name: www
@@ -145,12 +154,14 @@ export CLOUDFLARE_API_TOKEN="your-token-here"
 ### elevateforhumanity.org (Marketing)
 
 **Current (INCORRECT)**:
+
 ```
 Type   Name   Target                    Status
 CNAME  www    104.18.23.157 (Cloudflare) ❌ Wrong
 ```
 
 **Should Be**:
+
 ```
 Type   Name   Target                    Status
 CNAME  www    sites.durablesites.co     ✅ Correct
@@ -159,6 +170,7 @@ CNAME  www    sites.durablesites.co     ✅ Correct
 ### elevateforhumanity.org (LMS)
 
 **Current (CORRECT)**:
+
 ```
 Type   Name   Target                    Status
 CNAME  www    cname.vercel-dns.com      ✅ Working
@@ -170,12 +182,14 @@ A      @      76.76.21.21 (Vercel)      ✅ Working
 ## ✅ VERIFICATION
 
 ### Test LMS (Working)
+
 ```bash
 curl -I https://www.elevateforhumanity.org
 # Expected: HTTP/2 200, server: Vercel
 ```
 
 ### Test Marketing (After Fix)
+
 ```bash
 curl -I https://www.elevateforhumanity.org
 # Expected: HTTP/2 200, server: Durable
@@ -186,16 +200,19 @@ curl -I https://www.elevateforhumanity.org
 ## 📝 SUMMARY
 
 **Deployment**: ✅ COMPLETE
+
 - Code committed and pushed to GitHub
 - Vercel auto-deployed to www.elevateforhumanity.org
 - LMS site is live and working
 
 **Marketing Site**: ⚠️ NEEDS CONFIGURATION
+
 - Run Cloudflare cleanup script
 - Configure domain in Durable
 - Wait for DNS propagation
 
 **LMS Site**: ✅ WORKING
+
 - Deployed to www.elevateforhumanity.org
 - All features working
 - SSL valid

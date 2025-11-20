@@ -20,7 +20,7 @@
 
 | Test               | Status      | Details                                                                 |
 | ------------------ | ----------- | ----------------------------------------------------------------------- |
-| **Primary Domain** | ✅ PASS     | https://www.elevateforhumanity.org loads successfully                       |
+| **Primary Domain** | ✅ PASS     | https://www.elevateforhumanity.org loads successfully                   |
 | **WWW Redirect**   | ⚠️ EXTERNAL | www.elevateforhumanity.org → elevateforhumanity.org (external redirect) |
 | **HTTPS**          | ✅ PASS     | SSL certificate valid, HTTPS enforced                                   |
 | **Response Time**  | ✅ PASS     | Fast response via Netlify CDN                                           |

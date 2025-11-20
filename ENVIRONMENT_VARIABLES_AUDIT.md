@@ -9,6 +9,7 @@
 These variables are **required** for the application to function:
 
 ### Core Application
+
 ```bash
 # Supabase Database (REQUIRED)
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
@@ -30,6 +31,7 @@ NEXTAUTH_URL=https://www.elevateforhumanity.org
 These enable additional features but are not required:
 
 ### Payment Processing
+
 ```bash
 # Stripe (for payments)
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
@@ -38,6 +40,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 ```
 
 ### Email Notifications
+
 ```bash
 # Resend (recommended - simple API)
 RESEND_API_KEY=re_...
@@ -56,6 +59,7 @@ SMTP_FROM_NAME=Elevate for Humanity
 ```
 
 ### Analytics
+
 ```bash
 # Google Analytics (free)
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
@@ -66,6 +70,7 @@ NEXT_PUBLIC_FACEBOOK_APP_ID=123456789
 ```
 
 ### Error Tracking
+
 ```bash
 # Sentry (optional but recommended)
 NEXT_PUBLIC_SENTRY_DSN=https://...@sentry.io/...
@@ -103,6 +108,7 @@ These were removed and are **no longer required**:
 Only needed if using enterprise features:
 
 ### SSO Authentication
+
 ```bash
 # Google OAuth
 GOOGLE_CLIENT_ID=...
@@ -129,6 +135,7 @@ SAML_ENABLED=true
 ```
 
 ### HR Integrations
+
 ```bash
 # BambooHR
 BAMBOOHR_API_KEY=...
@@ -146,6 +153,7 @@ SALESFORCE_INSTANCE_URL=...
 ```
 
 ### LMS Integrations
+
 ```bash
 # SCORM Cloud
 SCORM_APP_ID=...
@@ -163,6 +171,7 @@ ZOOM_ACCOUNT_ID=...
 ```
 
 ### Support/Chat
+
 ```bash
 # Intercom
 NEXT_PUBLIC_INTERCOM_APP_ID=...
@@ -179,13 +188,16 @@ NEXT_PUBLIC_ZENDESK_KEY=...
 ## 📊 Current Status in Vercel
 
 ### ✅ Already Configured
+
 Based on your Vercel dashboard, these are set:
+
 - `STRIPE_SECRET_KEY` ✅
 - `RESEND_API_KEY` ✅
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` ✅
 - `SUPABASE_SERVICE_ROLE_KEY` ✅
 
 ### ⚠️ May Need to Add
+
 - `NEXT_PUBLIC_SUPABASE_URL` - Check if set
 - `NEXT_PUBLIC_SITE_URL` - Should be `https://www.elevateforhumanity.org`
 - `NEXTAUTH_SECRET` - Generate with: `openssl rand -base64 32`
@@ -252,18 +264,23 @@ npm run dev
 ## 🚀 Variables by Feature
 
 ### Want Payments?
+
 Add: `STRIPE_SECRET_KEY`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
 
 ### Want Email Notifications?
+
 Add: `RESEND_API_KEY` (easiest) or `SENDGRID_API_KEY` or SMTP settings
 
 ### Want Analytics?
+
 Add: `NEXT_PUBLIC_GA_MEASUREMENT_ID` (Google Analytics is free)
 
 ### Want Error Tracking?
+
 Add: `NEXT_PUBLIC_SENTRY_DSN` (Sentry free tier is generous)
 
 ### Want SSO Login?
+
 Add: Google, Azure, or Okta credentials
 
 ---
@@ -276,6 +293,7 @@ Add: Google, Azure, or Okta credentials
 **Optional Features:** 80+ variables for enterprise features
 
 **Action Items:**
+
 1. ✅ Verify Supabase variables are set
 2. ⚠️ Add `NEXTAUTH_SECRET` if not set
 3. ⚠️ Add `NEXTAUTH_URL` if not set

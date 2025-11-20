@@ -9,32 +9,38 @@ You MUST update these environment variables in Vercel dashboard:
 ## Required Updates:
 
 ### 1. NEXT_PUBLIC_SITE_URL
+
 **Current:** `https://elevateconnectsdirectory.org` or `https://www.elevateforhumanity.org`
 **Update to:** `https://www.elevateforhumanity.org`
 
 **Environments:** Production, Preview, Development
 
 ### 2. NEXT_PUBLIC_APP_URL
+
 **Current:** `https://elevateconnectsdirectory.org` or `https://www.elevateforhumanity.org`
 **Update to:** `https://www.elevateforhumanity.org`
 
 **Environments:** Production, Preview, Development
 
 ### 3. EMAIL_FROM (if set)
+
 **Update to:** `Elevate for Humanity <noreply@elevateforhumanity.org>`
 
 ### 4. MOU_ARCHIVE_EMAIL (if set)
+
 **Update to:** `agreements@elevateforhumanity.org`
 
 ## Additional Vercel Settings:
 
 ### Domain Configuration
+
 1. Go to: https://vercel.com/elevate-48e460c9/fix2-gpql/settings/domains
 2. Ensure these domains are configured:
    - **Primary:** `www.elevateforhumanity.org` (Production)
    - **Redirect:** `elevateforhumanity.org` → `www.elevateforhumanity.org`
 
 ### DNS Settings (Already done by you)
+
 ✅ You've already updated DNS on Durable
 ✅ Point to Vercel's servers
 
