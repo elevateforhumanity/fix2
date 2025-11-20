@@ -1,9 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-// BUILD VERIFICATION MARKER - Nov 20, 2025 04:22 UTC
-const BUILD_ID = 'BUILD_2025_11_20_04_22_UTC_WITH_FIXES';
-
 const programs = [
   {
     slug: 'medical-assistant',
@@ -64,19 +61,6 @@ const programs = [
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* BUILD VERIFICATION BANNER */}
-      <div style={{ 
-        background: 'linear-gradient(90deg, #dc2626, #ea580c, #d97706)', 
-        color: 'white', 
-        padding: '20px', 
-        textAlign: 'center', 
-        fontSize: '24px', 
-        fontWeight: 'bold',
-        borderBottom: '5px solid #000'
-      }}>
-        🚀 NEW BUILD DEPLOYED: {BUILD_ID} 🚀
-      </div>
-      
       {/* HERO SECTION - Clean Professional Design */}
       <section className="relative bg-gradient-to-br from-slate-50 to-blue-50 py-24 md:py-32 overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 md:px-12">

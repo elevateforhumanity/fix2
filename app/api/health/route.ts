@@ -5,7 +5,9 @@ export async function GET() {
   const checks: Record<string, any> = {
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    version: '2.0.0',
+    version: '2.0.0-fixed',
+    buildId: process.env.VERCEL_GIT_COMMIT_SHA || 'local-dev',
+    buildTime: '2025-11-20T04:24:00Z',
     environment: process.env.NODE_ENV || 'production',
     checks: {},
   };

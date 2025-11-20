@@ -5,7 +5,24 @@
     }
   },
   "github": {
-    "silent": true,
-    "autoJobCancelation": true
-  }
+    "silent": false,
+    "autoJobCancelation": false
+  },
+  "buildCommand": "npm run build",
+  "framework": "nextjs",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        },
+        {
+          "key": "X-Build-Time",
+          "value": "2025-11-20T04:24:00Z"
+        }
+      ]
+    }
+  ]
 }

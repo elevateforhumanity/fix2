@@ -3,6 +3,10 @@ const nextConfig = {
   reactStrictMode: true,
   // Remove 'output: export' to enable API routes
   trailingSlash: true,
+  generateBuildId: async () => {
+    // Force unique build ID to bust all caches
+    return `build-${Date.now()}-${Math.random().toString(36).substring(7)}`;
+  },
   images: {
     unoptimized: false, // ✅ Enable Next.js image optimization
     formats: ['image/webp', 'image/avif'],
