@@ -13,7 +13,7 @@ export default async function CoursesPage() {
   const { data: courses, error } = await supabase
     .from('courses')
     .select('*')
-    .eq('published', true)
+    .eq('status', 'published')
     .order('created_at', { ascending: false });
 
   if (error) {
