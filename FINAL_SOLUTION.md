@@ -8,6 +8,7 @@
 - ✅ Should be → `fix2-gpql` (correct, has www.elevateforhumanity.org)
 
 This caused:
+
 - Deployments going to wrong project
 - Domain not updating
 - CLI recreating `fix2` project
@@ -76,15 +77,18 @@ After completing all steps:
 ## 🚀 Available Commands
 
 ### Deployment
+
 - `pnpm vercel:check` - Verify project link and domains
 - `pnpm vercel:link` - Hard link to fix2-gpql
 - `pnpm vercel:deploy` - Safe production deploy
 
 ### Cleanup
+
 - `pnpm hard-reset` - Nuclear option (delete everything, rebuild)
 - `pnpm cleanup:branches` - Clean Git branches
 
 ### Health Checks
+
 - `pnpm vercel:health` - Complete health check with auto-fix
 
 ---
