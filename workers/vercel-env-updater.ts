@@ -58,17 +58,17 @@ export default {
 
       // Get existing environment variables
       const existingVars = await getEnvironmentVariables(env);
-      
+
       // Update each variable
       for (const envVar of ENV_VARS_TO_UPDATE) {
         const existing = existingVars.find((v: any) => v.key === envVar.key);
-        
+
         if (existing) {
           // Delete old variable
           await deleteEnvironmentVariable(env, existing.id);
           results.push({ action: 'deleted', key: envVar.key, id: existing.id });
         }
-        
+
         // Create new variable with updated value
         const created = await createEnvironmentVariable(env, envVar);
         results.push({ action: 'created', key: envVar.key, ...created });

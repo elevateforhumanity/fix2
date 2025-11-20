@@ -6,8 +6,10 @@
  */
 
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
-const VERCEL_PROJECT_ID = process.env.VERCEL_PROJECT_ID || 'prj_I89m6xUtwJlmA3qSE8Su7jIF7Xg7';
-const VERCEL_TEAM_ID = process.env.VERCEL_TEAM_ID || 'team_Xj2yJdLklcMExBxDPK7I2G4w';
+const VERCEL_PROJECT_ID =
+  process.env.VERCEL_PROJECT_ID || 'prj_I89m6xUtwJlmA3qSE8Su7jIF7Xg7';
+const VERCEL_TEAM_ID =
+  process.env.VERCEL_TEAM_ID || 'team_Xj2yJdLklcMExBxDPK7I2G4w';
 
 const ENV_VARS_TO_UPDATE = [
   {
@@ -47,23 +49,23 @@ async function main() {
 
     // Step 2: Update each variable
     console.log('🔄 Step 2: Updating environment variables...\n');
-    
+
     for (const envVar of ENV_VARS_TO_UPDATE) {
       console.log(`   Processing: ${envVar.key}`);
-      
+
       // Find existing variable
-      const existing = existingVars.find(v => v.key === envVar.key);
-      
+      const existing = existingVars.find((v) => v.key === envVar.key);
+
       if (existing) {
         console.log(`   - Found existing variable (ID: ${existing.id})`);
         console.log(`   - Old value: ${existing.value}`);
-        console.log(`   - Deleting old variable...`);
+        console.log('   - Deleting old variable...');
         await deleteEnvironmentVariable(existing.id);
-        console.log(`   ✓ Deleted`);
+        console.log('   ✓ Deleted');
       } else {
-        console.log(`   - No existing variable found`);
+        console.log('   - No existing variable found');
       }
-      
+
       // Create new variable
       console.log(`   - Creating new variable with value: ${envVar.value}`);
       const created = await createEnvironmentVariable(envVar);
@@ -74,20 +76,21 @@ async function main() {
     // Step 3: Trigger deployment
     console.log('🚀 Step 3: Triggering new deployment...');
     const deployment = await triggerDeployment();
-    console.log(`   ✓ Deployment triggered`);
+    console.log('   ✓ Deployment triggered');
     console.log(`   - Deployment ID: ${deployment.id}`);
     console.log(`   - URL: https://${deployment.url}`);
     console.log('');
 
     console.log('✅ SUCCESS!');
     console.log('\nEnvironment variables updated:');
-    ENV_VARS_TO_UPDATE.forEach(v => {
+    ENV_VARS_TO_UPDATE.forEach((v) => {
       console.log(`  - ${v.key} = ${v.value}`);
     });
     console.log('\n📊 Monitor deployment at:');
-    console.log(`   https://vercel.com/${VERCEL_TEAM_ID}/fix2-gpql/deployments/${deployment.id}`);
+    console.log(
+      `   https://vercel.com/${VERCEL_TEAM_ID}/fix2-gpql/deployments/${deployment.id}`
+    );
     console.log('\n⏱️  Deployment typically takes 2-5 minutes');
-    
   } catch (error) {
     console.error('\n❌ ERROR:', error.message);
     process.exit(1);
@@ -98,7 +101,7 @@ async function getEnvironmentVariables() {
   const url = `https://api.vercel.com/v9/projects/${VERCEL_PROJECT_ID}/env?teamId=${VERCEL_TEAM_ID}`;
   const response = await fetch(url, {
     headers: {
-      'Authorization': `Bearer ${VERCEL_TOKEN}`,
+      Authorization: `Bearer ${VERCEL_TOKEN}`,
       'Content-Type': 'application/json',
     },
   });
@@ -117,7 +120,7 @@ async function deleteEnvironmentVariable(varId) {
   const response = await fetch(url, {
     method: 'DELETE',
     headers: {
-      'Authorization': `Bearer ${VERCEL_TOKEN}`,
+      Authorization: `Bearer ${VERCEL_TOKEN}`,
     },
   });
 
@@ -134,7 +137,7 @@ async function createEnvironmentVariable(envVar) {
   const response = await fetch(url, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${VERCEL_TOKEN}`,
+      Authorization: `Bearer ${VERCEL_TOKEN}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -158,7 +161,7 @@ async function triggerDeployment() {
   const response = await fetch(url, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${VERCEL_TOKEN}`,
+      Authorization: `Bearer ${VERCEL_TOKEN}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
@@ -175,13 +178,15 @@ async function triggerDeployment() {
 
   if (!response.ok) {
     const error = await response.text();
-    throw new Error(`Failed to trigger deployment: ${response.status} ${error}`);
+    throw new Error(
+      `Failed to trigger deployment: ${response.status} ${error}`
+    );
   }
 
   return response.json();
 }
 
-main().catch(error => {
+main().catch((error) => {
   console.error('Fatal error:', error);
   process.exit(1);
 });

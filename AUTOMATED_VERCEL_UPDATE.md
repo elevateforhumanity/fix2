@@ -9,9 +9,11 @@ I've created automated workers to update Vercel environment variables for the do
 ## Option 1: Run Node.js Script (EASIEST)
 
 ### Prerequisites:
+
 - Vercel API token
 
 ### Get Your Vercel Token:
+
 1. Go to: https://vercel.com/account/tokens
 2. Click "Create Token"
 3. Name it: "Domain Migration"
@@ -28,6 +30,7 @@ node scripts/update-vercel-env-vars.mjs
 ```
 
 ### What It Does:
+
 1. ✅ Fetches existing environment variables
 2. ✅ Deletes old `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_APP_URL`
 3. ✅ Creates new variables with `https://www.elevateforhumanity.org`
@@ -36,6 +39,7 @@ node scripts/update-vercel-env-vars.mjs
 6. ✅ Returns deployment URL for monitoring
 
 ### Expected Output:
+
 ```
 🔧 Vercel Environment Variable Updater
 =====================================
@@ -86,6 +90,7 @@ Environment variables updated:
 ## Option 2: Deploy Cloudflare Worker (ADVANCED)
 
 ### Prerequisites:
+
 - Cloudflare account
 - Wrangler CLI installed
 
@@ -118,17 +123,20 @@ curl -X POST https://vercel-env-updater.elevateforhumanity.workers.dev
 ## What Gets Updated:
 
 ### Environment Variables:
-| Variable | Old Value | New Value |
-|----------|-----------|-----------|
+
+| Variable               | Old Value                              | New Value                            |
+| ---------------------- | -------------------------------------- | ------------------------------------ |
 | `NEXT_PUBLIC_SITE_URL` | `https://elevateconnectsdirectory.org` | `https://www.elevateforhumanity.org` |
-| `NEXT_PUBLIC_APP_URL` | `https://elevateconnectsdirectory.org` | `https://www.elevateforhumanity.org` |
+| `NEXT_PUBLIC_APP_URL`  | `https://elevateconnectsdirectory.org` | `https://www.elevateforhumanity.org` |
 
 ### Environments:
+
 - ✅ Production
 - ✅ Preview
 - ✅ Development
 
 ### Actions Taken:
+
 1. Delete old variables
 2. Create new variables with www subdomain
 3. Trigger fresh deployment
@@ -141,21 +149,26 @@ curl -X POST https://vercel-env-updater.elevateforhumanity.workers.dev
 After the script runs, verify the changes:
 
 ### 1. Check Vercel Dashboard:
+
 https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables
 
 You should see:
+
 - `NEXT_PUBLIC_SITE_URL` = `https://www.elevateforhumanity.org`
 - `NEXT_PUBLIC_APP_URL` = `https://www.elevateforhumanity.org`
 
 ### 2. Check Deployment:
+
 https://vercel.com/elevate-48e460c9/fix2-gpql/deployments
 
 Latest deployment should be:
+
 - Status: "Ready" (green checkmark)
 - Commit: Latest from main branch
 - Time: Within last 5 minutes
 
 ### 3. Test the Site:
+
 ```bash
 # Check build info
 curl https://www.elevateforhumanity.org/api/build-info
@@ -170,6 +183,7 @@ curl https://www.elevateforhumanity.org/api/build-info
 ```
 
 ### 4. Verify Domain:
+
 - Visit: https://www.elevateforhumanity.org
 - Check that all links use www subdomain
 - Verify sitemap: https://www.elevateforhumanity.org/sitemap.xml
@@ -179,22 +193,30 @@ curl https://www.elevateforhumanity.org/api/build-info
 ## Troubleshooting:
 
 ### Error: "Failed to get env vars: 401"
+
 **Solution:** Your VERCEL_TOKEN is invalid or expired
+
 - Generate a new token at https://vercel.com/account/tokens
 - Make sure it has "Full Access" permissions
 
 ### Error: "Failed to get env vars: 403"
+
 **Solution:** Token doesn't have access to the project
+
 - Verify you're using the correct team ID
 - Check token permissions include project access
 
 ### Error: "Failed to trigger deployment"
+
 **Solution:** Check GitHub integration
+
 - Verify Vercel is connected to GitHub
 - Check that auto-deployments are enabled
 
 ### Deployment Stuck in "Building"
+
 **Solution:** Check build logs
+
 - Go to deployment in Vercel dashboard
 - Click "View Build Logs"
 - Look for errors
@@ -233,6 +255,7 @@ curl https://www.elevateforhumanity.org/api/build-info
 ## Support:
 
 If you encounter issues:
+
 1. Check the deployment logs in Vercel
 2. Verify your VERCEL_TOKEN has correct permissions
 3. Ensure GitHub integration is active
