@@ -1,0 +1,56 @@
+# Elevate for Humanity - Gitpod Autopilot Configuration
+# Simplified setup for deployment automation
+
+image:
+  file: .gitpod.Dockerfile
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+    visibility: public
+    name: Next.js Dev Server
+    description: Elevate LMS - Main Application
+
+tasks:
+  - name: Setup & Deployment Reminder
+    command: |
+      echo "🧩 Elevate for Humanity – Gitpod Autopilot Setup"
+      echo "=============================================="
+      echo ""
+      echo "📦 Installing dependencies..."
+      pnpm install
+      echo ""
+      echo "✅ Ready!"
+      echo ""
+      echo "🚀 Available Commands:"
+      echo "  • pnpm dev                  → Start dev server"
+      echo "  • pnpm autopilot:deploy     → Clean build + deploy to Vercel"
+      echo "  • pnpm deploy:prod          → Deploy to production"
+      echo "  • pnpm deploy:preview       → Deploy to preview"
+      echo "  • pnpm clean-build          → Clean cache + rebuild"
+      echo ""
+      echo "⚠️  DEPLOYMENT REMINDER:"
+      echo "  1️⃣  Update your BUILD MARKER text in a visible component"
+      echo "      Example: BUILD MARKER: v$(date +%Y-%m-%d-%H%M)"
+      echo "  2️⃣  Run: pnpm autopilot:deploy"
+      echo "  3️⃣  Check ONLY these URLs:"
+      echo "      • https://fix2-gpql.vercel.app"
+      echo "      • https://www.elevateforhumanity.org (once connected)"
+      echo "  4️⃣  DO NOT use old hashed URLs like ...qfpvev81v..."
+      echo ""
+      echo "📖 See VERCEL_DEPLOYMENT_GUIDE.md for full details"
+      echo ""
+
+  - name: Dev Server (Optional)
+    init: |
+      echo "⏳ Waiting for dependencies to install..."
+      sleep 10
+    command: |
+      echo "▶️  Starting Next.js dev server on port 3000..."
+      pnpm dev --port 3000
+
+vscode:
+  extensions:
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - bradlc.vscode-tailwindcss
