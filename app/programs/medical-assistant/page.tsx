@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function MedicalAssistantProgramPage() {
   return (
@@ -15,10 +15,10 @@ export default function MedicalAssistantProgramPage() {
           <div className="mt-5 grid gap-8 lg:grid-cols-[1.6fr,1.1fr] lg:items-center">
             <div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Become a{" "}
+                Become a{' '}
                 <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
                   Medical Assistant
-                </span>{" "}
+                </span>{' '}
                 and step into the heart of patient care.
               </h1>
               <p className="mt-4 text-sm md:text-base text-slate-600 max-w-xl">
@@ -91,12 +91,19 @@ export default function MedicalAssistantProgramPage() {
                   This program is a strong fit if:
                 </p>
                 <ul className="mt-2 space-y-1.5 text-slate-600">
-                  <li>• You like helping people and staying busy on your feet.</li>
-                  <li>• You want a faster route into healthcare, not years of school.</li>
-                  <li>• You need a program that understands work, kids, and life.</li>
                   <li>
-                    • You&apos;re open to both clinical and front-office duties in a
-                    medical setting.
+                    • You like helping people and staying busy on your feet.
+                  </li>
+                  <li>
+                    • You want a faster route into healthcare, not years of
+                    school.
+                  </li>
+                  <li>
+                    • You need a program that understands work, kids, and life.
+                  </li>
+                  <li>
+                    • You&apos;re open to both clinical and front-office duties
+                    in a medical setting.
                   </li>
                 </ul>
               </div>
@@ -106,7 +113,9 @@ export default function MedicalAssistantProgramPage() {
                 </p>
                 <ul className="mt-2 space-y-1.5 text-slate-100">
                   <li>• Entry-level Medical Assistant roles</li>
-                  <li>• Strong foundation for Nursing, LPN, RN, and other paths</li>
+                  <li>
+                    • Strong foundation for Nursing, LPN, RN, and other paths
+                  </li>
                   <li>• Confidence with patients, providers, and technology</li>
                   <li>• A clearer long-term healthcare career plan</li>
                 </ul>
@@ -123,7 +132,8 @@ export default function MedicalAssistantProgramPage() {
             </h2>
             <p className="text-[11px] text-slate-500 max-w-sm">
               Curriculum is built with employers and credentialing partners so
-              you&apos;re not surprised when you step into a real clinic or office.
+              you&apos;re not surprised when you step into a real clinic or
+              office.
             </p>
           </div>
 
@@ -133,11 +143,16 @@ export default function MedicalAssistantProgramPage() {
                 Clinical skills
               </p>
               <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
-                <li>• Taking vital signs (blood pressure, pulse, respirations, temp)</li>
+                <li>
+                  • Taking vital signs (blood pressure, pulse, respirations,
+                  temp)
+                </li>
                 <li>• Height, weight, BMI and basic measurements</li>
                 <li>• Assisting with exams and minor procedures</li>
                 <li>• Infection control, PPE, and safety protocols</li>
-                <li>• Basic specimen collection and lab basics (program-dependent)</li>
+                <li>
+                  • Basic specimen collection and lab basics (program-dependent)
+                </li>
                 <li>• Rooming patients and preparing exam rooms</li>
               </ul>
             </div>
@@ -177,7 +192,10 @@ export default function MedicalAssistantProgramPage() {
               <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
                 <li>• Building a healthcare-ready resume</li>
                 <li>• Interview prep and mock interviews</li>
-                <li>• Understanding different healthcare settings (clinics, practices, hospitals)</li>
+                <li>
+                  • Understanding different healthcare settings (clinics,
+                  practices, hospitals)
+                </li>
                 <li>• How to grow: phlebotomy, EKG, LPN/RN and beyond</li>
                 <li>• Working with workforce boards and funding partners</li>
               </ul>
@@ -195,17 +213,27 @@ export default function MedicalAssistantProgramPage() {
                 </h2>
                 <p className="text-xs text-slate-600 mb-3">
                   The Medical Assistant pathway is designed around real life —
-                  work schedules, kids&apos; pickups, transportation, and everything
-                  else that usually makes people give up. Expect a blend of
-                  online lessons, discussion, and in-person skills practice.
+                  work schedules, kids&apos; pickups, transportation, and
+                  everything else that usually makes people give up. Expect a
+                  blend of online lessons, discussion, and in-person skills
+                  practice.
                 </p>
 
                 <ul className="space-y-1.5 text-xs text-slate-700">
-                  <li>• Weekly online modules you can complete on your schedule</li>
-                  <li>• Live virtual sessions or in-person huddles (cohort-based)</li>
+                  <li>
+                    • Weekly online modules you can complete on your schedule
+                  </li>
+                  <li>
+                    • Live virtual sessions or in-person huddles (cohort-based)
+                  </li>
                   <li>• Hands-on labs for skills like vitals and exam prep</li>
-                  <li>• Externship/clinical-style experiences where available</li>
-                  <li>• Regular check-ins so you&apos;re not left alone to figure it out</li>
+                  <li>
+                    • Externship/clinical-style experiences where available
+                  </li>
+                  <li>
+                    • Regular check-ins so you&apos;re not left alone to figure
+                    it out
+                  </li>
                 </ul>
 
                 <p className="mt-3 text-[11px] text-slate-500">
@@ -221,8 +249,13 @@ export default function MedicalAssistantProgramPage() {
                   </p>
                   <ul className="mt-2 space-y-1.5 text-slate-600">
                     <li>• 2–4 hours of online modules and quizzes</li>
-                    <li>• 1 live session (virtual or in-person) with your cohort</li>
-                    <li>• 1 lab/skills block for hands-on practice (where available)</li>
+                    <li>
+                      • 1 live session (virtual or in-person) with your cohort
+                    </li>
+                    <li>
+                      • 1 lab/skills block for hands-on practice (where
+                      available)
+                    </li>
                     <li>• Optional tutoring, office hours, or study group</li>
                   </ul>
                 </div>
@@ -250,11 +283,18 @@ export default function MedicalAssistantProgramPage() {
                 Who this program is a good fit for
               </h2>
               <ul className="space-y-1.5 text-xs text-slate-600">
-                <li>• Adults looking for a first or next career in healthcare</li>
-                <li>• People currently in low-wage roles who want a better path</li>
+                <li>
+                  • Adults looking for a first or next career in healthcare
+                </li>
+                <li>
+                  • People currently in low-wage roles who want a better path
+                </li>
                 <li>• Parents and caregivers who need flexible options</li>
                 <li>• Returning citizens rebuilding their career story</li>
-                <li>• Anyone who wants to move toward nursing or other healthcare roles</li>
+                <li>
+                  • Anyone who wants to move toward nursing or other healthcare
+                  roles
+                </li>
               </ul>
             </div>
 
@@ -263,11 +303,18 @@ export default function MedicalAssistantProgramPage() {
                 Basic expectations & requirements
               </h2>
               <ul className="space-y-1.5 text-xs text-slate-600">
-                <li>• Consistent access to a smartphone, tablet, or computer</li>
+                <li>
+                  • Consistent access to a smartphone, tablet, or computer
+                </li>
                 <li>• Willingness to attend scheduled labs or live sessions</li>
                 <li>• Comfort working with patients, bodily fluids, and PPE</li>
-                <li>• Ability to pass any partner site background or health checks (varies)</li>
-                <li>• Commitment to completing modules and assignments on time</li>
+                <li>
+                  • Ability to pass any partner site background or health checks
+                  (varies)
+                </li>
+                <li>
+                  • Commitment to completing modules and assignments on time
+                </li>
               </ul>
               <p className="mt-2 text-[11px] text-slate-500">
                 Exact eligibility and background requirements may depend on the
@@ -292,8 +339,12 @@ export default function MedicalAssistantProgramPage() {
                   the cost of training.
                 </p>
                 <ul className="space-y-1.5 text-xs text-slate-700">
-                  <li>• Potential WIOA or workforce board funding (where approved)</li>
-                  <li>• Grants, scholarships, or sponsored slots when available</li>
+                  <li>
+                    • Potential WIOA or workforce board funding (where approved)
+                  </li>
+                  <li>
+                    • Grants, scholarships, or sponsored slots when available
+                  </li>
                   <li>• Employer-supported pathways and work-based learning</li>
                   <li>• Flexible payment plans or self-pay if needed</li>
                 </ul>
@@ -311,7 +362,9 @@ export default function MedicalAssistantProgramPage() {
                   </p>
                   <ul className="mt-2 space-y-1.5 text-slate-600">
                     <li>• Help navigating workforce and funding paperwork</li>
-                    <li>• Referrals for transportation and childcare resources</li>
+                    <li>
+                      • Referrals for transportation and childcare resources
+                    </li>
                     <li>• Soft skills and barrier-removal coaching</li>
                     <li>• Help connecting to employers after completion</li>
                   </ul>
@@ -359,8 +412,8 @@ export default function MedicalAssistantProgramPage() {
               </p>
               <p className="mt-1 text-slate-600">
                 Many learners do. The program uses a mix of online learning and
-                scheduled labs or sessions. We&apos;ll talk through your schedule
-                during enrollment so you understand what it will take.
+                scheduled labs or sessions. We&apos;ll talk through your
+                schedule during enrollment so you understand what it will take.
               </p>
             </div>
             <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
@@ -397,8 +450,8 @@ export default function MedicalAssistantProgramPage() {
               </p>
               <p className="mt-2 text-xs text-slate-100 max-w-md">
                 You don&apos;t have to have it all figured out today. Start by
-                raising your hand, and we&apos;ll help you understand the program,
-                schedule, and funding options based on your situation.
+                raising your hand, and we&apos;ll help you understand the
+                program, schedule, and funding options based on your situation.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
