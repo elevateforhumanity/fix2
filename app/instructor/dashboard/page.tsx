@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useMemo, useState } from "react";
-import Link from "next/link";
+import { useMemo, useState } from 'react';
+import Link from 'next/link';
 
-type FundingType = "WIOA" | "WRG" | "Apprenticeship" | "Tuition" | "Mixed";
-type CourseHealth = "healthy" | "attention" | "at-risk";
+type FundingType = 'WIOA' | 'WRG' | 'Apprenticeship' | 'Tuition' | 'Mixed';
+type CourseHealth = 'healthy' | 'attention' | 'at-risk';
 
 interface InstructorCourseSummary {
   id: string;
@@ -28,7 +28,7 @@ interface AtRiskStudent {
   riskReason: string;
   lastLogin: string;
   progress: number;
-  contactPreference: "Call" | "Text" | "Email";
+  contactPreference: 'Call' | 'Text' | 'Email';
 }
 
 interface LiveSession {
@@ -38,240 +38,240 @@ interface LiveSession {
   courseTitle: string;
   date: string;
   time: string;
-  delivery: "In-person" | "Virtual" | "Hybrid";
+  delivery: 'In-person' | 'Virtual' | 'Hybrid';
   joinLink?: string;
 }
 
 interface InstructorEvent {
   id: string;
-  type: "grade" | "discussion" | "attendance" | "certificate" | "note";
+  type: 'grade' | 'discussion' | 'attendance' | 'certificate' | 'note';
   label: string;
   courseTitle: string;
   timestamp: string;
   details: string;
 }
 
-type CourseFilter = "all" | "healthy" | "attention" | "at-risk";
+type CourseFilter = 'all' | 'healthy' | 'attention' | 'at-risk';
 
 const sampleCourses: InstructorCourseSummary[] = [
   {
-    id: "barber-101",
-    title: "Barber Apprenticeship – Phase 1",
-    pathway: "Trades · Apprenticeship",
-    funding: ["WIOA", "Apprenticeship"],
+    id: 'barber-101',
+    title: 'Barber Apprenticeship – Phase 1',
+    pathway: 'Trades · Apprenticeship',
+    funding: ['WIOA', 'Apprenticeship'],
     enrolled: 24,
     active: 22,
     completed: 5,
     completionRate: 68,
     avgQuizScore: 84,
-    health: "healthy",
-    nextLive: "Live demo: Taper fades · Nov 22",
+    health: 'healthy',
+    nextLive: 'Live demo: Taper fades · Nov 22',
   },
   {
-    id: "hvac-101",
-    title: "HVAC Technician – Core Foundations",
-    pathway: "Skilled Trades",
-    funding: ["WIOA", "WRG"],
+    id: 'hvac-101',
+    title: 'HVAC Technician – Core Foundations',
+    pathway: 'Skilled Trades',
+    funding: ['WIOA', 'WRG'],
     enrolled: 18,
     active: 15,
     completed: 4,
     completionRate: 61,
     avgQuizScore: 76,
-    health: "attention",
-    nextLive: "Safety lab walkthrough · Nov 23",
+    health: 'attention',
+    nextLive: 'Safety lab walkthrough · Nov 23',
   },
   {
-    id: "med-assistant-101",
-    title: "Medical Assistant – Clinical Skills",
-    pathway: "Healthcare",
-    funding: ["Mixed"],
+    id: 'med-assistant-101',
+    title: 'Medical Assistant – Clinical Skills',
+    pathway: 'Healthcare',
+    funding: ['Mixed'],
     enrolled: 20,
     active: 10,
     completed: 2,
     completionRate: 38,
     avgQuizScore: 72,
-    health: "at-risk",
-    nextLive: "Clinical prep Q&A · Nov 24",
+    health: 'at-risk',
+    nextLive: 'Clinical prep Q&A · Nov 24',
   },
   {
-    id: "cdl-101",
-    title: "CDL – Commercial Driving Basics",
-    pathway: "Transportation · Workforce",
-    funding: ["WIOA", "Tuition"],
+    id: 'cdl-101',
+    title: 'CDL – Commercial Driving Basics',
+    pathway: 'Transportation · Workforce',
+    funding: ['WIOA', 'Tuition'],
     enrolled: 14,
     active: 9,
     completed: 7,
     completionRate: 80,
     avgQuizScore: 88,
-    health: "healthy",
-    nextLive: "Road test prep · Nov 25",
+    health: 'healthy',
+    nextLive: 'Road test prep · Nov 25',
   },
 ];
 
 const sampleAtRisk: AtRiskStudent[] = [
   {
-    id: "s1",
-    name: "Angela H",
-    courseId: "med-assistant-101",
-    courseTitle: "Medical Assistant – Clinical Skills",
-    riskReason: "Has not logged in for 10 days · 18% progress",
-    lastLogin: "10 days ago",
+    id: 's1',
+    name: 'Angela H',
+    courseId: 'med-assistant-101',
+    courseTitle: 'Medical Assistant – Clinical Skills',
+    riskReason: 'Has not logged in for 10 days · 18% progress',
+    lastLogin: '10 days ago',
     progress: 18,
-    contactPreference: "Text",
+    contactPreference: 'Text',
   },
   {
-    id: "s2",
-    name: "Marcus J",
-    courseId: "hvac-101",
-    courseTitle: "HVAC Technician – Core Foundations",
-    riskReason: "Missed last live session · quiz average 64%",
-    lastLogin: "3 days ago",
+    id: 's2',
+    name: 'Marcus J',
+    courseId: 'hvac-101',
+    courseTitle: 'HVAC Technician – Core Foundations',
+    riskReason: 'Missed last live session · quiz average 64%',
+    lastLogin: '3 days ago',
     progress: 32,
-    contactPreference: "Call",
+    contactPreference: 'Call',
   },
   {
-    id: "s3",
-    name: "Tanya R",
-    courseId: "barber-101",
-    courseTitle: "Barber Apprenticeship – Phase 1",
-    riskReason: "Behind on hours log · attendance 60%",
-    lastLogin: "Yesterday",
+    id: 's3',
+    name: 'Tanya R',
+    courseId: 'barber-101',
+    courseTitle: 'Barber Apprenticeship – Phase 1',
+    riskReason: 'Behind on hours log · attendance 60%',
+    lastLogin: 'Yesterday',
     progress: 45,
-    contactPreference: "Text",
+    contactPreference: 'Text',
   },
 ];
 
 const sampleLiveSessions: LiveSession[] = [
   {
-    id: "ls1",
-    title: "Live demo: Taper fades",
-    courseId: "barber-101",
-    courseTitle: "Barber Apprenticeship – Phase 1",
-    date: "Nov 22",
-    time: "6:00 PM – 7:30 PM",
-    delivery: "Hybrid",
-    joinLink: "#",
+    id: 'ls1',
+    title: 'Live demo: Taper fades',
+    courseId: 'barber-101',
+    courseTitle: 'Barber Apprenticeship – Phase 1',
+    date: 'Nov 22',
+    time: '6:00 PM – 7:30 PM',
+    delivery: 'Hybrid',
+    joinLink: '#',
   },
   {
-    id: "ls2",
-    title: "Safety lab walkthrough",
-    courseId: "hvac-101",
-    courseTitle: "HVAC Technician – Core Foundations",
-    date: "Nov 23",
-    time: "5:30 PM – 7:00 PM",
-    delivery: "In-person",
+    id: 'ls2',
+    title: 'Safety lab walkthrough',
+    courseId: 'hvac-101',
+    courseTitle: 'HVAC Technician – Core Foundations',
+    date: 'Nov 23',
+    time: '5:30 PM – 7:00 PM',
+    delivery: 'In-person',
   },
   {
-    id: "ls3",
-    title: "Clinical prep Q&A",
-    courseId: "med-assistant-101",
-    courseTitle: "Medical Assistant – Clinical Skills",
-    date: "Nov 24",
-    time: "7:00 PM – 8:00 PM",
-    delivery: "Virtual",
-    joinLink: "#",
+    id: 'ls3',
+    title: 'Clinical prep Q&A',
+    courseId: 'med-assistant-101',
+    courseTitle: 'Medical Assistant – Clinical Skills',
+    date: 'Nov 24',
+    time: '7:00 PM – 8:00 PM',
+    delivery: 'Virtual',
+    joinLink: '#',
   },
 ];
 
 const sampleEvents: InstructorEvent[] = [
   {
-    id: "e1",
-    type: "grade",
-    label: "Graded 12 Safety Basics quizzes · Avg 86%",
-    courseTitle: "HVAC Technician – Core Foundations",
-    timestamp: "2 hours ago",
-    details: "3 learners flagged for follow-up (scores below 70%).",
+    id: 'e1',
+    type: 'grade',
+    label: 'Graded 12 Safety Basics quizzes · Avg 86%',
+    courseTitle: 'HVAC Technician – Core Foundations',
+    timestamp: '2 hours ago',
+    details: '3 learners flagged for follow-up (scores below 70%).',
   },
   {
-    id: "e2",
-    type: "discussion",
-    label: "Replied in \"Balancing work, family & training\" thread",
-    courseTitle: "Student Success & Soft Skills",
-    timestamp: "Yesterday",
-    details: "Pinned response with time management strategy.",
+    id: 'e2',
+    type: 'discussion',
+    label: 'Replied in "Balancing work, family & training" thread',
+    courseTitle: 'Student Success & Soft Skills',
+    timestamp: 'Yesterday',
+    details: 'Pinned response with time management strategy.',
   },
   {
-    id: "e3",
-    type: "attendance",
-    label: "Marked attendance for live barber demo",
-    courseTitle: "Barber Apprenticeship – Phase 1",
-    timestamp: "Yesterday",
-    details: "18 present · 3 excused · 3 no-shows.",
+    id: 'e3',
+    type: 'attendance',
+    label: 'Marked attendance for live barber demo',
+    courseTitle: 'Barber Apprenticeship – Phase 1',
+    timestamp: 'Yesterday',
+    details: '18 present · 3 excused · 3 no-shows.',
   },
   {
-    id: "e4",
-    type: "certificate",
-    label: "Issued 4 new CDL certificates",
-    courseTitle: "CDL – Commercial Driving Basics",
-    timestamp: "3 days ago",
-    details: "Certificates available in student dashboards.",
+    id: 'e4',
+    type: 'certificate',
+    label: 'Issued 4 new CDL certificates',
+    courseTitle: 'CDL – Commercial Driving Basics',
+    timestamp: '3 days ago',
+    details: 'Certificates available in student dashboards.',
   },
 ];
 
 function getHealthBadge(health: CourseHealth) {
   switch (health) {
-    case "healthy":
+    case 'healthy':
       return {
-        label: "Healthy",
-        className: "bg-emerald-50 text-emerald-700 border-emerald-100",
+        label: 'Healthy',
+        className: 'bg-emerald-50 text-emerald-700 border-emerald-100',
       };
-    case "attention":
+    case 'attention':
       return {
-        label: "Needs Attention",
-        className: "bg-amber-50 text-amber-800 border-amber-100",
+        label: 'Needs Attention',
+        className: 'bg-amber-50 text-amber-800 border-amber-100',
       };
-    case "at-risk":
+    case 'at-risk':
       return {
-        label: "At Risk",
-        className: "bg-rose-50 text-rose-700 border-rose-100",
+        label: 'At Risk',
+        className: 'bg-rose-50 text-rose-700 border-rose-100',
       };
     default:
       return {
-        label: "Unknown",
-        className: "bg-slate-50 text-slate-600 border-slate-100",
+        label: 'Unknown',
+        className: 'bg-slate-50 text-slate-600 border-slate-100',
       };
   }
 }
 
 function getFundingLabel(funding: FundingType) {
   switch (funding) {
-    case "WIOA":
-      return "WIOA-Eligible";
-    case "WRG":
-      return "Workforce Ready Grant";
-    case "Apprenticeship":
-      return "Registered Apprenticeship";
-    case "Tuition":
-      return "Tuition / Self-Pay";
-    case "Mixed":
-      return "Mixed Funding";
+    case 'WIOA':
+      return 'WIOA-Eligible';
+    case 'WRG':
+      return 'Workforce Ready Grant';
+    case 'Apprenticeship':
+      return 'Registered Apprenticeship';
+    case 'Tuition':
+      return 'Tuition / Self-Pay';
+    case 'Mixed':
+      return 'Mixed Funding';
     default:
       return funding;
   }
 }
 
-function getEventEmoji(type: InstructorEvent["type"]) {
+function getEventEmoji(type: InstructorEvent['type']) {
   switch (type) {
-    case "grade":
-      return "🧪";
-    case "discussion":
-      return "💬";
-    case "attendance":
-      return "📋";
-    case "certificate":
-      return "🎓";
-    case "note":
-      return "📝";
+    case 'grade':
+      return '🧪';
+    case 'discussion':
+      return '💬';
+    case 'attendance':
+      return '📋';
+    case 'certificate':
+      return '🎓';
+    case 'note':
+      return '📝';
     default:
-      return "⭐";
+      return '⭐';
   }
 }
 
 export default function InstructorDashboardPage() {
-  const [filter, setFilter] = useState<CourseFilter>("all");
+  const [filter, setFilter] = useState<CourseFilter>('all');
 
   const filteredCourses = useMemo(() => {
-    if (filter === "all") return sampleCourses;
+    if (filter === 'all') return sampleCourses;
     return sampleCourses.filter((course) => course.health === filter);
   }, [filter]);
 
@@ -383,50 +383,51 @@ export default function InstructorDashboardPage() {
                     Course Health Overview
                   </h2>
                   <p className="text-xs text-slate-500">
-                    Quickly see which cohorts are healthy and which need support.
+                    Quickly see which cohorts are healthy and which need
+                    support.
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2 text-[11px]">
                   <button
                     type="button"
-                    onClick={() => setFilter("all")}
+                    onClick={() => setFilter('all')}
                     className={`rounded-full px-3 py-1 font-semibold ${
-                      filter === "all"
-                        ? "bg-slate-900 text-white"
-                        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                      filter === 'all'
+                        ? 'bg-slate-900 text-white'
+                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                     }`}
                   >
                     All
                   </button>
                   <button
                     type="button"
-                    onClick={() => setFilter("healthy")}
+                    onClick={() => setFilter('healthy')}
                     className={`rounded-full px-3 py-1 font-semibold ${
-                      filter === "healthy"
-                        ? "bg-emerald-600 text-white"
-                        : "bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
+                      filter === 'healthy'
+                        ? 'bg-emerald-600 text-white'
+                        : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
                     }`}
                   >
                     Healthy
                   </button>
                   <button
                     type="button"
-                    onClick={() => setFilter("attention")}
+                    onClick={() => setFilter('attention')}
                     className={`rounded-full px-3 py-1 font-semibold ${
-                      filter === "attention"
-                        ? "bg-amber-500 text-white"
-                        : "bg-amber-50 text-amber-800 hover:bg-amber-100"
+                      filter === 'attention'
+                        ? 'bg-amber-500 text-white'
+                        : 'bg-amber-50 text-amber-800 hover:bg-amber-100'
                     }`}
                   >
                     Needs Attention
                   </button>
                   <button
                     type="button"
-                    onClick={() => setFilter("at-risk")}
+                    onClick={() => setFilter('at-risk')}
                     className={`rounded-full px-3 py-1 font-semibold ${
-                      filter === "at-risk"
-                        ? "bg-rose-600 text-white"
-                        : "bg-rose-50 text-rose-700 hover:bg-rose-100"
+                      filter === 'at-risk'
+                        ? 'bg-rose-600 text-white'
+                        : 'bg-rose-50 text-rose-700 hover:bg-rose-100'
                     }`}
                   >
                     At Risk
@@ -476,7 +477,7 @@ export default function InstructorDashboardPage() {
                             {healthBadge.label}
                           </span>
                           <p className="text-[10px] text-slate-500">
-                            {course.active}/{course.enrolled} active ·{" "}
+                            {course.active}/{course.enrolled} active ·{' '}
                             {course.completed} completed
                           </p>
                           <div className="mt-1 w-40">
@@ -547,7 +548,8 @@ export default function InstructorDashboardPage() {
                 </span>
               </div>
               <p className="mb-3 text-[11px] text-rose-900/80">
-                These learners have risk signals. A quick touch can keep them from dropping off.
+                These learners have risk signals. A quick touch can keep them
+                from dropping off.
               </p>
               <ul className="space-y-2 text-xs">
                 {sampleAtRisk.map((student) => (

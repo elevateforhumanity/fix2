@@ -4,7 +4,9 @@ import { createClient } from '@/lib/supabase/server';
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -42,12 +44,18 @@ export async function POST(request: NextRequest) {
 
     if (error) {
       console.error('Error pinning thread:', error);
-      return NextResponse.json({ error: 'Failed to pin thread' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'Failed to pin thread' },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ pinned: !thread?.is_pinned });
   } catch (error) {
     console.error('Error in pin route:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

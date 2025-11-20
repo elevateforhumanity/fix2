@@ -1,11 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { 
-  ThumbsUp, 
-  MessageCircle, 
-  Pin, 
-  Search, 
+import {
+  ThumbsUp,
+  MessageCircle,
+  Pin,
+  Search,
   Filter,
   Send,
   Paperclip,
@@ -13,7 +13,7 @@ import {
   MoreVertical,
   Flag,
   Edit,
-  Trash2
+  Trash2,
 } from 'lucide-react';
 
 type Reply = {
@@ -100,15 +100,25 @@ export default function DiscussionsClient({
     setThreads((prev) =>
       prev.map((t) =>
         t.id === threadId
-          ? { ...t, replies: [...t.replies, data.reply], reply_count: (t.reply_count || 0) + 1 }
+          ? {
+              ...t,
+              replies: [...t.replies, data.reply],
+              reply_count: (t.reply_count || 0) + 1,
+            }
           : t
       )
     );
     setReplyText((prev) => ({ ...prev, [threadId]: '' }));
   }
 
-  async function toggleLike(threadId: string, isReply: boolean = false, replyId?: string) {
-    const endpoint = isReply ? '/api/discussions/like-reply' : '/api/discussions/like-thread';
+  async function toggleLike(
+    threadId: string,
+    isReply: boolean = false,
+    replyId?: string
+  ) {
+    const endpoint = isReply
+      ? '/api/discussions/like-reply'
+      : '/api/discussions/like-thread';
     const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -305,7 +315,9 @@ export default function DiscussionsClient({
                   </button>
                   <button
                     onClick={() =>
-                      setExpandedThreadId(expandedThreadId === t.id ? null : t.id)
+                      setExpandedThreadId(
+                        expandedThreadId === t.id ? null : t.id
+                      )
                     }
                     className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium bg-slate-50 text-slate-600 hover:bg-slate-100"
                   >
@@ -336,11 +348,17 @@ export default function DiscussionsClient({
                       >
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex-1">
-                            <p className="text-sm text-slate-700 mb-2">{reply.body}</p>
+                            <p className="text-sm text-slate-700 mb-2">
+                              {reply.body}
+                            </p>
                             <div className="flex items-center gap-3 text-xs text-slate-500">
                               <span>{reply.author_name || 'User'}</span>
                               <span>•</span>
-                              <span>{new Date(reply.created_at).toLocaleDateString()}</span>
+                              <span>
+                                {new Date(
+                                  reply.created_at
+                                ).toLocaleDateString()}
+                              </span>
                             </div>
                           </div>
                           <button className="p-1 rounded hover:bg-slate-100">
@@ -371,7 +389,10 @@ export default function DiscussionsClient({
                       className="flex-1 rounded-lg border border-slate-200 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
                       value={replyText[t.id] || ''}
                       onChange={(e) =>
-                        setReplyText((prev) => ({ ...prev, [t.id]: e.target.value }))
+                        setReplyText((prev) => ({
+                          ...prev,
+                          [t.id]: e.target.value,
+                        }))
                       }
                       onKeyDown={(e) => {
                         if (e.key === 'Enter' && !e.shiftKey) {

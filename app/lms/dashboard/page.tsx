@@ -1,6 +1,6 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-type CourseStatus = "in-progress" | "completed" | "not-started";
+type CourseStatus = 'in-progress' | 'completed' | 'not-started';
 
 interface Course {
   id: string;
@@ -14,11 +14,11 @@ interface Course {
 
 interface ActivityItem {
   id: string;
-  type: "quiz" | "lesson" | "certificate" | "discussion";
+  type: 'quiz' | 'lesson' | 'certificate' | 'discussion';
   title: string;
   course: string;
   timestamp: string;
-  status: "completed" | "in-progress";
+  status: 'completed' | 'in-progress';
 }
 
 interface DeadlineItem {
@@ -26,143 +26,141 @@ interface DeadlineItem {
   title: string;
   course: string;
   dueDate: string;
-  type: "quiz" | "assignment" | "live-session";
+  type: 'quiz' | 'assignment' | 'live-session';
 }
 
 const sampleCourses: Course[] = [
   {
-    id: "barber-101",
-    title: "Barber Apprenticeship – Phase 1",
-    category: "Trades & Licensing",
+    id: 'barber-101',
+    title: 'Barber Apprenticeship – Phase 1',
+    category: 'Trades & Licensing',
     progress: 42,
-    status: "in-progress",
-    nextDue: "Live demo on taper fades – Nov 22",
-    nextTask: "Watch Module 3 video & complete quiz",
+    status: 'in-progress',
+    nextDue: 'Live demo on taper fades – Nov 22',
+    nextTask: 'Watch Module 3 video & complete quiz',
   },
   {
-    id: "hvac-101",
-    title: "HVAC Technician – Core Foundations",
-    category: "Skilled Trades",
+    id: 'hvac-101',
+    title: 'HVAC Technician – Core Foundations',
+    category: 'Skilled Trades',
     progress: 68,
-    status: "in-progress",
-    nextDue: "Safety checklist submission – Nov 23",
-    nextTask: "Submit safety worksheet",
+    status: 'in-progress',
+    nextDue: 'Safety checklist submission – Nov 23',
+    nextTask: 'Submit safety worksheet',
   },
   {
-    id: "med-assistant-101",
-    title: "Medical Assistant – Clinical Skills",
-    category: "Healthcare",
+    id: 'med-assistant-101',
+    title: 'Medical Assistant – Clinical Skills',
+    category: 'Healthcare',
     progress: 0,
-    status: "not-started",
-    nextTask: "Start Lesson 1: Intro to Clinical Procedures",
+    status: 'not-started',
+    nextTask: 'Start Lesson 1: Intro to Clinical Procedures',
   },
   {
-    id: "cdl-101",
-    title: "CDL – Commercial Driving Basics",
-    category: "Transportation",
+    id: 'cdl-101',
+    title: 'CDL – Commercial Driving Basics',
+    category: 'Transportation',
     progress: 100,
-    status: "completed",
-    nextDue: "Certificate ready to download",
-    nextTask: "Download your certificate",
+    status: 'completed',
+    nextDue: 'Certificate ready to download',
+    nextTask: 'Download your certificate',
   },
 ];
 
 const sampleDeadlines: DeadlineItem[] = [
   {
-    id: "dl-1",
-    title: "Module 3 Safety Quiz",
-    course: "HVAC Technician – Core Foundations",
-    dueDate: "Due Nov 23, 11:59 PM",
-    type: "quiz",
+    id: 'dl-1',
+    title: 'Module 3 Safety Quiz',
+    course: 'HVAC Technician – Core Foundations',
+    dueDate: 'Due Nov 23, 11:59 PM',
+    type: 'quiz',
   },
   {
-    id: "dl-2",
-    title: "Live Barber Demo – Taper Fades",
-    course: "Barber Apprenticeship – Phase 1",
-    dueDate: "Nov 22, 6:00 PM (in-person/virtual)",
-    type: "live-session",
+    id: 'dl-2',
+    title: 'Live Barber Demo – Taper Fades',
+    course: 'Barber Apprenticeship – Phase 1',
+    dueDate: 'Nov 22, 6:00 PM (in-person/virtual)',
+    type: 'live-session',
   },
   {
-    id: "dl-3",
-    title: "Work-Based Learning Hours Log",
-    course: "CDL – Commercial Driving Basics",
-    dueDate: "Due Nov 25, 5:00 PM",
-    type: "assignment",
+    id: 'dl-3',
+    title: 'Work-Based Learning Hours Log',
+    course: 'CDL – Commercial Driving Basics',
+    dueDate: 'Due Nov 25, 5:00 PM',
+    type: 'assignment',
   },
 ];
 
 const sampleActivity: ActivityItem[] = [
   {
-    id: "act-1",
-    type: "quiz",
-    title: "Safety Basics Quiz – Score: 92%",
-    course: "HVAC Technician – Core Foundations",
-    timestamp: "Completed 2 hours ago",
-    status: "completed",
+    id: 'act-1',
+    type: 'quiz',
+    title: 'Safety Basics Quiz – Score: 92%',
+    course: 'HVAC Technician – Core Foundations',
+    timestamp: 'Completed 2 hours ago',
+    status: 'completed',
   },
   {
-    id: "act-2",
-    type: "lesson",
-    title: "Watched Module 2: Client Consultation",
-    course: "Barber Apprenticeship – Phase 1",
-    timestamp: "Completed yesterday",
-    status: "completed",
+    id: 'act-2',
+    type: 'lesson',
+    title: 'Watched Module 2: Client Consultation',
+    course: 'Barber Apprenticeship – Phase 1',
+    timestamp: 'Completed yesterday',
+    status: 'completed',
   },
   {
-    id: "act-3",
-    type: "certificate",
-    title: "Certificate issued: CDL – Commercial Driving Basics",
-    course: "CDL – Commercial Driving Basics",
-    timestamp: "Completed 3 days ago",
-    status: "completed",
+    id: 'act-3',
+    type: 'certificate',
+    title: 'Certificate issued: CDL – Commercial Driving Basics',
+    course: 'CDL – Commercial Driving Basics',
+    timestamp: 'Completed 3 days ago',
+    status: 'completed',
   },
   {
-    id: "act-4",
-    type: "discussion",
-    title: "Replied to: \"Balancing work, family & training\"",
-    course: "Student Success & Soft Skills",
-    timestamp: "Completed 5 days ago",
-    status: "completed",
+    id: 'act-4',
+    type: 'discussion',
+    title: 'Replied to: "Balancing work, family & training"',
+    course: 'Student Success & Soft Skills',
+    timestamp: 'Completed 5 days ago',
+    status: 'completed',
   },
 ];
 
-function getEmojiForDeadline(type: DeadlineItem["type"]) {
+function getEmojiForDeadline(type: DeadlineItem['type']) {
   switch (type) {
-    case "quiz":
-      return "📝";
-    case "assignment":
-      return "📂";
-    case "live-session":
-      return "📺";
+    case 'quiz':
+      return '📝';
+    case 'assignment':
+      return '📂';
+    case 'live-session':
+      return '📺';
     default:
-      return "📌";
+      return '📌';
   }
 }
 
-function getEmojiForActivity(type: ActivityItem["type"]) {
+function getEmojiForActivity(type: ActivityItem['type']) {
   switch (type) {
-    case "quiz":
-      return "🧪";
-    case "lesson":
-      return "🎥";
-    case "certificate":
-      return "🎓";
-    case "discussion":
-      return "💬";
+    case 'quiz':
+      return '🧪';
+    case 'lesson':
+      return '🎥';
+    case 'certificate':
+      return '🎓';
+    case 'discussion':
+      return '💬';
     default:
-      return "⭐";
+      return '⭐';
   }
 }
 
 export default function LmsDashboardPage() {
-  const activeCourses = sampleCourses.filter(
-    (c) => c.status === "in-progress"
-  );
+  const activeCourses = sampleCourses.filter((c) => c.status === 'in-progress');
   const completedCourses = sampleCourses.filter(
-    (c) => c.status === "completed"
+    (c) => c.status === 'completed'
   );
   const notStartedCourses = sampleCourses.filter(
-    (c) => c.status === "not-started"
+    (c) => c.status === 'not-started'
   );
 
   const totalCourses = sampleCourses.length;
@@ -173,8 +171,7 @@ export default function LmsDashboardPage() {
     totalCourses === 0
       ? 0
       : Math.round(
-          sampleCourses.reduce((sum, c) => sum + c.progress, 0) /
-            totalCourses
+          sampleCourses.reduce((sum, c) => sum + c.progress, 0) / totalCourses
         );
 
   return (
@@ -190,8 +187,8 @@ export default function LmsDashboardPage() {
               Learning Dashboard
             </h1>
             <p className="mt-2 text-sm md:text-base text-slate-600 max-w-xl">
-              Track your progress, stay on top of deadlines, and see what's
-              next in your Elevate for Humanity training journey.
+              Track your progress, stay on top of deadlines, and see what's next
+              in your Elevate for Humanity training journey.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -289,13 +286,13 @@ export default function LmsDashboardPage() {
               </div>
               {activeCourses.length === 0 ? (
                 <p className="text-sm text-slate-500">
-                  You don&apos;t have any active courses yet.{" "}
+                  You don&apos;t have any active courses yet.{' '}
                   <Link
                     href="/courses"
                     className="font-semibold text-blue-700 hover:underline"
                   >
                     Browse programs
-                  </Link>{" "}
+                  </Link>{' '}
                   to get started.
                 </p>
               ) : (
@@ -329,7 +326,7 @@ export default function LmsDashboardPage() {
                         <p className="mt-2 text-xs text-slate-600">
                           <span className="font-semibold text-slate-900">
                             Next step:
-                          </span>{" "}
+                          </span>{' '}
                           {course.nextTask}
                         </p>
                       )}
@@ -407,8 +404,8 @@ export default function LmsDashboardPage() {
               </div>
               {sampleDeadlines.length === 0 ? (
                 <p className="text-sm text-slate-500">
-                  You don&apos;t have any due dates yet. Once your instructors add
-                  assignments or live sessions, you&apos;ll see them here.
+                  You don&apos;t have any due dates yet. Once your instructors
+                  add assignments or live sessions, you&apos;ll see them here.
                 </p>
               ) : (
                 <ul className="space-y-3">
@@ -449,23 +446,21 @@ export default function LmsDashboardPage() {
                 <li className="flex gap-2">
                   <span className="mt-0.5 text-blue-300">•</span>
                   <span>
-                    Spend 20 minutes finishing your next{" "}
-                    <span className="font-semibold">
-                      in-progress lesson
-                    </span>{" "}
-                    in your top course.
+                    Spend 20 minutes finishing your next{' '}
+                    <span className="font-semibold">in-progress lesson</span> in
+                    your top course.
                   </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-0.5 text-blue-300">•</span>
                   <span>
-                    Check your{" "}
+                    Check your{' '}
                     <Link
                       href="/courses"
                       className="font-semibold underline underline-offset-2"
                     >
                       available programs
-                    </Link>{" "}
+                    </Link>{' '}
                     and add one more that aligns with your long-term career
                     goals.
                   </span>
@@ -473,13 +468,13 @@ export default function LmsDashboardPage() {
                 <li className="flex gap-2">
                   <span className="mt-0.5 text-blue-300">•</span>
                   <span>
-                    Visit the{" "}
+                    Visit the{' '}
                     <Link
                       href="/courses/student-success"
                       className="font-semibold underline underline-offset-2"
                     >
                       Student Success & Soft Skills
-                    </Link>{" "}
+                    </Link>{' '}
                     course to stay strong on time management and mindset.
                   </span>
                 </li>
@@ -489,13 +484,13 @@ export default function LmsDashboardPage() {
                   href={
                     activeCourses[0]
                       ? `/lms/course/${activeCourses[0].id}`
-                      : "/courses"
+                      : '/courses'
                   }
                   className="inline-flex items-center justify-center rounded-lg bg-blue-500 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-600 transition"
                 >
                   {activeCourses[0]
-                    ? "Resume Top Course"
-                    : "Start Your First Course"}
+                    ? 'Resume Top Course'
+                    : 'Start Your First Course'}
                 </Link>
                 <Link
                   href="/lms/achievements"

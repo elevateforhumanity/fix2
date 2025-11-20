@@ -5,6 +5,7 @@
 **Video components are BUILT but NEVER USED in any pages!**
 
 ### Components Found (✅ Built):
+
 - `components/lms/InteractiveVideoPlayer.tsx` - Full featured with quizzes
 - `components/AdvancedVideoPlayer.tsx`
 - `components/VideoPlayer.tsx`
@@ -12,6 +13,7 @@
 - `components/mobile/MobileVideoPlayer.tsx`
 
 ### Usage (❌ ZERO):
+
 - **0 pages import these components**
 - **0 video lessons**
 - **0 video content**
@@ -19,13 +21,13 @@
 
 ## vs Coursera
 
-| Feature | Coursera | Elevate |
-|---------|----------|---------|
-| Video Lessons | ✅ 100% | ❌ 0% |
-| Interactive Quizzes | ✅ | ❌ |
-| Transcripts | ✅ | ❌ |
-| Progress Tracking | ✅ | ❌ |
-| Video Library | ✅ Thousands | ❌ None |
+| Feature             | Coursera     | Elevate |
+| ------------------- | ------------ | ------- |
+| Video Lessons       | ✅ 100%      | ❌ 0%   |
+| Interactive Quizzes | ✅           | ❌      |
+| Transcripts         | ✅           | ❌      |
+| Progress Tracking   | ✅           | ❌      |
+| Video Library       | ✅ Thousands | ❌ None |
 
 ## Quick Fix
 

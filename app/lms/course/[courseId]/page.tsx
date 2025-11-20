@@ -1,22 +1,22 @@
 // app/lms/course/[courseId]/page.tsx
-"use client";
+'use client';
 
-import { useState, useMemo } from "react";
-import { useParams } from "next/navigation";
-import { Section } from "@/components/ui/Section";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { ProgressBar } from "@/components/ui/ProgressBar";
-import { StarRating } from "@/components/ui/StarRating";
-import { Toaster, toast } from "react-hot-toast";
-import InteractiveVideoPlayer from "@/components/lms/InteractiveVideoPlayer";
+import { useState, useMemo } from 'react';
+import { useParams } from 'next/navigation';
+import { Section } from '@/components/ui/Section';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
+import { ProgressBar } from '@/components/ui/ProgressBar';
+import { StarRating } from '@/components/ui/StarRating';
+import { Toaster, toast } from 'react-hot-toast';
+import InteractiveVideoPlayer from '@/components/lms/InteractiveVideoPlayer';
 
 // ---- Mock course data: swap with real DB/API later ----
 type Lesson = {
   id: string;
   title: string;
   duration: string;
-  type: "video" | "quiz" | "reading";
+  type: 'video' | 'quiz' | 'reading';
 };
 
 type Course = {
@@ -34,120 +34,120 @@ type Course = {
 };
 
 const MOCK_COURSES: Record<string, Course> = {
-  "hvac-101": {
-    id: "hvac-101",
-    title: "HVAC Technician Fundamentals",
-    badge: "HVAC • Skilled Trades",
+  'hvac-101': {
+    id: 'hvac-101',
+    title: 'HVAC Technician Fundamentals',
+    badge: 'HVAC • Skilled Trades',
     description:
-      "Start here to build your foundation in safety, tools, and core HVAC concepts before you step into labs and fieldwork.",
+      'Start here to build your foundation in safety, tools, and core HVAC concepts before you step into labs and fieldwork.',
     rating: 4.7,
     reviews: 38,
-    lastUpdated: "Nov 2025",
-    level: "Beginner friendly",
-    duration: "8–10 hours of content",
-    videoUrl: "/sample/hvac-intro.mp4", // TODO: Replace with your actual asset
+    lastUpdated: 'Nov 2025',
+    level: 'Beginner friendly',
+    duration: '8–10 hours of content',
+    videoUrl: '/sample/hvac-intro.mp4', // TODO: Replace with your actual asset
     lessons: [
       {
-        id: "lesson-1",
-        title: "Welcome & Program Overview",
-        duration: "4 min",
-        type: "video",
+        id: 'lesson-1',
+        title: 'Welcome & Program Overview',
+        duration: '4 min',
+        type: 'video',
       },
       {
-        id: "lesson-2",
-        title: "Safety First: PPE & Environment",
-        duration: "9 min",
-        type: "video",
+        id: 'lesson-2',
+        title: 'Safety First: PPE & Environment',
+        duration: '9 min',
+        type: 'video',
       },
       {
-        id: "lesson-3",
+        id: 'lesson-3',
         title: "Tools You'll Use Every Day",
-        duration: "13 min",
-        type: "video",
+        duration: '13 min',
+        type: 'video',
       },
       {
-        id: "lesson-4",
-        title: "Intro to Electricity (HVAC)",
-        duration: "18 min",
-        type: "video",
+        id: 'lesson-4',
+        title: 'Intro to Electricity (HVAC)',
+        duration: '18 min',
+        type: 'video',
       },
       {
-        id: "quiz-1",
-        title: "Check Your Knowledge: Safety & Tools",
-        duration: "10 questions",
-        type: "quiz",
+        id: 'quiz-1',
+        title: 'Check Your Knowledge: Safety & Tools',
+        duration: '10 questions',
+        type: 'quiz',
       },
     ],
   },
-  "barber-apprentice-1": {
-    id: "barber-apprentice-1",
-    title: "Barber Foundations: Shop Readiness",
-    badge: "Barber Apprenticeship",
+  'barber-apprentice-1': {
+    id: 'barber-apprentice-1',
+    title: 'Barber Foundations: Shop Readiness',
+    badge: 'Barber Apprenticeship',
     description:
-      "Learn shop expectations, sanitation, and customer service basics so you show up like a pro from day one in your sponsor shop.",
+      'Learn shop expectations, sanitation, and customer service basics so you show up like a pro from day one in your sponsor shop.',
     rating: 4.9,
     reviews: 21,
-    lastUpdated: "Oct 2025",
-    level: "Beginner",
-    duration: "5–6 hours of content",
-    videoUrl: "/sample/barber-intro.mp4",
+    lastUpdated: 'Oct 2025',
+    level: 'Beginner',
+    duration: '5–6 hours of content',
+    videoUrl: '/sample/barber-intro.mp4',
     lessons: [
       {
-        id: "lesson-1",
-        title: "Welcome to Apprenticeship",
-        duration: "5 min",
-        type: "video",
+        id: 'lesson-1',
+        title: 'Welcome to Apprenticeship',
+        duration: '5 min',
+        type: 'video',
       },
       {
-        id: "lesson-2",
-        title: "Shop Etiquette & First Impressions",
-        duration: "11 min",
-        type: "video",
+        id: 'lesson-2',
+        title: 'Shop Etiquette & First Impressions',
+        duration: '11 min',
+        type: 'video',
       },
       {
-        id: "lesson-3",
-        title: "Sanitation & State Requirements",
-        duration: "16 min",
-        type: "video",
+        id: 'lesson-3',
+        title: 'Sanitation & State Requirements',
+        duration: '16 min',
+        type: 'video',
       },
       {
-        id: "quiz-1",
-        title: "Sanitation Checkpoint",
-        duration: "8 questions",
-        type: "quiz",
+        id: 'quiz-1',
+        title: 'Sanitation Checkpoint',
+        duration: '8 questions',
+        type: 'quiz',
       },
     ],
   },
-  "ma-101": {
-    id: "ma-101",
-    title: "Intro to Medical Assisting",
-    badge: "Healthcare • Medical Assistant",
+  'ma-101': {
+    id: 'ma-101',
+    title: 'Intro to Medical Assisting',
+    badge: 'Healthcare • Medical Assistant',
     description:
-      "Build your foundation in patient care, vital signs, and clinical procedures for medical assistant roles.",
+      'Build your foundation in patient care, vital signs, and clinical procedures for medical assistant roles.',
     rating: 4.7,
     reviews: 17,
-    lastUpdated: "Nov 2025",
-    level: "Beginner",
-    duration: "12 hours of content",
-    videoUrl: "/sample/ma-intro.mp4",
+    lastUpdated: 'Nov 2025',
+    level: 'Beginner',
+    duration: '12 hours of content',
+    videoUrl: '/sample/ma-intro.mp4',
     lessons: [
       {
-        id: "lesson-1",
-        title: "Introduction to Medical Assisting",
-        duration: "6 min",
-        type: "video",
+        id: 'lesson-1',
+        title: 'Introduction to Medical Assisting',
+        duration: '6 min',
+        type: 'video',
       },
       {
-        id: "lesson-2",
-        title: "Patient Communication Basics",
-        duration: "12 min",
-        type: "video",
+        id: 'lesson-2',
+        title: 'Patient Communication Basics',
+        duration: '12 min',
+        type: 'video',
       },
       {
-        id: "lesson-3",
-        title: "Vital Signs Practice Lab",
-        duration: "20 min",
-        type: "video",
+        id: 'lesson-3',
+        title: 'Vital Signs Practice Lab',
+        duration: '20 min',
+        type: 'video',
       },
     ],
   },
@@ -156,16 +156,17 @@ const MOCK_COURSES: Record<string, Course> = {
 export default function CoursePlayerPage() {
   const params = useParams();
   const courseId = params?.courseId as string;
-  const course: Course = MOCK_COURSES[courseId] ?? MOCK_COURSES["hvac-101"];
+  const course: Course = MOCK_COURSES[courseId] ?? MOCK_COURSES['hvac-101'];
 
   const [currentLessonId, setCurrentLessonId] = useState(
-    course.lessons[0]?.id ?? ""
+    course.lessons[0]?.id ?? ''
   );
   const [completedIds, setCompletedIds] = useState<string[]>([]);
   const [playbackRate, setPlaybackRate] = useState(1);
 
   const currentLesson = useMemo(
-    () => course.lessons.find((l) => l.id === currentLessonId) ?? course.lessons[0],
+    () =>
+      course.lessons.find((l) => l.id === currentLessonId) ?? course.lessons[0],
     [course.lessons, currentLessonId]
   );
 
@@ -178,7 +179,7 @@ export default function CoursePlayerPage() {
   const handleMarkComplete = () => {
     if (!completedIds.includes(currentLesson.id)) {
       setCompletedIds([...completedIds, currentLesson.id]);
-      toast.success("Lesson marked complete.");
+      toast.success('Lesson marked complete.');
     }
     // Move to next lesson if exists
     const index = course.lessons.findIndex((l) => l.id === currentLesson.id);
@@ -186,13 +187,13 @@ export default function CoursePlayerPage() {
     if (next) {
       setCurrentLessonId(next.id);
     } else {
-      toast.success("Course section complete—great job!");
+      toast.success('Course section complete—great job!');
     }
   };
 
   const handlePlaybackRateChange = (rate: number) => {
     setPlaybackRate(rate);
-    toast(`Playback speed set to ${rate}x`, { icon: "🎧" });
+    toast(`Playback speed set to ${rate}x`, { icon: '🎧' });
   };
 
   return (
@@ -223,7 +224,8 @@ export default function CoursePlayerPage() {
               <div className="w-full max-w-xs rounded-2xl border border-slate-100 bg-white p-4 shadow-card">
                 <ProgressBar progress={progress} />
                 <p className="mt-2 text-[11px] text-slate-600">
-                  Lessons completed: {completedIds.length} of {course.lessons.length}
+                  Lessons completed: {completedIds.length} of{' '}
+                  {course.lessons.length}
                 </p>
                 <Button
                   className="mt-3 w-full justify-center"
@@ -241,27 +243,28 @@ export default function CoursePlayerPage() {
               <div className="space-y-4">
                 <Card className="overflow-hidden">
                   <div className="aspect-video w-full bg-slate-900">
-                    {currentLesson.type === "video" ? (
+                    {currentLesson.type === 'video' ? (
                       <InteractiveVideoPlayer
                         videoUrl={
                           (currentLesson as any).videoUrl ??
-                          "https://www.youtube.com/embed/dQw4w9WgXcQ"
+                          'https://www.youtube.com/embed/dQw4w9WgXcQ'
                         }
                         title={currentLesson.title}
                         quizzes={[
                           {
-                            id: "q1",
+                            id: 'q1',
                             timestamp: 30,
-                            question: "What is the most important safety equipment?",
+                            question:
+                              'What is the most important safety equipment?',
                             options: [
-                              "Hard hat",
-                              "Safety glasses",
-                              "Steel-toe boots",
-                              "All of the above",
+                              'Hard hat',
+                              'Safety glasses',
+                              'Steel-toe boots',
+                              'All of the above',
                             ],
                             correctAnswer: 3,
                             explanation:
-                              "All safety equipment works together to protect you on the job.",
+                              'All safety equipment works together to protect you on the job.',
                           },
                         ]}
                         transcript={[
@@ -280,16 +283,23 @@ export default function CoursePlayerPage() {
                           // Simple front-end progress tracking.
                           // If you already store this in Supabase, you can call your mutation here.
                           // Example: if 80% watched, auto-mark complete once.
-                          if (progress >= 0.8 && !completedIds.includes(currentLesson.id)) {
+                          if (
+                            progress >= 0.8 &&
+                            !completedIds.includes(currentLesson.id)
+                          ) {
                             handleMarkComplete();
-                            toast.success("Lesson marked complete based on video progress.");
+                            toast.success(
+                              'Lesson marked complete based on video progress.'
+                            );
                           }
                         }}
                         onComplete={() => {
                           // Called when the video hits 100% in the player
                           if (!completedIds.includes(currentLesson.id)) {
                             handleMarkComplete();
-                            toast.success("Great job! You've completed this video lesson.");
+                            toast.success(
+                              "Great job! You've completed this video lesson."
+                            );
                           }
                         }}
                       />
@@ -335,9 +345,9 @@ export default function CoursePlayerPage() {
                         </select>
                       </div>
                       <span className="rounded-full bg-slate-100 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-700">
-                        {currentLesson.type === "quiz"
-                          ? "Checkpoint"
-                          : "Video lesson"}
+                        {currentLesson.type === 'quiz'
+                          ? 'Checkpoint'
+                          : 'Video lesson'}
                       </span>
                     </div>
                   </div>
@@ -362,8 +372,8 @@ export default function CoursePlayerPage() {
                       size="sm"
                       variant="outline"
                       onClick={() =>
-                        toast("In a real build, this would save your notes.", {
-                          icon: "💾",
+                        toast('In a real build, this would save your notes.', {
+                          icon: '💾',
                         })
                       }
                     >
@@ -395,18 +405,16 @@ export default function CoursePlayerPage() {
                         type="button"
                         onClick={() => setCurrentLessonId(lesson.id)}
                         className={[
-                          "flex w-full items-center justify-between gap-3 rounded-xl border px-3 py-2.5 text-left text-xs md:text-[13px] transition-all duration-200",
+                          'flex w-full items-center justify-between gap-3 rounded-xl border px-3 py-2.5 text-left text-xs md:text-[13px] transition-all duration-200',
                           isActive
-                            ? "border-red-600 bg-red-50/30 text-slate-900"
-                            : "border-slate-100 bg-slate-50 hover:bg-slate-100/80",
-                        ].join(" ")}
+                            ? 'border-red-600 bg-red-50/30 text-slate-900'
+                            : 'border-slate-100 bg-slate-50 hover:bg-slate-100/80',
+                        ].join(' ')}
                       >
                         <div className="flex flex-1 flex-col">
-                          <span className="font-semibold">
-                            {lesson.title}
-                          </span>
+                          <span className="font-semibold">{lesson.title}</span>
                           <span className="mt-0.5 text-[11px] text-slate-600">
-                            {lesson.type === "quiz" ? "Quiz • " : "Lesson • "}
+                            {lesson.type === 'quiz' ? 'Quiz • ' : 'Lesson • '}
                             {lesson.duration}
                           </span>
                         </div>
@@ -421,7 +429,7 @@ export default function CoursePlayerPage() {
                             </span>
                           ) : (
                             <span className="text-[11px] text-slate-500">
-                              {lesson.type === "quiz" ? "Checkpoint" : "Watch"}
+                              {lesson.type === 'quiz' ? 'Checkpoint' : 'Watch'}
                             </span>
                           )}
                         </div>
@@ -432,8 +440,9 @@ export default function CoursePlayerPage() {
 
                 <div className="pt-3 border-t border-dashed border-slate-200 text-[11px] text-slate-600">
                   <p>
-                    Your case manager, employer, or sponsor can view your completion
-                    status from their Elevate portal once you're fully connected.
+                    Your case manager, employer, or sponsor can view your
+                    completion status from their Elevate portal once you're
+                    fully connected.
                   </p>
                 </div>
               </Card>

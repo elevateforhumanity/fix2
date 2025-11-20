@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function AboutPage() {
   return (
@@ -15,7 +15,7 @@ export default function AboutPage() {
           <div className="mt-5 grid gap-8 lg:grid-cols-[1.6fr,1.2fr] lg:items-center">
             <div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                Workforce development for people who{" "}
+                Workforce development for people who{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent">
                   can&apos;t afford to be left behind.
                 </span>
@@ -23,8 +23,8 @@ export default function AboutPage() {
               <p className="mt-4 text-sm md:text-base text-slate-600 max-w-xl">
                 Elevate for Humanity is a workforce and learning ecosystem
                 designed for real people with real barriers—parents, returning
-                citizens, career changers, and anyone who needs a second
-                chance, not a second job filling out forms. We connect training,
+                citizens, career changers, and anyone who needs a second chance,
+                not a second job filling out forms. We connect training,
                 wraparound support, employers, and funding so learners can
                 actually finish.
               </p>
@@ -63,10 +63,10 @@ export default function AboutPage() {
                   Our Mission
                 </p>
                 <p className="mt-2 text-sm font-semibold text-slate-900">
-                  To remove the friction between{" "}
+                  To remove the friction between{' '}
                   <span className="underline decoration-blue-400 decoration-2 underline-offset-4">
                     people who are ready to work
-                  </span>{" "}
+                  </span>{' '}
                   and the training, credentials, and employers that need them.
                 </p>
               </div>
@@ -104,9 +104,7 @@ export default function AboutPage() {
         <section className="mb-10 lg:mb-14">
           <div className="grid gap-6 lg:grid-cols-3">
             <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
-              <h2 className="text-sm font-semibold text-slate-900">
-                Mission
-              </h2>
+              <h2 className="text-sm font-semibold text-slate-900">Mission</h2>
               <p className="mt-2 text-xs text-slate-600">
                 Elevate for Humanity exists to build career pathways for people
                 who are usually overlooked by traditional systems—connecting
@@ -115,45 +113,39 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
-              <h2 className="text-sm font-semibold text-slate-900">
-                Vision
-              </h2>
+              <h2 className="text-sm font-semibold text-slate-900">Vision</h2>
               <p className="mt-2 text-xs text-slate-600">
                 A world where zip code, background, and past mistakes do not
-                decide a person&apos;s future. Our vision is a network of community
-                hubs, training partners, and employers that move in sync to
-                lift entire families, not just fill job openings.
+                decide a person&apos;s future. Our vision is a network of
+                community hubs, training partners, and employers that move in
+                sync to lift entire families, not just fill job openings.
               </p>
             </div>
             <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
-              <h2 className="text-sm font-semibold text-slate-900">
-                Values
-              </h2>
+              <h2 className="text-sm font-semibold text-slate-900">Values</h2>
               <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
                 <li>
                   <span className="font-semibold text-slate-900">
                     People first:
-                  </span>{" "}
+                  </span>{' '}
                   Systems should bend around people, not the other way around.
                 </li>
                 <li>
                   <span className="font-semibold text-slate-900">
                     Clarity & compliance:
-                  </span>{" "}
+                  </span>{' '}
                   We build with workforce boards, funders, and auditors in mind
                   from day one.
                 </li>
                 <li>
                   <span className="font-semibold text-slate-900">
                     Collaboration:
-                  </span>{" "}
+                  </span>{' '}
                   Schools, employers, and community partners all belong at the
                   same table.
                 </li>
                 <li>
-                  <span className="font-semibold text-slate-900">
-                    Dignity:
-                  </span>{" "}
+                  <span className="font-semibold text-slate-900">Dignity:</span>{' '}
                   Every learner deserves respect, clear options, and a real
                   chance to finish.
                 </li>
@@ -169,9 +161,9 @@ export default function AboutPage() {
               What Elevate for Humanity actually does
             </h2>
             <p className="text-[11px] text-slate-500 max-w-sm">
-              We don&apos;t just &quot;list courses.&quot; We orchestrate an ecosystem of
-              programs, partners, and support so people can enroll, persist, and
-              get hired.
+              We don&apos;t just &quot;list courses.&quot; We orchestrate an
+              ecosystem of programs, partners, and support so people can enroll,
+              persist, and get hired.
             </p>
           </div>
 
@@ -184,7 +176,10 @@ export default function AboutPage() {
                 <li>• HVAC, Building Maintenance, CDL, Barber, and more</li>
                 <li>• Healthcare pathways powered by credentialing partners</li>
                 <li>• Blended learning (online + hands-on labs)</li>
-                <li>• Certificates, industry credentials, and apprenticeship tracks</li>
+                <li>
+                  • Certificates, industry credentials, and apprenticeship
+                  tracks
+                </li>
               </ul>
             </div>
 
@@ -194,7 +189,9 @@ export default function AboutPage() {
               </p>
               <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
                 <li>• Barrier-aware coaching and case management approach</li>
-                <li>• Referrals for childcare, transportation, and mental health</li>
+                <li>
+                  • Referrals for childcare, transportation, and mental health
+                </li>
                 <li>• Soft skills, work readiness, and life skills content</li>
                 <li>• Peer support & community discussion spaces</li>
               </ul>
@@ -205,10 +202,16 @@ export default function AboutPage() {
                 Employer & workforce alignment
               </p>
               <ul className="mt-2 space-y-1.5 text-xs text-slate-600">
-                <li>• Work-based learning, WEX, OJT, and apprenticeship models</li>
-                <li>• Employer advisory input on curriculum and hiring needs</li>
+                <li>
+                  • Work-based learning, WEX, OJT, and apprenticeship models
+                </li>
+                <li>
+                  • Employer advisory input on curriculum and hiring needs
+                </li>
                 <li>• Employer directory and partner onboarding</li>
-                <li>• Designed to align with WIOA, WRG, and other funding streams</li>
+                <li>
+                  • Designed to align with WIOA, WRG, and other funding streams
+                </li>
               </ul>
             </div>
           </div>
@@ -248,8 +251,8 @@ export default function AboutPage() {
                     <dd className="text-slate-600">
                       A network of schools, instructors, and program holders
                       that provide day-to-day instruction, labs, and hands-on
-                      training, while Elevate manages compliance, reporting,
-                      and the digital learning environment.
+                      training, while Elevate manages compliance, reporting, and
+                      the digital learning environment.
                     </dd>
                   </div>
                   <div>
@@ -284,15 +287,15 @@ export default function AboutPage() {
                     For training partners & program holders
                   </p>
                   <p className="mt-2 text-[11px] text-slate-600">
-                    You focus on high-quality instruction and hands-on
-                    learning. Elevate helps with LMS, documentation, reporting,
-                    and connecting learners to funding and employers.
+                    You focus on high-quality instruction and hands-on learning.
+                    Elevate helps with LMS, documentation, reporting, and
+                    connecting learners to funding and employers.
                   </p>
                   <p className="mt-2 text-[11px] text-slate-500">
                     <span className="font-semibold text-slate-900">
                       Interested in partnering?
-                    </span>{" "}
-                    Start with our{" "}
+                    </span>{' '}
+                    Start with our{' '}
                     <Link
                       href="/onboarding/partner"
                       className="font-semibold text-blue-700 underline underline-offset-2"
@@ -329,9 +332,9 @@ export default function AboutPage() {
               </p>
               <p className="mt-2 text-xs text-slate-600">
                 Leads strategy, ecosystem design, and multi-partner coordination
-                across training providers, employers, and community organizations.
-                Focused on building a model that&apos;s deeply human and deeply
-                compliant at the same time.
+                across training providers, employers, and community
+                organizations. Focused on building a model that&apos;s deeply
+                human and deeply compliant at the same time.
               </p>
             </div>
 
@@ -354,8 +357,8 @@ export default function AboutPage() {
               <p className="mt-2 text-xs text-slate-600">
                 Employers, workforce boards, community agencies, and other
                 training institutions who believe in giving people a real shot.
-                They advise on skills, host work-based learning, and hire
-                talent coming through the Elevate pipeline.
+                They advise on skills, host work-based learning, and hire talent
+                coming through the Elevate pipeline.
               </p>
             </div>
           </div>
@@ -370,37 +373,37 @@ export default function AboutPage() {
                   How we&apos;re building the ecosystem
                 </h2>
                 <p className="text-xs text-slate-600 mb-3">
-                  Elevate for Humanity isn&apos;t a &quot;launch and leave&quot; project. It&apos;s
-                  being built in deliberate phases so it can actually support
-                  learners, partners, and compliance long-term.
+                  Elevate for Humanity isn&apos;t a &quot;launch and leave&quot;
+                  project. It&apos;s being built in deliberate phases so it can
+                  actually support learners, partners, and compliance long-term.
                 </p>
 
                 <ol className="space-y-2 text-xs text-slate-700 list-decimal list-inside">
                   <li>
                     <span className="font-semibold text-slate-900">
                       Phase 1 – Foundation:
-                    </span>{" "}
+                    </span>{' '}
                     Build core tech, LMS, and enrollment flows; map workforce
                     processes and compliance requirements.
                   </li>
                   <li>
                     <span className="font-semibold text-slate-900">
                       Phase 2 – Programs:
-                    </span>{" "}
+                    </span>{' '}
                     Launch flagship pathways (HVAC, CDL, Barber, Building
                     Maintenance, Medical Assistant) with strong employer input.
                   </li>
                   <li>
                     <span className="font-semibold text-slate-900">
                       Phase 3 – Ecosystem:
-                    </span>{" "}
+                    </span>{' '}
                     Add employer directory, multi-partner onboarding, and
                     stronger reporting views for workforce boards and funders.
                   </li>
                   <li>
                     <span className="font-semibold text-slate-900">
                       Phase 4 – Scale:
-                    </span>{" "}
+                    </span>{' '}
                     Expand to additional regions and partners while maintaining
                     tight standards for quality and compliance.
                   </li>
@@ -415,8 +418,12 @@ export default function AboutPage() {
                   <ul className="mt-2 space-y-1.5 text-slate-600">
                     <li>• Human-friendly for learners, not just portals</li>
                     <li>• Clear documentation trails for funders & auditors</li>
-                    <li>• Built to integrate training providers, not replace them</li>
-                    <li>• Grounded in real career outcomes, not vanity metrics</li>
+                    <li>
+                      • Built to integrate training providers, not replace them
+                    </li>
+                    <li>
+                      • Grounded in real career outcomes, not vanity metrics
+                    </li>
                   </ul>
                 </div>
                 <div className="rounded-xl border border-slate-100 bg-slate-50 p-4">
@@ -498,8 +505,9 @@ export default function AboutPage() {
 
         <footer className="mt-6 border-t border-slate-100 pt-4">
           <p className="text-[11px] text-slate-500">
-            Elevate for Humanity is part of a broader ecosystem of mission-driven
-            initiatives focused on workforce, community, and economic mobility.
+            Elevate for Humanity is part of a broader ecosystem of
+            mission-driven initiatives focused on workforce, community, and
+            economic mobility.
           </p>
         </footer>
       </div>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function AboutPage() {
   return (
@@ -51,14 +51,14 @@ export default function AboutPage() {
             Building a pillar—not just a program.
           </h1>
           <p className="mt-3 text-sm text-slate-300">
-            Elevate for Humanity and the Elevate Connects Directory exist so that when someone
-            is ready to move—out of survival, into training, into work—there is a simple,
-            trusted place people can send them.
+            Elevate for Humanity and the Elevate Connects Directory exist so
+            that when someone is ready to move—out of survival, into training,
+            into work—there is a simple, trusted place people can send them.
           </p>
           <p className="mt-3 text-sm text-slate-300">
-            We work with credentialing partners, workforce boards, agencies, community
-            leaders, and employers to turn scattered opportunities into pathways people can
-            actually follow and finish.
+            We work with credentialing partners, workforce boards, agencies,
+            community leaders, and employers to turn scattered opportunities
+            into pathways people can actually follow and finish.
           </p>
         </div>
       </section>
@@ -66,7 +66,10 @@ export default function AboutPage() {
       {/* FOOTER */}
       <footer className="border-t border-slate-800 bg-slate-950">
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-6 text-[0.75rem] text-slate-500 md:flex-row md:items-center md:justify-between lg:px-6">
-          <p>© {new Date().getFullYear()} Elevate for Humanity. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Elevate for Humanity. All rights
+            reserved.
+          </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/terms" className="hover:text-emerald-300">
               Terms

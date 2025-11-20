@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useMemo, useState } from "react";
-import Link from "next/link";
+import { useMemo, useState } from 'react';
+import Link from 'next/link';
 
-type Role = "Student" | "Instructor" | "Staff";
+type Role = 'Student' | 'Instructor' | 'Staff';
 
 type Thread = {
   id: string;
@@ -30,65 +30,65 @@ type Reply = {
   isMine?: boolean;
 };
 
-type SortOption = "recent" | "active" | "likes";
+type SortOption = 'recent' | 'active' | 'likes';
 
 const initialThreads: Thread[] = [
   {
-    id: "t1",
-    title: "Balancing work, family & training (any tips?)",
-    author: "Ashley R.",
-    role: "Student",
-    createdAt: "2 days ago",
-    lastActivity: "1 hour ago",
+    id: 't1',
+    title: 'Balancing work, family & training (any tips?)',
+    author: 'Ashley R.',
+    role: 'Student',
+    createdAt: '2 days ago',
+    lastActivity: '1 hour ago',
     replies: 8,
     likes: 21,
     pinned: true,
-    tags: ["Support", "Scheduling"],
+    tags: ['Support', 'Scheduling'],
   },
   {
-    id: "t2",
-    title: "Live session: What to bring to your first clinical day",
-    author: "Nurse Williams",
-    role: "Instructor",
-    createdAt: "3 days ago",
-    lastActivity: "Yesterday",
+    id: 't2',
+    title: 'Live session: What to bring to your first clinical day',
+    author: 'Nurse Williams',
+    role: 'Instructor',
+    createdAt: '3 days ago',
+    lastActivity: 'Yesterday',
     replies: 12,
     likes: 34,
     pinned: true,
-    tags: ["Announcement", "Clinical"],
+    tags: ['Announcement', 'Clinical'],
   },
   {
-    id: "t3",
-    title: "Struggling with Module 2 quiz – HVAC safety",
-    author: "James P.",
-    role: "Student",
-    createdAt: "5 hours ago",
-    lastActivity: "3 hours ago",
+    id: 't3',
+    title: 'Struggling with Module 2 quiz – HVAC safety',
+    author: 'James P.',
+    role: 'Student',
+    createdAt: '5 hours ago',
+    lastActivity: '3 hours ago',
     replies: 5,
     likes: 9,
-    tags: ["Quiz", "HVAC"],
+    tags: ['Quiz', 'HVAC'],
   },
   {
-    id: "t4",
-    title: "Share your first client success story ✂️",
-    author: "Coach D",
-    role: "Instructor",
-    createdAt: "1 week ago",
-    lastActivity: "2 days ago",
+    id: 't4',
+    title: 'Share your first client success story ✂️',
+    author: 'Coach D',
+    role: 'Instructor',
+    createdAt: '1 week ago',
+    lastActivity: '2 days ago',
     replies: 18,
     likes: 47,
-    tags: ["Barber", "Wins"],
+    tags: ['Barber', 'Wins'],
   },
 ];
 
 const initialRepliesByThread: Record<string, Reply[]> = {
   t1: [
     {
-      id: "r1",
-      author: "Ashley R.",
-      role: "Student",
-      avatarInitial: "A",
-      createdAt: "2 days ago",
+      id: 'r1',
+      author: 'Ashley R.',
+      role: 'Student',
+      avatarInitial: 'A',
+      createdAt: '2 days ago',
       content:
         "I'm working full-time, have kids, and doing this program. How are y'all managing it without burning out?",
       likes: 10,
@@ -96,22 +96,22 @@ const initialRepliesByThread: Record<string, Reply[]> = {
       isMine: true,
     },
     {
-      id: "r2",
-      author: "Coach Dee",
-      role: "Instructor",
-      avatarInitial: "D",
-      createdAt: "Yesterday",
+      id: 'r2',
+      author: 'Coach Dee',
+      role: 'Instructor',
+      avatarInitial: 'D',
+      createdAt: 'Yesterday',
       content:
-        "Set a fixed training block (even 30–45 min a day) and protect it like a work shift. Also use the mobile view to sneak in lessons on breaks.",
+        'Set a fixed training block (even 30–45 min a day) and protect it like a work shift. Also use the mobile view to sneak in lessons on breaks.',
       likes: 15,
       isInstructor: true,
     },
     {
-      id: "r3",
-      author: "Marcus T.",
-      role: "Student",
-      avatarInitial: "M",
-      createdAt: "1 hour ago",
+      id: 'r3',
+      author: 'Marcus T.',
+      role: 'Student',
+      avatarInitial: 'M',
+      createdAt: '1 hour ago',
       content:
         "I do modules after the kids go to bed and batch my assignments on Sundays. Also told my family this is 'temporary grind time' for a bigger goal.",
       likes: 5,
@@ -120,35 +120,34 @@ const initialRepliesByThread: Record<string, Reply[]> = {
   ],
   t2: [
     {
-      id: "r4",
-      author: "Nurse Williams",
-      role: "Instructor",
-      avatarInitial: "W",
-      createdAt: "3 days ago",
+      id: 'r4',
+      author: 'Nurse Williams',
+      role: 'Instructor',
+      avatarInitial: 'W',
+      createdAt: '3 days ago',
       content:
-        "For clinical: bring your badge, notebook, pen, and comfortable shoes. No long nails, no heavy perfumes, and hair pulled back.",
+        'For clinical: bring your badge, notebook, pen, and comfortable shoes. No long nails, no heavy perfumes, and hair pulled back.',
       likes: 22,
       isInstructor: true,
     },
   ],
   t3: [
     {
-      id: "r5",
-      author: "James P.",
-      role: "Student",
-      avatarInitial: "J",
-      createdAt: "5 hours ago",
-      content:
-        "I keep missing questions on lockout/tagout. Any memory tricks?",
+      id: 'r5',
+      author: 'James P.',
+      role: 'Student',
+      avatarInitial: 'J',
+      createdAt: '5 hours ago',
+      content: 'I keep missing questions on lockout/tagout. Any memory tricks?',
       likes: 2,
       isInstructor: false,
     },
     {
-      id: "r6",
-      author: "HVAC Instructor",
-      role: "Instructor",
-      avatarInitial: "H",
-      createdAt: "3 hours ago",
+      id: 'r6',
+      author: 'HVAC Instructor',
+      role: 'Instructor',
+      avatarInitial: 'H',
+      createdAt: '3 hours ago',
       content:
         "Think: 'LOCK it, TAG it, TEST it.' Never touch equipment again until you confirm it's safe. That phrase will help on the quiz and on the job.",
       likes: 7,
@@ -157,13 +156,13 @@ const initialRepliesByThread: Record<string, Reply[]> = {
   ],
   t4: [
     {
-      id: "r7",
-      author: "Coach D",
-      role: "Instructor",
-      avatarInitial: "D",
-      createdAt: "1 week ago",
+      id: 'r7',
+      author: 'Coach D',
+      role: 'Instructor',
+      avatarInitial: 'D',
+      createdAt: '1 week ago',
       content:
-        "Drop your first client success stories here. The little wins matter – first edge-up, first clean fade, first tip, all of it counts.",
+        'Drop your first client success stories here. The little wins matter – first edge-up, first clean fade, first tip, all of it counts.',
       likes: 19,
       isInstructor: true,
     },
@@ -180,11 +179,11 @@ export default function CourseDiscussionsPage({
     Record<string, Reply[]>
   >(initialRepliesByThread);
   const [selectedThreadId, setSelectedThreadId] = useState<string>(
-    initialThreads[0]?.id ?? ""
+    initialThreads[0]?.id ?? ''
   );
-  const [search, setSearch] = useState("");
-  const [sort, setSort] = useState<SortOption>("active");
-  const [newReply, setNewReply] = useState("");
+  const [search, setSearch] = useState('');
+  const [sort, setSort] = useState<SortOption>('active');
+  const [newReply, setNewReply] = useState('');
   const [isPosting, setIsPosting] = useState(false);
 
   const selectedThread = threads.find((t) => t.id === selectedThreadId);
@@ -215,11 +214,11 @@ export default function CourseDiscussionsPage({
 
     nonPinned.sort((a, b) => {
       switch (sort) {
-        case "recent":
+        case 'recent':
           return 0; // already roughly in time order by default data
-        case "active":
+        case 'active':
           return b.replies - a.replies;
-        case "likes":
+        case 'likes':
           return b.likes - a.likes;
         default:
           return 0;
@@ -236,14 +235,12 @@ export default function CourseDiscussionsPage({
 
   function handleSelectThread(id: string) {
     setSelectedThreadId(id);
-    setNewReply("");
+    setNewReply('');
   }
 
   function handleLikeThread(id: string) {
     setThreads((prev) =>
-      prev.map((t) =>
-        t.id === id ? { ...t, likes: t.likes + 1 } : t
-      )
+      prev.map((t) => (t.id === id ? { ...t, likes: t.likes + 1 } : t))
     );
   }
 
@@ -270,10 +267,10 @@ export default function CourseDiscussionsPage({
     // Here we just simulate local append.
     const newReplyObj: Reply = {
       id: `local-${Date.now()}`,
-      author: "You",
-      role: "Student",
-      avatarInitial: "Y",
-      createdAt: "Just now",
+      author: 'You',
+      role: 'Student',
+      avatarInitial: 'Y',
+      createdAt: 'Just now',
       content: trimmed,
       likes: 0,
       isInstructor: false,
@@ -291,19 +288,19 @@ export default function CourseDiscussionsPage({
     setThreads((prev) =>
       prev.map((t) =>
         t.id === selectedThread.id
-          ? { ...t, replies: (t.replies ?? 0) + 1, lastActivity: "Just now" }
+          ? { ...t, replies: (t.replies ?? 0) + 1, lastActivity: 'Just now' }
           : t
       )
     );
 
-    setNewReply("");
+    setNewReply('');
     setIsPosting(false);
   }
 
   const courseLabel = useMemo(() => {
     // You can replace this with a real course title lookup.
     return params.courseId
-      .replace(/-/g, " ")
+      .replace(/-/g, ' ')
       .replace(/\b\w/g, (c) => c.toUpperCase());
   }, [params.courseId]);
 
@@ -355,33 +352,33 @@ export default function CourseDiscussionsPage({
             <span className="text-slate-500">Sort by:</span>
             <button
               type="button"
-              onClick={() => setSort("active")}
+              onClick={() => setSort('active')}
               className={`rounded-full px-3 py-1 font-semibold ${
-                sort === "active"
-                  ? "bg-blue-600 text-white"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                sort === 'active'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
               Most active
             </button>
             <button
               type="button"
-              onClick={() => setSort("recent")}
+              onClick={() => setSort('recent')}
               className={`rounded-full px-3 py-1 font-semibold ${
-                sort === "recent"
-                  ? "bg-blue-600 text-white"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                sort === 'recent'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
               Newest
             </button>
             <button
               type="button"
-              onClick={() => setSort("likes")}
+              onClick={() => setSort('likes')}
               className={`rounded-full px-3 py-1 font-semibold ${
-                sort === "likes"
-                  ? "bg-blue-600 text-white"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                sort === 'likes'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
               Most liked
@@ -412,8 +409,8 @@ export default function CourseDiscussionsPage({
                     onClick={() => handleSelectThread(thread.id)}
                     className={`w-full text-left rounded-xl px-3 py-2.5 text-xs transition border ${
                       isActive
-                        ? "border-blue-200 bg-blue-50"
-                        : "border-slate-100 bg-slate-50/70 hover:bg-slate-50"
+                        ? 'border-blue-200 bg-blue-50'
+                        : 'border-slate-100 bg-slate-50/70 hover:bg-slate-50'
                     }`}
                   >
                     <div className="flex items-start justify-between gap-2">
@@ -429,8 +426,7 @@ export default function CourseDiscussionsPage({
                           </p>
                         </div>
                         <p className="mt-0.5 text-[11px] text-slate-500">
-                          {thread.author} · {thread.role} ·{" "}
-                          {thread.createdAt}
+                          {thread.author} · {thread.role} · {thread.createdAt}
                         </p>
                         {thread.tags && (
                           <div className="mt-1 flex flex-wrap gap-1">
@@ -477,8 +473,8 @@ export default function CourseDiscussionsPage({
             {/* New thread CTA placeholder (UI only – you can wire this later) */}
             <div className="mt-4 rounded-xl border border-dashed border-slate-200 bg-slate-50 px-3 py-3 text-[11px] text-slate-600">
               Want to start a new conversation? In the next phase you can add a
-              &quot;New Thread&quot; button here that opens a full editor with title,
-              tags, and rich text.
+              &quot;New Thread&quot; button here that opens a full editor with
+              title, tags, and rich text.
             </div>
           </div>
 
@@ -501,7 +497,7 @@ export default function CourseDiscussionsPage({
                         </h2>
                       </div>
                       <p className="mt-1 text-[11px] text-slate-500">
-                        Started by {selectedThread.author} ·{" "}
+                        Started by {selectedThread.author} ·{' '}
                         {selectedThread.role} · {selectedThread.createdAt}
                       </p>
                     </div>
@@ -529,8 +525,8 @@ export default function CourseDiscussionsPage({
                         key={reply.id}
                         className={`rounded-xl border px-3 py-2.5 text-xs ${
                           reply.isInstructor
-                            ? "border-blue-100 bg-blue-50/70"
-                            : "border-slate-100 bg-slate-50/70"
+                            ? 'border-blue-100 bg-blue-50/70'
+                            : 'border-slate-100 bg-slate-50/70'
                         }`}
                       >
                         <div className="mb-1.5 flex items-start justify-between gap-2">
@@ -540,7 +536,7 @@ export default function CourseDiscussionsPage({
                             </div>
                             <div>
                               <p className="font-semibold text-slate-900">
-                                {reply.author}{" "}
+                                {reply.author}{' '}
                                 {reply.isInstructor && (
                                   <span className="ml-1 rounded-full bg-blue-600 px-1.5 py-0.5 text-[9px] font-semibold text-white">
                                     Instructor
@@ -589,8 +585,8 @@ export default function CourseDiscussionsPage({
                   />
                   <div className="mt-2 flex items-center justify-between">
                     <p className="text-[10px] text-slate-500">
-                      You are posting as <span className="font-semibold">You</span>{" "}
-                      (Student)
+                      You are posting as{' '}
+                      <span className="font-semibold">You</span> (Student)
                     </p>
                     <button
                       type="button"
@@ -598,11 +594,11 @@ export default function CourseDiscussionsPage({
                       onClick={handlePostReply}
                       className={`inline-flex items-center justify-center rounded-lg px-4 py-1.5 text-[11px] font-semibold shadow-sm transition ${
                         !newReply.trim() || isPosting
-                          ? "bg-slate-200 text-slate-500 cursor-not-allowed"
-                          : "bg-blue-600 text-white hover:bg-blue-700"
+                          ? 'bg-slate-200 text-slate-500 cursor-not-allowed'
+                          : 'bg-blue-600 text-white hover:bg-blue-700'
                       }`}
                     >
-                      {isPosting ? "Posting…" : "Post Reply"}
+                      {isPosting ? 'Posting…' : 'Post Reply'}
                     </button>
                   </div>
                 </div>
