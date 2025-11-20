@@ -3,6 +3,7 @@
 ## What It Does
 
 The Vercel Autopilot script uses Puppeteer to automatically:
+
 1. ✅ Login to Vercel dashboard
 2. ✅ Navigate to fix2-gpql project
 3. ✅ Check and fix production branch (set to 'main')
@@ -26,6 +27,7 @@ pnpm vercel:autopilot
 ```
 
 The browser will open and you'll see it automatically:
+
 - Login to Vercel
 - Navigate through settings
 - Fix configuration issues
@@ -34,6 +36,7 @@ The browser will open and you'll see it automatically:
 ### Step 3: Wait and Verify
 
 After the script completes:
+
 1. Wait 2-3 minutes for deployment
 2. Open: https://www.elevateforhumanity.org
 3. Hard refresh: `Ctrl+Shift+R` or `Cmd+Shift+R`
@@ -41,20 +44,24 @@ After the script completes:
 ## What It Fixes
 
 ### Production Branch
+
 - Checks if production branch is set to 'main'
 - If it finds 'deepsource' references, it updates to 'main'
 - Saves the configuration
 
 ### Build Cache
+
 - Disables "Use existing Build Cache" when redeploying
 - Ensures completely fresh build
 
 ### Deployments
+
 - Counts existing deployments
 - Warns if there are too many (>5)
 - Triggers new deployment
 
 ### Domain
+
 - Verifies www.elevateforhumanity.org is configured
 - Reports if domain is missing
 
@@ -63,6 +70,7 @@ After the script completes:
 ### "Missing credentials" error
 
 Set your Vercel login credentials:
+
 ```bash
 export VERCEL_EMAIL="your-email"
 export VERCEL_PASSWORD="your-password"
@@ -71,12 +79,14 @@ export VERCEL_PASSWORD="your-password"
 ### Browser doesn't open
 
 The script runs in non-headless mode so you can see what's happening. If it doesn't open:
+
 - Check if you're in a graphical environment
 - Try running in Gitpod desktop mode
 
 ### Script can't find elements
 
 Vercel's UI may have changed. Manual steps:
+
 1. Go to: https://vercel.com/elevate-48e460c9/fix2-gpql/settings/git
 2. Find "Production Branch" setting
 3. Change to: `main`
@@ -122,6 +132,7 @@ If autopilot doesn't work, follow these manual steps:
 ## Success Criteria
 
 You'll know it worked when:
+
 - ✅ New deployment shows "Branch: main" (not deepsource)
 - ✅ Build completes successfully
 - ✅ www.elevateforhumanity.org shows fresh content
