@@ -1,32 +1,32 @@
-# DNS FIX REQUIRED - www.elevateforhumanity.org Not Working
+# 🚨 CRITICAL DNS FIX REQUIRED - UPDATED 2025-11-20
 
-## 🚨 CRITICAL ISSUE
+## Problem Found
 
-**www.elevateforhumanity.org is NOT working** because the DNS configuration is incorrect.
-
----
-
-## 📊 CURRENT SITUATION
-
-### Repository: `elevateforhumanity/fix2`
-- **Purpose**: LMS Platform (Learning Management System)
-- **Should be deployed to**: `www.elevateconnectsdirectory.org`
-- **Currently deployed to**: Netlify (elevateproduction.netlify.app)
-- **Status**: ✅ Working correctly
-
-### Domain: www.elevateforhumanity.org
-- **Purpose**: Marketing website
-- **Should be hosted on**: Durablesites.co
-- **Currently pointing to**: elevateproduction.netlify.app (WRONG!)
-- **Status**: ❌ NOT WORKING - TLS handshake failure
+Your domain DNS in Durable is misconfigured causing site issues.
 
 ---
+
+## 📊 CURRENT DNS CONFIGURATION (WRONG)
+
+```
+A     @    216.150.1.1                              ❌ WRONG IP - redirects to vercel.com
+CNAME www  7d1b6750df07f5d0.vercel-dns-017.com     ✅ CORRECT
+```
 
 ## ❌ THE PROBLEM
 
-The DNS for **www.elevateforhumanity.org** is pointing to Netlify (the LMS), but it should be pointing to **Durablesites.co** (the marketing site).
+- `www.elevateforhumanity.org` → Works (points to Vercel fix2-gpql project)
+- `elevateforhumanity.org` (no www) → Points to wrong IP (216.150.1.1)
+- That IP redirects to vercel.com homepage, NOT your site
+- This causes old cached content and missing features
 
-### Current INCORRECT DNS:
+---
+
+## ✅ THE FIX
+
+Go to Durable Dashboard: https://durable.co/website/domain/elevateforhumanity.org
+
+### DELETE THIS:
 ```
 Type   Name   Target                          Status
 CNAME  www    elevateproduction.netlify.app   ❌ WRONG
