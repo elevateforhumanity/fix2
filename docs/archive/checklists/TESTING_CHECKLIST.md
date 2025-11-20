@@ -18,7 +18,7 @@ Before testing, ensure:
 ### Test URLs
 
 - **Netlify App:** https://elevateforhumanityfix.netlify.app
-- **Marketing Site:** https://elevateforhumanity.org (Durable.co)
+- **Marketing Site:** https://www.elevateforhumanity.org (Durable.co)
 
 ### Test Browsers
 

@@ -132,7 +132,7 @@ LINKEDIN_ACCESS_TOKEN=your-linkedin-access-token
 LINKEDIN_ORGANIZATION_ID=your-organization-id
 
 # Frontend URL (already configured)
-FRONTEND_URL=https://elevateforhumanity.org
+FRONTEND_URL=https://www.elevateforhumanity.org
 ```
 
 ## Usage
@@ -142,7 +142,7 @@ FRONTEND_URL=https://elevateforhumanity.org
 Post a specific piece of content:
 
 ```bash
-curl -X POST https://elevateforhumanity.org/.netlify/functions/post-to-social-media \
+curl -X POST https://www.elevateforhumanity.org/.netlify/functions/post-to-social-media \
   -H "Content-Type: application/json" \
   -d '{
     "content_id": "uuid-here",
@@ -153,7 +153,7 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/post-to-social-me
 ### Post Today's Scheduled Content
 
 ```bash
-curl -X POST https://elevateforhumanity.org/.netlify/functions/post-scheduled-content \
+curl -X POST https://www.elevateforhumanity.org/.netlify/functions/post-scheduled-content \
   -H "Content-Type: application/json" \
   -d '{"platform": "facebook"}'
 ```

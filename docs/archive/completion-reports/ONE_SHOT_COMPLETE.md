@@ -168,7 +168,7 @@ TTL: Auto
 1. Wait 5-10 minutes for DNS propagation
 2. Open incognito/private window
 3. Visit: https://www.elevateforhumanity.org
-4. Should redirect to: https://elevateforhumanity.org
+4. Should redirect to: https://www.elevateforhumanity.org
 5. No SSL errors
 
 ---
@@ -280,7 +280,7 @@ Content-Security-Policy: default-src 'self' https:; img-src 'self' data: https:;
 ```
 User-agent: *
 Allow: /
-Sitemap: https://elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 ```
 
 ### Sitemap.xml

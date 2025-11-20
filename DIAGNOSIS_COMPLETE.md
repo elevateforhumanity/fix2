@@ -70,7 +70,7 @@ try {
 Wait 2-3 minutes for Netlify to deploy, then test:
 
 ```bash
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 ```
 
 **Expected**: `200 OK` (not `500 Internal Server Error`)
@@ -97,7 +97,7 @@ content-type: text/html
 ## Next Steps
 
 1. **Wait for deployment** (2-3 minutes)
-2. **Test the site**: https://elevateforhumanity.org
+2. **Test the site**: https://www.elevateforhumanity.org
 3. **Verify homepage loads**
 4. **Check other pages**: /programs, /about, /login
 

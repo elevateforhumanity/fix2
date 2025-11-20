@@ -98,13 +98,13 @@ Value: elevateproduction.netlify.app
 # Custom domain configuration
 [[redirects]]
   from = "https://www.elevateforhumanity.org/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://elevateproduction.netlify.app/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
@@ -141,8 +141,8 @@ Netlify automatically provisions SSL certificates via Let's Encrypt.
 
 ```bash
 # Production URLs
-PUBLIC_SITE_URL=https://elevateforhumanity.org
-VITE_SITE_URL=https://elevateforhumanity.org
+PUBLIC_SITE_URL=https://www.elevateforhumanity.org
+VITE_SITE_URL=https://www.elevateforhumanity.org
 VITE_API_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 
 # Supabase
@@ -172,7 +172,7 @@ NODE_ENV=production
 ```javascript
 // vite.config.js or sitemap generation script
 const sitemapConfig = {
-  hostname: 'https://elevateforhumanity.org',
+  hostname: 'https://www.elevateforhumanity.org',
   routes: [
     '/',
     '/about',
@@ -269,7 +269,7 @@ const sitemapConfig = {
 
    ```bash
    # Should all resolve to your site
-   curl -I https://elevateforhumanity.org
+   curl -I https://www.elevateforhumanity.org
    curl -I https://www.elevateforhumanity.org
    curl -I https://elevateproduction.netlify.app
    ```
@@ -321,8 +321,8 @@ const sitemapConfig = {
 ```toml
 # netlify.toml
 [[redirects]]
-  from = "http://elevateforhumanity.org/*"
-  to = "https://elevateforhumanity.org/:splat"
+  from = "https://www.elevateforhumanity.org/*"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 ```
@@ -392,7 +392,7 @@ Netlify:
 - Redirects: www → apex
 
 Environment Variables:
-- VITE_SITE_URL=https://elevateforhumanity.org
+- VITE_SITE_URL=https://www.elevateforhumanity.org
 ```
 
 ### Full Setup (Recommended):

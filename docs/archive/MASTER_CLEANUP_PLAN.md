@@ -375,7 +375,7 @@ find . -type d -name ".temp" -o -name ".tmp" | xargs rm -rf
 ```bash
 # Edit scripts/social-media-automation.js
 # Change: blogUrl: 'https://elevateforhumanity.durable.co/blog'
-# To:     blogUrl: 'https://elevateforhumanity.org/blog'
+# To:     blogUrl: 'https://www.elevateforhumanity.org/blog'
 ```
 
 #### Remove Durable.co Documentation References

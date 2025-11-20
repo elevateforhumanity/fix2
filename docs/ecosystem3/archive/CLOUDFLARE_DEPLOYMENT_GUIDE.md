@@ -85,13 +85,13 @@ ls -la dist/
 
 ```bash
 # Test main domain
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 
 # Test www subdomain
 curl -I https://www.elevateforhumanity.org
 
 # Test redirects
-curl -I https://elevateforhumanity.org/programs
+curl -I https://www.elevateforhumanity.org/programs
 ```
 
 ### 3.3 Verify SEO

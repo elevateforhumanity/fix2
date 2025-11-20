@@ -22,7 +22,7 @@ Go to: [https://durablesites.co](https://durablesites.co)
 Replace the content with:
 
 ```txt
-# Robots.txt for https://elevateforhumanity.org
+# Robots.txt for https://www.elevateforhumanity.org
 # Anti-scraping protection enabled
 
 # Allow legitimate search engines
@@ -66,7 +66,7 @@ Disallow: /.netlify/
 Crawl-delay: 10
 
 # Sitemap
-Sitemap: https://elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 ```
 
 ### 4. Update sitemap.xml
@@ -76,67 +76,67 @@ Replace the content with:
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://elevateforhumanity.org/</loc>
+    <loc>https://www.elevateforhumanity.org/</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/about</loc>
+    <loc>https://www.elevateforhumanity.org/about</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/programs</loc>
+    <loc>https://www.elevateforhumanity.org/programs</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/programs/barber</loc>
+    <loc>https://www.elevateforhumanity.org/programs/barber</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/programs/building-tech</loc>
+    <loc>https://www.elevateforhumanity.org/programs/building-tech</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/programs/healthcare</loc>
+    <loc>https://www.elevateforhumanity.org/programs/healthcare</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/apply</loc>
+    <loc>https://www.elevateforhumanity.org/apply</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/contact</loc>
+    <loc>https://www.elevateforhumanity.org/contact</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/lms</loc>
+    <loc>https://www.elevateforhumanity.org/lms</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/lms/dashboard</loc>
+    <loc>https://www.elevateforhumanity.org/lms/dashboard</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/lms/courses</loc>
+    <loc>https://www.elevateforhumanity.org/lms/courses</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -153,8 +153,8 @@ Click **Save** or **Publish** to apply the changes.
 
 After updating in Durable, verify the changes:
 
-1. Visit: [https://elevateforhumanity.org/robots.txt](https://elevateforhumanity.org/robots.txt)
-2. Visit: [https://elevateforhumanity.org/sitemap.xml](https://elevateforhumanity.org/sitemap.xml)
+1. Visit: [https://www.elevateforhumanity.org/robots.txt](https://www.elevateforhumanity.org/robots.txt)
+2. Visit: [https://www.elevateforhumanity.org/sitemap.xml](https://www.elevateforhumanity.org/sitemap.xml)
 3. Confirm both files show **elevateforhumanity.org** (not elevateforhumanity.org)
 
 ---
@@ -166,9 +166,9 @@ After fixing the files:
 1. Go to [Google Search Console](https://search.google.com/search-console)
 2. Select your property: **elevateforhumanity.org**
 3. Go to **Sitemaps** in the left menu
-4. Submit: `https://elevateforhumanity.org/sitemap.xml`
+4. Submit: `https://www.elevateforhumanity.org/sitemap.xml`
 5. Go to **URL Inspection**
-6. Request indexing for: `https://elevateforhumanity.org/`
+6. Request indexing for: `https://www.elevateforhumanity.org/`
 
 Google should start indexing your site within 24-48 hours.
 

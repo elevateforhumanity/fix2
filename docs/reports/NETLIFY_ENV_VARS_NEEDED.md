@@ -53,7 +53,7 @@
 ### Application Configuration
 
 - `FRONTEND_URL` - Your production URL
-  - Value: `https://elevateforhumanity.org` or `https://elevateforhumanityfix2.netlify.app`
+  - Value: `https://www.elevateforhumanity.org` or `https://elevateforhumanityfix2.netlify.app`
   - Scope: All
 
 ### Supabase (Additional)
@@ -91,7 +91,7 @@ export NETLIFY_AUTH_TOKEN="nfp_ZQh1EUwZgJt939dcD3kb9sEYGk7DDgwPbaae"
 # Critical variables
 netlify env:set OPENAI_API_KEY "your-openai-key"
 netlify env:set STRIPE_WEBHOOK_SECRET "whsec_your_webhook_secret"
-netlify env:set FRONTEND_URL "https://elevateforhumanity.org"
+netlify env:set FRONTEND_URL "https://www.elevateforhumanity.org"
 netlify env:set SUPABASE_URL "https://cuxzzpsyufcewtmicszk.supabase.co"
 netlify env:set SUPABASE_SERVICE_KEY "your-service-role-key"
 

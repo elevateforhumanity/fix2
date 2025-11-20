@@ -273,7 +273,7 @@ Set environment variables:
 ```bash
 RESEND_API_KEY=your_resend_api_key
 EMAIL_FROM=noreply@elevateforhumanity.org
-NEXT_PUBLIC_APP_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_APP_URL=https://www.elevateforhumanity.org
 ```
 
 ### Step 4: Deploy to Production

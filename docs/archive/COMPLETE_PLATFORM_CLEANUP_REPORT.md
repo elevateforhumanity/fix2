@@ -351,8 +351,8 @@ Result: CLARITY
 # .env.example
 
 # Site URLs (Netlify)
-PUBLIC_SITE_URL=https://elevateforhumanity.org
-VITE_SITE_URL=https://elevateforhumanity.org
+PUBLIC_SITE_URL=https://www.elevateforhumanity.org
+VITE_SITE_URL=https://www.elevateforhumanity.org
 
 # API (Supabase)
 VITE_API_URL=https://cuxzzpsyufcewtmicszk.supabase.co
@@ -396,7 +396,7 @@ NODE_ENV=production
 
 3. **Done!**
    - Visit: https://elevateproduction.netlify.app
-   - Or: https://elevateforhumanity.org (after DNS setup)
+   - Or: https://www.elevateforhumanity.org (after DNS setup)
 
 ---
 

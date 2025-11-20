@@ -392,7 +392,7 @@ dig elevateforhumanity.org NS
 
 ```bash
 # Check SSL certificate
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 
 # Should show:
 # - HTTP/2 200
@@ -404,7 +404,7 @@ curl -I https://elevateforhumanity.org
 
 ```bash
 # Check if caching is working
-curl -I https://elevateforhumanity.org/assets/logo.png
+curl -I https://www.elevateforhumanity.org/assets/logo.png
 
 # Should show:
 # - cf-cache-status: HIT (after first request)

@@ -280,7 +280,7 @@ git push origin main
 
 ```bash
 # Update production URLs in README
-sed -i 's|https://elevateforhumanity.org|https://portal.elevateforhumanity.org|g' README.md
+sed -i 's|https://www.elevateforhumanity.org|https://portal.elevateforhumanity.org|g' README.md
 ```
 
 ### 7.2 Update Environment Variables

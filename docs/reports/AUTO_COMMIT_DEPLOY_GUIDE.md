@@ -242,7 +242,7 @@ Deployed to Production
     ↓
 Health checks
     ↓
-Live at: https://elevateforhumanity.org
+Live at: https://www.elevateforhumanity.org
 ```
 
 ---

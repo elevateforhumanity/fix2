@@ -250,7 +250,7 @@ const result = await announceProgram({
   name: 'CompTIA A+ Certification',
   description: 'Learn IT fundamentals and get certified!',
   imageUrl: 'https://example.com/comptia-a-plus.jpg',
-  enrollmentUrl: 'https://elevateforhumanity.org/programs/comptia-a-plus',
+  enrollmentUrl: 'https://www.elevateforhumanity.org/programs/comptia-a-plus',
 });
 ```
 
@@ -276,7 +276,7 @@ const result = await announceEvent({
   name: 'Career Fair 2025',
   date: '2025-11-15',
   description: 'Meet employers and explore career opportunities!',
-  registrationUrl: 'https://elevateforhumanity.org/events/career-fair',
+  registrationUrl: 'https://www.elevateforhumanity.org/events/career-fair',
   imageUrl: 'https://example.com/career-fair.jpg',
 });
 ```
@@ -453,7 +453,7 @@ const Pg_SocialMediaManager = React.lazy(
 
 ### Access Dashboard
 
-Navigate to: `https://elevateforhumanity.org/social-media-manager`
+Navigate to: `https://www.elevateforhumanity.org/social-media-manager`
 
 **Features:**
 

@@ -450,7 +450,7 @@ The Washington Square Workforce & Entrepreneurship Hub represents a transformati
 Elevate for Humanity  
 Email: info@elevateforhumanity.org  
 Phone: (317) 314-3757  
-Website: https://elevateforhumanity.org
+Website: https://www.elevateforhumanity.org
 
 **Mailing Address:**  
 2Exclusive LLC-S (DBA Elevate for Humanity)  

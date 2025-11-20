@@ -170,7 +170,7 @@ git push origin main
 
 ### Step 4: Update Marketing Site (Optional)
 
-Update the "Get Started" button on https://elevateforhumanity.org to point to:
+Update the "Get Started" button on https://www.elevateforhumanity.org to point to:
 
 - Current: https://elevateforhumanityfix.netlify.app
 - Future (optional): https://app.elevateforhumanity.org

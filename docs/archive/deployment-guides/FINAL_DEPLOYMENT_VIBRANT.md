@@ -207,7 +207,7 @@ All elements are fully responsive:
 
 Once Netlify deployment completes (~2-5 minutes):
 
-- [ ] Visit https://elevateforhumanity.org
+- [ ] Visit https://www.elevateforhumanity.org
 - [ ] Check hero has vibrant gradient background
 - [ ] Check headings are large (48-72px)
 - [ ] Check badges have glassmorphism effect
@@ -260,7 +260,7 @@ Your site now looks like a modern, professional learning platform instead of a 1
 
 ## 🚀 Live URL
 
-**Homepage**: https://elevateforhumanity.org  
+**Homepage**: https://www.elevateforhumanity.org  
 **Expected**: Vibrant gradient hero, animated stats, glassmorphism badges  
 **ETA**: Live in ~2-5 minutes
 

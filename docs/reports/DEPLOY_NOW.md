@@ -26,6 +26,6 @@ netlify deploy --prod --dir=dist
 - ✅ Home.jsx as homepage (NO MORE Durable landing page)
 - ✅ All your React pages working
 - ✅ All API keys configured
-- ✅ Live at: https://elevateforhumanity.org
+- ✅ Live at: https://www.elevateforhumanity.org
 
 **Just upload the `dist/` folder and you're done!** 🎉

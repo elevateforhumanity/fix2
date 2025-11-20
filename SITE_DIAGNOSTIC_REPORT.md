@@ -200,7 +200,7 @@ NEXT_PUBLIC_YOUTUBE_CHANNEL_ID=UCxxxxx
 NEXT_PUBLIC_YOUTUBE_API_KEY=AIzaxxxxx
 
 # App URL
-NEXT_PUBLIC_APP_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_APP_URL=https://www.elevateforhumanity.org
 ```
 
 ---

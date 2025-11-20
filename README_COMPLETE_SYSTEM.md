@@ -332,7 +332,7 @@ npm run autopilot:vercel:hard-refresh
 
 **Project Lead:** Elizabeth Greene  
 **Repository:** https://github.com/elevateforhumanity/fix2  
-**Production:** https://elevateforhumanity.org  
+**Production:** https://www.elevateforhumanity.org  
 **Staging:** https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app
 
 ---

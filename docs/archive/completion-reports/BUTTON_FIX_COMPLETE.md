@@ -169,7 +169,7 @@ Once deployed, test buttons:
 
 After deployment completes:
 
-- [ ] Visit https://elevateforhumanity.org
+- [ ] Visit https://www.elevateforhumanity.org
 - [ ] Check navigation buttons work
 - [ ] Check "Sign Up" button has proper styling
 - [ ] Check hover effects work

@@ -435,7 +435,7 @@
         {
           "type": "verify",
           "description": "Check SSL certificate",
-          "command": "curl -I https://elevateforhumanity.org"
+          "command": "curl -I https://www.elevateforhumanity.org"
         },
         {
           "type": "verify",

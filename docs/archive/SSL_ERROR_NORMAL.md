@@ -51,7 +51,7 @@ net::ERR_CERT_COMMON_NAME_INVALID
 
 6. **Wait 5-10 minutes** for SSL to provision
 
-7. **Then visit:** https://elevateforhumanity.org
+7. **Then visit:** https://www.elevateforhumanity.org
 
 8. **Should work with SSL (🔒)**
 
@@ -129,7 +129,7 @@ net::ERR_CERT_COMMON_NAME_INVALID
 
 ### Step 3: Test Again
 
-**Visit:** https://elevateforhumanity.org
+**Visit:** https://www.elevateforhumanity.org
 
 **Should now work with SSL (🔒)**
 
@@ -211,7 +211,7 @@ Status: ✅ SSL certificate active
 **In Browser:**
 
 ```
-Visit: https://elevateforhumanity.org
+Visit: https://www.elevateforhumanity.org
 Shows: 🔒 Secure
 No warnings
 Site loads correctly

@@ -74,7 +74,7 @@ Go to: https://dashboard.stripe.com/test/webhooks
 
 **Create webhook:**
 
-- URL: `https://elevateforhumanity.org/.netlify/functions/stripe-webhook`
+- URL: `https://www.elevateforhumanity.org/.netlify/functions/stripe-webhook`
 - Events: `checkout.session.completed`, `payment_intent.succeeded`, `payment_intent.payment_failed`
 
 **Copy this:**

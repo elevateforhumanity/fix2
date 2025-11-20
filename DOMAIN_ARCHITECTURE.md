@@ -155,7 +155,7 @@ CNAME  www    elevateproduction.netlify.app    -
 
 # Redirect apex domain to marketing site
 [[redirects]]
-  from = "https://elevateforhumanity.org/*"
+  from = "https://www.elevateforhumanity.org/*"
   to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true

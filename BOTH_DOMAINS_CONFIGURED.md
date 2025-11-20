@@ -85,7 +85,7 @@ In Netlify domain settings, you can choose which domain is primary:
 
 **Option A: elevateforhumanity.org as primary**
 
-- Main URL: https://elevateforhumanity.org
+- Main URL: https://www.elevateforhumanity.org
 - elevateforhumanity.org redirects to it
 
 **Option B: elevateforhumanity.org as primary**
@@ -109,7 +109,7 @@ After SSL is provisioned (5-10 minutes):
 
 **Test elevateforhumanity.org:**
 
-1. Visit: https://elevateforhumanity.org
+1. Visit: https://www.elevateforhumanity.org
 2. Should show: Your LMS
 3. SSL: Secure (🔒)
 
@@ -140,7 +140,7 @@ After SSL is provisioned (5-10 minutes):
 **All these URLs will work:**
 
 ```
-✅ https://elevateforhumanity.org
+✅ https://www.elevateforhumanity.org
 ✅ https://www.elevateforhumanity.org
 ✅ https://www.elevateforhumanity.org
 ✅ https://www.elevateforhumanity.org
@@ -193,8 +193,8 @@ Go to: https://app.netlify.com/sites/elevateproduction/settings/deploys#environm
 **Update VITE_SITE_URL to primary domain:**
 
 ```
-VITE_SITE_URL=https://elevateforhumanity.org
-PUBLIC_SITE_URL=https://elevateforhumanity.org
+VITE_SITE_URL=https://www.elevateforhumanity.org
+PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 ```
 
 **Keep other variables:**
@@ -250,7 +250,7 @@ Total:         ~25-40 minutes
 
 ### Testing:
 
-- [ ] https://elevateforhumanity.org works
+- [ ] https://www.elevateforhumanity.org works
 - [ ] https://www.elevateforhumanity.org works
 - [ ] https://www.elevateforhumanity.org works
 - [ ] https://www.elevateforhumanity.org works

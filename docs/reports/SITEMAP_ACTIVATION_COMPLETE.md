@@ -105,7 +105,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 
 # Disallow admin and auth pages
@@ -139,40 +139,40 @@ Allow: /lms/courses
 All 9 programs have 2 route patterns each:
 
 1. **Barber Apprenticeship Program**
-   - https://elevateforhumanity.org/programs/barber
-   - https://elevateforhumanity.org/program/barber
+   - https://www.elevateforhumanity.org/programs/barber
+   - https://www.elevateforhumanity.org/program/barber
 
 2. **Building Services Technician**
-   - https://elevateforhumanity.org/programs/building-tech
-   - https://elevateforhumanity.org/program/building-tech
+   - https://www.elevateforhumanity.org/programs/building-tech
+   - https://www.elevateforhumanity.org/program/building-tech
 
 3. **Certified Nursing Assistant (CNA)**
-   - https://elevateforhumanity.org/programs/cna
-   - https://elevateforhumanity.org/program/cna
+   - https://www.elevateforhumanity.org/programs/cna
+   - https://www.elevateforhumanity.org/program/cna
 
 4. **CPR, AED & First Aid Certification**
-   - https://elevateforhumanity.org/programs/cpr-aed-first-aid
-   - https://elevateforhumanity.org/program/cpr-aed-first-aid
+   - https://www.elevateforhumanity.org/programs/cpr-aed-first-aid
+   - https://www.elevateforhumanity.org/program/cpr-aed-first-aid
 
 5. **Business Start-Up & Marketing**
-   - https://elevateforhumanity.org/programs/business-startup-marketing
-   - https://elevateforhumanity.org/program/business-startup-marketing
+   - https://www.elevateforhumanity.org/programs/business-startup-marketing
+   - https://www.elevateforhumanity.org/program/business-startup-marketing
 
 6. **Tax Office Startup**
-   - https://elevateforhumanity.org/programs/tax-office-startup
-   - https://elevateforhumanity.org/program/tax-office-startup
+   - https://www.elevateforhumanity.org/programs/tax-office-startup
+   - https://www.elevateforhumanity.org/program/tax-office-startup
 
 7. **Professional Esthetician & Client Services**
-   - https://elevateforhumanity.org/programs/esthetician-client-services
-   - https://elevateforhumanity.org/program/esthetician-client-services
+   - https://www.elevateforhumanity.org/programs/esthetician-client-services
+   - https://www.elevateforhumanity.org/program/esthetician-client-services
 
 8. **Beauty & Career Educator Program**
-   - https://elevateforhumanity.org/programs/beauty-career-educator
-   - https://elevateforhumanity.org/program/beauty-career-educator
+   - https://www.elevateforhumanity.org/programs/beauty-career-educator
+   - https://www.elevateforhumanity.org/program/beauty-career-educator
 
 9. **Public Safety Reentry Specialist**
-   - https://elevateforhumanity.org/programs/public-safety-reentry
-   - https://elevateforhumanity.org/program/public-safety-reentry
+   - https://www.elevateforhumanity.org/programs/public-safety-reentry
+   - https://www.elevateforhumanity.org/program/public-safety-reentry
 
 **SEO Configuration:**
 
@@ -281,7 +281,7 @@ pnpm build
    - Add property: `elevateforhumanity.org`
    - Verify ownership (HTML file or meta tag)
    - Go to "Sitemaps" section
-   - Submit: `https://elevateforhumanity.org/sitemap.xml`
+   - Submit: `https://www.elevateforhumanity.org/sitemap.xml`
    - Submit: `https://www.elevateforhumanity.org/sitemap.xml`
 
 2. **Check Status**
@@ -296,7 +296,7 @@ pnpm build
    - Add site: `elevateforhumanity.org`
    - Verify ownership (XML file)
    - Go to "Sitemaps" section
-   - Submit: `https://elevateforhumanity.org/sitemap.xml`
+   - Submit: `https://www.elevateforhumanity.org/sitemap.xml`
 
 2. **Check Status**
    - Wait 24-48 hours
@@ -399,13 +399,13 @@ After deployment:
 
 ```bash
 # Test sitemap accessibility
-curl -I https://elevateforhumanity.org/sitemap.xml
+curl -I https://www.elevateforhumanity.org/sitemap.xml
 
 # Test robots.txt
-curl https://elevateforhumanity.org/robots.txt
+curl https://www.elevateforhumanity.org/robots.txt
 
 # Test security headers
-curl -I https://elevateforhumanity.org/sitemap.xml | grep -E "Content-Type|X-Robots-Tag|Cache-Control"
+curl -I https://www.elevateforhumanity.org/sitemap.xml | grep -E "Content-Type|X-Robots-Tag|Cache-Control"
 ```
 
 **Expected Results:**

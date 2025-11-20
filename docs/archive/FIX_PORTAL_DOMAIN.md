@@ -4,7 +4,7 @@
 
 The Netlify site is deployed to:
 
-- ✅ **Current:** https://elevateforhumanity.org
+- ✅ **Current:** https://www.elevateforhumanity.org
 - ❌ **Should be:** https://portal.elevateforhumanity.org
 
 ## Why This Matters

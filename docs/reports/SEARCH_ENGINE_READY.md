@@ -53,7 +53,7 @@ This will:
 1. Go to: [https://www.bing.com/webmasters](https://www.bing.com/webmasters)
 2. Select your site: `elevateforhumanity.org`
 3. Click **Sitemaps** in left sidebar
-4. Enter: `https://elevateforhumanity.org/sitemap.xml`
+4. Enter: `https://www.elevateforhumanity.org/sitemap.xml`
 5. Click **Submit**
 
 **Detailed Guide:** See `SEARCH_ENGINE_SUBMISSION_GUIDE.md`
@@ -112,7 +112,7 @@ Each of your 9 programs has 2 URL patterns:
 
 Your sitemap is accessible at:
 
-- **Primary:** [https://elevateforhumanity.org/sitemap.xml](https://elevateforhumanity.org/sitemap.xml)
+- **Primary:** [https://www.elevateforhumanity.org/sitemap.xml](https://www.elevateforhumanity.org/sitemap.xml)
 - **Cloudflare Pages:** [https://elevateforhumanity.pages.dev/sitemap.xml](https://elevateforhumanity.pages.dev/sitemap.xml)
 
 ---
@@ -282,7 +282,7 @@ Everything is configured and ready for search engine submission. Follow the step
 
 - **Google Search Console:** [https://search.google.com/search-console](https://search.google.com/search-console)
 - **Bing Webmaster Tools:** [https://www.bing.com/webmasters](https://www.bing.com/webmasters)
-- **Your Sitemap:** [https://elevateforhumanity.org/sitemap.xml](https://elevateforhumanity.org/sitemap.xml)
+- **Your Sitemap:** [https://www.elevateforhumanity.org/sitemap.xml](https://www.elevateforhumanity.org/sitemap.xml)
 
 ---
 

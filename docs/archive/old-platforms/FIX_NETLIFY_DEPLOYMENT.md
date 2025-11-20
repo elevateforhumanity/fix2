@@ -256,7 +256,7 @@ Run this to check current status:
 curl -I https://elevateforhumanityfix2.netlify.app/
 
 # Check Durable.co site
-curl -I https://elevateforhumanity.org/
+curl -I https://www.elevateforhumanity.org/
 ```
 
 **Expected results:**

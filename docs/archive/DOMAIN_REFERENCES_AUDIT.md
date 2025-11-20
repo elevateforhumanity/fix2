@@ -101,13 +101,13 @@
   - www.elevateforhumanity.org            ✅ KEEP (production domain)
 
 ./scripts/social-media-automation.js
-  - https://elevateforhumanity.org        ✅ KEEP (CTA link)
+  - https://www.elevateforhumanity.org        ✅ KEEP (CTA link)
 
 ./scripts/puppeteer-extract-css.js
   - https://www.elevateforhumanity.org    ✅ KEEP (scraping target)
 
 ./scripts/performance-optimizer.js
-  - https://elevateforhumanity.org        ✅ KEEP (production URLs)
+  - https://www.elevateforhumanity.org        ✅ KEEP (production URLs)
 ```
 
 **Status:** ✅ These are production URLs - KEEP
@@ -196,7 +196,7 @@ rm -f docs/guides/ZERO_MAINTENANCE_DURABLE_SETUP.md
 ```bash
 # Update social-media-automation.js
 # Change: blogUrl: 'https://elevateforhumanity.durable.co/blog'
-# To:     blogUrl: 'https://elevateforhumanity.org/blog'
+# To:     blogUrl: 'https://www.elevateforhumanity.org/blog'
 ```
 
 ### Phase 3: Verify Netlify Configuration ⚠️

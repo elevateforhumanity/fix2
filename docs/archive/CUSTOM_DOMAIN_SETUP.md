@@ -102,7 +102,7 @@ Test these URLs:
 
 - http://www.elevateforhumanity.org → Should redirect to HTTPS
 - https://www.elevateforhumanity.org → Should load site
-- http://elevateforhumanity.org → Should redirect to www + HTTPS
+- https://www.elevateforhumanity.org → Should redirect to www + HTTPS
 - https://www.elevateforhumanity.org → Should redirect to www
 
 ---

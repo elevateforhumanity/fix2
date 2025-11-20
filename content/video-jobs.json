@@ -175,7 +175,7 @@
     "title": "Elevate Connects Directory – Video Scripts",
     "category": "general",
     "sourceFile": "content/video-scripts/README.md",
-    "script": "# Elevate Connects Directory – Video Scripts\n\nThis folder contains **ready-to-use video scripts** for AI avatars, voiceovers, or live recording.\n\nEach `.md` file corresponds to a section/page on https://elevateforhumanity.org, for use as placeholders or final content.\n\nYou can:\n- Paste these into tools like HeyGen / Synthesia / Pictory\n- Use them for voiceover when recording real footage\n- Update wording as programs and branding evolve\n",
+    "script": "# Elevate Connects Directory – Video Scripts\n\nThis folder contains **ready-to-use video scripts** for AI avatars, voiceovers, or live recording.\n\nEach `.md` file corresponds to a section/page on https://www.elevateforhumanity.org, for use as placeholders or final content.\n\nYou can:\n- Paste these into tools like HeyGen / Synthesia / Pictory\n- Use them for voiceover when recording real footage\n- Update wording as programs and branding evolve\n",
     "targetProvider": "d-id",
     "targetModel": "d-id-basic",
     "durationSeconds": 40,

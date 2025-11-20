@@ -35,7 +35,7 @@ curl -I https://www.elevateforhumanity.org
 
 **Apex redirect**
 ```bash
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 # HTTP/2 307
 # location: https://www.elevateforhumanity.org/
 # ✅ Properly redirects to www

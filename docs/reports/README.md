@@ -5,7 +5,7 @@
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/elevateforhumanity/fix2)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
-[![Production Ready](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)](https://elevateforhumanity.org)
+[![Production Ready](https://img.shields.io/badge/status-production%20ready-brightgreen.svg)](https://www.elevateforhumanity.org)
 
 ## 🎯 Overview
 
@@ -279,14 +279,14 @@ Feel free to submit issues or pull requests to improve this template configurati
 
 ## 🌐 Live Platform
 
-**Production:** [https://elevateforhumanity.org](https://elevateforhumanity.org)
+**Production:** [https://www.elevateforhumanity.org](https://www.elevateforhumanity.org)
 
 ### Quick Links
 
-- [Browse Programs](https://elevateforhumanity.org/programs)
-- [Student Dashboard](https://elevateforhumanity.org/lms)
-- [Verify Certificate](https://elevateforhumanity.org/verify)
-- [Legal & Terms](https://elevateforhumanity.org/legal/terms)
+- [Browse Programs](https://www.elevateforhumanity.org/programs)
+- [Student Dashboard](https://www.elevateforhumanity.org/lms)
+- [Verify Certificate](https://www.elevateforhumanity.org/verify)
+- [Legal & Terms](https://www.elevateforhumanity.org/legal/terms)
 
 ## 📞 Contact
 
@@ -294,7 +294,7 @@ Feel free to submit issues or pull requests to improve this template configurati
 9465 Counselors Row, Suite 200  
 Indianapolis, IN 46240
 
-- **Website:** [elevateforhumanity.org](https://elevateforhumanity.org)
+- **Website:** [elevateforhumanity.org](https://www.elevateforhumanity.org)
 - **Email:** info@elevateforhumanity.org
 - **Phone:** (317) 314-3757
 - **Legal:** legal@elevateforhumanity.org

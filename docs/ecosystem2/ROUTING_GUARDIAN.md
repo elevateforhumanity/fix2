@@ -350,13 +350,13 @@ The guardian automatically generates sitemap entries for all routes:
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://elevateforhumanity.org/</loc>
+    <loc>https://www.elevateforhumanity.org/</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://elevateforhumanity.org/about</loc>
+    <loc>https://www.elevateforhumanity.org/about</loc>
     <lastmod>2025-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

@@ -184,13 +184,13 @@ const Pg_AnalyticsDashboardRUM = React.lazy(
 # Domain consolidation - redirect .com to .org
 [[redirects]]
   from = "https://elevateforhumanity.com/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.elevateforhumanity.com/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 ```
@@ -338,7 +338,7 @@ VITE_AI_STYLIST_URL=https://efh-ai-stylist.workers.dev
 VITE_AGENT_WORKER_URL=https://efh-agent.workers.dev
 
 # API Configuration
-VITE_API_URL=https://elevateforhumanity.org/api
+VITE_API_URL=https://www.elevateforhumanity.org/api
 ```
 
 **Note:** Supabase variables are already in `netlify.toml`
@@ -394,7 +394,7 @@ git push origin main
 
 ### 2. Test Analytics Dashboard
 
-- Navigate to: https://elevateforhumanity.org/analytics-dashboard-rum
+- Navigate to: https://www.elevateforhumanity.org/analytics-dashboard-rum
 - Verify Web Vitals display correctly
 - Check session tracking works
 - Review error reporting table
@@ -404,11 +404,11 @@ git push origin main
 ```bash
 curl -I https://elevateforhumanity.com
 # Should return: 301 Moved Permanently
-# Location: https://elevateforhumanity.org/
+# Location: https://www.elevateforhumanity.org/
 
 curl -I https://www.elevateforhumanity.com
 # Should return: 301 Moved Permanently
-# Location: https://elevateforhumanity.org/
+# Location: https://www.elevateforhumanity.org/
 ```
 
 ### 4. Test All Links

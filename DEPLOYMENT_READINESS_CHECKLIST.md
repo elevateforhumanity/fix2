@@ -52,12 +52,12 @@
 ## ⚠️ NEEDS ATTENTION BEFORE MIGRATION
 
 ### 1. **Form Submission Redirect URL**
-**Current:** `https://elevateforhumanity.org/enroll/success`  
+**Current:** `https://www.elevateforhumanity.org/enroll/success`  
 **Needs Update To:** `https://www.elevateforhumanity.org/enroll/success`
 
 **File:** `app/apply/page.tsx` line 56
 ```tsx
-<input type="hidden" name="_next" value="https://elevateforhumanity.org/enroll/success" />
+<input type="hidden" name="_next" value="https://www.elevateforhumanity.org/enroll/success" />
 ```
 
 **Action Required:**
@@ -170,7 +170,7 @@ After migration, set up redirects:
 async redirects() {
   return [
     {
-      source: 'https://elevateforhumanity.org/:path*',
+      source: 'https://www.elevateforhumanity.org/:path*',
       destination: 'https://www.elevateforhumanity.org/:path*',
       permanent: true,
     },

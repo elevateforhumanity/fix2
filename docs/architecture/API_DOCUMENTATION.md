@@ -399,8 +399,8 @@ const session = await stripe.checkout.sessions.create({
     },
   ],
   mode: 'payment',
-  success_url: 'https://elevateforhumanity.org/success',
-  cancel_url: 'https://elevateforhumanity.org/cancel',
+  success_url: 'https://www.elevateforhumanity.org/success',
+  cancel_url: 'https://www.elevateforhumanity.org/cancel',
 });
 ```
 
@@ -935,7 +935,7 @@ https://developers.google.com/
 #### Base URL
 
 ```
-https://elevateforhumanity.org/.netlify/functions
+https://www.elevateforhumanity.org/.netlify/functions
 ```
 
 #### Create Checkout Session
@@ -975,7 +975,7 @@ POST /.netlify/functions/stripe-webhook
 #### Base URL
 
 ```
-https://elevateforhumanity.org/api
+https://www.elevateforhumanity.org/api
 ```
 
 #### Get Programs

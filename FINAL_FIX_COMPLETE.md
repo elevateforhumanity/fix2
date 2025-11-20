@@ -51,12 +51,12 @@ try {
 
 Updated all URLs to match Netlify configuration:
 
-- `.env.production` → `https://elevateforhumanity.org`
-- `app/layout.tsx` → `https://elevateforhumanity.org`
-- `app/sitemap.ts` → `https://elevateforhumanity.org`
-- `app/robots.ts` → `https://elevateforhumanity.org`
-- `components/StructuredData.tsx` → `https://elevateforhumanity.org`
-- GitHub Actions workflow → `https://elevateforhumanity.org`
+- `.env.production` → `https://www.elevateforhumanity.org`
+- `app/layout.tsx` → `https://www.elevateforhumanity.org`
+- `app/sitemap.ts` → `https://www.elevateforhumanity.org`
+- `app/robots.ts` → `https://www.elevateforhumanity.org`
+- `components/StructuredData.tsx` → `https://www.elevateforhumanity.org`
+- GitHub Actions workflow → `https://www.elevateforhumanity.org`
 
 ## Current Domain Configuration
 
@@ -86,14 +86,14 @@ CNAME  www    elevateproduction.netlify.app    -
 1. **Netlify Auto-Deploy**: Changes pushed to main branch
 2. **Build Process**: Netlify will build the app (2-3 minutes)
 3. **SSL Certificate**: Will be auto-generated after DNS propagates
-4. **Site Live**: Should be accessible at `https://elevateforhumanity.org`
+4. **Site Live**: Should be accessible at `https://www.elevateforhumanity.org`
 
 ## Testing the Fix
 
 ### Check if site is working:
 
 ```bash
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 ```
 
 **Expected**: `200 OK` (not `500 Internal Server Error`)
@@ -110,8 +110,8 @@ Ensure these are set in Netlify Dashboard → Environment variables:
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
-NEXT_PUBLIC_APP_URL=https://elevateforhumanity.org
-NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_APP_URL=https://www.elevateforhumanity.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 NODE_ENV=production
 ```
 
@@ -134,7 +134,7 @@ NODE_ENV=production
 
 1. **Wait for Netlify deployment** (2-3 minutes)
 2. **Check deployment status** in Netlify dashboard
-3. **Test site**: Visit https://elevateforhumanity.org
+3. **Test site**: Visit https://www.elevateforhumanity.org
 4. **Verify environment variables** are set in Netlify
 
 ## If Site Still Shows 500 Error

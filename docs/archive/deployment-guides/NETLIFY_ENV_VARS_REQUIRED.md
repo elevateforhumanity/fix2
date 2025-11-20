@@ -53,7 +53,7 @@ Scopes: Production, Deploy previews, Branch deploys
 
 After deployment, check:
 
-1. Visit https://elevateforhumanity.org
+1. Visit https://www.elevateforhumanity.org
 2. Open browser DevTools → Console
 3. Look for API calls - they should go to `https://api.elevateforhumanity.org`
 4. No skeleton/blank pages should appear

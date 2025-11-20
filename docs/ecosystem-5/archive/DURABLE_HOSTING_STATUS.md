@@ -64,7 +64,7 @@ Add CNAME records to point your domain to Durable:
 
 Once DNS propagates:
 
-- Test: https://elevateforhumanity.org
+- Test: https://www.elevateforhumanity.org
 - Test: https://www.elevateforhumanity.org
 - Verify redirects work properly
 - Check SSL certificate is active
@@ -76,7 +76,7 @@ Once DNS propagates:
 curl -I https://elevateforhumanity.durable.co
 
 # Test custom domain (after DNS config)
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 curl -I https://www.elevateforhumanity.org
 
 # Check DNS propagation

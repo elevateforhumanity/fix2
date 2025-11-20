@@ -146,10 +146,10 @@ Disallow: /
 ```
 Contact: mailto:security@elevateforhumanity.org
 Contact: mailto:legal@elevateforhumanity.org
-Policy: https://elevateforhumanity.org/legal/terms
+Policy: https://www.elevateforhumanity.org/legal/terms
 Expires: 2026-12-31T23:59:59Z
 Preferred-Languages: en
-Canonical: https://elevateforhumanity.org/.well-known/security.txt
+Canonical: https://www.elevateforhumanity.org/.well-known/security.txt
 ```
 
 **RFC 9116 Compliant** - Standard security contact file
@@ -363,12 +363,12 @@ grep -A2 "X-Robots-Tag" netlify.toml
 
 **Live URLs (after deployment):**
 
-- https://elevateforhumanity.org/legal/terms
-- https://elevateforhumanity.org/legal/privacy
-- https://elevateforhumanity.org/legal/ip-notice
-- https://elevateforhumanity.org/legal/dmca
-- https://elevateforhumanity.org/.well-known/security.txt
-- https://elevateforhumanity.org/robots.txt
+- https://www.elevateforhumanity.org/legal/terms
+- https://www.elevateforhumanity.org/legal/privacy
+- https://www.elevateforhumanity.org/legal/ip-notice
+- https://www.elevateforhumanity.org/legal/dmca
+- https://www.elevateforhumanity.org/.well-known/security.txt
+- https://www.elevateforhumanity.org/robots.txt
 
 ---
 

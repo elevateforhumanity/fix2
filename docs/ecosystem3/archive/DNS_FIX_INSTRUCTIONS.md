@@ -74,7 +74,7 @@ After adding records, test with:
 
 ```bash
 # Test root domain
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 
 # Test www subdomain
 curl -I https://www.elevateforhumanity.org

@@ -56,7 +56,7 @@
 
 1. Go to: [https://dashboard.stripe.com/webhooks](https://dashboard.stripe.com/webhooks)
 2. If webhook doesn't exist, create one:
-   - **Endpoint URL:** `https://elevateforhumanity.org/api/stripe-webhook`
+   - **Endpoint URL:** `https://www.elevateforhumanity.org/api/stripe-webhook`
    - **Events:** `checkout.session.completed`, `payment_intent.succeeded`
 3. Copy **Signing secret:** `whsec_...`
 
@@ -88,7 +88,7 @@ STRIPE_WEBHOOK_SECRET = whsec_...
 
 ```bash
 # Test checkout session creation
-curl -X POST https://elevateforhumanity.org/api/create-checkout-session \
+curl -X POST https://www.elevateforhumanity.org/api/create-checkout-session \
   -H "Content-Type: application/json" \
   -d '{"programId":"test","programName":"Test Program","price":100}'
 ```
@@ -238,7 +238,7 @@ INSERT INTO programs (slug, title, track, blurb, hours) VALUES
 dig elevateforhumanity.org
 
 # Check SSL
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 ```
 
 ---
@@ -368,7 +368,7 @@ Uncomment and update in `index.html`:
 
 ```bash
 # Check meta tags
-curl -s https://elevateforhumanity.org | grep -i "meta name"
+curl -s https://www.elevateforhumanity.org | grep -i "meta name"
 
 # Validate structured data
 # Use: https://search.google.com/test/rich-results
@@ -542,7 +542,7 @@ fetch('https://api.durable.co/v1/blogs/elevateforhumanity/posts?limit=3');
 
 ### Immediate Checks (Day 1)
 
-- [ ] Site loads at https://elevateforhumanity.org
+- [ ] Site loads at https://www.elevateforhumanity.org
 - [ ] All 9 program pages load correctly
 - [ ] Navigation works
 - [ ] Forms submit properly

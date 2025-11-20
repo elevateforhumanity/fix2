@@ -117,7 +117,7 @@ To activate these, you'll need to:
 
 After DNS propagation (can take up to 48 hours):
 
-1. Visit: https://elevateforhumanity.org
+1. Visit: https://www.elevateforhumanity.org
 2. Check SSL certificate (should show valid Let's Encrypt cert)
 3. Test www redirect: https://www.elevateforhumanity.org
 4. Test .com redirect: https://elevateforhumanity.com

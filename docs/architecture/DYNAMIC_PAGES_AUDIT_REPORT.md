@@ -135,7 +135,7 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://elevateforhumanity.pages.dev/sitemap.xml
-Sitemap: https://elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 
 # Disallow admin and auth pages

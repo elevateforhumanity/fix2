@@ -225,7 +225,7 @@ npm run verify:redirects:prod
 npm run crawl:prod
 
 # Check specific pages
-curl -I https://elevateforhumanity.org/career-uplift-services/certify-and-thrive-program
+curl -I https://www.elevateforhumanity.org/career-uplift-services/certify-and-thrive-program
 # Should return: 301 → /programs/cybersecurity/
 ```
 

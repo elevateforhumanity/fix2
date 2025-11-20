@@ -56,7 +56,7 @@ git push origin main
 ### Step 3: Verify Deployment
 
 1. Wait for deployment to complete (usually 2-5 minutes)
-2. Visit: https://elevateforhumanity.org
+2. Visit: https://www.elevateforhumanity.org
 3. Check browser DevTools Console:
    - API calls should go to `https://api.elevateforhumanity.org`
    - No CORS errors
@@ -66,10 +66,10 @@ git push origin main
 
 Visit and verify these pages load correctly:
 
-- https://elevateforhumanity.org/ (Homepage)
-- https://elevateforhumanity.org/programs (Programs listing)
-- https://elevateforhumanity.org/lms (Learning Management System)
-- https://elevateforhumanity.org/certificates (Certificates)
+- https://www.elevateforhumanity.org/ (Homepage)
+- https://www.elevateforhumanity.org/programs (Programs listing)
+- https://www.elevateforhumanity.org/lms (Learning Management System)
+- https://www.elevateforhumanity.org/certificates (Certificates)
 
 ---
 

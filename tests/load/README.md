@@ -92,7 +92,7 @@ k6 run tests/load/spike-test.js
 Set custom base URL:
 
 ```bash
-k6 run -e BASE_URL=https://elevateforhumanity.org tests/load/basic-load.js
+k6 run -e BASE_URL=https://www.elevateforhumanity.org tests/load/basic-load.js
 ```
 
 Set custom API URL:

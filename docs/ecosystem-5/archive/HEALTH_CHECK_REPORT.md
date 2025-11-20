@@ -20,7 +20,7 @@
 
 | Test               | Status      | Details                                                                 |
 | ------------------ | ----------- | ----------------------------------------------------------------------- |
-| **Primary Domain** | ✅ PASS     | https://elevateforhumanity.org loads successfully                       |
+| **Primary Domain** | ✅ PASS     | https://www.elevateforhumanity.org loads successfully                       |
 | **WWW Redirect**   | ⚠️ EXTERNAL | www.elevateforhumanity.org → elevateforhumanity.org (external redirect) |
 | **HTTPS**          | ✅ PASS     | SSL certificate valid, HTTPS enforced                                   |
 | **Response Time**  | ✅ PASS     | Fast response via Netlify CDN                                           |
@@ -98,7 +98,7 @@
 2. **Re-enable Internal Redirect** (after external fix):
 
    ```
-   https://elevateforhumanity.org/* https://www.elevateforhumanity.org/:splat 301!
+   https://www.elevateforhumanity.org/* https://www.elevateforhumanity.org/:splat 301!
    ```
 
 3. **Monitor Performance**:

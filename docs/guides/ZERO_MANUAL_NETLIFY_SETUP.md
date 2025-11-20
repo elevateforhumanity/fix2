@@ -155,7 +155,7 @@ export NETLIFY_AUTH_TOKEN='your_token_here'
 # 4. Run autopilot (everything automated)
 bash scripts/autopilot-netlify-zero-touch.sh
 
-# 5. Done! Site is live at https://elevateforhumanity.org
+# 5. Done! Site is live at https://www.elevateforhumanity.org
 ```
 
 **Total time: 5 minutes**
@@ -183,7 +183,7 @@ After running the script:
 
 ### ✅ Live Production Site
 
-- URL: https://elevateforhumanity.org
+- URL: https://www.elevateforhumanity.org
 - SSL: Enabled
 - CDN: Global
 - Functions: 20+ endpoints
@@ -327,7 +327,7 @@ netlify open:admin
 ### Check Site
 
 ```bash
-curl https://elevateforhumanity.org/api/health
+curl https://www.elevateforhumanity.org/api/health
 ```
 
 ---

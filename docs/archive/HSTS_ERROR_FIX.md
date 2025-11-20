@@ -47,7 +47,7 @@ www.elevateforhumanity.org → Netlify ❌ WRONG
 ```toml
 [[redirects]]
   from = "https://www.elevateforhumanity.org/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 ```
@@ -79,7 +79,7 @@ Changed in 14 files:
 **From:**
 
 ```javascript
-const SITE_URL = 'https://elevateforhumanity.org';
+const SITE_URL = 'https://www.elevateforhumanity.org';
 ```
 
 **To:**
@@ -291,7 +291,7 @@ After clearing HSTS:
 1. **Test Durable.co site:**
 
    ```
-   https://elevateforhumanity.org
+   https://www.elevateforhumanity.org
    https://www.elevateforhumanity.org
    ```
 
@@ -364,6 +364,6 @@ In Durable.co dashboard:
 ⚠️ **Manual:** Ensure DNS points to Durable.co, not Netlify
 
 **Your Netlify app:** https://elevateproduction.netlify.app  
-**Your public site:** https://elevateforhumanity.org (on Durable.co)
+**Your public site:** https://www.elevateforhumanity.org (on Durable.co)
 
 **These should be separate!**

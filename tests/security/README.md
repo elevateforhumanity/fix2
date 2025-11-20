@@ -118,7 +118,7 @@ nikto -h http://localhost:5173 -o nikto-report.html -Format html
 git clone --depth 1 https://github.com/drwetter/testssl.sh.git
 
 # Run scan
-./testssl.sh/testssl.sh https://elevateforhumanity.org
+./testssl.sh/testssl.sh https://www.elevateforhumanity.org
 ```
 
 **Using SSL Labs:**

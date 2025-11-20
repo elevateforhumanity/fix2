@@ -54,7 +54,7 @@
 
 **Configuration**:
 
-- Base URL: `https://elevateforhumanity.org`
+- Base URL: `https://www.elevateforhumanity.org`
 - Sitemap: `/sitemap.xml`
 - Providers: Google, Bing
 

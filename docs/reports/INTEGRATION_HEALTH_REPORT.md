@@ -362,7 +362,7 @@ await apiClient.health();
 
    ```bash
    # Test function endpoint
-   curl https://elevateforhumanity.org/api/health
+   curl https://www.elevateforhumanity.org/api/health
    ```
 
 3. **Domain Redirects:**
@@ -376,7 +376,7 @@ await apiClient.health();
 4. **Security Headers:**
    ```bash
    # Check headers
-   curl -I https://elevateforhumanity.org
+   curl -I https://www.elevateforhumanity.org
    # Should include: CSP, HSTS, X-Frame-Options, etc.
    ```
 

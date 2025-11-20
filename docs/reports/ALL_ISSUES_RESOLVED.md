@@ -294,7 +294,7 @@ git push origin main
 **2. Verify Deployment:**
 
 ```bash
-curl https://elevateforhumanity.org
+curl https://www.elevateforhumanity.org
 ```
 
 **3. Monitor:**

@@ -81,7 +81,7 @@ Full-stack workforce LMS built with React 19, Vite 6, Supabase, and Stripe Conne
 **Website URL:**
 
 ```
-https://elevateforhumanity.org
+https://www.elevateforhumanity.org
 ```
 
 ## GitHub Search Optimization

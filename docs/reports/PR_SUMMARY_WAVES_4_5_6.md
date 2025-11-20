@@ -425,7 +425,7 @@ All documentation has been:
 
 Contact: Executive Director, Elevate for Humanity  
 Email: [To be provided]  
-Website: https://elevateforhumanity.org
+Website: https://www.elevateforhumanity.org
 
 ---
 

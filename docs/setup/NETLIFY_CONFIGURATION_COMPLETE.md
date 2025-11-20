@@ -95,7 +95,7 @@ All 17 functions have clean API endpoints:
 - ✅ `SUPABASE_DATABASE_URL` - Configured
 - ✅ `STRIPE_SECRET_KEY` - Configured
 - ✅ `VITE_STRIPE_PUBLISHABLE_KEY` - Configured
-- ✅ `FRONTEND_URL` - https://elevateforhumanity.org
+- ✅ `FRONTEND_URL` - https://www.elevateforhumanity.org
 - ✅ `NETLIFY_DATABASE_URL` - Configured
 - ✅ `NETLIFY_DATABASE_URL_UNPOOLED` - Configured
 

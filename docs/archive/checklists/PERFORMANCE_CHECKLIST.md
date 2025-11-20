@@ -309,7 +309,7 @@ npm run build
 npm run build -- --analyze
 
 # Run Lighthouse
-lighthouse https://elevateforhumanity.org --view
+lighthouse https://www.elevateforhumanity.org --view
 
 # Test on slow connection
 # Chrome DevTools > Network > Slow 3G

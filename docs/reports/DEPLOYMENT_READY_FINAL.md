@@ -59,7 +59,7 @@ Universal Navigation, Partner Portal, Supabase Setup & Deployment Ready
 - Detect the merge to main
 - Run: `pnpm install && pnpm run build`
 - Deploy to: `dist/` folder
-- Site live at: https://elevateforhumanity.org
+- Site live at: https://www.elevateforhumanity.org
 
 **Time:** 3-5 minutes
 
@@ -243,10 +243,10 @@ Should show 16 tables.
 
 ### After Netlify Deployment:
 
-- [ ] Visit https://elevateforhumanity.org
-- [ ] Check https://elevateforhumanity.org/pages/selfish-inc.html (should work, no 403)
-- [ ] Check https://elevateforhumanity.org/pages/partner-onboarding.html
-- [ ] Check https://elevateforhumanity.org/student-portal-lms
+- [ ] Visit https://www.elevateforhumanity.org
+- [ ] Check https://www.elevateforhumanity.org/pages/selfish-inc.html (should work, no 403)
+- [ ] Check https://www.elevateforhumanity.org/pages/partner-onboarding.html
+- [ ] Check https://www.elevateforhumanity.org/student-portal-lms
 - [ ] Verify universal navigation appears on all pages
 - [ ] Test email links (should be elevateforhumanity@gmail.com)
 
@@ -341,7 +341,7 @@ Should show 16 tables.
 4. Apply Supabase migrations
 5. Site is live!
 
-**Your site will be live at:** https://elevateforhumanity.org
+**Your site will be live at:** https://www.elevateforhumanity.org
 
 **With full LMS functionality:**
 

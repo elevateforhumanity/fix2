@@ -234,7 +234,7 @@ Test Suites:
 
 ### Current Deployment
 
-- **Production URL:** https://elevateforhumanity.org
+- **Production URL:** https://www.elevateforhumanity.org
 - **Staging URL:** https://staging.elevateforhumanity.org
 - **CDN:** Cloudflare
 - **Hosting:** Netlify

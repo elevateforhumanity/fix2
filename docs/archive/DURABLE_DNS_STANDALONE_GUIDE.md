@@ -320,8 +320,8 @@ Your Netlify LMS needs to allow embedding from Durable.co:
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "ALLOW-FROM https://elevateforhumanity.org"
-    Content-Security-Policy = "frame-ancestors 'self' https://elevateforhumanity.org"
+    X-Frame-Options = "ALLOW-FROM https://www.elevateforhumanity.org"
+    Content-Security-Policy = "frame-ancestors 'self' https://www.elevateforhumanity.org"
 ```
 
 ### 2. Authentication

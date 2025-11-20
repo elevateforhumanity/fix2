@@ -6,7 +6,7 @@ Your repository has a comprehensive autopilot system configured. This guide show
 
 **Site ID:** `12f120ab-3f63-419b-bc49-430f043415c1`  
 **Site Name:** elevateforhumanityfix2  
-**Production URL:** https://elevateforhumanity.org
+**Production URL:** https://www.elevateforhumanity.org
 
 ---
 
@@ -572,13 +572,13 @@ command = "pnpm install --frozen-lockfile && pnpm run build"
 **Site Health:**
 
 ```bash
-curl https://elevateforhumanity.org/api/health-check
+curl https://www.elevateforhumanity.org/api/health-check
 ```
 
 **Database Health:**
 
 ```bash
-curl https://elevateforhumanity.org/api/health-db
+curl https://www.elevateforhumanity.org/api/health-db
 ```
 
 **Netlify Status:**
@@ -798,7 +798,7 @@ gh workflow run supabase-autopilot.yml
 - **Deploys:** https://app.netlify.com/sites/elevateforhumanityfix2/deploys
 - **Settings:** https://app.netlify.com/sites/elevateforhumanityfix2/settings
 - **Functions:** https://app.netlify.com/sites/elevateforhumanityfix2/functions
-- **Production:** https://elevateforhumanity.org
+- **Production:** https://www.elevateforhumanity.org
 
 ### GitHub Links
 

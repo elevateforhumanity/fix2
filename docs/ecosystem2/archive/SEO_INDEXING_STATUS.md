@@ -111,7 +111,7 @@ curl https://www.elevateforhumanity.org/robots.txt
 curl -s https://www.elevateforhumanity.org | grep canonical
 
 # Test redirects
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 ```
 
 ## 🔧 Tools for Monitoring

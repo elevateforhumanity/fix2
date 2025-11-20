@@ -118,7 +118,7 @@ Look for:
 ## 🌐 Production URLs
 
 **Primary**: https://fix2-one.vercel.app  
-**Custom Domain**: https://elevateforhumanity.org (if configured)
+**Custom Domain**: https://www.elevateforhumanity.org (if configured)
 
 **Download Helper**: https://fix2-one.vercel.app/download-images.html
 

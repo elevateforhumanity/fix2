@@ -172,7 +172,7 @@ SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL
 **Monitoring Setup**:
 ```bash
 # UptimeRobot
-URL: https://elevateforhumanity.org/api/health
+URL: https://www.elevateforhumanity.org/api/health
 Interval: 5 minutes
 Expected: 200 status code
 

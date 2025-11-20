@@ -34,19 +34,19 @@ Added all form pages to `/public/sitemap.xml`:
 
 ```xml
 <url>
-  <loc>https://elevateforhumanity.org/eligibility-verification</loc>
+  <loc>https://www.elevateforhumanity.org/eligibility-verification</loc>
   <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://elevateforhumanity.org/enroll-complete</loc>
+  <loc>https://www.elevateforhumanity.org/enroll-complete</loc>
   <priority>0.5</priority>
 </url>
 <url>
-  <loc>https://elevateforhumanity.org/account</loc>
+  <loc>https://www.elevateforhumanity.org/account</loc>
   <priority>0.7</priority>
 </url>
 <url>
-  <loc>https://elevateforhumanity.org/partners</loc>
+  <loc>https://www.elevateforhumanity.org/partners</loc>
   <priority>0.8</priority>
 </url>
 ```

@@ -15,7 +15,7 @@
 
 **Primary Site:**
 
-- https://elevateforhumanity.org ✅ LIVE
+- https://www.elevateforhumanity.org ✅ LIVE
 - https://www.elevateforhumanity.org ✅ LIVE
 
 **Netlify Deploy URL:**
@@ -326,7 +326,7 @@ https://app.netlify.com/sites/elevateforhumanityfix2/settings
 
 ## Next Actions
 
-1. **Visit your site:** https://elevateforhumanity.org
+1. **Visit your site:** https://www.elevateforhumanity.org
 2. **Test functionality:** Registration, login, courses
 3. **Monitor builds:** Check Netlify dashboard
 4. **Add Stripe keys:** In Netlify environment variables

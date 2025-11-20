@@ -671,7 +671,7 @@ curl "https://YOUR_SUPABASE_URL/rest/v1/courses_public?slug=eq.intro-to-barberin
 
 ```bash
 # Visit in browser
-https://elevateforhumanity.org/og-image?title=Barber%20Apprenticeship&subtitle=Workforce%20Training
+https://www.elevateforhumanity.org/og-image?title=Barber%20Apprenticeship&subtitle=Workforce%20Training
 ```
 
 ---

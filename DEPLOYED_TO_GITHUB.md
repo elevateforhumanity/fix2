@@ -57,14 +57,14 @@ Check status at: [Vercel Dashboard](https://vercel.com/dashboard)
 ## Required Environment Variables for Vercel:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
 STRIPE_SECRET_KEY=sk_live_...
 NEXTAUTH_SECRET=your-secret
-NEXTAUTH_URL=https://elevateforhumanity.org
+NEXTAUTH_URL=https://www.elevateforhumanity.org
 ```
 
 **Optional (for full features):**
@@ -84,13 +84,13 @@ Once Vercel deploys, test:
 
 ```bash
 # Homepage
-curl https://elevateforhumanity.org
+curl https://www.elevateforhumanity.org
 
 # Bot detection (should be blocked)
-curl https://elevateforhumanity.org/api/health
+curl https://www.elevateforhumanity.org/api/health
 
 # Honeypot trap
-curl https://elevateforhumanity.org/api/trap
+curl https://www.elevateforhumanity.org/api/trap
 ```
 
 ---

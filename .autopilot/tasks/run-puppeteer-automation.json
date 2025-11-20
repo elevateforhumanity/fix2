@@ -108,10 +108,10 @@
       "title": "Verify Site is Live",
       "type": "validation",
       "instructions": [
-        "Open: https://elevateforhumanity.org",
+        "Open: https://www.elevateforhumanity.org",
         "Site should load without errors",
-        "Check: https://elevateforhumanity.org/sitemap.xml",
-        "Check: https://elevateforhumanity.org/robots.txt",
+        "Check: https://www.elevateforhumanity.org/sitemap.xml",
+        "Check: https://www.elevateforhumanity.org/robots.txt",
         "All should work correctly"
       ]
     }

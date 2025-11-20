@@ -38,7 +38,7 @@ After DNS propagation (15 minutes to 2 hours):
 
 ```bash
 # Test custom domain
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 
 # Test www subdomain
 curl -I https://www.elevateforhumanity.org
@@ -49,8 +49,8 @@ curl -I https://www.elevateforhumanity.org
 
 ## Expected Behavior After Setup
 
-1. **https://elevateforhumanity.durable.co** → redirects to → **https://elevateforhumanity.org**
-2. **https://elevateforhumanity.org** → serves your site
+1. **https://elevateforhumanity.durable.co** → redirects to → **https://www.elevateforhumanity.org**
+2. **https://www.elevateforhumanity.org** → serves your site
 3. **https://www.elevateforhumanity.org** → serves your site
 
 ## SEO Configuration Status ✅

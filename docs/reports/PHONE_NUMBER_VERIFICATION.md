@@ -141,7 +141,7 @@ Indianapolis, IN 46240
 - Security: security@elevateforhumanity.org
 
 **Website:**
-https://elevateforhumanity.org
+https://www.elevateforhumanity.org
 
 **Social Media:**
 

@@ -8,7 +8,7 @@ Your site was experiencing `ERR_TOO_MANY_REDIRECTS` due to conflicting redirect 
 
 ```
 Original _redirects file had:
-1. https://elevateforhumanity.org/* → https://www.elevateforhumanity.org/:splat (301)
+1. https://www.elevateforhumanity.org/* → https://www.elevateforhumanity.org/:splat (301)
 2. http://www.elevateforhumanity.org/* → https://www.elevateforhumanity.org/:splat (301)
 ```
 
@@ -31,7 +31,7 @@ Original _redirects file had:
 /assets/*  /assets/:splat  200
 
 # Redirect non-www to www (primary domain for SEO)
-https://elevateforhumanity.org/* https://www.elevateforhumanity.org/:splat 301!
+https://www.elevateforhumanity.org/* https://www.elevateforhumanity.org/:splat 301!
 
 # Note: HTTPS redirect removed - Cloudflare handles HTTP->HTTPS automatically
 # Keeping this would create a redirect loop with Cloudflare's "Always Use HTTPS"
@@ -48,8 +48,8 @@ https://elevateforhumanity.org/* https://www.elevateforhumanity.org/:splat 301!
 
 ## Expected Behavior Now
 
-- ✅ `http://elevateforhumanity.org` → Cloudflare → `https://www.elevateforhumanity.org`
-- ✅ `https://elevateforhumanity.org` → `https://www.elevateforhumanity.org`
+- ✅ `https://www.elevateforhumanity.org` → Cloudflare → `https://www.elevateforhumanity.org`
+- ✅ `https://www.elevateforhumanity.org` → `https://www.elevateforhumanity.org`
 - ✅ `http://www.elevateforhumanity.org` → Cloudflare → `https://www.elevateforhumanity.org`
 - ✅ `https://www.elevateforhumanity.org` → No redirect (final destination)
 

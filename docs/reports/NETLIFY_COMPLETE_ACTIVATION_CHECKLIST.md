@@ -4,7 +4,7 @@
 
 **Site ID:** `12f120ab-3f63-419b-bc49-430f043415c1`  
 **Site Name:** elevateforhumanityfix2  
-**Production URL:** https://elevateforhumanity.org  
+**Production URL:** https://www.elevateforhumanity.org  
 **Plan:** Pro ($19/month)
 
 ---
@@ -636,7 +636,7 @@ export const config = {
 
 **Primary Domain:**
 
-- https://elevateforhumanity.org ✅
+- https://www.elevateforhumanity.org ✅
 
 **Redirects:**
 

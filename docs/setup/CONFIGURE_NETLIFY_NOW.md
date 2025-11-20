@@ -91,7 +91,7 @@ What was configured:
   ✓ Build settings verified
 
 Your site:
-  Production: https://elevateforhumanity.org
+  Production: https://www.elevateforhumanity.org
   Dashboard: https://app.netlify.com/sites/12f120ab-3f63-419b-bc49-430f043415c1
 
 Everything is configured and ready! 🚀

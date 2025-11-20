@@ -95,7 +95,7 @@ Your site should be live in 2-3 minutes!
 
 1. **Wait 2-3 minutes** for Vercel to build and deploy
 
-2. **Visit your site**: [https://elevateforhumanity.org](https://elevateforhumanity.org)
+2. **Visit your site**: [https://www.elevateforhumanity.org](https://www.elevateforhumanity.org)
 
 3. **Check Vercel dashboard**: [https://vercel.com/dashboard](https://vercel.com/dashboard)
 

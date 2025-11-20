@@ -127,19 +127,19 @@ CNAME  www    elevateproduction.netlify.app    Auto
 ```toml
 [[redirects]]
   from = "https://www.elevateforhumanity.org/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.elevateforhumanity.org/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.elevateforhumanity.org/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 ```
@@ -193,26 +193,26 @@ Add redirects to force non-www and redirect secondary domain:
 # Redirect all domains to primary
 [[redirects]]
   from = "https://www.elevateforhumanity.org/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.elevateforhumanity.org/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.elevateforhumanity.org/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 # Redirect HTTP to HTTPS (handled by Netlify, but explicit)
 [[redirects]]
-  from = "http://elevateforhumanity.org/*"
-  to = "https://elevateforhumanity.org/:splat"
+  from = "https://www.elevateforhumanity.org/*"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 ```
@@ -237,9 +237,9 @@ git push
 
 Wait for deployment, then test:
 
-- https://elevateforhumanity.org ✅
-- https://www.elevateforhumanity.org → redirects to https://elevateforhumanity.org ✅
-- https://www.elevateforhumanity.org → redirects to https://elevateforhumanity.org ✅
+- https://www.elevateforhumanity.org ✅
+- https://www.elevateforhumanity.org → redirects to https://www.elevateforhumanity.org ✅
+- https://www.elevateforhumanity.org → redirects to https://www.elevateforhumanity.org ✅
 
 ---
 
@@ -316,10 +316,10 @@ CNAME  www    elevateproduction.netlify.app    -
 
 After DNS changes propagate (10-30 minutes):
 
-- [ ] https://elevateforhumanity.org loads correctly
-- [ ] https://www.elevateforhumanity.org redirects to https://elevateforhumanity.org
-- [ ] https://www.elevateforhumanity.org redirects to https://elevateforhumanity.org
-- [ ] https://www.elevateforhumanity.org redirects to https://elevateforhumanity.org
+- [ ] https://www.elevateforhumanity.org loads correctly
+- [ ] https://www.elevateforhumanity.org redirects to https://www.elevateforhumanity.org
+- [ ] https://www.elevateforhumanity.org redirects to https://www.elevateforhumanity.org
+- [ ] https://www.elevateforhumanity.org redirects to https://www.elevateforhumanity.org
 - [ ] SSL certificate is valid (green padlock)
 - [ ] All pages load correctly
 - [ ] No mixed content warnings

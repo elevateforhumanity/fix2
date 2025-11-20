@@ -71,7 +71,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ```bash
 NEXTAUTH_SECRET=paste-your-generated-secret-here
-NEXTAUTH_URL=https://elevateforhumanity.org
+NEXTAUTH_URL=https://www.elevateforhumanity.org
 ```
 
 **What happens when you add these:**
@@ -89,7 +89,7 @@ NEXTAUTH_URL=https://elevateforhumanity.org
 **Get it:** You already have it!
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 ```
 
 **What happens when you add this:**
@@ -129,7 +129,7 @@ STRIPE_SECRET_KEY=sk_live_...
 
 1. Click the link above → https://dashboard.stripe.com/webhooks
 2. Click "Add endpoint"
-3. Enter: `https://elevateforhumanity.org/api/webhooks/stripe`
+3. Enter: `https://www.elevateforhumanity.org/api/webhooks/stripe`
 4. Select events: `checkout.session.completed`, `payment_intent.succeeded`
 5. Copy "Signing secret" (starts with whsec_)
 
@@ -250,7 +250,7 @@ SMTP_FROM_NAME=Elevate for Humanity
 10. Click "Create"
 11. Accept terms
 12. Choose "Web" platform
-13. Enter website URL: `https://elevateforhumanity.org`
+13. Enter website URL: `https://www.elevateforhumanity.org`
 14. Enter stream name: "Production"
 15. Click "Create stream"
 16. Copy your "Measurement ID" (starts with G-)
@@ -325,7 +325,7 @@ SENTRY_ENVIRONMENT=production
 9. Go to "Credentials" → "Create Credentials" → "OAuth client ID"
 10. Choose "Web application"
 11. Name: "Production"
-12. Add authorized redirect URI: `https://elevateforhumanity.org/api/auth/callback/google`
+12. Add authorized redirect URI: `https://www.elevateforhumanity.org/api/auth/callback/google`
 13. Click "Create"
 14. Copy Client ID and Client Secret
 
@@ -453,8 +453,8 @@ NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
 NEXTAUTH_SECRET=
-NEXTAUTH_URL=https://elevateforhumanity.org
-NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
+NEXTAUTH_URL=https://www.elevateforhumanity.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 
 # OPTIONAL - Payments
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=

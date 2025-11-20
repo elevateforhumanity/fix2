@@ -127,7 +127,7 @@ SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_KEY=your-service-role-key
 
 # Frontend
-FRONTEND_URL=https://elevateforhumanity.org
+FRONTEND_URL=https://www.elevateforhumanity.org
 ```
 
 ### 4. Run Database Migration
@@ -144,7 +144,7 @@ supabase db push
 
 1. Go to Stripe Dashboard → **Developers** → **Webhooks**
 2. Click **+ Add endpoint**
-3. Endpoint URL: `https://elevateforhumanity.org/.netlify/functions/stripe-webhook`
+3. Endpoint URL: `https://www.elevateforhumanity.org/.netlify/functions/stripe-webhook`
 4. Select events:
    - `checkout.session.completed`
    - `payment_intent.succeeded`
@@ -160,13 +160,13 @@ supabase db push
 **1. Create Instructor Record**
 
 ```bash
-curl -X POST https://elevateforhumanity.org/.netlify/functions/stripe-connect-onboarding \
+curl -X POST https://www.elevateforhumanity.org/.netlify/functions/stripe-connect-onboarding \
   -H "Content-Type: application/json" \
   -d '{
     "instructor_id": "uuid-here",
     "email": "instructor@example.com",
-    "return_url": "https://elevateforhumanity.org/instructor/dashboard",
-    "refresh_url": "https://elevateforhumanity.org/instructor/connect/refresh"
+    "return_url": "https://www.elevateforhumanity.org/instructor/dashboard",
+    "refresh_url": "https://www.elevateforhumanity.org/instructor/connect/refresh"
   }'
 ```
 
@@ -210,7 +210,7 @@ Split payouts are **automatically triggered** when a payment succeeds:
 For manual or retroactive payouts:
 
 ```bash
-curl -X POST https://elevateforhumanity.org/.netlify/functions/stripe-split-payout \
+curl -X POST https://www.elevateforhumanity.org/.netlify/functions/stripe-split-payout \
   -H "Content-Type: application/json" \
   -d '{
     "payment_intent_id": "pi_xxxxxxxxxxxxx",
@@ -374,7 +374,7 @@ ORDER BY total_earned DESC;
 
 ```bash
 # Manually trigger split payout
-curl -X POST https://elevateforhumanity.org/.netlify/functions/stripe-split-payout \
+curl -X POST https://www.elevateforhumanity.org/.netlify/functions/stripe-split-payout \
   -H "Content-Type: application/json" \
   -d '{
     "payment_intent_id": "pi_xxxxxxxxxxxxx",

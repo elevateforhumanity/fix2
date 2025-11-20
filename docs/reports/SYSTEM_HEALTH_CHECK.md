@@ -88,7 +88,7 @@ measurePerformance(name, fn)    // Function timing
 - ✅ Priority rankings set
 - ✅ Last modified dates
 
-**Sitemap URL:** `https://elevateforhumanity.org/sitemap.xml`
+**Sitemap URL:** `https://www.elevateforhumanity.org/sitemap.xml`
 
 ### Robots.txt
 
@@ -101,7 +101,7 @@ measurePerformance(name, fn)    // Function timing
 User-agent: *
 Allow: /
 
-Sitemap: https://elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 
 # Protected paths
 Disallow: /admin/

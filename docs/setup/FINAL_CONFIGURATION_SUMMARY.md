@@ -123,13 +123,13 @@ VITE_APP_VERSION=2.0.0
 # netlify.toml
 [[redirects]]
   from = "https://elevateforhumanity.com/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.elevateforhumanity.com/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 ```
@@ -294,7 +294,7 @@ VITE_ZAPIER_LINKEDIN_WEBHOOK=https://hooks.zapier.com/hooks/catch/...
 VITE_ZAPIER_YOUTUBE_WEBHOOK=https://hooks.zapier.com/hooks/catch/...
 
 # API Configuration
-VITE_API_URL=https://elevateforhumanity.org/api
+VITE_API_URL=https://www.elevateforhumanity.org/api
 ```
 
 ### Router Updates
@@ -364,7 +364,7 @@ git push origin main
 
 ### 2. Test Analytics Dashboard
 
-- Navigate to: https://elevateforhumanity.org/analytics-dashboard-rum
+- Navigate to: https://www.elevateforhumanity.org/analytics-dashboard-rum
 - Verify Web Vitals display correctly
 - Check session tracking works
 - Review error reporting table
@@ -373,10 +373,10 @@ git push origin main
 
 ```bash
 curl -I https://elevateforhumanity.com
-# Should return: 301 → https://elevateforhumanity.org/
+# Should return: 301 → https://www.elevateforhumanity.org/
 
 curl -I https://www.elevateforhumanity.com
-# Should return: 301 → https://elevateforhumanity.org/
+# Should return: 301 → https://www.elevateforhumanity.org/
 ```
 
 ### 4. Test Social Media Links
@@ -387,7 +387,7 @@ curl -I https://www.elevateforhumanity.com
 
 ### 5. Test Zapier Integration
 
-- Navigate to: https://elevateforhumanity.org/social-media-manager
+- Navigate to: https://www.elevateforhumanity.org/social-media-manager
 - Create test post
 - Verify posts appear on platforms
 - Check Zapier task history

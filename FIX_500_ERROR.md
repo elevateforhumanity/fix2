@@ -2,8 +2,8 @@
 
 ## Current Status
 
-- ✅ `https://elevateforhumanity.org/` - Marketing site works
-- ❌ `https://elevateforhumanity.org/lms/dashboard` - 500 error
+- ✅ `https://www.elevateforhumanity.org/` - Marketing site works
+- ❌ `https://www.elevateforhumanity.org/lms/dashboard` - 500 error
 - ❌ `https://www.elevateforhumanity.org/` - 500 error
 - ❌ `https://www.elevateforhumanity.org/lms/dashboard` - 500 error
 

@@ -358,5 +358,5 @@ netlify logs
 
 - **Astro Docs:** https://docs.astro.build
 - **Netlify Prerender:** https://docs.netlify.com/integrations/frameworks/prerender/
-- **Current Site:** https://elevateforhumanity.org
+- **Current Site:** https://www.elevateforhumanity.org
 - **Netlify Dashboard:** https://app.netlify.com/sites/elevateforhumanityfix

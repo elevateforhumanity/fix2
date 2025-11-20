@@ -160,7 +160,7 @@ USER VISITS: elevateforhumanity.org
 ### Marketing Site:
 
 ```
-URL: https://elevateforhumanity.org
+URL: https://www.elevateforhumanity.org
 Purpose: Public-facing marketing
 Platform: Durable.co
 Status: ✅ Live and working
@@ -250,7 +250,7 @@ SSL: ✅ Active and secure
 **Marketing Site:**
 
 ```bash
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 # Should return: HTTP 200
 # Should show: Durable site
 ```

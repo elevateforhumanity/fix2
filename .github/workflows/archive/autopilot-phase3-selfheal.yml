@@ -11,8 +11,8 @@ on:
         default: 'false'
 
 env:
-  SITE_URL: https://elevateforhumanity.org
-  HEALTH_ENDPOINT: https://elevateforhumanity.org/api/health
+  SITE_URL: https://www.elevateforhumanity.org
+  HEALTH_ENDPOINT: https://www.elevateforhumanity.org/api/health
   SUPABASE_HEALTH_ENDPOINT: https://${{ secrets.SUPABASE_PROJECT_REF }}.supabase.co/functions/v1/autopilot-health-worker
   WORKER_ENDPOINT: ${{ secrets.WORKER_ENDPOINT }}
   NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}

@@ -85,7 +85,7 @@ SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL
 1. Go to **Settings** → **Integrations**
 2. Search for "Webhooks"
 3. Click **Add to Project**
-4. Webhook URL: `https://elevateforhumanity.org/.netlify/functions/sentry-webhook`
+4. Webhook URL: `https://www.elevateforhumanity.org/.netlify/functions/sentry-webhook`
 5. Select events:
    - Issue Created
    - Issue Resolved
@@ -207,7 +207,7 @@ on:
 ### Manual Health Check
 
 ```bash
-curl https://elevateforhumanity.org/.netlify/functions/health-check
+curl https://www.elevateforhumanity.org/.netlify/functions/health-check
 ```
 
 **Response:**
@@ -416,7 +416,7 @@ captureMessage('Test error from frontend', 'error');
 **Test:**
 
 ```bash
-curl -X POST https://elevateforhumanity.org/.netlify/functions/sentry-webhook \
+curl -X POST https://www.elevateforhumanity.org/.netlify/functions/sentry-webhook \
   -H "Content-Type: application/json" \
   -d '{
     "action": "created",
@@ -442,7 +442,7 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/sentry-webhook \
 **Debug:**
 
 ```bash
-curl -v https://elevateforhumanity.org/.netlify/functions/health-check
+curl -v https://www.elevateforhumanity.org/.netlify/functions/health-check
 ```
 
 ## Best Practices

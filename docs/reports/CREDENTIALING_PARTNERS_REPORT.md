@@ -139,7 +139,7 @@ The platform showcases **106+ industry certifications** through strategic creden
 
 **Category:** Technology
 **Partner Since:** 2020
-**Website:** https://elevateforhumanity.org/partners
+**Website:** https://www.elevateforhumanity.org/partners
 
 **Services:**
 

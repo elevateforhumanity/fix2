@@ -222,7 +222,7 @@
         "Commit changes: git add . && git commit -m 'Add Worker URLs'",
         "Push to GitHub: git push origin main",
         "Netlify will auto-deploy the frontend",
-        "Verify at: https://elevateforhumanity.org/staff/aivideo-builder"
+        "Verify at: https://www.elevateforhumanity.org/staff/aivideo-builder"
       ],
       "success_criteria": [
         "Changes committed and pushed",

@@ -244,7 +244,7 @@ Empowering individuals through accessible, industry-aligned workforce training t
 
 ### Refund Policy
 
-Full refund policy available at: https://elevateforhumanity.org/refund-policy
+Full refund policy available at: https://www.elevateforhumanity.org/refund-policy
 
 Students may withdraw within 7 days for full refund. Pro-rated refunds available through 50% of program completion.
 
@@ -345,7 +345,7 @@ Students may withdraw within 7 days for full refund. Pro-rated refunds available
 Executive Director, Elevate for Humanity  
 Email: info@elevateforhumanity.org  
 Phone: (317) 314-3757  
-Website: https://elevateforhumanity.org
+Website: https://www.elevateforhumanity.org
 
 **Mailing Address:**  
 2Exclusive LLC-S (DBA Elevate for Humanity)  

@@ -91,7 +91,7 @@ const API_BASE_URL =
 
 ```javascript
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || 'https://elevateforhumanity.org/api';
+  import.meta.env.VITE_API_URL || 'https://www.elevateforhumanity.org/api';
 ```
 
 **Impact:** Removed reference to old Render.com deployment
@@ -177,7 +177,7 @@ const partners = [
 const partners = [
   {
     name: 'Selfish Inc. dba',
-    website: 'https://elevateforhumanity.org/partners',
+    website: 'https://www.elevateforhumanity.org/partners',
   },
   { name: 'Indiana DWD', website: 'https://www.in.gov/dwd/' },
   { name: 'CompTIA', website: 'https://www.comptia.org' },
@@ -203,13 +203,13 @@ const partners = [
 # Domain consolidation - redirect .com to .org
 [[redirects]]
   from = "https://elevateforhumanity.com/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.elevateforhumanity.com/*"
-  to = "https://elevateforhumanity.org/:splat"
+  to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
 ```
@@ -235,7 +235,7 @@ url = 'https://elevateforhumanity.com';
 **After:**
 
 ```javascript
-url = 'https://elevateforhumanity.org';
+url = 'https://www.elevateforhumanity.org';
 ```
 
 **Impact:** Updated default SEO URL to primary domain
@@ -256,7 +256,7 @@ contact: 'legal@elevateforhumanity.com';
 **After:**
 
 ```javascript
-trackingUrl: 'https://elevateforhumanity.org/api/track';
+trackingUrl: 'https://www.elevateforhumanity.org/api/track';
 contact: 'legal@elevateforhumanity.org';
 ```
 
@@ -278,8 +278,8 @@ contact: 'legal@elevateforhumanity.org';
 **After:**
 
 ```jsx
-<meta property="og:image" content="https://elevateforhumanity.org/og-image.png" />
-<meta property="og:url" content="https://elevateforhumanity.org/courses" />
+<meta property="og:image" content="https://www.elevateforhumanity.org/og-image.png" />
+<meta property="og:url" content="https://www.elevateforhumanity.org/courses" />
 ```
 
 **Impact:** Fixed social media sharing metadata
@@ -418,8 +418,8 @@ VITE_ORCHESTRATOR_URL=https://efh-autopilot-orchestrator.workers.dev
 VITE_AI_STYLIST_URL=https://efh-ai-stylist.workers.dev
 
 # Frontend URL (for CORS)
-FRONTEND_URL=https://elevateforhumanity.org
-VITE_API_URL=https://elevateforhumanity.org/api
+FRONTEND_URL=https://www.elevateforhumanity.org
+VITE_API_URL=https://www.elevateforhumanity.org/api
 
 # Sentry Configuration
 VITE_SENTRY_DSN=your-sentry-dsn
@@ -532,7 +532,7 @@ VITE_AI_STYLIST_URL=https://efh-ai-stylist.workers.dev
 VITE_AGENT_WORKER_URL=https://efh-agent.workers.dev
 
 # API Configuration
-VITE_API_URL=https://elevateforhumanity.org/api
+VITE_API_URL=https://www.elevateforhumanity.org/api
 ```
 
 ### 2. Deploy Cloudflare Workers
@@ -562,7 +562,7 @@ The redirects are already configured in `netlify.toml`. Verify they work:
 ```bash
 # Test redirect
 curl -I https://elevateforhumanity.com
-# Should return 301 redirect to https://elevateforhumanity.org
+# Should return 301 redirect to https://www.elevateforhumanity.org
 ```
 
 ### 4. Add Analytics Dashboard Route
@@ -616,7 +616,7 @@ git push origin main
    - Review error reports
 
 2. **Test Analytics Dashboard**
-   - Navigate to: https://elevateforhumanity.org/analytics-dashboard-rum
+   - Navigate to: https://www.elevateforhumanity.org/analytics-dashboard-rum
    - Verify Web Vitals display
    - Check session tracking
    - Review error reporting
@@ -628,7 +628,7 @@ git push origin main
    curl -I https://www.elevateforhumanity.com
    ```
 
-   Both should redirect to https://elevateforhumanity.org
+   Both should redirect to https://www.elevateforhumanity.org
 
 4. **Test Worker URLs**
 

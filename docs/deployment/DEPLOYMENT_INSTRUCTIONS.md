@@ -96,44 +96,44 @@ Netlify will automatically:
 **Check these URLs after deployment:**
 
 1. **Legal Pages:**
-   - https://elevateforhumanity.org/legal/terms
-   - https://elevateforhumanity.org/legal/privacy
-   - https://elevateforhumanity.org/legal/ip-notice
-   - https://elevateforhumanity.org/legal/dmca
+   - https://www.elevateforhumanity.org/legal/terms
+   - https://www.elevateforhumanity.org/legal/privacy
+   - https://www.elevateforhumanity.org/legal/ip-notice
+   - https://www.elevateforhumanity.org/legal/dmca
 
 2. **SEO Elements:**
-   - View page source: https://elevateforhumanity.org
+   - View page source: https://www.elevateforhumanity.org
    - Check title tag
    - Check meta description
    - Check Open Graph tags
 
 3. **Security Files:**
-   - https://elevateforhumanity.org/robots.txt
-   - https://elevateforhumanity.org/.well-known/security.txt
+   - https://www.elevateforhumanity.org/robots.txt
+   - https://www.elevateforhumanity.org/.well-known/security.txt
 
 4. **Sitemaps:**
-   - https://elevateforhumanity.org/sitemap.xml
-   - https://elevateforhumanity.org/sitemap-complete.xml
+   - https://www.elevateforhumanity.org/sitemap.xml
+   - https://www.elevateforhumanity.org/sitemap-complete.xml
 
 ### Step 4: Test Structured Data
 
 **Google Rich Results Test:**
 
 1. Go to: https://search.google.com/test/rich-results
-2. Enter: `https://elevateforhumanity.org`
+2. Enter: `https://www.elevateforhumanity.org`
 3. Verify SoftwareApplication schema appears
 4. Check for errors
 
 **Facebook Sharing Debugger:**
 
 1. Go to: https://developers.facebook.com/tools/debug
-2. Enter: `https://elevateforhumanity.org`
+2. Enter: `https://www.elevateforhumanity.org`
 3. Verify Open Graph preview
 
 **Twitter Card Validator:**
 
 1. Go to: https://cards-dev.twitter.com/validator
-2. Enter: `https://elevateforhumanity.org`
+2. Enter: `https://www.elevateforhumanity.org`
 3. Verify Twitter Card preview
 
 ### Step 5: Submit to Search Engines
@@ -143,7 +143,7 @@ Netlify will automatically:
 1. Go to: https://search.google.com/search-console
 2. Add property: `elevateforhumanity.org`
 3. Verify ownership (HTML tag or DNS)
-4. Submit sitemap: `https://elevateforhumanity.org/sitemap.xml`
+4. Submit sitemap: `https://www.elevateforhumanity.org/sitemap.xml`
 
 **Bing Webmaster Tools:**
 
@@ -169,7 +169,7 @@ Netlify will automatically:
    Supports DOL/DWD apprenticeships, ETPL funding, AI-driven learning, and autonomous operations.
    106+ certifications, 92% job placement.
    ```
-5. Add website: `https://elevateforhumanity.org`
+5. Add website: `https://www.elevateforhumanity.org`
 
 ---
 

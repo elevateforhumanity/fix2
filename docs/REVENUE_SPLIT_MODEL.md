@@ -290,7 +290,7 @@ Yes, partners can:
 **Partner onboarding:**
 
 - Email: partnerships@elevateforhumanity.org
-- Portal: https://elevateforhumanity.org/partners
+- Portal: https://www.elevateforhumanity.org/partners
 
 ---
 

@@ -370,15 +370,15 @@ src/pages/
 
 ```bash
 # Check deployment
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 # Expected: HTTP/2 200
 
 # Test new routes
-https://elevateforhumanity.org/setup-wizard
-https://elevateforhumanity.org/page-builder
-https://elevateforhumanity.org/template-marketplace
-https://elevateforhumanity.org/invoices
-https://elevateforhumanity.org/crm
+https://www.elevateforhumanity.org/setup-wizard
+https://www.elevateforhumanity.org/page-builder
+https://www.elevateforhumanity.org/template-marketplace
+https://www.elevateforhumanity.org/invoices
+https://www.elevateforhumanity.org/crm
 ```
 
 ---

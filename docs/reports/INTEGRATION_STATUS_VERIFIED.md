@@ -497,7 +497,7 @@ curl https://efh-ai-stylist.workers.dev
 
 ```bash
 # Test health (if endpoint exists)
-curl https://elevateforhumanity.org/api/health
+curl https://www.elevateforhumanity.org/api/health
 ```
 
 ---

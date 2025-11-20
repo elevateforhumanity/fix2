@@ -318,7 +318,7 @@ As an approved provider, EFH reports:
 - **WorkOne Centers**: https://www.in.gov/dwd/workone-centers/
 - **WIOA Information**: https://www.in.gov/dwd/wioa/
 - **WRG Information**: https://www.in.gov/dwd/workforce-ready-grant/
-- **EFH Programs**: https://elevateforhumanity.org/programs
+- **EFH Programs**: https://www.elevateforhumanity.org/programs
 
 ---
 

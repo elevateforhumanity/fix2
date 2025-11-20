@@ -102,7 +102,7 @@ Netlify automatically:
 
 ### Step 4: Test
 
-Visit: https://elevateforhumanity.org
+Visit: https://www.elevateforhumanity.org
 
 Should show your Netlify site!
 
@@ -185,7 +185,7 @@ elevateforhumanity.org. 3600 IN A 75.2.60.5
 
 ### Check Website:
 
-1. Visit: https://elevateforhumanity.org
+1. Visit: https://www.elevateforhumanity.org
 2. Should show: Your Netlify LMS
 3. SSL: Should be secure (🔒)
 

@@ -9,13 +9,13 @@ You MUST update these environment variables in Vercel dashboard:
 ## Required Updates:
 
 ### 1. NEXT_PUBLIC_SITE_URL
-**Current:** `https://elevateconnectsdirectory.org` or `https://elevateforhumanity.org`
+**Current:** `https://elevateconnectsdirectory.org` or `https://www.elevateforhumanity.org`
 **Update to:** `https://www.elevateforhumanity.org`
 
 **Environments:** Production, Preview, Development
 
 ### 2. NEXT_PUBLIC_APP_URL
-**Current:** `https://elevateconnectsdirectory.org` or `https://elevateforhumanity.org`
+**Current:** `https://elevateconnectsdirectory.org` or `https://www.elevateforhumanity.org`
 **Update to:** `https://www.elevateforhumanity.org`
 
 **Environments:** Production, Preview, Development

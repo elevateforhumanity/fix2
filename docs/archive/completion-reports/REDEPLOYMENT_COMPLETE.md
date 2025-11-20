@@ -80,7 +80,7 @@
 
 Once deployed, test:
 
-1. **Homepage**: https://elevateforhumanity.org
+1. **Homepage**: https://www.elevateforhumanity.org
 2. **Buttons**: All variants should work with proper styling
 3. **Components**: Modals, dropdowns, tooltips functional
 4. **Responsive**: Mobile, tablet, desktop views

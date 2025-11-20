@@ -149,7 +149,7 @@ After running automation:
 - [ ] Vercel env vars show `www.elevateforhumanity.org`
 - [ ] Deployment status is "Ready" (green checkmark)
 - [ ] https://www.elevateforhumanity.org loads
-- [ ] https://elevateforhumanity.org redirects to www
+- [ ] https://www.elevateforhumanity.org redirects to www
 - [ ] Sitemap.xml shows all 31 pages
 - [ ] Robots.txt is accessible
 - [ ] API endpoints return correct domain

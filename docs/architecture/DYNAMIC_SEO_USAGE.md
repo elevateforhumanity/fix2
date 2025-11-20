@@ -246,11 +246,11 @@ import DynamicSEO, { createBreadcrumbSchema } from '../components/DynamicSEO';
 
 export default function ProgramPage({ program }) {
   const breadcrumbs = createBreadcrumbSchema([
-    { name: 'Home', url: 'https://elevateforhumanity.org' },
-    { name: 'Programs', url: 'https://elevateforhumanity.org/programs' },
+    { name: 'Home', url: 'https://www.elevateforhumanity.org' },
+    { name: 'Programs', url: 'https://www.elevateforhumanity.org/programs' },
     {
       name: program.title,
-      url: `https://elevateforhumanity.org/programs/${program.slug}`,
+      url: `https://www.elevateforhumanity.org/programs/${program.slug}`,
     },
   ]);
 
@@ -300,7 +300,7 @@ export default function EventPage({ event }) {
     organizer: {
       '@type': 'Organization',
       name: 'Elevate for Humanity',
-      url: 'https://elevateforhumanity.org',
+      url: 'https://www.elevateforhumanity.org',
     },
   };
 
@@ -402,7 +402,7 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: 'https://elevateforhumanity.org',
+      hostname: 'https://www.elevateforhumanity.org',
       dynamicRoutes: async () => {
         // Fetch programs
         const { data: programs } = await supabase
@@ -434,7 +434,7 @@ export default defineConfig({
 
 ```bash
 # After deployment, view source of any page
-curl https://elevateforhumanity.org/programs/barber | grep -A5 "<title>"
+curl https://www.elevateforhumanity.org/programs/barber | grep -A5 "<title>"
 ```
 
 ### 2. Google Rich Results Test

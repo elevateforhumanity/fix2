@@ -383,7 +383,7 @@ npm audit
 npm audit fix
 
 # OWASP ZAP scanning
-docker run -t owasp/zap2docker-stable zap-baseline.py -t https://elevateforhumanity.org
+docker run -t owasp/zap2docker-stable zap-baseline.py -t https://www.elevateforhumanity.org
 ```
 
 ---

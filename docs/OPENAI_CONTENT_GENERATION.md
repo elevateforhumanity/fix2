@@ -49,7 +49,7 @@ SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_KEY=your-service-role-key
 
 # Frontend URL (already configured)
-FRONTEND_URL=https://elevateforhumanity.org
+FRONTEND_URL=https://www.elevateforhumanity.org
 ```
 
 ### 3. Run Database Migration
@@ -66,7 +66,7 @@ supabase db push
 
 ```bash
 # Generate single post
-curl -X POST https://elevateforhumanity.org/.netlify/functions/generate-social-content \
+curl -X POST https://www.elevateforhumanity.org/.netlify/functions/generate-social-content \
   -H "Content-Type: application/json" \
   -d '{
     "content_type": "success-story",
@@ -75,7 +75,7 @@ curl -X POST https://elevateforhumanity.org/.netlify/functions/generate-social-c
   }'
 
 # Generate 7-day calendar
-curl -X POST https://elevateforhumanity.org/.netlify/functions/generate-content-calendar \
+curl -X POST https://www.elevateforhumanity.org/.netlify/functions/generate-content-calendar \
   -H "Content-Type: application/json" \
   -d '{
     "days": 7,

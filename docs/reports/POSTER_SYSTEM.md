@@ -160,7 +160,7 @@ To modify the poster design:
 Images are automatically included in the build and deployed to:
 
 - Netlify: `public/images/programs/`
-- Production URL: `https://elevateforhumanity.org/images/programs/`
+- Production URL: `https://www.elevateforhumanity.org/images/programs/`
 
 ## 📝 Notes
 

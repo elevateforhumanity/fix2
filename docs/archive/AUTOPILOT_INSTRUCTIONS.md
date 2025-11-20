@@ -113,7 +113,7 @@ Domains added:
   ✅ elevateforhumanity.org
 
 Next steps:
-  1. Visit: https://elevateforhumanity.org
+  1. Visit: https://www.elevateforhumanity.org
   2. Visit: https://www.elevateforhumanity.org
 ```
 
@@ -147,7 +147,7 @@ If you prefer to do it manually or autopilot has issues:
 **Test domains:**
 
 ```bash
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 curl -I https://www.elevateforhumanity.org
 ```
 
@@ -160,7 +160,7 @@ HTTP/2 200
 
 **Or visit in browser:**
 
-- https://elevateforhumanity.org (should work with 🔒)
+- https://www.elevateforhumanity.org (should work with 🔒)
 - https://www.elevateforhumanity.org (should work with 🔒)
 
 ---

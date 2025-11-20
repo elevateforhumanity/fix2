@@ -43,14 +43,14 @@ helmet({
 
 ```bash
 # .env
-CORS_ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173,https://elevateforhumanity.org
+CORS_ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173,https://www.elevateforhumanity.org
 ```
 
 **Default Allowed Origins:**
 
 - `http://localhost:3000` (development)
 - `http://localhost:5173` (Vite dev server)
-- `https://elevateforhumanity.org` (production)
+- `https://www.elevateforhumanity.org` (production)
 
 ### 3. Rate Limiting
 
@@ -626,7 +626,7 @@ ADMIN_SECRET=<generate-strong-random-secret>
 CRYPTO_SECRET=<generate-strong-random-secret>
 
 # CORS Configuration
-CORS_ALLOWED_ORIGINS=https://elevateforhumanity.org,https://app.elevateforhumanity.org
+CORS_ALLOWED_ORIGINS=https://www.elevateforhumanity.org,https://app.elevateforhumanity.org
 
 # Rate Limiting
 RATE_LIMIT_PER_MIN=100

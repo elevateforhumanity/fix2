@@ -73,7 +73,7 @@ Complete autopilot fix executed successfully. All critical issues resolved, buil
 ### 7. Deployment ✅
 
 **Status:** Live and operational  
-**URL:** [https://elevateforhumanity.org](https://elevateforhumanity.org)  
+**URL:** [https://www.elevateforhumanity.org](https://www.elevateforhumanity.org)  
 **Workflow:** Automated CI/CD via GitHub Actions  
 **Site ID:** 12f120ab-3f63-419b-bc49-430f043415c1
 
@@ -156,7 +156,7 @@ pnpm audit
 # ⚠️ 1 moderate (dev dependency)
 
 # Deployment check
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 # ✅ HTTP/2 200 OK
 ```
 
@@ -191,7 +191,7 @@ curl -I https://elevateforhumanity.org
 
 ### Production Site
 
-- **URL:** https://elevateforhumanity.org
+- **URL:** https://www.elevateforhumanity.org
 - **Status:** ✅ Live (HTTP/2 200 OK)
 - **Server:** Cloudflare
 - **SSL:** Valid

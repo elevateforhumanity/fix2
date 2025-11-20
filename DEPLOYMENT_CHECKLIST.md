@@ -50,7 +50,7 @@ Add these to your Vercel/hosting platform:
 
 ```env
 # Site Configuration
-NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 
 # Supabase (if using database features)
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
@@ -152,9 +152,9 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 ## 🔍 SEO Optimization
 
 ### Google Search Console
-1. Add property: https://elevateforhumanity.org
+1. Add property: https://www.elevateforhumanity.org
 2. Verify ownership (HTML tag method)
-3. Submit sitemap: https://elevateforhumanity.org/sitemap.xml
+3. Submit sitemap: https://www.elevateforhumanity.org/sitemap.xml
 4. Monitor indexing status
 5. Check for crawl errors
 
@@ -250,7 +250,7 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 > 
 > No cost. No barriers. Real careers.
 > 
-> Apply now: https://elevateforhumanity.org
+> Apply now: https://www.elevateforhumanity.org
 > 
 > #WorkforceTraining #FreeTraining #CareerChange #SecondChances
 

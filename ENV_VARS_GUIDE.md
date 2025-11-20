@@ -113,7 +113,7 @@ NEXT_PUBLIC_FACEBOOK_APP_ID=xxxxxxxxxxxxx
 
 ```bash
 # Your site URL (for SEO and redirects)
-NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 
 # API URL (if separate from main site)
 NEXT_PUBLIC_API_URL=https://api.elevateforhumanity.org

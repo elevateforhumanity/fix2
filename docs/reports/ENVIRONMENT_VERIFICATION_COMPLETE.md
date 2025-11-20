@@ -111,7 +111,7 @@ Comprehensive audit of environment variables and external URLs has been complete
 
 #### Production Domains (3)
 
-- `https://elevateforhumanity.org` - Primary domain ✅
+- `https://www.elevateforhumanity.org` - Primary domain ✅
 - `https://www.elevateforhumanity.org` - WWW subdomain ✅
 - `https://elevateforhumanity.com` - ⚠️ Should redirect to .org
 - `https://elevateforhumanity.onrender.com` - ❌ Old deployment, should be removed
@@ -447,7 +447,7 @@ dig www.elevateforhumanity.org
 ### Check SSL
 
 ```bash
-curl -I https://elevateforhumanity.org
+curl -I https://www.elevateforhumanity.org
 ```
 
 ### Check Workers

@@ -327,7 +327,7 @@ X-Frame-Options: SAMEORIGIN
 
 ```xml
 <url>
-  <loc>https://elevateforhumanity.org/programs/barber</loc>
+  <loc>https://www.elevateforhumanity.org/programs/barber</loc>
   <lastmod>2025-10-26</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>

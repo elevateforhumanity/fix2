@@ -63,7 +63,7 @@ What was configured:
   ✓ Build hooks (3 hooks)
   ✓ Deploy notifications (email)
 
-Your site: https://elevateforhumanity.org
+Your site: https://www.elevateforhumanity.org
 
 Everything is configured and ready! 🚀
 ```

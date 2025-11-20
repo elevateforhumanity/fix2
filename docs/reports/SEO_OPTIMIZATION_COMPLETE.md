@@ -61,7 +61,7 @@ Elevate for Humanity is a full-stack workforce LMS built with React, Supabase, a
 
 ```html
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://elevateforhumanity.org" />
+<meta property="og:url" content="https://www.elevateforhumanity.org" />
 <meta
   property="og:title"
   content="Elevate for Humanity LMS | Workforce Training & Apprenticeship Platform"
@@ -72,7 +72,7 @@ Elevate for Humanity is a full-stack workforce LMS built with React, Supabase, a
 />
 <meta
   property="og:image"
-  content="https://elevateforhumanity.org/og-image.jpg"
+  content="https://www.elevateforhumanity.org/og-image.jpg"
 />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -101,7 +101,7 @@ Elevate for Humanity is a full-stack workforce LMS built with React, Supabase, a
 />
 <meta
   name="twitter:image"
-  content="https://elevateforhumanity.org/og-image.jpg"
+  content="https://www.elevateforhumanity.org/og-image.jpg"
 />
 <meta name="twitter:site" content="@elevateforhumanity" />
 <meta name="twitter:creator" content="@elevateforhumanity" />
@@ -130,10 +130,10 @@ Elevate for Humanity is a full-stack workforce LMS built with React, Supabase, a
   "creator": {
     "@type": "Organization",
     "name": "Elevate for Humanity",
-    "url": "https://elevateforhumanity.org"
+    "url": "https://www.elevateforhumanity.org"
   },
   "license": "Proprietary",
-  "url": "https://elevateforhumanity.org",
+  "url": "https://www.elevateforhumanity.org",
   "softwareVersion": "2.0.0",
   "programmingLanguage": ["JavaScript", "TypeScript", "React"],
   "keywords": [
@@ -260,8 +260,8 @@ Supports DOL/DWD apprenticeships, ETPL funding, AI-driven learning, and autonomo
 **robots.txt References:**
 
 ```
-Sitemap: https://elevateforhumanity.org/sitemap.xml
-Sitemap: https://elevateforhumanity.org/sitemap-complete.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap-complete.xml
 ```
 
 **Netlify Plugin:**
@@ -270,7 +270,7 @@ Sitemap: https://elevateforhumanity.org/sitemap-complete.xml
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
   [plugins.inputs]
-    baseUrl = "https://elevateforhumanity.org"
+    baseUrl = "https://www.elevateforhumanity.org"
     sitemapPath = "/sitemap.xml"
     providers = ["google", "bing"]
 ```
@@ -366,7 +366,7 @@ Sitemap: https://elevateforhumanity.org/sitemap-complete.xml
 
 1. **Google Search Console**
    - URL: https://search.google.com/search-console
-   - Submit sitemap: `https://elevateforhumanity.org/sitemap.xml`
+   - Submit sitemap: `https://www.elevateforhumanity.org/sitemap.xml`
    - Verify ownership via HTML tag or DNS
 
 2. **Google Business Profile**
@@ -377,7 +377,7 @@ Sitemap: https://elevateforhumanity.org/sitemap-complete.xml
 
 3. **Google Rich Results Test**
    - URL: https://search.google.com/test/rich-results
-   - Test: `https://elevateforhumanity.org`
+   - Test: `https://www.elevateforhumanity.org`
    - Verify structured data
 
 ### Bing

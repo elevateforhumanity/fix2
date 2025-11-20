@@ -72,7 +72,7 @@ Timestamp: 2025-11-19 12:11 UTC
 **Option 3: Test the Live Site**
 ```bash
 # If deployed, this should work:
-curl https://elevateforhumanity.org
+curl https://www.elevateforhumanity.org
 
 # Or check specific domain:
 curl https://fix2.vercel.app

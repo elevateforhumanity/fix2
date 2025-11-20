@@ -105,7 +105,7 @@ Go to: https://vercel.com/elevate-48e460c9/fix2-gpql/deployments
 After redeployment, verify:
 
 - [ ] Visit https://www.elevateforhumanity.org (should load)
-- [ ] Visit https://elevateforhumanity.org (should redirect to www)
+- [ ] Visit https://www.elevateforhumanity.org (should redirect to www)
 - [ ] Check https://www.elevateforhumanity.org/sitemap.xml
 - [ ] Check https://www.elevateforhumanity.org/robots.txt
 - [ ] Test https://www.elevateforhumanity.org/api/build-info

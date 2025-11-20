@@ -45,8 +45,8 @@ image: 'https://elevateforhumanity.pages.dev/og-image.svg';
 **After:**
 
 ```javascript
-url: 'https://elevateforhumanity.org';
-image: 'https://elevateforhumanity.org/og-image.svg';
+url: 'https://www.elevateforhumanity.org';
+image: 'https://www.elevateforhumanity.org/og-image.svg';
 ```
 
 **Total Fixed:** 14 references changed from .pages.dev to .org
@@ -84,7 +84,7 @@ image: 'https://elevateforhumanity.org/og-image.svg';
 **File:** `public/sitemap.xml`
 
 - **Total URLs:** 27
-- **Domain:** https://elevateforhumanity.org
+- **Domain:** https://www.elevateforhumanity.org
 - **Format:** Valid XML with image metadata
 - **Size:** 9.0 KB
 
@@ -105,7 +105,7 @@ image: 'https://elevateforhumanity.org/og-image.svg';
 
 ```txt
 # Sitemap (primary domain)
-Sitemap: https://elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 ```
 
 **Status:** ✅ Single sitemap declaration, no duplicates

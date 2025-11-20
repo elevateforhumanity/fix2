@@ -7,7 +7,7 @@
 
 ### ✅ Production Site Live
 
-**URL:** [https://elevateforhumanity.org](https://elevateforhumanity.org)  
+**URL:** [https://www.elevateforhumanity.org](https://www.elevateforhumanity.org)  
 **Status:** HTTP/2 200 OK  
 **Server:** Cloudflare  
 **Security Headers:** Configured
@@ -181,7 +181,7 @@ NETLIFY_SITE_ID=12f120ab-3f63-419b-bc49-430f043415c1
 
 **Production:**
 
-- Live Site: [https://elevateforhumanity.org](https://elevateforhumanity.org)
+- Live Site: [https://www.elevateforhumanity.org](https://www.elevateforhumanity.org)
 - GitHub Repo: [https://github.com/elevateforhumanity/fix2](https://github.com/elevateforhumanity/fix2)
 - Netlify Dashboard: [https://app.netlify.com/sites/12f120ab-3f63-419b-bc49-430f043415c1](https://app.netlify.com/sites/12f120ab-3f63-419b-bc49-430f043415c1)
 
@@ -231,7 +231,7 @@ NETLIFY_SITE_ID=12f120ab-3f63-419b-bc49-430f043415c1
 
 **DEPLOYMENT SUCCESSFUL** ✅
 
-The Elevate for Humanity platform is now live and operational at [https://elevateforhumanity.org](https://elevateforhumanity.org). All systems are functional, tests are passing, and the automated deployment pipeline is active.
+The Elevate for Humanity platform is now live and operational at [https://www.elevateforhumanity.org](https://www.elevateforhumanity.org). All systems are functional, tests are passing, and the automated deployment pipeline is active.
 
 **Next Actions:**
 

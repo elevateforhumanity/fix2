@@ -2,7 +2,7 @@
 
 This folder contains **ready-to-use video scripts** for AI avatars, voiceovers, or live recording.
 
-Each `.md` file corresponds to a section/page on https://elevateforhumanity.org, for use as placeholders or final content.
+Each `.md` file corresponds to a section/page on https://www.elevateforhumanity.org, for use as placeholders or final content.
 
 You can:
 - Paste these into tools like HeyGen / Synthesia / Pictory

@@ -216,21 +216,21 @@ After deployment, you can test each route:
 
 ```bash
 # Test static routes
-curl -I https://elevateforhumanity.org/
-curl -I https://elevateforhumanity.org/about
-curl -I https://elevateforhumanity.org/programs
-curl -I https://elevateforhumanity.org/lms
+curl -I https://www.elevateforhumanity.org/
+curl -I https://www.elevateforhumanity.org/about
+curl -I https://www.elevateforhumanity.org/programs
+curl -I https://www.elevateforhumanity.org/lms
 
 # Test dynamic program routes
-curl -I https://elevateforhumanity.org/programs/barber
-curl -I https://elevateforhumanity.org/programs/cna
-curl -I https://elevateforhumanity.org/program/building-tech
+curl -I https://www.elevateforhumanity.org/programs/barber
+curl -I https://www.elevateforhumanity.org/programs/cna
+curl -I https://www.elevateforhumanity.org/program/building-tech
 
 # Test invalid program slug (should show "Program not found" page, not 404)
-curl -I https://elevateforhumanity.org/programs/invalid-slug
+curl -I https://www.elevateforhumanity.org/programs/invalid-slug
 
 # Test completely invalid route (should show NotFound page)
-curl -I https://elevateforhumanity.org/completely-invalid-route
+curl -I https://www.elevateforhumanity.org/completely-invalid-route
 ```
 
 **Expected Results:**

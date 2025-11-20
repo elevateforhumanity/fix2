@@ -265,8 +265,8 @@ blogUrl: 'https://elevateforhumanity.durable.co/blog';
 **After:**
 
 ```javascript
-apiUrl: 'https://elevateforhumanity.org/api/blog';
-blogUrl: 'https://elevateforhumanity.org/blog';
+apiUrl: 'https://www.elevateforhumanity.org/api/blog';
+blogUrl: 'https://www.elevateforhumanity.org/blog';
 ```
 
 ---

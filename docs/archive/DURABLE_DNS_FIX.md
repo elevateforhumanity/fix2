@@ -328,7 +328,7 @@ https://dnschecker.org
 ```
 ✅ https://www.elevateforhumanity.org
 ✅ https://www.elevateforhumanity.org
-✅ http://elevateforhumanity.org (redirects to https)
+✅ https://www.elevateforhumanity.org (redirects to https)
 ✅ http://www.elevateforhumanity.org (redirects to https)
 ```
 

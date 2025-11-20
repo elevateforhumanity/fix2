@@ -17,7 +17,7 @@
 
 ## API URLs
 - **VITE_API_URL**: `https://api.elevateforhumanity.org`
-- **FRONTEND_URL**: `https://elevateforhumanity.org`
+- **FRONTEND_URL**: `https://www.elevateforhumanity.org`
 
 ## GitHub Secrets (from workflows)
 - ANTHROPIC_API_KEY

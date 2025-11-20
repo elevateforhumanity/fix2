@@ -85,7 +85,7 @@
 The site is actually deployed to:
 
 - **Site Name:** `elevateforhumanityfix` (not "fix2")
-- **Primary URL:** https://elevateforhumanity.org
+- **Primary URL:** https://www.elevateforhumanity.org
 - **Netlify URL:** https://690621466c45b1608c663090--elevateforhumanityfix.netlify.app
 
 ---

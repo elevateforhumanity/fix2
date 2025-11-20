@@ -54,7 +54,7 @@ Successfully consolidated multiple duplicate sitemaps into a single, authoritati
 **After:**
 
 ```xml
-<loc>https://elevateforhumanity.org/programs/barber</loc>
+<loc>https://www.elevateforhumanity.org/programs/barber</loc>
 ```
 
 **Action Taken:**
@@ -77,8 +77,8 @@ const imageUrl = `https://elevateforhumanity.pages.dev${p.cardSrc}`;
 **After:**
 
 ```typescript
-const pageUrl = `https://elevateforhumanity.org/programs/${p.slug}`;
-const imageUrl = `https://elevateforhumanity.org${p.cardSrc}`;
+const pageUrl = `https://www.elevateforhumanity.org/programs/${p.slug}`;
+const imageUrl = `https://www.elevateforhumanity.org${p.cardSrc}`;
 ```
 
 **Action Taken:**
@@ -96,7 +96,7 @@ const imageUrl = `https://elevateforhumanity.org${p.cardSrc}`;
 ```txt
 # Sitemaps
 Sitemap: https://elevateforhumanity.pages.dev/sitemap.xml
-Sitemap: https://elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 ```
 
@@ -104,7 +104,7 @@ Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 
 ```txt
 # Sitemap (primary domain)
-Sitemap: https://elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 ```
 
 **Action Taken:**
@@ -122,7 +122,7 @@ Sitemap: https://elevateforhumanity.org/sitemap.xml
 **File:** `public/sitemap.xml`
 
 - **Total URLs:** 27
-- **Domain:** https://elevateforhumanity.org
+- **Domain:** https://www.elevateforhumanity.org
 - **Size:** 9.0 KB
 - **Format:** Valid XML with image metadata
 
@@ -192,7 +192,7 @@ All program pages now have proper canonical URLs:
 
 ```html
 <!-- Example for Barber Program -->
-<link rel="canonical" href="https://elevateforhumanity.org/programs/barber" />
+<link rel="canonical" href="https://www.elevateforhumanity.org/programs/barber" />
 ```
 
 **Benefits:**
@@ -210,7 +210,7 @@ All program pages now have proper canonical URLs:
 
 **elevateforhumanity.org:**
 
-- ✅ Sitemap accessible: https://elevateforhumanity.org/sitemap.xml
+- ✅ Sitemap accessible: https://www.elevateforhumanity.org/sitemap.xml
 - ✅ Status: 200
 - ✅ Content-Type: text/html; charset=utf-8
 - ✅ Size: 11,241 bytes
@@ -235,7 +235,7 @@ User-agent: *
 Allow: /
 
 # Sitemap (primary domain)
-Sitemap: https://elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
 
 # Disallow admin and auth pages
 Disallow: /admin/

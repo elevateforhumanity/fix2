@@ -98,7 +98,7 @@ Comment on any issue or PR:
 
 ```bash
 # Enqueue tasks
-/enqueue axe_a11y_scan url=https://elevateforhumanity.org
+/enqueue axe_a11y_scan url=https://www.elevateforhumanity.org
 /enqueue i18n_build locales=en,es,fr
 /enqueue redeploy
 

@@ -12,7 +12,7 @@
 
 | Test                 | Status       | Details                                             |
 | -------------------- | ------------ | --------------------------------------------------- |
-| **Primary Domain**   | ✅ EXCELLENT | https://elevateforhumanity.org loads in 0.16s       |
+| **Primary Domain**   | ✅ EXCELLENT | https://www.elevateforhumanity.org loads in 0.16s       |
 | **WWW Handling**     | ✅ WORKING   | www.elevateforhumanity.org → elevateforhumanity.org |
 | **HTTPS Security**   | ✅ EXCELLENT | SSL certificate valid, HSTS enabled                 |
 | **Content Delivery** | ✅ EXCELLENT | Netlify CDN with edge caching                       |

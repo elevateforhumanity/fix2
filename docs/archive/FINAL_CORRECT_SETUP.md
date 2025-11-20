@@ -80,7 +80,7 @@ Action:      Add to Netlify, wait for SSL
 
 **Test Durable site:**
 
-- Visit: https://elevateforhumanity.org
+- Visit: https://www.elevateforhumanity.org
 - Should show: Durable marketing website
 - Should NOT show: Netlify LMS
 

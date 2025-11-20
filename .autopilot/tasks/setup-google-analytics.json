@@ -166,7 +166,7 @@
       "type": "manual",
       "instructions": [
         "Platform: Select 'Web'",
-        "Website URL: 'https://elevateforhumanity.org'",
+        "Website URL: 'https://www.elevateforhumanity.org'",
         "Stream name: 'LMS Platform Production'",
         "Click 'Create stream'",
         "IMPORTANT: Copy the Measurement ID (different from marketing site)",
@@ -297,7 +297,7 @@
         "Go back to Google Analytics tab",
         "Switch to LMS property (dropdown at top)",
         "Click 'Reports' → 'Realtime'",
-        "Open new tab: https://elevateforhumanity.org",
+        "Open new tab: https://www.elevateforhumanity.org",
         "Navigate to a few pages (courses, login, etc.)",
         "Go back to Realtime report",
         "You should see 1 active user and page views",
