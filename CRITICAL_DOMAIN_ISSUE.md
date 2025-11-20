@@ -6,6 +6,7 @@ Vercel is deploying to `elevateforhumanity.org` (without www)
 But the code expects `www.elevateforhumanity.org`
 
 **Current Aliases:**
+
 - ✅ https://elevateforhumanity.org
 - ✅ https://fix2-gpql-elevate-48e460c9.vercel.app
 - ✅ https://fix2-gpql-git-main-elevate-48e460c9.vercel.app
@@ -20,6 +21,7 @@ But the code expects `www.elevateforhumanity.org`
 **Go to:** https://vercel.com/elevate-48e460c9/fix2-gpql/settings/domains
 
 **Steps:**
+
 1. Click "Add Domain"
 2. Enter: `www.elevateforhumanity.org`
 3. Click "Add"
@@ -27,6 +29,7 @@ But the code expects `www.elevateforhumanity.org`
 5. Set as "Primary Domain" (optional but recommended)
 
 **OR Configure Redirect:**
+
 1. Keep `elevateforhumanity.org` as primary
 2. Add `www.elevateforhumanity.org` as alias
 3. Configure redirect: `www` → non-www OR non-www → `www`
@@ -49,6 +52,7 @@ But the code expects `www.elevateforhumanity.org`
 **Latest Deployment:** ● Ready (7m ago)
 **URL:** https://fix2-gpql-fpw70acnk-elevate-48e460c9.vercel.app
 **Aliases:**
+
 - elevateforhumanity.org ✅
 - www.elevateforhumanity.org ❌ (NOT CONFIGURED)
 
@@ -81,6 +85,7 @@ But the code expects `www.elevateforhumanity.org`
 ### Option 3: Update DNS
 
 If www subdomain doesn't exist in your DNS:
+
 1. Go to your DNS provider (Durable)
 2. Add CNAME record:
    - Name: `www`
@@ -111,6 +116,7 @@ The Vercel token you provided doesn't have permission to manage domains.
 **Error:** "Not authorized: Trying to access resource under scope 'elevateforhumanity'"
 
 **You need to:**
+
 1. Manually add the domain in Vercel dashboard
 2. OR provide a token with domain management permissions
 
