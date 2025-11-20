@@ -1,16 +1,11 @@
 #!/bin/bash
+set -e
 
-echo "🚨 Forcing Vercel to deploy with ZERO cache..."
+if [ -z "$VERCEL_DEPLOY_HOOK_URL" ]; then
+  echo "❌ Missing VERCEL_DEPLOY_HOOK_URL"
+  exit 1
+fi
 
-# 1. Delete Vercel build cache
-rm -rf .next
-rm -rf node_modules/.cache
-rm -rf .vercel
-
-# 2. Force new build hash
-echo "CACHEBUSTER=$(date +%s)" >> .env.local
-
-# 3. Trigger a new Vercel build
-vercel --prod --force
-
-echo "🔥 Deployment forced. No cache will be used."
+echo "🚀 Triggering Vercel fresh deployment..."
+curl -X POST "$VERCEL_DEPLOY_HOOK_URL"
+echo "🔥 Fresh deployment started!"

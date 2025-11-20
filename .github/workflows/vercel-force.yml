@@ -1,4 +1,4 @@
-name: Force Fresh Vercel Deployment
+name: Auto Fresh Deploy to Vercel
 
 on:
   push:
@@ -6,21 +6,14 @@ on:
       - main
 
 jobs:
-  redeploy:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Remove Vercel cache
-        run: rm -rf .next && rm -rf node_modules/.cache
-
-      - name: Add build salt
-        run: echo "BUILD_SALT=$(date +%s)" >> .env
-
-      - name: Deploy to Vercel with no cache
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-        run: npx vercel --prod --force --token=$VERCEL_TOKEN
+      - name: Trigger Vercel Deploy Hook
+        run: |
+          echo "Triggering deploy..."
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"
