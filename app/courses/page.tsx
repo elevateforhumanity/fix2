@@ -3,12 +3,13 @@ import { createServerSupabaseClient } from '@/lib/auth';
 
 export const metadata = {
   title: 'Browse Courses | Elevate for Humanity',
-  description: 'Explore our comprehensive catalog of workforce training courses in healthcare, skilled trades, and technology.',
+  description:
+    'Explore our comprehensive catalog of workforce training courses in healthcare, skilled trades, and technology.',
 };
 
 export default async function CoursesPage() {
   const supabase = await createServerSupabaseClient();
-  
+
   // Fetch courses from database
   const { data: courses, error } = await supabase
     .from('courses')
@@ -29,7 +30,8 @@ export default async function CoursesPage() {
             Browse Our Courses
           </h1>
           <p className="text-xl text-blue-100 max-w-3xl">
-            Explore our comprehensive catalog of workforce training courses designed to help you build a successful career.
+            Explore our comprehensive catalog of workforce training courses
+            designed to help you build a successful career.
           </p>
         </div>
       </section>
@@ -92,7 +94,8 @@ export default async function CoursesPage() {
                 No Courses Available Yet
               </h2>
               <p className="text-gray-600 mb-6">
-                We're currently building our course catalog. Check back soon for exciting new training programs!
+                We're currently building our course catalog. Check back soon for
+                exciting new training programs!
               </p>
               <Link
                 href="/programs"
@@ -108,11 +111,10 @@ export default async function CoursesPage() {
       {/* CTA Section */}
       <section className="bg-blue-600 text-white py-12">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Start Learning?
-          </h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to Start Learning?</h2>
           <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
-            Join thousands of students advancing their careers with our free, funded training programs.
+            Join thousands of students advancing their careers with our free,
+            funded training programs.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
