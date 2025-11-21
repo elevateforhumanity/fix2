@@ -15,15 +15,11 @@ export default function CourseraStyleHeader() {
           {/* Logo */}
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <div className="text-xl font-bold text-gray-900">Elevate</div>
-                <div className="text-xs text-gray-500 -mt-1">for Humanity</div>
-              </div>
+              <img 
+                src="/images/Elevate_for_Humanity_logo_81bf0fab.png" 
+                alt="Elevate for Humanity" 
+                className="h-12 w-auto"
+              />
             </Link>
 
             {/* Desktop Navigation */}

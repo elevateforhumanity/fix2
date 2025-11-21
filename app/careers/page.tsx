@@ -128,10 +128,7 @@ export default function CareersPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-
-      <main>
+    <main className="min-h-screen bg-white">
         {/* Hero Section */}
         <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-white">
           <div className="max-w-4xl mx-auto text-center">
@@ -247,9 +244,6 @@ export default function CareersPage() {
             </Button>
           </div>
         </section>
-      </main>
-
-      <Footer />
-    </div>
+    </main>
   );
 }
