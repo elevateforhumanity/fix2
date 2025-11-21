@@ -12,21 +12,16 @@ export default async function OnboardingLayout({ children }: { children: React.R
     redirect('/login?redirect=/onboarding');
   }
 
-  // Check if user is enrolled or staff
+  // Check user role - onboarding is for authenticated users only
+  // Different onboarding paths for different roles
   const { data: profile } = await supabase
     .from('profiles')
-    .select('role, enrollment_status')
+    .select('role')
     .eq('id', session.user.id)
     .single();
 
-  const allowedRoles = ['student', 'instructor', 'admin', 'staff'];
-  const isEnrolled = profile?.enrollment_status === 'active' || profile?.enrollment_status === 'enrolled';
-  const isStaff = allowedRoles.includes(profile?.role);
-
-  // Only enrolled students and staff can access onboarding
-  if (!isEnrolled && !isStaff) {
-    redirect('/apply?message=Complete your application to access onboarding');
-  }
+  // All authenticated users can access onboarding
+  // The specific onboarding page will determine what they can do based on role
 
   return <>{children}</>;
 }

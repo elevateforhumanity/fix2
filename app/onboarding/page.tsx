@@ -1,6 +1,14 @@
 import Link from "next/link";
+import { redirect } from 'next/navigation';
+import { createServerSupabaseClient } from '@/lib/auth';
 
-export default function OnboardingHub() {
+export default async function OnboardingHub() {
+  const supabase = await createServerSupabaseClient();
+  const { data: { session } } = await supabase.auth.getSession();
+  
+  if (!session) {
+    redirect('/login?redirect=/onboarding');
+  }
   const roles = [
     {
       title: "Learner / Participant",
