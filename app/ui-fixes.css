@@ -200,15 +200,85 @@ a:focus {
 
 /* Ensure proper mobile responsiveness */
 @media (max-width: 768px) {
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Ensure proper text sizing */
   .text-5xl {
     font-size: 2.5rem;
+    line-height: 1.2;
   }
   
   .text-6xl {
     font-size: 3rem;
+    line-height: 1.1;
   }
   
-  button, .btn {
+  /* Full-width buttons on mobile */
+  .flex-col button,
+  .flex-col .btn {
     width: 100%;
+  }
+  
+  /* Ensure proper padding on mobile */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Fix image sizing on mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Ensure cards stack properly */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Fix hero section on mobile */
+  .h-screen {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  }
+  
+  /* Ensure proper touch targets */
+  a, button {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  /* Fix navigation on mobile */
+  nav {
+    width: 100%;
+  }
+  
+  /* Prevent text overflow */
+  h1, h2, h3, h4, h5, h6, p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Ensure smooth scrolling on all devices */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Fix iOS Safari viewport issues */
+@supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
   }
 }

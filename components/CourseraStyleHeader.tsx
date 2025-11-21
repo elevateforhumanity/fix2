@@ -7,6 +7,7 @@ import { Search, Menu, X, ChevronDown, Globe } from 'lucide-react';
 export default function CourseraStyleHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [exploreOpen, setExploreOpen] = useState(false);
+  const [learnersOpen, setLearnersOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -89,18 +90,6 @@ export default function CourseraStyleHeader() {
               </div>
 
               <Link
-                href="/about"
-                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
-              >
-                About
-              </Link>
-              <Link
-                href="/success-stories"
-                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
-              >
-                Success Stories
-              </Link>
-              <Link
                 href="/employers"
                 className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
               >
@@ -113,10 +102,10 @@ export default function CourseraStyleHeader() {
                 Partners
               </Link>
               <Link
-                href="/blog"
+                href="/about"
                 className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
               >
-                Blog
+                About
               </Link>
               <Link
                 href="/contact"
@@ -173,39 +162,52 @@ export default function CourseraStyleHeader() {
             <Link
               href="/programs"
               className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
+              onClick={() => setMobileMenuOpen(false)}
             >
-              Explore Programs
-            </Link>
-            <Link
-              href="/about"
-              className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
-            >
-              About
-            </Link>
-            <Link
-              href="/partners"
-              className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
-            >
-              Partners
+              Programs
             </Link>
             <Link
               href="/employers"
               className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
+              onClick={() => setMobileMenuOpen(false)}
             >
               For Employers
+            </Link>
+            <Link
+              href="/partners"
+              className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Partners
+            </Link>
+            <Link
+              href="/about"
+              className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              About
+            </Link>
+            <Link
+              href="/contact"
+              className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact
             </Link>
             <div className="pt-3 border-t border-gray-200 space-y-2">
               <Link
                 href="/login"
                 className="block px-4 py-2 text-sm font-medium text-center text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 Log In
               </Link>
               <Link
                 href="/apply"
                 className="block px-4 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+                onClick={() => setMobileMenuOpen(false)}
               >
-                Join for Free
+                Apply Now
               </Link>
             </div>
           </div>

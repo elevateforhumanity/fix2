@@ -5,33 +5,17 @@ export default function CourseraStyleFooter() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-8">
-          {/* Column 1 */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+          {/* Column 1 - Company */}
           <div>
-            <h3 className="text-sm font-bold text-gray-900 mb-4">Elevate</h3>
+            <h3 className="text-sm font-bold text-gray-900 mb-4">Company</h3>
             <ul className="space-y-3">
               <li>
                 <Link
                   href="/about"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/programs"
-                  className="text-sm text-gray-600 hover:text-blue-600"
-                >
-                  What We Offer
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/partners"
-                  className="text-sm text-gray-600 hover:text-blue-600"
-                >
-                  Partners
+                  About Us
                 </Link>
               </li>
               <li>
@@ -42,60 +26,7 @@ export default function CourseraStyleFooter() {
                   Careers
                 </Link>
               </li>
-            </ul>
-          </div>
 
-          {/* Column 2 */}
-          <div>
-            <h3 className="text-sm font-bold text-gray-900 mb-4">Community</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  href="/student/dashboard"
-                  className="text-sm text-gray-600 hover:text-blue-600"
-                >
-                  Learners
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/employers"
-                  className="text-sm text-gray-600 hover:text-blue-600"
-                >
-                  Employers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/program-holder/dashboard"
-                  className="text-sm text-gray-600 hover:text-blue-600"
-                >
-                  Training Providers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/philanthropy"
-                  className="text-sm text-gray-600 hover:text-blue-600"
-                >
-                  Community Impact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-sm text-gray-600 hover:text-blue-600"
-                >
-                  Blog
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3 */}
-          <div>
-            <h3 className="text-sm font-bold text-gray-900 mb-4">More</h3>
-            <ul className="space-y-3">
               <li>
                 <Link
                   href="/contact"
@@ -104,75 +35,83 @@ export default function CourseraStyleFooter() {
                   Contact
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="text-sm text-gray-600 hover:text-blue-600"
-                >
-                  Help Center
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/success-stories"
-                  className="text-sm text-gray-600 hover:text-blue-600"
-                >
-                  Success Stories
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/directory"
-                  className="text-sm text-gray-600 hover:text-blue-600"
-                >
-                  Directory
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Column 4 */}
+          {/* Column 2 - Programs */}
           <div>
-            <h3 className="text-sm font-bold text-gray-900 mb-4">Funding</h3>
+            <h3 className="text-sm font-bold text-gray-900 mb-4">Programs</h3>
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/funding/wioa"
+                  href="/programs"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  WIOA Funding
+                  All Programs
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/funding/wrg"
+                  href="/programs/medical-assistant"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  Workforce Ready Grant
+                  Medical Assistant
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/funding/jri"
+                  href="/programs/hvac-technician"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  Justice Reinvestment
+                  HVAC Technician
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/funding/dol"
+                  href="/programs/barber-apprenticeship"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  DOL Apprenticeships
+                  Barber Apprenticeship
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 5 - Resources */}
+          {/* Column 3 - For You */}
           <div>
-            <h3 className="text-sm font-bold text-gray-900 mb-4">Resources</h3>
+            <h3 className="text-sm font-bold text-gray-900 mb-4">For You</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/apply"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
+                  Apply Now
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/employers"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
+                  For Employers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/partners"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
+                  For Partners
+                </Link>
+              </li>
+
+            </ul>
+          </div>
+
+          {/* Column 4 - Support */}
+          <div>
+            <h3 className="text-sm font-bold text-gray-900 mb-4">Support</h3>
             <ul className="space-y-3">
               <li>
                 <Link
@@ -187,23 +126,23 @@ export default function CourseraStyleFooter() {
                   href="/support"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  Support
+                  Help Center
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/apply"
+                  href="/directory"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  Apply Now
+                  Directory
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/philanthropy"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  Contact Us
+                  Community Impact
                 </Link>
               </li>
             </ul>

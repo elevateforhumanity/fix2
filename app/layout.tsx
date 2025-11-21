@@ -37,6 +37,12 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Elevate for Humanity' }],
   manifest: '/manifest.json',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
   openGraph: {
     title: 'Elevate for Humanity | 100% Free Career Training',
     description:
