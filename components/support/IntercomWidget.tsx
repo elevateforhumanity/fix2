@@ -27,8 +27,8 @@ export function IntercomWidget({
         ic("update", {});
       } else {
         const d = document;
-        const i = function () {
-          i.c(arguments);
+        const i = function (...args: any[]) {
+          i.c(args);
         } as any;
         i.q = [];
         i.c = function (args: any) {

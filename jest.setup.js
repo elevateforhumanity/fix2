@@ -1,3 +1,4 @@
+/* eslint-disable */
 import '@testing-library/jest-dom';
 
 // Mock Next.js router
@@ -20,7 +21,7 @@ jest.mock('next/navigation', () => ({
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: any) => {
+  default: (props) => {
     return <img {...props} />;
   },
 }));

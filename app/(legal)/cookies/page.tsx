@@ -15,7 +15,6 @@ export default function CookiePolicyPage() {
             explains what these technologies are and why we use them, as well as your
             rights to control our use of them.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">1. What Are Cookies?</h2>
           <p className="mb-4">
             Cookies are small data files that are placed on your computer or mobile
@@ -23,7 +22,6 @@ export default function CookiePolicyPage() {
             owners to make their websites work, or to work more efficiently, as well
             as to provide reporting information.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">2. Why We Use Cookies</h2>
           <p className="mb-4">We use cookies for several reasons:</p>
           <ul className="list-disc pl-6 mb-4">
@@ -32,9 +30,7 @@ export default function CookiePolicyPage() {
             <li><strong>Performance Cookies:</strong> Help us understand how visitors interact with our platform</li>
             <li><strong>Functionality Cookies:</strong> Remember your preferences and settings</li>
           </ul>
-
           <h2 className="mt-6 text-xl font-semibold">3. Types of Cookies We Use</h2>
-
           <h3 className="mt-4 text-lg font-semibold">3.1 Essential Cookies</h3>
           <p className="mb-4">
             These cookies are strictly necessary for the platform to function and
@@ -68,7 +64,6 @@ export default function CookiePolicyPage() {
               </tr>
             </tbody>
           </table>
-
           <h3 className="mt-4 text-lg font-semibold">3.2 Performance and Analytics Cookies</h3>
           <p className="mb-4">
             These cookies allow us to count visits and traffic sources so we can
@@ -76,21 +71,18 @@ export default function CookiePolicyPage() {
             which pages are the most and least popular and see how visitors move
             around the site.
           </p>
-
           <h3 className="mt-4 text-lg font-semibold">3.3 Functionality Cookies</h3>
           <p className="mb-4">
             These cookies enable the platform to provide enhanced functionality and
             personalization. They may be set by us or by third-party providers whose
             services we have added to our pages.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">4. Third-Party Cookies</h2>
           <p className="mb-4">
             In addition to our own cookies, we may also use various third-party
             cookies to report usage statistics of the platform and deliver
             advertisements on and through the platform.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">5. How to Control Cookies</h2>
           <p className="mb-4">
             You have the right to decide whether to accept or reject cookies. You can
@@ -102,7 +94,6 @@ export default function CookiePolicyPage() {
             cookies. If you choose to reject cookies, you may still use our platform
             though your access to some functionality and areas may be restricted.
           </p>
-
           <h3 className="mt-4 text-lg font-semibold">Browser Controls</h3>
           <ul className="list-disc pl-6 mb-4">
             <li><strong>Chrome:</strong> Settings → Privacy and security → Cookies and other site data</li>
@@ -110,20 +101,17 @@ export default function CookiePolicyPage() {
             <li><strong>Safari:</strong> Preferences → Privacy → Cookies and website data</li>
             <li><strong>Edge:</strong> Settings → Cookies and site permissions → Cookies and site data</li>
           </ul>
-
           <h2 className="mt-6 text-xl font-semibold">6. Do Not Track Signals</h2>
           <p className="mb-4">
             Some browsers incorporate a "Do Not Track" (DNT) feature that signals to
             websites that you do not want to have your online activity tracked. We
             currently do not respond to DNT signals.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">7. Updates to This Policy</h2>
           <p className="mb-4">
             We may update this Cookie Policy from time to time to reflect changes to
             the cookies we use or for other operational, legal, or regulatory reasons.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">8. Contact Us</h2>
           <p className="mb-4">
             If you have questions about our use of cookies, please contact us at:

@@ -165,7 +165,7 @@ const config = {
     style: v.style,
     aspectRatio: v.aspectRatio,
     voiceSettings: {
-      voice: 'professional-male' || 'professional-female',
+      voice: 'professional-male',
       speed: 'normal',
       tone: 'encouraging, clear, confident',
     },

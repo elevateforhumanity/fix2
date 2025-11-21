@@ -43,7 +43,6 @@ export default function ProgramPage() {
             <p className="text-xl text-blue-100 mb-6">
               [STRONG_TAGLINE - One sentence that sells the program]
             </p>
-
             <div className="flex flex-wrap gap-3 text-sm text-white">
               <span className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -62,7 +61,6 @@ export default function ProgramPage() {
           </div>
         </div>
       </section>
-
       {/* MAIN CONTENT */}
       <section className="mx-auto max-w-5xl px-6 md:px-12 py-12">
         <div className="grid md:grid-cols-3 gap-8">
@@ -112,7 +110,6 @@ export default function ProgramPage() {
                 </li>
               </ul>
             </div>
-
             {/* WHAT YOU'LL EARN */}
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -144,7 +141,6 @@ export default function ProgramPage() {
                 </ul>
               </div>
             </div>
-
             {/* ELIGIBILITY */}
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -178,7 +174,6 @@ export default function ProgramPage() {
               </div>
             </div>
           </div>
-
           {/* RIGHT COLUMN - Sidebar */}
           <div className="space-y-6">
             {/* NEXT COHORT */}
@@ -207,7 +202,6 @@ export default function ProgramPage() {
                 </p>
               </div>
             </div>
-
             {/* FUNDING OPTIONS */}
             <div className="bg-green-50 border border-green-200 rounded-lg p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-3">
@@ -246,7 +240,6 @@ export default function ProgramPage() {
                 </li>
               </ul>
             </div>
-
             {/* CTA BUTTONS */}
             <div className="space-y-3">
               <Link
@@ -265,7 +258,6 @@ export default function ProgramPage() {
           </div>
         </div>
       </section>
-
       {/* FOR AGENCIES SECTION */}
       <section className="bg-gray-50 border-t border-gray-200 py-12">
         <div className="mx-auto max-w-5xl px-6 md:px-12">
@@ -284,8 +276,10 @@ export default function ProgramPage() {
               className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700"
             >
               View our Partner / Agency page
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg className="w-5 h-5" fill="none" stroke="currentColor"
+viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+d="M9 5l7 7-7 7" />
               </svg>
             </Link>
           </div>

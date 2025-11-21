@@ -16,7 +16,6 @@ export default function OfflinePage() {
         <p className="text-gray-600 mb-8">
           It looks like you&apos;ve lost your internet connection. Some features may not be available until you&apos;re back online.
         </p>
-
         <div className="space-y-4">
           <Button
             onClick={() => window.location.reload()}

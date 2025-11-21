@@ -19,7 +19,7 @@ async function run() {
 
   // Run axe accessibility tests
   const results = await page.evaluate(async () => {
-    // @ts-ignore
+    // @ts-expect-error - axe is loaded via CDN
     return await axe.run();
   });
 

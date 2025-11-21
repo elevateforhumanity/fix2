@@ -14,27 +14,23 @@ export default function TermsOfServicePage() {
             Elevate for Humanity platform, including all associated websites,
             applications, and services (collectively, the "Services").
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">1. Acceptance of Terms</h2>
           <p className="mb-4">
             By accessing or using the Services, you agree to be bound by these
             Terms and all applicable laws and regulations. If you do not agree with
             any part of these Terms, you may not access the Services.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">2. Use of the Services</h2>
           <p className="mb-4">
             You agree to use the Services only for lawful purposes and in
             accordance with these Terms, including all workforce, training, and
             educational activities made available through the platform.
           </p>
-
           <h3 className="mt-4 text-lg font-semibold">2.1 Eligibility</h3>
           <p className="mb-4">
             You must be at least 18 years old to use the Services. By using the
             Services, you represent and warrant that you meet this age requirement.
           </p>
-
           <h3 className="mt-4 text-lg font-semibold">2.2 Account Registration</h3>
           <p className="mb-4">
             To access certain features of the Services, you may be required to
@@ -42,7 +38,6 @@ export default function TermsOfServicePage() {
             complete information during the registration process and to update such
             information to keep it accurate, current, and complete.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">3. Accounts and Security</h2>
           <p className="mb-4">
             You are responsible for maintaining the confidentiality of your login
@@ -50,7 +45,6 @@ export default function TermsOfServicePage() {
             agree to immediately notify us of any unauthorized use of your account
             or any other breach of security.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">4. Data and Privacy</h2>
           <p className="mb-4">
             Our collection and use of personal information is described in our
@@ -59,7 +53,6 @@ export default function TermsOfServicePage() {
             and/or other countries for storage, processing, and use by Elevate for
             Humanity and its affiliates.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">5. Intellectual Property</h2>
           <p className="mb-4">
             The Services and their entire contents, features, and functionality
@@ -70,7 +63,6 @@ export default function TermsOfServicePage() {
             international copyright, trademark, patent, trade secret, and other
             intellectual property or proprietary rights laws.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">6. Prohibited Uses</h2>
           <p className="mb-4">You may not use the Services:</p>
           <ul className="list-disc pl-6 mb-4">
@@ -79,7 +71,6 @@ export default function TermsOfServicePage() {
             <li>To impersonate or attempt to impersonate Elevate for Humanity, an employee, another user, or any other person or entity</li>
             <li>To engage in any other conduct that restricts or inhibits anyone's use or enjoyment of the Services</li>
           </ul>
-
           <h2 className="mt-6 text-xl font-semibold">7. Termination</h2>
           <p className="mb-4">
             We may terminate or suspend your account and bar access to the Services
@@ -87,7 +78,6 @@ export default function TermsOfServicePage() {
             discretion, for any reason whatsoever and without limitation, including
             but not limited to a breach of the Terms.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">8. Limitation of Liability</h2>
           <p className="mb-4">
             In no event shall Elevate for Humanity, nor its directors, employees,
@@ -97,7 +87,6 @@ export default function TermsOfServicePage() {
             intangible losses, resulting from your access to or use of or inability
             to access or use the Services.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">9. Changes to Terms</h2>
           <p className="mb-4">
             We reserve the right, at our sole discretion, to modify or replace these
@@ -105,7 +94,6 @@ export default function TermsOfServicePage() {
             30 days' notice prior to any new terms taking effect. What constitutes a
             material change will be determined at our sole discretion.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">10. Contact Us</h2>
           <p className="mb-4">
             If you have any questions about these Terms, please contact us at:

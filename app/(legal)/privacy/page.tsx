@@ -14,7 +14,6 @@ export default function PrivacyPolicyPage() {
             "our") collects, uses, and protects information about users of our
             workforce training and education platform.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">1. Information We Collect</h2>
           
           <h3 className="mt-4 text-lg font-semibold">1.1 Information You Provide</h3>
@@ -25,7 +24,6 @@ export default function PrivacyPolicyPage() {
             <li><strong>Employment Information:</strong> Employer details, job placements, apprenticeship records</li>
             <li><strong>Payment Information:</strong> Billing address and payment method details (processed securely through third-party providers)</li>
           </ul>
-
           <h3 className="mt-4 text-lg font-semibold">1.2 Information We Collect Automatically</h3>
           <ul className="list-disc pl-6 mb-4">
             <li><strong>Usage Data:</strong> Pages visited, features used, time spent, click patterns</li>
@@ -33,7 +31,6 @@ export default function PrivacyPolicyPage() {
             <li><strong>Log Data:</strong> Access times, error logs, performance data</li>
             <li><strong>Cookies and Similar Technologies:</strong> See our Cookie Policy for details</li>
           </ul>
-
           <h2 className="mt-6 text-xl font-semibold">2. How We Use Information</h2>
           <p className="mb-4">We use the information we collect to:</p>
           <ul className="list-disc pl-6 mb-4">
@@ -46,7 +43,6 @@ export default function PrivacyPolicyPage() {
             <li>Detect, prevent, and address technical issues and security threats</li>
             <li>Analyze usage patterns to improve user experience</li>
           </ul>
-
           <h2 className="mt-6 text-xl font-semibold">3. Information Sharing</h2>
           <p className="mb-4">We may share your information with:</p>
           
@@ -56,27 +52,23 @@ export default function PrivacyPolicyPage() {
             referring agencies and workforce partners, and employers as necessary to
             facilitate your training and job placement.
           </p>
-
           <h3 className="mt-4 text-lg font-semibold">3.2 Training Providers</h3>
           <p className="mb-4">
             We share enrollment and progress information with our partner training
             institutions and instructors.
           </p>
-
           <h3 className="mt-4 text-lg font-semibold">3.3 Government Agencies</h3>
           <p className="mb-4">
             We report training outcomes to the Department of Labor (DOL), Department
             of Workforce Development (DWD), and other agencies as required by law or
             funding agreements.
           </p>
-
           <h3 className="mt-4 text-lg font-semibold">3.4 Service Providers</h3>
           <p className="mb-4">
             We use third-party service providers for hosting, analytics, payment
             processing, and other operational needs. These providers are
             contractually obligated to protect your information.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">4. Legal Basis for Processing (GDPR)</h2>
           <p className="mb-4">
             For users in the European Economic Area, our legal bases for processing
@@ -88,7 +80,6 @@ export default function PrivacyPolicyPage() {
             <li><strong>Legal Obligation:</strong> Compliance with workforce development regulations</li>
             <li><strong>Legitimate Interests:</strong> Improving services, security, and fraud prevention</li>
           </ul>
-
           <h2 className="mt-6 text-xl font-semibold">5. Your Rights</h2>
           <p className="mb-4">You have the right to:</p>
           <ul className="list-disc pl-6 mb-4">
@@ -102,7 +93,6 @@ export default function PrivacyPolicyPage() {
           <p className="mb-4">
             To exercise these rights, contact us at privacy@elevateforhumanity.org.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">6. Data Security</h2>
           <p className="mb-4">
             We implement technical and organizational measures to protect your
@@ -115,7 +105,6 @@ export default function PrivacyPolicyPage() {
             <li>Audit logging of all administrative actions</li>
             <li>Employee training on data protection</li>
           </ul>
-
           <h2 className="mt-6 text-xl font-semibold">7. FERPA Compliance</h2>
           <p className="mb-4">
             When handling student education records on behalf of educational
@@ -123,7 +112,6 @@ export default function PrivacyPolicyPage() {
             Rights and Privacy Act (FERPA) and comply with all applicable
             requirements.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">8. Data Retention</h2>
           <p className="mb-4">
             We retain your information for as long as necessary to provide the
@@ -131,20 +119,17 @@ export default function PrivacyPolicyPage() {
             retained for up to 7 years as required by workforce development
             regulations.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">9. Children's Privacy</h2>
           <p className="mb-4">
             Our Services are not directed to individuals under 18. We do not
             knowingly collect personal information from children under 18.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">10. Changes to This Policy</h2>
           <p className="mb-4">
             We may update this Privacy Policy from time to time. We will notify you
             of material changes by posting the new policy on this page and updating
             the "Last updated" date.
           </p>
-
           <h2 className="mt-6 text-xl font-semibold">11. Contact Us</h2>
           <p className="mb-4">
             For questions about this Privacy Policy or to exercise your rights,

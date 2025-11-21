@@ -116,7 +116,7 @@ export default [
         'warn',
         { props: 'never', children: 'never' },
       ],
-      'react/jsx-newline': ['warn', { prevent: true }],
+      'react/jsx-newline': 'off',
       'react/jsx-no-duplicate-props': 'error',
       'react/jsx-no-target-blank': 'warn',
       'react/jsx-boolean-value': ['warn', 'never'],

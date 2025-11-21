@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import http from "k6/http";
 import { check, sleep } from "k6";
 
