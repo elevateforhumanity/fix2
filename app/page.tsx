@@ -1,10 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Force static rendering - no dynamic features
-export const dynamic = 'force-static';
-export const revalidate = false;
-
 const programs = [
   {
     slug: 'medical-assistant',
