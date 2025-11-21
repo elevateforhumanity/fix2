@@ -56,6 +56,87 @@ const programs = [
     duration: '4–12 Weeks • Coaching + Workshops',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
   },
+  {
+    slug: 'cna-healthcare',
+    name: 'CNA & Healthcare Careers',
+    blurb:
+      'Entry-level healthcare training focused on CNA skills, patient care, and pathways into medical careers.',
+    funding: 'WIOA • WRG • Healthcare Grants',
+    duration: '4–8 Weeks • Clinical + Classroom',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
+  },
+  {
+    slug: 'cdl-transportation',
+    name: 'CDL & Transportation Training',
+    blurb:
+      'Commercial driver training for high-earning transportation and logistics careers.',
+    funding: 'Workforce Grants • Employer Sponsors',
+    duration: '3–8 Weeks • Range + Road',
+    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80',
+  },
+  {
+    slug: 'building-technician',
+    name: 'Building Technician & Skilled Trades',
+    blurb:
+      'Maintenance, basic electrical, plumbing, and systems skills for stable building and facilities roles.',
+    funding: 'Workforce Grants • Apprenticeship',
+    duration: '4–9 Months • Hands-On',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',
+  },
+  {
+    slug: 'it-support-apprenticeship',
+    name: 'IT Support & Help Desk Apprenticeship',
+    blurb:
+      'Foundational IT support training with apprenticeships in help desk, troubleshooting, and user support.',
+    funding: 'Apprenticeship • Tech Grants',
+    duration: '6–12 Months • Hybrid',
+    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80',
+  },
+  {
+    slug: 'electrical-apprenticeship',
+    name: 'Electrical Apprenticeship',
+    blurb:
+      'Train as a licensed electrician through registered apprenticeship, learning residential and commercial electrical systems.',
+    funding: 'Registered Apprenticeship • WIOA',
+    duration: '4–5 Years • On-the-Job + Classroom',
+    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80',
+  },
+  {
+    slug: 'plumbing-apprenticeship',
+    name: 'Plumbing Apprenticeship',
+    blurb:
+      'Become a licensed plumber through hands-on apprenticeship training in residential and commercial plumbing systems.',
+    funding: 'Registered Apprenticeship • WIOA',
+    duration: '4–5 Years • On-the-Job + Classroom',
+    image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=600&q=80',
+  },
+  {
+    slug: 'welding-fabrication',
+    name: 'Welding & Metal Fabrication',
+    blurb:
+      'Learn welding techniques and metal fabrication skills for manufacturing, construction, and industrial careers.',
+    funding: 'Workforce Grants • Employer Sponsors',
+    duration: '3–6 Months • Lab + Field',
+    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
+  },
+  {
+    slug: 'culinary-arts',
+    name: 'Culinary Arts & Food Service',
+    blurb:
+      'Master professional cooking techniques and food service management for restaurant and hospitality careers.',
+    funding: 'Workforce Grants • Hospitality Programs',
+    duration: '6–12 Months • Kitchen + Classroom',
+    image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=80',
+  },
+  {
+    slug: 'beauty-career-educator',
+    name: 'Beauty & Career Educator Training',
+    blurb:
+      'Hybrid program that prepares experienced beauty professionals to become educators and trainers.',
+    funding: 'Professional Development • Grants',
+    duration: '3–6 Months • Hybrid',
+    image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80',
+  },
 ];
 
 export default function HomePage() {
@@ -190,16 +271,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {programs.map((program, index) => {
-              const programImages = [
-                'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80', // Medical Assistant
-                'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=400&q=80', // Barber
-                'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=400&q=80', // HVAC
-                'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80', // Building Maintenance
-                'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&q=80', // CDL/Truck Driving
-                'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80', // Workforce Readiness
-              ];
-              return (
+            {programs.map((program) => (
                 <Link
                   key={program.slug}
                   href={`/programs/${program.slug}`}
@@ -207,7 +279,7 @@ export default function HomePage() {
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
-                      src={programImages[index] || programImages[0]}
+                      src={program.image}
                       alt={program.name}
                       width={400}
                       height={300}
@@ -229,8 +301,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </Link>
-              );
-            })}
+            ))}
           </div>
 
           <div className="text-center mt-12">
