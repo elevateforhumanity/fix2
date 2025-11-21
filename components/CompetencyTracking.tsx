@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Card } from './Card';
-import { Button } from './Button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 interface Competency {
   id: string;
@@ -15,7 +15,7 @@ interface Competency {
   status: 'not-started' | 'in-progress' | 'mastered';
 }
 
-export function CompetencyTracking() {
+export default function CompetencyTracking() {
   const [activeCategory, setActiveCategory] = useState('all');
 
   const competencies: Competency[] = [

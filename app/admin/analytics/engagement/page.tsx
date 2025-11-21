@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { createServerClient } from '@/lib/auth';
+import { createServerSupabaseClient } from '@/lib/auth';
 import StudentEngagementAnalytics from '@/components/StudentEngagementAnalytics';
 
 export const metadata = {
@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 export default async function EngagementAnalyticsPage() {
-  const supabase = createServerClient();
+  const supabase = await createServerSupabaseClient();
   const { data: { session } } = await supabase.auth.getSession();
   
   if (!session) {

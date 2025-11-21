@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 
 interface WIOAMetrics {
@@ -73,7 +75,7 @@ interface ComplianceAlert {
   autoResolution: boolean;
 }
 
-export function WIOAComplianceDashboard() {
+export default function WIOAComplianceDashboard() {
   const [metrics, setMetrics] = useState<WIOAMetrics | null>(null);
   const [selectedTimeframe, setSelectedTimeframe] = useState('current_quarter');
   const [autoReporting, setAutoReporting] = useState(true);

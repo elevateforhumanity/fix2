@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Card } from './Card';
-import { Button } from './Button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 interface Employer {
   id: string;
@@ -23,7 +23,7 @@ interface Session {
   type: 'workshop' | 'panel' | 'presentation';
 }
 
-export function VirtualCareerFair() {
+export default function VirtualCareerFair() {
   const [activeTab, setActiveTab] = useState<'exhibitors' | 'schedule' | 'networking'>('exhibitors');
 
   const employers: Employer[] = [

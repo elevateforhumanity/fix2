@@ -1,11 +1,11 @@
 import { redirect } from 'next/navigation';
-import { createServerClient } from '@/lib/auth';
+import { createServerSupabaseClient } from '@/lib/auth';
 
 export const dynamic = 'force-dynamic';
 
 export default async function StudentLayout({ children }: { children: React.ReactNode }) {
   // Require authentication and student enrollment
-  const supabase = createServerClient();
+  const supabase = await createServerSupabaseClient();
   const { data: { session } } = await supabase.auth.getSession();
   
   if (!session) {

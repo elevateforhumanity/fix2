@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Card } from './Card';
-import { Button } from './Button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 interface PredictiveInsight {
   id: string;
@@ -13,7 +13,7 @@ interface PredictiveInsight {
   action?: string;
 }
 
-export function LearningAnalyticsDashboard() {
+export default function LearningAnalyticsDashboard() {
   const [timeRange, setTimeRange] = useState('30');
 
   const insights: PredictiveInsight[] = [
@@ -60,7 +60,7 @@ export function LearningAnalyticsDashboard() {
     { day: 'Fri', hours: 7, score: 90 },
     { day: 'Sat', hours: 3, score: 75 },
     { day: 'Sun', hours: 9, score: 95 },
-  };
+  ];
 
   const maxHours = Math.max(...weeklyActivity.map(d => d.hours));
 

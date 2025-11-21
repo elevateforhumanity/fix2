@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Card } from './Card';
-import { Button } from './Button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 interface Badge {
   id: string;
@@ -17,7 +17,7 @@ interface Badge {
   verificationUrl?: string;
 }
 
-export function MicroCredentialsBadges() {
+export default function MicroCredentialsBadges() {
   const [activeTab, setActiveTab] = useState<'earned' | 'available' | 'in-progress'>('earned');
 
   const badges: Badge[] = [

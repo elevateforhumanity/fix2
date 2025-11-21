@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Card } from './Card';
-import { Button } from './Button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 interface Grant {
   id: string;
@@ -13,7 +13,7 @@ interface Grant {
   status: 'open' | 'closed' | 'upcoming';
 }
 
-export function GrantScholarshipApplication() {
+export default function GrantScholarshipApplication() {
   const [selectedGrant, setSelectedGrant] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     firstName: '',

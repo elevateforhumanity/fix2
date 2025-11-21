@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Card } from './Card';
-import { Button } from './Button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
-export function AutomatedEnrollmentWorkflow() {
+export default function AutomatedEnrollmentWorkflow() {
   const [step, setStep] = useState(1);
 
   const workflow = [

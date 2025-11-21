@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Card } from './Card';
-import { Button } from './Button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 interface SkillGap {
   skill: string;
@@ -20,7 +20,7 @@ interface TeamMember {
   skills: { name: string; level: number }[];
 }
 
-export function SkillsGapAnalysis() {
+export default function SkillsGapAnalysis() {
   const [selectedRole, setSelectedRole] = useState('full-stack-developer');
 
   const skillGaps: SkillGap[] = [

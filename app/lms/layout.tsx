@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { createServerClient } from '@/lib/auth';
+import { createServerSupabaseClient } from '@/lib/auth';
 import MobileNav from '@/components/mobile/MobileNav';
 import InstallPrompt from '@/components/mobile/InstallPrompt';
 
@@ -8,7 +8,7 @@ export const dynamicParams = true;
 
 export default async function LMSLayout({ children }: { children: React.ReactNode }) {
   // Require authentication and enrollment for all LMS pages
-  const supabase = createServerClient();
+  const supabase = await createServerSupabaseClient();
   const { data: { session } } = await supabase.auth.getSession();
   
   if (!session) {

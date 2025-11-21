@@ -1,4 +1,4 @@
-import { AutomatedEnrollmentWorkflow } from '@/components/AutomatedEnrollmentWorkflow';
+import AutomatedEnrollmentWorkflow from '@/components/AutomatedEnrollmentWorkflow';
 
 export const metadata = {
   title: 'Apply for Training | Elevate for Humanity',

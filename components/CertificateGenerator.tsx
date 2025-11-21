@@ -5,18 +5,18 @@ import { Card, CardContent } from '@/components/ui/Card';
 import { Download, Share2, Award } from 'lucide-react';
 
 interface CertificateGeneratorProps {
-  studentName: string;
-  courseName: string;
-  completionDate: string;
-  certificateId: string;
+  studentName?: string;
+  courseName?: string;
+  completionDate?: string;
+  certificateId?: string;
 }
 
-export function CertificateGenerator({
-  studentName,
-  courseName,
-  completionDate,
-  certificateId,
-}: CertificateGeneratorProps) {
+export default function CertificateGenerator({
+  studentName = 'Student Name',
+  courseName = 'Course Name',
+  completionDate = new Date().toLocaleDateString(),
+  certificateId = 'CERT-' + Date.now(),
+}: CertificateGeneratorProps = {}) {
   const handleDownload = () => {
     // Generate PDF certificate
     // console.log('Downloading certificate...');

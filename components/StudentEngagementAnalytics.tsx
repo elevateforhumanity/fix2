@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Card } from './Card';
-import { Button } from './Button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
-export function StudentEngagementAnalytics() {
+export default function StudentEngagementAnalytics() {
   const [timeRange, setTimeRange] = useState('30');
 
   const metrics = {

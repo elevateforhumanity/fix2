@@ -1,3 +1,5 @@
+'use client';
+
 /*
   Copyright (c) 2025 Elevate for Humanity
   Commercial License. No resale, sublicensing, or redistribution allowed.

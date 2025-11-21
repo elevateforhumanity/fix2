@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Card } from './Card';
-import { Button } from './Button';
+import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 
 interface Message {
   id: string;
@@ -20,7 +20,7 @@ interface CareerRecommendation {
   skills: string[];
 }
 
-export function AICareerCounseling() {
+export default function AICareerCounseling() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
