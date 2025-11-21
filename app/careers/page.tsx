@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Button } from '@/components/ui/Button';
 import { MapPin, Clock, DollarSign, Briefcase, Heart, Users, TrendingUp } from 'lucide-react';
 
 export const metadata = {

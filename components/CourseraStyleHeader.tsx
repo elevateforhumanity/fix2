@@ -29,60 +29,60 @@ export default function CourseraStyleHeader() {
                   onClick={() => setExploreOpen(!exploreOpen)}
                   className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-blue-600 transition"
                 >
-                  Explore
+                  Programs
                   <ChevronDown className="w-4 h-4" />
                 </button>
 
                 {exploreOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-2">
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2">
                     <Link
                       href="/programs"
                       className="block px-4 py-3 text-sm font-semibold text-blue-600 hover:bg-blue-50 border-b border-gray-100"
                       onClick={() => setExploreOpen(false)}
                     >
-                      📚 View All Programs
+                      View All Programs
                     </Link>
                     <Link
                       href="/programs/medical-assistant"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                       onClick={() => setExploreOpen(false)}
                     >
-                      🏥 Medical Assistant
+                      Medical Assistant
                     </Link>
                     <Link
                       href="/programs/barber-apprenticeship"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                       onClick={() => setExploreOpen(false)}
                     >
-                      ✂️ Barber Apprenticeship
+                      Barber Apprenticeship
                     </Link>
                     <Link
                       href="/programs/hvac-technician"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                       onClick={() => setExploreOpen(false)}
                     >
-                      🔧 HVAC Technician
+                      HVAC Technician
                     </Link>
                     <Link
                       href="/programs/building-maintenance"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                       onClick={() => setExploreOpen(false)}
                     >
-                      🏗️ Building Maintenance
+                      Building Maintenance
                     </Link>
                     <Link
                       href="/programs/truck-driving"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                       onClick={() => setExploreOpen(false)}
                     >
-                      🚛 CDL / Truck Driving
+                      CDL / Truck Driving
                     </Link>
                     <Link
                       href="/programs/workforce-readiness"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
                       onClick={() => setExploreOpen(false)}
                     >
-                      💼 Workforce Readiness
+                      Workforce Readiness
                     </Link>
                   </div>
                 )}
