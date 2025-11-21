@@ -56,127 +56,75 @@ const programs = [
     duration: '4–12 Weeks • Coaching + Workshops',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
   },
-  {
-    slug: 'cna-healthcare',
-    name: 'CNA & Healthcare Careers',
-    blurb:
-      'Entry-level healthcare training focused on CNA skills, patient care, and pathways into medical careers.',
-    funding: 'WIOA • WRG • Healthcare Grants',
-    duration: '4–8 Weeks • Clinical + Classroom',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
-  },
-  {
-    slug: 'cdl-transportation',
-    name: 'CDL & Transportation Training',
-    blurb:
-      'Commercial driver training for high-earning transportation and logistics careers.',
-    funding: 'Workforce Grants • Employer Sponsors',
-    duration: '3–8 Weeks • Range + Road',
-    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80',
-  },
-  {
-    slug: 'building-technician',
-    name: 'Building Technician & Skilled Trades',
-    blurb:
-      'Maintenance, basic electrical, plumbing, and systems skills for stable building and facilities roles.',
-    funding: 'Workforce Grants • Apprenticeship',
-    duration: '4–9 Months • Hands-On',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',
-  },
-  {
-    slug: 'it-support-apprenticeship',
-    name: 'IT Support & Help Desk Apprenticeship',
-    blurb:
-      'Foundational IT support training with apprenticeships in help desk, troubleshooting, and user support.',
-    funding: 'Apprenticeship • Tech Grants',
-    duration: '6–12 Months • Hybrid',
-    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80',
-  },
-  {
-    slug: 'electrical-apprenticeship',
-    name: 'Electrical Apprenticeship',
-    blurb:
-      'Train as a licensed electrician through registered apprenticeship, learning residential and commercial electrical systems.',
-    funding: 'Registered Apprenticeship • WIOA',
-    duration: '4–5 Years • On-the-Job + Classroom',
-    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80',
-  },
-  {
-    slug: 'plumbing-apprenticeship',
-    name: 'Plumbing Apprenticeship',
-    blurb:
-      'Become a licensed plumber through hands-on apprenticeship training in residential and commercial plumbing systems.',
-    funding: 'Registered Apprenticeship • WIOA',
-    duration: '4–5 Years • On-the-Job + Classroom',
-    image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=600&q=80',
-  },
-  {
-    slug: 'welding-fabrication',
-    name: 'Welding & Metal Fabrication',
-    blurb:
-      'Learn welding techniques and metal fabrication skills for manufacturing, construction, and industrial careers.',
-    funding: 'Workforce Grants • Employer Sponsors',
-    duration: '3–6 Months • Lab + Field',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80',
-  },
-  {
-    slug: 'culinary-arts',
-    name: 'Culinary Arts & Food Service',
-    blurb:
-      'Master professional cooking techniques and food service management for restaurant and hospitality careers.',
-    funding: 'Workforce Grants • Hospitality Programs',
-    duration: '6–12 Months • Kitchen + Classroom',
-    image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=80',
-  },
-  {
-    slug: 'beauty-career-educator',
-    name: 'Beauty & Career Educator Training',
-    blurb:
-      'Hybrid program that prepares experienced beauty professionals to become educators and trainers.',
-    funding: 'Professional Development • Grants',
-    duration: '3–6 Months • Hybrid',
-    image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80',
-  },
 ];
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* HERO SECTION - Clean Professional Design */}
-      <section className="relative bg-gradient-to-br from-slate-50 to-blue-50 py-24 md:py-32 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-6">
+      {/* HERO SECTION - Video Background */}
+      <section className="relative h-screen min-h-[600px] overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            {/* Video URL removed - external source unavailable */}
+            {/* Fallback to image if video doesn't load */}
+            <Image
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&q=80"
+              alt="Students learning"
+              fill
+              className="object-cover"
+              priority
+            />
+          </video>
+          
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 h-full flex items-center">
+          <div className="mx-auto max-w-7xl px-6 md:px-12 w-full">
+            <div className="max-w-3xl">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-6 border border-white/20">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
                 </svg>
                 100% Funded Training Programs
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-6">
-                Ignite Your Future:
-                <span className="block text-blue-600">Fund Training Today</span>
+              {/* Main Heading */}
+              <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 drop-shadow-2xl">
+                Transform Your Future
+                <span className="block text-blue-400 mt-2">Start Training Today</span>
               </h1>
               
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                Empower Dreams: Support Skills Development and Transform Lives at Elevate for Humanity. Invest in Growth, Today! Marion County.
+              {/* Subheading */}
+              <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed drop-shadow-lg">
+                Free career training programs in healthcare, skilled trades, and technology. 
+                <span className="block mt-2 font-semibold">No cost. Real careers. Marion County.</span>
               </p>
 
+              {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link
                   href="/start"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+                  className="inline-flex items-center justify-center px-8 py-5 bg-blue-600 text-white font-bold text-lg rounded-xl hover:bg-blue-700 transition-all shadow-2xl hover:shadow-blue-500/50 hover:scale-105 transform"
                 >
                   Get Started Free
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </Link>
                 <Link
                   href="/programs"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-700 font-semibold rounded-xl hover:bg-slate-50 transition-all border-2 border-slate-200"
+                  className="inline-flex items-center justify-center px-8 py-5 bg-white/10 backdrop-blur-sm text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border-2 border-white/30 hover:border-white/50"
                 >
                   Explore Programs
                 </Link>
@@ -197,35 +145,33 @@ export default function HomePage() {
                   Job Placement Support
                 </div>
               </div>
-            </div>
 
-            {/* Right: Clean image - Business training/education event */}
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
-                  alt="Business professionals in training session - diverse group learning together"
-                  width={800}
-                  height={600}
-                  className="w-full h-auto"
-                  priority
-                />
-                {/* Floating stat card */}
-                <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-2xl font-bold text-slate-900">$0</div>
-                      <div className="text-sm text-slate-600">Cost to Students</div>
-                    </div>
-                    <div className="h-12 w-px bg-slate-200"></div>
-                    <div>
-                      <div className="text-2xl font-bold text-slate-900">100%</div>
-                      <div className="text-sm text-slate-600">Funded Programs</div>
-                    </div>
-                  </div>
+              {/* Stats - Now with white text on video background */}
+              <div className="grid grid-cols-3 gap-4 pt-6">
+                <div className="backdrop-blur-md bg-white/10 p-5 rounded-xl border border-white/20 hover:bg-white/20 transition-all">
+                  <div className="text-4xl font-bold text-white drop-shadow-lg">2,500+</div>
+                  <div className="text-sm text-white/90 font-medium mt-1">Students Trained</div>
+                </div>
+                <div className="backdrop-blur-md bg-white/10 p-5 rounded-xl border border-white/20 hover:bg-white/20 transition-all">
+                  <div className="text-4xl font-bold text-white drop-shadow-lg">95%</div>
+                  <div className="text-sm text-white/90 font-medium mt-1">Job Placement</div>
+                </div>
+                <div className="backdrop-blur-md bg-white/10 p-5 rounded-xl border border-white/20 hover:bg-white/20 transition-all">
+                  <div className="text-4xl font-bold text-white drop-shadow-lg">$0</div>
+                  <div className="text-sm text-white/90 font-medium mt-1">Tuition Cost</div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+          <div className="flex flex-col items-center gap-2 text-white/80 animate-bounce">
+            <span className="text-sm font-medium">Scroll to explore</span>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
           </div>
         </div>
       </section>
@@ -271,7 +217,16 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {programs.map((program) => (
+            {programs.map((program, index) => {
+              const programImages = [
+                'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80', // Medical Assistant
+                'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=400&q=80', // Barber
+                'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=400&q=80', // HVAC
+                'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80', // Building Maintenance
+                'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&q=80', // CDL/Truck Driving
+                'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80', // Workforce Readiness
+              ];
+              return (
                 <Link
                   key={program.slug}
                   href={`/programs/${program.slug}`}
@@ -279,7 +234,7 @@ export default function HomePage() {
                 >
                   <div className="relative h-48 overflow-hidden">
                     <Image
-                      src={program.image}
+                      src={programImages[index] || programImages[0]}
                       alt={program.name}
                       width={400}
                       height={300}
@@ -301,7 +256,8 @@ export default function HomePage() {
                     </div>
                   </div>
                 </Link>
-            ))}
+              );
+            })}
           </div>
 
           <div className="text-center mt-12">
