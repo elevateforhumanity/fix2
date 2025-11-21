@@ -47,12 +47,18 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://www.elevateforhumanity.org/assets/og-image.jpg',
+        url: 'https://www.elevateforhumanity.org/logo.svg',
         width: 1200,
         height: 630,
         alt: 'Elevate for Humanity - Workforce Training',
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Elevate for Humanity | Workforce Training & Career Development',
+    description: 'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
+    images: ['https://www.elevateforhumanity.org/logo.svg'],
   },
   facebook: {
     appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID,

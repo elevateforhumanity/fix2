@@ -42,4 +42,4 @@ Disallow: /.netlify/
 Crawl-delay: 10
 
 # Sitemap
-Sitemap: https://elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap.xml
