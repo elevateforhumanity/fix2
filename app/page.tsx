@@ -63,25 +63,16 @@ export default function HomePage() {
     <main className="min-h-screen bg-white">
       {/* HERO SECTION - Video Background */}
       <section className="relative h-screen min-h-[600px] overflow-hidden">
-        {/* Video Background */}
+        {/* Hero Background Image */}
         <div className="absolute inset-0 w-full h-full">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            {/* Video URL removed - external source unavailable */}
-            {/* Fallback to image if video doesn't load */}
-            <Image
-              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&q=80"
-              alt="Students learning"
-              fill
-              className="object-cover"
-              priority
-            />
-          </video>
+          <Image
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&q=80"
+            alt="Students learning together in a collaborative environment"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
           
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
