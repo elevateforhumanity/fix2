@@ -225,15 +225,7 @@ export const Footer: React.FC = () => {
                   );
                 })}
               </div>
-              <div className="mt-4 flex items-center gap-2 text-sm text-slate-400">
-                <Mail className="h-4 w-4" />
-                <a
-                  href="mailto:Elevate4humanityedu@gmail.com"
-                  className="hover:text-white transition-colors"
-                >
-                  Elevate4humanityedu@gmail.com
-                </a>
-              </div>
+
               <p className="text-sm text-slate-400 mt-2">
                 <a href="tel:+13173143757" className="hover:text-white transition-colors">
                   (317) 314-3757
