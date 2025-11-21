@@ -38,10 +38,13 @@ export default function AboutPage() {
                 Our Mission
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Elevate for Humanity exists to <strong>bridge the gap between education and employment</strong> by connecting Indiana residents to 100% funded career training through WIOA, WRG, JRI, and DOL programs.
+                Elevate for Humanity is a <strong>government-contracted workforce training provider</strong> and operates as a program of <strong>Selfish Inc</strong>, a 501(c)(3) nonprofit organization dedicated to community empowerment through education and workforce development.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                We're not a traditional school. We're a <strong>connector</strong>—working directly with WorkOne Indiana, case managers, re-entry programs, and employer partners to remove barriers and get people trained for high-demand careers that actually pay.
+                As a <strong>certified government contractor</strong>, we bridge the gap between education and employment by connecting Indiana residents to 100% funded career training through WIOA, WRG, JRI, and DOL programs. We hold active contracts with EmployIndy, the State of Indiana, and the U.S. Department of Labor.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                We're not a traditional school. We're a <strong>connector</strong>—working directly with workforce boards, case managers, re-entry programs, and employer partners to remove barriers and get people trained for high-demand careers that actually pay.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 When someone is ready to move—out of survival, into training, into work—there's a simple, trusted place people can send them: <strong>Elevate for Humanity</strong>.
@@ -65,6 +68,36 @@ export default function AboutPage() {
                 <div>
                   <div className="text-4xl font-bold text-purple-600 mb-2">12+</div>
                   <div className="text-gray-700">Career training programs</div>
+                </div>
+              </div>
+              
+              <div className="mt-8 pt-8 border-t border-blue-200">
+                <h4 className="text-lg font-bold text-gray-900 mb-4">Credentials & Partnerships</h4>
+                <div className="space-y-2 text-sm text-gray-700">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                    <span>501(c)(3) Nonprofit (Selfish Inc)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                    <span>ETPL-Approved Provider</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                    <span>Government Contractor (WIOA, DOL)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                    <span>EmployIndy Partner</span>
+                  </div>
                 </div>
               </div>
             </div>

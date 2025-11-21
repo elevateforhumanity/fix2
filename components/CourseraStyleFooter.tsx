@@ -214,11 +214,16 @@ export default function CourseraStyleFooter() {
         <div className="pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Logo and Copyright */}
-            <div className="flex items-center gap-4">
-              <div className="text-xl font-bold text-blue-600">Elevate</div>
-              <span className="text-sm text-gray-500">
-                © {new Date().getFullYear()} Elevate for Humanity
-              </span>
+            <div className="flex flex-col items-start gap-2">
+              <div className="flex items-center gap-4">
+                <div className="text-xl font-bold text-blue-600">Elevate</div>
+                <span className="text-sm text-gray-500">
+                  © {new Date().getFullYear()} Elevate for Humanity
+                </span>
+              </div>
+              <div className="text-xs text-gray-500">
+                A program of <strong>Selfish Inc</strong>, a 501(c)(3) nonprofit organization | Government Contractor | ETPL-Approved Provider
+              </div>
             </div>
 
             {/* Social Links */}

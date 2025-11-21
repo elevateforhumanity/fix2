@@ -51,7 +51,7 @@ export default function HomePage() {
                   We Connect You to 100% Funded Career Training
                 </p>
                 <p className="text-gray-700 text-base mb-4 leading-relaxed">
-                  Elevate for Humanity is a <strong>workforce training provider</strong> that helps Indiana residents access <strong>free career training</strong> through government-funded programs. We work directly with WorkOne, case managers, and employers to remove barriers and get you trained for high-demand jobs.
+                  Elevate for Humanity is a <strong>government-contracted workforce training provider</strong> that helps Indiana residents access <strong>free career training</strong> through WIOA, WRG, JRI, and DOL programs. We work directly with workforce boards, case managers, and employers to remove barriers and get you trained for high-demand jobs.
                 </p>
                 
                 <div className="border-t border-gray-200 pt-4 mb-4">
@@ -138,7 +138,7 @@ export default function HomePage() {
                 <strong>Elevate for Humanity</strong> is an <strong>ETPL-approved workforce training provider</strong> serving Marion County and surrounding areas. We're not a traditional school—we're a <strong>connector</strong> between you, government funding, and real employers.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                We work directly with <strong>WorkOne Indiana</strong>, case managers, re-entry programs, and employer partners to remove barriers and get you trained for <strong>high-demand careers</strong> that actually pay.
+                As a <strong>government contractor</strong>, we work directly with <strong>EmployIndy</strong>, workforce boards, case managers, re-entry programs, and employer partners to remove barriers and get you trained for <strong>high-demand careers</strong> that actually pay.
               </p>
               <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded">
                 <p className="text-sm text-slate-700">

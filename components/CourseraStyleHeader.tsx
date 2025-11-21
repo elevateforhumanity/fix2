@@ -95,16 +95,34 @@ export default function CourseraStyleHeader() {
                 About
               </Link>
               <Link
-                href="/partners"
+                href="/success-stories"
                 className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
               >
-                Partners
+                Success Stories
               </Link>
               <Link
                 href="/employers"
                 className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
               >
                 For Employers
+              </Link>
+              <Link
+                href="/partners"
+                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+              >
+                Partners
+              </Link>
+              <Link
+                href="/blog"
+                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+              >
+                Blog
+              </Link>
+              <Link
+                href="/contact"
+                className="text-sm font-medium text-gray-700 hover:text-blue-600 transition"
+              >
+                Contact
               </Link>
             </nav>
           </div>
