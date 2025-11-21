@@ -1,5 +1,6 @@
 // app/apply/page.tsx
 import { Suspense } from "react";
+import { redirect } from "next/navigation";
 
 type ApplyPageProps = {
   searchParams?: { [key: string]: string | string[] | undefined };
