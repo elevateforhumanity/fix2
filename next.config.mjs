@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  // Remove 'output: export' to enable API routes
+  reactStrictMode: false, // Disable to fix hydration issues
+  output: 'export', // Static export - works everywhere
   trailingSlash: false,
   images: {
     unoptimized: false, // ✅ Enable Next.js image optimization
