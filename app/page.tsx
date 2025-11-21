@@ -28,24 +28,52 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-6 md:px-12 w-full">
             <div className="max-w-3xl">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-6 border border-white/20">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+              <div className="inline-flex items-center gap-2 px-5 py-3 bg-green-500 text-white rounded-full text-base font-bold mb-6 shadow-2xl animate-pulse">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                 </svg>
-                100% Funded Training Programs
+                100% FREE - Government Funded
               </div>
               
               {/* Main Heading */}
-              <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 drop-shadow-2xl">
-                Transform Your Future
-                <span className="block text-blue-400 mt-2">Start Training Today</span>
+              <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-2xl">
+                Get Paid to Learn a New Career
               </h1>
               
-              {/* Subheading */}
-              <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed drop-shadow-lg">
-                Free career training programs in healthcare, skilled trades, and technology. 
-                <span className="block mt-2 font-semibold">No cost. Real careers. Marion County.</span>
+              {/* Subheading - The Hook */}
+              <p className="text-2xl md:text-3xl text-yellow-300 font-bold mb-6 drop-shadow-lg">
+                No Tuition. No Debt. Real Jobs Waiting.
               </p>
+
+              {/* Funding Programs - The Proof */}
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 mb-8 shadow-2xl">
+                <p className="text-gray-900 text-lg font-semibold mb-4">
+                  ✅ Your training is paid for through:
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
+                  <div className="bg-blue-50 rounded-lg px-4 py-3 font-bold text-blue-900 border-2 border-blue-200">
+                    💼 WIOA Funding
+                  </div>
+                  <div className="bg-green-50 rounded-lg px-4 py-3 font-bold text-green-900 border-2 border-green-200">
+                    🎯 WRG Grants
+                  </div>
+                  <div className="bg-purple-50 rounded-lg px-4 py-3 font-bold text-purple-900 border-2 border-purple-200">
+                    🔄 JRI Program
+                  </div>
+                  <div className="bg-orange-50 rounded-lg px-4 py-3 font-bold text-orange-900 border-2 border-orange-200">
+                    💰 OJT (Earn While You Learn)
+                  </div>
+                  <div className="bg-red-50 rounded-lg px-4 py-3 font-bold text-red-900 border-2 border-red-200">
+                    🛠️ Apprenticeships
+                  </div>
+                  <div className="bg-indigo-50 rounded-lg px-4 py-3 font-bold text-indigo-900 border-2 border-indigo-200">
+                    🏢 Employer Sponsors
+                  </div>
+                </div>
+                <p className="text-gray-700 text-sm mt-4 font-medium">
+                  <strong>Second chance friendly!</strong> We work with re-entry, justice-involved, and career changers.
+                </p>
+              </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -66,37 +94,23 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              {/* Trust indicators */}
-              <div className="flex items-center gap-6 text-sm text-slate-600">
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  No Cost to You
+              {/* Quick Stats - Social Proof */}
+              <div className="flex flex-wrap gap-4 text-white">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
+                  <div className="text-3xl font-bold">2,500+</div>
+                  <div className="text-sm opacity-90">Students Trained</div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  Job Placement Support
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
+                  <div className="text-3xl font-bold">95%</div>
+                  <div className="text-sm opacity-90">Get Jobs</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
+                  <div className="text-3xl font-bold">$0</div>
+                  <div className="text-sm opacity-90">Out of Pocket</div>
                 </div>
               </div>
 
-              {/* Stats - Now with white text on video background */}
-              <div className="grid grid-cols-3 gap-4 pt-6">
-                <div className="backdrop-blur-md bg-white/10 p-5 rounded-xl border border-white/20 hover:bg-white/20 transition-all">
-                  <div className="text-4xl font-bold text-white drop-shadow-lg">2,500+</div>
-                  <div className="text-sm text-white/90 font-medium mt-1">Students Trained</div>
-                </div>
-                <div className="backdrop-blur-md bg-white/10 p-5 rounded-xl border border-white/20 hover:bg-white/20 transition-all">
-                  <div className="text-4xl font-bold text-white drop-shadow-lg">95%</div>
-                  <div className="text-sm text-white/90 font-medium mt-1">Job Placement</div>
-                </div>
-                <div className="backdrop-blur-md bg-white/10 p-5 rounded-xl border border-white/20 hover:bg-white/20 transition-all">
-                  <div className="text-4xl font-bold text-white drop-shadow-lg">$0</div>
-                  <div className="text-sm text-white/90 font-medium mt-1">Tuition Cost</div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
