@@ -37,6 +37,28 @@ export default function proxy(request: NextRequest) {
              request.headers.get('x-real-ip') || 
              'unknown';
   
+  // Handle old URLs with 410 Gone (permanently removed)
+  const goneUrls = [
+    '/health-services',
+    '/advertise-with-us',
+    '/career-training-programs---wrg---wioa-approved/state-funded-courses',
+    '/programs/cna-hha',
+  ];
+  
+  if (goneUrls.some(url => path.startsWith(url))) {
+    return new NextResponse('This page has been permanently removed', {
+      status: 410,
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+    });
+  }
+  
+  // Redirect individual blog posts to main blog page
+  if (path.startsWith('/blog/') && path !== '/blog') {
+    return NextResponse.redirect(new URL('/blog', request.url), 301);
+  }
+  
   // Skip middleware for static files and public routes
   if (
     path.startsWith('/_next') ||
