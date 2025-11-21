@@ -69,6 +69,22 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      // Redirect non-www to www for SEO consolidation
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'elevateforhumanity.org',
+          },
+        ],
+        destination: 'https://www.elevateforhumanity.org/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
