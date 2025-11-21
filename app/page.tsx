@@ -28,21 +28,21 @@ export default function HomePage() {
           <div className="mx-auto max-w-7xl px-6 md:px-12 w-full">
             <div className="max-w-3xl">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-5 py-3 bg-green-500 text-white rounded-full text-base font-bold mb-6 shadow-2xl animate-pulse">
+              <div className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 text-white rounded-lg text-base font-semibold mb-6 shadow-lg">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                 </svg>
-                100% FREE - Government Funded
+                Government-Funded Career Training
               </div>
               
               {/* Main Heading */}
               <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-2xl">
-                Get Paid to Learn a New Career
+                Free Career Training for Indiana Residents
               </h1>
               
               {/* Subheading - The Hook */}
-              <p className="text-2xl md:text-3xl text-yellow-300 font-bold mb-6 drop-shadow-lg">
-                No Tuition. No Debt. Real Jobs Waiting.
+              <p className="text-2xl md:text-3xl text-blue-100 font-semibold mb-6 drop-shadow-lg">
+                WIOA, WRG, and JRI Funded Programs - No Tuition, No Debt
               </p>
 
               {/* What We Do - Clear Explanation */}
@@ -190,6 +190,123 @@ export default function HomePage() {
                   <div className="text-sm text-gray-600">Out of Pocket</div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PARTNER LOGOS SECTION */}
+      <section className="py-12 bg-white border-y border-gray-200">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Trusted Partners & Funding Sources</h2>
+            <p className="text-gray-600">Working with government agencies and workforce boards to serve Indiana residents</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-32 h-32 bg-blue-100 rounded-lg flex items-center justify-center">
+                <span className="text-4xl font-bold text-blue-600">DOL</span>
+              </div>
+              <span className="text-xs text-gray-600 text-center">U.S. Department<br/>of Labor</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-32 h-32 bg-green-100 rounded-lg flex items-center justify-center">
+                <span className="text-2xl font-bold text-green-600">WIOA</span>
+              </div>
+              <span className="text-xs text-gray-600 text-center">Workforce Innovation<br/>&amp; Opportunity Act</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-32 h-32 bg-purple-100 rounded-lg flex items-center justify-center">
+                <span className="text-lg font-bold text-purple-600">EmployIndy</span>
+              </div>
+              <span className="text-xs text-gray-600 text-center">Marion County<br/>Workforce Board</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="w-32 h-32 bg-orange-100 rounded-lg flex items-center justify-center">
+                <span className="text-2xl font-bold text-orange-600">DWD</span>
+              </div>
+              <span className="text-xs text-gray-600 text-center">Indiana Dept. of<br/>Workforce Development</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ELIGIBILITY SECTION */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Do You Qualify for Free Training?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Check if you're eligible for government-funded career training through WIOA, WRG, JRI, or DOL programs
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-blue-900 mb-4">WIOA Eligibility</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-600 font-bold text-xl">✓</span>
+                  <span>Dislocated workers (laid off, plant closure)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-600 font-bold text-xl">✓</span>
+                  <span>Low-income adults seeking career advancement</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-600 font-bold text-xl">✓</span>
+                  <span>Youth ages 16-24 facing barriers to employment</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-blue-600 font-bold text-xl">✓</span>
+                  <span>Indiana residents (Marion County and surrounding areas)</span>
+                </li>
+              </ul>
+              <Link href="/funding/wioa" className="mt-6 inline-block text-blue-600 font-bold hover:underline">
+                Learn More About WIOA →
+              </Link>
+            </div>
+
+            <div className="bg-purple-50 border-2 border-purple-200 rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-purple-900 mb-4">JRI Eligibility</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-3">
+                  <span className="text-purple-600 font-bold text-xl">✓</span>
+                  <span>Currently on probation or parole</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-purple-600 font-bold text-xl">✓</span>
+                  <span>Recently released from incarceration (within 2 years)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-purple-600 font-bold text-xl">✓</span>
+                  <span>Referred by community corrections or re-entry programs</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-purple-600 font-bold text-xl">✓</span>
+                  <span>Committed to completing training and finding employment</span>
+                </li>
+              </ul>
+              <Link href="/funding/jri" className="mt-6 inline-block text-purple-600 font-bold hover:underline">
+                Learn More About JRI →
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white text-center">
+            <h3 className="text-2xl font-bold mb-4">Not Sure If You Qualify?</h3>
+            <p className="text-lg mb-6 text-blue-100">
+              Contact us for a free eligibility assessment. We'll help you navigate funding options and find the right program for you.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/apply" className="px-8 py-3 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition">
+                Apply Now
+              </Link>
+              <Link href="/contact" className="px-8 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition">
+                Talk to an Advisor
+              </Link>
             </div>
           </div>
         </div>
@@ -599,6 +716,52 @@ export default function HomePage() {
               className="inline-block px-8 py-3 border-2 border-blue-600 text-blue-600 font-bold rounded-lg hover:bg-blue-600 hover:text-white transition"
             >
               Read More Stories
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="py-20 bg-gray-50">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-6">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg text-gray-900 mb-2">Do I qualify for free training?</h3>
+              <p className="text-gray-700">
+                You may qualify if you're a dislocated worker, low-income adult, youth ages 16-24, or justice-involved individual. We work with WIOA, WRG, JRI, and DOL programs. Contact us for a free eligibility assessment.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg text-gray-900 mb-2">How much does training cost?</h3>
+              <p className="text-gray-700">
+                $0 out of pocket if you qualify for government funding. We help you navigate WIOA, WRG, JRI, and DOL programs that cover 100% of tuition, books, supplies, and even support services like transportation and childcare.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg text-gray-900 mb-2">How long does training take?</h3>
+              <p className="text-gray-700">
+                Most programs are 4-24 weeks, not 2-4 years. We focus on fast-track career training that gets you employed quickly. Apprenticeships may be 12-18 months with paid on-the-job training.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg text-gray-900 mb-2">Will I get a job after training?</h3>
+              <p className="text-gray-700">
+                We partner with employers who need trained workers NOW. Many students receive job offers before graduation. We provide job placement assistance, resume help, interview coaching, and ongoing support.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-bold text-lg text-gray-900 mb-2">Are you second-chance friendly?</h3>
+              <p className="text-gray-700">
+                Yes! We specialize in helping re-entry participants, people with gaps in work history, and career changers. We work with JRI funding and have relationships with second-chance employers. If you're ready to work, we're ready to help.
+              </p>
+            </div>
+          </div>
+          <div className="mt-12 text-center">
+            <Link href="/faq" className="text-blue-600 font-bold hover:underline text-lg">
+              View All FAQs →
             </Link>
           </div>
         </div>

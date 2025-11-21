@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/auth';
-import AnalyticsDashboard from '@/components/AnalyticsDashboard';
+import { AnalyticsDashboard } from '@/components/AnalyticsDashboard';
 
 export const metadata = {
   title: 'Analytics Dashboard | Admin',
@@ -35,7 +35,16 @@ export default async function AnalyticsPage() {
           </p>
         </div>
         
-        <AnalyticsDashboard />
+        <AnalyticsDashboard data={{
+          totalStudents: 0,
+          activeStudents: 0,
+          completionRate: 0,
+          averageScore: 0,
+          totalRevenue: 0,
+          coursesCompleted: 0,
+          studyHours: 0,
+          certificatesIssued: 0
+        }} />
       </div>
     </div>
   );

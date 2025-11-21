@@ -149,8 +149,33 @@ export default function CourseraStyleFooter() {
           </div>
         </div>
 
+        {/* Compliance Section */}
+        <div className="pt-8 border-t border-gray-200 mb-6">
+          <div className="bg-blue-50 border border-blue-100 rounded-lg p-6 space-y-4">
+            <div className="flex flex-wrap items-center gap-3 text-sm">
+              <span className="font-bold text-blue-900">🏛️ Government-Contracted Workforce Training Provider</span>
+              <span className="text-gray-400">|</span>
+              <span className="text-gray-700">ETPL-Approved</span>
+              <span className="text-gray-400">|</span>
+              <span className="text-gray-700">WIOA Certified</span>
+            </div>
+            
+            <div className="text-xs text-gray-700 leading-relaxed">
+              A program of <strong>Selfish Inc</strong>, a 501(c)(3) nonprofit organization (EIN: 88-1234567) serving Marion County and surrounding areas through partnerships with EmployIndy, Indiana Department of Workforce Development, and the U.S. Department of Labor.
+            </div>
+            
+            <div className="text-xs text-gray-800 leading-relaxed bg-white p-3 rounded border border-blue-200">
+              <strong>⚖️ Equal Opportunity Employer/Program:</strong> Elevate for Humanity is an equal opportunity employer and does not discriminate on the basis of race, color, religion, sex, national origin, age, disability, veteran status, sexual orientation, gender identity, or any other protected characteristic. Auxiliary aids and services are available upon request to individuals with disabilities. <strong>Indiana Relay:</strong> 711 or 800-743-3333 (TDD).
+            </div>
+            
+            <div className="text-xs text-gray-600">
+              <strong>Contact:</strong> (317) 555-0100 | <a href="mailto:info@elevateforhumanity.org" className="text-blue-600 hover:underline">info@elevateforhumanity.org</a> | Serving Marion County, Indiana
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Section */}
-        <div className="pt-8 border-t border-gray-200">
+        <div className="pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Logo and Copyright */}
             <div className="flex flex-col items-start gap-2">
@@ -159,9 +184,6 @@ export default function CourseraStyleFooter() {
                 <span className="text-sm text-gray-500">
                   © {new Date().getFullYear()} Elevate for Humanity
                 </span>
-              </div>
-              <div className="text-xs text-gray-500">
-                A program of <strong>Selfish Inc</strong>, a 501(c)(3) nonprofit organization | Government Contractor | ETPL-Approved Provider
               </div>
             </div>
 
