@@ -45,33 +45,41 @@ export default function HomePage() {
                 No Tuition. No Debt. Real Jobs Waiting.
               </p>
 
-              {/* Funding Programs - The Proof */}
+              {/* What We Do - Clear Explanation */}
               <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 mb-8 shadow-2xl">
-                <p className="text-gray-900 text-lg font-semibold mb-4">
-                  ✅ Your training is paid for through:
+                <p className="text-gray-900 text-xl font-bold mb-3">
+                  We Connect You to 100% Funded Career Training
                 </p>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-                  <div className="bg-blue-50 rounded-lg px-4 py-3 font-bold text-blue-900 border-2 border-blue-200">
-                    💼 WIOA Funding
-                  </div>
-                  <div className="bg-green-50 rounded-lg px-4 py-3 font-bold text-green-900 border-2 border-green-200">
-                    🎯 WRG Grants
-                  </div>
-                  <div className="bg-purple-50 rounded-lg px-4 py-3 font-bold text-purple-900 border-2 border-purple-200">
-                    🔄 JRI Program
-                  </div>
-                  <div className="bg-orange-50 rounded-lg px-4 py-3 font-bold text-orange-900 border-2 border-orange-200">
-                    💰 OJT (Earn While You Learn)
-                  </div>
-                  <div className="bg-red-50 rounded-lg px-4 py-3 font-bold text-red-900 border-2 border-red-200">
-                    🛠️ Apprenticeships
-                  </div>
-                  <div className="bg-indigo-50 rounded-lg px-4 py-3 font-bold text-indigo-900 border-2 border-indigo-200">
-                    🏢 Employer Sponsors
+                <p className="text-gray-700 text-base mb-4 leading-relaxed">
+                  Elevate for Humanity is a <strong>workforce training provider</strong> that helps Indiana residents access <strong>free career training</strong> through government-funded programs. We work directly with WorkOne, case managers, and employers to remove barriers and get you trained for high-demand jobs.
+                </p>
+                
+                <div className="border-t border-gray-200 pt-4 mb-4">
+                  <p className="text-gray-900 text-base font-semibold mb-3">
+                    ✅ Your training is 100% paid for through:
+                  </p>
+                  <div className="space-y-2 text-sm">
+                    <div className="bg-blue-50 rounded-lg px-4 py-3 border-l-4 border-blue-600">
+                      <strong className="text-blue-900">💼 WIOA (Workforce Innovation & Opportunity Act)</strong>
+                      <p className="text-gray-700 mt-1">Federal funding for dislocated workers, low-income adults, and youth. Covers tuition, books, transportation, childcare.</p>
+                    </div>
+                    <div className="bg-green-50 rounded-lg px-4 py-3 border-l-4 border-green-600">
+                      <strong className="text-green-900">🎯 WRG (Workforce Ready Grant)</strong>
+                      <p className="text-gray-700 mt-1">Indiana state grant up to $7,500/year for high-demand careers. No student loans required.</p>
+                    </div>
+                    <div className="bg-purple-50 rounded-lg px-4 py-3 border-l-4 border-purple-600">
+                      <strong className="text-purple-900">🔄 JRI (Justice Reinvestment Initiative)</strong>
+                      <p className="text-gray-700 mt-1">Re-entry program for justice-involved individuals. Provides training, support services, and job placement.</p>
+                    </div>
+                    <div className="bg-orange-50 rounded-lg px-4 py-3 border-l-4 border-orange-600">
+                      <strong className="text-orange-900">💰 DOL Apprenticeships & OJT</strong>
+                      <p className="text-gray-700 mt-1">Department of Labor registered apprenticeships. Earn wages while you learn on the job.</p>
+                    </div>
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm mt-4 font-medium">
-                  <strong>Second chance friendly!</strong> We work with re-entry, justice-involved, and career changers.
+
+                <p className="text-gray-700 text-sm font-medium bg-yellow-50 border-l-4 border-yellow-500 p-3 rounded">
+                  <strong>✨ Second chance friendly!</strong> We specialize in helping re-entry participants, career changers, and people with gaps in work history. If you're ready to work, we're ready to help.
                 </p>
               </div>
 
@@ -126,28 +134,106 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MISSION SECTION */}
-      <section className="py-20 bg-white">
+      {/* WHY CHOOSE US SECTION */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <Image
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80"
-                alt="Students collaborating and learning together in modern classroom setting"
-                width={600}
-                height={400}
-                className="rounded-2xl shadow-lg"
-              />
-            </div>
-            <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6">
-                Empowering Futures Through Skill Development
-              </h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                At Elevate for Humanity Career and Technical Institute, we are dedicated to bridging the gap between education and employment by funding innovative apprenticeship and training programs.
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Why Learn With Elevate for Humanity?
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              We're not just a training provider—we're your partner in career transformation
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Reason 1 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-blue-100">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                100% Free Training
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                We navigate WIOA, WRG, JRI, and DOL funding so you don't pay tuition. We also help with transportation, childcare, and work clothing through support services.
               </p>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                Located in Marion County, IN, our mission is to empower individuals with the skills they need to excel in today's dynamic workforce. By investing in human potential, we aim to transform lives and build a more skilled, sustainable community.
+            </div>
+
+            {/* Reason 2 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-100">
+              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Real Jobs Waiting
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                We partner with employers who need trained workers NOW. Many students have job offers before they even graduate. We train for high-demand careers, not dead-end jobs.
+              </p>
+            </div>
+
+            {/* Reason 3 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-purple-100">
+              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Second Chance Friendly
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                We specialize in helping re-entry participants, people with gaps in work history, and career changers. We understand barriers and work with you to overcome them.
+              </p>
+            </div>
+
+            {/* Reason 4 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-orange-100">
+              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Hands-On Training
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                Learn by doing, not just watching videos. Our programs include real shop experience, clinical rotations, and on-the-job training with actual employers.
+              </p>
+            </div>
+
+            {/* Reason 5 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-red-100">
+              <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Fast Track to Career
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                Most programs are 4-24 weeks, not 2-4 years. Get trained, certified, and employed quickly. Start earning a real income in months, not years.
+              </p>
+            </div>
+
+            {/* Reason 6 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-indigo-100">
+              <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                Wraparound Support
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                Case management, career coaching, resume help, interview prep, and job placement assistance. We support you from application to employment.
               </p>
             </div>
           </div>

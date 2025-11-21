@@ -38,27 +38,27 @@ export const metadata: Metadata = {
   authors: [{ name: 'Elevate for Humanity' }],
   manifest: '/manifest.json',
   openGraph: {
-    title: 'Elevate for Humanity | Workforce Training & Career Development',
+    title: 'Elevate for Humanity | 100% Free Career Training',
     description:
-      'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
+      '100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt. Real jobs waiting in Marion County, Indiana.',
     url: 'https://www.elevateforhumanity.org',
     siteName: 'Elevate for Humanity',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: 'https://www.elevateforhumanity.org/logo.svg',
+        url: 'https://www.elevateforhumanity.org/og-image.svg',
         width: 1200,
         height: 630,
-        alt: 'Elevate for Humanity - Workforce Training',
+        alt: 'Elevate for Humanity - 100% Free Career Training',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Elevate for Humanity | Workforce Training & Career Development',
-    description: 'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
-    images: ['https://www.elevateforhumanity.org/logo.svg'],
+    title: 'Elevate for Humanity | 100% Free Career Training',
+    description: '100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt. Real jobs waiting.',
+    images: ['https://www.elevateforhumanity.org/og-image.svg'],
   },
   facebook: {
     appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID,
