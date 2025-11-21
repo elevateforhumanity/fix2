@@ -134,6 +134,81 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ABOUT ELEVATE SECTION */}
+      <section className="py-20 bg-white border-y border-gray-200">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-6">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
+                </svg>
+                Marion County, Indiana
+              </div>
+              <h2 className="text-4xl font-bold text-slate-900 mb-6">
+                Who We Are
+              </h2>
+              <p className="text-lg text-slate-700 leading-relaxed mb-4">
+                <strong>Elevate for Humanity</strong> is an <strong>ETPL-approved workforce training provider</strong> serving Marion County and surrounding areas. We're not a traditional school—we're a <strong>connector</strong> between you, government funding, and real employers.
+              </p>
+              <p className="text-lg text-slate-700 leading-relaxed mb-4">
+                We work directly with <strong>WorkOne Indiana</strong>, case managers, re-entry programs, and employer partners to remove barriers and get you trained for <strong>high-demand careers</strong> that actually pay.
+              </p>
+              <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded">
+                <p className="text-sm text-slate-700">
+                  <strong>🎯 Our Mission:</strong> Bridge the gap between education and employment by connecting Indiana residents to 100% funded career training through WIOA, WRG, JRI, and DOL programs.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 text-white">
+                <h3 className="text-2xl font-bold mb-4">What Makes Us Different</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                    <span>We handle all the paperwork for WIOA, WRG, and JRI funding</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                    <span>Training happens at real job sites—barbershops, clinics, HVAC companies</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                    <span>We specialize in second-chance hiring and re-entry support</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                    <span>Employers are waiting to hire our graduates—many get offers before completion</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="grid grid-cols-3 gap-4">
+                <div className="bg-white border-2 border-blue-200 rounded-xl p-4 text-center">
+                  <div className="text-3xl font-bold text-blue-600">2,500+</div>
+                  <div className="text-sm text-gray-600">Students Trained</div>
+                </div>
+                <div className="bg-white border-2 border-green-200 rounded-xl p-4 text-center">
+                  <div className="text-3xl font-bold text-green-600">95%</div>
+                  <div className="text-sm text-gray-600">Get Jobs</div>
+                </div>
+                <div className="bg-white border-2 border-orange-200 rounded-xl p-4 text-center">
+                  <div className="text-3xl font-bold text-orange-600">$0</div>
+                  <div className="text-sm text-gray-600">Out of Pocket</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* WHY CHOOSE US SECTION */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
@@ -390,15 +465,23 @@ export default function HomePage() {
           <p className="text-xl text-blue-100 mb-8">
             Join thousands of students who have launched successful careers through our funded training programs.
           </p>
-          <Link
-            href="/start"
-            className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-all shadow-lg"
-          >
-            Get Started Today
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/apply"
+              className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-all shadow-lg"
+            >
+              Apply for Free Training
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-8 py-4 bg-blue-700 text-white font-semibold rounded-xl hover:bg-blue-800 transition-all border-2 border-white"
+            >
+              Talk to an Advisor
+            </Link>
+          </div>
         </div>
       </section>
 

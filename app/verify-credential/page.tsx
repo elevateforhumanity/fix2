@@ -1,4 +1,4 @@
-import BlockchainCredentialVerification from '@/components/BlockchainCredentialVerification';
+import { BlockchainCredentialVerification } from '@/components/BlockchainCredentialVerification';
 
 export const metadata = {
   title: 'Verify Credential | Elevate for Humanity',
