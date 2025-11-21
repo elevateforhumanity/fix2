@@ -3,6 +3,9 @@ import { createClient } from '@supabase/supabase-js';
 import { requireAuth } from '@/lib/auth/getSession';
 import { redirect } from 'next/navigation';
 
+// Force dynamic rendering - don't build at compile time
+export const dynamic = 'force-dynamic';
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
