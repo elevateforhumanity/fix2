@@ -6,13 +6,13 @@ export default function HomePage() {
   const programs = PROGRAMS;
   return (
     <main className="min-h-screen bg-white">
-      {/* HERO SECTION - Video Background */}
+      {/* HERO SECTION */}
       <section className="relative h-screen min-h-[600px] overflow-hidden">
-        {/* Hero Background Image */}
+        {/* Hero Background Image - Real training environment */}
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&q=80"
-            alt="Students learning together in a collaborative environment"
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
+            alt="Professional training and career development at Elevate for Humanity"
             fill
             className="object-cover"
             priority
@@ -20,7 +20,7 @@ export default function HomePage() {
           />
           
           {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
 
         {/* Hero Content */}
