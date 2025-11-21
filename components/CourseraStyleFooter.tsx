@@ -162,25 +162,43 @@ export default function CourseraStyleFooter() {
             </ul>
           </div>
 
-          {/* Column 5 - Mobile App */}
+          {/* Column 5 - Resources */}
           <div>
-            <h3 className="text-sm font-bold text-gray-900 mb-4">Mobile App</h3>
-            <div className="space-y-3">
-              <a href="#" className="block">
-                <img
-                  src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
-                  alt="Download on App Store"
-                  className="h-10"
-                />
-              </a>
-              <a href="#" className="block">
-                <img
-                  src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                  alt="Get it on Google Play"
-                  className="h-12"
-                />
-              </a>
-            </div>
+            <h3 className="text-sm font-bold text-gray-900 mb-4">Resources</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  href="/faq"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/support"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
+                  Support
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/apply"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
+                  Apply Now
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
