@@ -178,14 +178,15 @@ To match (and beat) the big LMS feature checklists, Elevate's roadmap includes:
 
 ## ⚙️ Technology Stack
 
-- **Frontend:** Next.js 16 + TypeScript + Tailwind CSS
+- **Frontend:** Next.js 16 App Router + TypeScript + Tailwind CSS
 - **Backend:** Supabase (Postgres + Auth + Storage)
-- **Deployment:** Vercel (recommended) with Edge Functions
+- **Deployment:** Vercel with Edge Functions
 - **Email:** Resend for transactional emails
 - **PDF Generation:** pdf-lib for certificates and MOUs
 - **Signatures:** react-signature-canvas for digital signing
 - **Payments:** Stripe for course enrollment
 - **Analytics:** Google Analytics 4
+- **Architecture:** 100% Next.js App Router (no SPA code in production)
 
 ---
 
@@ -266,9 +267,7 @@ Vercel is built by the Next.js team and provides:
 4. **Add environment variables** (see below)
 5. **Click Deploy** - Vercel handles the rest!
 
-**Your site is already live**: [fix2-one.vercel.app](https://fix2-one.vercel.app)
-
-📖 **Full deployment guide**: See [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)
+**Live Site**: [www.elevateforhumanity.org](https://www.elevateforhumanity.org)
 
 ### Environment Variables Required
 
@@ -285,16 +284,15 @@ STRIPE_SECRET_KEY=sk_live_xxx
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
-### ⚠️ Why Not Netlify?
+### ⚠️ Deployment Platform
 
-Netlify is not optimized for Next.js 16 with Turbopack and App Router. You'll encounter:
+**Vercel is the only supported deployment platform** for this Next.js 16 application.
 
-- ❌ Build failures with TypeScript
-- ❌ Runtime errors with serverless functions
-- ❌ Slower builds and deployments
-- ❌ More configuration required
-
-**Use Vercel instead** - it's built specifically for Next.js.
+This repository is configured for Vercel deployment with:
+- ✅ Next.js 16 App Router optimization
+- ✅ Turbopack build system
+- ✅ Edge Functions for API routes
+- ✅ Automatic environment variable management
 
 ---
 
@@ -369,5 +367,4 @@ Built with:
 - [Supabase](https://supabase.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Radix UI](https://www.radix-ui.com/)
-- [Netlify](https://www.netlify.com/)
-# Build Wed Nov 19 18:34:12 UTC 2025
+- [Vercel](https://vercel.com/)
