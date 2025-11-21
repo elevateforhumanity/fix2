@@ -44,7 +44,7 @@ const programs = [
     blurb:
       'Get your Commercial Driver\'s License and start a career in transportation with high demand and competitive pay.',
     funding: 'Workforce Grants • Employer Sponsors',
-    duration: '3–8 Weeks • Range + Road',
+    duration: '4–6 Weeks • Range + Road',
     image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80',
   },
   {
