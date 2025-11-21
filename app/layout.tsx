@@ -4,9 +4,14 @@ import './globals.css';
 import './ui-fixes.css';
 import '@/branding/brand.css';
 import '@/styles/tiktok-animations.css';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
+import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
-import SimpleHeader from '@/components/SimpleHeader';
-import SimpleFooter from '@/components/SimpleFooter';
+import CourseraStyleHeader from '@/components/CourseraStyleHeader';
+import CourseraStyleFooter from '@/components/CourseraStyleFooter';
+import { ElevateChatWidget } from '@/components/ElevateChatWidget';
+import { CookieBanner } from '@/components/CookieBanner';
+import { Toaster } from 'react-hot-toast';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -98,9 +103,35 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <SimpleHeader />
+        <GoogleAnalytics />
+        <FacebookPixel />
+        <CourseraStyleHeader />
         <main id="main-content">{children}</main>
-        <SimpleFooter />
+        <CourseraStyleFooter />
+        <ElevateChatWidget />
+        <CookieBanner />
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              borderRadius: "12px",
+              fontSize: "0.875rem",
+              padding: "12px 16px",
+            },
+            success: {
+              iconTheme: {
+                primary: "#22c55e",
+                secondary: "#fff",
+              },
+            },
+            error: {
+              iconTheme: {
+                primary: "#ef4444",
+                secondary: "#fff",
+              },
+            },
+          }}
+        />
       </body>
     </html>
   );
