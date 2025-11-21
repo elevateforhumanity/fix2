@@ -1,9 +1,12 @@
-import { Header } from '@/components/ui/Header';
-import { Footer } from '@/components/ui/Footer';
+import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
-import { MapPin, Clock, DollarSign, Briefcase } from 'lucide-react';
+import { MapPin, Clock, DollarSign, Briefcase, Heart, Users, TrendingUp } from 'lucide-react';
+
+export const metadata = {
+  title: 'Careers at Elevate for Humanity | Join Our Team',
+  description: 'Join our mission to transform lives through workforce development. Open positions in Marion County, Indiana.',
+};
 
 export default function CareersPage() {
   const openings = [
@@ -11,28 +14,116 @@ export default function CareersPage() {
       id: 1,
       title: 'Program Coordinator',
       department: 'Operations',
-      location: 'Indianapolis, WI',
+      location: 'Indianapolis, IN (Marion County)',
       type: 'Full-time',
       salary: '$45,000 - $55,000',
-      description: 'Coordinate WIOA training programs and support student success',
+      description: 'Coordinate WIOA, WRG, and JRI training programs. Support student success from enrollment through job placement. Work directly with case managers, training partners, and employers.',
+      responsibilities: [
+        'Manage student enrollment and WIOA/WRG paperwork',
+        'Track student progress and attendance',
+        'Coordinate with training partners and employers',
+        'Maintain compliance with state and federal requirements',
+        'Provide case management support to students',
+      ],
+      qualifications: [
+        'Bachelor\'s degree or 3+ years workforce development experience',
+        'Knowledge of WIOA, WRG, or workforce funding programs',
+        'Strong organizational and communication skills',
+        'Experience working with diverse populations',
+        'Proficiency in Microsoft Office and database systems',
+      ],
     },
     {
       id: 2,
-      title: 'Career Counselor',
+      title: 'Career Counselor / Job Developer',
       department: 'Student Services',
-      location: 'Madison, WI',
+      location: 'Indianapolis, IN (Marion County)',
       type: 'Full-time',
-      salary: '$50,000 - $60,000',
-      description: 'Provide career guidance and job placement support to students',
+      salary: '$48,000 - $58,000',
+      description: 'Provide career guidance, job placement support, and employer outreach. Help students transition from training to employment. Build relationships with employers actively hiring.',
+      responsibilities: [
+        'Conduct career assessments and develop employment plans',
+        'Provide resume writing and interview coaching',
+        'Connect students with job opportunities',
+        'Build and maintain employer partnerships',
+        'Track job placement outcomes and follow-up',
+      ],
+      qualifications: [
+        'Bachelor\'s degree in counseling, social work, or related field',
+        'Experience in career counseling or job development',
+        'Knowledge of local labor market and employers',
+        'Strong networking and relationship-building skills',
+        'Experience with re-entry or second-chance populations preferred',
+      ],
     },
     {
       id: 3,
       title: 'HVAC Instructor',
       department: 'Training',
-      location: 'Green Bay, WI',
+      location: 'Indianapolis, IN (Marion County)',
+      type: 'Full-time or Part-time',
+      salary: '$55,000 - $70,000 (Full-time)',
+      description: 'Teach hands-on HVAC technician training courses. Provide lab instruction, safety training, and EPA certification prep. Work with students from diverse backgrounds including re-entry participants.',
+      responsibilities: [
+        'Deliver HVAC curriculum including theory and hands-on labs',
+        'Prepare students for EPA 608 certification',
+        'Teach residential and commercial HVAC systems',
+        'Assess student progress and provide feedback',
+        'Maintain safe and organized training environment',
+      ],
+      qualifications: [
+        'EPA 608 Universal certification required',
+        '5+ years HVAC field experience',
+        'Teaching or training experience preferred',
+        'Strong communication and patience',
+        'Ability to work with adult learners and diverse populations',
+      ],
+    },
+    {
+      id: 4,
+      title: 'Case Manager',
+      department: 'Student Services',
+      location: 'Indianapolis, IN (Marion County)',
       type: 'Full-time',
-      salary: '$55,000 - $70,000',
-      description: 'Teach hands-on HVAC technician training courses',
+      salary: '$42,000 - $52,000',
+      description: 'Provide wraparound support services to students. Help remove barriers to training completion. Connect students to resources for transportation, childcare, housing, and mental health.',
+      responsibilities: [
+        'Conduct intake assessments and identify barriers',
+        'Develop individualized support plans',
+        'Connect students to community resources',
+        'Monitor student progress and attendance',
+        'Provide crisis intervention and problem-solving',
+      ],
+      qualifications: [
+        'Bachelor\'s degree in social work or related field',
+        'Experience with case management or social services',
+        'Knowledge of community resources in Marion County',
+        'Strong empathy and cultural competency',
+        'Experience with trauma-informed care preferred',
+      ],
+    },
+    {
+      id: 5,
+      title: 'Barber Instructor / Apprenticeship Coordinator',
+      department: 'Training',
+      location: 'Indianapolis, IN (Marion County)',
+      type: 'Part-time',
+      salary: '$30 - $45/hour',
+      description: 'Coordinate barber apprenticeship program. Teach Milady curriculum, oversee shop placements, and prepare students for Indiana State Board exam. Work with partner barbershops.',
+      responsibilities: [
+        'Deliver Milady Standard Barbering curriculum',
+        'Coordinate apprentice placements in partner shops',
+        'Track apprenticeship hours and competencies',
+        'Prepare students for state board licensing exam',
+        'Maintain relationships with barbershop partners',
+      ],
+      qualifications: [
+        'Indiana Master Barber license required',
+        '5+ years barbering experience',
+        'Teaching or mentoring experience',
+        'Knowledge of Indiana barber licensing requirements',
+        'Passion for helping re-entry and career-change students',
+      ],
     },
   ];
 

@@ -106,18 +106,18 @@ export default function CourseraStyleFooter() {
               </li>
               <li>
                 <Link
-                  href="/financial-aid"
-                  className="text-sm text-gray-600 hover:text-blue-600"
-                >
-                  Financial Aid
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/success-stories"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
                   Success Stories
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/directory"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
+                  Directory
                 </Link>
               </li>
             </ul>
@@ -125,38 +125,38 @@ export default function CourseraStyleFooter() {
 
           {/* Column 4 */}
           <div>
-            <h3 className="text-sm font-bold text-gray-900 mb-4">Programs</h3>
+            <h3 className="text-sm font-bold text-gray-900 mb-4">Funding</h3>
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/programs/medical-assistant"
+                  href="/funding/wioa"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  Medical Assistant
+                  WIOA Funding
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/programs/hvac"
+                  href="/funding/wrg"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  HVAC Technician
+                  Workforce Ready Grant
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/programs/barber"
+                  href="/funding/jri"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  Barber Apprenticeship
+                  Justice Reinvestment
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/programs/truck-driving"
+                  href="/funding/dol"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >
-                  CDL Training
+                  DOL Apprenticeships
                 </Link>
               </li>
             </ul>
