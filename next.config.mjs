@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false, // Disable to fix hydration issues
-  output: 'export', // Static export - works everywhere
+  reactStrictMode: true,
   trailingSlash: false,
   images: {
     unoptimized: false, // ✅ Enable Next.js image optimization
