@@ -75,6 +75,14 @@ export default function CourseraStyleFooter() {
               </li>
               <li>
                 <Link
+                  href="/philanthropy"
+                  className="text-sm text-gray-600 hover:text-blue-600"
+                >
+                  Community Impact
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/blog"
                   className="text-sm text-gray-600 hover:text-blue-600"
                 >

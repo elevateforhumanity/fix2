@@ -200,6 +200,68 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* COMMUNITY IMPACT & PHILANTHROPY */}
+      <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Community Impact & Philanthropy
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Beyond workforce training, we're committed to serving our community through philanthropic initiatives and partnerships that create lasting change.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Re-Entry Support</h3>
+              <p className="text-gray-700 leading-relaxed">
+                We specialize in helping justice-involved individuals rebuild their lives through JRI-funded training, wraparound support services, and second-chance employer partnerships.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Barrier Removal</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Through WIOA support services, we help remove barriers to employment by providing transportation assistance, childcare support, work clothing, and tools needed for training success.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Employer Partnerships</h3>
+              <p className="text-gray-700 leading-relaxed">
+                We work with employers committed to hiring from underserved communities, creating pathways to family-sustaining careers for those who need them most.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-green-600">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Commitment to Marion County</h3>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              Every student we train represents a family lifted, a community strengthened, and a future transformed. We measure our success not just in job placements, but in lives changed and communities rebuilt.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Through partnerships with local nonprofits, faith-based organizations, and community groups, we ensure that workforce development reaches those who need it most—including individuals experiencing homelessness, domestic violence survivors, and those overcoming addiction.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-blue-600 text-white">
         <div className="mx-auto max-w-4xl px-6 md:px-12 text-center">
