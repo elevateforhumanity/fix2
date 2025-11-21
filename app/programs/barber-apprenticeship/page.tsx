@@ -238,6 +238,272 @@ export default function BarberApprenticeshipPage() {
         </div>
       </section>
 
+      {/* HOW TO GET STARTED */}
+      <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+        <div className="mb-10">
+          <h2 className="text-2xl font-semibold text-slate-900">
+            How to Get Started: Step-by-Step Process
+          </h2>
+          <p className="mt-2 text-sm text-slate-600">
+            Follow these steps to enroll in the Barber Apprenticeship Program with WIOA or WRG funding.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* Step 1 */}
+          <div className="rounded-xl border border-slate-200 bg-white p-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white">
+                1
+              </div>
+              <h3 className="text-base font-semibold text-slate-900">
+                Register with INconnect
+              </h3>
+            </div>
+            <p className="mt-3 text-sm text-slate-600">
+              Visit <a href="https://www.in.gov/dwd/inconnect/" target="_blank" rel="noopener" className="text-orange-600 underline">INconnect.in.gov</a> and create your account. Complete your profile, upload your resume, and indicate interest in barber training.
+            </p>
+            <p className="mt-2 text-xs text-slate-500">
+              <strong>Required:</strong> Valid ID, Social Security card, proof of Indiana residency
+            </p>
+          </div>
+
+          {/* Step 2 */}
+          <div className="rounded-xl border border-slate-200 bg-white p-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white">
+                2
+              </div>
+              <h3 className="text-base font-semibold text-slate-900">
+                Apply for WIOA or WRG
+              </h3>
+            </div>
+            <p className="mt-3 text-sm text-slate-600">
+              Contact your local WorkOne office to apply for <strong>WIOA (Workforce Innovation and Opportunity Act)</strong> or <strong>WRG (Workforce Ready Grant)</strong> funding.
+            </p>
+            <p className="mt-2 text-xs text-slate-500">
+              <strong>WIOA:</strong> For dislocated workers, low-income adults, youth<br/>
+              <strong>WRG:</strong> For high-demand careers, covers tuition + support services
+            </p>
+          </div>
+
+          {/* Step 3 */}
+          <div className="rounded-xl border border-slate-200 bg-white p-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white">
+                3
+              </div>
+              <h3 className="text-base font-semibold text-slate-900">
+                Meet with Case Manager
+              </h3>
+            </div>
+            <p className="mt-3 text-sm text-slate-600">
+              Your WorkOne case manager will assess eligibility, review your goals, and help you select Elevate for Humanity as your training provider.
+            </p>
+            <p className="mt-2 text-xs text-slate-500">
+              <strong>Bring:</strong> Work history, income verification, proof of barriers (if applicable)
+            </p>
+          </div>
+
+          {/* Step 4 */}
+          <div className="rounded-xl border border-slate-200 bg-white p-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white">
+                4
+              </div>
+              <h3 className="text-base font-semibold text-slate-900">
+                Complete Orientation
+              </h3>
+            </div>
+            <p className="mt-3 text-sm text-slate-600">
+              Attend our program orientation to learn about shop placement, Milady LMS coursework, apprenticeship requirements, and Indiana barber licensure.
+            </p>
+            <p className="mt-2 text-xs text-slate-500">
+              <strong>Includes:</strong> Safety training, shop expectations, LMS setup
+            </p>
+          </div>
+
+          {/* Step 5 */}
+          <div className="rounded-xl border border-slate-200 bg-white p-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white">
+                5
+              </div>
+              <h3 className="text-base font-semibold text-slate-900">
+                Begin Shop Training
+              </h3>
+            </div>
+            <p className="mt-3 text-sm text-slate-600">
+              Start your apprenticeship at a partner barbershop. Work with real clients, log your hours, and complete Milady coursework online.
+            </p>
+            <p className="mt-2 text-xs text-slate-500">
+              <strong>Track:</strong> 1,500 hours required for Indiana barber license
+            </p>
+          </div>
+
+          {/* Step 6 */}
+          <div className="rounded-xl border border-slate-200 bg-white p-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-lg font-bold text-white">
+                6
+              </div>
+              <h3 className="text-base font-semibold text-slate-900">
+                Pass State Exam
+              </h3>
+            </div>
+            <p className="mt-3 text-sm text-slate-600">
+              Complete your hours, pass the Indiana State Board exam (written + practical), and receive your barber license. We support you through the entire process.
+            </p>
+            <p className="mt-2 text-xs text-slate-500">
+              <strong>Result:</strong> Licensed barber ready for employment or booth rental
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* WIOA & WRG EXPLAINED */}
+      <section className="border-y border-slate-100 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+          <h2 className="text-2xl font-semibold text-slate-900">
+            Understanding WIOA & WRG Funding
+          </h2>
+          <p className="mt-2 text-sm text-slate-600">
+            These federal and state programs can cover 100% of your training costs plus support services.
+          </p>
+
+          <div className="mt-8 grid gap-8 md:grid-cols-2">
+            {/* WIOA */}
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                WIOA (Workforce Innovation and Opportunity Act)
+              </h3>
+              <p className="mt-3 text-sm text-slate-700">
+                Federal program providing training funds for eligible adults, dislocated workers, and youth ages 16-24.
+              </p>
+              <div className="mt-4 space-y-2 text-sm text-slate-700">
+                <p><strong>Eligibility:</strong></p>
+                <ul className="ml-4 list-disc space-y-1">
+                  <li>Low-income adults or families</li>
+                  <li>Dislocated workers (laid off, plant closure)</li>
+                  <li>Youth with barriers to employment</li>
+                  <li>Veterans and individuals with disabilities</li>
+                  <li>Re-entry participants (justice-involved)</li>
+                </ul>
+                <p className="mt-3"><strong>Covers:</strong> Tuition, books, supplies, uniforms, transportation, childcare</p>
+              </div>
+            </div>
+
+            {/* WRG */}
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                WRG (Workforce Ready Grant)
+              </h3>
+              <p className="mt-3 text-sm text-slate-700">
+                Indiana state grant covering tuition and fees for high-demand career training programs.
+              </p>
+              <div className="mt-4 space-y-2 text-sm text-slate-700">
+                <p><strong>Eligibility:</strong></p>
+                <ul className="ml-4 list-disc space-y-1">
+                  <li>Indiana resident</li>
+                  <li>U.S. citizen or eligible non-citizen</li>
+                  <li>Not currently enrolled in college</li>
+                  <li>Pursuing high-demand credential (barber license qualifies)</li>
+                  <li>Income at or below 250% of federal poverty level</li>
+                </ul>
+                <p className="mt-3"><strong>Covers:</strong> Up to $7,500 per year for tuition, fees, books, and certification exams</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 rounded-xl border border-orange-200 bg-orange-50 p-6">
+            <p className="text-sm text-slate-700">
+              <strong>💡 Pro Tip:</strong> You can combine WIOA and WRG funding! WIOA can cover support services (transportation, childcare) while WRG covers tuition. Your case manager will help you maximize benefits.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* MILADY LMS CONNECTION */}
+      <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+        <div className="rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-50 to-purple-50 p-8">
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-indigo-600 text-white">
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl font-semibold text-slate-900">
+                Milady LMS: Your Online Barber Education Platform
+              </h3>
+              <p className="mt-3 text-sm text-slate-700">
+                All apprentices receive access to <strong>Milady Standard Barbering</strong> coursework through our Learning Management System (LMS). This industry-leading curriculum is fully integrated with your shop-based apprenticeship.
+              </p>
+              
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-900">What's Included:</h4>
+                  <ul className="mt-2 space-y-1 text-sm text-slate-700">
+                    <li className="flex gap-2">
+                      <span className="text-indigo-600">✓</span>
+                      <span>Video lessons on cutting, shaving, and styling techniques</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-indigo-600">✓</span>
+                      <span>Interactive quizzes and knowledge checks</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-indigo-600">✓</span>
+                      <span>State board exam prep materials</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-indigo-600">✓</span>
+                      <span>Sanitation, safety, and professional conduct modules</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-indigo-600">✓</span>
+                      <span>Business and client management training</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-900">How It Works:</h4>
+                  <ul className="mt-2 space-y-1 text-sm text-slate-700">
+                    <li className="flex gap-2">
+                      <span className="text-indigo-600">1.</span>
+                      <span>Access Milady LMS from any device (phone, tablet, computer)</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-indigo-600">2.</span>
+                      <span>Complete modules at your own pace between shop shifts</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-indigo-600">3.</span>
+                      <span>Track your progress and apprenticeship hours in one place</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-indigo-600">4.</span>
+                      <span>Instructors review your work and provide feedback</span>
+                    </li>
+                    <li className="flex gap-2">
+                      <span className="text-indigo-600">5.</span>
+                      <span>Earn certificates as you complete each section</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 rounded-lg border border-indigo-300 bg-white p-4">
+                <p className="text-sm text-slate-700">
+                  <strong>🎓 Apprenticeship + LMS = Complete Training:</strong> Your shop experience teaches you hands-on skills with real clients. Milady LMS provides the theory, safety knowledge, and exam prep you need to pass the Indiana State Board and become a licensed barber.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FUNDING & PARTNER INFO */}
       <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
         <div className="grid gap-10 md:grid-cols-[1.3fr,1fr] md:gap-12">
