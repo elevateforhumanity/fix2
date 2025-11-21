@@ -245,9 +245,21 @@ export default function HomePage() {
                     <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
                       {program.name}
                     </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                    <p className="text-slate-600 text-sm leading-relaxed mb-3">
                       {program.blurb}
                     </p>
+                    {program.funding && (
+                      <div className="mb-2">
+                        <span className="inline-block px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">
+                          {program.funding}
+                        </span>
+                      </div>
+                    )}
+                    {program.duration && (
+                      <p className="text-slate-500 text-xs mb-4">
+                        {program.duration}
+                      </p>
+                    )}
                     <div className="inline-flex items-center text-blue-600 font-semibold text-sm">
                       Learn More
                       <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
