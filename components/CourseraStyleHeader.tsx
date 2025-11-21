@@ -30,36 +30,55 @@ export default function CourseraStyleHeader() {
                 </button>
 
                 {exploreOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2">
+                  <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-2">
                     <Link
                       href="/programs"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                      className="block px-4 py-3 text-sm font-semibold text-blue-600 hover:bg-blue-50 border-b border-gray-100"
+                      onClick={() => setExploreOpen(false)}
                     >
-                      All Programs
+                      📚 View All Programs
                     </Link>
                     <Link
                       href="/programs/medical-assistant"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                      onClick={() => setExploreOpen(false)}
                     >
-                      Medical Assistant
+                      🏥 Medical Assistant
                     </Link>
                     <Link
-                      href="/programs/hvac"
+                      href="/programs/barber-apprenticeship"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                      onClick={() => setExploreOpen(false)}
                     >
-                      HVAC Technician
+                      ✂️ Barber Apprenticeship
                     </Link>
                     <Link
-                      href="/programs/barber"
+                      href="/programs/hvac-technician"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                      onClick={() => setExploreOpen(false)}
                     >
-                      Barber Apprenticeship
+                      🔧 HVAC Technician
+                    </Link>
+                    <Link
+                      href="/programs/building-maintenance"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                      onClick={() => setExploreOpen(false)}
+                    >
+                      🏗️ Building Maintenance
                     </Link>
                     <Link
                       href="/programs/truck-driving"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                      onClick={() => setExploreOpen(false)}
                     >
-                      CDL Training
+                      🚛 CDL / Truck Driving
+                    </Link>
+                    <Link
+                      href="/programs/workforce-readiness"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                      onClick={() => setExploreOpen(false)}
+                    >
+                      💼 Workforce Readiness
                     </Link>
                   </div>
                 )}

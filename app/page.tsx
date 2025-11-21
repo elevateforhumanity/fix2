@@ -1,64 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-
-const programs = [
-  {
-    slug: 'medical-assistant',
-    name: 'Medical Assistant',
-    blurb:
-      'Hands-on clinical training that prepares you for entry-level MA roles in clinics, hospitals, and specialty practices.',
-    funding: 'WRG • WIOA • Workforce Grants',
-    duration: '4–6 Months • Hybrid',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
-  },
-  {
-    slug: 'barber-apprenticeship',
-    name: 'Barber Apprenticeship',
-    blurb:
-      'State-approved apprenticeship – train in real barbershops while earning hours toward your barber license.',
-    funding: 'Apprenticeship • WIOA',
-    duration: '12–18 Months • On-the-Job + Classroom',
-    image: 'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=600&q=80',
-  },
-  {
-    slug: 'hvac-technician',
-    name: 'HVAC Technician',
-    blurb:
-      'Learn heating, cooling, and refrigeration systems and prepare for in-demand technician roles.',
-    funding: 'Workforce Grants • Employer Sponsors',
-    duration: '4–9 Months • Lab + Field',
-    image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&q=80',
-  },
-  {
-    slug: 'building-maintenance',
-    name: 'Building Maintenance Technician',
-    blurb:
-      'Training for building systems, repairs, and facility maintenance to keep properties safe and functional.',
-    funding: 'Workforce Grants • Apprenticeship',
-    duration: '4–9 Months • Hands-On',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',
-  },
-  {
-    slug: 'truck-driving',
-    name: 'CDL / Truck Driving',
-    blurb:
-      'Get your Commercial Driver\'s License and start a career in transportation with high demand and competitive pay.',
-    funding: 'Workforce Grants • Employer Sponsors',
-    duration: '4–6 Weeks • Range + Road',
-    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&q=80',
-  },
-  {
-    slug: 'workforce-readiness',
-    name: 'Workforce Readiness & Re-Entry',
-    blurb:
-      'Rebuild, reset, and re-enter the workforce with coaching, skills training, and real employment connections.',
-    funding: 'Support Services • Referrals',
-    duration: '4–12 Weeks • Coaching + Workshops',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
-  },
-];
+import { PROGRAMS } from '@/lib/programs-data';
 
 export default function HomePage() {
+  const programs = PROGRAMS;
   return (
     <main className="min-h-screen bg-white">
       {/* HERO SECTION - Video Background */}
@@ -105,10 +50,10 @@ export default function HomePage() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link
-                  href="/start"
+                  href="/apply"
                   className="inline-flex items-center justify-center px-8 py-5 bg-blue-600 text-white font-bold text-lg rounded-xl hover:bg-blue-700 transition-all shadow-2xl hover:shadow-blue-500/50 hover:scale-105 transform"
                 >
-                  Get Started Free
+                  Apply Now - It's Free
                   <svg className="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
@@ -117,7 +62,7 @@ export default function HomePage() {
                   href="/programs"
                   className="inline-flex items-center justify-center px-8 py-5 bg-white/10 backdrop-blur-sm text-white font-bold text-lg rounded-xl hover:bg-white/20 transition-all border-2 border-white/30 hover:border-white/50"
                 >
-                  Explore Programs
+                  View All Programs
                 </Link>
               </div>
 
