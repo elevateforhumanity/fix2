@@ -8,11 +8,11 @@ export const CONTACT_INFO = {
     tel: "+13173143757",        // For tel: links (no spaces, dashes, or parentheses)
   },
   
-  // Email - Contact via phone only
+  // Email - Hidden behind contact form (not displayed publicly)
   email: {
-    general: "", // Not displayed publicly
-    support: "", // Not displayed publicly
-    partnerships: "", // Not displayed publicly
+    general: "Elevate4humanityedu@gmail.com", // Used by contact form only
+    support: "Elevate4humanityedu@gmail.com", // Used by contact form only
+    partnerships: "Elevate4humanityedu@gmail.com", // Used by contact form only
   },
   
   // Address

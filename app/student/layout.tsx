@@ -1,21 +1,18 @@
 import { redirect } from 'next/navigation';
 import { createServerClient } from '@/lib/auth';
-import MobileNav from '@/components/mobile/MobileNav';
-import InstallPrompt from '@/components/mobile/InstallPrompt';
 
 export const dynamic = 'force-dynamic';
-export const dynamicParams = true;
 
-export default async function LMSLayout({ children }: { children: React.ReactNode }) {
-  // Require authentication and enrollment for all LMS pages
+export default async function StudentLayout({ children }: { children: React.ReactNode }) {
+  // Require authentication and student enrollment
   const supabase = createServerClient();
   const { data: { session } } = await supabase.auth.getSession();
   
   if (!session) {
-    redirect('/login?redirect=/lms/dashboard');
+    redirect('/login?redirect=/student/dashboard');
   }
 
-  // Check if user is enrolled in a program or is staff
+  // Check if user is enrolled student or staff
   const { data: profile } = await supabase
     .from('profiles')
     .select('role, enrollment_status')
@@ -26,16 +23,9 @@ export default async function LMSLayout({ children }: { children: React.ReactNod
   const isEnrolled = profile?.enrollment_status === 'active' || profile?.enrollment_status === 'enrolled';
   const isStaff = allowedRoles.includes(profile?.role);
 
-  // Only allow access if user is enrolled in a program OR is staff
   if (!isEnrolled && !isStaff) {
-    redirect('/apply?message=You must be enrolled in a program to access the LMS');
+    redirect('/apply?message=You must be enrolled in a program to access student portal');
   }
 
-  return (
-    <>
-      <MobileNav />
-      <InstallPrompt />
-      <div className="has-bottom-nav">{children}</div>
-    </>
-  );
+  return <>{children}</>;
 }
