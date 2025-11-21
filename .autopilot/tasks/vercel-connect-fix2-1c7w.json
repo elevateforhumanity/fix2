@@ -86,7 +86,7 @@
           },
           {
             "key": "NEXT_PUBLIC_SITE_URL",
-            "value_production": "https://www.elevateconnectsdirectory.org",
+            "value_production": "https://www.elevateforhumanity.org",
             "value_preview": "https://fix2-1c7w-git-BRANCH.vercel.app",
             "value_development": "http://localhost:3000",
             "required_in": ["Production", "Preview", "Development"],

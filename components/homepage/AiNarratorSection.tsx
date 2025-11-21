@@ -16,7 +16,7 @@ export function AiNarratorSection() {
           </h2>
           <p className="text-sm text-slate-600">
             This short AI-narrated overview introduces Elevate for Humanity and
-            the Elevate Connects Directory. It explains how our programs connect
+            the Elevate for Humanity. It explains how our programs connect
             to federal and state workforce funding streams like WIOA, Workforce
             Ready Grants, and other local initiatives so that eligible learners
             may attend at little or no cost.
@@ -25,7 +25,7 @@ export function AiNarratorSection() {
           <ul className="mt-3 space-y-2 text-sm text-slate-700 list-disc pl-4">
             <li>What Elevate for Humanity is and who we serve</li>
             <li>How programs link to WIOA and state workforce grants</li>
-            <li>How to use ElevateConnectsDirectory.org to explore and apply</li>
+            <li>How to use elevateforhumanity.org to explore and apply</li>
           </ul>
 
           <p className="mt-4 text-xs text-slate-500">

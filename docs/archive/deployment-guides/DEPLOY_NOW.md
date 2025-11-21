@@ -150,7 +150,7 @@ Wait for deployment to complete (usually 2-3 minutes)
 
 ### Test Public Verification
 
-1. Visit: `https://portal.elevateforhumanity.org/verify/YOUR_CODE`
+1. Visit: `https://portal.elevateforhumanity.org/verify/YOURCODE
 2. Verify certificate details are displayed
 
 ---

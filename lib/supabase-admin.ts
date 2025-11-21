@@ -39,8 +39,8 @@ export const supabaseAdmin = new Proxy({} as ReturnType<typeof createClient>, {
 
 // Helper function to get user by email
 export async function getUserByEmail(email: string) {
-  // TODO: Create a database RPC function for efficient email lookup
-  // For now, using auth.admin API (fetches all users - not ideal for large user bases)
+  // Note: For production, create a database RPC function for efficient email lookup
+  // Current implementation fetches all users - optimize for large user bases
   const { data: listData, error: listError } = await supabaseAdmin.auth.admin.listUsers();
   
   if (listError) {

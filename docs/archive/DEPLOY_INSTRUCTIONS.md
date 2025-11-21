@@ -111,29 +111,29 @@ wrangler secret put GITHUB_TOKEN --config wrangler-template-sync.toml
 # Get your worker URLs from deployment output, then:
 
 # Test template sync
-curl https://template-sync-worker.YOUR_SUBDOMAIN.workers.dev/health
+curl https://template-sync-worker.YOURSUBDOMAIN.workers.dev/health
 
 # Test media download
-curl https://media-download-worker.YOUR_SUBDOMAIN.workers.dev/health
+curl https://media-download-worker.YOURSUBDOMAIN.workers.dev/health
 
 # Test video generation
-curl https://video-generation-worker.YOUR_SUBDOMAIN.workers.dev/health
+curl https://video-generation-worker.YOURSUBDOMAIN.workers.dev/health
 ```
 
 ### Initial Sync
 
 ```bash
 # Sync templates from GitHub
-curl -X POST https://template-sync-worker.YOUR_SUBDOMAIN.workers.dev/sync
+curl -X POST https://template-sync-worker.YOURSUBDOMAIN.workers.dev/sync
 
 # Download stock media
-curl -X POST https://media-download-worker.YOUR_SUBDOMAIN.workers.dev/download-all
+curl -X POST https://media-download-worker.YOURSUBDOMAIN.workers.dev/download-all
 ```
 
 ### Generate Your First Video
 
 ```bash
-curl -X POST https://video-generation-worker.YOUR_SUBDOMAIN.workers.dev/api/video/generate \
+curl -X POST https://video-generation-worker.YOURSUBDOMAIN.workers.dev/api/video/generate \
   -H "Content-Type: application/json" \
   -d '{
     "title": "My First Video",

@@ -143,7 +143,7 @@ class AssetCacheManager {
         100
       ).toFixed(1);
 
-      console.log(`✅ Cached: ${asset.name} - ${compressionRatio}% smaller`);
+      // console.log(`✅ Cached: ${asset.name} - ${compressionRatio}% smaller`);
 
       return {
         originalPath: asset.path,
@@ -223,15 +223,15 @@ class AssetCacheManager {
 }
 
 // Run optimization
-console.log('🚀 Starting Asset Cache Optimization...');
+// console.log('🚀 Starting Asset Cache Optimization...');
 const cacheManager = new AssetCacheManager();
 const results = cacheManager.optimizeAssets();
 
-console.log('\n🎯 Asset Caching Complete:');
-console.log(`   • Assets cached: ${results.cached}`);
-console.log(
+// console.log('\n🎯 Asset Caching Complete:');
+// console.log(`   • Assets cached: ${results.cached}`);
+// console.log(
   `   • Space saved: ~${Math.round(results.spaceSaved / 1024 / 1024)}MB`
 );
-console.log(`   • Cache directory: cached-assets/`);
+// console.log(`   • Cache directory: cached-assets/`);
 
 module.exports = AssetCacheManager;

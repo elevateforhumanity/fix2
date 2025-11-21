@@ -103,18 +103,18 @@ Comprehensive audit of environment variables and external URLs has been complete
 
 #### Development URLs (3)
 
-- `http://localhost:3000` - Local development server
-- `http://localhost:5173` - Vite dev server
-- `https://5173--0199d539-243f-773a-8115-cecbe99de420.us-east-1-01.gitpod.dev` - Gitpod workspace
+- `http://localhost:3000 - Local development server
+- `http://localhost:5173 - Vite dev server
+- `https://5173--0199d539-243f-773a-8115-cecbe99de420.us-east-1-01.gitpod.dev - Gitpod workspace
 
 **Status:** ✅ Normal for development
 
 #### Production Domains (3)
 
-- `https://elevateforhumanity.org` - Primary domain ✅
-- `https://www.elevateforhumanity.org` - WWW subdomain ✅
-- `https://elevateforhumanity.com` - ⚠️ Should redirect to .org
-- `https://elevateforhumanity.onrender.com` - ❌ Old deployment, should be removed
+- `https://elevateforhumanity.org - Primary domain ✅
+- `https://www.elevateforhumanity.org - WWW subdomain ✅
+- `https://elevateforhumanity.com - ⚠️ Should redirect to .org
+- `https://elevateforhumanity.onrender.com - ❌ Old deployment, should be removed
 
 **Action Required:**
 
@@ -123,15 +123,15 @@ Comprehensive audit of environment variables and external URLs has been complete
 
 #### API Endpoints (9)
 
-- `https://api.cloudflare.com/client/v4/accounts/*/images/v1` - ✅ Cloudflare Images API
-- `https://api.cloudflare.com/client/v4/accounts/*/stream` - ✅ Cloudflare Stream API
-- `https://api.durable.co/v1/blogs/elevateforhumanity/posts?limit=3` - ❌ Returns 404
-- `https://api.linkedin.com/v2/ugcPosts` - ✅ LinkedIn API
-- `https://api.openai.com/v1/chat/completions` - ✅ OpenAI Chat API
-- `https://api.openai.com/v1/images/generations` - ✅ OpenAI Images API
-- `https://api.dol.gov/V1/Statistics/OES` - ✅ Department of Labor API
-- `https://api.sam.gov/entity-information/v3/entities` - ✅ SAM.gov entities API
-- `https://api.sam.gov/opportunities/v2/search` - ✅ SAM.gov opportunities API
+- `https://api.cloudflare.com/client/v4/accounts//images/v1 - ✅ Cloudflare Images API
+- `https://api.cloudflare.com/client/v4/accounts//stream - ✅ Cloudflare Stream API
+- `https://api.durable.co/v1/blogs/elevateforhumanity/posts?limit=3 - ❌ Returns 404
+- `https://api.linkedin.com/v2/ugcPosts - ✅ LinkedIn API
+- `https://api.openai.com/v1/chat/completions - ✅ OpenAI Chat API
+- `https://api.openai.com/v1/images/generations - ✅ OpenAI Images API
+- `https://api.dol.gov/V1/Statistics/OES - ✅ Department of Labor API
+- `https://api.sam.gov/entity-information/v3/entities - ✅ SAM.gov entities API
+- `https://api.sam.gov/opportunities/v2/search - ✅ SAM.gov opportunities API
 
 **Action Required:**
 
@@ -139,10 +139,10 @@ Comprehensive audit of environment variables and external URLs has been complete
 
 #### Cloudflare Workers (6)
 
-- `https://efh-ai-stylist.your-subdomain.workers.dev/*` - ⚠️ Placeholder subdomain
-- `https://efh-autopilot-orchestrator.your-subdomain.workers.dev` - ⚠️ Placeholder subdomain
-- `https://efh-autopilot-orchestrator.workers.dev` - ✅ Configured
-- `https://efh-autopilot-analyzer.workers.dev` - ✅ Configured
+- `https://efh-ai-stylist.your-subdomain.workers.dev/ - ⚠️ Placeholder subdomain
+- `https://efh-autopilot-orchestrator.your-subdomain.workers.dev - ⚠️ Placeholder subdomain
+- `https://efh-autopilot-orchestrator.workers.dev - ✅ Configured
+- `https://efh-autopilot-analyzer.workers.dev - ✅ Configured
 
 **Action Required:**
 
@@ -151,9 +151,9 @@ Comprehensive audit of environment variables and external URLs has been complete
 
 #### Blog URLs (3)
 
-- `https://blog.elevateforhumanity.org/post1` - ❌ Static placeholder
-- `https://blog.elevateforhumanity.org/post2` - ❌ Static placeholder
-- `https://blog.elevateforhumanity.org/post3` - ❌ Static placeholder
+- `https://blog.elevateforhumanity.org/post1 - ❌ Static placeholder
+- `https://blog.elevateforhumanity.org/post2 - ❌ Static placeholder
+- `https://blog.elevateforhumanity.org/post3 - ❌ Static placeholder
 
 **Action Required:**
 
@@ -161,19 +161,19 @@ Comprehensive audit of environment variables and external URLs has been complete
 
 #### Social Media (12)
 
-- `https://facebook.com/elevateforhumanity` - ✅
-- `https://facebook.com/yourcompany` - ⚠️ Placeholder
-- `https://linkedin.com/company/elevateforhumanity` - ✅
-- `https://linkedin.com/company/yourcompany` - ⚠️ Placeholder
-- `https://twitter.com/elevate4humanity` - ✅
-- `https://youtube.com/elevateforhumanity` - ✅
-- `https://youtube.com/yourcompany` - ⚠️ Placeholder
-- `https://www.facebook.com/elevate.founder` - ✅
-- `https://www.facebook.com/elevateforhumanity` - ✅
-- `https://www.linkedin.com/company/elevate-for-humanity` - ✅
-- `https://www.linkedin.com/company/elevateforhumanity` - ✅
-- `https://www.linkedin.com/in/elevate-founder` - ✅
-- `https://www.youtube.com/@elevateforhumanity` - ✅
+- `https://facebook.com/elevateforhumanity - ✅
+- `https://facebook.com/yourcompany - ⚠️ Placeholder
+- `https://linkedin.com/company/elevateforhumanity - ✅
+- `https://linkedin.com/company/yourcompany - ⚠️ Placeholder
+- `https://twitter.com/elevate4humanity - ✅
+- `https://youtube.com/elevateforhumanity - ✅
+- `https://youtube.com/yourcompany - ⚠️ Placeholder
+- `https://www.facebook.com/elevate.founder - ✅
+- `https://www.facebook.com/elevateforhumanity - ✅
+- `https://www.linkedin.com/company/elevate-for-humanity - ✅
+- `https://www.linkedin.com/company/elevateforhumanity - ✅
+- `https://www.linkedin.com/in/elevate-founder - ✅
+- `https://www.youtube.com/@elevateforhumanity - ✅
 
 **Action Required:**
 
@@ -181,41 +181,41 @@ Comprehensive audit of environment variables and external URLs has been complete
 
 #### Third-Party Services (15)
 
-- `https://aws.amazon.com` - ✅ AWS
-- `https://buy.stripe.com/test_donation_link` - ⚠️ Test link
-- `https://certiport.pearsonvue.com` - ✅ Certification provider
-- `https://cuxzzpsyufcewtmicszk.supabase.co` - ✅ Supabase instance
-- `https://graph.facebook.com/v18.0/*` - ✅ Facebook Graph API
-- `https://meet.jit.si` - ✅ Jitsi video conferencing
-- `https://videodelivery.net/*` - ✅ Cloudflare video delivery
-- `https://www.act.org/workkeys` - ✅ ACT WorkKeys
-- `https://www.ahima.org` - ✅ AHIMA
-- `https://www.cdc.gov/mentalhealth/` - ✅ CDC
-- `https://www.cerner.com` - ✅ Cerner
-- `https://www.comptia.org` - ✅ CompTIA
-- `https://www.dol.gov/agencies/*` - ✅ Department of Labor
-- `https://www.doleta.gov/wioa/*` - ✅ WIOA
-- `https://www.epic.com` - ✅ Epic Systems
-- `https://www.googletagmanager.com/gtag/js` - ✅ Google Tag Manager
-- `https://www.hrci.org` - ✅ HRCI
-- `https://www.in.gov/dwd/*` - ✅ Indiana DWD
-- `https://www.indianacareerconnect.com` - ✅ Indiana Career Connect
-- `https://www.mentalhealth.gov/` - ✅ Mental Health
-- `https://www.nimh.nih.gov/health/topics` - ✅ NIMH
-- `https://www.pmi.org` - ✅ PMI
-- `https://www.w3.org/WAI/WCAG21/quickref/` - ✅ WCAG
-- `http://www.w3.org/2000/svg` - ✅ SVG namespace
+- `https://aws.amazon.com - ✅ AWS
+- `https://buy.stripe.com/testdonationlink - ⚠️ Test link
+- `https://certiport.pearsonvue.com - ✅ Certification provider
+- `https://cuxzzpsyufcewtmicszk.supabase.co - ✅ Supabase instance
+- `https://graph.facebook.com/v18.0/ - ✅ Facebook Graph API
+- `https://meet.jit.si - ✅ Jitsi video conferencing
+- `https://videodelivery.net/ - ✅ Cloudflare video delivery
+- `https://www.act.org/workkeys - ✅ ACT WorkKeys
+- `https://www.ahima.org - ✅ AHIMA
+- `https://www.cdc.gov/mentalhealth/ - ✅ CDC
+- `https://www.cerner.com - ✅ Cerner
+- `https://www.comptia.org - ✅ CompTIA
+- `https://www.dol.gov/agencies/ - ✅ Department of Labor
+- `https://www.doleta.gov/wioa/ - ✅ WIOA
+- `https://www.epic.com - ✅ Epic Systems
+- `https://www.googletagmanager.com/gtag/js - ✅ Google Tag Manager
+- `https://www.hrci.org - ✅ HRCI
+- `https://www.in.gov/dwd/ - ✅ Indiana DWD
+- `https://www.indianacareerconnect.com - ✅ Indiana Career Connect
+- `https://www.mentalhealth.gov/ - ✅ Mental Health
+- `https://www.nimh.nih.gov/health/topics - ✅ NIMH
+- `https://www.pmi.org - ✅ PMI
+- `https://www.w3.org/WAI/WCAG21/quickref/ - ✅ WCAG
+- `http://www.w3.org/2000/svg - ✅ SVG namespace
 
 **Status:** ✅ All valid
 
 #### Placeholder/Example URLs (5)
 
-- `https://example.com` - ⚠️ Example placeholder
-- `https://your-durable-blog-api.com/posts` - ⚠️ Placeholder
-- `https://yourdomain.com/courses` - ⚠️ Placeholder
-- `https://yourdomain.com/cover.jpg` - ⚠️ Placeholder
-- `https://yourwebsite.com` - ⚠️ Placeholder
-- `https://www.youtube.com/embed/...` - ⚠️ Placeholder
+- `https://example.com - ⚠️ Example placeholder
+- `https://your-durable-blog-api.com/posts - ⚠️ Placeholder
+- `https://yourdomain.com/courses - ⚠️ Placeholder
+- `https://yourdomain.com/cover.jpg - ⚠️ Placeholder
+- `https://yourwebsite.com - ⚠️ Placeholder
+- `https://www.youtube.com/embed/... - ⚠️ Placeholder
 
 **Action Required:**
 

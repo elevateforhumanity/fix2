@@ -282,6 +282,6 @@ When reporting mobile issues, include:
 ## Resources
 
 - [PWA Checklist](https://web.dev/pwa-checklist/)
-- [iOS PWA Guide](https://developer.apple.com/documentation/webkit/safari_web_extensions)
+- [iOS PWA Guide](https://developer.apple.com/documentation/webkit/safariwebextensions)
 - [Android PWA Guide](https://developer.chrome.com/docs/android/trusted-web-activity/)
 - [Service Worker Cookbook](https://serviceworke.rs/)

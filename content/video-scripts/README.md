@@ -1,8 +1,8 @@
-# Elevate Connects Directory – Video Scripts
+# Elevate for Humanity – Video Scripts
 
 This folder contains **ready-to-use video scripts** for AI avatars, voiceovers, or live recording.
 
-Each `.md` file corresponds to a section/page on https://elevateconnectsdirectory.org, for use as placeholders or final content.
+Each `.md` file corresponds to a section/page on https://elevateforhumanity.org, for use as placeholders or final content.
 
 You can:
 - Paste these into tools like HeyGen / Synthesia / Pictory

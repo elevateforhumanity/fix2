@@ -70,7 +70,10 @@ export default function PageManager() {
 
       if (error) throw error;
       setVersions(data || []);
-    } catch (error) {}
+    } catch (error) {
+      console.error('Failed to load versions:', error);
+      setVersions([]);
+    }
   }
 
   async function updatePageStatus(pageId: string, status: string) {

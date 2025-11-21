@@ -140,7 +140,7 @@ export function StudentPortfolio() {
     {
       id: '1',
       title: 'Full-Stack Web Development',
-      issuer: 'Elevate Connects',
+      issuer: 'Elevate for Humanity',
       date: '2024-01',
       credentialUrl: '#',
     },
@@ -426,7 +426,7 @@ export function StudentPortfolio() {
                   <p>
                     I'm a passionate full-stack developer with over 3 years of experience building web and mobile applications. 
                     My journey in tech started with a curiosity about how websites work, which led me to pursue formal education 
-                    through Elevate Connects' comprehensive programs.
+                    through Elevate for Humanity' comprehensive programs.
                   </p>
                   <p>
                     I specialize in modern JavaScript frameworks, particularly React and Next.js, and have extensive experience 
@@ -460,7 +460,7 @@ export function StudentPortfolio() {
                     </li>
                     <li className="flex items-start text-gray-600">
                       <span className="text-red-600 mr-2">▸</span>
-                      <span>Mentor aspiring developers through Elevate Connects</span>
+                      <span>Mentor aspiring developers through Elevate for Humanity</span>
                     </li>
                   </ul>
                 </div>

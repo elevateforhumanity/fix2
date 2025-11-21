@@ -46,7 +46,7 @@ Verify build completes without errors.
 npm run start
 ```
 
-Open `http://localhost:3000` and verify:
+Open `http://localhost:3000 and verify:
 
 - Service worker registers
 - Manifest loads correctly

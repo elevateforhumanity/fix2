@@ -2,7 +2,7 @@
 
 **Date**: November 16, 2025  
 **Current Project**: fix2-i3z8  
-**Production URL**: https://www.elevateconnectsdirectory.org
+**Production URL**: https://www.elevateforhumanity.org
 
 ---
 
@@ -198,7 +198,7 @@ node scripts/workers/auto-cleanup-vercel.mjs
 ```
 
 **Expected Result**: Only 1 project with:
-- Custom domain: www.elevateconnectsdirectory.org
+- Custom domain: www.elevateforhumanity.org
 - All environment variables configured
 - Recent successful deployment
 

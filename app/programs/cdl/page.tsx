@@ -14,7 +14,7 @@ export default function CdlProgramPage() {
             CDL & Transportation Pathways
           </h1>
           <p className="mt-3 max-w-2xl text-sm md:text-base text-slate-200">
-            Elevate connects learners with CDL training partners and transportation
+            Elevate for Humanity learners with CDL training partners and transportation
             employers, while helping coordinate funding, readiness, and job placement.
           </p>
           <div className="mt-5 flex flex-wrap gap-3 text-xs md:text-sm text-slate-300">

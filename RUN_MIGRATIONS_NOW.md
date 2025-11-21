@@ -8,7 +8,7 @@
 
 ### Step 1: Go to Supabase SQL Editor
 
-👉 **[CLICK HERE: Open Supabase SQL Editor](https://supabase.com/dashboard/project/_/sql)**
+👉 **[CLICK HERE: Open Supabase SQL Editor](https://supabase.com/dashboard/project//sql)**
 
 Or manually:
 1. Go to https://supabase.com/dashboard
@@ -26,7 +26,7 @@ supabase/migrations/RUN_ALL_MIGRATIONS.sql
 ```
 
 **Or download it here:**
-👉 [Download RUN_ALL_MIGRATIONS.sql](https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/migrations/RUN_ALL_MIGRATIONS.sql)
+👉 [Download RUN_ALL_MIGRATIONS.sql](https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/migrations/RUNALLMIGRATIONS.sql)
 
 ---
 
@@ -160,10 +160,10 @@ supabase db execute --file supabase/migrations/RUN_ALL_MIGRATIONS.sql
 👉 https://supabase.com/dashboard
 
 **SQL Editor:**
-👉 https://supabase.com/dashboard/project/_/sql
+👉 https://supabase.com/dashboard/project//sql
 
 **Migration File:**
-👉 https://github.com/elevateforhumanity/fix2/blob/main/supabase/migrations/RUN_ALL_MIGRATIONS.sql
+👉 https://github.com/elevateforhumanity/fix2/blob/main/supabase/migrations/RUNALLMIGRATIONS.sql
 
 ---
 
@@ -198,7 +198,7 @@ Your site will have:
 
 **Can't find the file?**
 - It's in: `supabase/migrations/RUN_ALL_MIGRATIONS.sql`
-- Or view on GitHub: https://github.com/elevateforhumanity/fix2/blob/main/supabase/migrations/RUN_ALL_MIGRATIONS.sql
+- Or view on GitHub: https://github.com/elevateforhumanity/fix2/blob/main/supabase/migrations/RUNALLMIGRATIONS.sql
 
 **Supabase not working?**
 - Check you're logged in: https://supabase.com/dashboard

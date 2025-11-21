@@ -152,7 +152,10 @@ export default function CourseBuilderPage() {
       });
 
       if (!res.ok) {
-        const j = await res.json().catch(() => ({}));
+        const j = await res.json().catch((parseErr) => {
+          console.error('Failed to parse error response:', parseErr);
+          return {};
+        });
         throw new Error(j.error || 'Failed to save course.');
       }
 
@@ -171,7 +174,7 @@ export default function CourseBuilderPage() {
         <header className="flex flex-col justify-between gap-3 md:flex-row md:items-center">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-sky-400">
-              Elevate Connects Directory · Course Builder
+              Elevate for Humanity · Course Builder
             </p>
             <h1 className="mt-1 text-2xl font-semibold md:text-3xl">
               Build a course once, reuse it everywhere

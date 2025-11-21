@@ -234,7 +234,7 @@ cat > src/pages/DurableLanding.jsx << EOL
 export default function DurableLanding() {
   return (
     <iframe
-      src="https://${DURABLE_URL}"
+      src="https://${DURABLEURL}"
       style={{
         position: 'fixed',
         top: 0,
@@ -257,7 +257,7 @@ cat > src/pages/DurableFeatures.jsx << EOL
 export default function DurableFeatures() {
   return (
     <iframe
-      src="https://${DURABLE_URL}/features"
+      src="https://${DURABLEURL}/features"
       style={{
         position: 'fixed',
         top: 0,
@@ -280,7 +280,7 @@ cat > src/pages/DurablePricing.jsx << EOL
 export default function DurablePricing() {
   return (
     <iframe
-      src="https://${DURABLE_URL}/pricing"
+      src="https://${DURABLEURL}/pricing"
       style={{
         position: 'fixed',
         top: 0,
@@ -303,7 +303,7 @@ cat > src/pages/DurableTemplates.jsx << EOL
 export default function DurableTemplates() {
   return (
     <iframe
-      src="https://${DURABLE_URL}/templates"
+      src="https://${DURABLEURL}/templates"
       style={{
         position: 'fixed',
         top: 0,
@@ -326,7 +326,7 @@ cat > src/pages/DurableAI.jsx << EOL
 export default function DurableAI() {
   return (
     <iframe
-      src="https://${DURABLE_URL}/ai"
+      src="https://${DURABLEURL}/ai"
       style={{
         position: 'fixed',
         top: 0,
@@ -349,7 +349,7 @@ cat > src/pages/ProgramsDurable.jsx << EOL
 export default function ProgramsDurable() {
   return (
     <iframe
-      src="https://${DURABLE_URL}/programs"
+      src="https://${DURABLEURL}/programs"
       style={{
         position: 'fixed',
         top: 0,
@@ -370,7 +370,7 @@ EOL
 echo "✅ All Durable pages configured with iframes"
 echo "✅ Zero maintenance setup complete"
 echo ""
-echo "Your Durable URL: https://${DURABLE_URL}"
+echo "Your Durable URL: https://${DURABLEURL}"
 echo ""
 echo "Next steps:"
 echo "1. Update DURABLE_URL in this script if needed"

@@ -7,17 +7,17 @@ This implementation addresses all requirements from the issue to ensure **www.el
 ### ✅ Key Fixes Implemented:
 
 1. **Canonical Domain Setup**
-   - Updated 37 HTML files with canonical URLs pointing to `https://www.elevateforhumanity.org`
+   - Updated 37 HTML files with canonical URLs pointing to `https://www.elevateforhumanity.org
    - 188 total URL replacements from old Durable domain to canonical domain
    - All meta tags now use the correct canonical domain
 
 2. **Comprehensive Sitemap**
    - Created comprehensive sitemap.xml with 32 pages + API endpoints
    - Proper priorities and change frequencies set for each page type
-   - Sitemap accessible at `https://www.elevateforhumanity.org/sitemap.xml`
+   - Sitemap accessible at `https://www.elevateforhumanity.org/sitemap.xml
 
 3. **Robots.txt Updated**
-   - Points to canonical domain sitemap: `https://www.elevateforhumanity.org/sitemap.xml`
+   - Points to canonical domain sitemap: `https://www.elevateforhumanity.org/sitemap.xml
    - Properly allows search engine crawling
    - Blocks admin and development files
 
@@ -48,19 +48,19 @@ npm run seo:meta:all
 
 1. **Submit to Google Search Console**
    - Go to [Google Search Console](https://search.google.com/search-console)
-   - Add property: `https://www.elevateforhumanity.org`
+   - Add property: `https://www.elevateforhumanity.org
    - Verify ownership with DNS TXT record
 
 2. **Submit Sitemap**
    - In Search Console, go to Index → Sitemaps
-   - Submit: `https://www.elevateforhumanity.org/sitemap.xml`
+   - Submit: `https://www.elevateforhumanity.org/sitemap.xml
 
 3. **Request Indexing**
    - Use URL Inspection Tool in Search Console
    - Request indexing for key pages starting with homepage
 
 4. **Set Up 301 Redirects**
-   - Configure Durable to redirect: `elevateforhumanity.durable.co/*` → `https://www.elevateforhumanity.org/*`
+   - Configure Durable to redirect: `elevateforhumanity.durable.co/*` → `https://www.elevateforhumanity.org/
    - This ensures users and search engines land on canonical domain
 
 ### 🎯 Ready-to-Use Sitemap

@@ -31,7 +31,7 @@ Your comprehensive site is now ready for deployment with:
 1. Go to [netlify.com](https://netlify.com)
 2. Sign up/login
 3. Drag the entire `/workspaces` folder to deploy
-4. Your site will be live at: `https://[random-name].netlify.app`
+4. Your site will be live at: `https://[random-name].netlify.app
 5. Custom domain: Add `elevateforhumanity.org` in site settings
 
 ### **Option 2: GitHub + Netlify**
@@ -73,10 +73,10 @@ Your comprehensive site is now ready for deployment with:
 
 ## 🎯 Live URLs (after deployment)
 
-- **Homepage:** `https://yoursite.netlify.app/`
-- **Student Portal:** `https://yoursite.netlify.app/student-portal`
-- **Enrollment:** `https://yoursite.netlify.app/enroll`
-- **Certificates:** `https://yoursite.netlify.app/certificates`
+- **Homepage:** `https://yoursite.netlify.app/
+- **Student Portal:** `https://yoursite.netlify.app/student-portal
+- **Enrollment:** `https://yoursite.netlify.app/enroll
+- **Certificates:** `https://yoursite.netlify.app/certificates
 
 ## 📞 Support
 

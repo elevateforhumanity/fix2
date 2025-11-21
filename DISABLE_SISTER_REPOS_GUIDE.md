@@ -132,7 +132,7 @@ For each repository:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/elevateforhumanity/REPO_NAME.git
+   git clone https://github.com/elevateforhumanity/REPONAME.git
    cd REPO_NAME
    ```
 
@@ -220,7 +220,7 @@ Only scheduled (cron) workflows are disabled to prevent automated interference.
 After disabling workflows in a repository:
 
 1. **Check GitHub Actions tab:**
-   - Go to: `https://github.com/elevateforhumanity/REPO_NAME/actions`
+   - Go to: `https://github.com/elevateforhumanity/REPONAME/actions
    - Verify no scheduled workflows are listed
    - Check that disabled workflows are in the disabled folder
 

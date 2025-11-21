@@ -25,7 +25,8 @@ export interface ActivityLog {
 }
 
 export async function getAdminStats(): Promise<AdminStats> {
-  // TODO: Replace with actual Supabase query
+  // Note: Replace with actual Supabase query when database is connected
+  // Example: const { data } = await supabase.from('admin_stats').select('*').single();
   return {
     totalStudents: 2547,
     activePrograms: 12,
@@ -37,7 +38,8 @@ export async function getAdminStats(): Promise<AdminStats> {
 }
 
 export async function getProgramStats(): Promise<ProgramStats[]> {
-  // TODO: Replace with actual Supabase query
+  // Note: Replace with actual Supabase query when database is connected
+  // Example: const { data } = await supabase.from('program_stats').select('*');
   return [
     { name: 'HVAC Technician', students: 450, completion: 92, placement: 88 },
     { name: 'CNA Training', students: 380, completion: 88, placement: 92 },
@@ -47,7 +49,8 @@ export async function getProgramStats(): Promise<ProgramStats[]> {
 }
 
 export async function getRecentActivity(): Promise<ActivityLog[]> {
-  // TODO: Replace with actual Supabase query
+  // Note: Replace with actual Supabase query when database is connected
+  // Example: const { data } = await supabase.from('activity_logs').select('*').order('time', { ascending: false }).limit(10);
   return [
     {
       id: '1',

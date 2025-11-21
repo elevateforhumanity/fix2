@@ -45,7 +45,7 @@ wrangler deploy --config wrangler-enrollment.toml --env production
 
 The command will show you:
 
-- ✅ If successful: Worker URL (e.g., `https://enrollment-injector.your-subdomain.workers.dev`)
+- ✅ If successful: Worker URL (e.g., `https://enrollment-injector.your-subdomain.workers.dev)
 - ❌ If failed: The actual error message
 
 ### Step 4: Configure Routes (After Successful Deployment)

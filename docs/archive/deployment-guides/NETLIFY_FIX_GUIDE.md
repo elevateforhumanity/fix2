@@ -41,7 +41,7 @@ VITE_SUPABASE_ANON_KEY=your_supabase_key
 
 1. Click "Deploy site"
 2. Wait 2-5 minutes for build
-3. Site will be live at: `https://[random-name].netlify.app`
+3. Site will be live at: `https://[random-name].netlify.app
 
 #### Step 6: Custom Domain (Optional)
 

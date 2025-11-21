@@ -84,7 +84,7 @@ export default function ProgramHolderGradesPage() {
             ← Back to dashboard
           </Link>
           <p className="mt-3 text-xs uppercase tracking-[0.2em] text-sky-400">
-            Elevate Connects Directory · Student Grades
+            Elevate for Humanity · Student Grades
           </p>
           <h1 className="mt-1 text-2xl font-semibold md:text-3xl">
             Student Performance & Grades

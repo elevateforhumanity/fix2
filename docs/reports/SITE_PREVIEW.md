@@ -260,7 +260,7 @@ All pages are fully responsive:
 1. Navigate to `/workspaces/fix2/public`
 2. Open any HTML file in a browser
 3. Or run: `python3 -m http.server 3000`
-4. Visit: `http://localhost:3000/pages/selfish-inc.html`
+4. Visit: `http://localhost:3000/pages/selfish-inc.html
 
 ---
 

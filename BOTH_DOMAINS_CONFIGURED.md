@@ -16,7 +16,7 @@ MX     @    SMTP.GOOGLE.COM              ✅ Email preserved
 TXT    @    google-site-verification...  ✅ Google preserved
 ```
 
-### elevateconnectsdirectory.org:
+### elevateforhumanity.org:
 
 ```
 A      @    75.2.60.5                    ✅ CORRECT
@@ -40,10 +40,10 @@ Check both domains:
 3. Select: A Record
 4. Should show: `75.2.60.5`
 
-**For elevateconnectsdirectory.org:**
+**For elevateforhumanity.org:**
 
 1. Go to: https://dnschecker.org
-2. Enter: `elevateconnectsdirectory.org`
+2. Enter: `elevateforhumanity.org`
 3. Select: A Record
 4. Should show: `75.2.60.5`
 
@@ -67,7 +67,7 @@ Once DNS has propagated:
 **Add second domain:**
 
 1. Click: "Add custom domain" again
-2. Enter: `elevateconnectsdirectory.org`
+2. Enter: `elevateforhumanity.org`
 3. Click: "Verify"
 4. Wait for confirmation
 
@@ -86,11 +86,11 @@ In Netlify domain settings, you can choose which domain is primary:
 **Option A: elevateforhumanity.org as primary**
 
 - Main URL: https://elevateforhumanity.org
-- elevateconnectsdirectory.org redirects to it
+- elevateforhumanity.org redirects to it
 
-**Option B: elevateconnectsdirectory.org as primary**
+**Option B: elevateforhumanity.org as primary**
 
-- Main URL: https://www.elevateconnectsdirectory.org
+- Main URL: https://www.elevateforhumanity.org
 - elevateforhumanity.org redirects to it
 
 **Option C: Both work independently**
@@ -119,15 +119,15 @@ After SSL is provisioned (5-10 minutes):
 2. Should show: Your LMS
 3. SSL: Secure (🔒)
 
-**Test elevateconnectsdirectory.org:**
+**Test elevateforhumanity.org:**
 
-1. Visit: https://www.elevateconnectsdirectory.org
+1. Visit: https://www.elevateforhumanity.org
 2. Should show: Your LMS
 3. SSL: Secure (🔒)
 
 **Test www:**
 
-1. Visit: https://www.elevateconnectsdirectory.org
+1. Visit: https://www.elevateforhumanity.org
 2. Should show: Your LMS
 3. SSL: Secure (🔒)
 
@@ -142,8 +142,8 @@ After SSL is provisioned (5-10 minutes):
 ```
 ✅ https://elevateforhumanity.org
 ✅ https://www.elevateforhumanity.org
-✅ https://www.elevateconnectsdirectory.org
-✅ https://www.elevateconnectsdirectory.org
+✅ https://www.elevateforhumanity.org
+✅ https://www.elevateforhumanity.org
 ```
 
 **All will:**
@@ -169,7 +169,7 @@ After SSL is provisioned (5-10 minutes):
 - Shorter, more professional
 - Easy to remember
 
-**Secondary Domain:** elevateconnectsdirectory.org
+**Secondary Domain:** elevateforhumanity.org
 
 - Alternative URL
 - Can redirect to primary
@@ -178,7 +178,7 @@ After SSL is provisioned (5-10 minutes):
 **In Netlify:**
 
 1. Set elevateforhumanity.org as primary domain
-2. elevateconnectsdirectory.org will redirect to it
+2. elevateforhumanity.org will redirect to it
 3. All traffic goes to one canonical URL
 4. Better for SEO
 
@@ -221,7 +221,7 @@ Now:           Both DNS configured ✅
 +10-15 min:    DNS propagated globally
 +2 min:        Both domains added in Netlify
 +5-10 min:     SSL for elevateforhumanity.org
-+5-10 min:     SSL for elevateconnectsdirectory.org
++5-10 min:     SSL for elevateforhumanity.org
 +1 min:        Set primary domain
 +1 min:        Test all URLs
 ---
@@ -235,14 +235,14 @@ Total:         ~25-40 minutes
 ### DNS Propagation:
 
 - [ ] elevateforhumanity.org shows 75.2.60.5
-- [ ] elevateconnectsdirectory.org shows 75.2.60.5
+- [ ] elevateforhumanity.org shows 75.2.60.5
 - [ ] Both CNAMEs show elevateproduction.netlify.app
 - [ ] Most locations are green on dnschecker.org
 
 ### Netlify Configuration:
 
 - [ ] Added elevateforhumanity.org
-- [ ] Added elevateconnectsdirectory.org
+- [ ] Added elevateforhumanity.org
 - [ ] Both domains verified
 - [ ] SSL certificates provisioned for both
 - [ ] Primary domain set
@@ -252,8 +252,8 @@ Total:         ~25-40 minutes
 
 - [ ] https://elevateforhumanity.org works
 - [ ] https://www.elevateforhumanity.org works
-- [ ] https://www.elevateconnectsdirectory.org works
-- [ ] https://www.elevateconnectsdirectory.org works
+- [ ] https://www.elevateforhumanity.org works
+- [ ] https://www.elevateforhumanity.org works
 - [ ] All have SSL (🔒)
 - [ ] All show LMS correctly
 
@@ -293,7 +293,7 @@ Total:         ~25-40 minutes
    - Better for marketing
    - Easier to remember
 
-2. **Redirect elevateconnectsdirectory.org to primary**
+2. **Redirect elevateforhumanity.org to primary**
    - Consolidates traffic
    - Better for SEO
    - Cleaner analytics
@@ -334,7 +334,7 @@ Total:         ~25-40 minutes
 1. **Check DNS propagation:**
    - Go to: https://dnschecker.org
    - Check: elevateforhumanity.org
-   - Check: elevateconnectsdirectory.org
+   - Check: elevateforhumanity.org
 
 2. **If propagated (50%+ green):**
    - Add both domains in Netlify
@@ -353,7 +353,7 @@ Total:         ~25-40 minutes
 
 ```
 Primary:   elevateforhumanity.org
-Secondary: elevateconnectsdirectory.org
+Secondary: elevateforhumanity.org
 ```
 
 ### DNS Records (Both):

@@ -305,8 +305,8 @@ See `VERCEL_ENV_SETUP.md` for step-by-step instructions
 - **Programs**: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/programs
 
 ### Production:
-- **Main Site**: https://www.elevateconnectsdirectory.org
-- **Admin**: https://www.elevateconnectsdirectory.org/admin/courses
+- **Main Site**: https://www.elevateforhumanity.org
+- **Admin**: https://www.elevateforhumanity.org/admin/courses
 
 ---
 

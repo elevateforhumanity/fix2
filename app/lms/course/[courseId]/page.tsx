@@ -44,7 +44,7 @@ const MOCK_COURSES: Record<string, Course> = {
     lastUpdated: "Nov 2025",
     level: "Beginner friendly",
     duration: "8–10 hours of content",
-    videoUrl: "/sample/hvac-intro.mp4", // TODO: Replace with your actual asset
+    videoUrl: "/sample/hvac-intro.mp4", // Note: Update with actual course video URL from media storage
     lessons: [
       {
         id: "lesson-1",

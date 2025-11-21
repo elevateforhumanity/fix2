@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "HVAC Technician Program | Elevate Connects Directory",
+  title: "HVAC Technician Program | Elevate for Humanity",
   description:
     "Hands-on HVAC training with lab and field experience, EPA certification prep, and direct pathways to employment in heating, cooling, and refrigeration.",
 };

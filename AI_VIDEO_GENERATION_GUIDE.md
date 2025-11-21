@@ -113,7 +113,7 @@ All scripts are ready in: `content/video-scripts/`
 
 **Example for Homepage Hero:**
 ```
-Hi, I'm from Elevate for Humanity, and welcome to Elevate Connects Directory.
+Hi, I'm from Elevate for Humanity, and welcome to Elevate for Humanity.
 
 This is your one-stop hub for career training, apprenticeships, and workforce programs that actually lead to jobs.
 
@@ -265,26 +265,26 @@ When you're ready, hit "Apply Now" and let us help you move from looking for opp
 ### 1. Upload to YouTube
 ```
 Title: [Program Name] - Elevate for Humanity
-Description: Learn about [program] at Elevate Connects Directory...
+Description: Learn about [program] at Elevate for Humanity...
 Tags: workforce training, [program name], career development
 Visibility: Unlisted (or Public when ready)
 ```
 
 ### 2. Get Video URLs
 ```
-https://www.youtube.com/watch?v=VIDEO_ID
+https://www.youtube.com/watch?v=VIDEOID
 ```
 
 ### 3. Update Database
 ```sql
 -- Example for homepage video
 UPDATE site_content
-SET video_url = 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID'
+SET video_url = 'https://www.youtube.com/watch?v=YOURVIDEOID'
 WHERE page = 'homepage' AND section = 'hero';
 
 -- Or for program videos
 UPDATE programs
-SET video_url = 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID'
+SET video_url = 'https://www.youtube.com/watch?v=YOURVIDEOID'
 WHERE slug = 'hvac';
 ```
 
@@ -298,7 +298,7 @@ WHERE slug = 'hvac';
 
 // After (real video)
 <VideoShell
-  src="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+  src="https://www.youtube.com/watch?v=YOURVIDEOID"
   title="Welcome to Elevate"
 />
 ```

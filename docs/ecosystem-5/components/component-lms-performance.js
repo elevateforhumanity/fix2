@@ -88,7 +88,7 @@ class LMSPerformanceMonitor {
       // Preload course list in background
       fetch('/api/lms/courses').then((response) => {
         if (response.ok) {
-          console.log('✅ Course list preloaded');
+          // console.log('✅ Course list preloaded');
         }
       });
 
@@ -99,7 +99,7 @@ class LMSPerformanceMonitor {
       enrolledCourses.forEach((courseId) => {
         fetch(`/api/lms/course/${courseId}`).then((response) => {
           if (response.ok) {
-            console.log(`✅ Course ${courseId} preloaded`);
+            // console.log(`✅ Course ${courseId} preloaded`);
           }
         });
       });

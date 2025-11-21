@@ -314,8 +314,8 @@ Add these to Netlify (Site settings → Environment variables):
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-NEXT_PUBLIC_APP_URL=https://www.elevateconnectsdirectory.org
-NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_APP_URL=https://www.elevateforhumanity.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 NODE_ENV=production
 ```
 
@@ -331,7 +331,7 @@ STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret
 
 ```
 RESEND_API_KEY=re_your_api_key
-RESEND_FROM_EMAIL=noreply@elevateconnectsdirectory.org
+RESEND_FROM_EMAIL=noreply@elevateforhumanity.org
 RESEND_FROM_NAME=Elevate for Humanity
 ```
 
@@ -349,7 +349,7 @@ CLOUDFLARE_API_TOKEN=your_api_token
 CLOUDFLARE_R2_BUCKET=elevate-lms-storage
 CLOUDFLARE_R2_ACCESS_KEY_ID=your_access_key
 CLOUDFLARE_R2_SECRET_ACCESS_KEY=your_secret_key
-CLOUDFLARE_R2_PUBLIC_URL=https://storage.elevateconnectsdirectory.org
+CLOUDFLARE_R2_PUBLIC_URL=https://storage.elevateforhumanity.org
 ```
 
 ---

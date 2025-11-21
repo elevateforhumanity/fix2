@@ -87,7 +87,7 @@ All required API keys have been added to `.env`:
 
 **Key Changes:**
 
-- ✅ BaseUrl updated to `https://elevateforhumanityfix2.netlify.app`
+- ✅ BaseUrl updated to `https://elevateforhumanityfix2.netlify.app
 - ✅ Build command: `pnpm install && pnpm run build`
 - ✅ Publish directory: `dist`
 - ✅ Node version: 20.11.1

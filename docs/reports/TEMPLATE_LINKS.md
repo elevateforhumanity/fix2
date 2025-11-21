@@ -1,6 +1,6 @@
 # 🎨 Template Preview Links
 
-All templates are available at: **https://elevateforhumanity.netlify.app/pages/**
+All templates are available at: **https://elevateforhumanity.netlify.app/pages/
 
 ---
 
@@ -64,11 +64,11 @@ All templates are available at: **https://elevateforhumanity.netlify.app/pages/*
 - [flash-sale-store](https://elevateforhumanity.netlify.app/pages/flash-sale-store.html) - 16K
 - [flash-sale-success](https://elevateforhumanity.netlify.app/pages/flash-sale-success.html) - 12K
 - [store](https://elevateforhumanity.netlify.app/pages/store.html) - 24K
-- [EMERGENCY_SALE_BUY_NOW](https://elevateforhumanity.netlify.app/pages/EMERGENCY_SALE_BUY_NOW.html) - 20K
+- [EMERGENCY_SALE_BUY_NOW](https://elevateforhumanity.netlify.app/pages/EMERGENCY_SALEBUYNOW.html) - 20K
 
 ### 📊 Dashboards (8)
 
-- [elevate_license_dashboard](https://elevateforhumanity.netlify.app/pages/elevate_license_dashboard.html) - 4.0K
+- [elevate_license_dashboard](https://elevateforhumanity.netlify.app/pages/elevatelicensedashboard.html) - 4.0K
 - [employer-dashboard](https://elevateforhumanity.netlify.app/pages/employer-dashboard.html) - 44K
 - [license-dashboard](https://elevateforhumanity.netlify.app/pages/license-dashboard.html) - 12K
 - [monitor-dashboard](https://elevateforhumanity.netlify.app/pages/monitor-dashboard.html) - 20K
@@ -79,7 +79,7 @@ All templates are available at: **https://elevateforhumanity.netlify.app/pages/*
 
 ### 🌐 Specialized Templates (58)
 
-- [READY_FOR_TRANSFER_index](https://elevateforhumanity.netlify.app/pages/READY_FOR_TRANSFER_index.html) - 28K
+- [READY_FOR_TRANSFER_index](https://elevateforhumanity.netlify.app/pages/READY_FORTRANSFERindex.html) - 28K
 - [account](https://elevateforhumanity.netlify.app/pages/account.html) - 24K
 - [auth-login](https://elevateforhumanity.netlify.app/pages/auth-login.html) - 8.0K
 - [blog](https://elevateforhumanity.netlify.app/pages/blog.html) - 20K
@@ -136,11 +136,11 @@ All templates are available at: **https://elevateforhumanity.netlify.app/pages/*
 
 ## 🎯 Quick Access
 
-**Base URL:** `https://elevateforhumanity.netlify.app/pages/`
+**Base URL:** `https://elevateforhumanity.netlify.app/pages/
 
 **Format:** `[template-name].html`
 
-**Example:** `https://elevateforhumanity.netlify.app/pages/fullsail-style-landing.html`
+**Example:** `https://elevateforhumanity.netlify.app/pages/fullsail-style-landing.html
 
 ---
 

@@ -53,7 +53,7 @@ This will:
 1. Go to: [https://www.bing.com/webmasters](https://www.bing.com/webmasters)
 2. Select your site: `elevateforhumanity.org`
 3. Click **Sitemaps** in left sidebar
-4. Enter: `https://elevateforhumanity.org/sitemap.xml`
+4. Enter: `https://elevateforhumanity.org/sitemap.xml
 5. Click **Submit**
 
 **Detailed Guide:** See `SEARCH_ENGINE_SUBMISSION_GUIDE.md`

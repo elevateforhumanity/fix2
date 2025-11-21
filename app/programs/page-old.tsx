@@ -36,7 +36,7 @@ export default async function ProgramsPage() {
         <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:py-20">
           <div className="flex-1 space-y-4">
             <p className="text-sm font-semibold text-white/90 uppercase tracking-wide">
-              Elevate for Humanity · Elevate Connects Directory
+              Elevate for Humanity · Elevate for Humanity
             </p>
             <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-white">
               Explore Workforce & Apprenticeship Programs

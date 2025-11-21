@@ -57,7 +57,7 @@ All sitemaps are accessible at:
 1. **Go to**: https://www.bing.com/webmasters
 2. **Select Site**: www.elevateforhumanity.org
 3. **Navigate to**: Sitemaps
-4. **Submit**: `https://www.elevateforhumanity.org/sitemap-index.xml`
+4. **Submit**: `https://www.elevateforhumanity.org/sitemap-index.xml
 
 **Verification**:
 
@@ -69,7 +69,7 @@ All sitemaps are accessible at:
 1. **Go to**: https://webmaster.yandex.com
 2. **Select Site**: www.elevateforhumanity.org
 3. **Navigate to**: Indexing > Sitemaps
-4. **Submit**: `https://www.elevateforhumanity.org/sitemap-index.xml`
+4. **Submit**: `https://www.elevateforhumanity.org/sitemap-index.xml
 
 ### Manual Ping (Alternative Method)
 

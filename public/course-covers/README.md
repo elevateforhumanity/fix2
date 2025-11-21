@@ -1,4 +1,4 @@
-# Elevate Connects Course Covers
+# Elevate for Humanity Course Covers
 
 This directory contains professional course cover images for all Elevate training programs.
 

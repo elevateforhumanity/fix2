@@ -37,7 +37,7 @@ After deployment, go to your Vercel dashboard and add:
 - `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`
 - `STRIPE_SECRET_KEY`
 
-**Done!** Your site will be live at `https://your-project.vercel.app`
+**Done!** Your site will be live at `https://your-project.vercel.app
 
 ---
 

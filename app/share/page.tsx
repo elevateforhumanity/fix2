@@ -22,7 +22,7 @@ function ShareTargetContent() {
       const text = searchParams.get('text');
       const url = searchParams.get('url');
 
-      console.log('Received shared content:', { title, text, url });
+      // console.log('Received shared content:', { title, text, url });
 
       // Process the shared content
       // In a real app, you would:

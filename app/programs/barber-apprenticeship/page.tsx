@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Barber Apprenticeship Program | Elevate Connects Directory",
+  title: "Barber Apprenticeship Program | Elevate for Humanity",
   description:
     "State-approved Barber Apprenticeship with shop-based training, paid experience, and a clear path to licensure for Indiana learners, re-entry participants, and workforce clients.",
 };

@@ -13,11 +13,11 @@
 - ✅ Tailwind CSS fixed and working
 - ✅ New build deployed to Netlify
 - ✅ elevateforhumanity.org reverted to Durable
-- ✅ elevateconnectsdirectory.org DNS pointing to Netlify
+- ✅ elevateforhumanity.org DNS pointing to Netlify
 
 ### What's Left:
 
-- ⏳ Add elevateconnectsdirectory.org to Netlify (manual)
+- ⏳ Add elevateforhumanity.org to Netlify (manual)
 - ⏳ Wait for SSL certificate
 - ⏳ Test the site
 
@@ -31,7 +31,7 @@
 
 **Click:** "Add custom domain" button
 
-**Enter:** `elevateconnectsdirectory.org`
+**Enter:** `elevateforhumanity.org`
 
 **Click:** "Verify"
 
@@ -70,7 +70,7 @@
 
 **After SSL shows "Active":**
 
-**Visit:** https://www.elevateconnectsdirectory.org
+**Visit:** https://www.elevateforhumanity.org
 
 **Should show:**
 
@@ -81,7 +81,7 @@
 
 **Also test:**
 
-- https://www.elevateconnectsdirectory.org
+- https://www.elevateforhumanity.org
 - Should redirect to apex domain
 
 ---
@@ -97,7 +97,7 @@ DURABLE.CO
 └── Status: Independent ✅
 
 NETLIFY
-├── Domain: elevateconnectsdirectory.org
+├── Domain: elevateforhumanity.org
 ├── Purpose: LMS / Student Portal
 ├── Hosted by: Netlify
 ├── Managed by: You
@@ -121,7 +121,7 @@ Content: Marketing website
 Control: Durable dashboard
 ```
 
-### elevateconnectsdirectory.org:
+### elevateforhumanity.org:
 
 ```
 Registrar: Durable.co (domain only)
@@ -156,7 +156,7 @@ Total:      ~10-15 minutes
 - Should show: Durable IP (NOT 75.2.60.5)
 - Status: Points to Durable ✅
 
-**Check elevateconnectsdirectory.org:**
+**Check elevateforhumanity.org:**
 
 - Should show: 75.2.60.5 (Netlify)
 - Status: Points to Netlify ✅
@@ -173,7 +173,7 @@ Total:      ~10-15 minutes
 - ✅ Has SSL (🔒)
 - ✅ Completely independent
 
-**elevateconnectsdirectory.org:**
+**elevateforhumanity.org:**
 
 - ✅ Shows Netlify LMS
 - ✅ Fully styled with Tailwind
@@ -214,7 +214,7 @@ https://durable.co/login
 Add a button or link:
 
 ```html
-<a href="https://www.elevateconnectsdirectory.org"> Access Student Portal </a>
+<a href="https://www.elevateforhumanity.org"> Access Student Portal </a>
 ```
 
 **That's it!** Simple link, no technical connection needed.
@@ -234,7 +234,7 @@ Add a button or link:
 ### Domains:
 
 - ✅ elevateforhumanity.org on Durable (separate)
-- ✅ elevateconnectsdirectory.org ready for Netlify
+- ✅ elevateforhumanity.org ready for Netlify
 - ✅ DNS configured correctly
 - ✅ No confusion
 
@@ -253,7 +253,7 @@ Add a button or link:
 - [x] Styling fixed
 - [x] Build deployed
 - [x] elevateforhumanity.org reverted to Durable
-- [x] elevateconnectsdirectory.org DNS configured
+- [x] elevateforhumanity.org DNS configured
 - [ ] Add domain in Netlify (do this now)
 - [ ] Wait for SSL
 - [ ] Test site
@@ -265,11 +265,11 @@ Add a button or link:
 
 **Go to:** https://app.netlify.com/sites/elevateproduction/settings/domain
 
-**Add:** elevateconnectsdirectory.org
+**Add:** elevateforhumanity.org
 
 **Wait:** 5-10 minutes for SSL
 
-**Test:** https://www.elevateconnectsdirectory.org
+**Test:** https://www.elevateforhumanity.org
 
 ---
 

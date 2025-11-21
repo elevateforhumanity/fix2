@@ -17,7 +17,7 @@ Your site already has Google Analytics tracking code in `index.html`:
 
 1. Go to: [https://search.google.com/search-console](https://search.google.com/search-console)
 2. Click "Add Property"
-3. Enter: `https://elevateforhumanityfix.netlify.app`
+3. Enter: `https://elevateforhumanityfix.netlify.app
 4. Choose verification method: **HTML tag** (easiest)
 
 ### Step 2: Verify Ownership
@@ -35,7 +35,7 @@ Update the `content` value with your actual verification code from Google.
 After verification:
 
 1. Go to "Sitemaps" in left menu
-2. Add sitemap URL: `https://elevateforhumanityfix.netlify.app/sitemap.xml`
+2. Add sitemap URL: `https://elevateforhumanityfix.netlify.app/sitemap.xml
 3. Click "Submit"
 
 Your sitemap is automatically generated and includes:

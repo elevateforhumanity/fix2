@@ -210,7 +210,7 @@ curl https://efh-autopilot-metrics.workers.dev/alerts
 
 When fully configured, you'll see:
 
-- ✅ Worker deployed at `https://efh-autopilot-metrics.workers.dev`
+- ✅ Worker deployed at `https://efh-autopilot-metrics.workers.dev
 - ✅ GitHub workflow runs show "Durable Storage: ✅ Stored"
 - ✅ API endpoints return data
 - ✅ Metrics accumulate over time

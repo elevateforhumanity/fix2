@@ -209,7 +209,7 @@ export function EmployerWorkforceAnalytics() {
           <Card className="p-6 bg-gradient-to-r from-green-50 to-emerald-50">
             <h3 className="font-bold mb-3">🎯 Recommendation</h3>
             <p className="text-sm text-gray-700">
-              Partner with Elevate Connects to address the AWS skills gap. 15 qualified candidates available.
+              Partner with Elevate for Humanity to address the AWS skills gap. 15 qualified candidates available.
             </p>
           </Card>
 

@@ -48,7 +48,10 @@ export default function CallNowPage() {
         // Play notification sound (optional)
         if (typeof Audio !== "undefined") {
           const audio = new Audio("/notification.mp3");
-          audio.play().catch(() => {});
+          audio.play().catch((err) => {
+            // Audio playback may fail due to browser autoplay policies
+            // console.debug('Audio playback prevented:', err);
+          });
         }
 
         // Send browser notification to your team (if they're on the page)

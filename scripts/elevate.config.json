@@ -14,7 +14,7 @@
   "blogDirNames": ["blog", "posts", "content/blog"],
   "sisterSites": [
     {
-      "name": "Elevate Connects Directory",
+      "name": "Elevate for Humanity",
       "url": "https://elevateconnects1.netlify.app"
     },
     { "name": "Selfish Inc.", "url": "https://www.selfishinc.org" },

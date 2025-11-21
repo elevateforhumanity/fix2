@@ -2,7 +2,7 @@
 
 ## Issue
 
-User reports that elevateconnectsdirectory.org doesn't match the styling set up in the repository.
+User reports that elevateforhumanity.org doesn't match the styling set up in the repository.
 
 ## Current Setup in Repository
 

@@ -71,7 +71,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
               </div>
               <div className="hidden sm:block">
                 <span className="text-xl font-bold text-slate-900">
-                  Elevate Connects
+                  Elevate for Humanity
                 </span>
                 <span className="block text-xs text-slate-600">
                   Directory

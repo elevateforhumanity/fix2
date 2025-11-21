@@ -24,7 +24,7 @@ One of these issues:
 
 ### Step 1: Log into Netlify
 
-1. Go to: **https://app.netlify.com**
+1. Go to: **https://app.netlify.com
 2. Log in with your account
 3. Look for site: **elevateforhumanityfix2**
 
@@ -244,8 +244,8 @@ In Durable.co, add a button/link:
 
 In Durable.co, redirect certain pages to Netlify:
 
-- `/lms` → `https://elevateforhumanityfix2.netlify.app/lms`
-- `/programs` → `https://elevateforhumanityfix2.netlify.app/programs`
+- `/lms` → `https://elevateforhumanityfix2.netlify.app/lms
+- `/programs` → `https://elevateforhumanityfix2.netlify.app/programs
 
 ## Quick Diagnostic
 

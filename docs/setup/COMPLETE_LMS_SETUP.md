@@ -136,7 +136,7 @@ supabase db diff
 
 ### Step 3: Configure Netlify Environment Variables (3 minutes)
 
-1. Go to: https://app.netlify.com/sites/YOUR_SITE/configuration/env
+1. Go to: https://app.netlify.com/sites/YOURSITE/configuration/env
 2. Add these variables:
 
 ```bash
@@ -261,7 +261,7 @@ VITE_ENVIRONMENT=production
 
 ### Test 1: User Registration
 
-1. Go to your site: `https://YOUR_SITE.netlify.app/login`
+1. Go to your site: `https://YOURSITE.netlify.app/login
 2. Click **Sign Up**
 3. Create test account
 4. Verify email confirmation works

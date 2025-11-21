@@ -59,7 +59,7 @@ VITE_STRIPE_PUBLISHABLE_KEY=pk_test_...
 
 Then go to: https://dashboard.stripe.com/test/webhooks
 
-- Create endpoint: `https://elevateforhumanity.org/.netlify/functions/stripe-webhook`
+- Create endpoint: `https://elevateforhumanity.org/.netlify/functions/stripe-webhook
 - Events: `checkout.session.completed`, `payment_intent.succeeded`, `payment_intent.payment_failed`
 
 ```
@@ -76,7 +76,7 @@ OPENAI_API_KEY=sk-proj-...
 
 ### Sentry (Required for monitoring)
 
-Go to: https://sentry.io/organizations/YOUR_ORG/projects/
+Go to: https://sentry.io/organizations/YOURORG/projects/
 
 ```
 SENTRY_DSN=https://...@sentry.io/...

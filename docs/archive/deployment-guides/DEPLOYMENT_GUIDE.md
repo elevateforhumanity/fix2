@@ -325,7 +325,7 @@ CNAME Record:
 
 ```javascript
 // Google Analytics
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"></script>;
+<script async src="https://www.googletagmanager.com/gtag/js?id=GAID"></script>;
 
 // Error tracking (Sentry)
 Sentry.init({

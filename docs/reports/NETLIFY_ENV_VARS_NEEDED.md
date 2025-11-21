@@ -53,13 +53,13 @@
 ### Application Configuration
 
 - `FRONTEND_URL` - Your production URL
-  - Value: `https://elevateforhumanity.org` or `https://elevateforhumanityfix2.netlify.app`
+  - Value: `https://elevateforhumanity.org or `https://elevateforhumanityfix2.netlify.app
   - Scope: All
 
 ### Supabase (Additional)
 
 - `SUPABASE_URL` - Same as VITE_SUPABASE_URL (for functions)
-  - Value: `https://cuxzzpsyufcewtmicszk.supabase.co`
+  - Value: `https://cuxzzpsyufcewtmicszk.supabase.co
   - Scope: All (Functions, Runtime)
 - `SUPABASE_SERVICE_KEY` - Alias for SUPABASE_SERVICE_ROLE_KEY
   - Value: Same as SUPABASE_SERVICE_ROLE_KEY

@@ -233,7 +233,7 @@
 
 ### ✅ Working Now (Valid SSL)
 
-**https://elevateproduction.netlify.app**
+**https://elevateproduction.netlify.app
 
 Features:
 
@@ -248,7 +248,7 @@ Features:
 
 ### ⏳ Pending SSL Configuration
 
-**https://www.elevateconnectsdirectory.org**
+**https://www.elevateforhumanity.org
 
 Status:
 
@@ -266,7 +266,7 @@ bash scripts/autopilot-add-domain.sh
 
 # Option 2: Manual
 # Go to: https://app.netlify.com/sites/elevateproduction/settings/domain
-# Add domain: elevateconnectsdirectory.org
+# Add domain: elevateforhumanity.org
 # Wait 2-10 minutes for SSL
 ```
 

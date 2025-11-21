@@ -326,7 +326,7 @@ To test webhooks on localhost:
    brew install stripe/stripe-cli/stripe
 
    # Linux
-   wget https://github.com/stripe/stripe-cli/releases/download/v1.19.4/stripe_1.19.4_linux_x86_64.tar.gz
+   wget https://github.com/stripe/stripe-cli/releases/download/v1.19.4/stripe_1.19.4_linuxx8664.tar.gz
    tar -xvf stripe_1.19.4_linux_x86_64.tar.gz
    ```
 

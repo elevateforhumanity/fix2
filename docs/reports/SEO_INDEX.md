@@ -16,12 +16,12 @@ Start here if you're new to the system:
 
 - **[SEO_SUMMARY.txt](SEO_SUMMARY.txt)** - Visual summary with ASCII art
 - **[SEO_QUICK_REFERENCE.md](SEO_QUICK_REFERENCE.md)** - Quick reference card
-- **[SEO_AUTOPILOT_COMPLETE_REPORT.md](SEO_AUTOPILOT_COMPLETE_REPORT.md)** - Full implementation report
-- **[COMPLETE_SEO_AUDIT_REPORT.md](COMPLETE_SEO_AUDIT_REPORT.md)** - Initial audit report
+- **[SEO_AUTOPILOT_COMPLETE_REPORT.md](SEO_COMPLETE_SUMMARY.md)** - Full implementation report
+- **[COMPLETE_SEO_AUDIT_REPORT.md](SEO_CONFIGURATION_STATUS.md)** - Initial audit report
 
 #### Script Documentation
 
-- **[scripts/README.md](scripts/README.md)** - Complete script documentation
+- **[scripts/README.md](../README.md)** - Complete script documentation
 
 ### 🛠️ Components & Scripts
 
@@ -83,7 +83,7 @@ tail -f logs/seo-autopilot/deployment_*.log
 
 #### "I need to understand what was done"
 
-→ Read [SEO_AUTOPILOT_COMPLETE_REPORT.md](SEO_AUTOPILOT_COMPLETE_REPORT.md)
+→ Read [SEO_AUTOPILOT_COMPLETE_REPORT.md](SEO_COMPLETE_SUMMARY.md)
 
 #### "I need quick commands"
 
@@ -91,11 +91,11 @@ tail -f logs/seo-autopilot/deployment_*.log
 
 #### "I need to understand the scripts"
 
-→ Read [scripts/README.md](scripts/README.md)
+→ Read [scripts/README.md](../README.md)
 
 #### "I need to see the initial audit"
 
-→ Read [COMPLETE_SEO_AUDIT_REPORT.md](COMPLETE_SEO_AUDIT_REPORT.md)
+→ Read [COMPLETE_SEO_AUDIT_REPORT.md](SEO_CONFIGURATION_STATUS.md)
 
 #### "I just want a visual overview"
 

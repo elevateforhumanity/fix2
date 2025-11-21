@@ -1,4 +1,4 @@
-# Coursera vs Elevate Connects Directory - Full Site Comparison
+# Coursera vs Elevate for Humanity - Full Site Comparison
 
 ## CRITICAL ISSUES WITH YOUR SITE
 

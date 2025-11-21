@@ -67,7 +67,7 @@ export default async function StudentDashboardPage() {
               <span className="font-semibold text-sky-300">
                 workforce, WRG, and apprenticeship programs
               </span>{' '}
-              through Elevate Connects Directory.
+              through Elevate for Humanity.
             </p>
           </div>
           <div className="flex gap-3">
@@ -221,7 +221,7 @@ export default async function StudentDashboardPage() {
                 digital certificate
               </span>{' '}
               and routes it to case managers and employer partners through the
-              Elevate Connects Directory.
+              Elevate for Humanity.
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
               <span className="rounded-full bg-slate-800 px-3 py-1 text-[11px] text-sky-200">

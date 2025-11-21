@@ -86,16 +86,16 @@ Same as Option 1, but use `app` instead of `lms`:
 CNAME  app    elevateproduction.netlify.app
 ```
 
-Then update all URLs to `https://app.elevateforhumanity.org`
+Then update all URLs to `https://app.elevateforhumanity.org
 
 ---
 
-## Option 3: Use elevateconnectsdirectory.org
+## Option 3: Use elevateforhumanity.org
 
 Keep the secondary domain for the LMS:
 
 ```
-elevateconnectsdirectory.org        → LMS Platform (Netlify)
+elevateforhumanity.org        → LMS Platform (Netlify)
 www.elevateforhumanity.org          → Marketing site (Durablesites.co)
 ```
 
@@ -112,7 +112,7 @@ This is the cleanest architecture:
 ```
 www.elevateforhumanity.org          → Marketing (Durablesites.co)
 lms.elevateforhumanity.org          → LMS Platform (Netlify)
-elevateconnectsdirectory.org        → Redirect to lms.elevateforhumanity.org
+elevateforhumanity.org        → Redirect to lms.elevateforhumanity.org
 ```
 
 ### DNS Configuration
@@ -129,7 +129,7 @@ TXT    @      google-site-verification=9sXnIdE4X4AoAeRlu16JXWqNxSOIxOCAvbpakSGp3
 TXT    @      google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 ```
 
-**elevateconnectsdirectory.org** (redirect to LMS):
+**elevateforhumanity.org** (redirect to LMS):
 
 ```
 Type   Name   Content                          Priority
@@ -142,20 +142,20 @@ CNAME  www    elevateproduction.netlify.app    -
 ```toml
 # Redirect secondary domain to LMS subdomain
 [[redirects]]
-  from = "https://www.elevateconnectsdirectory.org/*"
+  from = "https://www.elevateforhumanity.org/"
   to = "https://lms.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.elevateconnectsdirectory.org/*"
+  from = "https://www.elevateforhumanity.org/"
   to = "https://lms.elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 # Redirect apex domain to marketing site
 [[redirects]]
-  from = "https://elevateforhumanity.org/*"
+  from = "https://elevateforhumanity.org/"
   to = "https://www.elevateforhumanity.org/:splat"
   status = 301
   force = true
@@ -242,8 +242,8 @@ git push
 
 ### Navigation Between Sites
 
-- Marketing site has link: "Access LMS" → `https://lms.elevateforhumanity.org`
-- LMS has link: "Back to Main Site" → `https://www.elevateforhumanity.org`
+- Marketing site has link: "Access LMS" → `https://lms.elevateforhumanity.org
+- LMS has link: "Back to Main Site" → `https://www.elevateforhumanity.org
 
 ---
 
@@ -280,7 +280,7 @@ git push
 - ✅ You want professional subdomain structure
 - ✅ You plan to keep marketing site on Durablesites.co
 
-**Use `elevateconnectsdirectory.org` if**:
+**Use `elevateforhumanity.org` if**:
 
 - You want a completely separate domain for LMS
 - You don't mind managing two domains

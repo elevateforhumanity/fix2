@@ -45,9 +45,9 @@ class PaymentProcessor {
       const platformAmount = Math.round(amount_cents * 0.5);
       const partnerAmount = amount_cents - platformAmount;
 
-      console.log(`💰 Processing payment: $${amount_cents / 100}`);
-      console.log(`📊 Platform gets: $${platformAmount / 100} (50%)`);
-      console.log(`🤝 Partner gets: $${partnerAmount / 100} (50%)`);
+      // console.log(`💰 Processing payment: $${amount_cents / 100}`);
+      // console.log(`📊 Platform gets: $${platformAmount / 100} (50%)`);
+      // console.log(`🤝 Partner gets: $${partnerAmount / 100} (50%)`);
 
       // Create payment intent
       const paymentIntent = await stripe.paymentIntents.create({
@@ -82,7 +82,7 @@ class PaymentProcessor {
 
     try {
       // Step 1: Platform gets paid (already happened via Stripe)
-      console.log(
+      // console.log(
         `✅ Platform received: $${metadata.platform_amount_cents / 100}`
       );
 
@@ -135,7 +135,7 @@ class PaymentProcessor {
         },
       });
 
-      console.log(
+      // console.log(
         `💸 Transferred $${amount / 100} to partner: ${connect_account}`
       );
       return transfer;
@@ -203,7 +203,7 @@ class PaymentProcessor {
         html: emailContent,
       });
 
-      console.log(`📧 Partner notification sent to: ${partner.supportEmail}`);
+      // console.log(`📧 Partner notification sent to: ${partner.supportEmail}`);
     } catch (error) {
       console.error('Failed to send partner notification:', error);
     }
@@ -274,7 +274,7 @@ class PaymentProcessor {
         html: emailContent,
       });
 
-      console.log(`📧 Student confirmation sent to: ${customer_email}`);
+      // console.log(`📧 Student confirmation sent to: ${customer_email}`);
     } catch (error) {
       console.error('Failed to send student confirmation:', error);
     }

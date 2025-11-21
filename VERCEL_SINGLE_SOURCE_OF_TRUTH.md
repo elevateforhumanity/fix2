@@ -21,7 +21,7 @@ GitHub Repository:
 └─ elevateforhumanity/fix2
    └─ Connected to →
       └─ Vercel Project: fix2-one (or similar)
-         ├─ Production: www.elevateconnectsdirectory.org
+         ├─ Production: www.elevateforhumanity.org
          ├─ Preview: *.vercel.app
          └─ Environment Variables: ✅ All configured
 ```
@@ -99,7 +99,7 @@ This will:
 ### Identify Which Project to Keep
 
 **Keep the project that has:**
-1. ✅ Custom domain (www.elevateconnectsdirectory.org)
+1. ✅ Custom domain (www.elevateforhumanity.org)
 2. ✅ Most recent successful deployment
 3. ✅ All environment variables configured
 4. ✅ Connected to elevateforhumanity/fix2
@@ -168,7 +168,7 @@ After ensuring single project, verify:
 - [ ] All environment variables present
 
 ### Production Site:
-- [ ] https://www.elevateconnectsdirectory.org loads
+- [ ] https://www.elevateforhumanity.org loads
 - [ ] Homepage displays correctly
 - [ ] Login/signup works
 - [ ] No console errors
@@ -326,7 +326,7 @@ If you see any of these, run the cleanup process immediately.
 ```
 Repository: elevateforhumanity/fix2
 Vercel Project: [UPDATE WITH ACTUAL PROJECT NAME]
-Production URL: https://www.elevateconnectsdirectory.org
+Production URL: https://www.elevateforhumanity.org
 Preview URL: https://[project-name].vercel.app
 Last Verified: [UPDATE DATE]
 Environment Variables: [✅ Complete / ⚠️ Incomplete]

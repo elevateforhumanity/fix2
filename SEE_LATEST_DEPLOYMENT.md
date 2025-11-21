@@ -3,7 +3,7 @@
 ## ✅ Deployment IS Live
 
 The latest code with all updates IS deployed to:
-**https://www.elevateconnectsdirectory.org**
+**https://www.elevateforhumanity.org
 
 Features deployed:
 - ✅ Voice Assistant button (bottom right, purple gradient)
@@ -59,13 +59,13 @@ Open the site in incognito/private browsing mode:
 - Firefox: `Ctrl + Shift + P` (Windows) or `Cmd + Shift + P` (Mac)
 - Safari: `Cmd + Shift + N`
 
-Then visit: https://www.elevateconnectsdirectory.org
+Then visit: https://www.elevateforhumanity.org
 
 ### Option 4: Add Cache Buster
 
 Add `?v=` + timestamp to the URL:
 ```
-https://www.elevateconnectsdirectory.org?v=1763270800
+https://www.elevateforhumanity.org?v=1763270800
 ```
 
 This forces the browser to fetch a fresh version.
@@ -87,7 +87,7 @@ View source and search for `dpl_` to see the deployment ID.
 
 ### Check for Voice Assistant
 
-1. Open: https://www.elevateconnectsdirectory.org
+1. Open: https://www.elevateforhumanity.org
 2. Look for purple gradient button in bottom-right corner
 3. Should say "Voice Assistant" on hover
 4. Has microphone icon
@@ -95,7 +95,7 @@ View source and search for `dpl_` to see the deployment ID.
 ### Check Server Headers
 
 ```bash
-curl -I https://www.elevateconnectsdirectory.org | grep -i "server\|vercel\|age"
+curl -I https://www.elevateforhumanity.org | grep -i "server\|vercel\|age"
 ```
 
 Should show:
@@ -148,7 +148,7 @@ This will:
 ## 📝 Summary
 
 **Deployment Status**: ✅ LIVE
-**URL**: https://www.elevateconnectsdirectory.org
+**URL**: https://www.elevateforhumanity.org
 **Issue**: Browser/CDN cache
 **Solution**: Hard refresh (Ctrl+Shift+R) or incognito mode
 

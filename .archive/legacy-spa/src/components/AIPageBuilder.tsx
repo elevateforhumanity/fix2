@@ -55,7 +55,10 @@ export default function AIPageBuilder() {
       if (data.success) {
         setTemplates(data.templates);
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error('Failed to load templates:', error);
+      setTemplates([]);
+    }
   }
 
   async function generatePage() {

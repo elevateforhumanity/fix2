@@ -33,7 +33,7 @@ This script will:
 
 ```bash
 cat > .env << 'EOF'
-VITE_SUPABASE_URL=https://YOUR_PROJECT_ID.supabase.co
+VITE_SUPABASE_URL=https://YOURPROJECTID.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key-here
 SUPABASE_SERVICE_KEY=your-service-role-key-here
 SUPABASE_PROJECT_REF=your-project-ref-here
@@ -141,7 +141,7 @@ After setup, your backend will have:
 - **Detailed Guide**: See `BACKEND_SETUP.md`
 - **Supabase Docs**: https://supabase.com/docs
 - **Check Logs**: `npx supabase functions logs <function-name>`
-- **Database Console**: https://app.supabase.com/project/_/editor
+- **Database Console**: https://app.supabase.com/project//editor
 
 ---
 

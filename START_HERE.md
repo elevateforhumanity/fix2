@@ -8,7 +8,7 @@ Your site shows skeleton/blank pages because environment variables aren't set in
 
 #### 1️⃣ Set Environment Variables (5 min)
 
-Go to: **https://app.netlify.com/sites/elevateforhumanityfix/settings/env**
+Go to: **https://app.netlify.com/sites/elevateforhumanityfix/settings/env
 
 Add these 3 variables:
 
@@ -22,13 +22,13 @@ Set scopes: **Production, Deploy previews, Branch deploys**
 
 #### 2️⃣ Deploy (2 min)
 
-Go to: **https://app.netlify.com/sites/elevateforhumanityfix/deploys**
+Go to: **https://app.netlify.com/sites/elevateforhumanityfix/deploys
 
 Click: **Trigger deploy** → **Clear cache and deploy site**
 
 #### 3️⃣ Test (5 min)
 
-Visit: **https://elevateforhumanityfix.netlify.app**
+Visit: **https://elevateforhumanityfix.netlify.app
 
 Check:
 
@@ -42,24 +42,24 @@ Check:
 
 ### Essential Guides
 
-1. **[SKELETON_FIX_SUMMARY.md](./SKELETON_FIX_SUMMARY.md)** ⭐  
+1. **[SKELETON_FIX_SUMMARY.md](SKELETON_FILES_ONLY.md)** ⭐  
    Complete implementation summary - read this first
 
-2. **[QUICK_FIX_SKELETON.md](./QUICK_FIX_SKELETON.md)**  
+2. **[QUICK_FIX_SKELETON.md](SKELETON_VS_REAL_CODE_REPORT.md)**  
    15-minute quick fix guide
 
 3. **[DEPLOYMENT_INSTRUCTIONS.md](./DEPLOYMENT_INSTRUCTIONS.md)**  
    Detailed deployment steps
 
-4. **[TESTING_CHECKLIST.md](./TESTING_CHECKLIST.md)**  
+4. **[TESTING_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md)**  
    Comprehensive testing guide
 
 ### Additional Resources
 
-5. **[NETLIFY_ENV_VARS_REQUIRED.md](./NETLIFY_ENV_VARS_REQUIRED.md)**  
+5. **[NETLIFY_ENV_VARS_REQUIRED.md](NETLIFY_ENV_SETUP.md)**  
    Environment variables reference
 
-6. **[DOMAIN_CONFIGURATION.md](./DOMAIN_CONFIGURATION.md)**  
+6. **[DOMAIN_CONFIGURATION.md](DOMAIN_ARCHITECTURE.md)**  
    Domain strategy and setup
 
 7. **[ARCHITECTURE_SPLIT.md](./ARCHITECTURE_SPLIT.md)**  
@@ -82,8 +82,8 @@ Your React SPA shows skeleton/blank pages because:
 
 Set correct environment variables so:
 
-- ✅ API calls go to: `https://api.elevateforhumanity.org`
-- ✅ Supabase connects to: `https://cuxzzpsyufcewtmicszk.supabase.co`
+- ✅ API calls go to: `https://api.elevateforhumanity.org
+- ✅ Supabase connects to: `https://cuxzzpsyufcewtmicszk.supabase.co
 - ✅ Content loads immediately (no skeletons)
 
 ---
@@ -157,9 +157,9 @@ Set correct environment variables so:
 
 ## 🎓 Learn More
 
-- **Quick Fix:** [QUICK_FIX_SKELETON.md](./QUICK_FIX_SKELETON.md)
-- **Full Summary:** [SKELETON_FIX_SUMMARY.md](./SKELETON_FIX_SUMMARY.md)
-- **Testing:** [TESTING_CHECKLIST.md](./TESTING_CHECKLIST.md)
+- **Quick Fix:** [QUICK_FIX_SKELETON.md](SKELETON_VS_REAL_CODE_REPORT.md)
+- **Full Summary:** [SKELETON_FIX_SUMMARY.md](SKELETON_FILES_ONLY.md)
+- **Testing:** [TESTING_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md)
 
 ---
 

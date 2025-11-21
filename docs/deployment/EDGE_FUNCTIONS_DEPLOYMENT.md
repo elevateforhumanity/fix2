@@ -34,7 +34,7 @@ supabase functions deploy email-dispatch
 
 ```bash
 # Direct send
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/email-dispatch \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/email-dispatch \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -44,7 +44,7 @@ curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/email-dispatch \
   }'
 
 # Process queue (for cron)
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/email-dispatch?action=process-queue \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/email-dispatch?action=process-queue \
   -H "Authorization: Bearer YOUR_ANON_KEY"
 ```
 
@@ -69,7 +69,7 @@ supabase functions deploy webhook-dispatch
 
 ```bash
 # Direct dispatch
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/webhook-dispatch \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/webhook-dispatch \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -79,11 +79,11 @@ curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/webhook-dispatch \
   }'
 
 # Process queue (for cron)
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/webhook-dispatch?action=process-queue \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/webhook-dispatch?action=process-queue \
   -H "Authorization: Bearer YOUR_ANON_KEY"
 
 # Retry failed (for cron)
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/webhook-dispatch?action=retry-failed \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/webhook-dispatch?action=retry-failed \
   -H "Authorization: Bearer YOUR_ANON_KEY"
 ```
 
@@ -108,7 +108,7 @@ supabase functions deploy ai-course-create
 **Usage:**
 
 ```bash
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/ai-course-create \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/ai-course-create \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -146,7 +146,7 @@ supabase functions deploy grade-ai
 
 ```bash
 # Direct grading
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/grade-ai \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/grade-ai \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -157,7 +157,7 @@ curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/grade-ai \
   }'
 
 # Process queue (for cron)
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/grade-ai?action=process-queue \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/grade-ai?action=process-queue \
   -H "Authorization: Bearer YOUR_ANON_KEY"
 ```
 
@@ -309,7 +309,7 @@ SELECT cron.schedule(
   '*/5 * * * *',
   $$
   SELECT net.http_post(
-    url := 'https://YOUR_PROJECT.supabase.co/functions/v1/email-dispatch?action=process-queue',
+    url := 'https://YOURPROJECT.supabase.co/functions/v1/email-dispatch?action=process-queue',
     headers := '{"Authorization": "Bearer YOUR_SERVICE_ROLE_KEY"}'::jsonb
   );
   $$
@@ -325,7 +325,7 @@ SELECT cron.schedule(
   '*/2 * * * *',
   $$
   SELECT net.http_post(
-    url := 'https://YOUR_PROJECT.supabase.co/functions/v1/webhook-dispatch?action=process-queue',
+    url := 'https://YOURPROJECT.supabase.co/functions/v1/webhook-dispatch?action=process-queue',
     headers := '{"Authorization": "Bearer YOUR_SERVICE_ROLE_KEY"}'::jsonb
   );
   $$
@@ -341,7 +341,7 @@ SELECT cron.schedule(
   '0 * * * *',
   $$
   SELECT net.http_post(
-    url := 'https://YOUR_PROJECT.supabase.co/functions/v1/webhook-dispatch?action=retry-failed',
+    url := 'https://YOURPROJECT.supabase.co/functions/v1/webhook-dispatch?action=retry-failed',
     headers := '{"Authorization": "Bearer YOUR_SERVICE_ROLE_KEY"}'::jsonb
   );
   $$
@@ -357,7 +357,7 @@ SELECT cron.schedule(
   '*/10 * * * *',
   $$
   SELECT net.http_post(
-    url := 'https://YOUR_PROJECT.supabase.co/functions/v1/grade-ai?action=process-queue',
+    url := 'https://YOURPROJECT.supabase.co/functions/v1/grade-ai?action=process-queue',
     headers := '{"Authorization": "Bearer YOUR_SERVICE_ROLE_KEY"}'::jsonb
   );
   $$

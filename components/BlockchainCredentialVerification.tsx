@@ -30,7 +30,7 @@ export function BlockchainCredentialVerification() {
       id: '1',
       type: 'certificate',
       title: 'Full-Stack Web Development',
-      issuer: 'Elevate Connects',
+      issuer: 'Elevate for Humanity',
       issueDate: '2024-01-15',
       blockchainHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
       verificationUrl: 'https://verify.elevateconnects.com/cert/abc123',
@@ -44,7 +44,7 @@ export function BlockchainCredentialVerification() {
       id: '2',
       type: 'badge',
       title: 'JavaScript Expert',
-      issuer: 'Elevate Connects',
+      issuer: 'Elevate for Humanity',
       issueDate: '2024-01-10',
       blockchainHash: '0x3c2c2eb7b11a91385f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ea',
       verificationUrl: 'https://verify.elevateconnects.com/badge/xyz789',
@@ -74,7 +74,7 @@ export function BlockchainCredentialVerification() {
       id: 'verified-1',
       type: 'certificate',
       title: 'Full-Stack Web Development',
-      issuer: 'Elevate Connects',
+      issuer: 'Elevate for Humanity',
       issueDate: '2024-01-15',
       blockchainHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
       verificationUrl: 'https://verify.elevateconnects.com/cert/abc123',
@@ -103,7 +103,7 @@ export function BlockchainCredentialVerification() {
             <div>
               <h3 className="text-xl font-bold mb-2">Blockchain-Secured Credentials</h3>
               <p className="text-gray-700 mb-3">
-                All credentials issued through Elevate Connects are recorded on the blockchain, ensuring they cannot be
+                All credentials issued through Elevate for Humanity are recorded on the blockchain, ensuring they cannot be
                 forged, altered, or falsified. Employers and institutions can instantly verify authenticity.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">

@@ -9,9 +9,9 @@ Credentialed • Verifiable • Workforce-Aligned
 ## SECTION 1 — ORGANIZATION OVERVIEW
 
 **Organization Name**: Elevate for Humanity  
-**Website**: https://www.elevateconnectsdirectory.org  
+**Website**: https://www.elevateforhumanity.org  
 **Phone**: 317-314-3757  
-**Email**: support@elevateconnectsdirectory.org
+**Email**: support@elevateforhumanity.org
 
 **Mission**: Provide free/subsidized credentialed workforce training aligned with employer and state priorities.
 
@@ -86,7 +86,7 @@ We provide credentialed pathways in:
 
 ### Public Certificate Verification
 
-**URL**: https://www.elevateconnectsdirectory.org/cert/verify/[serial]
+**URL**: https://www.elevateforhumanity.org/cert/verify/[serial]
 
 Anyone can verify a certificate by:
 
@@ -331,29 +331,29 @@ Our model aligns with:
 
 **Primary Contact**: Elevate for Humanity Team  
 **Phone**: 317-314-3757  
-**Email**: support@elevateconnectsdirectory.org  
-**Website**: https://www.elevateconnectsdirectory.org
+**Email**: support@elevateforhumanity.org  
+**Website**: https://www.elevateforhumanity.org
 
 ### For State Agencies
 
 To discuss partnership, data sharing, or ETPL application:
 
 - Call: 317-314-3757
-- Email: partnerships@elevateconnectsdirectory.org
+- Email: partnerships@elevateforhumanity.org
 
 ### For Workforce Boards
 
 To explore referral partnerships or co-enrollment:
 
 - Call: 317-314-3757
-- Email: workforce@elevateconnectsdirectory.org
+- Email: workforce@elevateforhumanity.org
 
 ### For Employers
 
 To receive candidate referrals or discuss OJT/WEX:
 
 - Call: 317-314-3757
-- Email: employers@elevateconnectsdirectory.org
+- Email: employers@elevateforhumanity.org
 
 ---
 
@@ -374,4 +374,4 @@ To receive candidate referrals or discuss OJT/WEX:
 Credentialed Training • Verified Outcomes • Workforce Ready
 
 📞 317-314-3757  
-🌐 elevateconnectsdirectory.org
+🌐 elevateforhumanity.org

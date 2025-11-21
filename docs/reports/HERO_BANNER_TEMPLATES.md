@@ -43,7 +43,7 @@ Based on your interest in **student-portal.html**, here are the best templates w
   - Clean, modern design
   - Service/program cards with images
 - **Best For**: Professional homepage with visual content
-- **Preview**: [https://elevateforhumanity.netlify.app/pages/READY_FOR_TRANSFER_index.html](https://elevateforhumanity.netlify.app/pages/READY_FOR_TRANSFER_index.html)
+- **Preview**: [https://elevateforhumanity.netlify.app/pages/READY_FOR_TRANSFER_index.html](https://elevateforhumanity.netlify.app/pages/READY_FORTRANSFERindex.html)
 
 ---
 

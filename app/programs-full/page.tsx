@@ -26,7 +26,7 @@ export default function ProgramsFullPage() {
           <div className="flex flex-col">
             <span className="font-bold text-lg">Elevate for Humanity</span>
             <span className="text-xs text-gray-600">
-              Elevate Connects Directory
+              Elevate for Humanity
             </span>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function ProgramsFullPage() {
         <div className="elevate-container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Elevate Connects Directory
+              Elevate for Humanity
             </h1>
             <p className="text-2xl font-semibold mb-4 text-orange-300">
               Workforce Training • Apprenticeships • Employer Partnerships
@@ -353,7 +353,7 @@ export default function ProgramsFullPage() {
         <div className="elevate-container">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Why Elevate Connects Directory Works
+              Why Elevate for Humanity Works
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">

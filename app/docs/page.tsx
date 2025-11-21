@@ -37,7 +37,7 @@ export default function DocsPage() {
           <BookOpen className="h-16 w-16 mx-auto mb-4" />
           <h1 className="text-4xl font-bold mb-4">Documentation</h1>
           <p className="text-lg opacity-90 max-w-2xl mx-auto">
-            Everything you need to know about using Elevate Connects Directory
+            Everything you need to know about using Elevate for Humanity
           </p>
         </div>
       </section>
@@ -147,7 +147,7 @@ export default function DocsPage() {
           <div className="elevate-card">
             <h3 className="font-bold text-gray-900 mb-2">API Documentation</h3>
             <p className="text-gray-600 mb-4">
-              Integrate with Elevate Connects Directory using our REST API
+              Integrate with Elevate for Humanity using our REST API
             </p>
             <Link
               href="/docs/api"

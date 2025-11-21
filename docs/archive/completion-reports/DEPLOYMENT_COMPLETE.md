@@ -53,7 +53,7 @@ vercel login
 vercel --prod
 ```
 
-**Expected URL**: `https://app.elevateforhumanity.org`
+**Expected URL**: `https://app.elevateforhumanity.org
 
 ### 2. Deploy Backend to Railway (Optional)
 
@@ -66,7 +66,7 @@ cd backend
 railway up
 ```
 
-**Expected URL**: `https://api.elevateforhumanity.org`
+**Expected URL**: `https://api.elevateforhumanity.org
 
 ### 3. Configure DNS
 
@@ -103,7 +103,7 @@ OR
 ./start-autopilot.sh
 ```
 
-Access at: `http://localhost:7070`
+Access at: `http://localhost:7070
 
 ---
 

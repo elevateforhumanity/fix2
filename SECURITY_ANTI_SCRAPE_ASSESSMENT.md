@@ -437,7 +437,7 @@ export async function checkIPReputation(ip: string): Promise<{
   riskScore: number;
 }> {
   const response = await axios.get(
-    `https://ipqualityscore.com/api/json/ip/${process.env.IPQS_KEY}/${ip}`
+    `https://ipqualityscore.com/api/json/ip/${process.env.IPQSKEY}/${ip}
   );
   
   return {

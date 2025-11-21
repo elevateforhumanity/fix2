@@ -25,7 +25,7 @@
 
 ### Configuration
 
-**URL:** `https://cuxzzpsyufcewtmicszk.supabase.co`
+**URL:** `https://cuxzzpsyufcewtmicszk.supabase.co
 **Status:** ✅ Configured in Netlify environment
 
 **Environment Variables:**
@@ -57,7 +57,7 @@ VITE_SUPABASE_ANON_KEY = "eyJhbGci...CUvLUnA" ✅
 
 #### 1. **AI Stylist Worker** ✅
 
-**URL:** `https://efh-ai-stylist.workers.dev`
+**URL:** `https://efh-ai-stylist.workers.dev
 **Used in:**
 
 - `src/components/AIPageBuilder.tsx`
@@ -67,7 +67,7 @@ VITE_SUPABASE_ANON_KEY = "eyJhbGci...CUvLUnA" ✅
 
 #### 2. **Autopilot Orchestrator** ✅
 
-**URL:** `https://efh-autopilot-orchestrator.workers.dev`
+**URL:** `https://efh-autopilot-orchestrator.workers.dev
 **Used in:**
 
 - `src/components/OrchestratorAdmin.tsx`
@@ -85,7 +85,7 @@ VITE_SUPABASE_ANON_KEY = "eyJhbGci...CUvLUnA" ✅
 
 #### 3. **Autopilot Analyzer** ✅
 
-**URL:** `https://efh-autopilot-analyzer.workers.dev`
+**URL:** `https://efh-autopilot-analyzer.workers.dev
 **Used in:**
 
 - `src/pages/AutopilotAdmin.tsx`

@@ -53,10 +53,10 @@ VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 - No `wrangler.toml` file
 - No Cloudflare Workers in repository
 - `.env.example` references Cloudflare Workers URLs that don't exist:
-  - `VITE_AGENT_WORKER_URL=https://efh-agent.workers.dev`
-  - `VITE_ANALYZER_URL=https://efh-autopilot-analyzer.workers.dev`
-  - `VITE_ORCHESTRATOR_URL=https://efh-autopilot-orchestrator.workers.dev`
-  - `VITE_AI_STYLIST_URL=https://efh-ai-stylist.workers.dev`
+  - `VITE_AGENT_WORKER_URL=https://efh-agent.workers.dev
+  - `VITE_ANALYZER_URL=https://efh-autopilot-analyzer.workers.dev
+  - `VITE_ORCHESTRATOR_URL=https://efh-autopilot-orchestrator.workers.dev
+  - `VITE_AI_STYLIST_URL=https://efh-ai-stylist.workers.dev
 
 **Impact:** Broken integration - Cloudflare Workers referenced but not implemented  
 **Fix:** Either create Cloudflare Workers or remove references

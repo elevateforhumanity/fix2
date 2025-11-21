@@ -34,7 +34,7 @@
 1. **Go to team billing:**
 
    ```
-   https://app.netlify.com/teams/YOUR_TEAM_NAME/billing
+   https://app.netlify.com/teams/YOURTEAMNAME/billing
    ```
 
 2. **Look for:**
@@ -193,7 +193,7 @@ https://app.netlify.com/sites/elevateforhumanityfix2/settings/deploys
 **Billing:**
 
 ```
-https://app.netlify.com/teams/YOUR_TEAM_NAME/billing
+https://app.netlify.com/teams/YOURTEAMNAME/billing
 ```
 
 **Recent Deploys:**

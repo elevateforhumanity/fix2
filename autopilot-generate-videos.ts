@@ -48,7 +48,7 @@ if (!SUPABASE_URL || !SUPABASE_KEY) {
 const videos = [
   {
     script: 'homepage-hero.md',
-    title: 'Welcome to Elevate Connects Directory',
+    title: 'Welcome to Elevate for Humanity',
     page: 'homepage',
     duration: 45,
     prompt: 'Professional welcome video for workforce training platform, diverse students, modern educational setting, Elevate for Humanity branding',

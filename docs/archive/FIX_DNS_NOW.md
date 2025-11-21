@@ -63,13 +63,13 @@ CNAME  www  elevateproduction.netlify.app ✅
 ### Before Fix:
 
 ```
-www.elevateconnectsdirectory.org → elevateforhumanity.org (wrong site)
+www.elevateforhumanity.org → elevateforhumanity.org (wrong site)
 ```
 
 ### After Fix:
 
 ```
-www.elevateconnectsdirectory.org → elevateproduction.netlify.app (your LMS)
+www.elevateforhumanity.org → elevateproduction.netlify.app (your LMS)
 ```
 
 ---
@@ -88,7 +88,7 @@ www.elevateconnectsdirectory.org → elevateproduction.netlify.app (your LMS)
 After 10-15 minutes:
 
 1. Visit: https://dnschecker.org
-2. Enter: www.elevateconnectsdirectory.org
+2. Enter: www.elevateforhumanity.org
 3. Select: CNAME
 4. Should show: elevateproduction.netlify.app ✅
 

@@ -1,4 +1,4 @@
-# Design Comparison: ElevateConnectsDirectory.org vs. Top LMS Competitors
+# Design Comparison: elevateforhumanity.org vs. Top LMS Competitors
 
 ## Executive Summary
 

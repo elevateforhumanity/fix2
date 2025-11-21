@@ -48,7 +48,7 @@ export class StripeService {
   ): Promise<PaymentIntent> {
     try {
       // In production, call Stripe API
-      console.log('Creating payment intent:', { amount, currency, metadata });
+      // console.log('Creating payment intent:', { amount, currency, metadata });
 
       // Mock response
       return {
@@ -67,7 +67,7 @@ export class StripeService {
   // Confirm payment
   async confirmPayment(paymentIntentId: string): Promise<PaymentIntent> {
     try {
-      console.log('Confirming payment:', paymentIntentId);
+      // console.log('Confirming payment:', paymentIntentId);
 
       // Mock response
       return {
@@ -86,7 +86,7 @@ export class StripeService {
   // Create customer
   async createCustomer(email: string, name: string): Promise<string> {
     try {
-      console.log('Creating customer:', { email, name });
+      // console.log('Creating customer:', { email, name });
 
       // Mock response
       return `cus_${Date.now()}`;
@@ -102,7 +102,7 @@ export class StripeService {
     priceId: string
   ): Promise<Subscription> {
     try {
-      console.log('Creating subscription:', { customerId, priceId });
+      // console.log('Creating subscription:', { customerId, priceId });
 
       // Mock response
       return {
@@ -122,7 +122,7 @@ export class StripeService {
   // Cancel subscription
   async cancelSubscription(subscriptionId: string): Promise<Subscription> {
     try {
-      console.log('Canceling subscription:', subscriptionId);
+      // console.log('Canceling subscription:', subscriptionId);
 
       // Mock response
       return {
@@ -142,7 +142,7 @@ export class StripeService {
   // Get subscription
   async getSubscription(subscriptionId: string): Promise<Subscription | null> {
     try {
-      console.log('Getting subscription:', subscriptionId);
+      // console.log('Getting subscription:', subscriptionId);
 
       // Mock response
       return {
@@ -196,7 +196,7 @@ export class StripeService {
     amount?: number
   ): Promise<boolean> {
     try {
-      console.log('Creating refund:', { paymentIntentId, amount });
+      // console.log('Creating refund:', { paymentIntentId, amount });
       return true;
     } catch (error) {
       console.error('Refund creation error:', error);
@@ -208,26 +208,26 @@ export class StripeService {
   async handleWebhook(payload: string, signature: string): Promise<void> {
     try {
       // Verify webhook signature
-      console.log('Handling webhook:', { payload, signature });
+      // console.log('Handling webhook:', { payload, signature });
 
       // Process webhook events
       const event = JSON.parse(payload);
 
       switch (event.type) {
         case 'payment_intent.succeeded':
-          console.log('Payment succeeded:', event.data.object);
+          // console.log('Payment succeeded:', event.data.object);
           break;
         case 'payment_intent.payment_failed':
-          console.log('Payment failed:', event.data.object);
+          // console.log('Payment failed:', event.data.object);
           break;
         case 'customer.subscription.created':
-          console.log('Subscription created:', event.data.object);
+          // console.log('Subscription created:', event.data.object);
           break;
         case 'customer.subscription.deleted':
-          console.log('Subscription deleted:', event.data.object);
+          // console.log('Subscription deleted:', event.data.object);
           break;
         default:
-          console.log('Unhandled event type:', event.type);
+          // console.log('Unhandled event type:', event.type);
       }
     } catch (error) {
       console.error('Webhook handling error:', error);

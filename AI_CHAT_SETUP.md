@@ -46,7 +46,7 @@ OPENAI_API_KEY=sk-your-api-key-here
 
 ### 3. Access the Chat
 
-Visit: `https://www.elevateconnectsdirectory.org/ai-chat`
+Visit: `https://www.elevateforhumanity.org/ai-chat
 
 Or click the "💬 Chat with AI Helper" button on the homepage.
 

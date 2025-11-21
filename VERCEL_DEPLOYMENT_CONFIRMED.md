@@ -9,7 +9,7 @@
 
 ## ✅ Deployment Domain
 
-**Production URL**: https://www.elevateconnectsdirectory.org
+**Production URL**: https://www.elevateforhumanity.org
 **Server**: Vercel (confirmed via headers)
 **Status**: ✅ LIVE AND DEPLOYED
 
@@ -36,7 +36,7 @@
 ## ✅ Deployment Verification
 
 ```bash
-curl -I https://www.elevateconnectsdirectory.org
+curl -I https://www.elevateforhumanity.org
 ```
 
 **Response Headers**:
@@ -68,7 +68,7 @@ curl -I https://www.elevateconnectsdirectory.org
 1. **Push to GitHub**: Code pushed to `main` branch
 2. **Vercel Webhook**: Automatically triggered
 3. **Build**: Next.js build on Vercel
-4. **Deploy**: Deployed to www.elevateconnectsdirectory.org
+4. **Deploy**: Deployed to www.elevateforhumanity.org
 5. **CDN**: Distributed via Vercel's global CDN
 
 ## ✅ Automatic Deployments
@@ -78,14 +78,14 @@ Every push to `main` branch automatically:
 2. Runs Next.js build process
 3. Deploys to production
 4. Updates CDN cache
-5. Serves at www.elevateconnectsdirectory.org
+5. Serves at www.elevateforhumanity.org
 
 ## 📊 Deployment Status
 
 **Repository**: elevateforhumanity/fix2
 **Branch**: main
 **Vercel Project**: fix2-gpql
-**Domain**: www.elevateconnectsdirectory.org
+**Domain**: www.elevateforhumanity.org
 **Status**: ✅ DEPLOYED AND LIVE
 
 ## 🔍 How to Verify
@@ -97,7 +97,7 @@ Every push to `main` branch automatically:
 4. Status should be "Ready"
 
 ### Check Live Site:
-1. Visit: https://www.elevateconnectsdirectory.org
+1. Visit: https://www.elevateforhumanity.org
 2. Look for Voice Assistant button (bottom-right, purple)
 3. Check deployment ID in page source: `dpl_[hash]`
 4. Verify server header: `server: Vercel`
@@ -105,20 +105,20 @@ Every push to `main` branch automatically:
 ### Check via Command Line:
 ```bash
 # Check server
-curl -I https://www.elevateconnectsdirectory.org | grep server
+curl -I https://www.elevateforhumanity.org | grep server
 
 # Check deployment ID
-curl -sL https://www.elevateconnectsdirectory.org | grep -o "dpl_[a-zA-Z0-9]*" | head -1
+curl -sL https://www.elevateforhumanity.org | grep -o "dpl_[a-zA-Z0-9]*" | head -1
 
 # Check for Voice Assistant
-curl -sL https://www.elevateconnectsdirectory.org | grep "Voice Assistant"
+curl -sL https://www.elevateforhumanity.org | grep "Voice Assistant"
 ```
 
 ## ✅ Confirmation
 
 The deployment is **100% configured correctly** and going to:
 - **Vercel Project**: fix2-gpql
-- **Production Domain**: www.elevateconnectsdirectory.org
+- **Production Domain**: www.elevateforhumanity.org
 - **Organization**: elevate-48e460c9
 
 All commits are automatically deployed to this location.

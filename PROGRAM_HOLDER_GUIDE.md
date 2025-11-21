@@ -139,14 +139,14 @@ Program
 **Option 1: YouTube**
 
 1. Upload video to YouTube
-2. Copy video URL (e.g., `https://youtube.com/watch?v=VIDEO_ID`)
+2. Copy video URL (e.g., `https://youtube.com/watch?v=VIDEOID)
 3. Paste URL in lesson content field
 4. Set content type to "video"
 
 **Option 2: Vimeo**
 
 1. Upload video to Vimeo
-2. Copy video URL (e.g., `https://vimeo.com/VIDEO_ID`)
+2. Copy video URL (e.g., `https://vimeo.com/VIDEOID)
 3. Paste URL in lesson content field
 4. Set content type to "video"
 

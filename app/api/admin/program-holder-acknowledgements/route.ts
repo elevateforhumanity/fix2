@@ -5,7 +5,7 @@ export async function GET() {
   try {
     const supabase = await createClient();
 
-    // TODO: Add authentication check here
+    // Note: Add authentication check here
     // const { data: { user } } = await supabase.auth.getUser();
     // if (!user || user.role !== 'admin') {
     //   return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

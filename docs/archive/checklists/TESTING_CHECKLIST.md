@@ -5,8 +5,8 @@
 Before testing, ensure:
 
 - [ ] Environment variables added to Netlify Dashboard
-  - [ ] `VITE_API_URL=https://api.elevateforhumanity.org`
-  - [ ] `VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co`
+  - [ ] `VITE_API_URL=https://api.elevateforhumanity.org
+  - [ ] `VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
   - [ ] `VITE_SUPABASE_ANON_KEY=[key from NETLIFY_ENV_VARS_REQUIRED.md]`
 - [ ] New deployment triggered (clear cache + deploy)
 - [ ] Deployment completed successfully (check Netlify dashboard)
@@ -51,8 +51,8 @@ Before testing, ensure:
 
 #### Network Tests (DevTools → Network)
 
-- [ ] API calls go to `https://api.elevateforhumanity.org`
-- [ ] Supabase calls go to `https://cuxzzpsyufcewtmicszk.supabase.co`
+- [ ] API calls go to `https://api.elevateforhumanity.org
+- [ ] Supabase calls go to `https://cuxzzpsyufcewtmicszk.supabase.co
 - [ ] All requests return 200 OK (or expected status)
 - [ ] No 404 errors for assets
 
@@ -162,14 +162,14 @@ Open DevTools → Network tab and verify:
 
 #### Supabase Calls
 
-- [ ] Auth calls go to `https://cuxzzpsyufcewtmicszk.supabase.co/auth/v1/`
-- [ ] Data calls go to `https://cuxzzpsyufcewtmicszk.supabase.co/rest/v1/`
+- [ ] Auth calls go to `https://cuxzzpsyufcewtmicszk.supabase.co/auth/v1/
+- [ ] Data calls go to `https://cuxzzpsyufcewtmicszk.supabase.co/rest/v1/
 - [ ] Realtime calls go to `wss://cuxzzpsyufcewtmicszk.supabase.co/realtime/v1/`
 - [ ] All calls include correct `apikey` header
 
 #### Custom API Calls
 
-- [ ] API calls go to `https://api.elevateforhumanity.org`
+- [ ] API calls go to `https://api.elevateforhumanity.org
 - [ ] No calls to `localhost` or `127.0.0.1`
 - [ ] No calls to wrong domains
 - [ ] CORS headers present in responses

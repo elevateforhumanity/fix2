@@ -1,6 +1,6 @@
 # DURABLE DOMAIN → NETLIFY SETUP
 
-**Your Domain:** elevateconnectsdirectory.org (at Durable.co)
+**Your Domain:** elevateforhumanity.org (at Durable.co)
 **Goal:** Point Durable domain to Netlify LMS
 **Status:** ✅ Simple 3-step process
 
@@ -9,7 +9,7 @@
 ## 🎯 WHAT YOU HAVE
 
 ```
-Domain: elevateconnectsdirectory.org
+Domain: elevateforhumanity.org
 Registrar: Durable.co
 Current Status: Not connected
 Netlify Site: elevateproduction.netlify.app (ready)
@@ -24,7 +24,7 @@ Netlify Site: elevateproduction.netlify.app (ready)
 1. **Go to:** https://durable.co/login
 2. **Login** with your credentials
 3. **Go to:** Dashboard
-4. **Find:** elevateconnectsdirectory.org
+4. **Find:** elevateforhumanity.org
 5. **Click:** Domain Settings or Manage Domain
 
 ---
@@ -74,7 +74,7 @@ TTL: 3600 (or 1 hour)
 
 2. **Click:** "Add custom domain"
 
-3. **Enter:** `elevateconnectsdirectory.org`
+3. **Enter:** `elevateforhumanity.org`
 
 4. **Click:** "Verify"
 
@@ -96,16 +96,16 @@ TTL: 3600 (or 1 hour)
 ### Check DNS Propagation (10-15 minutes after setup):
 
 1. **Go to:** https://dnschecker.org
-2. **Enter:** elevateconnectsdirectory.org
+2. **Enter:** elevateforhumanity.org
 3. **Select:** A Record
 4. **Should show:** 75.2.60.5 (Netlify IP)
 
 ### Check Website (15-20 minutes after setup):
 
-1. **Visit:** https://www.elevateconnectsdirectory.org
+1. **Visit:** https://www.elevateforhumanity.org
 2. **Should show:** Your Netlify LMS
 3. **SSL:** Should be secure (🔒 in browser)
-4. **www redirect:** www.elevateconnectsdirectory.org should redirect to apex
+4. **www redirect:** www.elevateforhumanity.org should redirect to apex
 
 ---
 
@@ -142,7 +142,7 @@ What it does:
 ## 🏗️ ARCHITECTURE
 
 ```
-USER TYPES: elevateconnectsdirectory.org
+USER TYPES: elevateforhumanity.org
     ↓
 DNS LOOKUP (Durable.co DNS servers)
     ↓
@@ -152,7 +152,7 @@ BROWSER CONNECTS TO: Netlify servers
     ↓
 NETLIFY SERVES: Your LMS site
     ↓
-USER SEES: Your site at elevateconnectsdirectory.org
+USER SEES: Your site at elevateforhumanity.org
 ```
 
 ---
@@ -164,7 +164,7 @@ USER SEES: Your site at elevateconnectsdirectory.org
 ```
 1. Login to Durable.co
 2. Click "Domains" or "My Domains"
-3. Find: elevateconnectsdirectory.org
+3. Find: elevateforhumanity.org
 4. Click: "Manage" or "Settings"
 5. Look for: "DNS Settings" or "Advanced DNS"
 ```
@@ -302,7 +302,7 @@ If SSL doesn't work after 1 hour:
 ### In Durable.co:
 
 - [ ] Logged into Durable account
-- [ ] Found elevateconnectsdirectory.org
+- [ ] Found elevateforhumanity.org
 - [ ] Opened DNS settings
 - [ ] Deleted old A records (if any)
 - [ ] Added A record: @ → 75.2.60.5
@@ -314,7 +314,7 @@ If SSL doesn't work after 1 hour:
 
 - [ ] Logged into Netlify
 - [ ] Went to domain settings
-- [ ] Added custom domain: elevateconnectsdirectory.org
+- [ ] Added custom domain: elevateforhumanity.org
 - [ ] Verified DNS configuration
 - [ ] SSL certificate provisioned
 - [ ] Domain shows as "Active"
@@ -322,10 +322,10 @@ If SSL doesn't work after 1 hour:
 ### Testing:
 
 - [ ] Checked DNS propagation (dnschecker.org)
-- [ ] Visited https://www.elevateconnectsdirectory.org
+- [ ] Visited https://www.elevateforhumanity.org
 - [ ] Site loads correctly
 - [ ] SSL works (🔒 in browser)
-- [ ] www.elevateconnectsdirectory.org redirects to apex
+- [ ] www.elevateforhumanity.org redirects to apex
 
 ---
 
@@ -460,7 +460,7 @@ https://durable.co/login
 ### After Setup:
 
 ```
-Your Domain: elevateconnectsdirectory.org (Durable)
+Your Domain: elevateforhumanity.org (Durable)
 Points to: Netlify (75.2.60.5)
 Netlify Serves: Your LMS site
 SSL: Automatic (Let's Encrypt)
@@ -470,7 +470,7 @@ Cost: $0 extra
 ### User Experience:
 
 ```
-1. User types: elevateconnectsdirectory.org
+1. User types: elevateforhumanity.org
 2. DNS (Durable) points to: Netlify
 3. Netlify serves: Your LMS
 4. User sees: Your site with SSL

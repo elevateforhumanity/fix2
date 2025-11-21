@@ -63,7 +63,7 @@ export class XAPIClient {
 
   async sendStatement(statement: XAPIStatement): Promise<void> {
     if (!this.enabled) {
-      console.log('[xAPI] Disabled - statement not sent:', statement);
+      // console.log('[xAPI] Disabled - statement not sent:', statement);
       return;
     }
 
@@ -87,7 +87,7 @@ export class XAPIClient {
         );
       }
 
-      console.log('[xAPI] Statement sent successfully');
+      // console.log('[xAPI] Statement sent successfully');
     } catch (error) {
       console.error('[xAPI] Failed to send statement:', error);
       // Don't throw - we don't want tracking failures to break the app
@@ -146,7 +146,7 @@ export class XAPIClient {
       actor: this.createActor(userId, userName),
       verb: XAPIClient.VERBS.INITIALIZED,
       object: {
-        id: `https://elevateconnectsdirectory.org/courses/${courseId}`,
+        id: `https://elevateforhumanity.org/courses/${courseId}`,
         definition: {
           name: { 'en-US': courseName },
           type: 'http://adlnet.gov/expapi/activities/course',
@@ -187,7 +187,7 @@ export class XAPIClient {
       actor: this.createActor(userId, userName),
       verb: XAPIClient.VERBS.COMPLETED,
       object: {
-        id: `https://elevateconnectsdirectory.org/lessons/${lessonId}`,
+        id: `https://elevateforhumanity.org/lessons/${lessonId}`,
         definition: {
           name: { 'en-US': lessonName },
           type: 'http://adlnet.gov/expapi/activities/lesson',
@@ -212,7 +212,7 @@ export class XAPIClient {
       actor: this.createActor(userId, userName),
       verb: passed ? XAPIClient.VERBS.PASSED : XAPIClient.VERBS.FAILED,
       object: {
-        id: `https://elevateconnectsdirectory.org/quizzes/${quizId}`,
+        id: `https://elevateforhumanity.org/quizzes/${quizId}`,
         definition: {
           name: { 'en-US': quizName },
           type: 'http://adlnet.gov/expapi/activities/assessment',
@@ -246,7 +246,7 @@ export class XAPIClient {
       actor: this.createActor(userId, userName),
       verb: XAPIClient.VERBS.EXPERIENCED,
       object: {
-        id: `https://elevateconnectsdirectory.org/videos/${videoId}`,
+        id: `https://elevateforhumanity.org/videos/${videoId}`,
         definition: {
           name: { 'en-US': videoName },
           type: 'https://w3id.org/xapi/video/activity-type/video',

@@ -52,7 +52,7 @@ localStorage.setItem('org_id', 'YOUR-ORG-UUID-HERE');
 
 ### Step 4: Navigate to Admin
 
-Go to: `https://your-site.com/admin`
+Go to: `https://your-site.com/admin
 
 You should see:
 

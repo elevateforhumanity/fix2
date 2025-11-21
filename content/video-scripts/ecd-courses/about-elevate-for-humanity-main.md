@@ -1,6 +1,6 @@
-# About Elevate for Humanity & Elevate Connects Directory – AI Homepage Narrator (~90 seconds)
+# About Elevate for Humanity & Elevate for Humanity – AI Homepage Narrator (~90 seconds)
 
-Welcome to Elevate Connects Directory, powered by Elevate for Humanity.
+Welcome to Elevate for Humanity, powered by Elevate for Humanity.
 
 This platform exists to connect you with high-demand training programs, workforce partners, and real job opportunities — with a special focus on federal and state funding so cost is not the reason you stay stuck.
 
@@ -16,4 +16,4 @@ When you click into a program, you can request more information or apply. From t
 
 Our goal is not just to list classes. Our goal is to help you move from interest to enrollment to employment — with real credentials, real skills, and real opportunities.
 
-Start by exploring the programs on ElevateConnectsDirectory.org, choose a pathway that aligns with your goals, and submit your interest form. We're excited to help you elevate what's possible for your future.
+Start by exploring the programs on elevateforhumanity.org, choose a pathway that aligns with your goals, and submit your interest form. We're excited to help you elevate what's possible for your future.

@@ -40,7 +40,7 @@ From your Supabase project dashboard:
 
 1. Go to **Settings** → **API**
 2. Copy these values:
-   - **Project URL** (e.g., `https://xxxxx.supabase.co`)
+   - **Project URL** (e.g., `https://xxxxx.supabase.co)
    - **anon/public key** (starts with `eyJ...`)
    - **service_role key** (starts with `eyJ...`)
 
@@ -55,7 +55,7 @@ Create a `.env` file in the project root:
 ```bash
 cat > .env << 'EOF'
 # Supabase Configuration
-VITE_SUPABASE_URL=https://YOUR_PROJECT_ID.supabase.co
+VITE_SUPABASE_URL=https://YOURPROJECTID.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-key-here
 SUPABASE_SERVICE_KEY=your-service-role-key-here
 SUPABASE_PROJECT_REF=your-project-ref-here
@@ -293,7 +293,7 @@ chmod +x setup-backend.sh
 
 If you encounter issues:
 
-1. Check Supabase logs: https://app.supabase.com/project/_/logs
+1. Check Supabase logs: https://app.supabase.com/project//logs
 2. Review `RLS_POLICIES.md` for security policies
 3. Check `VERIFICATION_QUERIES.sql` for database validation
 

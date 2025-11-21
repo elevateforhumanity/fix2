@@ -26,7 +26,7 @@
 
 **Instructions**:
 1. Open: https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new
-2. Copy SQL from: https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETE_MIGRATION.sql
+2. Copy SQL from: https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETEMIGRATION.sql
 3. Paste into SQL Editor
 4. Click "Run" button
 5. Wait 30 seconds
@@ -173,7 +173,7 @@ git push origin main
 
 ### Update Production
 
-**Production URL**: https://www.elevateconnectsdirectory.org
+**Production URL**: https://www.elevateforhumanity.org
 
 **Verify**:
 - [ ] Same as preview deployment
@@ -248,13 +248,13 @@ https://vercel.com/elevate-48e460c9/fix2-gpql
 https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new
 
 **Migration File**:
-https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETE_MIGRATION.sql
+https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETEMIGRATION.sql
 
 **Test Site**:
 https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 
 **Production**:
-https://www.elevateconnectsdirectory.org/admin/courses
+https://www.elevateforhumanity.org/admin/courses
 
 ---
 

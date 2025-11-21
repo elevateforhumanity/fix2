@@ -4,7 +4,7 @@
 
 **Error Message**: "Your connection is not private - net::ERR_CERT_COMMON_NAME_INVALID"
 
-**Why**: The domain `elevateconnectsdirectory.org` is NOT added to Netlify, so it's serving the wrong SSL certificate.
+**Why**: The domain `elevateforhumanity.org` is NOT added to Netlify, so it's serving the wrong SSL certificate.
 
 ---
 
@@ -20,7 +20,7 @@
 
 1. Look for **"Custom domains"** section
 2. Click **"Add custom domain"** or **"Add domain alias"** button
-3. In the text box, type: `elevateconnectsdirectory.org`
+3. In the text box, type: `elevateforhumanity.org`
 4. Click **"Verify"**
 5. Netlify will say "This domain is already configured"
 6. Click **"Add domain"** or **"Yes, add domain"**
@@ -38,7 +38,7 @@ After adding the domain:
 
 Once SSL shows "Secured ✓":
 
-1. Visit: https://www.elevateconnectsdirectory.org
+1. Visit: https://www.elevateforhumanity.org
 2. Should load without SSL errors
 3. Should show your fully styled site
 
@@ -49,7 +49,7 @@ Once SSL shows "Secured ✓":
 ### Current State:
 
 ```
-DNS: elevateconnectsdirectory.org → 75.2.60.5 ✅
+DNS: elevateforhumanity.org → 75.2.60.5 ✅
 Netlify knows about domain: NO ❌
 SSL Certificate: *.netlify.app (wrong) ❌
 Browser: Shows SSL error ❌
@@ -58,9 +58,9 @@ Browser: Shows SSL error ❌
 ### After Adding Domain:
 
 ```
-DNS: elevateconnectsdirectory.org → 75.2.60.5 ✅
+DNS: elevateforhumanity.org → 75.2.60.5 ✅
 Netlify knows about domain: YES ✅
-SSL Certificate: elevateconnectsdirectory.org ✅
+SSL Certificate: elevateforhumanity.org ✅
 Browser: Loads perfectly ✅
 ```
 
@@ -83,7 +83,7 @@ Custom domains
 ```
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
-├── elevateconnectsdirectory.org
+├── elevateforhumanity.org
     └── HTTPS: Certificate provisioning in progress...
 ```
 
@@ -92,7 +92,7 @@ Custom domains
 ```
 Custom domains
 ├── elevateproduction.netlify.app (Primary)
-├── elevateconnectsdirectory.org
+├── elevateforhumanity.org
     └── HTTPS: Secured ✓
 ```
 
@@ -102,7 +102,7 @@ Custom domains
 
 While waiting for SSL, you can access the site at:
 
-**https://elevateproduction.netlify.app**
+**https://elevateproduction.netlify.app
 
 This URL works perfectly right now with:
 
@@ -199,7 +199,7 @@ Once the SSL certificate is provisioned and working:
 **Steps**:
 
 1. Open Netlify dashboard
-2. Add custom domain: `elevateconnectsdirectory.org`
+2. Add custom domain: `elevateforhumanity.org`
 3. Wait for SSL provisioning (2-10 minutes)
 4. Test site loads correctly
 
@@ -221,22 +221,22 @@ Once the SSL certificate is provisioned and working:
 
 ### ❌ Needs SSL Fix:
 
-- https://www.elevateconnectsdirectory.org
+- https://www.elevateforhumanity.org
 - Domain not added to Netlify
 - SSL certificate mismatch
 - Browser blocks connection
 
 ### ⏳ After Adding Domain:
 
-- https://www.elevateconnectsdirectory.org
+- https://www.elevateforhumanity.org
 - Will work perfectly
 - Valid SSL certificate
 - No browser errors
 
 ---
 
-**Next Action**: Add `elevateconnectsdirectory.org` in Netlify dashboard → Domain settings → Add custom domain
+**Next Action**: Add `elevateforhumanity.org` in Netlify dashboard → Domain settings → Add custom domain
 
 **Estimated Time**: 5-15 minutes (including SSL provisioning)
 
-**Result**: Site will be accessible at https://www.elevateconnectsdirectory.org with valid SSL
+**Result**: Site will be accessible at https://www.elevateforhumanity.org with valid SSL

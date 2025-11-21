@@ -130,7 +130,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 #### NextAuth (Authentication)
 ```bash
 NEXTAUTH_SECRET=your-secret-here
-NEXTAUTH_URL=https://elevateconnectsdirectory.org
+NEXTAUTH_URL=https://elevateforhumanity.org
 ```
 **Generate:**
 ```bash
@@ -160,7 +160,7 @@ OPENAI_API_KEY=sk-...
 SENDGRID_API_KEY=SG....
 SENDGRID_FROM=noreply@elevateforhumanity.org
 ```
-**Get it:** [https://app.sendgrid.com/settings/api_keys](https://app.sendgrid.com/settings/api_keys)
+**Get it:** [https://app.sendgrid.com/settings/apikeys](https://app.sendgrid.com/settings/apikeys)
 
 #### Google OAuth (Social Login)
 ```bash
@@ -169,7 +169,7 @@ GOOGLE_CLIENT_SECRET=GOCSPX-...
 ```
 **Get it:** [https://console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials)
 1. Create OAuth 2.0 Client ID
-2. Add redirect: `https://your-domain.com/api/auth/callback/google`
+2. Add redirect: `https://your-domain.com/api/auth/callback/google
 
 ---
 

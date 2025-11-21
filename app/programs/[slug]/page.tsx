@@ -69,7 +69,7 @@ export default async function ProgramDetailPage({
 
           <header className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-wide text-red-600">
-              Elevate Connects Program
+              Elevate for Humanity Program
             </p>
             <h1 className="text-3xl font-bold text-slate-900">
               {ecdCourse.title}
@@ -126,7 +126,7 @@ export default async function ProgramDetailPage({
           <h2 className="text-2xl font-bold text-slate-900">Program Details</h2>
           <div className="prose prose-slate max-w-none">
             <p>
-              This program is part of the Elevate Connects Directory, connecting learners 
+              This program is part of the Elevate for Humanity, connecting learners 
               with high-demand training and workforce funding opportunities.
             </p>
           </div>
@@ -182,7 +182,7 @@ export default async function ProgramDetailPage({
         <div className="relative mx-auto flex max-w-6xl flex-col gap-6 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:py-20">
           <div className="flex-1 space-y-4">
             <p className="text-sm font-semibold text-white/90 uppercase tracking-wide">
-              Elevate for Humanity · Elevate Connects Directory
+              Elevate for Humanity · Elevate for Humanity
             </p>
             <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl text-white">
               {program.title}

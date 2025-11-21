@@ -220,7 +220,7 @@ REPORT_CRON_TOKEN=your-secure-random-token
 ```bash
 curl -X POST \
   -H "Authorization: Bearer YOUR_REPORT_CRON_TOKEN" \
-  https://elevateconnectsdirectory.org/api/admin/reports/daily
+  https://elevateforhumanity.org/api/admin/reports/daily
 ```
 
 ---
@@ -267,7 +267,7 @@ kubectl apply -f k8s/
 **Configuration:**
 - App ID: `org.elevateforhumanity.lms`
 - App Name: `Elevate LMS`
-- Server URL: `https://elevateconnectsdirectory.org`
+- Server URL: `https://elevateforhumanity.org
 
 **Setup Mobile:**
 ```bash
@@ -408,13 +408,13 @@ Required secrets:
 2. Applications → Create App Integration
 3. Choose "OIDC - OpenID Connect"
 4. Choose "Web Application"
-5. Set redirect URI: `https://elevateconnectsdirectory.org/api/auth/callback/okta`
+5. Set redirect URI: `https://elevateforhumanity.org/api/auth/callback/okta
 6. Copy Client ID, Client Secret, and Issuer URL
 
 #### Azure AD Setup:
 1. Log into Azure Portal
 2. Azure Active Directory → App registrations → New registration
-3. Set redirect URI: `https://elevateconnectsdirectory.org/api/auth/callback/azure-ad`
+3. Set redirect URI: `https://elevateforhumanity.org/api/auth/callback/azure-ad
 4. Certificates & secrets → New client secret
 5. Copy Application (client) ID, Client secret, and Directory (tenant) ID
 

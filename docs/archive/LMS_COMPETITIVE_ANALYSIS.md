@@ -1,4 +1,4 @@
-# Elevate Connects vs Major LMS Platforms
+# Elevate for Humanity vs Major LMS Platforms
 
 ## Competitive Analysis: Moodle, Docebo, LearnWorlds
 
@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-Elevate Connects is **already competitive** with major LMS platforms in core functionality, with a **unique advantage** in workforce program management that none of the big players offer out of the box.
+Elevate for Humanity is **already competitive** with major LMS platforms in core functionality, with a **unique advantage** in workforce program management that none of the big players offer out of the box.
 
 **Bottom Line:** You're not "catching up" to Moodle/Docebo/LearnWorlds — you're **ahead** in the workforce training space. You just need to surface a few more features to check all the boxes on traditional LMS RFPs.
 
@@ -342,7 +342,7 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 
 **Opening:**
 
-> "Elevate Connects has all the core LMS features you'd expect from Moodle, Docebo, or LearnWorlds — dashboards, courses, learning paths, certificates, reports — but we're purpose-built for workforce training programs."
+> "Elevate for Humanity has all the core LMS features you'd expect from Moodle, Docebo, or LearnWorlds — dashboards, courses, learning paths, certificates, reports — but we're purpose-built for workforce training programs."
 
 **Differentiation:**
 
@@ -358,11 +358,11 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 
 ### 30-Second Elevator Pitch
 
-> "Elevate Connects is a workforce-first LMS built for programs like WRG, WIOA, JRI, and DOL apprenticeships. We have everything you'd expect from Moodle or Docebo — courses, certificates, reports — plus program holder portals, case management, and digital MOUs that the big platforms don't offer. If you're running funded workforce training, Elevate is built for you."
+> "Elevate for Humanity is a workforce-first LMS built for programs like WRG, WIOA, JRI, and DOL apprenticeships. We have everything you'd expect from Moodle or Docebo — courses, certificates, reports — plus program holder portals, case management, and digital MOUs that the big platforms don't offer. If you're running funded workforce training, Elevate is built for you."
 
 ### 60-Second Feature Overview
 
-> "Elevate Connects brings together four portals in one platform:
+> "Elevate for Humanity brings together four portals in one platform:
 >
 > **Students** see their dashboard, courses, assignments, grades, and certificates.
 >
@@ -376,7 +376,7 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 
 ### 90-Second Competitive Comparison
 
-> "If you've looked at Moodle, Docebo, or LearnWorlds, you know they're powerful platforms. Elevate Connects has the same core features — dashboards, courses, learning paths, certificates, reports — but we're different in three ways:
+> "If you've looked at Moodle, Docebo, or LearnWorlds, you know they're powerful platforms. Elevate for Humanity has the same core features — dashboards, courses, learning paths, certificates, reports — but we're different in three ways:
 >
 > **First**, we're built for funded workforce programs. WRG, WIOA, JRI, EmployIndy, DOL apprenticeships — we track them all.
 >
@@ -438,7 +438,7 @@ These features are **not available** in Moodle, Docebo, or LearnWorlds without h
 
 **Your positioning:**
 
-> "Elevate Connects: The only LMS purpose-built for workforce training programs. All the features of Moodle and Docebo, plus program holder portals, case management, and funding compliance that they don't offer."
+> "Elevate for Humanity: The only LMS purpose-built for workforce training programs. All the features of Moodle and Docebo, plus program holder portals, case management, and funding compliance that they don't offer."
 
 ---
 

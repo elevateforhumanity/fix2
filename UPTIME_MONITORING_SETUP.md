@@ -22,9 +22,9 @@
 1. Go to [uptimerobot.com](https://uptimerobot.com)
 2. Create free account
 3. Add monitors:
-   - Main site: `https://elevateconnectsdirectory.org`
-   - API health: `https://elevateconnectsdirectory.org/api/health`
-   - LMS: `https://elevateconnectsdirectory.org/lms`
+   - Main site: `https://elevateforhumanity.org
+   - API health: `https://elevateforhumanity.org/api/health
+   - LMS: `https://elevateforhumanity.org/lms
 4. Set alert contacts (email, Slack)
 5. Create public status page
 
@@ -95,14 +95,14 @@
 
 **Monitor 1: Main Website**
 - Type: HTTP(S)
-- URL: `https://elevateconnectsdirectory.org`
+- URL: `https://elevateforhumanity.org
 - Name: "Elevate Main Site"
 - Interval: 5 minutes
 - Alert: Email
 
 **Monitor 2: API Health**
 - Type: HTTP(S)
-- URL: `https://elevateconnectsdirectory.org/api/health`
+- URL: `https://elevateforhumanity.org/api/health
 - Name: "Elevate API"
 - Interval: 5 minutes
 - Alert: Email
@@ -110,14 +110,14 @@
 
 **Monitor 3: LMS Portal**
 - Type: HTTP(S)
-- URL: `https://elevateconnectsdirectory.org/lms`
+- URL: `https://elevateforhumanity.org/lms
 - Name: "Elevate LMS"
 - Interval: 5 minutes
 - Alert: Email
 
 **Monitor 4: SSL Certificate**
 - Type: Port
-- URL: `elevateconnectsdirectory.org`
+- URL: `elevateforhumanity.org`
 - Port: 443
 - Name: "SSL Certificate"
 - Interval: 1 day
@@ -143,22 +143,22 @@
 
 ### Critical Endpoints
 ```
-✅ https://elevateconnectsdirectory.org (Homepage)
-✅ https://elevateconnectsdirectory.org/api/health (API Health)
-✅ https://elevateconnectsdirectory.org/lms (LMS Portal)
+✅ https://elevateforhumanity.org (Homepage)
+✅ https://elevateforhumanity.org/api/health (API Health)
+✅ https://elevateforhumanity.org/lms (LMS Portal)
 ```
 
 ### Important Endpoints
 ```
-⚠️ https://elevateconnectsdirectory.org/login (Auth)
-⚠️ https://elevateconnectsdirectory.org/programs (Programs)
-⚠️ https://elevateconnectsdirectory.org/admin (Admin)
+⚠️ https://elevateforhumanity.org/login (Auth)
+⚠️ https://elevateforhumanity.org/programs (Programs)
+⚠️ https://elevateforhumanity.org/admin (Admin)
 ```
 
 ### Optional Endpoints
 ```
-○ https://elevateconnectsdirectory.org/api/courses (API)
-○ https://elevateconnectsdirectory.org/api/auth/callback (Auth)
+○ https://elevateforhumanity.org/api/courses (API)
+○ https://elevateforhumanity.org/api/auth/callback (Auth)
 ```
 
 ---
@@ -213,7 +213,7 @@ Your app already has a health check endpoint at `/api/health`.
 
 **Verify it works:**
 ```bash
-curl https://elevateconnectsdirectory.org/api/health
+curl https://elevateforhumanity.org/api/health
 ```
 
 **Expected response:**

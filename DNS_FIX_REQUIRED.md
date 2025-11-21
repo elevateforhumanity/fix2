@@ -120,7 +120,7 @@ Content: Homepage, About, Programs, Contact, Blog
 
 ### LMS Platform (Netlify - this repo)
 ```
-Domain: www.elevateconnectsdirectory.org
+Domain: www.elevateforhumanity.org
 Purpose: Learning Management System, student portal, courses
 Platform: Netlify
 Content: Student dashboard, courses, certificates, admin portal
@@ -132,7 +132,7 @@ Content: Student dashboard, courses, certificates, admin portal
 A      @      [Durablesites IP]
 CNAME  www    [Durablesites CNAME]
 
-# elevateconnectsdirectory.org (LMS)
+# elevateforhumanity.org (LMS)
 A      @      75.2.60.5
 CNAME  www    elevateproduction.netlify.app
 ```
@@ -185,7 +185,7 @@ After fixing, verify:
 - [ ] https://www.elevateforhumanity.org loads without errors
 - [ ] SSL certificate is valid (green padlock)
 - [ ] Content is correct (marketing site, not LMS)
-- [ ] https://www.elevateconnectsdirectory.org still works
+- [ ] https://www.elevateforhumanity.org still works
 - [ ] Both sites have valid SSL certificates
 
 ---
@@ -265,7 +265,7 @@ https://www.elevateforhumanity.org
 
 ## ⚠️ IMPORTANT NOTES
 
-- **DO NOT** delete the DNS record for www.elevateconnectsdirectory.org
+- **DO NOT** delete the DNS record for www.elevateforhumanity.org
 - **DO NOT** remove elevateproduction.netlify.app from Netlify
 - **ONLY** change the DNS for www.elevateforhumanity.org
 - Keep both domains separate (marketing vs LMS)

@@ -1,5 +1,5 @@
 # Accessibility Audit Report
-## Elevate Connects - WCAG 2.1 Level AA Compliance
+## Elevate for Humanity - WCAG 2.1 Level AA Compliance
 
 **Date:** 2025-11-17  
 **Auditor:** Automated + Manual Review  

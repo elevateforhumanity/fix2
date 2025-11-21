@@ -1,7 +1,7 @@
 # Program Holder / Admin Portal (30–45 seconds)
 **Title:** Program Holder Dashboard Overview
 
-Welcome to the **Program Holder Portal** inside Elevate Connects Directory.  
+Welcome to the **Program Holder Portal** inside Elevate for Humanity.  
 
 Here you can manage **program listings, cohorts, attendance, and outcomes** in one secure place.  
 

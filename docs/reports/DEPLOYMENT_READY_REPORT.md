@@ -40,7 +40,7 @@ All required API keys have been configured in `.env`:
 
 - ✅ Build command: `pnpm install && pnpm run build`
 - ✅ Publish directory: `dist`
-- ✅ BaseUrl: `https://elevateforhumanityfix2.netlify.app`
+- ✅ BaseUrl: `https://elevateforhumanityfix2.netlify.app
 - ✅ Node version: 20.11.1
 - ✅ PNPM version: 9.7.0
 - ✅ Environment variables configured

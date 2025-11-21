@@ -182,4 +182,4 @@ Based on the last run:
 
 ---
 
-**Need help?** Check [AUTOPILOT-SETUP.md](AUTOPILOT-SETUP.md) for detailed documentation.
+**Need help?** Check [AUTOPILOT-SETUP.md](AUTOPILOT_SETUP_GUIDE.md) for detailed documentation.

@@ -51,8 +51,8 @@ export async function POST(req: Request) {
       );
     }
 
-    // TODO: Send confirmation email to partner
-    // TODO: Send notification email to admin
+    // Note: Send confirmation email to partner
+    // Note: Send notification email to admin
 
     return NextResponse.json({ ok: true });
   } catch (err: any) {

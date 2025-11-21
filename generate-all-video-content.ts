@@ -47,7 +47,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 const videoScripts = [
   {
     file: 'homepage-hero.md',
-    title: 'Welcome to Elevate Connects Directory',
+    title: 'Welcome to Elevate for Humanity',
     page: 'homepage',
     duration: 45,
   },
@@ -148,7 +148,7 @@ async function generateThumbnail(title: string): Promise<string | null> {
 }
 
 async function main() {
-  console.log('🎬 Generating Video Content for Elevate Connects Directory\n');
+  console.log('🎬 Generating Video Content for Elevate for Humanity\n');
   console.log(`📁 Found ${videoScripts.length} video scripts\n`);
 
   // Check if server is running

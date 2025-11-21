@@ -365,8 +365,8 @@ VAPID_SUBJECT=mailto:admin@elevateforhumanity.org
 - [PWA Checklist](https://web.dev/pwa-checklist/)
 - [Service Worker Cookbook](https://serviceworke.rs/)
 - [Web App Manifest Spec](https://www.w3.org/TR/appmanifest/)
-- [Push API Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Push_API)
-- [IndexedDB Guide](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
+- [Push API Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PushAPI)
+- [IndexedDB Guide](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDBAPI)
 
 ## Support
 

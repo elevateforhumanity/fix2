@@ -45,7 +45,7 @@ sites/marketing/
 
 ### **✅ SITEMAP STRUCTURE**
 
-- **Master Index**: `https://www.elevateforhumanity.org/sitemap_index.xml`
+- **Master Index**: `https://www.elevateforhumanity.org/sitemapindex.xml
 - **Section Sitemaps**: 5 month-based files (2025-09)
 - **Latest Updates**: Priority sitemap for fresh content
 - **Total URLs**: 15 URLs organized across 6 sitemap files
@@ -89,7 +89,7 @@ npm run seo:crawl
 
 ```bash
 # Master index
-curl -s https://www.elevateforhumanity.org/sitemap_index.xml | head
+curl -s https://www.elevateforhumanity.org/sitemapindex.xml | head
 
 # Monthly section file
 curl -s https://www.elevateforhumanity.org/sitemaps/sitemap-programs-2025-09-1.xml | head
@@ -134,7 +134,7 @@ curl -s https://www.elevateforhumanity.org/robots.txt
 
 1. Go to Google Search Console
 2. Navigate to Sitemaps section
-3. Submit: `https://www.elevateforhumanity.org/sitemap_index.xml`
+3. Submit: `https://www.elevateforhumanity.org/sitemapindex.xml
 4. Monitor indexing by section
 
 ### **Expected Results**

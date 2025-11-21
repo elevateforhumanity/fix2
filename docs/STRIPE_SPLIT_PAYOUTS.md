@@ -144,7 +144,7 @@ supabase db push
 
 1. Go to Stripe Dashboard → **Developers** → **Webhooks**
 2. Click **+ Add endpoint**
-3. Endpoint URL: `https://elevateforhumanity.org/.netlify/functions/stripe-webhook`
+3. Endpoint URL: `https://elevateforhumanity.org/.netlify/functions/stripe-webhook
 4. Select events:
    - `checkout.session.completed`
    - `payment_intent.succeeded`

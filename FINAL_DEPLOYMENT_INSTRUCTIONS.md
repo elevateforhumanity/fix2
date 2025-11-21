@@ -11,7 +11,7 @@
 ### 1. Branding Updated
 
 - ✅ Header shows "Elevate for Humanity" as main brand
-- ✅ Subline shows "Elevate Connects Directory"
+- ✅ Subline shows "Elevate for Humanity"
 - ✅ Hero tagline: "Innovate. Elevate. Reset."
 - ✅ Positioned as "workforce & wellness ecosystem"
 
@@ -82,11 +82,11 @@ INSERT INTO programs (slug, title, tagline, summary, track, hours, funding, bull
 
 ### Step 3: Test Site (5 minutes)
 
-**Visit:** www.elevateconnectsdirectory.org
+**Visit:** www.elevateforhumanity.org
 
 **Check:**
 
-- [ ] Header shows "Elevate for Humanity" with "Elevate Connects Directory" subline
+- [ ] Header shows "Elevate for Humanity" with "Elevate for Humanity" subline
 - [ ] Hero shows "Innovate. Elevate. Reset." tagline
 - [ ] Hero video placeholder visible
 - [ ] Stats show: 100%, 10+, 85%, $45K+
@@ -152,7 +152,7 @@ In `app/page.tsx`, uncomment the video tags and update src:
 
 ### Homepage:
 
-- **Header:** Elevate for Humanity (main) / Elevate Connects Directory (sub)
+- **Header:** Elevate for Humanity (main) / Elevate for Humanity (sub)
 - **Hero:** Gradient background, "Innovate. Elevate. Reset." tagline
 - **Video 1:** Hero video placeholder (25 sec script in code)
 - **Stats:** 100% Free, 10+ Programs, 85% Placement, $45K+ Salary
@@ -219,7 +219,7 @@ In `app/page.tsx`, uncomment the video tags and update src:
 
 After deployment:
 
-- [ ] Site loads at www.elevateconnectsdirectory.org
+- [ ] Site loads at www.elevateforhumanity.org
 - [ ] Branding shows "Elevate for Humanity" prominently
 - [ ] "Innovate. Elevate. Reset." tagline visible
 - [ ] 3 video placeholder sections visible

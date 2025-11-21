@@ -382,17 +382,17 @@ Disallow: /
 
 1. **Google Rich Results Test**
    - URL: https://search.google.com/test/rich-results
-   - Enter: `https://elevateforhumanity.org`
+   - Enter: `https://elevateforhumanity.org
    - Verify structured data
 
 2. **Facebook Sharing Debugger**
    - URL: https://developers.facebook.com/tools/debug
-   - Enter: `https://elevateforhumanity.org`
+   - Enter: `https://elevateforhumanity.org
    - Verify Open Graph preview
 
 3. **Twitter Card Validator**
    - URL: https://cards-dev.twitter.com/validator
-   - Enter: `https://elevateforhumanity.org`
+   - Enter: `https://elevateforhumanity.org
    - Verify Twitter Card
 
 ---

@@ -181,7 +181,7 @@
 
 ```tsx
 export const metadata = {
-  title: "PROGRAM NAME | Elevate Connects Directory",
+  title: "PROGRAM NAME | Elevate for Humanity",
   description:
     "Brief description of program, who it serves, and workforce outcomes.",
 };

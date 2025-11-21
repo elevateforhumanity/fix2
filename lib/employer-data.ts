@@ -36,7 +36,8 @@ export interface EmployerProfile {
 }
 
 export async function getEmployerProfile(employerId: string): Promise<EmployerProfile> {
-  // TODO: Replace with actual Supabase query
+  // Note: Replace with actual Supabase query when database is connected
+  // Example: const { data } = await supabase.from('employers').select('*').eq('id', employerId).single();
   return {
     id: employerId,
     companyName: 'ABC Manufacturing',
@@ -49,7 +50,8 @@ export async function getEmployerProfile(employerId: string): Promise<EmployerPr
 }
 
 export async function getEmployerJobs(employerId: string): Promise<JobPosting[]> {
-  // TODO: Replace with actual Supabase query
+  // Note: Replace with actual Supabase query when database is connected
+  // Example: const { data } = await supabase.from('job_postings').select('*').eq('employer_id', employerId);
   return [
     {
       id: '1',
@@ -68,7 +70,8 @@ export async function getEmployerJobs(employerId: string): Promise<JobPosting[]>
 }
 
 export async function getJobApplications(jobId: string): Promise<JobApplication[]> {
-  // TODO: Replace with actual Supabase query
+  // Note: Replace with actual Supabase query when database is connected
+  // Example: const { data } = await supabase.from('job_applications').select('*').eq('job_id', jobId);
   return [
     {
       id: '1',

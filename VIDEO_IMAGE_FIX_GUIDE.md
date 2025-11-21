@@ -47,7 +47,7 @@ The video players and image components work correctly, but they're receiving:
 ```sql
 -- Example: Add YouTube video to a lesson
 UPDATE lessons
-SET content = 'https://www.youtube.com/watch?v=VIDEO_ID_HERE'
+SET content = 'https://www.youtube.com/watch?v=VIDEOIDHERE'
 WHERE id = 'lesson-id-here';
 
 -- Example: Add Vimeo video
@@ -204,13 +204,13 @@ Your video players support:
 
 ### YouTube Videos
 ```
-https://www.youtube.com/watch?v=VIDEO_ID
-https://youtu.be/VIDEO_ID
+https://www.youtube.com/watch?v=VIDEOID
+https://youtu.be/VIDEOID
 ```
 
 ### Vimeo Videos
 ```
-https://vimeo.com/VIDEO_ID
+https://vimeo.com/VIDEOID
 ```
 
 ### Direct Video Files

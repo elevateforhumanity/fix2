@@ -250,7 +250,7 @@ export default function ProgramPage({ program }) {
     { name: 'Programs', url: 'https://elevateforhumanity.org/programs' },
     {
       name: program.title,
-      url: `https://elevateforhumanity.org/programs/${program.slug}`,
+      url: `https://elevateforhumanity.org/programs/${program.slug},
     },
   ]);
 

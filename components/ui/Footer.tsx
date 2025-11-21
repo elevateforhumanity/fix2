@@ -193,7 +193,7 @@ export const Footer: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-lg font-bold text-white">
-                    Elevate Connects Directory
+                    Elevate for Humanity
                   </span>
                 </div>
               </div>
@@ -243,7 +243,7 @@ export const Footer: React.FC = () => {
           {/* Copyright */}
           <div className="mt-8 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
             <p>
-              © {currentYear} Elevate Connects Directory. All rights reserved.
+              © {currentYear} Elevate for Humanity. All rights reserved.
               {' | '}
               Funded by the Workforce Innovation and Opportunity Act (WIOA)
             </p>

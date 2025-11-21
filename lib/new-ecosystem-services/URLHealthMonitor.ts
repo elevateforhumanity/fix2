@@ -123,8 +123,8 @@ export class URLHealthMonitor {
     // Sister sites
     this.addEndpoint({
       id: 'elevate-connects',
-      name: 'Elevate Connects Directory',
-      url: 'https://www.elevateconnectsdirectory.org',
+      name: 'Elevate for Humanity',
+      url: 'https://www.elevateforhumanity.org',
       type: 'external',
       critical: false,
       checkInterval: 3600000,

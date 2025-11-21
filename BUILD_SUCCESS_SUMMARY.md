@@ -25,9 +25,9 @@ Next.js build complete
 NEXT_PUBLIC_SUPABASE_URL=https://placeholder.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=placeholder-anon-key
 SUPABASE_SERVICE_ROLE_KEY=placeholder-service-role-key
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
 NEXTAUTH_SECRET=placeholder-secret-change-in-production
-NEXTAUTH_URL=https://elevateconnectsdirectory.org
+NEXTAUTH_URL=https://elevateforhumanity.org
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_placeholder
 STRIPE_SECRET_KEY=sk_test_placeholder
 OPENAI_API_KEY=sk-placeholder-key
@@ -52,7 +52,7 @@ OPENAI_API_KEY=sk-placeholder-key
     clientId: process.env.AZURE_AD_CLIENT_ID,
     clientSecret: process.env.AZURE_AD_CLIENT_SECRET,
 -   tenantId: process.env.AZURE_AD_TENANT_ID,
-+   issuer: `https://login.microsoftonline.com/${process.env.AZURE_AD_TENANT_ID}/v2.0`,
++   issuer: `https://login.microsoftonline.com/${process.env.AZURE_ADTENANTID}/v2.0,
   }),
 ```
 
@@ -146,7 +146,7 @@ OPENAI_API_KEY=sk-your-real-openai-key
 
 # NextAuth (generate with: openssl rand -base64 32)
 NEXTAUTH_SECRET=your-secure-random-secret
-NEXTAUTH_URL=https://elevateconnectsdirectory.org
+NEXTAUTH_URL=https://elevateforhumanity.org
 ```
 
 ### 2. Run Database Migrations

@@ -200,7 +200,7 @@ const { data } = await supabase.from('programs').select('*');
 // In Netlify Function
 export async function handler(event) {
   const response = await fetch(
-    'https://api.cloudflare.com/client/v4/accounts/YOUR_ACCOUNT_ID/d1/database/YOUR_DB_ID/query',
+    'https://api.cloudflare.com/client/v4/accounts/YOUR_ACCOUNT_ID/d1/database/YOURDBID/query',
     {
       method: 'POST',
       headers: {

@@ -19,7 +19,7 @@ const WHAT_PARTNERS_GET = [
   "Learners who are coached on attendance, professionalism, and soft skills",
   "Support with documentation, hours tracking, and basic compliance needs",
   "Connection to workforce boards and funding where eligible",
-  "Visibility in the Elevate Connects Directory so learners and partners can find you",
+  "Visibility in the Elevate for Humanity so learners and partners can find you",
 ];
 
 const EXPECTATIONS = [

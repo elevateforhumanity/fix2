@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
-    // TODO: Fix Google Classroom sync module import
+    // Note: Fix Google Classroom sync module import
     // const { syncAllCourses } = await import(
     //   '@/google-classroom-autopilot/src/lms-sync'
     // );

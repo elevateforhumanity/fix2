@@ -184,13 +184,13 @@ curl -I https://portal.elevateforhumanity.org
 
 **3. VITE_SUPABASE_URL**
 
-- Get from: https://app.supabase.com/project/_/settings/api
+- Get from: https://app.supabase.com/project//settings/api
 - Copy "Project URL"
 - Add to GitHub Secrets
 
 **4. VITE_SUPABASE_ANON_KEY**
 
-- Get from: https://app.supabase.com/project/_/settings/api
+- Get from: https://app.supabase.com/project//settings/api
 - Copy "anon public" key
 - Add to GitHub Secrets
 
@@ -214,15 +214,15 @@ gh secret set VITE_SUPABASE_ANON_KEY --repo elevateforhumanity/fix2
 
 **Navigation Links:**
 
-- "Student Login" → `https://portal.elevateforhumanity.org/login`
-- "Student Portal" → `https://portal.elevateforhumanity.org`
-- "Student Dashboard" → `https://portal.elevateforhumanity.org/lms/dashboard`
+- "Student Login" → `https://portal.elevateforhumanity.org/login
+- "Student Portal" → `https://portal.elevateforhumanity.org
+- "Student Dashboard" → `https://portal.elevateforhumanity.org/lms/dashboard
 
 **Call-to-Action Buttons:**
 
-- "Apply Now" → `https://portal.elevateforhumanity.org/apply`
-- "Enroll" → `https://portal.elevateforhumanity.org/apply`
-- "Get Started" → `https://portal.elevateforhumanity.org/apply`
+- "Apply Now" → `https://portal.elevateforhumanity.org/apply
+- "Enroll" → `https://portal.elevateforhumanity.org/apply
+- "Get Started" → `https://portal.elevateforhumanity.org/apply
 
 ### 5.2 Update Footer Links
 

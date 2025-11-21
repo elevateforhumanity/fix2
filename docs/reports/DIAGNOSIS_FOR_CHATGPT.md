@@ -189,7 +189,7 @@ If B, what's the systematic approach to debug 165 lazy-loaded pages?"
 - Layouts: `src/layouts/SiteLayout.tsx`
 - Routes config: `routes.config.mjs`
 - Build output: `dist/`
-- Deployed URL: `https://elevateforhumanityfix2.netlify.app`
+- Deployed URL: `https://elevateforhumanityfix2.netlify.app
 
 ## BUILD STATS
 

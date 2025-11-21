@@ -154,7 +154,7 @@ DEPLOY_ID=$(curl -s -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
 
 # Get logs
 curl -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
-  https://api.netlify.com/api/v1/deploys/$DEPLOY_ID/log
+  https://api.netlify.com/api/v1/deploys/$DEPLOYID/log
 ```
 
 ## Autopilot Integration
@@ -202,7 +202,7 @@ Create a build hook in Netlify dashboard:
 Then trigger with:
 
 ```bash
-curl -X POST https://api.netlify.com/build_hooks/your_hook_id
+curl -X POST https://api.netlify.com/build_hooks/yourhookid
 ```
 
 ## Monitoring Deploys
@@ -218,7 +218,7 @@ DEPLOY_ID=$(curl -s -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
 # Watch status
 while true; do
   STATE=$(curl -s -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
-    https://api.netlify.com/api/v1/sites/12f120ab-3f63-419b-bc49-430f043415c1/deploys/$DEPLOY_ID | \
+    https://api.netlify.com/api/v1/sites/12f120ab-3f63-419b-bc49-430f043415c1/deploys/$DEPLOYID | \
     jq -r '.state')
 
   echo "Deploy state: $STATE"
@@ -285,7 +285,7 @@ DEPLOY_ID=$(curl -s -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
   jq -r '.[0].id')
 
 curl -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
-  https://api.netlify.com/api/v1/deploys/$DEPLOY_ID/log
+  https://api.netlify.com/api/v1/deploys/$DEPLOYID/log
 ```
 
 ## Summary

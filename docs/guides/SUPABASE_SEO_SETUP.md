@@ -532,7 +532,7 @@ supabase functions deploy netlify-rebuild --no-verify-jwt
 **Set environment variable:**
 
 ```bash
-supabase secrets set NETLIFY_BUILD_HOOK=https://api.netlify.com/build_hooks/YOUR_HOOK_ID
+supabase secrets set NETLIFY_BUILD_HOOK=https://api.netlify.com/build_hooks/YOURHOOKID
 ```
 
 ---
@@ -546,7 +546,7 @@ Create Netlify Edge Function for dynamic OG images:
 // File: netlify/edge-functions/og-image.ts
 // Description: Generate dynamic OG images for programs/courses
 // =============================================
-import { ImageResponse } from 'https://deno.land/x/og_edge@0.0.4/mod.ts';
+import { ImageResponse } from 'https://deno.land/x/ogedge@0.0.4/mod.ts';
 
 export default async (request: Request) => {
   const url = new URL(request.url);
@@ -653,11 +653,11 @@ const ogImageUrl = `/og-image?title=${encodeURIComponent(program.title)}&subtitl
 
 ```bash
 # Test program view
-curl "https://YOUR_SUPABASE_URL/rest/v1/programs_public?slug=eq.barber-apprenticeship" \
+curl "https://YOUR_SUPABASEURL/rest/v1/programspublic?slug=eq.barber-apprenticeship" \
   -H "apikey: YOUR_ANON_KEY"
 
 # Test course view
-curl "https://YOUR_SUPABASE_URL/rest/v1/courses_public?slug=eq.intro-to-barbering" \
+curl "https://YOUR_SUPABASEURL/rest/v1/coursespublic?slug=eq.intro-to-barbering" \
   -H "apikey: YOUR_ANON_KEY"
 ```
 

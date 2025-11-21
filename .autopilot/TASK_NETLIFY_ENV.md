@@ -8,7 +8,7 @@ Retrieve ALL Supabase credentials and environment variables, then add them to Ne
 
 ## WHAT WE HAVE
 
-- Supabase Project URL: `https://cuxzzpsyufcewtmicszk.supabase.co`
+- Supabase Project URL: `https://cuxzzpsyufcewtmicszk.supabase.co
 
 ## WHAT WE NEED
 
@@ -29,7 +29,7 @@ Retrieve ALL Supabase credentials and environment variables, then add them to Ne
 
 #### A. Project API Keys:
 
-- **Project URL**: Should be `https://cuxzzpsyufcewtmicszk.supabase.co` (verify)
+- **Project URL**: Should be `https://cuxzzpsyufcewtmicszk.supabase.co (verify)
 - **anon public key**: Long string starting with `eyJ...` (labeled "anon public")
 - **service_role key**: Long string starting with `eyJ...` (labeled "service_role") - **KEEP SECRET**
 
@@ -54,7 +54,7 @@ Retrieve ALL Supabase credentials and environment variables, then add them to Ne
 
 You should have collected:
 
-- ✅ Project URL: `https://cuxzzpsyufcewtmicszk.supabase.co`
+- ✅ Project URL: `https://cuxzzpsyufcewtmicszk.supabase.co
 - ✅ Anon key: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` (public, safe for client)
 - ✅ Service role key: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` (secret, server-only)
 - ✅ Any other credentials found
@@ -91,7 +91,7 @@ Create a list of ALL environment variables needed with their values.
 **Variable 1:**
 
 - **Key**: `NEXT_PUBLIC_SUPABASE_URL`
-- **Value**: `https://cuxzzpsyufcewtmicszk.supabase.co`
+- **Value**: `https://cuxzzpsyufcewtmicszk.supabase.co
 - **Scopes**: All (Production + Deploy previews + Branch deploys)
 
 **Variable 2:**

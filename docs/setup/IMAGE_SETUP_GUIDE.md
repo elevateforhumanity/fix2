@@ -184,21 +184,21 @@ After deploying with `og.jpg`:
 ### Facebook
 
 1. Go to [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/)
-2. Enter: `https://www.elevateforhumanity.org`
+2. Enter: `https://www.elevateforhumanity.org
 3. Click **Scrape Again**
 4. Verify image shows correctly
 
 ### Twitter
 
 1. Go to [Twitter Card Validator](https://cards-dev.twitter.com/validator)
-2. Enter: `https://www.elevateforhumanity.org`
+2. Enter: `https://www.elevateforhumanity.org
 3. Click **Preview card**
 4. Verify image and text
 
 ### LinkedIn
 
 1. Go to [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/)
-2. Enter: `https://www.elevateforhumanity.org`
+2. Enter: `https://www.elevateforhumanity.org
 3. Click **Inspect**
 4. Verify preview
 

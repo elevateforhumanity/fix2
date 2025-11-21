@@ -49,7 +49,7 @@
 
 ### Step 1: Visit the Website
 
-Go to: [https://www.elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
+Go to: [https://www.elevateforhumanity.org](https://www.elevateforhumanity.org)
 
 ### Step 2: Click "Sign Up"
 
@@ -268,7 +268,7 @@ Each certificate includes:
 - Expiration date (if applicable)
 
 **Employers can verify at:**  
-[https://www.elevateconnectsdirectory.org/verify](https://www.elevateconnectsdirectory.org/verify)
+[https://www.elevateforhumanity.org/verify](https://www.elevateforhumanity.org/verify)
 
 ---
 
@@ -424,7 +424,7 @@ A: Some courses offer college credit. Check individual course pages.
 
 **Live Chat:** Available on website during business hours
 
-**Help Center:** [https://www.elevateconnectsdirectory.org/help](https://www.elevateconnectsdirectory.org/help)
+**Help Center:** [https://www.elevateforhumanity.org/help](https://www.elevateforhumanity.org/help)
 
 ### Community
 
@@ -467,7 +467,7 @@ A: Some courses offer college credit. Check individual course pages.
 
 We're excited to have you as part of the Elevate for Humanity community. Remember, learning is a journey, not a race. Take your time, ask questions, and enjoy the process!
 
-**Ready to get started?** [Browse Courses](https://www.elevateconnectsdirectory.org/programs)
+**Ready to get started?** [Browse Courses](https://www.elevateforhumanity.org/programs)
 
 ---
 

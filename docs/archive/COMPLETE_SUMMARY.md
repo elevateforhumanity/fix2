@@ -46,7 +46,7 @@
 
 ```
 ✅ elevateforhumanity.org → Reverted to Durable
-✅ elevateconnectsdirectory.org → Points to Netlify (75.2.60.5)
+✅ elevateforhumanity.org → Points to Netlify (75.2.60.5)
 ```
 
 **Result:** Two separate domains, properly configured
@@ -79,7 +79,7 @@ Content:     Public-facing marketing
 Status:      Independent ✅
 ```
 
-### Domain 2: elevateconnectsdirectory.org
+### Domain 2: elevateforhumanity.org
 
 ```
 Purpose:     LMS / Student Portal
@@ -168,7 +168,7 @@ elevateforhumanity.org:
   Hosting: Included with Durable
   Total: $0
 
-elevateconnectsdirectory.org:
+elevateforhumanity.org:
   Domain: Included with Durable
   Hosting: FREE (Netlify)
   SSL: FREE (Let's Encrypt)
@@ -197,7 +197,7 @@ Grand Total: $0/month ✅
 
 ```
 Same process, but also live at:
-- https://www.elevateconnectsdirectory.org
+- https://www.elevateforhumanity.org
 ```
 
 ---
@@ -242,13 +242,13 @@ docs/archive/
 ### Immediate (Optional):
 
 ```
-1. Add elevateconnectsdirectory.org to Netlify
+1. Add elevateforhumanity.org to Netlify
    - Go to: https://app.netlify.com/sites/elevateproduction/settings/domain
    - Add domain
    - Wait for SSL (5-10 minutes)
 
 2. Test the site
-   - Visit: https://www.elevateconnectsdirectory.org
+   - Visit: https://www.elevateforhumanity.org
    - Verify styling works
    - Verify SSL works
 ```
@@ -402,7 +402,7 @@ curl -I https://elevateproduction.netlify.app
 
 ```
 ✅ elevateforhumanity.org → Durable (independent)
-✅ elevateconnectsdirectory.org → Ready for Netlify
+✅ elevateforhumanity.org → Ready for Netlify
 ✅ DNS configured correctly
 ✅ No confusion
 ```
@@ -414,9 +414,9 @@ curl -I https://elevateproduction.netlify.app
 ### If You Want to Go Live:
 
 ```
-1. Add elevateconnectsdirectory.org to Netlify
+1. Add elevateforhumanity.org to Netlify
 2. Wait for SSL (5-10 minutes)
-3. Test: https://www.elevateconnectsdirectory.org
+3. Test: https://www.elevateforhumanity.org
 4. Done!
 ```
 

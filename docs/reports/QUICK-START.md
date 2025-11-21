@@ -93,4 +93,4 @@ Run the script, provide credentials, done. 🎉
 
 📖 Full docs: [AUTOPILOT-COMPLETE.md](AUTOPILOT-COMPLETE.md)
 🧪 Testing: [TEST-AUTOPILOT.md](TEST-AUTOPILOT.md)
-📚 Setup guide: [AUTOPILOT-SETUP.md](AUTOPILOT-SETUP.md)
+📚 Setup guide: [AUTOPILOT-SETUP.md](AUTOPILOT_SETUP_GUIDE.md)

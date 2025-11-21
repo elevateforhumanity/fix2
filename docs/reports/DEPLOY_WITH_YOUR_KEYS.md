@@ -61,7 +61,7 @@ CF_API_TOKEN=YOUR_API_TOKEN_HERE
 # OPTIONAL (Recommended)
 # ============================================
 OPENAI_API_KEY=sk-proj-YOUR_KEY_HERE
-SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR_WEBHOOK_HERE
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOURWEBHOOKHERE
 ```
 
 ---
@@ -171,7 +171,7 @@ netlify open:site
 npx wrangler deployments list
 
 # Test worker health endpoint
-curl https://autopilot-deploy-worker.YOUR_SUBDOMAIN.workers.dev/health
+curl https://autopilot-deploy-worker.YOURSUBDOMAIN.workers.dev/health
 ```
 
 ### Test Site Features
@@ -272,7 +272,7 @@ If you want autopilot notifications:
 
 ```bash
 # Add to Netlify environment variables
-SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR_WEBHOOK_HERE
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOURWEBHOOKHERE
 ```
 
 This enables:
@@ -325,7 +325,7 @@ CF_API_TOKEN=YOUR_API_TOKEN
 
 # Optional
 OPENAI_API_KEY=sk-proj-YOUR_KEY
-SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR_WEBHOOK
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOURWEBHOOK
 ```
 
 ---

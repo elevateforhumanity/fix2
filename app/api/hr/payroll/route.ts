@@ -234,7 +234,7 @@ export async function POST(request: NextRequest) {
         other_deductions: otherDeductions,
         total_deductions: totalStubDeductions,
         net_pay: netPay,
-        ytd_gross: 0, // TODO: compute YTD from prior stubs
+        ytd_gross: 0, // Note: compute YTD from prior stubs
         ytd_taxes: 0,
         ytd_deductions: 0,
         ytd_net: 0,

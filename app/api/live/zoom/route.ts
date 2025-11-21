@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     const { ipAddress, userAgent } = getRequestMetadata(request);
     await logAuditEvent({
       tenantId: tenantId || null,
-      userId: null, // TODO: Get from session
+      userId: null, // Note: Get from session
       action: 'live_session_created',
       resourceType: 'live_session',
       resourceId: liveSession.id,

@@ -36,8 +36,8 @@ git push origin main
 
 **Bridge URLs after deployment:**
 
-- Script: `https://elevateforhumanityfix2.netlify.app/efh-bridge.js`
-- Config: `https://elevateforhumanityfix2.netlify.app/api/efh-config.json`
+- Script: `https://elevateforhumanityfix2.netlify.app/efh-bridge.js
+- Config: `https://elevateforhumanityfix2.netlify.app/api/efh-config.json
 
 ### Option 2: Add Bridge to Durable Site
 

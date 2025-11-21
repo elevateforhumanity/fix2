@@ -9,7 +9,10 @@ export async function POST(req: NextRequest) {
   } = await supabase.auth.getUser();
   if (!user) return new Response('Unauthorized', { status: 401 });
 
-  const body = await req.json().catch(() => ({}));
+  const body = await req.json().catch((err) => {
+    console.error('Failed to parse request body:', err);
+    return {};
+  });
   const source = body.source || 'LMS_DASHBOARD';
 
   await supabase.from('login_events').insert({

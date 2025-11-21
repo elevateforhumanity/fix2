@@ -41,7 +41,10 @@ export function VideoShell({
     const v = videoRef.current;
     if (!v) return;
     if (v.paused) {
-      v.play().catch(() => {});
+      v.play().catch((err) => {
+        // Video playback may fail due to browser autoplay policies
+        // console.debug('Video playback prevented:', err);
+      });
     } else {
       v.pause();
     }

@@ -10,7 +10,7 @@
 
 1. Go to: https://app.sendgrid.com/signup
 2. Sign up for free account (100 emails/day free)
-3. After signup, go to: https://app.sendgrid.com/settings/api_keys
+3. After signup, go to: https://app.sendgrid.com/settings/apikeys
 4. Click "Create API Key"
 5. Name it: "Elevate LMS"
 6. Select "Full Access" or "Restricted Access" with Mail Send permissions
@@ -79,7 +79,7 @@
 
 | Service       | Signup                             | API Keys                                    | Pricing       |
 | ------------- | ---------------------------------- | ------------------------------------------- | ------------- |
-| **SendGrid**  | https://app.sendgrid.com/signup    | https://app.sendgrid.com/settings/api_keys  | Free: 100/day |
+| **SendGrid**  | https://app.sendgrid.com/signup    | https://app.sendgrid.com/settings/apikeys  | Free: 100/day |
 | **Resend**    | https://resend.com/signup          | https://resend.com/api-keys                 | Free: 100/day |
 | **Anthropic** | https://console.anthropic.com/     | https://console.anthropic.com/settings/keys | $5 credit     |
 | **OpenAI**    | https://platform.openai.com/signup | https://platform.openai.com/api-keys        | $5 credit     |

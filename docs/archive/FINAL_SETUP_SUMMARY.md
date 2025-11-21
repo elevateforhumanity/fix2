@@ -10,7 +10,7 @@
 ### Domain:
 
 ```
-Domain: elevateconnectsdirectory.org
+Domain: elevateforhumanity.org
 Registrar: Durable.co
 Status: Ready to point to Netlify
 Cost: $0 (included with Durable)
@@ -22,7 +22,7 @@ Cost: $0 (included with Durable)
 Platform: Netlify
 Site: elevateproduction
 URL: elevateproduction.netlify.app
-Custom Domain: elevateconnectsdirectory.org (after DNS setup)
+Custom Domain: elevateforhumanity.org (after DNS setup)
 Cost: $0 (free tier)
 ```
 
@@ -45,7 +45,7 @@ Cost: $0 (free tier)
 **Quick version:**
 
 1. Login: https://durable.co/login
-2. Find: elevateconnectsdirectory.org
+2. Find: elevateforhumanity.org
 3. Add DNS records:
    - A: @ → 75.2.60.5
    - AAAA: @ → 2600:1f18:2148:bc00:e87f:535d:9c1:b5c
@@ -54,13 +54,13 @@ Cost: $0 (free tier)
 ### Step 2: Add Domain in Netlify
 
 1. Go to: https://app.netlify.com/sites/elevateproduction/settings/domain
-2. Add custom domain: elevateconnectsdirectory.org
+2. Add custom domain: elevateforhumanity.org
 3. Verify DNS
 4. Wait for SSL (5-10 minutes)
 
 ### Step 3: Test
 
-Visit: https://www.elevateconnectsdirectory.org
+Visit: https://www.elevateforhumanity.org
 
 Should show your LMS with SSL!
 
@@ -114,14 +114,14 @@ Should show your LMS with SSL!
 
 ```
 DURABLE.CO (Domain Registrar)
-├── Domain: elevateconnectsdirectory.org
+├── Domain: elevateforhumanity.org
 ├── DNS: Points to Netlify
 └── Role: Domain registration + DNS ONLY
 
 NETLIFY (Website Hosting)
 ├── Hosts: Your LMS application
 ├── URL: elevateproduction.netlify.app
-├── Custom Domain: elevateconnectsdirectory.org
+├── Custom Domain: elevateforhumanity.org
 └── Role: Website hosting + SSL + CDN
 
 SUPABASE (Database)
@@ -158,8 +158,8 @@ Go to: https://app.netlify.com/sites/elevateproduction/settings/deploys#environm
 VITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 VITE_SUPABASE_ANON_KEY=<your-key>
 VITE_STRIPE_PUBLISHABLE_KEY=<your-key>
-VITE_SITE_URL=https://www.elevateconnectsdirectory.org
-PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+VITE_SITE_URL=https://www.elevateforhumanity.org
+PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 VITE_APP_ENV=production
 NODE_ENV=production
 ```
@@ -203,7 +203,7 @@ git push
 - [ ] Custom domain added in Netlify
 - [ ] SSL certificate active
 - [ ] Environment variables set
-- [ ] Site loads at elevateconnectsdirectory.org
+- [ ] Site loads at elevateforhumanity.org
 
 ---
 
@@ -273,12 +273,12 @@ git push
 
 **Then:** Configure DNS in Durable.co (Step 1)
 
-**Result:** Your LMS live at elevateconnectsdirectory.org
+**Result:** Your LMS live at elevateforhumanity.org
 
 ---
 
 **STATUS:** ✅ READY TO DEPLOY  
-**DOMAIN:** elevateconnectsdirectory.org (Durable.co)  
+**DOMAIN:** elevateforhumanity.org (Durable.co)  
 **HOSTING:** Netlify  
 **COST:** $0/month  
 **CONFUSION:** ZERO

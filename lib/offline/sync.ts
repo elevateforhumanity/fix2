@@ -21,7 +21,7 @@ export class SyncManager {
       try {
         const registration = await navigator.serviceWorker.ready;
         await (registration as any).sync.register('sync-progress');
-        console.log('[Sync] Background sync registered');
+        // console.log('[Sync] Background sync registered');
       } catch (error) {
         console.error('[Sync] Background sync registration failed:', error);
         // Fallback to periodic sync
@@ -46,33 +46,31 @@ export class SyncManager {
 
     // Sync when coming back online
     window.addEventListener('online', () => {
-      console.log('[Sync] Back online, syncing...');
+      // console.log('[Sync] Back online, syncing...');
       this.syncNow();
     });
   }
 
   async syncNow(): Promise<boolean> {
     if (this.syncing) {
-      console.log('[Sync] Already syncing, skipping...');
+      // console.log('[Sync] Already syncing, skipping...');
       return false;
     }
 
     if (!navigator.onLine) {
-      console.log('[Sync] Offline, skipping sync');
+      // console.log('[Sync] Offline, skipping sync');
       return false;
     }
 
     this.syncing = true;
-    console.log('[Sync] Starting sync...');
+    // console.log('[Sync] Starting sync...');
 
     try {
       const db = await getDB();
 
       // Sync progress
       const unsyncedProgress = await db.getUnsyncedProgress();
-      console.log(
-        `[Sync] Found ${unsyncedProgress.length} unsynced progress items`
-      );
+      // console.log(`[Sync] Found ${unsyncedProgress.length} unsynced progress items`);
 
       for (const progress of unsyncedProgress) {
         try {
@@ -92,9 +90,7 @@ export class SyncManager {
             // Mark as synced
             if (progress.id) {
               await db.markProgressSynced(progress.id);
-              console.log(
-                `[Sync] Synced progress for lesson ${progress.lessonId}`
-              );
+              // console.log('Progress synced');
             }
           } else {
             console.error(
@@ -109,7 +105,7 @@ export class SyncManager {
 
       // Sync queue items
       const queueItems = await db.getSyncQueue();
-      console.log(`[Sync] Found ${queueItems.length} queue items`);
+      // console.log(`[Sync] Found ${queueItems.length} queue items`);
 
       for (const item of queueItems) {
         try {
@@ -121,14 +117,14 @@ export class SyncManager {
 
           if (response.ok) {
             await db.removeFromSyncQueue(item.id);
-            console.log(`[Sync] Synced queue item ${item.id}`);
+            // console.log(`[Sync] Synced queue item ${item.id}`);
           }
         } catch (error) {
           console.error('[Sync] Error syncing queue item:', error);
         }
       }
 
-      console.log('[Sync] Sync completed successfully');
+      // console.log('[Sync] Sync completed successfully');
       this.syncing = false;
       return true;
     } catch (error) {
@@ -162,12 +158,12 @@ export function initSync() {
 
   // Listen for online/offline events
   window.addEventListener('online', () => {
-    console.log('[Sync] Network status: online');
+    // console.log('[Sync] Network status: online');
     syncManager.syncNow();
   });
 
   window.addEventListener('offline', () => {
-    console.log('[Sync] Network status: offline');
+    // console.log('[Sync] Network status: offline');
   });
 }
 

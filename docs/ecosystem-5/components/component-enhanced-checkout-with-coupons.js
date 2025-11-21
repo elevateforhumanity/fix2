@@ -24,10 +24,10 @@
 
 // Check if running in Node.js environment (server-side)
 if (typeof window === 'undefined' && typeof require !== 'undefined') {
-  console.log(
+  // console.log(
     '🔧 Entry point detected: Starting server from enhanced-checkout-with-coupons.js'
   );
-  console.log(
+  // console.log(
     '🔄 Redirecting to simple-server.js for proper server initialization'
   );
 
@@ -41,7 +41,7 @@ if (typeof window === 'undefined' && typeof require !== 'undefined') {
   }
 
   // If we reach here, the server module loaded successfully
-  console.log('✅ Server startup delegated to simple-server.js');
+  // console.log('✅ Server startup delegated to simple-server.js');
 
   // Exit this script since the server is now running
   return;

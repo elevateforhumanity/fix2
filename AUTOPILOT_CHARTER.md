@@ -10,7 +10,7 @@
 
 ## Primary Mission
 
-Keep **elevateconnectsdirectory.org** online and healthy by:
+Keep **elevateforhumanity.org** online and healthy by:
 
 1. **Owning environment variables** for:
    - Netlify → build + runtime
@@ -68,12 +68,12 @@ Keep **elevateconnectsdirectory.org** online and healthy by:
 
 | Variable                        | Required Value                             | Source                      |
 | ------------------------------- | ------------------------------------------ | --------------------------- |
-| `NEXT_PUBLIC_SUPABASE_URL`      | `https://cuxzzpsyufcewtmicszk.supabase.co` | Hardcoded                   |
+| `NEXT_PUBLIC_SUPABASE_URL`      | `https://cuxzzpsyufcewtmicszk.supabase.co | Hardcoded                   |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Value from GitHub Secret                   | `SUPABASE_ANON_KEY`         |
 | `SUPABASE_SERVICE_ROLE_KEY`     | Value from GitHub Secret                   | `SUPABASE_SERVICE_ROLE_KEY` |
-| `NEXT_PUBLIC_APP_URL`           | `https://elevateconnectsdirectory.org`     | Hardcoded                   |
-| `NEXT_PUBLIC_SITE_URL`          | `https://elevateconnectsdirectory.org`     | Hardcoded                   |
-| `NEXT_PUBLIC_BASE_URL`          | `https://elevateconnectsdirectory.org`     | Hardcoded                   |
+| `NEXT_PUBLIC_APP_URL`           | `https://elevateforhumanity.org     | Hardcoded                   |
+| `NEXT_PUBLIC_SITE_URL`          | `https://elevateforhumanity.org     | Hardcoded                   |
+| `NEXT_PUBLIC_BASE_URL`          | `https://elevateforhumanity.org     | Hardcoded                   |
 | `NODE_ENV`                      | `production`                               | Hardcoded                   |
 
 **Behavior Per Variable**:
@@ -191,7 +191,7 @@ Keep **elevateconnectsdirectory.org** online and healthy by:
 - Clear, actionable error messages
 
 **Success Criteria**:
-After autopilot runs, **elevateconnectsdirectory.org** should:
+After autopilot runs, **elevateforhumanity.org** should:
 
 - Build successfully on Netlify
 - Load without Internal Server Error
@@ -239,7 +239,7 @@ netlify env:get VAR_NAME --site $NETLIFY_SITE_ID
 netlify env:set VAR_NAME "value" --site $NETLIFY_SITE_ID
 
 # Trigger build
-curl -X POST "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/builds" \
+curl -X POST "https://api.netlify.com/api/v1/sites/$NETLIFYSITEID/builds" \
   -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN"
 ```
 
@@ -255,8 +255,8 @@ gh secret list | grep SECRET_NAME
 
 ### Supabase References
 
-- **Project URL**: `https://cuxzzpsyufcewtmicszk.supabase.co`
-- **Dashboard**: `https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk`
+- **Project URL**: `https://cuxzzpsyufcewtmicszk.supabase.co
+- **Dashboard**: `https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk
 - **API Keys Location**: Settings → API
 
 ---

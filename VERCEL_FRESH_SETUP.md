@@ -174,7 +174,7 @@ VAPID_SUBJECT=mailto:admin@elevateforhumanity.org
 
 ## Step 7: Test PWA Features (10 min)
 
-Visit: `https://your-new-url.vercel.app/pwa-test`
+Visit: `https://your-new-url.vercel.app/pwa-test
 
 ### Test Each Feature:
 
@@ -286,7 +286,7 @@ If you want a custom domain:
 2. **Click "Domains"**
 
 3. **Add Domain**
-   - Enter your domain (e.g., `elevateconnectsdirectory.org`)
+   - Enter your domain (e.g., `elevateforhumanity.org`)
    - Click "Add"
 
 4. **Configure DNS**

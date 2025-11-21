@@ -43,7 +43,7 @@ export default function HomePage() {
   return (
     <section>
       <VideoPlaceholder
-        title="Welcome to Elevate Connects Directory"
+        title="Welcome to Elevate for Humanity"
         description="Your one-stop hub for career training and workforce programs"
         durationLabel="30–45 sec · Coming Soon"
       />
@@ -100,7 +100,7 @@ This will:
 ### Homepage (`app/page.tsx`)
 ```tsx
 <VideoPlaceholder
-  title="Welcome to Elevate Connects Directory"
+  title="Welcome to Elevate for Humanity"
   description="Career training, apprenticeships, and workforce programs"
   durationLabel="30–45 sec"
 />

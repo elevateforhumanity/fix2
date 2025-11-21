@@ -709,7 +709,7 @@ export const config = {
 #### 16. Team Management
 
 **Status:** NEEDS REVIEW  
-**Go to:** https://app.netlify.com/teams/YOUR_TEAM/members
+**Go to:** https://app.netlify.com/teams/YOURTEAM/members
 
 **Configure:**
 

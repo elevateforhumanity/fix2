@@ -276,8 +276,8 @@ CLOUDFLARE
 ├── NOT USED for elevateforhumanity.org
 └── (Can be used for other domains if needed)
 
-ELEVATE CONNECTS DIRECTORY
-├── Domain: www.elevateconnectsdirectory.org
+Elevate for Humanity
+├── Domain: www.elevateforhumanity.org
 ├── Hosted: Vercel (when deployed)
 └── Separate from marketing site
 ```
@@ -312,7 +312,7 @@ ELEVATE CONNECTS DIRECTORY
 **Prevent Future Issues:**
 
 - [ ] Document: "Do NOT add elevateforhumanity.org to Cloudflare"
-- [ ] Document: "Only elevateconnectsdirectory.org should be on Vercel"
+- [ ] Document: "Only elevateforhumanity.org should be on Vercel"
 - [ ] Add warning in Cloudflare Workers documentation
 
 ---
@@ -330,7 +330,7 @@ ELEVATE CONNECTS DIRECTORY
 - Don't add marketing site domain to Cloudflare
 - Use Cloudflare Workers on a different domain if needed
 - Keep marketing site (elevateforhumanity.org) on Durablesites
-- Keep LMS (elevateconnectsdirectory.org) on Vercel
+- Keep LMS (elevateforhumanity.org) on Vercel
 
 **Key Takeaway:**
 

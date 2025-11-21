@@ -383,7 +383,9 @@ export class ComplianceAutomation {
     for (const source of this.dataSources) {
       try {
         await this.fetchFromSource(source);
-      } catch (error) {}
+      } catch (error) {
+        console.error(`Failed to fetch from source ${source.name}:`, error);
+      }
     }
   }
 

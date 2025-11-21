@@ -24,7 +24,7 @@ We handle the admin — you focus on training.
 
 ## HOW IT WORKS
 
-1. **Apply**: https://www.elevateconnectsdirectory.org/program-holder/apply
+1. **Apply**: https://www.elevateforhumanity.org/program-holder/apply
 2. **Submit**: License + training outline + capacity info
 3. **Onboarding**: Complete onboarding call with our team
 4. **Dashboard Access**: Get secure login to Partner Dashboard
@@ -145,14 +145,14 @@ Export reports for:
 ## SUPPORT FOR PARTNERS
 
 **Partner Support Line**: 317-314-3757  
-**Email**: partners@elevateconnectsdirectory.org  
-**Dashboard**: https://www.elevateconnectsdirectory.org/program-holder/dashboard
+**Email**: partners@elevateforhumanity.org  
+**Dashboard**: https://www.elevateforhumanity.org/program-holder/dashboard
 
 ---
 
 ## READY TO PARTNER?
 
-**Apply Now**: https://www.elevateconnectsdirectory.org/program-holder/apply
+**Apply Now**: https://www.elevateforhumanity.org/program-holder/apply
 
 **Questions?**  
 Call or text: **317-314-3757**
@@ -162,5 +162,5 @@ Call or text: **317-314-3757**
 **Elevate for Humanity**  
 Building talent pipelines that work.
 
-🌐 elevateconnectsdirectory.org  
+🌐 elevateforhumanity.org  
 📞 317-314-3757

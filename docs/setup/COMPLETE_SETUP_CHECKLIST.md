@@ -89,7 +89,7 @@
 - [ ] Copy **Secret key** → `STRIPE_SECRET_KEY`
 - [ ] Go to https://dashboard.stripe.com/webhooks
 - [ ] Click **Add endpoint**
-- [ ] Set URL: `https://your-domain.netlify.app/api/stripe-webhook`
+- [ ] Set URL: `https://your-domain.netlify.app/api/stripe-webhook
 - [ ] Select events:
   - [ ] `checkout.session.completed`
   - [ ] `payment_intent.succeeded`
@@ -176,7 +176,7 @@
 - [ ] Request access to:
   - [ ] Share on LinkedIn
   - [ ] Sign In with LinkedIn
-- [ ] Add redirect URL: `https://your-domain.netlify.app/auth/linkedin/callback`
+- [ ] Add redirect URL: `https://your-domain.netlify.app/auth/linkedin/callback
 
 ### Step 12: Facebook API Setup (5 min)
 
@@ -185,7 +185,7 @@
 - [ ] Copy **App ID** → `FACEBOOK_APP_ID`
 - [ ] Copy **App Secret** → `FACEBOOK_APP_SECRET`
 - [ ] Add Facebook Login product
-- [ ] Add redirect URL: `https://your-domain.netlify.app/auth/facebook/callback`
+- [ ] Add redirect URL: `https://your-domain.netlify.app/auth/facebook/callback
 - [ ] Request permissions:
   - [ ] `pages_manage_posts`
   - [ ] `pages_read_engagement`

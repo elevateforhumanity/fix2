@@ -7,7 +7,7 @@
 
 ## 🎯 Summary
 
-The Elevate Connects Directory (fix2 repository) is **build-ready** and prepared for deployment to Vercel. All build errors have been resolved, and the application compiles successfully.
+The Elevate for Humanity (fix2 repository) is **build-ready** and prepared for deployment to Vercel. All build errors have been resolved, and the application compiles successfully.
 
 ---
 
@@ -84,7 +84,7 @@ vercel --prod
 **Required Variables:**
 
 ```env
-NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=[Get from Supabase Dashboard]
 SUPABASE_SERVICE_ROLE_KEY=[Get from Supabase Dashboard]
@@ -112,8 +112,8 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=[Get from Google Analytics]
 ### Step 3: Configure Custom Domain
 
 1. In Vercel project settings, go to "Domains"
-2. Add domain: `www.elevateconnectsdirectory.org`
-3. Add domain: `elevateconnectsdirectory.org` (redirect to www)
+2. Add domain: `www.elevateforhumanity.org`
+3. Add domain: `elevateforhumanity.org` (redirect to www)
 4. Follow Vercel's DNS configuration instructions
 
 ### Step 4: Disable Sister Repository Workflows
@@ -167,7 +167,7 @@ See: `DISABLE_SISTER_REPOS_GUIDE.md`
 
 ### Post-Deployment
 
-- [ ] Site loads at www.elevateconnectsdirectory.org
+- [ ] Site loads at www.elevateforhumanity.org
 - [ ] No console errors
 - [ ] Homepage renders correctly
 - [ ] Navigation works

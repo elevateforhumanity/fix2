@@ -42,7 +42,10 @@ export default function OrchestratorAdmin() {
       const response = await fetch(`${ORCHESTRATOR_URL}/autopilot/list`);
       const data = await response.json();
       setAutopilots(data.autopilots || []);
-    } catch (error) {}
+    } catch (error) {
+      console.error('Failed to load autopilots:', error);
+      setAutopilots([]);
+    }
   }
 
   async function runDiagnose() {

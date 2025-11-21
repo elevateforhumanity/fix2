@@ -213,13 +213,13 @@ Updated `src/index.css` to define all variables:
 - ✅ Pushed to GitHub
 - ⏳ Netlify auto-deploying (2-3 minutes)
 - ⏳ Will be live at: https://elevateproduction.netlify.app
-- ⏳ Will be live at: https://www.elevateconnectsdirectory.org
+- ⏳ Will be live at: https://www.elevateforhumanity.org
 
 ## Verification Steps
 
 Once deployed (in ~3 minutes), verify:
 
-1. **Visit**: https://www.elevateconnectsdirectory.org
+1. **Visit**: https://www.elevateforhumanity.org
 2. **Check**:
    - Hero section has blue gradient background
    - Buttons have proper colors
@@ -305,7 +305,7 @@ Verified `:root` block is present in compiled CSS with all variables defined.
 
 ---
 
-**Deployment URL**: [https://www.elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
+**Deployment URL**: [https://www.elevateforhumanity.org](https://www.elevateforhumanity.org)
 
 **Build Time**: ~19 seconds
 **Deploy Time**: ~2-3 minutes

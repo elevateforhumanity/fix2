@@ -28,7 +28,7 @@ export function MicroCredentialsBadges() {
       description: 'Demonstrated advanced proficiency in JavaScript programming',
       category: 'Technical',
       earnedDate: '2024-01-15',
-      issuer: 'Elevate Connects',
+      issuer: 'Elevate for Humanity',
       verificationUrl: 'https://verify.elevateconnects.com/badge/js-master-001',
       requirements: [
         'Complete JavaScript Advanced course',
@@ -43,7 +43,7 @@ export function MicroCredentialsBadges() {
       description: 'Proficient in building modern React applications',
       category: 'Technical',
       earnedDate: '2024-01-10',
-      issuer: 'Elevate Connects',
+      issuer: 'Elevate for Humanity',
       verificationUrl: 'https://verify.elevateconnects.com/badge/react-dev-002',
       requirements: [
         'Complete React Fundamentals',
@@ -58,7 +58,7 @@ export function MicroCredentialsBadges() {
       description: 'Demonstrated leadership and team collaboration skills',
       category: 'Soft Skills',
       earnedDate: '2024-01-20',
-      issuer: 'Elevate Connects',
+      issuer: 'Elevate for Humanity',
       verificationUrl: 'https://verify.elevateconnects.com/badge/team-leader-003',
       requirements: [
         'Lead 2+ team projects',
@@ -73,7 +73,7 @@ export function MicroCredentialsBadges() {
       description: 'Advanced database design and optimization skills',
       category: 'Technical',
       progress: 65,
-      issuer: 'Elevate Connects',
+      issuer: 'Elevate for Humanity',
       requirements: [
         'Complete Database Design course',
         'Optimize query performance',
@@ -87,7 +87,7 @@ export function MicroCredentialsBadges() {
       description: 'Exceptional analytical and problem-solving abilities',
       category: 'Soft Skills',
       progress: 80,
-      issuer: 'Elevate Connects',
+      issuer: 'Elevate for Humanity',
       requirements: [
         'Solve 50+ coding challenges',
         'Complete critical thinking course',
@@ -101,7 +101,7 @@ export function MicroCredentialsBadges() {
       description: 'Comprehensive full-stack development expertise',
       category: 'Technical',
       progress: 45,
-      issuer: 'Elevate Connects',
+      issuer: 'Elevate for Humanity',
       requirements: [
         'Complete frontend specialization',
         'Complete backend specialization',

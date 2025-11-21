@@ -10,8 +10,8 @@ The middleware was using non-null assertions on environment variables without er
 
 ### Issue 2: Domain Mismatch ❌
 
-- **Netlify domain configured**: `elevateconnectsdirectory.org` (apex domain)
-- **Code was using**: `www.elevateconnectsdirectory.org` (www subdomain)
+- **Netlify domain configured**: `elevateforhumanity.org` (apex domain)
+- **Code was using**: `www.elevateforhumanity.org` (www subdomain)
 - **Result**: URL mismatch causing routing issues
 
 ## Fixes Applied
@@ -51,19 +51,19 @@ try {
 
 Updated all URLs to match Netlify configuration:
 
-- `.env.production` → `https://elevateconnectsdirectory.org`
-- `app/layout.tsx` → `https://elevateconnectsdirectory.org`
-- `app/sitemap.ts` → `https://elevateconnectsdirectory.org`
-- `app/robots.ts` → `https://elevateconnectsdirectory.org`
-- `components/StructuredData.tsx` → `https://elevateconnectsdirectory.org`
-- GitHub Actions workflow → `https://elevateconnectsdirectory.org`
+- `.env.production` → `https://elevateforhumanity.org
+- `app/layout.tsx` → `https://elevateforhumanity.org
+- `app/sitemap.ts` → `https://elevateforhumanity.org
+- `app/robots.ts` → `https://elevateforhumanity.org
+- `components/StructuredData.tsx` → `https://elevateforhumanity.org
+- GitHub Actions workflow → `https://elevateforhumanity.org
 
 ## Current Domain Configuration
 
 ### Netlify Domain Settings
 
 ```
-Domain: elevateconnectsdirectory.org (Primary)
+Domain: elevateforhumanity.org (Primary)
 SSL: Auto-generated after DNS propagation
 ```
 
@@ -78,22 +78,22 @@ CNAME  www    elevateproduction.netlify.app    -
 ### Domain Architecture
 
 - **elevateforhumanity.org** → Public marketing site
-- **elevateconnectsdirectory.org** → LMS application (Netlify)
-- **www.elevateconnectsdirectory.org** → Redirects to apex domain
+- **elevateforhumanity.org** → LMS application (Netlify)
+- **www.elevateforhumanity.org** → Redirects to apex domain
 
 ## What Happens Now
 
 1. **Netlify Auto-Deploy**: Changes pushed to main branch
 2. **Build Process**: Netlify will build the app (2-3 minutes)
 3. **SSL Certificate**: Will be auto-generated after DNS propagates
-4. **Site Live**: Should be accessible at `https://elevateconnectsdirectory.org`
+4. **Site Live**: Should be accessible at `https://elevateforhumanity.org
 
 ## Testing the Fix
 
 ### Check if site is working:
 
 ```bash
-curl -I https://elevateconnectsdirectory.org
+curl -I https://elevateforhumanity.org
 ```
 
 **Expected**: `200 OK` (not `500 Internal Server Error`)
@@ -110,21 +110,21 @@ Ensure these are set in Netlify Dashboard → Environment variables:
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
-NEXT_PUBLIC_APP_URL=https://elevateconnectsdirectory.org
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_APP_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
 NODE_ENV=production
 ```
 
 ## Commits Summary
 
 1. **`57211594`** - Fix 500 error: Add error handling to middleware
-2. **`5edbb2c1`** - Use correct LMS URL: www.elevateconnectsdirectory.org
+2. **`5edbb2c1`** - Use correct LMS URL: www.elevateforhumanity.org
 3. **`a12babe6`** - Fix domain mismatch: Use apex domain without www
 
 ## Status
 
 ✅ **Middleware fixed**: Error handling added  
-✅ **URLs aligned**: All using `elevateconnectsdirectory.org`  
+✅ **URLs aligned**: All using `elevateforhumanity.org`  
 ✅ **Build passing**: npm run build completes successfully  
 ✅ **Code pushed**: Changes deployed to main branch  
 ⏳ **Netlify deploying**: Wait 2-3 minutes  
@@ -134,7 +134,7 @@ NODE_ENV=production
 
 1. **Wait for Netlify deployment** (2-3 minutes)
 2. **Check deployment status** in Netlify dashboard
-3. **Test site**: Visit https://elevateconnectsdirectory.org
+3. **Test site**: Visit https://elevateforhumanity.org
 4. **Verify environment variables** are set in Netlify
 
 ## If Site Still Shows 500 Error

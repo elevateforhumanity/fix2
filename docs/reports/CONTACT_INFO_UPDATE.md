@@ -48,13 +48,13 @@
 **Working Forms:**
 
 1. **Contact Form**
-   - Action: `https://docs.google.com/forms/d/e/1FAIpQLSenA9AfClTTy2X2PQNrZjZ_N9FqxFAd46V0xk_oaU_nW5g_CQ/formResponse`
+   - Action: `https://docs.google.com/forms/d/e/1FAIpQLSenA9AfClTTy2X2PQNrZjZ_N9FqxFAd46V0xk_oaUnW5gCQ/formResponse
    - Method: POST
    - Fields: Name, Email, Message
    - Status: ✅ Embedded (no iframe)
 
 2. **Partnership Inquiry Form**
-   - Action: `https://docs.google.com/forms/d/e/1FAIpQLSelwhp447q7cRXyn_yoqVNkbSpEk9kqldGOpSefVAN-tEnvNQ/formResponse`
+   - Action: `https://docs.google.com/forms/d/e/1FAIpQLSelwhp447q7cRXynyoqVNkbSpEk9kqldGOpSefVAN-tEnvNQ/formResponse
    - Method: POST
    - Fields: Organization, Contact, Interest
    - Status: ✅ Embedded (no iframe)
@@ -143,7 +143,7 @@ You need to create these forms in Google Forms:
 Add to Netlify environment variables:
 
 ```bash
-VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_REAL_FORM_ID/viewform
+VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_REALFORMID/viewform
 ```
 
 ### 3. Replace iframe Forms
@@ -158,7 +158,7 @@ VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_REAL_FORM_ID/vi
 
 ```html
 <form
-  action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
+  action="https://docs.google.com/forms/d/e/FORMID/formResponse"
   method="POST"
   target="_blank"
 >
@@ -195,7 +195,7 @@ VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_REAL_FORM_ID/vi
 
 ```html
 <form
-  action="https://docs.google.com/forms/d/e/1FAIpQLSenA9AfClTTy2X2PQNrZjZ_N9FqxFAd46V0xk_oaU_nW5g_CQ/formResponse"
+  action="https://docs.google.com/forms/d/e/1FAIpQLSenA9AfClTTy2X2PQNrZjZ_N9FqxFAd46V0xk_oaUnW5gCQ/formResponse"
   method="POST"
   target="_blank"
   class="contact-form"

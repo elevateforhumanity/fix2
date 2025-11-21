@@ -1,7 +1,7 @@
 # Homepage Comparison: Elevate vs Top LMS Platforms
 
 **Date:** 2025-11-15  
-**Comparing:** www.elevateconnectsdirectory.org vs Moodle, LearnWorlds, Docebo
+**Comparing:** www.elevateforhumanity.org vs Moodle, LearnWorlds, Docebo
 
 ---
 

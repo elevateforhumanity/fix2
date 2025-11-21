@@ -14,8 +14,8 @@
 
 ### Deployment URLs:
 - **Latest Preview**: `fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app`
-- **Production**: `www.elevateconnectsdirectory.org`
-- **Alternative**: `elevateconnectsdirectory.org`
+- **Production**: `www.elevateforhumanity.org`
+- **Alternative**: `elevateforhumanity.org`
 
 ### GitHub Repository:
 - **Repo**: https://github.com/elevateforhumanity/fix2
@@ -118,7 +118,7 @@ You should see:
 ### Method 3: Check Production URL
 After deployment succeeds, visit:
 ```
-https://www.elevateconnectsdirectory.org/admin/courses
+https://www.elevateforhumanity.org/admin/courses
 ```
 
 **Note**: May need hard refresh (Ctrl+Shift+R) to clear cache
@@ -170,7 +170,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-key
 
 # Optional
-NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 OPENAI_API_KEY=your-openai-key
 ```
 
@@ -254,7 +254,7 @@ OPENAI_API_KEY=your-openai-key
 - ✅ Navigation works
 
 ### Production:
-- ✅ `www.elevateconnectsdirectory.org` updated
+- ✅ `www.elevateforhumanity.org` updated
 - ✅ Hard refresh shows new version
 - ✅ All features working
 
@@ -310,9 +310,9 @@ OPENAI_API_KEY=your-openai-key
 
 ### Live Sites:
 - **Preview**: https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app
-- **Production**: https://www.elevateconnectsdirectory.org
-- **Admin Courses**: https://www.elevateconnectsdirectory.org/admin/courses
-- **Student Courses**: https://www.elevateconnectsdirectory.org/student/courses
+- **Production**: https://www.elevateforhumanity.org
+- **Admin Courses**: https://www.elevateforhumanity.org/admin/courses
+- **Student Courses**: https://www.elevateforhumanity.org/student/courses
 
 ### GitHub:
 - **Repository**: https://github.com/elevateforhumanity/fix2

@@ -1,6 +1,6 @@
 # Site Comparison: Live vs New Build
 
-## Live Site: www.elevateconnectsdirectory.org
+## Live Site: www.elevateforhumanity.org
 **Status:** Production, fully functional
 
 ## New Build: Preview Site

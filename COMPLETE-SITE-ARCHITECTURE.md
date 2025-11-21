@@ -1,4 +1,4 @@
-# Complete Site Architecture - Elevate Connects Directory
+# Complete Site Architecture - Elevate for Humanity
 
 ## Based on Coursera Analysis
 

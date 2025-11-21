@@ -52,9 +52,9 @@ To enable automatic deployment to Netlify, configure these secrets in your GitHu
 **Purpose:** Connects the app to Supabase database (for student portal)
 
 **How to get it:**
-1. Go to: https://app.supabase.com/project/_/settings/api
+1. Go to: https://app.supabase.com/project//settings/api
 2. Find "Project URL" under "Configuration"
-3. Copy the URL (looks like: `https://xxxxx.supabase.co`)
+3. Copy the URL (looks like: `https://xxxxx.supabase.co)
 
 **Add to GitHub:**
 1. Go to: https://github.com/elevateforhumanity/fix2/settings/secrets/actions
@@ -69,7 +69,7 @@ To enable automatic deployment to Netlify, configure these secrets in your GitHu
 **Purpose:** Public API key for Supabase authentication
 
 **How to get it:**
-1. Go to: https://app.supabase.com/project/_/settings/api
+1. Go to: https://app.supabase.com/project//settings/api
 2. Find "anon public" key under "Project API keys"
 3. Copy the key (starts with `eyJ...`)
 

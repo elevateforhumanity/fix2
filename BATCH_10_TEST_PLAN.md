@@ -230,7 +230,7 @@ curl -X GET "http://localhost:3000/api/audit-logs?limit=50&offset=0" \
   -H "Cookie: your-session-cookie"
 
 # Get filtered logs
-curl -X GET "http://localhost:3000/api/audit-logs?action=compliance_item_updated" \
+curl -X GET "http://localhost:3000/api/audit-logs?action=complianceitemupdated" \
   -H "Cookie: your-session-cookie"
 ```
 

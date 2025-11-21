@@ -366,7 +366,7 @@ Sitemap: https://elevateforhumanity.org/sitemap-complete.xml
 
 1. **Google Search Console**
    - URL: https://search.google.com/search-console
-   - Submit sitemap: `https://elevateforhumanity.org/sitemap.xml`
+   - Submit sitemap: `https://elevateforhumanity.org/sitemap.xml
    - Verify ownership via HTML tag or DNS
 
 2. **Google Business Profile**
@@ -377,7 +377,7 @@ Sitemap: https://elevateforhumanity.org/sitemap-complete.xml
 
 3. **Google Rich Results Test**
    - URL: https://search.google.com/test/rich-results
-   - Test: `https://elevateforhumanity.org`
+   - Test: `https://elevateforhumanity.org
    - Verify structured data
 
 ### Bing

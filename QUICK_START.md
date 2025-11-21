@@ -38,7 +38,7 @@ This will:
    NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY=paste_your_anon_key_here
    SUPABASE_SERVICE_ROLE_KEY=paste_your_service_role_key_here
-   NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+   NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
    EOF
    ```
 
@@ -92,7 +92,7 @@ npm run dev
 ## 📞 NEED HELP?
 
 **Phone**: (317) 314-3757  
-**Contact**: https://www.elevateconnectsdirectory.org/contact
+**Contact**: https://www.elevateforhumanity.org/contact
 
 ---
 

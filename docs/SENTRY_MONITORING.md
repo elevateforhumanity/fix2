@@ -85,7 +85,7 @@ SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL
 1. Go to **Settings** → **Integrations**
 2. Search for "Webhooks"
 3. Click **Add to Project**
-4. Webhook URL: `https://elevateforhumanity.org/.netlify/functions/sentry-webhook`
+4. Webhook URL: `https://elevateforhumanity.org/.netlify/functions/sentry-webhook
 5. Select events:
    - Issue Created
    - Issue Resolved

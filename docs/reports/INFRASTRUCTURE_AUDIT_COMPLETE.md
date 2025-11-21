@@ -171,7 +171,7 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 ```
 
-**Configured URL:** `https://cuxzzpsyufcewtmicszk.supabase.co`
+**Configured URL:** `https://cuxzzpsyufcewtmicszk.supabase.co
 
 **Features:**
 
@@ -351,8 +351,8 @@ href = 'https://blog.elevateforhumanity.org/post3';
 
 **Social Media:**
 
-- ✅ Facebook: `https://www.facebook.com/elevateforhumanity`
-- ✅ LinkedIn: `https://linkedin.com/company/elevateforhumanity`
+- ✅ Facebook: `https://www.facebook.com/elevateforhumanity
+- ✅ LinkedIn: `https://linkedin.com/company/elevateforhumanity
 
 ### Internal Links
 

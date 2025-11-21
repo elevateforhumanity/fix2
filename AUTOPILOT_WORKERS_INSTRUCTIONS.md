@@ -25,7 +25,7 @@ https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new
 
 ### Step 2: Get Migration SQL
 ```
-https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETE_MIGRATION.sql
+https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETEMIGRATION.sql
 ```
 - Open this link
 - Press Ctrl+A (select all)

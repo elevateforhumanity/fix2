@@ -32,7 +32,7 @@ bash scripts/autopilot-add-domain.sh
 
 ## What Autopilot Will Do
 
-1. ✅ Add `elevateconnectsdirectory.org` to Netlify via API
+1. ✅ Add `elevateforhumanity.org` to Netlify via API
 2. ✅ Trigger SSL certificate provisioning
 3. ✅ Clear cache and rebuild
 4. ✅ Monitor status
@@ -77,7 +77,7 @@ If you prefer to do it manually:
 
 1. Go to: https://app.netlify.com/sites/elevateproduction/settings/domain
 2. Click "Add custom domain"
-3. Enter: `elevateconnectsdirectory.org`
+3. Enter: `elevateforhumanity.org`
 4. Click "Add domain"
 5. Wait 2-10 minutes for SSL
 
@@ -100,7 +100,7 @@ If you prefer to do it manually:
 
 ### Working Now (with SSL):
 
-**https://elevateproduction.netlify.app**
+**https://elevateproduction.netlify.app
 
 - Valid SSL certificate ✅
 - All styling working ✅
@@ -108,7 +108,7 @@ If you prefer to do it manually:
 
 ### Not Working (SSL error):
 
-**https://www.elevateconnectsdirectory.org**
+**https://www.elevateforhumanity.org
 
 - DNS configured ✅
 - Domain not added to Netlify ❌
@@ -119,7 +119,7 @@ If you prefer to do it manually:
 Once the domain is added and SSL is provisioned:
 
 1. **Clear browser cache**: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
-2. **Visit**: https://www.elevateconnectsdirectory.org
+2. **Visit**: https://www.elevateforhumanity.org
 3. **Verify**: No SSL errors, all styling visible
 4. **Test**: Navigate through pages
 
@@ -173,7 +173,7 @@ bash scripts/autopilot-add-domain.sh
 bash scripts/autopilot-check-ssl.sh
 
 # Visit site
-# https://www.elevateconnectsdirectory.org
+# https://www.elevateforhumanity.org
 ```
 
 ## Summary
@@ -188,7 +188,7 @@ bash scripts/autopilot-check-ssl.sh
 2. Run autopilot script
 3. Wait 5-15 minutes
 
-**Result**: Site will be live at https://www.elevateconnectsdirectory.org with valid SSL
+**Result**: Site will be live at https://www.elevateforhumanity.org with valid SSL
 
 ---
 

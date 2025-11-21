@@ -119,7 +119,7 @@ import { VideoShell } from '@/components/VideoShell';
 ### Option A: YouTube (Recommended)
 
 1. Upload video to YouTube
-2. Get video URL: `https://www.youtube.com/watch?v=VIDEO_ID`
+2. Get video URL: `https://www.youtube.com/watch?v=VIDEOID
 3. Use in VideoShell component
 
 **Pros:**
@@ -132,7 +132,7 @@ import { VideoShell } from '@/components/VideoShell';
 ### Option B: Vimeo
 
 1. Upload to Vimeo
-2. Get URL: `https://vimeo.com/VIDEO_ID`
+2. Get URL: `https://vimeo.com/VIDEOID
 3. Use in VideoShell component
 
 **Pros:**
@@ -264,7 +264,7 @@ import { VideoShell } from '@/components/VideoShell';
 
 ```tsx
 <VideoShell
-  src="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+  src="https://www.youtube.com/watch?v=YOURVIDEOID"
   title="Barber Apprenticeship Program"
   caption="Learn professional barbering skills"
   layout="horizontal"
@@ -284,7 +284,7 @@ import { VideoShell } from '@/components/VideoShell';
 ```sql
 UPDATE lessons
 SET
-  content = 'https://www.youtube.com/watch?v=VIDEO_ID',
+  content = 'https://www.youtube.com/watch?v=VIDEOID',
   content_type = 'video'
 WHERE id = 1;
 ```

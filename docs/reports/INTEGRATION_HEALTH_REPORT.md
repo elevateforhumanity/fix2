@@ -28,7 +28,7 @@ All three services (Supabase, Cloudflare, Netlify) are properly configured and i
 
 **Connection Details:**
 
-- **URL:** `https://cuxzzpsyufcewtmicszk.supabase.co`
+- **URL:** `https://cuxzzpsyufcewtmicszk.supabase.co
 - **Project:** cuxzzpsyufcewtmicszk
 - **Region:** Configured
 - **Status:** Active
@@ -170,10 +170,10 @@ Permissions-Policy: geolocation=(), microphone=(), camera=()
 
 **CSP Whitelist:**
 
-- ✅ Supabase: `https://cuxzzpsyufcewtmicszk.supabase.co`
+- ✅ Supabase: `https://cuxzzpsyufcewtmicszk.supabase.co
 - ✅ Supabase WebSocket: `wss://cuxzzpsyufcewtmicszk.supabase.co`
-- ✅ Stripe: `https://js.stripe.com`, `https://api.stripe.com`
-- ✅ Google Fonts: `https://fonts.googleapis.com`, `https://fonts.gstatic.com`
+- ✅ Stripe: `https://js.stripe.com, `https://api.stripe.com
+- ✅ Google Fonts: `https://fonts.googleapis.com, `https://fonts.gstatic.com
 
 **Caching Strategy:**
 

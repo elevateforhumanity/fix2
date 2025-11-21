@@ -20,11 +20,11 @@ The following environment variables must be added to Netlify for the build to su
 3. **Navigate to API Settings**
    - Click on "Project Settings" (gear icon in sidebar)
    - Click on "API" in the settings menu
-   - Or go directly to: https://supabase.com/dashboard/project/_/settings/api
+   - Or go directly to: https://supabase.com/dashboard/project//settings/api
 
 4. **Copy the Required Values**
    - **Project URL**: Copy the URL shown under "Project URL" section
-     - Format: `https://[project-ref].supabase.co`
+     - Format: `https://[project-ref].supabase.co
      - This will be the value for `NEXT_PUBLIC_SUPABASE_URL`
    - **anon/public key**: Copy the key shown under "Project API keys" → "anon public"
      - This is a long string starting with `eyJ...`

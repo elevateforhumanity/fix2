@@ -269,9 +269,9 @@
 
 ---
 
-## VIDEO SCRIPT 7: Elevate Connects Directory Overview (60 seconds)
+## VIDEO SCRIPT 7: Elevate for Humanity Overview (60 seconds)
 
-**Title:** Elevate Connects Directory - Where Innovation Meets Opportunity  
+**Title:** Elevate for Humanity - Where Innovation Meets Opportunity  
 **Purpose:** Platform overview for all stakeholders  
 **Placement:** About page, homepage secondary section
 
@@ -280,7 +280,7 @@
 **[0-15s] Opening**
 
 - Visual: Platform interface, diverse users
-- Voiceover: "Elevate Connects Directory is Indiana's workforce ecosystem—connecting learners, employers, and training providers through one powerful platform."
+- Voiceover: "Elevate for Humanity is Indiana's workforce ecosystem—connecting learners, employers, and training providers through one powerful platform."
 
 **[15-30s] For Jobseekers**
 

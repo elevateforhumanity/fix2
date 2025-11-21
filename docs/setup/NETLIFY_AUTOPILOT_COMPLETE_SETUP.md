@@ -67,7 +67,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 **Application Form:**
 
 ```bash
-VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform
+VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOURFORMID/viewform
 ```
 
 **Autopilot Configuration:**
@@ -120,8 +120,8 @@ GENERATE_SOURCEMAP=false
 After creating, save these URLs as GitHub Secrets:
 
 ```bash
-NETLIFY_BUILD_HOOK_PRODUCTION=https://api.netlify.com/build_hooks/...
-NETLIFY_BUILD_HOOK_STAGING=https://api.netlify.com/build_hooks/...
+NETLIFY_BUILD_HOOK_PRODUCTION=https://api.netlify.com/buildhooks/...
+NETLIFY_BUILD_HOOK_STAGING=https://api.netlify.com/buildhooks/...
 ```
 
 ---
@@ -380,7 +380,7 @@ Your site has these serverless functions:
 ```bash
 NETLIFY_AUTH_TOKEN=your_netlify_personal_access_token
 NETLIFY_SITE_ID=12f120ab-3f63-419b-bc49-430f043415c1
-NETLIFY_BUILD_HOOK_PRODUCTION=https://api.netlify.com/build_hooks/...
+NETLIFY_BUILD_HOOK_PRODUCTION=https://api.netlify.com/buildhooks/...
 ```
 
 **Supabase:**

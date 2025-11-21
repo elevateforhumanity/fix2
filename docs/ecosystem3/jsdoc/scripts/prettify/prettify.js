@@ -1,11 +1,11 @@
-var q = null;
+let q = null;
 window.PR_SHOULD_USE_CONTINUATION = !0;
 (function () {
   function L(a) {
     function m(a) {
-      var f = a.charCodeAt(0);
+      let f = a.charCodeAt(0);
       if (f !== 92) return f;
-      var b = a.charAt(1);
+      let b = a.charAt(1);
       return (f = r[b])
         ? f
         : '0' <= b && b <= '7'
@@ -22,7 +22,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     }
     function h(a) {
       for (
-        var f = a
+        let f = a
             .substring(1, a.length - 1)
             .match(
               /\\u[\dA-Fa-f]{4}|\\x[\dA-Fa-f]{2}|\\[0-3][0-7]{0,2}|\\[0-7]{1,2}|\\[\S\s]|[^\\]/g
@@ -35,10 +35,10 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         c < i;
         ++c
       ) {
-        var j = f[c];
+        let j = f[c];
         if (/\\[bdsw]/i.test(j)) a.push(j);
         else {
-          var j = m(j),
+          let j = m(j),
             d;
           c + 2 < i && '-' === f[c + 1]
             ? ((d = m(f[c + 2])), (c += 2))
@@ -74,7 +74,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     }
     function y(a) {
       for (
-        var f = a.source.match(
+        let f = a.source.match(
             /\[(?:[^\\\]]|\\[\S\s])*]|\\u[\dA-Fa-f]{4}|\\x[\dA-Fa-f]{2}|\\\d+|\\[^\dux]|\(\?[!:=]|[()^]|[^()[\\^]+/g
           ),
           b = f.length,
@@ -84,7 +84,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         c < b;
         ++c
       ) {
-        var j = f[c];
+        let j = f[c];
         j === '('
           ? ++i
           : '\\' === j.charAt(0) &&
@@ -116,8 +116,8 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
                 })));
       return f.join('');
     }
-    for (var t = 0, s = !1, l = !1, p = 0, d = a.length; p < d; ++p) {
-      var g = a[p];
+    for (let t = 0, s = !1, l = !1, p = 0, d = a.length; p < d; ++p) {
+      let g = a[p];
       if (g.ignoreCase) l = !0;
       else if (
         /[a-z]/i.test(
@@ -130,7 +130,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       }
     }
     for (
-      var r = { b: 8, t: 9, n: 10, v: 11, f: 12, r: 13 },
+      let r = { b: 8, t: 9, n: 10, v: 11, f: 12, r: 13 },
         n = [],
         p = 0,
         d = a.length;
@@ -148,7 +148,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       switch (a.nodeType) {
         case 1:
           if (e.test(a.className)) break;
-          for (var g = a.firstChild; g; g = g.nextSibling) m(g);
+          for (let g = a.firstChild; g; g = g.nextSibling) m(g);
           g = a.nodeName;
           if ('BR' === g || 'LI' === g)
             ((h[s] = '\n'), (t[s << 1] = y++), (t[(s++ << 1) | 1] = a));
@@ -166,7 +166,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
               (t[(s++ << 1) | 1] = a)));
       }
     }
-    var e = /(?:^|\s)nocode(?:\s|$)/,
+    let e = /(?:^|\s)nocode(?:\s|$)/,
       h = [],
       y = 0,
       t = [],
@@ -178,7 +178,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         (l = document.defaultView
           .getComputedStyle(a, q)
           .getPropertyValue('white-space'));
-    var p = l && 'pre' === l.substring(0, 3);
+    let p = l && 'pre' === l.substring(0, 3);
     m(a);
     return { a: h.join('').replace(/\n$/, ''), c: t };
   }
@@ -188,7 +188,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   function x(a, m) {
     function e(a) {
       for (
-        var l = a.d,
+        let l = a.d,
           p = [l, 'pln'],
           d = 0,
           g = a.a.match(y) || [],
@@ -198,13 +198,13 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         n < z;
         ++n
       ) {
-        var f = g[n],
+        let f = g[n],
           b = r[f],
           o = void 0,
           c;
         if (typeof b === 'string') c = !1;
         else {
-          var i = h[f.charAt(0)];
+          let i = h[f.charAt(0)];
           if (i) ((o = f.match(i[1])), (b = i[0]));
           else {
             for (c = 0; c < t; ++c)
@@ -225,7 +225,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         d += f.length;
         if (c) {
           c = o[1];
-          var j = f.indexOf(c),
+          let j = f.indexOf(c),
             k = j + c.length;
           o[2] && ((k = f.length - o[2].length), (j = k - c.length));
           b = b.substring(5);
@@ -236,17 +236,17 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       }
       a.e = p;
     }
-    var h = {},
+    let h = {},
       y;
     (function () {
       for (
-        var e = a.concat(m), l = [], p = {}, d = 0, g = e.length;
+        let e = a.concat(m), l = [], p = {}, d = 0, g = e.length;
         d < g;
         ++d
       ) {
-        var r = e[d],
+        let r = e[d],
           n = r[3];
-        if (n) for (var k = n.length; --k >= 0; ) h[n.charAt(k)] = r;
+        if (n) for (let k = n.length; --k >= 0; ) h[n.charAt(k)] = r;
         r = r[1];
         n = '' + r;
         p.hasOwnProperty(n) || (l.push(r), (p[n] = q));
@@ -254,11 +254,11 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       l.push(/[\S\s]/);
       y = L(l);
     })();
-    var t = m.length;
+    let t = m.length;
     return e;
   }
   function u(a) {
-    var m = [],
+    let m = [],
       e = [];
     a.tripleQuotedStrings
       ? m.push([
@@ -281,7 +281,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
             '"\'',
           ]);
     a.verbatimStrings && e.push(['str', /^@"(?:[^"]|"")*(?:"|$)/, q]);
-    var h = a.hashComments;
+    let h = a.hashComments;
     h &&
       (a.cStyleComments
         ? (h > 1
@@ -338,10 +338,10 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         case 3:
         case 4:
           if (p) {
-            var b = a.nodeValue,
+            let b = a.nodeValue,
               d = b.match(t);
             if (d) {
-              var c = b.substring(0, d.index);
+              let c = b.substring(0, d.index);
               a.nodeValue = c;
               (b = b.substring(d.index + d[0].length)) &&
                 a.parentNode.insertBefore(s.createTextNode(b), a.nextSibling);
@@ -353,26 +353,26 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     }
     function h(a) {
       function b(a, d) {
-        var e = d ? a.cloneNode(!1) : a,
+        let e = d ? a.cloneNode(!1) : a,
           f = a.parentNode;
         if (f) {
-          var f = b(f, 1),
+          let f = b(f, 1),
             g = a.nextSibling;
           f.appendChild(e);
-          for (var h = g; h; h = g) ((g = h.nextSibling), f.appendChild(h));
+          for (let h = g; h; h = g) ((g = h.nextSibling), f.appendChild(h));
         }
         return e;
       }
       for (; !a.nextSibling; ) if (((a = a.parentNode), !a)) return;
       for (
-        var a = b(a.nextSibling, 0), e;
+        let a = b(a.nextSibling, 0), e;
         (e = a.parentNode) && e.nodeType === 1;
 
       )
         a = e;
       d.push(a);
     }
-    var k = /(?:^|\s)nocode(?:\s|$)/,
+    let k = /(?:^|\s)nocode(?:\s|$)/,
       t = /\r\n?|\n/,
       s = a.ownerDocument,
       l;
@@ -382,13 +382,13 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         (l = s.defaultView
           .getComputedStyle(a, q)
           .getPropertyValue('white-space'));
-    var p = l && 'pre' === l.substring(0, 3);
+    let p = l && 'pre' === l.substring(0, 3);
     for (l = s.createElement('LI'); a.firstChild; ) l.appendChild(a.firstChild);
-    for (var d = [l], g = 0; g < d.length; ++g) e(d[g]);
+    for (let d = [l], g = 0; g < d.length; ++g) e(d[g]);
     m === (m | 0) && d[0].setAttribute('value', m);
-    var r = s.createElement('OL');
+    let r = s.createElement('OL');
     r.className = 'linenums';
-    for (var n = Math.max(0, (m - 1) | 0) || 0, g = 0, z = d.length; g < z; ++g)
+    for (let n = Math.max(0, (m - 1) | 0) || 0, g = 0, z = d.length; g < z; ++g)
       ((l = d[g]),
         (l.className = 'L' + ((g + n) % 10)),
         l.firstChild || l.appendChild(s.createTextNode('\xa0')),
@@ -396,8 +396,8 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     a.appendChild(r);
   }
   function k(a, m) {
-    for (var e = m.length; --e >= 0; ) {
-      var h = m[e];
+    for (let e = m.length; --e >= 0; ) {
+      let h = m[e];
       A.hasOwnProperty(h)
         ? window.console &&
           console.warn('cannot override language handler %s', h)
@@ -410,15 +410,15 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     return A[a];
   }
   function E(a) {
-    var m = a.g;
+    let m = a.g;
     try {
-      var e = M(a.h),
+      let e = M(a.h),
         h = e.a;
       a.a = h;
       a.c = e.c;
       a.d = 0;
       C(m, h)(a);
-      var k = /\bMSIE\b/.test(navigator.userAgent),
+      let k = /\bMSIE\b/.test(navigator.userAgent),
         m = /\n/g,
         t = a.a,
         s = t.length,
@@ -430,13 +430,13 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         g = d.length,
         a = 0;
       d[g] = s;
-      var r, n;
+      let r, n;
       for (n = r = 0; n < g; )
         d[n] !== d[n + 2] ? ((d[r++] = d[n++]), (d[r++] = d[n++])) : (n += 2);
       g = r;
       for (n = r = 0; n < g; ) {
         for (
-          var z = d[n], f = d[n + 1], b = n + 2;
+          let z = d[n], f = d[n + 1], b = n + 2;
           b + 2 <= g && d[b + 1] === f;
 
         )
@@ -446,7 +446,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         n = b;
       }
       for (d.length = r; h < p; ) {
-        var o = l[h + 2] || s,
+        let o = l[h + 2] || s,
           c = d[a + 2] || s,
           b = Math.min(o, c),
           i = l[h + 1],
@@ -454,10 +454,10 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         if (i.nodeType !== 1 && (j = t.substring(e, b))) {
           k && (j = j.replace(m, '\r'));
           i.nodeValue = j;
-          var u = i.ownerDocument,
+          let u = i.ownerDocument,
             v = u.createElement('SPAN');
           v.className = d[a + 1];
-          var x = i.parentNode;
+          let x = i.parentNode;
           x.replaceChild(v, i);
           v.appendChild(i);
           e < o &&
@@ -472,7 +472,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       'console' in window && console.log(w && w.stack ? w.stack : w);
     }
   }
-  var v = ['break,continue,do,else,for,if,return,while'],
+  let v = ['break,continue,do,else,for,if,return,while'],
     w = [
       [
         v,
@@ -633,7 +633,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   );
   k(x([], [['str', /^[\S\s]+/]]), ['regex']);
   window.prettyPrintOne = function (a, m, e) {
-    var h = document.createElement('PRE');
+    let h = document.createElement('PRE');
     h.innerHTML = a;
     e && D(h, e);
     E({ g: m, i: e, h: h });
@@ -642,20 +642,20 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
   window.prettyPrint = function (a) {
     function m() {
       for (
-        var e = window.PR_SHOULD_USE_CONTINUATION ? l.now() + 250 : Infinity;
+        let e = window.PR_SHOULD_USE_CONTINUATION ? l.now() + 250 : Infinity;
         p < h.length && l.now() < e;
         p++
       ) {
-        var n = h[p],
+        let n = h[p],
           k = n.className;
         if (k.indexOf('prettyprint') >= 0) {
-          var k = k.match(g),
+          let k = k.match(g),
             f,
             b;
           if ((b = !k)) {
             b = n;
-            for (var o = void 0, c = b.firstChild; c; c = c.nextSibling)
-              var i = c.nodeType,
+            for (let o = void 0, c = b.firstChild; c; c = c.nextSibling)
+              let i = c.nodeType,
                 o =
                   i === 1
                     ? o
@@ -695,7 +695,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       p < h.length ? setTimeout(m, 250) : a && a();
     }
     for (
-      var e = [
+      let e = [
           document.getElementsByTagName('pre'),
           document.getElementsByTagName('code'),
           document.getElementsByTagName('xmp'),
@@ -705,8 +705,8 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
       k < e.length;
       ++k
     )
-      for (var t = 0, s = e[k].length; t < s; ++t) h.push(e[k][t]);
-    var e = q,
+      for (let t = 0, s = e[k].length; t < s; ++t) h.push(e[k][t]);
+    let e = q,
       l = Date;
     l.now ||
       (l = {
@@ -714,7 +714,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
           return +new Date();
         },
       });
-    var p = 0,
+    let p = 0,
       d,
       g = /\blang(?:uage)?-([\w.]+)(?!\S)/;
     m();

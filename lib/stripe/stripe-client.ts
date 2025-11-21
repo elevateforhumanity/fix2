@@ -251,47 +251,47 @@ export async function handleWebhookEvent(event: Stripe.Event) {
     case 'checkout.session.completed': {
       const session = event.data.object as Stripe.Checkout.Session;
       // Handle successful payment
-      console.log('Payment successful:', session.id);
+      // console.log('Payment successful:', session.id);
       break;
     }
 
     case 'customer.subscription.created': {
       const subscription = event.data.object as Stripe.Subscription;
       // Handle new subscription
-      console.log('Subscription created:', subscription.id);
+      // console.log('Subscription created:', subscription.id);
       break;
     }
 
     case 'customer.subscription.updated': {
       const updatedSubscription = event.data.object as Stripe.Subscription;
       // Handle subscription update
-      console.log('Subscription updated:', updatedSubscription.id);
+      // console.log('Subscription updated:', updatedSubscription.id);
       break;
     }
 
     case 'customer.subscription.deleted': {
       const deletedSubscription = event.data.object as Stripe.Subscription;
       // Handle subscription cancellation
-      console.log('Subscription cancelled:', deletedSubscription.id);
+      // console.log('Subscription cancelled:', deletedSubscription.id);
       break;
     }
 
     case 'invoice.payment_succeeded': {
       const invoice = event.data.object as Stripe.Invoice;
       // Handle successful payment
-      console.log('Invoice paid:', invoice.id);
+      // console.log('Invoice paid:', invoice.id);
       break;
     }
 
     case 'invoice.payment_failed': {
       const failedInvoice = event.data.object as Stripe.Invoice;
       // Handle failed payment
-      console.log('Invoice payment failed:', failedInvoice.id);
+      // console.log('Invoice payment failed:', failedInvoice.id);
       break;
     }
 
     default:
-      console.log(`Unhandled event type: ${event.type}`);
+      // console.log(`Unhandled event type: ${event.type}`);
   }
 }
 

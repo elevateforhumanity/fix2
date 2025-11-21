@@ -1,4 +1,4 @@
-# Homepage Comparison: Elevate Connects vs Coursera
+# Homepage Comparison: Elevate for Humanity vs Coursera
 
 ## What Coursera Does Well (That We Should Adopt):
 
@@ -110,7 +110,7 @@ Photo + Name + Quote + Outcome
 
 6. **Comparison Table**
 ```
-Traditional College vs Elevate Connects
+Traditional College vs Elevate for Humanity
 Time: 4 years vs 4-12 weeks
 Cost: $40K+ vs $0 (WIOA)
 Outcome: Degree vs Job + Certification

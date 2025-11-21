@@ -35,7 +35,7 @@ Your Vercel deployment at `fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app` need
 ✅ **Already working!** The code I just pushed includes mock data fallback.
 
 ### What You'll See:
-When you visit: `https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses`
+When you visit: `https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 
 You should see:
 - ✅ 17 courses displayed
@@ -155,7 +155,7 @@ After adding variables:
 
 ### Step 7: Verify
 
-Visit: `https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses`
+Visit: `https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 
 You should see:
 - ✅ 17 courses displayed
@@ -249,14 +249,14 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ### Optional (Recommended):
 ```bash
 # Site Configuration
-NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 
 # OpenAI (for AI features)
 OPENAI_API_KEY=sk-...
 
 # Email (for notifications)
 RESEND_API_KEY=re_...
-EMAIL_FROM=noreply@elevateconnectsdirectory.org
+EMAIL_FROM=noreply@elevateforhumanity.org
 
 # Analytics
 NEXT_PUBLIC_GA_ID=G-EFHWORKFORCE01

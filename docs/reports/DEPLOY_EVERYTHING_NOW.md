@@ -74,7 +74,7 @@ FACEBOOK_APP_SECRET=YOUR_SECRET_HERE
 # ============================================
 # SLACK (Optional but recommended)
 # ============================================
-SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR_WEBHOOK_HERE
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOURWEBHOOKHERE
 
 # ============================================
 # CLOUDFLARE (You have these)
@@ -209,7 +209,7 @@ FACEBOOK_APP_SECRET = YOUR_SECRET
 **Slack (1 key)**:
 
 ```
-SLACK_WEBHOOK_URL = https://hooks.slack.com/services/YOUR_WEBHOOK
+SLACK_WEBHOOK_URL = https://hooks.slack.com/services/YOURWEBHOOK
 ```
 
 **Cloudflare (2 keys)**:
@@ -271,7 +271,7 @@ netlify deploy --prod
 
 ```bash
 # Test worker health endpoint
-curl https://autopilot-deploy-worker.YOUR_SUBDOMAIN.workers.dev/health
+curl https://autopilot-deploy-worker.YOURSUBDOMAIN.workers.dev/health
 
 # Expected response:
 # {"status":"ok","timestamp":"2025-10-29T04:15:00Z","environment":"production"}

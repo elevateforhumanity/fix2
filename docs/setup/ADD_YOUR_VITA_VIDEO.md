@@ -2,7 +2,7 @@
 
 ## ✅ Great! You Created a Video!
 
-Your video URL: `https://ai.invideo.io/watch/mDgPo5Ba1GH`
+Your video URL: `https://ai.invideo.io/watch/mDgPo5Ba1GH
 
 ---
 
@@ -201,7 +201,7 @@ Students will see:
 - ✅ Reliable embedding
 - ✅ Good analytics
 - ✅ Searchable
-- URL format: `https://www.youtube.com/watch?v=VIDEO_ID`
+- URL format: `https://www.youtube.com/watch?v=VIDEOID
 
 **Vimeo:**
 
@@ -209,7 +209,7 @@ Students will see:
 - ✅ Privacy controls
 - ✅ No ads
 - ✅ Better quality
-- URL format: `https://vimeo.com/VIDEO_ID`
+- URL format: `https://vimeo.com/VIDEOID
 
 **Cloudflare Stream:**
 

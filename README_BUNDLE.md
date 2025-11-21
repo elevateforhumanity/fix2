@@ -4,27 +4,27 @@
 
 ### 🚀 Want to Deploy NOW?
 
-→ **[AUTOPILOT_QUICK_START.md](AUTOPILOT_QUICK_START.md)** - 3 simple steps (13 minutes)
+→ **[AUTOPILOT_QUICK_START.md](AUTOPILOT_SETUP_GUIDE.md)** - 3 simple steps (13 minutes)
 
 ### 🤖 Want Full Autopilot Details?
 
-→ **[AUTOPILOT_METHOD_GUIDE.md](AUTOPILOT_METHOD_GUIDE.md)** - Complete guide with troubleshooting
+→ **[AUTOPILOT_METHOD_GUIDE.md](AUTOPILOT_CHARTER.md)** - Complete guide with troubleshooting
 
 ### ⚡ Want Fastest Method?
 
-→ **[QUICK_DEPLOY.md](QUICK_DEPLOY.md)** - 3 fastest methods (30 sec - 5 min)
+→ **[QUICK_DEPLOY.md](DEPLOY_NOW.md)** - 3 fastest methods (30 sec - 5 min)
 
 ### 🧠 Want All Options?
 
-→ **[ALTERNATIVE_APPROACHES.md](ALTERNATIVE_APPROACHES.md)** - All 8 deployment methods
+→ **[ALTERNATIVE_APPROACHES.md](DEPLOYMENT_INSTRUCTIONS.md)** - All 8 deployment methods
 
 ### 📋 Want Strategy Overview?
 
-→ **[DEPLOYMENT_STRATEGY.md](DEPLOYMENT_STRATEGY.md)** - Complete deployment strategy
+→ **[DEPLOYMENT_STRATEGY.md](DEPLOYMENT_CHECKLIST.md)** - Complete deployment strategy
 
 ### 📊 Want Summary?
 
-→ **[INTELLIGENT_ALTERNATIVES_SUMMARY.md](INTELLIGENT_ALTERNATIVES_SUMMARY.md)** - Executive summary
+→ **[INTELLIGENT_ALTERNATIVES_SUMMARY.md](DEPLOYMENT_SUMMARY.md)** - Executive summary
 
 ---
 

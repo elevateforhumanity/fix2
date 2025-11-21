@@ -15,7 +15,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
     }
 
-    const body = await request.json().catch(() => ({}));
+    const body = await request.json().catch((err) => {
+      console.error('Failed to parse request body:', err);
+      return {};
+    });
     const {
       enrollmentId,
       courseId,

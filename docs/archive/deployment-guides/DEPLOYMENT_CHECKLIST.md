@@ -111,10 +111,10 @@ VALUES ('staff-user-id', 'staff');
 ### URL Configuration
 
 - [ ] Go to Supabase Console → Authentication → URL Configuration
-- [ ] Set Site URL: `https://yoursite.com`
+- [ ] Set Site URL: `https://yoursite.com
 - [ ] Add Redirect URLs:
-  - `https://yoursite.com/auth/callback`
-  - `http://localhost:5173/auth/callback` (for dev)
+  - `https://yoursite.com/auth/callback
+  - `http://localhost:5173/auth/callback (for dev)
 - [ ] Save changes
 
 ### Environment Variables

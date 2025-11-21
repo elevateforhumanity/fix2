@@ -131,7 +131,7 @@ Status: Pushed successfully
 - Check: https://vercel.com/dashboard
 
 ### ✅ Website Status
-- Live: https://www.elevateconnectsdirectory.org
+- Live: https://www.elevateforhumanity.org
 - Working: All routes functional
 - Security: Active (bot detection, watermarking)
 

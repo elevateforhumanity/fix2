@@ -117,7 +117,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 #### NextAuth (Authentication)
 ```bash
 NEXTAUTH_SECRET=your-secret-here
-NEXTAUTH_URL=https://elevateconnectsdirectory.org
+NEXTAUTH_URL=https://elevateforhumanity.org
 ```
 **Generate secret:**
 ```bash
@@ -153,7 +153,7 @@ OPENAI_API_KEY=sk-...
 SENDGRID_API_KEY=SG....
 SENDGRID_FROM=noreply@elevateforhumanity.org
 ```
-**Get it:** https://app.sendgrid.com/settings/api_keys
+**Get it:** https://app.sendgrid.com/settings/apikeys
 1. Create account at https://sendgrid.com
 2. Go to Settings > API Keys
 3. Create API key with "Full Access"
@@ -264,7 +264,7 @@ partnership. Could you please provide:
 2. Brand guidelines for logo usage
 3. Any specific requirements for display
 
-Our website: https://elevateconnectsdirectory.org
+Our website: https://elevateforhumanity.org
 
 Thank you!
 

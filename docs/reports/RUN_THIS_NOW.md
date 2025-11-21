@@ -27,7 +27,7 @@ Press ENTER when you have your token ready...
 
 ### 2. You Get the Token (2 minutes)
 
-1. Click this link: **https://app.netlify.com/user/applications#personal-access-tokens**
+1. Click this link: **https://app.netlify.com/user/applications#personal-access-tokens
 2. Click **"New access token"**
 3. Name: **"Autopilot Configuration"**
 4. Click **"Generate token"**

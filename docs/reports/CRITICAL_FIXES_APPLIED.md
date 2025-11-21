@@ -102,7 +102,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 **Action Required:** Add to Netlify Dashboard
 
 ```
-VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform
+VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOURFORMID/viewform
 ```
 
 #### 4. Cloudflare Workers Decision

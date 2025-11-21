@@ -216,7 +216,7 @@ The data is ready for visualization:
 
 After running setup, verify:
 
-- [ ] Worker deployed: `curl https://efh-autopilot-metrics.workers.dev/summary`
+- [ ] Worker deployed: `curl https://efh-autopilot-metrics.workers.dev/summary
 - [ ] GitHub secret set: Check workflow logs for "Durable Storage: ✅ Stored"
 - [ ] Data flowing: `totalChecks` increases after each run
 - [ ] Metrics calculated: `averageSuccessRate` shows percentage
@@ -278,7 +278,7 @@ gh secret list | grep AUTOPILOT_TOKEN
 
 1. **Run the setup**: `./scripts/full-autopilot-setup.sh`
 2. **Wait for first workflow**: Push a commit or wait for hourly run
-3. **Check metrics**: `curl https://efh-autopilot-metrics.workers.dev/summary`
+3. **Check metrics**: `curl https://efh-autopilot-metrics.workers.dev/summary
 4. **Monitor over time**: Data accumulates automatically
 5. **Build dashboard** (optional): Use API to create visualizations
 

@@ -50,7 +50,7 @@ cat .vercel/project.json
 ```
 
 **Option C - From URL:**
-- Your org ID is in the URL: `https://vercel.com/[ORG_ID]/[project-name]`
+- Your org ID is in the URL: `https://vercel.com/[ORGID]/[project-name]
 
 ### VERCEL_PROJECT_ID
 **What it is:** Your specific project ID in Vercel  
@@ -86,7 +86,7 @@ cat .vercel/project.json
 1. Go to [https://supabase.com/dashboard/projects](https://supabase.com/dashboard/projects)
 2. Select your project (or create one)
 3. Go to Settings → API
-4. Copy the **Project URL** (looks like: `https://xxxxx.supabase.co`)
+4. Copy the **Project URL** (looks like: `https://xxxxx.supabase.co)
 
 **Don't have a project?**
 - Create one: [https://supabase.com/dashboard/new](https://supabase.com/dashboard/new)
@@ -128,24 +128,24 @@ cat .vercel/project.json
 **Options:**
 
 **If you have a backend deployed:**
-- Use your backend URL (e.g., `https://api.yourdomain.com`)
+- Use your backend URL (e.g., `https://api.yourdomain.com)
 
 **If using Supabase Functions:**
-- Use: `https://[your-project-ref].supabase.co/functions/v1`
+- Use: `https://[your-project-ref].supabase.co/functions/v1
 - Get project ref from Supabase dashboard URL
 
 **For development/testing:**
-- Use: `https://[your-project-ref].supabase.co`
+- Use: `https://[your-project-ref].supabase.co
 
 ### VITE_SITE_URL
 **What it is:** Your frontend site URL  
 **Options:**
 
 **Before first deployment:**
-- Use a placeholder: `https://fix2.vercel.app` (will update after deployment)
+- Use a placeholder: `https://fix2.vercel.app (will update after deployment)
 
 **After Vercel deployment:**
-- Use your actual Vercel URL (e.g., `https://your-project.vercel.app`)
+- Use your actual Vercel URL (e.g., `https://your-project.vercel.app)
 - Or your custom domain if configured
 
 **Note:** You can update this secret after the first deployment with the actual URL.
@@ -219,7 +219,7 @@ Once all secrets are configured:
 
 ### Need help with API URL?
 - If unsure, use your Supabase project URL as the API URL
-- Format: `https://[project-ref].supabase.co`
+- Format: `https://[project-ref].supabase.co
 
 ---
 

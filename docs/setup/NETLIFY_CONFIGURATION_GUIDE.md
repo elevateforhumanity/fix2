@@ -117,7 +117,7 @@ STRIPE_SECRET_KEY=sk_test_your_key_here
 STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret_here
 
 # Google Forms (for applications)
-VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform
+VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOURFORMID/viewform
 ```
 
 ### Step 3: Build Settings

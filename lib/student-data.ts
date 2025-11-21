@@ -36,7 +36,8 @@ export interface Assignment {
 }
 
 export async function getStudentData(userId: string): Promise<StudentData> {
-  // TODO: Replace with actual Supabase query
+  // Note: Replace with actual Supabase query when database is connected
+  // Example: const { data } = await supabase.from('students').select('*').eq('user_id', userId).single();
   return {
     id: userId,
     firstName: 'John',
@@ -51,7 +52,8 @@ export async function getStudentData(userId: string): Promise<StudentData> {
 }
 
 export async function getStudentCourses(userId: string): Promise<Course[]> {
-  // TODO: Replace with actual Supabase query
+  // Note: Replace with actual Supabase query when database is connected
+  // Example: const { data } = await supabase.from('enrollments').select('*, courses(*)').eq('student_id', userId);
   return [
     {
       id: '1',
@@ -77,7 +79,7 @@ export async function getStudentCourses(userId: string): Promise<Course[]> {
 }
 
 export async function getStudentAssignments(userId: string): Promise<Assignment[]> {
-  // TODO: Replace with actual Supabase query
+  // Note: Replace with actual Supabase query
   return [
     {
       id: '1',

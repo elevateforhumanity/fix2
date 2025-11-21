@@ -47,7 +47,7 @@ export default function EmailPage() {
   };
 
   const sendEmail = () => {
-    console.log('Sending email:', newEmail);
+    // console.log('Sending email:', newEmail);
     setComposing(false);
     setNewEmail({ to: '', subject: '', body: '' });
   };

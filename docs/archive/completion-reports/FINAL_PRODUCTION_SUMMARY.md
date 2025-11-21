@@ -381,7 +381,7 @@ git push origin main
 ### Local Testing
 
 - [ ] Run `npm run build` successfully
-- [ ] Preview at `http://localhost:4173`
+- [ ] Preview at `http://localhost:4173
 - [ ] Test all routes: `/`, `/programs`, `/apply`, `/partners`, `/privacy`, `/terms`
 - [ ] Test form submission
 - [ ] Test deep links (direct navigation)
@@ -615,5 +615,5 @@ Your Elevate for Humanity platform has been successfully hardened for production
 ---
 
 _Report Generated: January 10, 2025_  
-_Repository: https://github.com/elevateforhumanity/fix2_  
+_Repository: https://github.com/elevateforhumanity/fix2  
 _Status: ✅ PRODUCTION READY_

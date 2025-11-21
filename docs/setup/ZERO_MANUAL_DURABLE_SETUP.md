@@ -33,13 +33,13 @@ Run this single command:
 
 - **File:** `efh-bridge.js` (8.8KB)
 - **Purpose:** Injects content into Durable slots
-- **URL:** `https://elevateforhumanityfix2.netlify.app/efh-bridge.js`
+- **URL:** `https://elevateforhumanityfix2.netlify.app/efh-bridge.js
 
 ### Configuration
 
 - **File:** `efh-config.json` (4.0KB)
 - **Purpose:** Dynamic content (programs, features, testimonials)
-- **URL:** `https://elevateforhumanityfix2.netlify.app/api/efh-config.json`
+- **URL:** `https://elevateforhumanityfix2.netlify.app/api/efh-config.json
 
 ### Content Included
 

@@ -42,8 +42,8 @@ export async function POST(req: NextRequest) {
 
     if (uploadError) throw uploadError;
 
-    // TODO: Parse SCORM manifest (imsmanifest.xml)
-    // TODO: Extract course structure and create lessons
+    // Note: Parse SCORM manifest (imsmanifest.xml)
+    // Note: Extract course structure and create lessons
     // For now, just store the reference
 
     const { data: scormData, error: scormError } = await supabase

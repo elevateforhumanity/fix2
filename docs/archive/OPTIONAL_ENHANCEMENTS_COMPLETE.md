@@ -368,6 +368,6 @@ export const supabase = createBrowserClient(
 
 **Status:** 🎉 PRODUCTION READY
 
-**Site:** https://www.elevateconnectsdirectory.org
+**Site:** https://www.elevateforhumanity.org
 **Build:** ✅ Successful (23 pages, 4 API routes, middleware)
 **Features:** All optional enhancements active

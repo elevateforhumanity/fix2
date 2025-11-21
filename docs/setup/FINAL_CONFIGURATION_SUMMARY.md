@@ -122,13 +122,13 @@ VITE_APP_VERSION=2.0.0
 ```toml
 # netlify.toml
 [[redirects]]
-  from = "https://elevateforhumanity.com/*"
+  from = "https://elevateforhumanity.com/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.elevateforhumanity.com/*"
+  from = "https://www.elevateforhumanity.com/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true

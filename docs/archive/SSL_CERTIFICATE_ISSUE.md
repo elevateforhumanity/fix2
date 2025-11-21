@@ -4,14 +4,14 @@
 
 **Error**: `net::ERR_CERT_COMMON_NAME_INVALID`
 
-**Root Cause**: The custom domain `elevateconnectsdirectory.org` was **NEVER actually added to Netlify**.
+**Root Cause**: The custom domain `elevateforhumanity.org` was **NEVER actually added to Netlify**.
 
 ### Current Situation
 
 ```
-DNS: elevateconnectsdirectory.org → 75.2.60.5 (Netlify IP) ✅
+DNS: elevateforhumanity.org → 75.2.60.5 (Netlify IP) ✅
 SSL Certificate: *.netlify.app (WRONG) ❌
-Expected SSL: elevateconnectsdirectory.org ❌
+Expected SSL: elevateforhumanity.org ❌
 
 Result: Browser shows "Your connection is not private"
 ```
@@ -20,7 +20,7 @@ Result: Browser shows "Your connection is not private"
 
 1. DNS is pointing to Netlify correctly (75.2.60.5)
 2. Netlify receives the request
-3. But Netlify doesn't recognize `elevateconnectsdirectory.org` as a custom domain
+3. But Netlify doesn't recognize `elevateforhumanity.org` as a custom domain
 4. So it serves the default `*.netlify.app` SSL certificate
 5. Browser sees certificate mismatch and blocks the connection
 
@@ -39,7 +39,7 @@ You mentioned earlier that both domains were "correct now", but the custom domai
 
 1. Click **"Domain settings"** in the left sidebar
 2. Click **"Add custom domain"** button
-3. Enter: `elevateconnectsdirectory.org`
+3. Enter: `elevateforhumanity.org`
 4. Click **"Verify"**
 5. Netlify will detect the DNS is already configured
 6. Click **"Add domain"**
@@ -56,7 +56,7 @@ You mentioned earlier that both domains were "correct now", but the custom domai
 Once SSL is provisioned:
 
 ```bash
-curl -I https://www.elevateconnectsdirectory.org
+curl -I https://www.elevateforhumanity.org
 # Should show: HTTP/2 200
 # No SSL errors
 ```
@@ -65,7 +65,7 @@ curl -I https://www.elevateconnectsdirectory.org
 
 ```bash
 # DNS is correct:
-elevateconnectsdirectory.org → 75.2.60.5 ✅
+elevateforhumanity.org → 75.2.60.5 ✅
 
 # This is Netlify's load balancer IP
 # DNS is NOT the problem
@@ -78,7 +78,7 @@ Subject: CN=*.netlify.app
 Issuer: DigiCert Global G2 TLS RSA SHA256 2020 CA1
 Valid: Jan 31 2025 - (future date)
 
-This certificate is for *.netlify.app, NOT elevateconnectsdirectory.org
+This certificate is for *.netlify.app, NOT elevateforhumanity.org
 ```
 
 ## What Will Happen After Adding Domain
@@ -86,7 +86,7 @@ This certificate is for *.netlify.app, NOT elevateconnectsdirectory.org
 ### Before (Current):
 
 ```
-User visits: elevateconnectsdirectory.org
+User visits: elevateforhumanity.org
 DNS resolves: 75.2.60.5 (Netlify)
 Netlify checks: "I don't know this domain"
 Netlify serves: *.netlify.app certificate
@@ -96,10 +96,10 @@ Browser: ❌ Certificate mismatch error
 ### After (Fixed):
 
 ```
-User visits: elevateconnectsdirectory.org
+User visits: elevateforhumanity.org
 DNS resolves: 75.2.60.5 (Netlify)
 Netlify checks: "I know this domain!"
-Netlify serves: elevateconnectsdirectory.org certificate
+Netlify serves: elevateforhumanity.org certificate
 Browser: ✅ Secure connection
 ```
 
@@ -113,7 +113,7 @@ Browser: ✅ Secure connection
 ## Alternative: Use Netlify Subdomain
 
 While waiting for SSL, you can access the site at:
-**https://elevateproduction.netlify.app**
+**https://elevateproduction.netlify.app
 
 This works perfectly with SSL because it uses the `*.netlify.app` certificate.
 
@@ -122,22 +122,22 @@ This works perfectly with SSL because it uses the `*.netlify.app` certificate.
 ### Check DNS (Already Correct)
 
 ```bash
-dig elevateconnectsdirectory.org +short
+dig elevateforhumanity.org +short
 # Result: 75.2.60.5 ✅
 ```
 
 ### Check SSL Certificate
 
 ```bash
-curl -vI https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
+curl -vI https://www.elevateforhumanity.org 2>&1 | grep "subject:"
 # Current: CN=*.netlify.app ❌
-# After fix: CN=elevateconnectsdirectory.org ✅
+# After fix: CN=elevateforhumanity.org ✅
 ```
 
 ### Check Site Loads
 
 ```bash
-curl -I https://www.elevateconnectsdirectory.org
+curl -I https://www.elevateforhumanity.org
 # Current: SSL error ❌
 # After fix: HTTP/2 200 ✅
 ```
@@ -184,7 +184,7 @@ Left sidebar → "Domain settings"
 
 ```
 Click: "Add custom domain"
-Enter: elevateconnectsdirectory.org
+Enter: elevateforhumanity.org
 Click: "Verify"
 Click: "Add domain"
 ```
@@ -200,7 +200,7 @@ Status will change to: "HTTPS enabled ✓"
 ### 5. Test
 
 ```
-Visit: https://www.elevateconnectsdirectory.org
+Visit: https://www.elevateforhumanity.org
 Should load without SSL errors
 ```
 
@@ -210,7 +210,7 @@ You mentioned Cloudflare CDN. Let me check if Cloudflare is involved:
 
 ```bash
 # Check nameservers
-dig elevateconnectsdirectory.org NS +short
+dig elevateforhumanity.org NS +short
 ```
 
 If using Cloudflare:
@@ -228,12 +228,12 @@ If using Cloudflare:
 
 **Current Status**:
 
-- ❌ elevateconnectsdirectory.org - SSL error
+- ❌ elevateforhumanity.org - SSL error
 - ✅ elevateproduction.netlify.app - Works perfectly
 
 **After Fix**:
 
-- ✅ elevateconnectsdirectory.org - Works perfectly
+- ✅ elevateforhumanity.org - Works perfectly
 - ✅ elevateproduction.netlify.app - Works perfectly
 
 ---
@@ -246,4 +246,4 @@ If using Cloudflare:
 
 ---
 
-**Next Step**: Add `elevateconnectsdirectory.org` as a custom domain in the Netlify dashboard.
+**Next Step**: Add `elevateforhumanity.org` as a custom domain in the Netlify dashboard.

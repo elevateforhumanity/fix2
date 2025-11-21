@@ -12,7 +12,7 @@
 
 1. Go to: https://supabase.com/dashboard
 2. Click on "elevate" project
-3. Look at the URL: `https://supabase.com/dashboard/project/[PROJECT_REF]`
+3. Look at the URL: `https://supabase.com/dashboard/project/[PROJECTREF]
 4. Copy the `[PROJECT_REF]` (should be something like `abcdefghijklmnop`)
 
 ### 1.2 Get API Keys
@@ -21,7 +21,7 @@
 2. Copy these values:
 
 ```
-Project URL: https://[PROJECT_REF].supabase.co
+Project URL: https://[PROJECTREF].supabase.co
 anon public key: eyJhbGc...
 service_role key: eyJhbGc... (⚠️ Keep secret!)
 ```
@@ -35,9 +35,9 @@ service_role key: eyJhbGc... (⚠️ Keep secret!)
 nano .env
 
 # Replace these values:
-VITE_SUPABASE_URL=https://[NEW_PROJECT_REF].supabase.co
+VITE_SUPABASE_URL=https://[NEWPROJECTREF].supabase.co
 VITE_SUPABASE_ANON_KEY=[NEW_ANON_KEY]
-SUPABASE_URL=https://[NEW_PROJECT_REF].supabase.co
+SUPABASE_URL=https://[NEWPROJECTREF].supabase.co
 SUPABASE_SERVICE_KEY=[NEW_SERVICE_ROLE_KEY]
 ```
 
@@ -48,7 +48,7 @@ SUPABASE_SERVICE_KEY=[NEW_SERVICE_ROLE_KEY]
 nano netlify.toml
 
 # Find and replace in [build.environment] section:
-VITE_SUPABASE_URL = "https://[NEW_PROJECT_REF].supabase.co"
+VITE_SUPABASE_URL = "https://[NEWPROJECTREF].supabase.co"
 VITE_SUPABASE_ANON_KEY = "[NEW_ANON_KEY]"
 ```
 
@@ -57,7 +57,7 @@ VITE_SUPABASE_ANON_KEY = "[NEW_ANON_KEY]"
 In `netlify.toml`, find the CSP header and update Supabase URLs:
 
 ```toml
-Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://[NEW_PROJECT_REF].supabase.co https://js.stripe.com; ... connect-src 'self' https://[NEW_PROJECT_REF].supabase.co wss://[NEW_PROJECT_REF].supabase.co ..."
+Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://[NEWPROJECTREF].supabase.co https://js.stripe.com; ... connect-src 'self' https://[NEWPROJECTREF].supabase.co wss://[NEW_PROJECT_REF].supabase.co ..."
 ```
 
 ## Step 3: Run Database Migrations
@@ -74,7 +74,7 @@ bash scripts/autopilot_migrate.sh "$DB_URL"
 
 ### 3.2 Verify Tables Created
 
-1. Go to: https://supabase.com/dashboard/project/[NEW_PROJECT_REF]/editor
+1. Go to: https://supabase.com/dashboard/project/[NEWPROJECTREF]/editor
 2. Check these tables exist:
    - programs
    - courses
@@ -122,7 +122,7 @@ https://app.netlify.com/sites/elevateforhumanityfix2/settings/env
 ### 5.2 Update These Variables
 
 ```
-VITE_SUPABASE_URL = https://[NEW_PROJECT_REF].supabase.co
+VITE_SUPABASE_URL = https://[NEWPROJECTREF].supabase.co
 VITE_SUPABASE_ANON_KEY = [NEW_ANON_KEY]
 ```
 

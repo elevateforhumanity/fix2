@@ -118,7 +118,7 @@ bash autopilot/branch-protection/setup-branch-protection.sh
 
 ### Test 1: Check Protection is Active
 
-Visit: https://github.com/elevateforhumanity/fix2/settings/branch_protection_rules
+Visit: https://github.com/elevateforhumanity/fix2/settings/branchprotectionrules
 
 You should see a rule for `main` branch with:
 

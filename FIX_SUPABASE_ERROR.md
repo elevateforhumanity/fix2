@@ -5,7 +5,7 @@
 ```
 project's URL and Key are required to create a Supabase client!
 Check your Supabase project's API settings to find these values
-https://supabase.com/dashboard/project/_/settings/api
+https://supabase.com/dashboard/project//settings/api
 ```
 
 ---

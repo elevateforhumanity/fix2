@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Medical Assistant Program | Elevate Connects Directory",
+  title: "Medical Assistant Program | Elevate for Humanity",
   description:
     "Workforce-aligned Medical Assistant training with hands-on labs, externships, and a path to industry-recognized credentials and entry-level healthcare jobs.",
 };

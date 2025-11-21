@@ -58,7 +58,7 @@
 4. **Deploy**:
    - Click "Deploy"
    - Vercel will automatically build and deploy
-   - Your site will be live at `https://your-project.vercel.app`
+   - Your site will be live at `https://your-project.vercel.app
 
 ### Option 2: Deploy with Vercel CLI
 
@@ -112,7 +112,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=
 
 1. Go to your project in Vercel
 2. Click "Settings" → "Domains"
-3. Add your custom domain (e.g., `elevateconnectsdirectory.org`)
+3. Add your custom domain (e.g., `elevateforhumanity.org`)
 4. Follow DNS configuration instructions
 5. Vercel automatically provisions SSL certificate
 
@@ -134,7 +134,7 @@ Vercel provides built-in:
 - 🐛 Error tracking
 - 📈 Usage statistics
 
-Access at: `https://vercel.com/[your-username]/[project-name]/analytics`
+Access at: `https://vercel.com/[your-username]/[project-name]/analytics
 
 ## Troubleshooting
 

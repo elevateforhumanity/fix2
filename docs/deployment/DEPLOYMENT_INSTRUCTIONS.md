@@ -120,20 +120,20 @@ Netlify will automatically:
 **Google Rich Results Test:**
 
 1. Go to: https://search.google.com/test/rich-results
-2. Enter: `https://elevateforhumanity.org`
+2. Enter: `https://elevateforhumanity.org
 3. Verify SoftwareApplication schema appears
 4. Check for errors
 
 **Facebook Sharing Debugger:**
 
 1. Go to: https://developers.facebook.com/tools/debug
-2. Enter: `https://elevateforhumanity.org`
+2. Enter: `https://elevateforhumanity.org
 3. Verify Open Graph preview
 
 **Twitter Card Validator:**
 
 1. Go to: https://cards-dev.twitter.com/validator
-2. Enter: `https://elevateforhumanity.org`
+2. Enter: `https://elevateforhumanity.org
 3. Verify Twitter Card preview
 
 ### Step 5: Submit to Search Engines
@@ -143,7 +143,7 @@ Netlify will automatically:
 1. Go to: https://search.google.com/search-console
 2. Add property: `elevateforhumanity.org`
 3. Verify ownership (HTML tag or DNS)
-4. Submit sitemap: `https://elevateforhumanity.org/sitemap.xml`
+4. Submit sitemap: `https://elevateforhumanity.org/sitemap.xml
 
 **Bing Webmaster Tools:**
 
@@ -169,7 +169,7 @@ Netlify will automatically:
    Supports DOL/DWD apprenticeships, ETPL funding, AI-driven learning, and autonomous operations.
    106+ certifications, 92% job placement.
    ```
-5. Add website: `https://elevateforhumanity.org`
+5. Add website: `https://elevateforhumanity.org
 
 ---
 

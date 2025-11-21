@@ -124,7 +124,7 @@ export class XAPIClient {
         display: { 'en-US': 'initialized' },
       },
       object: {
-        id: `https://elevateconnectsdirectory.org/courses/${courseId}`,
+        id: `https://elevateforhumanity.org/courses/${courseId},
         definition: {
           name: { 'en-US': courseName },
           type: 'http://adlnet.gov/expapi/activities/course',
@@ -156,7 +156,7 @@ export class XAPIClient {
         display: { 'en-US': 'completed' },
       },
       object: {
-        id: `https://elevateconnectsdirectory.org/lessons/${lessonId}`,
+        id: `https://elevateforhumanity.org/lessons/${lessonId},
         definition: {
           name: { 'en-US': lessonName },
           type: 'http://adlnet.gov/expapi/activities/lesson',

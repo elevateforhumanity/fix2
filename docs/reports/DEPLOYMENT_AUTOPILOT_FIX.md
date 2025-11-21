@@ -265,7 +265,7 @@ Look for warnings:
 
 3. **Submit to Search Console**
    - Go to Google Search Console
-   - Submit sitemap: `https://www.elevateforhumanity.org/sitemap.xml`
+   - Submit sitemap: `https://www.elevateforhumanity.org/sitemap.xml
    - Monitor indexing status
 
 4. **Monitor Ongoing**
@@ -292,7 +292,7 @@ If deployment fails, the autopilot will:
 ## Related Documentation
 
 - [DEPLOYMENT_FIXES.md](./DEPLOYMENT_FIXES.md) - Comprehensive deployment hardening
-- [SUPABASE_SEO_SETUP.md](./SUPABASE_SEO_SETUP.md) - Dynamic SEO setup
+- [SUPABASE_SEO_SETUP.md](SEO_COMPLETE_SUMMARY.md) - Dynamic SEO setup
 - [FINAL_DEPLOYMENT_SUMMARY.md](./FINAL_DEPLOYMENT_SUMMARY.md) - Complete checklist
 
 ---

@@ -71,7 +71,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 ```bash
 NEXTAUTH_SECRET=paste-your-generated-secret-here
-NEXTAUTH_URL=https://elevateconnectsdirectory.org
+NEXTAUTH_URL=https://elevateforhumanity.org
 ```
 
 **What happens when you add these:**
@@ -89,7 +89,7 @@ NEXTAUTH_URL=https://elevateconnectsdirectory.org
 **Get it:** You already have it!
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
 ```
 
 **What happens when you add this:**
@@ -129,7 +129,7 @@ STRIPE_SECRET_KEY=sk_live_...
 
 1. Click the link above → https://dashboard.stripe.com/webhooks
 2. Click "Add endpoint"
-3. Enter: `https://elevateconnectsdirectory.org/api/webhooks/stripe`
+3. Enter: `https://elevateforhumanity.org/api/webhooks/stripe
 4. Select events: `checkout.session.completed`, `payment_intent.succeeded`
 5. Copy "Signing secret" (starts with whsec_)
 
@@ -188,7 +188,7 @@ RESEND_API_KEY=re_...
 1. Click the link above → https://signup.sendgrid.com/
 2. Sign up (free account)
 3. Verify email and complete setup
-4. Go to API Keys → https://app.sendgrid.com/settings/api_keys
+4. Go to API Keys → https://app.sendgrid.com/settings/apikeys
 5. Click "Create API Key"
 6. Choose "Full Access"
 7. Copy the key (starts with SG.)
@@ -250,7 +250,7 @@ SMTP_FROM_NAME=Elevate for Humanity
 10. Click "Create"
 11. Accept terms
 12. Choose "Web" platform
-13. Enter website URL: `https://elevateconnectsdirectory.org`
+13. Enter website URL: `https://elevateforhumanity.org
 14. Enter stream name: "Production"
 15. Click "Create stream"
 16. Copy your "Measurement ID" (starts with G-)
@@ -285,7 +285,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 4. Create project:
    - Platform: "Next.js"
    - Project name: "elevate-lms"
-5. Copy your DSN (looks like: `https://xxxxx@xxxxx.ingest.sentry.io/xxxxx`)
+5. Copy your DSN (looks like: `https://xxxxx@xxxxx.ingest.sentry.io/xxxxx)
 
 ```bash
 NEXT_PUBLIC_SENTRY_DSN=https://xxxxx@xxxxx.ingest.sentry.io/xxxxx
@@ -320,12 +320,12 @@ SENTRY_ENVIRONMENT=production
 4. Choose "External"
 5. Fill in app name: "Elevate for Humanity"
 6. Add your email
-7. Add authorized domain: `elevateconnectsdirectory.org`
+7. Add authorized domain: `elevateforhumanity.org`
 8. Save
 9. Go to "Credentials" → "Create Credentials" → "OAuth client ID"
 10. Choose "Web application"
 11. Name: "Production"
-12. Add authorized redirect URI: `https://elevateconnectsdirectory.org/api/auth/callback/google`
+12. Add authorized redirect URI: `https://elevateforhumanity.org/api/auth/callback/google
 13. Click "Create"
 14. Copy Client ID and Client Secret
 
@@ -453,8 +453,8 @@ NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
 NEXTAUTH_SECRET=
-NEXTAUTH_URL=https://elevateconnectsdirectory.org
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
+NEXTAUTH_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
 
 # OPTIONAL - Payments
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=

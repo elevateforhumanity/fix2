@@ -1,8 +1,8 @@
-# Custom Domain Setup - www.elevateconnectsdirectory.org
+# Custom Domain Setup - www.elevateforhumanity.org
 
-**Goal:** Connect www.elevateconnectsdirectory.org to Netlify site  
+**Goal:** Connect www.elevateforhumanity.org to Netlify site  
 **Current:** elevateconnects1.netlify.app (working)  
-**Target:** www.elevateconnectsdirectory.org (with SSL)
+**Target:** www.elevateforhumanity.org (with SSL)
 
 ---
 
@@ -19,13 +19,13 @@
    - Click "Add custom domain"
 
 3. **Add Your Domain**
-   - Enter: `www.elevateconnectsdirectory.org`
+   - Enter: `www.elevateforhumanity.org`
    - Click "Verify"
    - Click "Add domain"
 
 4. **Also Add Root Domain (Optional)**
    - Click "Add custom domain" again
-   - Enter: `elevateconnectsdirectory.org`
+   - Enter: `elevateforhumanity.org`
    - This will redirect to www version
 
 ---
@@ -47,7 +47,7 @@ You need to update DNS records at your domain registrar (where you bought the do
 
 **Add these DNS records at your registrar:**
 
-For **www.elevateconnectsdirectory.org**:
+For **www.elevateforhumanity.org**:
 
 ```
 Type: CNAME
@@ -56,7 +56,7 @@ Value: elevateconnects1.netlify.app
 TTL: 3600
 ```
 
-For **elevateconnectsdirectory.org** (root):
+For **elevateforhumanity.org** (root):
 
 ```
 Type: A
@@ -100,10 +100,10 @@ After adding the domain in Netlify:
 
 Test these URLs:
 
-- http://www.elevateconnectsdirectory.org → Should redirect to HTTPS
-- https://www.elevateconnectsdirectory.org → Should load site
-- http://elevateconnectsdirectory.org → Should redirect to www + HTTPS
-- https://www.elevateconnectsdirectory.org → Should redirect to www
+- http://www.elevateforhumanity.org → Should redirect to HTTPS
+- https://www.elevateforhumanity.org → Should load site
+- http://elevateforhumanity.org → Should redirect to www + HTTPS
+- https://www.elevateforhumanity.org → Should redirect to www
 
 ---
 
@@ -111,7 +111,7 @@ Test these URLs:
 
 ### What We Found Earlier
 
-The domain `elevateconnectsdirectory.org` currently points to Netlify, but:
+The domain `elevateforhumanity.org` currently points to Netlify, but:
 
 - ❌ SSL certificate is for `*.netlify.app`, not your custom domain
 - ❌ Custom domain not added in Netlify site settings
@@ -121,7 +121,7 @@ The domain `elevateconnectsdirectory.org` currently points to Netlify, but:
 ```
 net::ERR_CERT_COMMON_NAME_INVALID
 SSL certificate is for: *.netlify.app, netlify.app
-Not valid for: elevateconnectsdirectory.org
+Not valid for: elevateforhumanity.org
 ```
 
 This means:
@@ -153,7 +153,7 @@ This means:
 
 ```bash
 # Check if DNS is working
-nslookup www.elevateconnectsdirectory.org
+nslookup www.elevateforhumanity.org
 
 # Should return Netlify's IP or CNAME
 ```
@@ -183,8 +183,8 @@ app.netlify.com
 ### DNS Records Needed
 
 ```
-www.elevateconnectsdirectory.org → CNAME → elevateconnects1.netlify.app
-elevateconnectsdirectory.org → A → 75.2.60.5
+www.elevateforhumanity.org → CNAME → elevateconnects1.netlify.app
+elevateforhumanity.org → A → 75.2.60.5
 ```
 
 ### SSL Certificate
@@ -226,9 +226,9 @@ Once custom domain works, update these files:
 Run this command:
 
 ```bash
-# Replace elevateconnects1.netlify.app with www.elevateconnectsdirectory.org
+# Replace elevateconnects1.netlify.app with www.elevateforhumanity.org
 find . -type f -name "*.html" -o -name "*.xml" -o -name "*.txt" | \
-  xargs sed -i 's|elevateconnects1.netlify.app|www.elevateconnectsdirectory.org|g'
+  xargs sed -i 's|elevateconnects1.netlify.app|www.elevateforhumanity.org|g'
 ```
 
 Then rebuild and redeploy.

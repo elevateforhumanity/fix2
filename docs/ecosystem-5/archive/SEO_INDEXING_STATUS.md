@@ -4,7 +4,7 @@
 
 ### Root/Homepage Routing ✅
 
-- **Root URL**: `https://www.elevateforhumanity.org/` (canonical)
+- **Root URL**: `https://www.elevateforhumanity.org/ (canonical)
 - **Routing**: SPA routing configured - all paths serve index.html
 - **Redirects**: Root domain → www, HTTP → HTTPS
 - **Homepage**: Properly configured with comprehensive content

@@ -1,7 +1,7 @@
 # Employer & Partner Video (45 seconds)
 **Title:** For Employers & Training Partners
 
-Are you an employer, school, or training provider? Elevate Connects Directory was built with you in mind.  
+Are you an employer, school, or training provider? Elevate for Humanity was built with you in mind.  
 
 We help you **fill seats, fill jobs, and stay compliant** with workforce and WIOA requirements.  
 

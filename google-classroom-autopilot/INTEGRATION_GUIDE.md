@@ -335,7 +335,7 @@ This platform includes full Google Classroom integration:
 - **Grade Export**: Export grades to Supabase for reporting
 - **Auto-Sync Jobs**: Nightly maintenance tasks
 
-See [google-classroom-autopilot/README.md](./google-classroom-autopilot/README.md) for details.
+See [google-classroom-autopilot/README.md](README.md) for details.
 ```
 
 ## Testing the Integration

@@ -60,4 +60,4 @@ All scripts reference: **317-314-3757**
 
 ## Base URL
 
-All links use: **https://www.elevateconnectsdirectory.org**
+All links use: **https://www.elevateforhumanity.org

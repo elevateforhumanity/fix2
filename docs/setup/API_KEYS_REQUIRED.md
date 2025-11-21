@@ -111,7 +111,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...
    - Publishable key → `VITE_STRIPE_PUBLISHABLE_KEY`
    - Secret key → `STRIPE_SECRET_KEY`
 3. Go to Webhooks → Add endpoint
-4. URL: `https://your-domain.com/api/stripe-webhook`
+4. URL: `https://your-domain.com/api/stripe-webhook
 5. Events: `checkout.session.completed`, `payment_intent.succeeded`
 6. Copy webhook secret → `STRIPE_WEBHOOK_SECRET`
 

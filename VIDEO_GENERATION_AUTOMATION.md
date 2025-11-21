@@ -172,7 +172,7 @@ We provide coaching, skills training, and real employment connections for adults
 
 Whether you're starting over, changing careers, or just need support, we'll help you navigate barriers and find your path forward.
 
-Visit ElevateConnectsDirectory.org to start your journey.
+Visit elevateforhumanity.org to start your journey.
 ```
 
 ### Building Tech Script (30 sec):
@@ -184,7 +184,7 @@ Learn electrical, plumbing, HVAC basics, carpentry, and general repairs through 
 
 Work in property management, commercial buildings, schools, hospitals, or industrial facilities.
 
-Visit ElevateConnectsDirectory.org to explore this pathway.
+Visit elevateforhumanity.org to explore this pathway.
 ```
 
 ---

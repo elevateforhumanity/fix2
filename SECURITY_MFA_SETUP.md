@@ -80,7 +80,7 @@ If `elevateforhumanity` is an organization you own/admin:
 ### Step 3: Configure Repository Security Settings
 
 1. **Go to repository security settings**:
-   - [https://github.com/elevateforhumanity/fix2/settings/security_analysis](https://github.com/elevateforhumanity/fix2/settings/security_analysis)
+   - [https://github.com/elevateforhumanity/fix2/settings/securityanalysis](https://github.com/elevateforhumanity/fix2/settings/securityanalysis)
 
 2. **Enable security features**:
    - ✅ Dependency graph (should be enabled)
@@ -103,7 +103,7 @@ If `elevateforhumanity` is an organization you own/admin:
 ### Step 4: Enable Additional Security Features
 
 1. **Secret scanning**:
-   - Go to: [https://github.com/elevateforhumanity/fix2/settings/security_analysis](https://github.com/elevateforhumanity/fix2/settings/security_analysis)
+   - Go to: [https://github.com/elevateforhumanity/fix2/settings/securityanalysis](https://github.com/elevateforhumanity/fix2/settings/securityanalysis)
    - Enable "Secret scanning"
    - Enable "Push protection" (prevents committing secrets)
 
@@ -287,7 +287,7 @@ After setup, verify these are enabled:
 ### GitHub Security Settings:
 
 - **Personal Security**: [https://github.com/settings/security](https://github.com/settings/security)
-- **Repository Security**: [https://github.com/elevateforhumanity/fix2/settings/security_analysis](https://github.com/elevateforhumanity/fix2/settings/security_analysis)
+- **Repository Security**: [https://github.com/elevateforhumanity/fix2/settings/securityanalysis](https://github.com/elevateforhumanity/fix2/settings/securityanalysis)
 - **Branch Protection**: [https://github.com/elevateforhumanity/fix2/settings/branches](https://github.com/elevateforhumanity/fix2/settings/branches)
 - **Organization Security**: [https://github.com/organizations/elevateforhumanity/settings/security](https://github.com/organizations/elevateforhumanity/settings/security)
 
@@ -300,7 +300,7 @@ After setup, verify these are enabled:
 ### Hardware Security Keys:
 
 - **YubiKey**: [https://www.yubico.com/](https://www.yubico.com/)
-- **Google Titan**: [https://store.google.com/product/titan_security_key](https://store.google.com/product/titan_security_key)
+- **Google Titan**: [https://store.google.com/product/titan_security_key](https://store.google.com/product/titansecuritykey)
 
 ---
 

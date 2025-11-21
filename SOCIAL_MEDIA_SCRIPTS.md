@@ -1,6 +1,6 @@
 # 📱 TikTok & Instagram Reel Scripts
 
-## 15 Short-Form Video Scripts for Elevate Connects
+## 15 Short-Form Video Scripts for Elevate for Humanity
 
 Each script is 30-45 seconds, optimized for TikTok, Instagram Reels, and YouTube Shorts.
 
@@ -25,7 +25,7 @@ Use these opening lines to grab attention in the first 3 seconds:
 **Script:**
 "Most LMS platforms are built for selling online courses.
 
-Elevate Connects is different.
+Elevate for Humanity is different.
 
 We have:
 
@@ -463,7 +463,7 @@ You need:
 
 So we built it.
 
-Elevate Connects.
+Elevate for Humanity.
 
 The LMS for workforce training."
 
@@ -494,7 +494,7 @@ And you need:
 - Case tracking
 - Compliance reporting
 
-Elevate Connects is built for you.
+Elevate for Humanity is built for you.
 
 Link in bio for a demo.
 

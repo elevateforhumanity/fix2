@@ -29,9 +29,9 @@ This batch completes the enterprise feature set with full monitoring stack, SCOR
 - ✅ Basic auth protection
 
 **Access URLs**:
-- Grafana: `https://monitoring.elevateconnectsdirectory.org/grafana`
-- Prometheus: `https://monitoring.elevateconnectsdirectory.org/prometheus`
-- Jaeger: `https://monitoring.elevateconnectsdirectory.org/jaeger`
+- Grafana: `https://monitoring.elevateforhumanity.org/grafana
+- Prometheus: `https://monitoring.elevateforhumanity.org/prometheus
+- Jaeger: `https://monitoring.elevateforhumanity.org/jaeger
 
 **Deployment**:
 ```bash

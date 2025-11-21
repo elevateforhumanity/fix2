@@ -207,7 +207,9 @@ export class ContentAutomation {
 
       // Apply content rules
       await this.applyContentRules(feed.id);
-    } catch (error) {}
+    } catch (error) {
+      console.error(`Failed to update feed ${feed.id}:`, error);
+    }
   }
 
   /**

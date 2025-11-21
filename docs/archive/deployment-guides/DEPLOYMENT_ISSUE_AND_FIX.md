@@ -47,7 +47,7 @@ Click "New repository secret" for each:
 
 1. Go to: https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/settings/api
 2. Copy "Project URL"
-3. Should be: `https://cuxzzpsyufcewtmicszk.supabase.co`
+3. Should be: `https://cuxzzpsyufcewtmicszk.supabase.co
 4. Paste in GitHub as `VITE_SUPABASE_URL`
 
 #### Secret 4: VITE_SUPABASE_ANON_KEY

@@ -553,11 +553,11 @@ curl -X GET "https://api.cloudflare.com/client/v4/zones" \
   -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
 
 # List DNS records
-curl -X GET "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/dns_records" \
+curl -X GET "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONEID/dnsrecords" \
   -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
 
 # Purge cache
-curl -X POST "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache" \
+curl -X POST "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONEID/purgecache" \
   -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
   -H "Content-Type: application/json" \
   --data '{"purge_everything":true}'

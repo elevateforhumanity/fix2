@@ -71,7 +71,7 @@ FACEBOOK_APP_SECRET=YOUR_APP_SECRET_HERE
 OPENAI_API_KEY=sk-proj-YOUR_KEY_HERE
 
 # Slack (for notifications)
-SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR_WEBHOOK_HERE
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOURWEBHOOKHERE
 
 # Cloudflare (for edge functions)
 CLOUDFLARE_ACCOUNT_ID=YOUR_ACCOUNT_ID_HERE

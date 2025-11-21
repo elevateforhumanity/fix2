@@ -50,7 +50,7 @@ class DemoProtection {
   static restrictPayments() {
     if (!this.isDemoMode()) return false;
 
-    console.log('🚫 Demo Mode: Payment processing disabled');
+    // console.log('🚫 Demo Mode: Payment processing disabled');
     return {
       error:
         'Demo Mode: Contact licensing@elevateforhumanity.org for full access',

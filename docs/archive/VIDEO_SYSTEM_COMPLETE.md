@@ -193,7 +193,7 @@ pnpm video:server
 ts-node server/index.ts
 ```
 
-Server will start on `http://localhost:3001`
+Server will start on `http://localhost:3001
 
 ### 4. Test the System
 

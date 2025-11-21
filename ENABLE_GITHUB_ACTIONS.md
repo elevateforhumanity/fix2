@@ -15,7 +15,7 @@
 
 ### Step 1: Add GitHub Secrets
 
-Go to: **https://github.com/elevateforhumanity/fix2/settings/secrets/actions**
+Go to: **https://github.com/elevateforhumanity/fix2/settings/secrets/actions
 
 Click **"New repository secret"** for each:
 
@@ -35,7 +35,7 @@ Click **"New repository secret"** for each:
    - Paste in GitHub secret
 
 3. **VITE_SUPABASE_URL**
-   - Value: `https://cuxzzpsyufcewtmicszk.supabase.co`
+   - Value: `https://cuxzzpsyufcewtmicszk.supabase.co
 
 4. **VITE_SUPABASE_ANON_KEY**
    - Value: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA3MzI0NzUsImV4cCI6MjA0NjMwODQ3NX0.9y3VZ_pqLbHqEqGJYqxQxqxQxqxQxqxQxqxQxqxQxqxQ`
@@ -46,7 +46,7 @@ Click **"New repository secret"** for each:
 
 ### Step 2: Enable GitHub Actions
 
-1. Go to: **https://github.com/elevateforhumanity/fix2/settings/actions**
+1. Go to: **https://github.com/elevateforhumanity/fix2/settings/actions
 2. Under "Actions permissions":
    - Select **"Allow all actions and reusable workflows"**
 3. Click **"Save"**

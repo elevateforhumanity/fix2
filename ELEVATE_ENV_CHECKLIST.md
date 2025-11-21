@@ -32,9 +32,9 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 #### Site Configuration
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
-NEXT_PUBLIC_APP_URL=https://elevateconnectsdirectory.org
-NEXT_PUBLIC_BASE_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_APP_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_BASE_URL=https://elevateforhumanity.org
 ```
 
 **Note:** These should all be the same - your production domain.
@@ -210,7 +210,7 @@ Look for lines that say `(not set)` - those are missing.
 4. **Add Each Variable:**
    - Click "Add New"
    - Name: `NEXT_PUBLIC_SUPABASE_URL`
-   - Value: `https://xxxxx.supabase.co`
+   - Value: `https://xxxxx.supabase.co
    - Environment: ✅ Production, ✅ Preview, ✅ Development
    - Click "Save"
 
@@ -228,7 +228,7 @@ Look for lines that say `(not set)` - those are missing.
 1. Go to https://gitpod.io/user/variables
 2. Add each variable:
    - Name: `NEXT_PUBLIC_SUPABASE_URL`
-   - Value: `https://xxxxx.supabase.co`
+   - Value: `https://xxxxx.supabase.co
    - Scope: `elevateforhumanity/fix2`
 3. Restart workspace
 
@@ -243,9 +243,9 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
 # Site URLs
-NEXT_PUBLIC_SITE_URL=https://elevateconnectsdirectory.org
-NEXT_PUBLIC_APP_URL=https://elevateconnectsdirectory.org
-NEXT_PUBLIC_BASE_URL=https://elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_APP_URL=https://elevateforhumanity.org
+NEXT_PUBLIC_BASE_URL=https://elevateforhumanity.org
 
 # PWA Push Notifications
 NEXT_PUBLIC_VAPID_PUBLIC_KEY=BNxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

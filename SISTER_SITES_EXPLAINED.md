@@ -11,9 +11,9 @@ These are **planned sister organizations** that are part of your broader mission
 
 ---
 
-## 1. Elevate Connects Directory ⭐ (THIS IS YOU)
+## 1. Elevate for Humanity ⭐ (THIS IS YOU)
 
-**URL:** https://www.elevateconnectsdirectory.org  
+**URL:** https://www.elevateforhumanity.org  
 **Status:** 🚧 In Development (what we're deploying now)
 
 **Purpose:** Workforce LMS + Case Management Platform
@@ -124,11 +124,11 @@ These are **planned sister organizations** that are part of your broader mission
 
 ### **Student Journey Example:**
 
-1. **Discovery:** Student finds Elevate Connects Directory (your LMS)
+1. **Discovery:** Student finds Elevate for Humanity (your LMS)
 2. **Financial Need:** Student can't afford training
 3. **Grant Application:** Student applies for Selfish Inc. grant
 4. **Funding:** Rise Forward Foundation provides institutional funding
-5. **Training:** Student enrolls in courses on Elevate Connects
+5. **Training:** Student enrolls in courses on Elevate for Humanity
 6. **Success:** Student completes training and gets certified
 
 ### **Ecosystem Flow:**
@@ -138,7 +138,7 @@ Rise Forward Foundation
         ↓ (provides funding)
 Selfish Inc.
         ↓ (awards grants to students)
-Elevate Connects Directory
+Elevate for Humanity
         ↓ (delivers training)
 Trained Workforce
 ```
@@ -149,7 +149,7 @@ Trained Workforce
 
 | Organization                   | Status      | URL                          | Purpose               |
 | ------------------------------ | ----------- | ---------------------------- | --------------------- |
-| **Elevate Connects Directory** | 🚧 Building | elevateconnectsdirectory.org | LMS Platform          |
+| **Elevate for Humanity** | 🚧 Building | elevateforhumanity.org | LMS Platform          |
 | **Selfish Inc.**               | 🔮 Planned  | selfishinc.org               | Grants & Scholarships |
 | **Rise Forward Foundation**    | 🔮 Planned  | riseforwardfoundation.org    | Foundation Funding    |
 
@@ -252,7 +252,7 @@ export function SisterSites() {
 
 - ❌ **Don't add sister sites to your footer yet**
 - ✅ Focus on getting your LMS deployed
-- ✅ Get elevateconnectsdirectory.org working first
+- ✅ Get elevateforhumanity.org working first
 
 ### **Short-term (1-3 months):**
 
@@ -339,7 +339,7 @@ export function Footer() {
 
 **Priority:**
 
-1. Get elevateconnectsdirectory.org deployed ⭐⭐⭐
+1. Get elevateforhumanity.org deployed ⭐⭐⭐
 2. Build sister sites (later)
 3. Add cross-linking (much later)
 

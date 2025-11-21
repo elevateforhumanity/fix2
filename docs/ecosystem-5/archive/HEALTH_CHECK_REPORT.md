@@ -98,7 +98,7 @@
 2. **Re-enable Internal Redirect** (after external fix):
 
    ```
-   https://elevateforhumanity.org/* https://www.elevateforhumanity.org/:splat 301!
+   https://elevateforhumanity.org/ https://www.elevateforhumanity.org/:splat 301!
    ```
 
 3. **Monitor Performance**:

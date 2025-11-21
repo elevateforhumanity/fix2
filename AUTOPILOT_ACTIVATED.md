@@ -33,7 +33,7 @@ https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new
 
 **Step 2**: Copy Migration SQL
 ```
-https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETE_MIGRATION.sql
+https://raw.githubusercontent.com/elevateforhumanity/fix2/main/supabase/COMPLETEMIGRATION.sql
 ```
 
 **Step 3**: Paste and Run
@@ -151,7 +151,7 @@ https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses
 
 **Production**:
 ```
-https://www.elevateconnectsdirectory.org/admin/courses
+https://www.elevateforhumanity.org/admin/courses
 ```
 
 ---

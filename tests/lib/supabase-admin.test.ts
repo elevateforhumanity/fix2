@@ -11,7 +11,7 @@ describe('Supabase Admin Client', () => {
   describe('getUserByEmail', () => {
     it('should return null for non-existent email', async () => {
       if (skipTests) {
-        console.log('Skipping test - missing environment variables');
+        // console.log('Skipping test - missing environment variables');
         return;
       }
 
@@ -21,7 +21,7 @@ describe('Supabase Admin Client', () => {
 
     it('should return user object for valid email', async () => {
       if (skipTests) {
-        console.log('Skipping test - missing environment variables');
+        // console.log('Skipping test - missing environment variables');
         return;
       }
 
@@ -39,7 +39,7 @@ describe('Supabase Admin Client', () => {
   describe('getUserById', () => {
     it('should throw error for non-existent user ID', async () => {
       if (skipTests) {
-        console.log('Skipping test - missing environment variables');
+        // console.log('Skipping test - missing environment variables');
         return;
       }
 
@@ -50,7 +50,7 @@ describe('Supabase Admin Client', () => {
 
     it('should return user object for valid ID', async () => {
       if (skipTests) {
-        console.log('Skipping test - missing environment variables');
+        // console.log('Skipping test - missing environment variables');
         return;
       }
 

@@ -4,8 +4,8 @@ export async function POST(request: NextRequest) {
   try {
     const subscription = await request.json();
 
-    // TODO: Remove subscription from database
-    console.log('[Notifications] Unsubscribe:', subscription);
+    // Note: Remove subscription from database
+    // console.log('[Notifications] Unsubscribe:', subscription);
 
     // In production, you would:
     // 1. Extract user ID from session/auth

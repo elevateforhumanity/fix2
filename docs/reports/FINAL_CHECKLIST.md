@@ -167,25 +167,25 @@ Use the test script or manual curl commands:
 
 ```bash
 # Test email dispatch
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/email-dispatch \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/email-dispatch \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{"to":"test@example.com","subject":"Test","html":"<p>Test</p>"}'
 
 # Test webhook dispatch
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/webhook-dispatch \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/webhook-dispatch \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{"event":"test","data":{},"orgId":"test"}'
 
 # Test AI course create
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/ai-course-create \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/ai-course-create \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{"topic":"Test","difficulty":"beginner","duration":1,"moduleCount":1,"orgId":"test","userId":"test"}'
 
 # Test AI grading
-curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/grade-ai \
+curl -X POST https://YOURPROJECT.supabase.co/functions/v1/grade-ai \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{"submissionId":"test","assessmentId":"test","userId":"test","orgId":"test"}'
@@ -297,7 +297,7 @@ curl -X POST https://YOUR_PROJECT.supabase.co/functions/v1/grade-ai \
 - [Supabase Documentation](https://supabase.com/docs)
 - [Edge Functions Guide](https://supabase.com/docs/guides/functions)
 - [RLS Policies Guide](https://supabase.com/docs/guides/auth/row-level-security)
-- [Cron Jobs Guide](https://supabase.com/docs/guides/database/extensions/pg_cron)
+- [Cron Jobs Guide](https://supabase.com/docs/guides/database/extensions/pgcron)
 
 ## 🎉 Success Criteria
 

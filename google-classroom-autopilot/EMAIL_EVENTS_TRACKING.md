@@ -84,7 +84,7 @@ cat sql/05_email_events.sql
 
 1. Go to [Resend Dashboard](https://resend.com/webhooks)
 2. Click "Add Webhook"
-3. URL: `https://your-domain.com/api/webhooks/resend`
+3. URL: `https://your-domain.com/api/webhooks/resend
 4. Events: Select all (sent, delivered, opened, clicked, bounced, complained)
 5. Copy webhook secret
 6. Set environment variable:
@@ -94,9 +94,9 @@ cat sql/05_email_events.sql
 
 #### Postmark
 
-1. Go to [Postmark Webhooks](https://account.postmarkapp.com/servers/YOUR_SERVER/webhooks)
+1. Go to [Postmark Webhooks](https://account.postmarkapp.com/servers/YOURSERVER/webhooks)
 2. Click "Add Webhook"
-3. URL: `https://your-domain.com/api/webhooks/postmark`
+3. URL: `https://your-domain.com/api/webhooks/postmark
 4. Events: Delivery, Open, Click, Bounce, Spam Complaint
 5. No secret needed (Postmark uses IP whitelist)
 

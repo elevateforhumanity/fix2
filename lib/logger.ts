@@ -60,11 +60,11 @@ class Logger {
     switch (level) {
       case 'debug':
         if (this.isDevelopment) {
-          console.debug(formatted);
+          // console.debug(formatted);
         }
         break;
       case 'info':
-        console.info(formatted);
+        // console.info(formatted);
         break;
       case 'warn':
         console.warn(formatted);
@@ -81,7 +81,7 @@ class Logger {
   }
 
   private async sendToExternalService(entry: LogEntry) {
-    // TODO: Integrate with logging service (e.g., Datadog, Sentry, CloudWatch)
+    // Note: Integrate with logging service (e.g., Datadog, Sentry, CloudWatch)
     // For now, this is a placeholder
     try {
       if (process.env.LOG_ENDPOINT) {

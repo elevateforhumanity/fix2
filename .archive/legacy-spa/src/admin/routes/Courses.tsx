@@ -101,7 +101,10 @@ export default function Courses() {
     try {
       const usageData = await getUsageStats();
       setUsage(usageData);
-    } catch (error) {}
+    } catch (error) {
+      console.error('Failed to load usage stats:', error);
+      setUsage(null);
+    }
   }
 
   async function createCourse() {
@@ -261,7 +264,9 @@ export default function Courses() {
         target,
         diff,
       });
-    } catch (error) {}
+    } catch (error) {
+      console.error('Failed to log audit event:', error);
+    }
   }
 
   if (loading) {

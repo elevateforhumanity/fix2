@@ -96,8 +96,8 @@ curl -I https://elevateforhumanity.org/programs
 
 ### 3.3 Verify SEO
 
-- Check robots.txt: `https://www.elevateforhumanity.org/robots.txt`
-- Check sitemap: `https://www.elevateforhumanity.org/sitemap-index.xml`
+- Check robots.txt: `https://www.elevateforhumanity.org/robots.txt
+- Check sitemap: `https://www.elevateforhumanity.org/sitemap-index.xml
 - Verify canonical URLs in page source
 
 ## Step 4: Performance Optimization
@@ -128,9 +128,9 @@ Create page rules for:
 
 ### 5.2 Google Search Console
 
-1. Add property: `https://www.elevateforhumanity.org`
+1. Add property: `https://www.elevateforhumanity.org
 2. Verify via DNS TXT record
-3. Submit sitemap: `https://www.elevateforhumanity.org/sitemap-index.xml`
+3. Submit sitemap: `https://www.elevateforhumanity.org/sitemap-index.xml
 
 ## Troubleshooting
 

@@ -168,9 +168,9 @@ Every video script includes:
 
 ### Consistent Branding
 All content references:
-- Elevate Connects Directory
 - Elevate for Humanity
-- ElevateConnectsDirectory.org
+- Elevate for Humanity
+- elevateforhumanity.org
 
 ---
 
@@ -253,7 +253,7 @@ ls -la content/video-scripts/ecd-courses/
 
 ## 🎉 Success!
 
-You now have a complete, automated course content system for Elevate Connects Directory:
+You now have a complete, automated course content system for Elevate for Humanity:
 
 ✅ 7 courses configured and ready
 ✅ 7 AI-ready image prompts

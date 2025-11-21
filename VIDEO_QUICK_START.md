@@ -32,7 +32,7 @@ pnpm video:download-media
 pnpm video:server
 ```
 
-Server runs on `http://localhost:3001`
+Server runs on `http://localhost:3001
 
 ### 3. Test the System
 
@@ -132,7 +132,7 @@ Each video includes:
 
 - [Complete System Guide](docs/VIDEO_GENERATION_COMPLETE_GUIDE.md)
 - [Template Guide](docs/VIDEO_TEMPLATES_GUIDE.md)
-- [Full Summary](VIDEO_SYSTEM_COMPLETE.md)
+- [Full Summary](VIDEO_SETUP_COMPLETE.md)
 
 ## Support
 

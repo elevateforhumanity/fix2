@@ -100,7 +100,7 @@ https://www.googleapis.com/auth/classroom.profile.photos
 | --------------------------- | ----------------------------------- | ---------------------------- |
 | `GOOGLE_SA_JSON_B64`        | Base64-encoded service account JSON | From Part 1, Step 4          |
 | `GOOGLE_IMPERSONATE_EMAIL`  | `teacher@school.org`                | Teacher email to impersonate |
-| `SUPABASE_URL`              | `https://xxx.supabase.co`           | Your Supabase project URL    |
+| `SUPABASE_URL`              | `https://xxx.supabase.co           | Your Supabase project URL    |
 | `SUPABASE_SERVICE_ROLE_KEY` | `eyJhbGc...`                        | Supabase service role key    |
 
 ### Gitpod Environment Variables

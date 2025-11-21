@@ -24,9 +24,24 @@ export default function LearnerOnboarding() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Send to Supabase or API
-    console.log("Form submitted:", formData);
-    alert("Application submitted! We'll contact you within 1-2 business days.");
+    
+    // Submit to backend API
+    try {
+      const response = await fetch('/api/onboarding/learner', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.ok) {
+        alert("Application submitted! We'll contact you within 1-2 business days.");
+      } else {
+        alert("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      console.error('Failed to submit application:', error);
+      alert("Submission failed. Please try again.");
+    }
   };
 
   const toggleSupport = (support: string) => {

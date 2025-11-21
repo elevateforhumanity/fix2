@@ -83,8 +83,8 @@ TWITTER_ACCESS_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 2. Under **User authentication settings**, click **Set up**
 3. Enable **OAuth 1.0a**
 4. Set **App permissions**: Read and write
-5. Set **Callback URL**: `https://your-domain.netlify.app/auth/twitter/callback`
-6. Set **Website URL**: `https://your-domain.netlify.app`
+5. Set **Callback URL**: `https://your-domain.netlify.app/auth/twitter/callback
+6. Set **Website URL**: `https://your-domain.netlify.app
 7. Click **Save**
 
 ---
@@ -98,7 +98,7 @@ TWITTER_ACCESS_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 3. Fill in details:
    - **App name**: EFH LMS
    - **LinkedIn Page**: Select your company page (or create one)
-   - **Privacy policy URL**: `https://your-domain.netlify.app/privacy`
+   - **Privacy policy URL**: `https://your-domain.netlify.app/privacy
    - **App logo**: Upload your logo (400x400px)
 4. Check agreement box
 5. Click **Create app**
@@ -161,7 +161,7 @@ FACEBOOK_APP_SECRET=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 1. In app dashboard, click **Add Product**
 2. Find **Facebook Login** and click **Set Up**
 3. Choose **Web** platform
-4. Set **Site URL**: `https://your-domain.netlify.app`
+4. Set **Site URL**: `https://your-domain.netlify.app
 5. Click **Save**
 
 ### 3.4 Configure OAuth Settings
@@ -285,7 +285,7 @@ import axios from 'axios';
 
 // Post to Facebook page
 const response = await axios.post(
-  `https://graph.facebook.com/v18.0/${pageId}/feed`,
+  `https://graph.facebook.com/v18.0/${pageId}/feed,
   {
     message: '🎓 Testing EFH LMS social automation! #Education',
     access_token: pageAccessToken,

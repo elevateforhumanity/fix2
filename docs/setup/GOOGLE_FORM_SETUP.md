@@ -27,7 +27,7 @@ You can optionally configure a Google Form for additional pre-screening or infor
 ### 2. Get the Form URL
 
 1. Click the "Send" button in your Google Form
-2. Copy the link (it will look like: `https://docs.google.com/forms/d/e/1FAIpQLSc.../viewform`)
+2. Copy the link (it will look like: `https://docs.google.com/forms/d/e/1FAIpQLSc.../viewform)
 
 ### 3. Configure the Environment Variable
 
@@ -36,7 +36,7 @@ You can optionally configure a Google Form for additional pre-screening or infor
 1. Create a `.env` file in the project root (if it doesn't exist)
 2. Add the following line:
    ```
-   VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform
+   VITE_APPLICATION_FORM_URL=https://docs.google.com/forms/d/e/YOURFORMID/viewform
    ```
 3. Replace `YOUR_FORM_ID` with your actual form ID
 
@@ -102,7 +102,7 @@ After configuration:
 ## Example Google Form URL
 
 ```
-https://docs.google.com/forms/d/e/1FAIpQLSc_example123/viewform
+https://docs.google.com/forms/d/e/1FAIpQLScexample123/viewform
 ```
 
 ## Security Note

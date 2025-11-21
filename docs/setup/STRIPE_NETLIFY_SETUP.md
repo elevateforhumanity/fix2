@@ -159,7 +159,7 @@ Your Netlify functions should be at:
 
 ### Test Donation Flow
 
-1. Go to: `https://elevateforhumanity.org/donate`
+1. Go to: `https://elevateforhumanity.org/donate
 2. Click **"Donate Now"**
 3. Enter test card: `4242 4242 4242 4242`
 4. Complete checkout
@@ -167,7 +167,7 @@ Your Netlify functions should be at:
 
 ### Test Enrollment Flow
 
-1. Go to: `https://elevateforhumanity.org/programs/[program-slug]`
+1. Go to: `https://elevateforhumanity.org/programs/[program-slug]
 2. Click **"Enroll Now"**
 3. Enter test card
 4. Complete enrollment

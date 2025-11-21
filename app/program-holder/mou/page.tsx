@@ -1,6 +1,5 @@
 'use client';
 
-'use client';
 import { useEffect, useRef, useState } from 'react';
 import SignatureCanvas from 'react-signature-canvas';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';

@@ -9,7 +9,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
     }
 
-    const { courseId } = await req.json().catch(() => ({}) as any);
+    const { courseId } = await req.json().catch((err) => {
+      console.error('Failed to parse request body:', err);
+      return {} as any;
+    });
 
     if (!courseId) {
       return NextResponse.json({ error: 'Missing courseId' }, { status: 400 });

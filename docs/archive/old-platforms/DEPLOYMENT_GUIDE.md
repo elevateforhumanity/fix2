@@ -126,7 +126,7 @@ SELECT cron.schedule(
   '*/5 * * * *',
   $$
   SELECT net.http_post(
-    url := 'https://YOUR_PROJECT_REF.supabase.co/functions/v1/email-dispatch?action=process-queue',
+    url := 'https://YOURPROJECTREF.supabase.co/functions/v1/email-dispatch?action=process-queue',
     headers := jsonb_build_object(
       'Authorization', 'Bearer ' || current_setting('app.settings.service_role_key')
     )
@@ -143,7 +143,7 @@ SELECT cron.schedule(
   '*/2 * * * *',
   $$
   SELECT net.http_post(
-    url := 'https://YOUR_PROJECT_REF.supabase.co/functions/v1/webhook-dispatch?action=process-queue',
+    url := 'https://YOURPROJECTREF.supabase.co/functions/v1/webhook-dispatch?action=process-queue',
     headers := jsonb_build_object(
       'Authorization', 'Bearer ' || current_setting('app.settings.service_role_key')
     )
@@ -160,7 +160,7 @@ SELECT cron.schedule(
   '0 * * * *',
   $$
   SELECT net.http_post(
-    url := 'https://YOUR_PROJECT_REF.supabase.co/functions/v1/webhook-dispatch?action=retry-failed',
+    url := 'https://YOURPROJECTREF.supabase.co/functions/v1/webhook-dispatch?action=retry-failed',
     headers := jsonb_build_object(
       'Authorization', 'Bearer ' || current_setting('app.settings.service_role_key')
     )
@@ -177,7 +177,7 @@ SELECT cron.schedule(
   '*/10 * * * *',
   $$
   SELECT net.http_post(
-    url := 'https://YOUR_PROJECT_REF.supabase.co/functions/v1/grade-ai?action=process-queue',
+    url := 'https://YOURPROJECTREF.supabase.co/functions/v1/grade-ai?action=process-queue',
     headers := jsonb_build_object(
       'Authorization', 'Bearer ' || current_setting('app.settings.service_role_key')
     )
@@ -195,7 +195,7 @@ Test each function to ensure it's working:
 ### Test Email Dispatch
 
 ```bash
-curl -X POST https://YOUR_PROJECT_REF.supabase.co/functions/v1/email-dispatch \
+curl -X POST https://YOURPROJECTREF.supabase.co/functions/v1/email-dispatch \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -208,7 +208,7 @@ curl -X POST https://YOUR_PROJECT_REF.supabase.co/functions/v1/email-dispatch \
 ### Test Webhook Dispatch
 
 ```bash
-curl -X POST https://YOUR_PROJECT_REF.supabase.co/functions/v1/webhook-dispatch \
+curl -X POST https://YOURPROJECTREF.supabase.co/functions/v1/webhook-dispatch \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -221,7 +221,7 @@ curl -X POST https://YOUR_PROJECT_REF.supabase.co/functions/v1/webhook-dispatch 
 ### Test AI Course Create
 
 ```bash
-curl -X POST https://YOUR_PROJECT_REF.supabase.co/functions/v1/ai-course-create \
+curl -X POST https://YOURPROJECTREF.supabase.co/functions/v1/ai-course-create \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -237,7 +237,7 @@ curl -X POST https://YOUR_PROJECT_REF.supabase.co/functions/v1/ai-course-create 
 ### Test AI Grading
 
 ```bash
-curl -X POST https://YOUR_PROJECT_REF.supabase.co/functions/v1/grade-ai \
+curl -X POST https://YOURPROJECTREF.supabase.co/functions/v1/grade-ai \
   -H "Authorization: Bearer YOUR_ANON_KEY" \
   -H "Content-Type: application/json" \
   -d '{

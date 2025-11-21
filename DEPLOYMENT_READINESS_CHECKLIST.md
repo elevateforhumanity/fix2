@@ -1,7 +1,7 @@
 # Deployment Readiness Checklist
 **Date:** 2025-11-19  
 **Target Domain:** www.elevateforhumanity.org  
-**Current Domain:** www.elevateconnectsdirectory.org
+**Current Domain:** www.elevateforhumanity.org
 
 ---
 
@@ -52,12 +52,12 @@
 ## ⚠️ NEEDS ATTENTION BEFORE MIGRATION
 
 ### 1. **Form Submission Redirect URL**
-**Current:** `https://elevateconnectsdirectory.org/enroll/success`  
-**Needs Update To:** `https://www.elevateforhumanity.org/enroll/success`
+**Current:** `https://elevateforhumanity.org/enroll/success  
+**Needs Update To:** `https://www.elevateforhumanity.org/enroll/success
 
 **File:** `app/apply/page.tsx` line 56
 ```tsx
-<input type="hidden" name="_next" value="https://elevateconnectsdirectory.org/enroll/success" />
+<input type="hidden" name="_next" value="https://elevateforhumanity.org/enroll/success" />
 ```
 
 **Action Required:**
@@ -170,13 +170,13 @@ After migration, set up redirects:
 async redirects() {
   return [
     {
-      source: 'https://elevateconnectsdirectory.org/:path*',
-      destination: 'https://www.elevateforhumanity.org/:path*',
+      source: 'https://elevateforhumanity.org/:path',
+      destination: 'https://www.elevateforhumanity.org/:path',
       permanent: true,
     },
     {
-      source: 'https://www.elevateconnectsdirectory.org/:path*',
-      destination: 'https://www.elevateforhumanity.org/:path*',
+      source: 'https://www.elevateforhumanity.org/:path',
+      destination: 'https://www.elevateforhumanity.org/:path',
       permanent: true,
     },
   ];
@@ -188,7 +188,7 @@ async redirects() {
 ### 10. **Content Updates Needed**
 Search and replace in codebase:
 
-- ❌ "elevateconnectsdirectory.org" → "elevateforhumanity.org"
+- ❌ "elevateforhumanity.org" → "elevateforhumanity.org"
 - ❌ Check all hardcoded URLs
 - ❌ Update sitemap.xml
 - ❌ Update robots.txt
@@ -262,7 +262,7 @@ Search and replace in codebase:
 ### Critical (Must Do)
 1. Create `/enroll/success` page
 2. Update form redirect URL in `app/apply/page.tsx`
-3. Search/replace all "elevateconnectsdirectory.org" references
+3. Search/replace all "elevateforhumanity.org" references
 4. Test login flow
 5. Create missing high-priority pages
 
@@ -288,7 +288,7 @@ Search and replace in codebase:
 ```bash
 # File: app/apply/page.tsx
 # Line 56
-# Change: elevateconnectsdirectory.org
+# Change: elevateforhumanity.org
 # To: www.elevateforhumanity.org
 ```
 
@@ -301,7 +301,7 @@ Search and replace in codebase:
 ### 3. Global Domain Replace
 ```bash
 # Search entire codebase for:
-grep -r "elevateconnectsdirectory.org" app components lib
+grep -r "elevateforhumanity.org" app components lib
 # Replace with: www.elevateforhumanity.org
 ```
 

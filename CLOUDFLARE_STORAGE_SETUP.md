@@ -53,7 +53,7 @@ Cloudflare R2 provides S3-compatible object storage for the LMS platform to stor
 
 ### Why Custom Domain?
 
-- Branded URLs: `https://storage.elevateconnectsdirectory.org/file.pdf`
+- Branded URLs: `https://storage.elevateforhumanity.org/file.pdf
 - Better SEO and user trust
 - Consistent with your domain
 
@@ -62,18 +62,18 @@ Cloudflare R2 provides S3-compatible object storage for the LMS platform to stor
 1. In R2 bucket settings, click **Settings** tab
 2. Scroll to **Public access**
 3. Click **Connect domain**
-4. Enter domain: `storage.elevateconnectsdirectory.org`
+4. Enter domain: `storage.elevateforhumanity.org`
 5. Cloudflare will create DNS records automatically
 6. Wait 5-10 minutes for DNS propagation
-7. Test: `https://storage.elevateconnectsdirectory.org/test.txt`
+7. Test: `https://storage.elevateforhumanity.org/test.txt
 
 ### Alternative: Use R2.dev Domain
 
 If you don't want a custom domain:
 
 1. Enable **Public access** in bucket settings
-2. Use auto-generated URL: `https://pub-[hash].r2.dev`
-3. Update `.env.local`: `CLOUDFLARE_R2_PUBLIC_URL=https://pub-[hash].r2.dev`
+2. Use auto-generated URL: `https://pub-[hash].r2.dev
+3. Update `.env.local`: `CLOUDFLARE_R2_PUBLIC_URL=https://pub-[hash].r2.dev
 
 ## Step 4: Update Environment Variables
 
@@ -85,7 +85,7 @@ CLOUDFLARE_API_TOKEN=your_api_token_here
 CLOUDFLARE_R2_BUCKET=elevate-lms-storage
 CLOUDFLARE_R2_ACCESS_KEY_ID=your_access_key_here
 CLOUDFLARE_R2_SECRET_ACCESS_KEY=your_secret_key_here
-CLOUDFLARE_R2_PUBLIC_URL=https://storage.elevateconnectsdirectory.org
+CLOUDFLARE_R2_PUBLIC_URL=https://storage.elevateforhumanity.org
 ```
 
 ### GitHub Secrets (Production)
@@ -98,7 +98,7 @@ CLOUDFLARE_API_TOKEN=<your_token>
 CLOUDFLARE_R2_BUCKET=elevate-lms-storage
 CLOUDFLARE_R2_ACCESS_KEY_ID=<your_access_key>
 CLOUDFLARE_R2_SECRET_ACCESS_KEY=<your_secret_key>
-CLOUDFLARE_R2_PUBLIC_URL=https://storage.elevateconnectsdirectory.org
+CLOUDFLARE_R2_PUBLIC_URL=https://storage.elevateforhumanity.org
 ```
 
 ### Netlify Environment Variables
@@ -118,8 +118,8 @@ CLOUDFLARE_R2_PUBLIC_URL=https://storage.elevateconnectsdirectory.org
 [
   {
     "AllowedOrigins": [
-      "https://www.elevateconnectsdirectory.org",
-      "https://www.elevateconnectsdirectory.org",
+      "https://www.elevateforhumanity.org",
+      "https://www.elevateforhumanity.org",
       "http://localhost:3000"
     ],
     "AllowedMethods": ["GET", "PUT", "POST", "DELETE", "HEAD"],
@@ -139,7 +139,7 @@ import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 
 const s3Client = new S3Client({
   region: 'auto',
-  endpoint: `https://${process.env.CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+  endpoint: `https://${process.env.CLOUDFLAREACCOUNTID}.r2.cloudflarestorage.com,
   credentials: {
     accessKeyId: process.env.CLOUDFLARE_R2_ACCESS_KEY_ID,
     secretAccessKey: process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY,
@@ -161,7 +161,7 @@ console.log('✅ Upload successful!');
 
 ```javascript
 const response = await fetch(
-  'https://storage.elevateconnectsdirectory.org/test.txt'
+  'https://storage.elevateforhumanity.org/test.txt'
 );
 const text = await response.text();
 console.log('✅ Download successful:', text);

@@ -6,8 +6,8 @@ Based on your DNS records, you have:
 
 - **elevateforhumanity.org** - Primary domain (A record: 172.66.0.42)
 - **www.elevateforhumanity.org** - CNAME to Durablesites.co (showing fallback site)
-- **elevateconnectsdirectory.org** - Secondary domain (A record: 75.2.60.5)
-- **www.elevateconnectsdirectory.org** - CNAME to elevateproduction.netlify.app
+- **elevateforhumanity.org** - Secondary domain (A record: 75.2.60.5)
+- **www.elevateforhumanity.org** - CNAME to elevateproduction.netlify.app
 
 ## Problem
 
@@ -107,7 +107,7 @@ NETLIFY   @      elevateproduction.netlify.app
 NETLIFY   www    elevateproduction.netlify.app
 ```
 
-### Secondary Domain: elevateconnectsdirectory.org
+### Secondary Domain: elevateforhumanity.org
 
 **Netlify Settings**:
 
@@ -126,19 +126,19 @@ CNAME  www    elevateproduction.netlify.app    Auto
 
 ```toml
 [[redirects]]
-  from = "https://www.elevateconnectsdirectory.org/*"
+  from = "https://www.elevateforhumanity.org/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.elevateconnectsdirectory.org/*"
+  from = "https://www.elevateforhumanity.org/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.elevateforhumanity.org/*"
+  from = "https://www.elevateforhumanity.org/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
@@ -179,8 +179,8 @@ TXT   @    google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 3. **Domain settings** → **Add custom domain**
 4. Add: `elevateforhumanity.org`
 5. Add: `www.elevateforhumanity.org`
-6. Add: `elevateconnectsdirectory.org`
-7. Add: `www.elevateconnectsdirectory.org`
+6. Add: `elevateforhumanity.org`
+7. Add: `www.elevateforhumanity.org`
 8. Set `elevateforhumanity.org` as primary
 9. Wait for DNS propagation
 10. Enable HTTPS
@@ -192,26 +192,26 @@ Add redirects to force non-www and redirect secondary domain:
 ```toml
 # Redirect all domains to primary
 [[redirects]]
-  from = "https://www.elevateconnectsdirectory.org/*"
+  from = "https://www.elevateforhumanity.org/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.elevateconnectsdirectory.org/*"
+  from = "https://www.elevateforhumanity.org/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.elevateforhumanity.org/*"
+  from = "https://www.elevateforhumanity.org/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 # Redirect HTTP to HTTPS (handled by Netlify, but explicit)
 [[redirects]]
-  from = "http://elevateforhumanity.org/*"
+  from = "http://elevateforhumanity.org/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
@@ -239,7 +239,7 @@ Wait for deployment, then test:
 
 - https://elevateforhumanity.org ✅
 - https://www.elevateforhumanity.org → redirects to https://elevateforhumanity.org ✅
-- https://www.elevateconnectsdirectory.org → redirects to https://elevateforhumanity.org ✅
+- https://www.elevateforhumanity.org → redirects to https://elevateforhumanity.org ✅
 
 ---
 
@@ -302,7 +302,7 @@ TXT    @      google-site-verification=9sXnIdE4X4AoAeRlu16JXWqNxSOIxOCAvbpakSGp3
 TXT    @      google-site-verification=e05R0DWw4zbryQeir_hCg57NUx47Ul_TVJcgpsiegA4
 ```
 
-### elevateconnectsdirectory.org
+### elevateforhumanity.org
 
 ```
 Type   Name   Content                          Priority
@@ -318,8 +318,8 @@ After DNS changes propagate (10-30 minutes):
 
 - [ ] https://elevateforhumanity.org loads correctly
 - [ ] https://www.elevateforhumanity.org redirects to https://elevateforhumanity.org
-- [ ] https://www.elevateconnectsdirectory.org redirects to https://elevateforhumanity.org
-- [ ] https://www.elevateconnectsdirectory.org redirects to https://elevateforhumanity.org
+- [ ] https://www.elevateforhumanity.org redirects to https://elevateforhumanity.org
+- [ ] https://www.elevateforhumanity.org redirects to https://elevateforhumanity.org
 - [ ] SSL certificate is valid (green padlock)
 - [ ] All pages load correctly
 - [ ] No mixed content warnings

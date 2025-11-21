@@ -44,7 +44,7 @@ This system automatically posts AI-generated content to social media platforms 3
 #### Get Long-Lived Token
 
 ```bash
-curl -X GET "https://graph.facebook.com/v18.0/oauth/access_token?grant_type=fb_exchange_token&client_id=YOUR_APP_ID&client_secret=YOUR_APP_SECRET&fb_exchange_token=SHORT_LIVED_TOKEN"
+curl -X GET "https://graph.facebook.com/v18.0/oauth/access_token?grant_type=fb_exchange_token&client_id=YOUR_APP_ID&client_secret=YOUR_APP_SECRET&fb_exchange_token=SHORTLIVEDTOKEN"
 ```
 
 #### Get Page ID
@@ -67,7 +67,7 @@ curl -X GET "https://graph.facebook.com/v18.0/oauth/access_token?grant_type=fb_e
 #### Get Instagram Account ID
 
 ```bash
-curl -X GET "https://graph.facebook.com/v18.0/me/accounts?access_token=YOUR_PAGE_ACCESS_TOKEN"
+curl -X GET "https://graph.facebook.com/v18.0/me/accounts?access_token=YOUR_PAGEACCESSTOKEN"
 ```
 
 Look for `instagram_business_account` → `id`
@@ -99,7 +99,7 @@ Look for `instagram_business_account` → `id`
 
 ```bash
 # Step 1: Get authorization code
-https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&scope=w_member_social%20r_organization_social%20w_organization_social
+https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&scope=w_member_social%20r_organization_social%20worganizationsocial
 
 # Step 2: Exchange code for token
 curl -X POST https://www.linkedin.com/oauth/v2/accessToken \
@@ -110,7 +110,7 @@ curl -X POST https://www.linkedin.com/oauth/v2/accessToken \
 #### Get Organization ID
 
 ```bash
-curl -X GET "https://api.linkedin.com/v2/organizationAcls?q=roleAssignee&projection=(elements*(organization~(id)))" \
+curl -X GET "https://api.linkedin.com/v2/organizationAcls?q=roleAssignee&projection=(elements(organization~(id)))" \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
 ```
 
@@ -203,7 +203,7 @@ Example: Generate image with text overlay
 
 ```javascript
 // Using Cloudinary
-const imageUrl = `https://res.cloudinary.com/your-cloud/image/upload/w_1080,h_1080,c_fill,g_center/l_text:Arial_60_bold:${encodeURIComponent(content)},co_white,g_center/v1/background.jpg`;
+const imageUrl = `https://res.cloudinary.com/your-cloud/image/upload/w_1080,h_1080,c_fill,g_center/l_text:Arial60bold:${encodeURIComponent(content)},co_white,g_center/v1/background.jpg`;
 ```
 
 ## Monitoring

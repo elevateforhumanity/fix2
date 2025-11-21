@@ -15,7 +15,7 @@ Add these two variables:
 ### Variable 1: VITE_SUPABASE_URL
 
 - **Key**: `VITE_SUPABASE_URL`
-- **Value**: `https://cuxzzpsyufcewtmicszk.supabase.co`
+- **Value**: `https://cuxzzpsyufcewtmicszk.supabase.co
 - **Scopes**: Select "All" or "Production"
 
 ### Variable 2: VITE_SUPABASE_ANON_KEY

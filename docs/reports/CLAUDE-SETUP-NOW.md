@@ -10,14 +10,14 @@
 
 ### Step 1: Get Your Anthropic API Key (30 seconds)
 
-1. Go to: **https://console.anthropic.com/settings/keys**
+1. Go to: **https://console.anthropic.com/settings/keys
 2. Click **"Create Key"**
 3. Give it a name: `GitHub Actions`
 4. Copy the key (starts with `sk-ant-...`)
 
 ### Step 2: Add to GitHub Secrets (30 seconds)
 
-1. Go to: **https://github.com/elevateforhumanity/fix2/settings/secrets/actions**
+1. Go to: **https://github.com/elevateforhumanity/fix2/settings/secrets/actions
 2. Click **"New repository secret"**
 3. Name: `ANTHROPIC_API_KEY`
 4. Value: Paste your key

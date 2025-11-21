@@ -97,13 +97,13 @@ Value: elevateproduction.netlify.app
 
 # Custom domain configuration
 [[redirects]]
-  from = "https://www.elevateforhumanity.org/*"
+  from = "https://www.elevateforhumanity.org/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://elevateproduction.netlify.app/*"
+  from = "https://elevateproduction.netlify.app/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
@@ -321,7 +321,7 @@ const sitemapConfig = {
 ```toml
 # netlify.toml
 [[redirects]]
-  from = "http://elevateforhumanity.org/*"
+  from = "http://elevateforhumanity.org/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true

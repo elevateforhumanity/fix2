@@ -192,7 +192,7 @@
     "This fixes the SSL handshake failure",
     "Domain should be managed by Durablesites.co, not Cloudflare",
     "After removal, user must update nameservers at registrar",
-    "elevateconnectsdirectory.org should remain on Vercel (different domain)",
+    "elevateforhumanity.org should remain on Vercel (different domain)",
     "This is a one-time fix - do not re-add to Cloudflare"
   ]
 }

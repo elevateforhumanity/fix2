@@ -96,7 +96,7 @@ bash scripts/setup-portal.sh
 ### After Deploy
 
 1. ✅ Open DevTools → Network tab
-2. ✅ Verify API requests go to `https://api.elevateforhumanity.org`
+2. ✅ Verify API requests go to `https://api.elevateforhumanity.org
 3. ✅ Check for CORS errors (should be none)
 4. ✅ Test deep links (e.g., `/programs`, `/about`) - should not 404
 5. ✅ Verify 404 page shows for invalid routes
@@ -130,7 +130,7 @@ curl -I https://portal.elevateforhumanity.org/programs
 
 - ✅ Verify API server has CORS headers
 - ✅ Check CSP in netlify.toml includes your API domain
-- ✅ Ensure `connect-src` includes `https://api.elevateforhumanity.org`
+- ✅ Ensure `connect-src` includes `https://api.elevateforhumanity.org
 
 ### DNS not resolving?
 

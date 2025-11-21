@@ -178,7 +178,7 @@ debug: (...a: unknown[]) => enabled('debug') && console.log(...a),
 />
 <meta
   property="og:image"
-  content="https://www.elevateconnectsdirectory.org/images/og-image.jpg"
+  content="https://www.elevateforhumanity.org/images/og-image.jpg"
 />
 ```
 

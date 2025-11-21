@@ -70,15 +70,15 @@ Successfully consolidated multiple duplicate sitemaps into a single, authoritati
 **Before (in ProgramDetail.tsx):**
 
 ```typescript
-const pageUrl = `https://elevateforhumanity.pages.dev/programs/${p.slug}`;
-const imageUrl = `https://elevateforhumanity.pages.dev${p.cardSrc}`;
+const pageUrl = `https://elevateforhumanity.pages.dev/programs/${p.slug};
+const imageUrl = `https://elevateforhumanity.pages.dev${p.cardSrc};
 ```
 
 **After:**
 
 ```typescript
-const pageUrl = `https://elevateforhumanity.org/programs/${p.slug}`;
-const imageUrl = `https://elevateforhumanity.org${p.cardSrc}`;
+const pageUrl = `https://elevateforhumanity.org/programs/${p.slug};
+const imageUrl = `https://elevateforhumanity.org${p.cardSrc};
 ```
 
 **Action Taken:**

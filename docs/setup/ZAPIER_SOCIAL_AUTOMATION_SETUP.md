@@ -453,7 +453,7 @@ const Pg_SocialMediaManager = React.lazy(
 
 ### Access Dashboard
 
-Navigate to: `https://elevateforhumanity.org/social-media-manager`
+Navigate to: `https://elevateforhumanity.org/social-media-manager
 
 **Features:**
 

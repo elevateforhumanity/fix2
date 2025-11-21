@@ -124,7 +124,7 @@ TWILIO_AUTH_TOKEN=your_twilio_token
 # ============================================
 # MONITORING & ANALYTICS
 # ============================================
-SENTRY_DSN=https://your_sentry_dsn
+SENTRY_DSN=https://yoursentrydsn
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 
 # ============================================

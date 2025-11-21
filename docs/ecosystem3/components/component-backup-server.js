@@ -23,7 +23,7 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-console.log('🚀 EFH Backup Server Starting...');
+// console.log('🚀 EFH Backup Server Starting...');
 
 // Serve static files
 app.use(express.static('.'));
@@ -64,5 +64,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`✅ Backup server running on port ${PORT}`);
+  // console.log(`✅ Backup server running on port ${PORT}`);
 });

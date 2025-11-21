@@ -31,7 +31,7 @@ k6 run load-tests/basic-lms-test.js
 
 ### Custom Base URL
 ```bash
-k6 run --env BASE_URL=https://staging.elevateconnectsdirectory.org load-tests/basic-lms-test.js
+k6 run --env BASE_URL=https://staging.elevateforhumanity.org load-tests/basic-lms-test.js
 ```
 
 ### CI/CD Integration

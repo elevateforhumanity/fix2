@@ -206,10 +206,10 @@ curl -X POST https://your-worker-url/api/video/generate \
   }'
 
 # Check status
-curl https://your-worker-url/api/video/status/JOB_ID
+curl https://your-worker-url/api/video/status/JOBID
 
 # List jobs
-curl https://your-worker-url/api/video/jobs?userId=USER_ID
+curl https://your-worker-url/api/video/jobs?userId=USERID
 ```
 
 ---
@@ -286,7 +286,7 @@ wrangler tail --config wrangler-video.toml
 
 ```bash
 # Via worker API
-curl https://your-worker-url/api/video/status/JOB_ID
+curl https://your-worker-url/api/video/status/JOBID
 
 # Via Cloudflare KV
 wrangler kv:key get --binding=VIDEO_KV "job:JOB_ID"

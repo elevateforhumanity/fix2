@@ -10,8 +10,8 @@
 ### 1. Domain Configuration ✅
 
 **Problem**: Sitemap submission plugin was using incorrect domain  
-**Before**: `https://elevateforhumanity.org`  
-**After**: `https://www.elevateforhumanity.org`  
+**Before**: `https://elevateforhumanity.org  
+**After**: `https://www.elevateforhumanity.org  
 **Fix**: Updated `netlify.toml` plugin configuration
 
 ### 2. Sitemap Content ✅

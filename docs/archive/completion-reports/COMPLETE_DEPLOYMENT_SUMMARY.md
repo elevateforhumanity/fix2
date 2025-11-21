@@ -100,7 +100,7 @@ highlights={[
 
 ```jsx
 <VideoEmbed
-  url="https://youtube.com/watch?v=VIDEO_ID"
+  url="https://youtube.com/watch?v=VIDEOID"
   title="Program Video"
   controls={true}
   autoplay={false}
@@ -118,7 +118,7 @@ highlights={[
 1. **Netlify Dashboard:** https://app.netlify.com
 2. **Find Site:** "elevatenetlify"
 3. **Check Deploys Tab:** Look for latest deployment
-4. **New URL Format:** `https://[NEW-HASH]--elevatenetlify.netlify.app`
+4. **New URL Format:** `https://[NEW-HASH]--elevatenetlify.netlify.app
 
 ### What to Verify:
 

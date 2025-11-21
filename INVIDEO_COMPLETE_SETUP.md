@@ -7,7 +7,7 @@ Get professional videos for your entire site in 30 minutes using InVideo AI.
 
 ## 📋 Step 1: Create InVideo Account
 
-1. Go to: **https://ai.invideo.io**
+1. Go to: **https://ai.invideo.io
 2. Sign up (free tier: 4 videos/month)
 3. Or upgrade: $20/month unlimited
 
@@ -29,7 +29,7 @@ business promo cinematic website hero
   - "Approved Workforce Training Provider"
   - "Barber Apprenticeship – 1 of 3 in Indiana"
   - "Medical Assistant • HVAC • Building Tech • CDL"
-- CTA: "Apply Today at ElevateConnectsDirectory.org"
+- CTA: "Apply Today at elevateforhumanity.org"
 
 **Export as:** `hero-elevate-home.mp4`
 
@@ -42,7 +42,7 @@ business promo cinematic website hero
 
 **Script to paste:**
 ```
-If you're ready to care for others and start a healthcare career, the Medical Assistant pathway in the Elevate Connects Directory is designed for you.
+If you're ready to care for others and start a healthcare career, the Medical Assistant pathway in the Elevate for Humanity is designed for you.
 
 Support physicians and nurses in clinical settings, performing both administrative and basic clinical tasks.
 
@@ -50,7 +50,7 @@ You'll learn through a mix of instructor-led sessions, hands-on practice, and re
 
 Thanks to our partnerships with federal and state workforce programs like WIOA, Workforce Ready Grants, and Job Ready Indy, eligible learners may qualify for reduced or no-cost tuition, plus case management and job placement support.
 
-Visit ElevateConnectsDirectory.org to learn more.
+Visit elevateforhumanity.org to learn more.
 ```
 
 **Export as:** `program-medical-assistant.mp4`
@@ -62,7 +62,7 @@ Visit ElevateConnectsDirectory.org to learn more.
 
 **Script to paste:**
 ```
-Do you see yourself behind the chair as a professional barber? The Barber Apprenticeship program in the Elevate Connects Directory helps you get there.
+Do you see yourself behind the chair as a professional barber? The Barber Apprenticeship program in the Elevate for Humanity helps you get there.
 
 Earn-while-you-learn apprenticeship in a real barbershop, building hours toward state barber licensure.
 
@@ -70,7 +70,7 @@ You'll learn through a mix of classroom instruction, hands-on labs, and on-the-j
 
 Thanks to our partnerships with federal and state workforce programs like WIOA, Workforce Ready Grants, and Job Ready Indy, eligible learners may qualify for reduced or no-cost tuition, plus case management and job placement support.
 
-Visit ElevateConnectsDirectory.org to start your journey.
+Visit elevateforhumanity.org to start your journey.
 ```
 
 **Export as:** `program-barber-apprenticeship.mp4`
@@ -82,7 +82,7 @@ Visit ElevateConnectsDirectory.org to start your journey.
 
 **Script to paste:**
 ```
-If you like solving problems with your hands and tools, the HVAC Technician Training pathway in the Elevate Connects Directory is a strong entry into HVAC careers.
+If you like solving problems with your hands and tools, the HVAC Technician Training pathway in the Elevate for Humanity is a strong entry into HVAC careers.
 
 Hands-on training to install, maintain, and repair heating and cooling systems for residential and commercial buildings.
 
@@ -90,7 +90,7 @@ You'll learn through a mix of classroom instruction, hands-on labs, and on-the-j
 
 Thanks to our partnerships with federal and state workforce programs like WIOA, Workforce Ready Grants, and Job Ready Indy, eligible learners may qualify for reduced or no-cost tuition, plus case management and job placement support.
 
-Visit ElevateConnectsDirectory.org to explore this pathway.
+Visit elevateforhumanity.org to explore this pathway.
 ```
 
 **Export as:** `program-hvac.mp4`
@@ -145,7 +145,7 @@ mkdir -p public/videos
 1. Upload each video to YouTube
 2. Set as "Unlisted"
 3. Get embed URLs
-4. Use in code like: `https://www.youtube.com/embed/VIDEO_ID`
+4. Use in code like: `https://www.youtube.com/embed/VIDEOID
 
 **Or use Cloudflare Stream:**
 - Better performance

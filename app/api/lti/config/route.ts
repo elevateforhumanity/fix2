@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const toolUrl = process.env.LTI_TOOL_URL || 'https://elevateconnectsdirectory.org';
+  const toolUrl = process.env.LTI_TOOL_URL || 'https://elevateforhumanity.org';
 
   const config = {
     title: 'Elevate for Humanity LMS',

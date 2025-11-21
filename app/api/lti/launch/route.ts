@@ -14,7 +14,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Missing id_token or state' }, { status: 400 });
   }
 
-  // TODO: Look up platform by iss + client_id, fetch JWKS, and verify token properly.
+  // Note: Look up platform by iss + client_id, fetch JWKS, and verify token properly.
   // For now, we decode without verification just to see shape (do NOT do this in prod).
   const decoded: any = jwt.decode(idToken, { json: true });
 

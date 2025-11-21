@@ -30,14 +30,14 @@
    - User support email: your email
    - Developer contact: your email
    - Scopes: Add these scopes:
-     - `https://www.googleapis.com/auth/classroom.courses`
-     - `https://www.googleapis.com/auth/classroom.rosters`
-     - `https://www.googleapis.com/auth/classroom.coursework.students`
-     - `https://www.googleapis.com/auth/classroom.guardianlinks.students`
+     - `https://www.googleapis.com/auth/classroom.courses
+     - `https://www.googleapis.com/auth/classroom.rosters
+     - `https://www.googleapis.com/auth/classroom.coursework.students
+     - `https://www.googleapis.com/auth/classroom.guardianlinks.students
 4. Back to **Create OAuth client ID**:
    - Application type: **Desktop app** or **Web application**
    - Name: "EFH Classroom Autopilot"
-   - Authorized redirect URIs (if Web): `http://localhost:53682/callback`
+   - Authorized redirect URIs (if Web): `http://localhost:53682/callback
 5. Click **Create**
 6. **Download JSON** or copy:
    - Client ID
@@ -110,7 +110,7 @@ This will:
 1. Open the printed URL in your browser
 2. Sign in with your Google Workspace account
 3. Grant permissions
-4. You'll be redirected to `http://localhost:53682/callback?code=...`
+4. You'll be redirected to `http://localhost:53682/callback?code=...
 5. Copy the `code` parameter value
 
 #### 4.3 Redeem Authorization Code

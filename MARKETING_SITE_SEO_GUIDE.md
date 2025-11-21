@@ -16,7 +16,7 @@ This guide covers setting up SEO, sitemaps, and search engine optimization for y
 - **Purpose**: Public-facing marketing, lead generation
 - **Content**: Program information, about, contact, enrollment links
 
-**LMS Site**: elevateconnectsdirectory.org
+**LMS Site**: elevateforhumanity.org
 
 - **Hosted on**: Netlify (this repository)
 - **Purpose**: Student portal, courses, learning management
@@ -39,9 +39,9 @@ Most website builders like Durablesites.co automatically generate sitemaps.
 **If sitemap exists**:
 
 1. Go to Google Search Console
-2. Submit: `https://www.elevateforhumanity.org/sitemap.xml`
+2. Submit: `https://www.elevateforhumanity.org/sitemap.xml
 3. Go to Bing Webmaster Tools
-4. Submit: `https://www.elevateforhumanity.org/sitemap.xml`
+4. Submit: `https://www.elevateforhumanity.org/sitemap.xml
 5. Done! ✅
 
 ### Option B: Create Manual Sitemap
@@ -206,7 +206,7 @@ In Google Search Console, check:
 1. Go to Bing Webmaster Tools: https://www.bing.com/webmasters
 2. Sign in with Microsoft account
 3. Click **Add a site**
-4. Enter: `https://www.elevateforhumanity.org`
+4. Enter: `https://www.elevateforhumanity.org
 
 ### Step 2: Verify Ownership
 
@@ -235,7 +235,7 @@ In Google Search Console, check:
 
 1. In Bing Webmaster Tools
 2. Go to **Sitemaps**
-3. Submit: `https://www.elevateforhumanity.org/sitemap.xml`
+3. Submit: `https://www.elevateforhumanity.org/sitemap.xml
 4. Click **Submit**
 
 ---
@@ -404,7 +404,7 @@ Add this JSON-LD to your homepage:
 ### Test Structured Data
 
 1. Go to: https://search.google.com/test/rich-results
-2. Enter: `https://www.elevateforhumanity.org`
+2. Enter: `https://www.elevateforhumanity.org
 3. Click **Test URL**
 4. Verify schema is detected ✅
 
@@ -465,11 +465,11 @@ On your marketing site, add clear calls-to-action:
 **Homepage**:
 
 ```html
-<a href="https://www.elevateconnectsdirectory.org/signup" class="btn-primary">
+<a href="https://www.elevateforhumanity.org/signup" class="btn-primary">
   Enroll Now
 </a>
 
-<a href="https://www.elevateconnectsdirectory.org/login" class="btn-secondary">
+<a href="https://www.elevateforhumanity.org/login" class="btn-secondary">
   Student Login
 </a>
 ```
@@ -477,7 +477,7 @@ On your marketing site, add clear calls-to-action:
 **Programs Page**:
 
 ```html
-<a href="https://www.elevateconnectsdirectory.org/programs/workforce-readiness">
+<a href="https://www.elevateforhumanity.org/programs/workforce-readiness">
   View Course Details
 </a>
 ```
@@ -489,7 +489,7 @@ On your marketing site, add clear calls-to-action:
 - About
 - Programs
 - Contact
-- Student Portal → https://www.elevateconnectsdirectory.org/login
+- Student Portal → https://www.elevateforhumanity.org/login
 ```
 
 ---

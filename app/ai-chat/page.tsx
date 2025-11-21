@@ -47,7 +47,10 @@ export default function AIChatPage() {
       });
 
       if (!res.ok) {
-        const err = await res.json().catch(() => ({}));
+        const err = await res.json().catch((parseErr) => {
+          console.error('Failed to parse error response:', parseErr);
+          return {};
+        });
         throw new Error(err.error || "Request failed");
       }
 

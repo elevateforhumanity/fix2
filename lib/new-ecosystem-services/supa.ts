@@ -9,6 +9,6 @@ export const supa = createClient(supaUrl, supaAnon, {
 
 // Helper for typed errors
 export function must<T>(value: T | null, msg = 'Not found') {
-  if (value == null) throw new Error(msg);
+  if (value === null) throw new Error(msg);
   return value;
 }

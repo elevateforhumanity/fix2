@@ -15,11 +15,11 @@ project's URL and Key are required to create a Supabase client!
 ### Step 1: Get Your Supabase Credentials
 
 1. **Go to your Supabase Dashboard**:
-   - Visit: https://supabase.com/dashboard/project/_/settings/api
+   - Visit: https://supabase.com/dashboard/project//settings/api
    - Or: https://app.supabase.com → Select your project → Settings → API
 
 2. **Copy these values**:
-   - **Project URL**: `https://[your-project-ref].supabase.co`
+   - **Project URL**: `https://[your-project-ref].supabase.co
    - **Anon/Public Key**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` (long string)
    - **Service Role Key**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...` (different long string)
 
@@ -31,16 +31,16 @@ In the root of your project (`/workspaces/fix2/`), create a file named `.env.loc
 # Copy this template and fill in your actual values
 
 # Site Configuration
-NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 
 # Supabase (REQUIRED)
-NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://YOURPROJECTREF.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.YOUR_ANON_KEY
 SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.YOUR_SERVICE_ROLE_KEY
 
 # Email (Optional - for notifications)
 RESEND_API_KEY=re_your_resend_key_here
-EMAIL_FROM=noreply@elevateconnectsdirectory.org
+EMAIL_FROM=noreply@elevateforhumanity.org
 
 # Stripe (Optional - for payments)
 STRIPE_SECRET_KEY=sk_test_your_stripe_key_here
@@ -248,10 +248,10 @@ For production deployment, set environment variables in Netlify:
 3. **Add Variables**:
 
    ```
-   NEXT_PUBLIC_SUPABASE_URL = https://YOUR_PROJECT_REF.supabase.co
+   NEXT_PUBLIC_SUPABASE_URL = https://YOURPROJECTREF.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY = eyJhbGci...
    SUPABASE_SERVICE_ROLE_KEY = eyJhbGci...
-   NEXT_PUBLIC_SITE_URL = https://www.elevateconnectsdirectory.org
+   NEXT_PUBLIC_SITE_URL = https://www.elevateforhumanity.org
    ```
 
 4. **Redeploy**:
@@ -271,7 +271,7 @@ For production deployment, set environment variables in Netlify:
 ### Project Support:
 
 - Contact: (317) 314-3757
-- Email: support@elevateconnectsdirectory.org
+- Email: support@elevateforhumanity.org
 
 ---
 
@@ -302,7 +302,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGci...
 ### Where to Find Them:
 
 ```
-https://supabase.com/dashboard/project/_/settings/api
+https://supabase.com/dashboard/project//settings/api
 ```
 
 ### How to Use:

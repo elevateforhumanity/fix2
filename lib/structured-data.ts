@@ -4,7 +4,7 @@ export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
-    name: 'Elevate Connects Directory',
+    name: 'Elevate for Humanity',
     description: 'WIOA-funded workforce training programs in Wisconsin',
     url: 'https://elevateconnects.org',
     logo: 'https://elevateconnects.org/logo.png',
@@ -88,7 +88,7 @@ export function generateJobPostingSchema(job: {
     } : undefined,
     hiringOrganization: {
       '@type': 'Organization',
-      name: 'Elevate Connects Directory',
+      name: 'Elevate for Humanity',
     },
   };
 }

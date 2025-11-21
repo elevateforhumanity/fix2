@@ -102,7 +102,7 @@ The autopilot saves screenshots to `logs/` folder:
 
 ## ✅ Verify It Worked
 
-Visit: **https://www.elevateforhumanity.org**
+Visit: **https://www.elevateforhumanity.org
 
 You should see:
 

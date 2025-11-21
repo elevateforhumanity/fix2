@@ -559,9 +559,9 @@ TIKTOK_ACCESS_TOKEN=your_tiktok_token (when available)
 
 ### Documentation
 
-- [Social Media Automation Guide](./docs/SOCIAL_MEDIA_AUTOMATION.md)
-- [Content Generation Guide](./docs/OPENAI_CONTENT_GENERATION.md)
-- [90-Day Content Calendar](./marketing/content-calendar/90-Day-Content-Pipeline.md)
+- [Social Media Automation Guide](../docs/setup/SOCIAL_MEDIA_MONETIZATION_SETUP.md)
+- [Content Generation Guide](../AI_CONTENT_GENERATOR_GUIDE.md)
+- [90-Day Content Calendar](../../SOCIAL_MEDIA_SCRIPTS.md)
 
 ### Tools
 

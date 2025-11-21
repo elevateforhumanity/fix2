@@ -396,7 +396,7 @@ SELECT title FROM programs WHERE soc_code = '39-5011';
 ### Resources
 - [Supabase Documentation](https://supabase.com/docs)
 - [PostgreSQL Documentation](https://www.postgresql.org/docs/)
-- [ETPL Program List](https://www.edd.ca.gov/jobs_and_training/Eligible_Training_Provider_List.htm)
+- [ETPL Program List](https://www.edd.ca.gov/jobs_and_training/Eligible_TrainingProviderList.htm)
 
 ---
 

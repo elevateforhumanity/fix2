@@ -79,7 +79,7 @@ export default function FAQPage() {
           <div className="flex flex-col">
             <span className="font-bold text-lg">Elevate for Humanity</span>
             <span className="text-xs text-gray-600">
-              Elevate Connects Directory
+              Elevate for Humanity
             </span>
           </div>
         </div>

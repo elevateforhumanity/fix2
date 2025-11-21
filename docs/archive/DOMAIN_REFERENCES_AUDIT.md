@@ -34,11 +34,11 @@
 
 **References:**
 
-- `https://durable.co/login`
-- `https://durable.co/dashboard`
-- `https://api.durable.co/v1/blogs/elevateforhumanity/posts`
-- `https://elevateforhumanity.durable.co`
-- `https://elevateforhumanity.durable.co/blog`
+- `https://durable.co/login
+- `https://durable.co/dashboard
+- `https://api.durable.co/v1/blogs/elevateforhumanity/posts
+- `https://elevateforhumanity.durable.co
+- `https://elevateforhumanity.durable.co/blog
 - `support@durable.co`
 
 **Action:** ❌ DELETE all Durable.co documentation files
@@ -51,7 +51,7 @@
 
 **References:**
 
-- `blogUrl: 'https://elevateforhumanity.durable.co/blog'`
+- `blogUrl: 'https://elevateforhumanity.durable.co/blog'
 
 **Action:** ❌ REMOVE or UPDATE to new blog URL
 
@@ -71,7 +71,7 @@
 
 ```
 ./scripts/setup-social-oauth.js
-  - http://localhost:${PORT}/oauth/*  ✅ KEEP (OAuth dev)
+  - http://localhost:${PORT}/oauth/  ✅ KEEP (OAuth dev)
 
 ./scripts/utilities/backend-api.js
   - http://localhost:3000             ✅ KEEP (backend dev)

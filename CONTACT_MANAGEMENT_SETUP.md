@@ -62,7 +62,7 @@ The SQL file already includes INSERT statements for all 17 contacts!
 
 Check that contacts were inserted:
 ```bash
-curl -s "https://cuxzzpsyufcewtmicszk.supabase.co/rest/v1/marketing_contacts?select=count" \
+curl -s "https://cuxzzpsyufcewtmicszk.supabase.co/rest/v1/marketingcontacts?select=count" \
   -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN1eHp6cHN5dWZjZXd0bWljc3prIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODE2MTA0NywiZXhwIjoyMDczNzM3MDQ3fQ.5JRYvJPzFzsVaZQkbZDLcohP7dq8LWQEFeFdVByyihE" \
   -H "Prefer: count=exact"
 ```
@@ -137,7 +137,7 @@ We're excited to help you on your career journey. Here's what happens next:
 • And more!
 
 **Next Steps:**
-1. Complete your application at: https://elevateconnectsdirectory.org/apply
+1. Complete your application at: https://elevateforhumanity.org/apply
 2. Schedule a consultation call
 3. Get matched with the right program
 4. Start your training!

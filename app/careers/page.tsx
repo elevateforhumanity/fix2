@@ -46,7 +46,7 @@ export default function CareersPage() {
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="primary" className="mb-4">Join Our Team</Badge>
             <h1 className="text-5xl font-bold text-slate-900 mb-6">
-              Careers at Elevate Connects
+              Careers at Elevate for Humanity
             </h1>
             <p className="text-xl text-slate-600">
               Help transform lives through workforce development and education

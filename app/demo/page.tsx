@@ -15,7 +15,7 @@ export default function DemoPage() {
                 Elevate for Humanity
               </span>
               <span className="text-[0.7rem] text-slate-400">
-                Elevate Connects Directory
+                Elevate for Humanity
               </span>
             </div>
           </Link>

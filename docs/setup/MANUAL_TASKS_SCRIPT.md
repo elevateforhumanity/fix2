@@ -11,7 +11,7 @@ This document lists all manual tasks that need to be done to get www.elevateforh
 **Action:** Navigate to and authenticate
 **Steps:**
 
-1. Go to URL: `https://durable.co/login`
+1. Go to URL: `https://durable.co/login
 2. Wait for page load (selector: `input[type="email"]` or `input[name="email"]`)
 3. Enter email: `Elevateforhumanity@gmail.com`
 4. Enter password: `Elijah1$`
@@ -44,7 +44,7 @@ This document lists all manual tasks that need to be done to get www.elevateforh
 
 - Site may be in a list or grid view
 - Look for text matching "elevateforhumanity" or "Elevate for Humanity"
-- Editor URL likely: `https://durable.co/editor/[site-id]`
+- Editor URL likely: `https://durable.co/editor/[site-id]
 
 **Success Criteria:**
 
@@ -160,7 +160,7 @@ This document lists all manual tasks that need to be done to get www.elevateforh
 **Steps:**
 
 1. Open new tab
-2. Navigate to: `https://www.elevateforhumanity.org`
+2. Navigate to: `https://www.elevateforhumanity.org
 3. Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
 4. Scroll down to find enrollment programs section
 5. Verify all 3 programs are visible:

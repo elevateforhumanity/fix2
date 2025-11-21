@@ -4,7 +4,7 @@
 **Audit Date:** November 16, 2025  
 **Auditor:** Ona AI Engineering Agent  
 **Repository:** https://github.com/elevateforhumanity/fix2  
-**Live URL:** https://elevateconnectsdirectory.org
+**Live URL:** https://elevateforhumanity.org
 
 ---
 
@@ -147,9 +147,9 @@
 
 **Header/Footer Links:**
 - ❌ **Social Media Links are Generic Placeholders:**
-  - Footer links to `https://facebook.com` (not specific page)
-  - Footer links to `https://linkedin.com` (not specific page)
-  - Footer links to `https://youtube.com` (not specific page)
+  - Footer links to `https://facebook.com (not specific page)
+  - Footer links to `https://linkedin.com (not specific page)
+  - Footer links to `https://youtube.com (not specific page)
   
 **Fix Required:**
 ```jsx
@@ -769,7 +769,7 @@ npm run lint:fix
 
 ## 🔗 USEFUL LINKS
 
-- **Live Site:** https://elevateconnectsdirectory.org
+- **Live Site:** https://elevateforhumanity.org
 - **GitHub:** https://github.com/elevateforhumanity/fix2
 - **Documentation:** See README.md
 - **Support:** info@elevateforhumanity.org

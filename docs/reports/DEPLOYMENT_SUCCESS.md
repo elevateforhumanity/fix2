@@ -13,7 +13,7 @@
 
 ### Main Deployment URL
 
-**https://690621466c45b1608c663090--elevateforhumanityfix.netlify.app**
+**https://690621466c45b1608c663090--elevateforhumanityfix.netlify.app
 
 ### API Endpoints (All ✅ Working)
 

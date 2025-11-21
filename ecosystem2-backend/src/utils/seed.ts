@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log('🌱 Starting database seeding...');
+  // console.log('🌱 Starting database seeding...');
 
   const hashedPassword = await bcrypt.hash('password123', 10);
 
@@ -19,7 +19,7 @@ async function main() {
       emailVerified: true,
     },
   });
-  console.log('✅ Created admin user');
+  // console.log('✅ Created admin user');
 
   const instructor1 = await prisma.user.upsert({
     where: { email: 'john.doe@elevate.com' },
@@ -46,7 +46,7 @@ async function main() {
       bio: 'UI/UX designer and frontend specialist',
     },
   });
-  console.log('✅ Created instructor users');
+  // console.log('✅ Created instructor users');
 
   const students = [];
   for (let i = 1; i <= 5; i++) {
@@ -63,7 +63,7 @@ async function main() {
     });
     students.push(student);
   }
-  console.log('✅ Created student users');
+  // console.log('✅ Created student users');
 
   const course1 = await prisma.course.create({
     data: {
@@ -212,7 +212,7 @@ async function main() {
       },
     },
   });
-  console.log('✅ Created courses with lessons');
+  // console.log('✅ Created courses with lessons');
 
   for (const student of students.slice(0, 3)) {
     await prisma.enrollment.create({
@@ -239,7 +239,7 @@ async function main() {
       status: 'completed',
     },
   });
-  console.log('✅ Created enrollments');
+  // console.log('✅ Created enrollments');
 
   await prisma.review.create({
     data: {
@@ -276,7 +276,7 @@ async function main() {
       comment: 'Amazing design course. Learned so much about UI/UX.',
     },
   });
-  console.log('✅ Created reviews');
+  // console.log('✅ Created reviews');
 
   await prisma.notification.create({
     data: {
@@ -296,13 +296,13 @@ async function main() {
       message: 'Congratulations on completing UI/UX Design Masterclass',
     },
   });
-  console.log('✅ Created notifications');
+  // console.log('✅ Created notifications');
 
-  console.log('🎉 Database seeding completed successfully!');
-  console.log('\n📝 Test credentials:');
-  console.log('Admin: admin@elevate.com / password123');
-  console.log('Instructor: john.doe@elevate.com / password123');
-  console.log('Student: student1@elevate.com / password123');
+  // console.log('🎉 Database seeding completed successfully!');
+  // console.log('\n📝 Test credentials:');
+  // console.log('Admin: admin@elevate.com / password123');
+  // console.log('Instructor: john.doe@elevate.com / password123');
+  // console.log('Student: student1@elevate.com / password123');
 }
 
 main()

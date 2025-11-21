@@ -17,7 +17,7 @@ export function SEO({
   ogType = 'website',
   noindex = false,
 }: SEOProps) {
-  const siteName = 'Elevate Connects Directory';
+  const siteName = 'Elevate for Humanity';
   const fullTitle = `${title} | ${siteName}`;
   const siteUrl = 'https://elevateconnects.org';
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;

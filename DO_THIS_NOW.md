@@ -10,7 +10,7 @@
 
 ## STEP 1: Open Netlify (30 seconds)
 
-Click this link: **https://app.netlify.com/sites/12f120ab-3f63-419b-bc49-430f043415c1/settings/env**
+Click this link: **https://app.netlify.com/sites/12f120ab-3f63-419b-bc49-430f043415c1/settings/env
 
 Log in with GitHub if needed.
 
@@ -48,7 +48,7 @@ Scopes: All scopes
 
 ```
 Key: NEXT_PUBLIC_APP_URL
-Value: https://www.elevateconnectsdirectory.org
+Value: https://www.elevateforhumanity.org
 Scopes: Production
 ```
 
@@ -56,7 +56,7 @@ Scopes: Production
 
 ```
 Key: NEXT_PUBLIC_SITE_URL
-Value: https://www.elevateconnectsdirectory.org
+Value: https://www.elevateforhumanity.org
 Scopes: Production
 ```
 
@@ -72,7 +72,7 @@ Scopes: Production
 
 ## STEP 3: Deploy (30 seconds)
 
-1. Go to: **https://app.netlify.com/sites/12f120ab-3f63-419b-bc49-430f043415c1/deploys**
+1. Go to: **https://app.netlify.com/sites/12f120ab-3f63-419b-bc49-430f043415c1/deploys
 2. Click **"Trigger deploy"**
 3. Click **"Clear cache and deploy site"**
 4. Wait 2-3 minutes
@@ -81,7 +81,7 @@ Scopes: Production
 
 ## STEP 4: Verify (30 seconds)
 
-Open: **https://www.elevateconnectsdirectory.org**
+Open: **https://www.elevateforhumanity.org
 
 Site should load! ✅
 

@@ -75,7 +75,7 @@ node scripts/generate-routes.mjs
 
 ### 4. Test Admin (2 minutes)
 
-Navigate to: `https://your-site.com/admin`
+Navigate to: `https://your-site.com/admin
 
 Check:
 

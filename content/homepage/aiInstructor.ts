@@ -8,7 +8,7 @@ export const aiInstructorVideo = {
 
 // ECD-specific AI narrator
 export const aiNarrator = {
-  title: "About Elevate for Humanity & Elevate Connects Directory",
+  title: "About Elevate for Humanity & Elevate for Humanity",
   scriptFile:
     "content/video-scripts/ecd-courses/about-elevate-for-humanity-main.md",
   // When you generate the actual AI video, drop the URL here:

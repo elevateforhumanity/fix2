@@ -1,6 +1,6 @@
 # CNA & Healthcare Careers – Course Cover (1:1)
 
-Create a square (1:1) course cover image for "CNA & Healthcare Careers" at Elevate Connects Directory.
+Create a square (1:1) course cover image for "CNA & Healthcare Careers" at Elevate for Humanity.
 Scene: trainees in scrubs practicing skills in a bright clinical training lab with an instructor demonstrating patient care.
 Background: clean medical environment with subtle equipment, slightly blurred.
 Color palette: soft teal, white, light gray, warm skin tones.

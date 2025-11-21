@@ -18,9 +18,9 @@ Ensure ALL 6 environment variables are present in ALL 3 environments (Production
 
 | Environment | Required | Value                                      | Status |
 | ----------- | -------- | ------------------------------------------ | ------ |
-| Production  | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co` | [ ]    |
-| Preview     | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co` | [ ]    |
-| Development | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co` | [ ]    |
+| Production  | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co | [ ]    |
+| Preview     | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co | [ ]    |
+| Development | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co | [ ]    |
 
 ---
 
@@ -56,9 +56,9 @@ Ensure ALL 6 environment variables are present in ALL 3 environments (Production
 
 | Environment | Required | Value                                      | Status |
 | ----------- | -------- | ------------------------------------------ | ------ |
-| Production  | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co` | [ ]    |
-| Preview     | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co` | [ ]    |
-| Development | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co` | [ ]    |
+| Production  | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co | [ ]    |
+| Preview     | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co | [ ]    |
+| Development | ✅ Yes   | `https://cuxzzpsyufcewtmicszk.supabase.co | [ ]    |
 
 ---
 
@@ -76,9 +76,9 @@ Ensure ALL 6 environment variables are present in ALL 3 environments (Production
 
 | Environment | Required | Value                                      | Status |
 | ----------- | -------- | ------------------------------------------ | ------ |
-| Production  | ✅ Yes   | `https://www.elevateconnectsdirectory.org` | [ ]    |
+| Production  | ✅ Yes   | `https://www.elevateforhumanity.org | [ ]    |
 | Preview     | ✅ Yes   | Leave empty or use preview URL pattern     | [ ]    |
-| Development | ✅ Yes   | `http://localhost:3000`                    | [ ]    |
+| Development | ✅ Yes   | `http://localhost:3000                    | [ ]    |
 
 **Note:** This variable has DIFFERENT values for each environment!
 

@@ -281,8 +281,8 @@ pnpm build
    - Add property: `elevateforhumanity.org`
    - Verify ownership (HTML file or meta tag)
    - Go to "Sitemaps" section
-   - Submit: `https://elevateforhumanity.org/sitemap.xml`
-   - Submit: `https://www.elevateforhumanity.org/sitemap.xml`
+   - Submit: `https://elevateforhumanity.org/sitemap.xml
+   - Submit: `https://www.elevateforhumanity.org/sitemap.xml
 
 2. **Check Status**
    - Wait 24-48 hours
@@ -296,7 +296,7 @@ pnpm build
    - Add site: `elevateforhumanity.org`
    - Verify ownership (XML file)
    - Go to "Sitemaps" section
-   - Submit: `https://elevateforhumanity.org/sitemap.xml`
+   - Submit: `https://elevateforhumanity.org/sitemap.xml
 
 2. **Check Status**
    - Wait 24-48 hours

@@ -1,6 +1,6 @@
 {
   "task_id": "deploy-to-vercel-now",
-  "title": "Deploy Elevate Connects Directory to Vercel",
+  "title": "Deploy Elevate for Humanity to Vercel",
   "description": "Deploy the LMS to Vercel production with environment variables. Site is ready - no videos yet but has placeholders.",
   "priority": "critical",
   "status": "ready",
@@ -14,7 +14,7 @@
     "videos": "NONE - has placeholders only",
     "animations": "Working - counters, hover effects",
     "colors": "Enhanced - purple, teal, orange added",
-    "domain": "www.elevateconnectsdirectory.org (needs DNS config)"
+    "domain": "www.elevateforhumanity.org (needs DNS config)"
   },
 
   "deployment_methods": {
@@ -66,7 +66,7 @@
   "environment_variables_required": {
     "critical": {
       "NEXT_PUBLIC_SITE_URL": {
-        "value": "https://www.elevateconnectsdirectory.org",
+        "value": "https://www.elevateforhumanity.org",
         "description": "Site URL for SEO and redirects"
       },
       "NEXT_PUBLIC_SUPABASE_URL": {
@@ -108,18 +108,18 @@
   },
 
   "domain_configuration": {
-    "domain": "www.elevateconnectsdirectory.org",
+    "domain": "www.elevateforhumanity.org",
     "steps": [
       "In Vercel dashboard, go to Settings → Domains",
       "Click 'Add Domain'",
-      "Enter: www.elevateconnectsdirectory.org",
+      "Enter: www.elevateforhumanity.org",
       "Vercel will show DNS records needed",
       "Add CNAME record at DNS provider:",
       "  Type: CNAME",
       "  Name: www",
       "  Value: cname.vercel-dns.com",
       "Wait 1-5 minutes for SSL certificate",
-      "Site will be live at https://www.elevateconnectsdirectory.org"
+      "Site will be live at https://www.elevateforhumanity.org"
     ]
   },
 

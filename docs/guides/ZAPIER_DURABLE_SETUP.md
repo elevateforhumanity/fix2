@@ -30,7 +30,7 @@ Puppeteer injects enrollment script
    - Frequency: Every 6 hours
 4. **Action:** Webhooks by Zapier
    - Event: POST
-   - URL: `https://durable-injection-worker.YOUR-SUBDOMAIN.workers.dev`
+   - URL: `https://durable-injection-worker.YOUR-SUBDOMAIN.workers.dev
    - Payload Type: JSON
    - Data:
      ```json
@@ -117,7 +117,7 @@ If you want to trigger it once manually instead of scheduling:
 Then trigger via:
 
 ```bash
-curl -X POST https://hooks.zapier.com/hooks/catch/YOUR_WEBHOOK_ID/
+curl -X POST https://hooks.zapier.com/hooks/catch/YOURWEBHOOKID/
 ```
 
 ## 📝 What You Need to Provide

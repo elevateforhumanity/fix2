@@ -56,7 +56,7 @@
 
 1. Go to: [https://dashboard.stripe.com/webhooks](https://dashboard.stripe.com/webhooks)
 2. If webhook doesn't exist, create one:
-   - **Endpoint URL:** `https://elevateforhumanity.org/api/stripe-webhook`
+   - **Endpoint URL:** `https://elevateforhumanity.org/api/stripe-webhook
    - **Events:** `checkout.session.completed`, `payment_intent.succeeded`
 3. Copy **Signing secret:** `whsec_...`
 

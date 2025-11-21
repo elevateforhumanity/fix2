@@ -72,7 +72,7 @@ npm run dev
 
 ### Test Magic Link Authentication
 
-1. Open browser to `http://localhost:5173/login`
+1. Open browser to `http://localhost:5173/login
 2. Enter your email
 3. Click "Send Magic Link"
 4. Check your email (or Supabase logs in dev)
@@ -88,7 +88,7 @@ npm run dev
 
 ### Test Staff Panel Access
 
-1. Navigate to `http://localhost:5173/staff`
+1. Navigate to `http://localhost:5173/staff
 2. Verify you can access the page (you're admin)
 3. Fill in the form:
    - **Learner Email**: Your email (for testing)
@@ -105,7 +105,7 @@ npm run dev
 
 ### Test Certificate Viewing
 
-1. Navigate to `http://localhost:5173/my-certificates`
+1. Navigate to `http://localhost:5173/my-certificates
 2. Verify you see the test certificate you just issued
 
 **Expected:**
@@ -119,7 +119,7 @@ npm run dev
 ### Test Public Verification
 
 1. Copy the verification code from the certificate
-2. Navigate to `http://localhost:5173/verify/YOUR_CODE`
+2. Navigate to `http://localhost:5173/verify/YOURCODE
 3. Verify certificate details are displayed
 
 **Expected:**
@@ -181,7 +181,7 @@ In Netlify Dashboard:
 
 ### Test Authentication
 
-1. Visit your production URL: `https://yoursite.netlify.app/login`
+1. Visit your production URL: `https://yoursite.netlify.app/login
 2. Enter email and send magic link
 3. Check email and click link
 4. Verify authentication works

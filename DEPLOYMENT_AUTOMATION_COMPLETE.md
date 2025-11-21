@@ -284,7 +284,7 @@ class DeploymentAutopilot {
 
   async triggerGitHubWorkflow({ workflow, inputs }) {
     const response = await fetch(
-      `https://api.github.com/repos/elevateforhumanity/fix2/actions/workflows/${workflow}/dispatches`,
+      `https://api.github.com/repos/elevateforhumanity/fix2/actions/workflows/${workflow}/dispatches,
       {
         method: 'POST',
         headers: {

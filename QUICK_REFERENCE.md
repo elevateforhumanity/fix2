@@ -39,17 +39,17 @@
 
 ### Production
 
-- Main site: `https://elevateforhumanityfix.netlify.app`
-- LMS: `https://elevateforhumanityfix.netlify.app/lms`
-- Login: `https://elevateforhumanityfix.netlify.app/login`
-- Certificates: `https://elevateforhumanityfix.netlify.app/my-certificates`
-- Staff Panel: `https://elevateforhumanityfix.netlify.app/staff`
-- Verify: `https://elevateforhumanityfix.netlify.app/verify/{code}`
+- Main site: `https://elevateforhumanityfix.netlify.app
+- LMS: `https://elevateforhumanityfix.netlify.app/lms
+- Login: `https://elevateforhumanityfix.netlify.app/login
+- Certificates: `https://elevateforhumanityfix.netlify.app/my-certificates
+- Staff Panel: `https://elevateforhumanityfix.netlify.app/staff
+- Verify: `https://elevateforhumanityfix.netlify.app/verify/{code}
 
 ### Development
 
-- Local: `http://localhost:5173`
-- Supabase: `https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk`
+- Local: `http://localhost:5173
+- Supabase: `https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk
 
 ---
 

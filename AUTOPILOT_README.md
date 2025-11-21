@@ -1,6 +1,6 @@
 # 🤖 AUTOPILOT VIDEO SYSTEM
 
-**Automated video setup, generation, and deployment for Elevate Connects Directory**
+**Automated video setup, generation, and deployment for Elevate for Humanity**
 
 ---
 

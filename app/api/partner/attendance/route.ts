@@ -68,7 +68,7 @@ export async function POST(request: Request) {
 
   const { enrollmentId, date, hours, notes } = await request.json();
 
-  if (!enrollmentId || !date || hours == null) {
+  if (!enrollmentId || !date || hours === null || hours === undefined) {
     return NextResponse.json(
       { error: "enrollmentId, date, and hours are required" },
       { status: 400 }

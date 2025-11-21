@@ -48,9 +48,9 @@ CORS_ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5173,https://elevate
 
 **Default Allowed Origins:**
 
-- `http://localhost:3000` (development)
-- `http://localhost:5173` (Vite dev server)
-- `https://elevateforhumanity.org` (production)
+- `http://localhost:3000 (development)
+- `http://localhost:5173 (Vite dev server)
+- `https://elevateforhumanity.org (production)
 
 ### 3. Rate Limiting
 

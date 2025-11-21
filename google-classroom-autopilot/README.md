@@ -43,7 +43,7 @@ Create **OAuth 2.0 Client (Web/Installed)** and note:
 
 - `GOOGLE_OAUTH_CLIENT_ID`
 - `GOOGLE_OAUTH_CLIENT_SECRET`
-- Redirect: `http://localhost:53682/callback` (matches the script)
+- Redirect: `http://localhost:53682/callback (matches the script)
 
 ### 2. Set Environment Variables
 

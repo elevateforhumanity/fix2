@@ -2,7 +2,7 @@
 
 ## Issue Found
 
-**URL Tested**: `https://fix2-1c7w.vercel.app/enroll/`  
+**URL Tested**: `https://fix2-1c7w.vercel.app/enroll/  
 **Status**: 404 Not Found
 
 ## Root Cause
@@ -18,23 +18,23 @@ The enrollment page is a **dynamic route** that requires a program parameter:
 The following enrollment URLs should work:
 
 1. **WRG (Workforce Ready Grant)**
-   - URL: `https://fix2-1c7w.vercel.app/enroll/wrg`
+   - URL: `https://fix2-1c7w.vercel.app/enroll/wrg
    - Description: Free training for Indiana residents
 
 2. **WIOA (WorkOne)**
-   - URL: `https://fix2-1c7w.vercel.app/enroll/wioa`
+   - URL: `https://fix2-1c7w.vercel.app/enroll/wioa
    - Description: Workforce Innovation and Opportunity Act funding
 
 3. **JRI (Justice Reinvestment Initiative)**
-   - URL: `https://fix2-1c7w.vercel.app/enroll/jri`
+   - URL: `https://fix2-1c7w.vercel.app/enroll/jri
    - Description: Training for justice-involved individuals
 
 4. **EmployIndy**
-   - URL: `https://fix2-1c7w.vercel.app/enroll/employindy`
+   - URL: `https://fix2-1c7w.vercel.app/enroll/employindy
    - Description: Marion County workforce development
 
 5. **DOL Apprenticeship**
-   - URL: `https://fix2-1c7w.vercel.app/enroll/dol`
+   - URL: `https://fix2-1c7w.vercel.app/enroll/dol
    - Description: Department of Labor Registered Apprenticeship
 
 ## Solution Options
@@ -225,12 +225,12 @@ if (
 
 After fix, test these URLs:
 
-- ✅ `https://fix2-1c7w.vercel.app/enroll` - Should show program selection
-- ✅ `https://fix2-1c7w.vercel.app/enroll/wrg` - Should show WRG form
-- ✅ `https://fix2-1c7w.vercel.app/enroll/wioa` - Should show WIOA form
-- ✅ `https://fix2-1c7w.vercel.app/enroll/jri` - Should show JRI form
-- ✅ `https://fix2-1c7w.vercel.app/enroll/employindy` - Should show EmployIndy form
-- ✅ `https://fix2-1c7w.vercel.app/enroll/dol` - Should show DOL form
+- ✅ `https://fix2-1c7w.vercel.app/enroll - Should show program selection
+- ✅ `https://fix2-1c7w.vercel.app/enroll/wrg - Should show WRG form
+- ✅ `https://fix2-1c7w.vercel.app/enroll/wioa - Should show WIOA form
+- ✅ `https://fix2-1c7w.vercel.app/enroll/jri - Should show JRI form
+- ✅ `https://fix2-1c7w.vercel.app/enroll/employindy - Should show EmployIndy form
+- ✅ `https://fix2-1c7w.vercel.app/enroll/dol - Should show DOL form
 
 ## Implementation Priority
 

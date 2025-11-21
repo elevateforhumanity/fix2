@@ -2,16 +2,16 @@
 
 ## Method 1: Check Netlify Dashboard
 
-1. Go to: **https://app.netlify.com**
+1. Go to: **https://app.netlify.com
 2. Log in to your account
 3. Click on your site (should be named something like "fix2" or "elevate-lms")
 4. Look at the top of the page - you'll see your site URL
 
 It will look like one of these:
 
-- `https://random-name-123.netlify.app`
-- `https://fix2.netlify.app`
-- `https://elevate-lms.netlify.app`
+- `https://random-name-123.netlify.app
+- `https://fix2.netlify.app
+- `https://elevate-lms.netlify.app
 
 ## Method 2: Check Latest Deploy
 

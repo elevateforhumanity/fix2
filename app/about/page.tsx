@@ -15,7 +15,7 @@ export default function AboutPage() {
                 Elevate for Humanity
               </span>
               <span className="text-[0.7rem] text-slate-400">
-                Elevate Connects Directory
+                Elevate for Humanity
               </span>
             </div>
           </Link>
@@ -51,7 +51,7 @@ export default function AboutPage() {
             Building a pillar—not just a program.
           </h1>
           <p className="mt-3 text-sm text-slate-300">
-            Elevate for Humanity and the Elevate Connects Directory exist so that when someone
+            Elevate for Humanity and the Elevate for Humanity exist so that when someone
             is ready to move—out of survival, into training, into work—there is a simple,
             trusted place people can send them.
           </p>

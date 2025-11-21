@@ -18,7 +18,7 @@ All configuration files are correct:
 
 ### Step 1: Access Your Site Settings
 
-1. Go to: **https://app.netlify.com/sites/elevateproduction**
+1. Go to: **https://app.netlify.com/sites/elevateproduction
 2. Log in if needed
 3. You should see your site dashboard
 

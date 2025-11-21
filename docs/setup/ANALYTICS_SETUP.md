@@ -15,7 +15,7 @@
 
 1. In Property settings, go to **Data Streams**
 2. Click **Add stream** → **Web**
-3. Enter website URL: `https://www.elevateforhumanity.org`
+3. Enter website URL: `https://www.elevateforhumanity.org
 4. Enter stream name: "Main Website"
 5. Click **Create stream**
 6. Copy your **Measurement ID** (format: `G-XXXXXXXXXX`)
@@ -93,7 +93,7 @@ Add event tracking for key actions:
 ### Step 2: Get DSN
 
 1. After project creation, copy your **DSN** (Data Source Name)
-2. Format: `https://xxxxx@xxxxx.ingest.sentry.io/xxxxx`
+2. Format: `https://xxxxx@xxxxx.ingest.sentry.io/xxxxx
 
 ### Step 3: Install Sentry SDK
 
@@ -174,7 +174,7 @@ Add to `index.html` before `</head>`:
 ```html
 <!-- Sentry Error Monitoring -->
 <script
-  src="https://js.sentry-cdn.com/YOUR_PUBLIC_DSN.min.js"
+  src="https://js.sentry-cdn.com/YOURPUBLICDSN.min.js"
   crossorigin="anonymous"
 ></script>
 <script>
@@ -198,7 +198,7 @@ Add to `index.html` before `</head>`:
 4. Settings:
    - **Monitor Type:** HTTP(s)
    - **Friendly Name:** Elevate for Humanity
-   - **URL:** `https://www.elevateforhumanity.org`
+   - **URL:** `https://www.elevateforhumanity.org
    - **Monitoring Interval:** 5 minutes
 5. Add alert contacts (email, SMS, Slack)
 6. Click **Create Monitor**

@@ -31,7 +31,7 @@ Zapier can then:
 2. Create a new Zap
 3. Choose **Webhooks by Zapier** as trigger
 4. Select **Catch Hook**
-5. Copy the webhook URL (looks like: `https://hooks.zapier.com/hooks/catch/xxxxx/xxxxx/`)
+5. Copy the webhook URL (looks like: `https://hooks.zapier.com/hooks/catch/xxxxx/xxxxx/)
 
 ### Step 2: Configure Environment Variable
 

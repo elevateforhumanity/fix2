@@ -159,11 +159,11 @@ Authorization: Bearer YOUR_API_TOKEN
 
 ```bash
 # List DNS records
-curl -X GET "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
+curl -X GET "https://api.cloudflare.com/client/v4/zones/${ZONEID}/dnsrecords" \
   -H "Authorization: Bearer ${API_TOKEN}"
 
 # Create DNS record
-curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
+curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONEID}/dnsrecords" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -H "Content-Type: application/json" \
   --data '{
@@ -177,7 +177,7 @@ curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records"
 #### Cache Purge
 
 ```bash
-curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/purge_cache" \
+curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONEID}/purgecache" \
   -H "Authorization: Bearer ${API_TOKEN}" \
   -H "Content-Type: application/json" \
   --data '{"purge_everything":true}'
@@ -199,7 +199,7 @@ const formData = new FormData();
 formData.append('file', imageFile);
 
 const response = await fetch(
-  `https://api.cloudflare.com/client/v4/accounts/${accountId}/images/v1`,
+  `https://api.cloudflare.com/client/v4/accounts/${accountId}/images/v1,
   {
     method: 'POST',
     headers: {
@@ -222,7 +222,7 @@ https://imagedelivery.net/${accountId}/${imageId}/public
 
 ```typescript
 const response = await fetch(
-  `https://api.cloudflare.com/client/v4/accounts/${accountId}/stream`,
+  `https://api.cloudflare.com/client/v4/accounts/${accountId}/stream,
   {
     method: 'POST',
     headers: {
@@ -523,7 +523,7 @@ access_token=YOUR_PAGE_ACCESS_TOKEN
 
 ```typescript
 const response = await fetch(
-  `https://graph.facebook.com/v18.0/${pageId}/feed`,
+  `https://graph.facebook.com/v18.0/${pageId}/feed,
   {
     method: 'POST',
     headers: {
@@ -546,7 +546,7 @@ formData.append('message', 'Photo caption');
 formData.append('access_token', pageAccessToken);
 
 const response = await fetch(
-  `https://graph.facebook.com/v18.0/${pageId}/photos`,
+  `https://graph.facebook.com/v18.0/${pageId}/photos,
   {
     method: 'POST',
     body: formData,
@@ -697,7 +697,7 @@ const response = await fetch('https://api.sam.gov/opportunities/v2/search', {
 
 ```typescript
 const response = await fetch(
-  `https://api.sam.gov/entity-information/v3/entities?ueiSAM=${uei}`,
+  `https://api.sam.gov/entity-information/v3/entities?ueiSAM=${uei},
   {
     headers: {
       'X-Api-Key': process.env.SAM_API_KEY,

@@ -146,7 +146,16 @@ export default function InteractiveVideoPlayer({
 
     const isCorrect = quizAnswer === activeQuiz.correctAnswer;
 
-    // TODO: Save quiz result to database
+    // Save quiz result to database
+    try {
+      // Note: Implement with your backend API
+      // await fetch('/api/quiz-results', {
+      //   method: 'POST',
+      //   body: JSON.stringify({ quizId: activeQuiz.id, answer: quizAnswer, isCorrect })
+      // });
+    } catch (error) {
+      console.error('Failed to save quiz result:', error);
+    }
 
     if (isCorrect) {
       setActiveQuiz(null);

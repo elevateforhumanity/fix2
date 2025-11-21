@@ -38,7 +38,7 @@
 cp /tmp/scan-repos/ecosystem-5/scripts/verify-deploy.mjs /workspaces/fix2/scripts/
 
 # Run after deployment
-SITE_URL=https://www.elevateconnectsdirectory.org node scripts/verify-deploy.mjs
+SITE_URL=https://www.elevateforhumanity.org node scripts/verify-deploy.mjs
 ```
 
 **Why you need it:**
@@ -60,8 +60,8 @@ SITE_URL=https://www.elevateconnectsdirectory.org node scripts/verify-deploy.mjs
 {
   "sisterSites": [
     {
-      "name": "Elevate Connects Directory",
-      "url": "https://www.elevateconnectsdirectory.org"
+      "name": "Elevate for Humanity",
+      "url": "https://www.elevateforhumanity.org"
     },
     { "name": "Selfish Inc.", "url": "https://www.selfishinc.org" },
     {
@@ -83,7 +83,7 @@ Create a component to display sister sites in your footer:
 ```typescript
 // components/SisterSites.tsx
 const sisterSites = [
-  { name: "Elevate Connects Directory", url: "https://www.elevateconnectsdirectory.org" },
+  { name: "Elevate for Humanity", url: "https://www.elevateforhumanity.org" },
   { name: "Selfish Inc.", url: "https://www.selfishinc.org" },
   { name: "Rise Forward Foundation", url: "https://www.riseforwardfoundation.org" }
 ];
@@ -242,7 +242,7 @@ cp /tmp/scan-repos/ecosystem-5/scripts/verify-deploy.mjs /workspaces/fix2/script
 chmod +x /workspaces/fix2/scripts/verify-deploy.mjs
 
 # Add to package.json
-# "verify-deploy": "SITE_URL=https://www.elevateconnectsdirectory.org node scripts/verify-deploy.mjs"
+# "verify-deploy": "SITE_URL=https://www.elevateforhumanity.org node scripts/verify-deploy.mjs"
 ```
 
 ### **2. Add Sister Sites Component**
@@ -252,7 +252,7 @@ chmod +x /workspaces/fix2/scripts/verify-deploy.mjs
 cat > /workspaces/fix2/components/SisterSites.tsx << 'EOF'
 export function SisterSites() {
   const sites = [
-    { name: "Elevate Connects Directory", url: "https://www.elevateconnectsdirectory.org" },
+    { name: "Elevate for Humanity", url: "https://www.elevateforhumanity.org" },
     { name: "Selfish Inc.", url: "https://www.selfishinc.org" },
     { name: "Rise Forward Foundation", url: "https://www.riseforwardfoundation.org" }
   ];
@@ -292,7 +292,7 @@ export const orgConfig = {
   email: "info@elevateforhumanity.org",
   logo: "/assets/logo.png",
   sisterSites: [
-    { name: "Elevate Connects Directory", url: "https://www.elevateconnectsdirectory.org" },
+    { name: "Elevate for Humanity", url: "https://www.elevateforhumanity.org" },
     { name: "Selfish Inc.", url: "https://www.selfishinc.org" },
     { name: "Rise Forward Foundation", url: "https://www.riseforwardfoundation.org" }
   ]

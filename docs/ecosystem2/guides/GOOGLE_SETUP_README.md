@@ -100,7 +100,7 @@ This repository now includes automated tools for setting up Google Analytics, Go
 
 3. Submit sitemaps to Google Search Console:
    - Go to Google Search Console
-   - Add your sitemap URL: `https://your-domain.com/sitemap-index.xml`
+   - Add your sitemap URL: `https://your-domain.com/sitemap-index.xml
 
 ## Verification
 

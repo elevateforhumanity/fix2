@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Workforce & Agency Partners | Elevate Connects Directory",
+  title: "Workforce & Agency Partners | Elevate for Humanity",
   description:
     "Tools, reporting, and referral pathways for workforce boards, case managers, re-entry programs, and community agencies partnering with Elevate for Humanity.",
 };

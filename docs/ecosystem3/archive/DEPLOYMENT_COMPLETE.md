@@ -10,7 +10,7 @@
 
 - **🔥 Flash Sale Store**: https://elevateforhumanity.org/flash-sale-store.html
 - **🔐 License Dashboard**: https://elevateforhumanity.org/license-dashboard.html
-- **🎫 Simple License Portal**: https://elevateforhumanity.org/elevate_license_dashboard.html
+- **🎫 Simple License Portal**: https://elevateforhumanity.org/elevatelicensedashboard.html
 - **🏠 Main Site**: https://elevateforhumanity.org (with emergency banner)
 
 ---

@@ -33,9 +33,9 @@ class StripeProductsCreator {
       this.stripe = require('stripe')(
         process.env.STRIPE_SECRET_KEY || 'sk_test_demo'
       );
-      console.log('💳 Stripe Products Creator initialized');
+      // console.log('💳 Stripe Products Creator initialized');
     } catch (error) {
-      console.log('💳 Stripe Mock Mode (not configured)');
+      // console.log('💳 Stripe Mock Mode (not configured)');
       this.mockMode = true;
     }
   }
@@ -95,7 +95,7 @@ class StripeProductsCreator {
       try {
         const created = await this.createProduct(product);
         createdProducts.push(created);
-        console.log(`✅ Created: ${product.name} - $${product.price / 100}`);
+        // console.log(`✅ Created: ${product.name} - $${product.price / 100}`);
       } catch (error) {
         console.error(`❌ Failed to create ${product.name}:`, error.message);
       }
@@ -229,7 +229,7 @@ class StripeProductsCreator {
       }
     });
 
-    console.log('💳 Stripe Products routes configured');
+    // console.log('💳 Stripe Products routes configured');
   }
 }
 

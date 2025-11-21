@@ -46,7 +46,7 @@ export function GrantScholarshipApplication() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Application submitted:', formData);
+    // console.log('Application submitted:', formData);
   };
 
   return (

@@ -55,7 +55,7 @@ After deployment, check:
 
 1. Visit https://elevateforhumanity.org
 2. Open browser DevTools → Console
-3. Look for API calls - they should go to `https://api.elevateforhumanity.org`
+3. Look for API calls - they should go to `https://api.elevateforhumanity.org
 4. No skeleton/blank pages should appear
 5. Content should load immediately
 
@@ -90,7 +90,7 @@ netlify deploy --prod
 
 ### API calls failing?
 
-1. Check that `VITE_API_URL` is set to `https://api.elevateforhumanity.org`
+1. Check that `VITE_API_URL` is set to `https://api.elevateforhumanity.org
 2. Verify CORS is configured on the API server
 3. Check Supabase project is active and accessible
 
@@ -104,6 +104,6 @@ netlify deploy --prod
 
 ## Related Documentation
 
-- [QUICK_FIX_SKELETON.md](./QUICK_FIX_SKELETON.md) - Quick fix guide
+- [QUICK_FIX_SKELETON.md](SKELETON_VS_REAL_CODE_REPORT.md) - Quick fix guide
 - [IMPLEMENT_SPLIT_ARCHITECTURE.md](./IMPLEMENT_SPLIT_ARCHITECTURE.md) - Full implementation
 - [ARCHITECTURE_SPLIT.md](./ARCHITECTURE_SPLIT.md) - Problem analysis

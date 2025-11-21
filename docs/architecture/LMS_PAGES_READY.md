@@ -24,7 +24,7 @@ This page has links to all 7 LMS pages with copy buttons!
 
 ### 1. About Page
 
-**URL:** `https://elevateforhumanity.netlify.app/test-about-page.html`
+**URL:** `https://elevateforhumanity.netlify.app/test-about-page.html
 
 **What's included:**
 
@@ -42,7 +42,7 @@ This page has links to all 7 LMS pages with copy buttons!
 
 ### 2. Enrollment Page
 
-**URL:** `https://elevateforhumanity.netlify.app/test-enrollment.html`
+**URL:** `https://elevateforhumanity.netlify.app/test-enrollment.html
 
 **What's included:**
 
@@ -59,7 +59,7 @@ This page has links to all 7 LMS pages with copy buttons!
 
 ### 3. Dashboard Page
 
-**URL:** `https://elevateforhumanity.netlify.app/test-dashboard.html`
+**URL:** `https://elevateforhumanity.netlify.app/test-dashboard.html
 
 **What's included:**
 
@@ -73,7 +73,7 @@ This page has links to all 7 LMS pages with copy buttons!
 
 ### 4. My Courses Page
 
-**URL:** `https://elevateforhumanity.netlify.app/test-courses.html`
+**URL:** `https://elevateforhumanity.netlify.app/test-courses.html
 
 **What's included:**
 
@@ -88,7 +88,7 @@ This page has links to all 7 LMS pages with copy buttons!
 
 ### 5. Certificates Page
 
-**URL:** `https://elevateforhumanity.netlify.app/test-certificates.html`
+**URL:** `https://elevateforhumanity.netlify.app/test-certificates.html
 
 **What's included:**
 
@@ -103,7 +103,7 @@ This page has links to all 7 LMS pages with copy buttons!
 
 ### 6. Profile Page
 
-**URL:** `https://elevateforhumanity.netlify.app/test-profile.html`
+**URL:** `https://elevateforhumanity.netlify.app/test-profile.html
 
 **What's included:**
 
@@ -117,7 +117,7 @@ This page has links to all 7 LMS pages with copy buttons!
 
 ### 7. Support Page
 
-**URL:** `https://elevateforhumanity.netlify.app/test-support.html`
+**URL:** `https://elevateforhumanity.netlify.app/test-support.html
 
 **What's included:**
 
@@ -162,7 +162,7 @@ This page has links to all 7 LMS pages with copy buttons!
 
 ### Step 1: Open the Master Index
 
-Go to: `https://elevateforhumanity.netlify.app/lms-test-index.html`
+Go to: `https://elevateforhumanity.netlify.app/lms-test-index.html
 
 ### Step 2: Click Any Page
 

@@ -183,13 +183,13 @@ const Pg_AnalyticsDashboardRUM = React.lazy(
 ```toml
 # Domain consolidation - redirect .com to .org
 [[redirects]]
-  from = "https://elevateforhumanity.com/*"
+  from = "https://elevateforhumanity.com/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "https://www.elevateforhumanity.com/*"
+  from = "https://www.elevateforhumanity.com/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true

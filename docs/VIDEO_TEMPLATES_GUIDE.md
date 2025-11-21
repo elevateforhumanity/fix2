@@ -447,9 +447,9 @@ Source: Free Music Archive
 
 ### Documentation
 
-- [AI Video Builder Guide](./AI_VIDEO_BUILDER.md)
-- [Text-to-Speech Setup](./TTS_SETUP.md)
-- [Video Export Guide](./VIDEO_EXPORT.md)
+- [AI Video Builder Guide](AI_VIDEO_GENERATION_GUIDE.md)
+- [Text-to-Speech Setup](VIDEO_SETUP_GUIDE.md)
+- [Video Export Guide](VIDEO_GENERATION_AUTOMATION.md)
 
 ### External Resources
 

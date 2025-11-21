@@ -46,7 +46,7 @@ Key:
 NEXT_PUBLIC_APP_URL
 
 Value:
-https://elevateconnectsdirectory.org
+https://elevateforhumanity.org
 
 Scopes: Production
 
@@ -57,7 +57,7 @@ Key:
 NEXT_PUBLIC_SITE_URL
 
 Value:
-https://elevateconnectsdirectory.org
+https://elevateforhumanity.org
 
 Scopes: Production
 
@@ -80,6 +80,6 @@ AFTER ADDING ALL 6 VARIABLES:
 2. Go to "Deploys" tab
 3. Click "Trigger deploy" → "Clear cache and deploy site"
 4. Wait 2-3 minutes
-5. Site will be live at: https://elevateconnectsdirectory.org
+5. Site will be live at: https://elevateforhumanity.org
 
 ═══════════════════════════════════════════════════════════════

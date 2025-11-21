@@ -57,10 +57,10 @@ MOU_ARCHIVE_EMAIL=agreements@elevateforhumanity.org
 
 Visit these pages:
 
-- Homepage: `https://your-site.netlify.app/`
-- LMS: `https://your-site.netlify.app/lms/dashboard`
-- Admin: `https://your-site.netlify.app/admin/program-holders`
-- Program Holder: `https://your-site.netlify.app/program-holder/dashboard`
+- Homepage: `https://your-site.netlify.app/
+- LMS: `https://your-site.netlify.app/lms/dashboard
+- Admin: `https://your-site.netlify.app/admin/program-holders
+- Program Holder: `https://your-site.netlify.app/program-holder/dashboard
 
 ### 4. Run Database Migrations
 

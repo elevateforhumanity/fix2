@@ -8,7 +8,7 @@
 
 ### Step 1: Create OpenAI Account (2 minutes)
 
-1. Go to: **https://platform.openai.com/signup**
+1. Go to: **https://platform.openai.com/signup
 2. Sign up with:
    - Email address, OR
    - Google account, OR
@@ -22,7 +22,7 @@
 
 ⚠️ **Required**: OpenAI requires a payment method for API access
 
-1. Go to: **https://platform.openai.com/account/billing**
+1. Go to: **https://platform.openai.com/account/billing
 2. Click **Add payment method**
 3. Add credit card
 4. Set usage limits (recommended):
@@ -35,7 +35,7 @@
 
 ### Step 3: Create API Key (1 minute)
 
-1. Go to: **https://platform.openai.com/api-keys**
+1. Go to: **https://platform.openai.com/api-keys
 2. Click **Create new secret key**
 3. Name it: `EFH-LMS-Production`
 4. Click **Create secret key**
@@ -195,14 +195,14 @@ node test-openai.js
 
 ### View Usage Dashboard:
 
-1. Go to: **https://platform.openai.com/usage**
+1. Go to: **https://platform.openai.com/usage
 2. See daily/monthly usage
 3. Track costs
 4. Download reports
 
 ### Set Up Alerts:
 
-1. Go to: **https://platform.openai.com/account/limits**
+1. Go to: **https://platform.openai.com/account/limits
 2. Set soft limit: $5 (email alert)
 3. Set hard limit: $10 (stops usage)
 

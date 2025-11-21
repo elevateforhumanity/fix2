@@ -14,7 +14,7 @@ node generate-invideo-prompts.mjs
 ## 🚀 Quick Start (15 minutes total)
 
 ### Step 1: Go to InVideo AI
-1. Visit: **https://ai.invideo.io**
+1. Visit: **https://ai.invideo.io
 2. Sign up or log in
 3. Free tier: 4 videos/month
 4. Paid: $20/month unlimited
@@ -29,7 +29,7 @@ Create a 45-60 seconds professional video about Barber Apprenticeship for workfo
 Style: professional, modern barbershop, diverse professionals, modern, educational, high-quality
 
 Script:
-Do you see yourself behind the chair as a professional barber? The Barber Apprenticeship program in the Elevate Connects Directory helps you get there.
+Do you see yourself behind the chair as a professional barber? The Barber Apprenticeship program in the Elevate for Humanity helps you get there.
 
 Earn-while-you-learn apprenticeship in a real barbershop, building hours toward state barber licensure.
 
@@ -37,7 +37,7 @@ You'll learn through a mix of classroom instruction, hands-on labs, and on-the-j
 
 Thanks to our partnerships with federal and state workforce programs like WIOA, Workforce Ready Grants, and Job Ready Indy, eligible learners may qualify for reduced or no-cost tuition, plus case management and job placement support.
 
-If you're ready to take the next step, visit this program inside ElevateConnectsDirectory.org, review the eligibility details, and complete your application or referral. Our team and partners will follow up to help you with funding and enrollment so you can start moving toward your new career.
+If you're ready to take the next step, visit this program inside elevateforhumanity.org, review the eligibility details, and complete your application or referral. Our team and partners will follow up to help you with funding and enrollment so you can start moving toward your new career.
 
 Include:
 - Professional voiceover (clear, encouraging tone)
@@ -70,7 +70,7 @@ Create a 45-60 seconds professional video about Medical Assistant for workforce 
 Style: healthcare, medical setting, professional, caring, modern, educational, high-quality
 
 Script:
-If you're ready to care for others and start a healthcare career, the Medical Assistant pathway in the Elevate Connects Directory is designed for you.
+If you're ready to care for others and start a healthcare career, the Medical Assistant pathway in the Elevate for Humanity is designed for you.
 
 Support physicians and nurses in clinical settings, performing both administrative and basic clinical tasks.
 
@@ -78,7 +78,7 @@ You'll learn through a mix of instructor-led sessions, hands-on practice, and re
 
 Thanks to our partnerships with federal and state workforce programs like WIOA, Workforce Ready Grants, and Job Ready Indy, eligible learners may qualify for reduced or no-cost tuition, plus case management and job placement support.
 
-If you're ready to take the next step, visit this program inside ElevateConnectsDirectory.org, review the eligibility details, and complete your application or referral. Our team and partners will follow up to help you with funding and enrollment so you can start moving toward your new career.
+If you're ready to take the next step, visit this program inside elevateforhumanity.org, review the eligibility details, and complete your application or referral. Our team and partners will follow up to help you with funding and enrollment so you can start moving toward your new career.
 
 Include:
 - Professional voiceover (clear, encouraging tone)
@@ -101,7 +101,7 @@ Create a 45-60 seconds professional video about HVAC Technician for workforce tr
 Style: skilled trades, HVAC equipment, professional training, modern, educational, high-quality
 
 Script:
-If you like solving problems with your hands and tools, the HVAC Technician Training pathway in the Elevate Connects Directory is a strong entry into HVAC careers.
+If you like solving problems with your hands and tools, the HVAC Technician Training pathway in the Elevate for Humanity is a strong entry into HVAC careers.
 
 Hands-on training to install, maintain, and repair heating and cooling systems for residential and commercial buildings.
 
@@ -109,7 +109,7 @@ You'll learn through a mix of classroom instruction, hands-on labs, and on-the-j
 
 Thanks to our partnerships with federal and state workforce programs like WIOA, Workforce Ready Grants, and Job Ready Indy, eligible learners may qualify for reduced or no-cost tuition, plus case management and job placement support.
 
-If you're ready to take the next step, visit this program inside ElevateConnectsDirectory.org, review the eligibility details, and complete your application or referral. Our team and partners will follow up to help you with funding and enrollment so you can start moving toward your new career.
+If you're ready to take the next step, visit this program inside elevateforhumanity.org, review the eligibility details, and complete your application or referral. Our team and partners will follow up to help you with funding and enrollment so you can start moving toward your new career.
 
 Include:
 - Professional voiceover (clear, encouraging tone)
@@ -127,9 +127,9 @@ Repeat the same steps as Video 1.
 ## 📝 After Creating All 3 Videos
 
 You should now have 3 URLs like:
-- `https://ai.invideo.io/watch/ABC123` (Barber)
-- `https://ai.invideo.io/watch/DEF456` (Medical)
-- `https://ai.invideo.io/watch/GHI789` (HVAC)
+- `https://ai.invideo.io/watch/ABC123 (Barber)
+- `https://ai.invideo.io/watch/DEF456 (Medical)
+- `https://ai.invideo.io/watch/GHI789 (HVAC)
 
 ### Update Your Homepage
 
@@ -218,7 +218,7 @@ git push origin main
 ### Video won't embed?
 - Make sure you're using the share URL, not the editor URL
 - Check if video is set to "Public" in InVideo settings
-- Try the embed URL format: `https://ai.invideo.io/embed/VIDEO_ID`
+- Try the embed URL format: `https://ai.invideo.io/embed/VIDEOID
 
 ### Video quality is low?
 - Export in 1080p (Full HD)

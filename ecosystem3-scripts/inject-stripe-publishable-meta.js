@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /*
   Idempotently injects <meta name="stripe-publishable-key" content="..."> into all HTML files
-  using env var VITE_STRIPE_PUBLIC_KEY or STRIPE_PUBLISHABLE_KEY.
+  using env let VITE_STRIPE_PUBLIC_KEY or STRIPE_PUBLISHABLE_KEY.
 */
 const fs = require('fs');
 const path = require('path');

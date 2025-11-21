@@ -99,7 +99,7 @@ https://YOUR-SITE-URL/privacy-policy
 2. **Replace in Links:**
    - Copy any link above
    - Replace `YOUR-SITE-URL` with your actual URL
-   - Example: `https://elevate-lms.netlify.app/lms/dashboard`
+   - Example: `https://elevate-lms.netlify.app/lms/dashboard
 
 3. **Test Each Page:**
    - Open in browser
@@ -110,10 +110,10 @@ https://YOUR-SITE-URL/privacy-policy
 
 Once you have your Netlify URL, test these first:
 
-1. Homepage: `https://YOUR-SITE-URL/`
-2. LMS Dashboard: `https://YOUR-SITE-URL/lms/dashboard`
-3. Admin Portal: `https://YOUR-SITE-URL/admin/program-holders`
-4. Program Holder: `https://YOUR-SITE-URL/program-holder/dashboard`
+1. Homepage: `https://YOUR-SITE-URL/
+2. LMS Dashboard: `https://YOUR-SITE-URL/lms/dashboard
+3. Admin Portal: `https://YOUR-SITE-URL/admin/program-holders
+4. Program Holder: `https://YOUR-SITE-URL/program-holder/dashboard
 
 ## Notes
 

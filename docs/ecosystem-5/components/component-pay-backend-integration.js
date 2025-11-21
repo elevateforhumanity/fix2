@@ -68,7 +68,7 @@ async function markPaidInSupabase({
       .single();
 
     if (userError || !appUser) {
-      console.log(`User not found for email: ${email}`);
+      // console.log(`User not found for email: ${email}`);
       return false;
     }
 
@@ -118,12 +118,12 @@ async function markPaidInSupabase({
           content: fundingNote,
           created_at: new Date().toISOString(),
         })
-        .catch((err) => console.log('Failed to save funding note:', err)); // Non-critical
+        // .catch((err) => console.log('Failed to save funding note:', err)); // Non-critical
 
-      console.log(`💰 Funding info recorded:`, funding_metadata);
+      // console.log(`💰 Funding info recorded:`, funding_metadata);
     }
 
-    console.log(`✅ Enrollment activated: ${program_slug} for ${email}`);
+    // console.log(`✅ Enrollment activated: ${program_slug} for ${email}`);
     return true;
   } catch (error) {
     console.error('Error marking paid in Supabase:', error);
@@ -153,7 +153,7 @@ function integrateWithStripeWebhook() {
           endpointSecret
         );
       } catch (err) {
-        console.log(`Webhook signature verification failed.`, err.message);
+        // console.log(`Webhook signature verification failed.`, err.message);
         return response.status(400).send(`Webhook Error: ${err.message}`);
       }
 

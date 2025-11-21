@@ -6,7 +6,7 @@ Use this checklist when bringing the Netlify + Cloudflare auto-build flow online
 
 Set these on Netlify and Cloudflare (and optionally in `.env` for local preview):
 
-- `SITE_URL` – canonical production URL (e.g. `https://elevateforhumanity.org`).
+- `SITE_URL` – canonical production URL (e.g. `https://elevateforhumanity.org).
 - `BRAND_NAME`
 - `CITY`
 - `STATE`

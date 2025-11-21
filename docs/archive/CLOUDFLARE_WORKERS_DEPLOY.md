@@ -347,7 +347,7 @@ wrangler r2 object get video-media/images/img-business-1.jpg
 
 1. Go to GitHub repository → Settings → Webhooks
 2. Add webhook:
-   - **Payload URL:** `https://template-sync-worker.your-subdomain.workers.dev/webhook`
+   - **Payload URL:** `https://template-sync-worker.your-subdomain.workers.dev/webhook
    - **Content type:** `application/json`
    - **Events:** Push events
 3. Save webhook
@@ -574,7 +574,7 @@ curl -X POST https://video-generation-worker.your-subdomain.workers.dev/api/vide
   -d @test-video.json
 
 # Check status
-curl https://video-generation-worker.your-subdomain.workers.dev/api/video/status/JOB_ID
+curl https://video-generation-worker.your-subdomain.workers.dev/api/video/status/JOBID
 ```
 
 **Monitor it:**

@@ -71,7 +71,7 @@ export default function ProgramsPage() {
         <div className="container-padded space-y-8">
           <div className="max-w-3xl space-y-4">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent-500">
-              Elevate Connects Directory
+              Elevate for Humanity
             </p>
             <h1>Explore funded training & apprenticeship programs.</h1>
             <p className="text-sm md:text-base text-slate-700">

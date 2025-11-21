@@ -4,7 +4,7 @@
 
 ### Step 1: Open Supabase SQL Editor
 
-Go to: **https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new**
+Go to: **https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/sql/new
 
 ---
 
@@ -790,7 +790,7 @@ create trigger update_stripe_splits_updated_at
 
 ## ✅ Step 3: Verify All Tables Created
 
-Go to: **https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/editor**
+Go to: **https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/editor
 
 You should see these tables:
 

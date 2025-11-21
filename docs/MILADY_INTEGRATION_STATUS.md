@@ -384,7 +384,7 @@ POST https://api.miladytraining.com/v1/enrollments
 GET https://api.miladytraining.com/v1/enrollments/{id}
 
 // Get Certificate
-GET https://api.miladytraining.com/v1/certificates/{enrollment_id}
+GET https://api.miladytraining.com/v1/certificates/{enrollmentid}
 ```
 
 **Note:** Actual API documentation needed from Milady/Cengage

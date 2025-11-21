@@ -58,7 +58,7 @@ git push origin main
 1. Wait for deployment to complete (usually 2-5 minutes)
 2. Visit: https://elevateforhumanity.org
 3. Check browser DevTools Console:
-   - API calls should go to `https://api.elevateforhumanity.org`
+   - API calls should go to `https://api.elevateforhumanity.org
    - No CORS errors
    - No skeleton/blank pages
 
@@ -86,7 +86,7 @@ Visit and verify these pages load correctly:
 
 1. Open DevTools → Network tab
 2. Look for failed API requests
-3. Check if they're going to the correct URL: `https://api.elevateforhumanity.org`
+3. Check if they're going to the correct URL: `https://api.elevateforhumanity.org
 4. Verify CORS headers are present in response
 
 ### Build failing?
@@ -112,8 +112,8 @@ After successful deployment:
 
 ## 📚 Related Documentation
 
-- [QUICK_FIX_SKELETON.md](./QUICK_FIX_SKELETON.md) - Quick fix overview
-- [NETLIFY_ENV_VARS_REQUIRED.md](./NETLIFY_ENV_VARS_REQUIRED.md) - Detailed env var guide
+- [QUICK_FIX_SKELETON.md](SKELETON_VS_REAL_CODE_REPORT.md) - Quick fix overview
+- [NETLIFY_ENV_VARS_REQUIRED.md](NETLIFY_ENV_SETUP.md) - Detailed env var guide
 - [IMPLEMENT_SPLIT_ARCHITECTURE.md](./IMPLEMENT_SPLIT_ARCHITECTURE.md) - Full architecture plan
 - [ARCHITECTURE_SPLIT.md](./ARCHITECTURE_SPLIT.md) - Problem analysis
 

@@ -131,8 +131,8 @@ npm run production:validate
 
 ### Manual Verification
 
-1. **Health Check**: `curl https://yourdomain.com/health`
-2. **Security Headers**: `curl -I https://yourdomain.com/health`
+1. **Health Check**: `curl https://yourdomain.com/health
+2. **Security Headers**: `curl -I https://yourdomain.com/health
 3. **API Functionality**: Test key endpoints
 4. **Performance**: Monitor response times
 5. **Logs**: Check structured logging output

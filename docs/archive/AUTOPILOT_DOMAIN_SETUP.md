@@ -6,7 +6,7 @@
 
 ## Overview
 
-Your autopilot can automatically add `elevateconnectsdirectory.org` to Netlify and configure SSL using the Netlify API.
+Your autopilot can automatically add `elevateforhumanity.org` to Netlify and configure SSL using the Netlify API.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ bash scripts/autopilot-add-domain.sh
 
 This will:
 
-- ✅ Add `elevateconnectsdirectory.org` to Netlify
+- ✅ Add `elevateforhumanity.org` to Netlify
 - ✅ Trigger SSL certificate provisioning
 - ✅ Clear cache and rebuild
 - ✅ Provide status updates
@@ -72,7 +72,7 @@ wrangler secret put AUTOPILOT_TOKEN
 curl -X POST https://your-worker.workers.dev \
   -H "Authorization: Bearer YOUR_AUTOPILOT_TOKEN" \
   -H "Content-Type: application/json" \
-  -d '{"task":"full_setup","domain":"elevateconnectsdirectory.org"}'
+  -d '{"task":"full_setup","domain":"elevateforhumanity.org"}'
 ```
 
 ## What the Autopilot Does
@@ -80,21 +80,21 @@ curl -X POST https://your-worker.workers.dev \
 ### 1. Add Custom Domain
 
 ```
-POST https://api.netlify.com/api/v1/sites/{site_id}/domains
-Body: {"domain_name":"elevateconnectsdirectory.org"}
+POST https://api.netlify.com/api/v1/sites/{siteid}/domains
+Body: {"domain_name":"elevateforhumanity.org"}
 ```
 
 ### 2. Check SSL Status
 
 ```
-GET https://api.netlify.com/api/v1/sites/{site_id}
+GET https://api.netlify.com/api/v1/sites/{siteid}
 Checks: ssl, ssl_url, domain_aliases
 ```
 
 ### 3. Trigger Cache Clear
 
 ```
-POST https://api.netlify.com/api/v1/sites/{site_id}/builds
+POST https://api.netlify.com/api/v1/sites/{siteid}/builds
 Body: {"clear_cache":true}
 ```
 
@@ -117,7 +117,7 @@ Waits for Let's Encrypt certificate to be issued
 ### Check DNS
 
 ```bash
-curl -s "https://dns.google/resolve?name=elevateconnectsdirectory.org&type=A" | jq
+curl -s "https://dns.google/resolve?name=elevateforhumanity.org&type=A" | jq
 ```
 
 Expected: `75.2.60.5`
@@ -125,15 +125,15 @@ Expected: `75.2.60.5`
 ### Check SSL Certificate
 
 ```bash
-curl -Ivk https://www.elevateconnectsdirectory.org 2>&1 | grep "subject:"
+curl -Ivk https://www.elevateforhumanity.org 2>&1 | grep "subject:"
 ```
 
-Expected: `CN=elevateconnectsdirectory.org`
+Expected: `CN=elevateforhumanity.org`
 
 ### Check Site Loads
 
 ```bash
-curl -I https://www.elevateconnectsdirectory.org
+curl -I https://www.elevateforhumanity.org
 ```
 
 Expected: `HTTP/2 200`
@@ -173,7 +173,7 @@ If autopilot fails, you can add the domain manually:
 
 1. Go to: https://app.netlify.com/sites/elevateproduction/settings/domain
 2. Click "Add custom domain"
-3. Enter: `elevateconnectsdirectory.org`
+3. Enter: `elevateforhumanity.org`
 4. Click "Verify" then "Add domain"
 5. Wait 2-10 minutes for SSL
 
@@ -230,7 +230,7 @@ wrangler secret put AUTOPILOT_TOKEN
 
 ### Netlify API
 
-- **Base URL**: `https://api.netlify.com/api/v1`
+- **Base URL**: `https://api.netlify.com/api/v1
 - **Site ID**: `12f120ab-3f63-419b-bc49-430f043415c1`
 - **Authentication**: Bearer token in Authorization header
 
@@ -247,14 +247,14 @@ After running autopilot, you should see:
 
 ✅ Domain added to Netlify
 ✅ SSL certificate provisioned
-✅ Site accessible at https://www.elevateconnectsdirectory.org
+✅ Site accessible at https://www.elevateforhumanity.org
 ✅ No SSL errors in browser
 ✅ All styling and images loading correctly
 
 ## Next Steps After Success
 
 1. Clear browser cache (Ctrl+Shift+R)
-2. Visit https://www.elevateconnectsdirectory.org
+2. Visit https://www.elevateforhumanity.org
 3. Verify all pages work
 4. Test navigation and functionality
 5. Check mobile responsiveness
@@ -302,7 +302,7 @@ bash scripts/autopilot-add-domain.sh
 bash scripts/autopilot-check-ssl.sh
 
 # 5. Visit site
-# https://www.elevateconnectsdirectory.org
+# https://www.elevateforhumanity.org
 ```
 
 **That's it!** Your autopilot will handle the rest.

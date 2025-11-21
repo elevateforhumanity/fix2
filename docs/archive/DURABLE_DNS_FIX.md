@@ -141,13 +141,13 @@ CNAME   www     elevateproduction.netlify.app               [Delete]
 
 1. **Check DNS Propagation:**
    - Go to: https://dnschecker.org
-   - Enter: elevateconnectsdirectory.org
+   - Enter: elevateforhumanity.org
    - Select: A Record
    - Should show: 75.2.60.5
 
 2. **Check CNAME:**
    - Go to: https://dnschecker.org
-   - Enter: www.elevateconnectsdirectory.org
+   - Enter: www.elevateforhumanity.org
    - Select: CNAME
    - Should show: elevateproduction.netlify.app
 
@@ -167,7 +167,7 @@ CNAME   www     elevateproduction.netlify.app               [Delete]
 
 2. **Add Custom Domain:**
    - Click: "Add custom domain"
-   - Enter: `elevateconnectsdirectory.org`
+   - Enter: `elevateforhumanity.org`
    - Click: "Verify"
 
 3. **Netlify Will Check:**
@@ -183,7 +183,7 @@ CNAME   www     elevateproduction.netlify.app               [Delete]
    - Free
 
 5. **Test:**
-   - Visit: https://www.elevateconnectsdirectory.org
+   - Visit: https://www.elevateforhumanity.org
    - Should show: Your LMS
    - SSL: Should be secure (🔒)
 
@@ -198,8 +198,8 @@ A      @    75.2.60.5                    ✅
 CNAME  www  elevateforhumanity.org       ❌ WRONG DOMAIN!
 
 Result:
-- elevateconnectsdirectory.org → Works (points to Netlify)
-- www.elevateconnectsdirectory.org → BROKEN (points to wrong site)
+- elevateforhumanity.org → Works (points to Netlify)
+- www.elevateforhumanity.org → BROKEN (points to wrong site)
 ```
 
 ### ✅ CORRECT (What you need):
@@ -209,8 +209,8 @@ A      @    75.2.60.5                    ✅
 CNAME  www  elevateproduction.netlify.app ✅ CORRECT!
 
 Result:
-- elevateconnectsdirectory.org → Works (points to Netlify)
-- www.elevateconnectsdirectory.org → Works (points to Netlify)
+- elevateforhumanity.org → Works (points to Netlify)
+- www.elevateforhumanity.org → Works (points to Netlify)
 ```
 
 ---
@@ -220,7 +220,7 @@ Result:
 ### Current Problem:
 
 ```
-User types: www.elevateconnectsdirectory.org
+User types: www.elevateforhumanity.org
 DNS says: Go to elevateforhumanity.org
 User sees: Wrong site (or error)
 ```
@@ -228,7 +228,7 @@ User sees: Wrong site (or error)
 ### After Fix:
 
 ```
-User types: www.elevateconnectsdirectory.org
+User types: www.elevateforhumanity.org
 DNS says: Go to elevateproduction.netlify.app
 Netlify serves: Your LMS
 User sees: Your site ✅
@@ -247,7 +247,7 @@ User sees: Your site ✅
 
 ### In Netlify:
 
-- [ ] Added custom domain: elevateconnectsdirectory.org
+- [ ] Added custom domain: elevateforhumanity.org
 - [ ] Verified DNS
 - [ ] SSL certificate provisioned
 - [ ] Domain shows as "Active"
@@ -255,8 +255,8 @@ User sees: Your site ✅
 ### Testing:
 
 - [ ] Checked DNS propagation (dnschecker.org)
-- [ ] Visited https://www.elevateconnectsdirectory.org
-- [ ] Visited https://www.elevateconnectsdirectory.org
+- [ ] Visited https://www.elevateforhumanity.org
+- [ ] Visited https://www.elevateforhumanity.org
 - [ ] Both URLs work
 - [ ] SSL works (🔒)
 
@@ -278,7 +278,7 @@ User sees: Your site ✅
 
 2. **Check DNS propagation:**
    - Use: https://dnschecker.org
-   - Check: www.elevateconnectsdirectory.org
+   - Check: www.elevateforhumanity.org
    - Should show: elevateproduction.netlify.app
 
 3. **Wait longer:**
@@ -310,7 +310,7 @@ elevateproduction.netlify.app
 ### Your Domain:
 
 ```
-elevateconnectsdirectory.org
+elevateforhumanity.org
 ```
 
 ### DNS Checker:
@@ -326,10 +326,10 @@ https://dnschecker.org
 ### What Will Work:
 
 ```
-✅ https://www.elevateconnectsdirectory.org
-✅ https://www.elevateconnectsdirectory.org
-✅ http://elevateconnectsdirectory.org (redirects to https)
-✅ http://www.elevateconnectsdirectory.org (redirects to https)
+✅ https://www.elevateforhumanity.org
+✅ https://www.elevateforhumanity.org
+✅ http://elevateforhumanity.org (redirects to https)
+✅ http://www.elevateforhumanity.org (redirects to https)
 ```
 
 ### All URLs will:

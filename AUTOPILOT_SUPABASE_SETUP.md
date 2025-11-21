@@ -51,7 +51,7 @@ cat > .env.local << 'EOF'
 NEXT_PUBLIC_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key_here
 SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
-NEXT_PUBLIC_SITE_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
 EOF
 
 # Start development server
@@ -138,7 +138,7 @@ Add these to GitHub Secrets:
    ```
 
 4. **Copy the keys**:
-   - **Project URL**: `https://cuxzzpsyufcewtmicszk.supabase.co` (already known)
+   - **Project URL**: `https://cuxzzpsyufcewtmicszk.supabase.co (already known)
    - **anon public**: Long string starting with `eyJhbGci...`
    - **service_role**: Different long string starting with `eyJhbGci...`
 
@@ -149,7 +149,7 @@ Add these to GitHub Secrets:
 ```bash
 # Install GitHub CLI if needed
 # macOS: brew install gh
-# Linux: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+# Linux: https://github.com/cli/cli/blob/trunk/docs/installlinux.md
 
 # Login
 gh auth login
@@ -355,7 +355,7 @@ After running the autopilot, you should have:
 
 3. **Contact support**:
    - Phone: (317) 314-3757
-   - Email: support@elevateconnectsdirectory.org
+   - Email: support@elevateforhumanity.org
 
 ---
 

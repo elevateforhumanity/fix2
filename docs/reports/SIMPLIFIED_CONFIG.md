@@ -74,7 +74,7 @@ Go to: https://dashboard.stripe.com/test/webhooks
 
 **Create webhook:**
 
-- URL: `https://elevateforhumanity.org/.netlify/functions/stripe-webhook`
+- URL: `https://elevateforhumanity.org/.netlify/functions/stripe-webhook
 - Events: `checkout.session.completed`, `payment_intent.succeeded`, `payment_intent.payment_failed`
 
 **Copy this:**
@@ -92,9 +92,9 @@ Go to: https://zapier.com/app/zaps
 **Find your Zaps and copy webhook URLs:**
 
 ```
-VITE_ZAPIER_FACEBOOK_WEBHOOK=https://hooks.zapier.com/hooks/catch/YOUR_ID/YOUR_KEY
-VITE_ZAPIER_LINKEDIN_WEBHOOK=https://hooks.zapier.com/hooks/catch/YOUR_ID/YOUR_KEY
-VITE_ZAPIER_YOUTUBE_WEBHOOK=https://hooks.zapier.com/hooks/catch/YOUR_ID/YOUR_KEY
+VITE_ZAPIER_FACEBOOK_WEBHOOK=https://hooks.zapier.com/hooks/catch/YOURID/YOURKEY
+VITE_ZAPIER_LINKEDIN_WEBHOOK=https://hooks.zapier.com/hooks/catch/YOURID/YOURKEY
+VITE_ZAPIER_YOUTUBE_WEBHOOK=https://hooks.zapier.com/hooks/catch/YOURID/YOURKEY
 ```
 
 ---
@@ -109,13 +109,13 @@ VITE_ZAPIER_YOUTUBE_WEBHOOK=https://hooks.zapier.com/hooks/catch/YOUR_ID/YOUR_KE
 **Sentry (for monitoring):**
 
 - Go to: https://sentry.io
-- `SENTRY_DSN=https://...@sentry.io/...`
-- `VITE_SENTRY_DSN=https://...@sentry.io/...`
+- `SENTRY_DSN=https://...@sentry.io/...
+- `VITE_SENTRY_DSN=https://...@sentry.io/...
 
 **Slack (for alerts):**
 
 - Go to: https://api.slack.com/apps
-- `SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...`
+- `SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
 
 ---
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Building Maintenance Technician Program | Elevate Connects Directory",
+  title: "Building Maintenance Technician Program | Elevate for Humanity",
   description:
     "Hands-on building maintenance training covering HVAC, plumbing, electrical, and facility systems with direct pathways to employment in property management and facilities.",
 };

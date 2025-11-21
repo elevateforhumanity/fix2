@@ -8,7 +8,7 @@
 
 ### **Lesson 1: Welcome to VITA Volunteer Training** 🎥
 
-**Your Video:** `https://ai.invideo.io/watch/mDgPo5Ba1GH`
+**Your Video:** `https://ai.invideo.io/watch/mDgPo5Ba1GH
 
 **Purpose:**
 

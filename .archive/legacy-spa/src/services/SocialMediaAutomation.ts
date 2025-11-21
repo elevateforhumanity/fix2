@@ -340,7 +340,9 @@ export class SocialMediaAutomation {
           action: 'sync_to_durable_blog',
         }),
       });
-    } catch (error) {}
+    } catch (error) {
+      console.error('Failed to sync post to durable blog:', error);
+    }
   }
 
   /**

@@ -93,7 +93,7 @@ cd frontend
 npm run dev
 ```
 
-✅ **System running at http://localhost:3000**
+✅ **System running at http://localhost:3000
 
 ---
 

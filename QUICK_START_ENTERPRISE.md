@@ -46,7 +46,7 @@ STRIPE_SECRET_KEY=sk_test_your_key_here
 INTERNAL_CRON_TOKEN=generate_random_token_here
 
 # LTI 1.3 (optional)
-LTI_TOOL_URL=https://elevateconnectsdirectory.org
+LTI_TOOL_URL=https://elevateforhumanity.org
 LTI_PUBLIC_KEY_N=your_rsa_public_key_modulus
 
 # Zendesk Support (optional)

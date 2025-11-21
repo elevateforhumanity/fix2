@@ -102,14 +102,14 @@ Should show:
 
 ### Step 2: Add Domain to Netlify (2 minutes)
 
-**IMPORTANT:** Only add elevateconnectsdirectory.org
+**IMPORTANT:** Only add elevateforhumanity.org
 
 **Go to:** https://app.netlify.com/sites/elevateproduction/settings/domain
 
 **Add domain:**
 
 1. Click "Add custom domain"
-2. Enter: `elevateconnectsdirectory.org`
+2. Enter: `elevateforhumanity.org`
 3. Click "Verify"
 4. Wait for SSL (5-10 minutes)
 
@@ -117,7 +117,7 @@ Should show:
 
 ### Step 3: Test Custom Domain (after SSL)
 
-**Visit:** https://www.elevateconnectsdirectory.org
+**Visit:** https://www.elevateforhumanity.org
 
 Should show:
 
@@ -138,7 +138,7 @@ DNS: Points to Durable (revert if you changed it)
 Status: Public-facing site
 ```
 
-### elevateconnectsdirectory.org (Netlify):
+### elevateforhumanity.org (Netlify):
 
 ```
 Purpose: LMS / Student Portal
@@ -174,9 +174,9 @@ Status: Clean new build deploying
 
 - [ ] Check Netlify deploy status (should say "Published")
 - [ ] Visit elevateproduction.netlify.app (should work)
-- [ ] Add elevateconnectsdirectory.org to Netlify
+- [ ] Add elevateforhumanity.org to Netlify
 - [ ] Wait for SSL certificate
-- [ ] Visit elevateconnectsdirectory.org (should work with SSL)
+- [ ] Visit elevateforhumanity.org (should work with SSL)
 - [ ] Verify elevateforhumanity.org still on Durable
 
 ---
@@ -228,7 +228,7 @@ Result: Cleaner, faster, production-ready
 **After Adding Domain:**
 
 ```
-✅ elevateconnectsdirectory.org loads
+✅ elevateforhumanity.org loads
 ✅ SSL certificate active (🔒)
 ✅ Shows same LMS
 ```
@@ -265,9 +265,9 @@ Result: Cleaner, faster, production-ready
 
 ### After Build:
 
-1. 🌐 Add elevateconnectsdirectory.org to Netlify
+1. 🌐 Add elevateforhumanity.org to Netlify
 2. ⏳ Wait for SSL (5-10 minutes)
-3. ✅ Test: https://www.elevateconnectsdirectory.org
+3. ✅ Test: https://www.elevateforhumanity.org
 
 ### Final:
 

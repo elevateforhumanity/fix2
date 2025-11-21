@@ -46,7 +46,7 @@ router.post(
       return res.status(400).send(`Webhook Error: ${err.message}`);
     }
 
-    console.log('BNPL Webhook received:', event.type);
+    // console.log('BNPL Webhook received:', event.type);
 
     try {
       switch (event.type) {
@@ -67,7 +67,7 @@ router.post(
           break;
 
         default:
-          console.log(`Unhandled BNPL event type: ${event.type}`);
+          // console.log(`Unhandled BNPL event type: ${event.type}`);
       }
 
       res.json({ received: true });
@@ -145,7 +145,7 @@ async function handleBNPLPaymentSucceeded(invoice) {
       amountPaid / 100
     );
 
-    console.log(
+    // console.log(
       `BNPL payment ${installmentNumber} recorded for subscription ${subscriptionId}`
     );
   } catch (error) {
@@ -184,7 +184,7 @@ async function handleBNPLPaymentFailed(invoice) {
     // Send payment failure notification
     await sendBNPLPaymentFailure(bnplSub, attemptCount);
 
-    console.log(
+    // console.log(
       `BNPL payment failed for subscription ${subscriptionId}, attempt ${attemptCount}`
     );
   } catch (error) {
@@ -203,7 +203,7 @@ async function handleBNPLSubscriptionCanceled(subscription) {
       })
       .eq('subscription_id', subscription.id);
 
-    console.log(`BNPL subscription canceled: ${subscription.id}`);
+    // console.log(`BNPL subscription canceled: ${subscription.id}`);
   } catch (error) {
     console.error('Error processing BNPL subscription cancellation:', error);
   }
@@ -240,7 +240,7 @@ async function grantProgramAccess(customerEmail, programSlug, paymentMethod) {
       access_level: 'full',
     });
 
-    console.log(`Program access granted: ${customerEmail} -> ${programSlug}`);
+    // console.log(`Program access granted: ${customerEmail} -> ${programSlug}`);
   } catch (error) {
     console.error('Error granting program access:', error);
   }
@@ -252,21 +252,21 @@ async function sendBNPLPaymentConfirmation(
   amount
 ) {
   // Integration point for email notifications
-  console.log(
+  // console.log(
     `Payment confirmation: ${subscription.customer_email}, installment ${installmentNumber}, $${amount}`
   );
 
-  // TODO: Integrate with your email service
+  // Note: Integrate with your email service
   // Example: SendGrid, Mailgun, or custom email system
 }
 
 async function sendBNPLPaymentFailure(subscription, attemptCount) {
   // Integration point for failure notifications
-  console.log(
+  // console.log(
     `Payment failure: ${subscription.customer_email}, attempt ${attemptCount}`
   );
 
-  // TODO: Integrate with your email service for dunning management
+  // Note: Integrate with your email service for dunning management
 }
 
 module.exports = router;

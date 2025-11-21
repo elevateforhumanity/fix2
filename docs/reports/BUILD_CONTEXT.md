@@ -354,7 +354,7 @@ All pairs pass WCAG AA (4.5:1 minimum).
 ### To Local Development
 
 1. Install Node 20+ and pnpm
-2. Clone repo: `git clone https://github.com/elevateforhumanity/fix2.git`
+2. Clone repo: `git clone https://github.com/elevateforhumanity/fix2.git
 3. Install: `pnpm install`
 4. Run: `npm run dev`
 5. Open: http://localhost:5173

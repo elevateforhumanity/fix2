@@ -6,7 +6,7 @@
 
 ## Script
 
-Welcome to Elevate Connects Directory. Here you can explore WIOA-funded training, apprenticeships, and workforce programs that help you upskill at little to no cost. Click Apply to see if you qualify.
+Welcome to Elevate for Humanity. Here you can explore WIOA-funded training, apprenticeships, and workforce programs that help you upskill at little to no cost. Click Apply to see if you qualify.
 
 ## Visual Direction
 

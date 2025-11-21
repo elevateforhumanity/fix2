@@ -61,7 +61,10 @@ If user asks anything unsafe, redirect them to safe, legal, positive options.
     });
 
     if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
+      const err = await res.json().catch((parseErr) => {
+        console.error('Failed to parse error response:', parseErr);
+        return {};
+      });
       console.error("OpenAI error:", err);
       return NextResponse.json(
         { error: "OpenAI request failed", details: err },

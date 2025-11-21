@@ -21,7 +21,7 @@ export default function StaffOnboarding() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Staff onboarding submitted:", formData);
+    // console.log("Staff onboarding submitted:", formData);
     alert("Application submitted! HR will contact you within 2-3 business days.");
   };
 

@@ -91,7 +91,7 @@ html: <h2>Career Options</h2><p>Explore different healthcare careers.</p>
 
 ### Step 4: View Your Course
 
-1. Go to your site: `https://YOUR_SITE.netlify.app/programs`
+1. Go to your site: `https://YOURSITE.netlify.app/programs
 2. You should see **Healthcare Fundamentals** program
 3. Click it to see the course
 4. Click **Introduction to Healthcare** to see lessons
@@ -254,14 +254,14 @@ Use these Unsplash URLs for course covers:
 **YouTube:**
 
 ```
-https://www.youtube.com/watch?v=VIDEO_ID
-https://youtu.be/VIDEO_ID
+https://www.youtube.com/watch?v=VIDEOID
+https://youtu.be/VIDEOID
 ```
 
 **Vimeo:**
 
 ```
-https://vimeo.com/VIDEO_ID
+https://vimeo.com/VIDEOID
 ```
 
 **Direct MP4:**
@@ -319,7 +319,7 @@ https://your-cdn.com/video.mp4
 <iframe
   width="560"
   height="315"
-  src="https://www.youtube.com/embed/VIDEO_ID"
+  src="https://www.youtube.com/embed/VIDEOID"
   frameborder="0"
   allowfullscreen
 ></iframe>

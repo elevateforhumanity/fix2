@@ -1,7 +1,7 @@
-# TikTok vs Elevate Connects: Design & Performance Analysis
+# TikTok vs Elevate for Humanity: Design & Performance Analysis
 
 **Date**: November 16, 2025  
-**Comparison**: TikTok.com design system vs elevateconnectsdirectory.org
+**Comparison**: TikTok.com design system vs elevateforhumanity.org
 
 ---
 

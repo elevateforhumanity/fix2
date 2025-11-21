@@ -10,7 +10,7 @@
 
 Your sitemap is ready with **27 URLs** (18 dynamic program pages + 9 static pages). This guide will help you submit it to Google Search Console and Bing Webmaster Tools.
 
-**Sitemap URL:** `https://elevateforhumanity.org/sitemap.xml`
+**Sitemap URL:** `https://elevateforhumanity.org/sitemap.xml
 
 ---
 
@@ -84,7 +84,7 @@ Each program has 2 URL patterns:
 **Option B: URL Prefix Property**
 
 - Select "URL prefix" property type
-- Enter: `https://elevateforhumanity.org`
+- Enter: `https://elevateforhumanity.org
 - Verify ownership using HTML file or meta tag
 
 ### Step 3: Submit Sitemap
@@ -95,8 +95,8 @@ Each program has 2 URL patterns:
 
 **Alternative URLs to submit:**
 
-- `https://elevateforhumanity.org/sitemap.xml` (primary)
-- `https://elevateforhumanity.pages.dev/sitemap.xml` (Cloudflare Pages)
+- `https://elevateforhumanity.org/sitemap.xml (primary)
+- `https://elevateforhumanity.pages.dev/sitemap.xml (Cloudflare Pages)
 
 ### Step 4: Verify Submission
 
@@ -137,19 +137,19 @@ Each program has 2 URL patterns:
 
 **Option B: Manual Addition**
 
-- Enter your site URL: `https://elevateforhumanity.org`
+- Enter your site URL: `https://elevateforhumanity.org
 - Verify ownership using XML file, meta tag, or DNS
 
 ### Step 3: Submit Sitemap
 
 1. In the left sidebar, click **"Sitemaps"**
 2. Click **"Submit Sitemap"**
-3. Enter full URL: `https://elevateforhumanity.org/sitemap.xml`
+3. Enter full URL: `https://elevateforhumanity.org/sitemap.xml
 4. Click **"Submit"**
 
 **Alternative URLs to submit:**
 
-- `https://elevateforhumanity.pages.dev/sitemap.xml` (Cloudflare Pages)
+- `https://elevateforhumanity.pages.dev/sitemap.xml (Cloudflare Pages)
 
 ### Step 4: Verify Submission
 
@@ -386,7 +386,7 @@ Use this checklist to track your progress:
 - [ ] Access Bing Webmaster Tools
 - [ ] Add site (if not already added)
 - [ ] Verify ownership
-- [ ] Submit sitemap: `https://elevateforhumanity.org/sitemap.xml`
+- [ ] Submit sitemap: `https://elevateforhumanity.org/sitemap.xml
 - [ ] Verify submission success
 - [ ] Bookmark Indexed Pages report
 

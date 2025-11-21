@@ -1,6 +1,6 @@
-# Elevate Connects Directory – Workforce LMS + Case Management
+# Elevate for Humanity – Workforce LMS + Case Management
 
-Elevate Connects is a workforce-first LMS and directory built for real programs like **WRG, WIOA, JRI, EmployIndy, DOL apprenticeships, and employer-sponsored upskilling**.
+Elevate for Humanity is a workforce-first LMS and directory built for real programs like **WRG, WIOA, JRI, EmployIndy, DOL apprenticeships, and employer-sponsored upskilling**.
 
 Instead of a one-sided "course website," Elevate brings together:
 
@@ -10,7 +10,7 @@ Instead of a one-sided "course website," Elevate brings together:
 - A **Delegate/Case Manager portal** for workforce agencies
 - **Public verification & enrollment** pages
 
-**Live at:** [https://www.elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
+**Live at:** [https://www.elevateforhumanity.org](https://www.elevateforhumanity.org)
 
 ---
 
@@ -63,7 +63,7 @@ This turns Elevate into a **lightweight case management layer** on top of the LM
 
 ## 🌍 Public Pages
 
-- **Homepage:** [elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
+- **Homepage:** [elevateforhumanity.org](https://www.elevateforhumanity.org)
 - **Privacy Policy:** `/privacy-policy`
 - **Public Enrollment:** `/enroll/:program`
 - **Certificate Verification:** `/cert/verify/:code`
@@ -97,7 +97,7 @@ Built from day one for **funded workforce programs**:
 
 ### Feature Comparison Table
 
-| Feature                          | Moodle | Docebo | LearnWorlds | Elevate Connects         |
+| Feature                          | Moodle | Docebo | LearnWorlds | Elevate for Humanity         |
 | -------------------------------- | ------ | ------ | ----------- | ------------------------ |
 | Student Portal                   | ✅     | ✅     | ✅          | ✅                       |
 | Admin Portal                     | ✅     | ✅     | ✅          | ✅                       |
@@ -279,7 +279,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJxxx
 RESEND_API_KEY=re_xxxxx
 EMAIL_FROM=Elevate for Humanity <noreply@elevateforhumanity.org>
 MOU_ARCHIVE_EMAIL=agreements@elevateforhumanity.org
-NEXT_PUBLIC_APP_URL=https://www.elevateconnectsdirectory.org
+NEXT_PUBLIC_APP_URL=https://www.elevateforhumanity.org
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_xxx
 STRIPE_SECRET_KEY=sk_live_xxx
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
@@ -302,7 +302,7 @@ Netlify is not optimized for Next.js 16 with Turbopack and App Router. You'll en
 
 ### Clip 1: "What Elevate Is" (30-40s)
 
-> "Most LMS platforms like Moodle, Docebo, and LearnWorlds were built for generic online courses. Elevate Connects is different. We combine a full student portal, an admin portal, a program holder portal, and a delegate case-manager portal in one place — built around real workforce programs like WRG, WIOA, JRI, EmployIndy, and DOL apprenticeships.
+> "Most LMS platforms like Moodle, Docebo, and LearnWorlds were built for generic online courses. Elevate for Humanity is different. We combine a full student portal, an admin portal, a program holder portal, and a delegate case-manager portal in one place — built around real workforce programs like WRG, WIOA, JRI, EmployIndy, and DOL apprenticeships.
 >
 > Learners see courses, assignments, grades, progress, certificates, and workforce enrollment. Admins see training providers, applications, reports, caseloads, and bulk certificates. Program holders sign their MOU, log in, and track their own participants. Case managers see live caseload reports, notes, and follow-ups.
 >
@@ -329,7 +329,7 @@ Netlify is not optimized for Next.js 16 with Turbopack and App Router. You'll en
 > - Deeper integrations with Zoom and other tools
 > - And optional eCommerce for providers who want to sell private courses on top of workforce programs.
 >
-> So if you want the structure of Moodle and Docebo, but tuned for real-world workforce training and funding — that's exactly what Elevate Connects is becoming."
+> So if you want the structure of Moodle and Docebo, but tuned for real-world workforce training and funding — that's exactly what Elevate for Humanity is becoming."
 
 ---
 
@@ -351,7 +351,7 @@ This is a private repository for Elevate for Humanity's workforce training platf
 For questions or partnership inquiries:
 
 - **Email:** elevateforhumanity@gmail.com
-- **Website:** [elevateconnectsdirectory.org](https://www.elevateconnectsdirectory.org)
+- **Website:** [elevateforhumanity.org](https://www.elevateforhumanity.org)
 
 ---
 

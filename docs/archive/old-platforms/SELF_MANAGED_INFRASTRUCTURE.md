@@ -857,7 +857,7 @@ export function setupSecurity(app: Express) {
 server {
     listen 80;
     server_name elevateforhumanity.org;
-    return 301 https://$server_name$request_uri;
+    return 301 https://$servername$requesturi;
 }
 
 server {

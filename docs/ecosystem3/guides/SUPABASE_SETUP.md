@@ -52,7 +52,7 @@ bash scripts/setup-supabase-codespaces.sh
 
 You'll need these values from your Supabase project:
 
-1. **VITE_SUPABASE_URL** (public): Your project URL (e.g., `https://your-project.supabase.co`)
+1. **VITE_SUPABASE_URL** (public): Your project URL (e.g., `https://your-project.supabase.co)
 2. **VITE_SUPABASE_ANON_KEY** (public): Your public anonymous key
 3. **SUPABASE_URL** (server): Same as above, for server-side use
 4. **SUPABASE_SERVICE_KEY** (secret): Your service role key (keep this secure!)

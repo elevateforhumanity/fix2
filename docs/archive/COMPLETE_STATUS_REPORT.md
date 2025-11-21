@@ -40,20 +40,20 @@
 
 **Error**: `net::ERR_CERT_COMMON_NAME_INVALID`
 
-**Root Cause**: Domain `elevateconnectsdirectory.org` was never added to Netlify dashboard
+**Root Cause**: Domain `elevateforhumanity.org` was never added to Netlify dashboard
 
 ### Current State
 
 ```
 DNS Configuration:
-  elevateconnectsdirectory.org → 75.2.60.5 ✅ CORRECT
+  elevateforhumanity.org → 75.2.60.5 ✅ CORRECT
 
 Netlify Configuration:
   Domain added to Netlify: NO ❌ MISSING
 
 SSL Certificate:
   Current: *.netlify.app (wrong domain) ❌
-  Expected: elevateconnectsdirectory.org ❌
+  Expected: elevateforhumanity.org ❌
 
 Browser Result:
   "Your connection is not private" ❌
@@ -65,7 +65,7 @@ Browser Result:
 
 1. Go to: https://app.netlify.com/sites/elevateproduction/settings/domain
 2. Click "Add custom domain"
-3. Enter: `elevateconnectsdirectory.org`
+3. Enter: `elevateforhumanity.org`
 4. Click "Add domain"
 5. Wait 2-10 minutes for SSL provisioning
 6. Verify SSL shows "Secured ✓"
@@ -82,7 +82,7 @@ Browser Result:
 
 ### ✅ Working Now (Valid SSL)
 
-**https://elevateproduction.netlify.app**
+**https://elevateproduction.netlify.app
 
 - Valid SSL certificate ✅
 - All styling working ✅
@@ -92,7 +92,7 @@ Browser Result:
 
 ### ❌ Not Working (SSL Error)
 
-**https://www.elevateconnectsdirectory.org**
+**https://www.elevateforhumanity.org
 
 - DNS pointing correctly ✅
 - Domain not added to Netlify ❌
@@ -106,7 +106,7 @@ Browser Result:
 ### DNS Configuration ✅
 
 ```
-Domain: elevateconnectsdirectory.org
+Domain: elevateforhumanity.org
 Type: A Record
 Value: 75.2.60.5 (Netlify Load Balancer)
 Status: ✅ CORRECT
@@ -120,13 +120,13 @@ Subject: CN=*.netlify.app
 Issuer: DigiCert Global G2 TLS RSA SHA256 2020 CA1
 Valid From: Jan 31 2025
 Valid To: (future date)
-Problem: Certificate is for *.netlify.app, NOT elevateconnectsdirectory.org
+Problem: Certificate is for *.netlify.app, NOT elevateforhumanity.org
 ```
 
 ### SSL Certificate (After Fix) ✅
 
 ```
-Subject: CN=elevateconnectsdirectory.org
+Subject: CN=elevateforhumanity.org
 Issuer: Let's Encrypt (via Netlify)
 Valid From: (after provisioning)
 Valid To: (90 days from provisioning)
@@ -180,7 +180,7 @@ Linting: N/A
 1. Add custom domain in Netlify dashboard
 2. Wait for SSL certificate provisioning
 3. Clear browser cache
-4. Verify site loads at elevateconnectsdirectory.org
+4. Verify site loads at elevateforhumanity.org
 
 ---
 
@@ -214,7 +214,7 @@ URL: https://app.netlify.com/sites/elevateproduction/settings/domain
 
 ```
 1. Click "Add custom domain"
-2. Enter: elevateconnectsdirectory.org
+2. Enter: elevateforhumanity.org
 3. Click "Add domain"
 ```
 
@@ -231,7 +231,7 @@ Status will change to: "HTTPS: Secured ✓"
 ```
 1. Hard refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
 2. Or use incognito window
-3. Visit: https://www.elevateconnectsdirectory.org
+3. Visit: https://www.elevateforhumanity.org
 4. Should load without errors
 ```
 
@@ -243,7 +243,7 @@ Status will change to: "HTTPS: Secured ✓"
 
 - [ ] Domain shows in Netlify custom domains list
 - [ ] SSL status shows "Secured ✓"
-- [ ] Site loads at https://www.elevateconnectsdirectory.org
+- [ ] Site loads at https://www.elevateforhumanity.org
 - [ ] No SSL certificate errors
 - [ ] All styling visible (colors, gradients)
 - [ ] All images loading
@@ -332,7 +332,7 @@ Solution: Hard refresh or incognito window
 
 ### What Needs Action ❌
 
-- Add elevateconnectsdirectory.org to Netlify dashboard
+- Add elevateforhumanity.org to Netlify dashboard
 - Wait for SSL certificate provisioning
 - Clear browser cache after SSL is active
 
@@ -356,7 +356,7 @@ Solution: Hard refresh or incognito window
 ### Live Sites
 
 - **Working Now**: https://elevateproduction.netlify.app
-- **After SSL Fix**: https://www.elevateconnectsdirectory.org
+- **After SSL Fix**: https://www.elevateforhumanity.org
 
 ### Documentation Created
 
@@ -373,7 +373,7 @@ Solution: Hard refresh or incognito window
 
 1. **Immediate**: Add domain to Netlify dashboard
 2. **Wait**: 2-10 minutes for SSL provisioning
-3. **Test**: Visit https://www.elevateconnectsdirectory.org
+3. **Test**: Visit https://www.elevateforhumanity.org
 4. **Clear**: Browser cache if needed
 5. **Verify**: All functionality working
 

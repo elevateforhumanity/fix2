@@ -18,7 +18,7 @@ export interface CheckoutSessionData {
  */
 export async function createCheckoutSession(data: CheckoutSessionData) {
   try {
-    // TODO: Replace with your actual backend API endpoint
+    // Note: Replace with your actual backend API endpoint
     const response = await fetch('/api/create-checkout-session', {
       method: 'POST',
       headers: {
@@ -65,7 +65,7 @@ export async function redirectToCheckout(sessionId: string) {
  */
 export async function enrollFree(programId: string, userId: string) {
   try {
-    // TODO: Replace with your actual backend API endpoint
+    // Note: Replace with your actual backend API endpoint
     const response = await fetch('/api/enroll-free', {
       method: 'POST',
       headers: {

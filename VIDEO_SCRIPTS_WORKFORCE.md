@@ -2,7 +2,7 @@
 
 ## WIOA, WRG, JRI, DOL Apprenticeships, EmployIndy
 
-**For:** Elevate for Humanity / Elevate Connects Directory  
+**For:** Elevate for Humanity / Elevate for Humanity  
 **Focus:** Workforce funding pathways (NOT tea/wellness)
 
 ---
@@ -55,22 +55,22 @@
 
 **0:22-0:30 - Call to Action**
 
-- Shot: Student logging into Elevate Connects Directory dashboard
+- Shot: Student logging into Elevate for Humanity dashboard
 - Progress bars filling, certificates unlocking
 - Wide shot: Community gathering, diverse faces smiling
 - Final text overlay:
   - "Elevate for Humanity"
-  - "Elevate Connects Directory"
+  - "Elevate for Humanity"
   - "Innovate. Elevate. Reset."
 
 **Voiceover:**
 
-> "Elevate Connects Directory brings it all together—one platform, every pathway, your success."
+> "Elevate for Humanity brings it all together—one platform, every pathway, your success."
 
 **End screen:**
 
 - Logo: Elevate for Humanity
-- URL: www.elevateconnectsdirectory.org
+- URL: www.elevateforhumanity.org
 - Text: "Check Your Eligibility Today"
 
 ---
@@ -134,7 +134,7 @@
 
 **Voiceover:**
 
-> "Check your eligibility in two minutes at Elevate Connects Directory. Your future is funded—let's get started."
+> "Check your eligibility in two minutes at Elevate for Humanity. Your future is funded—let's get started."
 
 ---
 
@@ -187,14 +187,14 @@
 
 **0:30-0:40 - The Invitation**
 
-- Shot: Elevate Connects Directory dashboard
+- Shot: Elevate for Humanity dashboard
 - Apprenticeship listings appearing
 - Person clicking "Apply Now"
 - End screen with logo
 
 **Voiceover:**
 
-> "Find your apprenticeship at Elevate Connects Directory. Barber, HVAC, healthcare, trades—your career starts now."
+> "Find your apprenticeship at Elevate for Humanity. Barber, HVAC, healthcare, trades—your career starts now."
 
 ---
 
@@ -245,13 +245,13 @@
 
 **0:28-0:35 - The Call**
 
-- Shot: Youth logging into Elevate Connects Directory
+- Shot: Youth logging into Elevate for Humanity
 - Dashboard showing youth programs
 - End screen with logo
 
 **Voiceover:**
 
-> "Find your pathway at Elevate Connects Directory. Your future doesn't wait—and neither should you."
+> "Find your pathway at Elevate for Humanity. Your future doesn't wait—and neither should you."
 
 ---
 
@@ -290,13 +290,13 @@
 
 **0:18-0:25 - The Partnership**
 
-- Shot: Elevate Connects Directory employer dashboard
+- Shot: Elevate for Humanity employer dashboard
 - Text: "Post Jobs • Find Apprentices • Get Reimbursed"
 - Shot: Employer reviewing qualified candidates
 
 **Voiceover:**
 
-> "Elevate Connects Directory connects you to pre-screened candidates, apprenticeship programs, and funding support."
+> "Elevate for Humanity connects you to pre-screened candidates, apprenticeship programs, and funding support."
 
 ---
 
@@ -304,7 +304,7 @@
 
 - End screen with logo
 - Text: "Partner With Us"
-- URL: www.elevateconnectsdirectory.org/employers
+- URL: www.elevateforhumanity.org/employers
 
 **Voiceover:**
 
@@ -328,7 +328,7 @@
 - Logo: Elevate for Humanity
 - Tagline: "Innovate. Elevate. Reset."
 - Colors: Blue, purple, orange, teal
-- Always show: www.elevateconnectsdirectory.org
+- Always show: www.elevateforhumanity.org
 
 **Accessibility:**
 

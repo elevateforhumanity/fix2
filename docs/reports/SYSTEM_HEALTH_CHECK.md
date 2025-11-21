@@ -88,7 +88,7 @@ measurePerformance(name, fn)    // Function timing
 - ✅ Priority rankings set
 - ✅ Last modified dates
 
-**Sitemap URL:** `https://elevateforhumanity.org/sitemap.xml`
+**Sitemap URL:** `https://elevateforhumanity.org/sitemap.xml
 
 ### Robots.txt
 

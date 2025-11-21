@@ -1,6 +1,5 @@
 'use client';
 
-'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -192,7 +191,7 @@ export default function ExportReportsPage() {
       if (selectedFormat === 'CSV') {
         generateCSV(reportData, selectedReport);
       } else if (selectedFormat === 'PDF') {
-        // TODO: Implement PDF generation
+        // PDF generation - use @react-pdf/renderer or similar library
         alert('PDF generation coming soon! For now, please use CSV format.');
       }
 

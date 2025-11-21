@@ -23,7 +23,7 @@ The Stripe payment system is configured for program enrollments with the followi
 
 You need to add the following environment variables in your Netlify Dashboard:
 
-1. Go to: https://app.netlify.com/sites/YOUR_SITE/settings/deploys#environment
+1. Go to: https://app.netlify.com/sites/YOURSITE/settings/deploys#environment
 2. Add these variables:
 
 ```
@@ -50,7 +50,7 @@ STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret_here
 
 1. Go to https://dashboard.stripe.com/test/webhooks
 2. Click "Add endpoint"
-3. Enter URL: `https://YOUR_SITE.netlify.app/api/stripe-webhook`
+3. Enter URL: `https://YOURSITE.netlify.app/api/stripe-webhook
 4. Select events to listen for:
    - `checkout.session.completed`
    - `payment_intent.succeeded`

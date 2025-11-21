@@ -37,9 +37,9 @@ class SMSAlertHandler {
         process.env.TWILIO_AUTH_TOKEN || 'demo_token'
       );
       this.initialized = true;
-      console.log('📱 SMS Alert System initialized');
+      // console.log('📱 SMS Alert System initialized');
     } catch (error) {
-      console.log('📱 SMS Mock Mode (Twilio not configured)');
+      // console.log('📱 SMS Mock Mode (Twilio not configured)');
       this.mockMode = true;
     }
   }
@@ -51,7 +51,7 @@ class SMSAlertHandler {
     try {
       if (this.mockMode || !this.initialized) {
         // Mock mode - log to console and file
-        console.log(`📱 SMS MOCK: ${fullMessage}`);
+        // console.log(`📱 SMS MOCK: ${fullMessage}`);
         this.logAlert(fullMessage);
         return { success: true, mode: 'mock' };
       }
@@ -151,7 +151,7 @@ class SMSAlertHandler {
       }
     });
 
-    console.log('📱 SMS Alert routes configured');
+    // console.log('📱 SMS Alert routes configured');
   }
 }
 

@@ -241,7 +241,7 @@ Durablesites.co serves site with their SSL ✅
 
 ### Sites NOT Affected:
 
-- ✅ elevateconnectsdirectory.org (LMS) - Different hosting
+- ✅ elevateforhumanity.org (LMS) - Different hosting
 - ✅ This repository (fix2) - Not deployed yet
 
 ### Urgency:
@@ -297,7 +297,7 @@ Durablesites.co serves site with their SSL ✅
 ### This is NOT Related To:
 
 - ❌ fix2 repository deployment
-- ❌ elevateconnectsdirectory.org (different site)
+- ❌ elevateforhumanity.org (different site)
 - ❌ Vercel deployment
 - ❌ Supabase connection
 

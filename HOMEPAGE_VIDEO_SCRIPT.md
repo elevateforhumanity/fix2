@@ -20,11 +20,11 @@ This script is designed for your homepage hero section. It should feel polished,
 
 ### Opening (0:00 - 0:10)
 
-**Visual:** Elevate Connects logo → Platform dashboard
+**Visual:** Elevate for Humanity logo → Platform dashboard
 
 **Voiceover:**
 
-> "Most LMS platforms were built for selling online courses. Elevate Connects was built for something more important: real workforce training that leads to real careers."
+> "Most LMS platforms were built for selling online courses. Elevate for Humanity was built for something more important: real workforce training that leads to real careers."
 
 **Text Overlay:** "The LMS Built for Workforce Training"
 
@@ -48,7 +48,7 @@ This script is designed for your homepage hero section. It should feel polished,
 
 **Voiceover:**
 
-> "Elevate Connects brings together four portals in one platform:
+> "Elevate for Humanity brings together four portals in one platform:
 >
 > A student portal where learners track courses, assignments, grades, and certificates.
 >
@@ -114,14 +114,14 @@ This script is designed for your homepage hero section. It should feel polished,
 
 **Voiceover:**
 
-> "If you're running WRG, WIOA, JRI, or DOL programs, and you need more than just a course catalog — Elevate Connects is built for you.
+> "If you're running WRG, WIOA, JRI, or DOL programs, and you need more than just a course catalog — Elevate for Humanity is built for you.
 >
 > Schedule a demo today."
 
 **Text Overlay:**
 
 - "Schedule a Demo"
-- "elevateconnectsdirectory.org"
+- "elevateforhumanity.org"
 - Button: "Get Started"
 
 ---
@@ -214,7 +214,7 @@ This script is designed for your homepage hero section. It should feel polished,
 
 **Script:**
 
-> "Most LMS platforms are built for online courses. Elevate Connects is built for workforce training — with program holder portals, case management, and compliance tracking that Moodle and Docebo don't offer. If you're running WRG, WIOA, or DOL programs, schedule a demo today."
+> "Most LMS platforms are built for online courses. Elevate for Humanity is built for workforce training — with program holder portals, case management, and compliance tracking that Moodle and Docebo don't offer. If you're running WRG, WIOA, or DOL programs, schedule a demo today."
 
 ### 2-Minute Version (For Detailed Demo)
 
@@ -231,11 +231,11 @@ This script is designed for your homepage hero section. It should feel polished,
 
 ### Option A: Problem-First
 
-> "If you've tried using Moodle or Docebo for workforce training, you know they're missing something. Case management. Program holder portals. Compliance tracking. That's why we built Elevate Connects."
+> "If you've tried using Moodle or Docebo for workforce training, you know they're missing something. Case management. Program holder portals. Compliance tracking. That's why we built Elevate for Humanity."
 
 ### Option B: Stat-First
 
-> "70% of workforce training programs use generic LMS platforms that weren't designed for them. Elevate Connects is different. We're purpose-built for WRG, WIOA, JRI, and DOL programs."
+> "70% of workforce training programs use generic LMS platforms that weren't designed for them. Elevate for Humanity is different. We're purpose-built for WRG, WIOA, JRI, and DOL programs."
 
 ### Option C: Story-First
 
@@ -243,7 +243,7 @@ This script is designed for your homepage hero section. It should feel polished,
 
 ### Option D: Direct
 
-> "Elevate Connects is the only LMS purpose-built for workforce training programs. Here's why that matters."
+> "Elevate for Humanity is the only LMS purpose-built for workforce training programs. Here's why that matters."
 
 ---
 
@@ -368,7 +368,7 @@ This script is designed for your homepage hero section. It should feel polished,
 >
 > I noticed you [watched the full video / clicked to schedule a demo / visited our pricing page].
 >
-> I'd love to show you how Elevate Connects can help with [their specific use case].
+> I'd love to show you how Elevate for Humanity can help with [their specific use case].
 >
 > Here's a link to schedule a 20-minute demo: [Calendar Link]
 >

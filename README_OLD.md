@@ -156,7 +156,7 @@ python sba_connect_portal.py
 
 ### Autopilot Suite v2
 
-- **[backend/README.md](backend/README.md)** - Backend API documentation
+- **[backend/README.md](README_BACKEND.md)** - Backend API documentation
 - **[docs/WORKER_GUIDE.md](docs/WORKER_GUIDE.md)** - Worker role guide
 - **[docs/PORTAL_SELECTORS.md](docs/PORTAL_SELECTORS.md)** - Portal automation guide
 - **[CERTIFICATION_APPLICATIONS_BUNDLE/](CERTIFICATION_APPLICATIONS_BUNDLE/)** - Complete certification applications

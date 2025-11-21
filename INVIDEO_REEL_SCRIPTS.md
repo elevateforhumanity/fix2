@@ -70,7 +70,7 @@
 **[26–30s]** – Strong branded outro – Elevate logo / brand colors  
 **Text on screen (big, centered):**
 > "Ready to Elevate Your Future?"  
-> "Apply at ElevateConnectsDirectory.org"
+> "Apply at elevateforhumanity.org"
 
 **Voiceover:**
 > "Ready to elevate your future? Tap the link and apply today."
@@ -91,7 +91,7 @@ We connect you to:
 
 Many qualify for FREE or FUNDED training through workforce grants! 🎓
 
-📲 Apply now at ElevateConnectsDirectory.org
+📲 Apply now at elevateforhumanity.org
 💬 DM 'ELEVATE' and we'll message you back with next steps
 
 #WorkforceTraining #CareerChange #Apprenticeship #FreeTraining #ElevateForHumanity #IndianaJobs #BarberSchool #MedicalAssistant #HVAC #SecondChance
@@ -164,7 +164,7 @@ Many qualify for FREE or FUNDED training through workforce grants! 🎓
 **[26–30s]** – Outro with your logo + URL  
 **Text on screen:**
 > "Barber Apprenticeship"  
-> "Apply at ElevateConnectsDirectory.org"
+> "Apply at elevateforhumanity.org"
 
 **Voiceover:**
 > "Tap the link or message us 'BARBER' to start your apprenticeship journey with Elevate For Humanity."
@@ -186,7 +186,7 @@ We're one of the few state-approved barber apprenticeship programs in Indiana.
 
 Spots are LIMITED and shop seats fill FAST! 🔥
 
-📲 Apply at ElevateConnectsDirectory.org
+📲 Apply at elevateforhumanity.org
 💬 Comment 'BARBER' or DM us to learn more
 
 #BarberApprentice #BarberSchool #BarberLife #StateApproved #EarnWhileYouLearn #IndianaBarber #ElevateForHumanity #BarberTraining #GetLicensed #FreshCuts

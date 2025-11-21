@@ -20,7 +20,7 @@ Fix skeleton/blank page issues on the Elevate for Humanity platform by configuri
 
 #### Quick Fix Guide (15 minutes)
 
-**File:** [QUICK_FIX_SKELETON.md](./QUICK_FIX_SKELETON.md)
+**File:** [QUICK_FIX_SKELETON.md](SKELETON_VS_REAL_CODE_REPORT.md)
 
 - Step-by-step instructions for immediate fix
 - Environment variable configuration
@@ -48,7 +48,7 @@ VITE_SUPABASE_ANON_KEY=[production key]
 
 #### Netlify Configuration Guide
 
-**File:** [NETLIFY_ENV_VARS_REQUIRED.md](./NETLIFY_ENV_VARS_REQUIRED.md)
+**File:** [NETLIFY_ENV_VARS_REQUIRED.md](NETLIFY_ENV_SETUP.md)
 
 - Detailed instructions for setting environment variables in Netlify UI
 - Step-by-step deployment process
@@ -69,7 +69,7 @@ VITE_SUPABASE_ANON_KEY=[production key]
 
 ### 5. Domain Strategy
 
-**File:** [DOMAIN_CONFIGURATION.md](./DOMAIN_CONFIGURATION.md)
+**File:** [DOMAIN_CONFIGURATION.md](DOMAIN_ARCHITECTURE.md)
 
 Three deployment strategies:
 
@@ -88,7 +88,7 @@ Three deployment strategies:
 
 ### 7. Testing Documentation
 
-**File:** [TESTING_CHECKLIST.md](./TESTING_CHECKLIST.md)
+**File:** [TESTING_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md)
 
 Comprehensive testing checklist covering:
 
@@ -202,13 +202,13 @@ After completing manual steps:
 
 ## 🔍 Verification Steps
 
-Use the [TESTING_CHECKLIST.md](./TESTING_CHECKLIST.md) to verify:
+Use the [TESTING_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) to verify:
 
 1. **Homepage:** Loads without skeleton
 2. **Programs:** List displays immediately
 3. **LMS:** Dashboard loads correctly
 4. **Certificates:** Page renders properly
-5. **API Calls:** Go to `https://api.elevateforhumanity.org`
+5. **API Calls:** Go to `https://api.elevateforhumanity.org
 6. **Supabase:** Connects to correct project
 7. **Console:** No errors
 8. **Performance:** Fast loading times
@@ -222,25 +222,25 @@ All documentation files created:
 1. **[ARCHITECTURE_SPLIT.md](./ARCHITECTURE_SPLIT.md)**  
    Problem analysis and architecture recommendations
 
-2. **[QUICK_FIX_SKELETON.md](./QUICK_FIX_SKELETON.md)**  
+2. **[QUICK_FIX_SKELETON.md](SKELETON_VS_REAL_CODE_REPORT.md)**  
    15-minute quick fix guide
 
 3. **[IMPLEMENT_SPLIT_ARCHITECTURE.md](./IMPLEMENT_SPLIT_ARCHITECTURE.md)**  
    Full implementation guide with 3 options
 
-4. **[NETLIFY_ENV_VARS_REQUIRED.md](./NETLIFY_ENV_VARS_REQUIRED.md)**  
+4. **[NETLIFY_ENV_VARS_REQUIRED.md](NETLIFY_ENV_SETUP.md)**  
    Environment variables setup guide
 
-5. **[DOMAIN_CONFIGURATION.md](./DOMAIN_CONFIGURATION.md)**  
+5. **[DOMAIN_CONFIGURATION.md](DOMAIN_ARCHITECTURE.md)**  
    Domain strategy and configuration
 
 6. **[DEPLOYMENT_INSTRUCTIONS.md](./DEPLOYMENT_INSTRUCTIONS.md)**  
    Step-by-step deployment guide
 
-7. **[TESTING_CHECKLIST.md](./TESTING_CHECKLIST.md)**  
+7. **[TESTING_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md)**  
    Comprehensive testing checklist
 
-8. **[SKELETON_FIX_SUMMARY.md](./SKELETON_FIX_SUMMARY.md)** (this file)  
+8. **[SKELETON_FIX_SUMMARY.md](SKELETON_FILES_ONLY.md)** (this file)  
    Complete implementation summary
 
 ---

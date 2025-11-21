@@ -22,7 +22,7 @@
 
 ### Lesson 1: Introduction to IRS VITA Program ✅ VIDEO
 
-**Video:** `https://ai.invideo.io/watch/mDgPo5Ba1GH`
+**Video:** `https://ai.invideo.io/watch/mDgPo5Ba1GH
 
 - Your custom video plays here
 - Welcome and overview

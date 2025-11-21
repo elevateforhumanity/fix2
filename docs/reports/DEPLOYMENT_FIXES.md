@@ -273,7 +273,7 @@ Submit sitemap to Google Search Console:
 1. Go to https://search.google.com/search-console
 2. Select property: elevateforhumanity.org
 3. Navigate to Sitemaps
-4. Submit: `https://www.elevateforhumanity.org/sitemap.xml`
+4. Submit: `https://www.elevateforhumanity.org/sitemap.xml
 
 ## Maintenance
 
@@ -303,7 +303,7 @@ Edit `scripts/generate-sitemaps.mjs` and add to `getStaticPages()`:
 
 - Verify `_redirects` file is in `dist/` after build
 - Check Netlify deploy logs for redirect rule processing
-- Test with `curl -I https://yoursite.com/deep/link`
+- Test with `curl -I https://yoursite.com/deep/link
 
 ### Functions Not Working
 
@@ -313,9 +313,9 @@ Edit `scripts/generate-sitemaps.mjs` and add to `getStaticPages()`:
 
 ## Related Documentation
 
-- [SUPABASE_SEO_SETUP.md](./SUPABASE_SEO_SETUP.md) - Dynamic SEO component setup
+- [SUPABASE_SEO_SETUP.md](SEO_COMPLETE_SUMMARY.md) - Dynamic SEO component setup
 - [FINAL_DEPLOYMENT_SUMMARY.md](./FINAL_DEPLOYMENT_SUMMARY.md) - Complete deployment checklist
-- [IP_PROTECTION_IMPLEMENTATION.md](./IP_PROTECTION_IMPLEMENTATION.md) - IP protection measures
+- [IP_PROTECTION_IMPLEMENTATION.md](SECURITY_ANTI_SCRAPE_ASSESSMENT.md) - IP protection measures
 
 ## Commit History
 

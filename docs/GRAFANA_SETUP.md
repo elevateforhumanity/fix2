@@ -29,7 +29,7 @@ supabase functions deploy metrics-exporter \
 
 ```bash
 # Test the metrics endpoint
-curl "https://YOUR_PROJECT_REF.supabase.co/functions/v1/metrics-exporter" \
+curl "https://YOURPROJECTREF.supabase.co/functions/v1/metrics-exporter" \
   -H "x-autopilot-sign: YOUR_AUTOPILOT_SECRET"
 
 # Expected output (Prometheus format):
@@ -44,7 +44,7 @@ curl "https://YOUR_PROJECT_REF.supabase.co/functions/v1/metrics-exporter" \
 1. Go to https://grafana.com/auth/sign-up/create-user
 2. Create free account
 3. Create a new stack (free tier includes 10K metrics)
-4. Note your Grafana URL: `https://YOUR_STACK.grafana.net`
+4. Note your Grafana URL: `https://YOURSTACK.grafana.net
 
 ## Step 4: Configure Prometheus Data Source
 
@@ -55,7 +55,7 @@ curl "https://YOUR_PROJECT_REF.supabase.co/functions/v1/metrics-exporter" \
 3. Select **Prometheus**
 4. Configure:
    - **Name:** Autopilot Metrics
-   - **URL:** `https://YOUR_PROJECT_REF.supabase.co/functions/v1/metrics-exporter`
+   - **URL:** `https://YOURPROJECTREF.supabase.co/functions/v1/metrics-exporter
    - **Custom HTTP Headers:**
      - Header: `x-autopilot-sign`
      - Value: `YOUR_AUTOPILOT_SECRET`
@@ -350,7 +350,7 @@ Create a dashboard showing:
 1. Check metrics exporter is deployed:
 
    ```bash
-   curl "https://YOUR_PROJECT_REF.supabase.co/functions/v1/metrics-exporter" \
+   curl "https://YOURPROJECTREF.supabase.co/functions/v1/metrics-exporter" \
      -H "x-autopilot-sign: YOUR_SECRET"
    ```
 

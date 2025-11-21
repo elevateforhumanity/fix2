@@ -46,7 +46,7 @@ www.elevateforhumanity.org → Netlify ❌ WRONG
 
 ```toml
 [[redirects]]
-  from = "https://www.elevateforhumanity.org/*"
+  from = "https://www.elevateforhumanity.org/"
   to = "https://elevateforhumanity.org/:splat"
   status = 301
   force = true

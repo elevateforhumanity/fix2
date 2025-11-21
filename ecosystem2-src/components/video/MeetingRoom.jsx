@@ -98,22 +98,22 @@ export function MeetingRoom({
 
       // Event listeners
       jitsiApi.addEventListener('videoConferenceJoined', (event) => {
-        console.log('Joined meeting:', event);
+        // console.log('Joined meeting:', event);
         setIsLoading(false);
       });
 
       jitsiApi.addEventListener('participantJoined', (event) => {
-        console.log('Participant joined:', event);
+        // console.log('Participant joined:', event);
         updateParticipants(jitsiApi);
       });
 
       jitsiApi.addEventListener('participantLeft', (event) => {
-        console.log('Participant left:', event);
+        // console.log('Participant left:', event);
         updateParticipants(jitsiApi);
       });
 
       jitsiApi.addEventListener('videoConferenceLeft', () => {
-        console.log('Left meeting');
+        // console.log('Left meeting');
         if (onLeave) onLeave();
       });
 

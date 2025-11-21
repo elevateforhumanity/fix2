@@ -105,8 +105,8 @@ Overlay text: "Build Boss-Energy Programs"
 
 **Supported formats:**
 
-- YouTube URLs (e.g., `https://www.youtube.com/watch?v=VIDEO_ID`)
-- Vimeo URLs (e.g., `https://vimeo.com/VIDEO_ID`)
+- YouTube URLs (e.g., `https://www.youtube.com/watch?v=VIDEOID)
+- Vimeo URLs (e.g., `https://vimeo.com/VIDEOID)
 - Direct MP4 files (e.g., `/videos/lessons/barber-101.mp4`)
 
 **How to add:**
@@ -241,7 +241,7 @@ Each program page (`/programs/[slug]`) can have:
 
 1. **Upload your video to YouTube**
 2. **Get the video ID** from URL:
-   - URL: `https://www.youtube.com/watch?v=dQw4w9WgXcQ`
+   - URL: `https://www.youtube.com/watch?v=dQw4w9WgXcQ
    - ID: `dQw4w9WgXcQ`
 
 3. **Update lesson in database:**
@@ -311,7 +311,7 @@ WHERE title = 'Introduction to Barbering';
 ```tsx
 <iframe
   className="w-full h-full rounded-lg"
-  src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID"
+  src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOURVIDEOID"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowFullScreen
 />

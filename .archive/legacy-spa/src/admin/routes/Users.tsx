@@ -85,7 +85,10 @@ export default function Users() {
     try {
       const usageData = await getUsageStats();
       setUsage(usageData);
-    } catch (error) {}
+    } catch (error) {
+      console.error('Failed to load usage stats:', error);
+      setUsage(null);
+    }
   }
 
   async function inviteMember() {
@@ -211,7 +214,9 @@ export default function Users() {
         target,
         diff,
       });
-    } catch (error) {}
+    } catch (error) {
+      console.error('Failed to log audit event:', error);
+    }
   }
 
   if (loading) {

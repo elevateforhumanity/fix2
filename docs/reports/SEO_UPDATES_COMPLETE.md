@@ -116,7 +116,7 @@ Changed:
 
 3. **Submit Updated Sitemap**
    - Go to Google Search Console
-   - Submit: `https://elevateforhumanity.pages.dev/sitemap.xml`
+   - Submit: `https://elevateforhumanity.pages.dev/sitemap.xml
    - Monitor indexing status
 
 ### Medium Priority

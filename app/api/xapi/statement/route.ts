@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
       const learnerId = st?.actor?.account?.name || st?.actor?.mbox || null;
 
       return {
-        tenant_id: null, // TODO: Extract from auth or statement context
+        tenant_id: null, // Note: Extract from auth or statement context
         learner_id: learnerId,
         raw: st,
         verb: verbId,

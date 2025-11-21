@@ -96,7 +96,7 @@ VALUES ('user-uuid', 'staff');
 
 ## 🔍 Verify a Certificate
 
-Share the link: `https://yoursite.com/verify/ABC12345`
+Share the link: `https://yoursite.com/verify/ABC12345
 
 Anyone can verify:
 

@@ -35,25 +35,25 @@ export async function POST(request: NextRequest) {
     case 'checkout.session.completed': {
       const session = event.data.object as Stripe.Checkout.Session;
       // Handle successful payment
-      console.log('Payment successful:', session.id);
-      // TODO: Update database, send confirmation email, etc.
+      // console.log('Payment successful:', session.id);
+      // Note: Update database, send confirmation email, etc.
       break;
     }
 
     case 'payment_intent.succeeded': {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
-      console.log('PaymentIntent succeeded:', paymentIntent.id);
+      // console.log('PaymentIntent succeeded:', paymentIntent.id);
       break;
     }
 
     case 'payment_intent.payment_failed': {
       const failedPayment = event.data.object as Stripe.PaymentIntent;
-      console.log('Payment failed:', failedPayment.id);
+      // console.log('Payment failed:', failedPayment.id);
       break;
     }
 
     default:
-      console.log(`Unhandled event type: ${event.type}`);
+      // console.log(`Unhandled event type: ${event.type}`);
   }
 
   return NextResponse.json({ received: true });

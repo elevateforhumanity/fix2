@@ -254,7 +254,7 @@ curl -X POST YOUR_WEBHOOK_URL \
 ### Purge Cloudflare Cache
 
 ```bash
-curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/purge_cache" \
+curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONEID}/purgecache" \
   -H "Authorization: Bearer ${TOKEN}" \
   -d '{"purge_everything":true}'
 ```
