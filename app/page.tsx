@@ -102,21 +102,7 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              {/* Quick Stats - Social Proof */}
-              <div className="flex flex-wrap gap-4 text-white">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
-                  <div className="text-3xl font-bold">2,500+</div>
-                  <div className="text-sm opacity-90">Students Trained</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
-                  <div className="text-3xl font-bold">95%</div>
-                  <div className="text-sm opacity-90">Get Jobs</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/20">
-                  <div className="text-3xl font-bold">$0</div>
-                  <div className="text-sm opacity-90">Out of Pocket</div>
-                </div>
-              </div>
+
 
 
             </div>
