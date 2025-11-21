@@ -43,7 +43,7 @@ export async function getEmployerProfile(employerId: string): Promise<EmployerPr
     companyName: 'ABC Manufacturing',
     industry: 'Manufacturing',
     size: '50-200 employees',
-    location: 'Milwaukee, WI',
+    location: 'Indianapolis, WI',
     website: 'https://abcmanufacturing.com',
     description: 'Leading manufacturer of industrial equipment',
   };
@@ -56,7 +56,7 @@ export async function getEmployerJobs(employerId: string): Promise<JobPosting[]>
     {
       id: '1',
       title: 'HVAC Technician',
-      location: 'Milwaukee, WI',
+      location: 'Indianapolis, WI',
       type: 'full-time',
       salary: '$45,000 - $55,000',
       description: 'Install and maintain HVAC systems',

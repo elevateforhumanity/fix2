@@ -29,7 +29,7 @@ export function MicroCredentialsBadges() {
       category: 'Technical',
       earnedDate: '2024-01-15',
       issuer: 'Elevate for Humanity',
-      verificationUrl: 'https://verify.elevateconnects.com/badge/js-master-001',
+      verificationUrl: 'https://verify.elevateforhumanity.com/badge/js-master-001',
       requirements: [
         'Complete JavaScript Advanced course',
         'Score 90%+ on final assessment',
@@ -44,7 +44,7 @@ export function MicroCredentialsBadges() {
       category: 'Technical',
       earnedDate: '2024-01-10',
       issuer: 'Elevate for Humanity',
-      verificationUrl: 'https://verify.elevateconnects.com/badge/react-dev-002',
+      verificationUrl: 'https://verify.elevateforhumanity.com/badge/react-dev-002',
       requirements: [
         'Complete React Fundamentals',
         'Build component library',
@@ -59,7 +59,7 @@ export function MicroCredentialsBadges() {
       category: 'Soft Skills',
       earnedDate: '2024-01-20',
       issuer: 'Elevate for Humanity',
-      verificationUrl: 'https://verify.elevateconnects.com/badge/team-leader-003',
+      verificationUrl: 'https://verify.elevateforhumanity.com/badge/team-leader-003',
       requirements: [
         'Lead 2+ team projects',
         'Complete leadership training',

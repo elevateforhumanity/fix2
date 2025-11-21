@@ -53,7 +53,7 @@ export default function PostJobPage() {
                     Location *
                   </label>
                   <Input
-                    placeholder="e.g., Milwaukee, WI"
+                    placeholder="e.g., Indianapolis, WI"
                     value={formData.location}
                     onChange={(e) => setFormData({...formData, location: e.target.value})}
                   />

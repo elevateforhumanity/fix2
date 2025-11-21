@@ -195,7 +195,7 @@ export default function CareerServicesPage() {
                   Direct Connections to Hiring Companies
                 </h2>
                 <p className="text-lg text-slate-600 mb-6">
-                  We've built strong relationships with 50+ employers across Wisconsin who actively recruit our graduates.
+                  We've built strong relationships with 50+ employers across Indiana who actively recruit our graduates.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">

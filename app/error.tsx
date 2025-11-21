@@ -52,8 +52,8 @@ export default function Error({
 
         <div className="text-sm text-slate-500">
           <p>If this problem persists, please contact support at:</p>
-          <a href="mailto:support@elevateconnects.org" className="text-red-600 hover:underline">
-            support@elevateconnects.org
+          <a href="mailto:support@elevateforhumanity.org" className="text-red-600 hover:underline">
+            support@elevateforhumanity.org
           </a>
         </div>
       </div>

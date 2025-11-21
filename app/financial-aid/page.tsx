@@ -21,8 +21,8 @@ export default function FinancialAidPage() {
     {
       icon: Home,
       title: 'State Grants',
-      description: 'Wisconsin-specific financial aid programs',
-      coverage: ['Wisconsin Grant', 'Talent Incentive Program', 'Indian Student Assistance', 'Minority Retention Grant'],
+      description: 'Indiana-specific financial aid programs',
+      coverage: ['Indiana Grant', 'Talent Incentive Program', 'Indian Student Assistance', 'Minority Retention Grant'],
     },
   ];
 

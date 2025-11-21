@@ -15,7 +15,7 @@ export default function StudentProfilePage() {
     email: 'john.doe@example.com',
     phone: '(555) 123-4567',
     address: '123 Main St',
-    city: 'Milwaukee',
+    city: 'Indianapolis',
     state: 'WI',
     zip: '53202',
     dateOfBirth: '1995-05-15',

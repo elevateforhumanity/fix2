@@ -52,7 +52,7 @@ export default function SuccessStoriesPage() {
               Real People, Real Results
             </h1>
             <p className="text-xl text-slate-600">
-              See how WIOA-funded training has transformed lives and careers across Wisconsin
+              See how WIOA-funded training has transformed lives and careers across Indiana
             </p>
           </div>
         </section>
@@ -137,7 +137,7 @@ export default function SuccessStoriesPage() {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">Ready to Write Your Success Story?</h2>
             <p className="text-xl mb-8 text-blue-100">
-              Join thousands of Wisconsin residents who have transformed their careers through WIOA-funded training
+              Join thousands of Indiana residents who have transformed their careers through WIOA-funded training
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

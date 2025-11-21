@@ -33,7 +33,7 @@ export function BlockchainCredentialVerification() {
       issuer: 'Elevate for Humanity',
       issueDate: '2024-01-15',
       blockchainHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-      verificationUrl: 'https://verify.elevateconnects.com/cert/abc123',
+      verificationUrl: 'https://verify.elevateforhumanity.com/cert/abc123',
       status: 'verified',
       metadata: {
         skills: ['React', 'Node.js', 'MongoDB', 'TypeScript'],
@@ -47,7 +47,7 @@ export function BlockchainCredentialVerification() {
       issuer: 'Elevate for Humanity',
       issueDate: '2024-01-10',
       blockchainHash: '0x3c2c2eb7b11a91385f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ea',
-      verificationUrl: 'https://verify.elevateconnects.com/badge/xyz789',
+      verificationUrl: 'https://verify.elevateforhumanity.com/badge/xyz789',
       status: 'verified',
       metadata: {
         skills: ['ES6+', 'Async Programming', 'Design Patterns'],
@@ -77,7 +77,7 @@ export function BlockchainCredentialVerification() {
       issuer: 'Elevate for Humanity',
       issueDate: '2024-01-15',
       blockchainHash: '0x7f9fade1c0d57a7af66ab4ead79fade1c0d57a7af66ab4ead7c2c2eb7b11a91385',
-      verificationUrl: 'https://verify.elevateconnects.com/cert/abc123',
+      verificationUrl: 'https://verify.elevateforhumanity.com/cert/abc123',
       status: 'verified',
       metadata: {
         skills: ['React', 'Node.js', 'MongoDB', 'TypeScript'],

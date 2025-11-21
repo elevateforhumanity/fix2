@@ -179,7 +179,7 @@ export function ApplicationForm() {
                   <Input
                     value={formData.city}
                     onChange={(e) => setFormData({...formData, city: e.target.value})}
-                    placeholder="Milwaukee"
+                    placeholder="Indianapolis"
                   />
                 </div>
                 <div>
