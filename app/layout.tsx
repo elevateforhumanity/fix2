@@ -107,16 +107,10 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <GoogleAnalytics />
-        <FacebookPixel />
-        <ServiceWorkerRegistration />
-        <OfflineIndicator />
-        <NotificationPrompt />
         <CourseraStyleHeader />
         <main id="main-content">{children}</main>
         <CourseraStyleFooter />
         <ElevateChatWidget />
-        <CookieConsent />
         <CookieBanner />
         <Toaster
           position="top-right"
