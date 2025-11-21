@@ -198,11 +198,11 @@ export const Footer: React.FC = () => {
                 </div>
               </div>
               <p className="text-sm text-slate-400">
-                Empowering Wisconsin's workforce through WIOA-funded training programs.
+                Empowering Marion County and Indianapolis workforce through WIOA, WRG, and JRI-funded training programs.
                 Building careers, strengthening communities.
               </p>
               <p className="text-sm text-slate-500 mt-2">
-                An Equal Opportunity Employer/Program. Auxiliary aids and services available upon request to individuals with disabilities.
+                An Equal Opportunity Employer/Program. Auxiliary aids and services are available upon request to individuals with disabilities. This program is funded in whole or in part by the Workforce Innovation and Opportunity Act (WIOA).
               </p>
             </div>
 
@@ -228,14 +228,16 @@ export const Footer: React.FC = () => {
               <div className="mt-4 flex items-center gap-2 text-sm text-slate-400">
                 <Mail className="h-4 w-4" />
                 <a
-                  href="mailto:info@elevateconnects.org"
+                  href="mailto:info@elevateforhumanity.org"
                   className="hover:text-white transition-colors"
                 >
-                  info@elevateconnects.org
+                  info@elevateforhumanity.org
                 </a>
               </div>
               <p className="text-sm text-slate-400 mt-2">
-                (608) 555-0100
+                <a href="tel:+13173143757" className="hover:text-white transition-colors">
+                  (317) 314-3757
+                </a>
               </p>
             </div>
           </div>
