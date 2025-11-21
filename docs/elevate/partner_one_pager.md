@@ -145,7 +145,7 @@ Export reports for:
 ## SUPPORT FOR PARTNERS
 
 **Partner Support Line**: 317-314-3757  
-**Email**: partners@elevateforhumanity.org  
+**Email**: Elevate4humanityedu@gmail.com  
 **Dashboard**: https://www.elevateforhumanity.org/program-holder/dashboard
 
 ---

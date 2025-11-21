@@ -228,10 +228,10 @@ export const Footer: React.FC = () => {
               <div className="mt-4 flex items-center gap-2 text-sm text-slate-400">
                 <Mail className="h-4 w-4" />
                 <a
-                  href="mailto:info@elevateforhumanity.org"
+                  href="mailto:Elevate4humanityedu@gmail.com"
                   className="hover:text-white transition-colors"
                 >
-                  info@elevateforhumanity.org
+                  Elevate4humanityedu@gmail.com
                 </a>
               </div>
               <p className="text-sm text-slate-400 mt-2">

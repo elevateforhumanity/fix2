@@ -238,7 +238,7 @@ tasks:
 
 ## Support
 
-Questions? Contact: info@elevateforhumanity.org
+Questions? Contact: Elevate4humanityedu@gmail.com
 
 ## Security Checklist
 

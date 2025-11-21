@@ -396,7 +396,7 @@ If you believe in second chances, fresh starts, and real opportunities:
 
 - **Phone**: 317-314-3757
 - **Text**: 317-314-3757
-- **Email**: support@elevateforhumanity.org
+- **Email**: Elevate4humanityedu@gmail.com
 
 ---
 

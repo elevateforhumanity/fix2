@@ -16,7 +16,7 @@ export default function StructuredData() {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
-      email: 'info@elevateforhumanity.org',
+      email: 'Elevate4humanityedu@gmail.com',
     },
     sameAs: [
       'https://www.facebook.com/elevateforhumanity',

@@ -78,7 +78,7 @@ export async function POST(req: Request) {
     
     // Return helpful fallback
     return NextResponse.json({
-      response: "I'm having a brief technical issue. For immediate assistance, please call (317) 314-3757 or email info@elevateforhumanity.org. I apologize for the inconvenience!",
+      response: "I'm having a brief technical issue. For immediate assistance, please call (317) 314-3757 or email Elevate4humanityedu@gmail.com. I apologize for the inconvenience!",
     });
   }
 }
@@ -104,7 +104,7 @@ function getFallbackResponse(message: string): string {
 
   // Contact/speak to someone
   if (lowerMessage.includes("speak") || lowerMessage.includes("talk") || lowerMessage.includes("call") || lowerMessage.includes("person") || lowerMessage.includes("human")) {
-    return "I'd be happy to connect you with our team! You can call us at (317) 314-3757, text us at the same number, email info@elevateforhumanity.org, or fill out our contact form at /contact. Would you like me to schedule a callback for you?";
+    return "I'd be happy to connect you with our team! You can call us at (317) 314-3757, text us at the same number, email Elevate4humanityedu@gmail.com, or fill out our contact form at /contact. Would you like me to schedule a callback for you?";
   }
 
   // Hours/location

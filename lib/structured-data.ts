@@ -20,7 +20,7 @@ export function generateOrganizationSchema() {
       '@type': 'ContactPoint',
       telephone: '+1-317-314-3757',
       contactType: 'Customer Service',
-      email: 'info@elevateforhumanity.org',
+      email: 'Elevate4humanityedu@gmail.com',
     },
     sameAs: [
       'https://facebook.com/elevateforhumanity',

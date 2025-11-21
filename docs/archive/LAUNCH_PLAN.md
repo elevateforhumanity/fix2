@@ -670,7 +670,7 @@ Click "Browse Programs" to explore courses
 Sign up in minutes - it's FREE!
 
 Questions? We're here to help!
-📧 Email: support@elevateforhumanity.org
+📧 Email: Elevate4humanityedu@gmail.com
 📞 Phone: (317) 314-3757
 
 Transform your career. Elevate your future.

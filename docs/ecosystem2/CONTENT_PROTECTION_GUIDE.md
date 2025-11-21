@@ -394,7 +394,7 @@ GOOGLE_SEARCH_ENGINE_ID=your-search-engine-id
 
 - **Security:** security@elevateforhumanity.org
 - **Legal:** legal@elevateforhumanity.org
-- **Support:** support@elevateforhumanity.org
+- **Support:** Elevate4humanityedu@gmail.com
 
 ### Reporting Infringement
 

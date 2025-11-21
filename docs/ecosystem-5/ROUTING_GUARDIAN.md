@@ -663,7 +663,7 @@ For issues or questions:
 1. Check this documentation
 2. Review validation report: `.data/routing/validation-report.json`
 3. Check guardian log: `.data/routing/guardian.log`
-4. Contact: support@elevateforhumanity.org
+4. Contact: Elevate4humanityedu@gmail.com
 
 ---
 

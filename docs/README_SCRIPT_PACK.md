@@ -186,7 +186,7 @@ Copy social media scripts for consistent messaging.
 
 **Phone**: (317) 314-3757  
 **Website**: https://www.elevateforhumanity.org  
-**Support Email**: support@elevateforhumanity.org
+**Support Email**: Elevate4humanityedu@gmail.com
 
 ---
 
@@ -321,7 +321,7 @@ If you need help with the script pack:
 
 1. **Check the scripts**: Most questions are answered in the pack
 2. **Call support**: (317) 314-3757
-3. **Email**: support@elevateforhumanity.org
+3. **Email**: Elevate4humanityedu@gmail.com
 4. **Review docs**: Check other documentation files
 
 ---

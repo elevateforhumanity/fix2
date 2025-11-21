@@ -404,4 +404,4 @@ npx tsx src/index.ts autopilot:run:dwd
 
 ## Support
 
-Questions? Contact: info@elevateforhumanity.org
+Questions? Contact: Elevate4humanityedu@gmail.com

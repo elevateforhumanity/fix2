@@ -363,7 +363,7 @@ Indianapolis, IN 46240
 
 **Email:**
 
-- General: info@elevateforhumanity.org
+- General: Elevate4humanityedu@gmail.com
 - Legal: legal@elevateforhumanity.org
 - Privacy: privacy@elevateforhumanity.org
 - Security: security@elevateforhumanity.org

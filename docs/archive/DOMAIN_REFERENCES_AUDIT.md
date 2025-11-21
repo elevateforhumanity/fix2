@@ -95,7 +95,7 @@
 
 ```
 ./ssg.config.js
-  - EMAIL: 'info@elevateforhumanity.org'  ✅ KEEP (contact email)
+  - EMAIL: 'Elevate4humanityedu@gmail.com'  ✅ KEEP (contact email)
 
 ./scripts/auto-generate-all-pages.js
   - www.elevateforhumanity.org            ✅ KEEP (production domain)

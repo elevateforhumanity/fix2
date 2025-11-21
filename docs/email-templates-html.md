@@ -107,7 +107,7 @@
           <tr>
             <td style="padding:0 24px 24px 24px;font-size:14px;color:#111827;">
               – Elevate Student Support<br/>
-              <a href="mailto:support@elevateforhumanity.org" style="color:#2563eb;">support@elevateforhumanity.org</a>
+              <a href="mailto:Elevate4humanityedu@gmail.com" style="color:#2563eb;">Elevate4humanityedu@gmail.com</a>
             </td>
           </tr>
 
@@ -212,7 +212,7 @@
           <tr>
             <td style="padding:0 24px 24px 24px;font-size:14px;color:#111827;">
               – Elevate Student Support<br/>
-              <a href="mailto:support@elevateforhumanity.org" style="color:#2563eb;">support@elevateforhumanity.org</a>
+              <a href="mailto:Elevate4humanityedu@gmail.com" style="color:#2563eb;">Elevate4humanityedu@gmail.com</a>
             </td>
           </tr>
 
@@ -304,7 +304,7 @@
               your next level.
               <br/><br/>
               – Elevate Student Support<br/>
-              <a href="mailto:support@elevateforhumanity.org" style="color:#2563eb;">support@elevateforhumanity.org</a>
+              <a href="mailto:Elevate4humanityedu@gmail.com" style="color:#2563eb;">Elevate4humanityedu@gmail.com</a>
             </td>
           </tr>
 

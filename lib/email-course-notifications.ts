@@ -152,7 +152,7 @@ export async function sendCourseEnrollmentEmail(data: CourseEnrollmentData) {
                   
                   <!-- Support Info -->
                   <p style="margin: 30px 0 0 0; color: #6b7280; font-size: 14px; line-height: 1.6;">
-                    Questions? Contact us at <a href="mailto:support@elevateforhumanity.org" style="color: #E63946;">support@elevateforhumanity.org</a>
+                    Questions? Contact us at <a href="mailto:Elevate4humanityedu@gmail.com" style="color: #E63946;">Elevate4humanityedu@gmail.com</a>
                   </p>
                 </td>
               </tr>
@@ -261,7 +261,7 @@ export async function sendCourseStartReminderEmail(data: CourseEnrollmentData) {
                   </table>
                   
                   <p style="margin: 30px 0 0 0; color: #6b7280; font-size: 14px; line-height: 1.6;">
-                    We're excited to see you in class! Questions? Email <a href="mailto:support@elevateforhumanity.org" style="color: #3b82f6;">support@elevateforhumanity.org</a>
+                    We're excited to see you in class! Questions? Email <a href="mailto:Elevate4humanityedu@gmail.com" style="color: #3b82f6;">Elevate4humanityedu@gmail.com</a>
                   </p>
                 </td>
               </tr>

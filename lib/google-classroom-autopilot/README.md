@@ -302,7 +302,7 @@ Automated task processing runs every 10 minutes via GitHub Actions.
 
 ## Support
 
-For questions or issues, contact: info@elevateforhumanity.org
+For questions or issues, contact: Elevate4humanityedu@gmail.com
 
 ## License
 

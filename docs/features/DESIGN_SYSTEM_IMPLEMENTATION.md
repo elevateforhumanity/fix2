@@ -302,7 +302,7 @@ Professional design system implemented for Elevate for Humanity LMS platform, ma
 **Organization:** Elevate for Humanity
 **Location:** Indianapolis, IN (Keystone at the Crossing)
 **Phone:** (317) 314-3757
-**Email:** info@elevateforhumanity.org
+**Email:** Elevate4humanityedu@gmail.com
 
 ## ✅ Build Status
 

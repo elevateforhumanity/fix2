@@ -467,7 +467,7 @@ WHERE created_at < NOW() - INTERVAL '90 days';
 
 ## Support
 
-**Questions?** Contact: info@elevateforhumanity.org
+**Questions?** Contact: Elevate4humanityedu@gmail.com
 
 **Provider Documentation**:
 

@@ -280,7 +280,7 @@ The workflow is already configured in `.github/workflows/classroom-autopilot.yml
 
 ## Support
 
-Questions? Contact: info@elevateforhumanity.org
+Questions? Contact: Elevate4humanityedu@gmail.com
 
 ## Appendix: Service Account JSON Structure
 

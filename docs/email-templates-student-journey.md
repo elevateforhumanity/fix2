@@ -64,7 +64,7 @@ You're not alone — we support you every single step.
 Welcome to Elevate. Let's get started.
 
 – Elevate Student Support  
-support@elevateforhumanity.org
+Elevate4humanityedu@gmail.com
 
 ---
 
@@ -108,7 +108,7 @@ This pathway includes:
 You're now officially on the path to becoming a Certified Nursing Assistant, and we are honored to support you.
 
 – Elevate Student Support  
-support@elevateforhumanity.org
+Elevate4humanityedu@gmail.com
 
 ---
 
@@ -137,7 +137,7 @@ Reply to this email or call us at (317) 314-3757.
 Let's finish what you started. You've got this.
 
 – Elevate Student Support  
-support@elevateforhumanity.org
+Elevate4humanityedu@gmail.com
 
 ---
 
@@ -164,7 +164,7 @@ Can't make it? No problem — we'll post the recording in your dashboard within 
 See you there!
 
 – Elevate Student Support  
-support@elevateforhumanity.org
+Elevate4humanityedu@gmail.com
 
 ---
 
@@ -215,7 +215,7 @@ Our support team is here to guide you into your exam, job placement, and any ref
 **We are proud of you.**
 
 – Elevate Student Support  
-support@elevateforhumanity.org
+Elevate4humanityedu@gmail.com
 
 ---
 

@@ -281,10 +281,10 @@ Add to `src/layouts/SiteLayout.tsx` footer:
     </li>
     <li>
       <a
-        href="mailto:info@elevateforhumanity.org"
+        href="mailto:Elevate4humanityedu@gmail.com"
         className="hover:text-brand-600"
       >
-        ✉️ info@elevateforhumanity.org
+        ✉️ Elevate4humanityedu@gmail.com
       </a>
     </li>
     <li>

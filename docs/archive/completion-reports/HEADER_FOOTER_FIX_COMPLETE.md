@@ -47,7 +47,7 @@ export const branding = {
   subtitle: 'Career & Technical Institute',
   phone: '(317) 314-3757',
   phoneRaw: '3173143757',
-  email: 'info@elevateforhumanity.org',
+  email: 'Elevate4humanityedu@gmail.com',
   // ... more
 };
 ```
@@ -78,7 +78,7 @@ export const branding = {
 - Modern gradient background (gray-900 to gray-800)
 - Contact information with icons:
   - Phone: (317) 314-3757 (clickable tel: link)
-  - Email: info@elevateforhumanity.org (clickable mailto: link)
+  - Email: Elevate4humanityedu@gmail.com (clickable mailto: link)
   - Location: Marion County, Indiana
 - 4 footer sections:
   - Programs
@@ -187,8 +187,8 @@ export const branding = {
 
 ### Email
 
-- **Display:** info@elevateforhumanity.org
-- **Link:** `mailto:info@elevateforhumanity.org`
+- **Display:** Elevate4humanityedu@gmail.com
+- **Link:** `mailto:Elevate4humanityedu@gmail.com`
 - **Icon:** Mail with orange background
 - **Hover:** Background brightens
 
@@ -335,7 +335,7 @@ Edit `src/config/navigation.ts`:
 ```typescript
 export const branding = {
   phone: '(317) 314-3757',
-  email: 'info@elevateforhumanity.org',
+  email: 'Elevate4humanityedu@gmail.com',
   // ...
 };
 ```

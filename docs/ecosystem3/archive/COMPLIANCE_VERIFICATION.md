@@ -121,7 +121,7 @@
 
 - ✅ Government contracts: government@elevateforhumanity.org
 - ✅ Accessibility services: accessibility@elevateforhumanity.org
-- ✅ Student support: support@elevateforhumanity.org
+- ✅ Student support: Elevate4humanityedu@gmail.com
 - ✅ Technical support: tech@elevateforhumanity.org
 
 ## 🎯 Certification Status

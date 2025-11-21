@@ -128,7 +128,7 @@ export default function HelpCenterPage() {
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-3 text-sm">
             <a
-              href="mailto:support@elevateforhumanity.org"
+              href="mailto:Elevate4humanityedu@gmail.com"
               className="rounded-2xl border border-orange-500 px-4 py-2 font-medium text-orange-600 transition hover:bg-orange-50"
             >
               Email Support

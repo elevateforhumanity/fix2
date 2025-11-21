@@ -348,7 +348,7 @@ export function addUnsubscribeFooter(
       </p>
       <p style="margin-top: 10px;">
         Elevate for Humanity<br>
-        <a href="mailto:info@elevateforhumanity.org" style="color: #666;">info@elevateforhumanity.org</a>
+        <a href="mailto:Elevate4humanityedu@gmail.com" style="color: #666;">Elevate4humanityedu@gmail.com</a>
       </p>
     </div>
   `;

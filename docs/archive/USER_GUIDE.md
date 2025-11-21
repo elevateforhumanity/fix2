@@ -418,7 +418,7 @@ A: Some courses offer college credit. Check individual course pages.
 
 ### Support Options
 
-**Email:** support@elevateforhumanity.org  
+**Email:** Elevate4humanityedu@gmail.com  
 **Phone:** (317) 314-3757  
 **Hours:** Monday-Friday, 9 AM - 5 PM EST
 

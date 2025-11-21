@@ -481,7 +481,7 @@ pnpm clean                 # Clean build artifacts
 **Organization:** Elevate for Humanity  
 **Location:** Indianapolis, IN  
 **Phone:** +1-317-314-3757  
-**Email:** info@elevateforhumanity.org  
+**Email:** Elevate4humanityedu@gmail.com  
 **Website:** https://elevateforhumanity.pages.dev/
 
 ---

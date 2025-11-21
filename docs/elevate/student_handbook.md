@@ -102,7 +102,7 @@ You agree to:
 You're never doing this alone.
 
 **Phone/Text**: 317-314-3757  
-**Email**: support@elevateforhumanity.org  
+**Email**: Elevate4humanityedu@gmail.com  
 **Website**: https://www.elevateforhumanity.org/contact
 
 ---

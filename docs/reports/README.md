@@ -295,7 +295,7 @@ Feel free to submit issues or pull requests to improve this template configurati
 Indianapolis, IN 46240
 
 - **Website:** [elevateforhumanity.org](https://elevateforhumanity.org)
-- **Email:** info@elevateforhumanity.org
+- **Email:** Elevate4humanityedu@gmail.com
 - **Phone:** (317) 314-3757
 - **Legal:** legal@elevateforhumanity.org
 

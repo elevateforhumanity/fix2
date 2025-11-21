@@ -192,7 +192,7 @@ A: Use the messaging feature in your course
 ## 14. Contact Information
 
 - **Student Support**: students@elevateforhumanity.org
-- **Technical Support**: support@elevateforhumanity.org
+- **Technical Support**: Elevate4humanityedu@gmail.com
 - **Phone**: 1-800-ELEVATE
 - **Hours**: Monday-Friday, 8 AM - 6 PM EST
 

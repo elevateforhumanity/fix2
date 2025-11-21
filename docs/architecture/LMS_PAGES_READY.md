@@ -241,7 +241,7 @@ Click "Publish" and your page is live!
 
 ## 📞 Need Help?
 
-**Email:** info@elevateforhumanity.org  
+**Email:** Elevate4humanityedu@gmail.com  
 **Phone:** (317) 314-3757  
 **Hours:** Monday-Friday, 8:00 AM - 6:00 PM EST
 

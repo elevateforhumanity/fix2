@@ -98,7 +98,7 @@ export async function GET(request: Request) {
       "This report summarizes learner outcomes for accreditation and funding partners.",
       { align: "center" }
     )
-    .text("For questions, contact: support@elevateforhumanity.org", {
+    .text("For questions, contact: Elevate4humanityedu@gmail.com", {
       align: "center",
     });
 

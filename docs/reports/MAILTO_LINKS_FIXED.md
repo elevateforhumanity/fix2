@@ -14,13 +14,13 @@ Changed all incorrect `.com` email addresses to `.org`:
 1. **public/pages/elevate-store.html**
    - ❌ `partnerships@elevateforhumanity.com` → ✅ `partnerships@elevateforhumanity.org`
    - ❌ `sales@elevateforhumanity.com` → ✅ `sales@elevateforhumanity.org`
-   - ❌ `support@elevateforhumanity.com` → ✅ `support@elevateforhumanity.org`
+   - ❌ `support@elevateforhumanity.com` → ✅ `Elevate4humanityedu@gmail.com`
 
 2. **public/pages/license-dashboard.html**
-   - ❌ `support@elevateforhumanity.com` → ✅ `support@elevateforhumanity.org`
+   - ❌ `support@elevateforhumanity.com` → ✅ `Elevate4humanityedu@gmail.com`
 
 3. **public/pages/flash-sale-success.html**
-   - ❌ `emergency-support@elevateforhumanity.com` → ✅ `emergency-support@elevateforhumanity.org`
+   - ❌ `emergency-support@elevateforhumanity.com` → ✅ `emergency-Elevate4humanityedu@gmail.com`
 
 ---
 
@@ -31,8 +31,8 @@ All mailto links now use the correct `@elevateforhumanity.org` domain:
 ### Primary Contact Emails
 
 - ✅ `contact@elevateforhumanity.org` - General inquiries
-- ✅ `info@elevateforhumanity.org` - Information requests
-- ✅ `support@elevateforhumanity.org` - Technical support
+- ✅ `Elevate4humanityedu@gmail.com` - Information requests
+- ✅ `Elevate4humanityedu@gmail.com` - Technical support
 
 ### Department-Specific Emails
 
@@ -47,7 +47,7 @@ All mailto links now use the correct `@elevateforhumanity.org` domain:
 - ✅ `refunds@elevateforhumanity.org` - Refund requests
 - ✅ `training@elevateforhumanity.org` - Training programs
 - ✅ `sales@elevateforhumanity.org` - Sales inquiries
-- ✅ `emergency-support@elevateforhumanity.org` - Emergency support
+- ✅ `emergency-Elevate4humanityedu@gmail.com` - Emergency support
 
 ### Partner Organization Emails
 

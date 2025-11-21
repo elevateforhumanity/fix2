@@ -361,7 +361,7 @@ console.log('SMTP connection successful');
 
 ## Support
 
-Questions? Contact: info@elevateforhumanity.org
+Questions? Contact: Elevate4humanityedu@gmail.com
 
 ## Next Steps
 

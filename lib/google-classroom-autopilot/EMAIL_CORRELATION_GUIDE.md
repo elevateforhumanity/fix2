@@ -536,4 +536,4 @@ npx tsx src/email-correlation.ts thread <event-id>
 
 ## Support
 
-**Questions?** Contact: info@elevateforhumanity.org
+**Questions?** Contact: Elevate4humanityedu@gmail.com

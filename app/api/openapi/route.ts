@@ -11,7 +11,7 @@ export async function GET() {
       description: 'REST API documentation for the Elevate for Humanity workforce training and LMS platform.',
       contact: {
         name: 'Elevate for Humanity',
-        email: 'support@elevateforhumanity.org',
+        email: 'Elevate4humanityedu@gmail.com',
         url: 'https://elevateforhumanity.org'
       },
       license: {

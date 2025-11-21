@@ -343,7 +343,7 @@ Students may withdraw within 7 days for full refund. Pro-rated refunds available
 **Primary Contact:**  
 [Name]  
 Executive Director, Elevate for Humanity  
-Email: info@elevateforhumanity.org  
+Email: Elevate4humanityedu@gmail.com  
 Phone: (317) 314-3757  
 Website: https://elevateforhumanity.org
 

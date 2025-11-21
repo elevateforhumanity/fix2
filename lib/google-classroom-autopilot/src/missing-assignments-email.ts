@@ -204,7 +204,7 @@ function generateStudentEmail(report: StudentReport): string {
     </div>
     <div class="footer">
       <p>This is an automated message from Elevate for Humanity LMS</p>
-      <p>If you have questions, contact: info@elevateforhumanity.org</p>
+      <p>If you have questions, contact: Elevate4humanityedu@gmail.com</p>
     </div>
   </div>
 </body>
@@ -268,7 +268,7 @@ function generateGuardianEmail(report: StudentReport): string {
     </div>
     <div class="footer">
       <p>Elevate for Humanity - Supporting Student Success</p>
-      <p>Questions? Contact: info@elevateforhumanity.org</p>
+      <p>Questions? Contact: Elevate4humanityedu@gmail.com</p>
     </div>
   </div>
 </body>
@@ -483,7 +483,7 @@ export async function sendMissingAssignmentsEmails() {
             const result = await emailService.send({
               to: [guardianEmail],
               from: process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
-              replyTo: 'info@elevateforhumanity.org',
+              replyTo: 'Elevate4humanityedu@gmail.com',
               subject: `📧 Weekly Update: ${report.studentName} has ${report.totalMissing} missing assignment${report.totalMissing !== 1 ? 's' : ''}`,
               html: emailHtml,
               tags: {

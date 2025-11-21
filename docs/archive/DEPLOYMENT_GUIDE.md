@@ -448,7 +448,7 @@ jobs:
 ## Support
 
 **Issues:** https://github.com/elevateforhumanity/fix2/issues  
-**Email:** support@elevateforhumanity.org  
+**Email:** Elevate4humanityedu@gmail.com  
 **Phone:** (317) 314-3757
 
 ---

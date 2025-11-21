@@ -579,7 +579,7 @@ Copy each block below and paste into Durable's Custom HTML sections.
         Our support team is here to assist you Monday-Friday, 9 AM - 5 PM EST
       </p>
       <p style="color: #374151;">
-        <strong>Email:</strong> support@elevateforhumanity.org
+        <strong>Email:</strong> Elevate4humanityedu@gmail.com
       </p>
       <p style="color: #374151;"><strong>Phone:</strong> (555) 123-4567</p>
     </div>

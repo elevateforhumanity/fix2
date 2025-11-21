@@ -179,7 +179,7 @@ Email: compliance@elevateforhumanity.org
 Phone: (317) 555-0102
 
 ### Technical Support
-Email: support@elevateforhumanity.org
+Email: Elevate4humanityedu@gmail.com
 Portal: elevateforhumanity.org/support
 
 ---

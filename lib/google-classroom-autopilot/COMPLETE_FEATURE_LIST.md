@@ -250,7 +250,7 @@ These files you mentioned you'd provide:
 
 ## 📞 Support
 
-**Questions?** Contact: info@elevateforhumanity.org
+**Questions?** Contact: Elevate4humanityedu@gmail.com
 
 **Ready to drop your files?** Just drag and drop them into VSCode and let me know!
 

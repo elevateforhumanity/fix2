@@ -429,7 +429,7 @@ npx tsx src/missing-assignments-email.ts
 
 ## Support
 
-**Questions?** Contact: info@elevateforhumanity.org
+**Questions?** Contact: Elevate4humanityedu@gmail.com
 
 **Provider Issues?**
 

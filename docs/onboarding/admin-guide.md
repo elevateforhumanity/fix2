@@ -88,7 +88,7 @@ This guide explains how to administer tenants, programs, and users in the Elevat
 
 ## 6. Support and Resources
 
-- Technical support: support@elevateforhumanity.org
+- Technical support: Elevate4humanityedu@gmail.com
 - Documentation: `/docs`
 - Runbooks: `/docs/runbooks`
 

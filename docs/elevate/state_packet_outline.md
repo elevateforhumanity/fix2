@@ -11,7 +11,7 @@ Credentialed • Verifiable • Workforce-Aligned
 **Organization Name**: Elevate for Humanity  
 **Website**: https://www.elevateforhumanity.org  
 **Phone**: 317-314-3757  
-**Email**: support@elevateforhumanity.org
+**Email**: Elevate4humanityedu@gmail.com
 
 **Mission**: Provide free/subsidized credentialed workforce training aligned with employer and state priorities.
 
@@ -331,7 +331,7 @@ Our model aligns with:
 
 **Primary Contact**: Elevate for Humanity Team  
 **Phone**: 317-314-3757  
-**Email**: support@elevateforhumanity.org  
+**Email**: Elevate4humanityedu@gmail.com  
 **Website**: https://www.elevateforhumanity.org
 
 ### For State Agencies
