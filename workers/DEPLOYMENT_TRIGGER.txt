@@ -1,14 +1,39 @@
-AUTOPILOT_TASK: promote_to_production
-ACTION: get_latest_deployment_and_promote
-DOMAIN: www.elevateforhumanity.org
+AUTOPILOT_TASK: full_vercel_inspection_and_fix
+ACTION: complete_audit_and_reconfigure
 PROJECT_ID: prj_S1qaRjgCpbvMkUuV2gob3ACLn8YO
-BRANCH: main
+DOMAIN: www.elevateforhumanity.org
+PREVIEW_URL: fix2-gpql-git-main-elevate-48e460c9.vercel.app
+
 INSTRUCTIONS: |
-  1. Get latest deployment from main branch
-  2. Promote that deployment to production
-  3. Assign to www.elevateforhumanity.org domain
-  4. Purge all caches
-  5. Verify production shows new images
-TIMESTAMP: 2025-11-22T09:16:00Z
+  STEP 1: FULL INSPECTION
+  - List ALL deployments (last 20)
+  - Check which deployment is assigned to www.elevateforhumanity.org
+  - Check which deployment is assigned to preview URL
+  - Get deployment IDs, commit SHAs, and timestamps
+  - Identify the LATEST main branch deployment
+  
+  STEP 2: IDENTIFY ISSUE
+  - Compare production deployment vs preview deployment
+  - Check if they're different deployments
+  - Verify which one has the new images (commit af238d6e or later)
+  
+  STEP 3: FIX CONFIGURATION
+  - Get the EXACT deployment ID from preview URL
+  - Assign that SAME deployment to www.elevateforhumanity.org
+  - Remove any old deployment assignments
+  - Set as production deployment
+  
+  STEP 4: VERIFY
+  - Confirm www.elevateforhumanity.org points to correct deployment
+  - Purge all Vercel caches
+  - Test that both URLs serve identical content
+  
+  STEP 5: REPORT
+  - Log all findings
+  - Report deployment IDs
+  - Confirm fix applied
+
+TIMESTAMP: 2025-11-22T09:25:00Z
 TRIGGERED_BY: ona
-PRIORITY: URGENT
+PRIORITY: CRITICAL
+STATUS: AWAITING_AUTOPILOT_EXECUTION
