@@ -64,8 +64,138 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* What We Do - Light Section */}
+      <section className="py-20 bg-white border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="text-center mb-12">
+            <p className="text-xs font-semibold tracking-wide text-emerald-600 uppercase mb-4">
+              What we do
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+              A complete workforce development ecosystem
+            </h2>
+            <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
+              Elevate For Humanity combines training programs, technology, and support services
+              to help people build careers while helping employers find qualified talent.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">
+                🎓 Training Programs
+              </h3>
+              <p className="text-slate-700 mb-4">
+                We offer 20+ workforce-aligned training programs in healthcare, skilled trades,
+                transportation, and more. Programs include:
+              </p>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>Certified Nursing Assistant (CNA), Medical Assistant, Phlebotomy</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>CDL-A and CDL-B truck driving, Forklift certification</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>HVAC, Electrical, Plumbing, Welding, Construction trades</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>IT Support, Customer Service, Business Administration</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">
+                💰 Funding Support
+              </h3>
+              <p className="text-slate-700 mb-4">
+                Most programs are funded through government workforce programs, making training
+                affordable or free for eligible learners:
+              </p>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>WIOA (Workforce Innovation and Opportunity Act)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>Workforce Readiness Grants and state funding</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>On-the-Job Training (OJT) and Work Experience (WEX)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>Employer sponsorships and scholarships</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">
+                🤝 Support Services
+              </h3>
+              <p className="text-slate-700 mb-4">
+                We help learners overcome barriers to success with wraparound support:
+              </p>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>Career counseling and job placement assistance</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>Transportation and childcare support coordination</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>Soft skills training and professional development</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>Retention support after job placement</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">
+                💻 Technology Platform
+              </h3>
+              <p className="text-slate-700 mb-4">
+                Our SaaS platform connects everyone in the workforce ecosystem:
+              </p>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>Student portal for course access, progress tracking, and certificates</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>Employer portal for job posting and candidate matching</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>Workforce board dashboard for real-time outcomes reporting</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-600 font-bold">•</span>
+                  <span>Partner portal for training providers and instructors</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Three-Column Value Prop */}
-      <section className="py-20 border-b border-slate-800">
+      <section className="py-20 bg-slate-950 border-b border-slate-800">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
