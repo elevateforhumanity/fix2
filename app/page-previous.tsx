@@ -151,7 +151,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-            {/* CNA / MA */}
+            {/* CNA */}
             <ProgramCard
               href="/programs/medical-assistant"
               imageSrc="/images/efh-cna-hero.jpg"
@@ -239,7 +239,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WHAT WE DO – ecosystem overview */}
+      {/* WHAT WE DO – lighter "ecosystem" overview */}
       <section className="border-b border-slate-800 bg-slate-950 py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="mb-10 text-center">
@@ -297,117 +297,6 @@ export default function HomePage() {
                 "Outcome reporting and stories",
               ]}
             />
-          </div>
-        </div>
-      </section>
-
-      {/* SUCCESS STORIES – strip with photos */}
-      <section className="border-b border-slate-200 bg-white py-16 text-slate-900">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-600">
-                Success stories
-              </p>
-              <h2 className="mt-1 text-2xl font-bold sm:text-3xl">
-                Real people. Real careers. Real second chances.
-              </h2>
-              <p className="mt-2 text-sm text-slate-600 max-w-xl">
-                Learners come to Elevate from different starting points —
-                justice-involved, single parents, career changers — and leave
-                with tangible skills and a clearer path forward.
-              </p>
-            </div>
-            <Link
-              href="/success-stories"
-              className="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-2 text-xs font-semibold text-slate-700 hover:border-emerald-500 hover:text-emerald-600"
-            >
-              Read more stories
-            </Link>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            <SuccessStoryCard
-              imageSrc="https://placehold.co/300x300/0f172a/e5e7eb?text=Marcus"
-              imageAlt="Marcus - Barber Graduate"
-              name="Marcus J."
-              label="Barber Apprenticeship Graduate"
-              quote="From incarceration to owning my own chair. Elevate gave me the structure, mentorship, and accountability I needed."
-              badge="Re-entry • Apprenticeship"
-            />
-            <SuccessStoryCard
-              imageSrc="https://placehold.co/300x300/1e293b/f97316?text=Sarah"
-              imageAlt="Sarah - Medical Assistant Graduate"
-              name="Sarah M."
-              label="Medical Assistant Graduate"
-              quote="Single mom to certified MA in months. Now I'm in a clinic with benefits, and my kids see me in a totally different light."
-              badge="Healthcare • Single parent"
-            />
-            <SuccessStoryCard
-              imageSrc="https://placehold.co/300x300/022c22/a7f3d0?text=James"
-              imageAlt="James - HVAC Technician Graduate"
-              name="James T."
-              label="HVAC Technician Graduate"
-              quote="I went from warehouse work to a skilled trade. I'm making more, learning every day, and my next move is my own license."
-              badge="Skilled trades • Career change"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* VIDEO HIGHLIGHTS – for your InVideo clips */}
-      <section className="border-b border-slate-800 bg-slate-950 py-18 md:py-20">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
-                Watch how it works
-              </p>
-              <h2 className="mt-1 text-2xl font-bold sm:text-3xl">
-                Short videos that break it down.
-              </h2>
-              <p className="mt-2 text-sm text-slate-300 max-w-xl">
-                Use these slots for InVideo clips: one big Elevate overview and a
-                couple of spotlights on programs and employer partnerships.
-                When the videos are ready, we simply swap the thumbnails and
-                links.
-              </p>
-            </div>
-            <span className="text-[11px] text-slate-500">
-              Videos coming online as media is finalized.
-            </span>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {/* Big feature video (spans 2 columns on desktop) */}
-            <div className="md:col-span-2">
-              <VideoHighlightCard
-                variant="primary"
-                duration="1:00"
-                title="Elevate in 60 seconds: funded training, support & real employer pathways."
-                description="High-level overview of who Elevate serves, how funding works, and what &quot;career pathways&quot; actually mean in real life."
-                thumbnail="https://placehold.co/1200x675/020617/f97316?text=Elevate+Overview+Video"
-                href="/videos/elevate-overview"
-              />
-            </div>
-
-            {/* Side smaller videos */}
-            <div className="space-y-4">
-              <VideoHighlightCard
-                duration="2:30"
-                title="Program spotlight: Barber Apprenticeship &amp; re-entry success."
-                description="Walk through how the apprenticeship hours work, what support looks like, and how graduates transition into ownership."
-                thumbnail="https://placehold.co/600x340/0f172a/e5e7eb?text=Barber+Spotlight"
-                href="/videos/barber-spotlight"
-              />
-              <VideoHighlightCard
-                duration="2:00"
-                title="For employers &amp; workforce partners: how we make talent pipelines easier."
-                description="Quick breakdown of OJT, WEX, and how Elevate handles the compliance and coordination so you can focus on hiring."
-                thumbnail="https://placehold.co/600x340/022c22/a7f3d0?text=Employer+%2F+Workforce+Video"
-                href="/videos/employer-pipeline"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -522,108 +411,5 @@ function WhatWeDoCard({ title, body, items }: WhatWeDoCardProps) {
         ))}
       </ul>
     </div>
-  );
-}
-
-type SuccessStoryCardProps = {
-  imageSrc: string;
-  imageAlt: string;
-  name: string;
-  label: string;
-  quote: string;
-  badge: string;
-};
-
-function SuccessStoryCard({
-  imageSrc,
-  imageAlt,
-  name,
-  label,
-  quote,
-  badge,
-}: SuccessStoryCardProps) {
-  return (
-    <article className="flex flex-col rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <div className="flex items-center gap-3">
-        <div className="relative h-14 w-14 overflow-hidden rounded-full bg-slate-200">
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div>
-          <div className="text-sm font-semibold text-slate-900">{name}</div>
-          <div className="text-[11px] text-slate-500">{label}</div>
-          <div className="mt-1 inline-flex rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-700">
-            {badge}
-          </div>
-        </div>
-      </div>
-      <p className="mt-3 text-xs text-slate-700">&quot;{quote}&quot;</p>
-    </article>
-  );
-}
-
-type VideoHighlightCardProps = {
-  thumbnail: string;
-  title: string;
-  description: string;
-  duration: string;
-  href: string;
-  variant?: "primary" | "default";
-};
-
-function VideoHighlightCard({
-  thumbnail,
-  title,
-  description,
-  duration,
-  href,
-  variant = "default",
-}: VideoHighlightCardProps) {
-  const primary = variant === "primary";
-
-  return (
-    <Link
-      href={href}
-      className={`group block h-full rounded-2xl border bg-slate-900/70 p-3 text-slate-100 transition hover:border-emerald-400 ${
-        primary ? "border-slate-700 md:p-4" : "border-slate-800"
-      }`}
-    >
-      <div className="relative mb-3 overflow-hidden rounded-xl">
-        <Image
-          src={thumbnail}
-          alt={title}
-          width={primary ? 1200 : 600}
-          height={primary ? 675 : 340}
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-        {/* Play overlay */}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition group-hover:opacity-100">
-          <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold text-slate-900">
-            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-slate-900 text-[10px] text-white">
-              ►
-            </span>
-            <span>Play video</span>
-          </div>
-        </div>
-        {/* Duration pill */}
-        <div className="absolute bottom-2 right-2 rounded-full bg-black/70 px-2 py-0.5 text-[10px] font-medium text-white">
-          {duration}
-        </div>
-      </div>
-      <div>
-        <h3
-          className={`text-xs font-semibold ${
-            primary ? "sm:text-sm" : "text-xs"
-          }`}
-        >
-          {title}
-        </h3>
-        <p className="mt-2 text-[11px] text-slate-300">{description}</p>
-      </div>
-    </Link>
   );
 }

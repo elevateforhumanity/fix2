@@ -7,8 +7,8 @@ import '@/styles/tiktok-animations.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
-import CourseraStyleHeader from '@/components/CourseraStyleHeader';
-import CourseraStyleFooter from '@/components/CourseraStyleFooter';
+import { MainNav } from '@/components/layout/MainNav';
+import { SiteFooter } from '@/components/layout/Footer';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
@@ -109,7 +109,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#2563EB" />
         <StructuredData />
       </head>
-      <body className={`${inter.className} antialiased bg-white`}>
+      <body className={`${inter.className} antialiased bg-slate-950`}>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-md focus:shadow-lg"
@@ -118,9 +118,9 @@ export default function RootLayout({
         </a>
         <GoogleAnalytics />
         <FacebookPixel />
-        <CourseraStyleHeader />
+        <MainNav />
         <main id="main-content">{children}</main>
-        <CourseraStyleFooter />
+        <SiteFooter />
         <ElevateChatWidget />
         <CookieBanner />
         <PWAInstallPrompt />
