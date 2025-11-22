@@ -12,6 +12,7 @@ import CourseraStyleFooter from '@/components/CourseraStyleFooter';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
+import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -122,6 +123,7 @@ export default function RootLayout({
         <CourseraStyleFooter />
         <ElevateChatWidget />
         <CookieBanner />
+        <PWAInstallPrompt />
         <Toaster
           position="top-right"
           toastOptions={{
