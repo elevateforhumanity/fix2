@@ -149,6 +149,67 @@
 
 ---
 
+### 3. INDOT Certifications (Transportation)
+
+**Available Through ITAP (Indiana Transparency and Accountability Portal):**
+
+#### A. DBE (Disadvantaged Business Enterprise)
+**Managed By:** Indiana Department of Transportation (INDOT)  
+**Status:** ✅ ITAP ENROLLMENT APPROVED
+
+**Eligibility:**
+- Small business (meets SBA size standards)
+- At least 51% owned by socially and economically disadvantaged individuals
+- Disadvantaged individuals control management and operations
+- Personal net worth below threshold
+
+**Socially Disadvantaged Groups:**
+- African American ✅
+- Hispanic American
+- Native American
+- Asian American
+- Pacific Islander American
+- Women (if economically disadvantaged)
+
+**Your Eligibility:** ✅ LIKELY ELIGIBLE (Black-owned business)
+
+**Benefits:**
+- Access to INDOT contracts
+- DBE set-aside contracts
+- Goal-based contracting
+- Transportation projects
+- Federal-aid highway projects
+
+#### B. ACDBE (Airport Concession Disadvantaged Business Enterprise)
+**Managed By:** Indiana Department of Transportation (INDOT)  
+**Status:** ✅ ITAP ENROLLMENT APPROVED
+
+**Eligibility:**
+- Same as DBE requirements
+- Focused on airport concessions
+- Retail, food service, rental cars, etc.
+
+**Your Eligibility:** ✅ LIKELY ELIGIBLE (Black-owned business)
+
+**Benefits:**
+- Airport concession opportunities
+- Indianapolis International Airport
+- Regional airports
+- ACDBE set-aside contracts
+
+#### C. PSCS (Professional Services Contracting System)
+**Optional:** Only required if submitting Letters of Interest for INDOT RFPs
+
+**What is PSCS:**
+- Professional Services Contracting System
+- For engineering, architectural, consulting services
+- Letters of Interest for INDOT projects
+- Not required for DBE/ACDBE certification
+
+**Your Need:** Likely NOT required (workforce development, not engineering)
+
+---
+
 ## 📋 How to Apply for Supplier Diversity Certifications
 
 ### Application Process:
@@ -203,6 +264,20 @@
 - [ ] Complete MBE application
 - [ ] Submit for review
 
+**3. Apply for DBE Certification (INDOT)**
+- [ ] Login to ITAP (enrollment already approved)
+- [ ] Request new DBE certification application
+- [ ] Complete DBE application
+- [ ] Provide required documentation
+- [ ] Submit for review
+
+**4. Apply for ACDBE Certification (INDOT)**
+- [ ] Login to ITAP (enrollment already approved)
+- [ ] Request new ACDBE certification application
+- [ ] Complete ACDBE application
+- [ ] Provide required documentation
+- [ ] Submit for review
+
 **3. Update Marketing Materials**
 - [ ] Add Indiana Procurement Registration to website
 - [ ] Include Bidder ID in proposals
@@ -230,10 +305,17 @@
 - **Certification Requirements:** Available on website
 - **Application Portal:** Online application system
 
+### INDOT Certifications:
+- **ITAP Portal:** Indiana Transparency and Accountability Portal
+- **DBE/ACDBE Applications:** Access through ITAP
+- **INDOT:** www.in.gov/indot
+- **Status:** ✅ ITAP Enrollment Approved
+
 ### Procurement Opportunities:
 - **Indiana Procurement Portal:** Access via IDOA website
 - **Bid Notifications:** Set up through portal
 - **Contract Awards:** Published on portal
+- **INDOT Opportunities:** Access through ITAP/PSCS (if applicable)
 
 ---
 
@@ -373,6 +455,8 @@ ByBlack Certified Business
 - [ ] Minority Business Enterprise (MBE) - HIGHLY RECOMMENDED
 - [ ] Women's Business Enterprise (WBE) - if eligible
 - [ ] Indiana Veteran Owned Small Business (IVOSBE) - if eligible
+- [ ] DBE (Disadvantaged Business Enterprise) - INDOT - NEW!
+- [ ] ACDBE (Airport Concession DBE) - INDOT - NEW!
 
 **Training Partnerships:**
 1. ✅ JRI (Job Readiness Initiative) - EmployIndy
