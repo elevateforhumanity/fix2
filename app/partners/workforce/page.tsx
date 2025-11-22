@@ -1,263 +1,353 @@
-import { createClient } from '@/lib/supabase/server';
-import Link from 'next/link';
+// app/partners/workforce/page.tsx
+import Link from "next/link";
 
-export const metadata = {
-  title: 'Workforce Partners | Elevate for Humanity',
-  description:
-    'WIOA, WRG, JRI, Apprenticeship, and SEAL-aligned training programs for workforce development partners.',
-};
-
-const fundingTypes = [
-  { name: 'WIOA', color: 'bg-red-600' },
-  { name: 'WRG-Style', color: 'bg-orange-600' },
-  { name: 'JRI', color: 'bg-green-600' },
-  { name: 'Apprenticeship', color: 'bg-purple-600' },
-  { name: 'SEAL', color: 'bg-indigo-600' },
-  { name: 'Reentry', color: 'bg-teal-600' },
-];
-
-const alignments = [
-  'WIOA Adult/Dislocated Worker',
-  'WIOA Youth (in-school & out-of-school)',
-  'WRG-Style Training Programs',
-  'Local workforce boards',
-  'JRI (Justice Reinvestment Initiatives)',
-  'Reentry workforce transition',
-  'State Earn & Learn (SEAL)',
-  'Registered Apprenticeship (DOL)',
-  'TANF / SNAP Employment & Training',
-  'On-The-Job Training (OJT)',
-  'Work Experience (WEX)',
-];
-
-const deliverables = [
-  'Printable enrollment confirmations',
-  'LMS progress tracking',
-  'Completion certificates',
-  'Program codes (CIP/SOC)',
-  'Employer connections',
-  'Case manager dashboard access',
-];
-
-export default async function WorkforcePartnersPage() {
-  const supabase = await createClient();
-
-  // Fetch all published programs with CIP/SOC codes
-  const { data: programs } = await supabase
-    .from('programs')
-    .select('*')
-    .eq('status', 'published')
-    .order('title');
-
+export default function WorkforcePartnersPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#002F6C] to-[#004B8D] text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Workforce & Apprenticeship-Aligned Training Provider
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Serving Youth · Adults · Dislocated Workers · Reentry · TANF ·
-              SNAP · WIOA
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {fundingTypes.map((type) => (
-                <span
-                  key={type.name}
-                  className={`${type.color} text-white px-4 py-2 rounded-full text-sm font-semibold`}
-                >
-                  {type.name}
+    <main className="min-h-screen bg-slate-950 text-white">
+      {/* HERO */}
+      <section className="border-b border-slate-800 bg-gradient-to-br from-slate-950 via-slate-950 to-emerald-500/10">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 lg:px-12 lg:py-20">
+          <nav className="mb-6 text-xs text-slate-400">
+            <Link href="/" className="hover:text-emerald-300">
+              Home
+            </Link>{" "}
+            /{" "}
+            <span className="text-slate-200">
+              Workforce &amp; Case Manager Partners
+            </span>
+          </nav>
+
+          <div className="grid gap-10 md:grid-cols-[1.6fr,1.3fr] md:items-center">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                For workforce boards, re-entry, and community partners
+              </p>
+              <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+                A turnkey training and placement ecosystem you can plug your
+                clients into.
+              </h1>
+              <p className="mt-4 text-sm text-slate-200 sm:text-base max-w-xl">
+                Elevate For Humanity aligns with{" "}
+                <span className="font-semibold text-emerald-300">
+                  WIOA, re-entry, and state workforce goals
+                </span>{" "}
+                by providing funded training pathways, barrier-aware support,
+                and direct employer connections — all under one roof.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3 text-[11px]">
+                <span className="rounded-full border border-emerald-500/60 bg-emerald-500/10 px-3 py-1 text-emerald-300">
+                  ETPL-aligned programs (where approved)
                 </span>
-              ))}
+                <span className="rounded-full border border-slate-700 px-3 py-1 text-slate-200">
+                  Work-based learning (OJT, WEX, apprenticeships)
+                </span>
+                <span className="rounded-full border border-slate-700 px-3 py-1 text-slate-200">
+                  Outcomes & reporting for boards and funders
+                </span>
+              </div>
+
+              <div className="mt-7 flex flex-wrap gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-7 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+                >
+                  Refer a client or cohort
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-600 px-7 py-3 text-sm font-semibold text-slate-100 hover:border-emerald-400 hover:text-emerald-300"
+                >
+                  Request a partner meeting
+                </Link>
+              </div>
+
+              <p className="mt-4 text-[11px] text-slate-500 max-w-lg">
+                We can align with your local board policies, documentation, and
+                reporting needs. Indiana-focused with the ability to expand as
+                approvals are added.
+              </p>
+            </div>
+
+            {/* Quick stats / tiles */}
+            <div className="grid gap-4 text-xs text-slate-200 md:grid-cols-2">
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+                <h2 className="text-sm font-semibold text-white mb-2">
+                  Priority sectors
+                </h2>
+                <ul className="space-y-1">
+                  <li>• Healthcare (CNA, MA, Phlebotomy)</li>
+                  <li>• Skilled trades (HVAC, Building Maintenance)</li>
+                  <li>• Transportation (CDL, Forklift)</li>
+                  <li>• Office &amp; customer service pathways</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+                <h2 className="text-sm font-semibold text-white mb-2">
+                  Designed for:
+                </h2>
+                <ul className="space-y-1">
+                  <li>• WIOA adults and dislocated workers</li>
+                  <li>• SNAP / TANF participants</li>
+                  <li>• Justice-involved / re-entry</li>
+                  <li>• Youth and opportunity youth (where aligned)</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+                <h2 className="text-sm font-semibold text-white mb-2">
+                  Support ecosystem
+                </h2>
+                <ul className="space-y-1">
+                  <li>• Case conferencing and warm handoffs</li>
+                  <li>• Attendance and progress updates</li>
+                  <li>• Barrier navigation and referrals</li>
+                  <li>• Job placement and retention support</li>
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+                <h2 className="text-sm font-semibold text-white mb-2">
+                  Reporting & outcomes
+                </h2>
+                <ul className="space-y-1">
+                  <li>• Enrollment and completion tracking</li>
+                  <li>• Industry-recognized credentials (where applicable)</li>
+                  <li>• Employment and wage outcomes (where shared)</li>
+                  <li>• Stories and impact for boards and funders</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      {/* Mission Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-[#0f0f14] mb-6">
-              Our Mission
-            </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Elevate for Humanity provides accessible, high-impact career
-              training programs that accelerate employability, support community
-              uplift, and meet the needs of employers across Indiana and the
-              United States. Our programs align with WIOA, WRG-style funding,
-              Job Ready Indy, JRI, Reentry, Apprenticeship,
-              and SEAL pathways.
-            </p>
-          </div>
-        </div>
-      </section>
-      {/* Program Features */}
-      <section className="py-16 bg-[#f9e5d4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-[#0f0f14] mb-12">
-            All Programs Include
+
+      {/* HOW IT WORKS FOR PARTNERS */}
+      <section className="border-b border-slate-800 bg-slate-950 py-16">
+        <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
+          <h2 className="text-2xl font-semibold text-white text-center mb-2">
+            How partnering with Elevate works
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              'Career exploration',
-              'Employability skills',
-              'Digital literacy',
-              'Financial literacy',
-              'Industry certification prep',
-              'Hands-on skills development',
-              'LMS access + tracking',
-              'Case manager receipts',
-            ].map((feature) => (
-              <div key={feature} className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="flex items-start">
-                  <span className="text-[#ef7c2a] text-2xl mr-3">✓</span>
-                  <span className="text-gray-800 font-medium">{feature}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* Programs with CIP/SOC Codes */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#0f0f14] mb-4">
-              CIP/SOC Workforce Crosswalk
-            </h2>
-            <p className="text-lg text-gray-600">
-              All {programs?.length || 16} programs are ETPL-approved with
-              official CIP and SOC codes
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            {programs?.map((program) => (
-              <div
-                key={program.id}
-                className="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-[#ef7c2a] transition-colors"
-              >
-                <h3 className="text-xl font-bold text-[#0f0f14] mb-3">
-                  {program.title}
-                </h3>
-                {program.cip_code && (
-                  <div className="mb-2">
-                    <span className="text-sm font-semibold text-[#004B8D]">
-                      CIP Code:
-                    </span>{' '}
-                    <span className="text-sm text-gray-700">
-                      {program.cip_code}
-                    </span>
-                  </div>
-                )}
-                {program.soc_code && (
-                  <div className="mb-3">
-                    <span className="text-sm font-semibold text-[#004B8D]">
-                      SOC Code:
-                    </span>{' '}
-                    <span className="text-sm text-gray-700">
-                      {program.soc_code}
-                    </span>
-                  </div>
-                )}
-                {program.description && (
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
-                    {program.description}
-                  </p>
-                )}
-                <Link
-                  href={`/lms/programs/${program.id}`}
-                  className="inline-block text-sm font-semibold text-[#ef7c2a] hover:text-[#004B8D] transition-colors"
-                >
-                  View Program Details →
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* Alignment Section */}
-      <section className="py-16 bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-[#0f0f14] mb-12">
-            We Align To
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            {alignments.map((alignment) => (
-              <div
-                key={alignment}
-                className="flex items-center bg-white p-4 rounded-lg shadow-sm"
-              >
-                <span className="text-[#ef7c2a] text-xl mr-3">✓</span>
-                <span className="text-gray-800 text-sm font-medium">
-                  {alignment}
+          <p className="text-sm text-slate-300 text-center max-w-3xl mx-auto mb-8">
+            We keep things simple: clear pathways, realistic expectations, and
+            communication that makes life easier for case managers — not harder.
+          </p>
+
+          <div className="grid gap-6 md:grid-cols-4 text-sm">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-center">
+              <div className="mb-3 flex items-center justify-center">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-slate-950">
+                  1
                 </span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* Case Manager Deliverables */}
-      <section className="py-16 bg-[#f9e5d4]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-[#0f0f14] mb-12">
-            Case Manager–Ready Deliverables
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {deliverables.map((item) => (
-              <div
-                key={item}
-                className="bg-white p-6 rounded-lg shadow-sm text-center"
-              >
-                <span className="text-[#004B8D] font-semibold">{item}</span>
+              <h3 className="font-semibold mb-2 text-white">
+                Align on pathways
+              </h3>
+              <p className="text-slate-300 text-xs">
+                We review your priority sectors, populations, and funding
+                streams, then align them with specific programs.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-center">
+              <div className="mb-3 flex items-center justify-center">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-slate-950">
+                  2
+                </span>
               </div>
-            ))}
+              <h3 className="font-semibold mb-2 text-white">
+                Set referral flow
+              </h3>
+              <p className="text-slate-300 text-xs">
+                We agree on how referrals come in, how quickly we respond, and
+                what information you need back.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-center">
+              <div className="mb-3 flex items-center justify-center">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-slate-950">
+                  3
+                </span>
+              </div>
+              <h3 className="font-semibold mb-2 text-white">
+                Train & support
+              </h3>
+              <p className="text-slate-300 text-xs">
+                Learners get instruction, coaching, and barrier navigation while
+                you receive updates without chasing them down.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-center">
+              <div className="mb-3 flex items-center justify-center">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-slate-950">
+                  4
+                </span>
+              </div>
+              <h3 className="font-semibold mb-2 text-white">
+                Place & report
+              </h3>
+              <p className="text-slate-300 text-xs">
+                We move learners into work-based learning or jobs and provide
+                documentation you can use for board and grant reporting.
+              </p>
+            </div>
           </div>
         </div>
       </section>
-      {/* Download Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-[#0f0f14] mb-6">
-            Download Partner Packet
+
+      {/* PROGRAMS SNAPSHOT */}
+      <section className="border-b border-slate-200 bg-white py-16 text-slate-900">
+        <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
+          <h2 className="text-2xl font-semibold text-center mb-2">
+            Priority pathways for your clients
           </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Get the complete workforce partner packet with all program details,
-            CIP/SOC codes, and funding alignment information.
+          <p className="text-sm text-slate-600 text-center max-w-3xl mx-auto mb-8">
+            We focus on sectors with strong demand, stackable credentials, and
+            real advancement opportunities.
           </p>
-          <a
-            href="/workforce-partner-packet.md"
-            download
-            className="inline-block bg-[#ef7c2a] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#004B8D] transition-colors"
-          >
-            Download Partner Packet
-          </a>
-        </div>
-      </section>
-      {/* Contact Section */}
-      <section className="py-16 bg-gradient-to-r from-[#002F6C] to-[#004B8D] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Partner With Us</h2>
-          <p className="text-xl mb-8 text-blue-100">
-            Ready to connect your workforce clients with career-ready training?
-          </p>
-          <div className="space-y-4">
-            <p className="text-lg">
-              <span className="font-semibold">Phone:</span> 317-314-3757
-            </p>
-            <p className="text-lg">
-              <span className="font-semibold">Location:</span> Indianapolis, IN
+
+          <div className="grid gap-6 md:grid-cols-3 text-sm">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="font-semibold mb-2">Healthcare</h3>
+              <ul className="space-y-1 text-xs text-slate-700">
+                <li>• CNA</li>
+                <li>• Medical Assistant</li>
+                <li>• Phlebotomy (varies by partner)</li>
+              </ul>
+              <p className="mt-3 text-[11px] text-slate-500">
+                Strong demand, clear licensure steps, and options to stack into
+                higher credentials.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="font-semibold mb-2">Skilled trades &amp; facility</h3>
+              <ul className="space-y-1 text-xs text-slate-700">
+                <li>• HVAC Technician</li>
+                <li>• Building Maintenance Technician</li>
+              </ul>
+              <p className="mt-3 text-[11px] text-slate-500">
+                Ideal for hands-on learners ready to move beyond general labor
+                into trades with growth.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="font-semibold mb-2">Transportation &amp; office</h3>
+              <ul className="space-y-1 text-xs text-slate-700">
+                <li>• CDL / Truck driving (with partners)</li>
+                <li>• Forklift &amp; warehouse operations</li>
+                <li>• Customer service / office pathways</li>
+              </ul>
+              <p className="mt-3 text-[11px] text-slate-500">
+                Fast entry into higher-wage roles with clear job openings in the
+                region.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-700">
+            <p>
+              We can tailor which pathways you make available based on your
+              region, board approvals, and employer demand.
             </p>
             <Link
-              href="/contact"
-              className="inline-block mt-6 bg-[#ef7c2a] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#004B8D] transition-colors"
+              href="/directory"
+              className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-2 text-xs font-semibold hover:border-emerald-500 hover:text-emerald-600"
             >
-              Contact Us
+              View full program directory
             </Link>
           </div>
         </div>
       </section>
-    </div>
+
+      {/* CASE MANAGER EXPERIENCE */}
+      <section className="border-b border-slate-800 bg-slate-950 py-16">
+        <div className="mx-auto max-w-6xl px-6 md:px-10 lg:px-12">
+          <div className="grid gap-10 md:grid-cols-[1.5fr,1.5fr] text-sm">
+            <div>
+              <h2 className="text-2xl font-semibold mb-3 text-white">
+                Make life easier for case managers.
+              </h2>
+              <p className="text-slate-300 mb-4">
+                You should not have to chase down instructors to see if someone
+                showed up, is participating, or is close to completing. Our
+                platform and processes are built to keep you in the loop.
+              </p>
+              <ul className="space-y-2 text-slate-200">
+                <li>• Clear referral intake and confirmation</li>
+                <li>• Attendance and engagement signals</li>
+                <li>• Progress snapshots you can paste into case notes</li>
+                <li>• Communication that respects your time and caseload</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 text-xs text-slate-200">
+              <h3 className="text-sm font-semibold text-white mb-2">
+                Example communication flow
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <span className="font-semibold text-emerald-300">
+                    • At referral:
+                  </span>{" "}
+                  we confirm receipt, eligibility checks, and target cohort
+                  start.
+                </li>
+                <li>
+                  <span className="font-semibold text-emerald-300">
+                    • At enrollment:
+                  </span>{" "}
+                  we share start date, schedule, and program contact.
+                </li>
+                <li>
+                  <span className="font-semibold text-emerald-300">
+                    • Mid-program:
+                  </span>{" "}
+                  we can provide a brief update if you request it (attendance,
+                  engagement, issues).
+                </li>
+                <li>
+                  <span className="font-semibold text-emerald-300">
+                    • At completion:
+                  </span>{" "}
+                  we confirm completion, credential (if any), and next steps for
+                  placement.
+                </li>
+              </ul>
+              <p className="mt-3 text-[11px] text-slate-500">
+                We can adjust this cadence based on your board or agency&apos;s
+                requirements.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="bg-gradient-to-br from-emerald-500/15 via-slate-950 to-slate-950 py-16">
+        <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
+          <h2 className="text-2xl font-bold sm:text-3xl">
+            Ready to explore a partnership or refer your first learners?
+          </h2>
+          <p className="mt-3 text-sm text-slate-300">
+            We can start small with a single referral or co-design a cohort that
+            aligns with your board, re-entry program, or community initiative.
+          </p>
+          <div className="mt-7 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/apply"
+              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+            >
+              Refer a client or cohort
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/10"
+            >
+              Schedule a partner call
+            </Link>
+          </div>
+          <p className="mt-4 text-[11px] text-slate-500">
+            If you already have ETPL, OJT, or other agreements in place, we can
+            align with them. If not, we can talk about what it would take.
+          </p>
+        </div>
+      </section>
+    </main>
   );
 }
