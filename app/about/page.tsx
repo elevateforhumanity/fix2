@@ -34,16 +34,15 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              {/* Feature Video */}
+              {/* Feature Video with Voiceover */}
               <div className="mb-8 rounded-2xl overflow-hidden shadow-xl">
                 <video
-                  autoPlay
+                  controls
                   loop
-                  muted
                   playsInline
                   className="w-full h-auto"
                 >
-                  <source src="/videos/hero-video.mp4" type="video/mp4" />
+                  <source src="/videos/hero-video-with-audio.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
