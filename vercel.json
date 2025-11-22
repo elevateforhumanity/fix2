@@ -7,5 +7,9 @@
   "github": {
     "silent": true,
     "autoJobCancelation": true
-  }
+  },
+  "alias": [
+    "www.elevateforhumanity.org",
+    "elevateforhumanity.org"
+  ]
 }
