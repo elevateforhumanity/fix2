@@ -37,11 +37,15 @@ export default {
       return await fixDomains(env);
     }
     
+    if (url.pathname === '/promote-to-production') {
+      return await promoteToProduction(env);
+    }
+    
     if (url.pathname === '/status') {
       return await getStatus(env);
     }
     
-    return new Response('Deployment Autopilot Worker\n\nEndpoints:\n- /monitor - Monitor and fix issues\n- /fix-domains - Fix domain configuration\n- /status - Get deployment status', {
+    return new Response('Deployment Autopilot Worker\n\nEndpoints:\n- /monitor - Monitor and fix issues\n- /fix-domains - Fix domain configuration\n- /promote-to-production - Promote latest deployment\n- /status - Get deployment status', {
       headers: { 'Content-Type': 'text/plain' }
     });
   },
@@ -304,6 +308,90 @@ async function triggerDeployment(env: Env): Promise<void> {
         repoId: 'elevateforhumanity/fix2'
       }
     })
+  });
+}
+
+async function promoteToProduction(env: Env): Promise<Response> {
+  console.log('🚀 Promoting latest deployment to production');
+
+  // 1. Get latest deployment from main branch
+  const deploymentsResponse = await fetch(
+    `https://api.vercel.com/v6/deployments?projectId=${env.VERCEL_PROJECT_ID}&limit=10`,
+    {
+      headers: {
+        'Authorization': `Bearer ${env.VERCEL_TOKEN}`
+      }
+    }
+  );
+
+  const deploymentsData = await deploymentsResponse.json();
+  const latestMainDeployment = deploymentsData.deployments?.find(
+    (d: any) => d.meta?.githubCommitRef === 'main' && d.readyState === 'READY'
+  );
+
+  if (!latestMainDeployment) {
+    return new Response(JSON.stringify({
+      error: 'No ready deployment found for main branch'
+    }), {
+      status: 404,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+
+  console.log(`Found latest deployment: ${latestMainDeployment.uid}`);
+
+  // 2. Promote to production by setting alias
+  const aliasResponse = await fetch(
+    `https://api.vercel.com/v2/deployments/${latestMainDeployment.uid}/aliases`,
+    {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.VERCEL_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        alias: 'www.elevateforhumanity.org'
+      })
+    }
+  );
+
+  const aliasData = await aliasResponse.json();
+
+  // 3. Also set root domain
+  const rootAliasResponse = await fetch(
+    `https://api.vercel.com/v2/deployments/${latestMainDeployment.uid}/aliases`,
+    {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.VERCEL_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        alias: 'elevateforhumanity.org'
+      })
+    }
+  );
+
+  const rootAliasData = await rootAliasResponse.json();
+
+  return new Response(JSON.stringify({
+    success: true,
+    deployment: {
+      id: latestMainDeployment.uid,
+      url: latestMainDeployment.url,
+      created: latestMainDeployment.createdAt
+    },
+    aliases: {
+      www: aliasData,
+      root: rootAliasData
+    },
+    message: 'Latest deployment promoted to production',
+    production_urls: [
+      'https://www.elevateforhumanity.org',
+      'https://elevateforhumanity.org'
+    ]
+  }, null, 2), {
+    headers: { 'Content-Type': 'application/json' }
   });
 }
 

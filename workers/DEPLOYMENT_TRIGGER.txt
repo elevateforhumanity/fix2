@@ -1,6 +1,14 @@
-AUTOPILOT_TASK: add_domain
+AUTOPILOT_TASK: promote_to_production
+ACTION: get_latest_deployment_and_promote
 DOMAIN: www.elevateforhumanity.org
-REDIRECT_DOMAIN: elevateforhumanity.org
-TARGET: fix2-gpql-git-main-elevate-48e460c9.vercel.app
-TIMESTAMP: 2025-11-22T09:30:00Z
+PROJECT_ID: prj_S1qaRjgCpbvMkUuV2gob3ACLn8YO
+BRANCH: main
+INSTRUCTIONS: |
+  1. Get latest deployment from main branch
+  2. Promote that deployment to production
+  3. Assign to www.elevateforhumanity.org domain
+  4. Purge all caches
+  5. Verify production shows new images
+TIMESTAMP: 2025-11-22T09:16:00Z
 TRIGGERED_BY: ona
+PRIORITY: URGENT
