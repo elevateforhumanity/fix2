@@ -330,7 +330,8 @@ Certified by U.S. Black Chambers, Inc.
 ### Elevate for Humanity Certifications:
 
 **Business Certifications:**
-1. ✅ **ByBlack Certified Business** (U.S. Black Chambers, Inc.) - NEW!
+1. ✅ **ByBlack Certified Business** (U.S. Black Chambers, Inc.)
+2. ✅ **SAM.gov Registration** (U.S. Federal Government) - NEW!
 
 **Training Partnerships:**
 1. ✅ JRI (Job Readiness Initiative) - EmployIndy
@@ -342,7 +343,7 @@ Certified by U.S. Black Chambers, Inc.
 7. ✅ CareerSafe (OSHA Training)
 8. ✅ National Drug Screening (DOT Oral Fluid)
 
-**Total:** 1 Business Certification + 8 Training Partnerships = 9 Major Credentials
+**Total:** 2 Business Certifications + 8 Training Partnerships = 10 Major Credentials
 
 ---
 

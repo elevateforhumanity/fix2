@@ -7,7 +7,10 @@
 **Phone:** (317) 314-3757  
 **Website:** www.elevateforhumanity.org
 
-**Business Certification:** 🏆 ByBlack Certified Business (U.S. Black Chambers, Inc.)
+**Business Certifications:**
+- 🏆 ByBlack Certified Business (U.S. Black Chambers, Inc.)
+- 🏛️ SAM.gov Registered (3 Federal Entities)
+- 🏛️ Indiana State Contractor (Bidder ID: 0000067741)
 
 ---
 
@@ -40,6 +43,47 @@
 - Hashtag: #ByBlackBusiness
 
 **Documentation:** `/lms-content/certifications/BYBLACK_CERTIFICATION.md`
+
+---
+
+### SAM.gov Federal Registrations
+**Issued By:** U.S. Federal Government  
+**Status:** 3 Entities Registered
+
+**Entities:**
+1. **2EXCLUSIVE LLC-S:** UEI VX2GK5S8SZH8 | CAGE 0QH19 ✅ ACTIVE
+2. **SELFISH INC:** UEI H3NUZZ6BMDA7 | CAGE 0Q856 ✅ ACTIVE
+3. **CURVATURE BODY SCULPTING LLC:** UEI RNXZUZW7FA63 | CAGE 9XV55 ⚠️ ACTION REQUIRED
+
+**Benefits:**
+- Eligible for federal contracts and grants
+- Listed in official federal database
+- Access to federal procurement opportunities
+- Set-aside programs eligibility
+
+**Documentation:** `/lms-content/certifications/SAM_GOV_REGISTRATION.md`
+
+---
+
+### Indiana Procurement Registration
+**Issued By:** Indiana Department of Administration  
+**Status:** ✅ REGISTERED
+
+**Entity:**
+- **2EXCLUSIVE LLC-S:** Bidder ID 0000067741
+
+**Benefits:**
+- Eligible to bid on Indiana state contracts
+- Access to state procurement opportunities
+- State vendor database listing
+- Additional certifications available (Buy Indiana, MBE)
+
+**Recommended Next Steps:**
+- Apply for Buy Indiana Certification
+- Apply for Minority Business Enterprise (MBE) Certification
+- Set up procurement portal access
+
+**Documentation:** `/lms-content/certifications/INDIANA_PROCUREMENT_REGISTRATION.md`
 
 ---
 
@@ -385,6 +429,8 @@ CEO, Elevate for Humanity
 
 ### Phase 1: Foundation (Weeks 1-2)
 - [x] ByBlack Certified Business (USBC)
+- [x] SAM.gov Federal Registrations (3 entities)
+- [x] Indiana Procurement Registration
 - [x] JRI partnership established
 - [x] Milady RISE access secured
 - [x] NRF RISE Up partnership active
@@ -426,6 +472,8 @@ CEO, Elevate for Humanity
 
 **Business Certifications:**
 - **ByBlack:** www.byblack.us | www.usblackchambers.org
+- **SAM.gov:** www.sam.gov (3 federal entities)
+- **Indiana Procurement:** www.in.gov/idoa/procurement
 
 **Training Partnerships:**
 - **JRI:** EmployIndy partnership
@@ -482,4 +530,4 @@ All detailed setup guides available in `/lms-content/` directory
 
 **Elevate for Humanity provides the most comprehensive workforce development certification portfolio in Indianapolis!** 🚀
 
-**🏆 ByBlack Certified Business | 8 Training Partnerships | 35+ Industry Certifications | 100% Student Success** ✨
+**🏆 3 Business Certifications (ByBlack, Federal, State) | 8 Training Partnerships | 35+ Industry Certifications | 100% Student Success** ✨
