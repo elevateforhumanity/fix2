@@ -1,4 +1,5 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
       "main": true
@@ -8,8 +9,6 @@
     "silent": true,
     "autoJobCancelation": true
   },
-  "alias": [
-    "www.elevateforhumanity.org",
-    "elevateforhumanity.org"
-  ]
+  "buildCommand": "pnpm build",
+  "installCommand": "pnpm install"
 }

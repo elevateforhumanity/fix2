@@ -2,9 +2,10 @@ name: Autopilot – Vercel Hard Refresh
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  # Disabled automatic trigger to prevent ghost domains
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   hard-refresh:
