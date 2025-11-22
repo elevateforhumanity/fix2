@@ -1,0 +1,22 @@
+{
+  "trigger_type": "IMMEDIATE_EXECUTION",
+  "timestamp": "2025-11-22T11:00:00Z",
+  "priority": "CRITICAL_URGENT",
+  "task": "assign_deployment_to_production",
+  "verified_issue": {
+    "amif9zmjx_vercel_id": "iad1::h4qmh-1763809212251-1e0655ccc15b",
+    "git_main_vercel_id": "iad1::sg4zj-1763809212297-05de80614662",
+    "production_vercel_id": "iad1::d6gwt-1763809212456-5f5942e01069",
+    "status": "ALL THREE ARE DIFFERENT DEPLOYMENTS"
+  },
+  "required_action": {
+    "source_url": "fix2-gpql-amif9zmjx-elevate-48e460c9.vercel.app",
+    "source_vercel_id": "iad1::h4qmh-1763809212251-1e0655ccc15b",
+    "target_domains": [
+      "www.elevateforhumanity.org",
+      "elevateforhumanity.org"
+    ],
+    "method": "GET deployment ID from amif9zmjx URL, then POST to /v2/deployments/{id}/aliases"
+  },
+  "execute_immediately": true
+}
