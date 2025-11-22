@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50">
       {/* Hero */}
-      <section className="relative h-screen min-h-[600px] overflow-hidden border-b border-slate-800">
+      <section className="relative min-h-[500px] sm:min-h-[600px] md:h-screen overflow-hidden border-b border-slate-800">
         {/* Hero Background Image */}
         <div className="absolute inset-0 w-full h-full">
           <Image
@@ -21,27 +21,27 @@ export default function HomePage() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 h-full flex items-center">
-          <div className="mx-auto max-w-7xl px-6 md:px-12 w-full">
+        <div className="relative z-10 h-full flex items-center py-12 md:py-0">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 w-full">
             <div className="max-w-4xl">
-              <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase mb-4">
+              <p className="text-xs sm:text-sm font-semibold tracking-wide text-emerald-400 uppercase mb-3 md:mb-4">
                 Government-funded workforce ecosystem
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
                 Elevate For Humanity is a{" "}
                 <span className="text-emerald-400">
                   funded training platform
                 </span>{" "}
                 that connects students, employers, and workforce boards.
               </h1>
-              <p className="mt-6 text-base sm:text-lg text-slate-200 max-w-3xl">
+              <p className="mt-4 md:mt-6 text-sm sm:text-base md:text-lg text-slate-200 max-w-3xl">
                 We blend real classrooms, trusted partners, and a modern SaaS
                 portal so people can earn credentials, employers can grow their
                 teams, and workforce boards can see outcomes in one place. Many
                 programs are eligible for WIOA, workforce grants, OJT, and other
                 funding—often at little to no cost to the learner.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-6 md:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
                 <Link
                   href="/directory"
                   className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold bg-emerald-400 text-slate-950 hover:bg-emerald-300 transition shadow-lg"
@@ -65,12 +65,12 @@ export default function HomePage() {
       </section>
 
       {/* Partner Logos Section */}
-      <section className="py-12 bg-slate-900 border-b border-slate-800">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <p className="text-center text-sm text-slate-400 mb-8">
+      <section className="py-8 md:py-12 bg-slate-900 border-b border-slate-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+          <p className="text-center text-xs sm:text-sm text-slate-400 mb-6 md:mb-8">
             Trusted by workforce boards, training providers, and employers across Indiana
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-70">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-8 items-center opacity-70">
             {/* Placeholder partner logos */}
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className="flex items-center justify-center">
@@ -79,7 +79,7 @@ export default function HomePage() {
                   alt={`Partner ${i}`}
                   width={200}
                   height={100}
-                  className="opacity-60 hover:opacity-100 transition"
+                  className="opacity-60 hover:opacity-100 transition w-full h-auto max-w-[150px] md:max-w-[200px]"
                 />
               </div>
             ))}
@@ -88,22 +88,22 @@ export default function HomePage() {
       </section>
 
       {/* What We Do - Light Section */}
-      <section className="py-20 bg-white border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-wide text-emerald-600 uppercase mb-4">
+      <section className="py-12 md:py-20 bg-white border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+          <div className="text-center mb-8 md:mb-12">
+            <p className="text-xs font-semibold tracking-wide text-emerald-600 uppercase mb-3 md:mb-4">
               What we do
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 px-4">
               A complete workforce development ecosystem
             </h2>
-            <p className="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
+            <p className="mt-3 md:mt-4 text-base md:text-lg text-slate-600 max-w-3xl mx-auto px-4">
               Elevate For Humanity combines training programs, technology, and support services
               to help people build careers while helping employers find qualified talent.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
               <h3 className="text-xl font-bold text-slate-900 mb-4">
                 🎓 Training Programs
@@ -218,18 +218,18 @@ export default function HomePage() {
       </section>
 
       {/* Featured Programs with Images */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+      <section className="py-12 md:py-20 bg-slate-50 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 px-4">
               Popular Training Programs
             </h2>
-            <p className="mt-4 text-lg text-slate-600">
+            <p className="mt-3 md:mt-4 text-base md:text-lg text-slate-600 px-4">
               Explore our most in-demand career training programs
             </p>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {/* CNA Program */}
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
@@ -672,18 +672,18 @@ export default function HomePage() {
       </section>
 
       {/* Success Stories with Photos */}
-      <section className="py-20 bg-white border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+      <section className="py-12 md:py-20 bg-white border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 px-4">
               Real People. Real Results.
             </h2>
-            <p className="mt-4 text-lg text-slate-600">
+            <p className="mt-3 md:mt-4 text-base md:text-lg text-slate-600 px-4">
               See how our graduates are building successful careers
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {/* Marcus - Barber */}
             <div className="bg-slate-50 rounded-2xl p-8 text-center">
               <div className="relative w-32 h-32 mx-auto mb-6">
