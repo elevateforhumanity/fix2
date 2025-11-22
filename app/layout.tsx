@@ -20,7 +20,7 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-// Cache bust: 2025-11-22-01:06
+// Cache bust: 2025-11-22T09:14:55Z
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Workforce Training & Career Development',
   description:
