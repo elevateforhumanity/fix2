@@ -16,6 +16,11 @@ set -euo pipefail
 #   ELEVATE_DOMAIN          -> Defaults to elevateforhumanity.org
 ###
 
+# Load .env.local if it exists
+if [ -f .env.local ]; then
+  export $(grep -v '^#' .env.local | xargs)
+fi
+
 ELEVATE_DOMAIN="${ELEVATE_DOMAIN:-elevateforhumanity.org}"
 
 if [[ -z "${VERCEL_TOKEN:-}" ]]; then

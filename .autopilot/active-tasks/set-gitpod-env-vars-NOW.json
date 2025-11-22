@@ -1,0 +1,121 @@
+{
+  "task": "set-gitpod-env-vars-NOW",
+  "priority": "CRITICAL",
+  "status": "active",
+  "created": "2025-11-22T12:30:00Z",
+  "assignee": "HUMAN_WORKER_IN_GITPOD",
+  "description": "HUMAN WORKER: Set Gitpod environment variables for Vercel deployment automation",
+  "instructions_for_worker": {
+    "title": "WORKER: YOU MUST DO THIS IN GITPOD WORKSPACE",
+    "method_1_gitpod_ui": {
+      "description": "Set variables via Gitpod dashboard (RECOMMENDED)",
+      "steps": [
+        "1. Go to: https://gitpod.io/user/variables",
+        "2. Click 'New Variable'",
+        "3. Add each variable below:",
+        "   - Name: VERCEL_TOKEN",
+        "   - Value: YNJJXounybj4YMwxin3JjVTL",
+        "   - Scope: elevateforhumanity/fix2",
+        "",
+        "   - Name: VERCEL_PROJECT_NAME",
+        "   - Value: fix2-gpql",
+        "   - Scope: elevateforhumanity/fix2",
+        "",
+        "   - Name: VERCEL_TEAM_ID",
+        "   - Value: team_Ae8f33vVYR36quLOS8HCeROs",
+        "   - Scope: elevateforhumanity/fix2",
+        "",
+        "   - Name: ELEVATE_DOMAIN",
+        "   - Value: elevateforhumanity.org",
+        "   - Scope: elevateforhumanity/fix2",
+        "",
+        "4. Click 'Add Variable' for each one",
+        "5. Restart your Gitpod workspace"
+      ]
+    },
+    "method_2_gitpod_terminal": {
+      "description": "Set variables via Gitpod terminal (FASTER)",
+      "steps": [
+        "1. Open terminal in Gitpod workspace",
+        "2. Copy and paste these commands ONE BY ONE:",
+        "",
+        "gp env VERCEL_TOKEN=YNJJXounybj4YMwxin3JjVTL",
+        "gp env VERCEL_PROJECT_NAME=fix2-gpql",
+        "gp env VERCEL_TEAM_ID=team_Ae8f33vVYR36quLOS8HCeROs",
+        "gp env ELEVATE_DOMAIN=elevateforhumanity.org",
+        "",
+        "3. Verify they are set:",
+        "gp env | grep -E '(VERCEL_TOKEN|VERCEL_PROJECT_NAME|VERCEL_TEAM_ID|ELEVATE_DOMAIN)'",
+        "",
+        "4. Restart workspace or run:",
+        "./scripts/vercel-config-and-deploy.sh"
+      ]
+    }
+  },
+  "required_actions": [
+    {
+      "step": 1,
+      "action": "WORKER: Set VERCEL_TOKEN in Gitpod",
+      "command": "gp env VERCEL_TOKEN=YNJJXounybj4YMwxin3JjVTL",
+      "automated": false,
+      "requires_human": true,
+      "must_run_in": "Gitpod workspace terminal"
+    },
+    {
+      "step": 2,
+      "action": "WORKER: Set VERCEL_PROJECT_NAME in Gitpod",
+      "command": "gp env VERCEL_PROJECT_NAME=fix2-gpql",
+      "automated": false,
+      "requires_human": true,
+      "must_run_in": "Gitpod workspace terminal"
+    },
+    {
+      "step": 3,
+      "action": "WORKER: Set VERCEL_TEAM_ID in Gitpod",
+      "command": "gp env VERCEL_TEAM_ID=team_Ae8f33vVYR36quLOS8HCeROs",
+      "automated": false,
+      "requires_human": true,
+      "must_run_in": "Gitpod workspace terminal"
+    },
+    {
+      "step": 4,
+      "action": "WORKER: Set ELEVATE_DOMAIN in Gitpod",
+      "command": "gp env ELEVATE_DOMAIN=elevateforhumanity.org",
+      "automated": false,
+      "requires_human": true,
+      "must_run_in": "Gitpod workspace terminal"
+    },
+    {
+      "step": 5,
+      "action": "WORKER: Verify environment variables are set",
+      "command": "gp env | grep -E '(VERCEL_TOKEN|VERCEL_PROJECT_NAME|VERCEL_TEAM_ID|ELEVATE_DOMAIN)'",
+      "automated": false,
+      "requires_human": true,
+      "must_run_in": "Gitpod workspace terminal"
+    },
+    {
+      "step": 6,
+      "action": "WORKER: Run deployment script to test",
+      "command": "./scripts/vercel-config-and-deploy.sh",
+      "automated": false,
+      "requires_human": true,
+      "must_run_in": "Gitpod workspace terminal"
+    }
+  ],
+  "verification": {
+    "check_commands": [
+      "echo $VERCEL_TOKEN | grep -q 'YNJJXounybj4YMwxin3JjVTL'",
+      "echo $VERCEL_PROJECT_NAME | grep -q 'fix2-gpql'",
+      "echo $VERCEL_TEAM_ID | grep -q 'team_Ae8f33vVYR36quLOS8HCeROs'",
+      "echo $ELEVATE_DOMAIN | grep -q 'elevateforhumanity.org'"
+    ]
+  },
+  "notes": [
+    "These env vars are required for scripts/vercel-config-and-deploy.sh",
+    "gp env sets variables for ALL future Gitpod workspaces",
+    "Variables are encrypted and stored in Gitpod user settings",
+    "After setting, the vercel-config-and-deploy.sh script will run automatically on workspace start"
+  ],
+  "deadline": "IMMEDIATE",
+  "blocking": true
+}
