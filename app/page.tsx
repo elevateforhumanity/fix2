@@ -11,7 +11,7 @@ export default function HomePage() {
         {/* Hero Background Image - Real training environment */}
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
+            src="/images/hero-banner.png"
             alt="Professional training and career development at Elevate for Humanity"
             fill
             className="object-cover"
@@ -147,6 +147,16 @@ export default function HomePage() {
               </div>
             </div>
             <div className="space-y-4">
+              {/* Feature Image */}
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/feature-image.png"
+                  alt="Elevate for Humanity workforce training programs"
+                  width={1376}
+                  height={768}
+                  className="w-full h-auto"
+                />
+              </div>
               <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 text-white">
                 <h3 className="text-2xl font-bold mb-4">What Makes Us Different</h3>
                 <ul className="space-y-3">
@@ -415,6 +425,17 @@ export default function HomePage() {
               </p>
             </div>
           </div>
+          
+          {/* Additional Feature Image */}
+          <div className="mt-16 rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/section-image.png"
+              alt="Elevate for Humanity career training and workforce development"
+              width={1376}
+              height={768}
+              className="w-full h-auto"
+            />
+          </div>
         </div>
       </section>
 
@@ -433,8 +454,8 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {programs.map((program, index) => {
               const programImages = [
-                'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&q=80', // Medical Assistant
-                'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=400&q=80', // Barber
+                '/images/medical-assistant.png', // Medical Assistant
+                '/images/barber-new.png', // Barber
                 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=400&q=80', // HVAC
                 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80', // Building Maintenance
                 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=400&q=80', // CDL/Truck Driving
@@ -638,6 +659,17 @@ export default function HomePage() {
                 with ongoing support.
               </p>
             </div>
+          </div>
+          
+          {/* Healthcare Training Image */}
+          <div className="mt-16 rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/healthcare-training.png"
+              alt="Healthcare and professional training programs at Elevate for Humanity"
+              width={1376}
+              height={768}
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>

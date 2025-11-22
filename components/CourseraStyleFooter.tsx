@@ -161,7 +161,7 @@ export default function CourseraStyleFooter() {
             </div>
             
             <div className="text-xs text-gray-700 leading-relaxed">
-              A program of <strong>Selfish Inc</strong>, a 501(c)(3) nonprofit organization (EIN: 88-1234567) serving Marion County and surrounding areas through partnerships with EmployIndy, Indiana Department of Workforce Development, and the U.S. Department of Labor.
+              A program of <strong>Selfish Inc</strong>, a 501(c)(3) nonprofit organization serving Marion County and surrounding areas through partnerships with EmployIndy, Indiana Department of Workforce Development, and the U.S. Department of Labor.
             </div>
             
             <div className="text-xs text-gray-800 leading-relaxed bg-white p-3 rounded border border-blue-200">
