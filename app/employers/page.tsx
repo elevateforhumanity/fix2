@@ -1,312 +1,390 @@
 // app/employers/page.tsx
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+
+const employerStats = [
+  { label: "Learners ready for placement", value: "250+" },
+  { label: "Active employer partners", value: "40+" },
+  { label: "Funding pathways supported", value: "10+" },
+  { label: "Average wage gain", value: "$6–$12/hr" },
+];
+
+const fundingOptions = [
+  {
+    title: "On-the-Job Training (OJT)",
+    points: [
+      "Reimbursement of 50–75% of wages during training period",
+      "Customized training plans aligned to your roles",
+      "We handle compliance and paperwork with workforce boards",
+    ],
+  },
+  {
+    title: "Work Experience (WEX)",
+    points: [
+      "Short-term, paid work experience with learners",
+      "Try out candidates before making long-term hires",
+      "Ideal for new or entry-level roles",
+    ],
+  },
+  {
+    title: "Apprenticeships & Earn-and-Learn",
+    points: [
+      "Formal pathways in trades, healthcare, and more",
+      "Blend classroom, on-the-job learning, and mentorship",
+      "Stackable credentials and long-term talent pipelines",
+    ],
+  },
+  {
+    title: "Upskilling Your Existing Staff",
+    points: [
+      "Train current employees in new skills or credentials",
+      "Leverage grants and tuition assistance where available",
+      "Customized cohorts built around your schedule",
+    ],
+  },
+];
+
+const industries = [
+  {
+    icon: "🏥",
+    label: "Healthcare",
+    text: "Hospitals, clinics, long-term care, home health agencies.",
+  },
+  {
+    icon: "🏗️",
+    label: "Construction & Trades",
+    text: "HVAC, facilities, electrical, maintenance, and more.",
+  },
+  {
+    icon: "🚛",
+    label: "Transportation & Logistics",
+    text: "CDL drivers, warehouse, logistics support roles.",
+  },
+  {
+    icon: "🏭",
+    label: "Manufacturing",
+    text: "Production, quality, machine operation, safety.",
+  },
+  {
+    icon: "🍽️",
+    label: "Hospitality & Service",
+    text: "Hotels, food service, customer-facing roles.",
+  },
+  {
+    icon: "💼",
+    label: "Business & Admin",
+    text: "Customer service, admin, basic IT and office roles.",
+  },
+];
 
 export default function EmployersPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="bg-slate-950 text-white">
       {/* HERO */}
-      <section className="border-b border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-        <div className="mx-auto max-w-6xl px-6 py-14 md:px-10 lg:px-12 lg:py-16">
-          <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
-            For Employers & Hiring Managers
-          </p>
-          <h1 className="mt-2 text-3xl font-bold md:text-4xl lg:text-5xl">
-            Build a Talent Pipeline with Elevate For Humanity™
-          </h1>
-          <p className="mt-3 max-w-2xl text-sm md:text-base text-slate-200">
-            We partner with employers to connect you with candidates who&apos;ve
-            completed training, understand expectations, and have been supported
-            through real-life barriers.
-          </p>
-          <div className="mt-5 flex flex-wrap gap-3 text-xs md:text-sm text-slate-300">
-            <span className="rounded-full border border-white/15 px-3 py-1">
-              Healthcare · Trades · Transportation · Facilities
-            </span>
-          </div>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-400 transition"
-            >
-              Start a hiring conversation
-            </Link>
-            <Link
-              href="/employer/dashboard"
-              className="rounded-full border-2 border-orange-500 px-6 py-3 text-sm font-semibold text-orange-300 hover:bg-orange-500/10 transition"
-            >
-              Employer Portal
-            </Link>
-          </div>
+      <section className="relative overflow-hidden border-b border-slate-800">
+        <div className="absolute inset-0">
+          <Image
+            src="https://placehold.co/1920x900/020617/f97316?text=Employers+%E2%80%93+Build+Your+Pipeline"
+            alt="Employers partnering with Elevate For Humanity"
+            fill
+            className="object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-950/90 to-slate-950/95" />
         </div>
-      </section>
 
-      {/* WHY ELEVATE */}
-      <section className="border-b border-white/10 bg-slate-950">
-        <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-            Why partner with Elevate?
-          </h2>
-          <div className="grid gap-6 md:grid-cols-3 text-sm text-slate-200">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-6 hover:border-orange-400/50 transition">
-              <div className="w-12 h-12 bg-orange-400/10 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-orange-300">
-                Pre-screened Candidates
-              </h3>
-              <p>
-                Candidates have completed or are completing training and have
-                had expectations clearly explained before they&apos;re in front of you.
-              </p>
+        <div className="relative mx-auto flex max-w-7xl flex-col gap-10 px-6 py-20 md:flex-row md:items-center md:px-12 lg:py-24">
+          <div className="max-w-xl">
+            <p className="mb-3 inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-300">
+              Employers & workforce partners
+            </p>
+            <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+              Build a reliable talent pipeline with{" "}
+              <span className="text-emerald-400">funded training & support</span>.
+            </h1>
+            <p className="mt-4 text-sm text-slate-200 sm:text-base">
+              Elevate For Humanity connects you with pre-screened talent in
+              healthcare, trades, transportation, and more—backed by funding
+              options, coaching, and retention support.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+              >
+                Start a hiring conversation
+              </Link>
+              <Link
+                href="/employer/dashboard"
+                className="inline-flex items-center justify-center rounded-full border border-slate-500 px-6 py-3 text-sm font-semibold text-slate-100 hover:border-emerald-400 hover:text-emerald-300"
+              >
+                Employer portal
+              </Link>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-6 hover:border-orange-400/50 transition">
-              <div className="w-12 h-12 bg-orange-400/10 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-orange-300">
-                Barrier-Aware Support
-              </h3>
-              <p>
-                We work with learners on transportation, communication, and soft
-                skills so your supervisors aren&apos;t alone in managing challenges.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-6 hover:border-orange-400/50 transition">
-              <div className="w-12 h-12 bg-orange-400/10 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-orange-300">
-                Workforce & Community Alignment
-              </h3>
-              <p>
-                Show community impact while filling roles—our documentation and
-                reporting help with stories, grants, and board updates.
-              </p>
-            </div>
+            <p className="mt-4 text-xs text-slate-400">
+              OJT · WEX · apprenticeships · re-entry · youth · upskilling cohorts.
+            </p>
           </div>
-        </div>
-      </section>
 
-      {/* HOW IT WORKS */}
-      <section className="border-b border-white/10 bg-slate-900/30">
-        <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-            How employer partnerships work
-          </h2>
-          <div className="grid md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="w-16 h-16 bg-orange-400/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-orange-400">1</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Connect with us</h3>
-              <p className="text-sm text-slate-300">
-                Share your hiring needs, company culture, and role requirements.
+          {/* Right: highlight card */}
+          <div className="relative flex-1">
+            <div className="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-2xl">
+              <p className="text-xs font-semibold text-emerald-300 uppercase tracking-wide mb-4">
+                What you get with Elevate
               </p>
-            </div>
-            <div>
-              <div className="w-16 h-16 bg-orange-400/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-orange-400">2</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">We train candidates</h3>
-              <p className="text-sm text-slate-300">
-                Learners complete industry-aligned training with your needs in mind.
-              </p>
-            </div>
-            <div>
-              <div className="w-16 h-16 bg-orange-400/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-orange-400">3</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Meet qualified talent</h3>
-              <p className="text-sm text-slate-300">
-                Review pre-screened candidates ready for interviews and placement.
-              </p>
-            </div>
-            <div>
-              <div className="w-16 h-16 bg-orange-400/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-orange-400">4</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Ongoing support</h3>
-              <p className="text-sm text-slate-300">
-                We provide retention support and track outcomes for reporting.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FUNDING OPTIONS */}
-      <section className="border-b border-white/10 bg-slate-950">
-        <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center">
-            Leverage workforce funding
-          </h2>
-          <p className="text-center text-slate-300 mb-8 max-w-3xl mx-auto">
-            Reduce your hiring costs by tapping into government-funded training programs
-            and on-the-job training (OJT) reimbursements.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-6">
-              <h3 className="text-xl font-bold mb-3 text-orange-300">
-                On-the-Job Training (OJT)
-              </h3>
-              <p className="text-sm text-slate-200 mb-4">
-                Get reimbursed for up to 50-75% of a new hire&apos;s wages during their
-                training period. We handle the paperwork and compliance.
-              </p>
-              <ul className="space-y-2 text-sm text-slate-300">
-                <li className="flex items-start gap-2">
-                  <svg className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Reduce training costs significantly</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Build custom training plans</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Improve retention and loyalty</span>
-                </li>
+              <ul className="space-y-3 text-sm text-slate-200">
+                <li>• Candidates who have been coached on expectations and soft skills.</li>
+                <li>• Funding options that reduce your training and onboarding costs.</li>
+                <li>• A partner that stays involved after the hire to support retention.</li>
+                <li>• Documentation and data you can share with boards, funders, and HR.</li>
               </ul>
+              <div className="mt-6 grid grid-cols-2 gap-4 border-t border-slate-800 pt-4 text-xs text-slate-400">
+                <div>
+                  <p className="font-semibold text-emerald-300">Ready-to-hire talent</p>
+                  <p>Graduates and in-training learners across key roles.</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-emerald-300">Barrier-aware support</p>
+                  <p>We help with communication, attendance, and problem-solving.</p>
+                </div>
+              </div>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-6">
-              <h3 className="text-xl font-bold mb-3 text-orange-300">
-                Work Experience (WEX) & Apprenticeships
-              </h3>
-              <p className="text-sm text-slate-200 mb-4">
-                Host learners for paid work experience or registered apprenticeships.
-                Build your pipeline while they gain real-world skills.
+          </div>
+        </div>
+
+        {/* Stats strip */}
+        <div className="border-t border-slate-800 bg-slate-950/90">
+          <div className="mx-auto flex max-w-7xl flex-wrap gap-6 px-6 py-6 md:px-12 md:py-8">
+            {employerStats.map((s) => (
+              <div key={s.label} className="min-w-[150px] flex-1">
+                <p className="text-lg font-semibold text-emerald-400">
+                  {s.value}
+                </p>
+                <p className="text-xs text-slate-400">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why partner with Elevate */}
+      <section className="border-b border-slate-800 bg-slate-950 py-16">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Why employers work with Elevate
+            </h2>
+            <p className="mt-3 text-sm text-slate-400">
+              You get more than resumes. You get a partner focused on retention,
+              performance, and impact.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/15">
+                <span className="text-lg">✅</span>
+              </div>
+              <h3 className="text-sm font-semibold">Pre-screened, coached candidates</h3>
+              <p className="mt-3 text-xs text-slate-300">
+                Learners understand workplace expectations, communication, and
+                attendance before they&apos;re in front of your supervisors.
               </p>
-              <ul className="space-y-2 text-sm text-slate-300">
-                <li className="flex items-start gap-2">
-                  <svg className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Try before you hire</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Develop talent your way</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <svg className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Access tax credits and incentives</span>
-                </li>
-              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/15">
+                <span className="text-lg">🤝</span>
+              </div>
+              <h3 className="text-sm font-semibold">Barrier-aware wraparound support</h3>
+              <p className="mt-3 text-xs text-slate-300">
+                We stay engaged with both the learner and your team to address early
+                issues before they turn into turnover.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/15">
+                <span className="text-lg">📊</span>
+              </div>
+              <h3 className="text-sm font-semibold">Documentation & impact reporting</h3>
+              <p className="mt-3 text-xs text-slate-300">
+                Track hires, retention, and advancement for internal reporting, board
+                updates, and funding partners.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* INDUSTRIES WE SERVE */}
-      <section className="border-b border-white/10 bg-slate-900/30">
-        <div className="mx-auto max-w-6xl px-6 py-10 md:px-10 lg:px-12 lg:py-14">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-            Industries we serve
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="rounded-xl border border-white/10 bg-slate-900/60 p-4 text-center hover:border-orange-400/50 transition">
-              <div className="text-3xl mb-2">🏥</div>
-              <h3 className="font-semibold text-sm">Healthcare</h3>
-              <p className="text-xs text-slate-400 mt-1">CNA, MA, Phlebotomy, Home Health</p>
+      {/* How partnership works */}
+      <section className="border-b border-slate-200 bg-white py-20 text-slate-900">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              How an employer partnership works
+            </h2>
+            <p className="mt-3 text-sm text-slate-600">
+              Simple, transparent steps from first conversation to ongoing talent pipeline.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-4">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-xs font-semibold text-slate-950">
+                1
+              </div>
+              <h3 className="text-sm font-semibold">Connect with us</h3>
+              <p className="mt-2 text-xs text-slate-600">
+                Share your roles, schedules, and what &quot;successful&quot; looks like in
+                your environment.
+              </p>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/60 p-4 text-center hover:border-orange-400/50 transition">
-              <div className="text-3xl mb-2">🔧</div>
-              <h3 className="font-semibold text-sm">Skilled Trades</h3>
-              <p className="text-xs text-slate-400 mt-1">HVAC, Electrical, Plumbing, Welding</p>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-xs font-semibold text-slate-950">
+                2
+              </div>
+              <h3 className="text-sm font-semibold">Align programs & funding</h3>
+              <p className="mt-2 text-xs text-slate-600">
+                We map your roles to existing programs and identify OJT, WEX, or other
+                funding options.
+              </p>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/60 p-4 text-center hover:border-orange-400/50 transition">
-              <div className="text-3xl mb-2">🚛</div>
-              <h3 className="font-semibold text-sm">Transportation</h3>
-              <p className="text-xs text-slate-400 mt-1">CDL-A, CDL-B, Forklift, Logistics</p>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-xs font-semibold text-slate-950">
+                3
+              </div>
+              <h3 className="text-sm font-semibold">Interview and onboard</h3>
+              <p className="mt-2 text-xs text-slate-600">
+                You interview candidates who have been prepped on your expectations and
+                the support available.
+              </p>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/60 p-4 text-center hover:border-orange-400/50 transition">
-              <div className="text-3xl mb-2">💼</div>
-              <h3 className="font-semibold text-sm">Business & Tech</h3>
-              <p className="text-xs text-slate-400 mt-1">IT Support, Customer Service, Admin</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/60 p-4 text-center hover:border-orange-400/50 transition">
-              <div className="text-3xl mb-2">🏗️</div>
-              <h3 className="font-semibold text-sm">Construction</h3>
-              <p className="text-xs text-slate-400 mt-1">OSHA, Carpentry, Heavy Equipment</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/60 p-4 text-center hover:border-orange-400/50 transition">
-              <div className="text-3xl mb-2">🍽️</div>
-              <h3 className="font-semibold text-sm">Hospitality</h3>
-              <p className="text-xs text-slate-400 mt-1">Food Service, Hotel Management</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/60 p-4 text-center hover:border-orange-400/50 transition">
-              <div className="text-3xl mb-2">🏭</div>
-              <h3 className="font-semibold text-sm">Manufacturing</h3>
-              <p className="text-xs text-slate-400 mt-1">Production, Quality Control, Safety</p>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/60 p-4 text-center hover:border-orange-400/50 transition">
-              <div className="text-3xl mb-2">🌱</div>
-              <h3 className="font-semibold text-sm">Green Jobs</h3>
-              <p className="text-xs text-slate-400 mt-1">Solar, Sustainability, Energy</p>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-xs font-semibold text-slate-950">
+                4
+              </div>
+              <h3 className="text-sm font-semibold">Support & retention</h3>
+              <p className="mt-2 text-xs text-slate-600">
+                We partner with you on check-ins, problem-solving, and advancement
+                pathways for your new hires.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIAL */}
-      <section className="border-b border-white/10 bg-slate-950">
-        <div className="mx-auto max-w-4xl px-6 py-10 md:px-10 lg:px-12 lg:py-14 text-center">
-          <div className="text-orange-400 text-5xl mb-4">"</div>
-          <blockquote className="text-lg md:text-xl text-slate-200 mb-6">
-            Elevate For Humanity helped us find reliable, trained candidates when we
-            needed them most. The support doesn&apos;t stop after placement—they stay
-            involved to ensure success for both the employee and our team.
+      {/* Funding options */}
+      <section className="border-b border-slate-800 bg-slate-950 py-20">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Leverage workforce funding, not just your budget
+            </h2>
+            <p className="mt-3 text-sm text-slate-400">
+              We help you braid together grants, OJT, WEX, and apprenticeships so you
+              can hire confidently.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {fundingOptions.map((f) => (
+              <div
+                key={f.title}
+                className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6"
+              >
+                <h3 className="text-sm font-semibold text-emerald-300">
+                  {f.title}
+                </h3>
+                <ul className="mt-3 space-y-2 text-xs text-slate-200">
+                  {f.points.map((p) => (
+                    <li key={p}>• {p}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries served */}
+      <section className="border-b border-slate-200 bg-white py-20 text-slate-900">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl font-bold sm:text-4xl">Industries we serve</h2>
+            <p className="mt-3 text-sm text-slate-600">
+              If you hire entry- and mid-level talent, we can help you build a pipeline.
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {industries.map((i) => (
+              <div
+                key={i.label}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+              >
+                <div className="text-3xl">{i.icon}</div>
+                <h3 className="mt-3 text-sm font-semibold">{i.label}</h3>
+                <p className="mt-2 text-xs text-slate-600">{i.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Employer testimonial */}
+      <section className="border-b border-slate-800 bg-slate-950 py-20">
+        <div className="mx-auto max-w-3xl px-6 text-center md:px-12">
+          <div className="mb-6 flex justify-center">
+            <Image
+              src="https://placehold.co/200x200/020617/f97316?text=HR"
+              alt="HR Director"
+              width={80}
+              height={80}
+              className="rounded-full object-cover"
+            />
+          </div>
+          <p className="text-5xl text-emerald-400 mb-4">&ldquo;</p>
+          <blockquote className="text-lg text-slate-100">
+            Elevate For Humanity helped us fill critical frontline roles with candidates
+            who were prepared for the reality of the work. They stayed involved with our
+            supervisors and new hires, which made all the difference in retention.
           </blockquote>
-          <div className="text-sm text-slate-400">
+          <div className="mt-4 text-xs text-slate-400">
             <p className="font-semibold text-white">Sarah Johnson</p>
             <p>HR Director, Regional Healthcare System</p>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-gradient-to-br from-orange-500/10 via-slate-900 to-slate-950">
-        <div className="mx-auto max-w-4xl px-6 py-12 md:px-10 lg:px-12 lg:py-16 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Ready to build your workforce pipeline?
+      {/* Final CTA for employers */}
+      <section className="bg-gradient-to-br from-emerald-500/15 via-slate-950 to-slate-950 py-16">
+        <div className="mx-auto max-w-4xl px-6 text-center md:px-12">
+          <h2 className="text-3xl font-bold sm:text-4xl">
+            Let&apos;s build your workforce pipeline together
           </h2>
-          <p className="text-slate-300 mb-8 max-w-2xl mx-auto">
-            Let&apos;s discuss your hiring needs and how Elevate For Humanity can
-            connect you with trained, motivated candidates.
+          <p className="mt-4 text-sm text-slate-300">
+            Share your openings, shifts, and priorities. We&apos;ll help you design a
+            funded talent pathway that fits your reality on the ground.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold bg-orange-500 text-white hover:bg-orange-400 transition shadow-lg"
+              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
             >
-              Schedule a consultation
+              Schedule a conversation
             </Link>
             <Link
               href="/directory"
-              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border-2 border-orange-500 text-orange-300 hover:bg-orange-500/10 transition"
+              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/10"
             >
               View training programs
             </Link>
           </div>
-          <p className="mt-6 text-xs text-slate-400">
-            Questions? Email us at employers@elevateforhumanity.org or call (555) 123-4567
+          <p className="mt-4 text-[11px] text-slate-500">
+            Need MOUs, OJT templates, or reporting language? We can provide those as part
+            of partnership onboarding.
           </p>
         </div>
       </section>
