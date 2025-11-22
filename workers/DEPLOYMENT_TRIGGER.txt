@@ -1,1 +1,6 @@
-Deployment trigger: 2025-11-08T19:00:20+00:00
+AUTOPILOT_TASK: add_domain
+DOMAIN: www.elevateforhumanity.org
+REDIRECT_DOMAIN: elevateforhumanity.org
+TARGET: fix2-gpql-git-main-elevate-48e460c9.vercel.app
+TIMESTAMP: 2025-11-22T09:30:00Z
+TRIGGERED_BY: ona
