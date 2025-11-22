@@ -129,6 +129,37 @@
 
 ---
 
+### 8. **National Drug Screening** - DOT Oral Fluid Testing
+**Focus:** DOT Drug Testing Compliance  
+**Provider:** National Drug Screening, Inc.  
+**Status:** ⚠️ Training Available - Testing NOT Yet Operational
+
+**Training Programs:**
+- DOT Oral Fluid Collector Training (Live Webinar)
+- DOT Oral Fluid Collector Training (On-Demand)
+- DOT Oral Fluid Collector Training (Live In-Person)
+- Mock Collections (5 required)
+- Custom Group Training
+
+**Business Opportunities:**
+- Reseller Programs (Clinic/Mobile, TPA)
+- Lab Account Setup
+- TPA Training & Consulting
+- Collector Network Membership
+- White Label Training Programs
+
+**Resources:**
+- DOT Oral Fluid Info: https://www.nationaldrugscreening.com/?s=DOT+oral+Fluid
+- Reseller Programs: https://www.nationaldrugscreening.com/reseller-program/
+- Training & Consulting: https://www.nationaldrugscreening.com/training-consulting/
+- On-Demand Training: www.MyDrugTestTraining.com
+
+**Documentation:** `/lms-content/national-drug-screening/`
+
+**⚠️ Important:** DOT oral fluid testing approved but NOT yet operational. Waiting for 2 certified labs. Training available NOW to prepare for future implementation.
+
+---
+
 ## 🎯 Program Integration Matrix
 
 ### Healthcare Programs (CNA, Medical Assistant)
@@ -155,6 +186,7 @@
 - ✅ CareerSafe OSHA 10-Hour Construction
 - ✅ HAZMAT Training (alternative provider - not CareerSafe)
 - ✅ HSI Adult CPR/AED
+- ⏳ National Drug Screening DOT Oral Fluid Training (optional - prepare for future)
 
 ### Barber Apprenticeship
 **Required Certifications:**
@@ -325,6 +357,7 @@ CEO, Elevate for Humanity
 - [x] VITA site approved (SIDN: S28011182)
 - [x] HSI account active
 - [x] CareerSafe account active
+- [x] National Drug Screening partnership explored
 
 ### Phase 2: Integration (Weeks 3-4)
 - [ ] Update all program curriculum
@@ -364,6 +397,10 @@ CEO, Elevate for Humanity
 - **CareerSafe:** 
   - QuickStart: https://www.careersafeonline.com/support/quick-start-guide
   - Group Management: https://www.careersafeonline.com/support/group-mgmt-support-guide
+- **National Drug Screening:**
+  - DOT Oral Fluid: https://www.nationaldrugscreening.com/?s=DOT+oral+Fluid
+  - Reseller Programs: https://www.nationaldrugscreening.com/reseller-program/
+  - Training: https://www.nationaldrugscreening.com/training-consulting/
 
 ### Documentation:
 All detailed setup guides available in `/lms-content/` directory
@@ -405,4 +442,4 @@ All detailed setup guides available in `/lms-content/` directory
 
 **Elevate for Humanity provides the most comprehensive workforce development certification portfolio in Indianapolis!** 🚀
 
-**7 Major Partnerships | 30+ Industry Certifications | 100% Student Success** ✨
+**8 Major Partnerships | 35+ Industry Certifications | 100% Student Success** ✨
