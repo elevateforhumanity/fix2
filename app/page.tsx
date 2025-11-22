@@ -784,6 +784,135 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Mobile App Section */}
+      <section className="py-12 md:py-20 bg-gradient-to-br from-emerald-900 via-slate-900 to-slate-950 border-b border-slate-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-emerald-400/10 border border-emerald-400/30 rounded-full px-4 py-2 mb-6">
+                <svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" />
+                </svg>
+                <span className="text-emerald-400 text-sm font-semibold">Now Available</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                Take Elevate with you
+              </h2>
+              <p className="text-lg text-slate-300 mb-6">
+                Access your training programs, track progress, and stay connected—right from your phone. Install our app for the best mobile experience.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-slate-200">Access courses offline</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-slate-200">Get push notifications for deadlines</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-slate-200">Track your progress on the go</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-slate-200">Quick access from your home screen</span>
+                </li>
+              </ul>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() => {
+                    if ('serviceWorker' in navigator) {
+                      alert('To install: Tap Share → Add to Home Screen (iOS) or tap Menu → Install App (Android)');
+                    }
+                  }}
+                  className="inline-flex items-center justify-center gap-2 bg-emerald-400 text-slate-950 font-semibold px-6 py-3 rounded-xl hover:bg-emerald-300 transition"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                  </svg>
+                  Install App
+                </button>
+                <p className="text-xs text-slate-400 flex items-center">
+                  <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                  Works on iPhone & Android
+                </p>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="relative mx-auto max-w-sm">
+                {/* Phone mockup */}
+                <div className="relative bg-slate-950 rounded-[3rem] p-4 shadow-2xl border-8 border-slate-800">
+                  <div className="bg-slate-900 rounded-[2.5rem] overflow-hidden">
+                    {/* Phone notch */}
+                    <div className="bg-slate-950 h-8 flex items-center justify-center">
+                      <div className="w-32 h-6 bg-slate-950 rounded-b-3xl"></div>
+                    </div>
+                    {/* Phone screen content */}
+                    <div className="bg-gradient-to-br from-slate-900 to-slate-950 p-6 h-[600px] overflow-hidden">
+                      <div className="text-center mb-8">
+                        <div className="w-16 h-16 bg-emerald-400/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                          <svg className="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                          </svg>
+                        </div>
+                        <h3 className="text-white font-bold text-xl mb-2">Elevate</h3>
+                        <p className="text-slate-400 text-sm">Career Training</p>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 bg-emerald-400/20 rounded-lg"></div>
+                            <div className="flex-1">
+                              <div className="h-3 bg-slate-700 rounded w-3/4 mb-2"></div>
+                              <div className="h-2 bg-slate-700 rounded w-1/2"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 bg-emerald-400/20 rounded-lg"></div>
+                            <div className="flex-1">
+                              <div className="h-3 bg-slate-700 rounded w-3/4 mb-2"></div>
+                              <div className="h-2 bg-slate-700 rounded w-1/2"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
+                          <div className="flex items-center gap-3">
+                            <div className="w-12 h-12 bg-emerald-400/20 rounded-lg"></div>
+                            <div className="flex-1">
+                              <div className="h-3 bg-slate-700 rounded w-3/4 mb-2"></div>
+                              <div className="h-2 bg-slate-700 rounded w-1/2"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Floating elements */}
+                <div className="absolute -top-4 -right-4 bg-emerald-400 text-slate-950 rounded-full p-3 shadow-lg animate-bounce">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA with Background Image */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
