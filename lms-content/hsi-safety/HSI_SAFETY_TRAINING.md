@@ -108,12 +108,38 @@
 **Includes:** Online access, skills session, certification
 
 ### Remote Skills Verification (RSV)
-**Format:** Online learning + video skills verification  
-**Duration:** 1-2 hours online + video submission  
+**Format:** Online learning + live virtual instructor-led skills session  
+**Duration:** 1-2 hours online + live skills verification  
 **Best for:** Remote students, maximum flexibility  
-**Includes:** Online access, video review, certification
+**Includes:** Online access, live virtual skills session, manikin shipment, certification
 
 **Learn More:** https://hsi.com/solutions/cpr-aed-first-aid-training/remote-skills-verification
+
+#### RSV Process (4 Steps):
+
+**Step 1: Complete Class Sign Up Form**
+- Instructor enrolls student via NTS enrollment link
+- Each enrollment uses one credit from your bank
+- ⚠️ **IMPORTANT:** Links are ONLY for enrollment - students should NOT return to enrollment page
+
+**Step 2: Student Receives Email (within 15 minutes)**
+- Email from info@hsi.com contains:
+  - Course link
+  - Schedule link
+  - Equipment information
+  - Practice videos
+- Student has 30 days to complete online portion and schedule skills session
+- ⚠️ Cannot schedule earlier than 10 days before skills time (for manikin shipment)
+
+**Step 3: Complete Live Skills Session**
+- Live virtual instructor-led session
+- Practice with shipped manikin and equipment
+- Real-time feedback and verification
+
+**Step 4: Receive Digital Certification**
+- Shortly after completing session
+- Email with CPR/First Aid Digital Certification
+- 2-year validity
 
 ---
 
@@ -136,6 +162,129 @@
 - Progress tracking
 - Certificate downloads
 - Reporting tools
+
+---
+
+## 🎓 NTS RSV Enrollment Links
+
+### National Training Solution (NTS) - Remote Skills Verification
+
+**⚠️ CRITICAL INSTRUCTIONS:**
+- These links are **ONLY for enrollment**
+- Each enrollment **uses one credit** from your bank
+- Students should **NOT return** to these links after enrollment
+- Students should use the email from **info@hsi.com** for all subsequent steps
+
+### RSV Enrollment Links:
+
+#### 1. CPR/AED (All Ages)
+**Link:** https://otis.osmanager4.com/#/nts/openenrollment/906B45CC-211D-48B3-A2FE-71D2C6D464F3  
+**Includes:** Adult, Child, and Infant CPR/AED  
+**Cost:** $85 per student  
+**Part #:** NRSVM-CPR
+
+#### 2. CPR/AED (Adult Only)
+**Link:** https://otis.osmanager4.com/#/nts/openenrollment/8B978D3E-85A4-48E7-AFF2-5F01FFF12F35  
+**Includes:** Adult CPR/AED only  
+**Cost:** $80 per student  
+**Part #:** NRSVM-CPR-A
+
+#### 3. Adult First Aid, CPR/AED (All Ages)
+**Link:** https://otis.osmanager4.com/#/nts/openenrollment/D84A8E63-967E-4A63-944A-AA3E33D777A8  
+**Includes:** First Aid + Adult/Child/Infant CPR/AED  
+**Cost:** $85 per student  
+**Part #:** NRSVM-COMBO
+
+#### 4. Adult First Aid, CPR/AED (Adult Only)
+**Link:** https://otis.osmanager4.com/#/nts/openenrollment/A373CD50-3045-49B1-B119-62A1DC5EFF47  
+**Includes:** First Aid + Adult CPR/AED only  
+**Cost:** $80 per student  
+**Part #:** NRSVM-COMBO-A
+
+### Enrollment Workflow:
+
+```
+1. SELL RSV CLASS TO STUDENT
+   ↓
+2. ENTER STUDENT INFO AT CORRECT ENROLLMENT LINK ABOVE
+   ↓
+3. STUDENT RECEIVES EMAIL FROM info@hsi.com (within 15 min)
+   ↓
+4. STUDENT COMPLETES:
+   - Online blended training
+   - Picks date/time for skills session
+   - Provides location for supply shipment
+   - Launches live skills session
+   ↓
+5. STUDENT RECEIVES DIGITAL CERTIFICATION
+```
+
+### Pre-Enrollment Checklist:
+
+**Before enrolling students, ensure:**
+- [ ] Credits purchased for each class type
+- [ ] Bank is full with sufficient credits
+- [ ] Student information is accurate (name, email, address)
+- [ ] Student understands they'll receive email from info@hsi.com
+- [ ] Student knows to check spam folder if email doesn't arrive
+
+### Post-Enrollment Student Instructions:
+
+**Email Template to Send After Enrollment:**
+
+```
+Subject: Your CPR/First Aid RSV Training - Next Steps
+
+Dear [Student Name],
+
+You've been enrolled in HSI Remote Skills Verification (RSV) training!
+
+WHAT TO EXPECT:
+✅ Within 15 minutes, you'll receive an email from info@hsi.com
+✅ This email contains your course link and schedule link
+✅ You have 30 DAYS to complete the online portion and schedule your skills session
+
+IMPORTANT:
+⚠️ Check your spam folder if you don't see the email
+⚠️ Save the email from info@hsi.com - you'll need it throughout the process
+⚠️ You must schedule your skills session at least 10 DAYS in advance (for manikin shipment)
+
+WHAT'S INCLUDED:
+📦 Manikin and equipment shipped to your address
+💻 Online blended training
+🎥 Live virtual instructor-led skills session
+📜 Digital certification (2-year validity)
+
+QUESTIONS?
+Contact us at [your email] or (317) 760-7908
+
+Best regards,
+Elizabeth Greene
+CEO, Elevate for Humanity
+```
+
+### Troubleshooting:
+
+**Student didn't receive email:**
+1. Check spam/junk folder
+2. Verify email address was entered correctly
+3. Wait 30 minutes (sometimes delayed)
+4. Contact HSI support: galbrecht@hsi.com
+
+**Student needs to reschedule:**
+- Use the original email from info@hsi.com
+- Follow rescheduling instructions in email
+- Must be at least 10 days before new date
+
+**Manikin not received:**
+- Check tracking in email from info@hsi.com
+- Verify shipping address was correct
+- Contact HSI support if not received 3 days before session
+
+**Technical issues during skills session:**
+- HSI provides technical support during session
+- Backup instructor available
+- Can reschedule if needed
 
 ---
 
@@ -416,25 +565,32 @@ CEO, Elevate for Humanity
 - [ ] Access Otis portal
 - [ ] Browse online safety courses
 - [ ] Determine which programs need CPR/First Aid
+- [ ] **Purchase RSV credits** (contact Geoff Albrecht)
+- [ ] **Bookmark NTS enrollment links** (see above)
 
 ### Week 2: Planning
-- [ ] Schedule first classes
-- [ ] Order supplies/materials
-- [ ] Confirm instructor availability
+- [ ] Schedule first classes (Traditional/Blended)
+- [ ] OR prepare RSV enrollment process
+- [ ] Order supplies/materials (Traditional only)
+- [ ] Confirm instructor availability (Traditional/Blended)
 - [ ] Update program curriculum
 - [ ] Set pricing strategy
+- [ ] **Test RSV enrollment** (enroll one test student)
 
 ### Week 3: Marketing
 - [ ] Add to website
 - [ ] Update program descriptions
 - [ ] Create student communications
 - [ ] Promote certifications
+- [ ] **Create RSV student instructions** (email template above)
 
 ### Week 4: Launch
-- [ ] Conduct first classes
+- [ ] Conduct first classes (Traditional/Blended)
+- [ ] OR enroll first RSV students
 - [ ] Issue certifications
 - [ ] Track student records
 - [ ] Gather feedback
+- [ ] **Monitor RSV completion rates**
 
 ---
 
@@ -524,18 +680,22 @@ CEO, Elevate for Humanity
 2. **Access portal** (http://store.osmanager4.com/emss/groups/523)
 3. **Browse courses** (Online Safety Training section)
 4. **Choose format** (Traditional/Blended/RSV)
+5. **Purchase RSV credits** (contact Geoff for credit bank setup)
+6. **Bookmark NTS enrollment links** (4 links above)
 
 ### Next Week:
-5. **Contact Geoff** (galbrecht@hsi.com) with questions
-6. **Schedule first classes**
-7. **Order materials**
-8. **Update curriculum**
+7. **Contact Geoff** (galbrecht@hsi.com) with questions
+8. **Schedule first classes** (Traditional/Blended) OR prepare RSV enrollment
+9. **Order materials** (Traditional only)
+10. **Update curriculum**
+11. **Test RSV enrollment** (enroll one test student to verify process)
 
 ### Launch:
-9. **Conduct training**
-10. **Issue certifications**
-11. **Track records**
-12. **Celebrate success!**
+12. **Conduct training** (Traditional/Blended) OR enroll RSV students
+13. **Issue certifications**
+14. **Track records**
+15. **Monitor RSV completion rates**
+16. **Celebrate success!**
 
 ---
 
