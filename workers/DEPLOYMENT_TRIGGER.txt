@@ -1,22 +1,22 @@
-AUTOPILOT_TASK: assign_preview_deployment_to_production
-ACTION: force_same_deployment
+AUTOPILOT_TASK: assign_correct_preview_to_production
+ACTION: use_specific_deployment
 PROJECT_ID: prj_S1qaRjgCpbvMkUuV2gob3ACLn8YO
 
-DIAGNOSIS_CONFIRMED:
-  Preview Vercel ID: iad1::5bl5k-1763808211504-bae98e1a0d37
-  Production Vercel ID: iad1::275fh-1763808211707-2fd7a6fb6bff
-  Status: DIFFERENT DEPLOYMENTS - THIS IS THE PROBLEM
+CORRECT_DEPLOYMENT_CONFIRMED:
+  Source URL: fix2-gpql-amif9zmjx-elevate-48e460c9.vercel.app
+  This deployment has the CORRECT globe hero image
+  User confirmed this is the right deployment
   
 REQUIRED_ACTION:
-  1. Get deployment URL from: fix2-gpql-git-main-elevate-48e460c9.vercel.app
-  2. Extract the deployment ID from that URL
-  3. Create alias assignment: deployment ID → www.elevateforhumanity.org
-  4. Use Vercel API: POST /v2/deployments/{id}/aliases
-  5. Body: {"alias": "www.elevateforhumanity.org"}
-  6. Purge cache for www.elevateforhumanity.org
-  7. Verify both URLs return SAME Vercel ID
+  1. Get deployment ID from: fix2-gpql-amif9zmjx-elevate-48e460c9.vercel.app
+  2. Assign that deployment to: www.elevateforhumanity.org
+  3. Use Vercel API: POST /v2/deployments/{id}/aliases
+  4. Body: {"alias": "www.elevateforhumanity.org"}
+  5. Also assign: {"alias": "elevateforhumanity.org"}
+  6. Purge all caches
+  7. Verify www.elevateforhumanity.org shows globe hero image
 
-TIMESTAMP: 2025-11-22T09:45:00Z
+TIMESTAMP: 2025-11-22T10:58:00Z
 TRIGGERED_BY: ona
 PRIORITY: CRITICAL
-STATUS: AWAITING_IMMEDIATE_EXECUTION
+STATUS: EXECUTE_IMMEDIATELY
