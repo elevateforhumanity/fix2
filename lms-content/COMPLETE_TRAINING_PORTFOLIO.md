@@ -7,9 +7,43 @@
 **Phone:** (317) 314-3757  
 **Website:** www.elevateforhumanity.org
 
+**Business Certification:** 🏆 ByBlack Certified Business (U.S. Black Chambers, Inc.)
+
 ---
 
-## 📚 Complete Certification Ecosystem
+## 🏆 Business Certifications
+
+### ByBlack Certified Business
+**Issued By:** U.S. Black Chambers, Inc. (USBC)  
+**Platform:** ByBlack.us  
+**Status:** ✅ OFFICIALLY CERTIFIED
+
+**Recognition:**
+- Official seal as Black-Owned and Operated business
+- National database listing
+- Supplier diversity portal access
+- Corporate partner connections
+- Contracting opportunities
+
+**Benefits:**
+- Use ByBlack Badge in all marketing materials
+- Access to USBC membership benefits
+- Free entrepreneurial development training
+- Financial education training
+- Technical assistance
+- Policy updates
+
+**Resources:**
+- ByBlack Platform: www.byblack.us
+- USBC Website: www.usblackchambers.org
+- Social Media: @usblackchambers (all platforms)
+- Hashtag: #ByBlackBusiness
+
+**Documentation:** `/lms-content/certifications/BYBLACK_CERTIFICATION.md`
+
+---
+
+## 📚 Training Partnership Ecosystem
 
 ### 1. **JRI (Job Readiness Initiative)** - EmployIndy
 **Focus:** Soft Skills & Workforce Readiness  
@@ -350,6 +384,7 @@ CEO, Elevate for Humanity
 ## 🚀 Implementation Roadmap
 
 ### Phase 1: Foundation (Weeks 1-2)
+- [x] ByBlack Certified Business (USBC)
 - [x] JRI partnership established
 - [x] Milady RISE access secured
 - [x] NRF RISE Up partnership active
@@ -388,6 +423,11 @@ CEO, Elevate for Humanity
 ## 📞 Support Resources
 
 ### Quick Links:
+
+**Business Certifications:**
+- **ByBlack:** www.byblack.us | www.usblackchambers.org
+
+**Training Partnerships:**
 - **JRI:** EmployIndy partnership
 - **Milady RISE:** Access code efhcti-rise295
 - **NRF RISE Up:** NRF Foundation
@@ -442,4 +482,4 @@ All detailed setup guides available in `/lms-content/` directory
 
 **Elevate for Humanity provides the most comprehensive workforce development certification portfolio in Indianapolis!** 🚀
 
-**8 Major Partnerships | 35+ Industry Certifications | 100% Student Success** ✨
+**🏆 ByBlack Certified Business | 8 Training Partnerships | 35+ Industry Certifications | 100% Student Success** ✨
