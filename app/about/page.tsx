@@ -34,15 +34,18 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              {/* Previous Hero Banner Image */}
+              {/* Feature Video */}
               <div className="mb-8 rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/hero-banner-old.png"
-                  alt="Elevate for Humanity training programs"
-                  width={1376}
-                  height={768}
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-auto"
-                />
+                >
+                  <source src="/videos/hero-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
                 Our Mission

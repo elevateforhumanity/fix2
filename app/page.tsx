@@ -8,17 +8,16 @@ export default function HomePage() {
     <main className="min-h-screen bg-white">
       {/* HERO SECTION */}
       <section className="relative h-screen min-h-[600px] overflow-hidden">
-        {/* Hero Background Video - Real training environment */}
+        {/* Hero Background Image - Real training environment */}
         <div className="absolute inset-0 w-full h-full">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/videos/hero-video.mp4" type="video/mp4" />
-          </video>
+          <Image
+            src="/images/hero-banner.png"
+            alt="Professional training and career development at Elevate for Humanity"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
           
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
