@@ -64,6 +64,29 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Partner Logos Section */}
+      <section className="py-12 bg-slate-900 border-b border-slate-800">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <p className="text-center text-sm text-slate-400 mb-8">
+            Trusted by workforce boards, training providers, and employers across Indiana
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-70">
+            {/* Placeholder partner logos */}
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="flex items-center justify-center">
+                <Image
+                  src={`https://placehold.co/200x100/334155/94a3b8?text=Partner+${i}`}
+                  alt={`Partner ${i}`}
+                  width={200}
+                  height={100}
+                  className="opacity-60 hover:opacity-100 transition"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* What We Do - Light Section */}
       <section className="py-20 bg-white border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
@@ -190,6 +213,187 @@ export default function HomePage() {
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Programs with Images */}
+      <section className="py-20 bg-slate-50 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+              Popular Training Programs
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Explore our most in-demand career training programs
+            </p>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* CNA Program */}
+            <Link href="/programs/cna" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="/images/efh-cna-hero.jpg"
+                    alt="Certified Nursing Assistant Training"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    Certified Nursing Assistant (CNA)
+                  </h3>
+                  <p className="text-slate-600 text-sm mb-4">
+                    Hands-on clinical training for entry-level healthcare roles
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-xs text-slate-500">4-6 weeks</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* CDL Program */}
+            <Link href="/programs/cdl" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="https://placehold.co/600x400/1e293b/f97316?text=CDL+Training"
+                    alt="Commercial Driver's License Training"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    CDL / Truck Driving
+                  </h3>
+                  <p className="text-slate-600 text-sm mb-4">
+                    Get your Commercial Driver's License and start a high-demand career
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-xs text-slate-500">3-4 weeks</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* HVAC Program */}
+            <Link href="/programs/hvac" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="https://placehold.co/600x400/1e293b/f97316?text=HVAC+Training"
+                    alt="HVAC Technician Training"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    HVAC Technician
+                  </h3>
+                  <p className="text-slate-600 text-sm mb-4">
+                    Learn heating, cooling, and refrigeration systems
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-xs text-slate-500">8-12 weeks</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Barber Program */}
+            <Link href="/programs/barber" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="/images/efh-barber-hero.jpg"
+                    alt="Barber Apprenticeship Training"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    Barber Apprenticeship
+                  </h3>
+                  <p className="text-slate-600 text-sm mb-4">
+                    State-approved apprenticeship in real barbershops
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-xs text-slate-500">12-18 months</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Building Maintenance */}
+            <Link href="/programs/building-maintenance" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="/images/efh-building-tech-hero.jpg"
+                    alt="Building Maintenance Technician Training"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    Building Maintenance Technician
+                  </h3>
+                  <p className="text-slate-600 text-sm mb-4">
+                    Training for building systems, repairs, and facility maintenance
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-xs text-slate-500">6-8 weeks</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Medical Assistant */}
+            <Link href="/programs/medical-assistant" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="https://placehold.co/600x400/1e293b/f97316?text=Medical+Assistant"
+                    alt="Medical Assistant Training"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
+                    Medical Assistant
+                  </h3>
+                  <p className="text-slate-600 text-sm mb-4">
+                    Clinical and administrative training for healthcare settings
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-xs text-slate-500">4-6 months</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/directory"
+              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition"
+            >
+              View all 20+ programs
+            </Link>
           </div>
         </div>
       </section>
@@ -467,13 +671,135 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20">
-        <div className="mx-auto max-w-4xl px-6 md:px-12 text-center">
+      {/* Success Stories with Photos */}
+      <section className="py-20 bg-white border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+              Real People. Real Results.
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              See how our graduates are building successful careers
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Marcus - Barber */}
+            <div className="bg-slate-50 rounded-2xl p-8 text-center">
+              <div className="relative w-32 h-32 mx-auto mb-6">
+                <Image
+                  src="/images/Success_Story_Portrait_Marcus_112c6bbd.png"
+                  alt="Marcus J. - Barber Graduate"
+                  fill
+                  className="rounded-full object-cover border-4 border-emerald-400"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Marcus J.</h3>
+              <p className="text-sm text-emerald-600 font-semibold mb-4">Barber Apprenticeship Graduate</p>
+              <p className="text-slate-700 italic mb-4">
+                "From incarceration to owning my own chair. Elevate gave me the structure and support I needed."
+              </p>
+              <div className="flex items-center justify-center gap-2 text-sm text-slate-600">
+                <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span>Now owns his own barbershop</span>
+              </div>
+            </div>
+
+            {/* Sarah - Medical Assistant */}
+            <div className="bg-slate-50 rounded-2xl p-8 text-center">
+              <div className="relative w-32 h-32 mx-auto mb-6">
+                <Image
+                  src="/images/Success_Story_Portrait_Sarah_fc9f8fd1.png"
+                  alt="Sarah M. - Medical Assistant Graduate"
+                  fill
+                  className="rounded-full object-cover border-4 border-emerald-400"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Sarah M.</h3>
+              <p className="text-sm text-emerald-600 font-semibold mb-4">Medical Assistant Graduate</p>
+              <p className="text-slate-700 italic mb-4">
+                "Single mom to certified MA in 5 months. Now working at a clinic with benefits for my family."
+              </p>
+              <div className="flex items-center justify-center gap-2 text-sm text-slate-600">
+                <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span>Full-time at regional clinic</span>
+              </div>
+            </div>
+
+            {/* Lisa - HVAC */}
+            <div className="bg-slate-50 rounded-2xl p-8 text-center">
+              <div className="relative w-32 h-32 mx-auto mb-6">
+                <Image
+                  src="/images/Success_Story_Portrait_Lisa_9a59d350.png"
+                  alt="Lisa T. - HVAC Technician Graduate"
+                  fill
+                  className="rounded-full object-cover border-4 border-emerald-400"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Lisa T.</h3>
+              <p className="text-sm text-emerald-600 font-semibold mb-4">HVAC Technician Graduate</p>
+              <p className="text-slate-700 italic mb-4">
+                "Went from retail to skilled trades. Making 2x my old salary with room to grow."
+              </p>
+              <div className="flex items-center justify-center gap-2 text-sm text-slate-600">
+                <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span>EPA-certified technician</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Video Testimonial Placeholder */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="bg-slate-900 rounded-2xl overflow-hidden">
+              <div className="relative aspect-video">
+                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-emerald-400/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-10 h-10 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                      </svg>
+                    </div>
+                    <p className="text-white font-semibold text-lg">Watch Success Stories</p>
+                    <p className="text-slate-400 text-sm mt-2">Video testimonials coming soon</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/success-stories"
+              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition"
+            >
+              Read more success stories
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA with Background Image */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/cta-banner.jpg"
+            alt="Join Elevate For Humanity"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/90 to-slate-950/80" />
+        </div>
+        <div className="relative z-10 mx-auto max-w-4xl px-6 md:px-12 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Ready to get started?
           </h2>
-          <p className="text-lg text-slate-400 mb-8">
+          <p className="text-lg text-slate-200 mb-8">
             Whether you're a learner, employer, or workforce board, Elevate has
             a solution for you.
           </p>
@@ -486,7 +812,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border-2 border-slate-400 text-slate-100 hover:border-emerald-400 hover:text-emerald-300 transition"
+              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border-2 border-white text-white hover:bg-white hover:text-slate-950 transition"
             >
               Contact us
             </Link>
