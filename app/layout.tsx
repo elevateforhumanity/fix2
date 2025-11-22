@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://www.elevateforhumanity.org/og-image.svg',
+        url: 'https://www.elevateforhumanity.org/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Elevate for Humanity - 100% Free Career Training',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Elevate for Humanity | 100% Free Career Training',
     description: '100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt. Real jobs waiting.',
-    images: ['https://www.elevateforhumanity.org/og-image.svg'],
+    images: ['https://www.elevateforhumanity.org/twitter-card.png'],
   },
   facebook: {
     appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID,
@@ -87,13 +87,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/images/logo.png', type: 'image/png' },
-      { url: '/images/logo.png', sizes: '32x32', type: 'image/png' },
-      { url: '/images/logo.png', sizes: '192x192', type: 'image/png' },
-      { url: '/images/logo.png', sizes: '512x512', type: 'image/png' },
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon-512.png', type: 'image/png', sizes: '512x512' },
     ],
-    apple: '/images/logo.png',
-    shortcut: '/images/logo.png',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
   },
 };
 
@@ -105,8 +107,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="icon" href="/assets/logo-efh.svg" />
-        <meta name="theme-color" content="#2563EB" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <meta name="theme-color" content="#10b981" />
         <StructuredData />
       </head>
       <body className={`${inter.className} antialiased bg-slate-950`}>
