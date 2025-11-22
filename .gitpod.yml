@@ -27,6 +27,11 @@ ports:
     description: Node.js debugging port
 
 tasks:
+  - name: vercel-setup
+    init: |
+      npm install
+    command: |
+      ./scripts/vercel-config-and-deploy.sh
   - name: LMS UX & Compliance Benchmark
     init: |
       mkdir -p docs
