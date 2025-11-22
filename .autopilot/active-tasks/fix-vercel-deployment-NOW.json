@@ -1,0 +1,74 @@
+{
+  "task": "fix-vercel-deployment-NOW",
+  "priority": "CRITICAL",
+  "status": "active",
+  "created": "2025-11-22T12:00:00Z",
+  "assignee": "autopilot-worker",
+  "description": "Fix Vercel deployment to ensure main branch deploys to fix2-gpql-git-main-elevate-48e460c9.vercel.app",
+  "problem": {
+    "current_state": "Deployments creating individual preview URLs instead of updating main branch URL",
+    "target_url": "fix2-gpql-git-main-elevate-48e460c9.vercel.app",
+    "unwanted_url": "fix2-gpql-1wjx3b1uo-elevate-48e460c9.vercel.app",
+    "production_domain": "www.elevateforhumanity.org"
+  },
+  "required_actions": [
+    {
+      "step": 1,
+      "action": "Cancel any stuck/building deployments in Vercel dashboard",
+      "location": "Vercel Dashboard → fix2-gpql → Deployments",
+      "manual": true
+    },
+    {
+      "step": 2,
+      "action": "Verify production branch is set to main",
+      "location": "Vercel Dashboard → fix2-gpql → Settings → Git → Production Branch",
+      "expected_value": "main",
+      "manual": true
+    },
+    {
+      "step": 3,
+      "action": "Verify domain assignment",
+      "location": "Vercel Dashboard → fix2-gpql → Settings → Domains",
+      "verify": [
+        "www.elevateforhumanity.org → Production (main branch)",
+        "elevateforhumanity.org → Redirect to www"
+      ],
+      "manual": true
+    },
+    {
+      "step": 4,
+      "action": "Trigger fresh deployment",
+      "command": "git commit --allow-empty -m 'chore: autopilot deployment trigger' && git push origin main",
+      "automated": true
+    },
+    {
+      "step": 5,
+      "action": "Monitor deployment completion",
+      "check_url": "fix2-gpql-git-main-elevate-48e460c9.vercel.app",
+      "expected_content": "funded training platform",
+      "automated": true
+    }
+  ],
+  "verification": {
+    "urls_to_check": [
+      {
+        "url": "https://fix2-gpql-git-main-elevate-48e460c9.vercel.app",
+        "should_contain": "funded training platform",
+        "should_contain": "One platform. Three audiences"
+      },
+      {
+        "url": "https://www.elevateforhumanity.org",
+        "should_contain": "funded training platform",
+        "should_contain": "One platform. Three audiences"
+      }
+    ]
+  },
+  "notes": [
+    "Vercel deployment URLs are auto-generated and cannot be controlled via code",
+    "Main branch URL (fix2-gpql-git-main-*) updates automatically when main branch deploys",
+    "Individual deployment URLs (fix2-gpql-1wjx3b1uo-*) are preview URLs for specific commits",
+    "User must manually configure Vercel dashboard settings for production domain"
+  ],
+  "deadline": "IMMEDIATE",
+  "blocking": true
+}
