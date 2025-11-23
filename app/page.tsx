@@ -21,7 +21,7 @@ export default function HomePage() {
     <main className="min-h-screen bg-slate-950 text-white">
       {/* HERO – full width like Coursera */}
       <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-16 md:py-20 border-b border-slate-200">
-        <div className="mx-auto w-full px-6 md:px-12 lg:px-20 xl:px-32">
+        <div className="mx-auto w-full max-w-[1920px] px-6 md:px-12 lg:px-16 xl:px-20">
           <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16 xl:gap-24">
             {/* Left: text */}
             <div className="flex-1 space-y-4 md:space-y-6">
