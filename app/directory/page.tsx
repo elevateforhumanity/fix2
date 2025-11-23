@@ -21,8 +21,7 @@ const programs = [
     duration: "5–6 months",
     funding: "WIOA · Workforce grants",
     modality: "Hybrid · Classroom + clinical",
-    image:
-      "/images/split/piece-1.png",
+    image: "/media/programs/medical.jpg",
     summary:
       "Hands-on clinical and administrative training for entry-level roles in clinics, hospitals, and specialty practices.",
   },
@@ -33,7 +32,7 @@ const programs = [
     duration: "4–8 weeks",
     funding: "WIOA · Employer sponsorship",
     modality: "In-person · Day/Evening options",
-    image: "/images/split/piece-2.png",
+    image: "/media/programs/cna.jpg",
     summary:
       "Prepare for frontline patient care roles in long-term care, rehab, and hospital settings with state-approved training.",
   },
@@ -44,8 +43,7 @@ const programs = [
     duration: "4–6 weeks",
     funding: "Workforce grants · Self-pay options",
     modality: "In-person · Lab-focused",
-    image:
-      "/images/split/piece-3.png",
+    image: "/media/programs/medical.jpg",
     summary:
       "Learn venipuncture, specimen handling, and lab safety for entry-level roles in hospitals, labs, and blood centers.",
   },
@@ -56,8 +54,7 @@ const programs = [
     duration: "4–6 months",
     funding: "WIOA · OJT · Apprenticeship",
     modality: "In-person · Lab & field",
-    image:
-      "/images/split/piece-4.png",
+    image: "/media/programs/hvac.jpg",
     summary:
       "Install, maintain, and repair heating, cooling, and refrigeration systems for residential and light commercial settings.",
   },
@@ -68,8 +65,7 @@ const programs = [
     duration: "4–6 months",
     funding: "Workforce grants · Employer cohorts",
     modality: "In-person · Hands-on",
-    image:
-      "/images/split/piece-5.png",
+    image: "/media/programs/building.jpg",
     summary:
       "Train on building systems, basic electrical, plumbing, and safety to keep facilities safe, clean, and running.",
   },
@@ -80,8 +76,7 @@ const programs = [
     duration: "12–18 months",
     funding: "Apprenticeship · Employer sponsorship",
     modality: "On-the-job + related instruction",
-    image:
-      "/images/split/piece-6.png",
+    image: "/media/programs/barber.jpg",
     summary:
       "State-approved apprenticeship that blends shop experience with related instruction toward your barber license.",
   },
@@ -92,8 +87,7 @@ const programs = [
     duration: "4–8 weeks",
     funding: "WIOA · Employer reimbursement",
     modality: "In-person · Behind-the-wheel",
-    image:
-      "/images/split/piece-7.png",
+    image: "/media/programs/cdl.jpg",
     summary:
       "Earn your Commercial Driver's License (Class A/B) and step into local, regional, or OTR driving roles.",
   },
@@ -104,8 +98,7 @@ const programs = [
     duration: "1–2 weeks",
     funding: "Workforce grants · Employer cohorts",
     modality: "In-person · Lab & safety",
-    image:
-      "/images/split/piece-8.png",
+    image: "/media/programs/building.jpg",
     summary:
       "OSHA-focused training in powered industrial trucks, material handling, and basic warehouse operations.",
   },
@@ -116,8 +109,7 @@ const programs = [
     duration: "4–8 weeks",
     funding: "WIOA · Employer-sponsored",
     modality: "Virtual or hybrid",
-    image:
-      "/images/split/piece-9.png",
+    image: "/media/programs/it.jpg",
     summary:
       "Develop communication, problem-solving, and systems skills for customer-facing roles across industries.",
   },
@@ -128,8 +120,7 @@ const programs = [
     duration: "8–12 weeks",
     funding: "Workforce grants · Apprenticeship pathways",
     modality: "Hybrid · Online + in-person",
-    image:
-      "/images/split/piece-10.png",
+    image: "/media/programs/it.jpg",
     summary:
       "Learn essential computer, office, and organizational skills for entry-level admin roles.",
   },
@@ -140,8 +131,7 @@ const programs = [
     duration: "Varies",
     funding: "Re-entry grants · Partnerships",
     modality: "Hybrid · Group + 1:1 support",
-    image:
-      "/images/split/piece-11.png",
+    image: "/media/programs/barber.jpg",
     summary:
       "Mindset, soft skills, and career coaching for individuals returning to the workforce after justice impact or gaps.",
   },
@@ -152,8 +142,7 @@ const programs = [
     duration: "4–8 weeks",
     funding: "Youth · WIOA · Special initiatives",
     modality: "Group-based · Project driven",
-    image:
-      "/images/split/piece-12.png",
+    image: "/media/programs/it.jpg",
     summary:
       "Short-term bridge programs to test out pathways, build confidence, and prepare for longer training.",
   },

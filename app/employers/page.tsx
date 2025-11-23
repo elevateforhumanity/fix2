@@ -97,7 +97,7 @@ export default function EmployersPage() {
       <section className="relative overflow-hidden border-b border-slate-800">
         <div className="absolute inset-0">
           <Image
-            src="/images/split/piece-13.png"
+            src="/images/homepage/employer-partnership.png"
             alt="Employers partnering with Elevate For Humanity"
             fill
             className="object-cover opacity-60"
@@ -351,7 +351,7 @@ export default function EmployersPage() {
         <div className="mx-auto max-w-3xl px-6 text-center md:px-12">
           <div className="mb-6 flex justify-center">
             <Image
-              src="/images/split/piece-14.png"
+              src="/people/sharon.jpg"
               alt="HR Director"
               width={80}
               height={80}
