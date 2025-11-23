@@ -60,11 +60,10 @@ export default function HomePage() {
               <video
                 autoPlay
                 loop
-                muted
                 playsInline
                 className="h-full w-full object-cover"
               >
-                <source src="/videos/hero-video-with-audio.mp4" type="video/mp4" />
+                <source src="/videos/hero-video-segment-with-narration.mp4" type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-3 text-xs text-slate-100">

@@ -30,6 +30,16 @@ export default function AboutPage() {
           training accessible, affordable, and life-changing.
         </p>
 
+        {/* About Video */}
+        <div className="mt-8 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
+          <video
+            controls
+            className="w-full"
+          >
+            <source src="/videos/about-section-video-with-narration.mp4" type="video/mp4" />
+          </video>
+        </div>
+
         <section className="mt-10 space-y-4">
           <h2 className="text-2xl font-semibold">What makes Elevate different?</h2>
 
