@@ -229,10 +229,10 @@ export default async function ProgramDetailPage({
             </div>
             <div className="flex flex-wrap gap-3">
               <Link
-                href={`/enroll?program=${program.slug}`}
+                href={`/programs/${program.slug}/enroll`}
                 className="elevate-btn-primary"
               >
-                Start Enrollment Inquiry
+                Enroll Now
               </Link>
               <Link
                 href="/programs"
