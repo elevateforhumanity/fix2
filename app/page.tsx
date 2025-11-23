@@ -7,41 +7,41 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       {/* HERO – professional, clean, mature */}
-      <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-20 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
+      <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-12 md:py-20 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-16">
             {/* Left: text */}
-            <div className="flex-1 space-y-6">
+            <div className="flex-1 space-y-4 md:space-y-6">
               <div className="inline-block">
-                <p className="text-sm font-semibold text-emerald-600 uppercase tracking-wide">
-                  WIOA-Approved Training Provider • Career Services • Employer Partnerships
+                <p className="text-xs sm:text-sm font-semibold text-emerald-600 uppercase tracking-wide">
+                  WIOA-Approved Training Provider
                 </p>
               </div>
               
-              <h1 className="text-5xl font-bold leading-tight sm:text-6xl lg:text-7xl text-slate-900">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-slate-900">
                 Workforce development
                 <span className="block text-emerald-600">that delivers results.</span>
               </h1>
               
-              <p className="text-xl text-slate-600 leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
                 Elevate For Humanity is an approved training provider offering career pathways 
                 in healthcare, skilled trades, transportation, and workforce readiness. 
                 We connect eligible participants to <span className="font-semibold text-slate-900">grant-funded training</span>, 
                 wraparound support services, and employer partnerships for sustainable employment outcomes.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap gap-3 sm:gap-4 pt-4">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-8 py-4 text-base font-semibold text-white shadow-lg hover:bg-emerald-700 transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-emerald-700 transition-colors"
                 >
                   Check Eligibility
                 </Link>
                 <Link
                   href="/directory"
-                  className="inline-flex items-center justify-center rounded-lg border-2 border-slate-300 bg-white px-8 py-4 text-base font-semibold text-slate-700 hover:border-slate-400 hover:bg-slate-50 transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg border-2 border-slate-300 bg-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-slate-700 hover:border-slate-400 hover:bg-slate-50 transition-colors"
                 >
-                  Browse Training Programs
+                  Browse Programs
                 </Link>
               </div>
 
@@ -84,7 +84,7 @@ export default function HomePage() {
 
             {/* Right: hero visual - BRIGHT & INVITING */}
             <div className="flex-1">
-              <div className="relative h-[500px] overflow-hidden rounded-3xl shadow-2xl lg:h-[600px] border-4 border-white">
+              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl lg:h-[600px] border-2 sm:border-4 border-white">
                 <Image
                   src="/images/hero-banner-new.png"
                   alt="Real people changing their lives through Elevate For Humanity"
