@@ -41,7 +41,7 @@ export default function ForgotPassword() {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@example.com"
+          placeholder="you@gmail.com"
           style={{
             width: '100%',
             padding: '12px 14px',

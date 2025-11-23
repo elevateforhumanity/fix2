@@ -192,7 +192,7 @@ export default function DoNotContactPanel() {
                   setNewEntry({ ...newEntry, email: e.target.value })
                 }
                 className="w-full px-4 py-2 border border-brand-border-dark rounded-lg focus:ring-2 focus:ring-brand-focus focus:border-transparent"
-                placeholder="user@example.com"
+                placeholder="user@gmail.com"
               />
             </div>
             <div>

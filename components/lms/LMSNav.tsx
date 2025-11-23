@@ -108,7 +108,7 @@ export default function LMSNav() {
                   <div className="flex flex-col space-y-1">
                     <p className="text-sm font-medium">John Doe</p>
                     <p className="text-xs text-muted-foreground">
-                      john.doe@example.com
+                      john.doe@gmail.com
                     </p>
                   </div>
                 </DropdownMenuLabel>

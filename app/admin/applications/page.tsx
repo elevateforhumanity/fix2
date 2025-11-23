@@ -19,21 +19,21 @@ export default function ApplicationsPage() {
   const [applications, setApplications] = useState<Application[]>([
     {
       id: '1',
-      email: 'john.doe@example.com',
+      email: 'john.doe@gmail.com',
       program: 'WIOA',
       status: 'pending',
       submittedAt: '2024-01-15',
     },
     {
       id: '2',
-      email: 'jane.smith@example.com',
+      email: 'jane.smith@gmail.com',
       program: 'WRG',
       status: 'approved',
       submittedAt: '2024-01-14',
     },
     {
       id: '3',
-      email: 'bob.johnson@example.com',
+      email: 'bob.johnson@gmail.com',
       program: 'JRI',
       status: 'pending',
       submittedAt: '2024-01-13',

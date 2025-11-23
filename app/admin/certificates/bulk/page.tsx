@@ -62,7 +62,7 @@ export default function BulkCertificatesPage() {
                       <input type="checkbox" className="w-4 h-4 text-red-600" />
                       <span className="text-slate-700">Student Name {i}</span>
                       <span className="text-slate-500 text-sm ml-auto">
-                        student{i}@example.com
+                        student{i}@gmail.com
                       </span>
                     </label>
                   ))}

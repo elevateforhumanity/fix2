@@ -39,7 +39,7 @@ export function StudentPortfolio() {
     name: 'Jordan Martinez',
     title: 'Full-Stack Developer',
     bio: 'Passionate software developer with expertise in web technologies and a focus on creating user-centric applications. Currently pursuing advanced certifications in cloud computing and DevOps.',
-    email: 'jordan.martinez@example.com',
+    email: 'jordan.martinez@gmail.com',
     phone: '(555) 123-4567',
     location: 'San Francisco, CA',
     linkedin: 'linkedin.com/in/jordanmartinez',
@@ -58,7 +58,7 @@ export function StudentPortfolio() {
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Tailwind CSS'],
       completedDate: '2024-01',
       githubUrl: 'https://github.com/example/ecommerce',
-      liveUrl: 'https://demo-ecommerce.example.com',
+      liveUrl: 'https://demo-ecommerce.netlify.app',
       achievements: ['Processed 1000+ transactions', 'Achieved 99.9% uptime', 'Reduced load time by 40%'],
     },
     {
@@ -70,7 +70,7 @@ export function StudentPortfolio() {
       technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Socket.io', 'Prisma'],
       completedDate: '2023-11',
       githubUrl: 'https://github.com/example/taskmanager',
-      liveUrl: 'https://tasks.example.com',
+      liveUrl: 'https://tasks-demo.netlify.app',
       achievements: ['500+ active users', 'Real-time collaboration', 'Mobile responsive'],
     },
     {
@@ -103,7 +103,7 @@ export function StudentPortfolio() {
       imageUrl: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
       technologies: ['Vue.js', 'Firebase', 'Vuetify', 'Netlify'],
       completedDate: '2023-08',
-      liveUrl: 'https://portfolio-builder.example.com',
+      liveUrl: 'https://portfolio-builder.netlify.app',
       achievements: ['200+ templates', 'SEO optimized', 'One-click deployment'],
     },
     {

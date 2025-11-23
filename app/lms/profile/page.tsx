@@ -36,7 +36,7 @@ const userData = {
   profile: {
     firstName: 'John',
     lastName: 'Doe',
-    email: 'john.doe@example.com',
+    email: 'john.doe@gmail.com',
     phone: '+1 (555) 123-4567',
     address: '123 Main St',
     city: 'Chicago',

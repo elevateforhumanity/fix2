@@ -72,7 +72,7 @@ export default function DelegateStudentsPage() {
                           Student Name {i}
                         </div>
                         <div className="text-sm text-slate-500">
-                          student{i}@example.com
+                          student{i}@gmail.com
                         </div>
                       </div>
                     </td>

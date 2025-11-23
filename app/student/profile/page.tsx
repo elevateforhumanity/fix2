@@ -12,7 +12,7 @@ export default function StudentProfilePage() {
   const [profile, setProfile] = useState({
     firstName: 'John',
     lastName: 'Doe',
-    email: 'john.doe@example.com',
+    email: 'john.doe@gmail.com',
     phone: '(555) 123-4567',
     address: '123 Main St',
     city: 'Indianapolis',

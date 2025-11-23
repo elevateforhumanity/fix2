@@ -291,7 +291,7 @@ export default function PartnerEnrollmentPage() {
                     className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
                     value={formData.contactEmail}
                     onChange={(e) => setFormData({...formData, contactEmail: e.target.value})}
-                    placeholder="you@example.com"
+                    placeholder="you@gmail.com"
                   />
                 </div>
 

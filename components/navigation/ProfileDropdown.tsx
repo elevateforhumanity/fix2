@@ -19,7 +19,7 @@ interface ProfileDropdownProps {
 
 export function ProfileDropdown({
   userName = 'John Doe',
-  userEmail = 'john@example.com',
+  userEmail = 'john@gmail.com',
   userInitial = 'J',
 }: ProfileDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);

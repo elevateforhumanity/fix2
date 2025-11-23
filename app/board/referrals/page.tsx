@@ -165,7 +165,7 @@ export default function BoardReferralsPage() {
                   value={participantEmail}
                   onChange={(e) => setParticipantEmail(e.target.value)}
                   className="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="john@example.com"
+                  placeholder="john@gmail.com"
                 />
               </div>
 

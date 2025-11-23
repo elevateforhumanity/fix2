@@ -149,7 +149,7 @@ export default function ApplyPage() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="you@example.com"
+                  placeholder="you@gmail.com"
                   required
                   className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white placeholder:text-slate-500 focus:border-emerald-400 focus:outline-none"
                 />

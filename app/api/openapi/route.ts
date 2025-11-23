@@ -43,7 +43,7 @@ export async function GET() {
                 schema: {
                   type: 'object',
                   properties: {
-                    email: { type: 'string', format: 'email', example: 'user@example.com' },
+                    email: { type: 'string', format: 'email', example: 'user@gmail.com' },
                     password: { 
                       type: 'string', 
                       format: 'password',

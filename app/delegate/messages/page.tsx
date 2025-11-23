@@ -48,7 +48,7 @@ export default function DelegateMessagesPage() {
           <div className="md:col-span-2 bg-white rounded-lg shadow-lg p-6">
             <div className="border-b border-slate-200 pb-4 mb-4">
               <h3 className="font-semibold text-slate-900">Student 1</h3>
-              <p className="text-sm text-slate-500">student1@example.com</p>
+              <p className="text-sm text-slate-500">student1@gmail.com</p>
             </div>
 
             <div className="space-y-4 mb-6 h-96 overflow-y-auto">

@@ -88,7 +88,7 @@ function ApplyForm({ programParam }: { programParam?: string | string[] }) {
                 type="email"
                 name="email"
                 className="mt-1 w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none"
-                placeholder="you@example.com"
+                placeholder="you@gmail.com"
               />
             </div>
           </div>

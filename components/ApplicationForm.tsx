@@ -128,7 +128,7 @@ export function ApplicationForm() {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  placeholder="john.doe@example.com"
+                  placeholder="john.doe@gmail.com"
                 />
               </div>
               <div>

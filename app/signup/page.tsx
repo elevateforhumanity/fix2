@@ -146,7 +146,7 @@ export default function SignupPage() {
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleChange('email', e.target.value)}
-                  placeholder="john.doe@example.com"
+                  placeholder="your.email@gmail.com"
                   className={errors.email ? 'border-red-500' : ''}
                 />
                 {errors.email && (

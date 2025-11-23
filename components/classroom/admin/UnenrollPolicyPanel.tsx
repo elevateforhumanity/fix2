@@ -260,7 +260,7 @@ export default function UnenrollPolicyPanel() {
           <textarea
             value={protectedDomains}
             onChange={(e) => setProtectedDomains(e.target.value)}
-            placeholder="example.com&#10;school.edu"
+            placeholder="gmail.com&#10;school.edu"
             rows={4}
             style={{
               width: '100%',
@@ -295,7 +295,7 @@ export default function UnenrollPolicyPanel() {
           <textarea
             value={protectedEmails}
             onChange={(e) => setProtectedEmails(e.target.value)}
-            placeholder="admin@example.com&#10;teacher@school.edu"
+            placeholder="admin@gmail.com&#10;teacher@school.edu"
             rows={4}
             style={{
               width: '100%',
