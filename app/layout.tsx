@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import './ui-fixes.css';
@@ -23,6 +23,14 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
+// Viewport configuration (separate from metadata in Next.js 14+)
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 // Cache bust: 2025-11-22T09:14:55Z
 export const metadata: Metadata = {
   title: 'Elevate for Humanity | Workforce Training & Career Development',
@@ -40,12 +48,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Elevate for Humanity' }],
   manifest: '/manifest.json',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
   openGraph: {
     title: 'Elevate for Humanity | 100% Free Career Training',
     description:
