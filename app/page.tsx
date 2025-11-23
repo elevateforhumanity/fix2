@@ -106,7 +106,7 @@ export default function HomePage() {
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className="flex items-center justify-center">
                 <Image
-                  src={`https://placehold.co/200x80/020617/64748b?text=Partner+${i}`}
+                  src={`/images/split/piece-${i}.png`}
                   alt={`Partner logo ${i}`}
                   width={200}
                   height={80}
@@ -217,7 +217,7 @@ export default function HomePage() {
               title="Elevate overview in 60 seconds"
               desc="Who we serve, what we offer, and how to get started without a bunch of jargon."
               duration="~1:00"
-              placeholder="https://placehold.co/600x360/020617/22c55e?text=Elevate+Overview"
+              placeholder="/images/homepage/pathways-to-employment-banner.png"
             />
 
             {/* 2 – Barber / re-entry */}
@@ -227,7 +227,7 @@ export default function HomePage() {
               title="Barber Apprenticeship: a second-chance pathway"
               desc="From incarceration to owning a chair — how this pathway actually works."
               duration="~2:30"
-              placeholder="https://placehold.co/600x360/0f172a/f97316?text=Barber+Spotlight"
+              placeholder="/images/homepage/barber-apprenticeship-training.png"
             />
 
             {/* 3 – Employer / pipeline */}
