@@ -102,7 +102,7 @@ export default function TrainingProvidersPage() {
           <div className="relative mt-8 w-full max-w-md md:mt-0 md:ml-auto">
             <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/70 shadow-2xl">
               <Image
-                src="https://placehold.co/800x450/020617/f97316?text=Training+Provider+Overview+Video"
+                src="/images/homepage/training-program-collage.png"
                 alt="Training Provider overview video"
                 width={800}
                 height={450}
@@ -253,7 +253,7 @@ export default function TrainingProvidersPage() {
           <div className="grid gap-8 md:grid-cols-[2fr,3fr] md:items-center">
             <div className="relative rounded-3xl border border-slate-800 bg-slate-950/80 p-4">
               <Image
-                src="https://placehold.co/800x450/020617/f97316?text=Provider+Success+Story+Video"
+                src="/images/homepage/workforce-pathway-ecosystem.png"
                 alt="Training provider success story video"
                 width={800}
                 height={450}
