@@ -6,52 +6,75 @@ export default function ElevateHomepage() {
   return (
     <main className="min-h-screen bg-white">
       {/* HERO SECTION - Full Width */}
-      <section className="relative h-[600px] overflow-hidden">
+      <section className="relative h-[700px] overflow-hidden">
         <Image
           src="/media/homepage-hero.jpg"
           alt="Career training that changes lives"
           fill
-          className="object-cover"
+          className="object-cover brightness-110"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/75 via-slate-900/50 to-transparent" />
         
         <div className="relative z-10 mx-auto flex h-full max-w-6xl items-center px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <h1 className="text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl">
-              Transform Your Future
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-lg">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+              </span>
+              FREE Training for Those Who Qualify
+            </div>
+            
+            <h1 className="mt-6 text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl">
+              Career Training.<br />
+              <span className="text-red-400">100% Funded.</span>
             </h1>
-            <p className="mt-6 text-xl text-gray-200 sm:text-2xl">
-              Free, funded career training for adults ready to change their lives. Healthcare, trades, CDL, and more.
+            
+            <p className="mt-6 text-xl leading-relaxed text-gray-100 sm:text-2xl">
+              WIOA, WRG, DOL, and JRI funding available. Most learners pay <span className="font-bold text-white">$0</span> when approved. Hybrid and in-person options.
             </p>
+
+            {/* Highlight Boxes */}
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-xl bg-white/10 p-4 backdrop-blur-sm ring-1 ring-white/20">
+                <div className="text-sm font-semibold text-red-300">WIOA & WRG Funded</div>
+                <div className="mt-1 text-sm text-gray-200">Workforce Innovation & Opportunity Act + Workforce Ready Grant programs cover tuition, books, and supplies</div>
+              </div>
+              <div className="rounded-xl bg-white/10 p-4 backdrop-blur-sm ring-1 ring-white/20">
+                <div className="text-sm font-semibold text-blue-300">DOL & JRI Pathways</div>
+                <div className="mt-1 text-sm text-gray-200">Department of Labor apprenticeships + Justice Reinvestment Initiative for re-entry learners</div>
+              </div>
+            </div>
+            
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center rounded-lg bg-red-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-red-700 transition"
+                className="inline-flex items-center justify-center rounded-lg bg-red-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-red-700 transition transform hover:scale-105"
               >
-                Apply Now
+                Check My Eligibility →
               </Link>
               <Link
                 href="/programs"
                 className="inline-flex items-center justify-center rounded-lg border-2 border-white bg-white/10 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm hover:bg-white/20 transition"
               >
-                Explore Programs
+                View Programs
               </Link>
             </div>
             
             {/* Stats Bar */}
-            <div className="mt-12 grid grid-cols-3 gap-6 border-t border-white/20 pt-6">
+            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-white/30 pt-6">
               <div>
                 <div className="text-3xl font-bold text-white">$0</div>
-                <div className="text-sm text-gray-300">Cost for most learners</div>
+                <div className="text-xs text-gray-300">Cost for qualified learners</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-white">12+</div>
-                <div className="text-sm text-gray-300">Career pathways</div>
+                <div className="text-3xl font-bold text-white">Hybrid</div>
+                <div className="text-xs text-gray-300">Online + in-person options</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-white">85%</div>
-                <div className="text-sm text-gray-300">Job placement rate</div>
+                <div className="text-xs text-gray-300">Job placement rate</div>
               </div>
             </div>
           </div>
