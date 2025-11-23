@@ -47,7 +47,7 @@ export default async function CoursesPage() {
     const { data: enrollments } = await supabase
       .from('enrollments')
       .select('course_id')
-      .eq('student_id', user.id)
+      .eq('user_id', user.id)
       .in('status', ['active', 'completed']);
 
     enrolledCourseIds = enrollments?.map((e) => e.course_id) || [];

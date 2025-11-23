@@ -62,7 +62,7 @@ export default async function CoursePage({ params }: Props) {
   const { data: enrollment } = await supabase
     .from('enrollments')
     .select('id, status, progress, enrolled_at')
-    .eq('student_id', user.id)
+    .eq('user_id', user.id)
     .eq('course_id', params.id)
     .single();
 
@@ -99,7 +99,7 @@ export default async function CoursePage({ params }: Props) {
   const { data: progressData } = await supabase
     .from('lesson_progress')
     .select('lesson_id, completed, completed_at, time_spent_minutes')
-    .eq('student_id', user.id)
+    .eq('user_id', user.id)
     .in('lesson_id', lessonIds);
 
   // Create progress map

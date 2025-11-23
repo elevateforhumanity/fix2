@@ -115,7 +115,7 @@ export default async function StudentDashboard() {
                       title={enrollment.courses?.title || "Course"}
                       progress={enrollment.progress || 0}
                       nextLesson={enrollment.progress === 100 ? "Course Complete!" : "Continue learning"}
-                      href={`/lms/courses/${enrollment.courses?.slug || enrollment.course_id}`}
+                      href={`/lms/courses/${enrollment.course_id}`}
                       completed={enrollment.progress === 100}
                     />
                   ))}

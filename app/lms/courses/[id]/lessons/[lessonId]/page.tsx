@@ -87,7 +87,7 @@ export default function LessonPage({ params }: Props) {
       const { data: progressData } = await supabase
         .from('lesson_progress')
         .select('*')
-        .eq('student_id', user.id)
+        .eq('user_id', user.id)
         .eq('lesson_id', params.lessonId)
         .single();
 
@@ -144,7 +144,7 @@ export default function LessonPage({ params }: Props) {
       } else {
         // Create new progress
         await supabase.from('lesson_progress').insert({
-          student_id: user.id,
+          user_id: user.id,
           lesson_id: parseInt(params.lessonId),
           completed: true,
           completed_at: now.toISOString(),
@@ -191,7 +191,7 @@ export default function LessonPage({ params }: Props) {
       const { data: completedProgress } = await supabase
         .from('lesson_progress')
         .select('id')
-        .eq('student_id', userId)
+        .eq('user_id', userId)
         .in('lesson_id', lessonIds)
         .eq('completed', true);
 
@@ -205,7 +205,7 @@ export default function LessonPage({ params }: Props) {
       await supabase
         .from('enrollments')
         .update({ progress: progressPercent })
-        .eq('student_id', userId)
+        .eq('user_id', userId)
         .eq('course_id', params.id);
     } catch (error) {
       console.error('Error updating enrollment progress:', error);
