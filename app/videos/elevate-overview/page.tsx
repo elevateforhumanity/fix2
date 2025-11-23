@@ -34,44 +34,14 @@ export default function ElevateOverviewVideoPage() {
           {/* Video area */}
           <div className="flex-1">
             <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-black shadow-2xl">
-              {/* 
-                🔴 IMPORTANT:
-                When your real InVideo export is ready, REPLACE this <div> 
-                with a real <video> tag or an embed (YouTube/Vimeo/etc).
-
-                Example with local MP4:
-                  <video
-                    controls
-                    className="h-full w-full"
-                    poster="/images/videos/elevate-overview-thumb.jpg"
-                  >
-                    <source src="/videos/elevate-overview.mp4" type="video/mp4" />
-                  </video>
-              */}
-              <div className="relative h-[220px] w-full sm:h-[280px] md:h-[320px] lg:h-[360px]">
-                <Image
-                  src="https://placehold.co/1280x720/020617/f97316?text=Elevate+Overview+Video"
-                  alt="Elevate For Humanity overview video placeholder"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                {/* Overlay play button */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40">
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-2 rounded-full bg-white/95 px-5 py-2 text-xs font-semibold text-slate-900 shadow-lg"
-                  >
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-900 text-[11px] text-white">
-                      ►
-                    </span>
-                    <span>Play Elevate overview (1:00)</span>
-                  </button>
-                  <p className="mt-3 text-[11px] text-slate-100/80">
-                    Placeholder image – will be replaced with your real video.
-                  </p>
-                </div>
-              </div>
+              <video
+                controls
+                className="h-full w-full"
+                poster="/images/homepage/pathways-to-employment-banner.png"
+              >
+                <source src="/videos/elevate-overview.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
 
             {/* Video meta / quick details */}

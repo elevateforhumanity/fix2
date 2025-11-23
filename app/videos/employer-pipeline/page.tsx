@@ -31,43 +31,15 @@ export default function EmployerPipelineVideoPage() {
           {/* Video area */}
           <div className="flex-1">
             <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-black shadow-2xl">
-              {/*
-                🔴 IMPORTANT:
-                Replace the placeholder block below with a real <video> tag or embed
-                once your InVideo export is ready.
-
-                Example with local file:
-                  <video
-                    controls
-                    className="h-full w-full"
-                    poster="/images/videos/employer-pipeline-thumb.jpg"
-                  >
-                    <source src="/videos/employer-pipeline.mp4" type="video/mp4" />
-                  </video>
-              */}
-              <div className="relative h-[220px] w-full sm:h-[280px] md:h-[320px] lg:h-[360px]">
-                <Image
-                  src="https://placehold.co/1280x720/022c22/a7f3d0?text=Employer+%2F+Workforce+Pipeline"
-                  alt="Employer and workforce pipeline video placeholder"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/45">
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-2 rounded-full bg-white/95 px-5 py-2 text-xs font-semibold text-slate-900 shadow-lg"
-                  >
-                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-900 text-[11px] text-white">
-                      ►
-                    </span>
-                    <span>Play Employer Pipeline overview (2:00)</span>
-                  </button>
-                  <p className="mt-3 text-[11px] text-slate-100/80">
-                    Placeholder image – replace with your InVideo export when ready.
-                  </p>
-                </div>
-              </div>
+              <video
+                controls
+                autoPlay
+                className="h-full w-full"
+                poster="/images/homepage/employer-partnership.png"
+              >
+                <source src="/videos/employer-pipeline.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
 
             {/* Meta row */}
