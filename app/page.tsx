@@ -69,14 +69,10 @@ export default function ElevateLanding() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 flex flex-col gap-2">
-                  <span className="inline-flex max-w-xs rounded-full bg-white/95 px-4 py-1 text-xs font-semibold text-slate-900 shadow-lg">
+                <div className="absolute bottom-4 left-4">
+                  <span className="inline-flex rounded-full bg-white/95 px-4 py-2 text-sm font-semibold text-slate-900 shadow-lg">
                     Free & funded training · Healthcare · Trades · CDL · Barber
                   </span>
-                  <p className="max-w-xs text-xs text-white drop-shadow-lg">
-                    Use this hero image for flyers, social, and QR codes to
-                    explain Elevate in one glance.
-                  </p>
                 </div>
               </div>
 
@@ -105,9 +101,9 @@ export default function ElevateLanding() {
 
             {/* three small thumbnails */}
             <div className="grid grid-cols-3 gap-3">
-              <HeroThumb src="/media/programs/barber.jpg" label="Barber" />
-              <HeroThumb src="/media/programs/medical-hd.jpg" label="Healthcare" />
-              <HeroThumb src="/media/programs/hvac-hd.jpg" label="HVAC" />
+              <HeroThumb src="/media/programs/barber.jpg" label="Barber" href="/programs/barber" />
+              <HeroThumb src="/media/programs/medical-hd.jpg" label="Healthcare" href="/programs/medical-assistant" />
+              <HeroThumb src="/media/programs/hvac-hd.jpg" label="HVAC" href="/programs/hvac" />
             </div>
           </div>
 
