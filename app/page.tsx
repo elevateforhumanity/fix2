@@ -6,91 +6,94 @@ import { TextToSpeechButton } from "@/components/TextToSpeechButton";
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      {/* HERO – clear message + visual */}
-      <section className="border-b border-slate-900 bg-gradient-to-br from-slate-950 via-slate-950 to-emerald-700/20">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 pb-16 pt-10 md:flex-row md:px-10 lg:pt-16">
-          {/* Left: text */}
-          <div className="flex-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">
-              100% funded career training • Marion County & beyond
-            </p>
-            <h1 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-[2.7rem] leading-tight">
-              Elevate For Humanity:
-              <span className="text-emerald-300"> funded training, real support, real jobs.</span>
-            </h1>
-            <p className="mt-4 max-w-xl text-sm text-slate-200">
-              We connect people to grant-funded training, wraparound support, and employers
-              who are ready to hire — not just collect applications. Healthcare, trades,
-              CDL, re-entry and more, with Elevate walking alongside you the whole way.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/apply"
-                className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
-              >
-                Get started free
-              </Link>
-              <Link
-                href="/directory"
-                className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-6 py-3 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/10"
-              >
-                Explore training programs
-              </Link>
-            </div>
-
-            <div className="mt-5 flex flex-wrap items-center gap-4 text-[11px] text-slate-400">
-              <div className="flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/20 text-[11px] text-emerald-300">
-                  💰
-                </span>
-                <span>Most learners pay little to nothing if eligible.</span>
+      {/* HERO – bright, warm, welcoming */}
+      <section className="bg-gradient-to-br from-emerald-50 via-white to-blue-50 py-20">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16">
+            {/* Left: text */}
+            <div className="flex-1 space-y-6">
+              <div className="inline-block rounded-full bg-emerald-100 px-5 py-2 border-2 border-emerald-300">
+                <p className="text-sm font-bold text-emerald-700">
+                  ✨ Free Training • Real Support • Real Jobs
+                </p>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/20 text-[11px] text-emerald-300">
-                  ✓
-                </span>
-                <span>Approved programs with workforce & employer partners.</span>
-              </div>
-            </div>
-          </div>
+              
+              <h1 className="text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl text-slate-900">
+                Your career journey
+                <span className="block bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">starts here.</span>
+              </h1>
+              
+              <p className="text-xl text-slate-700 leading-relaxed max-w-2xl font-medium">
+                Whether you're starting fresh, making a change, or getting a second chance — 
+                we connect you to <span className="font-bold text-emerald-600">100% funded training</span>, 
+                caring coaches, and employers who are actually hiring.
+              </p>
 
-          {/* Right: hero visual with image */}
-          <div className="w-full max-w-md">
-            <div className="relative h-64 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 shadow-2xl sm:h-72 md:h-80">
-              <Image
-                src="/images/hero-banner-new.png"
-                alt="Elevate For Humanity - Funded training, real support, real jobs"
-                fill
-                priority
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-3 text-xs text-slate-100">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.18em] text-emerald-300">
-                    Snapshot
-                  </p>
-                  <p className="text-xs font-semibold">
-                    CNA • CDL • HVAC • Barber • Re-entry &amp; more
-                  </p>
+              <div className="flex flex-wrap gap-4 pt-6">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 px-10 py-5 text-lg font-bold text-white shadow-2xl hover:shadow-emerald-500/50 hover:scale-105 transition-all"
+                >
+                  🚀 Start Your Journey
+                </Link>
+                <Link
+                  href="/directory"
+                  className="inline-flex items-center justify-center rounded-full border-3 border-emerald-600 bg-white px-10 py-5 text-lg font-bold text-emerald-700 hover:bg-emerald-50 transition-all"
+                >
+                  See Programs
+                </Link>
+              </div>
+
+              <div className="flex flex-wrap gap-6 pt-8">
+                <div className="flex items-center gap-3 bg-white rounded-2xl px-5 py-3 shadow-lg border border-emerald-100">
+                  <span className="text-3xl">💰</span>
+                  <span className="font-semibold text-slate-800">Most pay $0</span>
                 </div>
-                <div className="rounded-2xl bg-slate-950/70 px-3 py-2 text-[11px]">
-                  <p className="text-[10px] uppercase tracking-[0.18em] text-slate-400">
-                    Outcomes
-                  </p>
-                  <p className="font-semibold text-emerald-300">Training → Support → Job</p>
+                <div className="flex items-center gap-3 bg-white rounded-2xl px-5 py-3 shadow-lg border border-blue-100">
+                  <span className="text-3xl">🤝</span>
+                  <span className="font-semibold text-slate-800">Personal support</span>
+                </div>
+                <div className="flex items-center gap-3 bg-white rounded-2xl px-5 py-3 shadow-lg border border-purple-100">
+                  <span className="text-3xl">✅</span>
+                  <span className="font-semibold text-slate-800">Real jobs</span>
                 </div>
               </div>
             </div>
-            {/* Small trust row under image */}
-            <div className="mt-3 flex flex-wrap items-center gap-3 text-[11px] text-slate-400">
-              <span className="rounded-full bg-slate-900/80 px-3 py-1">
-                Workforce-aligned pathways
-              </span>
-              <span className="rounded-full bg-slate-900/80 px-3 py-1">
-                Employer &amp; board partners
-              </span>
+
+            {/* Right: hero visual - BRIGHT & INVITING */}
+            <div className="flex-1">
+              <div className="relative h-[500px] overflow-hidden rounded-3xl shadow-2xl lg:h-[600px] border-4 border-white">
+                <Image
+                  src="/images/hero-banner-new.png"
+                  alt="Real people changing their lives through Elevate For Humanity"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-transparent" />
+                <div className="absolute bottom-8 left-8 right-8 space-y-4">
+                  <div className="flex flex-wrap gap-3">
+                    <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-emerald-700 shadow-lg">
+                      Healthcare
+                    </span>
+                    <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-blue-700 shadow-lg">
+                      Skilled Trades
+                    </span>
+                    <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-purple-700 shadow-lg">
+                      CDL
+                    </span>
+                    <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-orange-700 shadow-lg">
+                      Barber
+                    </span>
+                    <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-pink-700 shadow-lg">
+                      Re-entry
+                    </span>
+                  </div>
+                  <p className="text-white text-xl font-bold drop-shadow-lg">
+                    Join hundreds changing their lives through real training & real opportunities 🌟
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -118,20 +121,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WHAT WE DO – light section */}
-      <section className="border-b border-slate-200 bg-white py-20">
+      {/* WHAT WE DO – warm, human section */}
+      <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-emerald-600">
-              What we do
-            </p>
-            <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
-              A complete workforce development ecosystem
+          <div className="text-center space-y-4">
+            <h2 className="text-4xl font-bold text-slate-900 sm:text-5xl">
+              How we help you succeed
             </h2>
-            <p className="mt-4 text-sm text-slate-600 sm:text-base max-w-3xl mx-auto">
-              Elevate For Humanity connects learners, employers, and workforce partners so
-              training, support, and job placement are all working together instead of in
-              silos.
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              We're not just a training program. We're your partner from day one — 
+              helping you find the right path, get it funded, and land a real job.
             </p>
           </div>
 
