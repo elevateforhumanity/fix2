@@ -28,12 +28,15 @@ export const metadata: Metadata = {
 // Force dynamic rendering - don't build at compile time
 export const dynamic = 'force-dynamic';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function getSupabaseClient() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
 async function getExportEvents() {
+  const supabase = getSupabaseClient();
   const { data } = await supabase
     .from('account_export_events')
     .select('*')
