@@ -43,22 +43,43 @@ export default function EnrollPage({ params }: { params: { slug: string } }) {
     setError("");
 
     try {
-      const response = await fetch("/api/enrollments/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ courseId: course.id }),
-      });
+      // Check if course requires payment
+      if (course.requires_payment && !course.is_free && course.student_price_cents > 0) {
+        // Create Stripe checkout
+        const response = await fetch("/api/checkout/create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ courseId: course.id }),
+        });
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (response.ok) {
-        router.push("/portal/student/dashboard?enrolled=true");
+        if (response.ok && data.url) {
+          // Redirect to Stripe checkout
+          window.location.href = data.url;
+        } else {
+          setError(data.error || "Failed to create checkout");
+          setEnrolling(false);
+        }
       } else {
-        setError(data.error || "Failed to enroll");
+        // Free enrollment
+        const response = await fetch("/api/enrollments/create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ courseId: course.id }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          router.push("/portal/student/dashboard?enrolled=true");
+        } else {
+          setError(data.error || "Failed to enroll");
+        }
+        setEnrolling(false);
       }
     } catch (err) {
       setError("An error occurred. Please try again.");
-    } finally {
       setEnrolling(false);
     }
   };
