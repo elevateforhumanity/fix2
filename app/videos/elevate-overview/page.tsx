@@ -36,11 +36,17 @@ export default function ElevateOverviewVideoPage() {
             <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-black shadow-2xl">
               <video
                 controls
-                className="h-full w-full"
+                autoPlay
+                playsInline
+                className="h-full w-full bg-black"
                 poster="/images/homepage/pathways-to-employment-banner.png"
               >
+                <source src="/videos/elevate-overview-web.mp4" type="video/mp4" />
                 <source src="/videos/elevate-overview.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
+                <p className="text-white p-4">
+                  Your browser doesn't support HTML5 video. 
+                  <a href="/videos/elevate-overview.mp4" className="text-emerald-400 underline">Download the video</a> instead.
+                </p>
               </video>
             </div>
 
