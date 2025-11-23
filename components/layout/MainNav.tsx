@@ -10,9 +10,13 @@ const STUDENT_PORTAL_URL = "/app"; // or "https://students.elevateforhumanity.or
 
 const mainLinks = [
   { href: "/directory", label: "Programs" },
+  { href: "/about", label: "About" },
   { href: "/learners", label: "Learners" },
   { href: "/employers", label: "Employers" },
-  { href: "/partners/workforce", label: "Workforce Partners" },
+  { href: "/partners/workforce", label: "Partners" },
+  { href: "/success-stories", label: "Success Stories" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function MainNav() {
