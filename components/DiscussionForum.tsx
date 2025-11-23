@@ -30,7 +30,7 @@ export function DiscussionForum({ courseId, posts = [] }: DiscussionForumProps) 
     const post: ForumPost = {
       id: Date.now().toString(),
       author: 'Current User',
-      avatar: '/media/avatar-placeholder.jpg',
+      avatar: '/images/split/piece-15.png',
       content: newPost,
       timestamp: 'Just now',
       likes: 0,

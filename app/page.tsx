@@ -238,7 +238,7 @@ export default function HomePage() {
               title="How Elevate supports funded talent pipelines"
               desc="A clear picture for HR, hiring managers and workforce boards."
               duration="~2:00"
-              placeholder="https://placehold.co/600x360/022c22/a7f3d0?text=Employer+Pipeline"
+              placeholder="/images/split/piece-13.png"
             />
           </div>
         </div>

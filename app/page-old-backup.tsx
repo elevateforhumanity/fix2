@@ -263,7 +263,7 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="https://placehold.co/600x400/1e293b/f97316?text=CDL+Training"
+                    src="/images/split/piece-5.png"
                     alt="Commercial Driver's License Training"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -289,7 +289,7 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="https://placehold.co/600x400/1e293b/f97316?text=HVAC+Training"
+                    src="/images/split/piece-6.png"
                     alt="HVAC Technician Training"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
@@ -367,7 +367,7 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="https://placehold.co/600x400/1e293b/f97316?text=Medical+Assistant"
+                    src="/images/split/piece-7.png"
                     alt="Medical Assistant Training"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"

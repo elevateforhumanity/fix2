@@ -53,7 +53,7 @@ export default async function ProgramDetailPage({
   // If it's an ECD course, render the ECD template
   if (ecdCourse) {
     const manifest = getManifest();
-    const coverSrc = (manifest as Record<string, string>)[ecdCourse.coverImageKey] ?? '/placeholder-course-cover.svg';
+    const coverSrc = (manifest as Record<string, string>)[ecdCourse.coverImageKey] ?? '/images/split/piece-14.png';
     
     return (
       <main className="mx-auto max-w-5xl px-4 py-10 space-y-8">

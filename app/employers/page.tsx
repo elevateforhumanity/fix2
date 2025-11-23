@@ -84,7 +84,7 @@ export default function EmployersPage() {
       <section className="relative overflow-hidden border-b border-slate-800">
         <div className="absolute inset-0">
           <Image
-            src="https://placehold.co/1920x900/020617/f97316?text=Employers+%E2%80%93+Build+Your+Pipeline"
+            src="/images/split/piece-13.png"
             alt="Employers partnering with Elevate For Humanity"
             fill
             className="object-cover opacity-60"
@@ -338,7 +338,7 @@ export default function EmployersPage() {
         <div className="mx-auto max-w-3xl px-6 text-center md:px-12">
           <div className="mb-6 flex justify-center">
             <Image
-              src="https://placehold.co/200x200/020617/f97316?text=HR"
+              src="/images/split/piece-14.png"
               alt="HR Director"
               width={80}
               height={80}

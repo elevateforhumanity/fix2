@@ -22,7 +22,7 @@ const programs = [
     funding: "WIOA · Workforce grants",
     modality: "Hybrid · Classroom + clinical",
     image:
-      "https://placehold.co/800x500/0f172a/f97316?text=Medical+Assistant",
+      "/images/split/piece-1.png",
     summary:
       "Hands-on clinical and administrative training for entry-level roles in clinics, hospitals, and specialty practices.",
   },
@@ -33,7 +33,7 @@ const programs = [
     duration: "4–8 weeks",
     funding: "WIOA · Employer sponsorship",
     modality: "In-person · Day/Evening options",
-    image: "https://placehold.co/800x500/020617/f97316?text=CNA",
+    image: "/images/split/piece-2.png",
     summary:
       "Prepare for frontline patient care roles in long-term care, rehab, and hospital settings with state-approved training.",
   },
@@ -45,7 +45,7 @@ const programs = [
     funding: "Workforce grants · Self-pay options",
     modality: "In-person · Lab-focused",
     image:
-      "https://placehold.co/800x500/0f172a/f97316?text=Phlebotomy",
+      "/images/split/piece-3.png",
     summary:
       "Learn venipuncture, specimen handling, and lab safety for entry-level roles in hospitals, labs, and blood centers.",
   },
@@ -57,7 +57,7 @@ const programs = [
     funding: "WIOA · OJT · Apprenticeship",
     modality: "In-person · Lab & field",
     image:
-      "https://placehold.co/800x500/020617/f97316?text=HVAC+Tech",
+      "/images/split/piece-4.png",
     summary:
       "Install, maintain, and repair heating, cooling, and refrigeration systems for residential and light commercial settings.",
   },
@@ -69,7 +69,7 @@ const programs = [
     funding: "Workforce grants · Employer cohorts",
     modality: "In-person · Hands-on",
     image:
-      "https://placehold.co/800x500/0f172a/f97316?text=Building+Maintenance",
+      "/images/split/piece-5.png",
     summary:
       "Train on building systems, basic electrical, plumbing, and safety to keep facilities safe, clean, and running.",
   },
@@ -81,7 +81,7 @@ const programs = [
     funding: "Apprenticeship · Employer sponsorship",
     modality: "On-the-job + related instruction",
     image:
-      "https://placehold.co/800x500/020617/f97316?text=Barber+Apprenticeship",
+      "/images/split/piece-6.png",
     summary:
       "State-approved apprenticeship that blends shop experience with related instruction toward your barber license.",
   },
@@ -93,7 +93,7 @@ const programs = [
     funding: "WIOA · Employer reimbursement",
     modality: "In-person · Behind-the-wheel",
     image:
-      "https://placehold.co/800x500/0f172a/f97316?text=CDL+Training",
+      "/images/split/piece-7.png",
     summary:
       "Earn your Commercial Driver's License (Class A/B) and step into local, regional, or OTR driving roles.",
   },
@@ -105,7 +105,7 @@ const programs = [
     funding: "Workforce grants · Employer cohorts",
     modality: "In-person · Lab & safety",
     image:
-      "https://placehold.co/800x500/020617/f97316?text=Forklift+Training",
+      "/images/split/piece-8.png",
     summary:
       "OSHA-focused training in powered industrial trucks, material handling, and basic warehouse operations.",
   },
@@ -117,7 +117,7 @@ const programs = [
     funding: "WIOA · Employer-sponsored",
     modality: "Virtual or hybrid",
     image:
-      "https://placehold.co/800x500/0f172a/f97316?text=Customer+Service",
+      "/images/split/piece-9.png",
     summary:
       "Develop communication, problem-solving, and systems skills for customer-facing roles across industries.",
   },
@@ -129,7 +129,7 @@ const programs = [
     funding: "Workforce grants · Apprenticeship pathways",
     modality: "Hybrid · Online + in-person",
     image:
-      "https://placehold.co/800x500/020617/f97316?text=Office+Admin",
+      "/images/split/piece-10.png",
     summary:
       "Learn essential computer, office, and organizational skills for entry-level admin roles.",
   },
@@ -141,7 +141,7 @@ const programs = [
     funding: "Re-entry grants · Partnerships",
     modality: "Hybrid · Group + 1:1 support",
     image:
-      "https://placehold.co/800x500/0f172a/f97316?text=Re-Entry+Program",
+      "/images/split/piece-11.png",
     summary:
       "Mindset, soft skills, and career coaching for individuals returning to the workforce after justice impact or gaps.",
   },
@@ -153,7 +153,7 @@ const programs = [
     funding: "Youth · WIOA · Special initiatives",
     modality: "Group-based · Project driven",
     image:
-      "https://placehold.co/800x500/020617/f97316?text=Bridge+Program",
+      "/images/split/piece-12.png",
     summary:
       "Short-term bridge programs to test out pathways, build confidence, and prepare for longer training.",
   },

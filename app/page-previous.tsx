@@ -166,7 +166,7 @@ export default function HomePage() {
             {/* Barber Apprenticeship */}
             <ProgramCard
               href="/programs/barber-apprenticeship"
-              imageSrc="https://placehold.co/600x380/f97316/0f172a?text=Barber+Apprenticeship"
+              imageSrc="/images/split/piece-8.png"
               imageAlt="Barber apprenticeship training"
               tag="Apprenticeship"
               title="Barber Apprenticeship"
@@ -178,7 +178,7 @@ export default function HomePage() {
             {/* HVAC */}
             <ProgramCard
               href="/programs/hvac-technician"
-              imageSrc="https://placehold.co/600x380/0f172a/f97316?text=HVAC+Technician"
+              imageSrc="/images/split/piece-9.png"
               imageAlt="HVAC technician working on equipment"
               tag="Skilled Trades"
               title="HVAC Technician"
@@ -190,7 +190,7 @@ export default function HomePage() {
             {/* Building Maintenance */}
             <ProgramCard
               href="/programs/building-maintenance"
-              imageSrc="https://placehold.co/600x380/1e293b/e5e7eb?text=Building+Maintenance"
+              imageSrc="/images/split/piece-10.png"
               imageAlt="Building maintenance technician at work"
               tag="Facilities & Maintenance"
               title="Building Maintenance Technician"
@@ -202,7 +202,7 @@ export default function HomePage() {
             {/* CDL / Transportation */}
             <ProgramCard
               href="/programs/cdl"
-              imageSrc="https://placehold.co/600x380/0f172a/bae6fd?text=CDL+%2F+Transportation"
+              imageSrc="/images/split/piece-11.png"
               imageAlt="CDL truck driving training"
               tag="Transportation"
               title="CDL / Truck Driving (with partners)"
@@ -214,7 +214,7 @@ export default function HomePage() {
             {/* Re-entry & Workforce Readiness */}
             <ProgramCard
               href="/programs/workforce-readiness"
-              imageSrc="https://placehold.co/600x380/022c22/a7f3d0?text=Workforce+Readiness+%26+Re-Entry"
+              imageSrc="/images/split/piece-12.png"
               imageAlt="Workforce readiness and re-entry coaching"
               tag="Re-Entry & Readiness"
               title="Workforce Readiness & Re-Entry"
