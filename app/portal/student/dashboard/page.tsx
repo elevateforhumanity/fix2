@@ -1,13 +1,44 @@
 // app/portal/student/dashboard/page.tsx - STUDENT DASHBOARD
 import Link from "next/link";
 import { BookOpen, Award, Calendar, MessageSquare, FileText, TrendingUp, Clock, CheckCircle } from "lucide-react";
+import { createClient } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
 export const metadata = {
   title: "Student Dashboard | Elevate For Humanity",
   description: "Your learning dashboard",
 };
 
-export default function StudentDashboard() {
+export default async function StudentDashboard() {
+  // Get current user
+  const user = await getCurrentUser();
+  
+  if (!user) {
+    redirect("/portal/student");
+  }
+
+  const supabase = await createClient();
+  
+  // Fetch real courses
+  const { data: courses } = await supabase
+    .from("courses")
+    .select("id, title, slug")
+    .limit(5);
+  
+  // Try to fetch enrollments (may not exist yet)
+  const { data: enrollments } = await supabase
+    .from("enrollments")
+    .select("*, courses(title, slug)")
+    .eq("user_id", user.id);
+  
+  // Try to fetch certificates
+  const { data: certificates } = await supabase
+    .from("certificates")
+    .select("*")
+    .eq("user_id", user.id);
+  
+  const userName = user.profile?.name || user.email?.split("@")[0] || "Student";
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Header */}
@@ -15,7 +46,7 @@ export default function StudentDashboard() {
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-slate-900">Welcome back, Student!</h1>
+              <h1 className="text-2xl font-bold text-slate-900">Welcome back, {userName}!</h1>
               <p className="text-sm text-slate-600 mt-1">Continue your learning journey</p>
             </div>
             <Link
@@ -36,7 +67,7 @@ export default function StudentDashboard() {
               <span className="text-sm font-medium text-slate-600">Courses</span>
               <BookOpen className="text-emerald-500" size={20} />
             </div>
-            <p className="text-3xl font-bold text-slate-900">3</p>
+            <p className="text-3xl font-bold text-slate-900">{enrollments?.length || 0}</p>
             <p className="text-xs text-slate-500 mt-1">Active enrollments</p>
           </div>
 
@@ -45,7 +76,9 @@ export default function StudentDashboard() {
               <span className="text-sm font-medium text-slate-600">Progress</span>
               <TrendingUp className="text-blue-500" size={20} />
             </div>
-            <p className="text-3xl font-bold text-slate-900">67%</p>
+            <p className="text-3xl font-bold text-slate-900">
+              {enrollments?.length ? Math.round(enrollments.reduce((acc, e) => acc + (e.progress || 0), 0) / enrollments.length) : 0}%
+            </p>
             <p className="text-xs text-slate-500 mt-1">Overall completion</p>
           </div>
 
@@ -54,17 +87,17 @@ export default function StudentDashboard() {
               <span className="text-sm font-medium text-slate-600">Certificates</span>
               <Award className="text-orange-500" size={20} />
             </div>
-            <p className="text-3xl font-bold text-slate-900">2</p>
+            <p className="text-3xl font-bold text-slate-900">{certificates?.length || 0}</p>
             <p className="text-xs text-slate-500 mt-1">Earned so far</p>
           </div>
 
           <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-slate-600">Hours</span>
+              <span className="text-sm font-medium text-slate-600">Available</span>
               <Clock className="text-purple-500" size={20} />
             </div>
-            <p className="text-3xl font-bold text-slate-900">48</p>
-            <p className="text-xs text-slate-500 mt-1">Learning time</p>
+            <p className="text-3xl font-bold text-slate-900">{courses?.length || 0}</p>
+            <p className="text-xs text-slate-500 mt-1">Courses to explore</p>
           </div>
         </div>
 
@@ -74,27 +107,31 @@ export default function StudentDashboard() {
             {/* Current Courses */}
             <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
               <h2 className="text-lg font-bold text-slate-900 mb-4">My Courses</h2>
-              <div className="space-y-4">
-                <CourseCard
-                  title="Medical Assistant Fundamentals"
-                  progress={75}
-                  nextLesson="Module 4: Vital Signs"
-                  href="/lms/courses/medical-assistant"
-                />
-                <CourseCard
-                  title="HVAC Technician Training"
-                  progress={60}
-                  nextLesson="Module 3: Refrigeration Basics"
-                  href="/lms/courses/hvac"
-                />
-                <CourseCard
-                  title="Workforce Readiness"
-                  progress={100}
-                  nextLesson="Course Complete!"
-                  href="/lms/courses/workforce-readiness"
-                  completed
-                />
-              </div>
+              {enrollments && enrollments.length > 0 ? (
+                <div className="space-y-4">
+                  {enrollments.map((enrollment) => (
+                    <CourseCard
+                      key={enrollment.id}
+                      title={enrollment.courses?.title || "Course"}
+                      progress={enrollment.progress || 0}
+                      nextLesson={enrollment.progress === 100 ? "Course Complete!" : "Continue learning"}
+                      href={`/lms/courses/${enrollment.courses?.slug || enrollment.course_id}`}
+                      completed={enrollment.progress === 100}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-8">
+                  <BookOpen className="mx-auto text-slate-300 mb-3" size={48} />
+                  <p className="text-slate-600 mb-4">You're not enrolled in any courses yet</p>
+                  <Link
+                    href="/programs"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition"
+                  >
+                    Browse Programs
+                  </Link>
+                </div>
+              )}
             </div>
 
             {/* Upcoming Assignments */}
