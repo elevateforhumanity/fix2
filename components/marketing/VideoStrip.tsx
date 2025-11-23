@@ -5,7 +5,7 @@ const videos = [
   {
     tag: "For everyone · ~1:00",
     title: "Elevate overview in 60 seconds",
-    body: "Who we serve, how funding works, and what "Elevate" actually does for real people.",
+    body: "Who we serve, how funding works, and what Elevate actually does for real people.",
     href: "/videos/overview",
     duration: "1:00",
   },
