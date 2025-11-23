@@ -41,7 +41,7 @@ export default function HomePage() {
             <div className="mt-5 flex flex-wrap items-center gap-4 text-[11px] text-slate-400">
               <div className="flex items-center gap-2">
                 <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/20 text-[11px] text-emerald-300">
-                  0$
+                  💰
                 </span>
                 <span>Most learners pay little to nothing if eligible.</span>
               </div>
@@ -54,17 +54,16 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right: hero visual with video */}
+          {/* Right: hero visual with image */}
           <div className="w-full max-w-md">
             <div className="relative h-64 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 shadow-2xl sm:h-72 md:h-80">
-              <video
-                autoPlay
-                loop
-                playsInline
-                className="h-full w-full object-cover"
-              >
-                <source src="/videos/hero-video-segment-with-narration.mp4" type="video/mp4" />
-              </video>
+              <Image
+                src="/images/hero-banner-new.png"
+                alt="Elevate For Humanity - Funded training, real support, real jobs"
+                fill
+                priority
+                className="object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-3 text-xs text-slate-100">
                 <div>
