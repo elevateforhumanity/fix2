@@ -8,8 +8,8 @@ export default function HomePage() {
     <main className="min-h-screen bg-slate-950 text-white">
       {/* HERO – full width like Coursera */}
       <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-16 md:py-20 border-b border-slate-200">
-        <div className="mx-auto w-full max-w-[1920px] px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-20">
+        <div className="mx-auto w-full px-6 md:px-12 lg:px-20 xl:px-32">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16 xl:gap-24">
             {/* Left: text */}
             <div className="flex-1 space-y-4 md:space-y-6">
               <div className="inline-block">
@@ -97,8 +97,8 @@ export default function HomePage() {
             </div>
 
             {/* Right: hero visual - FULL WIDTH */}
-            <div className="flex-1 lg:flex-[1.2]">
-              <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden rounded-2xl shadow-2xl">
+            <div className="flex-1 lg:flex-[1.5]">
+              <div className="relative h-[450px] sm:h-[550px] md:h-[650px] lg:h-[750px] xl:h-[850px] overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   src="/images/hero-banner-new.png"
                   alt="Real people changing their lives through Elevate For Humanity"
