@@ -6,10 +6,10 @@ import { TextToSpeechButton } from "@/components/TextToSpeechButton";
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      {/* HERO – professional, clean, mature */}
-      <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-12 md:py-16 border-b border-slate-200">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-16">
+      {/* HERO – full width like Coursera */}
+      <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-16 md:py-20 border-b border-slate-200">
+        <div className="mx-auto w-full max-w-[1920px] px-6 md:px-12 lg:px-16">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-20">
             {/* Left: text */}
             <div className="flex-1 space-y-4 md:space-y-6">
               <div className="inline-block">
@@ -18,17 +18,31 @@ export default function HomePage() {
                 </p>
               </div>
               
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-slate-900">
-                Workforce development
-                <span className="block text-emerald-600">that delivers results.</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-slate-900">
+                Free career training.
+                <span className="block text-emerald-600">Real jobs waiting.</span>
               </h1>
               
-              <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-                Elevate For Humanity is an approved training provider offering career pathways 
-                in healthcare, skilled trades, transportation, and workforce readiness. 
-                We connect eligible participants to <span className="font-semibold text-slate-900">grant-funded training</span>, 
-                wraparound support services, and employer partnerships for sustainable employment outcomes.
+              <p className="text-lg sm:text-xl md:text-2xl text-slate-700 leading-relaxed max-w-3xl">
+                Get certified in <strong>healthcare, skilled trades, CDL, or barbering</strong> — 
+                100% funded through WIOA, JRI, and workforce grants. No tuition. No debt. 
+                Just training that leads to real employment.
               </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+                <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+                  <div className="text-3xl font-bold text-emerald-700">$0</div>
+                  <div className="text-sm text-slate-600">Cost for eligible participants</div>
+                </div>
+                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                  <div className="text-3xl font-bold text-blue-700">12+</div>
+                  <div className="text-sm text-slate-600">Career training programs</div>
+                </div>
+                <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                  <div className="text-3xl font-bold text-purple-700">85%</div>
+                  <div className="text-sm text-slate-600">Job placement rate</div>
+                </div>
+              </div>
 
               <div className="flex flex-wrap gap-3 sm:gap-4 pt-4">
                 <Link
@@ -82,9 +96,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: hero visual - BRIGHT & INVITING */}
-            <div className="flex-1">
-              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl lg:h-[600px] border-2 sm:border-4 border-white">
+            {/* Right: hero visual - FULL WIDTH */}
+            <div className="flex-1 lg:flex-[1.2]">
+              <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden rounded-2xl shadow-2xl">
                 <Image
                   src="/images/hero-banner-new.png"
                   alt="Real people changing their lives through Elevate For Humanity"
@@ -405,26 +419,26 @@ type VideoTileProps = {
 function VideoTile({ href, tag, title, desc, duration, placeholder }: VideoTileProps) {
   return (
     <Link href={href} className="group">
-      <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/80 shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl">
-        <div className="relative h-40 overflow-hidden">
+      <div className="flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-md transition-all duration-300 group-hover:shadow-xl">
+        <div className="relative h-48 overflow-hidden bg-slate-100">
           <Image
             src={placeholder}
             alt={title}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent" />
-          <div className="absolute left-3 top-3 rounded-full bg-slate-950/70 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-200">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute left-3 top-3 rounded-md bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700">
             {tag}
           </div>
-          <div className="absolute bottom-2 left-3 rounded-full bg-black/60 px-2 py-1 text-[10px] text-slate-100">
+          <div className="absolute bottom-3 left-3 rounded-md bg-black/80 px-2 py-1 text-xs font-medium text-white">
             {duration}
           </div>
         </div>
-        <div className="flex flex-1 flex-col p-4 text-sm">
-          <h3 className="text-sm font-semibold text-white">{title}</h3>
-          <p className="mt-2 flex-1 text-xs text-slate-300">{desc}</p>
-          <span className="mt-3 text-xs font-semibold text-emerald-300">
+        <div className="flex flex-1 flex-col p-5">
+          <h3 className="text-base font-bold text-slate-900">{title}</h3>
+          <p className="mt-2 flex-1 text-sm text-slate-600 leading-relaxed">{desc}</p>
+          <span className="mt-4 text-sm font-semibold text-emerald-600 group-hover:text-emerald-700">
             Watch video →
           </span>
         </div>
