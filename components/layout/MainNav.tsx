@@ -5,6 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
+// Student Portal URL - update this to your actual student portal
+const STUDENT_PORTAL_URL = "/app"; // or "https://students.elevateforhumanity.org"
+
 const mainLinks = [
   { href: "/directory", label: "Programs" },
   { href: "/learners", label: "Learners" },
@@ -50,10 +53,18 @@ export function MainNav() {
             </Link>
           ))}
 
+          {/* Student Portal Button */}
+          <Link
+            href={STUDENT_PORTAL_URL}
+            className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-4 py-2 text-[11px] font-semibold text-emerald-300 hover:bg-emerald-500/10 transition"
+          >
+            Student Portal
+          </Link>
+
           {/* Strong CTA – APPLY */}
           <Link
             href="/apply"
-            className="ml-2 inline-flex items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-[11px] font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+            className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-[11px] font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
           >
             Apply / Refer Now
           </Link>
@@ -62,10 +73,10 @@ export function MainNav() {
         {/* Simple mobile link */}
         <div className="flex items-center gap-2 md:hidden">
           <Link
-            href="/directory"
-            className="rounded-full border border-slate-600 px-3 py-1.5 text-[11px] text-slate-200"
+            href={STUDENT_PORTAL_URL}
+            className="rounded-full border border-emerald-400 px-3 py-1.5 text-[11px] text-emerald-300"
           >
-            Programs
+            Portal
           </Link>
           <Link
             href="/apply"

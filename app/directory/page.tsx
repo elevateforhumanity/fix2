@@ -319,13 +319,17 @@ export default function DirectoryPage() {
                           {p.funding}
                         </p>
                       </div>
-                      <div className="mt-4 flex items-center justify-between text-[11px] text-emerald-300">
-                        <span className="font-semibold">
-                          View program →
+                      <div className="mt-4 flex items-center justify-between gap-2">
+                        <span className="text-[11px] font-semibold text-emerald-300">
+                          View details →
                         </span>
-                        <span className="text-slate-500">
-                          No-cost options available
-                        </span>
+                        <Link
+                          href={`/apply?program=${encodeURIComponent(p.slug)}`}
+                          onClick={(e) => e.stopPropagation()}
+                          className="rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold text-emerald-300 hover:bg-emerald-500/20 transition"
+                        >
+                          Get Started
+                        </Link>
                       </div>
                     </div>
                   </article>
