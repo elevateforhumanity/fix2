@@ -123,6 +123,7 @@ export default function ElevateHomepage() {
               description="Medical Assistant, CNA, HHA"
               tag="High Demand"
               tagColor="red"
+              href="/programs/medical-assistant"
             />
             <ProgramCard
               image="/media/programs/barber.jpg"
@@ -130,6 +131,7 @@ export default function ElevateHomepage() {
               description="Apprenticeship & Licensure"
               tag="Re-entry Friendly"
               tagColor="orange"
+              href="/programs/barber-apprenticeship"
             />
             <ProgramCard
               image="/media/programs/hvac-hd.jpg"
@@ -137,6 +139,7 @@ export default function ElevateHomepage() {
               description="Installation & Maintenance"
               tag="Skilled Trade"
               tagColor="blue"
+              href="/programs/hvac-technician"
             />
             <ProgramCard
               image="/media/programs/cdl-hd.jpg"
@@ -144,6 +147,7 @@ export default function ElevateHomepage() {
               description="Commercial Driving"
               tag="Fast Track"
               tagColor="red"
+              href="/programs/cdl"
             />
             <ProgramCard
               image="/media/programs/welding-hd.jpg"
@@ -151,6 +155,7 @@ export default function ElevateHomepage() {
               description="Structural & Pipe Welding"
               tag="Skilled Trade"
               tagColor="blue"
+              href="/programs"
             />
             <ProgramCard
               image="/media/programs/culinary-hd.jpg"
@@ -158,6 +163,7 @@ export default function ElevateHomepage() {
               description="Professional Cooking"
               tag="Creative Career"
               tagColor="orange"
+              href="/programs"
             />
             <ProgramCard
               image="/media/programs/beauty-hd.jpg"
@@ -165,6 +171,7 @@ export default function ElevateHomepage() {
               description="Cosmetology & Skin Care"
               tag="Licensed Career"
               tagColor="orange"
+              href="/programs"
             />
             <ProgramCard
               image="/media/programs/building-hd.jpg"
@@ -172,6 +179,7 @@ export default function ElevateHomepage() {
               description="Facilities & Property"
               tag="Stable Career"
               tagColor="blue"
+              href="/programs/building-maintenance"
             />
           </div>
 
@@ -308,7 +316,7 @@ function ValueCard({ title, description, color }: { title: string; description: 
   );
 }
 
-function ProgramCard({ image, title, description, tag, tagColor }: any) {
+function ProgramCard({ image, title, description, tag, tagColor, href }: any) {
   const tagColors = {
     red: 'bg-red-600',
     orange: 'bg-orange-600',
@@ -335,7 +343,7 @@ function ProgramCard({ image, title, description, tag, tagColor }: any) {
         <p className="mt-2 text-slate-600">{description}</p>
         <div className="mt-4">
           <Link
-            href={`/programs/${title.toLowerCase()}`}
+            href={href}
             className="text-sm font-semibold text-blue-600 hover:text-blue-700"
           >
             Learn More →
