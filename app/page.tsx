@@ -54,16 +54,18 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right: hero visual */}
+          {/* Right: hero visual with video */}
           <div className="w-full max-w-md">
             <div className="relative h-64 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 shadow-2xl sm:h-72 md:h-80">
-              <Image
-                src="https://placehold.co/800x600/020617/f97316?text=Elevate+Training+Hero"
-                alt="Learners in Elevate training programs"
-                fill
-                className="object-cover"
-                priority
-              />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-full w-full object-cover"
+              >
+                <source src="/videos/hero-video-with-audio.mp4" type="video/mp4" />
+              </video>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-3 text-xs text-slate-100">
                 <div>
@@ -265,21 +267,21 @@ export default function HomePage() {
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <ProgramCard
               href="/programs/medical-assistant"
-              image="https://placehold.co/600x400/0b1120/22c55e?text=Medical+Assistant"
+              image="/media/programs/medical.jpg"
               title="Medical Assistant"
               blurb="Hands-on clinical training that prepares you for entry-level MA roles in clinics, hospitals and specialty practices."
               length="~5 months"
             />
             <ProgramCard
               href="/programs/barber-apprenticeship"
-              image="https://placehold.co/600x400/111827/f97316?text=Barber+Apprenticeship"
+              image="/media/programs/barber.jpg"
               title="Barber Apprenticeship"
               blurb="State-approved apprenticeship where you earn hours in real shops while building a long-term career."
               length="Hours-based"
             />
             <ProgramCard
               href="/programs/hvac-technician"
-              image="https://placehold.co/600x400/020617/38bdf8?text=HVAC+Technician"
+              image="/media/programs/hvac.jpg"
               title="HVAC Technician"
               blurb="Learn heating, cooling and refrigeration systems with a pathway into in-demand skilled trades roles."
               length="Varies by partner"
@@ -330,22 +332,22 @@ export default function HomePage() {
 
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             <StoryCard
-              name="Marcus J."
+              name="Marcus"
               tag="Barber Apprenticeship Graduate"
-              image="https://placehold.co/200x200/020617/f97316?text=Marcus"
+              image="/people/marcus.jpg"
               quote="From incarceration to owning my own chair. Elevate gave me structure, accountability, and a pathway instead of just a program."
             />
             <StoryCard
-              name="Sarah M."
+              name="Sharon"
               tag="Medical Assistant Graduate"
-              image="https://placehold.co/200x200/0b1120/22c55e?text=Sarah"
+              image="/people/sharon.jpg"
               quote="Single mom to certified MA in 5 months. The coaching and funding support meant I could focus on finishing and getting to work."
             />
             <StoryCard
-              name="James T."
-              tag="HVAC Technician Graduate"
-              image="https://placehold.co/200x200/111827/38bdf8?text=James"
-              quote="I went from warehouse work to a skilled trade and doubled my pay. Elevate helped me stick with it when it got tough."
+              name="Alicia"
+              tag="Healthcare Graduate"
+              image="/people/alicia.jpg"
+              quote="I went from uncertain about my future to having a real career path. Elevate helped me see what was possible and made it happen."
             />
           </div>
         </div>

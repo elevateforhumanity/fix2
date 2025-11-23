@@ -1,30 +1,108 @@
 'use client';
 
-"use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MessageCircle, X } from "lucide-react";
 
 export function ElevateChatWidget() {
   const [open, setOpen] = useState(false);
+  const [showPrompt, setShowPrompt] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  useEffect(() => {
+    // Check if user has already interacted with chat
+    const interacted = localStorage.getItem('elevate-chat-interacted');
+    if (interacted) {
+      setHasInteracted(true);
+      return;
+    }
+
+    // Show prompt after 3 seconds on first visit
+    const timer = setTimeout(() => {
+      setShowPrompt(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleOpen = () => {
+    setOpen(true);
+    setShowPrompt(false);
+    setHasInteracted(true);
+    localStorage.setItem('elevate-chat-interacted', 'true');
+  };
+
+  const handleDismissPrompt = () => {
+    setShowPrompt(false);
+    setHasInteracted(true);
+    localStorage.setItem('elevate-chat-interacted', 'true');
+  };
 
   return (
     <>
+      {/* Proactive chat prompt */}
+      {showPrompt && !open && !hasInteracted && (
+        <div className="fixed bottom-24 right-6 z-50 w-80 animate-slide-up">
+          <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
+            <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 px-4 py-3 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                  <MessageCircle size={18} className="text-white" />
+                </div>
+                <div className="text-white">
+                  <div className="text-sm font-semibold">Need help?</div>
+                  <div className="text-xs opacity-90">We're here for you</div>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={handleDismissPrompt}
+                className="text-white/80 hover:text-white transition-colors"
+                aria-label="Dismiss"
+              >
+                <X size={16} />
+              </button>
+            </div>
+            <div className="p-4">
+              <p className="text-sm text-slate-700 mb-3">
+                👋 Hi! I'm here to help you find the right training program. Have questions about:
+              </p>
+              <ul className="text-xs text-slate-600 space-y-1 mb-4">
+                <li>• Free training programs</li>
+                <li>• Funding & eligibility</li>
+                <li>• Application process</li>
+                <li>• Program schedules</li>
+              </ul>
+              <button
+                type="button"
+                onClick={handleOpen}
+                className="w-full bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold py-2.5 rounded-lg transition-colors"
+              >
+                Start Chat
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Floating button */}
       <button
         type="button"
-        onClick={() => setOpen(true)}
-        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-red-600 to-orange-600 text-white shadow-2xl hover:scale-110 hover:shadow-3xl transition-all flex items-center justify-center animate-bounce"
-        title="Chat with Elevate AI - Get Help Now!"
+        onClick={handleOpen}
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-2xl hover:scale-110 hover:shadow-emerald-500/50 transition-all flex items-center justify-center group"
+        title="Chat with Elevate - Get Help Now!"
         aria-label="Open chat assistant"
       >
-        <MessageCircle size={28} />
+        <MessageCircle size={28} className="group-hover:scale-110 transition-transform" />
+        {!hasInteracted && (
+          <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-pulse" />
+        )}
       </button>
+
       {/* Modal overlay */}
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
           <div className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl h-[85vh] flex flex-col overflow-hidden animate-scale-in">
-            <div className="px-5 py-3 border-b border-slate-200 flex items-center justify-between bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+            <div className="px-5 py-3 border-b border-slate-200 flex items-center justify-between bg-gradient-to-r from-emerald-500 to-emerald-600 text-white">
               <div className="flex items-center gap-3">
                 <MessageCircle size={24} />
                 <div>
@@ -32,7 +110,7 @@ export function ElevateChatWidget() {
                     Elevate AI Helper
                   </div>
                   <div className="text-xs opacity-90">
-                    Powered by OpenAI
+                    Ask me anything about our programs
                   </div>
                 </div>
               </div>
