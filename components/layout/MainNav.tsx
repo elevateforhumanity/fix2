@@ -11,13 +11,12 @@ import clsx from "clsx";
 const STUDENT_PORTAL_URL = "/app";
 
 const mainLinks = [
-  { href: "/directory", label: "Programs" },
+  { href: "/programs", label: "Programs" },
   { href: "/about", label: "About" },
   { href: "/learners", label: "Learners" },
   { href: "/employers", label: "Employers" },
   { href: "/partners/workforce", label: "Partners" },
-  { href: "/success-stories", label: "Success Stories" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/portal", label: "Portal" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -79,22 +78,13 @@ export function MainNav() {
               </Link>
             ))}
 
-            {/* Student Portal Button */}
-            <Link
-              href={STUDENT_PORTAL_URL}
-              className="inline-flex items-center justify-center rounded-full border border-emerald-500 px-4 py-2 text-[11px] font-semibold text-emerald-600 hover:bg-emerald-50 transition"
-              aria-label="Access Student Portal"
-            >
-              Student Portal
-            </Link>
-
             {/* Strong CTA – APPLY */}
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-[11px] font-semibold text-white shadow-lg hover:bg-emerald-600"
+              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-xs font-bold text-white shadow-lg hover:bg-emerald-600 transition"
               aria-label="Apply for training or refer someone"
             >
-              Apply / Refer Now
+              Apply Now
             </Link>
           </nav>
 

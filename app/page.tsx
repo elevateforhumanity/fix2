@@ -11,16 +11,16 @@ export default function ElevateLanding() {
           {/* LEFT COLUMN – intro + mini panels */}
           <div className="flex flex-col gap-4">
             <div className="rounded-2xl bg-white p-5 ring-1 ring-slate-200 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-orange-600">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-600">
                 ELEVATE FOR HUMANITY
               </p>
-              <h1 className="mt-3 text-2xl font-semibold leading-snug text-slate-900">
+              <h1 className="mt-4 text-3xl font-bold leading-tight text-slate-900">
                 We know{' '}
                 <span className="text-red-600">
                   people, pathways, and approvals.
                 </span>
               </h1>
-              <p className="mt-3 text-sm text-slate-700">
+              <p className="mt-4 text-base leading-relaxed text-slate-700">
                 Free and funded career training for adults, parents,
                 justice-involved learners, and career changers in Indiana and
                 beyond.
@@ -110,7 +110,7 @@ export default function ElevateLanding() {
           {/* RIGHT COLUMN – services / CTAs */}
           <div className="flex flex-col gap-4">
             <div className="rounded-2xl bg-white p-5 ring-1 ring-slate-200 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-orange-600">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-600">
                 OUR SERVICES
               </p>
               <div className="mt-3 space-y-3 text-sm">
@@ -161,10 +161,10 @@ export default function ElevateLanding() {
         <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-orange-600">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-orange-600">
                 OUR WORK
               </p>
-              <h2 className="mt-2 text-2xl font-semibold text-slate-900">
+              <h2 className="mt-2 text-3xl font-bold text-slate-900">
                 Focused, funded pathways – not random classes.
               </h2>
             </div>
