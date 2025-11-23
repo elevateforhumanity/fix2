@@ -146,7 +146,7 @@ export default function ElevateLanding() {
                 </Link>
                 <Link
                   href="/employers"
-                  className="block w-full rounded-full bg-slate-950/20 px-4 py-2 text-center text-sm font-semibold text-white ring-1 ring-white/50 hover:bg-slate-950/40 transition"
+                  className="block w-full rounded-full bg-white/20 px-4 py-2 text-center text-sm font-semibold text-white ring-2 ring-white hover:bg-white hover:text-slate-900 transition"
                 >
                   I&apos;m an employer / partner
                 </Link>
@@ -237,11 +237,11 @@ export default function ElevateLanding() {
 
 /* Helper Components */
 
-type HeroThumbProps = { src: string; label: string };
+type HeroThumbProps = { src: string; label: string; href: string };
 
-function HeroThumb({ src, label }: HeroThumbProps) {
+function HeroThumb({ src, label, href }: HeroThumbProps) {
   return (
-    <div className="group relative h-24 overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm">
+    <Link href={href} className="group relative h-24 overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200 shadow-sm hover:ring-emerald-500 hover:shadow-md transition">
       <Image
         src={src}
         alt={label}
@@ -252,7 +252,7 @@ function HeroThumb({ src, label }: HeroThumbProps) {
       <p className="absolute bottom-2 left-2 rounded-full bg-white/95 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-900 shadow">
         {label}
       </p>
-    </div>
+    </Link>
   );
 }
 
