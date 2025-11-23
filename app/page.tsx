@@ -7,8 +7,8 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       {/* HERO – professional, clean, mature */}
-      <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-12 md:py-20 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
+      <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-12 md:py-16 border-b border-slate-200">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 md:px-8 lg:px-12">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-16">
             {/* Left: text */}
             <div className="flex-1 space-y-4 md:space-y-6">
@@ -39,7 +39,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/directory"
-                  className="inline-flex items-center justify-center rounded-lg border-2 border-slate-300 bg-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-slate-700 hover:border-slate-400 hover:bg-slate-50 transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg border-2 border-emerald-600 bg-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors"
                 >
                   Browse Programs
                 </Link>
@@ -143,70 +143,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WHAT WE DO – warm, human section */}
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="text-center space-y-4">
-            <h2 className="text-4xl font-bold text-slate-900 sm:text-5xl">
+      {/* WHAT WE DO – compact, professional section */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6 md:px-8 lg:px-12">
+          <div className="text-center space-y-3 mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
               How we help you succeed
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              We're not just a training program. We're your partner from day one — 
-              helping you find the right path, get it funded, and land a real job.
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              We're your partner from day one — helping you find the right path, get it funded, and land a real job.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-8 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-3">
             {/* Training programs */}
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-              <h3 className="text-lg font-bold text-slate-900">
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-base font-bold text-slate-900">
                 Funded Training Programs
               </h3>
-              <p className="mt-3 text-sm text-slate-700">
-                Career-aligned programs that match real employer demand — delivered with
-                partners you already trust or will get to know.
+              <p className="mt-2 text-sm text-slate-600">
+                Healthcare, Trades, Transportation, Re-entry & Workforce Readiness
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                <li>• Healthcare: Medical Assistant, CNA, Phlebotomy, Home Health.</li>
-                <li>• Trades &amp; technical: HVAC, Electrical, Building Maintenance.</li>
-                <li>• Transportation: CDL-A / CDL-B, logistics &amp; support roles.</li>
-                <li>• Re-entry, workforce readiness &amp; upskilling for adults.</li>
-              </ul>
               <Link
                 href="/directory"
-                className="mt-4 inline-flex text-sm font-semibold text-emerald-700 hover:text-emerald-500"
+                className="mt-4 inline-flex text-sm font-semibold text-emerald-700 hover:text-emerald-600"
               >
                 View all programs →
               </Link>
             </div>
 
-            {/* Funding + support */}
-            <div className="space-y-4">
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-                <h3 className="text-lg font-bold text-slate-900">Funding &amp; Access</h3>
-                <p className="mt-3 text-sm text-slate-700">
-                  Many learners qualify for state and federal funding, employer sponsorship,
-                  or other options — we help navigate it with you.
-                </p>
-                <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                  <li>• WIOA, workforce readiness grants &amp; state funding (where approved).</li>
-                  <li>• Work Experience (WEX), OJT and apprenticeship options with employers.</li>
-                  <li>• Support to understand which paths fit your situation.</li>
-                </ul>
-              </div>
+            {/* Funding */}
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-base font-bold text-slate-900">Funding &amp; Access</h3>
+              <p className="mt-2 text-sm text-slate-600">
+                WIOA, WEX, OJT, apprenticeships, and employer sponsorships
+              </p>
+              <p className="mt-3 text-sm text-slate-600">
+                We help navigate funding options for eligible participants.
+              </p>
+            </div>
 
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-                <h3 className="text-lg font-bold text-slate-900">Support &amp; Technology</h3>
-                <p className="mt-3 text-sm text-slate-700">
-                  Elevate isn&apos;t just a class list — it&apos;s people, tools and support
-                  walking with you.
-                </p>
-                <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                  <li>• Coaching, barrier navigation and accountability check-ins.</li>
-                  <li>• Student &amp; employer portals for tracking and communication.</li>
-                  <li>• Workforce &amp; partner dashboards for outcomes and reporting.</li>
-                </ul>
-              </div>
+            {/* Support */}
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-base font-bold text-slate-900">Support &amp; Technology</h3>
+              <p className="mt-2 text-sm text-slate-600">
+                Coaching, student portals, employer dashboards, and outcomes tracking
+              </p>
+              <p className="mt-3 text-sm text-slate-600">
+                People and tools supporting you from enrollment to employment.
+              </p>
             </div>
           </div>
 
