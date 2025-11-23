@@ -3,21 +3,32 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Users, Mail, Lock, ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Users, Mail, Lock, ArrowLeft, AlertCircle } from "lucide-react";
+import { useAuth } from "@/lib/hooks/useAuth";
 
 export default function StaffPortalLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const router = useRouter();
+  const { signIn } = useAuth();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError("");
     
-    // TODO: Implement Supabase authentication with role check
-    setTimeout(() => {
-      window.location.href = "/admin/dashboard";
-    }, 1000);
+    try {
+      await signIn(email, password);
+      // TODO: Check user role and redirect accordingly
+      router.push("/admin/dashboard");
+    } catch (err: any) {
+      setError(err.message || "Invalid email or password");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -43,6 +54,13 @@ export default function StaffPortalLogin() {
               Access staff tools, manage enrollments, and support learners
             </p>
           </div>
+
+          {error && (
+            <div className="flex items-center gap-2 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
+              <AlertCircle size={18} />
+              <span>{error}</span>
+            </div>
+          )}
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
