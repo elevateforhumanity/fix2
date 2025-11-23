@@ -18,54 +18,55 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
-      {/* HERO – full width like Coursera */}
-      <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-16 md:py-20 border-b border-slate-200">
-        <div className="mx-auto w-full max-w-[1920px] px-6 md:px-12 lg:px-16 xl:px-20">
-          <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-16 xl:gap-24">
+    <main className="min-h-screen bg-white">
+      {/* HERO – extra wide with better spacing */}
+      <section className="bg-gradient-to-br from-slate-50 via-white to-emerald-50/30 py-20 md:py-28 lg:py-32 border-b border-slate-200">
+        <div className="mx-auto w-full max-w-[1600px] px-6 md:px-12 lg:px-16 xl:px-24">
+          <div className="flex flex-col gap-16 lg:flex-row lg:items-center lg:gap-20 xl:gap-28">
             {/* Left: text */}
-            <div className="flex-1 space-y-4 md:space-y-6">
+            <div className="flex-1 space-y-6 md:space-y-8">
               <div className="inline-block">
                 <p className="text-xs sm:text-sm font-semibold text-emerald-600 uppercase tracking-wide">
                   WIOA-Approved Training Provider
                 </p>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-slate-900">
-                Free career training. Real jobs waiting.
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] text-slate-900">
+                Free career training.
+                <span className="block text-emerald-600 mt-2">Real jobs waiting.</span>
               </h1>
               
-              <p className="text-lg sm:text-xl md:text-2xl text-slate-700 leading-relaxed max-w-3xl">
+              <p className="text-xl sm:text-2xl md:text-3xl text-slate-700 leading-relaxed max-w-3xl">
                 Get certified in <strong>healthcare, skilled trades, CDL, or barbering</strong> — 
                 100% funded through WIOA, JRI, and workforce grants. No tuition. No debt. 
                 Just training that leads to real employment.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
-                <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
-                  <div className="text-3xl font-bold text-emerald-700">$0</div>
-                  <div className="text-sm text-slate-600">Cost for eligible participants</div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl">
+                <div className="bg-emerald-50 rounded-xl p-6 border border-emerald-200">
+                  <div className="text-4xl md:text-5xl font-bold text-emerald-700">$0</div>
+                  <div className="text-base text-slate-600 mt-2">Cost for eligible participants</div>
                 </div>
-                <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                  <div className="text-3xl font-bold text-blue-700">12+</div>
-                  <div className="text-sm text-slate-600">Career training programs</div>
+                <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
+                  <div className="text-4xl md:text-5xl font-bold text-blue-700">12+</div>
+                  <div className="text-base text-slate-600 mt-2">Career training programs</div>
                 </div>
-                <div className="bg-purple-50 rounded-lg p-4 border border-purple-200">
-                  <div className="text-3xl font-bold text-purple-700">85%</div>
-                  <div className="text-sm text-slate-600">Job placement rate</div>
+                <div className="bg-purple-50 rounded-xl p-6 border border-purple-200">
+                  <div className="text-4xl md:text-5xl font-bold text-purple-700">85%</div>
+                  <div className="text-base text-slate-600 mt-2">Job placement rate</div>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3 sm:gap-4 pt-4">
+              <div className="flex flex-wrap gap-4 sm:gap-6 pt-6">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-emerald-700 transition-colors"
+                  className="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-semibold text-white shadow-xl hover:bg-emerald-700 hover:shadow-2xl transition-all"
                 >
                   Check Eligibility
                 </Link>
                 <Link
                   href="/directory"
-                  className="inline-flex items-center justify-center rounded-lg border-2 border-emerald-600 bg-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors"
+                  className="inline-flex items-center justify-center rounded-xl border-2 border-emerald-600 bg-white px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg font-semibold text-emerald-700 hover:bg-emerald-50 transition-all"
                 >
                   Browse Programs
                 </Link>
