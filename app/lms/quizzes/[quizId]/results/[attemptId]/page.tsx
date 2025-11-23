@@ -4,6 +4,28 @@ import { getCurrentUser, requireStudent } from '@/lib/auth';
 import { createServerSupabaseClient } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "[Attemptid] - Learning Management System | Elevate for Humanity",
+  description: "Access your courses, track progress, view assignments, and manage your learning journey in one place.",
+  keywords: ["LMS", "learning management", "course progress", "online learning"],
+  openGraph: {
+    title: "[Attemptid] - Learning Management System | Elevate for Humanity",
+    description: "Access your courses, track progress, view assignments, and manage your learning journey in one place.",
+    images: ["/images/homepage/student-portal.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "[Attemptid] - Learning Management System | Elevate for Humanity",
+    description: "Access your courses, track progress, view assignments, and manage your learning journey in one place.",
+    images: ["/images/homepage/student-portal.png"],
+  },
+};
+
+
+
 interface Props {
   params: {
     quizId: string;

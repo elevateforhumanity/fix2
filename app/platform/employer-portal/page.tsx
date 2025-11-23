@@ -1,4 +1,17 @@
 // app/platform/employer-portal/page.tsx
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Employer Portal - OJT, WEX & Workforce Management",
+  description: "Employer portal for managing OJT, WEX, and apprenticeship programs. Track candidates, document hours, and access wage reimbursement reporting.",
+  keywords: ["employer portal", "OJT management", "WEX program", "apprenticeship tracking", "wage reimbursement"],
+  openGraph: {
+    title: "Employer Portal | Elevate for Humanity",
+    description: "Manage OJT, WEX, and apprenticeship programs. Track candidates and access wage reimbursement reporting.",
+    images: ["/images/homepage/employer-partnerships.png"],
+    type: "website",
+  },
+};
 
 export default function EmployerPortalPage() {
   return (

@@ -3,6 +3,28 @@ import { createClient } from '@supabase/supabase-js';
 import { requireAuth } from '@/lib/auth/getSession';
 import { redirect } from 'next/navigation';
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Success - Success Stories - Real People, Real Results | Elevate for Humanity",
+  description: "Read inspiring stories from graduates who transformed their lives through our career training programs and found meaningful employment.",
+  keywords: ["success stories", "graduate testimonials", "career transformation", "job placement"],
+  openGraph: {
+    title: "Success - Success Stories - Real People, Real Results | Elevate for Humanity",
+    description: "Read inspiring stories from graduates who transformed their lives through our career training programs and found meaningful employment.",
+    images: ["/images/homepage/success-stories.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Success - Success Stories - Real People, Real Results | Elevate for Humanity",
+    description: "Read inspiring stories from graduates who transformed their lives through our career training programs and found meaningful employment.",
+    images: ["/images/homepage/success-stories.png"],
+  },
+};
+
+
+
 // Force dynamic rendering - don't build at compile time
 export const dynamic = 'force-dynamic';
 

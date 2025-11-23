@@ -5,6 +5,28 @@ import Image from 'next/image';
 import { createServerSupabaseClient } from '@/lib/auth';
 import { getEcdCourseBySlug, ecdCourses } from '@/content/courses/ecdCatalog';
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "[Slug] - Workforce Development Platform | Elevate for Humanity",
+  description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+  keywords: ["workforce development", "career training", "job placement", "WIOA"],
+  openGraph: {
+    title: "[Slug] - Workforce Development Platform | Elevate for Humanity",
+    description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+    images: ["/images/hero-banner-new.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "[Slug] - Workforce Development Platform | Elevate for Humanity",
+    description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+    images: ["/images/hero-banner-new.png"],
+  },
+};
+
+
+
 // Manifest not needed for static generation
 const getManifest = () => ({});
 

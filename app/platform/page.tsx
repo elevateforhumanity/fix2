@@ -2,6 +2,22 @@
 
 import Link from "next/link";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Platform - Workforce Development Platform | Elevate for Humanity",
+  description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+  keywords: ["workforce development", "career training", "job placement", "WIOA"],
+  openGraph: {
+    title: "Platform - Workforce Development Platform | Elevate for Humanity",
+    description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+    images: ["/images/hero-banner-new.png"],
+    type: "website",
+  },
+};
+
+
+
 export default function PlatformPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50">

@@ -1,5 +1,18 @@
 // app/programs/cdl/page.tsx
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "CDL Training Program - Commercial Driver's License",
+  description: "CDL training program with partner schools. Get your Commercial Driver's License and start a transportation career. WIOA-funded with job placement support.",
+  keywords: ["CDL training", "commercial drivers license", "truck driving", "transportation career", "WIOA CDL program"],
+  openGraph: {
+    title: "CDL Training Program | Elevate for Humanity",
+    description: "CDL training program. Get your Commercial Driver's License and start a transportation career. WIOA-funded.",
+    images: ["/images/homepage/cdl-training.png"],
+    type: "website",
+  },
+};
 
 export default function CdlProgramPage() {
   return (

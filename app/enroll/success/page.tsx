@@ -3,6 +3,28 @@ import { CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Success - Apply Now - Start Your Career Training | Elevate for Humanity",
+  description: "Apply for free WIOA-funded career training in healthcare, skilled trades, CDL, or barbering. Check eligibility and start your application today.",
+  keywords: ["apply for training", "WIOA application", "career training enrollment", "free training"],
+  openGraph: {
+    title: "Success - Apply Now - Start Your Career Training | Elevate for Humanity",
+    description: "Apply for free WIOA-funded career training in healthcare, skilled trades, CDL, or barbering. Check eligibility and start your application today.",
+    images: ["/images/homepage/apply-now.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Success - Apply Now - Start Your Career Training | Elevate for Humanity",
+    description: "Apply for free WIOA-funded career training in healthcare, skilled trades, CDL, or barbering. Check eligibility and start your application today.",
+    images: ["/images/homepage/apply-now.png"],
+  },
+};
+
+
+
 export default function EnrollmentSuccessPage() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">

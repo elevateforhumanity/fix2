@@ -3,6 +3,19 @@ import { Footer } from '@/components/ui/Footer';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { DollarSign, CheckCircle, Book, Home, Baby, Bus } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Financial Aid & Funding Options",
+  description: "Learn about WIOA, workforce grants, Pell Grants, JRI, and other funding sources that make career training free for eligible participants.",
+  keywords: ["financial aid", "WIOA funding", "workforce grants", "free training", "Pell Grants", "state grants"],
+  openGraph: {
+    title: "Financial Aid & Funding Options | Elevate for Humanity",
+    description: "Learn about WIOA, workforce grants, and other funding sources that make career training free for eligible participants.",
+    images: ["/images/homepage/funding-navigation.png"],
+    type: "website",
+  },
+};
 
 export default function FinancialAidPage() {
   const fundingOptions = [

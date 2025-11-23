@@ -1,6 +1,20 @@
 // app/videos/elevate-overview/page.tsx
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
+import { AdvancedVideoPlayer } from "@/components/AdvancedVideoPlayer";
+
+export const metadata: Metadata = {
+  title: "Elevate Overview Video - How We Work",
+  description: "Watch our overview video to learn how Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+  keywords: ["elevate overview", "how it works", "workforce development video", "career training video"],
+  openGraph: {
+    title: "Elevate Overview Video | Elevate for Humanity",
+    description: "Watch our overview video to learn how we connect job seekers with free career training.",
+    images: ["/images/homepage/pathways-to-employment-banner.png"],
+    type: "website",
+  },
+};
 
 export default function ElevateOverviewVideoPage() {
   return (
@@ -34,20 +48,10 @@ export default function ElevateOverviewVideoPage() {
           {/* Video area */}
           <div className="flex-1">
             <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-black shadow-2xl">
-              <video
-                controls
-                autoPlay
-                playsInline
-                className="h-full w-full bg-black"
-                poster="/images/homepage/pathways-to-employment-banner.png"
-              >
-                <source src="/videos/elevate-overview-web.mp4" type="video/mp4" />
-                <source src="/videos/elevate-overview.mp4" type="video/mp4" />
-                <p className="text-white p-4">
-                  Your browser doesn't support HTML5 video. 
-                  <a href="/videos/elevate-overview.mp4" className="text-emerald-400 underline">Download the video</a> instead.
-                </p>
-              </video>
+              <AdvancedVideoPlayer
+                src="/videos/elevate-overview.mp4"
+                title="Elevate for Humanity Overview"
+              />
             </div>
 
             {/* Video meta / quick details */}

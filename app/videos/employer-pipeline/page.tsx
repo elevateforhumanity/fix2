@@ -1,6 +1,20 @@
 // app/videos/employer-pipeline/page.tsx
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
+import { AdvancedVideoPlayer } from "@/components/AdvancedVideoPlayer";
+
+export const metadata: Metadata = {
+  title: "Employer Pipeline Video - Hire Skilled Workers",
+  description: "Learn how employers connect with job-ready candidates through our talent pipeline. See how we help businesses build their workforce.",
+  keywords: ["employer pipeline video", "hire workers", "talent pipeline", "workforce solutions video"],
+  openGraph: {
+    title: "Employer Pipeline Video | Elevate for Humanity",
+    description: "Learn how employers connect with job-ready candidates through our talent pipeline.",
+    images: ["/images/homepage/employer-partnerships.png"],
+    type: "website",
+  },
+};
 
 export default function EmployerPipelineVideoPage() {
   return (
@@ -31,15 +45,10 @@ export default function EmployerPipelineVideoPage() {
           {/* Video area */}
           <div className="flex-1">
             <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-black shadow-2xl">
-              <video
-                controls
-                autoPlay
-                className="h-full w-full"
-                poster="/images/homepage/employer-partnership.png"
-              >
-                <source src="/videos/employer-pipeline.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <AdvancedVideoPlayer
+                src="/videos/employer-pipeline.mp4"
+                title="Employer Talent Pipeline"
+              />
             </div>
 
             {/* Meta row */}

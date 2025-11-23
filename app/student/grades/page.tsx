@@ -4,6 +4,28 @@ import Link from 'next/link';
 import { getCurrentUser, requireStudent } from '@/lib/auth';
 import { createServerSupabaseClient } from '@/lib/auth';
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Grades - Student Portal | Elevate for Humanity",
+  description: "Access your courses, grades, assignments, and certifications.",
+  keywords: ["student portal", "my courses", "grades", "assignments"],
+  openGraph: {
+    title: "Grades - Student Portal | Elevate for Humanity",
+    description: "Access your courses, grades, assignments, and certifications.",
+    images: ["/images/homepage/student-portal.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Grades - Student Portal | Elevate for Humanity",
+    description: "Access your courses, grades, assignments, and certifications.",
+    images: ["/images/homepage/student-portal.png"],
+  },
+};
+
+
+
 export default async function StudentGradesPage() {
   await requireStudent();
   const user = await getCurrentUser();

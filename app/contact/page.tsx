@@ -1,5 +1,18 @@
 // app/contact/page.tsx
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us - Get Started Today",
+  description: "Have questions about our training programs or workforce services? Contact Elevate for Humanity to learn how we can help you or your organization.",
+  keywords: ["contact", "get started", "workforce support", "training inquiry", "help"],
+  openGraph: {
+    title: "Contact Us - Get Started Today | Elevate for Humanity",
+    description: "Have questions about our training programs or workforce services? Contact us to learn how we can help.",
+    images: ["/images/hero-banner-new.png"],
+    type: "website",
+  },
+};
 
 export default function ContactPage() {
   return (

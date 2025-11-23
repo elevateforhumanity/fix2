@@ -7,6 +7,10 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 31536000, // Cache optimized images for 1 year
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       { protocol: 'https', hostname: '**.supabase.co' },
       { protocol: 'https', hostname: '**.netlify.app' },
@@ -25,15 +29,34 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
+            value: 'public, max-age=31536000, immutable',
           },
+        ],
+      },
+      {
+        source: '/videos/:path*',
+        headers: [
           {
-            key: 'Pragma',
-            value: 'no-cache',
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
+        ],
+      },
+      {
+        source: '/_next/image',
+        headers: [
           {
-            key: 'Expires',
-            value: '0',
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

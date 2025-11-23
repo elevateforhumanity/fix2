@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import './ui-fixes.css';
+import './print.css';
 import '@/branding/brand.css';
 import '@/styles/tiktok-animations.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -13,6 +14,7 @@ import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
 import PWAInstallPrompt from '@/components/PWAInstallPrompt';
+import { PerformanceMonitor } from '@/components/PerformanceMonitor';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -61,12 +63,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Elevate for Humanity | 100% Free Career Training',
-    description: '100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt. Real jobs waiting.',
-    images: ['https://www.elevateforhumanity.org/twitter-card.png'],
-  },
+
   facebook: {
     appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID,
   },
@@ -122,6 +119,7 @@ export default function RootLayout({
         </a>
         <GoogleAnalytics />
         <FacebookPixel />
+        <PerformanceMonitor />
         <MainNav />
         <main id="main-content">{children}</main>
         <SiteFooter />

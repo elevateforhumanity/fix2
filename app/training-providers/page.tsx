@@ -1,6 +1,19 @@
 // app/training-providers/page.tsx
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Training Providers - Partner With Us",
+  description: "Partner with Elevate for Humanity to fill seats with WIOA-funded learners. We handle compliance, reporting, and workforce coordination.",
+  keywords: ["training provider partnership", "WIOA provider", "education partnership", "workforce training partner"],
+  openGraph: {
+    title: "Training Providers - Partner With Us | Elevate for Humanity",
+    description: "Partner with us to fill seats with WIOA-funded learners. We handle compliance and workforce coordination.",
+    images: ["/images/homepage/training-provider-partnerships.png"],
+    type: "website",
+  },
+};
 
 const providerBenefits = [
   {

@@ -1,5 +1,27 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
+import { InstructorBio } from "@/components/InstructorBio";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Analytics - Workforce Development Platform | Elevate for Humanity",
+  description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+  keywords: ["workforce development", "career training", "job placement", "WIOA"],
+  openGraph: {
+    title: "Analytics - Workforce Development Platform | Elevate for Humanity",
+    description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+    images: ["/images/hero-banner-new.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Analytics - Workforce Development Platform | Elevate for Humanity",
+    description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+    images: ["/images/hero-banner-new.png"],
+  },
+};
+
+
 
 async function getInstructorMetrics(instructorId: string) {
   const supabase = await createClient();
@@ -68,7 +90,24 @@ export default async function InstructorAnalyticsPage() {
   return (
     <main className="min-h-screen bg-slate-50">
       <section className="mx-auto max-w-5xl px-4 py-10">
-        <h1 className="text-2xl font-semibold text-slate-900">
+        {/* Instructor Bio */}
+        <InstructorBio
+          name={profile?.full_name || user.email || "Instructor"}
+          title="Course Instructor"
+          photo="/images/split/piece-1.png"
+          bio="Experienced educator dedicated to helping students succeed in their career training journey."
+          credentials={[
+            "Certified Workforce Development Professional",
+            "10+ years teaching experience",
+            "Industry expert in career training"
+          ]}
+          specialties={["Career Training", "Workforce Development", "Student Success"]}
+          email={user.email}
+          coursesCount={metrics.length}
+          studentsCount={metrics.reduce((sum, m) => sum + m.enrollments, 0)}
+        />
+
+        <h1 className="text-2xl font-semibold text-slate-900 mt-8">
           Instructor Analytics
         </h1>
         <p className="mt-2 text-sm text-slate-600">

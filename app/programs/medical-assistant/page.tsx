@@ -1,5 +1,18 @@
 import { ProgramPageShell } from "@/components/programs/ProgramPageShell";
 import { Card } from "@/components/ui/Card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Medical Assistant Training Program - Healthcare Career",
+  description: "Medical Assistant training program with clinical and front-office skills. WIOA-funded, 16-24 weeks. Certification prep included. Start your healthcare career.",
+  keywords: ["medical assistant training", "healthcare training", "MA certification", "clinical skills", "WIOA healthcare program"],
+  openGraph: {
+    title: "Medical Assistant Training Program | Elevate for Humanity",
+    description: "Medical Assistant training with clinical and front-office skills. WIOA-funded, 16-24 weeks. Start your healthcare career.",
+    images: ["/images/homepage/healthcare-training.png"],
+    type: "website",
+  },
+};
 
 export default function MedicalAssistantProgramPage() {
   return (

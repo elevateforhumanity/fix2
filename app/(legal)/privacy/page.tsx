@@ -1,4 +1,18 @@
 // app/(legal)/privacy/page.tsx
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy - Your Data Protection Rights",
+  description: "Read our privacy policy to understand how Elevate for Humanity collects, uses, and protects your personal information. GDPR compliant.",
+  keywords: ["privacy policy", "data protection", "GDPR", "personal information", "user privacy"],
+  openGraph: {
+    title: "Privacy Policy | Elevate for Humanity",
+    description: "Understand how we collect, use, and protect your personal information. GDPR compliant.",
+    images: ["/images/hero-banner-new.png"],
+    type: "website",
+  },
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-10">

@@ -1,5 +1,18 @@
 // app/programs/building-tech/page.tsx
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Building Maintenance Technician Program - Facilities Career",
+  description: "Building maintenance technician training. Learn HVAC, electrical, plumbing, and facilities management. WIOA-funded, 4-9 months. Start your skilled trade career.",
+  keywords: ["building maintenance", "facilities technician", "property maintenance", "skilled trade", "WIOA facilities program"],
+  openGraph: {
+    title: "Building Maintenance Technician Program | Elevate for Humanity",
+    description: "Building maintenance technician training. Learn HVAC, electrical, plumbing, and facilities management. WIOA-funded.",
+    images: ["/images/homepage/building-maintenance.png"],
+    type: "website",
+  },
+};
 
 export default function BuildingMaintenanceProgramPage() {
   return (

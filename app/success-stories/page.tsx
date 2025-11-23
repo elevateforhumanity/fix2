@@ -4,6 +4,19 @@ import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import Image from 'next/image';
 import { Quote } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Success Stories - Real People, Real Results",
+  description: "Read inspiring stories from graduates who transformed their lives through our career training programs and found meaningful employment.",
+  keywords: ["success stories", "graduate testimonials", "career transformation", "job placement", "student success"],
+  openGraph: {
+    title: "Success Stories - Real People, Real Results | Elevate for Humanity",
+    description: "Read inspiring stories from graduates who transformed their lives through our career training programs.",
+    images: ["/images/homepage/success-stories.png"],
+    type: "website",
+  },
+};
 
 export default function SuccessStoriesPage() {
   const stories = [

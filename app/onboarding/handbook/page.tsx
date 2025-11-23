@@ -1,5 +1,27 @@
 import Link from "next/link";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Handbook - Workforce Development Platform | Elevate for Humanity",
+  description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+  keywords: ["workforce development", "career training", "job placement", "WIOA"],
+  openGraph: {
+    title: "Handbook - Workforce Development Platform | Elevate for Humanity",
+    description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+    images: ["/images/hero-banner-new.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Handbook - Workforce Development Platform | Elevate for Humanity",
+    description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+    images: ["/images/hero-banner-new.png"],
+  },
+};
+
+
+
 export default function Handbook() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">

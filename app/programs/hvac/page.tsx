@@ -1,5 +1,18 @@
 import { ProgramPageShell } from "@/components/programs/ProgramPageShell";
 import { Card } from "@/components/ui/Card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "HVAC Technician Training Program - Skilled Trade Career",
+  description: "HVAC technician training program. Learn installation, maintenance, and repair of heating and cooling systems. WIOA-funded, 12-16 weeks. EPA prep included.",
+  keywords: ["HVAC training", "HVAC technician", "heating cooling", "skilled trade", "WIOA HVAC program", "EPA certification"],
+  openGraph: {
+    title: "HVAC Technician Training Program | Elevate for Humanity",
+    description: "HVAC technician training. Learn installation, maintenance, and repair. WIOA-funded, 12-16 weeks.",
+    images: ["/images/courses/hvac-technician-10002289-cover.jpg"],
+    type: "website",
+  },
+};
 
 export default function HvacProgramPage() {
   return (

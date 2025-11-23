@@ -1,4 +1,17 @@
 // app/platform/partner-portal/page.tsx
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Partner Portal - Training Provider Management",
+  description: "Partner portal for training providers and academies. Manage students, track attendance, handle compliance, and coordinate with workforce boards.",
+  keywords: ["partner portal", "training provider portal", "academy management", "compliance tracking", "student management"],
+  openGraph: {
+    title: "Partner Portal | Elevate for Humanity",
+    description: "Training provider portal. Manage students, track attendance, and handle compliance.",
+    images: ["/images/homepage/training-provider-partnerships.png"],
+    type: "website",
+  },
+};
 
 export default function PartnerPortalPage() {
   return (

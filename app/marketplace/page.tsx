@@ -1,6 +1,28 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Marketplace - Workforce Development Platform | Elevate for Humanity",
+  description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+  keywords: ["workforce development", "career training", "job placement", "WIOA"],
+  openGraph: {
+    title: "Marketplace - Workforce Development Platform | Elevate for Humanity",
+    description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+    images: ["/images/hero-banner-new.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marketplace - Workforce Development Platform | Elevate for Humanity",
+    description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
+    images: ["/images/hero-banner-new.png"],
+  },
+};
+
+
+
 async function getMarketplaceCourses() {
   const supabase = await createClient();
 

@@ -1,5 +1,18 @@
 // app/programs/workforce-readiness/page.tsx
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Workforce Readiness & Re-Entry Program",
+  description: "Workforce readiness and re-entry program. Coaching, workshops, and support to prepare for training or employment. Re-entry friendly, 4-12 weeks.",
+  keywords: ["workforce readiness", "re-entry program", "job readiness", "career coaching", "second chance employment"],
+  openGraph: {
+    title: "Workforce Readiness & Re-Entry Program | Elevate for Humanity",
+    description: "Workforce readiness and re-entry program. Coaching and support to prepare for training or employment.",
+    images: ["/images/homepage/workforce-readiness.png"],
+    type: "website",
+  },
+};
 
 export default function WorkforceReadinessProgramPage() {
   return (

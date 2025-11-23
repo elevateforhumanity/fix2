@@ -1,6 +1,19 @@
 // app/employers/page.tsx
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Hire Skilled Workers - Employer Portal",
+  description: "Connect with job-ready candidates trained in healthcare, skilled trades, and more. Post jobs, access talent pipeline, and build your workforce with WIOA funding support.",
+  keywords: ["employer portal", "hire workers", "talent pipeline", "workforce solutions", "OJT", "work experience", "apprenticeships"],
+  openGraph: {
+    title: "Hire Skilled Workers - Employer Portal | Elevate for Humanity",
+    description: "Connect with job-ready candidates trained in healthcare, skilled trades, and more. Post jobs and access talent pipeline.",
+    images: ["/images/homepage/employer-partnerships.png"],
+    type: "website",
+  },
+};
 
 const employerStats = [
   { label: "Learners ready for placement", value: "250+" },

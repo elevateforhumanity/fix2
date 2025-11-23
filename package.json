@@ -69,6 +69,8 @@
     "joi": "18.0.2",
     "jsdom": "23.2.0",
     "jsonwebtoken": "9.0.2",
+    "jspdf": "3.0.4",
+    "jspdf-autotable": "5.0.2",
     "lucide-react": "0.471.2",
     "multer": "2.0.2",
     "next": "16.0.1",

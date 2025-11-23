@@ -1,4 +1,17 @@
 // app/platform/student-portal/page.tsx
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Student Portal - My Learning Dashboard",
+  description: "Student portal for accessing courses, assignments, attendance, grades, and career training progress. Track your journey to employment.",
+  keywords: ["student portal", "learning dashboard", "my courses", "assignments", "grades", "attendance tracking"],
+  openGraph: {
+    title: "Student Portal | Elevate for Humanity",
+    description: "Access your courses, assignments, grades, and track your career training progress.",
+    images: ["/images/homepage/student-portal.png"],
+    type: "website",
+  },
+};
 
 export default function StudentPortalPage() {
   return (

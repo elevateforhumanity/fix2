@@ -98,6 +98,15 @@ export default function proxy(request: NextRequest) {
   // Add security headers to response
   const response = NextResponse.next();
   
+  // Security Headers
+  response.headers.set('X-DNS-Prefetch-Control', 'on');
+  response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  response.headers.set('X-Frame-Options', 'SAMEORIGIN');
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set('X-XSS-Protection', '1; mode=block');
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  
   // Add fingerprint header for tracking
   const fingerprint = generateFingerprint(request);
   response.headers.set('X-Request-ID', fingerprint);
@@ -130,13 +139,47 @@ function generateFingerprint(req: NextRequest): string {
   return Math.abs(hash).toString(36);
 }
 
+// =====================================================
+// ROUTE PROTECTION CONFIGURATION
+// =====================================================
+
+const PROTECTED_ROUTES = {
+  '/student': ['student'],
+  '/instructor': ['instructor', 'admin'],
+  '/admin': ['admin'],
+  '/program-holder': ['program_holder'],
+  '/delegate': ['delegate'],
+  '/dashboard': [], // Any authenticated user
+};
+
+const PUBLIC_ROUTES = [
+  '/',
+  '/login',
+  '/signup',
+  '/forgot-password',
+  '/reset-password',
+  '/verify-email',
+  '/about',
+  '/contact',
+  '/programs',
+  '/courses',
+  '/blog',
+  '/help',
+  '/privacy',
+  '/terms',
+  '/unauthorized',
+];
+
 export const config = {
   matcher: [
     '/api/:path*',
     '/student/:path*',
+    '/instructor/:path*',
     '/admin/:path*',
     '/employer/:path*',
     '/program-holder/:path*',
+    '/delegate/:path*',
+    '/dashboard/:path*',
     '/lms/:path*',
   ],
 };

@@ -1,5 +1,18 @@
 // app/apply/page.tsx
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Apply Now - Start Your Career Training",
+  description: "Apply for free WIOA-funded career training in healthcare, skilled trades, CDL, or barbering. Check eligibility and start your application today.",
+  keywords: ["apply for training", "WIOA application", "career training enrollment", "free training", "get started"],
+  openGraph: {
+    title: "Apply Now - Start Your Career Training | Elevate for Humanity",
+    description: "Apply for free WIOA-funded career training in healthcare, skilled trades, CDL, or barbering. Check eligibility and start today.",
+    images: ["/images/homepage/apply-now.png"],
+    type: "website",
+  },
+};
 
 export default function ApplyPage() {
   return (

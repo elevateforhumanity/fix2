@@ -12,6 +12,28 @@ import {
 import { redirect } from 'next/navigation';
 import { getMockCourses } from '@/lib/mock-courses';
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Courses - Student Portal | Elevate for Humanity",
+  description: "Access your courses, grades, assignments, and certifications.",
+  keywords: ["student portal", "my courses", "grades", "assignments"],
+  openGraph: {
+    title: "Courses - Student Portal | Elevate for Humanity",
+    description: "Access your courses, grades, assignments, and certifications.",
+    images: ["/images/homepage/student-portal.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Courses - Student Portal | Elevate for Humanity",
+    description: "Access your courses, grades, assignments, and certifications.",
+    images: ["/images/homepage/student-portal.png"],
+  },
+};
+
+
+
 export default async function StudentCoursesPage() {
   await requireStudent();
   const user = await getCurrentUser();

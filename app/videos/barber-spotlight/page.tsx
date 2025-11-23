@@ -1,6 +1,20 @@
 // app/videos/barber-spotlight/page.tsx
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
+import { AdvancedVideoPlayer } from "@/components/AdvancedVideoPlayer";
+
+export const metadata: Metadata = {
+  title: "Barber Spotlight Video - Success Story",
+  description: "Watch a success story from our barber apprenticeship program. See how our graduates transform their lives through career training.",
+  keywords: ["barber success story", "barber apprenticeship video", "graduate spotlight", "career transformation"],
+  openGraph: {
+    title: "Barber Spotlight Video | Elevate for Humanity",
+    description: "Watch a success story from our barber apprenticeship program.",
+    images: ["/images/courses/barber-apprenticeship-10002417-cover.jpg"],
+    type: "website",
+  },
+};
 
 export default function BarberSpotlightVideoPage() {
   return (
@@ -31,15 +45,10 @@ export default function BarberSpotlightVideoPage() {
           {/* Video area */}
           <div className="flex-1">
             <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-black shadow-2xl">
-              <video
-                controls
-                autoPlay
-                className="h-full w-full"
-                poster="/images/homepage/barber-apprenticeship-training.png"
-              >
-                <source src="/videos/barber-spotlight.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <AdvancedVideoPlayer
+                src="/videos/barber-spotlight.mp4"
+                title="Barber Apprenticeship Success Story"
+              />
             </div>
 
             {/* Meta row */}

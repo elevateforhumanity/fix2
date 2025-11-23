@@ -1,5 +1,18 @@
 import { ProgramPageShell } from "@/components/programs/ProgramPageShell";
 import { Card } from "@/components/ui/Card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Barber Apprenticeship Program - Earn While You Learn",
+  description: "State-approved barber apprenticeship training in real barbershops. Earn while you learn toward your barber license. WIOA-funded, 1-2 years.",
+  keywords: ["barber apprenticeship", "barber training", "barber license", "earn while you learn", "WIOA barber program"],
+  openGraph: {
+    title: "Barber Apprenticeship Program | Elevate for Humanity",
+    description: "State-approved barber apprenticeship. Earn while you learn toward your barber license in real barbershops.",
+    images: ["/images/courses/barber-apprenticeship-10002417-cover.jpg"],
+    type: "website",
+  },
+};
 
 export default function BarberProgramPage() {
   return (

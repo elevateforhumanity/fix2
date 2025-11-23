@@ -1,4 +1,18 @@
 // app/(legal)/cookies/page.tsx
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cookie Policy - How We Use Cookies",
+  description: "Learn about how Elevate for Humanity uses cookies and similar technologies. Understand your rights and how to control cookie preferences.",
+  keywords: ["cookie policy", "privacy", "cookies", "data protection", "user privacy"],
+  openGraph: {
+    title: "Cookie Policy | Elevate for Humanity",
+    description: "Learn about how we use cookies and similar technologies. Understand your rights and cookie preferences.",
+    images: ["/images/hero-banner-new.png"],
+    type: "website",
+  },
+};
+
 export default function CookiePolicyPage() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-10">

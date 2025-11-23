@@ -153,6 +153,7 @@ export function AdvancedVideoPlayer({
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={() => onComplete?.()}
+        aria-label={title}
       />
       
       {/* Subtitles */}
@@ -191,6 +192,7 @@ export function AdvancedVideoPlayer({
           <button
             onClick={togglePlay}
             className="text-white hover:text-red-500 transition"
+            aria-label={isPlaying ? "Pause video" : "Play video"}
           >
             {isPlaying ? <Pause size={24} /> : <Play size={24} />}
           </button>
@@ -198,6 +200,7 @@ export function AdvancedVideoPlayer({
           {/* Skip Backward */}
           <button
             onClick={skipBackward}
+            aria-label="Skip backward 10 seconds"
             className="text-white hover:text-red-500 transition"
           >
             <SkipBack size={20} />

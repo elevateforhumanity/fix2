@@ -1,5 +1,27 @@
 import Link from 'next/link';
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Jri - Financial Aid & Funding Options | Elevate for Humanity",
+  description: "Learn about WIOA, workforce grants, JRI, and other funding sources that make career training free for eligible participants.",
+  keywords: ["financial aid", "WIOA funding", "workforce grants", "free training"],
+  openGraph: {
+    title: "Jri - Financial Aid & Funding Options | Elevate for Humanity",
+    description: "Learn about WIOA, workforce grants, JRI, and other funding sources that make career training free for eligible participants.",
+    images: ["/images/homepage/funding-navigation.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jri - Financial Aid & Funding Options | Elevate for Humanity",
+    description: "Learn about WIOA, workforce grants, JRI, and other funding sources that make career training free for eligible participants.",
+    images: ["/images/homepage/funding-navigation.png"],
+  },
+};
+
+
+
 export default function JRIFundingPage() {
   return (
     <main className="min-h-screen bg-white">

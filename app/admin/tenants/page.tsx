@@ -3,6 +3,28 @@ import { createClient } from '@supabase/supabase-js';
 import { requireAuth } from '@/lib/auth/getSession';
 import { redirect } from 'next/navigation';
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tenants - Admin Portal | Elevate for Humanity",
+  description: "Manage programs, students, certificates, and workforce development operations.",
+  keywords: ["admin portal", "program management", "workforce administration"],
+  openGraph: {
+    title: "Tenants - Admin Portal | Elevate for Humanity",
+    description: "Manage programs, students, certificates, and workforce development operations.",
+    images: ["/images/hero-banner-new.png"],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tenants - Admin Portal | Elevate for Humanity",
+    description: "Manage programs, students, certificates, and workforce development operations.",
+    images: ["/images/hero-banner-new.png"],
+  },
+};
+
+
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!

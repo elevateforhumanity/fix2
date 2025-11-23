@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { 
   BookOpen, 
@@ -19,6 +20,7 @@ import {
 } from 'lucide-react';
 
 export default function LMSDashboard() {
+  const [searchQuery, setSearchQuery] = useState('');
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Top Navigation Bar - Like Coursera */}
@@ -34,6 +36,8 @@ export default function LMSDashboard() {
                 <input
                   type="text"
                   placeholder="Search courses, assignments..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10 pr-4 py-2 w-96 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 />
               </div>
@@ -161,7 +165,7 @@ export default function LMSDashboard() {
                     </div>
                     <div className="text-right">
                       <p className={`text-sm font-semibold ${assignment.urgent ? 'text-red-600' : 'text-slate-600'}`}>{assignment.due}</p>
-                      <Link href="#" className="text-sm text-emerald-600 hover:text-emerald-700 font-medium">
+                      <Link href="/lms/assignments" className="text-sm text-emerald-600 hover:text-emerald-700 font-medium">
                         Start →
                       </Link>
                     </div>

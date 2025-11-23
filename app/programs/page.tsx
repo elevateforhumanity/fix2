@@ -3,6 +3,19 @@ import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { Button } from "@/components/ui/Button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Career Training Programs - Healthcare, Trades & More",
+  description: "Explore 12+ WIOA-funded career training programs in healthcare, skilled trades, CDL, barbering, and more. Free training with job placement support.",
+  keywords: ["career training programs", "WIOA programs", "healthcare training", "skilled trades", "CDL training", "barber apprenticeship", "free job training"],
+  openGraph: {
+    title: "Career Training Programs - Healthcare, Trades & More | Elevate for Humanity",
+    description: "Explore 12+ WIOA-funded career training programs in healthcare, skilled trades, CDL, barbering, and more.",
+    images: ["/images/homepage/programs-overview.png"],
+    type: "website",
+  },
+};
 
 // Force dynamic rendering - no stale cache
 export const dynamic = "force-dynamic";

@@ -1,4 +1,18 @@
 // app/(legal)/terms/page.tsx
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service - Platform Usage Agreement",
+  description: "Read our terms of service to understand the rules and guidelines for using the Elevate for Humanity platform and services.",
+  keywords: ["terms of service", "user agreement", "platform terms", "legal terms", "usage policy"],
+  openGraph: {
+    title: "Terms of Service | Elevate for Humanity",
+    description: "Understand the rules and guidelines for using our platform and services.",
+    images: ["/images/hero-banner-new.png"],
+    type: "website",
+  },
+};
+
 export default function TermsOfServicePage() {
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-10">

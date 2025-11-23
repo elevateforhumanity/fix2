@@ -1,6 +1,19 @@
 // app/about/page.tsx
 
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us - Workforce Development Ecosystem | Elevate for Humanity",
+  description: "Learn about Elevate For Humanity's mission to remove barriers and expand access to high-quality training in healthcare, skilled trades, and more through WIOA-funded programs.",
+  keywords: ["workforce development", "WIOA programs", "training institute", "career pathways", "community partnerships", "employer engagement"],
+  openGraph: {
+    title: "About Us - Workforce Development Ecosystem | Elevate for Humanity",
+    description: "Learn about Elevate For Humanity's mission to remove barriers and expand access to high-quality training in healthcare, skilled trades, and more.",
+    images: ["/images/homepage/about-elevate.png"],
+    type: "website",
+  },
+};
 
 export default function AboutPage() {
   return (

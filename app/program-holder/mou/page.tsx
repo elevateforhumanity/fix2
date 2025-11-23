@@ -68,7 +68,7 @@ export default function ProgramHolderMOUPage() {
 
   if (loading) {
     return (
-      <main className="p-6 max-w-3xl mx-auto">
+      <main className="p-4 sm:p-6 max-w-3xl mx-auto">
         <div className="text-center py-12">Loading…</div>
       </main>
     );
@@ -76,13 +76,13 @@ export default function ProgramHolderMOUPage() {
 
   if (!ph) {
     return (
-      <main className="p-6 max-w-3xl mx-auto">
+      <main className="p-4 sm:p-6 max-w-3xl mx-auto">
         <Card>
           <CardHeader>
-            <CardTitle>No Program Holder Record</CardTitle>
+            <CardTitle className="text-xl sm:text-2xl">No Program Holder Record</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               No program holder record found for your account.
             </p>
           </CardContent>
@@ -92,12 +92,12 @@ export default function ProgramHolderMOUPage() {
   }
 
   return (
-    <main className="max-w-3xl mx-auto p-6 space-y-6">
+    <main className="max-w-3xl mx-auto p-4 sm:p-6 space-y-4 sm:space-y-6">
       <div>
-        <h1 className="text-3xl font-bold mb-2">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-2">
           Program Holder Agreement (MOU)
         </h1>
-        <p className="text-muted-foreground">
+        <p className="text-sm sm:text-base text-muted-foreground">
           Organization: <strong>{ph.name}</strong>
           <br />
           Standard revenue share:{' '}

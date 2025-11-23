@@ -170,11 +170,16 @@ const categoryFilters: { id: Category; label: string }[] = [
 
 export default function DirectoryPage() {
   const [category, setCategory] = useState<Category>("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const visiblePrograms =
-    category === "all"
-      ? programs
-      : programs.filter((p) => p.category === category);
+  const visiblePrograms = programs.filter((p) => {
+    const matchesCategory = category === "all" || p.category === category;
+    const matchesSearch = searchQuery === "" || 
+      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.funding.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <main className="bg-slate-950 text-white min-h-screen">
@@ -239,9 +244,20 @@ export default function DirectoryPage() {
         </div>
       </section>
 
-      {/* Filters */}
+      {/* Search and Filters */}
       <section className="border-b border-slate-800 bg-slate-950/90">
         <div className="mx-auto max-w-7xl px-6 py-6 md:px-12">
+          {/* Search Bar */}
+          <div className="mb-6">
+            <input
+              type="text"
+              placeholder="Search programs by name, description, or funding type..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full rounded-lg border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white placeholder-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+            />
+          </div>
+          
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">

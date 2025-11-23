@@ -1,4 +1,17 @@
 // app/platform/workforce-analytics/page.tsx
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Workforce Analytics - Real-Time Outcomes & Reporting",
+  description: "Workforce analytics dashboard for WIOA, WRG, and JRI programs. Track enrollment, completion rates, job placements, and compliance metrics in real-time.",
+  keywords: ["workforce analytics", "WIOA reporting", "outcome tracking", "compliance metrics", "program performance"],
+  openGraph: {
+    title: "Workforce Analytics | Elevate for Humanity",
+    description: "Track enrollment, completion rates, job placements, and compliance metrics in real-time.",
+    images: ["/images/hero-banner-new.png"],
+    type: "website",
+  },
+};
 
 export default function WorkforceAnalyticsPage() {
   return (
