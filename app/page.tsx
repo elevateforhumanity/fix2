@@ -32,8 +32,7 @@ export default function HomePage() {
               </div>
               
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-slate-900">
-                Free career training.
-                <span className="block text-emerald-600">Real jobs waiting.</span>
+                Free career training. Real jobs waiting.
               </h1>
               
               <p className="text-lg sm:text-xl md:text-2xl text-slate-700 leading-relaxed max-w-3xl">
@@ -170,94 +169,124 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WHAT WE DO – Earn While You Learn Ecosystem */}
+      {/* What We Do - Light Section */}
       <section className="py-20 bg-white border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
-          <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold tracking-wide text-emerald-600 uppercase mb-3">
-                What we do
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
-                Training, funding, support, and jobs in one place
-              </h2>
-              <p className="mt-4 text-slate-700 text-base md:text-lg">
-                Elevate For Humanity is a full workforce ecosystem, not just a list of classes.
-                We help adults <span className="font-semibold">train, earn, and get hired</span> by
-                connecting funded programs, real employers, and barrier–breaking support in one place.
-              </p>
+          {/* Title / intro */}
+          <div className="text-center mb-12">
+            <p className="text-xs font-semibold tracking-wide text-emerald-600 uppercase mb-3">
+              What we do
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
+              A complete, funded workforce development ecosystem
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto">
+              Elevate For Humanity connects learners, employers, and workforce partners so people can
+              <span className="font-semibold"> earn while they learn</span> in WIOA- and JRI-aligned
+              training — with real support, real credentials, and real jobs at the end.
+            </p>
+          </div>
 
-              {/* TTS button */}
-              <div className="mt-4">
-                <TextToSpeechButton
-                  label="Listen to what Elevate does"
-                  text={`Elevate For Humanity is a full workforce ecosystem, not just a list of classes. We help adults train, earn, and get hired by connecting funded programs, real employers, and barrier-breaking support in one place. Many of our pathways are earn-while-you-learn through OJT, WEX, apprenticeships, and employer partnerships. Our team walks with you through WIOA, JRI, Work Experience, On-the-Job Training, and apprenticeship options so you can focus on learning instead of paperwork. We also help with barriers like transportation, childcare coordination, communication skills, and staying on track. Everything is connected to real employers and real outcomes so you are not just finishing a class, you are stepping into a career path.`}
-                />
-              </div>
+          {/* Small visual strip (still simple, not a redesign) */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-center">
+              <p className="text-xs font-semibold text-emerald-700 mb-1">Earn while you learn</p>
+              <p className="text-[11px] text-slate-600">
+                OJT • WEX • apprenticeships with local employers
+              </p>
             </div>
-
-            {/* Right column: images/collage */}
-            <div className="mt-8 md:mt-0 md:w-[40%]">
-              <div className="grid gap-4">
-                {/* Top: Earn While You Learn / Apprenticeship */}
-                <div className="relative h-40 rounded-2xl overflow-hidden shadow-md">
-                  <Image
-                    src="/images/programs/barber-apprenticeship.jpg"
-                    alt="Earn while you learn barber apprenticeship in a real barbershop"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                {/* Middle: WIOA/JRI funding + coaching */}
-                <div className="relative h-40 rounded-2xl overflow-hidden shadow-md">
-                  <Image
-                    src="/images/learners/coaching-session.jpg"
-                    alt="Career coach helping a learner navigate WIOA, JRI, OJT and WEX funding options"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                {/* Bottom: Platform / Portal */}
-                <div className="relative h-40 rounded-2xl overflow-hidden shadow-md">
-                  <Image
-                    src="/images/platform/student-portal-mock.jpg"
-                    alt="Student portal showing funded training, progress, and next steps"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
+            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-center">
+              <p className="text-xs font-semibold text-emerald-700 mb-1">Funded pathways</p>
+              <p className="text-[11px] text-slate-600">
+                WIOA • JRI • state workforce grants (where approved)
+              </p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-center">
+              <p className="text-xs font-semibold text-emerald-700 mb-1">Wraparound support</p>
+              <p className="text-[11px] text-slate-600">
+                Case management, barrier navigation, and retention coaching
+              </p>
+            </div>
+            <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-center">
+              <p className="text-xs font-semibold text-emerald-700 mb-1">Documented outcomes</p>
+              <p className="text-[11px] text-slate-600">
+                Reporting for boards, grants, and workforce partners
+              </p>
             </div>
           </div>
 
-          {/* Sub-sections: quick scan cards */}
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <h3 className="text-sm font-semibold text-emerald-700 mb-2">
-                🎓 Earn-while-you-learn programs
+          {/* Four cards – same structure, stronger copy */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Training programs */}
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                🎓 Funded training & apprenticeships
               </h3>
-              <p className="text-sm text-slate-700">
-                Barber apprenticeship, HVAC, reentry specialist, healthcare, business and more —
-                built with employers so your training lines up with real open jobs.
+              <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                Career-aligned programs that match real employer demand — built with credentialing
+                partners and employers you already know or will get to know.
+              </p>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li>• Healthcare: MA, CNA, HHA, emergency health & safety.</li>
+                <li>• Barber, esthetics, beauty educator & client services.</li>
+                <li>• HVAC and technical trades in high-demand sectors.</li>
+                <li>• Public safety reentry & workforce readiness pathways.</li>
+              </ul>
+              <p className="mt-4 text-xs text-slate-500">
+                Many pathways include <span className="font-semibold">earn-while-you-learn</span> hours
+                through OJT, apprenticeships, or paid work experience.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <h3 className="text-sm font-semibold text-emerald-700 mb-2">
-                💰 WIOA • JRI • OJT • WEX
+
+            {/* Funding & access */}
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                💰 WIOA, JRI, OJT & barrier-breaking funding
               </h3>
-              <p className="text-sm text-slate-700">
-                Our team helps you unlock the right mix of WIOA, JRI, Work Experience,
-                On-the-Job Training and apprenticeship funding so cost isn&apos;t the barrier.
+              <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                Most learners shouldn&apos;t pay out-of-pocket. We walk with you through funding
+                so you understand what you qualify for and how to keep your support.
               </p>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li>• WIOA, workforce readiness grants, and state funding (where approved).</li>
+                <li>• Justice Reinvestment (JRI), reentry, and second-chance pathways.</li>
+                <li>• OJT, WEX, and subsidized apprenticeships with local employers.</li>
+                <li>• Support to understand how training affects benefits and income.</li>
+              </ul>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <h3 className="text-sm font-semibold text-emerald-700 mb-2">
-                🤝 Support, portals & employers
+
+            {/* Support services */}
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                🤝 Real people, real support
               </h3>
-              <p className="text-sm text-slate-700">
-                Coaching, barrier navigation, student and employer portals, and clear outcomes
-                for workforce partners — all working together to move you into a career.
+              <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                Elevate is not just a list of classes — it&apos;s coaches, case managers, and partners
+                who stay connected from interest through employment.
               </p>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li>• 1:1 case management and accountability check-ins.</li>
+                <li>• Help with transportation, childcare, documentation, and barriers.</li>
+                <li>• Soft skills, professional behavior, and workplace expectations.</li>
+                <li>• Retention support after you start the job or apprenticeship.</li>
+              </ul>
+            </div>
+
+            {/* Technology platform */}
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                💻 Portals for learners, employers & partners
+              </h3>
+              <p className="text-slate-700 mb-4 text-sm sm:text-base">
+                Your platform keeps everyone in sync — learners, employers, workforce boards, and
+                training partners.
+              </p>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li>• Learner portal for classes, progress, certificates, and next steps.</li>
+                <li>• Employer portal for candidate referrals, OJT/WEX tracking, and feedback.</li>
+                <li>• Workforce & partner dashboards for outcomes and compliance reporting.</li>
+                <li>• Digital paperwork so less time is spent chasing forms and signatures.</li>
+              </ul>
             </div>
           </div>
         </div>
