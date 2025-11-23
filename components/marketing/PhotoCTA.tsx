@@ -11,7 +11,7 @@ export function PhotoCTA() {
           <div className="grid grid-cols-2 gap-3">
             <div className="relative h-40 overflow-hidden rounded-2xl sm:h-48">
               <Image
-                src="/media/collage-barber.jpg"
+                src="/generated-images/course-barber-cover.png"
                 alt="Barber apprenticeship in action"
                 fill
                 className="object-cover"
@@ -19,7 +19,7 @@ export function PhotoCTA() {
             </div>
             <div className="relative h-40 overflow-hidden rounded-2xl sm:h-48">
               <Image
-                src="/media/collage-healthcare.jpg"
+                src="/generated-images/course-healthcare-cover.png"
                 alt="Healthcare student in lab coat"
                 fill
                 className="object-cover"
@@ -27,7 +27,7 @@ export function PhotoCTA() {
             </div>
             <div className="relative h-40 overflow-hidden rounded-2xl sm:h-48">
               <Image
-                src="/media/collage-hvac.jpg"
+                src="/generated-images/course-hvac-cover.png"
                 alt="HVAC technician training"
                 fill
                 className="object-cover"
@@ -35,7 +35,7 @@ export function PhotoCTA() {
             </div>
             <div className="relative h-40 overflow-hidden rounded-2xl sm:h-48">
               <Image
-                src="/media/collage-classroom.jpg"
+                src="/assets/hero-training.jpg"
                 alt="Classroom and coaching"
                 fill
                 className="object-cover"
