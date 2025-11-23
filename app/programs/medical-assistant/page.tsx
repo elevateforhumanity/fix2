@@ -39,6 +39,7 @@ export default function MedicalAssistantProgramPage() {
       ]}
       employerNotes="Use this program to build an entry-level talent pipeline for front desk and clinical support roles, with learners already trained on core skills and professionalism."
       applyHref="/apply?program=medical-assistant"
+      videoUrl="/videos/courses/medical-assistant-10002419.mp4"
     >
       <Card className="p-5 md:p-6 space-y-3">
         <h3 className="text-lg font-semibold text-slate-900">

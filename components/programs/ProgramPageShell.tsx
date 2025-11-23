@@ -18,6 +18,7 @@ type ProgramPageShellProps = {
   highlights: string[];
   employerNotes?: string;
   applyHref?: string;
+  videoUrl?: string;
   children?: ReactNode;
 };
 
@@ -35,6 +36,7 @@ export function ProgramPageShell({
   highlights,
   employerNotes,
   applyHref = "/apply",
+  videoUrl,
   children,
 }: ProgramPageShellProps) {
   return (
@@ -83,11 +85,25 @@ export function ProgramPageShell({
             </div>
           </div>
 
-          {/* Right side: Program snapshot */}
-          <Card className="p-5 md:p-6 space-y-4">
-            <h3 className="text-lg font-semibold text-slate-900">
-              Program at a glance
-            </h3>
+          {/* Right side: Video or Program snapshot */}
+          <div className="space-y-4">
+            {videoUrl && (
+              <Card className="p-0 overflow-hidden">
+                <video
+                  controls
+                  className="w-full aspect-video"
+                  poster={videoUrl.replace('.mp4', '-poster.jpg')}
+                >
+                  <source src={videoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </Card>
+            )}
+            
+            <Card className="p-5 md:p-6 space-y-4">
+              <h3 className="text-lg font-semibold text-slate-900">
+                Program at a glance
+              </h3>
             <dl className="space-y-2 text-sm text-slate-700">
               {location && (
                 <div className="flex justify-between gap-4">
@@ -123,6 +139,7 @@ export function ProgramPageShell({
               </div>
             )}
           </Card>
+          </div>
         </div>
       </Section>
 
