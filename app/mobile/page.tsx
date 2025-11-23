@@ -1,18 +1,7 @@
-import { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
 import { Smartphone, Download, Zap, Wifi, Bell, Lock } from 'lucide-react';
-
-export const metadata: Metadata = {
-  title: "Mobile App - Learn Anywhere | Elevate for Humanity",
-  description: "Download our mobile app or install as a Progressive Web App (PWA) to access your courses offline and on the go.",
-  keywords: ["mobile app", "PWA", "offline learning", "mobile learning", "app download"],
-  openGraph: {
-    title: "Mobile App - Learn Anywhere | Elevate for Humanity",
-    description: "Access your courses offline and on the go with our mobile app.",
-    images: ["/images/hero-banner-new.png"],
-    type: "website",
-  },
-};
 
 export default function MobileAppPage() {
   return (
