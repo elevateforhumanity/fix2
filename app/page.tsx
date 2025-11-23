@@ -133,12 +133,6 @@ export default function HomePage() {
               training, support, and job placement are all working together instead of in
               silos.
             </p>
-            <div className="mt-4 flex justify-center">
-              <TextToSpeechButton
-                label="Listen to what Elevate does"
-                text="Elevate For Humanity connects learners, employers, and workforce partners so training, support, and job placement work together instead of in silos. We offer funded training programs in healthcare, trades, transportation, and re-entry. We help you navigate WIOA, JRI, OJT, WEX and apprenticeship options, and provide barrier-aware coaching with a technology platform that keeps everyone aligned."
-              />
-            </div>
           </div>
 
           <div className="mt-10 grid gap-8 md:grid-cols-2">
@@ -195,48 +189,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Visual grid showing the ecosystem */}
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {/* Column 1: Coaching & Support */}
-            <div className="space-y-4">
-              <div className="relative h-52 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/learners/coaching-session.jpg"
-                  alt="Career coach helping an adult learner navigate funding and next steps"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative h-52 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/learners/reentry-coaching.jpg"
-                  alt="Reentry specialist working with a justice-involved adult on a new career plan"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
 
-            {/* Column 2: Training & Platform */}
-            <div className="space-y-4">
-              <div className="relative h-52 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/homepage/barber-apprenticeship-training.png"
-                  alt="Barber apprentice earning while learning in a real barbershop"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative h-52 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src="/images/platform/student-portal-mock.jpg"
-                  alt="Student portal showing course progress and next steps"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
