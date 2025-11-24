@@ -18,132 +18,112 @@ export default function Homepage() {
       <main className="min-h-screen bg-white">
       
       {/* HERO BANNER 1 - Main Mission Statement with Custom Hero Image */}
-      <section className="relative min-h-[100vh] sm:min-h-[90vh] flex items-center overflow-hidden">
-        {/* Background Image - Optimized for all devices */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Background Image - High Resolution */}
         <div className="absolute inset-0 z-0">
-          <picture>
-            {/* Mobile - Portrait (up to 640px) */}
-            <source
-              media="(max-width: 640px)"
-              srcSet="/media/hero-banner-new.png"
-              type="image/png"
-            />
-            {/* Tablet - Portrait (641px to 1024px) */}
-            <source
-              media="(min-width: 641px) and (max-width: 1024px)"
-              srcSet="/media/hero-banner-new.png"
-              type="image/png"
-            />
-            {/* Desktop (1025px and up) */}
-            <source
-              media="(min-width: 1025px)"
-              srcSet="/media/hero-banner-new.png"
-              type="image/png"
-            />
-            {/* Fallback */}
-            <Image
-              src="/media/hero-banner-new.png"
-              alt="Elevate For Humanity - Funded Training, Real Support, Real Jobs"
-              fill
-              className="object-cover object-center"
-              priority
-              quality={100}
-              sizes="100vw"
-              style={{
-                imageRendering: '-webkit-optimize-contrast',
-              }}
-            />
-          </picture>
-          {/* Responsive overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/60 to-slate-900/40 sm:from-slate-900/70 sm:via-slate-900/50 sm:to-transparent" />
+          <Image
+            src="/media/hero-banner-new.png"
+            alt="Elevate For Humanity - Funded Training, Real Support, Real Jobs"
+            fill
+            className="object-cover object-center"
+            priority
+            quality={95}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'center',
+            }}
+          />
+          {/* Strong overlay for mobile readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/75 to-slate-900/85 md:bg-gradient-to-r md:from-slate-900/80 md:via-slate-900/60 md:to-slate-900/30" />
         </div>
 
         <div className="relative z-10 w-full">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24">
             <div className="max-w-4xl">
-              {/* Mission Badge - Responsive */}
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm font-bold text-white mb-4 sm:mb-6 border border-white/30">
-                <Heart size={16} className="text-red-300 sm:w-5 sm:h-5" />
+              {/* Mission Badge - Mobile Optimized */}
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/25 backdrop-blur-md px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-bold text-white mb-6 sm:mb-8 border border-white/40 shadow-lg">
+                <Heart size={18} className="text-red-300 sm:w-5 sm:h-5" />
                 <span className="hidden sm:inline">Philanthropy Through Workforce Development</span>
                 <span className="sm:hidden">Workforce Development</span>
               </div>
               
-              {/* Main Headline - Optimized for all screens */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6">
+              {/* Main Headline - Mobile First */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6 sm:mb-8 drop-shadow-2xl">
                 We Don't Give Handouts.{" "}
-                <span className="text-yellow-300 block sm:inline mt-2 sm:mt-0">We Build Pathways to Self-Sufficiency.</span>
+                <span className="text-yellow-300 block mt-2">We Build Pathways to Self-Sufficiency.</span>
               </h1>
               
-              {/* Mission Statement - Responsive text size */}
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-6 sm:mb-8 leading-relaxed max-w-3xl">
-                Elevate For Humanity is a 501(c)(3) philanthropic organization that connects Indiana residents—especially those facing barriers—to fully-funded career training, employer partnerships, and real jobs. We don't run a campus. We connect people to training at real shops, clinics, and job sites across Indiana.
+              {/* Mission Statement - Mobile Optimized */}
+              <p className="text-lg sm:text-xl md:text-2xl text-white font-medium mb-8 sm:mb-10 leading-relaxed max-w-3xl drop-shadow-lg">
+                Elevate For Humanity is a 501(c)(3) philanthropic organization that connects Indiana residents—especially those facing barriers—to fully-funded career training, employer partnerships, and real jobs.
               </p>
 
-              {/* Key Differentiators - Responsive Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20">
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
-                      <DollarSign size={20} className="text-white sm:w-6 sm:h-6" />
+              {/* Key Differentiators - Mobile First */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-8 sm:mb-10">
+                <div className="bg-white/15 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/30 shadow-xl">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <DollarSign size={24} className="text-white sm:w-7 sm:h-7" />
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">100% Funded Training</h3>
-                      <p className="text-xs sm:text-sm text-white/90">We handle WIOA, WRG, and JRI funding paperwork so learners pay $0 for training.</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">100% Funded Training</h3>
+                      <p className="text-sm sm:text-base text-white/95 leading-relaxed">We handle WIOA, WRG, and JRI funding paperwork so learners pay $0 for training.</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20">
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0">
-                      <Shield size={20} className="text-white sm:w-6 sm:h-6" />
+                <div className="bg-white/15 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/30 shadow-xl">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Shield size={24} className="text-white sm:w-7 sm:h-7" />
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Barrier-Aware Support</h3>
-                      <p className="text-xs sm:text-sm text-white/90">We work with justice-involved, unemployed, and underemployed adults who need a second chance.</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Barrier-Aware Support</h3>
+                      <p className="text-sm sm:text-base text-white/95 leading-relaxed">We work with justice-involved, unemployed, and underemployed adults who need a second chance.</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20">
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-purple-500 flex items-center justify-center flex-shrink-0">
-                      <Users size={20} className="text-white sm:w-6 sm:h-6" />
+                <div className="bg-white/15 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/30 shadow-xl">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-purple-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Users size={24} className="text-white sm:w-7 sm:h-7" />
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Real Employer Partnerships</h3>
-                      <p className="text-xs sm:text-sm text-white/90">We connect learners to OJT, WEX, and apprenticeships with actual hiring employers.</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">Real Employer Partnerships</h3>
+                      <p className="text-sm sm:text-base text-white/95 leading-relaxed">We connect learners to OJT, WEX, and apprenticeships with actual hiring employers.</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20">
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0">
-                      <Award size={20} className="text-white sm:w-6 sm:h-6" />
+                <div className="bg-white/15 backdrop-blur-md rounded-2xl p-5 sm:p-6 border border-white/30 shadow-xl">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Award size={24} className="text-white sm:w-7 sm:h-7" />
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">State-Approved Programs</h3>
-                      <p className="text-sm text-white/90">Ranked #15 among Indiana's Workforce Ready Grant providers. Listed on DWD InTraining.</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2">State-Approved Programs</h3>
+                      <p className="text-sm sm:text-base text-white/95 leading-relaxed">Ranked #15 among Indiana's Workforce Ready Grant providers. Listed on DWD InTraining.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* CTAs - Mobile Optimized */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-5">
                 <a
                   href="https://indianaconnect.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-red-600 px-8 py-4 text-lg font-bold shadow-lg hover:bg-yellow-300 hover:text-red-700 transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center gap-3 rounded-full bg-white text-red-600 px-8 py-5 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold shadow-2xl hover:bg-yellow-300 hover:text-red-700 transition-all hover:scale-105 active:scale-95"
                 >
                   Schedule at Indiana Connect
-                  <ArrowRight size={20} />
+                  <ArrowRight size={22} className="sm:w-6 sm:h-6" />
                 </a>
                 <Link
                   href="/about"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white/10 transition-all backdrop-blur-sm"
+                  className="inline-flex items-center justify-center gap-3 rounded-full border-2 border-white text-white px-8 py-5 sm:px-10 sm:py-5 text-lg sm:text-xl font-bold hover:bg-white/20 transition-all backdrop-blur-md shadow-xl active:scale-95"
                 >
                   Our Story
                 </Link>
