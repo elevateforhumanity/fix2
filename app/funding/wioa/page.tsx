@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+import Image from 'next/image';
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -74,6 +74,25 @@ export default function WIOAFundingPage() {
               <p className="text-gray-700">Transportation, childcare, work clothing</p>
             </div>
           </div>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">How to Apply for WIOA Funding</h2>
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-blue-200">
+            <div className="relative w-full h-auto">
+              <Image
+                src="/media/funding/infographics/funding-wioa-process.png"
+                alt="WIOA Funding Application Process - 5 Steps: Visit WorkOne, Eligibility Assessment, Application, Approval, Training Begins"
+                width={1200}
+                height={800}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+          </div>
+          <p className="text-center text-gray-600 mt-4 text-sm">
+            Follow these 5 simple steps to get your training fully funded through WIOA
+          </p>
         </section>
 
         <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12">
