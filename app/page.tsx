@@ -179,6 +179,57 @@ export default function Homepage() {
               </div>
             </div>
           </div>
+
+          {/* Additional Programs - 3 More */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            {/* Tax Office Certification */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <Image 
+                src="/images/programs/efh-tax-office-startup-card.jpg" 
+                alt="Tax Office Certification - Tax Preparation Training" 
+                width={800} 
+                height={600} 
+                quality={100} 
+                className="w-full h-auto"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Tax Office Certification</h3>
+                <p className="text-slate-600">Professional tax preparation training and certification</p>
+              </div>
+            </div>
+
+            {/* Building Technician */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <Image 
+                src="/images/programs/efh-building-tech-card.jpg" 
+                alt="Building Technician - Maintenance Training" 
+                width={800} 
+                height={600} 
+                quality={100} 
+                className="w-full h-auto"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Building Technician</h3>
+                <p className="text-slate-600">Comprehensive building maintenance and facilities management training</p>
+              </div>
+            </div>
+
+            {/* Culinary Arts */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <Image 
+                src="/media/programs/culinary-hd.jpg" 
+                alt="Culinary Arts - Chef Training in Kitchen" 
+                width={800} 
+                height={600} 
+                quality={100} 
+                className="w-full h-auto"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Culinary Arts</h3>
+                <p className="text-slate-600">Professional chef training in commercial kitchen environments</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
