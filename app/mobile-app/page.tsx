@@ -57,7 +57,7 @@ export default function MobileAppPage() {
               Want to be notified when the mobile app launches? Sign up for updates through your student portal.
             </p>
 
-            <div className="mt-12 rounded-lg bg-emerald-50 p-8 border border-emerald-200">
+            <div className="mt-12 rounded-lg bg-red-50 p-8 border border-red-200">
               <h3 className="text-xl font-bold text-slate-900">In the meantime</h3>
               <p className="mt-2 text-slate-600">
                 Access all your training materials through the student portal on any device.
@@ -65,7 +65,7 @@ export default function MobileAppPage() {
               <div className="mt-6">
                 <Link
                   href="/app"
-                  className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 py-3 text-base font-semibold text-white hover:bg-emerald-700"
+                  className="inline-flex items-center justify-center rounded-lg bg-red-600 px-6 py-3 text-base font-semibold text-white hover:bg-red-700"
                 >
                   Go to Student Portal
                 </Link>

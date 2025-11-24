@@ -46,8 +46,8 @@ export function AdminReportingDashboard() {
       change: '+15.7%',
       trend: 'up',
       icon: DollarSign,
-      color: 'text-emerald-600',
-      bgColor: 'bg-emerald-100',
+      color: 'text-red-600',
+      bgColor: 'bg-red-100',
     },
   ];
 

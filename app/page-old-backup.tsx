@@ -26,12 +26,12 @@ export default function HomePage() {
         <div className="relative z-10 h-full flex items-center py-12 md:py-0">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 w-full">
             <div className="max-w-4xl">
-              <p className="text-xs sm:text-sm font-semibold tracking-wide text-emerald-400 uppercase mb-3 md:mb-4">
+              <p className="text-xs sm:text-sm font-semibold tracking-wide text-orange-400 uppercase mb-3 md:mb-4">
                 Government-funded workforce ecosystem
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
                 Elevate For Humanity is a{" "}
-                <span className="text-emerald-400">
+                <span className="text-orange-400">
                   funded training platform
                 </span>{" "}
                 that connects students, employers, and workforce boards.
@@ -52,7 +52,7 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/platform"
-                  className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border-2 border-slate-400 text-slate-100 hover:border-emerald-400 hover:text-emerald-300 transition"
+                  className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border-2 border-slate-400 text-slate-100 hover:border-emerald-400 hover:text-orange-300 transition"
                 >
                   See the Elevate platform
                 </Link>
@@ -93,7 +93,7 @@ export default function HomePage() {
       <section className="py-12 md:py-20 bg-white border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
           <div className="text-center mb-8 md:mb-12">
-            <p className="text-xs font-semibold tracking-wide text-emerald-600 uppercase mb-3 md:mb-4">
+            <p className="text-xs font-semibold tracking-wide text-red-600 uppercase mb-3 md:mb-4">
               What we do
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 px-4">
@@ -116,19 +116,19 @@ export default function HomePage() {
               </p>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>Certified Nursing Assistant (CNA), Medical Assistant, Phlebotomy</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>CDL-A and CDL-B truck driving, Forklift certification</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>HVAC, Electrical, Plumbing, Welding, Construction trades</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>IT Support, Customer Service, Business Administration</span>
                 </li>
               </ul>
@@ -144,19 +144,19 @@ export default function HomePage() {
               </p>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>WIOA (Workforce Innovation and Opportunity Act)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>Workforce Readiness Grants and state funding</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>On-the-Job Training (OJT) and Work Experience (WEX)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>Employer sponsorships and scholarships</span>
                 </li>
               </ul>
@@ -171,19 +171,19 @@ export default function HomePage() {
               </p>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>Career counseling and job placement assistance</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>Transportation and childcare support coordination</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>Soft skills training and professional development</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>Retention support after job placement</span>
                 </li>
               </ul>
@@ -198,19 +198,19 @@ export default function HomePage() {
               </p>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>Student portal for course access, progress tracking, and certificates</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>Employer portal for job posting and candidate matching</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>Workforce board dashboard for real-time outcomes reporting</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 font-bold">•</span>
+                  <span className="text-red-600 font-bold">•</span>
                   <span>Partner portal for training providers and instructors</span>
                 </li>
               </ul>
@@ -251,7 +251,7 @@ export default function HomePage() {
                     Hands-on clinical training for entry-level healthcare roles
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-red-600 font-semibold text-sm">Learn more →</span>
                     <span className="text-xs text-slate-500">4-6 weeks</span>
                   </div>
                 </div>
@@ -277,7 +277,7 @@ export default function HomePage() {
                     Get your Commercial Driver's License and start a high-demand career
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-red-600 font-semibold text-sm">Learn more →</span>
                     <span className="text-xs text-slate-500">3-4 weeks</span>
                   </div>
                 </div>
@@ -303,7 +303,7 @@ export default function HomePage() {
                     Learn heating, cooling, and refrigeration systems
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-red-600 font-semibold text-sm">Learn more →</span>
                     <span className="text-xs text-slate-500">8-12 weeks</span>
                   </div>
                 </div>
@@ -329,7 +329,7 @@ export default function HomePage() {
                     State-approved apprenticeship in real barbershops
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-red-600 font-semibold text-sm">Learn more →</span>
                     <span className="text-xs text-slate-500">12-18 months</span>
                   </div>
                 </div>
@@ -355,7 +355,7 @@ export default function HomePage() {
                     Training for building systems, repairs, and facility maintenance
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-red-600 font-semibold text-sm">Learn more →</span>
                     <span className="text-xs text-slate-500">6-8 weeks</span>
                   </div>
                 </div>
@@ -381,7 +381,7 @@ export default function HomePage() {
                     Clinical and administrative training for healthcare settings
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-emerald-600 font-semibold text-sm">Learn more →</span>
+                    <span className="text-red-600 font-semibold text-sm">Learn more →</span>
                     <span className="text-xs text-slate-500">4-6 months</span>
                   </div>
                 </div>
@@ -392,7 +392,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link
               href="/directory"
-              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition"
+              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition"
             >
               View all 20+ programs
             </Link>
@@ -417,7 +417,7 @@ export default function HomePage() {
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-emerald-400/50 transition">
               <div className="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center mb-4">
                 <svg
-                  className="w-6 h-6 text-emerald-400"
+                  className="w-6 h-6 text-orange-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -440,7 +440,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/directory"
-                className="text-emerald-400 hover:text-emerald-300 font-semibold inline-flex items-center gap-2"
+                className="text-orange-400 hover:text-orange-300 font-semibold inline-flex items-center gap-2"
               >
                 Browse programs
                 <svg
@@ -463,7 +463,7 @@ export default function HomePage() {
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-emerald-400/50 transition">
               <div className="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center mb-4">
                 <svg
-                  className="w-6 h-6 text-emerald-400"
+                  className="w-6 h-6 text-orange-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -486,7 +486,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/employers"
-                className="text-emerald-400 hover:text-emerald-300 font-semibold inline-flex items-center gap-2"
+                className="text-orange-400 hover:text-orange-300 font-semibold inline-flex items-center gap-2"
               >
                 Learn more
                 <svg
@@ -509,7 +509,7 @@ export default function HomePage() {
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 hover:border-emerald-400/50 transition">
               <div className="w-12 h-12 bg-emerald-400/10 rounded-lg flex items-center justify-center mb-4">
                 <svg
-                  className="w-6 h-6 text-emerald-400"
+                  className="w-6 h-6 text-orange-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -532,7 +532,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/workforce-boards"
-                className="text-emerald-400 hover:text-emerald-300 font-semibold inline-flex items-center gap-2"
+                className="text-orange-400 hover:text-orange-300 font-semibold inline-flex items-center gap-2"
               >
                 See the dashboard
                 <svg
@@ -569,7 +569,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-emerald-400/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-emerald-400">1</span>
+                <span className="text-2xl font-bold text-orange-400">1</span>
               </div>
               <h3 className="text-lg font-bold text-white mb-2">
                 Apply for funding
@@ -580,7 +580,7 @@ export default function HomePage() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-emerald-400/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-emerald-400">2</span>
+                <span className="text-2xl font-bold text-orange-400">2</span>
               </div>
               <h3 className="text-lg font-bold text-white mb-2">
                 Enroll in training
@@ -591,7 +591,7 @@ export default function HomePage() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-emerald-400/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-emerald-400">3</span>
+                <span className="text-2xl font-bold text-orange-400">3</span>
               </div>
               <h3 className="text-lg font-bold text-white mb-2">
                 Earn credentials
@@ -603,7 +603,7 @@ export default function HomePage() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-emerald-400/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-emerald-400">4</span>
+                <span className="text-2xl font-bold text-orange-400">4</span>
               </div>
               <h3 className="text-lg font-bold text-white mb-2">
                 Get hired
@@ -646,25 +646,25 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-emerald-400 mb-2">
+              <div className="text-4xl font-bold text-orange-400 mb-2">
                 500+
               </div>
               <div className="text-slate-400">Learners enrolled</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-emerald-400 mb-2">
+              <div className="text-4xl font-bold text-orange-400 mb-2">
                 50+
               </div>
               <div className="text-slate-400">Employer partners</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-emerald-400 mb-2">
+              <div className="text-4xl font-bold text-orange-400 mb-2">
                 85%
               </div>
               <div className="text-slate-400">Completion rate</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-emerald-400 mb-2">
+              <div className="text-4xl font-bold text-orange-400 mb-2">
                 $2M+
               </div>
               <div className="text-slate-400">In workforce funding</div>
@@ -697,12 +697,12 @@ export default function HomePage() {
                 />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Marcus J.</h3>
-              <p className="text-sm text-emerald-600 font-semibold mb-4">Barber Apprenticeship Graduate</p>
+              <p className="text-sm text-red-600 font-semibold mb-4">Barber Apprenticeship Graduate</p>
               <p className="text-slate-700 italic mb-4">
                 "From incarceration to owning my own chair. Elevate gave me the structure and support I needed."
               </p>
               <div className="flex items-center justify-center gap-2 text-sm text-slate-600">
-                <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
                 <span>Now owns his own barbershop</span>
@@ -720,12 +720,12 @@ export default function HomePage() {
                 />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Sarah M.</h3>
-              <p className="text-sm text-emerald-600 font-semibold mb-4">Medical Assistant Graduate</p>
+              <p className="text-sm text-red-600 font-semibold mb-4">Medical Assistant Graduate</p>
               <p className="text-slate-700 italic mb-4">
                 "Single mom to certified MA in 5 months. Now working at a clinic with benefits for my family."
               </p>
               <div className="flex items-center justify-center gap-2 text-sm text-slate-600">
-                <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
                 <span>Full-time at regional clinic</span>
@@ -743,12 +743,12 @@ export default function HomePage() {
                 />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Lisa T.</h3>
-              <p className="text-sm text-emerald-600 font-semibold mb-4">HVAC Technician Graduate</p>
+              <p className="text-sm text-red-600 font-semibold mb-4">HVAC Technician Graduate</p>
               <p className="text-slate-700 italic mb-4">
                 "Went from retail to skilled trades. Making 2x my old salary with room to grow."
               </p>
               <div className="flex items-center justify-center gap-2 text-sm text-slate-600">
-                <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
                 <span>EPA-certified technician</span>
@@ -763,7 +763,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900">
                   <div className="text-center">
                     <div className="w-20 h-20 bg-emerald-400/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-10 h-10 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-10 h-10 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                       </svg>
                     </div>
@@ -778,7 +778,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link
               href="/success-stories"
-              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white transition"
+              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition"
             >
               Read more success stories
             </Link>
@@ -792,10 +792,10 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-emerald-400/10 border border-emerald-400/30 rounded-full px-4 py-2 mb-6">
-                <svg className="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" />
                 </svg>
-                <span className="text-emerald-400 text-sm font-semibold">Now Available</span>
+                <span className="text-orange-400 text-sm font-semibold">Now Available</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
                 Take Elevate with you
@@ -805,25 +805,25 @@ export default function HomePage() {
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-slate-200">Access courses offline</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-slate-200">Get push notifications for deadlines</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-slate-200">Track your progress on the go</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span className="text-slate-200">Quick access from your home screen</span>
@@ -864,7 +864,7 @@ export default function HomePage() {
                     <div className="bg-gradient-to-br from-slate-900 to-slate-950 p-6 h-[600px] overflow-hidden">
                       <div className="text-center mb-8">
                         <div className="w-16 h-16 bg-emerald-400/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                          <svg className="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                           </svg>
                         </div>

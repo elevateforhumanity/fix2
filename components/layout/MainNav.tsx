@@ -69,7 +69,7 @@ export function MainNav() {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-3 md:px-10">
           {/* Logo / Brand */}
           <Link href="/" className="flex items-center gap-2" aria-label="Elevate For Humanity Home">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500 text-white text-xs font-black uppercase" aria-hidden="true">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-red-500 text-white text-xs font-black uppercase" aria-hidden="true">
               EFH
             </div>
             <div className="flex flex-col leading-tight">
@@ -92,9 +92,9 @@ export function MainNav() {
             >
               <button
                 className={clsx(
-                  "flex items-center gap-1 transition hover:text-emerald-600",
+                  "flex items-center gap-1 transition hover:text-red-600",
                   pathname?.startsWith("/programs")
-                    ? "text-emerald-600 font-semibold"
+                    ? "text-red-600 font-semibold"
                     : "text-slate-700"
                 )}
                 aria-expanded={programsOpen}
@@ -111,9 +111,9 @@ export function MainNav() {
                       key={link.href}
                       href={link.href}
                       className={clsx(
-                        "block px-4 py-2 text-xs transition hover:bg-emerald-50 hover:text-emerald-600",
+                        "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
                         pathname === link.href
-                          ? "text-emerald-600 font-semibold bg-emerald-50"
+                          ? "text-red-600 font-semibold bg-red-50"
                           : "text-slate-700"
                       )}
                     >
@@ -132,9 +132,9 @@ export function MainNav() {
             >
               <button
                 className={clsx(
-                  "flex items-center gap-1 transition hover:text-emerald-600",
+                  "flex items-center gap-1 transition hover:text-red-600",
                   pathname?.startsWith("/funding")
-                    ? "text-emerald-600 font-semibold"
+                    ? "text-red-600 font-semibold"
                     : "text-slate-700"
                 )}
                 aria-expanded={fundingOpen}
@@ -151,9 +151,9 @@ export function MainNav() {
                       key={link.href}
                       href={link.href}
                       className={clsx(
-                        "block px-4 py-2 text-xs transition hover:bg-emerald-50 hover:text-emerald-600",
+                        "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
                         pathname === link.href
-                          ? "text-emerald-600 font-semibold bg-emerald-50"
+                          ? "text-red-600 font-semibold bg-red-50"
                           : "text-slate-700"
                       )}
                     >
@@ -170,9 +170,9 @@ export function MainNav() {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  "transition hover:text-emerald-600",
+                  "transition hover:text-red-600",
                   pathname?.startsWith(link.href)
-                    ? "text-emerald-600 font-semibold"
+                    ? "text-red-600 font-semibold"
                     : "text-slate-700"
                 )}
                 aria-current={pathname?.startsWith(link.href) ? "page" : undefined}
@@ -184,7 +184,7 @@ export function MainNav() {
             {/* Strong CTA – APPLY */}
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-xs font-bold text-white shadow-lg hover:bg-emerald-600 transition"
+              className="inline-flex items-center justify-center rounded-full bg-red-500 px-4 py-2 text-xs font-bold text-white shadow-lg hover:bg-red-600 transition"
               aria-label="Apply for training or refer someone"
             >
               Apply Now
@@ -195,13 +195,13 @@ export function MainNav() {
           <div className="flex items-center gap-2 md:hidden">
             <Link
               href="/apply"
-              className="rounded-full bg-emerald-500 px-3 py-1.5 text-[11px] font-semibold text-white"
+              className="rounded-full bg-red-500 px-3 py-1.5 text-[11px] font-semibold text-white"
             >
               Apply
             </Link>
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2 text-slate-900 hover:text-emerald-600 transition touch-manipulation"
+              className="p-2 text-slate-900 hover:text-red-600 transition touch-manipulation"
               aria-label="Open navigation menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -232,14 +232,14 @@ export function MainNav() {
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-slate-200">
                 <div className="flex items-center gap-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500 text-white text-xs font-black uppercase">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-500 text-white text-xs font-black uppercase">
                     EFH
                   </div>
                   <span className="text-sm font-semibold text-slate-900">Menu</span>
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 text-slate-900 hover:text-emerald-600 transition touch-manipulation"
+                  className="p-2 text-slate-900 hover:text-red-600 transition touch-manipulation"
                   aria-label="Close navigation menu"
                 >
                   <X size={24} />
@@ -266,7 +266,7 @@ export function MainNav() {
                           className={clsx(
                             "block py-2 px-4 rounded-lg text-sm transition touch-manipulation",
                             pathname === link.href
-                              ? "bg-emerald-50 text-emerald-600 font-medium"
+                              ? "bg-red-50 text-red-600 font-medium"
                               : "text-slate-600 hover:bg-slate-50"
                           )}
                           onClick={() => setMobileMenuOpen(false)}
@@ -296,7 +296,7 @@ export function MainNav() {
                           className={clsx(
                             "block py-2 px-4 rounded-lg text-sm transition touch-manipulation",
                             pathname === link.href
-                              ? "bg-emerald-50 text-emerald-600 font-medium"
+                              ? "bg-red-50 text-red-600 font-medium"
                               : "text-slate-600 hover:bg-slate-50"
                           )}
                           onClick={() => setMobileMenuOpen(false)}
@@ -316,7 +316,7 @@ export function MainNav() {
                     className={clsx(
                       "block py-3 px-4 rounded-lg text-sm font-medium transition touch-manipulation",
                       pathname?.startsWith(link.href)
-                        ? "bg-emerald-50 text-emerald-600 border border-emerald-200"
+                        ? "bg-red-50 text-red-600 border border-red-200"
                         : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
                     )}
                     onClick={() => setMobileMenuOpen(false)}
@@ -330,14 +330,14 @@ export function MainNav() {
               <div className="p-6 border-t border-slate-200 space-y-3">
                 <Link
                   href={STUDENT_PORTAL_URL}
-                  className="block py-3 px-4 text-center border-2 border-emerald-500 text-emerald-600 rounded-lg font-semibold hover:bg-emerald-50 transition touch-manipulation"
+                  className="block py-3 px-4 text-center border-2 border-emerald-500 text-red-600 rounded-lg font-semibold hover:bg-red-50 transition touch-manipulation"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Student Portal
                 </Link>
                 <Link
                   href="/apply"
-                  className="block py-3 px-4 text-center bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition shadow-lg touch-manipulation"
+                  className="block py-3 px-4 text-center bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition shadow-lg touch-manipulation"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Apply / Refer Now

@@ -30,7 +30,7 @@ export default function WorkforcePartnersPage() {
       <section className="border-b border-slate-800 bg-gradient-to-br from-slate-950 via-slate-950 to-emerald-500/10">
         <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 lg:px-12 lg:py-20">
           <nav className="mb-6 text-xs text-slate-400">
-            <Link href="/" className="hover:text-emerald-300">
+            <Link href="/" className="hover:text-orange-300">
               Home
             </Link>{" "}
             /{" "}
@@ -41,7 +41,7 @@ export default function WorkforcePartnersPage() {
 
           <div className="grid gap-10 md:grid-cols-[1.6fr,1.3fr] md:items-center">
             <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-orange-300">
                 For workforce boards, re-entry, and community partners
               </p>
               <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
@@ -50,7 +50,7 @@ export default function WorkforcePartnersPage() {
               </h1>
               <p className="mt-4 text-sm text-slate-200 sm:text-base max-w-xl">
                 Elevate For Humanity aligns with{" "}
-                <span className="font-semibold text-emerald-300">
+                <span className="font-semibold text-orange-300">
                   WIOA, re-entry, and state workforce goals
                 </span>{" "}
                 by providing funded training pathways, barrier-aware support,
@@ -58,7 +58,7 @@ export default function WorkforcePartnersPage() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3 text-[11px]">
-                <span className="rounded-full border border-emerald-500/60 bg-emerald-500/10 px-3 py-1 text-emerald-300">
+                <span className="rounded-full border border-emerald-500/60 bg-red-500/10 px-3 py-1 text-orange-300">
                   ETPL-aligned programs (where approved)
                 </span>
                 <span className="rounded-full border border-slate-700 px-3 py-1 text-slate-200">
@@ -72,13 +72,13 @@ export default function WorkforcePartnersPage() {
               <div className="mt-7 flex flex-wrap gap-4">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-7 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+                  className="inline-flex items-center justify-center rounded-full bg-red-500 px-7 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
                 >
                   Refer a client or cohort
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-600 px-7 py-3 text-sm font-semibold text-slate-100 hover:border-emerald-400 hover:text-emerald-300"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-600 px-7 py-3 text-sm font-semibold text-slate-100 hover:border-emerald-400 hover:text-orange-300"
                 >
                   Request a partner meeting
                 </Link>
@@ -156,7 +156,7 @@ export default function WorkforcePartnersPage() {
           <div className="grid gap-6 md:grid-cols-4 text-sm">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-center">
               <div className="mb-3 flex items-center justify-center">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-slate-950">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-slate-950">
                   1
                 </span>
               </div>
@@ -170,7 +170,7 @@ export default function WorkforcePartnersPage() {
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-center">
               <div className="mb-3 flex items-center justify-center">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-slate-950">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-slate-950">
                   2
                 </span>
               </div>
@@ -184,7 +184,7 @@ export default function WorkforcePartnersPage() {
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-center">
               <div className="mb-3 flex items-center justify-center">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-slate-950">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-slate-950">
                   3
                 </span>
               </div>
@@ -198,7 +198,7 @@ export default function WorkforcePartnersPage() {
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-center">
               <div className="mb-3 flex items-center justify-center">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-slate-950">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-slate-950">
                   4
                 </span>
               </div>
@@ -270,7 +270,7 @@ export default function WorkforcePartnersPage() {
             </p>
             <Link
               href="/directory"
-              className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-2 text-xs font-semibold hover:border-emerald-500 hover:text-emerald-600"
+              className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-2 text-xs font-semibold hover:border-emerald-500 hover:text-red-600"
             >
               View full program directory
             </Link>
@@ -304,27 +304,27 @@ export default function WorkforcePartnersPage() {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <span className="font-semibold text-emerald-300">
+                  <span className="font-semibold text-orange-300">
                     • At referral:
                   </span>{" "}
                   we confirm receipt, eligibility checks, and target cohort
                   start.
                 </li>
                 <li>
-                  <span className="font-semibold text-emerald-300">
+                  <span className="font-semibold text-orange-300">
                     • At enrollment:
                   </span>{" "}
                   we share start date, schedule, and program contact.
                 </li>
                 <li>
-                  <span className="font-semibold text-emerald-300">
+                  <span className="font-semibold text-orange-300">
                     • Mid-program:
                   </span>{" "}
                   we can provide a brief update if you request it (attendance,
                   engagement, issues).
                 </li>
                 <li>
-                  <span className="font-semibold text-emerald-300">
+                  <span className="font-semibold text-orange-300">
                     • At completion:
                   </span>{" "}
                   we confirm completion, credential (if any), and next steps for
@@ -341,7 +341,7 @@ export default function WorkforcePartnersPage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-gradient-to-br from-emerald-500/15 via-slate-950 to-slate-950 py-16">
+      <section className="bg-gradient-to-br from-red-500/15 via-slate-950 to-slate-950 py-16">
         <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
           <h2 className="text-2xl font-bold sm:text-3xl">
             Ready to explore a partnership or refer your first learners?
@@ -353,13 +353,13 @@ export default function WorkforcePartnersPage() {
           <div className="mt-7 flex flex-wrap justify-center gap-4">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+              className="inline-flex items-center justify-center rounded-full bg-red-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
             >
               Refer a client or cohort
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/10"
+              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-orange-300 hover:bg-red-500/10"
             >
               Schedule a partner call
             </Link>

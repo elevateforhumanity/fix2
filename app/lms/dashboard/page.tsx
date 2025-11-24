@@ -133,7 +133,7 @@ export default async function LMSDashboard() {
         <div className="max-w-[1920px] mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-8">
-              <Link href="/" className="text-2xl font-bold text-emerald-600">
+              <Link href="/" className="text-2xl font-bold text-red-600">
                 Elevate LMS
               </Link>
               <div className="relative hidden md:block">
@@ -152,7 +152,7 @@ export default async function LMSDashboard() {
                   <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
                 )}
               </button>
-              <div className="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-semibold">
+              <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white font-semibold">
                 {user.email?.charAt(0).toUpperCase() || "U"}
               </div>
             </div>
@@ -165,14 +165,14 @@ export default async function LMSDashboard() {
           {/* Main Content - 8 columns */}
           <div className="lg:col-span-8 space-y-6">
             {/* Welcome Banner - Like Canvas */}
-            <div className="bg-gradient-to-r from-emerald-600 to-blue-600 rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-r from-red-600 to-blue-600 rounded-2xl p-8 text-white">
               <h1 className="text-3xl font-bold mb-2">Welcome back, John!</h1>
               <p className="text-emerald-50 text-lg">You have 3 assignments due this week</p>
               <div className="mt-6 flex gap-4">
-                <Link href="/lms/courses" className="bg-white text-emerald-700 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition">
+                <Link href="/lms/courses" className="bg-white text-red-700 px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition">
                   View Courses
                 </Link>
-                <Link href="/lms/calendar" className="bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition">
+                <Link href="/lms/calendar" className="bg-red-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition">
                   Check Calendar
                 </Link>
               </div>
@@ -182,12 +182,12 @@ export default async function LMSDashboard() {
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
               <h2 className="text-xl font-bold text-slate-900 mb-6">Your Progress</h2>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+                <div className="bg-red-50 rounded-lg p-4 border border-red-200">
                   <div className="flex items-center gap-3 mb-2">
-                    <BookOpen className="w-5 h-5 text-emerald-600" />
+                    <BookOpen className="w-5 h-5 text-red-600" />
                     <span className="text-sm font-medium text-slate-600">Active Courses</span>
                   </div>
-                  <div className="text-3xl font-bold text-emerald-700">5</div>
+                  <div className="text-3xl font-bold text-red-700">5</div>
                 </div>
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
                   <div className="flex items-center gap-3 mb-2">
@@ -217,7 +217,7 @@ export default async function LMSDashboard() {
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-slate-900">Continue Learning</h2>
-                <Link href="/lms/courses" className="text-emerald-600 font-semibold hover:text-emerald-700">
+                <Link href="/lms/courses" className="text-red-600 font-semibold hover:text-red-700">
                   View All →
                 </Link>
               </div>
@@ -227,7 +227,7 @@ export default async function LMSDashboard() {
                   { title: 'HVAC Fundamentals', progress: 42, lesson: 'Lesson 5: Refrigeration Cycle', image: '/media/programs/hvac.jpg' },
                   { title: 'CDL Class A Training', progress: 78, lesson: 'Lesson 12: Pre-Trip Inspection', image: '/media/programs/cdl.jpg' },
                 ].map((course, i) => (
-                  <div key={i} className="flex gap-4 p-4 rounded-lg border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50/50 transition cursor-pointer">
+                  <div key={i} className="flex gap-4 p-4 rounded-lg border border-slate-200 hover:border-red-300 hover:bg-red-50/50 transition cursor-pointer">
                     <div className="w-32 h-20 rounded-lg bg-slate-200 flex-shrink-0 overflow-hidden">
                       <img src={course.image} alt={course.title} className="w-full h-full object-cover" />
                     </div>
@@ -236,12 +236,12 @@ export default async function LMSDashboard() {
                       <p className="text-sm text-slate-600 mt-1">{course.lesson}</p>
                       <div className="mt-3 flex items-center gap-3">
                         <div className="flex-1 bg-slate-200 rounded-full h-2">
-                          <div className="bg-emerald-600 h-2 rounded-full" style={{ width: `${course.progress}%` }}></div>
+                          <div className="bg-red-600 h-2 rounded-full" style={{ width: `${course.progress}%` }}></div>
                         </div>
                         <span className="text-sm font-medium text-slate-700">{course.progress}%</span>
                       </div>
                     </div>
-                    <button className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center text-white hover:bg-emerald-700 transition">
+                    <button className="flex-shrink-0 w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-red-700 transition">
                       <PlayCircle className="w-6 h-6" />
                     </button>
                   </div>
@@ -270,7 +270,7 @@ export default async function LMSDashboard() {
                     </div>
                     <div className="text-right">
                       <p className={`text-sm font-semibold ${assignment.urgent ? 'text-red-600' : 'text-slate-600'}`}>{assignment.due}</p>
-                      <Link href="/lms/assignments" className="text-sm text-emerald-600 hover:text-emerald-700 font-medium">
+                      <Link href="/lms/assignments" className="text-sm text-red-600 hover:text-red-700 font-medium">
                         Start →
                       </Link>
                     </div>
@@ -286,7 +286,7 @@ export default async function LMSDashboard() {
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-bold text-slate-900">Calendar</h3>
-                <Link href="/lms/calendar" className="text-sm text-emerald-600 hover:text-emerald-700 font-medium">
+                <Link href="/lms/calendar" className="text-sm text-red-600 hover:text-red-700 font-medium">
                   View Full
                 </Link>
               </div>
@@ -297,7 +297,7 @@ export default async function LMSDashboard() {
                   { date: 'Friday', event: 'Group Project Meeting', time: '3:00 PM' },
                 ].map((item, i) => (
                   <div key={i} className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <div className="text-xs font-semibold text-emerald-600 mb-1">{item.date}</div>
+                    <div className="text-xs font-semibold text-red-600 mb-1">{item.date}</div>
                     <div className="text-sm font-medium text-slate-900">{item.event}</div>
                     <div className="text-xs text-slate-600 mt-1">{item.time}</div>
                   </div>
@@ -314,7 +314,7 @@ export default async function LMSDashboard() {
                   { icon: '⭐', title: 'Perfect Score', desc: 'Scored 100% on HVAC Quiz' },
                   { icon: '🎯', title: 'Streak Master', desc: '7 days learning streak' },
                 ].map((achievement, i) => (
-                  <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-emerald-50 to-blue-50 border border-emerald-200">
+                  <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-red-50 to-blue-50 border border-red-200">
                     <div className="text-2xl">{achievement.icon}</div>
                     <div>
                       <div className="text-sm font-semibold text-slate-900">{achievement.title}</div>
@@ -329,19 +329,19 @@ export default async function LMSDashboard() {
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
               <h3 className="font-bold text-slate-900 mb-4">Quick Actions</h3>
               <div className="grid grid-cols-2 gap-3">
-                <Link href="/lms/messages" className="p-4 rounded-lg border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50 transition text-center">
+                <Link href="/lms/messages" className="p-4 rounded-lg border border-slate-200 hover:border-red-300 hover:bg-red-50 transition text-center">
                   <MessageSquare className="w-6 h-6 mx-auto mb-2 text-slate-600" />
                   <div className="text-sm font-medium text-slate-900">Messages</div>
                 </Link>
-                <Link href="/lms/grades" className="p-4 rounded-lg border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50 transition text-center">
+                <Link href="/lms/grades" className="p-4 rounded-lg border border-slate-200 hover:border-red-300 hover:bg-red-50 transition text-center">
                   <Target className="w-6 h-6 mx-auto mb-2 text-slate-600" />
                   <div className="text-sm font-medium text-slate-900">Grades</div>
                 </Link>
-                <Link href="/lms/resources" className="p-4 rounded-lg border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50 transition text-center">
+                <Link href="/lms/resources" className="p-4 rounded-lg border border-slate-200 hover:border-red-300 hover:bg-red-50 transition text-center">
                   <FileText className="w-6 h-6 mx-auto mb-2 text-slate-600" />
                   <div className="text-sm font-medium text-slate-900">Resources</div>
                 </Link>
-                <Link href="/lms/support" className="p-4 rounded-lg border border-slate-200 hover:border-emerald-300 hover:bg-emerald-50 transition text-center">
+                <Link href="/lms/support" className="p-4 rounded-lg border border-slate-200 hover:border-red-300 hover:bg-red-50 transition text-center">
                   <Users className="w-6 h-6 mx-auto mb-2 text-slate-600" />
                   <div className="text-sm font-medium text-slate-900">Support</div>
                 </Link>

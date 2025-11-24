@@ -17,7 +17,7 @@ export default function StudentPortalPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50 px-6 py-16 sm:px-10 lg:px-24">
       <div className="max-w-4xl mx-auto">
-        <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+        <p className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
           Platform • Student Portal
         </p>
         <h1 className="mt-2 text-3xl sm:text-4xl font-bold">

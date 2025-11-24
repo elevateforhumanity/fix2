@@ -18,10 +18,10 @@ export default function ApplyPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       {/* HERO */}
-      <section className="border-b border-slate-800 bg-gradient-to-br from-emerald-500/10 via-slate-950 to-slate-950">
+      <section className="border-b border-slate-800 bg-gradient-to-br from-red-500/10 via-slate-950 to-slate-950">
         <div className="mx-auto max-w-6xl px-6 py-16 md:px-10 lg:px-12 lg:py-20">
           <nav className="mb-6 text-xs text-slate-400">
-            <Link href="/" className="hover:text-emerald-300">
+            <Link href="/" className="hover:text-orange-300">
               Home
             </Link>{" "}
             / <span className="text-slate-200">Get Started</span>
@@ -29,7 +29,7 @@ export default function ApplyPage() {
 
           <div className="grid gap-10 md:grid-cols-[1.4fr,1.2fr] md:items-center">
             <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-orange-300">
                 Get started with Elevate For Humanity
               </p>
               <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
@@ -37,7 +37,7 @@ export default function ApplyPage() {
               </h1>
               <p className="mt-4 text-sm text-slate-200 sm:text-base max-w-xl">
                 Whether you&apos;re a{" "}
-                <span className="font-semibold text-emerald-300">
+                <span className="font-semibold text-orange-300">
                   learner, employer, or case manager
                 </span>
                 , this form lets our team understand what you need and how to
@@ -46,7 +46,7 @@ export default function ApplyPage() {
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3 text-[11px]">
-                <span className="rounded-full border border-emerald-500/60 bg-emerald-500/10 px-3 py-1 text-emerald-300">
+                <span className="rounded-full border border-emerald-500/60 bg-red-500/10 px-3 py-1 text-orange-300">
                   100% funded programs (where eligible)
                 </span>
                 <span className="rounded-full border border-slate-700 px-3 py-1 text-slate-200">
@@ -71,7 +71,7 @@ export default function ApplyPage() {
               </h2>
               <ol className="space-y-3">
                 <li className="flex gap-3">
-                  <span className="mt-[2px] inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-slate-950">
+                  <span className="mt-[2px] inline-flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-slate-950">
                     1
                   </span>
                   <span>
@@ -80,7 +80,7 @@ export default function ApplyPage() {
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="mt-[2px] inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-slate-950">
+                  <span className="mt-[2px] inline-flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-slate-950">
                     2
                   </span>
                   <span>
@@ -89,7 +89,7 @@ export default function ApplyPage() {
                   </span>
                 </li>
                 <li className="flex gap-3">
-                  <span className="mt-[2px] inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-slate-950">
+                  <span className="mt-[2px] inline-flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-slate-950">
                     3
                   </span>
                   <span>
@@ -338,13 +338,13 @@ export default function ApplyPage() {
               <div className="flex flex-wrap gap-3">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-7 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+                  className="inline-flex items-center justify-center rounded-full bg-red-500 px-7 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
                 >
                   Submit interest form
                 </button>
                 <Link
                   href="/directory"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-600 px-7 py-3 text-sm font-semibold text-slate-100 hover:border-emerald-400 hover:text-emerald-300"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-600 px-7 py-3 text-sm font-semibold text-slate-100 hover:border-emerald-400 hover:text-orange-300"
                 >
                   Browse programs first
                 </Link>

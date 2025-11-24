@@ -107,12 +107,12 @@ export default function EmployersPage() {
 
         <div className="relative mx-auto flex max-w-7xl flex-col gap-10 px-6 py-20 md:flex-row md:items-center md:px-12 lg:py-24">
           <div className="max-w-xl">
-            <p className="mb-3 inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-300">
+            <p className="mb-3 inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-orange-300">
               Employers & workforce partners
             </p>
             <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
               Build a reliable talent pipeline with{" "}
-              <span className="text-emerald-400">funded training & support</span>.
+              <span className="text-orange-400">funded training & support</span>.
             </h1>
             <p className="mt-4 text-sm text-slate-200 sm:text-base">
               Elevate For Humanity connects you with pre-screened talent in
@@ -122,13 +122,13 @@ export default function EmployersPage() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+                className="inline-flex items-center justify-center rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
               >
                 Start a hiring conversation
               </Link>
               <Link
                 href="/employer/dashboard"
-                className="inline-flex items-center justify-center rounded-full border border-slate-500 px-6 py-3 text-sm font-semibold text-slate-100 hover:border-emerald-400 hover:text-emerald-300"
+                className="inline-flex items-center justify-center rounded-full border border-slate-500 px-6 py-3 text-sm font-semibold text-slate-100 hover:border-emerald-400 hover:text-orange-300"
               >
                 Employer portal
               </Link>
@@ -141,7 +141,7 @@ export default function EmployersPage() {
           {/* Right: highlight card */}
           <div className="relative flex-1">
             <div className="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-2xl">
-              <p className="text-xs font-semibold text-emerald-300 uppercase tracking-wide mb-4">
+              <p className="text-xs font-semibold text-orange-300 uppercase tracking-wide mb-4">
                 What you get with Elevate
               </p>
               <ul className="space-y-3 text-sm text-slate-200">
@@ -152,11 +152,11 @@ export default function EmployersPage() {
               </ul>
               <div className="mt-6 grid grid-cols-2 gap-4 border-t border-slate-800 pt-4 text-xs text-slate-400">
                 <div>
-                  <p className="font-semibold text-emerald-300">Ready-to-hire talent</p>
+                  <p className="font-semibold text-orange-300">Ready-to-hire talent</p>
                   <p>Graduates and in-training learners across key roles.</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-emerald-300">Barrier-aware support</p>
+                  <p className="font-semibold text-orange-300">Barrier-aware support</p>
                   <p>We help with communication, attendance, and problem-solving.</p>
                 </div>
               </div>
@@ -169,7 +169,7 @@ export default function EmployersPage() {
           <div className="mx-auto flex max-w-7xl flex-wrap gap-6 px-6 py-6 md:px-12 md:py-8">
             {employerStats.map((s) => (
               <div key={s.label} className="min-w-[150px] flex-1">
-                <p className="text-lg font-semibold text-emerald-400">
+                <p className="text-lg font-semibold text-orange-400">
                   {s.value}
                 </p>
                 <p className="text-xs text-slate-400">{s.label}</p>
@@ -194,7 +194,7 @@ export default function EmployersPage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/15">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-red-500/15">
                 <span className="text-lg">✅</span>
               </div>
               <h3 className="text-sm font-semibold">Pre-screened, coached candidates</h3>
@@ -205,7 +205,7 @@ export default function EmployersPage() {
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/15">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-red-500/15">
                 <span className="text-lg">🤝</span>
               </div>
               <h3 className="text-sm font-semibold">Barrier-aware wraparound support</h3>
@@ -216,7 +216,7 @@ export default function EmployersPage() {
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6">
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/15">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-red-500/15">
                 <span className="text-lg">📊</span>
               </div>
               <h3 className="text-sm font-semibold">Documentation & impact reporting</h3>
@@ -243,7 +243,7 @@ export default function EmployersPage() {
 
           <div className="grid gap-8 md:grid-cols-4">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-xs font-semibold text-slate-950">
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-500 text-xs font-semibold text-slate-950">
                 1
               </div>
               <h3 className="text-sm font-semibold">Connect with us</h3>
@@ -254,7 +254,7 @@ export default function EmployersPage() {
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-xs font-semibold text-slate-950">
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-500 text-xs font-semibold text-slate-950">
                 2
               </div>
               <h3 className="text-sm font-semibold">Align programs & funding</h3>
@@ -265,7 +265,7 @@ export default function EmployersPage() {
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-xs font-semibold text-slate-950">
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-500 text-xs font-semibold text-slate-950">
                 3
               </div>
               <h3 className="text-sm font-semibold">Interview and onboard</h3>
@@ -276,7 +276,7 @@ export default function EmployersPage() {
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-xs font-semibold text-slate-950">
+              <div className="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-red-500 text-xs font-semibold text-slate-950">
                 4
               </div>
               <h3 className="text-sm font-semibold">Support & retention</h3>
@@ -308,7 +308,7 @@ export default function EmployersPage() {
                 key={f.title}
                 className="rounded-2xl border border-slate-800 bg-slate-900/80 p-6"
               >
-                <h3 className="text-sm font-semibold text-emerald-300">
+                <h3 className="text-sm font-semibold text-orange-300">
                   {f.title}
                 </h3>
                 <ul className="mt-3 space-y-2 text-xs text-slate-200">
@@ -358,7 +358,7 @@ export default function EmployersPage() {
               className="rounded-full object-cover"
             />
           </div>
-          <p className="text-5xl text-emerald-400 mb-4">&ldquo;</p>
+          <p className="text-5xl text-orange-400 mb-4">&ldquo;</p>
           <blockquote className="text-lg text-slate-100">
             Elevate For Humanity helped us fill critical frontline roles with candidates
             who were prepared for the reality of the work. They stayed involved with our
@@ -372,7 +372,7 @@ export default function EmployersPage() {
       </section>
 
       {/* Final CTA for employers */}
-      <section className="bg-gradient-to-br from-emerald-500/15 via-slate-950 to-slate-950 py-16">
+      <section className="bg-gradient-to-br from-red-500/15 via-slate-950 to-slate-950 py-16">
         <div className="mx-auto max-w-4xl px-6 text-center md:px-12">
           <h2 className="text-3xl font-bold sm:text-4xl">
             Let&apos;s build your workforce pipeline together
@@ -384,13 +384,13 @@ export default function EmployersPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+              className="inline-flex items-center justify-center rounded-full bg-red-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
             >
               Schedule a conversation
             </Link>
             <Link
               href="/directory"
-              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/10"
+              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-orange-300 hover:bg-red-500/10"
             >
               View training programs
             </Link>

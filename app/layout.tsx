@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Elevate for Humanity | 100% Free Career Training',
     description:
-      '100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt. Real jobs waiting in Marion County, Indiana.',
+      '100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt. Real jobs waiting in 7009 E 56th St Ste F, Indianapolis, IN 46226.',
     url: 'https://www.elevateforhumanity.org',
     siteName: 'Elevate for Humanity',
     locale: 'en_US',

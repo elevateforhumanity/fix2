@@ -13,7 +13,7 @@ export default function PortalHome() {
       <div className="max-w-5xl w-full">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500 text-white text-xl font-black uppercase mb-4 shadow-lg">
+          <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-red-500 text-white text-xl font-black uppercase mb-4 shadow-lg">
             EFH
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-3">
@@ -31,9 +31,9 @@ export default function PortalHome() {
             href="/portal/student"
             className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-md ring-1 ring-slate-200 transition hover:shadow-xl hover:ring-emerald-500"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-500/10 to-transparent rounded-bl-full" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/10 to-transparent rounded-bl-full" />
             <div className="relative">
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 mb-4 group-hover:bg-emerald-500 group-hover:text-white transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-red-50 text-red-600 mb-4 group-hover:bg-red-500 group-hover:text-white transition">
                 <GraduationCap size={28} />
               </div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">
@@ -42,7 +42,7 @@ export default function PortalHome() {
               <p className="text-sm text-slate-600 mb-4">
                 Access your courses, track progress, complete assignments, and earn certificates
               </p>
-              <div className="flex items-center text-sm font-semibold text-emerald-600 group-hover:text-emerald-700">
+              <div className="flex items-center text-sm font-semibold text-red-600 group-hover:text-red-700">
                 Log in or register
                 <span className="ml-2 transition group-hover:translate-x-1">→</span>
               </div>
@@ -103,7 +103,7 @@ export default function PortalHome() {
             <span>Need help?</span>
             <a
               href="mailto:Elevate4humanityedu@gmail.com"
-              className="font-semibold text-emerald-600 hover:text-emerald-700"
+              className="font-semibold text-red-600 hover:text-red-700"
             >
               Contact Support
             </a>
@@ -114,16 +114,16 @@ export default function PortalHome() {
         <div className="mt-12 pt-8 border-t border-slate-200 text-center">
           <p className="text-sm text-slate-600 mb-4">Quick Links</p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <Link href="/programs" className="text-slate-700 hover:text-emerald-600 transition">
+            <Link href="/programs" className="text-slate-700 hover:text-red-600 transition">
               Browse Programs
             </Link>
-            <Link href="/apply" className="text-slate-700 hover:text-emerald-600 transition">
+            <Link href="/apply" className="text-slate-700 hover:text-red-600 transition">
               Apply Now
             </Link>
-            <Link href="/contact" className="text-slate-700 hover:text-emerald-600 transition">
+            <Link href="/contact" className="text-slate-700 hover:text-red-600 transition">
               Contact Us
             </Link>
-            <Link href="/faq" className="text-slate-700 hover:text-emerald-600 transition">
+            <Link href="/faq" className="text-slate-700 hover:text-red-600 transition">
               FAQ
             </Link>
           </div>

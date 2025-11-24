@@ -74,7 +74,7 @@ export function TranscriptPanel({
       <div className="flex items-center justify-between p-4 border-b border-slate-200">
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="flex items-center gap-2 font-semibold text-slate-900 hover:text-emerald-600 transition"
+          className="flex items-center gap-2 font-semibold text-slate-900 hover:text-red-600 transition"
         >
           <span>Transcript</span>
           {isExpanded ? (
@@ -85,7 +85,7 @@ export function TranscriptPanel({
         </button>
         <button
           onClick={downloadTranscript}
-          className="flex items-center gap-2 text-sm text-slate-600 hover:text-emerald-600 transition"
+          className="flex items-center gap-2 text-sm text-slate-600 hover:text-red-600 transition"
           title="Download transcript"
         >
           <Download className="w-4 h-4" />
@@ -131,7 +131,7 @@ export function TranscriptPanel({
                     ref={isActive ? activeSegmentRef : null}
                     className={`group cursor-pointer p-3 rounded-lg transition ${
                       isActive
-                        ? 'bg-emerald-50 border border-emerald-200'
+                        ? 'bg-red-50 border border-red-200'
                         : 'hover:bg-slate-50'
                     }`}
                     onClick={() => onSeek && onSeek(segment.timestamp)}
@@ -139,7 +139,7 @@ export function TranscriptPanel({
                     <div className="flex items-start gap-3">
                       <span
                         className={`text-xs font-mono font-semibold flex-shrink-0 ${
-                          isActive ? 'text-emerald-600' : 'text-slate-500 group-hover:text-emerald-600'
+                          isActive ? 'text-red-600' : 'text-slate-500 group-hover:text-red-600'
                         }`}
                       >
                         {formatTime(segment.timestamp)}

@@ -28,7 +28,7 @@ export default function TrainingProvidersPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50 px-6 py-16 sm:px-10 lg:px-24">
       <div className="max-w-5xl mx-auto">
-        <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+        <p className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
           Platform • For Training Providers
         </p>
         <h1 className="mt-2 text-3xl sm:text-4xl font-bold">
@@ -156,7 +156,7 @@ export default function TrainingProvidersPage() {
         </section>
 
         {/* Call-to-action */}
-        <section className="mt-10 rounded-2xl border border-emerald-500/40 bg-emerald-500/5 p-6">
+        <section className="mt-10 rounded-2xl border border-emerald-500/40 bg-red-500/5 p-6">
           <h2 className="text-xl sm:text-2xl font-semibold">
             Ready to explore partnering with Elevate?
           </h2>
@@ -175,7 +175,7 @@ export default function TrainingProvidersPage() {
             </Link>
             <Link
               href="/directory"
-              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold border border-emerald-400/60 text-emerald-300 hover:bg-emerald-400/10 transition"
+              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold border border-emerald-400/60 text-orange-300 hover:bg-emerald-400/10 transition"
             >
               View example funded programs
             </Link>

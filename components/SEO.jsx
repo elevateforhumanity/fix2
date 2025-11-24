@@ -56,7 +56,7 @@ export default function SEO({
             '@type': 'ContactPoint',
             telephone: '+1-317-314-3757',
             contactType: 'customer service',
-            email: 'info@elevateforhumanity.org',
+            email: 'elizabethpowell6262@gmail.com',
             availableLanguage: ['English'],
           },
           sameAs: [

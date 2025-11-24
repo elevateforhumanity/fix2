@@ -10,12 +10,12 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-16 md:flex-row md:items-center md:px-12 lg:py-20">
           {/* Left side text */}
           <div className="max-w-xl">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-orange-300">
               100% funded career training • Marion County & beyond
             </p>
             <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
               Elevate your future with{" "}
-              <span className="text-emerald-300">
+              <span className="text-orange-300">
                 funded training, apprenticeships,
               </span>{" "}
               and real job connections.
@@ -23,7 +23,7 @@ export default function HomePage() {
             <p className="mt-4 text-sm text-slate-200 sm:text-base">
               Elevate For Humanity Career &amp; Technical Institute connects
               learners, employers, and workforce partners through{" "}
-              <span className="font-semibold text-emerald-300">
+              <span className="font-semibold text-orange-300">
                 no-cost training pathways, barrier-aware support, and employer
                 pipelines
               </span>{" "}
@@ -33,13 +33,13 @@ export default function HomePage() {
             <div className="mt-6 flex flex-wrap gap-3 text-sm">
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+                className="inline-flex items-center justify-center rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
               >
                 Get started free
               </Link>
               <Link
                 href="/directory"
-                className="inline-flex items-center justify-center rounded-full border border-slate-600 px-6 py-3 text-sm font-semibold text-slate-100 hover:border-emerald-400 hover:text-emerald-300"
+                className="inline-flex items-center justify-center rounded-full border border-slate-600 px-6 py-3 text-sm font-semibold text-slate-100 hover:border-emerald-400 hover:text-orange-300"
               >
                 Explore all programs
               </Link>
@@ -47,13 +47,13 @@ export default function HomePage() {
 
             <div className="mt-5 flex flex-wrap gap-4 text-[11px] text-slate-400">
               <div>
-                <span className="font-semibold text-emerald-300">
+                <span className="font-semibold text-orange-300">
                   $0 tuition (where eligible)
                 </span>{" "}
                 • WIOA, WRG, OJT &amp; workforce funding
               </div>
               <div>
-                <span className="font-semibold text-emerald-300">
+                <span className="font-semibold text-orange-300">
                   Job placement support
                 </span>{" "}
                 with real employer partners
@@ -87,13 +87,13 @@ export default function HomePage() {
               </p>
               <div className="mt-2 flex items-center justify-between">
                 <div>
-                  <div className="text-xl font-bold text-emerald-300">
+                  <div className="text-xl font-bold text-orange-300">
                     100%
                   </div>
                   <div className="text-[11px] text-slate-400">Funded paths</div>
                 </div>
                 <div>
-                  <div className="text-xl font-bold text-emerald-300">
+                  <div className="text-xl font-bold text-orange-300">
                     12+
                   </div>
                   <div className="text-[11px] text-slate-400">
@@ -137,7 +137,7 @@ export default function HomePage() {
       <section className="border-b border-slate-200 bg-white py-20 text-slate-900">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="mb-10 text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-600">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-red-600">
               Popular pathways
             </p>
             <h2 className="mt-2 text-3xl font-bold sm:text-4xl">
@@ -231,7 +231,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/directory"
-              className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-2 text-xs font-semibold hover:border-emerald-500 hover:text-emerald-600"
+              className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-2 text-xs font-semibold hover:border-emerald-500 hover:text-red-600"
             >
               View full program directory
             </Link>
@@ -243,7 +243,7 @@ export default function HomePage() {
       <section className="border-b border-slate-800 bg-slate-950 py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="mb-10 text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-300">
               What we do
             </p>
             <h2 className="mt-2 text-3xl font-bold sm:text-4xl">
@@ -251,7 +251,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-3 text-sm text-slate-300 sm:text-base max-w-3xl mx-auto">
               Elevate is built for{" "}
-              <span className="font-semibold text-emerald-300">
+              <span className="font-semibold text-orange-300">
                 learners, employers, and workforce partners
               </span>{" "}
               who want something more than a one-off class. We link training,
@@ -302,7 +302,7 @@ export default function HomePage() {
       </section>
 
       {/* SIMPLE CTA */}
-      <section className="bg-gradient-to-br from-emerald-500/15 via-slate-950 to-slate-950 py-16">
+      <section className="bg-gradient-to-br from-red-500/15 via-slate-950 to-slate-950 py-16">
         <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
           <h2 className="text-2xl font-bold sm:text-3xl">
             Ready to see where you—or your clients—could go from here?
@@ -315,13 +315,13 @@ export default function HomePage() {
           <div className="mt-7 flex flex-wrap justify-center gap-4">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+              className="inline-flex items-center justify-center rounded-full bg-red-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
             >
               Apply / Refer Now
             </Link>
             <Link
               href="/partners/workforce"
-              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/10"
+              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-orange-300 hover:bg-red-500/10"
             >
               For workforce & case managers
             </Link>
@@ -365,7 +365,7 @@ function ProgramCard({
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="absolute left-3 top-3 rounded-full bg-slate-950/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-300">
+          <div className="absolute left-3 top-3 rounded-full bg-slate-950/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-orange-300">
             {tag}
           </div>
         </div>
@@ -384,7 +384,7 @@ function ProgramCard({
           </div>
           <div className="mt-4 flex items-center justify-between text-[11px] text-slate-500">
             <span>{duration}</span>
-            <span className="font-semibold text-emerald-600">
+            <span className="font-semibold text-red-600">
               Learn more &rarr;
             </span>
           </div>

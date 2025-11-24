@@ -61,13 +61,13 @@ export function AnnouncementsSystem({
       {/* Header */}
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <Megaphone className="w-6 h-6 text-emerald-600" />
+          <Megaphone className="w-6 h-6 text-red-600" />
           Announcements
         </h2>
         {canCreate && (
           <button
             onClick={() => setIsCreating(!isCreating)}
-            className="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition"
+            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
           >
             {isCreating ? 'Cancel' : 'New Announcement'}
           </button>
@@ -112,7 +112,7 @@ export function AnnouncementsSystem({
                   type="checkbox"
                   checked={newAnnouncement.isPinned}
                   onChange={(e) => setNewAnnouncement({ ...newAnnouncement, isPinned: e.target.checked })}
-                  className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+                  className="rounded border-slate-300 text-red-600 focus:ring-emerald-500"
                 />
                 <Pin className="w-4 h-4 text-slate-600" />
                 <span className="text-sm text-slate-700">Pin to top</span>
@@ -123,7 +123,7 @@ export function AnnouncementsSystem({
                   type="checkbox"
                   checked={newAnnouncement.sendEmail}
                   onChange={(e) => setNewAnnouncement({ ...newAnnouncement, sendEmail: e.target.checked })}
-                  className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+                  className="rounded border-slate-300 text-red-600 focus:ring-emerald-500"
                 />
                 <Mail className="w-4 h-4 text-slate-600" />
                 <span className="text-sm text-slate-700">Send email notification</span>
@@ -134,7 +134,7 @@ export function AnnouncementsSystem({
                   type="checkbox"
                   checked={newAnnouncement.sendPush}
                   onChange={(e) => setNewAnnouncement({ ...newAnnouncement, sendPush: e.target.checked })}
-                  className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+                  className="rounded border-slate-300 text-red-600 focus:ring-emerald-500"
                 />
                 <Bell className="w-4 h-4 text-slate-600" />
                 <span className="text-sm text-slate-700">Send push notification</span>
@@ -145,7 +145,7 @@ export function AnnouncementsSystem({
                   type="checkbox"
                   checked={newAnnouncement.sendSMS}
                   onChange={(e) => setNewAnnouncement({ ...newAnnouncement, sendSMS: e.target.checked })}
-                  className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+                  className="rounded border-slate-300 text-red-600 focus:ring-emerald-500"
                 />
                 <span className="text-sm text-slate-700">Send SMS notification (if enabled)</span>
               </label>
@@ -153,7 +153,7 @@ export function AnnouncementsSystem({
 
             <button
               onClick={handleCreate}
-              className="w-full bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 transition"
+              className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition"
             >
               Post Announcement
             </button>
@@ -205,7 +205,7 @@ function AnnouncementCard({ announcement }: { announcement: Announcement }) {
               className="w-10 h-10 rounded-full"
             />
           ) : (
-            <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-semibold">
+            <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-700 font-semibold">
               {announcement.authorName.charAt(0)}
             </div>
           )}
@@ -231,7 +231,7 @@ function AnnouncementCard({ announcement }: { announcement: Announcement }) {
           {announcement.viewCount} views
         </span>
         {!announcement.isRead && (
-          <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full font-medium">
+          <span className="px-2 py-0.5 bg-red-100 text-red-700 rounded-full font-medium">
             New
           </span>
         )}

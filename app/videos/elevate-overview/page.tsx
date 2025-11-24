@@ -25,14 +25,14 @@ export default function ElevateOverviewVideoPage() {
           <nav className="flex items-center gap-2 text-xs text-slate-400">
             <Link
               href="/"
-              className="hover:text-emerald-300 transition-colors"
+              className="hover:text-orange-300 transition-colors"
             >
               Home
             </Link>
             <span className="text-slate-600">/</span>
             <Link
               href="/videos"
-              className="hover:text-emerald-300 transition-colors"
+              className="hover:text-orange-300 transition-colors"
             >
               Videos
             </Link>
@@ -57,7 +57,7 @@ export default function ElevateOverviewVideoPage() {
             {/* Video meta / quick details */}
             <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px] text-slate-400">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="rounded-full bg-slate-900 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
+                <span className="rounded-full bg-slate-900 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-orange-300">
                   Overview
                 </span>
                 <span>Approx. length: 1 minute</span>
@@ -80,7 +80,7 @@ export default function ElevateOverviewVideoPage() {
           {/* Right column: description & CTAs */}
           <div className="w-full max-w-md space-y-6">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-orange-300">
                 Elevate in 60 seconds
               </p>
               <h1 className="mt-1 text-2xl font-bold sm:text-3xl">
@@ -95,7 +95,7 @@ export default function ElevateOverviewVideoPage() {
             </div>
 
             <div className="space-y-3 rounded-2xl border border-slate-800 bg-slate-950/80 p-4 text-xs text-slate-200">
-              <p className="font-semibold text-emerald-300">
+              <p className="font-semibold text-orange-300">
                 This video should answer three questions clearly:
               </p>
               <ul className="space-y-1 text-slate-300">
@@ -116,13 +116,13 @@ export default function ElevateOverviewVideoPage() {
               <div className="flex flex-wrap gap-3 text-sm">
                 <Link
                   href="/apply"
-                  className="inline-flex flex-1 items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950 shadow-md hover:bg-emerald-400"
+                  className="inline-flex flex-1 items-center justify-center rounded-full bg-red-500 px-4 py-2 text-sm font-semibold text-slate-950 shadow-md hover:bg-emerald-400"
                 >
                   I&apos;m ready to explore training
                 </Link>
                 <Link
                   href="/employers"
-                  className="inline-flex flex-1 items-center justify-center rounded-full border border-emerald-400 px-4 py-2 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/10"
+                  className="inline-flex flex-1 items-center justify-center rounded-full border border-emerald-400 px-4 py-2 text-sm font-semibold text-orange-300 hover:bg-red-500/10"
                 >
                   I&apos;m an employer / partner
                 </Link>
@@ -236,7 +236,7 @@ export default function ElevateOverviewVideoPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-gradient-to-br from-emerald-500/15 via-slate-950 to-slate-950 py-14">
+      <section className="bg-gradient-to-br from-red-500/15 via-slate-950 to-slate-950 py-14">
         <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
           <h2 className="text-2xl font-bold sm:text-3xl">
             Ready to plug this into your outreach?
@@ -249,13 +249,13 @@ export default function ElevateOverviewVideoPage() {
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+              className="inline-flex items-center justify-center rounded-full bg-red-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
             >
               Send learners here to get started
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/10"
+              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-orange-300 hover:bg-red-500/10"
             >
               Talk about employer / partner campaigns
             </Link>
@@ -277,7 +277,7 @@ type VideoBeatCardProps = {
 function VideoBeatCard({ label, title, bullets }: VideoBeatCardProps) {
   return (
     <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 text-xs text-slate-200">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-orange-300">
         {label}
       </p>
       <h3 className="mt-1 text-sm font-semibold text-white">{title}</h3>

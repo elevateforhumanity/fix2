@@ -132,7 +132,7 @@ export default function CookiePolicyPage() {
           </p>
           <p className="mb-4">
             <strong>Elevate for Humanity</strong><br />
-            Email: privacy@elevateforhumanity.org<br />
+            Email: elizabethpowell6262@gmail.com<br />
             Phone: (555) 123-4567
           </p>
         </div>

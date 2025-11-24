@@ -7,41 +7,41 @@ export default function MarketingHomepage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-50 via-white to-blue-50 border-b border-slate-200">
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-24 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             {/* Left Column - Content */}
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
                 <Award size={16} />
                 <span>100% FREE Career Training</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
                 Transform Your Career with{" "}
-                <span className="text-emerald-600">Free Healthcare Training</span>
+                <span className="text-red-600">Free Healthcare Training</span>
               </h1>
               
               <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
-                No tuition. No debt. Real jobs waiting. Get certified in high-demand healthcare careers through 100% funded programs in Marion County, Indiana.
+                No tuition. No debt. Real jobs waiting. Get certified in high-demand healthcare careers through 100% funded programs in 7009 E 56th St Ste F, Indianapolis, IN 46226.
               </p>
 
               {/* Key Benefits */}
               <div className="space-y-3 mb-8">
                 <div className="flex items-center gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
                   <span className="text-slate-700">Fully funded through WIOA, WRG, and JRI programs</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
                   <span className="text-slate-700">Earn industry-recognized certifications</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
                   <span className="text-slate-700">Job placement assistance with local employers</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
                   <span className="text-slate-700">Flexible schedules for working adults</span>
                 </div>
               </div>
@@ -50,14 +50,14 @@ export default function MarketingHomepage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-emerald-700 transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-red-700 transition-all hover:scale-105"
                 >
                   Apply Now - It's Free
                   <ArrowRight size={20} />
                 </Link>
                 <Link
                   href="/programs"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-emerald-600 hover:text-emerald-600 transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-red-600 hover:text-red-600 transition-all"
                 >
                   Explore Programs
                 </Link>
@@ -80,7 +80,7 @@ export default function MarketingHomepage() {
 
               {/* Floating Stats Cards */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-slate-200">
-                <div className="text-3xl font-bold text-emerald-600">$0</div>
+                <div className="text-3xl font-bold text-red-600">$0</div>
                 <div className="text-sm text-slate-600">Tuition Cost</div>
               </div>
               <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-slate-200">
@@ -109,14 +109,14 @@ export default function MarketingHomepage() {
               <Link
                 key={program.slug}
                 href={`/programs/${program.slug}`}
-                className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-xl hover:border-emerald-300 transition-all"
+                className="group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-xl hover:border-red-300 transition-all"
               >
                 <div className="mb-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-red-100 text-red-600 group-hover:bg-red-600 group-hover:text-white transition-colors">
                     <GraduationCap size={24} />
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors">
                   {program.name}
                 </h3>
                 <p className="text-sm text-slate-600 mb-4">
@@ -132,7 +132,7 @@ export default function MarketingHomepage() {
                     {program.salary}
                   </span>
                 </div>
-                <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-emerald-600 group-hover:gap-3 transition-all">
+                <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-red-600 group-hover:gap-3 transition-all">
                   Learn More
                   <ArrowRight size={16} />
                 </div>
@@ -143,7 +143,7 @@ export default function MarketingHomepage() {
           <div className="text-center mt-12">
             <Link
               href="/programs"
-              className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
+              className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
             >
               View All Programs
               <ArrowRight size={20} />
@@ -178,8 +178,8 @@ export default function MarketingHomepage() {
                 </div>
 
                 <div className="flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                    <CheckCircle size={20} className="text-emerald-600" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+                    <CheckCircle size={20} className="text-red-600" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">WRG & Next Level Jobs</h3>
@@ -205,7 +205,7 @@ export default function MarketingHomepage() {
               <div className="mt-8">
                 <Link
                   href="/funding/state-programs"
-                  className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
+                  className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
                 >
                   Learn About Funding Options
                   <ArrowRight size={20} />
@@ -244,7 +244,7 @@ export default function MarketingHomepage() {
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-emerald-600 text-white flex items-center justify-center text-2xl font-bold mb-4">
+                  <div className="w-16 h-16 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl font-bold mb-4">
                     {index + 1}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -268,7 +268,7 @@ export default function MarketingHomepage() {
           <div className="text-center mt-12">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-emerald-700 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-red-700 transition-all hover:scale-105"
             >
               Start Your Application
               <ArrowRight size={20} />
@@ -282,19 +282,19 @@ export default function MarketingHomepage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 text-center">
             <div>
-              <div className="text-5xl font-bold text-emerald-400 mb-2">$0</div>
+              <div className="text-5xl font-bold text-orange-400 mb-2">$0</div>
               <div className="text-slate-300">Tuition Cost</div>
             </div>
             <div>
-              <div className="text-5xl font-bold text-emerald-400 mb-2">8+</div>
+              <div className="text-5xl font-bold text-orange-400 mb-2">8+</div>
               <div className="text-slate-300">Healthcare Programs</div>
             </div>
             <div>
-              <div className="text-5xl font-bold text-emerald-400 mb-2">85%</div>
+              <div className="text-5xl font-bold text-orange-400 mb-2">85%</div>
               <div className="text-slate-300">Job Placement Rate</div>
             </div>
             <div>
-              <div className="text-5xl font-bold text-emerald-400 mb-2">$45K</div>
+              <div className="text-5xl font-bold text-orange-400 mb-2">$45K</div>
               <div className="text-slate-300">Average Starting Salary</div>
             </div>
           </div>
@@ -317,7 +317,7 @@ export default function MarketingHomepage() {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-lg">
+                  <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-lg">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div>
@@ -335,7 +335,7 @@ export default function MarketingHomepage() {
           <div className="text-center mt-12">
             <Link
               href="/success-stories"
-              className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
+              className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
             >
               Read More Success Stories
               <ArrowRight size={20} />
@@ -345,7 +345,7 @@ export default function MarketingHomepage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-emerald-600 to-emerald-700 text-white">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-red-600 to-red-700 text-white">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Start Your New Career?
@@ -356,7 +356,7 @@ export default function MarketingHomepage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-emerald-600 shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-red-600 shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
             >
               Apply Now - It's Free
               <ArrowRight size={20} />

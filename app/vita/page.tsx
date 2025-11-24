@@ -11,7 +11,7 @@ export default function VITAPage() {
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-emerald-400/10 border border-emerald-400/30 rounded-full px-4 py-2 mb-6">
-              <span className="text-emerald-400 text-sm font-semibold">IRS VITA Partner Site</span>
+              <span className="text-orange-400 text-sm font-semibold">IRS VITA Partner Site</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold mb-6">
               FREE Tax Preparation Services
@@ -24,7 +24,7 @@ export default function VITAPage() {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Link
               href="#get-help"
-              className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-6 px-8 rounded-xl text-center transition text-lg"
+              className="bg-red-500 hover:bg-emerald-400 text-slate-950 font-bold py-6 px-8 rounded-xl text-center transition text-lg"
             >
               Get FREE Tax Help
             </Link>
@@ -64,19 +64,19 @@ export default function VITAPage() {
             <h3 className="text-2xl font-bold mb-6">Who Qualifies?</h3>
             <ul className="space-y-3 text-slate-300">
               <li className="flex items-start gap-3">
-                <span className="text-emerald-400 text-xl">✓</span>
+                <span className="text-orange-400 text-xl">✓</span>
                 <span>Individuals and families earning $64,000 or less</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-emerald-400 text-xl">✓</span>
+                <span className="text-orange-400 text-xl">✓</span>
                 <span>Persons with disabilities</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-emerald-400 text-xl">✓</span>
+                <span className="text-orange-400 text-xl">✓</span>
                 <span>Limited English speakers</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-emerald-400 text-xl">✓</span>
+                <span className="text-orange-400 text-xl">✓</span>
                 <span>Elderly taxpayers</span>
               </li>
             </ul>
@@ -86,7 +86,7 @@ export default function VITAPage() {
             <p className="text-xl mb-6">Ready to get your taxes done?</p>
             <a
               href="tel:3177607908"
-              className="inline-block bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-4 px-8 rounded-xl transition"
+              className="inline-block bg-red-500 hover:bg-emerald-400 text-slate-950 font-bold py-4 px-8 rounded-xl transition"
             >
               Call (317) 760-7908 to Schedule
             </a>
@@ -107,28 +107,28 @@ export default function VITAPage() {
               <h3 className="text-2xl font-bold mb-6">Benefits</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <span className="text-emerald-400 text-xl">✓</span>
+                  <span className="text-orange-400 text-xl">✓</span>
                   <div>
                     <strong>FREE IRS Certification</strong>
                     <p className="text-slate-400 text-sm">Earn credentials in tax preparation</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-emerald-400 text-xl">✓</span>
+                  <span className="text-orange-400 text-xl">✓</span>
                   <div>
                     <strong>Career Pathway</strong>
                     <p className="text-slate-400 text-sm">Launch a career in tax preparation or accounting</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-emerald-400 text-xl">✓</span>
+                  <span className="text-orange-400 text-xl">✓</span>
                   <div>
                     <strong>Community Impact</strong>
                     <p className="text-slate-400 text-sm">Help families get thousands in refunds</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-emerald-400 text-xl">✓</span>
+                  <span className="text-orange-400 text-xl">✓</span>
                   <div>
                     <strong>Flexible Schedule</strong>
                     <p className="text-slate-400 text-sm">Volunteer during tax season (Jan-Apr)</p>
@@ -141,24 +141,24 @@ export default function VITAPage() {
               <h3 className="text-2xl font-bold mb-6">Training Required</h3>
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-bold text-emerald-400 mb-2">1. IRS Link & Learn Taxes</h4>
+                  <h4 className="font-bold text-orange-400 mb-2">1. IRS Link & Learn Taxes</h4>
                   <p className="text-slate-300 text-sm mb-3">FREE online training at your own pace - Start here!</p>
                   <a
                     href="https://www.irs.gov/individuals/irs-tax-volunteers"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold py-2 px-4 rounded-lg text-sm transition mb-2"
+                    className="inline-block bg-red-500 hover:bg-emerald-400 text-slate-950 font-semibold py-2 px-4 rounded-lg text-sm transition mb-2"
                   >
                     Go to IRS.gov Training →
                   </a>
                   <p className="text-xs text-slate-400">Step 1: Create account on IRS.gov</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-emerald-400 mb-2">2. Volunteer Standards of Conduct</h4>
+                  <h4 className="font-bold text-orange-400 mb-2">2. Volunteer Standards of Conduct</h4>
                   <p className="text-slate-300 text-sm">Ethics and confidentiality (1-2 hours)</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-emerald-400 mb-2">3. Tax Law Certification</h4>
+                  <h4 className="font-bold text-orange-400 mb-2">3. Tax Law Certification</h4>
                   <p className="text-slate-300 text-sm">Basic, Intermediate, or Advanced (10-20 hours)</p>
                 </div>
               </div>
@@ -171,7 +171,7 @@ export default function VITAPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:elizabethpowell6262@gmail.com?subject=VITA Volunteer Interest"
-                className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 px-8 rounded-xl transition"
+                className="bg-red-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 px-8 rounded-xl transition"
               >
                 Email to Sign Up
               </a>
@@ -223,7 +223,7 @@ export default function VITAPage() {
           <div className="mt-12 text-center">
             <Link
               href="/directory"
-              className="inline-block bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-4 px-8 rounded-xl transition"
+              className="inline-block bg-red-500 hover:bg-emerald-400 text-slate-950 font-bold py-4 px-8 rounded-xl transition"
             >
               Enroll in Tax Prep Course
             </Link>

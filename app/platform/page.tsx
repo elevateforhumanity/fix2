@@ -25,12 +25,12 @@ export default function PlatformPage() {
       <section className="px-6 py-16 sm:px-10 lg:px-24">
         <div className="max-w-5xl mx-auto grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="text-sm font-semibold tracking-wide text-emerald-400 uppercase">
+            <p className="text-sm font-semibold tracking-wide text-orange-400 uppercase">
               Elevate For Humanity Platform
             </p>
             <h1 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               One workforce platform connecting{" "}
-              <span className="text-emerald-400">
+              <span className="text-orange-400">
                 students, employers, and workforce boards
               </span>{" "}
               in a funded training ecosystem.
@@ -50,7 +50,7 @@ export default function PlatformPage() {
               </Link>
               <Link
                 href="/directory"
-                className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold border border-slate-600 hover:border-emerald-400 hover:text-emerald-300 transition"
+                className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold border border-slate-600 hover:border-emerald-400 hover:text-orange-300 transition"
               >
                 Explore funded programs
               </Link>
@@ -85,7 +85,7 @@ export default function PlatformPage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-emerald-300 border border-emerald-500/40">
+                  <span className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-orange-300 border border-emerald-500/40">
                     68% course progress
                   </span>
                   <span className="inline-flex items-center rounded-full bg-sky-500/10 px-3 py-1 text-sky-300 border border-sky-500/40">
@@ -149,7 +149,7 @@ export default function PlatformPage() {
               href="/platform/student-portal"
               className="group rounded-2xl border border-slate-800 bg-slate-900/40 p-5 hover:border-emerald-400/70 hover:bg-slate-900/70 transition"
             >
-              <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+              <p className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
                 Student Portal
               </p>
               <h3 className="mt-1 text-lg font-semibold">
@@ -160,7 +160,7 @@ export default function PlatformPage() {
                 attendance, and certificates in one place—along with funding
                 status, case-manager notes, and next steps after graduation.
               </p>
-              <p className="mt-3 text-xs text-emerald-300 group-hover:underline">
+              <p className="mt-3 text-xs text-orange-300 group-hover:underline">
                 View details →
               </p>
             </Link>
@@ -169,7 +169,7 @@ export default function PlatformPage() {
               href="/platform/employer-portal"
               className="group rounded-2xl border border-slate-800 bg-slate-900/40 p-5 hover:border-emerald-400/70 hover:bg-slate-900/70 transition"
             >
-              <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+              <p className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
                 Employer Portal
               </p>
               <h3 className="mt-1 text-lg font-semibold">
@@ -180,7 +180,7 @@ export default function PlatformPage() {
                 supervision, and see which grants or wage reimbursements each
                 placement is eligible for.
               </p>
-              <p className="mt-3 text-xs text-emerald-300 group-hover:underline">
+              <p className="mt-3 text-xs text-orange-300 group-hover:underline">
                 View details →
               </p>
             </Link>
@@ -189,7 +189,7 @@ export default function PlatformPage() {
               href="/platform/partner-portal"
               className="group rounded-2xl border border-slate-800 bg-slate-900/40 p-5 hover:border-emerald-400/70 hover:bg-slate-900/70 transition"
             >
-              <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+              <p className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
                 Training Provider / Partner Portal
               </p>
               <h3 className="mt-1 text-lg font-semibold">
@@ -200,7 +200,7 @@ export default function PlatformPage() {
                 manages enrollment flow, funding documentation, attendance,
                 progress tracking, and reporting requirements.
               </p>
-              <p className="mt-3 text-xs text-emerald-300 group-hover:underline">
+              <p className="mt-3 text-xs text-orange-300 group-hover:underline">
                 View details →
               </p>
             </Link>
@@ -209,7 +209,7 @@ export default function PlatformPage() {
               href="/platform/workforce-analytics"
               className="group rounded-2xl border border-slate-800 bg-slate-900/40 p-5 hover:border-emerald-400/70 hover:bg-slate-900/70 transition"
             >
-              <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+              <p className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
                 Workforce Boards & Admin
               </p>
               <h3 className="mt-1 text-lg font-semibold">
@@ -220,7 +220,7 @@ export default function PlatformPage() {
                 engagement across all programs. Export the reports you need for
                 state and federal partners in minutes, not weeks.
               </p>
-              <p className="mt-3 text-xs text-emerald-300 group-hover:underline">
+              <p className="mt-3 text-xs text-orange-300 group-hover:underline">
                 View details →
               </p>
             </Link>
@@ -242,7 +242,7 @@ export default function PlatformPage() {
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-              <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+              <p className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
                 Step 1
               </p>
               <h3 className="mt-1 text-lg font-semibold">
@@ -255,7 +255,7 @@ export default function PlatformPage() {
               </p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-              <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+              <p className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
                 Step 2
               </p>
               <h3 className="mt-1 text-lg font-semibold">
@@ -268,7 +268,7 @@ export default function PlatformPage() {
               </p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-              <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+              <p className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
                 Step 3
               </p>
               <h3 className="mt-1 text-lg font-semibold">

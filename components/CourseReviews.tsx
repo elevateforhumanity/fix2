@@ -183,7 +183,7 @@ export function CourseReviews({ courseId }: CourseReviewsProps) {
         <button
           onClick={submitReview}
           disabled={submitting || userRating === 0 || !userComment.trim()}
-          className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {submitting ? 'Submitting...' : 'Submit Review'}
         </button>
@@ -195,7 +195,7 @@ export function CourseReviews({ courseId }: CourseReviewsProps) {
           onClick={() => setFilter('all')}
           className={`px-3 py-1 text-sm rounded-lg ${
             filter === 'all'
-              ? 'bg-emerald-600 text-white'
+              ? 'bg-red-600 text-white'
               : 'bg-slate-100 text-slate-600'
           }`}
         >
@@ -238,7 +238,7 @@ export function CourseReviews({ courseId }: CourseReviewsProps) {
               <p className="text-slate-700 mb-3">{review.comment}</p>
               <button
                 onClick={() => markHelpful(review.id)}
-                className="flex items-center gap-2 text-sm text-slate-600 hover:text-emerald-600"
+                className="flex items-center gap-2 text-sm text-slate-600 hover:text-red-600"
               >
                 <ThumbsUp className="w-4 h-4" />
                 Helpful ({review.helpful_count})

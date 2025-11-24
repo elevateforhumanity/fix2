@@ -31,7 +31,7 @@ export default function StudentPortalLogin() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-slate-50 flex items-center justify-center px-6 py-12">
+    <main className="min-h-screen bg-gradient-to-br from-red-50 via-white to-slate-50 flex items-center justify-center px-6 py-12">
       <div className="w-full max-w-md">
         {/* Back Button */}
         <Link
@@ -46,7 +46,7 @@ export default function StudentPortalLogin() {
         <div className="rounded-2xl bg-white p-8 shadow-xl ring-1 ring-slate-200">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-500 text-white mb-4">
+            <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-red-500 text-white mb-4">
               <GraduationCap size={28} />
             </div>
             <h1 className="text-2xl font-bold text-slate-900 mb-2">
@@ -108,7 +108,7 @@ export default function StudentPortalLogin() {
                 <input type="checkbox" className="rounded border-slate-300 text-emerald-500 focus:ring-emerald-500" />
                 <span className="text-slate-600">Remember me</span>
               </label>
-              <Link href="/portal/student/forgot-password" className="text-emerald-600 hover:text-emerald-700 font-medium">
+              <Link href="/portal/student/forgot-password" className="text-red-600 hover:text-red-700 font-medium">
                 Forgot password?
               </Link>
             </div>
@@ -116,7 +116,7 @@ export default function StudentPortalLogin() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 rounded-lg bg-emerald-500 text-white font-semibold hover:bg-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed transition shadow-lg"
+              className="w-full py-3 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed transition shadow-lg"
             >
               {isLoading ? "Logging in..." : "Log In"}
             </button>
@@ -135,7 +135,7 @@ export default function StudentPortalLogin() {
           {/* Register Link */}
           <Link
             href="/apply"
-            className="block w-full py-3 rounded-lg border-2 border-emerald-500 text-emerald-600 font-semibold text-center hover:bg-emerald-50 transition"
+            className="block w-full py-3 rounded-lg border-2 border-emerald-500 text-red-600 font-semibold text-center hover:bg-red-50 transition"
           >
             Apply / Register Now
           </Link>
@@ -144,7 +144,7 @@ export default function StudentPortalLogin() {
         {/* Help Text */}
         <p className="text-center text-sm text-slate-600 mt-6">
           Need help?{" "}
-          <a href="mailto:Elevate4humanityedu@gmail.com" className="text-emerald-600 hover:text-emerald-700 font-medium">
+          <a href="mailto:Elevate4humanityedu@gmail.com" className="text-red-600 hover:text-red-700 font-medium">
             Contact Support
           </a>
         </p>

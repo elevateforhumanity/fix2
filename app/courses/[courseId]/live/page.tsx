@@ -96,7 +96,7 @@ export default async function LiveClassPage({
                   className={`rounded-2xl px-3 py-1.5 text-xs font-semibold text-white shadow-sm ${
                     isLive
                       ? "bg-red-500 hover:bg-red-600"
-                      : "bg-emerald-500 hover:bg-emerald-600"
+                      : "bg-red-500 hover:bg-red-600"
                   }`}
                   target="_blank"
                   rel="noopener noreferrer"

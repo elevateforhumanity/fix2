@@ -68,7 +68,7 @@ export default function FederalFundingPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
                 <Award size={16} />
                 <span>Primary Federal Program</span>
               </div>
@@ -83,28 +83,28 @@ export default function FederalFundingPage() {
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">Covers Full Training Costs</div>
                     <div className="text-sm text-slate-600">Tuition, fees, books, and supplies included</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">Support Services</div>
                     <div className="text-sm text-slate-600">Transportation, childcare, and other barrier assistance</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">Career Counseling</div>
                     <div className="text-sm text-slate-600">One-on-one guidance and job placement assistance</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">No Repayment</div>
                     <div className="text-sm text-slate-600">It's not a loan - you never have to pay it back</div>
@@ -116,7 +116,7 @@ export default function FederalFundingPage() {
                 href="https://www.dol.gov/agencies/eta/wioa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
+                className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
               >
                 Learn More About WIOA
                 <ArrowRight size={20} />
@@ -140,8 +140,8 @@ export default function FederalFundingPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                    <Briefcase size={20} className="text-emerald-600" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+                    <Briefcase size={20} className="text-red-600" />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Dislocated Workers</h4>
@@ -176,7 +176,7 @@ export default function FederalFundingPage() {
                 </div>
               </div>
 
-              <div className="mt-8 p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+              <div className="mt-8 p-4 bg-red-50 rounded-xl border border-red-200">
                 <p className="text-sm text-slate-700">
                   <strong>Good News:</strong> WIOA serves a wide range of individuals. We'll help determine your eligibility and guide you through the application.
                 </p>

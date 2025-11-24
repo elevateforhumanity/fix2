@@ -20,7 +20,7 @@ export default function AboutPage() {
     <main className="min-h-screen bg-slate-950 text-slate-50 px-6 py-16 sm:px-10 lg:px-24">
       <div className="max-w-5xl mx-auto">
 
-        <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+        <p className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
           About Elevate For Humanity
         </p>
 
@@ -116,7 +116,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/directory"
-              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold border border-emerald-400/60 text-emerald-300 hover:bg-emerald-400/10 transition"
+              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold border border-emerald-400/60 text-orange-300 hover:bg-emerald-400/10 transition"
             >
               Explore funded programs
             </Link>

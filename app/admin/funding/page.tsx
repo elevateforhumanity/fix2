@@ -168,7 +168,7 @@ export default function FundingPage() {
                         </p>
                       </div>
                       {m.fundingAmount && (
-                        <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-600">
+                        <span className="rounded-full bg-red-50 px-2 py-0.5 text-[10px] font-semibold text-red-600">
                           {m.fundingAmount}
                         </span>
                       )}

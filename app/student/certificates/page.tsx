@@ -44,9 +44,9 @@ export default async function StudentCertificatesPage() {
           {certificates && certificates.length > 0 ? (
             certificates.map((cert) => (
               <div key={cert.id} className="bg-white rounded-lg shadow-lg p-6">
-                <div className="border-4 border-emerald-600 rounded-lg p-6 mb-4">
+                <div className="border-4 border-red-600 rounded-lg p-6 mb-4">
                   <div className="text-center">
-                    <Award className="h-16 w-16 text-emerald-600 mx-auto mb-4" />
+                    <Award className="h-16 w-16 text-red-600 mx-auto mb-4" />
                     <h3 className="text-xl font-bold text-slate-900 mb-2">
                       Certificate of Completion
                     </h3>
@@ -63,7 +63,7 @@ export default async function StudentCertificatesPage() {
                   <a
                     href={`/api/certificates/${cert.id}/download`}
                     download
-                    className="flex-1 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition flex items-center justify-center gap-2"
+                    className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition flex items-center justify-center gap-2"
                   >
                     <Download className="h-4 w-4" />
                     Download PDF

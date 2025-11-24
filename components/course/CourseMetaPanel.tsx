@@ -32,7 +32,7 @@ export function CourseMetaPanel({
       {/* Top badges / rating */}
       <div className="flex flex-wrap items-center gap-3 text-xs">
         {course.difficulty && (
-          <span className="rounded-full bg-emerald-50 px-3 py-1 font-semibold text-emerald-700">
+          <span className="rounded-full bg-red-50 px-3 py-1 font-semibold text-red-700">
             {course.difficulty}
           </span>
         )}
@@ -63,7 +63,7 @@ export function CourseMetaPanel({
           <ul className="mt-2 grid gap-2 text-xs text-slate-700 md:grid-cols-2">
             {course.learning_outcomes.map((item, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <span className="mt-[3px] h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                <span className="mt-[3px] h-1.5 w-1.5 rounded-full bg-red-500" />
                 <span>{item}</span>
               </li>
             ))}

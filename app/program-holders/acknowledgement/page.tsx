@@ -236,7 +236,7 @@ export default function ProgramHolderAcknowledgementPage() {
           {status && (
             <p
               className={`text-xs ${
-                status.type === "success" ? "text-emerald-600" : "text-red-600"
+                status.type === "success" ? "text-red-600" : "text-red-600"
               }`}
             >
               {status.msg}

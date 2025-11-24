@@ -198,7 +198,7 @@ export default async function InstructorCourseAnalyticsPage({
                       <div className="flex items-center gap-2">
                         <div className="h-2 w-32 overflow-hidden rounded-full bg-slate-100">
                           <div
-                            className="h-full rounded-full bg-emerald-500 transition-all"
+                            className="h-full rounded-full bg-red-500 transition-all"
                             style={{ width: `${s.progressPercent}%` }}
                           />
                         </div>
@@ -209,7 +209,7 @@ export default async function InstructorCourseAnalyticsPage({
                     </td>
                     <td className="px-3 py-2 text-[11px] text-slate-700">
                       {s.progressPercent >= 99 ? (
-                        <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-emerald-700">
+                        <span className="rounded-full bg-red-50 px-2 py-0.5 text-red-700">
                           Completed
                         </span>
                       ) : s.progressPercent >= 1 ? (
@@ -253,7 +253,7 @@ export default async function InstructorCourseAnalyticsPage({
             </div>
             <div className="flex justify-between">
               <span className="text-slate-600">Students completed:</span>
-              <span className="font-semibold text-emerald-600">
+              <span className="font-semibold text-red-600">
                 {completedCount}
               </span>
             </div>

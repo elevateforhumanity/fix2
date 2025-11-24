@@ -150,7 +150,7 @@ export default async function CoursePage({
 
           <div className="flex flex-wrap items-center gap-3 text-xs">
             {course.level && (
-              <span className="rounded-full bg-emerald-50 px-3 py-1 font-semibold text-emerald-700">
+              <span className="rounded-full bg-red-50 px-3 py-1 font-semibold text-red-700">
                 {course.level}
               </span>
             )}
@@ -300,7 +300,7 @@ function SidebarCourseCTA({
       <Link
         href={primaryDisabled ? "/login" : primaryHref}
         className={`mt-4 block rounded-full px-4 py-2 text-center text-xs font-semibold text-white transition ${
-          isEnrolled ? "bg-emerald-600 hover:bg-emerald-700" : "bg-orange-500 hover:bg-orange-600"
+          isEnrolled ? "bg-red-600 hover:bg-red-700" : "bg-orange-500 hover:bg-orange-600"
         } ${primaryDisabled ? "opacity-70" : ""}`}
       >
         {primaryLabel}
@@ -353,7 +353,7 @@ function CourseCurriculum({ modules }: { modules: ModuleRow[] }) {
                     className="flex items-center justify-between gap-2"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
                       <span>{l.title}</span>
                     </div>
                     <span className="text-[10px] text-slate-500">

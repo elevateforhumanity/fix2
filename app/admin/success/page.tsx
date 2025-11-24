@@ -121,7 +121,7 @@ export default async function CustomerSuccessPage() {
             <p className="text-xs uppercase tracking-wide text-slate-500">
               Completion Rate
             </p>
-            <p className="mt-2 text-2xl font-semibold text-emerald-600">
+            <p className="mt-2 text-2xl font-semibold text-red-600">
               {metrics.completionRate.toFixed(1)}%
             </p>
           </div>

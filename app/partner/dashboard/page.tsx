@@ -131,7 +131,7 @@ export default async function PartnerDashboardPage() {
                       <span
                         className={`inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${
                           s.status === "completed"
-                            ? "bg-emerald-50 text-emerald-600"
+                            ? "bg-red-50 text-red-600"
                             : s.status === "in_progress"
                             ? "bg-blue-50 text-blue-600"
                             : "bg-slate-100 text-slate-600"

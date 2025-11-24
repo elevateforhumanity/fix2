@@ -145,9 +145,9 @@ export function CalendarWidget({ userId }: CalendarWidgetProps) {
                 onClick={() => setSelectedDate(date)}
                 className={`aspect-square p-1 rounded-lg border transition ${
                   isSelected
-                    ? 'border-emerald-500 bg-emerald-50'
+                    ? 'border-emerald-500 bg-red-50'
                     : isToday
-                    ? 'border-emerald-300 bg-emerald-50/50'
+                    ? 'border-red-300 bg-red-50/50'
                     : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
                 }`}
               >

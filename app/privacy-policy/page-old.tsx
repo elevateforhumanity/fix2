@@ -178,7 +178,7 @@ export default function PrivacyPolicyPage() {
               </ul>
               <p className="mt-4">
                 To exercise these rights, please contact us at
-                privacy@elevateforhumanity.org
+                elizabethpowell6262@gmail.com
               </p>
             </section>
             <section>
@@ -224,7 +224,7 @@ export default function PrivacyPolicyPage() {
                 <p>
                   <strong>Elevate for Humanity</strong>
                 </p>
-                <p>Email: privacy@elevateforhumanity.org</p>
+                <p>Email: elizabethpowell6262@gmail.com</p>
                 <p>Phone: (555) 123-4567</p>
                 <p>Address: 123 Education Way, Chicago, IL 60601</p>
               </div>

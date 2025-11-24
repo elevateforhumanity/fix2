@@ -185,31 +185,31 @@ export function RightSidebar() {
       {/* Quick Actions */}
       <div className="bg-slate-50 rounded-lg p-4">
         <h3 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
-          <Target className="w-4 h-4 text-emerald-600" />
+          <Target className="w-4 h-4 text-red-600" />
           Quick Actions
         </h3>
         <div className="space-y-2">
           <Link
             href="/lms/courses"
-            className="block px-3 py-2 text-sm text-slate-700 hover:bg-white hover:text-emerald-700 rounded-lg transition"
+            className="block px-3 py-2 text-sm text-slate-700 hover:bg-white hover:text-red-700 rounded-lg transition"
           >
             Browse Courses
           </Link>
           <Link
             href="/lms/assignments"
-            className="block px-3 py-2 text-sm text-slate-700 hover:bg-white hover:text-emerald-700 rounded-lg transition"
+            className="block px-3 py-2 text-sm text-slate-700 hover:bg-white hover:text-red-700 rounded-lg transition"
           >
             View Assignments
           </Link>
           <Link
             href="/lms/grades"
-            className="block px-3 py-2 text-sm text-slate-700 hover:bg-white hover:text-emerald-700 rounded-lg transition"
+            className="block px-3 py-2 text-sm text-slate-700 hover:bg-white hover:text-red-700 rounded-lg transition"
           >
             Check Grades
           </Link>
           <Link
             href="/lms/certificates"
-            className="block px-3 py-2 text-sm text-slate-700 hover:bg-white hover:text-emerald-700 rounded-lg transition"
+            className="block px-3 py-2 text-sm text-slate-700 hover:bg-white hover:text-red-700 rounded-lg transition"
           >
             My Certificates
           </Link>
@@ -259,7 +259,7 @@ export function RightSidebar() {
         </div>
         <Link
           href="/lms/calendar"
-          className="block mt-3 text-center text-sm text-emerald-600 hover:text-emerald-700 font-medium"
+          className="block mt-3 text-center text-sm text-red-600 hover:text-red-700 font-medium"
         >
           View Full Calendar →
         </Link>
@@ -308,14 +308,14 @@ export function RightSidebar() {
         </h3>
         <Link
           href="/lms/notifications"
-          className="block text-sm text-emerald-600 hover:text-emerald-700 font-medium"
+          className="block text-sm text-red-600 hover:text-red-700 font-medium"
         >
           View All Notifications →
         </Link>
       </div>
 
       {/* Progress Summary */}
-      <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg p-4 text-white">
+      <div className="bg-gradient-to-br from-red-500 to-emerald-600 rounded-lg p-4 text-white">
         <h3 className="font-semibold mb-3 flex items-center gap-2">
           <Award className="w-4 h-4" />
           Your Progress

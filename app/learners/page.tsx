@@ -18,7 +18,7 @@ export default function LearnersPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-600 to-blue-600 text-white py-20 px-6">
+      <section className="bg-gradient-to-br from-red-600 to-blue-600 text-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
             <GraduationCap className="w-4 h-4" />
@@ -33,14 +33,14 @@ export default function LearnersPage() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-emerald-600 rounded-xl font-semibold hover:bg-emerald-50 transition shadow-lg"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-red-600 rounded-xl font-semibold hover:bg-red-50 transition shadow-lg"
             >
               Check Your Eligibility
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               href="/directory"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-700 text-white rounded-xl font-semibold hover:bg-emerald-800 transition border-2 border-white/20"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-700 text-white rounded-xl font-semibold hover:bg-emerald-800 transition border-2 border-white/20"
             >
               Browse Programs
             </Link>
@@ -56,8 +56,8 @@ export default function LearnersPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <DollarSign className="w-8 h-8 text-emerald-600" />
+              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <DollarSign className="w-8 h-8 text-red-600" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 mb-2">100% Funded Training</h3>
               <p className="text-slate-600">
@@ -94,7 +94,7 @@ export default function LearnersPage() {
           </h2>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="relative">
-              <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
+              <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
                 1
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">Apply</h3>
@@ -103,7 +103,7 @@ export default function LearnersPage() {
               </p>
             </div>
             <div className="relative">
-              <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
+              <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
                 2
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">Enroll</h3>
@@ -112,7 +112,7 @@ export default function LearnersPage() {
               </p>
             </div>
             <div className="relative">
-              <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
+              <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
                 3
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">Train</h3>
@@ -121,7 +121,7 @@ export default function LearnersPage() {
               </p>
             </div>
             <div className="relative">
-              <div className="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
+              <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
                 4
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">Get Hired</h3>
@@ -158,7 +158,7 @@ export default function LearnersPage() {
               >
                 <h3 className="text-lg font-semibold text-slate-900 mb-2">{program.name}</h3>
                 <p className="text-sm text-slate-600 mb-4">{program.duration}</p>
-                <span className="text-emerald-600 font-medium text-sm flex items-center gap-2">
+                <span className="text-red-600 font-medium text-sm flex items-center gap-2">
                   Learn more <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
@@ -167,7 +167,7 @@ export default function LearnersPage() {
           <div className="text-center">
             <Link
               href="/directory"
-              className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700"
+              className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700"
             >
               View All Programs <ArrowRight className="w-5 h-5" />
             </Link>
@@ -176,12 +176,12 @@ export default function LearnersPage() {
       </section>
 
       {/* Eligibility */}
-      <section className="py-20 px-6 bg-emerald-50">
+      <section className="py-20 px-6 bg-red-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-slate-900 text-center mb-8">
             Am I Eligible?
           </h2>
-          <div className="bg-white rounded-xl border border-emerald-200 p-8">
+          <div className="bg-white rounded-xl border border-red-200 p-8">
             <p className="text-lg text-slate-700 mb-6">
               You may qualify for free training if you meet any of these criteria:
             </p>
@@ -196,14 +196,14 @@ export default function LearnersPage() {
                 "Long-term unemployed",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                   <span className="text-slate-700">{item}</span>
                 </li>
               ))}
             </ul>
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center gap-2 w-full px-8 py-4 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition"
+              className="inline-flex items-center justify-center gap-2 w-full px-8 py-4 bg-red-600 text-white rounded-xl font-semibold hover:bg-red-700 transition"
             >
               Check My Eligibility Now
               <ArrowRight className="w-5 h-5" />
@@ -222,7 +222,7 @@ export default function LearnersPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 text-white rounded-xl font-semibold hover:bg-red-700 transition"
             >
               Apply Now
               <ArrowRight className="w-5 h-5" />

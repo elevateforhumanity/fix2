@@ -14,11 +14,11 @@ export default function StudentsPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-50 via-white to-blue-50 border-b border-slate-200">
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
                 <GraduationCap size={16} />
                 <span>Student Resources</span>
               </div>
@@ -34,14 +34,14 @@ export default function StudentsPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-emerald-700 transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-red-700 transition-all hover:scale-105"
                 >
                   Apply Now - It's Free
                   <ArrowRight size={20} />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-emerald-600 hover:text-emerald-600 transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-red-600 hover:text-red-600 transition-all"
                 >
                   Talk to an Advisor
                 </Link>
@@ -78,7 +78,7 @@ export default function StudentsPage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex flex-col items-center text-center p-6 bg-slate-50 rounded-2xl border border-slate-200">
-                <div className="w-16 h-16 rounded-xl bg-emerald-100 flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-xl bg-red-100 flex items-center justify-center mb-4">
                   {benefit.icon}
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -152,12 +152,12 @@ export default function StudentsPage() {
               <Link
                 key={index}
                 href={`/programs/${program.slug}`}
-                className="group bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-emerald-300 hover:shadow-lg transition-all"
+                className="group bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:border-red-300 hover:shadow-lg transition-all"
               >
-                <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center mb-4 group-hover:bg-emerald-600 transition-colors">
-                  <GraduationCap size={24} className="text-emerald-600 group-hover:text-white transition-colors" />
+                <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4 group-hover:bg-red-600 transition-colors">
+                  <GraduationCap size={24} className="text-red-600 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                <h3 className="font-bold text-slate-900 mb-2 group-hover:text-red-600 transition-colors">
                   {program.name}
                 </h3>
                 <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
@@ -170,7 +170,7 @@ export default function StudentsPage() {
                     {program.salary}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-sm font-semibold text-emerald-600 group-hover:gap-3 transition-all">
+                <div className="flex items-center gap-2 text-sm font-semibold text-red-600 group-hover:gap-3 transition-all">
                   Learn More
                   <ArrowRight size={16} />
                 </div>
@@ -181,7 +181,7 @@ export default function StudentsPage() {
           <div className="text-center mt-12">
             <Link
               href="/programs"
-              className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
+              className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
             >
               View All Programs
               <ArrowRight size={20} />
@@ -206,7 +206,7 @@ export default function StudentsPage() {
             {journey.map((step, index) => (
               <div key={index} className="relative">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-emerald-600 text-white flex items-center justify-center text-2xl font-bold mb-4">
+                  <div className="w-16 h-16 rounded-full bg-red-600 text-white flex items-center justify-center text-2xl font-bold mb-4">
                     {index + 1}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -245,7 +245,7 @@ export default function StudentsPage() {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-lg">
+                  <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-lg">
                     {testimonial.name.charAt(0)}
                   </div>
                   <div>
@@ -263,7 +263,7 @@ export default function StudentsPage() {
           <div className="text-center mt-12">
             <Link
               href="/success-stories"
-              className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
+              className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
             >
               Read More Success Stories
               <ArrowRight size={20} />
@@ -273,7 +273,7 @@ export default function StudentsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-emerald-600 to-emerald-700 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-red-600 to-red-700 text-white">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Start Your Journey?
@@ -284,7 +284,7 @@ export default function StudentsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-emerald-600 shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-red-600 shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
             >
               Apply Now - It's Free
               <ArrowRight size={20} />
@@ -305,32 +305,32 @@ export default function StudentsPage() {
 // Data
 const benefits = [
   {
-    icon: <DollarSign size={32} className="text-emerald-600" />,
+    icon: <DollarSign size={32} className="text-red-600" />,
     title: "100% Free Training",
     description: "No tuition, no fees, no hidden costs. Fully funded through state and federal programs.",
   },
   {
-    icon: <Clock size={32} className="text-emerald-600" />,
+    icon: <Clock size={32} className="text-red-600" />,
     title: "Flexible Schedules",
     description: "Full-time, part-time, and evening options to fit your life and responsibilities.",
   },
   {
-    icon: <Award size={32} className="text-emerald-600" />,
+    icon: <Award size={32} className="text-red-600" />,
     title: "Industry Certifications",
     description: "Earn recognized credentials that employers value and trust.",
   },
   {
-    icon: <Briefcase size={32} className="text-emerald-600" />,
+    icon: <Briefcase size={32} className="text-red-600" />,
     title: "Job Placement",
     description: "85% job placement rate with local employers ready to hire our graduates.",
   },
   {
-    icon: <Heart size={32} className="text-emerald-600" />,
+    icon: <Heart size={32} className="text-red-600" />,
     title: "Support Services",
     description: "Childcare, transportation, and other barrier assistance available.",
   },
   {
-    icon: <Users size={32} className="text-emerald-600" />,
+    icon: <Users size={32} className="text-red-600" />,
     title: "Small Class Sizes",
     description: "Personalized attention and hands-on training in supportive environments.",
   },

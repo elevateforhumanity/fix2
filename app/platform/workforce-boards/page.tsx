@@ -28,7 +28,7 @@ export default function WorkforceBoardsPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-50 px-6 py-16 sm:px-10 lg:px-24">
       <div className="max-w-5xl mx-auto">
-        <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+        <p className="text-xs font-semibold tracking-wide text-orange-400 uppercase">
           Platform • For Workforce Boards & Funders
         </p>
         <h1 className="mt-2 text-3xl sm:text-4xl font-bold">
@@ -118,7 +118,7 @@ export default function WorkforceBoardsPage() {
             and training partners also feeds the{" "}
             <Link
               href="/platform/workforce-analytics"
-              className="text-emerald-300 underline underline-offset-2 hover:text-emerald-200"
+              className="text-orange-300 underline underline-offset-2 hover:text-emerald-200"
             >
               Workforce Analytics
             </Link>{" "}
@@ -132,7 +132,7 @@ export default function WorkforceBoardsPage() {
         </section>
 
         {/* Call to action for boards */}
-        <section className="mt-10 rounded-2xl border border-emerald-500/40 bg-emerald-500/5 p-6">
+        <section className="mt-10 rounded-2xl border border-emerald-500/40 bg-red-500/5 p-6">
           <h2 className="text-xl sm:text-2xl font-semibold">
             Bring Elevate For Humanity to your city or region
           </h2>
@@ -151,7 +151,7 @@ export default function WorkforceBoardsPage() {
             </Link>
             <Link
               href="/directory"
-              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold border border-emerald-400/60 text-emerald-300 hover:bg-emerald-400/10 transition"
+              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold border border-emerald-400/60 text-orange-300 hover:bg-emerald-400/10 transition"
             >
               View current funded programs
             </Link>

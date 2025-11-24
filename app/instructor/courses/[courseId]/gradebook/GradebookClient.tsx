@@ -102,7 +102,7 @@ export default function GradebookClient({ initialData }: Props) {
             </p>
           </div>
           {saving && (
-            <span className="rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-700">
+            <span className="rounded-full bg-red-50 px-3 py-1 text-[11px] font-semibold text-red-700">
               Saving…
             </span>
           )}

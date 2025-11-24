@@ -65,7 +65,7 @@ export default function SupportPage() {
             {status === "submitting" ? "Submitting…" : "Submit Ticket"}
           </button>
           {status === "done" && (
-            <p className="text-xs text-emerald-600">
+            <p className="text-xs text-red-600">
               Your ticket was submitted. Our team will follow up by email.
             </p>
           )}

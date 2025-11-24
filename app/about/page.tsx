@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us | Elevate For Humanity",
-  description: "Learn about Elevate for Humanity's mission to provide free career training and workforce development in Marion County, Indiana. Empowering communities through education.",
+  description: "Learn about Elevate for Humanity's mission to provide free career training and workforce development in 7009 E 56th St Ste F, Indianapolis, IN 46226. Empowering communities through education.",
   keywords: ["about elevate", "mission", "workforce development", "community impact", "Marion County"],
 };
 
@@ -14,10 +14,10 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-50 via-white to-blue-50 border-b border-slate-200">
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700 mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
               <Heart size={16} />
               <span>Our Story</span>
             </div>
@@ -27,7 +27,7 @@ export default function AboutPage() {
             </h1>
             
             <p className="text-lg text-slate-600 leading-relaxed">
-              Elevate for Humanity is a workforce development organization dedicated to providing 100% free career training to individuals in Marion County, Indiana, and beyond. We believe everyone deserves access to quality education and meaningful employment, regardless of their circumstances.
+              Elevate for Humanity is a workforce development organization dedicated to providing 100% free career training to individuals in 7009 E 56th St Ste F, Indianapolis, IN 46226, and beyond. We believe everyone deserves access to quality education and meaningful employment, regardless of their circumstances.
             </p>
           </div>
         </div>
@@ -37,8 +37,8 @@ export default function AboutPage() {
       <section className="py-16 md:py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2">
-            <div className="bg-emerald-50 rounded-3xl p-8 border border-emerald-200">
-              <div className="w-16 h-16 rounded-xl bg-emerald-600 flex items-center justify-center mb-6">
+            <div className="bg-red-50 rounded-3xl p-8 border border-red-200">
+              <div className="w-16 h-16 rounded-xl bg-red-600 flex items-center justify-center mb-6">
                 <Target size={32} className="text-white" />
               </div>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Mission</h2>
@@ -75,7 +75,7 @@ export default function AboutPage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {values.map((value, index) => (
               <div key={index} className="bg-white rounded-2xl p-6 border border-slate-200">
-                <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4">
                   {value.icon}
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -105,8 +105,8 @@ export default function AboutPage() {
               <div className="space-y-4">
                 {whatWeDo.map((item, index) => (
                   <div key={index} className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                      <CheckCircle size={20} className="text-emerald-600" />
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+                      <CheckCircle size={20} className="text-red-600" />
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-900 mb-1">{item.title}</h3>
@@ -146,19 +146,19 @@ export default function AboutPage() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 text-center">
             <div>
-              <div className="text-5xl font-bold text-emerald-400 mb-2">500+</div>
+              <div className="text-5xl font-bold text-orange-400 mb-2">500+</div>
               <div className="text-slate-300">Students Trained</div>
             </div>
             <div>
-              <div className="text-5xl font-bold text-emerald-400 mb-2">85%</div>
+              <div className="text-5xl font-bold text-orange-400 mb-2">85%</div>
               <div className="text-slate-300">Job Placement Rate</div>
             </div>
             <div>
-              <div className="text-5xl font-bold text-emerald-400 mb-2">$0</div>
+              <div className="text-5xl font-bold text-orange-400 mb-2">$0</div>
               <div className="text-slate-300">Cost to Students</div>
             </div>
             <div>
-              <div className="text-5xl font-bold text-emerald-400 mb-2">50+</div>
+              <div className="text-5xl font-bold text-orange-400 mb-2">50+</div>
               <div className="text-slate-300">Employer Partners</div>
             </div>
           </div>
@@ -173,14 +173,14 @@ export default function AboutPage() {
               Our Commitment to Marion County
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              We're deeply rooted in Marion County, Indiana, and committed to strengthening our local community through workforce development.
+              We're deeply rooted in 7009 E 56th St Ste F, Indianapolis, IN 46226, and committed to strengthening our local community through workforce development.
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
             {commitments.map((commitment, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
                   {commitment.icon}
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -196,7 +196,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-emerald-600 to-emerald-700 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-red-600 to-red-700 text-white">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Join Us in Elevating Our Community
@@ -207,7 +207,7 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-emerald-600 shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-red-600 shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
             >
               Apply for Training
               <ArrowRight size={20} />
@@ -228,32 +228,32 @@ export default function AboutPage() {
 // Data
 const values = [
   {
-    icon: <Heart size={24} className="text-emerald-600" />,
+    icon: <Heart size={24} className="text-red-600" />,
     title: "Accessibility",
     description: "We remove financial and logistical barriers to ensure everyone can access quality training.",
   },
   {
-    icon: <Award size={24} className="text-emerald-600" />,
+    icon: <Award size={24} className="text-red-600" />,
     title: "Excellence",
     description: "We maintain high standards in training, ensuring graduates are truly job-ready.",
   },
   {
-    icon: <Users size={24} className="text-emerald-600" />,
+    icon: <Users size={24} className="text-red-600" />,
     title: "Community",
     description: "We're committed to strengthening our local community through workforce development.",
   },
   {
-    icon: <CheckCircle size={24} className="text-emerald-600" />,
+    icon: <CheckCircle size={24} className="text-red-600" />,
     title: "Integrity",
     description: "We operate with transparency, honesty, and accountability in all we do.",
   },
   {
-    icon: <Target size={24} className="text-emerald-600" />,
+    icon: <Target size={24} className="text-red-600" />,
     title: "Results",
     description: "We focus on measurable outcomes: certifications earned and jobs secured.",
   },
   {
-    icon: <TrendingUp size={24} className="text-emerald-600" />,
+    icon: <TrendingUp size={24} className="text-red-600" />,
     title: "Innovation",
     description: "We continuously improve our programs to meet evolving workforce needs.",
   },
@@ -288,17 +288,17 @@ const whatWeDo = [
 
 const commitments = [
   {
-    icon: <Users size={32} className="text-emerald-600" />,
+    icon: <Users size={32} className="text-red-600" />,
     title: "Local Focus",
     description: "We prioritize serving Marion County residents and connecting them with local employers.",
   },
   {
-    icon: <Heart size={32} className="text-emerald-600" />,
+    icon: <Heart size={32} className="text-red-600" />,
     title: "Barrier Removal",
     description: "We understand local challenges and provide targeted support to overcome them.",
   },
   {
-    icon: <TrendingUp size={32} className="text-emerald-600" />,
+    icon: <TrendingUp size={32} className="text-red-600" />,
     title: "Economic Growth",
     description: "We contribute to community prosperity by creating pathways to family-sustaining careers.",
   },

@@ -87,7 +87,7 @@ export default function ApplyPage() {
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-emerald-600 to-emerald-700 text-white py-12">
+      <section className="bg-gradient-to-br from-red-600 to-red-700 text-white py-12">
         <div className="mx-auto max-w-4xl px-6">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             Apply for Free Training
@@ -108,7 +108,7 @@ export default function ApplyPage() {
                   <div
                     className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-colors ${
                       currentStep >= step.number
-                        ? "bg-emerald-600 text-white"
+                        ? "bg-red-600 text-white"
                         : "bg-slate-200 text-slate-500"
                     }`}
                   >
@@ -120,7 +120,7 @@ export default function ApplyPage() {
                   </div>
                   <div className="mt-2 text-center">
                     <div className={`text-xs font-semibold ${
-                      currentStep >= step.number ? "text-emerald-600" : "text-slate-500"
+                      currentStep >= step.number ? "text-red-600" : "text-slate-500"
                     }`}>
                       Step {step.number}
                     </div>
@@ -131,7 +131,7 @@ export default function ApplyPage() {
                 </div>
                 {index < steps.length - 1 && (
                   <div className={`h-1 flex-1 mx-2 transition-colors ${
-                    currentStep > step.number ? "bg-emerald-600" : "bg-slate-200"
+                    currentStep > step.number ? "bg-red-600" : "bg-slate-200"
                   }`} />
                 )}
               </div>
@@ -478,7 +478,7 @@ export default function ApplyPage() {
                     </select>
                   </div>
 
-                  <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+                  <div className="p-4 bg-red-50 rounded-xl border border-red-200">
                     <p className="text-sm text-slate-700">
                       <strong>Good News:</strong> Most applicants qualify for at least one funding program. We'll help you through the entire process.
                     </p>
@@ -591,7 +591,7 @@ export default function ApplyPage() {
                   <button
                     type="button"
                     onClick={handleBack}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-slate-300 text-slate-700 font-semibold hover:border-emerald-600 hover:text-emerald-600 transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-slate-300 text-slate-700 font-semibold hover:border-red-600 hover:text-red-600 transition-all"
                   >
                     <ArrowLeft size={20} />
                     Back
@@ -599,7 +599,7 @@ export default function ApplyPage() {
                 ) : (
                   <Link
                     href="/"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-slate-300 text-slate-700 font-semibold hover:border-emerald-600 hover:text-emerald-600 transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-slate-300 text-slate-700 font-semibold hover:border-red-600 hover:text-red-600 transition-all"
                   >
                     <ArrowLeft size={20} />
                     Cancel
@@ -610,7 +610,7 @@ export default function ApplyPage() {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-emerald-600 text-white font-bold shadow-lg hover:bg-emerald-700 transition-all hover:scale-105"
+                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-red-600 text-white font-bold shadow-lg hover:bg-red-700 transition-all hover:scale-105"
                   >
                     Continue
                     <ArrowRight size={20} />
@@ -618,7 +618,7 @@ export default function ApplyPage() {
                 ) : (
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-emerald-600 text-white font-bold shadow-lg hover:bg-emerald-700 transition-all hover:scale-105"
+                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-red-600 text-white font-bold shadow-lg hover:bg-red-700 transition-all hover:scale-105"
                   >
                     Submit Application
                     <CheckCircle size={20} />

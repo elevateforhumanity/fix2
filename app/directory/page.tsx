@@ -177,7 +177,7 @@ export default function DirectoryPage() {
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-20">
           <div className="grid gap-10 md:grid-cols-[2fr,1.3fr] md:items-center">
             <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-emerald-300">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-orange-300">
                 Program directory
               </p>
               <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
@@ -213,13 +213,13 @@ export default function DirectoryPage() {
               <div className="mt-5 flex flex-col gap-3 text-sm">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-4 py-2 font-semibold text-slate-950 hover:bg-emerald-400"
+                  className="inline-flex items-center justify-center rounded-full bg-red-500 px-4 py-2 font-semibold text-slate-950 hover:bg-emerald-400"
                 >
                   Take the interest survey
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:border-emerald-400 hover:text-emerald-300"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:border-emerald-400 hover:text-orange-300"
                 >
                   Talk to an advisor
                 </Link>
@@ -264,8 +264,8 @@ export default function DirectoryPage() {
                   onClick={() => setCategory(c.id)}
                   className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
                     category === c.id
-                      ? "bg-emerald-500 text-slate-950"
-                      : "border border-slate-700 text-slate-300 hover:border-emerald-400 hover:text-emerald-300"
+                      ? "bg-red-500 text-slate-950"
+                      : "border border-slate-700 text-slate-300 hover:border-emerald-400 hover:text-orange-300"
                   }`}
                 >
                   {c.label}
@@ -282,7 +282,7 @@ export default function DirectoryPage() {
           {visiblePrograms.length === 0 ? (
             <p className="text-sm text-slate-400">
               No programs found for this category right now. Try another filter or{" "}
-              <Link href="/contact" className="text-emerald-400 underline">
+              <Link href="/contact" className="text-orange-400 underline">
                 contact our team
               </Link>{" "}
               for options.
@@ -310,7 +310,7 @@ export default function DirectoryPage() {
                       </p>
                       <div className="mt-4 space-y-2 text-[11px] text-slate-400">
                         <div className="flex items-center justify-between gap-2">
-                          <span className="rounded-full bg-slate-800 px-2 py-1 text-[10px] font-semibold text-emerald-300">
+                          <span className="rounded-full bg-slate-800 px-2 py-1 text-[10px] font-semibold text-orange-300">
                             {p.duration}
                           </span>
                           <span className="truncate text-right">
@@ -318,20 +318,20 @@ export default function DirectoryPage() {
                           </span>
                         </div>
                         <p className="truncate">
-                          <span className="font-semibold text-emerald-300">
+                          <span className="font-semibold text-orange-300">
                             Funding:
                           </span>{" "}
                           {p.funding}
                         </p>
                       </div>
                       <div className="mt-4 flex items-center justify-between gap-2">
-                        <span className="text-[11px] font-semibold text-emerald-300">
+                        <span className="text-[11px] font-semibold text-orange-300">
                           View details →
                         </span>
                         <Link
                           href={`/apply?program=${encodeURIComponent(p.slug)}`}
                           onClick={(e) => e.stopPropagation()}
-                          className="rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold text-emerald-300 hover:bg-emerald-500/20 transition"
+                          className="rounded-full bg-red-500/10 px-3 py-1 text-[11px] font-semibold text-orange-300 hover:bg-red-500/20 transition"
                         >
                           Get Started
                         </Link>
@@ -358,13 +358,13 @@ export default function DirectoryPage() {
           <div className="mt-7 flex flex-wrap justify-center gap-4">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+              className="inline-flex items-center justify-center rounded-full bg-red-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
             >
               Get started free
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/10"
+              className="inline-flex items-center justify-center rounded-full border border-emerald-400 px-8 py-3 text-sm font-semibold text-orange-300 hover:bg-red-500/10"
             >
               Talk to an advisor
             </Link>

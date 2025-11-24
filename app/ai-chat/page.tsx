@@ -145,7 +145,7 @@ export default function AIChatPage() {
                     Ask questions. Plan programs. Refine grants. Boss energy only.
                   </p>
                 </div>
-                <span className="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 px-3 py-1 text-[11px] font-medium">
+                <span className="inline-flex items-center rounded-full bg-red-50 text-red-700 px-3 py-1 text-[11px] font-medium">
                   ● Online
                 </span>
               </div>

@@ -532,7 +532,7 @@ export default function PartnerEnrollmentPage() {
           {status && (
             <div className={`rounded-xl p-4 ${
               status.type === "success" 
-                ? "bg-emerald-50 border border-emerald-200 text-emerald-800" 
+                ? "bg-red-50 border border-red-200 text-emerald-800" 
                 : "bg-red-50 border border-red-200 text-red-800"
             }`}>
               <p className="text-sm">{status.msg}</p>

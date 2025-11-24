@@ -174,7 +174,7 @@ export default function HVACTechnicianPage() {
               <ul className="mt-4 space-y-2 text-sm text-slate-700">
                 {fundingOptions.map((item) => (
                   <li key={item} className="flex gap-2">
-                    <span className="mt-[3px] h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    <span className="mt-[3px] h-1.5 w-1.5 rounded-full bg-red-500" />
                     <span>{item}</span>
                   </li>
                 ))}

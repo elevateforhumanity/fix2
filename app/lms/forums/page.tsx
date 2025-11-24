@@ -113,7 +113,7 @@ export default function ForumsPage() {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
           <p className="text-slate-600">Loading forums...</p>
         </div>
       </div>
@@ -163,7 +163,7 @@ export default function ForumsPage() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <MessageSquare className="w-5 h-5 text-emerald-600" />
+                      <MessageSquare className="w-5 h-5 text-red-600" />
                       <h3 className="text-lg font-semibold text-slate-900">
                         {forum.title}
                       </h3>

@@ -44,10 +44,10 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-50 via-white to-blue-50 border-b border-slate-200">
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700 mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
               <Mail size={16} />
               <span>Get In Touch</span>
             </div>
@@ -76,13 +76,13 @@ export default function ContactPage() {
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center">
-                      <Phone size={20} className="text-emerald-600" />
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center">
+                      <Phone size={20} className="text-red-600" />
                     </div>
                     <div>
                       <div className="font-bold text-slate-900 mb-1">Phone</div>
-                      <a href="tel:+13175551234" className="text-slate-600 hover:text-emerald-600 transition-colors">
-                        (317) 555-1234
+                      <a href="tel:+13177607908" className="text-slate-600 hover:text-red-600 transition-colors">
+                        (317) 760-7908
                       </a>
                     </div>
                   </div>
@@ -93,8 +93,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="font-bold text-slate-900 mb-1">Email</div>
-                      <a href="mailto:info@elevateforhumanity.org" className="text-slate-600 hover:text-blue-600 transition-colors">
-                        info@elevateforhumanity.org
+                      <a href="mailto:elizabethpowell6262@gmail.com" className="text-slate-600 hover:text-blue-600 transition-colors">
+                        elizabethpowell6262@gmail.com
                       </a>
                     </div>
                   </div>
@@ -106,7 +106,7 @@ export default function ContactPage() {
                     <div>
                       <div className="font-bold text-slate-900 mb-1">Location</div>
                       <p className="text-slate-600">
-                        Marion County, Indiana<br />
+                        7009 E 56th St Ste F, Indianapolis, IN 46226<br />
                         Serving Indianapolis and surrounding areas
                       </p>
                     </div>
@@ -132,16 +132,16 @@ export default function ContactPage() {
               <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
                 <h3 className="font-bold text-slate-900 mb-4">Quick Links</h3>
                 <div className="space-y-2">
-                  <Link href="/apply" className="block text-emerald-600 hover:text-emerald-700 font-semibold transition-colors">
+                  <Link href="/apply" className="block text-red-600 hover:text-red-700 font-semibold transition-colors">
                     → Apply Now
                   </Link>
-                  <Link href="/programs" className="block text-slate-600 hover:text-emerald-600 transition-colors">
+                  <Link href="/programs" className="block text-slate-600 hover:text-red-600 transition-colors">
                     → View Programs
                   </Link>
-                  <Link href="/funding/state-programs" className="block text-slate-600 hover:text-emerald-600 transition-colors">
+                  <Link href="/funding/state-programs" className="block text-slate-600 hover:text-red-600 transition-colors">
                     → Funding Options
                   </Link>
-                  <Link href="/faq" className="block text-slate-600 hover:text-emerald-600 transition-colors">
+                  <Link href="/faq" className="block text-slate-600 hover:text-red-600 transition-colors">
                     → FAQ
                   </Link>
                 </div>
@@ -156,9 +156,9 @@ export default function ContactPage() {
                 </h2>
 
                 {status === "success" ? (
-                  <div className="p-6 bg-emerald-50 rounded-xl border border-emerald-200 text-center">
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle size={32} className="text-emerald-600" />
+                  <div className="p-6 bg-red-50 rounded-xl border border-red-200 text-center">
+                    <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle size={32} className="text-red-600" />
                     </div>
                     <h3 className="text-xl font-bold text-slate-900 mb-2">
                       Message Sent Successfully!
@@ -168,7 +168,7 @@ export default function ContactPage() {
                     </p>
                     <button
                       onClick={() => setStatus("idle")}
-                      className="text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
+                      className="text-red-600 font-semibold hover:text-red-700 transition-colors"
                     >
                       Send Another Message
                     </button>
@@ -221,7 +221,7 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                          placeholder="(317) 555-1234"
+                          placeholder="(317) 760-7908"
                         />
                       </div>
 
@@ -274,7 +274,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={status === "loading"}
-                      className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-emerald-700 transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-red-700 transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {status === "loading" ? "Sending..." : "Send Message"}
                       <Send size={20} />
@@ -298,7 +298,7 @@ export default function ContactPage() {
           </p>
           <Link
             href="/faq"
-            className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
+            className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
           >
             View Frequently Asked Questions
             <Mail size={20} />

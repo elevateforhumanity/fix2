@@ -97,7 +97,7 @@ export default function EnrollPage({ params }: { params: { slug: string } }) {
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-slate-900 mb-4">Course Not Found</h1>
-          <Link href="/programs" className="text-emerald-600 hover:text-emerald-700">
+          <Link href="/programs" className="text-red-600 hover:text-red-700">
             Browse Programs
           </Link>
         </div>
@@ -118,7 +118,7 @@ export default function EnrollPage({ params }: { params: { slug: string } }) {
 
         <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-slate-200">
           <div className="text-center mb-8">
-            <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 mb-4">
+            <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-red-100 text-red-600 mb-4">
               <CheckCircle size={32} />
             </div>
             <h1 className="text-3xl font-bold text-slate-900 mb-2">
@@ -176,7 +176,7 @@ export default function EnrollPage({ params }: { params: { slug: string } }) {
             <button
               onClick={handleEnroll}
               disabled={enrolling}
-              className="flex-1 py-3 px-6 rounded-lg bg-emerald-500 text-white font-semibold hover:bg-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed transition flex items-center justify-center gap-2"
+              className="flex-1 py-3 px-6 rounded-lg bg-red-500 text-white font-semibold hover:bg-red-600 disabled:opacity-50 disabled:cursor-not-allowed transition flex items-center justify-center gap-2"
             >
               {enrolling ? (
                 <>

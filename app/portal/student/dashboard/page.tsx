@@ -272,13 +272,13 @@ export default async function StudentPortalDashboardPage() {
                       </h3>
                       <div className="flex items-center justify-between text-xs text-slate-500">
                         <span>{pct}% complete</span>
-                        <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] text-emerald-700">
+                        <span className="rounded-full bg-red-50 px-2 py-0.5 text-[11px] text-red-700">
                           In progress
                         </span>
                       </div>
                       <div className="mt-1 h-2 w-full overflow-hidden rounded-full bg-slate-100">
                         <div
-                          className="h-full rounded-full bg-emerald-500 transition-all"
+                          className="h-full rounded-full bg-red-500 transition-all"
                           style={{ width: `${pct}%` }}
                         />
                       </div>

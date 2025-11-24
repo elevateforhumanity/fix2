@@ -13,14 +13,14 @@ export default function HomePage() {
             {/* Left: text */}
             <div className="flex-1 space-y-4 md:space-y-6">
               <div className="inline-block">
-                <p className="text-xs sm:text-sm font-semibold text-emerald-600 uppercase tracking-wide">
+                <p className="text-xs sm:text-sm font-semibold text-red-600 uppercase tracking-wide">
                   WIOA-Approved Training Provider
                 </p>
               </div>
               
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-slate-900">
                 Free career training.
-                <span className="block text-emerald-600">Real jobs waiting.</span>
+                <span className="block text-red-600">Real jobs waiting.</span>
               </h1>
               
               <p className="text-lg sm:text-xl md:text-2xl text-slate-700 leading-relaxed max-w-3xl">
@@ -30,8 +30,8 @@ export default function HomePage() {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
-                <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
-                  <div className="text-3xl font-bold text-emerald-700">$0</div>
+                <div className="bg-red-50 rounded-lg p-4 border border-red-200">
+                  <div className="text-3xl font-bold text-red-700">$0</div>
                   <div className="text-sm text-slate-600">Cost for eligible participants</div>
                 </div>
                 <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
@@ -47,13 +47,13 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3 sm:gap-4 pt-4">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-emerald-700 transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg bg-red-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg hover:bg-red-700 transition-colors"
                 >
                   Check Eligibility
                 </Link>
                 <Link
                   href="/directory"
-                  className="inline-flex items-center justify-center rounded-lg border-2 border-emerald-600 bg-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg border-2 border-red-600 bg-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-red-700 hover:bg-red-50 transition-colors"
                 >
                   Browse Programs
                 </Link>
@@ -61,8 +61,8 @@ export default function HomePage() {
 
               <div className="flex flex-wrap gap-6 pt-6 border-t border-slate-200 mt-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -109,7 +109,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/80 via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-8 right-8 space-y-4">
                   <div className="flex flex-wrap gap-3">
-                    <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-emerald-700 shadow-lg">
+                    <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-red-700 shadow-lg">
                       Healthcare
                     </span>
                     <span className="rounded-full bg-white px-4 py-2 text-sm font-bold text-blue-700 shadow-lg">
@@ -180,7 +180,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/directory"
-                className="mt-4 inline-flex text-sm font-semibold text-emerald-700 hover:text-emerald-600"
+                className="mt-4 inline-flex text-sm font-semibold text-red-700 hover:text-red-600"
               >
                 View all programs →
               </Link>
@@ -218,7 +218,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-6 md:px-10">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-emerald-400">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-orange-400">
                 Watch how Elevate works
               </p>
               <h2 className="mt-1 text-2xl font-bold sm:text-3xl">
@@ -270,7 +270,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-emerald-700">
+              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-red-700">
                 Popular programs
               </p>
               <h2 className="mt-1 text-2xl font-bold text-slate-900 sm:text-3xl">
@@ -279,7 +279,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/directory"
-              className="text-sm font-semibold text-emerald-700 hover:text-emerald-500"
+              className="text-sm font-semibold text-red-700 hover:text-emerald-500"
             >
               View full program directory →
             </Link>
@@ -314,7 +314,7 @@ export default function HomePage() {
       {/* HOW IT WORKS – simple 3 steps */}
       <section className="border-b border-slate-900 bg-slate-950 py-16">
         <div className="mx-auto max-w-6xl px-6 text-center md:px-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-emerald-400">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-orange-400">
             How it works
           </p>
           <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
@@ -344,7 +344,7 @@ export default function HomePage() {
       {/* SUCCESS STORIES – cards with headshots */}
       <section className="border-b border-slate-200 bg-white py-20">
         <div className="mx-auto max-w-6xl px-6 md:px-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.26em] text-emerald-700">
+          <p className="text-xs font-semibold uppercase tracking-[0.26em] text-red-700">
             Success stories
           </p>
           <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
@@ -375,7 +375,7 @@ export default function HomePage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="bg-gradient-to-br from-emerald-500/20 via-slate-950 to-slate-950 py-16">
+      <section className="bg-gradient-to-br from-red-500/20 via-slate-950 to-slate-950 py-16">
         <div className="mx-auto max-w-4xl px-6 text-center md:px-10">
           <h2 className="text-2xl font-bold sm:text-3xl">
             Ready to see what&apos;s possible for you or your community?
@@ -388,13 +388,13 @@ export default function HomePage() {
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-emerald-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
+              className="inline-flex items-center justify-center rounded-full bg-red-500 px-8 py-3 text-sm font-semibold text-slate-950 shadow-lg hover:bg-emerald-400"
             >
               I&apos;m ready to explore training
             </Link>
             <Link
               href="/employers"
-              className="inline-flex items-center justify-center rounded-full border border-emerald-300 px-8 py-3 text-sm font-semibold text-emerald-200 hover:bg-emerald-500/10"
+              className="inline-flex items-center justify-center rounded-full border border-red-300 px-8 py-3 text-sm font-semibold text-emerald-200 hover:bg-red-500/10"
             >
               I&apos;m an employer or partner
             </Link>
@@ -438,7 +438,7 @@ function VideoTile({ href, tag, title, desc, duration, placeholder }: VideoTileP
         <div className="flex flex-1 flex-col p-5">
           <h3 className="text-base font-bold text-slate-900">{title}</h3>
           <p className="mt-2 flex-1 text-sm text-slate-600 leading-relaxed">{desc}</p>
-          <span className="mt-4 text-sm font-semibold text-emerald-600 group-hover:text-emerald-700">
+          <span className="mt-4 text-sm font-semibold text-red-600 group-hover:text-red-700">
             Watch video →
           </span>
         </div>
@@ -472,7 +472,7 @@ function ProgramCard({ href, image, title, blurb, length }: ProgramCardProps) {
           <p className="mt-2 flex-1 text-xs text-slate-600">{blurb}</p>
           <div className="mt-3 flex items-center justify-between text-[11px] text-slate-500">
             <span>{length}</span>
-            <span className="font-semibold text-emerald-700">
+            <span className="font-semibold text-red-700">
               Learn more →
             </span>
           </div>
@@ -492,7 +492,7 @@ function StepCard({ number, title, body }: StepCardProps) {
   return (
     <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 text-left">
       <div className="flex items-center gap-3">
-        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/20 text-xs font-bold text-emerald-300">
+        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500/20 text-xs font-bold text-orange-300">
           {number}
         </div>
         <h3 className="text-sm font-semibold text-white">{title}</h3>

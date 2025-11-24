@@ -13,16 +13,16 @@ const paths = ["Healthcare", "Skilled Trades", "CDL", "Barber", "Re-entry"];
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-emerald-500/15 via-sky-500/10 to-fuchsia-500/10" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-red-500/15 via-sky-500/10 to-fuchsia-500/10" />
       <div className="relative mx-auto flex min-h-[72vh] max-w-6xl flex-col gap-12 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
         {/* Left column */}
         <div className="max-w-xl space-y-6">
-          <p className="inline-flex items-center rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300 ring-1 ring-emerald-500/40">
+          <p className="inline-flex items-center rounded-full bg-red-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange-300 ring-1 ring-emerald-500/40">
             WIOA-aligned · Workforce & employer partners
           </p>
           <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
             Funded training that{" "}
-            <span className="block text-emerald-300">
+            <span className="block text-orange-300">
               actually leads to jobs.
             </span>
           </h1>
@@ -42,7 +42,7 @@ export function Hero() {
             </Link>
             <Link
               href="/programs"
-              className="inline-flex items-center justify-center rounded-full border border-slate-500/60 px-6 py-3 text-sm font-semibold text-slate-50 transition hover:border-emerald-300 hover:bg-slate-900"
+              className="inline-flex items-center justify-center rounded-full border border-slate-500/60 px-6 py-3 text-sm font-semibold text-slate-50 transition hover:border-red-300 hover:bg-slate-900"
             >
               Browse programs
             </Link>
@@ -99,7 +99,7 @@ export function Hero() {
                   key={stat.label}
                   className="rounded-2xl bg-slate-900/80 px-4 py-3 ring-1 ring-slate-700/70"
                 >
-                  <dd className="text-2xl font-semibold text-emerald-300">
+                  <dd className="text-2xl font-semibold text-orange-300">
                     {stat.value}
                   </dd>
                   <dt className="text-xs text-slate-300">{stat.label}</dt>

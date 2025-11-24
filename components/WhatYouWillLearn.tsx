@@ -19,7 +19,7 @@ export function WhatYouWillLearn({
       <ul className="grid md:grid-cols-2 gap-4">
         {items.map((item, index) => (
           <li key={index} className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-emerald-600 mt-0.5 flex-shrink-0" />
+            <CheckCircle className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
             <span className="text-slate-700 text-sm leading-relaxed">{item}</span>
           </li>
         ))}
@@ -41,7 +41,7 @@ export function SkillsYouWillGain({ skills, className = '' }: SkillsYouWillGainP
         {skills.map((skill, index) => (
           <span
             key={index}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-50 text-emerald-700 text-sm font-medium border border-emerald-200 hover:bg-emerald-100 transition"
+            className="inline-flex items-center px-4 py-2 rounded-full bg-red-50 text-red-700 text-sm font-medium border border-red-200 hover:bg-red-100 transition"
           >
             {skill}
           </span>

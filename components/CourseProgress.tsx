@@ -17,16 +17,16 @@ export function CourseProgress({ current, total, className = '' }: CourseProgres
         <span className="text-slate-700 font-medium">
           {current} of {total} lessons complete
         </span>
-        <span className="text-emerald-600 font-semibold">{percentage}%</span>
+        <span className="text-red-600 font-semibold">{percentage}%</span>
       </div>
       <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
         <div 
-          className="bg-gradient-to-r from-emerald-500 to-emerald-600 h-3 rounded-full transition-all duration-500 ease-out"
+          className="bg-gradient-to-r from-red-500 to-emerald-600 h-3 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${percentage}%` }}
         />
       </div>
       {percentage === 100 && (
-        <div className="flex items-center gap-2 mt-2 text-emerald-600 text-sm font-medium">
+        <div className="flex items-center gap-2 mt-2 text-red-600 text-sm font-medium">
           <CheckCircle className="w-4 h-4" />
           <span>Course completed!</span>
         </div>
@@ -43,7 +43,7 @@ interface LessonProgressIndicatorProps {
 export function LessonProgressIndicator({ completed, current }: LessonProgressIndicatorProps) {
   if (completed) {
     return (
-      <div className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500 text-white">
+      <div className="flex items-center justify-center w-6 h-6 rounded-full bg-red-500 text-white">
         <CheckCircle className="w-4 h-4" />
       </div>
     );
@@ -51,8 +51,8 @@ export function LessonProgressIndicator({ completed, current }: LessonProgressIn
   
   if (current) {
     return (
-      <div className="flex items-center justify-center w-6 h-6 rounded-full border-2 border-emerald-500 bg-emerald-50">
-        <div className="w-2 h-2 rounded-full bg-emerald-500" />
+      <div className="flex items-center justify-center w-6 h-6 rounded-full border-2 border-emerald-500 bg-red-50">
+        <div className="w-2 h-2 rounded-full bg-red-500" />
       </div>
     );
   }

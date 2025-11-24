@@ -23,13 +23,13 @@ export default function BarberSpotlightVideoPage() {
       <section className="border-b border-slate-800 bg-slate-950/95">
         <div className="mx-auto max-w-6xl px-6 py-4 md:px-10">
           <nav className="flex items-center gap-2 text-xs text-slate-400">
-            <Link href="/" className="hover:text-emerald-300 transition-colors">
+            <Link href="/" className="hover:text-orange-300 transition-colors">
               Home
             </Link>
             <span className="text-slate-600">/</span>
             <Link
               href="/videos"
-              className="hover:text-emerald-300 transition-colors"
+              className="hover:text-orange-300 transition-colors"
             >
               Videos
             </Link>

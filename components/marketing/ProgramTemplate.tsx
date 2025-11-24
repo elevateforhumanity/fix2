@@ -31,11 +31,11 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-emerald-50 via-white to-blue-50 border-b border-slate-200">
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
                 <Award size={16} />
                 <span>100% FREE Training</span>
               </div>
@@ -50,14 +50,14 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200">
-                  <Clock size={24} className="text-emerald-600" />
+                  <Clock size={24} className="text-red-600" />
                   <div>
                     <div className="text-sm text-slate-600">Duration</div>
                     <div className="font-bold text-slate-900">{program.duration}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200">
-                  <DollarSign size={24} className="text-emerald-600" />
+                  <DollarSign size={24} className="text-red-600" />
                   <div>
                     <div className="text-sm text-slate-600">Salary Range</div>
                     <div className="font-bold text-slate-900">{program.salaryRange}</div>
@@ -68,14 +68,14 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-emerald-700 transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-red-700 transition-all hover:scale-105"
                 >
                   Apply Now - It's Free
                   <ArrowRight size={20} />
                 </Link>
                 <Link
                   href="/funding/state-programs"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-emerald-600 hover:text-emerald-600 transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-red-600 hover:text-red-600 transition-all"
                 >
                   Learn About Funding
                 </Link>
@@ -112,8 +112,8 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {program.skills.map((skill, index) => (
               <div key={index} className="flex items-start gap-4 p-6 bg-slate-50 rounded-xl border border-slate-200">
-                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                  <CheckCircle size={20} className="text-emerald-600" />
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+                  <CheckCircle size={20} className="text-red-600" />
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 mb-1">{skill.title}</h3>
@@ -140,7 +140,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
               <div className="space-y-4">
                 {program.jobTitles.map((job, index) => (
                   <div key={index} className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200">
-                    <Briefcase size={20} className="text-emerald-600 flex-shrink-0" />
+                    <Briefcase size={20} className="text-red-600 flex-shrink-0" />
                     <div>
                       <div className="font-bold text-slate-900">{job.title}</div>
                       <div className="text-sm text-slate-600">{job.setting}</div>
@@ -156,10 +156,10 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-slate-700">Job Placement Rate</span>
-                    <span className="text-2xl font-bold text-emerald-600">{program.outcomes.jobPlacement}%</span>
+                    <span className="text-2xl font-bold text-red-600">{program.outcomes.jobPlacement}%</span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-emerald-600 h-3 rounded-full" style={{ width: `${program.outcomes.jobPlacement}%` }}></div>
+                    <div className="bg-red-600 h-3 rounded-full" style={{ width: `${program.outcomes.jobPlacement}%` }}></div>
                   </div>
                 </div>
                 <div>
@@ -182,9 +182,9 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
                 </div>
               </div>
 
-              <div className="mt-8 p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+              <div className="mt-8 p-4 bg-red-50 rounded-xl border border-red-200">
                 <div className="flex items-center gap-3 mb-2">
-                  <Award size={20} className="text-emerald-600" />
+                  <Award size={20} className="text-red-600" />
                   <span className="font-bold text-slate-900">Certification Included</span>
                 </div>
                 <p className="text-sm text-slate-600">
@@ -207,8 +207,8 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
 
           <div className="grid gap-8 md:grid-cols-3">
             <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
-              <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center mb-4">
-                <Clock size={24} className="text-emerald-600" />
+              <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-4">
+                <Clock size={24} className="text-red-600" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Schedule</h3>
               <p className="text-slate-600 mb-4">
@@ -217,7 +217,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
               <ul className="space-y-2 text-sm text-slate-600">
                 {program.schedule.map((item, index) => (
                   <li key={index} className="flex items-center gap-2">
-                    <CheckCircle size={16} className="text-emerald-600" />
+                    <CheckCircle size={16} className="text-red-600" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -264,7 +264,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-emerald-600 to-emerald-700 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-red-600 to-red-700 text-white">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Start Your {program.name} Career?
@@ -275,7 +275,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-emerald-600 shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-red-600 shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
             >
               Apply Now - It's Free
               <ArrowRight size={20} />

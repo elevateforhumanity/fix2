@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold mb-8 transition-colors"
           >
             <ArrowLeft size={20} />
             Back to Home
@@ -85,8 +85,8 @@ export default function PrivacyPolicyPage() {
               <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
                 <p className="text-slate-700">
                   <strong>Elevate for Humanity</strong><br />
-                  Email: <a href="mailto:privacy@elevateforhumanity.org" className="text-emerald-600 hover:text-emerald-700">privacy@elevateforhumanity.org</a><br />
-                  Phone: <a href="tel:+13175551234" className="text-emerald-600 hover:text-emerald-700">(317) 555-1234</a>
+                  Email: <a href="mailto:elizabethpowell6262@gmail.com" className="text-red-600 hover:text-red-700">elizabethpowell6262@gmail.com</a><br />
+                  Phone: <a href="tel:+13177607908" className="text-red-600 hover:text-red-700">(317) 760-7908</a>
                 </p>
               </div>
             </div>

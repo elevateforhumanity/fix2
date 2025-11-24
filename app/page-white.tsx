@@ -80,7 +80,7 @@ export default function ElevateLanding() {
                   <p className="text-xs uppercase tracking-[0.16em] text-slate-600">
                     Cost for most
                   </p>
-                  <p className="text-xl font-semibold text-emerald-600">$0</p>
+                  <p className="text-xl font-semibold text-red-600">$0</p>
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-[0.16em] text-slate-600">

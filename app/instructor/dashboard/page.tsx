@@ -47,7 +47,7 @@ export default async function InstructorDashboardPage() {
 
         <Link
           href="/lms/courses/new"
-          className="rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-emerald-700 transition"
+          className="rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-red-700 transition"
         >
           + Create New Course
         </Link>
@@ -72,7 +72,7 @@ export default async function InstructorDashboardPage() {
             </p>
             <Link
               href="/lms/courses/new"
-              className="inline-flex rounded-full bg-emerald-600 px-6 py-2 text-sm font-semibold text-white hover:bg-emerald-700 transition"
+              className="inline-flex rounded-full bg-red-600 px-6 py-2 text-sm font-semibold text-white hover:bg-red-700 transition"
             >
               Create Your First Course
             </Link>

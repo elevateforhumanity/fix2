@@ -120,7 +120,7 @@ export function AssignmentActivity({
                 />
                 <label
                   htmlFor="file-upload"
-                  className="cursor-pointer text-sm text-emerald-600 hover:text-emerald-700 font-medium"
+                  className="cursor-pointer text-sm text-red-600 hover:text-red-700 font-medium"
                 >
                   Click to upload
                 </label>
@@ -180,7 +180,7 @@ export function AssignmentActivity({
           <button
             onClick={handleSubmit}
             disabled={isSubmitting}
-            className="w-full bg-emerald-600 text-white py-3 rounded-lg font-semibold hover:bg-emerald-700 disabled:bg-slate-300 disabled:cursor-not-allowed transition"
+            className="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 disabled:bg-slate-300 disabled:cursor-not-allowed transition"
           >
             {isSubmitting ? 'Submitting...' : 'Submit Assignment'}
           </button>

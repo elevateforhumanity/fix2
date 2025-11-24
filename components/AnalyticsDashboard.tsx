@@ -82,8 +82,8 @@ export function AnalyticsDashboard({ data, timeframe = 'month' }: AnalyticsDashb
       value: `$${data.totalRevenue.toLocaleString()}`,
       change: '+18%',
       icon: DollarSign,
-      color: 'text-emerald-600',
-      bgColor: 'bg-emerald-100',
+      color: 'text-red-600',
+      bgColor: 'bg-red-100',
     },
   ];
 

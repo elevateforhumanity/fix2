@@ -63,7 +63,7 @@ export default function OJTAndFundingPage() {
               combining on-the-job training with classroom instruction.
             </p>
 
-            <div className="mt-12 rounded-lg bg-emerald-50 p-8 border border-emerald-200">
+            <div className="mt-12 rounded-lg bg-red-50 p-8 border border-red-200">
               <h3 className="text-xl font-bold text-slate-900">Ready to explore funding options?</h3>
               <p className="mt-2 text-slate-600">
                 Contact our team to learn more about how we can help your organization access workforce funding.
@@ -71,7 +71,7 @@ export default function OJTAndFundingPage() {
               <div className="mt-6 flex gap-4">
                 <Link
                   href="/employers"
-                  className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-6 py-3 text-base font-semibold text-white hover:bg-emerald-700"
+                  className="inline-flex items-center justify-center rounded-lg bg-red-600 px-6 py-3 text-base font-semibold text-white hover:bg-red-700"
                 >
                   For Employers
                 </Link>

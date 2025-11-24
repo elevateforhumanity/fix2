@@ -68,7 +68,7 @@ export default function StateFundingPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
                 <Award size={16} />
                 <span>Most Popular Program</span>
               </div>
@@ -83,28 +83,28 @@ export default function StateFundingPage() {
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">Covers Full Tuition</div>
                     <div className="text-sm text-slate-600">Up to $7,500 per year for eligible programs</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">High-Demand Careers</div>
                     <div className="text-sm text-slate-600">All our healthcare programs are WRG-eligible</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">Fast Application</div>
                     <div className="text-sm text-slate-600">Simple online application through INvestEd</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-emerald-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-red-600 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">No Repayment Required</div>
                     <div className="text-sm text-slate-600">It's a grant, not a loan - never pay it back</div>
@@ -116,7 +116,7 @@ export default function StateFundingPage() {
                 href="https://www.in.gov/dwd/workforce-ready-grant/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors"
+                className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
               >
                 Learn More About WRG
                 <ArrowRight size={20} />
@@ -140,8 +140,8 @@ export default function StateFundingPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                    <DollarSign size={20} className="text-emerald-600" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+                    <DollarSign size={20} className="text-red-600" />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Income Requirements</h4>
@@ -176,7 +176,7 @@ export default function StateFundingPage() {
                 </div>
               </div>
 
-              <div className="mt-8 p-4 bg-emerald-50 rounded-xl border border-emerald-200">
+              <div className="mt-8 p-4 bg-red-50 rounded-xl border border-red-200">
                 <p className="text-sm text-slate-700">
                   <strong>Good News:</strong> Most of our students qualify for WRG funding. We'll help you through the entire application process.
                 </p>
@@ -208,8 +208,8 @@ export default function StateFundingPage() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                      <Award size={20} className="text-emerald-600" />
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
+                      <Award size={20} className="text-red-600" />
                     </div>
                     <div>
                       <h4 className="font-bold text-slate-900 mb-1">Eligible Programs</h4>
@@ -392,7 +392,7 @@ export default function StateFundingPage() {
                     <Award size={20} className="text-blue-600 group-hover:text-white transition-colors" />
                   </div>
                   <div className="flex-1">
-                    <div className="text-xs font-semibold text-emerald-600">100% Funded</div>
+                    <div className="text-xs font-semibold text-red-600">100% Funded</div>
                   </div>
                 </div>
                 <h3 className="font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
