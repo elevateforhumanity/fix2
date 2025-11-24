@@ -3,8 +3,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { Menu, X, ChevronDown, Search } from "lucide-react";
 import clsx from "clsx";
 
 // Student Portal URL
@@ -271,6 +271,22 @@ export function MainNav() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Search Bar */}
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <input
+                type="search"
+                placeholder="Search programs..."
+                className="w-48 pl-9 pr-3 py-1.5 text-xs border border-slate-300 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    const query = (e.target as HTMLInputElement).value;
+                    if (query) window.location.href = `/search?q=${encodeURIComponent(query)}`;
+                  }
+                }}
+              />
+            </div>
 
             {/* Strong CTA – APPLY */}
             <Link
