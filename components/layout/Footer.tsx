@@ -23,7 +23,7 @@ export function SiteFooter() {
           {/* Brand & Contact */}
           <div className="lg:col-span-2">
             <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-slate-950 text-xs font-black uppercase">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-white text-xs font-black uppercase">
                 EFH
               </div>
               <div>
