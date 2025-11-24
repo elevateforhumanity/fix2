@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us | Elevate For Humanity",
-  description: "Learn about Elevate for Humanity's mission to provide free career training and workforce development in 7009 E 56th St Ste F, Indianapolis, IN 46226. Empowering communities through education.",
+  description: "Learn about Elevate for Humanity's mission to provide free career training and workforce development in 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240. Empowering communities through education.",
   keywords: ["about elevate", "mission", "workforce development", "community impact", "Marion County"],
 };
 
@@ -27,7 +27,7 @@ export default function AboutPage() {
             </h1>
             
             <p className="text-lg text-slate-600 leading-relaxed">
-              Elevate for Humanity is a workforce development organization dedicated to providing 100% free career training to individuals in 7009 E 56th St Ste F, Indianapolis, IN 46226, and beyond. We believe everyone deserves access to quality education and meaningful employment, regardless of their circumstances.
+              Elevate for Humanity is a workforce development organization dedicated to providing 100% free career training to individuals in 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240, and beyond. We believe everyone deserves access to quality education and meaningful employment, regardless of their circumstances.
             </p>
           </div>
         </div>
@@ -173,7 +173,7 @@ export default function AboutPage() {
               Our Commitment to Marion County
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              We're deeply rooted in 7009 E 56th St Ste F, Indianapolis, IN 46226, and committed to strengthening our local community through workforce development.
+              We're deeply rooted in 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240, and committed to strengthening our local community through workforce development.
             </p>
           </div>
 

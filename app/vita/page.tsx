@@ -88,7 +88,7 @@ export default function VITAPage() {
               href="tel:3177607908"
               className="inline-block bg-red-500 hover:bg-emerald-400 text-slate-950 font-bold py-4 px-8 rounded-xl transition"
             >
-              Call (317) 760-7908 to Schedule
+              Call (317) 314-3757 to Schedule
             </a>
           </div>
         </div>
@@ -179,7 +179,7 @@ export default function VITAPage() {
                 href="tel:3177607908"
                 className="bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-8 rounded-xl transition"
               >
-                Call (317) 760-7908
+                Call (317) 314-3757
               </a>
             </div>
           </div>

@@ -81,8 +81,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="font-bold text-slate-900 mb-1">Phone</div>
-                      <a href="tel:+13177607908" className="text-slate-600 hover:text-red-600 transition-colors">
-                        (317) 760-7908
+                      <a href="tel:+13173143757" className="text-slate-600 hover:text-red-600 transition-colors">
+                        (317) 314-3757
                       </a>
                     </div>
                   </div>
@@ -106,7 +106,7 @@ export default function ContactPage() {
                     <div>
                       <div className="font-bold text-slate-900 mb-1">Location</div>
                       <p className="text-slate-600">
-                        7009 E 56th St Ste F, Indianapolis, IN 46226<br />
+                        8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240<br />
                         Serving Indianapolis and surrounding areas
                       </p>
                     </div>
@@ -221,7 +221,7 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                          placeholder="(317) 760-7908"
+                          placeholder="(317) 314-3757"
                         />
                       </div>
 

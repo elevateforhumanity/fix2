@@ -169,7 +169,7 @@ export default function CourseraStyleFooter() {
             </div>
             
             <div className="text-xs text-gray-600">
-              <strong>Contact:</strong> (317) 555-0100 | <a href="mailto:elizabethpowell6262@gmail.com" className="text-blue-600 hover:underline">elizabethpowell6262@gmail.com</a> | Serving 7009 E 56th St Ste F, Indianapolis, IN 46226
+              <strong>Contact:</strong> (317) 555-0100 | <a href="mailto:elizabethpowell6262@gmail.com" className="text-blue-600 hover:underline">elizabethpowell6262@gmail.com</a> | Serving 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import { MapPin, Clock, DollarSign, Briefcase, Heart, Users, TrendingUp } from '
 
 export const metadata = {
   title: 'Careers at Elevate for Humanity | Join Our Team',
-  description: 'Join our mission to transform lives through workforce development. Open positions in 7009 E 56th St Ste F, Indianapolis, IN 46226.',
+  description: 'Join our mission to transform lives through workforce development. Open positions in 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240.',
 };
 
 export default function CareersPage() {

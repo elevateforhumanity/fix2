@@ -126,7 +126,7 @@ export default function RefundPolicyPage() {
               <p className="text-slate-700">
                 <strong>Elevate for Humanity</strong><br />
                 Email: <a href="mailto:elizabethpowell6262@gmail.com" className="text-red-600 hover:text-red-700">elizabethpowell6262@gmail.com</a><br />
-                Phone: <a href="tel:+13177607908" className="text-red-600 hover:text-red-700">(317) 760-7908</a>
+                Phone: <a href="tel:+13173143757" className="text-red-600 hover:text-red-700">(317) 314-3757</a>
               </p>
             </div>
 

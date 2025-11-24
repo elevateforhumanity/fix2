@@ -23,7 +23,7 @@ export default function MarketingHomepage() {
               </h1>
               
               <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
-                No tuition. No debt. Real jobs waiting. Get certified in high-demand healthcare careers through 100% funded programs in 7009 E 56th St Ste F, Indianapolis, IN 46226.
+                No tuition. No debt. Real jobs waiting. Get certified in high-demand healthcare careers through 100% funded programs in 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240.
               </p>
 
               {/* Key Benefits */}

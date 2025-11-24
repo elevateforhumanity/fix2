@@ -25,19 +25,19 @@ export function SiteFooter() {
               </div>
             </div>
             <p className="text-sm text-slate-300 max-w-md mb-4 leading-relaxed">
-              100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt. Real jobs waiting in 7009 E 56th St Ste F, Indianapolis, IN 46226.
+              100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt. Real jobs waiting in 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240.
             </p>
             
             {/* Contact Info */}
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3 text-slate-300">
                 <MapPin size={16} className="text-orange-400 flex-shrink-0" />
-                <span className="text-sm">7009 E 56th St Ste F, Indianapolis, IN 46226</span>
+                <span className="text-sm">8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240</span>
               </div>
               <div className="flex items-center gap-3 text-slate-300">
                 <Phone size={16} className="text-orange-400 flex-shrink-0" />
-                <a href="tel:+13177607908" className="text-sm hover:text-orange-300 transition font-medium">
-                  (317) 760-7908
+                <a href="tel:+13173143757" className="text-sm hover:text-orange-300 transition font-medium">
+                  (317) 314-3757
                 </a>
               </div>
               <div className="flex items-center gap-3 text-slate-300">
