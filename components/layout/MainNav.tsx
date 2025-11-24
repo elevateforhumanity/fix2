@@ -57,6 +57,42 @@ export function MainNav() {
   const [mobileProgramsOpen, setMobileProgramsOpen] = useState(false);
   const [mobileMicroClassesOpen, setMobileMicroClassesOpen] = useState(false);
   const [mobileFundingOpen, setMobileFundingOpen] = useState(false);
+  
+  // Timeout refs for delayed closing
+  const programsTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
+  const microClassesTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
+  const fundingTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
+
+  // Helper functions for delayed dropdown closing
+  const handleProgramsEnter = () => {
+    if (programsTimeoutRef) clearTimeout(programsTimeoutRef);
+    setProgramsOpen(true);
+  };
+  
+  const handleProgramsLeave = () => {
+    const timeout = setTimeout(() => setProgramsOpen(false), 300);
+    if (programsTimeoutRef) clearTimeout(programsTimeoutRef);
+  };
+
+  const handleMicroClassesEnter = () => {
+    if (microClassesTimeoutRef) clearTimeout(microClassesTimeoutRef);
+    setMicroClassesOpen(true);
+  };
+  
+  const handleMicroClassesLeave = () => {
+    const timeout = setTimeout(() => setMicroClassesOpen(false), 300);
+    if (microClassesTimeoutRef) clearTimeout(microClassesTimeoutRef);
+  };
+
+  const handleFundingEnter = () => {
+    if (fundingTimeoutRef) clearTimeout(fundingTimeoutRef);
+    setFundingOpen(true);
+  };
+  
+  const handleFundingLeave = () => {
+    const timeout = setTimeout(() => setFundingOpen(false), 300);
+    if (fundingTimeoutRef) clearTimeout(fundingTimeoutRef);
+  };
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -102,8 +138,8 @@ export function MainNav() {
             {/* Programs Dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setProgramsOpen(true)}
-              onMouseLeave={() => setProgramsOpen(false)}
+              onMouseEnter={handleProgramsEnter}
+              onMouseLeave={handleProgramsLeave}
             >
               <button
                 className={clsx(
@@ -142,8 +178,8 @@ export function MainNav() {
             {/* Micro Classes Dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setMicroClassesOpen(true)}
-              onMouseLeave={() => setMicroClassesOpen(false)}
+              onMouseEnter={handleMicroClassesEnter}
+              onMouseLeave={handleMicroClassesLeave}
             >
               <button
                 className={clsx(

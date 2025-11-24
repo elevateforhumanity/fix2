@@ -53,8 +53,8 @@ export function SiteFooter() {
               </div>
               <div className="flex items-center gap-3 text-white">
                 <Mail size={18} className="text-orange-400 flex-shrink-0" />
-                <a href="mailto:elizabethpowell6262@gmail.com" className="text-sm hover:text-orange-300 transition font-bold">
-                  elizabethpowell6262@gmail.com
+                <a href="mailto:elevais4humanityedu@gmail.com" className="text-sm hover:text-orange-300 transition font-bold">
+                  elevais4humanityedu@gmail.com
                 </a>
               </div>
             </div>
@@ -103,7 +103,7 @@ export function SiteFooter() {
           {/* Programs */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
-              Programs
+              Main Programs
             </h3>
             <ul className="space-y-2.5">
               <li>
@@ -112,38 +112,38 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/programs/phlebotomy" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Phlebotomy Technician
+                <Link href="/programs/barber-apprenticeship" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Barber Apprenticeship
                 </Link>
               </li>
               <li>
-                <Link href="/programs/ekg-technician" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  EKG Technician
+                <Link href="/programs/hvac" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  HVAC Technician
                 </Link>
               </li>
               <li>
-                <Link href="/programs/pharmacy-technician" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Pharmacy Technician
+                <Link href="/programs/building-tech" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Building Maintenance
                 </Link>
               </li>
               <li>
-                <Link href="/programs/dental-assistant" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Dental Assistant
+                <Link href="/programs/cdl" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  CDL / Transportation
                 </Link>
               </li>
               <li>
-                <Link href="/programs/patient-care-technician" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Patient Care Technician
+                <Link href="/programs/workforce-readiness" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Workforce Readiness
                 </Link>
               </li>
               <li>
-                <Link href="/programs/sterile-processing" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Sterile Processing
+                <Link href="/micro-classes" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Micro Classes →
                 </Link>
               </li>
               <li>
-                <Link href="/programs/healthcare-administration" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Healthcare Administration
+                <Link href="/programs" className="text-orange-400 hover:text-orange-300 transition text-sm font-bold">
+                  View All Programs
                 </Link>
               </li>
             </ul>

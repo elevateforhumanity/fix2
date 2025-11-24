@@ -31,8 +31,8 @@ export default function Homepage() {
           </div>
 
           {/* Medical Assistant - 4 Images */}
-          <div className="mb-8">
-            <h3 className="text-xl font-semibold text-slate-900 mb-4">Medical Assistant Graduate</h3>
+          <div className="mb-12">
+            <h3 className="text-xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-slate-200">Medical Assistant Graduate</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Image src="/media/testimonials/testimonial-medical-assistant-1.png" alt="Medical Assistant Success 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
               <Image src="/media/testimonials/testimonial-medical-assistant-2.png" alt="Medical Assistant Success 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
@@ -42,8 +42,8 @@ export default function Homepage() {
           </div>
 
           {/* Success Story 2 - 4 Images */}
-          <div className="mb-8">
-            <h3 className="text-xl font-semibold text-slate-900 mb-4">Career Transformation Story</h3>
+          <div className="mb-12">
+            <h3 className="text-xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-slate-200">Career Transformation Story</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Image src="/media/testimonials/testimonial-success-2-part1.png" alt="Success Story 2 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
               <Image src="/media/testimonials/testimonial-success-2-part2.png" alt="Success Story 2 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
@@ -53,8 +53,8 @@ export default function Homepage() {
           </div>
 
           {/* Success Story 3 - 4 Images */}
-          <div className="mb-8">
-            <h3 className="text-xl font-semibold text-slate-900 mb-4">From Barriers to Breakthrough</h3>
+          <div className="mb-12">
+            <h3 className="text-xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-slate-200">From Barriers to Breakthrough</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Image src="/media/testimonials/testimonial-success-3-part1.png" alt="Success Story 3 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
               <Image src="/media/testimonials/testimonial-success-3-part2.png" alt="Success Story 3 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
@@ -64,8 +64,8 @@ export default function Homepage() {
           </div>
 
           {/* Success Story 4 - 4 Images */}
-          <div className="mb-8">
-            <h3 className="text-xl font-semibold text-slate-900 mb-4">Building a Better Future</h3>
+          <div className="mb-12">
+            <h3 className="text-xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-slate-200">Building a Better Future</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Image src="/media/testimonials/testimonial-success-4-part1.png" alt="Success Story 4 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
               <Image src="/media/testimonials/testimonial-success-4-part2.png" alt="Success Story 4 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
@@ -75,8 +75,8 @@ export default function Homepage() {
           </div>
 
           {/* Success Story 5 - 4 Images */}
-          <div>
-            <h3 className="text-xl font-semibold text-slate-900 mb-4">Pathway to Self-Sufficiency</h3>
+          <div className="mb-12">
+            <h3 className="text-xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-slate-200">Pathway to Self-Sufficiency</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Image src="/media/testimonials/testimonial-success-5-part1.png" alt="Success Story 5 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
               <Image src="/media/testimonials/testimonial-success-5-part2.png" alt="Success Story 5 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
@@ -624,7 +624,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-br from-red-600 to-blue-600 text-white">
+      <section className="py-24 bg-gradient-to-br from-slate-800 to-slate-900 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">

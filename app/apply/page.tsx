@@ -87,14 +87,32 @@ export default function ApplyPage() {
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-600 to-red-700 text-white py-12">
+      <section className="bg-gradient-to-br from-slate-800 to-slate-900 text-white py-12">
         <div className="mx-auto max-w-4xl px-6">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Apply for Free Training
+            Start Your Application
           </h1>
-          <p className="text-lg text-emerald-100">
-            Complete this application to get started. It takes about 10 minutes.
+          <p className="text-lg text-white/90 mb-4">
+            Begin your journey to a fully-funded career training program.
           </p>
+          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4">
+            <p className="text-sm font-semibold mb-2">📍 Important: Start at Indiana Career Connect</p>
+            <p className="text-sm text-white/90 mb-3">
+              To access fully-funded training through WIOA, WRG, or JRI, you must first schedule an appointment with WorkOne through Indiana Career Connect.
+            </p>
+            <a 
+              href="https://www.indianacareerconnect.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:bg-white/90 transition-colors"
+            >
+              Schedule at Indiana Career Connect
+              <ArrowRight size={16} />
+            </a>
+            <p className="text-xs text-white/75 mt-3">
+              Or call your local WorkOne office and tell them Elevate For Humanity is your training provider.
+            </p>
+          </div>
         </div>
       </section>
 
