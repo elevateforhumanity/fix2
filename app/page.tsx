@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MobileVoiceOver } from "@/components/MobileVoiceOver";
+import { Hero } from "@/components/home/Hero";
 import { 
   ArrowRight, CheckCircle, Users, Briefcase, GraduationCap, Award, 
   Phone, Mail, MapPin, TrendingUp, Clock, Target, BookOpen, 
@@ -17,7 +18,11 @@ export default function Homepage() {
       
       <main className="min-h-screen bg-white">
       
-      {/* HERO BANNER 1 - Main Mission Statement with Custom Hero Image */}
+      {/* NEW HERO - Clean, Mobile-Optimized Layout */}
+      <Hero />
+      
+      {/* OLD HERO BANNER - Commented out, can be removed after testing */}
+      {/* 
       <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] flex items-center overflow-hidden">
         {/* Background Image - High Resolution */}
         <div className="absolute inset-0 z-0">
@@ -162,6 +167,7 @@ export default function Homepage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* FEATURED PROGRAM - Professional Barbering Highlight */}
       <section className="relative py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-black overflow-hidden">
