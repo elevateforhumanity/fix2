@@ -1,168 +1,178 @@
-# Supabase Authentication Setup Guide
+# Supabase Setup Guide for Elevate for Humanity
 
-## ✅ What's Already Done
+Complete guide to setting up Supabase for the platform.
 
-- ✅ Supabase client configured (`lib/supabase/client.ts`)
-- ✅ Authentication utilities created (`lib/auth.ts`)
-- ✅ Auth hook for client-side (`lib/hooks/useAuth.ts`)
-- ✅ Portal login pages connected to Supabase
-- ✅ Error handling and loading states
+---
 
-## 🔧 What You Need To Do
+## Quick Setup (5 minutes)
 
-### 1. Get Supabase Credentials
+1. Create Supabase project at [supabase.com](https://supabase.com)
+2. Copy API credentials to `.env.local`
+3. Run migration SQL in SQL Editor
+4. Test connection
+
+---
+
+## Step 1: Create Project
 
 1. Go to [https://supabase.com](https://supabase.com)
-2. Create a project (or use existing)
-3. Go to **Settings** → **API**
-4. Copy these values:
-   - **Project URL** (looks like: `https://xxxxx.supabase.co`)
-   - **Anon/Public Key** (starts with `eyJ...`)
+2. Click "New Project"
+3. Fill in:
+   - Name: `elevate-for-humanity`
+   - Database Password: (save this!)
+   - Region: US East
+4. Click "Create"
+5. Wait 2-3 minutes
 
-### 2. Add Environment Variables
+---
 
-#### For Local Development:
+## Step 2: Get Credentials
 
-Create `.env.local` in the project root:
+1. Go to Settings → API
+2. Copy these values to `.env.local`:
 
 ```bash
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-key
 ```
 
-#### For Vercel Deployment:
+---
 
-1. Go to [https://vercel.com/elevateforhumanity/fix2-gpql/settings/environment-variables](https://vercel.com)
-2. Add these variables:
-   - `NEXT_PUBLIC_SUPABASE_URL` = `https://your-project.supabase.co`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = `your-anon-key`
-3. Apply to: **Production, Preview, Development**
-4. Redeploy the site
+## Step 3: Run Migration
 
-### 3. Set Up Supabase Database
-
-Run this SQL in Supabase SQL Editor:
+1. Go to SQL Editor in Supabase
+2. Click "New Query"
+3. Paste this SQL:
 
 ```sql
--- Enable UUID extension
+-- Enable UUID
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
--- Create profiles table
-CREATE TABLE IF NOT EXISTS profiles (
-  id UUID REFERENCES auth.users(id) PRIMARY KEY,
-  email TEXT UNIQUE NOT NULL,
-  role TEXT NOT NULL DEFAULT 'student',
-  name TEXT,
+-- Programs Table
+CREATE TABLE programs (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT NOT NULL,
+  slug TEXT UNIQUE NOT NULL,
+  description TEXT,
+  duration_weeks INTEGER,
+  salary_range TEXT,
+  job_titles TEXT[],
+  is_active BOOLEAN DEFAULT true,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- Enable Row Level Security
-ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+-- Insert Programs
+INSERT INTO programs (name, slug, description, duration_weeks, salary_range, job_titles) VALUES
+('Medical Assistant', 'medical-assistant', 'Clinical and administrative support', 12, '$35K-$45K', ARRAY['Clinical MA', 'Administrative MA']),
+('Phlebotomy Technician', 'phlebotomy', 'Blood collection specialist', 8, '$32K-$42K', ARRAY['Hospital Phlebotomist', 'Lab Phlebotomist']),
+('EKG Technician', 'ekg-technician', 'Cardiac monitoring specialist', 6, '$33K-$43K', ARRAY['EKG Tech', 'Cardiac Monitor Tech']),
+('Pharmacy Technician', 'pharmacy-technician', 'Medication preparation', 12, '$34K-$44K', ARRAY['Retail Pharmacy Tech', 'Hospital Pharmacy Tech']),
+('Dental Assistant', 'dental-assistant', 'Dental care support', 10, '$36K-$46K', ARRAY['Chairside Assistant', 'Orthodontic Assistant']),
+('Patient Care Technician', 'patient-care-technician', 'Direct patient care', 14, '$35K-$45K', ARRAY['PCT', 'Telemetry Tech']),
+('Sterile Processing', 'sterile-processing', 'Instrument sterilization', 12, '$37K-$47K', ARRAY['SPT', 'Central Supply Tech']),
+('Healthcare Administration', 'healthcare-administration', 'Office management', 16, '$40K-$50K', ARRAY['Office Manager', 'Billing Specialist']);
 
--- Policies
-CREATE POLICY "Users can view own profile"
-  ON profiles FOR SELECT
-  USING (auth.uid() = id);
+-- Applications Table
+CREATE TABLE applications (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  date_of_birth DATE,
+  address TEXT,
+  city TEXT,
+  state TEXT DEFAULT 'IN',
+  zip_code TEXT,
+  program_id UUID REFERENCES programs(id),
+  start_date_preference TEXT,
+  schedule_preference TEXT,
+  funding_type TEXT,
+  employment_status TEXT,
+  household_income TEXT,
+  has_high_school_diploma BOOLEAN,
+  has_transportation BOOLEAN,
+  needs_childcare BOOLEAN,
+  has_computer_access BOOLEAN,
+  additional_info TEXT,
+  status TEXT DEFAULT 'pending',
+  submitted_at TIMESTAMPTZ DEFAULT NOW(),
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
 
-CREATE POLICY "Users can update own profile"
-  ON profiles FOR UPDATE
-  USING (auth.uid() = id);
+CREATE INDEX idx_applications_email ON applications(email);
+CREATE INDEX idx_applications_status ON applications(status);
 
--- Function to create profile on signup
-CREATE OR REPLACE FUNCTION public.handle_new_user()
-RETURNS TRIGGER AS $$
-BEGIN
-  INSERT INTO public.profiles (id, email, role, name)
-  VALUES (
-    NEW.id,
-    NEW.email,
-    COALESCE(NEW.raw_user_meta_data->>'role', 'student'),
-    NEW.raw_user_meta_data->>'name'
-  );
-  RETURN NEW;
-END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+-- Contact Messages Table
+CREATE TABLE contact_messages (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT,
+  subject TEXT NOT NULL,
+  message TEXT NOT NULL,
+  status TEXT DEFAULT 'new',
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
 
--- Trigger to auto-create profile
-DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
-CREATE TRIGGER on_auth_user_created
-  AFTER INSERT ON auth.users
-  FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
+CREATE INDEX idx_contact_status ON contact_messages(status);
+
+-- Enable RLS
+ALTER TABLE programs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE applications ENABLE ROW LEVEL SECURITY;
+ALTER TABLE contact_messages ENABLE ROW LEVEL SECURITY;
+
+-- RLS Policies
+CREATE POLICY "Programs viewable by all" ON programs FOR SELECT USING (is_active = true);
+CREATE POLICY "Anyone can submit applications" ON applications FOR INSERT WITH CHECK (true);
+CREATE POLICY "Anyone can submit contact" ON contact_messages FOR INSERT WITH CHECK (true);
 ```
 
-### 4. Configure Supabase Auth Settings
+4. Click "Run"
+5. Verify success
 
-In Supabase Dashboard → **Authentication** → **URL Configuration**:
+---
 
-- **Site URL**: `https://www.elevateforhumanity.org`
-- **Redirect URLs**: Add these:
-  - `https://www.elevateforhumanity.org/portal/student/dashboard`
-  - `https://www.elevateforhumanity.org/admin/dashboard`
-  - `https://www.elevateforhumanity.org/employer/dashboard`
+## Step 4: Test Connection
 
-### 5. Create Test Users
+Run this in your terminal:
 
-In Supabase Dashboard → **Authentication** → **Users** → **Add User**:
+```bash
+curl -X POST http://localhost:3000/api/applications \
+  -H "Content-Type: application/json" \
+  -d '{
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "test@example.com",
+    "phone": "317-555-1234",
+    "program": "medical-assistant",
+    "fundingType": "wioa"
+  }'
+```
 
-**Student Account:**
-- Email: `student@test.com`
-- Password: `Test123!`
-- User Metadata: `{"role": "student", "name": "Test Student"}`
+---
 
-**Staff Account:**
-- Email: `staff@test.com`
-- Password: `Test123!`
-- User Metadata: `{"role": "staff", "name": "Test Staff"}`
+## Done!
 
-**Employer Account:**
-- Email: `employer@test.com`
-- Password: `Test123!`
-- User Metadata: `{"role": "employer", "name": "Test Employer"}`
+Your Supabase database is ready. The API endpoints will now work.
 
-## 🧪 Testing
+---
 
-1. Go to [https://www.elevateforhumanity.org/portal](https://www.elevateforhumanity.org/portal)
-2. Click **Student Portal**
-3. Log in with: `student@test.com` / `Test123!`
-4. Should redirect to student dashboard
+## Troubleshooting
 
-## 🔒 User Roles
+**Error: "relation does not exist"**
+→ Run the migration SQL again
 
-The system supports these roles:
-- `student` - Learners taking courses
-- `staff` - Instructors and case managers
-- `employer` - Companies hiring/managing apprentices
-- `admin` - Full system access
+**Error: "invalid API key"**
+→ Check your `.env.local` credentials
 
-Roles are stored in `user_metadata.role` and synced to `profiles.role`.
+**Error: "permission denied"**
+→ Verify RLS policies are created
 
-## 📝 Next Steps
+---
 
-After authentication works:
-
-1. **Add role-based redirects** - Check user role and send to correct dashboard
-2. **Protect dashboard routes** - Add middleware to check authentication
-3. **Add password reset** - Email-based password recovery
-4. **Add registration flow** - Let students self-register
-
-## 🆘 Troubleshooting
-
-**"Invalid email or password"**
-- Check Supabase credentials are correct
-- Verify user exists in Supabase Auth
-- Check browser console for errors
-
-**"CORS error"**
-- Add your domain to Supabase allowed origins
-- Check Site URL is configured correctly
-
-**"User not found"**
-- Create test users in Supabase Dashboard
-- Verify email confirmation is disabled for testing
-
-## 📚 Documentation
-
-- [Supabase Auth Docs](https://supabase.com/docs/guides/auth)
-- [Next.js + Supabase](https://supabase.com/docs/guides/getting-started/quickstarts/nextjs)
-- [Row Level Security](https://supabase.com/docs/guides/auth/row-level-security)
+For full documentation, see `SUPABASE_SETUP_OLD.md`

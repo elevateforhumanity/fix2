@@ -1,11 +1,14 @@
 import Link from 'next/link';
+import { Calendar, User, ArrowRight, BookOpen } from 'lucide-react';
+import type { Metadata } from 'next';
 
 // ISR: Revalidate every 5 minutes to fetch fresh blog posts
 export const revalidate = 300;
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Blog | Elevate for Humanity',
-  description: 'Latest news, success stories, and workforce development insights from Elevate for Humanity',
+  description: 'Latest news, success stories, and workforce development insights from Elevate for Humanity. Learn about career training, funding programs, and student success.',
+  keywords: ['workforce development', 'career training blog', 'student success stories', 'healthcare careers', 'training programs'],
 };
 
 // Fetch blog posts from Durable
@@ -119,84 +122,122 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-20">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h1 className="text-5xl font-bold mb-6">Blog</h1>
-          <p className="text-xl text-blue-100">
-            Latest insights on workforce development, career training, and success stories
-          </p>
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-emerald-50 via-white to-blue-50 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700 mb-6">
+              <BookOpen size={16} />
+              <span>Latest Updates</span>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-6">
+              Blog & Success Stories
+            </h1>
+            
+            <p className="text-lg text-slate-600 leading-relaxed">
+              Latest insights on workforce development, career training, funding programs, and inspiring success stories from our students.
+            </p>
+          </div>
         </div>
       </section>
 
-      <main className="py-16">
-        <div className="container mx-auto px-4 max-w-5xl">
+      {/* Blog Posts Grid */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {posts.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-600">No blog posts available at this time.</p>
+              <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-4">
+                <BookOpen size={32} className="text-slate-400" />
+              </div>
+              <p className="text-slate-600">No blog posts available at this time.</p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {posts.map((post) => (
                 <article
                   key={post.id}
-                  className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow"
+                  className="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-emerald-300 transition-all"
                 >
                   <div className="p-6">
-                    <div className="flex items-center gap-3 mb-3">
-                      <time className="text-sm text-gray-500">
-                        {new Date(post.date).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric',
-                        })}
-                      </time>
+                    {/* Meta */}
+                    <div className="flex items-center gap-3 mb-4 text-sm text-slate-500">
+                      <div className="flex items-center gap-1">
+                        <Calendar size={14} />
+                        <time>
+                          {new Date(post.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                          })}
+                        </time>
+                      </div>
                       {post.author && (
                         <>
-                          <span className="text-gray-300">•</span>
-                          <span className="text-sm text-gray-600">{post.author}</span>
+                          <span>•</span>
+                          <div className="flex items-center gap-1">
+                            <User size={14} />
+                            <span>{post.author}</span>
+                          </div>
                         </>
                       )}
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-3 line-clamp-2">
+
+                    {/* Title */}
+                    <h2 className="text-xl font-bold text-slate-900 mb-3 line-clamp-2 group-hover:text-emerald-600 transition-colors">
                       {post.title}
                     </h2>
-                    <p className="text-gray-700 mb-4 line-clamp-3">{post.excerpt}</p>
+
+                    {/* Excerpt */}
+                    <p className="text-slate-600 mb-4 line-clamp-3 text-sm">
+                      {post.excerpt}
+                    </p>
+
+                    {/* Read More Link */}
                     <a
                       href={post.durableUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold"
+                      className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-semibold text-sm group-hover:gap-3 transition-all"
                     >
                       Read Full Article
-                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
+                      <ArrowRight size={16} />
                     </a>
                   </div>
                 </article>
               ))}
             </div>
           )}
+        </div>
+      </section>
 
-          {/* CTA */}
-          <div className="mt-16 bg-blue-50 rounded-xl p-8 text-center border border-blue-200">
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">
-              Want to Share Your Story?
-            </h3>
-            <p className="text-gray-700 mb-6">
-              If you're a graduate or partner with a success story to share, we'd love to hear from you.
-            </p>
+      {/* CTA Section */}
+      <section className="py-16 md:py-20 bg-slate-50 border-t border-slate-200">
+        <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+            Want to Share Your Story?
+          </h2>
+          <p className="text-lg text-slate-600 mb-8">
+            If you're a graduate or partner with a success story to share, we'd love to hear from you and feature your journey.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-emerald-700 transition-all hover:scale-105"
             >
               Contact Us
+              <ArrowRight size={20} />
+            </Link>
+            <Link
+              href="/apply"
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-emerald-600 hover:text-emerald-600 transition-all"
+            >
+              Apply Now
             </Link>
           </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }

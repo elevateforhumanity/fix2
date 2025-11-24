@@ -1,7 +1,7 @@
-'use client';
-
-import { useState } from 'react';
-import Link from 'next/link';
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/auth";
+import Link from "next/link";
 import { 
   BookOpen, 
   Clock, 
@@ -19,8 +19,113 @@ import {
   Search
 } from 'lucide-react';
 
-export default function LMSDashboard() {
-  const [searchQuery, setSearchQuery] = useState('');
+type EnrollmentWithCourse = {
+  id: string;
+  course_id: string;
+  started_at: string | null;
+  courses: {
+    id: string;
+    title: string;
+    slug: string;
+    thumbnail_url: string | null;
+  } | null;
+};
+
+function calculateCourseProgress(
+  courseId: string,
+  progressRows: { lesson_id: string; completed: boolean }[],
+  lessonToCourse: Map<string, string>
+): number {
+  const rows = progressRows.filter((r) => lessonToCourse.get(r.lesson_id) === courseId);
+  if (!rows.length) return 0;
+  const done = rows.filter((r) => r.completed).length;
+  return Math.round((done / rows.length) * 100);
+}
+
+export default async function LMSDashboard() {
+  const supabase = await createClient();
+  const user = await getCurrentUser();
+
+  if (!user) {
+    redirect("/login");
+  }
+
+  // Enrollments + courses
+  const { data: enrollments } = await supabase
+    .from("enrollments")
+    .select(
+      `
+      id,
+      course_id,
+      started_at,
+      courses (
+        id,
+        title,
+        slug,
+        thumbnail_url
+      )
+    `
+    )
+    .eq("user_id", user.id)
+    .order("started_at", { ascending: false })
+    .limit(6);
+
+  const { data: progressRows } = await supabase
+    .from("lesson_progress")
+    .select("lesson_id, completed")
+    .eq("user_id", user.id);
+
+  const { data: notifications } = await supabase
+    .from("notifications")
+    .select("*")
+    .eq("user_id", user.id)
+    .eq("read", false)
+    .order("created_at", { ascending: false })
+    .limit(5);
+
+  const { data: certificates } = await supabase
+    .from("certificates")
+    .select("id")
+    .eq("user_id", user.id);
+
+  const { data: courses } = await supabase
+    .from("courses")
+    .select("id")
+    .eq("status", "published");
+
+  const activeEnrollments: EnrollmentWithCourse[] = enrollments || [];
+  const progress = progressRows || [];
+
+  // Build lesson to course mapping
+  const enrolledCourseIds = activeEnrollments.map((e) => e.course_id);
+  const { data: modules } = await supabase
+    .from("modules")
+    .select("id, course_id")
+    .in("course_id", enrolledCourseIds);
+
+  const moduleIds = modules?.map((m) => m.id) || [];
+  const { data: lessons } = await supabase
+    .from("lessons")
+    .select("id, module_id")
+    .in("module_id", moduleIds);
+
+  const lessonToCourse = new Map<string, string>();
+  lessons?.forEach((lesson) => {
+    const module = modules?.find((m) => m.id === lesson.module_id);
+    if (module) {
+      lessonToCourse.set(lesson.id, module.course_id);
+    }
+  });
+
+  // Calculate average progress
+  let avgProgress = 0;
+  if (activeEnrollments.length > 0) {
+    const percents = activeEnrollments.map((e) =>
+      calculateCourseProgress(e.course_id, progress, lessonToCourse)
+    );
+    avgProgress = Math.round(percents.reduce((a, b) => a + b, 0) / percents.length);
+  }
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Top Navigation Bar - Like Coursera */}
@@ -36,8 +141,6 @@ export default function LMSDashboard() {
                 <input
                   type="text"
                   placeholder="Search courses, assignments..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10 pr-4 py-2 w-96 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 />
               </div>
@@ -45,10 +148,12 @@ export default function LMSDashboard() {
             <div className="flex items-center gap-4">
               <button className="relative p-2 hover:bg-slate-100 rounded-lg">
                 <Bell className="w-5 h-5 text-slate-600" />
-                <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                {notifications && notifications.length > 0 && (
+                  <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                )}
               </button>
               <div className="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-semibold">
-                JD
+                {user.email?.charAt(0).toUpperCase() || "U"}
               </div>
             </div>
           </div>

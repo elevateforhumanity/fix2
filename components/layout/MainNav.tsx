@@ -1,28 +1,48 @@
-// components/layout/MainNavMobile.tsx
+// components/layout/MainNav.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import clsx from "clsx";
 
-// Student Portal URL - update this to your actual student portal
-const STUDENT_PORTAL_URL = "/app";
+// Student Portal URL
+const STUDENT_PORTAL_URL = "/portal";
+
+// Programs dropdown items
+const programsLinks = [
+  { href: "/programs/medical-assistant", label: "Medical Assistant" },
+  { href: "/programs/phlebotomy", label: "Phlebotomy Technician" },
+  { href: "/programs/ekg-technician", label: "EKG Technician" },
+  { href: "/programs/pharmacy-technician", label: "Pharmacy Technician" },
+  { href: "/programs/dental-assistant", label: "Dental Assistant" },
+  { href: "/programs/patient-care-technician", label: "Patient Care Technician" },
+  { href: "/programs/sterile-processing", label: "Sterile Processing Technician" },
+  { href: "/programs/healthcare-administration", label: "Healthcare Administration" },
+];
+
+// Funding dropdown items
+const fundingLinks = [
+  { href: "/funding/state-programs", label: "State Programs" },
+  { href: "/funding/federal-programs", label: "Federal Programs" },
+];
 
 const mainLinks = [
-  { href: "/programs", label: "Programs" },
+  { href: "/students", label: "For Students" },
+  { href: "/employers", label: "For Employers" },
   { href: "/about", label: "About" },
-  { href: "/learners", label: "Learners" },
-  { href: "/employers", label: "Employers" },
-  { href: "/partners/workforce", label: "Partners" },
-  { href: "/portal", label: "Portal" },
   { href: "/contact", label: "Contact" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export function MainNav() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [programsOpen, setProgramsOpen] = useState(false);
+  const [fundingOpen, setFundingOpen] = useState(false);
+  const [mobileProgramsOpen, setMobileProgramsOpen] = useState(false);
+  const [mobileFundingOpen, setMobileFundingOpen] = useState(false);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -39,6 +59,8 @@ export function MainNav() {
   // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
+    setProgramsOpen(false);
+    setFundingOpen(false);
   }, [pathname]);
 
   return (
@@ -62,6 +84,87 @@ export function MainNav() {
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-6 text-xs md:flex" role="navigation" aria-label="Main navigation">
+            {/* Programs Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setProgramsOpen(true)}
+              onMouseLeave={() => setProgramsOpen(false)}
+            >
+              <button
+                className={clsx(
+                  "flex items-center gap-1 transition hover:text-emerald-600",
+                  pathname?.startsWith("/programs")
+                    ? "text-emerald-600 font-semibold"
+                    : "text-slate-700"
+                )}
+                aria-expanded={programsOpen}
+                aria-haspopup="true"
+              >
+                Programs
+                <ChevronDown size={14} className={clsx("transition-transform", programsOpen && "rotate-180")} />
+              </button>
+              
+              {programsOpen && (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
+                  {programsLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={clsx(
+                        "block px-4 py-2 text-xs transition hover:bg-emerald-50 hover:text-emerald-600",
+                        pathname === link.href
+                          ? "text-emerald-600 font-semibold bg-emerald-50"
+                          : "text-slate-700"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Funding Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setFundingOpen(true)}
+              onMouseLeave={() => setFundingOpen(false)}
+            >
+              <button
+                className={clsx(
+                  "flex items-center gap-1 transition hover:text-emerald-600",
+                  pathname?.startsWith("/funding")
+                    ? "text-emerald-600 font-semibold"
+                    : "text-slate-700"
+                )}
+                aria-expanded={fundingOpen}
+                aria-haspopup="true"
+              >
+                Funding
+                <ChevronDown size={14} className={clsx("transition-transform", fundingOpen && "rotate-180")} />
+              </button>
+              
+              {fundingOpen && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
+                  {fundingLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={clsx(
+                        "block px-4 py-2 text-xs transition hover:bg-emerald-50 hover:text-emerald-600",
+                        pathname === link.href
+                          ? "text-emerald-600 font-semibold bg-emerald-50"
+                          : "text-slate-700"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Main Links */}
             {mainLinks.map((link) => (
               <Link
                 key={link.href}
@@ -144,7 +247,68 @@ export function MainNav() {
               </div>
               
               {/* Navigation Links */}
-              <nav className="flex-1 p-6 space-y-2" role="navigation" aria-label="Mobile navigation">
+              <nav className="flex-1 p-6 space-y-2 overflow-y-auto" role="navigation" aria-label="Mobile navigation">
+                {/* Programs Section */}
+                <div className="space-y-1">
+                  <button
+                    onClick={() => setMobileProgramsOpen(!mobileProgramsOpen)}
+                    className="w-full flex items-center justify-between py-3 px-4 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 transition touch-manipulation"
+                  >
+                    <span>Programs</span>
+                    <ChevronDown size={16} className={clsx("transition-transform", mobileProgramsOpen && "rotate-180")} />
+                  </button>
+                  {mobileProgramsOpen && (
+                    <div className="pl-4 space-y-1">
+                      {programsLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className={clsx(
+                            "block py-2 px-4 rounded-lg text-sm transition touch-manipulation",
+                            pathname === link.href
+                              ? "bg-emerald-50 text-emerald-600 font-medium"
+                              : "text-slate-600 hover:bg-slate-50"
+                          )}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Funding Section */}
+                <div className="space-y-1">
+                  <button
+                    onClick={() => setMobileFundingOpen(!mobileFundingOpen)}
+                    className="w-full flex items-center justify-between py-3 px-4 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 transition touch-manipulation"
+                  >
+                    <span>Funding</span>
+                    <ChevronDown size={16} className={clsx("transition-transform", mobileFundingOpen && "rotate-180")} />
+                  </button>
+                  {mobileFundingOpen && (
+                    <div className="pl-4 space-y-1">
+                      {fundingLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className={clsx(
+                            "block py-2 px-4 rounded-lg text-sm transition touch-manipulation",
+                            pathname === link.href
+                              ? "bg-emerald-50 text-emerald-600 font-medium"
+                              : "text-slate-600 hover:bg-slate-50"
+                          )}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Main Links */}
                 {mainLinks.map((link) => (
                   <Link
                     key={link.href}

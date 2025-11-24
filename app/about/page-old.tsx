@@ -1,103 +1,128 @@
-import Link from 'next/link';
+// app/about/page.tsx
 
-export const metadata = {
-  title: 'About Us | Elevate for Humanity',
-  description:
-    'Learn about our mission to provide free workforce training and career development.',
+import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us - Workforce Development Ecosystem | Elevate for Humanity",
+  description: "Learn about Elevate For Humanity's mission to remove barriers and expand access to high-quality training in healthcare, skilled trades, and more through WIOA-funded programs.",
+  keywords: ["workforce development", "WIOA programs", "training institute", "career pathways", "community partnerships", "employer engagement"],
+  openGraph: {
+    title: "About Us - Workforce Development Ecosystem | Elevate for Humanity",
+    description: "Learn about Elevate For Humanity's mission to remove barriers and expand access to high-quality training in healthcare, skilled trades, and more.",
+    images: ["/images/homepage/about-elevate.png"],
+    type: "website",
+  },
 };
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <header className="elevate-nav">
-        <div className="elevate-logo">
-          <div className="elevate-logo-mark">E</div>
-          <div className="flex flex-col">
-            <span className="font-bold text-lg">Elevate for Humanity</span>
-            <span className="text-xs text-gray-600">
-              Elevate for Humanity
-            </span>
-          </div>
+    <main className="min-h-screen bg-slate-950 text-slate-50 px-6 py-16 sm:px-10 lg:px-24">
+      <div className="max-w-5xl mx-auto">
+
+        <p className="text-xs font-semibold tracking-wide text-emerald-400 uppercase">
+          About Elevate For Humanity
+        </p>
+
+        <h1 className="mt-2 text-3xl sm:text-4xl font-bold">
+          A workforce ecosystem built for real people, real employers, and real results.
+        </h1>
+
+        <p className="mt-4 text-sm sm:text-base text-slate-200">
+          Elevate For Humanity (EFH) is a hybrid workforce development platform and training
+          institute that blends in-person programs, community partnerships, employer engagement,
+          and a modern SaaS portal. Our mission is simple: remove barriers, expand access to
+          high-quality training, and help people step into careers that change their lives
+          and communities.
+        </p>
+
+        <p className="mt-3 text-sm sm:text-base text-slate-200">
+          EFH serves individuals across healthcare, skilled trades, transportation, re-entry,
+          youth programs, technical fields, and more. Many pathways are funded through WIOA,
+          workforce grants, OJT, WEX, JRI, employer sponsorships, and other sources—making
+          training accessible, affordable, and life-changing.
+        </p>
+
+        {/* About Video */}
+        <div className="mt-8 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
+          <video
+            controls
+            className="w-full"
+          >
+            <source src="/videos/about-section-video-with-narration.mp4" type="video/mp4" />
+          </video>
         </div>
-        <nav className="flex gap-3 items-center">
-          <Link href="/programs" className="text-gray-700 hover:text-red-600 font-medium">
-            Programs
-          </Link>
-          <Link href="/about" className="text-efh-red font-bold">
-            About
-          </Link>
-          <Link href="/contact" className="text-gray-700 hover:text-red-600 font-medium">
-            Contact
-          </Link>
-          <Link href="/login" className="elevate-btn-secondary">
-            Sign In
-          </Link>
-          <Link href="/signup" className="elevate-btn-primary">
-            Get Started Free
-          </Link>
-        </nav>
-      </header>
-      <main className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="elevate-container max-w-4xl">
-          <div className="animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-              About Elevate for Humanity
-            </h1>
-            <p className="text-2xl font-semibold mb-6 text-efh-orange italic">
-              Innovate. Elevate. Reset.
-            </p>
+
+        <section className="mt-10 space-y-4">
+          <h2 className="text-2xl font-semibold">What makes Elevate different?</h2>
+
+          <p className="text-sm sm:text-base text-slate-200">
+            Most organizations offer either training or technology—but not both. Elevate For
+            Humanity brings everything together: a pathway directory, student and employer portals,
+            a partner/instructor portal, workforce analytics, real classrooms, embedded credentialing
+            partners, and direct alignment with workforce board priorities. We eliminate friction,
+            increase accountability, and make outcomes clear.
+          </p>
+
+          <ul className="space-y-2 text-sm text-slate-200">
+            <li>• A funded training catalog with 20+ workforce-aligned programs.</li>
+            <li>• A single portal for students, employers, partners, and workforce staff.</li>
+            <li>• Transparent attendance, progress, credentialing, and placement tracking.</li>
+            <li>• Support for WIOA, WRG, JRI, ETPL, apprenticeships, OJT, and employer upskilling.</li>
+            <li>• Partnerships with real institutions, academies, and credentialing providers.</li>
+            <li>• A replicable ecosystem that can be deployed in any city or region.</li>
+          </ul>
+        </section>
+
+        <section className="mt-10 space-y-4">
+          <h2 className="text-2xl font-semibold">Who we serve</h2>
+          <p className="text-sm sm:text-base text-slate-200">
+            Elevate For Humanity brings structure, clarity, and support to everyone involved in
+            workforce development:
+          </p>
+          <ul className="space-y-2 text-sm text-slate-200">
+            <li>• <strong>Students & learners</strong> overcoming barriers and pursuing new careers.</li>
+            <li>• <strong>Employers</strong> needing reliable talent, better onboarding, and OJT/WEX pipelines.</li>
+            <li>• <strong>Training providers</strong> delivering hands-on instruction with compliance support.</li>
+            <li>• <strong>Workforce boards & funders</strong> needing real-time visibility into outcomes.</li>
+            <li>• <strong>Community organizations</strong> supporting re-entry, youth, and underserved populations.</li>
+          </ul>
+        </section>
+
+        <section className="mt-10 space-y-4">
+          <h2 className="text-2xl font-semibold">Our mission</h2>
+          <p className="text-sm sm:text-base text-slate-200">
+            To elevate people by connecting them to opportunity, education, and employers in a way
+            that is accessible, dignified, and rooted in community. We believe that workforce
+            development should be human, transparent, and connected—not siloed or confusing.
+          </p>
+        </section>
+
+        <section className="mt-10 rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+          <h2 className="text-xl sm:text-2xl font-semibold">Partner with Elevate</h2>
+          <p className="mt-3 text-sm sm:text-base text-slate-200">
+            Whether you are a student, employer, training provider, nonprofit,
+            workforce board, or community leader—we would love to work with you.
+            Together we can create stronger pathways to careers and a stronger
+            economic foundation for the communities we serve.
+          </p>
+
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold bg-emerald-400 text-slate-950 hover:bg-emerald-300 transition"
+            >
+              Contact Elevate For Humanity
+            </Link>
+            <Link
+              href="/directory"
+              className="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold border border-emerald-400/60 text-emerald-300 hover:bg-emerald-400/10 transition"
+            >
+              Explore funded programs
+            </Link>
           </div>
-          <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed animate-fade-in-up animate-delay-100">
-              We provide free workforce training and career development programs
-              to help individuals transform their lives through education and
-              skill-building.
-            </p>
-            <h2 className="text-3xl font-bold mb-4 text-gray-900 animate-fade-in-up animate-delay-200">Our Mission</h2>
-            <p className="text-gray-700 mb-6 leading-relaxed animate-fade-in-up animate-delay-300">
-              To elevate communities by providing accessible, high-quality
-              career and technical training that leads to meaningful employment
-              and economic opportunity.
-            </p>
-            <h2 className="text-3xl font-bold mb-4 text-gray-900 animate-fade-in-up animate-delay-400">What We Offer</h2>
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3 animate-fade-in-left animate-delay-500">
-                <span className="text-efh-teal text-xl">✓</span>
-                <span>100% funded training programs through WIOA and WRG</span>
-              </li>
-              <li className="flex items-start gap-3 animate-fade-in-left animate-delay-600">
-                <span className="text-efh-teal text-xl">✓</span>
-                <span>Industry-recognized certifications</span>
-              </li>
-              <li className="flex items-start gap-3 animate-fade-in-left animate-delay-700">
-                <span className="text-efh-teal text-xl">✓</span>
-                <span>Hands-on training with experienced instructors</span>
-              </li>
-              <li className="flex items-start gap-3 animate-fade-in-left animate-delay-800">
-                <span className="text-efh-teal text-xl">✓</span>
-                <span>Job placement assistance</span>
-              </li>
-              <li className="flex items-start gap-3 animate-fade-in-left animate-delay-900">
-                <span className="text-efh-teal text-xl">✓</span>
-                <span>Ongoing career support</span>
-              </li>
-            </ul>
-            <div className="elevate-card bg-gradient-to-br from-efh-red/10 to-efh-orange/10 border-2 border-efh-red/20 p-8 mb-8 animate-scale-in">
-              <h3 className="text-2xl font-bold mb-4 text-gray-900">Ready to Get Started?</h3>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                Join thousands of students who have transformed their careers
-                through our programs.
-              </p>
-              <Link
-                href="/enroll"
-                className="elevate-btn-primary inline-block"
-              >
-                Check Your Eligibility
-              </Link>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
+        </section>
+      </div>
+    </main>
   );
 }

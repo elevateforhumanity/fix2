@@ -1,103 +1,106 @@
 #!/bin/bash
 
-# Deploy to Vercel - fix2-1c7w project
-# This script helps deploy the PWA changes to the correct Vercel project
+# Elevate for Humanity - Vercel Autodeploy Script
+# This script automates the entire deployment process to Vercel
 
-set -e
+set -e  # Exit on error
 
-echo "🚀 Deploying PWA to Vercel"
-echo "Target: fix2-1c7w-git-main-gitpod.vercel.app"
+echo ""
+echo "╔════════════════════════════════════════════════════════════╗"
+echo "║  🚀 Elevate for Humanity - Vercel Deployment Script      ║"
+echo "╚════════════════════════════════════════════════════════════╝"
 echo ""
 
-# Colors
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-YELLOW='\033[1;33m'
+# Colors for output
 RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# Check if we're in the right directory
-if [ ! -f "package.json" ]; then
-    echo -e "${RED}❌ Error: package.json not found${NC}"
-    echo "Please run this script from the project root"
+# Function to print colored output
+print_status() {
+    echo -e "${BLUE}[INFO]${NC} $1"
+}
+
+print_success() {
+    echo -e "${GREEN}[SUCCESS]${NC} $1"
+}
+
+print_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+print_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+# Check if Vercel CLI is installed
+print_status "Checking for Vercel CLI..."
+if ! command -v vercel &> /dev/null; then
+    print_warning "Vercel CLI not found. Installing..."
+    npm install -g vercel
+    print_success "Vercel CLI installed"
+else
+    print_success "Vercel CLI found"
+fi
+
+# Check if logged in to Vercel
+print_status "Checking Vercel authentication..."
+if ! vercel whoami &> /dev/null; then
+    print_warning "Not logged in to Vercel. Please login..."
+    vercel login
+else
+    print_success "Already logged in to Vercel"
+fi
+
+# Install dependencies
+print_status "Installing dependencies..."
+npm install
+print_success "Dependencies installed"
+
+# Build the project
+print_status "Building project..."
+npm run build
+print_success "Build completed successfully"
+
+# Ask for deployment type
+echo ""
+echo "Select deployment type:"
+echo "  1) Preview (staging)"
+echo "  2) Production"
+echo ""
+read -p "Enter choice (1 or 2): " -n 1 -r
+echo ""
+
+if [[ $REPLY == "1" ]]; then
+    DEPLOY_TYPE="preview"
+    DEPLOY_CMD="vercel"
+elif [[ $REPLY == "2" ]]; then
+    DEPLOY_TYPE="production"
+    DEPLOY_CMD="vercel --prod"
+else
+    print_error "Invalid choice"
     exit 1
 fi
 
-# Check if git is clean
-if [ -n "$(git status --porcelain)" ]; then
-    echo -e "${YELLOW}⚠️  You have uncommitted changes${NC}"
+# Deploy to Vercel
+print_status "Deploying to Vercel ($DEPLOY_TYPE)..."
+echo ""
+
+$DEPLOY_CMD
+
+DEPLOY_STATUS=$?
+
+echo ""
+if [ $DEPLOY_STATUS -eq 0 ]; then
+    print_success "Deployment successful! 🎉"
     echo ""
-    echo "Would you like to commit all changes? (y/n)"
-    read -r response
-    
-    if [ "$response" = "y" ]; then
-        echo ""
-        echo -e "${BLUE}📝 Committing changes...${NC}"
-        
-        git add .
-        git commit -m "🎨 Add complete PWA implementation with mobile optimization
-
-- Add service worker with offline support
-- Implement push notifications with VAPID
-- Create mobile-optimized UI components
-- Add all icon sizes (72px to 512px) with maskable variants
-- Configure app shortcuts and share target
-- Add offline functionality with IndexedDB
-- Implement background sync
-- Create mobile navigation and video player
-- Add PWA test page and verification script
-- Update documentation
-
-PWA Verification: 31/31 checks passed ✅
-
-Co-authored-by: Ona <no-reply@ona.com>"
-        
-        echo -e "${GREEN}✅ Changes committed${NC}"
-    else
-        echo -e "${YELLOW}⚠️  Skipping commit${NC}"
-    fi
+    echo "╔════════════════════════════════════════════════════════════╗"
+    echo "║              ✅ Deployment Complete                        ║"
+    echo "╚════════════════════════════════════════════════════════════╝"
+    echo ""
+else
+    print_error "Deployment failed"
+    exit 1
 fi
-
-# Check current branch
-CURRENT_BRANCH=$(git branch --show-current)
-echo ""
-echo -e "${BLUE}Current branch: ${CURRENT_BRANCH}${NC}"
-
-if [ "$CURRENT_BRANCH" != "main" ]; then
-    echo -e "${YELLOW}⚠️  You're not on the main branch${NC}"
-    echo "Would you like to switch to main? (y/n)"
-    read -r response
-    
-    if [ "$response" = "y" ]; then
-        git checkout main
-        echo -e "${GREEN}✅ Switched to main branch${NC}"
-    fi
-fi
-
-# Push to GitHub
-echo ""
-echo -e "${BLUE}📤 Pushing to GitHub...${NC}"
-git push origin main
-
-echo ""
-echo -e "${GREEN}✅ Pushed to GitHub${NC}"
-echo ""
-echo "Vercel will automatically deploy from GitHub"
-echo ""
-echo -e "${BLUE}📊 Deployment Status:${NC}"
-echo "1. Go to: https://vercel.com/dashboard"
-echo "2. Find project: fix2-1c7w"
-echo "3. Check Deployments tab"
-echo ""
-echo -e "${BLUE}🔗 Deployment URL:${NC}"
-echo "https://fix2-1c7w-git-main-gitpod.vercel.app"
-echo ""
-echo -e "${YELLOW}⏳ Deployment usually takes 2-5 minutes${NC}"
-echo ""
-echo -e "${BLUE}📋 After deployment:${NC}"
-echo "1. Generate VAPID keys: npm run generate:vapid"
-echo "2. Add keys to Vercel environment variables"
-echo "3. Test PWA: https://fix2-1c7w-git-main-gitpod.vercel.app/pwa-test"
-echo "4. Run Lighthouse audit"
-echo ""
-echo -e "${GREEN}✅ Deployment initiated!${NC}"

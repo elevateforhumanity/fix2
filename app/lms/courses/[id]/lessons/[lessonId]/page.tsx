@@ -15,7 +15,7 @@ import {
   BookOpen,
 } from 'lucide-react';
 import AttendanceTracker from '@/components/lms/AttendanceTracker';
-import { VideoShell } from '@/components/VideoShell';
+import { ProfessionalVideoPlayer } from '@/components/video/ProfessionalVideoPlayer';
 
 interface Props {
   params: {
@@ -321,18 +321,10 @@ export default function LessonPage({ params }: Props) {
             <div className="prose max-w-none">
               {lesson.content_type === 'video' && lesson.content && (
                 <div className="mb-6">
-                  <VideoShell
+                  <ProfessionalVideoPlayer
                     src={lesson.content}
-                    title={lesson.title}
-                    caption={lesson.description || ''}
                     lessonId={params.lessonId}
-                    layout="horizontal"
-                    autoPlay={false}
-                    onEnded={() => {
-                      if (!progress?.completed) {
-                        markComplete();
-                      }
-                    }}
+                    poster={lesson.thumbnail_url}
                   />
                 </div>
               )}

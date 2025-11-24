@@ -1,0 +1,301 @@
+{
+  "name": "Complete Platform Setup",
+  "description": "Automated workflow to complete all remaining setup tasks for Elevate for Humanity",
+  "version": "1.0.0",
+  "tasks": [
+    {
+      "id": "setup-environment",
+      "name": "Setup Environment Variables",
+      "description": "Configure all required environment variables",
+      "type": "manual",
+      "instructions": [
+        "Create .env.local file from .env.example",
+        "Add Supabase credentials (URL, anon key, service role key)",
+        "Add NextAuth secret (generate with: openssl rand -base64 32)",
+        "Add SMTP credentials for email service",
+        "Add site URL (production domain)",
+        "Verify all variables are set correctly"
+      ],
+      "checklist": [
+        "NEXT_PUBLIC_SITE_URL configured",
+        "NEXT_PUBLIC_SUPABASE_URL configured",
+        "NEXT_PUBLIC_SUPABASE_ANON_KEY configured",
+        "SUPABASE_SERVICE_ROLE_KEY configured",
+        "NEXTAUTH_URL configured",
+        "NEXTAUTH_SECRET generated and configured",
+        "SMTP_HOST configured",
+        "SMTP_PORT configured",
+        "SMTP_USER configured",
+        "SMTP_PASSWORD configured"
+      ]
+    },
+    {
+      "id": "setup-supabase",
+      "name": "Setup Supabase Database",
+      "description": "Create and configure Supabase project with required tables",
+      "type": "manual",
+      "instructions": [
+        "Create new Supabase project at https://supabase.com",
+        "Copy project URL and keys to .env.local",
+        "Run database migrations: npm run db:migrate",
+        "Verify tables created: applications, users, programs",
+        "Set up Row Level Security (RLS) policies",
+        "Configure authentication providers",
+        "Test database connection"
+      ],
+      "checklist": [
+        "Supabase project created",
+        "Database migrations run successfully",
+        "Applications table exists",
+        "Users table exists",
+        "Programs table exists",
+        "RLS policies configured",
+        "Authentication enabled"
+      ]
+    },
+    {
+      "id": "implement-api-endpoints",
+      "name": "Implement API Endpoints",
+      "description": "Build missing API endpoints for forms",
+      "type": "automated",
+      "files": [
+        "app/api/applications/route.ts",
+        "app/api/contact/route.ts"
+      ],
+      "instructions": [
+        "API endpoints are already created in the codebase",
+        "Verify they connect to Supabase correctly",
+        "Test application submission",
+        "Test contact form submission",
+        "Verify email notifications work"
+      ],
+      "checklist": [
+        "/api/applications endpoint working",
+        "/api/contact endpoint working",
+        "Form submissions save to database",
+        "Email notifications sent",
+        "Error handling implemented"
+      ]
+    },
+    {
+      "id": "configure-email",
+      "name": "Configure Email Service",
+      "description": "Set up SMTP for email notifications",
+      "type": "manual",
+      "instructions": [
+        "Choose email provider (SendGrid, Mailgun, AWS SES, etc.)",
+        "Create account and get SMTP credentials",
+        "Add credentials to .env.local",
+        "Test email sending with test script",
+        "Configure email templates",
+        "Set up verification emails",
+        "Set up notification emails"
+      ],
+      "checklist": [
+        "Email provider configured",
+        "SMTP credentials added",
+        "Test email sent successfully",
+        "Verification emails working",
+        "Application notification emails working",
+        "Contact form emails working"
+      ]
+    },
+    {
+      "id": "replace-images",
+      "name": "Replace Placeholder Images",
+      "description": "Add real images and optimize them",
+      "type": "manual",
+      "instructions": [
+        "Gather real photos of students, facilities, training",
+        "Optimize images (compress, resize)",
+        "Replace placeholder images in /public/media/",
+        "Update image paths in components",
+        "Add proper alt text for accessibility",
+        "Test image loading on all pages"
+      ],
+      "checklist": [
+        "Homepage hero image replaced",
+        "Program page images replaced",
+        "About page images replaced",
+        "All images optimized",
+        "Alt text added to all images",
+        "Images load correctly"
+      ]
+    },
+    {
+      "id": "test-application-flow",
+      "name": "Test Complete Application Flow",
+      "description": "End-to-end testing of user journey",
+      "type": "manual",
+      "instructions": [
+        "Test application form submission",
+        "Verify data saves to database",
+        "Check email notifications sent",
+        "Test admin approval workflow",
+        "Verify user account creation",
+        "Test email verification",
+        "Test portal access after verification"
+      ],
+      "checklist": [
+        "Application form submits successfully",
+        "Data appears in database",
+        "Confirmation email received",
+        "Admin can view application",
+        "Admin can approve application",
+        "User account created",
+        "Verification email sent",
+        "User can access portal"
+      ]
+    },
+    {
+      "id": "test-all-pages",
+      "name": "Test All Pages",
+      "description": "Verify all pages load and function correctly",
+      "type": "manual",
+      "instructions": [
+        "Test homepage",
+        "Test all 8 program pages",
+        "Test funding pages (state and federal)",
+        "Test blog page",
+        "Test for students page",
+        "Test for employers page",
+        "Test about page",
+        "Test contact page",
+        "Test apply page",
+        "Test legal pages"
+      ],
+      "checklist": [
+        "Homepage loads",
+        "All program pages load",
+        "Funding pages load",
+        "Blog page loads",
+        "Students page loads",
+        "Employers page loads",
+        "About page loads",
+        "Contact page loads",
+        "Apply page loads",
+        "Legal pages load",
+        "Navigation works",
+        "Mobile responsive"
+      ]
+    },
+    {
+      "id": "run-accessibility-audit",
+      "name": "Run Accessibility Audit",
+      "description": "Ensure WCAG 2.1 AA compliance",
+      "type": "manual",
+      "instructions": [
+        "Run Lighthouse accessibility audit",
+        "Test keyboard navigation",
+        "Test with screen reader",
+        "Check color contrast",
+        "Verify ARIA labels",
+        "Fix any issues found",
+        "Re-test after fixes"
+      ],
+      "checklist": [
+        "Lighthouse accessibility score > 90",
+        "Keyboard navigation works",
+        "Screen reader compatible",
+        "Color contrast meets standards",
+        "ARIA labels present",
+        "No critical issues"
+      ]
+    },
+    {
+      "id": "run-performance-audit",
+      "name": "Run Performance Audit",
+      "description": "Optimize site performance",
+      "type": "manual",
+      "instructions": [
+        "Run Lighthouse performance audit",
+        "Optimize images",
+        "Minimize JavaScript",
+        "Enable caching",
+        "Test page load times",
+        "Fix any performance issues"
+      ],
+      "checklist": [
+        "Lighthouse performance score > 90",
+        "Page load time < 3 seconds",
+        "Images optimized",
+        "JavaScript minimized",
+        "Caching enabled"
+      ]
+    },
+    {
+      "id": "setup-analytics",
+      "name": "Setup Analytics",
+      "description": "Configure Google Analytics and tracking",
+      "type": "manual",
+      "instructions": [
+        "Create Google Analytics account",
+        "Add GA tracking ID to environment variables",
+        "Verify tracking code installed",
+        "Set up conversion tracking",
+        "Test analytics data collection"
+      ],
+      "checklist": [
+        "Google Analytics configured",
+        "Tracking code installed",
+        "Data collection verified",
+        "Conversion tracking set up"
+      ]
+    },
+    {
+      "id": "deploy-to-vercel",
+      "name": "Deploy to Vercel",
+      "description": "Deploy site to production",
+      "type": "automated",
+      "instructions": [
+        "Run deployment script: ./scripts/deploy-to-vercel.sh",
+        "Or manually: vercel --prod",
+        "Verify deployment successful",
+        "Test production site",
+        "Monitor for errors"
+      ],
+      "checklist": [
+        "Deployment successful",
+        "Production site accessible",
+        "All pages load",
+        "Forms work",
+        "No console errors"
+      ]
+    },
+    {
+      "id": "post-deployment-verification",
+      "name": "Post-Deployment Verification",
+      "description": "Final checks after deployment",
+      "type": "manual",
+      "instructions": [
+        "Test homepage on production",
+        "Test application form submission",
+        "Test contact form submission",
+        "Verify email notifications",
+        "Test on mobile devices",
+        "Check all navigation links",
+        "Monitor error logs",
+        "Set up uptime monitoring"
+      ],
+      "checklist": [
+        "Homepage works",
+        "Application form works",
+        "Contact form works",
+        "Emails sending",
+        "Mobile responsive",
+        "Navigation functional",
+        "No errors in logs",
+        "Monitoring configured"
+      ]
+    }
+  ],
+  "completion_criteria": {
+    "all_tasks_completed": true,
+    "all_checklists_verified": true,
+    "production_site_live": true,
+    "no_critical_errors": true
+  },
+  "estimated_time": "4-6 hours",
+  "priority": "high",
+  "owner": "development_team"
+}

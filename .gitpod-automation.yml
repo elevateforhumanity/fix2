@@ -1,0 +1,173 @@
+# Elevate for Humanity - Complete Gitpod Automation
+# This file automates the entire development environment setup
+
+image:
+  file: .gitpod.Dockerfile
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+    visibility: public
+    name: Marketing Site + LMS
+    description: Elevate for Humanity - Full Platform
+  - port: 5432
+    onOpen: ignore
+    visibility: private
+    name: PostgreSQL
+  - port: 54321
+    onOpen: ignore
+    visibility: private
+    name: Supabase Studio
+
+tasks:
+  # Task 1: Environment Setup
+  - name: 🔧 Environment Setup
+    init: |
+      echo "🚀 Setting up Elevate for Humanity development environment..."
+      
+      # Install dependencies
+      npm install
+      
+      # Create .env.local if it doesn't exist
+      if [ ! -f .env.local ]; then
+        echo "📝 Creating .env.local from example..."
+        cp .env.example .env.local
+        
+        # Generate random secrets
+        NEXTAUTH_SECRET=$(openssl rand -base64 32)
+        
+        # Update .env.local with generated values
+        sed -i "s|NEXTAUTH_SECRET=.*|NEXTAUTH_SECRET=$NEXTAUTH_SECRET|g" .env.local
+        sed -i "s|NEXT_PUBLIC_SITE_URL=.*|NEXT_PUBLIC_SITE_URL=$(gp url 3000)|g" .env.local
+        
+        echo "✅ Environment file created with generated secrets"
+      fi
+      
+      echo "✅ Dependencies installed"
+    
+    command: |
+      echo ""
+      echo "╔════════════════════════════════════════════════════════════╗"
+      echo "║  🎓 Elevate for Humanity - Development Environment Ready  ║"
+      echo "╚════════════════════════════════════════════════════════════╝"
+      echo ""
+      echo "📋 Quick Start Commands:"
+      echo "  npm run dev          - Start development server"
+      echo "  npm run build        - Build for production"
+      echo "  npm run db:migrate   - Run database migrations"
+      echo "  npm run test         - Run tests"
+      echo ""
+      echo "📚 Documentation:"
+      echo "  INTEGRATED_SITE_ARCHITECTURE.md"
+      echo "  MARKETING_LMS_INTEGRATION.md"
+      echo "  TESTING_GUIDE.md"
+      echo "  DEPLOYMENT_READY.md"
+      echo ""
+      echo "🌐 Preview URL: $(gp url 3000)"
+      echo ""
+
+  # Task 2: Database Setup (if Supabase credentials exist)
+  - name: 🗄️ Database Setup
+    init: |
+      echo "⏳ Waiting for environment setup..."
+      sleep 5
+    
+    command: |
+      if [ -f .env.local ] && grep -q "NEXT_PUBLIC_SUPABASE_URL=https://" .env.local; then
+        echo "🗄️ Supabase credentials detected, setting up database..."
+        
+        # Run migrations if they exist
+        if [ -d "supabase/migrations" ]; then
+          echo "📦 Running database migrations..."
+          npm run db:migrate || echo "⚠️ Migrations failed or not configured"
+        fi
+        
+        echo "✅ Database setup complete"
+      else
+        echo "⚠️ Supabase credentials not configured"
+        echo "📝 Add your Supabase credentials to .env.local to enable database features"
+      fi
+
+  # Task 3: Development Server
+  - name: 🚀 Development Server
+    init: |
+      echo "⏳ Waiting for setup to complete..."
+      sleep 10
+    
+    command: |
+      echo "🚀 Starting development server..."
+      npm run dev
+
+  # Task 4: Helper Scripts
+  - name: 📦 Helper Scripts
+    openMode: split-right
+    command: |
+      echo ""
+      echo "╔═══════════════════════════════════════════════════════╗"
+      echo "║           🛠️ Helper Commands Available               ║"
+      echo "╚═══════════════════════════════════════════════════════╝"
+      echo ""
+      echo "Database:"
+      echo "  npm run db:migrate       - Run migrations"
+      echo "  npm run db:seed          - Seed test data"
+      echo "  npm run db:reset         - Reset database"
+      echo ""
+      echo "Development:"
+      echo "  npm run dev              - Start dev server"
+      echo "  npm run build            - Production build"
+      echo "  npm run start            - Start production server"
+      echo ""
+      echo "Testing:"
+      echo "  npm run test             - Run all tests"
+      echo "  npm run test:watch       - Watch mode"
+      echo "  npm run test:e2e         - End-to-end tests"
+      echo ""
+      echo "Deployment:"
+      echo "  npm run deploy           - Deploy to Vercel"
+      echo "  vercel --prod            - Deploy to production"
+      echo ""
+      echo "Utilities:"
+      echo "  npm run lint             - Lint code"
+      echo "  npm run format           - Format code"
+      echo "  npm run type-check       - Check TypeScript"
+      echo ""
+
+vscode:
+  extensions:
+    # Essential
+    - dbaeumer.vscode-eslint
+    - esbenp.prettier-vscode
+    - bradlc.vscode-tailwindcss
+    
+    # TypeScript
+    - ms-vscode.vscode-typescript-next
+    
+    # React/Next.js
+    - dsznajder.es7-react-js-snippets
+    
+    # Database
+    - mtxr.sqltools
+    - mtxr.sqltools-driver-pg
+    
+    # Git
+    - eamodio.gitlens
+    
+    # Utilities
+    - christian-kohler.path-intellisense
+    - formulahendry.auto-rename-tag
+    - naumovs.color-highlight
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: false
+    addCheck: true
+    addComment: false
+    addBadge: true
+
+jetbrains:
+  intellij:
+    prebuilds:
+      version: stable

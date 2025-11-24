@@ -1,284 +1,548 @@
-// app/portal/student/dashboard/page.tsx - STUDENT DASHBOARD
+import { redirect } from "next/navigation";
 import Link from "next/link";
-import { BookOpen, Award, Calendar, MessageSquare, FileText, TrendingUp, Clock, CheckCircle } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/auth";
-import { redirect } from "next/navigation";
+import { StudentStreakWidget } from "@/components/dashboard/StudentStreakWidget";
+import { StudentAchievementsWidget } from "@/components/dashboard/StudentAchievementsWidget";
+
+type EnrollmentRow = {
+  id: string;
+  course_id: string;
+  started_at: string | null;
+  created_at: string | null;
+  courses: {
+    id: string;
+    title: string;
+    slug: string;
+    thumbnail_url: string | null;
+  } | null;
+};
 
 export const metadata = {
   title: "Student Dashboard | Elevate For Humanity",
   description: "Your learning dashboard",
 };
 
-export default async function StudentDashboard() {
-  // Get current user
+export default async function StudentPortalDashboardPage() {
+  const supabase = await createClient();
   const user = await getCurrentUser();
-  
+
   if (!user) {
-    redirect("/portal/student");
+    redirect("/login");
   }
 
-  const supabase = await createClient();
-  
-  // Fetch real courses
-  const { data: courses } = await supabase
-    .from("courses")
-    .select("id, title, slug")
-    .limit(5);
-  
-  // Try to fetch enrollments (may not exist yet)
+  // --- BASIC STATS ---
   const { data: enrollments } = await supabase
     .from("enrollments")
-    .select("*, courses(title, slug)")
-    .eq("user_id", user.id);
-  
-  // Try to fetch certificates
+    .select(
+      `
+      id,
+      course_id,
+      started_at,
+      created_at,
+      courses (
+        id,
+        title,
+        slug,
+        thumbnail_url
+      )
+    `
+    )
+    .eq("user_id", user.id)
+    .order("created_at", { ascending: false });
+
+  const activeEnrollments: EnrollmentRow[] = enrollments || [];
+
   const { data: certificates } = await supabase
     .from("certificates")
-    .select("*")
+    .select("id")
     .eq("user_id", user.id);
-  
-  const userName = user.profile?.name || user.email?.split("@")[0] || "Student";
+
+  const { data: courses } = await supabase
+    .from("courses")
+    .select("id")
+    .eq("status", "published");
+
+  const activeEnrollmentsCount = activeEnrollments.length;
+  const certificatesCount = certificates?.length || 0;
+  const availableCoursesCount = courses?.length || 0;
+
+  // --- PROGRESS / LESSONS MAPPING ---
+  const enrolledCourseIds = activeEnrollments.map((e) => e.course_id);
+
+  let lessonToCourse = new Map<string, string>();
+  let progressRows: { lesson_id: string; completed: boolean; updated_at: string }[] =
+    [];
+
+  if (enrolledCourseIds.length > 0) {
+    const { data: modules } = await supabase
+      .from("modules")
+      .select("id, course_id")
+      .in("course_id", enrolledCourseIds);
+
+    const moduleIds = modules?.map((m) => m.id) || [];
+
+    const { data: lessons } = await supabase
+      .from("lessons")
+      .select("id, module_id")
+      .in("module_id", moduleIds);
+
+    lessonToCourse = new Map();
+    lessons?.forEach((lesson) => {
+      const mod = modules?.find((m) => m.id === lesson.module_id);
+      if (mod) {
+        lessonToCourse.set(lesson.id, mod.course_id);
+      }
+    });
+
+    const { data: lp } = await supabase
+      .from("lesson_progress")
+      .select("lesson_id, completed, updated_at")
+      .eq("user_id", user.id);
+
+    progressRows = (lp || []) as any;
+  }
+
+  const { overallProgress, progressByCourse } = computeProgress(
+    activeEnrollments,
+    progressRows,
+    lessonToCourse
+  );
+
+  // --- UPCOMING DEADLINES (ASSIGNMENTS) ---
+  const { data: assignments } = await supabase
+    .from("assignments")
+    .select(
+      `
+      id,
+      title,
+      due_at,
+      course_id
+    `
+    )
+    .in("course_id", enrolledCourseIds)
+    .order("due_at", { ascending: true })
+    .limit(5);
+
+  // --- NOTIFICATIONS ---
+  const { data: notifications } = await supabase
+    .from("notifications")
+    .select("*")
+    .eq("user_id", user.id)
+    .order("created_at", { ascending: false })
+    .limit(5);
+
+  // --- GOALS & STREAKS ---
+  const { data: learningGoal } = await supabase
+    .from("learning_goals")
+    .select("*")
+    .eq("user_id", user.id)
+    .maybeSingle();
+
+  const { data: streakRow } = await supabase
+    .from("daily_streaks")
+    .select("*")
+    .eq("user_id", user.id)
+    .maybeSingle();
+
+  // --- ACHIEVEMENTS ---
+  const { data: achievements } = await supabase
+    .from("achievements")
+    .select("*")
+    .eq("user_id", user.id)
+    .order("earned_at", { ascending: false })
+    .limit(6);
+
+  // --- ACTIVITY FEED (recent lesson completions & certificates) ---
+  const activity: ActivityItem[] = buildActivityFeed(
+    progressRows,
+    certificates || []
+  );
+
+  // --- SIMPLE RECOMMENDATIONS (just "other courses you're not in yet") ---
+  const { data: recommended } = await supabase
+    .from("courses")
+    .select("id, title, slug, thumbnail_url")
+    .eq("status", "published")
+    .not("id", "in", `(${enrolledCourseIds.join(",") || "NULL"})`)
+    .limit(4);
+
+  const userName = user.email?.split("@")[0] || "Student";
+
   return (
-    <main className="min-h-screen bg-slate-50">
-      {/* Header */}
-      <div className="bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold text-slate-900">Welcome back, {userName}!</h1>
-              <p className="text-sm text-slate-600 mt-1">Continue your learning journey</p>
-            </div>
-            <Link
-              href="/portal/student"
-              className="text-sm text-slate-600 hover:text-slate-900 transition"
-            >
-              Log out
-            </Link>
-          </div>
+    <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-8">
+      {/* HEADER */}
+      <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+        <div>
+          <h1 className="text-2xl font-bold">
+            Welcome back, {userName}
+          </h1>
+          <p className="text-sm text-slate-600">
+            Continue your programs, track your progress, and stay on top of
+            deadlines and goals.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-3">
+          <Link
+            href="/lms/courses"
+            className="rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-orange-600"
+          >
+            Browse Programs
+          </Link>
+          <Link
+            href="/support"
+            className="rounded-full border px-4 py-2 text-sm hover:bg-slate-50"
+          >
+            Need help?
+          </Link>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-slate-600">Courses</span>
-              <BookOpen className="text-emerald-500" size={20} />
-            </div>
-            <p className="text-3xl font-bold text-slate-900">{enrollments?.length || 0}</p>
-            <p className="text-xs text-slate-500 mt-1">Active enrollments</p>
-          </div>
+      {/* TOP STATS */}
+      <div className="grid gap-4 md:grid-cols-4">
+        <StatCard label="Active enrollments" value={activeEnrollmentsCount} />
+        <StatCard
+          label="Average progress"
+          value={Math.round(overallProgress)}
+          unit="%"
+        />
+        <StatCard label="Certificates earned" value={certificatesCount} />
+        <StatCard
+          label="Daily goal"
+          value={learningGoal?.daily_minutes || 20}
+          unit="min"
+        />
+      </div>
 
-          <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-slate-600">Progress</span>
-              <TrendingUp className="text-blue-500" size={20} />
-            </div>
-            <p className="text-3xl font-bold text-slate-900">
-              {enrollments?.length ? Math.round(enrollments.reduce((acc, e) => acc + (e.progress || 0), 0) / enrollments.length) : 0}%
-            </p>
-            <p className="text-xs text-slate-500 mt-1">Overall completion</p>
-          </div>
+      {/* GOALS + STREAK + BADGES */}
+      <div className="grid gap-4 md:grid-cols-[2fr,1fr]">
+        <StudentStreakWidget />
+        <StudentAchievementsWidget />
+      </div>
 
-          <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-slate-600">Certificates</span>
-              <Award className="text-orange-500" size={20} />
-            </div>
-            <p className="text-3xl font-bold text-slate-900">{certificates?.length || 0}</p>
-            <p className="text-xs text-slate-500 mt-1">Earned so far</p>
-          </div>
-
-          <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-slate-600">Available</span>
-              <Clock className="text-purple-500" size={20} />
-            </div>
-            <p className="text-3xl font-bold text-slate-900">{courses?.length || 0}</p>
-            <p className="text-xs text-slate-500 mt-1">Courses to explore</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* Current Courses */}
-            <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-              <h2 className="text-lg font-bold text-slate-900 mb-4">My Courses</h2>
-              {enrollments && enrollments.length > 0 ? (
-                <div className="space-y-4">
-                  {enrollments.map((enrollment) => (
-                    <CourseCard
-                      key={enrollment.id}
-                      title={enrollment.courses?.title || "Course"}
-                      progress={enrollment.progress || 0}
-                      nextLesson={enrollment.progress === 100 ? "Course Complete!" : "Continue learning"}
-                      href={`/lms/courses/${enrollment.course_id}`}
-                      completed={enrollment.progress === 100}
-                    />
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-8">
-                  <BookOpen className="mx-auto text-slate-300 mb-3" size={48} />
-                  <p className="text-slate-600 mb-4">You're not enrolled in any courses yet</p>
-                  <Link
-                    href="/programs"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition"
-                  >
-                    Browse Programs
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* Upcoming Assignments */}
-            <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-              <h2 className="text-lg font-bold text-slate-900 mb-4">Upcoming Assignments</h2>
-              <div className="space-y-3">
-                <AssignmentItem
-                  title="Quiz: Medical Terminology"
-                  course="Medical Assistant"
-                  dueDate="Due in 2 days"
-                  urgent
-                />
-                <AssignmentItem
-                  title="Lab Report: HVAC Systems"
-                  course="HVAC Technician"
-                  dueDate="Due in 5 days"
-                />
-                <AssignmentItem
-                  title="Resume Review"
-                  course="Workforce Readiness"
-                  dueDate="Due in 1 week"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Quick Actions */}
-            <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-              <h3 className="text-sm font-bold text-slate-900 mb-4">Quick Actions</h3>
-              <div className="space-y-2">
+      {/* MAIN GRID: CONTINUE LEARNING + SIDEBAR */}
+      <div className="grid gap-6 md:grid-cols-[2fr,1fr]">
+        {/* CONTINUE LEARNING */}
+        <section className="space-y-3">
+          <h2 className="text-lg font-semibold">Continue learning</h2>
+          {activeEnrollments.length === 0 ? (
+            <EmptyState
+              message="You're not enrolled in any courses yet."
+              action={
                 <Link
                   href="/lms/courses"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition text-sm"
+                  className="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
                 >
-                  <BookOpen size={18} className="text-emerald-500" />
-                  <span className="text-slate-700">Browse Courses</span>
+                  Browse all courses
                 </Link>
-                <Link
-                  href="/lms/assignments"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition text-sm"
-                >
-                  <FileText size={18} className="text-blue-500" />
-                  <span className="text-slate-700">View Assignments</span>
-                </Link>
-                <Link
-                  href="/lms/certificates"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition text-sm"
-                >
-                  <Award size={18} className="text-orange-500" />
-                  <span className="text-slate-700">My Certificates</span>
-                </Link>
-                <Link
-                  href="/lms/messages"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition text-sm"
-                >
-                  <MessageSquare size={18} className="text-purple-500" />
-                  <span className="text-slate-700">Messages</span>
-                </Link>
+              }
+            />
+          ) : (
+            <div className="grid gap-4 md:grid-cols-2">
+              {activeEnrollments.slice(0, 4).map((enrollment) => {
+                const course = enrollment.courses;
+                if (!course) return null;
+
+                const pct = progressByCourse.get(enrollment.course_id) || 0;
+
+                return (
+                  <Link
+                    key={enrollment.id}
+                    href={`/lms/courses/${course.slug}`}
+                    className="group flex flex-col overflow-hidden rounded-xl border bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                  >
+                    <div className="relative h-32 w-full bg-slate-100">
+                      {course.thumbnail_url ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={course.thumbnail_url}
+                          alt={course.title}
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-xs text-slate-400">
+                          No thumbnail
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex flex-1 flex-col gap-2 p-3">
+                      <h3 className="line-clamp-2 text-sm font-semibold">
+                        {course.title}
+                      </h3>
+                      <div className="flex items-center justify-between text-xs text-slate-500">
+                        <span>{pct}% complete</span>
+                        <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] text-emerald-700">
+                          In progress
+                        </span>
+                      </div>
+                      <div className="mt-1 h-2 w-full overflow-hidden rounded-full bg-slate-100">
+                        <div
+                          className="h-full rounded-full bg-emerald-500 transition-all"
+                          style={{ width: `${pct}%` }}
+                        />
+                      </div>
+                      <span className="mt-1 text-xs font-medium text-blue-600 group-hover:underline">
+                        Continue course →
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+
+          {/* RECOMMENDATIONS */}
+          {recommended && recommended.length > 0 && (
+            <div className="mt-6 space-y-2">
+              <h3 className="text-sm font-semibold">Recommended for you</h3>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {recommended.map((c) => (
+                  <Link
+                    key={c.id}
+                    href={`/lms/courses/${c.slug}`}
+                    className="flex items-center gap-3 rounded-xl border bg-white p-3 text-sm hover:-translate-y-0.5 hover:shadow-sm"
+                  >
+                    <div className="h-12 w-12 rounded-lg bg-slate-100">
+                      {c.thumbnail_url && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={c.thumbnail_url}
+                          alt={c.title}
+                          className="h-full w-full rounded-lg object-cover"
+                        />
+                      )}
+                    </div>
+                    <span className="line-clamp-2">{c.title}</span>
+                  </Link>
+                ))}
               </div>
             </div>
+          )}
+        </section>
 
-            {/* Calendar */}
-            <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200">
-              <div className="flex items-center gap-2 mb-4">
-                <Calendar size={18} className="text-slate-600" />
-                <h3 className="text-sm font-bold text-slate-900">Upcoming Events</h3>
-              </div>
-              <div className="space-y-3 text-sm">
-                <div className="flex gap-3">
-                  <div className="flex-shrink-0 w-12 text-center">
-                    <div className="text-xs text-slate-500">Nov</div>
-                    <div className="text-lg font-bold text-slate-900">25</div>
-                  </div>
-                  <div>
-                    <p className="font-medium text-slate-900">Live Session: HVAC</p>
-                    <p className="text-xs text-slate-500">2:00 PM - 3:30 PM</p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <div className="flex-shrink-0 w-12 text-center">
-                    <div className="text-xs text-slate-500">Nov</div>
-                    <div className="text-lg font-bold text-slate-900">27</div>
-                  </div>
-                  <div>
-                    <p className="font-medium text-slate-900">Quiz Deadline</p>
-                    <p className="text-xs text-slate-500">11:59 PM</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  );
-}
+        {/* SIDEBAR: DEADLINES + NOTIFICATIONS + ACTIVITY */}
+        <aside className="space-y-4">
+          {/* Upcoming deadlines */}
+          <section className="space-y-2 rounded-xl border bg-white p-3">
+            <h2 className="text-sm font-semibold">Upcoming deadlines</h2>
+            {assignments && assignments.length ? (
+              <ul className="mt-1 space-y-2 text-xs">
+                {assignments.map((a) => (
+                  <li
+                    key={a.id}
+                    className="flex flex-col rounded-lg bg-slate-50 p-2"
+                  >
+                    <span className="font-medium">{a.title}</span>
+                    <span className="text-slate-500">
+                      {formatDate(a.due_at)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-1 text-xs text-slate-500">
+                No upcoming deadlines. Stay ready for your next assignment.
+              </p>
+            )}
+          </section>
 
-function CourseCard({ title, progress, nextLesson, href, completed = false }: {
-  title: string;
-  progress: number;
-  nextLesson: string;
-  href: string;
-  completed?: boolean;
-}) {
-  return (
-    <Link
-      href={href}
-      className="block p-4 rounded-lg border border-slate-200 hover:border-emerald-500 hover:shadow-md transition"
-    >
-      <div className="flex items-start justify-between mb-3">
-        <div>
-          <h3 className="font-semibold text-slate-900">{title}</h3>
-          <p className="text-sm text-slate-600 mt-1">{nextLesson}</p>
-        </div>
-        {completed && <CheckCircle className="text-emerald-500" size={20} />}
-      </div>
-      <div className="flex items-center gap-3">
-        <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-emerald-500 rounded-full transition-all"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-        <span className="text-sm font-medium text-slate-700">{progress}%</span>
-      </div>
-    </Link>
-  );
-}
+          {/* Notifications */}
+          <section className="space-y-2 rounded-xl border bg-white p-3">
+            <h2 className="text-sm font-semibold">Notifications</h2>
+            {notifications && notifications.length ? (
+              <ul className="mt-1 space-y-1.5 text-xs">
+                {notifications.map((n) => (
+                  <li
+                    key={n.id}
+                    className={`rounded-lg p-2 ${
+                      n.read ? "bg-slate-50" : "bg-orange-50"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-medium">{n.title}</span>
+                      {!n.read && (
+                        <span className="rounded-full bg-orange-500 px-2 py-0.5 text-[10px] font-semibold uppercase text-white">
+                          New
+                        </span>
+                      )}
+                    </div>
+                    {n.body && (
+                      <p className="text-[11px] text-slate-600">
+                        {n.body}
+                      </p>
+                    )}
+                    {n.url && (
+                      <Link
+                        href={n.url}
+                        className="mt-1 inline-block text-[11px] font-semibold text-blue-600 hover:underline"
+                      >
+                        View →
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-1 text-xs text-slate-500">
+                You're all caught up. New course announcements and
+                deadlines will appear here.
+              </p>
+            )}
+          </section>
 
-function AssignmentItem({ title, course, dueDate, urgent = false }: {
-  title: string;
-  course: string;
-  dueDate: string;
-  urgent?: boolean;
-}) {
-  return (
-    <div className="flex items-start gap-3 p-3 rounded-lg border border-slate-200">
-      <div className={`flex-shrink-0 w-2 h-2 rounded-full mt-2 ${urgent ? 'bg-red-500' : 'bg-blue-500'}`} />
-      <div className="flex-1 min-w-0">
-        <p className="font-medium text-slate-900 text-sm">{title}</p>
-        <p className="text-xs text-slate-500 mt-1">{course}</p>
+          {/* Activity Feed */}
+          <section className="space-y-2 rounded-xl border bg-white p-3">
+            <h2 className="text-sm font-semibold">Recent activity</h2>
+            {activity.length ? (
+              <ul className="mt-1 space-y-1.5 text-xs">
+                {activity.slice(0, 5).map((item, idx) => (
+                  <li key={idx} className="flex flex-col rounded-lg p-1.5">
+                    <span className="font-medium">{item.title}</span>
+                    <span className="text-[11px] text-slate-500">
+                      {item.description}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-1 text-xs text-slate-500">
+                Start watching lessons to see your recent learning activity.
+              </p>
+            )}
+          </section>
+        </aside>
       </div>
-      <span className={`text-xs font-medium ${urgent ? 'text-red-600' : 'text-slate-600'}`}>
-        {dueDate}
-      </span>
     </div>
   );
+}
+
+/* ---------- Helpers & Small Components ---------- */
+
+function StatCard({
+  label,
+  value,
+  unit,
+}: {
+  label: string;
+  value: number;
+  unit?: string;
+}) {
+  return (
+    <div className="rounded-xl border bg-white p-4 shadow-sm">
+      <p className="text-xs text-slate-500">{label}</p>
+      <p className="mt-1 text-2xl font-bold">
+        {value}
+        {unit && (
+          <span className="ml-1 text-sm text-slate-500">{unit}</span>
+        )}
+      </p>
+    </div>
+  );
+}
+
+
+
+
+
+function EmptyState({
+  message,
+  action,
+}: {
+  message: string;
+  action?: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-col items-start gap-2 rounded-xl border border-dashed bg-slate-50 p-4 text-sm text-slate-600">
+      <span>{message}</span>
+      {action}
+    </div>
+  );
+}
+
+type ActivityItem = {
+  title: string;
+  description: string;
+};
+
+function buildActivityFeed(
+  progressRows: { lesson_id: string; completed: boolean; updated_at: string }[],
+  certificates: { id: string }[]
+): ActivityItem[] {
+  const items: ActivityItem[] = [];
+
+  progressRows
+    .filter((p) => p.completed)
+    .slice(0, 5)
+    .forEach((p) => {
+      items.push({
+        title: "Lesson completed",
+        description: `Completed a lesson on ${formatDate(p.updated_at)}`,
+      });
+    });
+
+  certificates.slice(0, 3).forEach((c) => {
+    items.push({
+      title: "Certificate earned",
+      description: `You earned a certificate (${c.id}).`,
+    });
+  });
+
+  return items;
+}
+
+function computeProgress(
+  enrollments: EnrollmentRow[],
+  progressRows: { lesson_id: string; completed: boolean }[],
+  lessonToCourse: Map<string, string>
+): {
+  overallProgress: number;
+  progressByCourse: Map<string, number>;
+} {
+  const progressByCourse = new Map<string, { total: number; done: number }>();
+
+  progressRows.forEach((row) => {
+    const courseId = lessonToCourse.get(row.lesson_id);
+    if (!courseId) return;
+    const bucket = progressByCourse.get(courseId) || {
+      total: 0,
+      done: 0,
+    };
+    bucket.total += 1;
+    if (row.completed) bucket.done += 1;
+    progressByCourse.set(courseId, bucket);
+  });
+
+  const percentageByCourse = new Map<string, number>();
+  progressByCourse.forEach((val, courseId) => {
+    if (val.total > 0) {
+      percentageByCourse.set(
+        courseId,
+        Math.round((val.done / val.total) * 100)
+      );
+    } else {
+      percentageByCourse.set(courseId, 0);
+    }
+  });
+
+  let overall = 0;
+  if (enrollments.length) {
+    const percents = enrollments.map((e) => percentageByCourse.get(e.course_id) || 0);
+    if (percents.length) {
+      overall =
+        percents.reduce((a, b) => a + b, 0) / percents.length;
+    }
+  }
+
+  return { overallProgress: overall, progressByCourse: percentageByCourse };
+}
+
+function formatDate(raw: string | null): string {
+  if (!raw) return "";
+  const d = new Date(raw);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+  });
 }
