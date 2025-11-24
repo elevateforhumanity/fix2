@@ -29,7 +29,7 @@ export default function CourseCatalogClient({ courses }: Props) {
   const [selectedLevel, setSelectedLevel] = useState('all');
   const [sortBy, setSortBy] = useState('popular');
 
-  const filteredCourses = courses.filter(course => {
+  const filteredCourses = (courses || []).filter(course => {
     const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          course.description.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || course.category === selectedCategory;
@@ -133,7 +133,7 @@ export default function CourseCatalogClient({ courses }: Props) {
                 <div className="text-sm text-slate-600 space-y-2">
                   <div className="flex justify-between">
                     <span>Total Courses:</span>
-                    <span className="font-semibold text-slate-900">{courses.length}</span>
+                    <span className="font-semibold text-slate-900">{courses?.length || 0}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Active Students:</span>
@@ -152,7 +152,7 @@ export default function CourseCatalogClient({ courses }: Props) {
           <div className="flex-1">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-slate-900">
-                {filteredCourses.length} Courses Available
+                {filteredCourses?.length || 0} Courses Available
               </h2>
             </div>
 
