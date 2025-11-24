@@ -4,11 +4,16 @@ import Stripe from 'stripe';
 import { createClient } from '@/lib/supabase/server';
 import { getCurrentUser } from '@/lib/auth';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
+const stripeKey = process.env.STRIPE_SECRET_KEY || '';
+const stripe = stripeKey ? new Stripe(stripeKey, {
   apiVersion: '2024-11-20.acacia',
-});
+}) : null;
 
 export async function POST(request: NextRequest) {
+  if (!stripe) {
+    return NextResponse.json({ error: 'Payment system not configured' }, { status: 503 });
+  }
+
   try {
     const user = await getCurrentUser();
     
