@@ -67,6 +67,18 @@ export default function proxy(request: NextRequest) {
   ) {
     return NextResponse.next();
   }
+
+  // Redirect admin routes to admin login if not authenticated
+  // (The actual auth check happens in the layout, this is just a helper redirect)
+  if (path.startsWith('/admin') && path !== '/admin/login') {
+    // Check for session cookie - if missing, redirect to admin login
+    const hasSession = request.cookies.has('sb-access-token');
+    if (!hasSession) {
+      const loginUrl = new URL('/admin/login', request.url);
+      loginUrl.searchParams.set('redirect', path);
+      return NextResponse.redirect(loginUrl);
+    }
+  }
   
   // Check if it's a suspicious bot
   const isSuspicious = SUSPICIOUS_USER_AGENTS.some(bot => 

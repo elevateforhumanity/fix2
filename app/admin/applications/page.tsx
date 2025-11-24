@@ -1,229 +1,166 @@
-'use client';
+// app/admin/applications/page.tsx - Applications Management
+import { getServerSupabase } from "@/lib/supabaseClients";
+import Link from "next/link";
+import { FileText, Eye, Calendar, Mail, User } from "lucide-react";
 
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
-import { Badge } from '@/components/ui/Badge';
-import { CheckCircle, XCircle, RefreshCw, Search } from 'lucide-react';
+export default async function ApplicationsPage() {
+  const supabase = getServerSupabase();
 
-type Application = {
-  id: string;
-  email: string;
-  program: string;
-  status: 'pending' | 'approved' | 'denied';
-  submittedAt: string;
-};
-
-export default function ApplicationsPage() {
-  const [applications, setApplications] = useState<Application[]>([
-    {
-      id: '1',
-      email: 'john.doe@gmail.com',
-      program: 'WIOA',
-      status: 'pending',
-      submittedAt: '2024-01-15',
-    },
-    {
-      id: '2',
-      email: 'jane.smith@gmail.com',
-      program: 'WRG',
-      status: 'approved',
-      submittedAt: '2024-01-14',
-    },
-    {
-      id: '3',
-      email: 'bob.johnson@gmail.com',
-      program: 'JRI',
-      status: 'pending',
-      submittedAt: '2024-01-13',
-    },
-  ]);
-
-  const [searchQuery, setSearchQuery] = useState('');
-  const [statusFilter, setStatusFilter] = useState<string>('all');
-
-  const handleApprove = (id: string) => {
-    setApplications(apps =>
-      apps.map(app => (app.id === id ? { ...app, status: 'approved' as const } : app))
-    );
+  let applications: any[] = [];
+  let stats = {
+    total: 0,
+    submitted: 0,
+    converted: 0,
+    rejected: 0,
   };
 
-  const handleDeny = (id: string) => {
-    setApplications(apps =>
-      apps.map(app => (app.id === id ? { ...app, status: 'denied' as const } : app))
-    );
-  };
+  if (supabase) {
+    try {
+      const { data, error } = await supabase
+        .from("applications")
+        .select("*")
+        .order("created_at", { ascending: false });
 
-  const filteredApplications = applications.filter(app => {
-    const matchesSearch =
-      app.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      app.program.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesStatus = statusFilter === 'all' || app.status === statusFilter;
-    return matchesSearch && matchesStatus;
-  });
+      if (error) throw error;
 
-  const getStatusBadge = (status: string) => {
-    switch (status) {
-      case 'approved':
-        return <Badge variant="success">Approved</Badge>;
-      case 'denied':
-        return <Badge variant="destructive">Denied</Badge>;
-      case 'pending':
-        return <Badge variant="warning">Pending</Badge>;
-      default:
-        return <Badge variant="secondary">{status}</Badge>;
+      applications = data || [];
+
+      // Calculate stats
+      stats.total = applications.length;
+      stats.submitted = applications.filter((a) => a.status === "submitted").length;
+      stats.converted = applications.filter((a) => a.status === "converted").length;
+      stats.rejected = applications.filter((a) => a.status === "rejected").length;
+    } catch (error) {
+      console.error("Error loading applications:", error);
     }
-  };
+  }
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      <div className="container mx-auto px-4 py-8">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-3xl">Funding Applications</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            {/* Filters */}
-            <div className="flex gap-3 flex-wrap">
-              <div className="relative flex-1 min-w-[200px]">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-                <Input
-                  placeholder="Search email or program..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-              <div className="flex gap-2">
-                <Button
-                  variant={statusFilter === 'all' ? 'primary' : 'outline'}
-                  size="sm"
-                  onClick={() => setStatusFilter('all')}
-                >
-                  All
-                </Button>
-                <Button
-                  variant={statusFilter === 'pending' ? 'primary' : 'outline'}
-                  size="sm"
-                  onClick={() => setStatusFilter('pending')}
-                >
-                  Pending
-                </Button>
-                <Button
-                  variant={statusFilter === 'approved' ? 'primary' : 'outline'}
-                  size="sm"
-                  onClick={() => setStatusFilter('approved')}
-                >
-                  Approved
-                </Button>
-                <Button
-                  variant={statusFilter === 'denied' ? 'primary' : 'outline'}
-                  size="sm"
-                  onClick={() => setStatusFilter('denied')}
-                >
-                  Denied
-                </Button>
-              </div>
-              <Button variant="ghost" size="sm">
-                <RefreshCw className="h-4 w-4 mr-2" />
-                Refresh
-              </Button>
-            </div>
+    <div className="p-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold text-gray-900">Applications</h1>
+          <p className="text-gray-600 mt-1">Review and approve program applications</p>
+        </div>
 
-            {/* Applications Table */}
-            <div className="border border-slate-200 rounded-lg overflow-hidden">
-              <table className="w-full">
-                <thead className="bg-slate-100">
+        {!supabase && (
+          <div className="mb-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+            <p className="text-sm text-yellow-800">
+              ⚠️ Database not configured. Configure Supabase to see real applications.
+            </p>
+          </div>
+        )}
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+          <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <FileText className="w-4 h-4 text-blue-600" />
+              <span className="text-xs font-medium text-gray-600">Total</span>
+            </div>
+            <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-2 h-2 rounded-full bg-orange-500" />
+              <span className="text-xs font-medium text-gray-600">Pending</span>
+            </div>
+            <div className="text-2xl font-bold text-orange-600">{stats.submitted}</div>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-2 h-2 rounded-full bg-green-500" />
+              <span className="text-xs font-medium text-gray-600">Approved</span>
+            </div>
+            <div className="text-2xl font-bold text-green-600">{stats.converted}</div>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-2 h-2 rounded-full bg-red-500" />
+              <span className="text-xs font-medium text-gray-600">Rejected</span>
+            </div>
+            <div className="text-2xl font-bold text-red-600">{stats.rejected}</div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gray-50 border-b border-gray-200">
+                <tr>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Applicant</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Program</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Status</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Source</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Submitted</th>
+                  <th className="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                {applications.length === 0 ? (
                   <tr>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
-                      Email
-                    </th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
-                      Program
-                    </th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
-                      Status
-                    </th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
-                      Submitted
-                    </th>
-                    <th className="px-4 py-3 text-left text-sm font-semibold text-slate-900">
-                      Actions
-                    </th>
+                    <td colSpan={6} className="px-4 py-8 text-center text-sm text-gray-500">
+                      No applications found. New applications will appear here.
+                    </td>
                   </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200">
-                  {filteredApplications.length === 0 ? (
-                    <tr>
-                      <td colSpan={5} className="px-4 py-8 text-center text-slate-500">
-                        No applications found
+                ) : (
+                  applications.map((app) => (
+                    <tr key={app.id} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-2">
+                          <User className="w-4 h-4 text-gray-400" />
+                          <div>
+                            <div className="text-sm font-medium text-gray-900">{app.first_name} {app.last_name}</div>
+                            <div className="text-xs text-gray-500 flex items-center gap-1">
+                              <Mail className="w-3 h-3" />
+                              {app.email}
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className="text-sm text-gray-900">{app.program || "Not specified"}</span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className={`inline-flex px-2 py-1 rounded-full text-xs font-medium ${
+                          app.status === "converted" ? "bg-green-100 text-green-700" :
+                          app.status === "rejected" ? "bg-red-100 text-red-700" :
+                          "bg-orange-100 text-orange-700"
+                        }`}>
+                          {app.status || "submitted"}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className="text-xs text-gray-600">{app.source || "website"}</span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-1 text-xs text-gray-600">
+                          <Calendar className="w-3 h-3" />
+                          {new Date(app.created_at).toLocaleDateString()}
+                        </div>
+                      </td>
+                      <td className="px-4 py-3">
+                        <Link href={`/admin/applications/${app.id}`} className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-medium hover:bg-blue-700 transition-colors">
+                          <Eye className="w-3 h-3" />
+                          View Details
+                        </Link>
                       </td>
                     </tr>
-                  ) : (
-                    filteredApplications.map((app) => (
-                      <tr key={app.id} className="hover:bg-slate-50">
-                        <td className="px-4 py-3 text-sm text-slate-900">{app.email}</td>
-                        <td className="px-4 py-3 text-sm text-slate-900">{app.program}</td>
-                        <td className="px-4 py-3">{getStatusBadge(app.status)}</td>
-                        <td className="px-4 py-3 text-sm text-slate-600">{app.submittedAt}</td>
-                        <td className="px-4 py-3">
-                          <div className="flex gap-2">
-                            {app.status === 'pending' && (
-                              <>
-                                <Button
-                                  size="sm"
-                                  variant="primary"
-                                  onClick={() => handleApprove(app.id)}
-                                >
-                                  <CheckCircle className="h-4 w-4 mr-1" />
-                                  Approve
-                                </Button>
-                                <Button
-                                  size="sm"
-                                  variant="destructive"
-                                  onClick={() => handleDeny(app.id)}
-                                >
-                                  <XCircle className="h-4 w-4 mr-1" />
-                                  Deny
-                                </Button>
-                              </>
-                            )}
-                            {app.status !== 'pending' && (
-                              <span className="text-sm text-slate-500">No actions</span>
-                            )}
-                          </div>
-                        </td>
-                      </tr>
-                    ))
-                  )}
-                </tbody>
-              </table>
-            </div>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-            {/* Summary Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-              <div className="bg-red-50 border border-blue-200 rounded-lg p-4">
-                <div className="text-sm font-medium text-blue-900">Total Applications</div>
-                <div className="text-2xl font-bold text-red-600 mt-1">
-                  {applications.length}
-                </div>
-              </div>
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                <div className="text-sm font-medium text-yellow-900">Pending Review</div>
-                <div className="text-2xl font-bold text-yellow-600 mt-1">
-                  {applications.filter(a => a.status === 'pending').length}
-                </div>
-              </div>
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                <div className="text-sm font-medium text-green-900">Approved</div>
-                <div className="text-2xl font-bold text-green-600 mt-1">
-                  {applications.filter(a => a.status === 'approved').length}
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <h3 className="text-sm font-semibold text-blue-900 mb-2">📋 Application Workflow</h3>
+          <ul className="text-xs text-blue-800 space-y-1">
+            <li>• Click "View Details" to see full application information</li>
+            <li>• Select a program and funding type, then click "Approve & Enroll"</li>
+            <li>• System automatically creates user account and enrollment</li>
+            <li>• Student can log in immediately after approval</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

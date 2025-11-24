@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 import { Briefcase, Mail, Lock, ArrowLeft, AlertCircle } from "lucide-react";
 import { useAuth } from "@/lib/hooks/useAuth";
 
+export const dynamic = 'force-dynamic';
+
 export default function EmployerPortalLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

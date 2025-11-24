@@ -1,4 +1,8 @@
 import { Metadata } from 'next';
+import { redirect } from 'next/navigation';
+import { requireAdmin } from '@/lib/auth';
+import AdminNav from '@/components/AdminNav';
+import AdminHeader from '@/components/AdminHeader';
 
 export const metadata: Metadata = {
   title: "Admin Portal - Manage Programs & Operations",
@@ -15,10 +19,34 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic';
 export const dynamicParams = true;
 
-export default function AdminLayout({
+export default async function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  // Require admin authentication
+  try {
+    await requireAdmin();
+  } catch (error) {
+    // Redirect to admin login with return URL
+    redirect('/admin/login?redirect=/admin');
+  }
+
+  return (
+    <div className="flex min-h-screen bg-gray-50">
+      {/* Sidebar Navigation */}
+      <AdminNav />
+      
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col">
+        {/* Top Header with Sign Out */}
+        <AdminHeader />
+        
+        {/* Page Content */}
+        <main className="flex-1">
+          {children}
+        </main>
+      </div>
+    </div>
+  );
 }

@@ -23,6 +23,8 @@ export const metadata = {
   description: "Your learning dashboard",
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function StudentPortalDashboardPage() {
   const supabase = await createClient();
   const user = await getCurrentUser();
