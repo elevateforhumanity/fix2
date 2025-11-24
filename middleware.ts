@@ -59,6 +59,17 @@ export default function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL('/blog', request.url), 301);
   }
   
+  // Consolidate student portals - redirect /student/* and /lms/* to /portal/student/*
+  if (path.startsWith('/student/')) {
+    const newPath = path.replace('/student/', '/portal/student/');
+    return NextResponse.redirect(new URL(newPath, request.url), 301);
+  }
+  
+  if (path.startsWith('/lms/')) {
+    const newPath = path.replace('/lms/', '/portal/student/');
+    return NextResponse.redirect(new URL(newPath, request.url), 301);
+  }
+  
   // Skip middleware for static files and public routes
   if (
     path.startsWith('/_next') ||
