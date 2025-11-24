@@ -1,49 +1,427 @@
 // app/page.tsx - Elevate For Humanity Homepage
-// REAL business model: We CONNECT people to training, we don't run a campus
-import Image from "next/image";
+// Integrated Marketing + LMS Platform with Real Images
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Users, Briefcase, GraduationCap, DollarSign, Clock, Award, MapPin, Phone, Mail } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, CheckCircle, Users, Briefcase, GraduationCap, Award, Phone, Mail, Star, TrendingUp, Clock, Target, BookOpen, Video, MessageSquare, BarChart, DollarSign, Shield } from "lucide-react";
 
 export default function Homepage() {
   return (
+    <>
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-6 py-16 md:py-24 lg:px-8">
+      {/* Hero Banner Section with Real Image */}
+      <section className="relative bg-slate-900 text-white overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/media/homepage-hero.jpg"
+            alt="Elevate For Humanity Training"
+            fill
+            className="object-cover opacity-40"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-red-900/90 via-red-800/80 to-blue-900/90" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-32 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             {/* Left Column - Content */}
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-white mb-6 border border-white/30">
                 <Award size={16} />
-                <span>100% FREE • We Handle the Paperwork</span>
+                <span>100% FREE • Fully Funded Training</span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-                We Connect You to{" "}
-                <span className="text-red-600">Free Career Training</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                Free & Funded Career Pathways,{" "}
+                <span className="text-yellow-300">Not Random Classes</span>
               </h1>
               
-              <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
-                We know people, pathways, and approvals. We connect Indiana residents to fully-funded training at partner locations. Barber shops, HVAC companies, trucking schools, medical clinics. We handle the funding paperwork. You focus on learning.
+              <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+                Elevate For Humanity is an Indiana-approved Career & Technical Institute that turns confusing systems into clear, funded steps into work—starting in Marion County and expanding as new approvals are added.
               </p>
 
               {/* Key Benefits */}
               <div className="space-y-3 mb-8">
                 <div className="flex items-center gap-3">
+                  <CheckCircle size={20} className="text-yellow-300 flex-shrink-0" />
+                  <span className="text-white">100% funded training for eligible Indiana residents (WIOA, WRG, JRI, and partner programs)</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle size={20} className="text-yellow-300 flex-shrink-0" />
+                  <span className="text-white">Pathways in Healthcare, Barber, HVAC, Building Maintenance, CDL, Workforce Readiness & Re-entry</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle size={20} className="text-yellow-300 flex-shrink-0" />
+                  <span className="text-white">Employer partnerships, OJT/WEX, and case-manager-friendly reporting</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle size={20} className="text-yellow-300 flex-shrink-0" />
+                  <span className="text-white">Ranked among Indiana's top Workforce Ready Grant providers</span>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-red-600 px-8 py-4 text-base font-bold shadow-lg hover:bg-yellow-300 hover:text-red-700 transition-all hover:scale-105"
+                >
+                  Check My Eligibility
+                  <ArrowRight size={20} />
+                </Link>
+                <Link
+                  href="/programs"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white text-white px-8 py-4 text-base font-semibold hover:bg-white/10 transition-all backdrop-blur-sm"
+                >
+                  Explore Programs
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column - Visual Hero Element */}
+            <div className="relative z-10">
+              <div className="relative">
+                {/* Main Hero Card */}
+                <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl">
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    {/* Stat Cards */}
+                    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+                      <div className="text-3xl font-bold text-white mb-1">$0</div>
+                      <div className="text-sm text-white/80">Tuition Cost</div>
+                    </div>
+                    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+                      <div className="text-3xl font-bold text-white mb-1">85%</div>
+                      <div className="text-sm text-white/80">Job Placement</div>
+                    </div>
+                    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+                      <div className="text-3xl font-bold text-white mb-1">8+</div>
+                      <div className="text-sm text-white/80">Programs</div>
+                    </div>
+                    <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 border border-white/30">
+                      <div className="text-3xl font-bold text-white mb-1">2.8K</div>
+                      <div className="text-sm text-white/80">Students</div>
+                    </div>
+                  </div>
+
+                  {/* Icon Grid */}
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 flex items-center justify-center border border-white/30">
+                      <GraduationCap size={32} className="text-white" />
+                    </div>
+                    <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 flex items-center justify-center border border-white/30">
+                      <Briefcase size={32} className="text-white" />
+                    </div>
+                    <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 flex items-center justify-center border border-white/30">
+                      <Users size={32} className="text-white" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating Elements */}
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-yellow-300 rounded-full flex items-center justify-center shadow-xl animate-bounce">
+                  <Award size={40} className="text-red-600" />
+                </div>
+                <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl">
+                  <CheckCircle size={32} className="text-green-500" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </section>
+
+      {/* Funding Programs Explained */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">How We Fund Your Training</h2>
+            <p className="text-lg text-slate-600">We navigate the funding maze so you don't have to</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-200">
+              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
+                <Shield size={24} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">WIOA</h3>
+              <p className="text-sm text-slate-700 mb-3">Workforce Innovation & Opportunity Act</p>
+              <p className="text-xs text-slate-600">Federal program for unemployed/underemployed adults seeking career training</p>
+            </div>
+
+            <div className="bg-green-50 rounded-xl p-6 border-2 border-green-200">
+              <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
+                <Award size={24} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">WRG</h3>
+              <p className="text-sm text-slate-700 mb-3">Workforce Ready Grant</p>
+              <p className="text-xs text-slate-600">Indiana state program covering tuition for high-demand careers. We're ranked #15!</p>
+            </div>
+
+            <div className="bg-purple-50 rounded-xl p-6 border-2 border-purple-200">
+              <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
+                <Users size={24} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">JRI</h3>
+              <p className="text-sm text-slate-700 mb-3">Justice Reinvestment Initiative</p>
+              <p className="text-xs text-slate-600">For justice-involved individuals seeking employment training and re-entry support</p>
+            </div>
+
+            <div className="bg-orange-50 rounded-xl p-6 border-2 border-orange-200">
+              <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4">
+                <Briefcase size={24} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">DOL Apprenticeship</h3>
+              <p className="text-sm text-slate-700 mb-3">U.S. Department of Labor</p>
+              <p className="text-xs text-slate-600">Registered apprenticeships combining on-the-job training with classroom instruction</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Top 3 Programs Highlighted */}
+      <section className="py-16 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Top 3 Programs</h2>
+            <p className="text-lg text-slate-600">Most popular pathways with highest job placement</p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Program 1: Barber */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all">
+              <div className="relative h-64">
+                <Image src="/media/programs/barber-hd.jpg" alt="Barber Apprenticeship" fill className="object-cover" />
+                <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  DOL Registered
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">Barber Apprenticeship</h3>
+                <p className="text-slate-600 mb-4">1,500-hour DOL-registered program. Train at real shops. Get licensed. Start your own business.</p>
+                <div className="flex gap-2 mb-4">
+                  <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded font-semibold">WIOA</span>
+                  <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded font-semibold">Apprenticeship</span>
+                </div>
+                <Link href="/programs/barber" className="text-red-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
+                  Learn More <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Program 2: Medical Assistant */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all">
+              <div className="relative h-64">
+                <Image src="/media/programs/medical-hd.jpg" alt="Medical Assistant" fill className="object-cover" />
+                <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  WRG Approved
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">Medical Assistant</h3>
+                <p className="text-slate-600 mb-4">Clinical procedures, patient care, EHR systems. Train at partner clinics. National certification.</p>
+                <div className="flex gap-2 mb-4">
+                  <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded font-semibold">WIOA</span>
+                  <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded font-semibold">WRG</span>
+                </div>
+                <Link href="/programs/medical-assistant" className="text-red-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
+                  Learn More <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Program 3: HVAC */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all">
+              <div className="relative h-64">
+                <Image src="/media/programs/hvac-hd.jpg" alt="HVAC Technician" fill className="object-cover" />
+                <div className="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  Next Level Jobs
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">HVAC Technician</h3>
+                <p className="text-slate-600 mb-4">NCCER-aligned training. EPA certification prep. High-demand trade with $40K-$65K salaries.</p>
+                <div className="flex gap-2 mb-4">
+                  <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded font-semibold">WIOA</span>
+                  <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded font-semibold">WRG</span>
+                </div>
+                <Link href="/programs/hvac" className="text-red-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
+                  Learn More <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Programs Grid Section */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Approved, Aligned, and Built for Indiana Workforce Systems
+            </h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              We don't guess. We build around what Indiana actually funds and recognizes.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {/* Healthcare Pathways */}
+            <div className="group relative bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 border-2 border-blue-200 hover:border-blue-400 transition-all hover:shadow-xl">
+              <div className="absolute top-4 right-4 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
+                <Users size={32} />
+              </div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mb-4">
+                  <Users size={32} className="text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Healthcare Pathways</h3>
+                <p className="text-slate-700 mb-4">
+                  Medical Assistant, CNA, Phlebotomy, EKG, Patient Care Tech, and more—aligned with local employer demand and healthcare partners.
+                </p>
+                <Link href="/programs?category=healthcare" className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+                  Explore Healthcare <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Barber & Beauty */}
+            <div className="group relative bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border-2 border-purple-200 hover:border-purple-400 transition-all hover:shadow-xl">
+              <div className="absolute top-4 right-4 w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
+                <Target size={32} />
+              </div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center mb-4">
+                  <Target size={32} className="text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Barber & Beauty Pathways</h3>
+                <p className="text-slate-700 mb-4">
+                  DOL-registered barber apprenticeship and beauty programs built with licensed shop owners, combining hours, licensing, and business skills.
+                </p>
+                <Link href="/programs/barber" className="inline-flex items-center gap-2 text-purple-600 font-semibold hover:gap-3 transition-all">
+                  Explore Barber <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* HVAC & Building */}
+            <div className="group relative bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border-2 border-orange-200 hover:border-orange-400 transition-all hover:shadow-xl">
+              <div className="absolute top-4 right-4 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
+                <Briefcase size={32} />
+              </div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-orange-500 rounded-xl flex items-center justify-center mb-4">
+                  <Briefcase size={32} className="text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">HVAC, Electrical & Building Maintenance</h3>
+                <p className="text-slate-700 mb-4">
+                  NCCER-aligned programs listed with DWD & Next Level Jobs, preparing learners for trades, facilities, and construction careers.
+                </p>
+                <Link href="/programs?category=trades" className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:gap-3 transition-all">
+                  Explore Trades <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* CDL & Logistics */}
+            <div className="group relative bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border-2 border-green-200 hover:border-green-400 transition-all hover:shadow-xl">
+              <div className="absolute top-4 right-4 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
+                <TrendingUp size={32} />
+              </div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mb-4">
+                  <TrendingUp size={32} className="text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">CDL & Logistics</h3>
+                <p className="text-slate-700 mb-4">
+                  CDL and logistics training coordinated through approved partners, with workforce funding and employer pathways.
+                </p>
+                <Link href="/programs/cdl" className="inline-flex items-center gap-2 text-green-600 font-semibold hover:gap-3 transition-all">
+                  Explore CDL <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Workforce Readiness */}
+            <div className="group relative bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 border-2 border-red-200 hover:border-red-400 transition-all hover:shadow-xl">
+              <div className="absolute top-4 right-4 w-16 h-16 bg-red-500 rounded-full flex items-center justify-center opacity-20 group-hover:opacity-30 transition-opacity">
+                <GraduationCap size={32} />
+              </div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mb-4">
+                  <GraduationCap size={32} className="text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Workforce Readiness & Re-entry</h3>
+                <p className="text-slate-700 mb-4">
+                  Barrier-aware pathways for justice-involved and hard-to-place learners, coordinated with courts, probation, parole, and community partners.
+                </p>
+                <Link href="/programs/reentry" className="inline-flex items-center gap-2 text-red-600 font-semibold hover:gap-3 transition-all">
+                  Explore Re-entry <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* All Programs CTA */}
+            <div className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border-2 border-slate-700 hover:border-slate-600 transition-all hover:shadow-xl flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center mb-4 mx-auto">
+                  <BookOpen size={32} className="text-slate-900" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3">View All Programs</h3>
+                <p className="text-slate-300 mb-4">
+                  Explore our complete catalog of approved training pathways
+                </p>
+                <Link href="/programs" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-slate-900 rounded-lg font-semibold hover:bg-slate-100 transition-all">
+                  Browse All <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="bg-slate-50 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+            {/* Left Column - How It Works Card */}
+            <div className="relative">
+              <div className="bg-white rounded-3xl shadow-2xl p-8 border border-slate-200">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">How It Works</h3>
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-600 font-bold flex items-center justify-center">1</div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Check Eligibility</h4>
+                      <p className="text-sm text-slate-600">We look at your county, income, employment status, justice involvement, and barriers to see which programs may fit.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-600 font-bold flex items-center justify-center">2</div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Connect to Workforce Partners</h4>
+                      <p className="text-sm text-slate-600">We coordinate with WorkOne and other workforce boards so you're not bouncing between offices and websites.</p>
+                    </div>
+                  </div>
+
+              {/* Key Benefits */}
+              <div className="space-y-3 mb-8">
+                <div className="flex items-center gap-3">
                   <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
-                  <span className="text-slate-700">We handle WIOA, WRG, and JRI funding paperwork</span>
+                  <span className="text-slate-700">Complete funding support (WIOA, WRG, JRI)</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
-                  <span className="text-slate-700">Schedule appointments at Indiana Connect/WorkOne</span>
+                  <span className="text-slate-700">Interactive online courses + hands-on training</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
-                  <span className="text-slate-700">Train at real shops, labs, and job sites across Indiana</span>
+                  <span className="text-slate-700">Industry-recognized certifications</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
-                  <span className="text-slate-700">Case management and job placement support</span>
+                  <span className="text-slate-700">Job placement and career support</span>
                 </div>
               </div>
 
@@ -57,10 +435,10 @@ export default function Homepage() {
                   <ArrowRight size={20} />
                 </Link>
                 <Link
-                  href="/programs"
+                  href="/courses"
                   className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-red-600 hover:text-red-600 transition-all"
                 >
-                  See Training Options
+                  Browse Courses
                 </Link>
               </div>
               
@@ -102,35 +480,61 @@ export default function Homepage() {
                   <div className="flex gap-4">
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-600 font-bold flex items-center justify-center">3</div>
                     <div>
-                      <h4 className="font-bold text-slate-900 mb-1">Schedule at Indiana Connect</h4>
-                      <p className="text-sm text-slate-600">Book your appointment at WorkOne/Indiana Connect.</p>
+                      <h4 className="font-bold text-slate-900 mb-1">Pick a Pathway That Actually Leads Somewhere</h4>
+                      <p className="text-sm text-slate-600">We help you choose a program that leads to real, funded opportunities, not just a brochure.</p>
                     </div>
                   </div>
                   <div className="flex gap-4">
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-600 font-bold flex items-center justify-center">4</div>
                     <div>
-                      <h4 className="font-bold text-slate-900 mb-1">Start Training</h4>
-                      <p className="text-sm text-slate-600">Train at partner locations. We provide ongoing support.</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 font-bold flex items-center justify-center">5</div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 mb-1">Get Hired</h4>
-                      <p className="text-sm text-slate-600">We connect you with employers ready to hire.</p>
+                      <h4 className="font-bold text-slate-900 mb-1">Train, Track, and Transition</h4>
+                      <p className="text-sm text-slate-600">You complete training while we track progress, coordinate with funders, and pull employers into the process.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Floating Stats Cards */}
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-slate-200">
-                <div className="text-3xl font-bold text-red-600">$0</div>
-                <div className="text-sm text-slate-600">Tuition Cost</div>
               </div>
-              <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-slate-200">
-                <div className="text-3xl font-bold text-blue-600">85%</div>
-                <div className="text-sm text-slate-600">Job Placement</div>
+            </div>
+
+            {/* Right Column - Visual Stats Grid */}
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                {/* Stat Card 1 */}
+                <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white shadow-xl">
+                  <div className="text-4xl font-bold mb-2">$0</div>
+                  <div className="text-sm text-white/90">Tuition Cost</div>
+                  <div className="mt-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                    <DollarSign size={24} />
+                  </div>
+                </div>
+
+                {/* Stat Card 2 */}
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 text-white shadow-xl">
+                  <div className="text-4xl font-bold mb-2">85%</div>
+                  <div className="text-sm text-white/90">Job Placement</div>
+                  <div className="mt-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                    <TrendingUp size={24} />
+                  </div>
+                </div>
+
+                {/* Stat Card 3 */}
+                <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-white shadow-xl">
+                  <div className="text-4xl font-bold mb-2">#15</div>
+                  <div className="text-sm text-white/90">WRG Ranking</div>
+                  <div className="mt-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                    <Award size={24} />
+                  </div>
+                </div>
+
+                {/* Stat Card 4 */}
+                <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-6 text-white shadow-xl">
+                  <div className="text-4xl font-bold mb-2">8+</div>
+                  <div className="text-sm text-white/90">Career Paths</div>
+                  <div className="mt-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                    <BookOpen size={24} />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -259,14 +663,12 @@ export default function Homepage() {
             </div>
 
             <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/media/funding-support.jpg"
-                  alt="Funding and support services"
-                  width={600}
-                  height={500}
-                  className="w-full h-auto object-cover"
-                />
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-100 to-red-100 p-12">
+                <div className="text-center">
+                  <div className="text-6xl font-bold text-slate-900 mb-4">100%</div>
+                  <div className="text-2xl font-semibold text-slate-700 mb-2">Funded Training</div>
+                  <div className="text-slate-600">No tuition. No loans. No barriers.</div>
+                </div>
               </div>
             </div>
           </div>
