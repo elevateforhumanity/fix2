@@ -60,14 +60,21 @@ export default function proxy(request: NextRequest) {
   }
   
   // Consolidate student portals - redirect /student/* and /lms/* to /portal/student/*
-  if (path.startsWith('/student/')) {
+  // BUT keep admin/instructor tools in their original locations
+  if (path.startsWith('/student/') && !path.startsWith('/students')) {
     const newPath = path.replace('/student/', '/portal/student/');
     return NextResponse.redirect(new URL(newPath, request.url), 301);
   }
   
   if (path.startsWith('/lms/')) {
-    const newPath = path.replace('/lms/', '/portal/student/');
-    return NextResponse.redirect(new URL(newPath, request.url), 301);
+    // Keep builder and admin tools at /lms
+    const adminLmsPaths = ['/lms/builder', '/lms/course-authoring'];
+    const isAdminPath = adminLmsPaths.some(p => path.startsWith(p));
+    
+    if (!isAdminPath) {
+      const newPath = path.replace('/lms/', '/portal/student/');
+      return NextResponse.redirect(new URL(newPath, request.url), 301);
+    }
   }
   
   // Skip middleware for static files and public routes
