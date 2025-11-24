@@ -17,20 +17,20 @@ export default function Homepage() {
       
       <main className="min-h-screen bg-white">
       
-      {/* HERO BANNER 1 - Main Mission Statement with Real Image */}
+      {/* HERO BANNER 1 - Main Mission Statement with Custom Hero Image */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/media/homepage-hero.jpg"
-            alt="Elevate For Humanity - Workforce Training"
+            src="/media/hero-banner-elevate.png"
+            alt="Elevate For Humanity - Funded Training, Real Support, Real Jobs"
             fill
             className="object-cover"
             priority
             quality={100}
           />
           {/* Subtle overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/70 to-slate-900/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-slate-900/40 to-transparent" />
         </div>
 
         <div className="relative z-10 w-full">
