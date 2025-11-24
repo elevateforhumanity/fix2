@@ -9,17 +9,26 @@ export function Hero() {
         {/* LEFT – TEXT */}
         <div className="space-y-4">
           <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-500">
-            Philanthropy Through Workforce Development
+            Your Training is Funded. Your Support is Real. Your Future Starts Here.
           </p>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight">
-            We Don&apos;t Give Handouts.<br className="hidden sm:block" />
-            <span className="text-red-600"> We Build Pathways</span> to
-            Self-Sufficiency.
+            Build Real Careers<br className="hidden sm:block" />
+            <span className="text-red-600"> With Real Support</span>
           </h1>
-          <p className="text-sm sm:text-base text-slate-700 max-w-xl">
-            Elevate For Humanity connects Indiana residents to 100% funded
-            training, WorkOne case managers, and employers ready to hire
-            through WIOA, WRG, and JRI.
+          <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed">
+            Welcome to Elevate For Humanity — where adult learners, returning citizens, and working families can build real careers with real support. Our programs are <strong>fully funded through WIOA, WRG, JRI, employer partnerships, apprenticeships, OJT and WEX</strong> — so you can train with no out-of-pocket cost.
+          </p>
+          
+          <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed">
+            Choose from high-demand pathways in <strong>healthcare, HVAC, CDL, business, esthetics, barbering, reentry careers, workforce readiness, and more</strong>. Learn hands-on in real shops, labs, clinics and workplaces, guided by instructors and employer partners who actually hire.
+          </p>
+
+          <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed">
+            At Elevate For Humanity, you don&apos;t just enroll — <strong>you gain a team</strong>. Your career coach helps you navigate barriers, stay motivated, and unlock funding and paid training. Our portals keep you on track, and our employer network connects you to job opportunities as soon as you&apos;re ready.
+          </p>
+
+          <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed font-semibold">
+            Whether you&apos;re starting over, starting out, or simply ready for something better — this is your pathway to a stable, meaningful career.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -46,18 +55,22 @@ export function Hero() {
             your training provider.
           </p>
 
-          <div className="flex flex-wrap gap-4 text-xs text-slate-600 pt-2">
+          <div className="flex flex-wrap gap-6 text-xs text-slate-600 pt-4 border-t border-slate-200">
             <div>
-              <p className="font-semibold text-slate-900">100% Funded</p>
-              <p>WIOA • WRG • JRI – no tuition</p>
+              <p className="font-bold text-slate-900 text-sm">✓ Fully Funded Training</p>
+              <p>WIOA • WRG • JRI • OJT • WEX</p>
             </div>
             <div>
-              <p className="font-semibold text-slate-900">Barrier-Aware</p>
-              <p>Justice-involved, unemployed, underemployed</p>
+              <p className="font-bold text-slate-900 text-sm">✓ Career Coach Support</p>
+              <p>Navigate barriers, unlock funding</p>
             </div>
             <div>
-              <p className="font-semibold text-slate-900">Real Sites</p>
-              <p>Shops, clinics, and job sites across Indiana</p>
+              <p className="font-bold text-slate-900 text-sm">✓ Real Job Connections</p>
+              <p>Employer partners who hire</p>
+            </div>
+            <div>
+              <p className="font-bold text-slate-900 text-sm">✓ Hands-On Learning</p>
+              <p>Real shops, labs, clinics, workplaces</p>
             </div>
           </div>
         </div>
