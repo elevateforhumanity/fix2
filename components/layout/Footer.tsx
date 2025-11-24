@@ -24,114 +24,114 @@ export function SiteFooter() {
                 </div>
               </div>
             </div>
-            <p className="text-sm text-slate-400 max-w-md mb-4">
+            <p className="text-sm text-slate-300 max-w-md mb-4 leading-relaxed">
               100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt. Real jobs waiting in Marion County, Indiana.
             </p>
             
             {/* Contact Info */}
-            <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-2 text-slate-400">
-                <MapPin size={14} className="text-emerald-500" />
-                <span className="text-xs">Marion County, Indiana</span>
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center gap-3 text-slate-300">
+                <MapPin size={16} className="text-emerald-400 flex-shrink-0" />
+                <span className="text-sm">Marion County, Indiana</span>
               </div>
-              <div className="flex items-center gap-2 text-slate-400">
-                <Phone size={14} className="text-emerald-500" />
-                <a href="tel:+13175551234" className="text-xs hover:text-emerald-300 transition">
+              <div className="flex items-center gap-3 text-slate-300">
+                <Phone size={16} className="text-emerald-400 flex-shrink-0" />
+                <a href="tel:+13175551234" className="text-sm hover:text-emerald-300 transition font-medium">
                   (317) 555-1234
                 </a>
               </div>
-              <div className="flex items-center gap-2 text-slate-400">
-                <Mail size={14} className="text-emerald-500" />
-                <a href="mailto:info@elevateforhumanity.org" className="text-xs hover:text-emerald-300 transition">
+              <div className="flex items-center gap-3 text-slate-300">
+                <Mail size={16} className="text-emerald-400 flex-shrink-0" />
+                <a href="mailto:info@elevateforhumanity.org" className="text-sm hover:text-emerald-300 transition font-medium">
                   info@elevateforhumanity.org
                 </a>
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <a 
                 href="https://facebook.com/elevateforhumanity" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-slate-800 hover:bg-emerald-500 text-slate-400 hover:text-white transition"
+                className="p-3 rounded-lg bg-slate-800 hover:bg-emerald-500 text-slate-300 hover:text-white transition-all hover:scale-110"
                 aria-label="Facebook"
               >
-                <Facebook size={16} />
+                <Facebook size={20} strokeWidth={2.5} />
               </a>
               <a 
                 href="https://twitter.com/elevate4humanity" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-slate-800 hover:bg-emerald-500 text-slate-400 hover:text-white transition"
+                className="p-3 rounded-lg bg-slate-800 hover:bg-emerald-500 text-slate-300 hover:text-white transition-all hover:scale-110"
                 aria-label="Twitter"
               >
-                <Twitter size={16} />
+                <Twitter size={20} strokeWidth={2.5} />
               </a>
               <a 
                 href="https://linkedin.com/company/elevateforhumanity" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-slate-800 hover:bg-emerald-500 text-slate-400 hover:text-white transition"
+                className="p-3 rounded-lg bg-slate-800 hover:bg-emerald-500 text-slate-300 hover:text-white transition-all hover:scale-110"
                 aria-label="LinkedIn"
               >
-                <Linkedin size={16} />
+                <Linkedin size={20} strokeWidth={2.5} />
               </a>
               <a 
                 href="https://instagram.com/elevateforhumanity" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-slate-800 hover:bg-emerald-500 text-slate-400 hover:text-white transition"
+                className="p-3 rounded-lg bg-slate-800 hover:bg-emerald-500 text-slate-300 hover:text-white transition-all hover:scale-110"
                 aria-label="Instagram"
               >
-                <Instagram size={16} />
+                <Instagram size={20} strokeWidth={2.5} />
               </a>
             </div>
           </div>
 
           {/* Programs */}
           <div>
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
               Programs
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               <li>
-                <Link href="/programs/medical-assistant" className="hover:text-emerald-300 transition">
+                <Link href="/programs/medical-assistant" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Medical Assistant
                 </Link>
               </li>
               <li>
-                <Link href="/programs/phlebotomy" className="hover:text-emerald-300 transition">
+                <Link href="/programs/phlebotomy" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Phlebotomy Technician
                 </Link>
               </li>
               <li>
-                <Link href="/programs/ekg-technician" className="hover:text-emerald-300 transition">
+                <Link href="/programs/ekg-technician" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   EKG Technician
                 </Link>
               </li>
               <li>
-                <Link href="/programs/pharmacy-technician" className="hover:text-emerald-300 transition">
+                <Link href="/programs/pharmacy-technician" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Pharmacy Technician
                 </Link>
               </li>
               <li>
-                <Link href="/programs/dental-assistant" className="hover:text-emerald-300 transition">
+                <Link href="/programs/dental-assistant" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Dental Assistant
                 </Link>
               </li>
               <li>
-                <Link href="/programs/patient-care-technician" className="hover:text-emerald-300 transition">
+                <Link href="/programs/patient-care-technician" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Patient Care Technician
                 </Link>
               </li>
               <li>
-                <Link href="/programs/sterile-processing" className="hover:text-emerald-300 transition">
+                <Link href="/programs/sterile-processing" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Sterile Processing
                 </Link>
               </li>
               <li>
-                <Link href="/programs/healthcare-administration" className="hover:text-emerald-300 transition">
+                <Link href="/programs/healthcare-administration" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Healthcare Administration
                 </Link>
               </li>
@@ -140,42 +140,42 @@ export function SiteFooter() {
 
           {/* Resources */}
           <div>
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
               Resources
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               <li>
-                <Link href="/students" className="hover:text-emerald-300 transition">
+                <Link href="/students" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   For Students
                 </Link>
               </li>
               <li>
-                <Link href="/employers" className="hover:text-emerald-300 transition">
+                <Link href="/employers" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   For Employers
                 </Link>
               </li>
               <li>
-                <Link href="/funding/state-programs" className="hover:text-emerald-300 transition">
+                <Link href="/funding/state-programs" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   State Funding
                 </Link>
               </li>
               <li>
-                <Link href="/funding/federal-programs" className="hover:text-emerald-300 transition">
+                <Link href="/funding/federal-programs" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Federal Funding
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-emerald-300 transition">
+                <Link href="/blog" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-emerald-300 transition">
+                <Link href="/about" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-emerald-300 transition">
+                <Link href="/contact" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Contact
                 </Link>
               </li>
@@ -184,47 +184,47 @@ export function SiteFooter() {
 
           {/* Company & Legal */}
           <div>
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-wider text-white">
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
               Company
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               <li>
-                <Link href="/apply" className="hover:text-emerald-300 transition font-semibold text-emerald-400">
+                <Link href="/apply" className="hover:text-emerald-300 transition font-bold text-emerald-400 text-sm">
                   Apply Now
                 </Link>
               </li>
               <li>
-                <Link href="/portal" className="hover:text-emerald-300 transition">
+                <Link href="/portal" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Student Portal
                 </Link>
               </li>
               <li>
-                <Link href="/success-stories" className="hover:text-emerald-300 transition">
+                <Link href="/success-stories" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Success Stories
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-emerald-300 transition">
+                <Link href="/faq" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/help" className="hover:text-emerald-300 transition">
+                <Link href="/help" className="text-slate-300 hover:text-emerald-300 transition text-sm">
                   Help Center
                 </Link>
               </li>
-              <li className="pt-2 border-t border-slate-800">
-                <Link href="/privacy-policy" className="hover:text-emerald-300 transition text-slate-500">
+              <li className="pt-3 mt-1 border-t border-slate-800">
+                <Link href="/privacy-policy" className="text-slate-400 hover:text-emerald-300 transition text-sm">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-service" className="hover:text-emerald-300 transition text-slate-500">
+                <Link href="/terms-of-service" className="text-slate-400 hover:text-emerald-300 transition text-sm">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/refund-policy" className="hover:text-emerald-300 transition text-slate-500">
+                <Link href="/refund-policy" className="text-slate-400 hover:text-emerald-300 transition text-sm">
                   Refund Policy
                 </Link>
               </li>
@@ -234,7 +234,7 @@ export function SiteFooter() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-slate-800">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
             <p>
               © {currentYear} Elevate For Humanity. All rights reserved.
             </p>
