@@ -18,9 +18,9 @@ export default function Homepage() {
       {/* NEW HERO - Clean, Mobile-Optimized Layout */}
       <Hero />
 
-      {/* SUCCESS STORIES - All 20 Split Testimonial Images */}
+      {/* SUCCESS STORIES - Clean Card Layout */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
               Real Success Stories
@@ -30,204 +30,232 @@ export default function Homepage() {
             </p>
           </div>
 
-          {/* Medical Assistant - 4 Images */}
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-slate-200">Medical Assistant Graduate</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Image src="/media/testimonials/testimonial-medical-assistant-1.png" alt="Medical Assistant Success 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-medical-assistant-2.png" alt="Medical Assistant Success 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-medical-assistant-3.png" alt="Medical Assistant Success 3" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-medical-assistant-4.png" alt="Medical Assistant Success 4" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+          <div className="space-y-8">
+            {/* Medical Assistant Graduate */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
+              <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
+                <div className="relative h-64 md:h-full">
+                  <Image 
+                    src="/media/testimonials/testimonial-medical-assistant-1.png" 
+                    alt="Medical Assistant Graduate" 
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6 md:p-8">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">Medical Assistant Graduate</h3>
+                  <p className="text-slate-700 mb-4 leading-relaxed">
+                    Started with no healthcare experience. Completed our Medical Assistant program through WIOA funding. 
+                    Now working full-time at a local clinic, earning $42,000/year with benefits.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                      <CheckCircle size={14} /> Employed
+                    </span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">WIOA Funded</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Career Transformation */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
+              <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
+                <div className="relative h-64 md:h-full">
+                  <Image 
+                    src="/media/testimonials/testimonial-success-2-part1.png" 
+                    alt="Career Transformation Story" 
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6 md:p-8">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">Career Transformation</h3>
+                  <p className="text-slate-700 mb-4 leading-relaxed">
+                    Transitioned from retail to skilled trades through our HVAC program. Completed training in 12 weeks, 
+                    passed EPA certification, and now earning $48,000/year with a local contractor.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                      <CheckCircle size={14} /> Certified
+                    </span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">WRG Funded</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* From Barriers to Breakthrough */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
+              <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
+                <div className="relative h-64 md:h-full">
+                  <Image 
+                    src="/media/testimonials/testimonial-success-3-part1.png" 
+                    alt="From Barriers to Breakthrough" 
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6 md:p-8">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">From Barriers to Breakthrough</h3>
+                  <p className="text-slate-700 mb-4 leading-relaxed">
+                    Overcame housing instability and transportation barriers with support from our case managers. 
+                    Completed CNA training, secured stable employment, and now helping others in the same situation.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                      <CheckCircle size={14} /> Employed
+                    </span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">JRI Funded</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Building a Better Future */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
+              <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
+                <div className="relative h-64 md:h-full">
+                  <Image 
+                    src="/media/testimonials/testimonial-success-4-part1.png" 
+                    alt="Building a Better Future" 
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6 md:p-8">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">Building a Better Future</h3>
+                  <p className="text-slate-700 mb-4 leading-relaxed">
+                    Single parent looking for stable career. Completed Building Maintenance program while receiving 
+                    childcare support. Now working as facilities technician earning $45,000/year.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                      <CheckCircle size={14} /> Employed
+                    </span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">WIOA Funded</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Pathway to Self-Sufficiency */}
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
+              <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
+                <div className="relative h-64 md:h-full">
+                  <Image 
+                    src="/media/testimonials/testimonial-success-5-part1.png" 
+                    alt="Pathway to Self-Sufficiency" 
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6 md:p-8">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3">Pathway to Self-Sufficiency</h3>
+                  <p className="text-slate-700 mb-4 leading-relaxed">
+                    Completed 2,000-hour Barber Apprenticeship program. Passed state licensing exam on first attempt. 
+                    Now operating own chair at established barbershop with growing clientele.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                      <CheckCircle size={14} /> Licensed
+                    </span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">Apprenticeship</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Success Story 2 - 4 Images */}
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-slate-200">Career Transformation Story</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Image src="/media/testimonials/testimonial-success-2-part1.png" alt="Success Story 2 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-2-part2.png" alt="Success Story 2 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-2-part3.png" alt="Success Story 2 Part 3" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-2-part4.png" alt="Success Story 2 Part 4" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-            </div>
-          </div>
-
-          {/* Success Story 3 - 4 Images */}
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-slate-200">From Barriers to Breakthrough</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Image src="/media/testimonials/testimonial-success-3-part1.png" alt="Success Story 3 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-3-part2.png" alt="Success Story 3 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-3-part3.png" alt="Success Story 3 Part 3" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-3-part4.png" alt="Success Story 3 Part 4" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-            </div>
-          </div>
-
-          {/* Success Story 4 - 4 Images */}
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-slate-200">Building a Better Future</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Image src="/media/testimonials/testimonial-success-4-part1.png" alt="Success Story 4 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-4-part2.png" alt="Success Story 4 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-4-part3.png" alt="Success Story 4 Part 3" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-4-part4.png" alt="Success Story 4 Part 4" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-            </div>
-          </div>
-
-          {/* Success Story 5 - 4 Images */}
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-slate-200">Pathway to Self-Sufficiency</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Image src="/media/testimonials/testimonial-success-5-part1.png" alt="Success Story 5 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-5-part2.png" alt="Success Story 5 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-5-part3.png" alt="Success Story 5 Part 3" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-              <Image src="/media/testimonials/testimonial-success-5-part4.png" alt="Success Story 5 Part 4" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
-            </div>
+          <div className="text-center mt-12">
+            <Link 
+              href="/success-stories" 
+              className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold text-lg"
+            >
+              Read More Success Stories
+              <ArrowRight size={20} />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ADDITIONAL IMAGES - Workforce Development, Team Collaboration, etc. */}
+      {/* OUR APPROACH - Clean Icon Cards Grid */}
       <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
               Our Approach to Workforce Development
             </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Connecting learners, training providers, employers, and workforce systems
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Workforce Development */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <Image 
-                src="/media/workforce-development.png" 
-                alt="Workforce Development Programs" 
-                width={1376} 
-                height={768} 
-                quality={100} 
-                className="w-full h-auto"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Workforce Development</h3>
-                <p className="text-slate-600">Building pathways to self-sufficiency through comprehensive training programs</p>
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+              <div className="w-20 h-20 mb-4 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                <Users className="w-10 h-10 text-white" />
               </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Workforce Development</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Building pathways to self-sufficiency through training programs
+              </p>
             </div>
 
             {/* Team Collaboration */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <Image 
-                src="/media/team-collaboration.png" 
-                alt="Team Collaboration and Support" 
-                width={1376} 
-                height={768} 
-                quality={100} 
-                className="w-full h-auto"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Team Collaboration</h3>
-                <p className="text-slate-600">Working together with employers, case managers, and training providers</p>
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+              <div className="w-20 h-20 mb-4 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                <Heart className="w-10 h-10 text-white" />
               </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Team Collaboration</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Working with employers, case managers, and training providers
+              </p>
             </div>
 
-            {/* Construction Training */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <Image 
-                src="/media/construction-training.png" 
-                alt="Construction and Skilled Trades Training" 
-                width={1376} 
-                height={768} 
-                quality={100} 
-                className="w-full h-auto"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Skilled Trades Training</h3>
-                <p className="text-slate-600">Hands-on training in construction, HVAC, and building maintenance</p>
+            {/* Skilled Trades */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+              <div className="w-20 h-20 mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center">
+                <Zap className="w-10 h-10 text-white" />
               </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* EMS/Ambulatory */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <Image 
-                src="/media/ems-ambulatory.png" 
-                alt="EMS and Emergency Medical Services" 
-                width={1376} 
-                height={768} 
-                quality={100} 
-                className="w-full h-auto"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Healthcare Programs</h3>
-                <p className="text-slate-600">Medical Assistant, CNA, and emergency medical services training</p>
-              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Skilled Trades Training</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Hands-on training in construction, HVAC, and building systems
+              </p>
             </div>
 
-            {/* Employer Partnership */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <Image 
-                src="/media/employers/employer-partnership-handshake.png" 
-                alt="Employer Partnerships and Job Placement" 
-                width={2752} 
-                height={1536} 
-                quality={100} 
-                className="w-full h-auto"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Employer Partnerships</h3>
-                <p className="text-slate-600">Direct connections to hiring employers and job placement support</p>
+            {/* Healthcare Programs */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+              <div className="w-20 h-20 mb-4 rounded-xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
+                <Heart className="w-10 h-10 text-white" />
               </div>
-            </div>
-          </div>
-
-          {/* Additional Programs - 3 More */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {/* Tax Office Certification */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <Image 
-                src="/images/programs/efh-tax-office-startup-card.jpg" 
-                alt="Tax Office Certification - Tax Preparation Training" 
-                width={800} 
-                height={600} 
-                quality={100} 
-                className="w-full h-auto"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Tax Office Certification</h3>
-                <p className="text-slate-600">Professional tax preparation training and certification</p>
-              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Healthcare Programs</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Medical Assistant, CNA, and emergency medical services
+              </p>
             </div>
 
-            {/* Building Technician */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <Image 
-                src="/images/programs/efh-building-tech-card.jpg" 
-                alt="Building Technician - Maintenance Training" 
-                width={800} 
-                height={600} 
-                quality={100} 
-                className="w-full h-auto"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Building Technician</h3>
-                <p className="text-slate-600">Comprehensive building maintenance and facilities management training</p>
+            {/* Employer Partnerships */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+              <div className="w-20 h-20 mb-4 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+                <Briefcase className="w-10 h-10 text-white" />
               </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Employer Partnerships</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Direct connections to hiring employers and job placement
+              </p>
             </div>
 
-            {/* Culinary Arts */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <Image 
-                src="/media/programs/culinary-hd.jpg" 
-                alt="Culinary Arts - Chef Training in Kitchen" 
-                width={800} 
-                height={600} 
-                quality={100} 
-                className="w-full h-auto"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Culinary Arts</h3>
-                <p className="text-slate-600">Professional chef training in commercial kitchen environments</p>
+            {/* Career Support */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+              <div className="w-20 h-20 mb-4 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center">
+                <Target className="w-10 h-10 text-white" />
               </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Career Support</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Case management, coaching, and barrier navigation
+              </p>
             </div>
           </div>
         </div>
@@ -377,19 +405,17 @@ export default function Homepage() {
 
       {/* HERO BANNER 2 - What Makes Us Different */}
       <section className="relative py-24 bg-gradient-to-br from-slate-50 to-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Video */}
+            {/* Left - Image */}
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <video
-                  controls
-                  className="w-full aspect-video"
-                  poster="/media/hero-elevate-learners.jpg"
-                >
-                  <source src="/videos/elevate-overview-with-narration.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video">
+                <Image
+                  src="/media/hero-elevate-learners.jpg"
+                  alt="Elevate For Humanity - Workforce Development"
+                  fill
+                  className="object-cover"
+                />
               </div>
               {/* Floating Stat */}
               <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 border-4 border-green-500">
@@ -483,7 +509,7 @@ export default function Homepage() {
           </div>
 
           {/* Programs Grid with Real Images */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {realPrograms.map((program, index) => (
               <Link
                 key={index}
@@ -570,7 +596,7 @@ export default function Homepage() {
 
       {/* How We Work - Process Section with Images */}
       <section className="py-12 sm:py-16 md:py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
               How Elevate For Humanity Works
@@ -625,7 +651,7 @@ export default function Homepage() {
       </section>
 
       <section className="py-24 bg-gradient-to-br from-slate-800 to-slate-900 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Real Impact in Indiana
