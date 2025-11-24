@@ -189,9 +189,9 @@ export const PROGRAMS: ProgramData[] = [
   {
     slug: 'culinary-arts',
     name: 'Culinary Arts & Food Service',
-    blurb: 'Turn your passion for cooking into a career! Learn food preparation, kitchen safety, menu planning, nutrition, and restaurant operations. Our 16-24 week program includes hands-on training in professional kitchens. Graduate ready for line cook, prep cook, or food service management positions in restaurants, hotels, and catering.',
-    funding: 'Workforce Grants • Apprenticeship • WIOA',
-    duration: '16–24 Weeks • Professional Kitchen Training',
+    blurb: 'Turn your passion for cooking into a career through our Registered Apprenticeship! Earn while you learn in professional kitchens. Master food preparation, kitchen safety, menu planning, nutrition, and restaurant operations through hands-on training. Graduate ready for line cook, prep cook, or food service management positions in restaurants, hotels, and catering.',
+    funding: 'Registered Apprenticeship • WIOA • WRG',
+    duration: '12–18 Months • Earn While You Learn',
     image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=80',
     etplApproved: true,
   },
