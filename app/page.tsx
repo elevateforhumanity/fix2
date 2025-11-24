@@ -2,7 +2,6 @@
 // Using ONLY real data, real images, real videos - NO PLACEHOLDERS
 import Link from "next/link";
 import Image from "next/image";
-import { MobileVoiceOver } from "@/components/MobileVoiceOver";
 import { Hero } from "@/components/home/Hero";
 import { 
   ArrowRight, CheckCircle, Users, Briefcase, GraduationCap, Award, 
@@ -13,8 +12,6 @@ import {
 export default function Homepage() {
   return (
     <>
-      {/* Auto-play Voice-Over for Mobile */}
-      <MobileVoiceOver />
       
       <main className="min-h-screen bg-white">
       
