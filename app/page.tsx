@@ -27,12 +27,12 @@ export default function Homepage() {
         {/* Background Image - High Resolution */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/media/hero-banner-new.png"
+            src="/media/hero-banner-latest.png"
             alt="Elevate For Humanity - Funded Training, Real Support, Real Jobs"
             fill
             className="object-cover object-center"
             priority
-            quality={95}
+            quality={100}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
             style={{
               objectFit: 'cover',
