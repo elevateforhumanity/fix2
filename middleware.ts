@@ -86,16 +86,10 @@ export default function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Redirect admin routes to admin login if not authenticated
-  // (The actual auth check happens in the layout, this is just a helper redirect)
-  if (path.startsWith('/admin') && path !== '/admin/login') {
-    // Check for session cookie - if missing, redirect to admin login
-    const hasSession = request.cookies.has('sb-access-token');
-    if (!hasSession) {
-      const loginUrl = new URL('/admin/login', request.url);
-      loginUrl.searchParams.set('redirect', path);
-      return NextResponse.redirect(loginUrl);
-    }
+  // Allow admin and LMS routes to pass through
+  // Auth checks happen in the page layouts, not in middleware
+  if (path.startsWith('/admin') || path.startsWith('/lms') || path.startsWith('/create-course')) {
+    return NextResponse.next();
   }
   
   // Check if it's a suspicious bot
@@ -202,14 +196,6 @@ const PUBLIC_ROUTES = [
 
 export const config = {
   matcher: [
-    '/api/:path*',
-    '/student/:path*',
-    '/instructor/:path*',
-    '/admin/:path*',
-    '/employer/:path*',
-    '/program-holder/:path*',
-    '/delegate/:path*',
-    '/dashboard/:path*',
-    '/lms/:path*',
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 };
