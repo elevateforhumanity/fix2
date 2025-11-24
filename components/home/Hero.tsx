@@ -30,18 +30,18 @@ export function Hero() {
               Apply Now – It&apos;s Free
             </Link>
             <a
-              href="https://indianaconnect.com"
+              href="https://www.indianacareerconnect.com"
               target="_blank"
               rel="noreferrer"
-              className="px-5 py-2.5 rounded-full border border-red-600 text-red-600 text-sm font-semibold hover:bg-red-50 transition-colors"
+              className="px-5 py-2.5 rounded-full border-2 border-white bg-white/10 backdrop-blur-sm text-white text-sm font-bold hover:bg-white hover:text-red-600 transition-colors shadow-lg"
             >
-              Schedule at Indiana Connect
+              Schedule at Indiana Career Connect
             </a>
           </div>
 
-          {/* Fallback text for Indiana Connect */}
+          {/* Fallback text for Indiana Career Connect */}
           <p className="text-[11px] text-slate-500 max-w-sm leading-relaxed">
-            If IndianaConnect.com doesn&apos;t load, call your local WorkOne office
+            If IndianaCareerConnect.com doesn&apos;t load, call your local WorkOne office
             and ask for a WIOA/WRG appointment. Tell them Elevate For Humanity is
             your training provider.
           </p>
@@ -91,12 +91,12 @@ export function Hero() {
                 Visit your local WorkOne office or call to schedule an appointment. 
                 You can also try{" "}
                 <a 
-                  href="https://indianaconnect.com" 
+                  href="https://www.indianacareerconnect.com" 
                   target="_blank" 
                   rel="noreferrer"
                   className="text-red-600 underline hover:text-red-700"
                 >
-                  IndianaConnect.com
+                  IndianaCareerConnect.com
                 </a>
               </p>
             </div>

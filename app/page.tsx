@@ -90,6 +90,101 @@ export default function Homepage() {
         </div>
       </section>
 
+      {/* ADDITIONAL IMAGES - Workforce Development, Team Collaboration, etc. */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Our Approach to Workforce Development
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {/* Workforce Development */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <Image 
+                src="/media/workforce-development.png" 
+                alt="Workforce Development Programs" 
+                width={1376} 
+                height={768} 
+                quality={100} 
+                className="w-full h-auto"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Workforce Development</h3>
+                <p className="text-slate-600">Building pathways to self-sufficiency through comprehensive training programs</p>
+              </div>
+            </div>
+
+            {/* Team Collaboration */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <Image 
+                src="/media/team-collaboration.png" 
+                alt="Team Collaboration and Support" 
+                width={1376} 
+                height={768} 
+                quality={100} 
+                className="w-full h-auto"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Team Collaboration</h3>
+                <p className="text-slate-600">Working together with employers, case managers, and training providers</p>
+              </div>
+            </div>
+
+            {/* Construction Training */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <Image 
+                src="/media/construction-training.png" 
+                alt="Construction and Skilled Trades Training" 
+                width={1376} 
+                height={768} 
+                quality={100} 
+                className="w-full h-auto"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Skilled Trades Training</h3>
+                <p className="text-slate-600">Hands-on training in construction, HVAC, and building maintenance</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* EMS/Ambulatory */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <Image 
+                src="/media/ems-ambulatory.png" 
+                alt="EMS and Emergency Medical Services" 
+                width={1376} 
+                height={768} 
+                quality={100} 
+                className="w-full h-auto"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Healthcare Programs</h3>
+                <p className="text-slate-600">Medical Assistant, CNA, and emergency medical services training</p>
+              </div>
+            </div>
+
+            {/* Employer Partnership */}
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <Image 
+                src="/media/employers/employer-partnership-handshake.png" 
+                alt="Employer Partnerships and Job Placement" 
+                width={2752} 
+                height={1536} 
+                quality={100} 
+                className="w-full h-auto"
+              />
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Employer Partnerships</h3>
+                <p className="text-slate-600">Direct connections to hiring employers and job placement support</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* FEATURED PROGRAM - Professional Barbering Highlight */}
       <section className="relative py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-black overflow-hidden">
         {/* Background Pattern */}
@@ -219,7 +314,7 @@ export default function Homepage() {
                   <ArrowRight size={20} />
                 </Link>
                 <a
-                  href="https://indianaconnect.com"
+                  href="https://www.indianacareerconnect.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white/10 transition-all backdrop-blur-sm"
@@ -469,7 +564,7 @@ export default function Homepage() {
           {/* Mobile CTA */}
           <div className="mt-8 sm:mt-12 text-center">
             <a
-              href="https://indianaconnect.com"
+              href="https://www.indianacareerconnect.com"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold shadow-lg hover:bg-red-700 transition-all hover:scale-105"
@@ -790,7 +885,7 @@ const realPrograms = [
 const process = [
   {
     title: "Set Your Appointment",
-    description: "Go to IndianaConnect.com to schedule your appointment with WorkOne. They handle all intake and eligibility.",
+    description: "Go to IndianaCareerConnect.com to schedule your appointment with WorkOne. They handle all intake and eligibility.",
   },
   {
     title: "WorkOne Does the Paperwork",
