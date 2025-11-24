@@ -137,6 +137,9 @@ export default function Homepage() {
                   <strong>Step 2:</strong> WorkOne handles all intake, eligibility, and funding paperwork (WIOA, WRG, JRI).<br/>
                   <strong>Step 3:</strong> Once approved, we provide the training structure and connect you to real job sites.
                 </p>
+                <p className="mt-3 text-xs text-white/75 leading-relaxed border-t border-white/20 pt-3">
+                  <strong>Note:</strong> If IndianaConnect.com doesn't load, call your local WorkOne office directly and ask for a WIOA/WRG appointment. Tell them Elevate For Humanity is your training provider.
+                </p>
               </div>
 
               {/* Contact Info */}

@@ -10,16 +10,28 @@ import clsx from "clsx";
 // Student Portal URL
 const STUDENT_PORTAL_URL = "/portal";
 
-// Programs dropdown items
+// Main Programs dropdown items (Elevate-run programs)
 const programsLinks = [
   { href: "/programs/medical-assistant", label: "Medical Assistant" },
-  { href: "/programs/phlebotomy", label: "Phlebotomy Technician" },
-  { href: "/programs/ekg-technician", label: "EKG Technician" },
-  { href: "/programs/pharmacy-technician", label: "Pharmacy Technician" },
-  { href: "/programs/dental-assistant", label: "Dental Assistant" },
-  { href: "/programs/patient-care-technician", label: "Patient Care Technician" },
-  { href: "/programs/sterile-processing", label: "Sterile Processing Technician" },
-  { href: "/programs/healthcare-administration", label: "Healthcare Administration" },
+  { href: "/programs/barber-apprenticeship", label: "Barber Apprenticeship" },
+  { href: "/programs/hvac", label: "HVAC Technician" },
+  { href: "/programs/building-tech", label: "Building Maintenance Tech" },
+  { href: "/programs/cdl", label: "CDL / Transportation" },
+  { href: "/programs/workforce-readiness", label: "Workforce Readiness" },
+  { href: "/programs", label: "View All Programs →" },
+];
+
+// Micro Classes dropdown items (Partner programs)
+const microClassesLinks = [
+  { href: "/micro-classes#cpr-certification", label: "CPR Certification" },
+  { href: "/micro-classes#phlebotomy", label: "Phlebotomy Technician" },
+  { href: "/micro-classes#ekg-technician", label: "EKG Technician" },
+  { href: "/micro-classes#pharmacy-technician", label: "Pharmacy Technician" },
+  { href: "/micro-classes#dental-assistant", label: "Dental Assistant" },
+  { href: "/micro-classes#patient-care-technician", label: "Patient Care Technician" },
+  { href: "/micro-classes#sterile-processing", label: "Sterile Processing" },
+  { href: "/micro-classes#healthcare-administration", label: "Healthcare Administration" },
+  { href: "/micro-classes", label: "View All Micro Classes →" },
 ];
 
 // Funding dropdown items
@@ -40,8 +52,10 @@ export function MainNav() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [programsOpen, setProgramsOpen] = useState(false);
+  const [microClassesOpen, setMicroClassesOpen] = useState(false);
   const [fundingOpen, setFundingOpen] = useState(false);
   const [mobileProgramsOpen, setMobileProgramsOpen] = useState(false);
+  const [mobileMicroClassesOpen, setMobileMicroClassesOpen] = useState(false);
   const [mobileFundingOpen, setMobileFundingOpen] = useState(false);
 
   // Prevent body scroll when mobile menu is open
@@ -60,6 +74,7 @@ export function MainNav() {
   useEffect(() => {
     setMobileMenuOpen(false);
     setProgramsOpen(false);
+    setMicroClassesOpen(false);
     setFundingOpen(false);
   }, [pathname]);
 
@@ -107,6 +122,46 @@ export function MainNav() {
               {programsOpen && (
                 <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
                   {programsLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={clsx(
+                        "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
+                        pathname === link.href
+                          ? "text-red-600 font-semibold bg-red-50"
+                          : "text-slate-700"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Micro Classes Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setMicroClassesOpen(true)}
+              onMouseLeave={() => setMicroClassesOpen(false)}
+            >
+              <button
+                className={clsx(
+                  "flex items-center gap-1 transition hover:text-red-600",
+                  pathname?.startsWith("/micro-classes")
+                    ? "text-red-600 font-semibold"
+                    : "text-slate-700"
+                )}
+                aria-expanded={microClassesOpen}
+                aria-haspopup="true"
+              >
+                Micro Classes
+                <ChevronDown size={14} className={clsx("transition-transform", microClassesOpen && "rotate-180")} />
+              </button>
+              
+              {microClassesOpen && (
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
+                  {microClassesLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
@@ -260,6 +315,36 @@ export function MainNav() {
                   {mobileProgramsOpen && (
                     <div className="pl-4 space-y-1">
                       {programsLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className={clsx(
+                            "block py-2 px-4 rounded-lg text-sm transition touch-manipulation",
+                            pathname === link.href
+                              ? "bg-red-50 text-red-600 font-medium"
+                              : "text-slate-600 hover:bg-slate-50"
+                          )}
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Micro Classes Section */}
+                <div className="space-y-1">
+                  <button
+                    onClick={() => setMobileMicroClassesOpen(!mobileMicroClassesOpen)}
+                    className="w-full flex items-center justify-between py-3 px-4 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 transition touch-manipulation"
+                  >
+                    <span>Micro Classes</span>
+                    <ChevronDown size={16} className={clsx("transition-transform", mobileMicroClassesOpen && "rotate-180")} />
+                  </button>
+                  {mobileMicroClassesOpen && (
+                    <div className="pl-4 space-y-1">
+                      {microClassesLinks.map((link) => (
                         <Link
                           key={link.href}
                           href={link.href}
