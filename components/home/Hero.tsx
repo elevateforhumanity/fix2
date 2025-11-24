@@ -4,7 +4,20 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="bg-white">
+    <>
+      {/* FULL-WIDTH HERO BANNER AT TOP */}
+      <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[450px]">
+        <Image
+          src="/media/hero-banner-latest.png"
+          alt="Elevate For Humanity - Career Training"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
+
+      {/* HERO SECTION WITH TEXT AND IMAGE */}
+      <section className="bg-white">
       <div className="max-w-6xl mx-auto px-4 py-10 lg:py-16 grid gap-8 lg:grid-cols-[1.1fr,0.9fr] items-center">
         {/* LEFT – TEXT */}
         <div className="space-y-4">
@@ -141,5 +154,6 @@ export function Hero() {
         </div>
       </div>
     </section>
+    </>
   );
 }
