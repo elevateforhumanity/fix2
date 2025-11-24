@@ -1,13 +1,24 @@
 // components/layout/Footer.tsx
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="border-t border-slate-700 bg-slate-900">
-      <div className="mx-auto max-w-7xl px-6 py-12 md:px-10 lg:px-12">
+    <footer className="relative border-t border-slate-700 bg-slate-900 overflow-hidden">
+      {/* Watermark Background */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
+        <Image
+          src="/media/elevate-watermark.png"
+          alt="Elevate For Humanity"
+          fill
+          className="object-cover"
+        />
+      </div>
+      
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 md:px-10 lg:px-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5 text-xs text-white">
           {/* Brand & Contact */}
           <div className="lg:col-span-2">

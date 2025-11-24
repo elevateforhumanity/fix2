@@ -22,7 +22,7 @@ export default function Homepage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/media/hero-banner-elevate.png"
+            src="/media/hero-banner-new.png"
             alt="Elevate For Humanity - Funded Training, Real Support, Real Jobs"
             fill
             className="object-cover"
@@ -30,7 +30,7 @@ export default function Homepage() {
             quality={100}
           />
           {/* Subtle overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-slate-900/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/50 to-transparent" />
         </div>
 
         <div className="relative z-10 w-full">
@@ -148,6 +148,148 @@ export default function Homepage() {
                     </a>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED PROGRAM - Professional Barbering Highlight */}
+      <section className="relative py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-black overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <Image
+            src="/media/elevate-watermark.png"
+            alt="Elevate For Humanity"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Image Side */}
+            <div className="relative">
+              <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/media/barber-highlight.png"
+                  alt="Professional Barbering Training"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                {/* Featured Badge */}
+                <div className="absolute top-6 left-6 bg-red-600 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg flex items-center gap-2">
+                  <Award size={20} />
+                  Most Popular Program
+                </div>
+              </div>
+              {/* Floating Stats */}
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-2xl p-6 border-4 border-red-600">
+                <div className="text-4xl font-bold text-red-600 mb-1">2,000</div>
+                <div className="text-sm text-slate-600 font-semibold">Training Hours</div>
+              </div>
+            </div>
+
+            {/* Content Side */}
+            <div className="text-white">
+              <div className="inline-flex items-center gap-2 rounded-full bg-red-600/20 border border-red-600 text-red-400 px-4 py-2 text-sm font-bold mb-4">
+                <Target size={16} />
+                FEATURED PROGRAM
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Professional Barbering
+              </h2>
+              
+              <p className="text-xl text-white/90 mb-8 leading-relaxed">
+                Master the art of barbering with our comprehensive 2,000-hour program. 
+                Learn cutting-edge techniques, build your clientele, and launch a 
+                thriving career in one of the most in-demand trades.
+              </p>
+
+              {/* Key Features Grid */}
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Clock className="w-6 h-6 text-red-400" />
+                    <div className="font-bold text-lg">2,000 Hours</div>
+                  </div>
+                  <div className="text-sm text-white/80">Comprehensive Training</div>
+                </div>
+                
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <div className="flex items-center gap-3 mb-2">
+                    <DollarSign className="w-6 h-6 text-green-400" />
+                    <div className="font-bold text-lg">100% Funded</div>
+                  </div>
+                  <div className="text-sm text-white/80">No Out-of-Pocket Cost</div>
+                </div>
+                
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Briefcase className="w-6 h-6 text-blue-400" />
+                    <div className="font-bold text-lg">Job Placement</div>
+                  </div>
+                  <div className="text-sm text-white/80">Career Support Included</div>
+                </div>
+                
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                  <div className="flex items-center gap-3 mb-2">
+                    <Award className="w-6 h-6 text-yellow-400" />
+                    <div className="font-bold text-lg">State License</div>
+                  </div>
+                  <div className="text-sm text-white/80">Exam Preparation</div>
+                </div>
+              </div>
+
+              {/* What You'll Master */}
+              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 mb-8 border border-white/10">
+                <h3 className="font-bold text-xl mb-4 flex items-center gap-2">
+                  <GraduationCap size={24} className="text-red-400" />
+                  What You'll Master:
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span>Advanced cutting techniques & fades</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span>Beard grooming & styling</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span>Client consultation & communication</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span>Business management & marketing</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <span>Sanitation & safety protocols</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/programs/barbering"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 text-white px-8 py-4 text-lg font-bold shadow-lg hover:bg-red-700 transition-all hover:scale-105"
+                >
+                  Learn More
+                  <ArrowRight size={20} />
+                </Link>
+                <a
+                  href="https://indianaconnect.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white/10 transition-all backdrop-blur-sm"
+                >
+                  Apply Now
+                </a>
               </div>
             </div>
           </div>
