@@ -2,6 +2,7 @@
 // Using ONLY real data, real images, real videos - NO PLACEHOLDERS
 import Link from "next/link";
 import Image from "next/image";
+import { MobileVoiceOver } from "@/components/MobileVoiceOver";
 import { 
   ArrowRight, CheckCircle, Users, Briefcase, GraduationCap, Award, 
   Phone, Mail, MapPin, TrendingUp, Clock, Target, BookOpen, 
@@ -10,23 +11,26 @@ import {
 
 export default function Homepage() {
   return (
-    <main className="min-h-screen bg-white">
+    <>
+      {/* Auto-play Voice-Over for Mobile */}
+      <MobileVoiceOver />
       
-      {/* HERO BANNER 1 - Main Mission Statement with Video */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-slate-900">
-        {/* Background Video with Sound */}
+      <main className="min-h-screen bg-white">
+      
+      {/* HERO BANNER 1 - Main Mission Statement with Real Image */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted={false}
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
-            poster="/media/homepage-hero.jpg"
-          >
-            <source src="/videos/hero-video-with-audio.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-red-900/95 via-red-800/90 to-blue-900/90" />
+          <Image
+            src="/media/homepage-hero.jpg"
+            alt="Elevate For Humanity - Workforce Training"
+            fill
+            className="object-cover"
+            priority
+            quality={100}
+          />
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/70 to-slate-900/60" />
         </div>
 
         <div className="relative z-10 w-full">
@@ -102,19 +106,31 @@ export default function Homepage() {
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/apply"
+                <a
+                  href="https://indianaconnect.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-white text-red-600 px-8 py-4 text-lg font-bold shadow-lg hover:bg-yellow-300 hover:text-red-700 transition-all hover:scale-105"
                 >
-                  Check Your Eligibility
+                  Schedule at Indiana Connect
                   <ArrowRight size={20} />
-                </Link>
+                </a>
                 <Link
                   href="/about"
                   className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white/10 transition-all backdrop-blur-sm"
                 >
                   Our Story
                 </Link>
+              </div>
+
+              {/* Important Notice */}
+              <div className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                <p className="text-white font-semibold mb-2">📍 How to Get Started:</p>
+                <p className="text-white/90 text-sm leading-relaxed">
+                  <strong>Step 1:</strong> Visit <a href="https://indianaconnect.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">IndianaConnect.com</a> to schedule your appointment with WorkOne.<br/>
+                  <strong>Step 2:</strong> WorkOne handles all intake, eligibility, and funding paperwork (WIOA, WRG, JRI).<br/>
+                  <strong>Step 3:</strong> Once approved, we provide the training structure and connect you to real job sites.
+                </p>
               </div>
 
               {/* Contact Info */}
@@ -331,38 +347,242 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* How We Work - Process Section */}
-      <section className="py-24 bg-white">
+      {/* How We Work - Process Section with Images */}
+      <section className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
               How Elevate For Humanity Works
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              We handle the confusing parts so you can focus on learning and getting hired.
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto px-4">
+              WorkOne handles intake and funding. We provide the training structure.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {process.map((step, index) => (
-              <div key={index} className="relative">
+              <div key={index} className="relative bg-white rounded-2xl shadow-lg border-2 border-slate-200 p-6 hover:shadow-xl transition-all">
                 {/* Step Number */}
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-blue-500 text-white text-2xl font-bold flex items-center justify-center mb-6 mx-auto shadow-lg">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-red-500 to-blue-500 text-white text-xl sm:text-2xl font-bold flex items-center justify-center mb-4 sm:mb-6 mx-auto shadow-lg">
                   {index + 1}
                 </div>
 
                 {/* Content */}
                 <div className="text-center">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{step.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3">{step.title}</h3>
+                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">{step.description}</p>
                 </div>
 
-                {/* Connector Line */}
+                {/* Connector Arrow - Mobile Friendly */}
                 {index < process.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-red-300 to-blue-300" />
+                  <>
+                    {/* Desktop connector */}
+                    <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-red-300 to-blue-300" />
+                    {/* Mobile connector */}
+                    <div className="lg:hidden flex justify-center mt-4">
+                      <ArrowRight className="text-red-500" size={24} />
+                    </div>
+                  </>
                 )}
               </div>
             ))}
+          </div>
+
+          {/* Mobile CTA */}
+          <div className="mt-8 sm:mt-12 text-center">
+            <a
+              href="https://indianaconnect.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-bold shadow-lg hover:bg-red-700 transition-all hover:scale-105"
+            >
+              Schedule at Indiana Connect
+              <ArrowRight size={20} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Mobile-Optimized Info Section with Images */}
+      <section className="py-12 sm:py-16 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3 sm:mb-4">
+              What Makes Us Different
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 px-4">
+              We're not a school. We're a workforce connector.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
+            {/* Card 1 - For Learners */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-48 sm:h-56">
+                <Image
+                  src="/media/hero-elevate-learners.jpg"
+                  alt="For Learners"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">For Learners</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">100% funded training (no cost to you)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">Train at real shops, clinics, and job sites</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">Barrier-aware support (justice-involved, unemployed)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">Job placement assistance</span>
+                  </li>
+                </ul>
+                <Link
+                  href="/learners"
+                  className="inline-flex items-center gap-2 text-red-600 font-bold hover:gap-3 transition-all"
+                >
+                  Learn More <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 2 - For Employers */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-48 sm:h-56">
+                <Image
+                  src="/media/hero-slide-employers.jpg"
+                  alt="For Employers"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">For Employers</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">OJT and WEX pipelines</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">Pre-screened, job-ready candidates</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">Apprenticeship coordination</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">Upskilling for current staff</span>
+                  </li>
+                </ul>
+                <Link
+                  href="/employers"
+                  className="inline-flex items-center gap-2 text-red-600 font-bold hover:gap-3 transition-all"
+                >
+                  Partner With Us <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 3 - Healthcare Programs */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-48 sm:h-56">
+                <Image
+                  src="/media/hero-slide-healthcare.jpg"
+                  alt="Healthcare Programs"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Healthcare Programs</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">Medical Assistant (10 weeks)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">CNA Training (6 weeks)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">Phlebotomy Technician (8 weeks)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">All WRG approved</span>
+                  </li>
+                </ul>
+                <Link
+                  href="/programs?category=healthcare"
+                  className="inline-flex items-center gap-2 text-red-600 font-bold hover:gap-3 transition-all"
+                >
+                  View Healthcare <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 4 - Skilled Trades */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-48 sm:h-56">
+                <Image
+                  src="/media/hero-slide-barber.jpg"
+                  alt="Skilled Trades"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">Skilled Trades</h3>
+                </div>
+              </div>
+              <div className="p-6">
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">Barber Apprenticeship (2,000 hours)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">HVAC Technician (12 weeks)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">Building Maintenance (10 weeks)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-1" />
+                    <span className="text-sm sm:text-base text-slate-700">DOL registered programs</span>
+                  </li>
+                </ul>
+                <Link
+                  href="/programs?category=trades"
+                  className="inline-flex items-center gap-2 text-red-600 font-bold hover:gap-3 transition-all"
+                >
+                  View Trades <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -421,6 +641,7 @@ export default function Homepage() {
         </div>
       </section>
     </main>
+    </>
   );
 }
 
@@ -429,7 +650,7 @@ const realPrograms = [
   {
     title: "Barber Apprenticeship",
     subtitle: "DOL-Registered Program",
-    description: "Train at real barber shops across Indianapolis. 1,500 hours combining technical skills, licensing prep, and business management.",
+    description: "Train at real barber shops across Indianapolis. 2,000 hours combining technical skills, licensing prep, and business management.",
     image: "/media/programs/barber-hd.jpg",
     funding: ["WIOA", "Apprenticeship"],
     duration: "12 months",
@@ -490,20 +711,20 @@ const realPrograms = [
 
 const process = [
   {
-    title: "Check Eligibility",
-    description: "We look at your county, income, employment status, justice involvement, and barriers to see which programs may fit.",
+    title: "Set Your Appointment",
+    description: "Go to IndianaConnect.com to schedule your appointment with WorkOne. They handle all intake and eligibility.",
   },
   {
-    title: "Connect to Workforce",
-    description: "We coordinate with WorkOne and other workforce boards so you're not bouncing between offices and websites.",
+    title: "WorkOne Does the Paperwork",
+    description: "WorkOne processes your WIOA, WRG, or JRI funding application. They handle everything—income verification, barriers assessment, approvals.",
   },
   {
-    title: "Pick Your Pathway",
-    description: "We help you choose a program that leads to real, funded opportunities—not just a brochure.",
+    title: "We Provide the Training",
+    description: "Once approved, we provide the schooling and structure. You train at real shops, clinics, and job sites across Indiana.",
   },
   {
-    title: "Train & Get Hired",
-    description: "You complete training while we track progress, coordinate with funders, and connect you to employers.",
+    title: "Get Hired",
+    description: "Complete your training, earn your certification, and we connect you with employers ready to hire.",
   },
 ];
 
