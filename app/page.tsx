@@ -20,7 +20,75 @@ export default function Homepage() {
       
       {/* NEW HERO - Clean, Mobile-Optimized Layout */}
       <Hero />
-      
+
+      {/* SUCCESS STORIES - All 20 Split Testimonial Images */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+              Real Success Stories
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              See how our students transformed their lives through fully-funded training
+            </p>
+          </div>
+
+          {/* Medical Assistant - 4 Images */}
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold text-slate-900 mb-4">Medical Assistant Graduate</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Image src="/media/testimonials/testimonial-medical-assistant-1.png" alt="Medical Assistant Success 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-medical-assistant-2.png" alt="Medical Assistant Success 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-medical-assistant-3.png" alt="Medical Assistant Success 3" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-medical-assistant-4.png" alt="Medical Assistant Success 4" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+            </div>
+          </div>
+
+          {/* Success Story 2 - 4 Images */}
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold text-slate-900 mb-4">Career Transformation Story</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Image src="/media/testimonials/testimonial-success-2-part1.png" alt="Success Story 2 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-2-part2.png" alt="Success Story 2 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-2-part3.png" alt="Success Story 2 Part 3" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-2-part4.png" alt="Success Story 2 Part 4" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+            </div>
+          </div>
+
+          {/* Success Story 3 - 4 Images */}
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold text-slate-900 mb-4">From Barriers to Breakthrough</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Image src="/media/testimonials/testimonial-success-3-part1.png" alt="Success Story 3 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-3-part2.png" alt="Success Story 3 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-3-part3.png" alt="Success Story 3 Part 3" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-3-part4.png" alt="Success Story 3 Part 4" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+            </div>
+          </div>
+
+          {/* Success Story 4 - 4 Images */}
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold text-slate-900 mb-4">Building a Better Future</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Image src="/media/testimonials/testimonial-success-4-part1.png" alt="Success Story 4 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-4-part2.png" alt="Success Story 4 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-4-part3.png" alt="Success Story 4 Part 3" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-4-part4.png" alt="Success Story 4 Part 4" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+            </div>
+          </div>
+
+          {/* Success Story 5 - 4 Images */}
+          <div>
+            <h3 className="text-xl font-semibold text-slate-900 mb-4">Pathway to Self-Sufficiency</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <Image src="/media/testimonials/testimonial-success-5-part1.png" alt="Success Story 5 Part 1" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-5-part2.png" alt="Success Story 5 Part 2" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-5-part3.png" alt="Success Story 5 Part 3" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+              <Image src="/media/testimonials/testimonial-success-5-part4.png" alt="Success Story 5 Part 4" width={1376} height={768} quality={100} className="w-full h-auto rounded-lg shadow-lg" />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* FEATURED PROGRAM - Professional Barbering Highlight */}
       <section className="relative py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-black overflow-hidden">
