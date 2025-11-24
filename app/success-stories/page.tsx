@@ -34,7 +34,7 @@ export default function SuccessStoriesPage() {
       id: 2,
       name: 'Sarah M.',
       program: 'Medical Assistant',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&q=80',
+      image: '/media/testimonials/testimonial-medical-assistant-1.png',
       quote: 'Single mom to certified MA in 5 months. Now working at a clinic with benefits for my family. WIOA covered my tuition, childcare, and transportation. I couldn\'t have done it without that support.',
       outcome: 'Earning $38,000/year with full benefits',
       beforeJob: 'Unemployed Single Mom',
