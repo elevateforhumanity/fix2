@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS public.programs (
   mode TEXT DEFAULT 'in-person',
   estimated_weeks INTEGER,
   estimated_hours INTEGER,
-  funding_tags TEXT[] DEFAULT '{}',
+  funding_tags TEXT[] DEFAULT ARRAY[]::TEXT[],
   show_on_marketing BOOLEAN DEFAULT true,
   show_in_catalog BOOLEAN DEFAULT true,
   is_active BOOLEAN DEFAULT true,
