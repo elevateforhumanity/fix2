@@ -6,6 +6,10 @@ import { supabaseAdmin } from "@/lib/supabaseClients";
 // For now this assumes only admins can hit this route.
 
 export async function GET() {
+  if (!supabaseAdmin) {
+    return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
+  }
+
   const { data, error } = await supabaseAdmin
     .from("programs")
     .select("*")
@@ -20,6 +24,10 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  if (!supabaseAdmin) {
+    return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
+  }
+
   try {
     const body = await req.json();
     const { id, ...payload } = body;
