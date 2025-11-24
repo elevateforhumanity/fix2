@@ -26,6 +26,10 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
       ]
     },
     { 
+      name: 'Micro Classes', 
+      href: '/micro-classes'
+    },
+    { 
       name: 'For Agencies', 
       href: '/agencies',
       dropdown: [
