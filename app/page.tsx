@@ -1,9 +1,10 @@
-// app/page.tsx - Marketing Homepage
+// app/page.tsx - Elevate For Humanity Homepage
+// REAL business model: We CONNECT people to training, we don't run a campus
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Users, Briefcase, GraduationCap, DollarSign, Clock, Award } from "lucide-react";
+import { ArrowRight, CheckCircle, Users, Briefcase, GraduationCap, DollarSign, Clock, Award, MapPin, Phone, Mail } from "lucide-react";
 
-export default function MarketingHomepage() {
+export default function Homepage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -14,35 +15,35 @@ export default function MarketingHomepage() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
                 <Award size={16} />
-                <span>100% FREE Career Training</span>
+                <span>100% FREE • We Handle the Paperwork</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-                Transform Your Career with{" "}
-                <span className="text-red-600">Free Healthcare Training</span>
+                We Connect You to{" "}
+                <span className="text-red-600">Free Career Training</span>
               </h1>
               
               <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed">
-                No tuition. No debt. Real jobs waiting. Get certified in high-demand healthcare careers through 100% funded programs in 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240.
+                We know people, pathways, and approvals. We connect Indiana residents to fully-funded training at partner locations. Barber shops, HVAC companies, trucking schools, medical clinics. We handle the funding paperwork. You focus on learning.
               </p>
 
               {/* Key Benefits */}
               <div className="space-y-3 mb-8">
                 <div className="flex items-center gap-3">
                   <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
-                  <span className="text-slate-700">Fully funded through WIOA, WRG, and JRI programs</span>
+                  <span className="text-slate-700">We handle WIOA, WRG, and JRI funding paperwork</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
-                  <span className="text-slate-700">Earn industry-recognized certifications</span>
+                  <span className="text-slate-700">Schedule appointments at Indiana Connect/WorkOne</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
-                  <span className="text-slate-700">Job placement assistance with local employers</span>
+                  <span className="text-slate-700">Train at real shops, labs, and job sites across Indiana</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CheckCircle size={20} className="text-red-600 flex-shrink-0" />
-                  <span className="text-slate-700">Flexible schedules for working adults</span>
+                  <span className="text-slate-700">Case management and job placement support</span>
                 </div>
               </div>
 
@@ -52,30 +53,74 @@ export default function MarketingHomepage() {
                   href="/apply"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-red-700 transition-all hover:scale-105"
                 >
-                  Apply Now - It's Free
+                  Check My Eligibility
                   <ArrowRight size={20} />
                 </Link>
                 <Link
                   href="/programs"
                   className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-red-600 hover:text-red-600 transition-all"
                 >
-                  Explore Programs
+                  See Training Options
                 </Link>
+              </div>
+              
+              {/* Contact Info */}
+              <div className="mt-8 pt-8 border-t border-slate-200">
+                <p className="text-sm font-semibold text-slate-700 mb-3">Questions? Contact us:</p>
+                <div className="flex flex-col sm:flex-row gap-4 text-sm">
+                  <a href="tel:+13173143757" className="flex items-center gap-2 text-slate-600 hover:text-red-600 transition">
+                    <Phone size={16} />
+                    (317) 314-3757
+                  </a>
+                  <a href="mailto:elizabethpowell6262@gmail.com" className="flex items-center gap-2 text-slate-600 hover:text-red-600 transition">
+                    <Mail size={16} />
+                    elizabethpowell6262@gmail.com
+                  </a>
+                </div>
               </div>
             </div>
 
-            {/* Right Column - Image & Stats */}
+            {/* Right Column - How It Works */}
             <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/media/homepage-hero.jpg"
-                  alt="Healthcare training students"
-                  width={600}
-                  height={500}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="bg-white rounded-3xl shadow-2xl p-8 border border-slate-200">
+                <h3 className="text-2xl font-bold text-slate-900 mb-6">How It Works</h3>
+                <div className="space-y-6">
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-600 font-bold flex items-center justify-center">1</div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Apply Online</h4>
+                      <p className="text-sm text-slate-600">Tell us what you want to learn. Takes 10 minutes.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-600 font-bold flex items-center justify-center">2</div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">We Handle Funding</h4>
+                      <p className="text-sm text-slate-600">We check your eligibility and submit paperwork for WIOA, WRG, or JRI.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-600 font-bold flex items-center justify-center">3</div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Schedule at Indiana Connect</h4>
+                      <p className="text-sm text-slate-600">Book your appointment at WorkOne/Indiana Connect.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-600 font-bold flex items-center justify-center">4</div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Start Training</h4>
+                      <p className="text-sm text-slate-600">Train at partner locations. We provide ongoing support.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 font-bold flex items-center justify-center">5</div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Get Hired</h4>
+                      <p className="text-sm text-slate-600">We connect you with employers ready to hire.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Floating Stats Cards */}
@@ -97,10 +142,10 @@ export default function MarketingHomepage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Choose Your Healthcare Career Path
+              Choose Your Career Path
             </h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              All programs are 100% funded and lead to industry-recognized certifications with strong job placement rates.
+              All programs are 100% funded through WIOA, WRG, and JRI. No tuition, no debt. Real jobs waiting.
             </p>
           </div>
 
@@ -287,7 +332,7 @@ export default function MarketingHomepage() {
             </div>
             <div>
               <div className="text-5xl font-bold text-orange-400 mb-2">8+</div>
-              <div className="text-slate-300">Healthcare Programs</div>
+              <div className="text-slate-300">Career Programs</div>
             </div>
             <div>
               <div className="text-5xl font-bold text-orange-400 mb-2">85%</div>
@@ -377,60 +422,60 @@ export default function MarketingHomepage() {
 // Data
 const programs = [
   {
+    name: "VITA Tax Preparation",
+    slug: "vita",
+    description: "Become an IRS-certified tax preparer. Help families file taxes and earn income year-round.",
+    duration: "8-12 weeks",
+    salary: "$35K-$55K",
+  },
+  {
+    name: "Barber Apprenticeship",
+    slug: "barber",
+    description: "Learn barbering in a real shop. Get licensed and start your own business or work anywhere.",
+    duration: "12 months",
+    salary: "$30K-$60K+",
+  },
+  {
     name: "Medical Assistant",
     slug: "medical-assistant",
-    description: "Provide essential support in healthcare settings with clinical and administrative skills.",
-    duration: "12 weeks",
+    description: "Work in clinics and hospitals. Take vitals, assist doctors, manage patient records.",
+    duration: "8-12 weeks",
     salary: "$35K-$45K",
   },
   {
-    name: "Phlebotomy Technician",
-    slug: "phlebotomy",
-    description: "Specialize in blood collection and laboratory procedures.",
-    duration: "8 weeks",
-    salary: "$32K-$42K",
-  },
-  {
-    name: "EKG Technician",
-    slug: "ekg-technician",
-    description: "Perform electrocardiogram tests to monitor heart health.",
-    duration: "6 weeks",
-    salary: "$33K-$43K",
-  },
-  {
-    name: "Pharmacy Technician",
-    slug: "pharmacy-technician",
-    description: "Assist pharmacists in preparing and dispensing medications.",
+    name: "HVAC Technician",
+    slug: "hvac",
+    description: "Install and repair heating and cooling systems. High demand, great pay, work anywhere.",
     duration: "12 weeks",
-    salary: "$34K-$44K",
+    salary: "$40K-$65K",
   },
   {
-    name: "Dental Assistant",
-    slug: "dental-assistant",
-    description: "Support dental professionals in patient care and office operations.",
-    duration: "10 weeks",
-    salary: "$36K-$46K",
+    name: "CDL Training",
+    slug: "cdl",
+    description: "Get your Commercial Driver's License. Drive trucks, earn great money, see the country.",
+    duration: "4 weeks",
+    salary: "$50K-$75K",
   },
   {
-    name: "Patient Care Technician",
-    slug: "patient-care-technician",
-    description: "Provide direct patient care in hospitals and healthcare facilities.",
-    duration: "14 weeks",
-    salary: "$35K-$45K",
+    name: "Building Maintenance",
+    slug: "building-maintenance",
+    description: "Learn plumbing, electrical, HVAC basics. Maintain buildings, apartments, facilities.",
+    duration: "10-12 weeks",
+    salary: "$35K-$55K",
   },
   {
-    name: "Sterile Processing",
-    slug: "sterile-processing",
-    description: "Ensure medical instruments are properly sterilized and maintained.",
-    duration: "12 weeks",
-    salary: "$37K-$47K",
+    name: "Digital Skills",
+    slug: "digital-skills",
+    description: "Master Microsoft Office, Google Workspace, email, and essential computer skills.",
+    duration: "6-8 weeks",
+    salary: "$30K-$45K",
   },
   {
-    name: "Healthcare Administration",
-    slug: "healthcare-administration",
-    description: "Manage healthcare office operations and patient records.",
-    duration: "16 weeks",
-    salary: "$40K-$50K",
+    name: "Re-Entry Coaching",
+    slug: "reentry",
+    description: "For justice-involved individuals. Career coaching, job placement, second-chance employers.",
+    duration: "Ongoing",
+    salary: "Varies",
   },
 ];
 
@@ -455,18 +500,18 @@ const steps = [
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
+    name: "Marcus T.",
+    program: "Barber Apprenticeship",
+    quote: "I went from cutting hair in my kitchen to owning my own shop. Elevate helped me get licensed and connected me with mentors. Now I'm my own boss.",
+  },
+  {
+    name: "Jennifer R.",
     program: "Medical Assistant",
-    quote: "This program changed my life. I went from unemployed to working at a great hospital in just 3 months. The training was excellent and completely free!",
+    quote: "As a single mom, I couldn't afford school. This program was completely free and I got hired at a clinic before I even finished. Life-changing.",
   },
   {
-    name: "Michael Davis",
-    program: "Phlebotomy Technician",
-    quote: "I was skeptical at first, but the support I received was amazing. Now I have a stable career and I'm earning more than I ever thought possible.",
-  },
-  {
-    name: "Jennifer Martinez",
-    program: "Dental Assistant",
-    quote: "As a single mom, I couldn't afford traditional schooling. This program gave me the skills and certification I needed without any debt.",
+    name: "David L.",
+    program: "CDL Training",
+    quote: "Got my CDL in 4 weeks, no cost. Now I'm making $60K driving for a great company. Best decision I ever made.",
   },
 ];
