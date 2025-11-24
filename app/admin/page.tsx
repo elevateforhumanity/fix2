@@ -1,7 +1,7 @@
 // app/admin/page.tsx - Admin Dashboard Overview
 import { getServerSupabase } from "@/lib/supabaseClients";
 import Link from "next/link";
-import { Users, FileText, Award, TrendingUp, Clock, DollarSign } from "lucide-react";
+import { Users, FileText, Award, TrendingUp, Clock, DollarSign, Info } from "lucide-react";
 
 export default async function AdminDashboardPage() {
   const supabase = getServerSupabase();
@@ -72,9 +72,9 @@ export default async function AdminDashboardPage() {
       <div className="max-w-7xl mx-auto">
         {/* Page Title */}
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Overview</h1>
+          <h1 className="text-2xl font-bold text-gray-900">Admin Overview</h1>
           <p className="text-gray-600 mt-1">
-            Monitor applications, enrollments, and program outcomes
+            Monitor applications, enrollments, completions, and funding mix across all Elevate For Humanity programs
           </p>
         </div>
 
@@ -94,15 +94,20 @@ export default async function AdminDashboardPage() {
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                 <FileText className="w-6 h-6 text-blue-600" />
               </div>
-              <span className="text-sm text-gray-500">All Time</span>
+              <div className="group relative">
+                <Info className="w-4 h-4 text-gray-400 cursor-help" />
+                <div className="absolute right-0 top-6 w-64 p-3 bg-gray-900 text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 shadow-xl">
+                  Total number of applications submitted through the Elevate For Humanity intake form. This includes learners referred by workforce partners, employers, and the public. Use this to track demand and outreach impact.
+                </div>
+              </div>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-1">
               {stats.totalApplications}
             </div>
-            <div className="text-sm text-gray-600">Total Applications</div>
+            <div className="text-sm font-semibold text-gray-900">Total Applications</div>
             {stats.applicationsThisWeek > 0 && (
-              <div className="mt-2 text-xs text-green-600">
-                +{stats.applicationsThisWeek} this week
+              <div className="mt-2 text-xs text-green-600 font-medium">
+                +{stats.applicationsThisWeek} in the last 7 days
               </div>
             )}
           </div>
@@ -113,15 +118,21 @@ export default async function AdminDashboardPage() {
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                 <Clock className="w-6 h-6 text-orange-600" />
               </div>
-              <span className="text-sm text-gray-500">Needs Review</span>
+              <div className="group relative">
+                <Info className="w-4 h-4 text-gray-400 cursor-help" />
+                <div className="absolute right-0 top-6 w-64 p-3 bg-gray-900 text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 shadow-xl">
+                  Applications that need review and approval. Click "Review now" to approve applications and automatically create user accounts and enrollments.
+                </div>
+              </div>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-1">
               {stats.pendingApplications}
             </div>
-            <div className="text-sm text-gray-600">Pending Applications</div>
+            <div className="text-sm font-semibold text-gray-900">Pending Applications</div>
+            <div className="text-xs text-gray-500 mt-1">Needs review</div>
             <Link
               href="/admin/applications"
-              className="mt-2 text-xs text-orange-600 hover:text-orange-700 font-medium"
+              className="mt-2 inline-block text-xs text-orange-600 hover:text-orange-700 font-semibold"
             >
               Review now →
             </Link>
@@ -133,15 +144,21 @@ export default async function AdminDashboardPage() {
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                 <Users className="w-6 h-6 text-green-600" />
               </div>
-              <span className="text-sm text-gray-500">Currently Active</span>
+              <div className="group relative">
+                <Info className="w-4 h-4 text-gray-400 cursor-help" />
+                <div className="absolute right-0 top-6 w-64 p-3 bg-gray-900 text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 shadow-xl">
+                  Number of learners who are currently enrolled in at least one program and marked as 'active' in the system. These are your in-progress learners that need support, check-ins, and coordination.
+                </div>
+              </div>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-1">
               {stats.activeEnrollments}
             </div>
-            <div className="text-sm text-gray-600">Active Enrollments</div>
+            <div className="text-sm font-semibold text-gray-900">Active Enrollments</div>
+            <div className="text-xs text-gray-500 mt-1">Learners currently in programs</div>
             <Link
               href="/admin/enrollments"
-              className="mt-2 text-xs text-green-600 hover:text-green-700 font-medium"
+              className="mt-2 inline-block text-xs text-green-600 hover:text-green-700 font-semibold"
             >
               View details →
             </Link>
@@ -153,15 +170,21 @@ export default async function AdminDashboardPage() {
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-purple-600" />
               </div>
-              <span className="text-sm text-gray-500">Completions</span>
+              <div className="group relative">
+                <Info className="w-4 h-4 text-gray-400 cursor-help" />
+                <div className="absolute right-0 top-6 w-64 p-3 bg-gray-900 text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 shadow-xl">
+                  Total number of enrollments that have been marked 'completed.' These are learners who have finished all required coursework or program milestones. Use this number for completion reporting to workforce boards and funders.
+                </div>
+              </div>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-1">
               {stats.completedPrograms}
             </div>
-            <div className="text-sm text-gray-600">Completed Programs</div>
+            <div className="text-sm font-semibold text-gray-900">Completed Enrollments</div>
+            <div className="text-xs text-gray-500 mt-1">Learners who finished a program</div>
             <Link
               href="/admin/progress"
-              className="mt-2 text-xs text-purple-600 hover:text-purple-700 font-medium"
+              className="mt-2 inline-block text-xs text-purple-600 hover:text-purple-700 font-semibold"
             >
               View progress →
             </Link>
@@ -173,15 +196,21 @@ export default async function AdminDashboardPage() {
               <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
                 <Award className="w-6 h-6 text-red-600" />
               </div>
-              <span className="text-sm text-gray-500">Issued</span>
+              <div className="group relative">
+                <Info className="w-4 h-4 text-gray-400 cursor-help" />
+                <div className="absolute right-0 top-6 w-64 p-3 bg-gray-900 text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 shadow-xl">
+                  Total certificates generated by the LMS for completed programs. This can be used for verification, audits, and to show funders how many learners have finished a pathway and received documentation.
+                </div>
+              </div>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-1">
               {stats.certificatesIssued}
             </div>
-            <div className="text-sm text-gray-600">Certificates Issued</div>
+            <div className="text-sm font-semibold text-gray-900">Certificates Issued</div>
+            <div className="text-xs text-gray-500 mt-1">Total completions across all time</div>
             <Link
               href="/admin/certificates"
-              className="mt-2 text-xs text-red-600 hover:text-red-700 font-medium"
+              className="mt-2 inline-block text-xs text-red-600 hover:text-red-700 font-semibold"
             >
               View certificates →
             </Link>
@@ -193,14 +222,19 @@ export default async function AdminDashboardPage() {
               <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
                 <DollarSign className="w-6 h-6 text-indigo-600" />
               </div>
-              <span className="text-sm text-gray-500">Funding</span>
+              <div className="group relative">
+                <Info className="w-4 h-4 text-gray-400 cursor-help" />
+                <div className="absolute right-0 top-6 w-64 p-3 bg-gray-900 text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-10 shadow-xl">
+                  Total enrollments with identified funding sources. Export detailed funding reports from the Enrollments page to share with workforce boards and funding partners.
+                </div>
+              </div>
             </div>
             <div className="text-3xl font-bold text-gray-900 mb-1">
               {stats.activeEnrollments}
             </div>
-            <div className="text-sm text-gray-600">Funded Enrollments</div>
+            <div className="text-sm font-semibold text-gray-900">Funded Enrollments</div>
             <div className="mt-2 text-xs text-gray-500">
-              WIOA, WRG, JRI, OJT
+              WIOA, WRG, JRI, OJT, WEX
             </div>
           </div>
         </div>

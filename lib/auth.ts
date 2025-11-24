@@ -90,6 +90,45 @@ export async function getUserRole(): Promise<UserRole | null> {
 }
 
 // =====================================================
+// GET AUTH USER (for API routes)
+// =====================================================
+
+export type AuthUser = {
+  id: string;
+  email: string;
+  role: UserRole;
+  full_name?: string;
+};
+
+export async function getAuthUser(): Promise<AuthUser | null> {
+  try {
+    const session = await getSession();
+    if (!session?.user) return null;
+
+    const supabase = await createServerSupabaseClient();
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role, first_name, last_name')
+      .eq('id', session.user.id)
+      .single();
+
+    if (!profile) return null;
+
+    return {
+      id: session.user.id,
+      email: session.user.email || '',
+      role: profile.role as UserRole,
+      full_name: profile.first_name && profile.last_name 
+        ? `${profile.first_name} ${profile.last_name}`
+        : undefined,
+    };
+  } catch (error) {
+    logger.error('Error getting auth user', error as Error);
+    return null;
+  }
+}
+
+// =====================================================
 // ROLE CHECKING
 // =====================================================
 
