@@ -97,3 +97,4 @@ nextjs-site-backup-*.tar.gz
 # Build trigger
 .vercel
 core
+.env*.local
