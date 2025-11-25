@@ -42,6 +42,9 @@ function calculateCourseProgress(
   return Math.round((done / rows.length) * 100);
 }
 
+// Add page-level caching
+export const revalidate = 300; // Cache for 5 minutes
+
 export default async function LMSDashboard() {
   const supabase = await createClient();
   const user = await getCurrentUser();
@@ -50,80 +53,90 @@ export default async function LMSDashboard() {
     redirect("/login");
   }
 
-  // Enrollments + courses
-  const { data: enrollments } = await supabase
-    .from("enrollments")
-    .select(
-      `
-      id,
-      course_id,
-      started_at,
-      courses (
+  // Execute all queries in parallel for faster loading
+  const [
+    { data: enrollments },
+    { data: progressRows },
+    { data: notifications },
+    { data: certificates },
+    { data: courses }
+  ] = await Promise.all([
+    supabase
+      .from("enrollments")
+      .select(
+        `
         id,
-        title,
-        slug,
-        thumbnail_url
+        course_id,
+        started_at,
+        courses (
+          id,
+          title,
+          slug,
+          thumbnail_url
+        )
+      `
       )
-    `
-    )
-    .eq("user_id", user.id)
-    .order("started_at", { ascending: false })
-    .limit(6);
-
-  const { data: progressRows } = await supabase
-    .from("lesson_progress")
-    .select("lesson_id, completed")
-    .eq("user_id", user.id);
-
-  const { data: notifications } = await supabase
-    .from("notifications")
-    .select("*")
-    .eq("user_id", user.id)
-    .eq("read", false)
-    .order("created_at", { ascending: false })
-    .limit(5);
-
-  const { data: certificates } = await supabase
-    .from("certificates")
-    .select("id")
-    .eq("user_id", user.id);
-
-  const { data: courses } = await supabase
-    .from("courses")
-    .select("id")
-    .eq("status", "published");
+      .eq("user_id", user.id)
+      .order("started_at", { ascending: false })
+      .limit(6),
+    supabase
+      .from("lesson_progress")
+      .select("lesson_id, completed")
+      .eq("user_id", user.id),
+    supabase
+      .from("notifications")
+      .select("*")
+      .eq("user_id", user.id)
+      .eq("read", false)
+      .order("created_at", { ascending: false })
+      .limit(5),
+    supabase
+      .from("certificates")
+      .select("id")
+      .eq("user_id", user.id),
+    supabase
+      .from("courses")
+      .select("id")
+      .eq("status", "published")
+  ]);
 
   const activeEnrollments: EnrollmentWithCourse[] = enrollments || [];
   const progress = progressRows || [];
 
   // Build lesson to course mapping
   const enrolledCourseIds = activeEnrollments.map((e) => e.course_id);
-  const { data: modules } = await supabase
-    .from("modules")
-    .select("id, course_id")
-    .in("course_id", enrolledCourseIds);
-
-  const moduleIds = modules?.map((m) => m.id) || [];
-  const { data: lessons } = await supabase
-    .from("lessons")
-    .select("id, module_id")
-    .in("module_id", moduleIds);
-
-  const lessonToCourse = new Map<string, string>();
-  lessons?.forEach((lesson) => {
-    const module = modules?.find((m) => m.id === lesson.module_id);
-    if (module) {
-      lessonToCourse.set(lesson.id, module.course_id);
-    }
-  });
-
-  // Calculate average progress
+  
+  let lessonToCourse = new Map<string, string>();
   let avgProgress = 0;
-  if (activeEnrollments.length > 0) {
-    const percents = activeEnrollments.map((e) =>
-      calculateCourseProgress(e.course_id, progress, lessonToCourse)
-    );
-    avgProgress = Math.round(percents.reduce((a, b) => a + b, 0) / percents.length);
+
+  if (enrolledCourseIds.length > 0) {
+    // First get modules, then get lessons - but do it efficiently
+    const { data: modules } = await supabase
+      .from("modules")
+      .select("id, course_id")
+      .in("course_id", enrolledCourseIds);
+
+    const moduleIds = modules?.map((m) => m.id) || [];
+    
+    if (moduleIds.length > 0) {
+      const { data: lessons } = await supabase
+        .from("lessons")
+        .select("id, module_id")
+        .in("module_id", moduleIds);
+
+      lessons?.forEach((lesson) => {
+        const module = modules?.find((m) => m.id === lesson.module_id);
+        if (module) {
+          lessonToCourse.set(lesson.id, module.course_id);
+        }
+      });
+
+      // Calculate average progress
+      const percents = activeEnrollments.map((e) =>
+        calculateCourseProgress(e.course_id, progress, lessonToCourse)
+      );
+      avgProgress = Math.round(percents.reduce((a, b) => a + b, 0) / percents.length);
+    }
   }
 
   return (
