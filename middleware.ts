@@ -40,14 +40,24 @@ export default function proxy(request: NextRequest) {
   
   // Handle LMS domain - route to /lms
   if (hostname.includes('elevateforhumanityeducation.com')) {
+    // Allow these paths without rewriting (they exist at root level)
+    const allowedRootPaths = ['/admin', '/login', '/signup', '/apply', '/api', '/_next', '/static'];
+    const isAllowedRoot = allowedRootPaths.some(p => path.startsWith(p));
+    
+    if (isAllowedRoot) {
+      return NextResponse.next();
+    }
+    
     // If already on /lms path, continue
     if (path.startsWith('/lms')) {
       return NextResponse.next();
     }
+    
     // Rewrite root to /lms
     if (path === '/' || path === '') {
       return NextResponse.rewrite(new URL('/lms', request.url));
     }
+    
     // Rewrite other paths to /lms/[path]
     return NextResponse.rewrite(new URL(`/lms${path}`, request.url));
   }
