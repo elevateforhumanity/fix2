@@ -36,7 +36,7 @@ export default function Homepage() {
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
                 <div className="relative h-64 md:h-full">
                   <Image 
-                    src="/media/testimonials/testimonial-medical-assistant-1.png" 
+                    src="/media/testimonials/testimonial-medical-assistant-2.png" 
                     alt="Medical Assistant Graduate" 
                     fill
                     className="object-cover"
@@ -63,7 +63,7 @@ export default function Homepage() {
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
                 <div className="relative h-64 md:h-full">
                   <Image 
-                    src="/media/testimonials/testimonial-success-2-part1.png" 
+                    src="/media/testimonials/testimonial-success-2-part3.png" 
                     alt="Career Transformation Story" 
                     fill
                     className="object-cover"
@@ -90,7 +90,7 @@ export default function Homepage() {
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
                 <div className="relative h-64 md:h-full">
                   <Image 
-                    src="/media/testimonials/testimonial-success-3-part1.png" 
+                    src="/media/testimonials/testimonial-success-3-part2.png" 
                     alt="From Barriers to Breakthrough" 
                     fill
                     className="object-cover"
