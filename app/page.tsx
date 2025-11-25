@@ -36,7 +36,7 @@ export default function Homepage() {
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
                 <div className="relative h-64 md:h-full">
                   <Image 
-                    src="/media/testimonials/testimonial-medical-assistant-2.png" 
+                    src="/media/testimonials/testimonial-medical-assistant-1.png" 
                     alt="Medical Assistant Graduate" 
                     fill
                     className="object-cover"
@@ -63,7 +63,7 @@ export default function Homepage() {
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
                 <div className="relative h-64 md:h-full">
                   <Image 
-                    src="/media/testimonials/testimonial-success-2-part3.png" 
+                    src="/media/testimonials/testimonial-success-2-part4.png" 
                     alt="Career Transformation Story" 
                     fill
                     className="object-cover"
@@ -90,7 +90,7 @@ export default function Homepage() {
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
                 <div className="relative h-64 md:h-full">
                   <Image 
-                    src="/media/testimonials/testimonial-success-3-part2.png" 
+                    src="/media/testimonials/testimonial-success-3-part4.png" 
                     alt="From Barriers to Breakthrough" 
                     fill
                     className="object-cover"
@@ -117,7 +117,7 @@ export default function Homepage() {
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
                 <div className="relative h-64 md:h-full">
                   <Image 
-                    src="/media/testimonials/testimonial-success-4-part1.png" 
+                    src="/media/testimonials/testimonial-success-4-part3.png" 
                     alt="Building a Better Future" 
                     fill
                     className="object-cover"
@@ -236,25 +236,14 @@ export default function Homepage() {
               </p>
             </div>
 
-            {/* Employer Partnerships */}
+            {/* Employer Partnerships & Career Support */}
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
               <div className="w-20 h-20 mb-4 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
                 <Briefcase className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">Employer Partnerships</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Direct connections to hiring employers and job placement
-              </p>
-            </div>
-
-            {/* Career Support */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-              <div className="w-20 h-20 mb-4 rounded-xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center">
-                <Target className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Career Support</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Case management, coaching, and barrier navigation
+                Direct connections to hiring employers, job placement, and career support
               </p>
             </div>
           </div>

@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import { requireAdmin } from '@/lib/auth';
 import AdminNav from '@/components/AdminNav';
 import AdminHeader from '@/components/AdminHeader';
+import { SiteFooter } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: "Admin Portal - Manage Programs & Operations",

@@ -21,7 +21,7 @@ export const PROGRAMS: ProgramData[] = [
     blurb: 'State Certified Earn and Learn program! Earn IRS VITA/TCE, QuickBooks Pro Advisor, and Microsoft 365 certifications in just 10 weeks. Learn federal and state tax law, bookkeeping, and financial literacy with supervised practicum at IRS-approved VITA site. Graduate ready for Tax Preparer, Bookkeeping Assistant, and Financial Service Specialist roles.',
     funding: 'WIOA • WRG • Earn and Learn',
     duration: '10 Weeks • 150 Hours',
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80',
+    image: '/media/programs/tax-prep-hd.jpg',
     etplApproved: true,
   },
   {
@@ -30,7 +30,7 @@ export const PROGRAMS: ProgramData[] = [
     blurb: 'Launch your own business in 5 weeks! Learn entrepreneurship, digital marketing, LLC formation, and business planning with mentorship and startup support. Program includes business match stipend and laptop kit. Perfect for youth ages 16+ ready to explore self-employment and leadership pathways.',
     funding: 'WIOA • WRG',
     duration: '5 Weeks • 32 Hours',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80',
+    image: '/media/programs/building-tech-hd.jpg',
     etplApproved: true,
   },
   {

@@ -26,7 +26,7 @@ export const programsData: Record<string, ProgramData> = {
     description: "Launch your healthcare career as a Medical Assistant. Provide essential clinical and administrative support in hospitals, clinics, and medical offices. Get certified in just 12 weeks with 100% funded training.",
     duration: "12 Weeks",
     salaryRange: "$35K-$45K",
-    heroImage: "/media/medical-assistant-hero.jpg",
+    heroImage: "/media/programs/medical-hd.jpg",
     skills: [
       { title: "Clinical Skills", description: "Vital signs, injections, EKG, phlebotomy, and patient care procedures." },
       { title: "Administrative Skills", description: "Medical records, scheduling, billing, and insurance processing." },

@@ -50,6 +50,12 @@ const mainLinks = [
   { href: "/blog", label: "Blog" },
 ];
 
+const portalLinks = [
+  { href: "/portal/student/dashboard", label: "Student Portal" },
+  { href: "/lms/dashboard", label: "LMS" },
+  { href: "/admin/dashboard", label: "Admin" },
+];
+
 export function MainNav() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -59,6 +65,8 @@ export function MainNav() {
   const [mobileProgramsOpen, setMobileProgramsOpen] = useState(false);
   const [mobileMicroClassesOpen, setMobileMicroClassesOpen] = useState(false);
   const [mobileFundingOpen, setMobileFundingOpen] = useState(false);
+  const [portalsOpen, setPortalsOpen] = useState(false);
+  const [mobilePortalsOpen, setMobilePortalsOpen] = useState(false);
   
   // Timeout refs for delayed closing
   const programsTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
@@ -118,7 +126,7 @@ export function MainNav() {
 
   return (
     <>
-      <header className="border-b border-slate-200 bg-white/95 backdrop-blur sticky top-0 z-40 shadow-sm" role="banner">
+      <header className="border-b border-slate-200 bg-white/95 backdrop-blur sticky top-0 z-40" role="banner">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-3 md:px-10">
           {/* Logo / Brand */}
           <Link href="/" className="flex items-center gap-2" aria-label="Elevate For Humanity Home">
@@ -240,6 +248,46 @@ export function MainNav() {
               {fundingOpen && (
                 <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
                   {fundingLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={clsx(
+                        "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
+                        pathname === link.href
+                          ? "text-red-600 font-semibold bg-red-50"
+                          : "text-slate-700"
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Portals Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setPortalsOpen(true)}
+              onMouseLeave={() => setPortalsOpen(false)}
+            >
+              <button
+                className={clsx(
+                  "flex items-center gap-1 transition hover:text-red-600",
+                  (pathname?.startsWith("/portal") || pathname?.startsWith("/lms") || pathname?.startsWith("/admin"))
+                    ? "text-red-600 font-semibold"
+                    : "text-slate-700"
+                )}
+                aria-expanded={portalsOpen}
+                aria-haspopup="true"
+              >
+                Portals
+                <ChevronDown size={14} className={clsx("transition-transform", portalsOpen && "rotate-180")} />
+              </button>
+              
+              {portalsOpen && (
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
+                  {portalLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}

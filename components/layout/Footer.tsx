@@ -149,12 +149,27 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Quick Links */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
-              Resources
+              Quick Links
             </h3>
             <ul className="space-y-2.5">
+              <li>
+                <Link href="/about" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Blog
+                </Link>
+              </li>
               <li>
                 <Link href="/students" className="text-white hover:text-orange-300 transition text-sm font-medium">
                   For Students
@@ -166,28 +181,72 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/funding/state-programs" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  State Funding
+                <Link href="/training-providers" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Training Providers
                 </Link>
               </li>
               <li>
-                <Link href="/funding/federal-programs" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Federal Funding
+                <Link href="/workforce-partners" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Workforce Partners
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Blog
+                <Link href="/courses" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Course Catalog
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  About Us
+                <Link href="/resources" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Resources
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Portals & Tools */}
+          <div>
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
+              Portals
+            </h3>
+            <ul className="space-y-2.5">
+              <li>
+                <Link href="/portal/student/dashboard" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Student Portal
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Contact
+                <Link href="/lms/dashboard" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  LMS
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin/dashboard" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Admin
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers/job-board" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Job Board
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers/resume-builder" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Resume Builder
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers/interview-prep" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Interview Prep
+                </Link>
+              </li>
+              <li>
+                <Link href="/webinars" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Webinars
+                </Link>
+              </li>
+              <li>
+                <Link href="/alumni" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Alumni Network
                 </Link>
               </li>
             </ul>
@@ -205,8 +264,8 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/portal" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Student Portal
+                <Link href="/getstarted" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Get Started
                 </Link>
               </li>
               <li>
@@ -225,13 +284,33 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/career-fair" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Career Fair
+                </Link>
+              </li>
+              <li>
+                <Link href="/financial-aid" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Financial Aid
+                </Link>
+              </li>
+              <li>
+                <Link href="/community" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Community
+                </Link>
+              </li>
+              <li>
                 <Link href="/faq" className="text-white hover:text-orange-300 transition text-sm font-medium">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/help" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Help Center
+                <Link href="/support" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Support
+                </Link>
+              </li>
+              <li>
+                <Link href="/accessibility" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Accessibility
                 </Link>
               </li>
               <li>
