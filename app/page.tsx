@@ -34,12 +34,12 @@ export default function Homepage() {
             {/* Medical Assistant Graduate */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
-                <div className="relative h-64 md:h-full">
+                <div className="relative h-64 md:h-full min-h-[300px]">
                   <Image 
                     src="/media/testimonials/testimonial-medical-assistant-1.png" 
                     alt="Medical Assistant Graduate" 
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
                 <div className="p-6 md:p-8">
@@ -61,12 +61,12 @@ export default function Homepage() {
             {/* Career Transformation */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
-                <div className="relative h-64 md:h-full">
+                <div className="relative h-64 md:h-full min-h-[300px]">
                   <Image 
                     src="/media/testimonials/testimonial-success-2-part4.png" 
                     alt="Career Transformation Story" 
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
                 <div className="p-6 md:p-8">
@@ -88,12 +88,12 @@ export default function Homepage() {
             {/* From Barriers to Breakthrough */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
-                <div className="relative h-64 md:h-full">
+                <div className="relative h-64 md:h-full min-h-[300px]">
                   <Image 
                     src="/media/testimonials/testimonial-success-3-part4.png" 
                     alt="From Barriers to Breakthrough" 
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
                 <div className="p-6 md:p-8">
@@ -115,12 +115,12 @@ export default function Homepage() {
             {/* Building a Better Future */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
-                <div className="relative h-64 md:h-full">
+                <div className="relative h-64 md:h-full min-h-[300px]">
                   <Image 
                     src="/media/testimonials/testimonial-success-4-part3.png" 
                     alt="Building a Better Future" 
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
                 <div className="p-6 md:p-8">
@@ -142,12 +142,12 @@ export default function Homepage() {
             {/* Pathway to Self-Sufficiency */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200">
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
-                <div className="relative h-64 md:h-full">
+                <div className="relative h-64 md:h-full min-h-[300px]">
                   <Image 
                     src="/media/testimonials/testimonial-success-5-part1.png" 
                     alt="Pathway to Self-Sufficiency" 
                     fill
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </div>
                 <div className="p-6 md:p-8">
@@ -271,7 +271,7 @@ export default function Homepage() {
                   src="/media/barber-highlight.png"
                   alt="Professional Barbering Training"
                   fill
-                  className="object-cover"
+                  className="object-contain bg-slate-800"
                   priority
                 />
                 {/* Featured Badge */}
@@ -403,7 +403,7 @@ export default function Homepage() {
                   src="/media/hero-elevate-learners.jpg"
                   alt="Elevate For Humanity - Workforce Development"
                   fill
-                  className="object-cover"
+                  className="object-contain bg-slate-100"
                 />
               </div>
               {/* Floating Stat */}
@@ -506,12 +506,12 @@ export default function Homepage() {
                 className="group relative bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-all hover:scale-105"
               >
                 {/* Program Image */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-56 overflow-hidden bg-slate-100">
                   <Image
                     src={program.image}
                     alt={program.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-contain group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   
