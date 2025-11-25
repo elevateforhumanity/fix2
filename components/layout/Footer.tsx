@@ -210,6 +210,16 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/lms" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  LMS Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Admin Console
+                </Link>
+              </li>
+              <li>
                 <Link href="/success-stories" className="text-white hover:text-orange-300 transition text-sm font-medium">
                   Success Stories
                 </Link>
@@ -222,6 +232,16 @@ export function SiteFooter() {
               <li>
                 <Link href="/help" className="text-white hover:text-orange-300 transition text-sm font-medium">
                   Help Center
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link href="/partners" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Partners
                 </Link>
               </li>
               <li className="pt-3 mt-1 border-t border-slate-700">
@@ -237,6 +257,11 @@ export function SiteFooter() {
               <li>
                 <Link href="/refund-policy" className="text-white hover:text-orange-300 transition text-sm font-medium">
                   Refund Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/accessibility" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                  Accessibility
                 </Link>
               </li>
             </ul>
