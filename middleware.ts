@@ -85,23 +85,15 @@ export default function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL('/blog', request.url), 301);
   }
   
-  // Consolidate student portals - redirect /student/* and /lms/* to /portal/student/*
-  // BUT keep admin/instructor tools in their original locations
+  // Consolidate student portals - redirect /student/* to /portal/student/*
+  // BUT keep /lms/* paths as-is (no redirect)
   if (path.startsWith('/student/') && !path.startsWith('/students')) {
     const newPath = path.replace('/student/', '/portal/student/');
     return NextResponse.redirect(new URL(newPath, request.url), 301);
   }
   
-  if (path.startsWith('/lms/')) {
-    // Keep builder and admin tools at /lms
-    const adminLmsPaths = ['/lms/builder', '/lms/course-authoring'];
-    const isAdminPath = adminLmsPaths.some(p => path.startsWith(p));
-    
-    if (!isAdminPath) {
-      const newPath = path.replace('/lms/', '/portal/student/');
-      return NextResponse.redirect(new URL(newPath, request.url), 301);
-    }
-  }
+  // REMOVED: No longer redirecting /lms/* to /portal/student/*
+  // LMS routes stay at /lms for better performance and clarity
   
   // Skip middleware for static files and public routes
   if (
