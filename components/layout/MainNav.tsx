@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, X, ChevronDown, Search } from "lucide-react";
 import clsx from "clsx";
+import { PremiumMobileNav } from "./PremiumMobileNav";
 
 // Student Portal URL
 const STUDENT_PORTAL_URL = "/portal";
@@ -353,18 +354,11 @@ export function MainNav() {
           <div className="flex items-center gap-2 md:hidden">
             <Link
               href="/apply"
-              className="rounded-full bg-red-500 px-3 py-1.5 text-[11px] font-semibold text-white"
+              className="rounded-full bg-red-500 px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-red-600 transition-colors"
             >
               Apply
             </Link>
-            <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="p-2 text-slate-900 hover:text-red-600 transition touch-manipulation"
-              aria-label="Open navigation menu"
-              aria-expanded={mobileMenuOpen}
-            >
-              <Menu size={24} />
-            </button>
+            <PremiumMobileNav />
           </div>
         </div>
       </header>
