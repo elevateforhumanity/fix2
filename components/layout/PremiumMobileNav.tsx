@@ -133,11 +133,12 @@ export function PremiumMobileNav() {
             <div className="grid grid-cols-2 gap-2">
               <Link
                 href="/apply"
-                className="flex items-center justify-center gap-2 px-4 py-3 bg-red-600 text-white rounded-xl font-bold text-sm hover:bg-red-700 transition-colors shadow-lg"
+                className="flex items-center justify-center gap-2 px-4 py-3 bg-red-600 rounded-xl font-bold text-sm hover:bg-red-700 transition-colors shadow-lg"
+                style={{ color: '#FFFFFF' }}
                 onClick={() => setIsOpen(false)}
               >
-                <UserPlus size={18} />
-                Apply Now
+                <UserPlus size={18} style={{ color: '#FFFFFF' }} />
+                <span style={{ color: '#FFFFFF' }}>Apply Now</span>
               </Link>
               <a
                 href="https://elevateforhumanityeducation.com"
@@ -258,19 +259,19 @@ export function PremiumMobileNav() {
               </div>
             </a>
 
-            <div className="flex items-center gap-3 text-slate-700">
+            <Link
+              href="/contact"
+              className="flex items-center gap-3 text-slate-700 hover:text-blue-600 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
               <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
                 <Mail size={18} className="text-blue-600" />
               </div>
               <div>
-                <div className="text-xs text-slate-500">Email</div>
-                <ObfuscatedEmail
-                  user="elevais4humanityedu"
-                  domain="gmail.com"
-                  className="font-bold text-sm hover:text-blue-600"
-                />
+                <div className="text-xs text-slate-500">Email Us</div>
+                <div className="font-bold text-sm">Contact Form</div>
               </div>
-            </div>
+            </Link>
 
             <a
               href="https://indianaconnect.com"

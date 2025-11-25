@@ -467,7 +467,7 @@ export default function MarketingHomePage() {
               <ul className="space-y-2 text-gray-400">
                 <li>Indianapolis, IN</li>
                 <li>Phone: (317) 555-0100</li>
-                <li>Email: elizabethpowell6262@gmail.com</li>
+                <li>Email: elevate4humanityedu@gmail.com</li>
               </ul>
               <div className="mt-6">
                 <Link

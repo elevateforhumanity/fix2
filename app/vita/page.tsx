@@ -170,7 +170,7 @@ export default function VITAPage() {
             <p className="text-slate-300 mb-6">Join our team and make a difference in your community!</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:elizabethpowell6262@gmail.com?subject=VITA Volunteer Interest"
+                href="mailto:elevate4humanityedu@gmail.com?subject=VITA Volunteer Interest"
                 className="bg-red-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 px-8 rounded-xl transition"
               >
                 Email to Sign Up

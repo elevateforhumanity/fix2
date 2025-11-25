@@ -537,10 +537,10 @@ export default function EnrollPage({ params }: { params: { courseId: string } })
                   📞 (317) 314-3757
                 </a>
                 <a
-                  href="mailto:elizabethpowell6262@gmail.com"
+                  href="mailto:elevate4humanityedu@gmail.com"
                   className="flex items-center gap-2 text-blue-700 hover:text-blue-900"
                 >
-                  ✉️ elizabethpowell6262@gmail.com
+                  ✉️ elevate4humanityedu@gmail.com
                 </a>
               </div>
             </div>

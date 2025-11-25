@@ -54,11 +54,9 @@ export function SiteFooter() {
               </div>
               <div className="flex items-center gap-3 text-white">
                 <Mail size={18} className="text-orange-400 flex-shrink-0" />
-                <ObfuscatedEmail 
-                  user="elevais4humanityedu" 
-                  domain="gmail.com"
-                  className="text-sm hover:text-orange-300 transition font-bold"
-                />
+                <Link href="/contact" className="text-sm hover:text-orange-300 transition font-bold">
+                  Contact Us
+                </Link>
               </div>
             </div>
 

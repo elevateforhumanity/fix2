@@ -25,8 +25,18 @@ export const metadata: Metadata = {
 export default function WIOAFundingPage() {
   return (
     <main className="min-h-screen bg-white">
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20">
-        <div className="mx-auto max-w-4xl px-6">
+      {/* Hero Section with Image */}
+      <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/media/funding/funding-dol-v2-hd.jpg"
+            alt="Department of Labor - WIOA Funding"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="relative mx-auto max-w-4xl px-6 py-20">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             WIOA Funding
           </h1>

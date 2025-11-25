@@ -190,13 +190,13 @@ export function MobileOptimizedNav() {
                     <div className="font-bold">(317) 314-3757</div>
                   </div>
                 </a>
-                <a href="mailto:elizabethpowell6262@gmail.com" className="flex items-center gap-3 text-slate-700 hover:text-red-600">
+                <a href="mailto:elevate4humanityedu@gmail.com" className="flex items-center gap-3 text-slate-700 hover:text-red-600">
                   <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
                     <Mail size={18} className="text-red-600" />
                   </div>
                   <div>
                     <div className="text-xs text-slate-600">Email Us</div>
-                    <div className="font-bold text-sm">elizabethpowell6262@gmail.com</div>
+                    <div className="font-bold text-sm">elevate4humanityedu@gmail.com</div>
                   </div>
                 </a>
                 <div className="flex items-start gap-3 text-slate-700">

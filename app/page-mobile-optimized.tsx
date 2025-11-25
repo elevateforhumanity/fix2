@@ -97,9 +97,9 @@ export default function Homepage() {
                       <Phone size={14} className="sm:w-4 sm:h-4" />
                       (317) 314-3757
                     </a>
-                    <a href="mailto:elizabethpowell6262@gmail.com" className="flex items-center justify-center sm:justify-start gap-2 text-white hover:text-yellow-300 transition">
+                    <a href="mailto:elevate4humanityedu@gmail.com" className="flex items-center justify-center sm:justify-start gap-2 text-white hover:text-yellow-300 transition">
                       <Mail size={14} className="sm:w-4 sm:h-4" />
-                      elizabethpowell6262@gmail.com
+                      elevate4humanityedu@gmail.com
                     </a>
                   </div>
                 </div>

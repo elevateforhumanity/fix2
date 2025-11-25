@@ -105,7 +105,7 @@ export default function PrivacyPolicyPage() {
             <li><strong>Withdraw Consent:</strong> Withdraw consent where processing is based on consent</li>
           </ul>
           <p className="mb-4">
-            To exercise these rights, contact us at elizabethpowell6262@gmail.com.
+            To exercise these rights, contact us at elevate4humanityedu@gmail.com.
           </p>
           <h2 className="mt-6 text-xl font-semibold">6. Data Security</h2>
           <p className="mb-4">
@@ -151,7 +151,7 @@ export default function PrivacyPolicyPage() {
           </p>
           <p className="mb-4">
             <strong>Elevate for Humanity</strong><br />
-            Email: elizabethpowell6262@gmail.com<br />
+            Email: elevate4humanityedu@gmail.com<br />
             Phone: (555) 123-4567<br />
             Address: [Your Address]
           </p>

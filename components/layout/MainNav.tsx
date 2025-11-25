@@ -354,7 +354,8 @@ export function MainNav() {
           <div className="flex items-center gap-2 md:hidden">
             <Link
               href="/apply"
-              className="rounded-full bg-red-500 px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-red-600 transition-colors"
+              className="rounded-full bg-red-500 px-3 py-1.5 text-[11px] font-semibold hover:bg-red-600 transition-colors"
+              style={{ color: '#FFFFFF' }}
             >
               Apply
             </Link>
