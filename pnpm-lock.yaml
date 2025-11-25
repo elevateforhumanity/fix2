@@ -27,8 +27,8 @@ importers:
         specifier: 1.0.7
         version: 1.0.7(@prisma/client@7.0.0(typescript@5.9.3))(next-auth@5.0.0-beta.30(next@16.0.1(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0))
       '@next/bundle-analyzer':
-        specifier: 16.0.1
-        version: 16.0.1
+        specifier: 16.0.4
+        version: 16.0.4
       '@node-saml/passport-saml':
         specifier: 5.1.0
         version: 5.1.0
@@ -1665,8 +1665,8 @@ packages:
       '@prisma/client': '>=2.26.0 || >=3'
       next-auth: ^4
 
-  '@next/bundle-analyzer@16.0.1':
-    resolution: {integrity: sha512-ds2XBC7hred9g9T16DYXp4llImGf9gBSsfY5k3bklizOtHeo+53EXjKm3AliS/fMTjYfRrv8usdL2wVZa1GIkw==}
+  '@next/bundle-analyzer@16.0.4':
+    resolution: {integrity: sha512-6IajJ23QrXW5RTJj2lRHcBM8mxcEl+vgd7XXVODQG/BcJyjgIP1k5OefdRl+P80btPvHeHoV4fIgC1so25pXcg==}
 
   '@next/env@16.0.1':
     resolution: {integrity: sha512-LFvlK0TG2L3fEOX77OC35KowL8D7DlFF45C0OvKMC4hy8c/md1RC4UMNDlUGJqfCoCS2VWrZ4dSE6OjaX5+8mw==}
@@ -10549,7 +10549,7 @@ snapshots:
       '@types/istanbul-lib-coverage': 2.0.6
       collect-v8-coverage: 1.0.3
 
-  '@jest/test-sequencer@25.5.4(canvas@3.2.0)':
+  '@jest/test-sequencer@25.5.4':
     dependencies:
       '@jest/test-result': 25.5.0
       graceful-fs: 4.2.11
@@ -10557,10 +10557,7 @@ snapshots:
       jest-runner: 25.5.4(canvas@3.2.0)
       jest-runtime: 25.5.4(canvas@3.2.0)
     transitivePeerDependencies:
-      - bufferutil
-      - canvas
       - supports-color
-      - utf-8-validate
 
   '@jest/transform@25.5.1':
     dependencies:
@@ -10652,7 +10649,7 @@ snapshots:
       '@prisma/client': 7.0.0(typescript@5.9.3)
       next-auth: 5.0.0-beta.30(next@16.0.1(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
 
-  '@next/bundle-analyzer@16.0.1':
+  '@next/bundle-analyzer@16.0.4':
     dependencies:
       webpack-bundle-analyzer: 4.10.1
     transitivePeerDependencies:
@@ -16073,7 +16070,7 @@ snapshots:
   jest-config@25.5.4(canvas@3.2.0):
     dependencies:
       '@babel/core': 7.28.5
-      '@jest/test-sequencer': 25.5.4(canvas@3.2.0)
+      '@jest/test-sequencer': 25.5.4
       '@jest/types': 25.5.0
       babel-jest: 25.5.1(@babel/core@7.28.5)
       chalk: 3.0.0
@@ -16083,7 +16080,7 @@ snapshots:
       jest-environment-jsdom: 25.5.0(canvas@3.2.0)
       jest-environment-node: 25.5.0
       jest-get-type: 25.2.6
-      jest-jasmine2: 25.5.4
+      jest-jasmine2: 25.5.4(canvas@3.2.0)
       jest-regex-util: 25.2.6
       jest-resolve: 25.5.1
       jest-util: 25.5.0
@@ -16166,7 +16163,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  jest-jasmine2@25.5.4:
+  jest-jasmine2@25.5.4(canvas@3.2.0):
     dependencies:
       '@babel/traverse': 7.28.5
       '@jest/environment': 25.5.0
@@ -16186,7 +16183,10 @@ snapshots:
       pretty-format: 25.5.0
       throat: 5.0.0
     transitivePeerDependencies:
+      - bufferutil
+      - canvas
       - supports-color
+      - utf-8-validate
 
   jest-leak-detector@25.5.0:
     dependencies:
@@ -16278,7 +16278,7 @@ snapshots:
       jest-config: 25.5.4(canvas@3.2.0)
       jest-docblock: 25.3.0
       jest-haste-map: 25.5.1
-      jest-jasmine2: 25.5.4
+      jest-jasmine2: 25.5.4(canvas@3.2.0)
       jest-leak-detector: 25.5.0
       jest-message-util: 25.5.0
       jest-resolve: 25.5.1
