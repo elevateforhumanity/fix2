@@ -193,9 +193,33 @@ export default function StudentDashboardPage() {
           />
           <QuickAction
             icon={<MessageSquare className="h-5 w-5" />}
-            label="Ask Question"
-            href="/student/discussions"
+            label="Forums"
+            href="/lms/forums"
             color="purple"
+          />
+          <QuickAction
+            icon={<UserPlus className="h-5 w-5" />}
+            label="Study Groups"
+            href="/study-groups"
+            color="orange"
+          />
+          <QuickAction
+            icon={<TrendingUp className="h-5 w-5" />}
+            label="My Analytics"
+            href="/student/analytics"
+            color="green"
+          />
+          <QuickAction
+            icon={<MessageSquare className="h-5 w-5" />}
+            label="AI Chat"
+            href="/chat"
+            color="blue"
+          />
+          <QuickAction
+            icon={<Award className="h-5 w-5" />}
+            label="Certificates"
+            href="/student/certificates"
+            color="yellow"
           />
           <QuickAction
             icon={<HelpCircle className="h-5 w-5" />}

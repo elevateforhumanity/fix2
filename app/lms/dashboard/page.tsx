@@ -291,6 +291,32 @@ export default async function LMSDashboard() {
                 ))}
               </div>
             </div>
+
+            {/* Community & Social Features - NEW */}
+            <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-sm border border-blue-200 p-6">
+              <h2 className="text-xl font-bold text-slate-900 mb-4">Connect & Collaborate</h2>
+              <p className="text-slate-600 mb-6">Join discussions, study groups, and get help from peers and instructors.</p>
+              <div className="grid md:grid-cols-3 gap-4">
+                <Link href="/lms/forums" className="bg-white p-4 rounded-lg border border-blue-200 hover:border-blue-400 hover:shadow-md transition">
+                  <MessageSquare className="w-8 h-8 text-blue-600 mb-3" />
+                  <h3 className="font-semibold text-slate-900 mb-1">Discussion Forums</h3>
+                  <p className="text-sm text-slate-600">Ask questions and share knowledge</p>
+                  <div className="mt-3 text-sm font-medium text-blue-600">View Forums →</div>
+                </Link>
+                <Link href="/study-groups" className="bg-white p-4 rounded-lg border border-purple-200 hover:border-purple-400 hover:shadow-md transition">
+                  <Users className="w-8 h-8 text-purple-600 mb-3" />
+                  <h3 className="font-semibold text-slate-900 mb-1">Study Groups</h3>
+                  <p className="text-sm text-slate-600">Learn together with classmates</p>
+                  <div className="mt-3 text-sm font-medium text-purple-600">Join Groups →</div>
+                </Link>
+                <Link href="/chat" className="bg-white p-4 rounded-lg border border-orange-200 hover:border-orange-400 hover:shadow-md transition">
+                  <MessageSquare className="w-8 h-8 text-orange-600 mb-3" />
+                  <h3 className="font-semibold text-slate-900 mb-1">AI Tutor Chat</h3>
+                  <p className="text-sm text-slate-600">Get instant help 24/7</p>
+                  <div className="mt-3 text-sm font-medium text-orange-600">Start Chat →</div>
+                </Link>
+              </div>
+            </div>
           </div>
 
           {/* Sidebar - 4 columns */}
@@ -346,9 +372,25 @@ export default async function LMSDashboard() {
                   <MessageSquare className="w-6 h-6 mx-auto mb-2 text-slate-600" />
                   <div className="text-sm font-medium text-slate-900">Messages</div>
                 </Link>
+                <Link href="/lms/forums" className="p-4 rounded-lg border border-slate-200 hover:border-blue-300 hover:bg-blue-50 transition text-center">
+                  <MessageSquare className="w-6 h-6 mx-auto mb-2 text-blue-600" />
+                  <div className="text-sm font-medium text-slate-900">Forums</div>
+                </Link>
+                <Link href="/study-groups" className="p-4 rounded-lg border border-slate-200 hover:border-purple-300 hover:bg-purple-50 transition text-center">
+                  <Users className="w-6 h-6 mx-auto mb-2 text-purple-600" />
+                  <div className="text-sm font-medium text-slate-900">Study Groups</div>
+                </Link>
+                <Link href="/student/analytics" className="p-4 rounded-lg border border-slate-200 hover:border-green-300 hover:bg-green-50 transition text-center">
+                  <TrendingUp className="w-6 h-6 mx-auto mb-2 text-green-600" />
+                  <div className="text-sm font-medium text-slate-900">Analytics</div>
+                </Link>
                 <Link href="/lms/grades" className="p-4 rounded-lg border border-slate-200 hover:border-red-300 hover:bg-red-50 transition text-center">
                   <Target className="w-6 h-6 mx-auto mb-2 text-slate-600" />
                   <div className="text-sm font-medium text-slate-900">Grades</div>
+                </Link>
+                <Link href="/chat" className="p-4 rounded-lg border border-slate-200 hover:border-orange-300 hover:bg-orange-50 transition text-center">
+                  <MessageSquare className="w-6 h-6 mx-auto mb-2 text-orange-600" />
+                  <div className="text-sm font-medium text-slate-900">AI Chat</div>
                 </Link>
                 <Link href="/lms/resources" className="p-4 rounded-lg border border-slate-200 hover:border-red-300 hover:bg-red-50 transition text-center">
                   <FileText className="w-6 h-6 mx-auto mb-2 text-slate-600" />

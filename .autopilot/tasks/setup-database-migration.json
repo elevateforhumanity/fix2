@@ -1,0 +1,52 @@
+{
+  "task_id": "setup-database-migration",
+  "title": "Run Enterprise Features Database Migration",
+  "priority": "critical",
+  "status": "pending",
+  "description": "Run the enterprise features database migration in Supabase to create all required tables for features A-H",
+  "instructions": [
+    {
+      "step": 1,
+      "action": "Open Supabase Dashboard",
+      "details": "Go to https://supabase.com/dashboard and select the Elevate For Humanity project"
+    },
+    {
+      "step": 2,
+      "action": "Navigate to SQL Editor",
+      "details": "Click 'SQL Editor' in the left sidebar, then click 'New Query'"
+    },
+    {
+      "step": 3,
+      "action": "Copy Migration SQL",
+      "details": "Open the file 'migrations/enterprise_features.sql' in the repository and copy ALL contents"
+    },
+    {
+      "step": 4,
+      "action": "Paste and Execute",
+      "details": "Paste the SQL into the Supabase SQL Editor and click 'Run' (or press Cmd/Ctrl + Enter)"
+    },
+    {
+      "step": 5,
+      "action": "Verify Success",
+      "details": "You should see a success message. The migration creates 8 tables: video_chapters, video_transcripts, funding_applications, user_streaks, xapi_statements, certificates, program_holder_notes, ai_generated_courses"
+    },
+    {
+      "step": 6,
+      "action": "Verify Tables Created",
+      "details": "In Supabase, go to 'Table Editor' and confirm you can see the new tables listed"
+    }
+  ],
+  "verification": {
+    "method": "sql_query",
+    "query": "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name IN ('video_chapters', 'video_transcripts', 'funding_applications', 'user_streaks', 'xapi_statements', 'certificates', 'program_holder_notes', 'ai_generated_courses');",
+    "expected_result": "Should return 8 rows with the table names"
+  },
+  "files_involved": [
+    "migrations/enterprise_features.sql"
+  ],
+  "estimated_time": "5 minutes",
+  "dependencies": [],
+  "blocking": [
+    "deploy-to-vercel"
+  ]
+}

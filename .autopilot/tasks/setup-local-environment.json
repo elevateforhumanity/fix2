@@ -1,0 +1,88 @@
+{
+  "task_id": "setup-local-environment",
+  "title": "Set Up Local Environment Variables for Supabase and Vercel",
+  "priority": "high",
+  "status": "pending",
+  "description": "Configure local .env.local file with Supabase and Vercel credentials for development",
+  "instructions": [
+    {
+      "step": 1,
+      "action": "Get Supabase Credentials",
+      "details": "Go to https://supabase.com/dashboard → Select your project → Settings → API",
+      "credentials_needed": [
+        "Project URL (SUPABASE_URL)",
+        "anon/public key (SUPABASE_ANON_KEY)",
+        "service_role key (SUPABASE_SERVICE_ROLE_KEY)"
+      ]
+    },
+    {
+      "step": 2,
+      "action": "Get Database Connection String",
+      "details": "In Supabase Dashboard → Settings → Database → Connection string → URI format",
+      "note": "Copy the connection string and replace [YOUR-PASSWORD] with your actual database password"
+    },
+    {
+      "step": 3,
+      "action": "Create .env.local File",
+      "details": "In the project root directory, create a file named .env.local",
+      "command": "touch .env.local"
+    },
+    {
+      "step": 4,
+      "action": "Add Supabase Variables",
+      "details": "Add the following to .env.local (replace with your actual values)",
+      "template": "# Supabase\nSUPABASE_URL=https://your-project.supabase.co\nNEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co\nSUPABASE_ANON_KEY=your-anon-key\nNEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key\nSUPABASE_SERVICE_ROLE_KEY=your-service-role-key\n\n# Database\nDATABASE_URL=postgresql://postgres:[YOUR-PASSWORD]@db.your-project.supabase.co:5432/postgres"
+    },
+    {
+      "step": 5,
+      "action": "Add Site URL",
+      "details": "Add your site URL to .env.local",
+      "template": "\n# Site URL\nNEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org"
+    },
+    {
+      "step": 6,
+      "action": "Add OpenAI API Key",
+      "details": "Get your OpenAI API key from https://platform.openai.com/api-keys and add to .env.local",
+      "template": "\n# OpenAI (for AI features)\nOPENAI_API_KEY=sk-your-openai-key"
+    },
+    {
+      "step": 7,
+      "action": "Add Optional Variables",
+      "details": "Add these optional but recommended variables",
+      "template": "\n# xAPI / LRS (optional)\nXAPI_ENDPOINT=your-lrs-endpoint\nXAPI_USERNAME=your-lrs-username\nXAPI_PASSWORD=your-lrs-password\n\n# Email (optional)\nRESEND_API_KEY=your-resend-key\n\n# Payments (optional)\nSTRIPE_SECRET_KEY=your-stripe-key\nNEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your-stripe-publishable-key"
+    },
+    {
+      "step": 8,
+      "action": "Verify Environment Variables",
+      "details": "Run the feature check script to verify all required variables are set",
+      "command": "pnpm check:features"
+    },
+    {
+      "step": 9,
+      "action": "Alternative: Pull from Vercel",
+      "details": "If you have Vercel CLI installed, you can pull environment variables from Vercel",
+      "command": "vercel env pull .env.local",
+      "note": "This requires you to be logged in to Vercel CLI (vercel login)"
+    }
+  ],
+  "verification": {
+    "method": "command",
+    "command": "pnpm check:features",
+    "expected_result": "Should show '✅ All required environment variables are set'"
+  },
+  "files_involved": [
+    ".env.local"
+  ],
+  "security_notes": [
+    "NEVER commit .env.local to Git",
+    "The .env.local file is already in .gitignore",
+    "Keep your service_role key secret - it has admin access",
+    "Rotate keys if they are ever exposed"
+  ],
+  "estimated_time": "10 minutes",
+  "dependencies": [],
+  "blocking": [
+    "local-development",
+    "testing"
+  ]
+}

@@ -197,6 +197,26 @@ export default function AdminDashboard() {
         </Link>
 
         <Link
+          href="/admin/course-authoring"
+          style={{
+            backgroundColor: 'white',
+            padding: 24,
+            borderRadius: 8,
+            border: '1px solid #10b981',
+            textDecoration: 'none',
+            color: 'inherit',
+          }}
+        >
+          <div style={{ fontSize: 32, marginBottom: 12 }}>✏️</div>
+          <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
+            Course Authoring
+          </h3>
+          <p style={{ fontSize: 14, color: '#6b7280' }}>
+            Create and edit course content
+          </p>
+        </Link>
+
+        <Link
           href="/admin/analytics"
           style={{
             backgroundColor: 'white',
@@ -213,6 +233,26 @@ export default function AdminDashboard() {
           </h3>
           <p style={{ fontSize: 14, color: '#6b7280' }}>
             View platform analytics and reports
+          </p>
+        </Link>
+
+        <Link
+          href="/admin/reports"
+          style={{
+            backgroundColor: 'white',
+            padding: 24,
+            borderRadius: 8,
+            border: '1px solid #3b82f6',
+            textDecoration: 'none',
+            color: 'inherit',
+          }}
+        >
+          <div style={{ fontSize: 32, marginBottom: 12 }}>📈</div>
+          <h3 style={{ fontSize: 18, fontWeight: 600, marginBottom: 8 }}>
+            Workforce Reports
+          </h3>
+          <p style={{ fontSize: 14, color: '#6b7280' }}>
+            WIOA, WRG, JRI caseload reports
           </p>
         </Link>
 

@@ -1,0 +1,79 @@
+// app/api/verify/certificate/[certificateId]/route.ts
+import { NextRequest, NextResponse } from "next/server";
+import { createClient } from "@/lib/supabase/server";
+
+type Params = { params: { certificateId: string } };
+
+export async function GET(_req: NextRequest, { params }: Params) {
+  try {
+    const supabase = await createClient();
+    const certificateId = params.certificateId;
+
+    // Get certificate details
+    const { data: certificate, error: certError } = await supabase
+      .from("certificates")
+      .select(`
+        id,
+        user_id,
+        course_id,
+        issued_at,
+        certificate_number,
+        verification_code,
+        is_revoked
+      `)
+      .eq("id", certificateId)
+      .single();
+
+    if (certError || !certificate) {
+      return NextResponse.json(
+        { error: "Certificate not found", valid: false },
+        { status: 404 }
+      );
+    }
+
+    if (certificate.is_revoked) {
+      return NextResponse.json(
+        { error: "Certificate has been revoked", valid: false },
+        { status: 200 }
+      );
+    }
+
+    // Get user profile
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("full_name, email")
+      .eq("id", certificate.user_id)
+      .single();
+
+    // Get course details
+    const { data: course } = await supabase
+      .from("courses")
+      .select("title, description")
+      .eq("id", certificate.course_id)
+      .single();
+
+    const response = {
+      valid: true,
+      certificate: {
+        id: certificate.id,
+        certificateNumber: certificate.certificate_number,
+        verificationCode: certificate.verification_code,
+        issuedAt: certificate.issued_at,
+        recipientName: profile?.full_name || "Unknown",
+        recipientEmail: profile?.email || null,
+        courseName: course?.title || "Unknown Course",
+        courseDescription: course?.description || null,
+        issuer: "Elevate For Humanity",
+        issuerWebsite: "https://www.elevateforhumanity.org",
+      },
+    };
+
+    return NextResponse.json(response);
+  } catch (error) {
+    console.error("[Certificate Verification Error]:", error);
+    return NextResponse.json(
+      { error: "Internal server error", valid: false },
+      { status: 500 }
+    );
+  }
+}

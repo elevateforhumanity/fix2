@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   View,
   Text,
@@ -11,10 +11,11 @@ import {
   ScrollView,
   ActivityIndicator,
 } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { API_BASE_URL } from '../config';
+import { AuthContext } from '../../App';
+import { api } from '../lib/api';
 
-export default function LoginScreen({ navigation }: any) {
+export default function LoginScreen() {
+  const { setToken } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -30,25 +31,10 @@ export default function LoginScreen({ navigation }: any) {
     setError('');
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        await AsyncStorage.setItem('userToken', data.token);
-        await AsyncStorage.setItem('userData', JSON.stringify(data.user));
-        navigation.replace('Main');
-      } else {
-        setError(data.message || 'Login failed');
-      }
-    } catch (err) {
-      setError('Network error. Please try again.');
+      const data = await api.login(email, password);
+      setToken(data.token);
+    } catch (err: any) {
+      setError(err.message || 'Login failed. Please try again.');
     } finally {
       setLoading(false);
     }

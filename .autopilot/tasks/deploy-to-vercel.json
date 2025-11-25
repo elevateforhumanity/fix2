@@ -1,0 +1,186 @@
+{
+  "task_id": "deploy-to-vercel",
+  "title": "Deploy Enterprise Features to Vercel Production",
+  "priority": "critical",
+  "status": "pending",
+  "description": "Deploy all enterprise features (A-H) to Vercel production environment",
+  "prerequisites": [
+    "Database migration must be completed (setup-database-migration)",
+    "Environment variables must be set in Vercel dashboard",
+    "All feature checks must pass"
+  ],
+  "instructions": [
+    {
+      "step": 1,
+      "action": "Verify Prerequisites",
+      "details": "Ensure all prerequisites are met before deploying",
+      "checklist": [
+        "Database migration completed in Supabase",
+        "Environment variables set in Vercel",
+        "Local build succeeds (pnpm build)",
+        "Feature check passes (pnpm check:features)"
+      ]
+    },
+    {
+      "step": 2,
+      "action": "Choose Deployment Method",
+      "details": "Select one of the three deployment methods below"
+    },
+    {
+      "step": 3,
+      "action": "METHOD A: Git Push (Recommended)",
+      "details": "Commit and push to trigger automatic deployment",
+      "commands": [
+        "git add .",
+        "git commit -m 'Deploy enterprise features A-H: xAPI, certificates, caseload, program holder, mobile API, video metadata, enrollment flows, AI course builder'",
+        "git push origin main"
+      ],
+      "note": "Vercel will automatically detect the push and start deployment"
+    },
+    {
+      "step": 4,
+      "action": "METHOD B: Vercel CLI",
+      "details": "Deploy directly using Vercel CLI",
+      "commands": [
+        "# Install Vercel CLI if needed",
+        "npm i -g vercel",
+        "",
+        "# Login to Vercel",
+        "vercel login",
+        "",
+        "# Deploy to production",
+        "vercel --prod"
+      ],
+      "note": "Follow the prompts to link your project if not already linked"
+    },
+    {
+      "step": 5,
+      "action": "METHOD C: Vercel Dashboard",
+      "details": "Manually trigger deployment from Vercel dashboard",
+      "steps": [
+        "Go to https://vercel.com/dashboard",
+        "Select your project (elevateforhumanity/fix2)",
+        "Click 'Deployments' tab",
+        "Click 'Redeploy' on the latest deployment",
+        "Optionally check 'Use existing Build Cache'",
+        "Click 'Redeploy' to confirm"
+      ]
+    },
+    {
+      "step": 6,
+      "action": "Monitor Deployment",
+      "details": "Watch the deployment progress in Vercel dashboard",
+      "url": "https://vercel.com/dashboard",
+      "what_to_watch": [
+        "Build logs for any errors",
+        "Function deployment status",
+        "Domain assignment",
+        "Deployment completion time"
+      ]
+    },
+    {
+      "step": 7,
+      "action": "Verify Deployment Success",
+      "details": "Once deployment completes, verify key URLs work",
+      "urls_to_test": [
+        "https://www.elevateforhumanity.org/ (homepage)",
+        "https://www.elevateforhumanity.org/lms/dashboard (LMS)",
+        "https://www.elevateforhumanity.org/admin/ai-course-builder (AI builder)",
+        "https://www.elevateforhumanity.org/admin/reports/caseload (caseload)",
+        "https://www.elevateforhumanity.org/program-holder/dashboard (program holder)"
+      ]
+    },
+    {
+      "step": 8,
+      "action": "Test API Endpoints",
+      "details": "Verify new API endpoints are working",
+      "endpoints_to_test": [
+        "GET /api/mobile/summary (requires auth)",
+        "GET /api/videos/[videoId]/meta (public)",
+        "POST /api/applications/enrollment (requires auth)",
+        "GET /api/reports/caseload (requires admin auth)"
+      ]
+    },
+    {
+      "step": 9,
+      "action": "Check for Errors",
+      "details": "Review Vercel function logs for any runtime errors",
+      "where": "Vercel Dashboard → Project → Logs",
+      "what_to_check": [
+        "No 500 errors on key pages",
+        "No database connection errors",
+        "No missing environment variable errors",
+        "API endpoints responding correctly"
+      ]
+    },
+    {
+      "step": 10,
+      "action": "Create Test Data",
+      "details": "Create sample data to test new features",
+      "optional": true,
+      "examples": [
+        "Create a test certificate in Supabase",
+        "Add video chapters to a test video",
+        "Submit a test funding application",
+        "Generate a course outline with AI builder"
+      ]
+    }
+  ],
+  "verification": {
+    "method": "manual",
+    "checklist": [
+      "Deployment completed successfully in Vercel",
+      "Homepage loads without errors",
+      "LMS dashboard accessible",
+      "Admin pages accessible (for admins)",
+      "Program holder pages accessible",
+      "No console errors on key pages",
+      "API endpoints return expected responses",
+      "All 8 enterprise features working"
+    ]
+  },
+  "rollback_plan": {
+    "if_deployment_fails": [
+      "Check Vercel build logs for specific errors",
+      "Verify environment variables are set correctly",
+      "Check database migration completed successfully",
+      "Rollback to previous deployment in Vercel if needed"
+    ],
+    "rollback_command": "In Vercel Dashboard → Deployments → Click on previous successful deployment → Click 'Promote to Production'"
+  },
+  "post_deployment": [
+    {
+      "action": "Announce to Users",
+      "details": "Send email announcement about new features"
+    },
+    {
+      "action": "Update Documentation",
+      "details": "Update user guides with new feature documentation"
+    },
+    {
+      "action": "Train Staff",
+      "details": "Train admins and program holders on new features"
+    },
+    {
+      "action": "Monitor Performance",
+      "details": "Watch Vercel analytics and error logs for first 24 hours"
+    }
+  ],
+  "files_involved": [
+    "All files in repository",
+    "Vercel configuration",
+    "Environment variables"
+  ],
+  "estimated_time": "15-30 minutes (including verification)",
+  "dependencies": [
+    "setup-database-migration",
+    "setup-local-environment"
+  ],
+  "success_criteria": [
+    "Deployment status: Success",
+    "All URLs accessible",
+    "No 500 errors",
+    "API endpoints working",
+    "Features A-H all functional"
+  ]
+}

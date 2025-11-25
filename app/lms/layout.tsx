@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/auth';
+import { LmsSidebar } from '@/components/lms/LmsSidebar';
 import MobileNav from '@/components/mobile/MobileNav';
 import InstallPrompt from '@/components/mobile/InstallPrompt';
 
@@ -14,7 +15,19 @@ export default async function LMSLayout({ children }: { children: React.ReactNod
     <>
       <MobileNav />
       <InstallPrompt />
-      <div className="has-bottom-nav">{children}</div>
+      <div className="min-h-screen flex bg-slate-50">
+        {/* Desktop Sidebar */}
+        <div className="hidden lg:block">
+          <LmsSidebar />
+        </div>
+        
+        {/* Main Content */}
+        <main className="flex-1 has-bottom-nav">
+          <div className="max-w-7xl mx-auto px-4 py-6">
+            {children}
+          </div>
+        </main>
+      </div>
     </>
   );
 }
