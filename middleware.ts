@@ -38,8 +38,8 @@ export default function proxy(request: NextRequest) {
              request.headers.get('x-real-ip') || 
              'unknown';
   
-  // Handle LMS subdomain - route to /lms
-  if (hostname.includes('elevateforhumanitylearning.durablesites.com')) {
+  // Handle LMS domain - route to /lms
+  if (hostname.includes('elevateforhumanityeducation.com')) {
     // If already on /lms path, continue
     if (path.startsWith('/lms')) {
       return NextResponse.next();
