@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { ObfuscatedEmail } from "@/components/ui/ObfuscatedEmail";
 
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
@@ -53,9 +54,11 @@ export function SiteFooter() {
               </div>
               <div className="flex items-center gap-3 text-white">
                 <Mail size={18} className="text-orange-400 flex-shrink-0" />
-                <a href="mailto:elevais4humanityedu@gmail.com" className="text-sm hover:text-orange-300 transition font-bold">
-                  elevais4humanityedu@gmail.com
-                </a>
+                <ObfuscatedEmail 
+                  user="elevais4humanityedu" 
+                  domain="gmail.com"
+                  className="text-sm hover:text-orange-300 transition font-bold"
+                />
               </div>
             </div>
 

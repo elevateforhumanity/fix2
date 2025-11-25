@@ -9,6 +9,7 @@ import {
   GraduationCap, Briefcase, Users, Heart,
   ChevronRight, ExternalLink, Award
 } from "lucide-react";
+import { ObfuscatedEmail } from "@/components/ui/ObfuscatedEmail";
 
 export function MobileOptimizedNav() {
   const pathname = usePathname();

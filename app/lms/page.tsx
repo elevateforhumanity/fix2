@@ -9,18 +9,13 @@ export const metadata = {
   description: 'Access your courses, track progress, and earn certifications through our comprehensive LMS platform.',
 };
 
-export default async function LMSLandingPage() {
-  const supabase = await createClient();
-  
-  // Fetch published courses
-  const { data: courses } = await supabase
-    .from('courses')
-    .select('id, title, subtitle, description, level, duration_hours, thumbnail_url')
-    .eq('status', 'published')
-    .order('title')
-    .limit(6);
+// Add revalidation to cache the page
+export const revalidate = 3600; // Revalidate every hour
 
-  const courseCount = courses?.length || 0;
+export default async function LMSLandingPage() {
+  // Simplified - don't fetch courses on landing page for faster load
+  const courseCount = 27; // Static count for now
+  const courses = null; // Don't fetch on landing page
 
   return (
     <div className="min-h-screen bg-white">
