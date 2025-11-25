@@ -146,7 +146,7 @@
     "eslint-plugin-react-hooks": "7.0.1",
     "globals": "16.5.0",
     "happy-dom": "20.0.10",
-    "husky": "8.0.3",
+    "husky": "9.1.7",
     "jest": "25.0.0",
     "js-yaml": "4.1.1",
     "linkinator": "7.5.0",
