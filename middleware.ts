@@ -33,9 +33,35 @@ const ALLOWED_BOTS = [
 export default function proxy(request: NextRequest) {
   const userAgent = request.headers.get('user-agent')?.toLowerCase() || '';
   const path = request.nextUrl.pathname;
+  const hostname = request.headers.get('host') || '';
   const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 
              request.headers.get('x-real-ip') || 
              'unknown';
+  
+  // Handle LMS subdomain - route to /lms
+  if (hostname.includes('elevateforhumanitylearning.durablesites.com')) {
+    // If already on /lms path, continue
+    if (path.startsWith('/lms')) {
+      return NextResponse.next();
+    }
+    // Rewrite root to /lms
+    if (path === '/' || path === '') {
+      return NextResponse.rewrite(new URL('/lms', request.url));
+    }
+    // Rewrite other paths to /lms/[path]
+    return NextResponse.rewrite(new URL(`/lms${path}`, request.url));
+  }
+  
+  // Handle admin subdomain if configured
+  if (hostname.includes('admin.elevateforhumanity')) {
+    if (path.startsWith('/admin')) {
+      return NextResponse.next();
+    }
+    if (path === '/' || path === '') {
+      return NextResponse.rewrite(new URL('/admin', request.url));
+    }
+    return NextResponse.rewrite(new URL(`/admin${path}`, request.url));
+  }
   
   // Handle old URLs with 410 Gone (permanently removed)
   const goneUrls = [

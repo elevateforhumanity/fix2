@@ -269,9 +269,9 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/lms" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <a href="https://elevateforhumanitylearning.durablesites.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-orange-300 transition text-sm font-medium">
                   LMS Dashboard
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/admin" className="text-white hover:text-orange-300 transition text-sm font-medium">

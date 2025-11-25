@@ -43,7 +43,7 @@ const fundingLinks = [
 const mainLinks = [
   { href: "/students", label: "For Students" },
   { href: "/employers", label: "For Employers" },
-  { href: "/lms", label: "LMS" },
+  { href: "https://elevateforhumanitylearning.durablesites.com", label: "LMS", external: true },
   { href: "/admin", label: "Admin" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -310,6 +310,7 @@ export function MainNav() {
               <Link
                 key={link.href}
                 href={link.href}
+                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className={clsx(
                   "transition hover:text-red-600",
                   pathname?.startsWith(link.href)
@@ -500,6 +501,7 @@ export function MainNav() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className={clsx(
                       "block py-3 px-4 rounded-lg text-sm font-medium transition touch-manipulation",
                       pathname?.startsWith(link.href)
