@@ -16,9 +16,10 @@ async function ensureStudent() {
   };
 }
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
+const stripeKey = process.env.STRIPE_SECRET_KEY || "";
+const stripe = stripeKey ? new Stripe(stripeKey, {
   apiVersion: "2024-11-20.acacia" as any,
-});
+}) : null;
 
 export async function POST(req: NextRequest) {
   try {
@@ -42,6 +43,13 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         { error: "Stripe price not configured for this program" },
         { status: 500 }
+      );
+    }
+
+    if (!stripe) {
+      return NextResponse.json(
+        { error: "Payment system not configured" },
+        { status: 503 }
       );
     }
 

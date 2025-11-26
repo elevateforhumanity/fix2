@@ -2,11 +2,19 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { provisionEnrollmentFromStripe } from "@/lib/enrollmentProvisioning";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
+const stripeKey = process.env.STRIPE_SECRET_KEY || "";
+const stripe = stripeKey ? new Stripe(stripeKey, {
   apiVersion: "2024-11-20.acacia" as any,
-});
+}) : null;
 
 export async function POST(req: NextRequest) {
+  if (!stripe) {
+    return NextResponse.json(
+      { error: "Payment system not configured" },
+      { status: 503 }
+    );
+  }
+
   const sig = req.headers.get("stripe-signature") as string;
   const rawBody = await req.text();
 

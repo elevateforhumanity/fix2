@@ -1,14 +1,20 @@
 import type { ProgramEnrollment } from "@/types/enrollment";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+
+const supabase = supabaseUrl && serviceRoleKey
+  ? createClient(supabaseUrl, serviceRoleKey)
+  : null;
 
 export async function createProgramEnrollment(
   partial: Omit<ProgramEnrollment, "id" | "createdAt">
 ): Promise<ProgramEnrollment> {
+  if (!supabase) {
+    throw new Error("Supabase not configured");
+  }
+  
   const { data, error } = await supabase
     .from("program_enrollments")
     .insert({
@@ -43,6 +49,10 @@ export async function updateEnrollmentStatus(
   id: string,
   status: ProgramEnrollment["status"]
 ): Promise<void> {
+  if (!supabase) {
+    throw new Error("Supabase not configured");
+  }
+  
   const { error } = await supabase
     .from("program_enrollments")
     .update({ status })
@@ -55,6 +65,10 @@ export async function updateEnrollmentStatus(
 }
 
 export async function listEnrollments(): Promise<ProgramEnrollment[]> {
+  if (!supabase) {
+    return [];
+  }
+  
   const { data, error } = await supabase
     .from("program_enrollments")
     .select("*")

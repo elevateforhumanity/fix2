@@ -2,10 +2,12 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
 
-const supabaseAdmin = createClient(supabaseUrl, serviceRoleKey);
+const supabaseAdmin = supabaseUrl && serviceRoleKey 
+  ? createClient(supabaseUrl, serviceRoleKey)
+  : null;
 
 export async function POST(req: Request) {
   try {
@@ -17,6 +19,13 @@ export async function POST(req: Request) {
       return NextResponse.json(
         { ok: false, message: "Missing basic contact info." },
         { status: 400 }
+      );
+    }
+
+    if (!supabaseAdmin) {
+      return NextResponse.json(
+        { ok: false, message: "Database not configured" },
+        { status: 503 }
       );
     }
 

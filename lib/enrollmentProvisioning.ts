@@ -3,10 +3,12 @@ import { createProgramEnrollment, updateEnrollmentStatus } from "@/lib/db/enroll
 import type { FundingSource } from "@/types/enrollment";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+
+const supabase = supabaseUrl && serviceRoleKey
+  ? createClient(supabaseUrl, serviceRoleKey)
+  : null;
 
 export async function provisionEnrollmentFromStripe(args: {
   programId: string;
@@ -43,7 +45,7 @@ export async function provisionEnrollmentFromStripe(args: {
       status: "PENDING",
     }));
 
-  if (seatOrders.length > 0) {
+  if (seatOrders.length > 0 && supabase) {
     const { error } = await supabase
       .from("partner_seat_orders")
       .insert(seatOrders);
