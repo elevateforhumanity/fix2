@@ -1,5 +1,3 @@
-import { redirect } from 'next/navigation';
-import { createServerSupabaseClient } from '@/lib/auth';
 import { LmsSidebar } from '@/components/lms/LmsSidebar';
 import MobileNav from '@/components/mobile/MobileNav';
 import InstallPrompt from '@/components/mobile/InstallPrompt';
@@ -13,20 +11,24 @@ export default async function LMSLayout({ children }: { children: React.ReactNod
   
   return (
     <>
-      <MobileNav />
-      <InstallPrompt />
-      <div className="min-h-screen flex bg-slate-50">
+      {/* Mobile Navigation - Only show on mobile, below main header */}
+      <div className="lg:hidden">
+        <MobileNav />
+        <InstallPrompt />
+      </div>
+      
+      <div className="flex bg-slate-50">
         {/* Desktop Sidebar */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block lg:fixed lg:left-0 lg:top-16 lg:bottom-0 lg:w-64 lg:overflow-y-auto">
           <LmsSidebar />
         </div>
         
-        {/* Main Content */}
-        <main className="flex-1 has-bottom-nav">
+        {/* Main Content - offset for sidebar on desktop */}
+        <div className="flex-1 lg:ml-64 pb-20 lg:pb-0 pt-16 lg:pt-0">
           <div className="max-w-7xl mx-auto px-4 py-6">
             {children}
           </div>
-        </main>
+        </div>
       </div>
     </>
   );

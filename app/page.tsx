@@ -117,6 +117,7 @@ export default function HomePage() {
                   src="/images/PLACEHOLDER_WHO_ADULTS.jpg"
                   alt="Adult learner in training"
                   fill
+                  loading="lazy"
                   className="object-cover"
                 />
               </div>

@@ -10,9 +10,11 @@ export default function MainFooter() {
           {/* Company Info */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-md bg-orange-500 text-white font-bold text-sm">
-                EFH
-              </div>
+              <img 
+                src="/logo.svg" 
+                alt="Elevate For Humanity" 
+                className="h-10 w-auto"
+              />
               <span className="text-base font-semibold text-slate-900">
                 Elevate For Humanity
               </span>

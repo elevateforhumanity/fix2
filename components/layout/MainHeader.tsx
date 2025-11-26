@@ -25,9 +25,11 @@ export default function MainHeader() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4">
         {/* Logo/Brand */}
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-orange-500 text-white font-bold text-sm">
-            EFH
-          </div>
+          <img 
+            src="/logo.svg" 
+            alt="Elevate For Humanity" 
+            className="h-10 w-auto"
+          />
           <span className="hidden text-base font-semibold text-slate-900 sm:inline">
             Elevate For Humanity
           </span>
