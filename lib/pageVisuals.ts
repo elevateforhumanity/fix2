@@ -31,7 +31,7 @@ export const homepageVisuals: PageVisualConfig = {
   heroes: [
     {
       id: "hero-main",
-      imageSrc: "/images/hero-new/hero-1.jpg",
+      imageSrc: "/images/students-new/student-1.jpg",
       imageAlt: "Elevate For Humanity students in a training classroom.",
       eyebrow: "Elevate For Humanity",
       title: "Real Training. Real Credentials. Real Jobs.",
@@ -42,7 +42,7 @@ export const homepageVisuals: PageVisualConfig = {
     },
     {
       id: "hero-earn",
-      imageSrc: "/images/hero-new/hero-2.jpg",
+      imageSrc: "/images/success-new/success-5.jpg",
       imageAlt: "Student working while studying on a laptop.",
       eyebrow: "Earn While You Learn",
       title: "Work experience, stipends, and employer connections while you train.",
@@ -61,7 +61,7 @@ export const homepageVisuals: PageVisualConfig = {
         "Every pathway is tied to credential partners like Milady, HSI, CareerSafe, Certiport, Rise, National Drug, and JRI.",
         "Short, focused training that leads into employer connections, WEX, and OJT opportunities."
       ],
-      imageSrc: "/images/programs-new/program-1.jpg",
+      imageSrc: "/images/programs-new/program-5.jpg",
       imageAlt: "Collage of Elevate For Humanity programs and students.",
     },
     {
@@ -72,7 +72,7 @@ export const homepageVisuals: PageVisualConfig = {
         "Clear next steps for enrollment, paperwork, and getting ready for work.",
         "Coaching for resumes, interviews, soft skills, and showing up professionally."
       ],
-      imageSrc: "/images/students-new/student-5.jpg",
+      imageSrc: "/images/students-new/student-10.jpg",
       imageAlt: "Coach sitting with a learner reviewing career options.",
     },
     {
@@ -83,7 +83,7 @@ export const homepageVisuals: PageVisualConfig = {
         "WEX placements and OJT wage reimbursement to make it easier for employers to hire you.",
         "Stories of students who moved from stress and instability into stable income and career paths."
       ],
-      imageSrc: "/images/success-new/success-1.jpg",
+      imageSrc: "/images/success-new/success-10.jpg",
       imageAlt: "Graduate smiling after securing a job.",
     },
   ],
