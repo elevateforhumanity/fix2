@@ -31,8 +31,8 @@ export const homepageVisuals: PageVisualConfig = {
   heroes: [
     {
       id: "hero-main",
-      imageSrc: "/images/facilities-new/facility-1.jpg",
-      imageAlt: "Elevate For Humanity training facility and classroom.",
+      imageSrc: "/images/hero-new/hero-1.jpg",
+      imageAlt: "Professional training and career success at Elevate For Humanity",
       eyebrow: "Elevate For Humanity",
       title: "Real Training. Real Credentials. Real Jobs.",
       subtitle:
@@ -42,8 +42,8 @@ export const homepageVisuals: PageVisualConfig = {
     },
     {
       id: "hero-earn",
-      imageSrc: "/images/students-new/student-15.jpg",
-      imageAlt: "Student gaining work experience in professional setting.",
+      imageSrc: "/images/hero-new/hero-2.jpg",
+      imageAlt: "Career advisor helping student with funding and work experience",
       eyebrow: "Earn While You Learn",
       title: "Work experience, stipends, and employer connections while you train.",
       subtitle:
@@ -61,7 +61,7 @@ export const homepageVisuals: PageVisualConfig = {
         "Every pathway is tied to credential partners like Milady, HSI, CareerSafe, Certiport, Rise, National Drug, and JRI.",
         "Short, focused training that leads into employer connections, WEX, and OJT opportunities."
       ],
-      imageSrc: "/images/programs-new/program-18.jpg",
+      imageSrc: "/images/programs-new/program-1.jpg",
       imageAlt: "Healthcare and skilled trades training programs.",
     },
     {
@@ -72,7 +72,7 @@ export const homepageVisuals: PageVisualConfig = {
         "Clear next steps for enrollment, paperwork, and getting ready for work.",
         "Coaching for resumes, interviews, soft skills, and showing up professionally."
       ],
-      imageSrc: "/images/team-new/team-1.jpg",
+      imageSrc: "/images/students-new/student-1.jpg",
       imageAlt: "Elevate For Humanity staff providing coaching and support.",
     },
     {
@@ -83,7 +83,7 @@ export const homepageVisuals: PageVisualConfig = {
         "WEX placements and OJT wage reimbursement to make it easier for employers to hire you.",
         "Stories of students who moved from stress and instability into stable income and career paths."
       ],
-      imageSrc: "/images/success-new/success-3.jpg",
+      imageSrc: "/images/success-new/success-1.jpg",
       imageAlt: "Graduate successfully employed in their career field.",
     },
   ],
