@@ -18,7 +18,7 @@ function ProgramCard({ title, description, image, tag }: ProgramCardProps) {
       </div>
       <div className="flex flex-1 flex-col gap-2 p-4">
         {tag && (
-          <span className="inline-flex w-fit rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide text-blue-700">
+          <span className="inline-flex w-fit rounded-full bg-orange-50 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide text-orange-700">
             {tag}
           </span>
         )}
@@ -60,7 +60,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
       {/* HERO */}
-      <section className="w-full bg-gradient-to-r from-orange-50 via-white to-blue-50">
+      <section className="w-full bg-gradient-to-r from-orange-50 via-white to-red-50">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 py-16 md:flex-row md:py-24">
           <div className="flex-1 space-y-6">
             <h1 className="text-3xl font-bold tracking-tight text-slate-900 md:text-5xl">
@@ -79,14 +79,14 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/funding"
-                className="rounded-md border border-blue-500 px-6 py-3 text-sm font-semibold text-blue-600 hover:bg-blue-50"
+                className="rounded-md border border-red-500 px-6 py-3 text-sm font-semibold text-red-600 hover:bg-red-50"
               >
                 See If I Qualify for Funding
               </Link>
             </div>
           </div>
 
-          <div className="relative flex-1">
+          <div className="relative w-full flex-1">
             <div className="relative h-64 w-full md:h-80">
               <Image
                 src="/images/PLACEHOLDER_HOME_HERO.jpg"
@@ -94,6 +94,7 @@ export default function HomePage() {
                 fill
                 priority
                 className="rounded-xl object-cover shadow-lg"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
           </div>
@@ -182,7 +183,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/programs"
-              className="text-sm font-semibold text-blue-600 hover:text-blue-700"
+              className="text-sm font-semibold text-red-600 hover:text-red-700"
             >
               View all programs →
             </Link>
@@ -267,7 +268,7 @@ export default function HomePage() {
             <div className="mt-6">
               <Link
                 href="/funding"
-                className="rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow hover:bg-blue-700"
+                className="rounded-md bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow hover:bg-red-700"
               >
                 Funding Eligibility Guide
               </Link>
@@ -306,7 +307,7 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <button className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white/90 shadow-lg">
-                    <span className="ml-1 border-l-[10px] border-y-[8px] border-l-blue-600 border-y-transparent" />
+                    <span className="ml-1 border-l-[10px] border-y-[8px] border-l-red-600 border-y-transparent" />
                   </button>
                 </div>
               </div>

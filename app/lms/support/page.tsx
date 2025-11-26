@@ -29,10 +29,10 @@ export default function LMSSupportPage() {
             <Mail className="h-12 w-12 text-red-600 mx-auto mb-4" />
             <h3 className="font-semibold text-slate-900 mb-2">Email</h3>
             <a
-              href="mailto:Elevate4humanityedu@gmail.com"
+              href="mailto:info@elevateforhumanity.org"
               className="text-red-600 hover:underline text-sm"
             >
-              Elevate4humanityedu@gmail.com
+              info@elevateforhumanity.org
             </a>
             <p className="text-xs text-slate-500 mt-2">Response within 24 hours</p>
           </div>
