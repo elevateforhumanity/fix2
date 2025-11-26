@@ -277,7 +277,7 @@ export default function TakeQuizPage({ params }: Props) {
         )}
       </header>
       {/* Quiz Header */}
-      <section className="bg-gradient-to-br from-red-600 via-orange-500 to-blue-600 text-white py-8">
+      <section className="bg-gradient-to-br from-red-600 via-orange-500 to-orange-600 text-white py-8">
         <div className="elevate-container">
           <h1 className="text-3xl font-bold mb-2">{quiz.title}</h1>
           {quiz.description && (

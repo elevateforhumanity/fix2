@@ -130,7 +130,7 @@ export default function EnrollPage({ params }: EnrollPageProps) {
               </p>
               <Link
                 href="/funding"
-                className="mt-2 inline-flex items-center text-[11px] font-semibold text-blue-600 hover:underline"
+                className="mt-2 inline-flex items-center text-[11px] font-semibold text-brandPrimary hover:underline"
               >
                 Learn more about funding options
               </Link>
@@ -156,7 +156,7 @@ export default function EnrollPage({ params }: EnrollPageProps) {
               <div className="mt-3 space-y-2">
                 <a
                   href="/contact"
-                  className="inline-flex w-full items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-[11px] font-semibold text-white hover:bg-blue-700"
+                  className="inline-flex w-full items-center justify-center rounded-md bg-brandPrimary px-4 py-2 text-[11px] font-semibold text-white hover:bg-brandPrimaryDark"
                 >
                   Submit Interest &amp; Request Follow-Up
                 </a>
@@ -177,7 +177,7 @@ export default function EnrollPage({ params }: EnrollPageProps) {
             Want to re-read the full public overview for this program?{" "}
             <a
               href={`/courses/${course.slug}`}
-              className="font-semibold text-blue-600 hover:underline"
+              className="font-semibold text-brandPrimary hover:underline"
             >
               View program details here.
             </a>

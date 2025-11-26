@@ -60,7 +60,7 @@ export default async function PartnersManagementPage() {
           <div className="flex gap-3">
             <Link
               href="/program-holder/apply"
-              className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-6 py-3 bg-brandPrimary text-white font-semibold rounded-lg hover:bg-brandPrimaryDark transition-colors"
             >
               + Add Partner
             </Link>
@@ -90,7 +90,7 @@ export default async function PartnersManagementPage() {
           </div>
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
             <div className="text-sm text-gray-600 mb-1">MOUs Signed</div>
-            <div className="text-3xl font-bold text-blue-600">
+            <div className="text-3xl font-bold text-brandPrimary">
               {partners?.filter(p => p.mou_status === 'signed').length || 0}
             </div>
           </div>
@@ -151,7 +151,7 @@ export default async function PartnersManagementPage() {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                            <span className="text-blue-600 font-semibold text-sm">
+                            <span className="text-brandPrimary font-semibold text-sm">
                               {partner.name?.charAt(0) || 'P'}
                             </span>
                           </div>
@@ -191,14 +191,14 @@ export default async function PartnersManagementPage() {
                         )}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                        <Link href={`/admin/partners/${partner.id}/students`} className="text-blue-600 hover:text-blue-700">
+                        <Link href={`/admin/partners/${partner.id}/students`} className="text-brandPrimary hover:text-brandPrimary">
                           View Students
                         </Link>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <Link
                           href={`/admin/program-holders/${partner.id}`}
-                          className="text-blue-600 hover:text-blue-900 mr-4"
+                          className="text-brandPrimary hover:text-blue-900 mr-4"
                         >
                           View
                         </Link>
@@ -226,7 +226,7 @@ d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 
               <div className="mt-6">
                 <Link
                   href="/program-holder/apply"
-                  className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                  className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-brandPrimary hover:bg-brandPrimaryDark"
                 >
                   Add Partner
                 </Link>

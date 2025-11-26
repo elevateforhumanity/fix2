@@ -20,11 +20,11 @@ export default function EmployersPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-emerald-50 border-b border-slate-200">
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-emerald-50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-brandPrimary mb-6">
                 <Briefcase size={16} />
                 <span>Employer Partnerships</span>
               </div>
@@ -40,14 +40,14 @@ export default function EmployersPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-blue-700 transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brandPrimary px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-brandPrimaryDark transition-all hover:scale-105"
                 >
                   Partner With Us
                   <ArrowRight size={20} />
                 </Link>
                 <Link
                   href="#benefits"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-blue-600 hover:text-blue-600 transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-brandPrimary hover:text-brandPrimary transition-all"
                 >
                   Learn More
                 </Link>
@@ -115,7 +115,7 @@ export default function EmployersPage() {
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl font-bold mb-4">
+                  <div className="w-16 h-16 rounded-full bg-brandPrimary text-white flex items-center justify-center text-2xl font-bold mb-4">
                     {index + 1}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -139,7 +139,7 @@ export default function EmployersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-red-600 to-orange-700 text-white">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Build Your Workforce?
@@ -150,7 +150,7 @@ export default function EmployersPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-blue-600 shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-brandPrimary shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
             >
               Partner With Us
               <ArrowRight size={20} />
@@ -171,32 +171,32 @@ export default function EmployersPage() {
 // Data
 const benefits = [
   {
-    icon: <DollarSign size={24} className="text-blue-600" />,
+    icon: <DollarSign size={24} className="text-brandPrimary" />,
     title: "Zero Recruiting Costs",
     description: "No fees, no commissions. Access qualified candidates at no cost to your organization.",
   },
   {
-    icon: <Award size={24} className="text-blue-600" />,
+    icon: <Award size={24} className="text-brandPrimary" />,
     title: "Certified Professionals",
     description: "All graduates hold industry-recognized certifications and are job-ready.",
   },
   {
-    icon: <Clock size={24} className="text-blue-600" />,
+    icon: <Clock size={24} className="text-brandPrimary" />,
     title: "Faster Hiring",
     description: "Reduce time-to-hire with pre-screened, trained candidates ready to start.",
   },
   {
-    icon: <TrendingUp size={24} className="text-blue-600" />,
+    icon: <TrendingUp size={24} className="text-brandPrimary" />,
     title: "Better Retention",
     description: "Our graduates have higher retention rates due to comprehensive training.",
   },
   {
-    icon: <Target size={24} className="text-blue-600" />,
+    icon: <Target size={24} className="text-brandPrimary" />,
     title: "Custom Training",
     description: "We can tailor curriculum to meet your specific organizational needs.",
   },
   {
-    icon: <Shield size={24} className="text-blue-600" />,
+    icon: <Shield size={24} className="text-brandPrimary" />,
     title: "Quality Guarantee",
     description: "Rigorous training standards ensure graduates meet your expectations.",
   },

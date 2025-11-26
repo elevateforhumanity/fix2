@@ -39,7 +39,7 @@ export default function ApiDocsPage() {
           <div className="mt-4 flex gap-4">
             <a
               href="/"
-              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+              className="text-sm text-brandPrimary hover:text-brandPrimary font-medium"
             >
               ← Back to Home
             </a>
@@ -47,7 +47,7 @@ export default function ApiDocsPage() {
               href="/api/openapi"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+              className="text-sm text-brandPrimary hover:text-brandPrimary font-medium"
             >
               View OpenAPI JSON
             </a>

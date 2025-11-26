@@ -47,7 +47,7 @@ export default function VideoPage() {
                   }}
                   className="bg-white/90 hover:bg-white rounded-full p-8 shadow-2xl transition transform hover:scale-110"
                 >
-                  <svg className="w-16 h-16 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-16 h-16 text-brandPrimary" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                   </svg>
                 </button>
@@ -94,7 +94,7 @@ export default function VideoPage() {
           <div className="mt-12 flex flex-wrap justify-center gap-4">
             <Link
               href="/start"
-              className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition shadow-lg"
+              className="inline-block px-8 py-4 bg-brandPrimary text-white font-bold rounded-lg hover:bg-brandPrimaryDark transition shadow-lg"
             >
               Get Started
             </Link>
@@ -123,7 +123,7 @@ export default function VideoPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brandPrimary flex items-center justify-center text-white font-bold">
                   1
                 </div>
                 <div>
@@ -135,7 +135,7 @@ export default function VideoPage() {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brandPrimary flex items-center justify-center text-white font-bold">
                   2
                 </div>
                 <div>
@@ -147,7 +147,7 @@ export default function VideoPage() {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brandPrimary flex items-center justify-center text-white font-bold">
                   3
                 </div>
                 <div>
@@ -161,7 +161,7 @@ export default function VideoPage() {
 
             <div className="space-y-4">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brandPrimary flex items-center justify-center text-white font-bold">
                   4
                 </div>
                 <div>
@@ -173,7 +173,7 @@ export default function VideoPage() {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brandPrimary flex items-center justify-center text-white font-bold">
                   5
                 </div>
                 <div>
@@ -185,7 +185,7 @@ export default function VideoPage() {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brandPrimary flex items-center justify-center text-white font-bold">
                   6
                 </div>
                 <div>

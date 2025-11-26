@@ -55,7 +55,7 @@ export default function ProgramsFullPage() {
         </div>
       </header>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 text-white py-20">
+      <section className="relative bg-gradient-to-br from-red-600 via-purple-600 to-orange-700 text-white py-20">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"
@@ -352,7 +352,7 @@ export default function ProgramsFullPage() {
         </div>
       </section>
       {/* Why It Works */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
         <div className="elevate-container">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -421,7 +421,7 @@ export default function ProgramsFullPage() {
         </div>
       </section>
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-red-600 via-purple-600 to-orange-700 text-white">
         <div className="elevate-container">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>

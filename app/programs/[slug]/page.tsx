@@ -378,7 +378,7 @@ export default async function ProgramDetailPage({
           <aside className="space-y-5">
             {/* Workforce Codes */}
             {(program.cip_code || program.soc_code) && (
-              <div className="elevate-card p-5 bg-gradient-to-br from-blue-50 to-white border-2 border-blue-200">
+              <div className="elevate-card p-5 bg-gradient-to-br from-red-50 to-white border-2 border-blue-200">
                 <h3 className="text-sm font-semibold text-gray-900 mb-3">
                   Workforce Alignment Codes
                 </h3>

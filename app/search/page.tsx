@@ -97,7 +97,7 @@ function SearchContent() {
                       {result.description}
                     </p>
                     <div className="flex items-center gap-4 text-sm">
-                      <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full font-semibold">
+                      <span className="px-3 py-1 bg-blue-100 text-brandPrimary rounded-full font-semibold">
                         {result.type}
                       </span>
                       <span className="text-slate-600">{result.meta}</span>

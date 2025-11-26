@@ -63,7 +63,7 @@ export default async function EnhancedStudentDashboard() {
                 <p className="text-3xl font-bold text-slate-900 mt-1">{enrollments?.length || 0}</p>
               </div>
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <BookOpen className="text-blue-600" size={24} />
+                <BookOpen className="text-brandPrimary" size={24} />
               </div>
             </div>
           </div>
@@ -166,7 +166,7 @@ export default async function EnhancedStudentDashboard() {
                 </Link>
 
                 <Link href="/lms/assignments" className="p-4 border border-slate-200 rounded-lg hover:border-red-500 hover:shadow-md transition-all group">
-                  <FileText className="text-blue-600 mb-2 group-hover:scale-110 transition-transform" size={24} />
+                  <FileText className="text-brandPrimary mb-2 group-hover:scale-110 transition-transform" size={24} />
                   <p className="font-semibold text-slate-900">Assignments</p>
                   <p className="text-xs text-slate-600 mt-1">Submit work</p>
                 </Link>
@@ -248,7 +248,7 @@ export default async function EnhancedStudentDashboard() {
                 </Link>
                 <Link
                   href="/lms/messages"
-                  className="block w-full px-4 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition text-center"
+                  className="block w-full px-4 py-3 bg-brandPrimary text-white rounded-lg font-semibold hover:bg-brandPrimaryDark transition text-center"
                 >
                   Send Message
                 </Link>

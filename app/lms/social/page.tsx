@@ -21,7 +21,7 @@ export default function SocialLearningPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-lg p-4 border border-slate-200">
             <div className="flex items-center gap-3">
-              <Users className="w-8 h-8 text-blue-600" />
+              <Users className="w-8 h-8 text-brandPrimary" />
               <div>
                 <div className="text-2xl font-bold text-slate-900">2,847</div>
                 <div className="text-sm text-slate-600">Active Learners</div>
@@ -64,7 +64,7 @@ export default function SocialLearningPage() {
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-bold text-slate-900">Study Groups</h2>
-                <Link href="/lms/social/groups/create" className="text-blue-600 hover:text-blue-700 font-semibold">
+                <Link href="/lms/social/groups/create" className="text-brandPrimary hover:text-brandPrimary font-semibold">
                   Create Group
                 </Link>
               </div>
@@ -77,14 +77,14 @@ export default function SocialLearningPage() {
                   <div key={i} className="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Users className="w-6 h-6 text-blue-600" />
+                        <Users className="w-6 h-6 text-brandPrimary" />
                       </div>
                       <div>
                         <div className="font-semibold text-slate-900">{group.name}</div>
                         <div className="text-sm text-slate-600">{group.members} members • {group.activity}</div>
                       </div>
                     </div>
-                    <Link href={`/lms/social/groups/${i}`} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    <Link href={`/lms/social/groups/${i}`} className="px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark">
                       Join
                     </Link>
                   </div>
@@ -128,7 +128,7 @@ export default function SocialLearningPage() {
                 ].map((user, i) => (
                   <div key={i} className="p-4 border border-slate-200 rounded-lg">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                      <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
                         {user.name.charAt(0)}
                       </div>
                       <div>
@@ -137,7 +137,7 @@ export default function SocialLearningPage() {
                       </div>
                     </div>
                     <div className="text-sm text-slate-600 mb-3">{user.status}</div>
-                    <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    <button className="w-full px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark">
                       Connect
                     </button>
                   </div>
@@ -178,7 +178,7 @@ export default function SocialLearningPage() {
               <h3 className="text-lg font-bold text-slate-900 mb-4">Quick Actions</h3>
               <div className="space-y-2">
                 <Link href="/lms/forums" className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition">
-                  <MessageSquare className="w-5 h-5 text-blue-600" />
+                  <MessageSquare className="w-5 h-5 text-brandPrimary" />
                   <span className="font-medium text-slate-900">Browse Forums</span>
                 </Link>
                 <Link href="/lms/collaborate" className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition">

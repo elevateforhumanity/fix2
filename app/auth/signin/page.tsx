@@ -17,11 +17,11 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-blue-50 flex items-center justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-orange-50 flex items-center justify-center p-6">
       <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-8 items-center">
         {/* Left Side - Branding */}
         <div className="hidden lg:block">
-          <div className="bg-gradient-to-br from-red-600 to-blue-600 rounded-3xl p-12 text-white">
+          <div className="bg-gradient-to-br from-red-600 to-orange-600 rounded-3xl p-12 text-white">
             <h1 className="text-4xl font-bold mb-6">
               Welcome to Elevate For Humanity
             </h1>

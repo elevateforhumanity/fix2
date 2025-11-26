@@ -45,7 +45,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 border-b border-slate-200">
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-orange-50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
@@ -90,11 +90,11 @@ export default function ContactPage() {
 
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
-                      <Mail size={20} className="text-blue-600" />
+                      <Mail size={20} className="text-brandPrimary" />
                     </div>
                     <div>
                       <div className="font-bold text-slate-900 mb-1">Email</div>
-                      <a href="mailto:Elevate4humanityedu@gmail.com" className="text-slate-600 hover:text-blue-600 transition-colors">
+                      <a href="mailto:Elevate4humanityedu@gmail.com" className="text-slate-600 hover:text-brandPrimary transition-colors">
                         Elevate4humanityedu@gmail.com
                       </a>
                     </div>

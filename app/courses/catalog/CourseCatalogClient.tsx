@@ -40,7 +40,7 @@ export default function CourseCatalogClient({ courses }: Props) {
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-600 to-blue-600 text-white py-16">
+      <section className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-16">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -188,7 +188,7 @@ export default function CourseCatalogClient({ courses }: Props) {
                         {course.level}
                       </span>
                       {course.certified && (
-                        <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded flex items-center gap-1">
+                        <span className="text-xs font-semibold text-brandPrimary bg-blue-50 px-2 py-1 rounded flex items-center gap-1">
                           <Award size={12} />
                           Certified
                         </span>
@@ -224,7 +224,7 @@ export default function CourseCatalogClient({ courses }: Props) {
                       {course.funding_programs?.map((fund) => (
                         <span
                           key={fund}
-                          className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded"
+                          className="text-xs font-semibold text-brandPrimary bg-blue-50 px-2 py-1 rounded"
                         >
                           {fund}
                         </span>

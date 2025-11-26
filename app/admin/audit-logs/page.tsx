@@ -131,7 +131,7 @@ export default function AuditLogs() {
     <div className="p-8 max-w-7xl mx-auto">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2 flex items-center gap-2">
-          <Shield className="w-8 h-8 text-blue-600" />
+          <Shield className="w-8 h-8 text-brandPrimary" />
           Audit Logs
         </h1>
         <p className="text-gray-600">
@@ -144,7 +144,7 @@ export default function AuditLogs() {
         <div className="bg-white p-6 rounded-lg shadow">
           <div className="flex items-center justify-between mb-2">
             <span className="text-gray-600">Total Events</span>
-            <Activity className="w-5 h-5 text-blue-600" />
+            <Activity className="w-5 h-5 text-brandPrimary" />
           </div>
           <div className="text-3xl font-bold">{total.toLocaleString()}</div>
         </div>
@@ -214,7 +214,7 @@ export default function AuditLogs() {
 
           <button
             onClick={exportLogs}
-            className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors"
           >
             <Download className="w-4 h-4" />
             Export CSV

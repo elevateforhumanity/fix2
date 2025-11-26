@@ -53,7 +53,7 @@ export default function NewSignatureDocumentPage() {
     <div className="p-8 max-w-4xl mx-auto">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2 flex items-center gap-2">
-          <FileSignature className="w-8 h-8 text-blue-600" />
+          <FileSignature className="w-8 h-8 text-brandPrimary" />
           Create Signable Document
         </h1>
         <p className="text-gray-600">
@@ -123,7 +123,7 @@ export default function NewSignatureDocumentPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
+          className="w-full px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors disabled:opacity-50"
         >
           {loading ? 'Creating...' : 'Create & Get Signature Link'}
         </button>
@@ -137,13 +137,13 @@ export default function NewSignatureDocumentPage() {
               Share this link with partners or boards to sign:
             </p>
             <div className="flex items-center gap-2">
-              <code className="flex-1 px-3 py-2 bg-white border rounded text-xs font-mono text-blue-600 overflow-x-auto">
+              <code className="flex-1 px-3 py-2 bg-white border rounded text-xs font-mono text-brandPrimary overflow-x-auto">
                 {window.location.origin}{signUrl}
               </code>
               <button
                 type="button"
                 onClick={copyToClipboard}
-                className="px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors flex items-center gap-1"
+                className="px-3 py-2 bg-brandPrimary text-white rounded hover:bg-brandPrimaryDark transition-colors flex items-center gap-1"
               >
                 {copied ? (
                   <>

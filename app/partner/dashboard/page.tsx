@@ -133,7 +133,7 @@ export default async function PartnerDashboardPage() {
                           s.status === "completed"
                             ? "bg-red-50 text-red-600"
                             : s.status === "in_progress"
-                            ? "bg-blue-50 text-blue-600"
+                            ? "bg-blue-50 text-brandPrimary"
                             : "bg-slate-100 text-slate-600"
                         }`}
                       >

@@ -335,7 +335,7 @@ export default function EnrollPage() {
                     </div>
 
                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex gap-3">
-                      <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
+                      <Info size={20} className="text-brandPrimary flex-shrink-0 mt-0.5" />
                       <div className="text-sm text-blue-900">
                         <p className="font-semibold mb-1">Don't worry about eligibility!</p>
                         <p>
@@ -534,13 +534,13 @@ export default function EnrollPage() {
               <div className="space-y-2 text-sm">
                 <a
                   href="tel:+13173143757"
-                  className="flex items-center gap-2 text-blue-700 hover:text-blue-900"
+                  className="flex items-center gap-2 text-brandPrimary hover:text-blue-900"
                 >
                   📞 (317) 314-3757
                 </a>
                 <a
                   href="mailto:elevate4humanityedu@gmail.com"
-                  className="flex items-center gap-2 text-blue-700 hover:text-blue-900"
+                  className="flex items-center gap-2 text-brandPrimary hover:text-blue-900"
                 >
                   ✉️ elevate4humanityedu@gmail.com
                 </a>

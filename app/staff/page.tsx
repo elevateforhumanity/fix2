@@ -47,7 +47,7 @@ export default async function StaffPortalPage() {
             className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 hover:shadow-lg transition-shadow"
           >
             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+              <svg className="w-6 h-6 text-brandPrimary" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
 d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -110,7 +110,7 @@ d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 
             <h2 className="text-xl font-bold text-gray-900 mb-4">Student Management</h2>
             <ul className="space-y-3">
               <li>
-                <Link href="/admin/students" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/students" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -120,7 +120,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/admin/applications" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/applications" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -130,7 +130,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/lms/attendance" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/lms/attendance" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -140,7 +140,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/admin/analytics/engagement" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/analytics/engagement" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -150,7 +150,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/admin/retention" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/retention" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -167,7 +167,7 @@ d="M9 5l7 7-7 7" />
             <h2 className="text-xl font-bold text-gray-900 mb-4">Reports & Compliance</h2>
             <ul className="space-y-3">
               <li>
-                <Link href="/admin/reports" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/reports" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -177,7 +177,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/admin/compliance-dashboard" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/compliance-dashboard" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -187,7 +187,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/admin/reports/caseload" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/reports/caseload" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -197,7 +197,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/admin/outcomes" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/outcomes" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -207,7 +207,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/admin/compliance/exports" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/compliance/exports" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -224,7 +224,7 @@ d="M9 5l7 7-7 7" />
             <h2 className="text-xl font-bold text-gray-900 mb-4">Admin Tools</h2>
             <ul className="space-y-3">
               <li>
-                <Link href="/admin/hr/employees" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/hr/employees" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -234,7 +234,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/admin/hr/payroll" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/hr/payroll" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -244,7 +244,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/admin/program-holders" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/program-holders" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -254,7 +254,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/admin/docs/mou" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/docs/mou" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -264,7 +264,7 @@ d="M9 5l7 7-7 7" />
                 </Link>
               </li>
               <li>
-                <Link href="/admin/courses" className="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+                <Link href="/admin/courses" className="text-brandPrimary hover:text-brandPrimary flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -278,7 +278,7 @@ d="M9 5l7 7-7 7" />
         </div>
 
         {/* Quick Stats */}
-        <div className="mt-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl p-8 text-white">
+        <div className="mt-8 bg-gradient-to-br from-red-600 to-indigo-700 rounded-xl p-8 text-white">
           <h2 className="text-2xl font-bold mb-6">Quick Stats</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div>

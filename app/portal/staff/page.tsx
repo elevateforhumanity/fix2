@@ -35,7 +35,7 @@ export default function StaffPortalLogin() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-slate-50 flex items-center justify-center px-6 py-12">
+    <main className="min-h-screen bg-gradient-to-br from-red-50 via-white to-slate-50 flex items-center justify-center px-6 py-12">
       <div className="w-full max-w-md">
         <Link
           href="/portal"
@@ -47,7 +47,7 @@ export default function StaffPortalLogin() {
 
         <div className="rounded-2xl bg-white p-8 shadow-xl ring-1 ring-slate-200">
           <div className="text-center mb-8">
-            <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-blue-500 text-white mb-4">
+            <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl bg-brandPrimary text-white mb-4">
               <Users size={28} />
             </div>
             <h1 className="text-2xl font-bold text-slate-900 mb-2">
@@ -79,7 +79,7 @@ export default function StaffPortalLogin() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="staff@elevateforhumanity.org"
                   required
-                  className="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition"
+                  className="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-300 focus:border-brandPrimary focus:ring-2 focus:ring-blue-500/20 outline-none transition"
                 />
               </div>
             </div>
@@ -97,7 +97,7 @@ export default function StaffPortalLogin() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
-                  className="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition"
+                  className="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-300 focus:border-brandPrimary focus:ring-2 focus:ring-blue-500/20 outline-none transition"
                 />
               </div>
             </div>
@@ -107,7 +107,7 @@ export default function StaffPortalLogin() {
                 <input type="checkbox" className="rounded border-slate-300 text-blue-500 focus:ring-blue-500" />
                 <span className="text-slate-600">Remember me</span>
               </label>
-              <Link href="/portal/staff/forgot-password" className="text-blue-600 hover:text-blue-700 font-medium">
+              <Link href="/portal/staff/forgot-password" className="text-brandPrimary hover:text-brandPrimary font-medium">
                 Forgot password?
               </Link>
             </div>
@@ -115,7 +115,7 @@ export default function StaffPortalLogin() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition shadow-lg"
+              className="w-full py-3 rounded-lg bg-brandPrimary text-white font-semibold hover:bg-brandPrimary disabled:opacity-50 disabled:cursor-not-allowed transition shadow-lg"
             >
               {isLoading ? "Logging in..." : "Log In"}
             </button>
@@ -123,7 +123,7 @@ export default function StaffPortalLogin() {
 
           <p className="text-center text-sm text-slate-600 mt-6">
             Staff access only. Need help?{" "}
-            <a href="mailto:Elevate4humanityedu@gmail.com" className="text-blue-600 hover:text-blue-700 font-medium">
+            <a href="mailto:Elevate4humanityedu@gmail.com" className="text-brandPrimary hover:text-brandPrimary font-medium">
               Contact IT Support
             </a>
           </p>

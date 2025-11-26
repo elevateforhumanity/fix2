@@ -131,7 +131,7 @@ export default function LeaderboardPage() {
                       <span className="text-sm text-slate-600">{student.program}</span>
                     </td>
                     <td className="px-6 py-4 text-center">
-                      <span className="font-bold text-blue-600">{student.points.toLocaleString()}</span>
+                      <span className="font-bold text-brandPrimary">{student.points.toLocaleString()}</span>
                     </td>
                     <td className="px-6 py-4 text-center">
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-purple-100 text-purple-700">

@@ -17,7 +17,7 @@ export default function StudentsPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 border-b border-slate-200">
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-orange-50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
@@ -341,22 +341,22 @@ const benefits = [
 
 const supportServices = [
   {
-    icon: <Baby size={20} className="text-blue-600" />,
+    icon: <Baby size={20} className="text-brandPrimary" />,
     title: "Childcare Assistance",
     description: "Help with childcare costs so you can focus on your training.",
   },
   {
-    icon: <Home size={20} className="text-blue-600" />,
+    icon: <Home size={20} className="text-brandPrimary" />,
     title: "Transportation Support",
     description: "Gas cards, bus passes, and other transportation assistance.",
   },
   {
-    icon: <BookOpen size={20} className="text-blue-600" />,
+    icon: <BookOpen size={20} className="text-brandPrimary" />,
     title: "Books & Supplies",
     description: "All required materials provided at no cost to you.",
   },
   {
-    icon: <Users size={20} className="text-blue-600" />,
+    icon: <Users size={20} className="text-brandPrimary" />,
     title: "Career Counseling",
     description: "One-on-one guidance from enrollment through job placement.",
   },

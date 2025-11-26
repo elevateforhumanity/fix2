@@ -11,7 +11,7 @@ export default function ParentPortalPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-purple-600 to-blue-700 text-white py-16">
+      <section className="bg-gradient-to-br from-purple-600 to-orange-700 text-white py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-4">
@@ -42,7 +42,7 @@ export default function ParentPortalPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <TrendingUp className="w-6 h-6 text-blue-600" />
+                <TrendingUp className="w-6 h-6 text-brandPrimary" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Real-Time Progress</h3>
               <p className="text-slate-600">
@@ -128,7 +128,7 @@ export default function ParentPortalPage() {
                     <div className="font-semibold text-slate-900">Attendance</div>
                     <div className="text-sm text-slate-600">This month</div>
                   </div>
-                  <div className="text-2xl font-bold text-blue-600">95%</div>
+                  <div className="text-2xl font-bold text-brandPrimary">95%</div>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
                   <div>
@@ -151,7 +151,7 @@ export default function ParentPortalPage() {
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3 p-3 border border-slate-200 rounded-lg">
                     <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                      <FileText className="w-5 h-5 text-blue-600" />
+                      <FileText className="w-5 h-5 text-brandPrimary" />
                     </div>
                     <div className="flex-1">
                       <div className="font-semibold text-slate-900">{item.subject}</div>
@@ -169,7 +169,7 @@ export default function ParentPortalPage() {
       {/* Mobile App */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-purple-600 to-blue-700 rounded-2xl p-8 md:p-12 text-white">
+          <div className="bg-gradient-to-br from-purple-600 to-orange-700 rounded-2xl p-8 md:p-12 text-white">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">Stay Connected On the Go</h2>
               <p className="text-xl text-purple-100 mb-8">

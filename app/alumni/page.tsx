@@ -19,7 +19,7 @@ export default function AlumniPage() {
             <p className="text-slate-600">Alumni Members</p>
           </div>
           <div className="bg-white rounded-xl p-6 text-center">
-            <Briefcase className="mx-auto mb-4 text-blue-600" size={48} />
+            <Briefcase className="mx-auto mb-4 text-brandPrimary" size={48} />
             <div className="text-4xl font-bold text-slate-900 mb-2">85%</div>
             <p className="text-slate-600">Employment Rate</p>
           </div>

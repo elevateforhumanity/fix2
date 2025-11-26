@@ -258,7 +258,7 @@ export default function LearnerDetailPage({
                         href={enrollment.certificate_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium"
+                        className="inline-flex items-center gap-2 text-sm text-brandPrimary hover:text-brandPrimary font-medium"
                       >
                         <Award className="w-4 h-4" />
                         View Certificate
@@ -279,7 +279,7 @@ export default function LearnerDetailPage({
             </h2>
             <button
               onClick={() => setShowNoteForm(!showNoteForm)}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-brandPrimary text-white text-sm font-medium hover:bg-brandPrimaryDark transition-colors"
             >
               <Plus className="w-4 h-4" />
               Add Note
@@ -296,7 +296,7 @@ export default function LearnerDetailPage({
                   <select
                     value={noteType}
                     onChange={(e) => setNoteType(e.target.value)}
-                    className="w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+                    className="w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-sm focus:border-brandPrimary focus:ring-2 focus:ring-blue-200 outline-none"
                   >
                     <option value="check_in">Check-in</option>
                     <option value="barrier">Barrier</option>
@@ -313,7 +313,7 @@ export default function LearnerDetailPage({
                     value={newNote}
                     onChange={(e) => setNewNote(e.target.value)}
                     rows={3}
-                    className="w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
+                    className="w-full rounded-lg border-2 border-gray-200 px-3 py-2 text-sm focus:border-brandPrimary focus:ring-2 focus:ring-blue-200 outline-none"
                     placeholder="Enter your note here..."
                   />
                 </div>
@@ -321,7 +321,7 @@ export default function LearnerDetailPage({
                   <button
                     onClick={handleAddNote}
                     disabled={saving || !newNote.trim()}
-                    className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-4 py-2 rounded-lg bg-brandPrimary text-white text-sm font-medium hover:bg-brandPrimaryDark disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {saving ? "Saving..." : "Save Note"}
                   </button>
@@ -355,7 +355,7 @@ export default function LearnerDetailPage({
                           ? "bg-red-100 text-red-700"
                           : note.note_type === "win"
                           ? "bg-green-100 text-green-700"
-                          : "bg-blue-100 text-blue-700"
+                          : "bg-blue-100 text-brandPrimary"
                       }`}
                     >
                       {note.note_type.replace("_", " ")}

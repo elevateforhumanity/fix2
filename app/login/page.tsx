@@ -45,7 +45,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-600 via-orange-500 to-blue-600 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-red-600 via-orange-500 to-orange-600 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl shadow-2xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-3xl mx-auto mb-4">
@@ -116,7 +116,7 @@ export default function LoginPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-gradient-to-br from-red-600 via-orange-500 to-blue-600 flex items-center justify-center">
+        <div className="min-h-screen bg-gradient-to-br from-red-600 via-orange-500 to-orange-600 flex items-center justify-center">
           <div className="text-white">Loading...</div>
         </div>
       }

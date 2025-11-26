@@ -57,9 +57,9 @@ export default function PortalHome() {
             href="/portal/staff"
             className="group relative overflow-hidden rounded-2xl bg-white p-8 shadow-md ring-1 ring-slate-200 transition hover:shadow-xl hover:ring-blue-500"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 to-transparent rounded-bl-full" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-red-500/10 to-transparent rounded-bl-full" />
             <div className="relative">
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-blue-600 mb-4 group-hover:bg-blue-500 group-hover:text-white transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 text-brandPrimary mb-4 group-hover:bg-brandPrimary group-hover:text-white transition">
                 <Users size={28} />
               </div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">
@@ -68,7 +68,7 @@ export default function PortalHome() {
               <p className="text-sm text-slate-600 mb-4">
                 Manage enrollments, track attendance, approve certificates, and support learners
               </p>
-              <div className="flex items-center text-sm font-semibold text-blue-600 group-hover:text-blue-700">
+              <div className="flex items-center text-sm font-semibold text-brandPrimary group-hover:text-brandPrimary">
                 Staff login
                 <span className="ml-2 transition group-hover:translate-x-1">→</span>
               </div>

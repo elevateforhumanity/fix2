@@ -46,7 +46,7 @@ const studyGroups = [
 export default function StudyGroupsPage() {
   return (
     <div className="min-h-screen bg-slate-50">
-      <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white py-16">
+      <div className="bg-gradient-to-br from-red-600 to-orange-700 text-white py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Users className="mb-4" size={48} />
           <h1 className="text-4xl font-bold mb-4">Study Groups</h1>
@@ -59,7 +59,7 @@ export default function StudyGroupsPage() {
           <h2 className="text-2xl font-bold text-slate-900 mb-4">Why Join a Study Group?</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div>
-              <BookOpen className="mb-3 text-blue-600" size={32} />
+              <BookOpen className="mb-3 text-brandPrimary" size={32} />
               <h3 className="font-semibold text-slate-900 mb-2">Collaborative Learning</h3>
               <p className="text-sm text-slate-600">Share knowledge and learn from peers</p>
             </div>
@@ -78,7 +78,7 @@ export default function StudyGroupsPage() {
 
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-slate-900">Active Study Groups</h2>
-          <button className="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+          <button className="px-6 py-2 bg-brandPrimary text-white rounded-lg font-semibold hover:bg-brandPrimaryDark transition">
             Create New Group
           </button>
         </div>
@@ -87,7 +87,7 @@ export default function StudyGroupsPage() {
           {studyGroups.map((group) => (
             <div key={group.id} className="bg-white rounded-xl p-6 border border-slate-200">
               <h3 className="text-xl font-bold text-slate-900 mb-2">{group.name}</h3>
-              <p className="text-sm text-blue-600 font-semibold mb-4">{group.course}</p>
+              <p className="text-sm text-brandPrimary font-semibold mb-4">{group.course}</p>
               
               <div className="space-y-2 mb-4">
                 <div className="flex items-center text-sm text-slate-600">
@@ -109,7 +109,7 @@ export default function StudyGroupsPage() {
                 <p className="text-sm font-semibold text-slate-900">{group.nextSession}</p>
               </div>
 
-              <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+              <button className="w-full px-4 py-2 bg-brandPrimary text-white rounded-lg font-semibold hover:bg-brandPrimaryDark transition">
                 Join Group
               </button>
             </div>

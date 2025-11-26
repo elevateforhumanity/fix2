@@ -48,7 +48,7 @@ export default function CourseGroupsPage() {
       {/* Header */}
       <div className="bg-white border-b">
         <div className="max-w-6xl mx-auto px-6 py-8">
-          <Link href="/student/courses/hvac-systems" className="text-sm text-blue-600 hover:text-blue-700 mb-2 inline-block">
+          <Link href="/student/courses/hvac-systems" className="text-sm text-brandPrimary hover:text-brandPrimary mb-2 inline-block">
             ← Back to Course
           </Link>
           <h1 className="text-3xl font-bold text-gray-900 mt-2">Groups & Cohorts</h1>
@@ -60,7 +60,7 @@ export default function CourseGroupsPage() {
               onClick={() => setActiveTab('my-group')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 activeTab === 'my-group'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-brandPrimary text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -70,7 +70,7 @@ export default function CourseGroupsPage() {
               onClick={() => setActiveTab('all-groups')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 activeTab === 'all-groups'
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-brandPrimary text-white'
                   : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
               }`}
             >
@@ -94,7 +94,7 @@ export default function CourseGroupsPage() {
                       <h2 className="text-2xl font-bold text-slate-900">{myGroup.name}</h2>
                       <p className="text-slate-600 mt-1">{myGroup.cohort}</p>
                     </div>
-                    <button className="flex items-center gap-2 px-4 py-2 border-2 border-slate-300 rounded-lg hover:border-blue-600 transition-colors">
+                    <button className="flex items-center gap-2 px-4 py-2 border-2 border-slate-300 rounded-lg hover:border-brandPrimary transition-colors">
                       <Settings className="h-4 w-4" />
                       Settings
                     </button>
@@ -103,8 +103,8 @@ export default function CourseGroupsPage() {
                   {/* Group Stats */}
                   <div className="grid md:grid-cols-3 gap-4 mb-6">
                     <div className="bg-blue-50 rounded-lg p-4">
-                      <p className="text-sm text-blue-600 font-medium">Avg Progress</p>
-                      <p className="text-2xl font-bold text-blue-700 mt-1">{myGroup.stats.avgProgress}%</p>
+                      <p className="text-sm text-brandPrimary font-medium">Avg Progress</p>
+                      <p className="text-2xl font-bold text-brandPrimary mt-1">{myGroup.stats.avgProgress}%</p>
                     </div>
                     <div className="bg-green-50 rounded-lg p-4">
                       <p className="text-sm text-green-600 font-medium">Completed Projects</p>
@@ -127,7 +127,7 @@ export default function CourseGroupsPage() {
                             <div className="flex items-center gap-2">
                               <h4 className="font-medium text-slate-900">{member.name}</h4>
                               {member.role === 'leader' && (
-                                <span className="px-2 py-0.5 bg-blue-100 text-blue-700 text-xs font-medium rounded">
+                                <span className="px-2 py-0.5 bg-blue-100 text-brandPrimary text-xs font-medium rounded">
                                   Leader
                                 </span>
                               )}
@@ -151,12 +151,12 @@ export default function CourseGroupsPage() {
                   <div className="space-y-3">
                     {myGroup.activities.map((activity) => (
                       <div key={activity.id} className="flex items-start gap-3 p-4 border rounded-lg hover:bg-slate-50 transition-colors">
-                        <Calendar className="h-5 w-5 text-blue-600 mt-0.5" />
+                        <Calendar className="h-5 w-5 text-brandPrimary mt-0.5" />
                         <div className="flex-1">
                           <h4 className="font-medium text-slate-900">{activity.title}</h4>
                           <p className="text-sm text-slate-600 mt-1">{activity.date}</p>
                         </div>
-                        <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                        <button className="text-sm text-brandPrimary hover:text-brandPrimary font-medium">
                           View
                         </button>
                       </div>
@@ -173,15 +173,15 @@ export default function CourseGroupsPage() {
                 <CardContent className="p-6">
                   <h3 className="font-semibold mb-4">Quick Actions</h3>
                   <div className="space-y-2">
-                    <button className="w-full flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <button className="w-full flex items-center gap-2 px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors">
                       <MessageCircle className="h-4 w-4" />
                       Group Chat
                     </button>
-                    <button className="w-full flex items-center gap-2 px-4 py-2 border-2 border-slate-300 text-slate-700 rounded-lg hover:border-blue-600 transition-colors">
+                    <button className="w-full flex items-center gap-2 px-4 py-2 border-2 border-slate-300 text-slate-700 rounded-lg hover:border-brandPrimary transition-colors">
                       <Calendar className="h-4 w-4" />
                       Schedule Meeting
                     </button>
-                    <button className="w-full flex items-center gap-2 px-4 py-2 border-2 border-slate-300 text-slate-700 rounded-lg hover:border-blue-600 transition-colors">
+                    <button className="w-full flex items-center gap-2 px-4 py-2 border-2 border-slate-300 text-slate-700 rounded-lg hover:border-brandPrimary transition-colors">
                       <UserPlus className="h-4 w-4" />
                       Invite Member
                     </button>
@@ -226,7 +226,7 @@ export default function CourseGroupsPage() {
                           </span>
                           <span className="text-slate-900">{group.name}</span>
                         </div>
-                        <span className="font-medium text-blue-600">{group.avgProgress}%</span>
+                        <span className="font-medium text-brandPrimary">{group.avgProgress}%</span>
                       </div>
                     ))}
                   </div>
@@ -246,7 +246,7 @@ export default function CourseGroupsPage() {
                       <div key={group.id} className="flex items-center justify-between p-4 border rounded-lg hover:bg-slate-50 transition-colors">
                         <div className="flex items-center gap-4">
                           <div className="bg-blue-100 rounded-full p-3">
-                            <Users className="h-6 w-6 text-blue-600" />
+                            <Users className="h-6 w-6 text-brandPrimary" />
                           </div>
                           <div>
                             <h3 className="font-semibold text-slate-900">{group.name}</h3>
@@ -255,7 +255,7 @@ export default function CourseGroupsPage() {
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="text-2xl font-bold text-blue-600">{group.avgProgress}%</p>
+                          <p className="text-2xl font-bold text-brandPrimary">{group.avgProgress}%</p>
                           <p className="text-xs text-slate-600">Avg Progress</p>
                         </div>
                       </div>

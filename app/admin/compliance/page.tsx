@@ -192,12 +192,12 @@ export default function Compliance() {
         <div className="bg-white p-6 rounded-lg shadow">
           <div className="flex items-center justify-between mb-2">
             <span className="text-gray-600">Overall Progress</span>
-            <Shield className="w-5 h-5 text-blue-600" />
+            <Shield className="w-5 h-5 text-brandPrimary" />
           </div>
           <div className="text-3xl font-bold">{completionPercentage}%</div>
           <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
             <div
-              className="bg-blue-600 h-2 rounded-full transition-all"
+              className="bg-brandPrimary h-2 rounded-full transition-all"
               style={{ width: `${completionPercentage}%` }}
              />
           </div>
@@ -266,7 +266,7 @@ export default function Compliance() {
                 <div className="flex items-center gap-4">
                   <div className="w-32 bg-gray-200 rounded-full h-2">
                     <div
-                      className="bg-blue-600 h-2 rounded-full transition-all"
+                      className="bg-brandPrimary h-2 rounded-full transition-all"
                       style={{ width: `${categoryProgress}%` }}
                      />
                   </div>
@@ -304,7 +304,7 @@ export default function Compliance() {
                                       href={ev.file_url}
                                       target="_blank"
                                       rel="noreferrer"
-                                      className="text-blue-600 hover:underline truncate flex-1"
+                                      className="text-brandPrimary hover:underline truncate flex-1"
                                     >
                                       {ev.file_name}
                                     </a>

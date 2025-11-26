@@ -77,7 +77,7 @@ export default function ConsumerEducationPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-600 to-blue-700 text-white py-16">
+      <section className="bg-gradient-to-br from-green-600 to-orange-700 text-white py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-4">
@@ -111,7 +111,7 @@ export default function ConsumerEducationPage() {
               <div className="text-sm text-slate-600">Courses Available</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-600">4,872</div>
+              <div className="text-3xl font-bold text-brandPrimary">4,872</div>
               <div className="text-sm text-slate-600">Students Enrolled</div>
             </div>
             <div>
@@ -149,7 +149,7 @@ export default function ConsumerEducationPage() {
 
             <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-blue-600" />
+                <Shield className="w-6 h-6 text-brandPrimary" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Protect Yourself</h3>
               <p className="text-slate-600">
@@ -191,7 +191,7 @@ export default function ConsumerEducationPage() {
                       <BookOpen className="w-4 h-4" />
                       {course.duration}
                     </span>
-                    <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs font-semibold">
+                    <span className="px-2 py-1 bg-blue-100 text-brandPrimary rounded text-xs font-semibold">
                       {course.level}
                     </span>
                   </div>
@@ -229,7 +229,7 @@ export default function ConsumerEducationPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-green-600 to-blue-700 text-white">
+      <section className="py-16 bg-gradient-to-br from-green-600 to-orange-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Take Control of Your Finances?</h2>
           <p className="text-xl text-green-100 mb-8">

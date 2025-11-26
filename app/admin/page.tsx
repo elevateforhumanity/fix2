@@ -79,7 +79,7 @@ export default async function AdminDashboardPage() {
           <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <FileText className="w-6 h-6 text-blue-600" />
+                <FileText className="w-6 h-6 text-brandPrimary" />
               </div>
               <div className="group relative">
                 <Info className="w-4 h-4 text-gray-400 cursor-help" />
@@ -232,9 +232,9 @@ export default async function AdminDashboardPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link
               href="/admin/applications"
-              className="p-4 border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all"
+              className="p-4 border-2 border-gray-200 rounded-xl hover:border-brandPrimary hover:bg-blue-50 transition-all"
             >
-              <FileText className="w-6 h-6 text-blue-600 mb-2" />
+              <FileText className="w-6 h-6 text-brandPrimary mb-2" />
               <div className="font-semibold text-gray-900">Review Applications</div>
               <div className="text-xs text-gray-600 mt-1">
                 Process new applications

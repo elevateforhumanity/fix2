@@ -88,7 +88,7 @@ export default function LearningPathsPage() {
       {/* Header */}
       <div className="bg-white border-b">
         <div className="max-w-6xl mx-auto px-6 py-8">
-          <Link href="/student/dashboard" className="text-sm text-blue-600 hover:text-blue-700 mb-2 inline-block">
+          <Link href="/student/dashboard" className="text-sm text-brandPrimary hover:text-brandPrimary mb-2 inline-block">
             ← Back to Dashboard
           </Link>
           <h1 className="text-3xl font-bold text-gray-900 mt-2">Learning Paths</h1>
@@ -108,7 +108,7 @@ export default function LearningPathsPage() {
                 onClick={() => setSelectedPath(path.id)}
                 className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
                   selectedPath === path.id
-                    ? 'border-blue-600 bg-blue-50'
+                    ? 'border-brandPrimary bg-blue-50'
                     : 'border-slate-200 hover:border-blue-300'
                 }`}
               >
@@ -135,11 +135,11 @@ export default function LearningPathsPage() {
                   <div className="mt-3">
                     <div className="flex items-center justify-between text-xs mb-1">
                       <span className="text-slate-600">Progress</span>
-                      <span className="font-medium text-blue-600">{path.progress}%</span>
+                      <span className="font-medium text-brandPrimary">{path.progress}%</span>
                     </div>
                     <div className="bg-slate-200 rounded-full h-2">
                       <div
-                        className="bg-blue-600 rounded-full h-2 transition-all"
+                        className="bg-brandPrimary rounded-full h-2 transition-all"
                         style={{ width: `${path.progress}%` }}
                        />
                     </div>
@@ -161,7 +161,7 @@ export default function LearningPathsPage() {
                       <p className="text-slate-600 mt-2">{currentPath.description}</p>
                     </div>
                     {!currentPath.enrolled && (
-                      <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap">
+                      <button className="px-6 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors whitespace-nowrap">
                         Enroll Now
                       </button>
                     )}
@@ -169,7 +169,7 @@ export default function LearningPathsPage() {
 
                   <div className="grid md:grid-cols-3 gap-4 mt-6">
                     <div className="flex items-center gap-3">
-                      <Clock className="h-5 w-5 text-blue-600" />
+                      <Clock className="h-5 w-5 text-brandPrimary" />
                       <div>
                         <p className="text-sm text-slate-600">Duration</p>
                         <p className="font-medium text-slate-900">{currentPath.duration}</p>
@@ -202,7 +202,7 @@ export default function LearningPathsPage() {
                     <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-slate-200" />
                     {currentPath.enrolled && (
                       <div 
-                        className="absolute left-6 top-8 w-0.5 bg-blue-600 transition-all duration-500"
+                        className="absolute left-6 top-8 w-0.5 bg-brandPrimary transition-all duration-500"
                         style={{ height: `${(currentPath.progress / 100) * 85}%` }}
                        />
                     )}
@@ -220,7 +220,7 @@ export default function LearningPathsPage() {
                             <div className={`
                               relative z-10 flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm
                               ${isCompleted ? 'bg-green-600 text-white' : ''}
-                              ${isInProgress ? 'bg-blue-600 text-white' : ''}
+                              ${isInProgress ? 'bg-brandPrimary text-white' : ''}
                               ${isAvailable ? 'bg-orange-500 text-white' : ''}
                               ${isLocked ? 'bg-slate-200 text-slate-400' : ''}
                             `}>
@@ -240,7 +240,7 @@ export default function LearningPathsPage() {
                                 <div className="bg-slate-200 rounded-full h-2 mb-2">
                                   <div
                                     className={`h-2 rounded-full transition-all ${
-                                      isCompleted ? 'bg-green-600' : 'bg-blue-600'
+                                      isCompleted ? 'bg-green-600' : 'bg-brandPrimary'
                                     }`}
                                     style={{ width: `${course.progress}%` }}
                                    />
@@ -254,7 +254,7 @@ export default function LearningPathsPage() {
                                 {isInProgress && (
                                   <Link
                                     href={`/student/courses/${course.title.toLowerCase().replace(/\s+/g, '-')}`}
-                                    className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+                                    className="text-sm text-brandPrimary hover:text-brandPrimary font-medium"
                                   >
                                     Continue Learning →
                                   </Link>
@@ -295,7 +295,7 @@ export default function LearningPathsPage() {
                       {currentPath.skills.map((skill, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full"
+                          className="px-3 py-1 bg-blue-100 text-brandPrimary text-sm font-medium rounded-full"
                         >
                           {skill}
                         </span>

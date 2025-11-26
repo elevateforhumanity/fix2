@@ -20,7 +20,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 border-b border-slate-200">
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-orange-50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
@@ -54,7 +54,7 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-blue-50 rounded-3xl p-8 border border-blue-200">
-              <div className="w-16 h-16 rounded-xl bg-blue-600 flex items-center justify-center mb-6">
+              <div className="w-16 h-16 rounded-xl bg-brandPrimary flex items-center justify-center mb-6">
                 <TrendingUp size={32} className="text-white" />
               </div>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Vision</h2>

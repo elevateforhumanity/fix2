@@ -114,7 +114,7 @@ export default function CourseAuthoringPage() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g., HVAC Technician Career Pathway"
-              className="w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-blue-500 focus:outline-none"
+              className="w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-brandPrimary focus:outline-none"
             />
           </div>
           <div>
@@ -126,7 +126,7 @@ export default function CourseAuthoringPage() {
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Brief description of what students will learn..."
               rows={3}
-              className="w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-blue-500 focus:outline-none"
+              className="w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-brandPrimary focus:outline-none"
             />
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function CourseAuthoringPage() {
             <button
               type="button"
               onClick={addModule}
-              className="flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition"
+              className="flex items-center gap-2 rounded-xl bg-brandPrimary px-4 py-2 text-sm font-semibold text-white hover:bg-brandPrimaryDark transition"
             >
               <Plus className="w-4 h-4" />
               Add Module
@@ -177,7 +177,7 @@ export default function CourseAuthoringPage() {
                       onChange={(e) =>
                         updateModuleTitle(module.id, e.target.value)
                       }
-                      className="w-full text-lg font-semibold text-slate-900 border-b-2 border-transparent hover:border-slate-200 focus:border-blue-500 focus:outline-none px-2 py-1"
+                      className="w-full text-lg font-semibold text-slate-900 border-b-2 border-transparent hover:border-slate-200 focus:border-brandPrimary focus:outline-none px-2 py-1"
                       placeholder="Module title..."
                     />
                   </div>
@@ -229,7 +229,7 @@ export default function CourseAuthoringPage() {
                       <span
                         className={`rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase ${
                           lesson.type === "video"
-                            ? "bg-blue-100 text-blue-700"
+                            ? "bg-blue-100 text-brandPrimary"
                             : lesson.type === "quiz"
                             ? "bg-purple-100 text-purple-700"
                             : "bg-green-100 text-green-700"
@@ -293,7 +293,7 @@ function MiniButton({
   color: "blue" | "green" | "purple";
 }) {
   const colorClasses = {
-    blue: "border-blue-200 text-blue-700 hover:bg-blue-50",
+    blue: "border-blue-200 text-brandPrimary hover:bg-blue-50",
     green: "border-green-200 text-green-700 hover:bg-green-50",
     purple: "border-purple-200 text-purple-700 hover:bg-purple-50",
   };

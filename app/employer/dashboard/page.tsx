@@ -22,10 +22,10 @@ export default function EmployerDashboardPage() {
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           <Link
             href="/employer/post-job"
-            className="bg-white rounded-xl p-6 hover:shadow-lg transition border-2 border-gray-100 hover:border-blue-500"
+            className="bg-white rounded-xl p-6 hover:shadow-lg transition border-2 border-gray-100 hover:border-brandPrimary"
           >
             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <Plus className="w-6 h-6 text-blue-600" />
+              <Plus className="w-6 h-6 text-brandPrimary" />
             </div>
             <h3 className="text-lg font-bold text-gray-900 mb-2">Post a Job</h3>
             <p className="text-gray-600 text-sm">Create a new job posting</p>
@@ -66,7 +66,7 @@ export default function EmployerDashboardPage() {
           <div className="space-y-4">
             <div className="flex items-start gap-4">
               <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-blue-600 font-bold">1</span>
+                <span className="text-brandPrimary font-bold">1</span>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">
@@ -78,7 +78,7 @@ export default function EmployerDashboardPage() {
                 </p>
                 <Link
                   href="/employer/post-job"
-                  className="text-blue-600 text-sm font-semibold hover:underline"
+                  className="text-brandPrimary text-sm font-semibold hover:underline"
                 >
                   Post a Job →
                 </Link>
@@ -87,7 +87,7 @@ export default function EmployerDashboardPage() {
 
             <div className="flex items-start gap-4">
               <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-blue-600 font-bold">2</span>
+                <span className="text-brandPrimary font-bold">2</span>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">
@@ -99,7 +99,7 @@ export default function EmployerDashboardPage() {
                 </p>
                 <Link
                   href="/employer/candidates"
-                  className="text-blue-600 text-sm font-semibold hover:underline"
+                  className="text-brandPrimary text-sm font-semibold hover:underline"
                 >
                   Browse Candidates →
                 </Link>
@@ -108,7 +108,7 @@ export default function EmployerDashboardPage() {
 
             <div className="flex items-start gap-4">
               <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-blue-600 font-bold">3</span>
+                <span className="text-brandPrimary font-bold">3</span>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">
@@ -120,7 +120,7 @@ export default function EmployerDashboardPage() {
                 </p>
                 <Link
                   href="/employer/mou"
-                  className="text-blue-600 text-sm font-semibold hover:underline"
+                  className="text-brandPrimary text-sm font-semibold hover:underline"
                 >
                   View MOU Options →
                 </Link>
@@ -132,7 +132,7 @@ export default function EmployerDashboardPage() {
         {/* Support */}
         <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-100">
           <div className="flex items-start gap-4">
-            <FileText className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <FileText className="w-6 h-6 text-brandPrimary flex-shrink-0 mt-1" />
             <div>
               <h3 className="font-bold text-gray-900 mb-2">Need Help?</h3>
               <p className="text-gray-700 text-sm mb-3">
@@ -141,7 +141,7 @@ export default function EmployerDashboardPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-semibold"
+                className="inline-block px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition text-sm font-semibold"
               >
                 Contact Us
               </Link>

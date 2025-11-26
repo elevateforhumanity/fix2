@@ -156,7 +156,7 @@ export default function EnrollProgramPage({
 
   if (success) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-red-600 to-purple-600 flex items-center justify-center p-4">
         <Card className="max-w-2xl w-full">
           <CardContent className="pt-12 pb-12 text-center">
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -183,7 +183,7 @@ export default function EnrollProgramPage({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 to-purple-600 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-red-600 to-purple-600 py-12 px-4">
       <div className="container mx-auto max-w-3xl">
         {/* Header */}
         <div className="text-center mb-8">

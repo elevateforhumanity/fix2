@@ -25,7 +25,7 @@ export default function StudentDashboardSimple() {
 
       <div className="max-w-6xl mx-auto px-6 py-8">
         {/* Progress Card */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 mb-8 text-white">
+        <div className="bg-gradient-to-r from-red-600 to-orange-700 rounded-2xl p-8 mb-8 text-white">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-2xl font-bold">Your Progress</h2>
@@ -46,16 +46,16 @@ export default function StudentDashboardSimple() {
           {/* My Courses */}
           <Link
             href="/student/courses"
-            className="bg-white rounded-xl p-6 hover:shadow-lg transition border-2 border-gray-100 hover:border-blue-500"
+            className="bg-white rounded-xl p-6 hover:shadow-lg transition border-2 border-gray-100 hover:border-brandPrimary"
           >
             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <BookOpen className="w-6 h-6 text-blue-600" />
+              <BookOpen className="w-6 h-6 text-brandPrimary" />
             </div>
             <h3 className="text-lg font-bold text-gray-900 mb-2">My Courses</h3>
             <p className="text-gray-600 text-sm">
               View and continue your courses
             </p>
-            <div className="mt-4 text-blue-600 font-semibold text-sm">
+            <div className="mt-4 text-brandPrimary font-semibold text-sm">
               3 Active Courses →
             </div>
           </Link>
@@ -103,7 +103,7 @@ export default function StudentDashboardSimple() {
             </div>
             <div className="space-y-3">
               <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2" />
+                <div className="w-2 h-2 bg-brandPrimary rounded-full mt-2" />
                 <div className="flex-1">
                   <div className="font-semibold text-gray-900">
                     Refrigeration Quiz
@@ -114,7 +114,7 @@ export default function StudentDashboardSimple() {
                 </div>
               </div>
               <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2" />
+                <div className="w-2 h-2 bg-brandPrimary rounded-full mt-2" />
                 <div className="flex-1">
                   <div className="font-semibold text-gray-900">
                     Safety Essay
@@ -125,7 +125,7 @@ export default function StudentDashboardSimple() {
                 </div>
               </div>
               <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2" />
+                <div className="w-2 h-2 bg-brandPrimary rounded-full mt-2" />
                 <div className="flex-1">
                   <div className="font-semibold text-gray-900">
                     Next Class: HVAC Systems II

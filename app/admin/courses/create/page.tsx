@@ -52,7 +52,7 @@ export default function CreateCoursePage() {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-4">
         <div className="mb-6">
-          <Link href="/admin/courses" className="text-blue-600 hover:underline">
+          <Link href="/admin/courses" className="text-brandPrimary hover:underline">
             ← Back to Courses
           </Link>
         </div>

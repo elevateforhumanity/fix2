@@ -110,7 +110,7 @@ export default function SignDocumentPage({
       <div className="max-w-4xl mx-auto px-4">
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-slate-900 flex items-center gap-2">
-            <FileSignature className="w-8 h-8 text-blue-600" />
+            <FileSignature className="w-8 h-8 text-brandPrimary" />
             {doc.title}
           </h1>
           {doc.created_for_org && (
@@ -200,7 +200,7 @@ export default function SignDocumentPage({
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
+                  className="w-full px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors disabled:opacity-50"
                 >
                   {submitting ? 'Submitting...' : 'Sign Document'}
                 </button>

@@ -86,7 +86,7 @@ export default function ForumsPage() {
                   </p>
                 </div>
                 <div className="flex flex-col items-end gap-1">
-                  <span className="text-xs rounded-full bg-blue-100 px-3 py-1 text-blue-700 font-medium">
+                  <span className="text-xs rounded-full bg-blue-100 px-3 py-1 text-brandPrimary font-medium">
                     {forum.threadCount} threads
                   </span>
                   <span className="text-xs rounded-full bg-slate-100 px-3 py-1 text-slate-600">
@@ -103,7 +103,7 @@ export default function ForumsPage() {
                     ? new Date(forum.lastActivity).toLocaleDateString()
                     : "No posts yet"}
                 </span>
-                <span className="text-blue-600 font-medium hover:underline">
+                <span className="text-brandPrimary font-medium hover:underline">
                   View threads →
                 </span>
               </div>

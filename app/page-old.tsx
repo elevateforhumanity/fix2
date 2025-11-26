@@ -31,9 +31,9 @@ function ProgramCard({ title, description, image, tag, href = "/programs" }: Pro
           )}
         </div>
         <div className="flex flex-1 flex-col gap-3 p-5">
-          <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{title}</h3>
+          <h3 className="text-lg font-bold text-slate-900 group-hover:text-brandPrimary transition-colors">{title}</h3>
           <p className="text-sm text-slate-600 leading-relaxed">{description}</p>
-          <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-blue-600 group-hover:gap-3 transition-all">
+          <div className="mt-auto flex items-center gap-2 text-sm font-semibold text-brandPrimary group-hover:gap-3 transition-all">
             Learn more <ArrowRight className="h-4 w-4" />
           </div>
         </div>
@@ -51,7 +51,7 @@ type StatCardProps = {
 function StatCard({ icon, value, label }: StatCardProps) {
   return (
     <div className="flex flex-col items-center gap-2 rounded-xl bg-white/80 backdrop-blur-sm p-6 shadow-lg">
-      <div className="text-blue-600">{icon}</div>
+      <div className="text-brandPrimary">{icon}</div>
       <div className="text-3xl font-bold text-slate-900">{value}</div>
       <div className="text-sm text-slate-600 text-center">{label}</div>
     </div>
@@ -74,7 +74,7 @@ function SuccessCard({ image, quote, name, track }: SuccessCardProps) {
       <div className="space-y-2">
         <p className="text-sm text-slate-700 italic leading-relaxed">&quot;{quote}&quot;</p>
         <p className="text-sm font-bold text-slate-900">{name}</p>
-        <p className="text-xs text-blue-600 font-medium">{track}</p>
+        <p className="text-xs text-brandPrimary font-medium">{track}</p>
       </div>
     </article>
   );
@@ -84,7 +84,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
       {/* HERO */}
-      <section className="relative w-full overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
+      <section className="relative w-full overflow-hidden bg-gradient-to-br from-red-600 via-blue-700 to-indigo-800">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] opacity-10" />
         
@@ -110,7 +110,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link
                 href="/programs"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-blue-600 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-brandPrimary shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
               >
                 Explore Programs
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -142,7 +142,7 @@ export default function HomePage() {
 
           <div className="relative w-full flex-1">
             <div className="relative h-[400px] w-full md:h-[500px] lg:h-[600px]">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-3xl blur-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-red-500/20 to-purple-500/20 rounded-3xl blur-3xl" />
               <Image
                 src="/images/hero-new/hero-1.jpg"
                 alt="Professional training and career success"
@@ -168,7 +168,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold md:text-5xl text-slate-900">
-              Built for <span className="text-blue-600">Real People</span>
+              Built for <span className="text-brandPrimary">Real People</span>
             </h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-slate-600">
               Career training designed for adults, working families, and returning citizens 
@@ -177,7 +177,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12 grid gap-8 md:grid-cols-3">
-            <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-blue-50 to-white shadow-lg hover:shadow-2xl transition-all duration-300">
+            <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-red-50 to-white shadow-lg hover:shadow-2xl transition-all duration-300">
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
                   src="/images/students-new/student-1.jpg"
@@ -198,7 +198,7 @@ export default function HomePage() {
                   high-demand career with personalized support every step of the way.
                 </p>
                 <div className="mt-auto">
-                  <Link href="/learners" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:gap-3 transition-all">
+                  <Link href="/learners" className="inline-flex items-center gap-2 text-sm font-semibold text-brandPrimary hover:gap-3 transition-all">
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -226,7 +226,7 @@ export default function HomePage() {
                   family, and training with support designed for busy parents.
                 </p>
                 <div className="mt-auto">
-                  <Link href="/learners" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:gap-3 transition-all">
+                  <Link href="/learners" className="inline-flex items-center gap-2 text-sm font-semibold text-brandPrimary hover:gap-3 transition-all">
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -254,7 +254,7 @@ export default function HomePage() {
                   pathways to rebuild your life and thrive in your community.
                 </p>
                 <div className="mt-auto">
-                  <Link href="/learners" className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:gap-3 transition-all">
+                  <Link href="/learners" className="inline-flex items-center gap-2 text-sm font-semibold text-brandPrimary hover:gap-3 transition-all">
                     Learn more <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
@@ -270,7 +270,7 @@ export default function HomePage() {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-12">
             <div>
               <h2 className="text-3xl font-bold md:text-5xl text-slate-900">
-                Featured <span className="text-blue-600">Programs</span>
+                Featured <span className="text-brandPrimary">Programs</span>
               </h2>
               <p className="mt-3 max-w-2xl text-lg text-slate-600">
                 High-demand, funding-friendly programs that lead to real careers and lasting success.
@@ -278,7 +278,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/programs"
-              className="inline-flex items-center gap-2 text-base font-bold text-blue-600 hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-base font-bold text-brandPrimary hover:gap-3 transition-all"
             >
               View all programs <ArrowRight className="h-5 w-5" />
             </Link>
@@ -332,7 +332,7 @@ export default function HomePage() {
       </section>
 
       {/* HOW FUNDING WORKS */}
-      <section className="bg-gradient-to-br from-blue-600 to-indigo-700 py-16 md:py-24 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-red-600 to-indigo-700 py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] opacity-10" />
         
         <div className="relative mx-auto max-w-7xl px-4">
@@ -387,7 +387,7 @@ export default function HomePage() {
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link
                   href="/funding"
-                  className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-blue-600 shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
+                  className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-brandPrimary shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
                 >
                   Check Eligibility
                   <ArrowRight className="h-5 w-5" />
@@ -413,7 +413,7 @@ export default function HomePage() {
               
               {/* Floating Stats */}
               <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-2xl">
-                <div className="text-3xl font-bold text-blue-600">$0</div>
+                <div className="text-3xl font-bold text-brandPrimary">$0</div>
                 <div className="text-sm text-slate-600">Average Out of Pocket*</div>
               </div>
               
@@ -431,7 +431,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold md:text-5xl text-slate-900">
-              Real Stories, Real <span className="text-blue-600">Success</span>
+              Real Stories, Real <span className="text-brandPrimary">Success</span>
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-slate-600">
               Hear from graduates who transformed their lives through our programs.
@@ -440,7 +440,7 @@ export default function HomePage() {
 
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="lg:col-span-2 space-y-6">
-              <div className="relative h-80 w-full overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 shadow-2xl">
+              <div className="relative h-80 w-full overflow-hidden rounded-3xl bg-gradient-to-br from-red-600 to-indigo-700 shadow-2xl">
                 <Image
                   src="/images/success-new/success-1.jpg"
                   alt="Graduate celebrating career achievement"
@@ -469,8 +469,8 @@ export default function HomePage() {
                     Most graduates secure employment within 90 days of completion.
                   </p>
                 </div>
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
-                  <TrendingUp className="h-8 w-8 text-blue-600 mb-3" />
+                <div className="bg-gradient-to-br from-red-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
+                  <TrendingUp className="h-8 w-8 text-brandPrimary mb-3" />
                   <h3 className="font-bold text-lg text-slate-900 mb-2">$15-25/hr Average</h3>
                   <p className="text-sm text-slate-600">
                     Graduates earn competitive wages in high-demand careers.
@@ -495,7 +495,7 @@ export default function HomePage() {
               
               <Link 
                 href="/success-stories"
-                className="block text-center rounded-2xl border-2 border-blue-200 bg-blue-50 px-6 py-4 text-base font-bold text-blue-600 hover:bg-blue-100 transition-all"
+                className="block text-center rounded-2xl border-2 border-blue-200 bg-blue-50 px-6 py-4 text-base font-bold text-brandPrimary hover:bg-blue-100 transition-all"
               >
                 Read More Stories →
               </Link>
@@ -509,11 +509,11 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] opacity-5" />
         
         {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-brandPrimary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
         
         <div className="relative mx-auto max-w-5xl px-4 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 backdrop-blur-sm px-4 py-2 text-sm font-medium text-blue-300 mb-6">
+          <div className="inline-flex items-center gap-2 rounded-full bg-brandPrimary/10 backdrop-blur-sm px-4 py-2 text-sm font-medium text-blue-300 mb-6">
             <Award className="h-4 w-4" />
             <span>Your Future Starts Here</span>
           </div>
@@ -534,7 +534,7 @@ export default function HomePage() {
           <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/enroll"
-              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-5 text-lg font-bold text-white shadow-2xl hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-600 to-orange-500 px-8 py-5 text-lg font-bold text-white shadow-2xl hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300"
             >
               Start My Enrollment
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />

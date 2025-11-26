@@ -54,7 +54,7 @@ export default async function ApplicationsPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
           <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
-              <FileText className="w-4 h-4 text-blue-600" />
+              <FileText className="w-4 h-4 text-brandPrimary" />
               <span className="text-xs font-medium text-gray-600">Total</span>
             </div>
             <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
@@ -139,7 +139,7 @@ export default async function ApplicationsPage() {
                         </div>
                       </td>
                       <td className="px-4 py-3">
-                        <Link href={`/admin/applications/${app.id}`} className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-medium hover:bg-blue-700 transition-colors">
+                        <Link href={`/admin/applications/${app.id}`} className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-brandPrimary text-white text-xs font-medium hover:bg-brandPrimaryDark transition-colors">
                           <Eye className="w-3 h-3" />
                           View Details
                         </Link>

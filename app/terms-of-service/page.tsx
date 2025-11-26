@@ -27,7 +27,7 @@ export default function TermsPage() {
         </Link>
       </header>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-50 to-purple-50 py-16">
+      <section className="bg-gradient-to-br from-red-50 to-purple-50 py-16">
         <div className="elevate-container text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Terms of Service

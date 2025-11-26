@@ -13,7 +13,7 @@ export default function WhatWeOfferPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-20">
+      <section className="bg-gradient-to-br from-red-600 to-indigo-700 text-white py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="max-w-3xl">
             <h1 className="text-5xl font-bold mb-6">
@@ -45,37 +45,37 @@ export default function WhatWeOfferPage() {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Our Services Include:</h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-brandPrimary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                   </svg>
                   <span>12+ Career Training Programs</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-brandPrimary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                   </svg>
                   <span>Funding Navigation (WIOA, WRG, JRI, DOL)</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-brandPrimary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                   </svg>
                   <span>Case Management & Coaching</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-brandPrimary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                   </svg>
                   <span>Support Services (Transportation, Childcare, Work Clothing)</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-brandPrimary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                   </svg>
                   <span>Job Placement Assistance</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-brandPrimary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                   </svg>
                   <span>Employer Partnerships</span>
@@ -114,7 +114,7 @@ d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.3
                 <li>• Phlebotomy Technician (4-8 weeks)</li>
                 <li>• Pharmacy Technician (12-16 weeks)</li>
               </ul>
-              <Link href="/programs" className="text-blue-600 font-semibold hover:text-blue-700">
+              <Link href="/programs" className="text-brandPrimary font-semibold hover:text-brandPrimary">
                 View Healthcare Programs →
               </Link>
             </div>
@@ -135,7 +135,7 @@ d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 
                 <li>• Electrical Technician (16-24 weeks)</li>
                 <li>• Building Maintenance (4-9 months)</li>
               </ul>
-              <Link href="/programs" className="text-blue-600 font-semibold hover:text-blue-700">
+              <Link href="/programs" className="text-brandPrimary font-semibold hover:text-brandPrimary">
                 View Trades Programs →
               </Link>
             </div>
@@ -155,7 +155,7 @@ d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v
                 <li>• Earn while you learn</li>
                 <li>• DOL registered programs</li>
               </ul>
-              <Link href="/programs/barber-apprenticeship" className="text-blue-600 font-semibold hover:text-blue-700">
+              <Link href="/programs/barber-apprenticeship" className="text-brandPrimary font-semibold hover:text-brandPrimary">
                 View Apprenticeships →
               </Link>
             </div>
@@ -163,7 +163,7 @@ d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v
             {/* Transportation */}
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
+                <svg className="w-6 h-6 text-brandPrimary" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
 d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -175,7 +175,7 @@ d="M13 10V3L4 14h7v7l9-11h-7z" />
                 <li>• Class A license training</li>
                 <li>• Job placement assistance</li>
               </ul>
-              <Link href="/programs/truck-driving" className="text-blue-600 font-semibold hover:text-blue-700">
+              <Link href="/programs/truck-driving" className="text-brandPrimary font-semibold hover:text-brandPrimary">
                 View CDL Programs →
               </Link>
             </div>
@@ -195,7 +195,7 @@ d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a
                 <li>• CompTIA A+ certification</li>
                 <li>• Help desk & desktop support</li>
               </ul>
-              <Link href="/programs" className="text-blue-600 font-semibold hover:text-blue-700">
+              <Link href="/programs" className="text-brandPrimary font-semibold hover:text-brandPrimary">
                 View IT Programs →
               </Link>
             </div>
@@ -215,7 +215,7 @@ d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 <li>• Professional kitchen training</li>
                 <li>• Restaurant & catering careers</li>
               </ul>
-              <Link href="/programs" className="text-blue-600 font-semibold hover:text-blue-700">
+              <Link href="/programs" className="text-brandPrimary font-semibold hover:text-brandPrimary">
                 View Culinary Programs →
               </Link>
             </div>
@@ -313,7 +313,7 @@ d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               <p className="text-gray-700 mb-4">
                 Federal workforce program for dislocated workers, low-income adults, and youth. Covers tuition, books, transportation, and childcare.
               </p>
-              <div className="text-blue-600 font-semibold">
+              <div className="text-brandPrimary font-semibold">
                 Learn More →
               </div>
             </Link>
@@ -323,7 +323,7 @@ d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               <p className="text-gray-700 mb-4">
                 Indiana state grant up to $7,500/year for high-demand careers. No student loans required.
               </p>
-              <div className="text-blue-600 font-semibold">
+              <div className="text-brandPrimary font-semibold">
                 Learn More →
               </div>
             </Link>
@@ -333,7 +333,7 @@ d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               <p className="text-gray-700 mb-4">
                 Re-entry program for justice-involved individuals. Provides training, support services, and job placement.
               </p>
-              <div className="text-blue-600 font-semibold">
+              <div className="text-brandPrimary font-semibold">
                 Learn More →
               </div>
             </Link>
@@ -343,7 +343,7 @@ d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
               <p className="text-gray-700 mb-4">
                 Department of Labor registered apprenticeships. Earn wages while you learn on the job.
               </p>
-              <div className="text-blue-600 font-semibold">
+              <div className="text-brandPrimary font-semibold">
                 Learn More →
               </div>
             </Link>
@@ -352,7 +352,7 @@ d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-blue-600 text-white">
+      <section className="py-20 bg-brandPrimary text-white">
         <div className="mx-auto max-w-4xl px-6 md:px-12 text-center">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Get Started?
@@ -363,7 +363,7 @@ d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-all shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white text-brandPrimary font-semibold rounded-xl hover:bg-blue-50 transition-all shadow-lg"
             >
               Apply for Training
             </Link>

@@ -138,7 +138,7 @@ export default function CourseStructurePage() {
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <Link href="/student/dashboard" className="text-sm text-blue-600 hover:text-blue-700 mb-2 inline-block">
+              <Link href="/student/dashboard" className="text-sm text-brandPrimary hover:text-brandPrimary mb-2 inline-block">
                 ← Back to Dashboard
               </Link>
               <h1 className="text-3xl font-bold text-gray-900 mt-2">{courseData.title}</h1>
@@ -155,7 +155,7 @@ export default function CourseStructurePage() {
               </div>
             </div>
             <div className="text-right">
-              <div className="text-4xl font-bold text-blue-600">{courseData.progress}%</div>
+              <div className="text-4xl font-bold text-brandPrimary">{courseData.progress}%</div>
               <p className="text-sm text-slate-600 mt-1">Complete</p>
             </div>
           </div>
@@ -163,7 +163,7 @@ export default function CourseStructurePage() {
           {/* Progress Bar */}
           <div className="mt-6 bg-slate-200 rounded-full h-3">
             <div
-              className="bg-blue-600 rounded-full h-3 transition-all"
+              className="bg-brandPrimary rounded-full h-3 transition-all"
               style={{ width: `${courseData.progress}%` }}
              />
           </div>
@@ -290,7 +290,7 @@ export default function CourseStructurePage() {
                     <div className="space-y-1">
                       {courseData.conditions.requiredAssignments.map((assignment, index) => (
                         <div key={index} className="flex items-center gap-2">
-                          <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                          <div className="h-1.5 w-1.5 rounded-full bg-brandPrimary" />
                           <span className="text-slate-700">{assignment}</span>
                         </div>
                       ))}
@@ -332,21 +332,21 @@ export default function CourseStructurePage() {
                 <div className="space-y-2">
                   <Link
                     href="/student/courses/hvac-systems/syllabus"
-                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700"
+                    className="flex items-center gap-2 text-sm text-brandPrimary hover:text-brandPrimary"
                   >
                     <FileText className="h-4 w-4" />
                     Course Syllabus
                   </Link>
                   <Link
                     href="/student/courses/hvac-systems/materials"
-                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700"
+                    className="flex items-center gap-2 text-sm text-brandPrimary hover:text-brandPrimary"
                   >
                     <FileText className="h-4 w-4" />
                     Downloadable Materials
                   </Link>
                   <Link
                     href="/student/courses/hvac-systems/discussions"
-                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700"
+                    className="flex items-center gap-2 text-sm text-brandPrimary hover:text-brandPrimary"
                   >
                     <FileText className="h-4 w-4" />
                     Discussion Forum
@@ -368,7 +368,7 @@ export default function CourseStructurePage() {
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-slate-600">In Progress</span>
-                    <span className="font-medium text-blue-600">
+                    <span className="font-medium text-brandPrimary">
                       {courseData.sections.filter(s => !s.completed && !s.locked).length} sections
                     </span>
                   </div>

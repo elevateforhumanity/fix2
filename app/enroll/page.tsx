@@ -105,7 +105,7 @@ export default function EnrollIndexPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-red-600 via-purple-600 to-pink-500 py-12 px-4">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-12">
@@ -234,7 +234,7 @@ export default function EnrollIndexPage() {
         </div>
         {/* Info Banner */}
         <div className="mt-12 max-w-4xl mx-auto">
-          <Card className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
+          <Card className="bg-gradient-to-r from-red-500 to-purple-500 text-white border-0">
             <CardContent className="pt-6">
               <div className="text-center">
                 <h3 className="text-2xl font-bold mb-2">

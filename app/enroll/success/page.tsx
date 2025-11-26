@@ -47,21 +47,21 @@ export default function EnrollmentSuccessPage() {
             <h2 className="font-bold text-gray-900 mb-3">What Happens Next?</h2>
             <ol className="space-y-2 text-gray-700">
               <li className="flex items-start gap-2">
-                <span className="font-bold text-blue-600">1.</span>
+                <span className="font-bold text-brandPrimary">1.</span>
                 <span>Our enrollment team will review your application</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="font-bold text-blue-600">2.</span>
+                <span className="font-bold text-brandPrimary">2.</span>
                 <span>We'll contact you to verify eligibility and funding</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="font-bold text-blue-600">3.</span>
+                <span className="font-bold text-brandPrimary">3.</span>
                 <span>
                   You'll receive your login credentials and start date
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="font-bold text-blue-600">4.</span>
+                <span className="font-bold text-brandPrimary">4.</span>
                 <span>Begin your training and start your new career!</span>
               </li>
             </ol>
@@ -78,7 +78,7 @@ export default function EnrollmentSuccessPage() {
 
           <p className="text-sm text-gray-600 mt-8">
             Questions? Call us at{' '}
-            <a href="tel:317-555-0100" className="text-blue-600 font-semibold">
+            <a href="tel:317-555-0100" className="text-brandPrimary font-semibold">
               (317) 555-0100
             </a>
           </p>

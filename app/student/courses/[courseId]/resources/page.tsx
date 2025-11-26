@@ -37,7 +37,7 @@ export default function CourseResourcesPage() {
       case 'video':
         return <Video className="h-5 w-5 text-purple-600" />;
       case 'image':
-        return <Image className="h-5 w-5 text-blue-600" />;
+        return <Image className="h-5 w-5 text-brandPrimary" />;
       case 'link':
         return <ExternalLink className="h-5 w-5 text-green-600" />;
       default:
@@ -50,7 +50,7 @@ export default function CourseResourcesPage() {
       {/* Header */}
       <div className="bg-white border-b">
         <div className="max-w-6xl mx-auto px-6 py-8">
-          <Link href="/student/courses/hvac-systems" className="text-sm text-blue-600 hover:text-blue-700 mb-2 inline-block">
+          <Link href="/student/courses/hvac-systems" className="text-sm text-brandPrimary hover:text-brandPrimary mb-2 inline-block">
             ← Back to Course
           </Link>
           <h1 className="text-3xl font-bold text-gray-900 mt-2">Course Resources</h1>
@@ -83,7 +83,7 @@ export default function CourseResourcesPage() {
                           <p className="text-sm text-slate-600">{file.size}</p>
                         </div>
                       </div>
-                      <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                      <button className="flex items-center gap-2 px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors">
                         <Download className="h-4 w-4" />
                         Download
                       </button>
@@ -114,7 +114,7 @@ export default function CourseResourcesPage() {
                           <p className="text-sm text-slate-600">{video.duration}</p>
                         </div>
                       </div>
-                      <span className="text-sm text-blue-600 font-medium">Watch →</span>
+                      <span className="text-sm text-brandPrimary font-medium">Watch →</span>
                     </Link>
                   ))}
                 </div>
@@ -171,7 +171,7 @@ export default function CourseResourcesPage() {
                         <h3 className="font-medium text-slate-900 mb-1">{image.name}</h3>
                         <div className="flex items-center justify-between">
                           <p className="text-sm text-slate-600">{image.size}</p>
-                          <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                          <button className="text-sm text-brandPrimary hover:text-brandPrimary font-medium">
                             View
                           </button>
                         </div>
@@ -190,13 +190,13 @@ export default function CourseResourcesPage() {
               <CardContent className="p-6">
                 <h3 className="font-semibold mb-4">Quick Actions</h3>
                 <div className="space-y-2">
-                  <button className="w-full flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  <button className="w-full flex items-center gap-2 px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors">
                     <Download className="h-4 w-4" />
                     Download All Files
                   </button>
                   <Link
                     href="/student/courses/hvac-systems"
-                    className="w-full flex items-center justify-center gap-2 px-4 py-2 border-2 border-slate-300 text-slate-700 rounded-lg hover:border-blue-600 transition-colors"
+                    className="w-full flex items-center justify-center gap-2 px-4 py-2 border-2 border-slate-300 text-slate-700 rounded-lg hover:border-brandPrimary transition-colors"
                   >
                     Back to Course
                   </Link>
@@ -238,7 +238,7 @@ export default function CourseResourcesPage() {
                 </p>
                 <Link
                   href="/student/support"
-                  className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+                  className="text-sm text-brandPrimary hover:text-brandPrimary font-medium"
                 >
                   Get Support →
                 </Link>

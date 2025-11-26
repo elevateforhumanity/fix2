@@ -126,7 +126,7 @@ export default function VideoUploadPage() {
               <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
                 <Upload className="h-12 w-12 mx-auto text-gray-400 mb-4" />
                 <label className="cursor-pointer">
-                  <span className="text-blue-600 font-semibold hover:underline">
+                  <span className="text-brandPrimary font-semibold hover:underline">
                     Click to upload video
                   </span>
                   <span className="text-gray-600"> or drag and drop</span>
@@ -148,7 +148,7 @@ export default function VideoUploadPage() {
                   <p className="text-blue-900 font-semibold">
                     Uploading video...
                   </p>
-                  <p className="text-sm text-blue-700 mt-1">
+                  <p className="text-sm text-brandPrimary mt-1">
                     This may take a few minutes
                   </p>
                 </div>

@@ -63,10 +63,10 @@ export default function InterviewPrepPage() {
             </button>
           </div>
           <div className="bg-white rounded-xl p-6 text-center">
-            <FileText className="mx-auto mb-4 text-blue-600" size={48} />
+            <FileText className="mx-auto mb-4 text-brandPrimary" size={48} />
             <h3 className="text-lg font-semibold text-slate-900 mb-2">Question Bank</h3>
             <p className="text-sm text-slate-600 mb-4">500+ common interview questions</p>
-            <button className="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+            <button className="px-6 py-2 bg-brandPrimary text-white rounded-lg font-semibold hover:bg-brandPrimaryDark transition">
               Browse Questions
             </button>
           </div>

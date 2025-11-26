@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen w-full bg-white">
       {/* HERO SECTION */}
-      <section className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+      <section className="w-full bg-gradient-to-r from-red-600 via-indigo-600 to-purple-600">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 md:flex-row md:items-center md:justify-between">
           <div className="max-w-xl text-white">
             <p className="text-xs uppercase tracking-wide text-blue-100">
@@ -32,13 +32,13 @@ export default function HomePage() {
             <div className="mt-5 flex flex-wrap gap-3 text-xs">
               <Link
                 href="/programs"
-                className="inline-flex items-center justify-center rounded-md bg-white px-4 py-2 font-semibold text-blue-700 shadow-sm hover:bg-blue-50"
+                className="inline-flex items-center justify-center rounded-md bg-white px-4 py-2 font-semibold text-brandPrimary shadow-sm hover:bg-red-50"
               >
                 Explore Programs
               </Link>
               <Link
                 href="/funding"
-                className="inline-flex items-center justify-center rounded-md border border-blue-200 bg-transparent px-4 py-2 font-semibold text-white hover:bg-blue-500/40"
+                className="inline-flex items-center justify-center rounded-md border border-white/30 bg-transparent px-4 py-2 font-semibold text-white hover:bg-white/10"
               >
                 See How Funding Works
               </Link>
@@ -78,7 +78,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/programs"
-            className="text-xs font-semibold text-blue-600 hover:underline"
+            className="text-xs font-semibold text-brandPrimary hover:underline"
           >
             View All Programs
           </Link>
@@ -109,7 +109,7 @@ export default function HomePage() {
                 </p>
                 <Link
                   href={`/courses/${course.slug}`}
-                  className="inline-flex w-full items-center justify-center rounded-md bg-blue-600 px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-blue-700"
+                  className="inline-flex w-full items-center justify-center rounded-md bg-brandPrimary px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-brandPrimaryDark"
                 >
                   View Program
                 </Link>
@@ -137,7 +137,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/funding"
-              className="mt-3 inline-flex items-center text-[11px] font-semibold text-blue-600 hover:underline"
+              className="mt-3 inline-flex items-center text-[11px] font-semibold text-brandPrimary hover:underline"
             >
               Learn more about funding options
             </Link>
@@ -158,7 +158,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/employers"
-              className="mt-3 inline-flex items-center text-[11px] font-semibold text-blue-600 hover:underline"
+              className="mt-3 inline-flex items-center text-[11px] font-semibold text-brandPrimary hover:underline"
             >
               See employer partnership options
             </Link>
@@ -180,7 +180,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/philanthropy"
-              className="mt-3 inline-flex items-center text-xs font-semibold text-blue-600 hover:underline"
+              className="mt-3 inline-flex items-center text-xs font-semibold text-brandPrimary hover:underline"
             >
               Learn about our community & philanthropy work
             </Link>
@@ -197,7 +197,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/contact"
-              className="mt-3 inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-700"
+              className="mt-3 inline-flex items-center justify-center rounded-md bg-brandPrimary px-4 py-2 text-xs font-semibold text-white hover:bg-brandPrimaryDark"
             >
               Contact Us / Get Started
             </Link>

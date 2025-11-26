@@ -111,7 +111,7 @@ export default function ProgramHolderTrainingPage() {
         </div>
       </header>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-600 text-white py-16">
+      <section className="bg-gradient-to-br from-red-600 to-purple-600 text-white py-16">
         <div className="elevate-container text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Program Holder Training
@@ -195,7 +195,7 @@ export default function ProgramHolderTrainingPage() {
       {/* Video Tutorials */}
       <section
         id="video-tutorials"
-        className="py-16 bg-gradient-to-br from-gray-50 to-blue-50"
+        className="py-16 bg-gradient-to-br from-gray-50 to-orange-50"
       >
         <div className="elevate-container">
           <div className="text-center mb-12">
@@ -308,7 +308,7 @@ export default function ProgramHolderTrainingPage() {
         </div>
       </section>
       {/* Support Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-16 bg-gradient-to-br from-red-50 to-purple-50">
         <div className="elevate-container">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -368,7 +368,7 @@ export default function ProgramHolderTrainingPage() {
         </div>
       </section>
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-red-600 to-purple-600 text-white">
         <div className="elevate-container text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">

@@ -183,7 +183,7 @@ export default async function InternalDocsPage() {
                       </span>
                       <a
                         href={item.href}
-                        className="inline-flex items-center rounded-md bg-blue-600 px-2 py-1 text-[11px] font-semibold text-white hover:bg-blue-700"
+                        className="inline-flex items-center rounded-md bg-brandPrimary px-2 py-1 text-[11px] font-semibold text-white hover:bg-brandPrimaryDark"
                       >
                         Open
                       </a>

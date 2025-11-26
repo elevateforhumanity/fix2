@@ -120,7 +120,7 @@ export default function BarberPage() {
           </ul>
         </div>
 
-        <div className="rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-900/20 to-slate-900 p-6 mb-6">
+        <div className="rounded-2xl border border-brandPrimary/20 bg-gradient-to-br from-blue-900/20 to-slate-900 p-6 mb-6">
           <h2 className="text-xl font-bold mb-3 text-blue-300">
             Indiana Licensing Path
           </h2>
@@ -155,7 +155,7 @@ export default function BarberPage() {
                 open your own shop.
               </p>
             </div>
-            <div className="bg-blue-900/30 border border-blue-500/30 rounded p-3 mt-4">
+            <div className="bg-blue-900/30 border border-brandPrimary/30 rounded p-3 mt-4">
               <p className="text-xs">
                 <strong>Note:</strong> Indiana requires all barbers to be
                 licensed. Our apprenticeship program is registered with the

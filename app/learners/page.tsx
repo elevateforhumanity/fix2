@@ -18,7 +18,7 @@ export default function LearnersPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-600 to-blue-600 text-white py-20 px-6">
+      <section className="bg-gradient-to-br from-red-600 to-orange-600 text-white py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
             <GraduationCap className="w-4 h-4" />
@@ -66,7 +66,7 @@ export default function LearnersPage() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Briefcase className="w-8 h-8 text-blue-600" />
+                <Briefcase className="w-8 h-8 text-brandPrimary" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 mb-2">Job Placement Support</h3>
               <p className="text-slate-600">

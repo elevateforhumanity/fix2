@@ -137,13 +137,13 @@ export default function AIReceptionistPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-slate-50">
+    <main className="min-h-screen bg-gradient-to-br from-red-50 to-slate-50">
       {/* Header */}
       <div className="border-b border-slate-200 bg-white shadow-sm">
         <div className="mx-auto max-w-4xl px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brandPrimary">
                 <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -157,7 +157,7 @@ d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 
             </div>
             <Link
               href="/"
-              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+              className="text-sm text-brandPrimary hover:text-brandPrimary font-medium"
             >
               ← Back to Home
             </Link>
@@ -178,7 +178,7 @@ d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 
                 <div
                   className={`max-w-[80%] rounded-2xl px-4 py-3 ${
                     message.role === "user"
-                      ? "bg-blue-600 text-white"
+                      ? "bg-brandPrimary text-white"
                       : "bg-slate-100 text-slate-900"
                   }`}
                 >
@@ -245,13 +245,13 @@ d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type your message or use voice..."
-                className="flex-1 rounded-xl border border-slate-300 px-4 py-3 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 rounded-xl border border-slate-300 px-4 py-3 text-sm focus:border-brandPrimary focus:outline-none focus:ring-2 focus:ring-blue-500"
                 disabled={isLoading}
               />
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="flex-shrink-0 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition font-medium"
+                className="flex-shrink-0 px-6 py-3 bg-brandPrimary text-white rounded-xl hover:bg-brandPrimaryDark disabled:opacity-50 disabled:cursor-not-allowed transition font-medium"
               >
                 Send
               </button>
@@ -286,13 +286,13 @@ d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 
           <div className="flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="text-sm px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+              className="text-sm px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition"
             >
               Contact Form
             </Link>
             <a
               href={`tel:${CONTACT_INFO.phone.tel}`}
-              className="text-sm px-4 py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition flex items-center gap-2"
+              className="text-sm px-4 py-2 bg-white border border-blue-300 text-brandPrimary rounded-lg hover:bg-blue-50 transition flex items-center gap-2"
             >
               <svg className="h-4 w-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
@@ -303,7 +303,7 @@ d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 
             </a>
             <a
               href={`mailto:${CONTACT_INFO.email.general}`}
-              className="text-sm px-4 py-2 bg-white border border-blue-300 text-blue-700 rounded-lg hover:bg-blue-50 transition flex items-center gap-2"
+              className="text-sm px-4 py-2 bg-white border border-blue-300 text-brandPrimary rounded-lg hover:bg-blue-50 transition flex items-center gap-2"
             >
               <svg className="h-4 w-4" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
@@ -313,7 +313,7 @@ d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0
               Email Us
             </a>
           </div>
-          <p className="text-xs text-blue-700 mt-3">
+          <p className="text-xs text-brandPrimary mt-3">
             📞 Office Hours: {CONTACT_INFO.hours.office}
           </p>
         </div>

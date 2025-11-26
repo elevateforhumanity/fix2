@@ -90,7 +90,7 @@ export default async function EnrollmentsPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
           <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
-              <Users className="w-4 h-4 text-blue-600" />
+              <Users className="w-4 h-4 text-brandPrimary" />
               <span className="text-xs font-medium text-gray-600">Total</span>
             </div>
             <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
@@ -114,7 +114,7 @@ export default async function EnrollmentsPage() {
 
           <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-semibold text-blue-600">WIOA</span>
+              <span className="text-xs font-semibold text-brandPrimary">WIOA</span>
             </div>
             <div className="text-2xl font-bold text-gray-900">{stats.wioa}</div>
           </div>
@@ -149,7 +149,7 @@ export default async function EnrollmentsPage() {
             </a>
             <a
               href="/api/admin/export/enrollments?format=csv&funding_type=WIOA"
-              className="px-3 py-1.5 rounded-full border border-blue-300 text-xs font-medium text-blue-700 hover:bg-blue-50 transition-colors"
+              className="px-3 py-1.5 rounded-full border border-blue-300 text-xs font-medium text-brandPrimary hover:bg-blue-50 transition-colors"
             >
               WIOA Funded
             </a>

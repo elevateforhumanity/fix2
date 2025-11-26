@@ -134,7 +134,7 @@ export default function CareersPage() {
   return (
     <main className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="py-20 px-4 bg-gradient-to-br from-blue-50 to-white">
+        <section className="py-20 px-4 bg-gradient-to-br from-red-50 to-white">
           <div className="max-w-4xl mx-auto text-center">
             <Badge variant="primary" className="mb-4">Join Our Team</Badge>
             <h1 className="text-5xl font-bold text-slate-900 mb-6">

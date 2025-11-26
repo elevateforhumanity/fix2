@@ -133,7 +133,7 @@ export default function IntegrationsPage() {
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-lg p-4 border border-slate-200">
-            <div className="text-2xl font-bold text-blue-600 mb-1">150+</div>
+            <div className="text-2xl font-bold text-brandPrimary mb-1">150+</div>
             <div className="text-sm text-slate-600">Available Integrations</div>
           </div>
           <div className="bg-white rounded-lg p-4 border border-slate-200">
@@ -173,10 +173,10 @@ export default function IntegrationsPage() {
             {integrations.filter(i => i.featured).map((integration, idx) => (
               <div key={idx} className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition">
                 <div className="flex items-start justify-between mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center text-3xl">
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-purple-500 rounded-xl flex items-center justify-center text-3xl">
                     {integration.logo}
                   </div>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">
+                  <span className="px-3 py-1 bg-blue-100 text-brandPrimary text-xs font-semibold rounded-full">
                     Featured
                   </span>
                 </div>
@@ -190,7 +190,7 @@ export default function IntegrationsPage() {
                   </div>
                   <span className="text-sm text-slate-600">{integration.users} users</span>
                 </div>
-                <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
+                <button className="w-full px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark font-semibold">
                   Connect
                 </button>
               </div>
@@ -219,7 +219,7 @@ export default function IntegrationsPage() {
                   </div>
                   <span className="text-sm text-slate-600">{integration.users} users</span>
                 </div>
-                <button className="w-full px-4 py-2 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 font-semibold">
+                <button className="w-full px-4 py-2 border-2 border-brandPrimary text-brandPrimary rounded-lg hover:bg-blue-50 font-semibold">
                   Learn More
                 </button>
               </div>

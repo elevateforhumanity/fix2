@@ -41,7 +41,7 @@ export default async function MarketplacePage() {
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Enhanced Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white py-16">
+      <section className="bg-gradient-to-br from-red-600 to-purple-700 text-white py-16">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <p className="text-sm font-semibold uppercase tracking-wide text-blue-200 mb-2">
@@ -62,7 +62,7 @@ export default async function MarketplacePage() {
                   placeholder="Search programs (e.g., HVAC, Medical Assistant, Barber)"
                   className="flex-1 px-6 py-4 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
                 />
-                <button className="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold hover:bg-blue-50 transition">
+                <button className="px-8 py-4 bg-white text-brandPrimary rounded-lg font-bold hover:bg-blue-50 transition">
                   Search
                 </button>
               </div>
@@ -85,7 +85,7 @@ export default async function MarketplacePage() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-600">27+</div>
+              <div className="text-3xl font-bold text-brandPrimary">27+</div>
               <div className="text-sm text-slate-600">Training Programs</div>
             </div>
             <div>

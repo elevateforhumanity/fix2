@@ -74,7 +74,7 @@ export default function MobileAppPage() {
                       <div className="flex-1">
                         <p className="font-medium text-sm">Medical Assistant</p>
                         <div className="h-1.5 bg-slate-200 rounded-full mt-2">
-                          <div className="h-full bg-blue-500 rounded-full" style={{ width: '40%' }} />
+                          <div className="h-full bg-brandPrimary rounded-full" style={{ width: '40%' }} />
                         </div>
                       </div>
                     </div>
@@ -104,7 +104,7 @@ export default function MobileAppPage() {
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Bell className="w-8 h-8 text-blue-600" />
+                <Bell className="w-8 h-8 text-brandPrimary" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900 mb-2">Push Notifications</h3>
               <p className="text-slate-600">

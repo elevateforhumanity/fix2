@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function StartPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-slate-50">
+    <main className="min-h-screen bg-gradient-to-br from-red-50 to-slate-50">
       {/* Hero Section */}
       <section className="border-b border-slate-100 bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16 md:py-24 text-center">
@@ -30,7 +30,7 @@ export default function StartPage() {
           {/* Learner Path */}
           <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-lg hover:shadow-xl transition">
             <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-              <svg className="h-8 w-8 text-blue-600" fill="none" stroke="currentColor"
+              <svg className="h-8 w-8 text-brandPrimary" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
 d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -46,13 +46,13 @@ d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.
             <div className="space-y-3">
               <Link
                 href="/programs"
-                className="block w-full rounded-xl bg-blue-600 px-6 py-3 text-center text-sm font-semibold text-white hover:bg-blue-700 transition"
+                className="block w-full rounded-xl bg-brandPrimary px-6 py-3 text-center text-sm font-semibold text-white hover:bg-brandPrimaryDark transition"
               >
                 Explore Programs
               </Link>
               <Link
                 href="/apply"
-                className="block w-full rounded-xl border-2 border-blue-600 px-6 py-3 text-center text-sm font-semibold text-blue-600 hover:bg-blue-50 transition"
+                className="block w-full rounded-xl border-2 border-brandPrimary px-6 py-3 text-center text-sm font-semibold text-brandPrimary hover:bg-blue-50 transition"
               >
                 Apply Now
               </Link>
@@ -137,7 +137,7 @@ d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-
               className="flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-6 hover:bg-slate-100 transition"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
-                <svg className="h-6 w-6 text-blue-600" fill="none" stroke="currentColor"
+                <svg className="h-6 w-6 text-brandPrimary" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

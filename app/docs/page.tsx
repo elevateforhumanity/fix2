@@ -52,7 +52,7 @@ export default function DocsPage() {
       </header>
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-red-600 via-orange-500 to-blue-600 text-white py-16">
+      <section className="bg-gradient-to-br from-red-600 via-orange-500 to-orange-600 text-white py-16">
         <div className="elevate-container text-center">
           <BookOpen className="h-16 w-16 mx-auto mb-4" />
           <h1 className="text-4xl font-bold mb-4">Documentation</h1>
@@ -97,7 +97,7 @@ export default function DocsPage() {
               href="/docs/admins"
               className="elevate-card hover:border-red-300 transition"
             >
-              <Users className="h-8 w-8 text-blue-600 mb-3" />
+              <Users className="h-8 w-8 text-brandPrimary mb-3" />
               <h3 className="font-bold text-gray-900 mb-2">
                 For Administrators
               </h3>
@@ -146,7 +146,7 @@ export default function DocsPage() {
               href="/docs/reporting"
               className="elevate-card flex items-center gap-4 hover:border-red-300 transition"
             >
-              <FileText className="h-6 w-6 text-blue-600" />
+              <FileText className="h-6 w-6 text-brandPrimary" />
               <div>
                 <h3 className="font-bold text-gray-900">
                   Reporting & Analytics

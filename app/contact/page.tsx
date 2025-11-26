@@ -93,7 +93,7 @@ export default function ContactPage() {
             <input
               type="text"
               name="name"
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandPrimary focus:ring-1 focus:ring-blue-500"
               placeholder="First and last name"
               required
             />
@@ -107,7 +107,7 @@ export default function ContactPage() {
               <input
                 type="tel"
                 name="phone"
-                className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandPrimary focus:ring-1 focus:ring-blue-500"
                 placeholder="Best number to reach you"
               />
             </div>
@@ -118,7 +118,7 @@ export default function ContactPage() {
               <input
                 type="email"
                 name="email"
-                className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandPrimary focus:ring-1 focus:ring-blue-500"
                 placeholder="you@example.com"
               />
             </div>
@@ -130,7 +130,7 @@ export default function ContactPage() {
             </label>
             <select
               name="role"
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandPrimary focus:ring-1 focus:ring-blue-500"
               required
             >
               <option value="">Select one</option>
@@ -148,7 +148,7 @@ export default function ContactPage() {
             </label>
             <textarea
               name="interest"
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandPrimary focus:ring-1 focus:ring-blue-500"
               rows={4}
               placeholder="Example: CNA or Barber program, I need help with funding, I'm an employer looking for talent, I'm justice-involved and need a second chance, etc."
             />
@@ -161,7 +161,7 @@ export default function ContactPage() {
             <input
               type="text"
               name="followup"
-              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 outline-none focus:border-brandPrimary focus:ring-1 focus:ring-blue-500"
               placeholder="Text, call, email, best times, or anything we should know before we reach out."
             />
           </div>
@@ -169,7 +169,7 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-brandBlue px-4 py-2 text-sm font-semibold text-white hover:bg-brandBlueDark disabled:opacity-50 disabled:cursor-not-allowed"
+            className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-brandPrimary px-4 py-2 text-sm font-semibold text-white hover:bg-brandPrimaryDark disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? 'Submitting...' : 'Submit & Request Follow-Up'}
           </button>

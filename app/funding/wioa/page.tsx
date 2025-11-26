@@ -26,7 +26,7 @@ export default function WIOAFundingPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section with Image */}
-      <div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+      <div className="relative bg-gradient-to-r from-red-600 to-indigo-600 text-white">
         <div className="absolute inset-0 opacity-20">
           <Image
             src="/media/funding/funding-dol-v2-hd.jpg"
@@ -58,15 +58,15 @@ export default function WIOAFundingPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Who Qualifies?</h2>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-3">
-              <span className="text-blue-600 font-bold">✓</span>
+              <span className="text-brandPrimary font-bold">✓</span>
               <span>Dislocated workers who lost their job through no fault of their own</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-blue-600 font-bold">✓</span>
+              <span className="text-brandPrimary font-bold">✓</span>
               <span>Low-income adults seeking career advancement</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-blue-600 font-bold">✓</span>
+              <span className="text-brandPrimary font-bold">✓</span>
               <span>Youth ages 16-24 who face barriers to employment</span>
             </li>
           </ul>
@@ -105,12 +105,12 @@ export default function WIOAFundingPage() {
           </p>
         </section>
 
-        <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-12">
+        <div className="bg-blue-50 border-l-4 border-brandPrimary p-6 mb-12">
           <h3 className="font-bold text-lg mb-2">Ready to Apply?</h3>
           <p className="text-gray-700 mb-4">
             Contact us to see if you qualify for WIOA funding and start your career training today.
           </p>
-          <Link href="/apply" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700">
+          <Link href="/apply" className="inline-block bg-brandPrimary text-white px-6 py-3 rounded-lg font-bold hover:bg-brandPrimaryDark">
             Apply Now
           </Link>
         </div>

@@ -75,7 +75,7 @@ export default function StudentAnalyticsPage() {
                     <span className="text-slate-600">Study Time</span>
                   </div>
                   <div className="flex items-center gap-2 ml-4">
-                    <div className="w-3 h-3 rounded-full bg-blue-500" />
+                    <div className="w-3 h-3 rounded-full bg-brandPrimary" />
                     <span className="text-slate-600">Lessons</span>
                   </div>
                 </div>
@@ -92,7 +92,7 @@ export default function StudentAnalyticsPage() {
                         title={`${day.hours} hours`}
                       />
                       <div
-                        className="w-full bg-blue-500 rounded-t transition-all hover:bg-blue-600"
+                        className="w-full bg-brandPrimary rounded-t transition-all hover:bg-brandPrimary"
                         style={{ height: `${(day.lessons / 10) * 100}%`, minHeight: '4px' }}
                         title={`${day.lessons} lessons`}
                       />
@@ -123,7 +123,7 @@ export default function StudentAnalyticsPage() {
                     </div>
                     <div className="h-3 bg-slate-100 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-red-500 to-blue-500 transition-all"
+                        className="h-full bg-gradient-to-r from-red-500 to-orange-500 transition-all"
                         style={{ width: `${course.progress}%` }}
                       />
                     </div>
@@ -141,7 +141,7 @@ export default function StudentAnalyticsPage() {
                   <div className="text-sm text-slate-600">Average Score</div>
                 </div>
                 <div className="text-center p-4 bg-blue-50 rounded-lg">
-                  <div className="text-3xl font-bold text-blue-600 mb-1">24</div>
+                  <div className="text-3xl font-bold text-brandPrimary mb-1">24</div>
                   <div className="text-sm text-slate-600">Quizzes Taken</div>
                 </div>
                 <div className="text-center p-4 bg-purple-50 rounded-lg">
@@ -161,7 +161,7 @@ export default function StudentAnalyticsPage() {
                       <div className="text-right">
                         <div className={`text-lg font-bold ${
                           quiz.score >= 90 ? 'text-green-600' :
-                          quiz.score >= 70 ? 'text-blue-600' :
+                          quiz.score >= 70 ? 'text-brandPrimary' :
                           'text-orange-600'
                         }`}>
                           {quiz.score}%
@@ -315,7 +315,7 @@ const keyMetrics = [
   {
     icon: Clock,
     bgColor: 'bg-blue-100',
-    iconColor: 'text-blue-600',
+    iconColor: 'text-brandPrimary',
     value: '12.5h',
     label: 'Study Time',
     change: '+15%',
@@ -388,13 +388,13 @@ const learningPreferences = [
 ];
 
 const weeklyGoals = [
-  { title: 'Study Hours', current: 12, target: 15, color: 'bg-blue-500' },
+  { title: 'Study Hours', current: 12, target: 15, color: 'bg-brandPrimary' },
   { title: 'Lessons', current: 18, target: 20, color: 'bg-green-500' },
   { title: 'Quizzes', current: 4, target: 5, color: 'bg-purple-500' },
 ];
 
 const recentAchievements = [
   { title: 'Week Warrior', date: 'Nov 20', color: 'bg-orange-500' },
-  { title: 'Quiz Master', date: 'Nov 18', color: 'bg-blue-500' },
+  { title: 'Quiz Master', date: 'Nov 18', color: 'bg-brandPrimary' },
   { title: 'Quick Learner', date: 'Nov 15', color: 'bg-green-500' },
 ];

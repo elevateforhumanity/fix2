@@ -82,7 +82,7 @@ export default function ForumThreadsPage() {
         <div>
           <Link
             href="/lms/forums"
-            className="text-xs text-blue-600 hover:underline mb-2 inline-block"
+            className="text-xs text-brandPrimary hover:underline mb-2 inline-block"
           >
             ← Back to all forums
           </Link>
@@ -93,7 +93,7 @@ export default function ForumThreadsPage() {
         </div>
         <button
           onClick={() => setShowCreateForm(!showCreateForm)}
-          className="flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition"
+          className="flex items-center gap-2 rounded-xl bg-brandPrimary px-4 py-2 text-sm font-semibold text-white hover:bg-brandPrimaryDark transition"
         >
           <Plus className="w-4 h-4" />
           New Thread
@@ -112,7 +112,7 @@ export default function ForumThreadsPage() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g., Struggling with HVAC electrical module"
-                className="w-full rounded-lg border-2 border-slate-200 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
+                className="w-full rounded-lg border-2 border-slate-200 px-3 py-2 text-sm focus:border-brandPrimary focus:outline-none"
               />
             </div>
             <div>
@@ -123,7 +123,7 @@ export default function ForumThreadsPage() {
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder="Describe your question, share a win, or start a discussion..."
-                className="w-full rounded-lg border-2 border-slate-200 px-3 py-2 text-sm min-h-[120px] focus:border-blue-500 focus:outline-none"
+                className="w-full rounded-lg border-2 border-slate-200 px-3 py-2 text-sm min-h-[120px] focus:border-brandPrimary focus:outline-none"
               />
             </div>
             <div className="flex justify-end gap-2">
@@ -137,7 +137,7 @@ export default function ForumThreadsPage() {
               <button
                 type="submit"
                 disabled={creating || !title.trim() || !content.trim()}
-                className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                className="rounded-lg bg-brandPrimary px-4 py-2 text-sm font-semibold text-white hover:bg-brandPrimaryDark disabled:opacity-50 disabled:cursor-not-allowed transition"
               >
                 {creating ? "Creating..." : "Create Thread"}
               </button>

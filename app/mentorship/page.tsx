@@ -48,7 +48,7 @@ export default function MentorshipPage() {
               <p className="text-sm text-slate-600">Browse mentors in your field</p>
             </div>
             <div className="text-center">
-              <MessageCircle className="mx-auto mb-3 text-blue-600" size={40} />
+              <MessageCircle className="mx-auto mb-3 text-brandPrimary" size={40} />
               <h3 className="font-semibold text-slate-900 mb-2">2. Connect</h3>
               <p className="text-sm text-slate-600">Send a connection request</p>
             </div>

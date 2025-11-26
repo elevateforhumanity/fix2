@@ -26,7 +26,7 @@ export default function ProgramsLMSPage() {
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-red-600 via-red-700 to-blue-600 text-white py-20">
+      <section className="bg-gradient-to-br from-red-600 via-red-700 to-orange-600 text-white py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -171,7 +171,7 @@ export default function ProgramsLMSPage() {
                   {program.funding.map((fund) => (
                     <span
                       key={fund}
-                      className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded"
+                      className="text-xs font-semibold text-brandPrimary bg-blue-50 px-2 py-1 rounded"
                     >
                       {fund}
                     </span>
@@ -255,7 +255,7 @@ export default function ProgramsLMSPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-red-600 to-blue-600 text-white py-16">
+      <section className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-16">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your New Career?</h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">

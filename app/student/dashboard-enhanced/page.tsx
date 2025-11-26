@@ -36,8 +36,8 @@ export default function EnhancedStudentDashboard() {
               <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-lg">
                 <Zap className="text-blue-500" size={24} />
                 <div>
-                  <div className="text-2xl font-bold text-blue-600">2,450</div>
-                  <div className="text-xs text-blue-700">Points</div>
+                  <div className="text-2xl font-bold text-brandPrimary">2,450</div>
+                  <div className="text-xs text-brandPrimary">Points</div>
                 </div>
               </div>
 
@@ -110,7 +110,7 @@ export default function EnhancedStudentDashboard() {
                 <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                      <Clock size={20} className="text-blue-600" />
+                      <Clock size={20} className="text-brandPrimary" />
                     </div>
                     <div className="text-2xl font-bold text-slate-900">12.5h</div>
                   </div>
@@ -162,11 +162,11 @@ export default function EnhancedStudentDashboard() {
                 {recommendedCourses.map((course, index) => (
                   <div key={index} className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="h-32 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                      <BookOpen size={40} className="text-blue-600" />
+                      <BookOpen size={40} className="text-brandPrimary" />
                     </div>
                     <div className="p-4">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">
+                        <span className="text-xs font-semibold text-brandPrimary bg-blue-50 px-2 py-1 rounded">
                           {course.category}
                         </span>
                         <span className="text-xs text-slate-500 flex items-center gap-1">
@@ -395,7 +395,7 @@ const recentActivity = [
   {
     icon: MessageSquare,
     iconBg: 'bg-blue-100',
-    iconColor: 'text-blue-600',
+    iconColor: 'text-brandPrimary',
     title: 'Discussion Reply',
     description: 'Instructor replied to your question in VITA course',
     time: '2 days ago',

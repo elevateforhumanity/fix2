@@ -65,10 +65,10 @@ export default function DOLFundingPage() {
                 Learn More →
               </Link>
             </div>
-            <div className="border-l-4 border-blue-600 bg-blue-50 p-6">
+            <div className="border-l-4 border-brandPrimary bg-blue-50 p-6">
               <h3 className="font-bold text-xl mb-2">HVAC Technician Apprenticeship</h3>
               <p className="text-gray-700 mb-2">4-9 months | On-the-job training with HVAC companies</p>
-              <Link href="/programs/hvac-technician" className="text-blue-600 font-bold hover:underline">
+              <Link href="/programs/hvac-technician" className="text-brandPrimary font-bold hover:underline">
                 Learn More →
               </Link>
             </div>

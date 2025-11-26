@@ -71,7 +71,7 @@ export default function CallNowPage() {
 
   if (submitted) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-emerald-50 flex items-center justify-center p-4">
+      <main className="min-h-screen bg-gradient-to-br from-red-50 to-emerald-50 flex items-center justify-center p-4">
         <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8 text-center">
           <div className="mb-6">
             <div className="mx-auto w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mb-4">
@@ -91,7 +91,7 @@ d="M5 13l4 4L19 7" />
               <p className="text-sm text-blue-900 font-medium mb-1">
                 📞 Calling: {phoneNumber}
               </p>
-              <p className="text-xs text-blue-700">
+              <p className="text-xs text-brandPrimary">
                 Please keep your phone nearby and answer when we call!
               </p>
             </div>
@@ -100,13 +100,13 @@ d="M5 13l4 4L19 7" />
           <div className="space-y-3">
             <div className="flex items-center gap-3 text-sm text-slate-600">
               <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-blue-600 font-bold">1</span>
+                <span className="text-brandPrimary font-bold">1</span>
               </div>
               <p className="text-left">Your request was received</p>
             </div>
             <div className="flex items-center gap-3 text-sm text-slate-600">
               <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 animate-pulse">
-                <span className="text-blue-600 font-bold">2</span>
+                <span className="text-brandPrimary font-bold">2</span>
               </div>
               <p className="text-left">Our team is calling you now...</p>
             </div>
@@ -128,7 +128,7 @@ d="M5 13l4 4L19 7" />
                 setPhoneNumber("");
                 setName("");
               }}
-              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+              className="text-sm text-brandPrimary hover:text-brandPrimary font-medium"
             >
               Try Again
             </button>
@@ -139,11 +139,11 @@ d="M5 13l4 4L19 7" />
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-emerald-50 flex items-center justify-center p-4">
+    <main className="min-h-screen bg-gradient-to-br from-red-50 to-emerald-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-8">
         <div className="text-center mb-8">
           <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor"
+            <svg className="w-8 h-8 text-brandPrimary" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -168,7 +168,7 @@ d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
               placeholder="(555) 555-5555"
-              className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg"
+              className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-brandPrimary text-lg"
             />
           </div>
 
@@ -181,14 +181,14 @@ d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="John Doe"
-              className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-brandPrimary"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-blue-700 disabled:opacity-50 transition shadow-lg hover:shadow-xl"
+            className="w-full bg-brandPrimary text-white py-4 rounded-xl font-bold text-lg hover:bg-brandPrimaryDark disabled:opacity-50 transition shadow-lg hover:shadow-xl"
           >
             {loading ? "Connecting..." : "📞 Call Me Now (Free!)"}
           </button>
@@ -228,14 +228,14 @@ d="M5 13l4 4L19 7" />
           <div className="flex justify-center gap-3">
             <a
               href={`tel:${CONTACT_INFO.phone.tel}`}
-              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+              className="text-sm text-brandPrimary hover:text-brandPrimary font-medium"
             >
               Call Us
             </a>
             <span className="text-slate-300">•</span>
             <a
               href={`sms:${CONTACT_INFO.phone.tel}`}
-              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+              className="text-sm text-brandPrimary hover:text-brandPrimary font-medium"
             >
               Text Us
             </a>

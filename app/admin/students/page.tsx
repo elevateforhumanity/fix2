@@ -145,7 +145,7 @@ export default async function AdminStudentsPage() {
           <Card>
             <CardContent className="p-6">
               <div className="flex items-center gap-3">
-                <Users className="h-8 w-8 text-blue-600" />
+                <Users className="h-8 w-8 text-brandPrimary" />
                 <div>
                   <div className="text-sm text-gray-600">Completed</div>
                   <div className="text-3xl font-bold">

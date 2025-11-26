@@ -227,7 +227,7 @@ export default function HowToUsePage() {
         </div>
       </header>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-orange-500 via-red-500 to-blue-600 text-white py-20">
+      <section className="bg-gradient-to-br from-orange-500 via-red-500 to-orange-600 text-white py-20">
         <div className="elevate-container text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             How to Utilize the System
@@ -304,7 +304,7 @@ export default function HowToUsePage() {
         </div>
       </section>
       {/* Key Features */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-orange-50">
         <div className="elevate-container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -369,7 +369,7 @@ export default function HowToUsePage() {
         </div>
       </section>
       {/* Support CTA */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-16 bg-gradient-to-r from-red-600 to-purple-600 text-white">
         <div className="elevate-container text-center">
           <h2 className="text-3xl font-bold mb-4">
             Need Help Getting Started?

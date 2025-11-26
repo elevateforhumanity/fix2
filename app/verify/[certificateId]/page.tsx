@@ -48,9 +48,9 @@ export default function CertificateVerificationPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-orange-50 flex items-center justify-center p-4">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4" />
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brandPrimary mx-auto mb-4" />
           <p className="text-sm text-slate-600">Verifying certificate...</p>
         </div>
       </div>
@@ -99,7 +99,7 @@ export default function CertificateVerificationPage() {
         {/* Certificate Card */}
         <div className="bg-white rounded-2xl shadow-xl border-2 border-slate-200 overflow-hidden mb-6">
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 text-white">
+          <div className="bg-gradient-to-r from-red-600 to-purple-600 p-6 text-white">
             <div className="flex items-center gap-3 mb-4">
               <Shield className="w-8 h-8" />
               <div>
@@ -177,7 +177,7 @@ export default function CertificateVerificationPage() {
                 href={cert.issuerWebsite}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-blue-600 hover:underline"
+                className="flex items-center gap-1 text-brandPrimary hover:underline"
               >
                 Visit Website
                 <ExternalLink className="w-3 h-3" />
@@ -211,7 +211,7 @@ export default function CertificateVerificationPage() {
           </a>
           <button
             onClick={() => window.print()}
-            className="rounded-lg bg-blue-600 px-6 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition"
+            className="rounded-lg bg-brandPrimary px-6 py-2 text-sm font-semibold text-white hover:bg-brandPrimaryDark transition"
           >
             Print Verification
           </button>

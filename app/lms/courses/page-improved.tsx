@@ -21,7 +21,7 @@ export default async function CoursesPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero Section with Prominent Search */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <div className="bg-gradient-to-r from-red-600 to-purple-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <h1 className="text-4xl font-bold mb-4">Discover Your Next Course</h1>
           <p className="text-blue-50 text-lg mb-8">
@@ -62,7 +62,7 @@ export default async function CoursesPage() {
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 sticky top-4">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="font-bold text-slate-900">Filters</h2>
-                <button className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                <button className="text-sm text-brandPrimary hover:text-brandPrimary font-medium">
                   Clear All
                 </button>
               </div>
@@ -73,7 +73,7 @@ export default async function CoursesPage() {
                 <div className="space-y-2">
                   {['Healthcare', 'Technology', 'Trades', 'Business', 'Transportation'].map((category) => (
                     <label key={category} className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" className="rounded border-slate-300 text-blue-600 focus:ring-blue-500" />
+                      <input type="checkbox" className="rounded border-slate-300 text-brandPrimary focus:ring-blue-500" />
                       <span className="text-sm text-slate-700">{category}</span>
                     </label>
                   ))}
@@ -86,7 +86,7 @@ export default async function CoursesPage() {
                 <div className="space-y-2">
                   {['Beginner', 'Intermediate', 'Advanced'].map((level) => (
                     <label key={level} className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" className="rounded border-slate-300 text-blue-600 focus:ring-blue-500" />
+                      <input type="checkbox" className="rounded border-slate-300 text-brandPrimary focus:ring-blue-500" />
                       <span className="text-sm text-slate-700">{level}</span>
                     </label>
                   ))}
@@ -99,7 +99,7 @@ export default async function CoursesPage() {
                 <div className="space-y-2">
                   {['< 4 weeks', '4-8 weeks', '8-12 weeks', '> 12 weeks'].map((duration) => (
                     <label key={duration} className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" className="rounded border-slate-300 text-blue-600 focus:ring-blue-500" />
+                      <input type="checkbox" className="rounded border-slate-300 text-brandPrimary focus:ring-blue-500" />
                       <span className="text-sm text-slate-700">{duration}</span>
                     </label>
                   ))}
@@ -112,7 +112,7 @@ export default async function CoursesPage() {
                 <div className="space-y-2">
                   {['Free', 'Paid', 'Funded (WIOA/WRG)'].map((price) => (
                     <label key={price} className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" className="rounded border-slate-300 text-blue-600 focus:ring-blue-500" />
+                      <input type="checkbox" className="rounded border-slate-300 text-brandPrimary focus:ring-blue-500" />
                       <span className="text-sm text-slate-700">{price}</span>
                     </label>
                   ))}
@@ -147,13 +147,13 @@ export default async function CoursesPage() {
                   className="bg-white rounded-xl shadow-sm border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-200 overflow-hidden group"
                 >
                   {/* Course Hero Banner */}
-                  <div className="aspect-video bg-gradient-to-br from-blue-600 to-indigo-700 relative overflow-hidden">
+                  <div className="aspect-video bg-gradient-to-br from-red-600 to-indigo-700 relative overflow-hidden">
                     <div className="w-full h-full flex items-center justify-center">
                       <BookOpen className="w-16 h-16 text-white/30 group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     {/* Badge */}
                     <div className="absolute top-3 left-3">
-                      <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-blue-700">
+                      <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-brandPrimary">
                         {course.category || 'Course'}
                       </span>
                     </div>
@@ -161,7 +161,7 @@ export default async function CoursesPage() {
 
                   {/* Course Info */}
                   <div className="p-5">
-                    <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-blue-600 transition">
+                    <h3 className="font-bold text-lg text-slate-900 mb-2 group-hover:text-brandPrimary transition">
                       {course.title}
                     </h3>
                     <p className="text-sm text-slate-600 mb-4 line-clamp-2">
@@ -185,7 +185,7 @@ export default async function CoursesPage() {
                     </div>
 
                     {/* Enroll Button */}
-                    <button className="mt-4 w-full py-2.5 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+                    <button className="mt-4 w-full py-2.5 bg-brandPrimary text-white rounded-lg font-semibold hover:bg-brandPrimaryDark transition">
                       Enroll Now
                     </button>
                   </div>
@@ -199,7 +199,7 @@ export default async function CoursesPage() {
                 <BookOpen className="w-16 h-16 mx-auto mb-4 text-slate-300" />
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">No courses found</h3>
                 <p className="text-slate-600 mb-6">Try adjusting your filters or search terms</p>
-                <button className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+                <button className="px-6 py-3 bg-brandPrimary text-white rounded-lg font-semibold hover:bg-brandPrimaryDark transition">
                   Clear Filters
                 </button>
               </div>

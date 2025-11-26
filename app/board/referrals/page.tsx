@@ -116,7 +116,7 @@ export default function BoardReferralsPage() {
         </div>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors"
         >
           <Plus className="w-4 h-4" />
           New Referral
@@ -200,7 +200,7 @@ export default function BoardReferralsPage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
+                className="px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors disabled:opacity-50"
               >
                 {submitting ? 'Creating...' : 'Create Referral'}
               </button>

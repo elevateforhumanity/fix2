@@ -135,7 +135,7 @@ export default function PayrollPage() {
           <div className="bg-white rounded-lg border border-gray-200 p-6">
             <div className="flex items-center gap-4">
               <div className="p-3 bg-blue-100 rounded-lg">
-                <DollarSign className="h-6 w-6 text-blue-600" />
+                <DollarSign className="h-6 w-6 text-brandPrimary" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">Total Net Pay</p>

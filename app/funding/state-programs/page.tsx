@@ -14,11 +14,11 @@ export default function StateFundingPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-emerald-50 border-b border-slate-200">
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-emerald-50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-brandPrimary mb-6">
                 <Shield size={16} />
                 <span>Indiana State Programs</span>
               </div>
@@ -34,14 +34,14 @@ export default function StateFundingPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-blue-700 transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brandPrimary px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-brandPrimaryDark transition-all hover:scale-105"
                 >
                   Check Your Eligibility
                   <ArrowRight size={20} />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-blue-600 hover:text-blue-600 transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-brandPrimary hover:text-brandPrimary transition-all"
                 >
                   Get Help Applying
                 </Link>
@@ -129,7 +129,7 @@ export default function StateFundingPage() {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                    <Users size={20} className="text-blue-600" />
+                    <Users size={20} className="text-brandPrimary" />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Indiana Resident</h4>
@@ -197,7 +197,7 @@ export default function StateFundingPage() {
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                      <Users size={20} className="text-blue-600" />
+                      <Users size={20} className="text-brandPrimary" />
                     </div>
                     <div>
                       <h4 className="font-bold text-slate-900 mb-1">Indiana Resident</h4>
@@ -253,7 +253,7 @@ export default function StateFundingPage() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700 mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-brandPrimary mb-6">
                 <Award size={16} />
                 <span>Alternative Funding</span>
               </div>
@@ -268,28 +268,28 @@ export default function StateFundingPage() {
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-blue-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-brandPrimary flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">Employer-Aligned Training</div>
                     <div className="text-sm text-slate-600">Programs designed with input from Indiana employers</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-blue-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-brandPrimary flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">Quick Completion</div>
                     <div className="text-sm text-slate-600">Short-term programs that get you working fast</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-blue-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-brandPrimary flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">Stackable Credentials</div>
                     <div className="text-sm text-slate-600">Build on your skills with additional certifications</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle size={20} className="text-blue-600 flex-shrink-0 mt-1" />
+                  <CheckCircle size={20} className="text-brandPrimary flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-bold text-slate-900">Career Support</div>
                     <div className="text-sm text-slate-600">Job placement assistance and career counseling</div>
@@ -301,7 +301,7 @@ export default function StateFundingPage() {
                 href="https://www.in.gov/dwd/next-level-jobs/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                className="inline-flex items-center gap-2 text-brandPrimary font-semibold hover:text-brandPrimary transition-colors"
               >
                 Learn More About Next Level Jobs
                 <ArrowRight size={20} />
@@ -327,7 +327,7 @@ export default function StateFundingPage() {
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl font-bold mb-4">
+                  <div className="w-16 h-16 rounded-full bg-brandPrimary text-white flex items-center justify-center text-2xl font-bold mb-4">
                     {index + 1}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">
@@ -352,14 +352,14 @@ export default function StateFundingPage() {
             <div className="inline-flex flex-col sm:flex-row gap-4">
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-blue-700 transition-all hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-brandPrimary px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-brandPrimaryDark transition-all hover:scale-105"
               >
                 Start Your Application
                 <ArrowRight size={20} />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-blue-600 hover:text-blue-600 transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-brandPrimary hover:text-brandPrimary transition-all"
               >
                 Get Application Help
               </Link>
@@ -388,14 +388,14 @@ export default function StateFundingPage() {
                 className="group bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-                    <Award size={20} className="text-blue-600 group-hover:text-white transition-colors" />
+                  <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center group-hover:bg-brandPrimary transition-colors">
+                    <Award size={20} className="text-brandPrimary group-hover:text-white transition-colors" />
                   </div>
                   <div className="flex-1">
                     <div className="text-xs font-semibold text-red-600">100% Funded</div>
                   </div>
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <h3 className="font-bold text-slate-900 mb-2 group-hover:text-brandPrimary transition-colors">
                   {program.name}
                 </h3>
                 <div className="flex items-center justify-between text-xs text-slate-500">
@@ -409,7 +409,7 @@ export default function StateFundingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-red-600 to-orange-700 text-white">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Access Free Training?
@@ -420,7 +420,7 @@ export default function StateFundingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-blue-600 shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-brandPrimary shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
             >
               Apply Now
               <ArrowRight size={20} />

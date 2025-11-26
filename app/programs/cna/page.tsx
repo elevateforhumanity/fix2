@@ -131,7 +131,7 @@ export default function CNAPage() {
                       <DollarSign size={16} />
                       $28K-$35K/year
                     </span>
-                    <span className="flex items-center gap-1 text-blue-600 font-semibold">
+                    <span className="flex items-center gap-1 text-brandPrimary font-semibold">
                       <TrendingUp size={16} />
                       High Demand
                     </span>
@@ -148,7 +148,7 @@ export default function CNAPage() {
                       <DollarSign size={16} />
                       $26K-$32K/year
                     </span>
-                    <span className="flex items-center gap-1 text-blue-600 font-semibold">
+                    <span className="flex items-center gap-1 text-brandPrimary font-semibold">
                       <TrendingUp size={16} />
                       Growing Field
                     </span>
@@ -165,7 +165,7 @@ export default function CNAPage() {
                       <DollarSign size={16} />
                       $32K-$40K/year
                     </span>
-                    <span className="flex items-center gap-1 text-blue-600 font-semibold">
+                    <span className="flex items-center gap-1 text-brandPrimary font-semibold">
                       <TrendingUp size={16} />
                       Career Growth
                     </span>
@@ -214,7 +214,7 @@ export default function CNAPage() {
       {/* Funding */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 md:p-12">
+          <div className="bg-gradient-to-br from-green-50 to-orange-50 rounded-2xl p-8 md:p-12">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold text-slate-900 mb-4">
                 100% FREE Training

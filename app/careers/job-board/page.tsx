@@ -47,7 +47,7 @@ const jobs = [
 export default function JobBoardPage() {
   return (
     <div className="min-h-screen bg-slate-50">
-      <div className="bg-gradient-to-br from-blue-600 to-blue-700 text-white py-16">
+      <div className="bg-gradient-to-br from-red-600 to-orange-700 text-white py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Briefcase className="mb-4" size={48} />
           <h1 className="text-4xl font-bold mb-4">Job Board</h1>
@@ -91,7 +91,7 @@ export default function JobBoardPage() {
                 </div>
                 <Link
                   href={`/careers/job-board/${job.id}`}
-                  className="inline-flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-brandPrimary text-white rounded-lg font-semibold hover:bg-brandPrimaryDark transition"
                 >
                   Apply Now
                   <ArrowRight size={16} />

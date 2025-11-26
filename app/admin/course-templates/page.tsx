@@ -91,7 +91,7 @@ export default function CourseTemplatesPage() {
               <h1 className="text-3xl font-bold text-gray-900">Course Templates</h1>
               <p className="text-gray-600 mt-2">Create and manage reusable course structures</p>
             </div>
-            <button className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+            <button className="flex items-center gap-2 px-6 py-3 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors">
               <Plus className="h-5 w-5" />
               Create Template
             </button>
@@ -112,7 +112,7 @@ export default function CourseTemplatesPage() {
                       <div className="flex-1">
                         <h3 className="font-bold text-slate-900 mb-1">{template.name}</h3>
                         <p className="text-sm text-slate-600 mb-3">{template.description}</p>
-                        <span className="inline-block px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">
+                        <span className="inline-block px-2 py-1 bg-blue-100 text-brandPrimary text-xs font-medium rounded">
                           {template.category}
                         </span>
                       </div>
@@ -140,16 +140,16 @@ export default function CourseTemplatesPage() {
                     <div className="flex gap-2">
                       <button
                         onClick={() => setSelectedTemplate(template.id)}
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors"
                       >
                         <Eye className="h-4 w-4" />
                         View
                       </button>
-                      <button className="flex items-center justify-center gap-2 px-4 py-2 border-2 border-slate-300 text-slate-700 rounded-lg hover:border-blue-600 transition-colors">
+                      <button className="flex items-center justify-center gap-2 px-4 py-2 border-2 border-slate-300 text-slate-700 rounded-lg hover:border-brandPrimary transition-colors">
                         <Copy className="h-4 w-4" />
                         Use
                       </button>
-                      <button className="p-2 border-2 border-slate-300 text-slate-700 rounded-lg hover:border-blue-600 transition-colors">
+                      <button className="p-2 border-2 border-slate-300 text-slate-700 rounded-lg hover:border-brandPrimary transition-colors">
                         <Edit className="h-4 w-4" />
                       </button>
                       <button className="p-2 border-2 border-red-300 text-red-600 rounded-lg hover:border-red-600 transition-colors">
@@ -174,7 +174,7 @@ export default function CourseTemplatesPage() {
                       <div className="space-y-1 ml-4">
                         {section.modules.map((module, mIndex) => (
                           <div key={mIndex} className="flex items-center gap-2 text-sm text-slate-600">
-                            <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                            <div className="h-1.5 w-1.5 rounded-full bg-brandPrimary" />
                             <span>{module}</span>
                           </div>
                         ))}

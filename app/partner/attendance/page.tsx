@@ -135,7 +135,7 @@ export default function PartnerAttendancePage() {
         </div>
         <button
           onClick={() => setShowForm(!showForm)}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors"
         >
           <Plus className="w-4 h-4" />
           Record Attendance
@@ -216,7 +216,7 @@ export default function PartnerAttendancePage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
+                className="px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition-colors disabled:opacity-50"
               >
                 {submitting ? 'Recording...' : 'Record Attendance'}
               </button>
@@ -288,7 +288,7 @@ export default function PartnerAttendancePage() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4 text-blue-600" />
+                        <Clock className="w-4 h-4 text-brandPrimary" />
                         <span className="text-sm font-medium text-gray-900">
                           {record.hours}
                         </span>

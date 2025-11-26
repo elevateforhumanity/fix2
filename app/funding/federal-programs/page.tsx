@@ -14,7 +14,7 @@ export default function FederalFundingPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-50 via-white to-blue-50 border-b border-slate-200">
+      <section className="relative bg-gradient-to-br from-purple-50 via-white to-orange-50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
@@ -129,7 +129,7 @@ export default function FederalFundingPage() {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
-                    <Users size={20} className="text-blue-600" />
+                    <Users size={20} className="text-brandPrimary" />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Adults (18+)</h4>

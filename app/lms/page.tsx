@@ -20,7 +20,7 @@ export default async function LMSLandingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-red-600 via-blue-700 to-indigo-800 text-white py-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/hero-new/hero-5.jpg"
@@ -42,14 +42,14 @@ export default async function LMSLandingPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/lms/dashboard"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-blue-50 transition shadow-lg"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brandPrimary rounded-full font-bold text-lg hover:bg-blue-50 transition shadow-lg"
               >
                 Access Dashboard
                 <ArrowRight size={20} />
               </Link>
               <Link
                 href="/lms/courses"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-500 text-white rounded-full font-bold text-lg hover:bg-blue-400 transition border-2 border-white"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brandPrimary text-white rounded-full font-bold text-lg hover:bg-blue-400 transition border-2 border-white"
               >
                 Browse Courses
                 <BookOpen size={20} />
@@ -64,19 +64,19 @@ export default async function LMSLandingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">{courseCount}+</div>
+              <div className="text-4xl font-bold text-brandPrimary mb-2">{courseCount}+</div>
               <div className="text-slate-600 font-medium">Active Courses</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">2,847</div>
+              <div className="text-4xl font-bold text-brandPrimary mb-2">2,847</div>
               <div className="text-slate-600 font-medium">Students Enrolled</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">85%</div>
+              <div className="text-4xl font-bold text-brandPrimary mb-2">85%</div>
               <div className="text-slate-600 font-medium">Completion Rate</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">100%</div>
+              <div className="text-4xl font-bold text-brandPrimary mb-2">100%</div>
               <div className="text-slate-600 font-medium">Funded Training</div>
             </div>
           </div>
@@ -96,9 +96,9 @@ export default async function LMSLandingPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-blue-500 transition">
+            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-brandPrimary transition">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Video className="text-blue-600" size={24} />
+                <Video className="text-brandPrimary" size={24} />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Video Lessons</h3>
               <p className="text-slate-600">
@@ -106,7 +106,7 @@ export default async function LMSLandingPage() {
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-blue-500 transition">
+            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-brandPrimary transition">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <Target className="text-green-600" size={24} />
               </div>
@@ -116,7 +116,7 @@ export default async function LMSLandingPage() {
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-blue-500 transition">
+            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-brandPrimary transition">
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                 <Award className="text-purple-600" size={24} />
               </div>
@@ -126,7 +126,7 @@ export default async function LMSLandingPage() {
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-blue-500 transition">
+            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-brandPrimary transition">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                 <FileText className="text-orange-600" size={24} />
               </div>
@@ -136,7 +136,7 @@ export default async function LMSLandingPage() {
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-blue-500 transition">
+            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-brandPrimary transition">
               <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
                 <Users className="text-red-600" size={24} />
               </div>
@@ -146,7 +146,7 @@ export default async function LMSLandingPage() {
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-blue-500 transition">
+            <div className="bg-white rounded-2xl p-6 border-2 border-slate-200 hover:border-brandPrimary transition">
               <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
                 <Clock className="text-yellow-600" size={24} />
               </div>
@@ -175,7 +175,7 @@ export default async function LMSLandingPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {courses.map((course) => (
                 <div key={course.id} className="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200 hover:shadow-xl transition">
-                  <div className="relative h-48 bg-gradient-to-br from-blue-600 to-indigo-700">
+                  <div className="relative h-48 bg-gradient-to-br from-red-600 to-indigo-700">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <BookOpen className="text-white/20" size={80} />
                     </div>
@@ -183,7 +183,7 @@ export default async function LMSLandingPage() {
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-2">
                       {course.level && (
-                        <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded">
+                        <span className="px-2 py-1 bg-blue-100 text-brandPrimary text-xs font-semibold rounded">
                           {course.level}
                         </span>
                       )}
@@ -200,7 +200,7 @@ export default async function LMSLandingPage() {
                     )}
                     <Link
                       href={`/lms/courses/${course.id}`}
-                      className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700"
+                      className="inline-flex items-center gap-2 text-brandPrimary font-semibold hover:text-brandPrimary"
                     >
                       View Course
                       <ArrowRight size={16} />
@@ -213,7 +213,7 @@ export default async function LMSLandingPage() {
             <div className="text-center">
               <Link
                 href="/lms/courses"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-brandPrimary text-white rounded-full font-bold hover:bg-brandPrimaryDark transition"
               >
                 View All Courses
                 <ArrowRight size={20} />
@@ -224,7 +224,7 @@ export default async function LMSLandingPage() {
       )}
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+      <section className="py-16 bg-gradient-to-br from-red-600 to-indigo-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Ready to Start Learning?
@@ -235,7 +235,7 @@ export default async function LMSLandingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/lms/dashboard"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-full font-bold text-lg hover:bg-blue-50 transition shadow-lg"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brandPrimary rounded-full font-bold text-lg hover:bg-blue-50 transition shadow-lg"
             >
               Go to Dashboard
               <ArrowRight size={20} />

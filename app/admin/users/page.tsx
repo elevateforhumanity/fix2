@@ -86,7 +86,7 @@ export default async function UserManagementPage() {
               Manage staff access and permissions
             </p>
           </div>
-          <button className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+          <button className="px-6 py-3 bg-brandPrimary text-white font-semibold rounded-lg hover:bg-brandPrimaryDark transition-colors">
             + Add User
           </button>
         </div>
@@ -171,7 +171,7 @@ export default async function UserManagementPage() {
                       {new Date(user.created_at).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <button className="text-blue-600 hover:text-blue-900 mr-4">
+                      <button className="text-brandPrimary hover:text-blue-900 mr-4">
                         Edit
                       </button>
                       <button className="text-red-600 hover:text-red-900">
@@ -190,19 +190,19 @@ export default async function UserManagementPage() {
           <h3 className="text-lg font-bold text-gray-900 mb-3">How to Manage Access</h3>
           <ol className="space-y-2 text-sm text-gray-700">
             <li className="flex items-start gap-2">
-              <span className="font-semibold text-blue-600">1.</span>
+              <span className="font-semibold text-brandPrimary">1.</span>
               <span><strong>Add User:</strong> Click "+ Add User" to invite new staff members via email</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="font-semibold text-blue-600">2.</span>
+              <span className="font-semibold text-brandPrimary">2.</span>
               <span><strong>Assign Role:</strong> Choose the appropriate role (Admin, Staff, Instructor, etc.)</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="font-semibold text-blue-600">3.</span>
+              <span className="font-semibold text-brandPrimary">3.</span>
               <span><strong>Edit Permissions:</strong> Click "Edit" to change a user's role or access level</span>
             </li>
             <li className="flex items-start gap-2">
-              <span className="font-semibold text-blue-600">4.</span>
+              <span className="font-semibold text-brandPrimary">4.</span>
               <span><strong>Remove Access:</strong> Click "Remove" to revoke a user's access to the system</span>
             </li>
           </ol>

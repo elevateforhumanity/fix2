@@ -183,7 +183,7 @@ export default function EnrollPage() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {availableCourses.map((course) => (
             <Card key={course.id} className="flex flex-col">
-              <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-500" />
+              <div className="h-48 bg-gradient-to-br from-red-500 to-purple-500" />
               <CardHeader>
                 <Badge variant="secondary" className="w-fit mb-2">
                   {course.level}

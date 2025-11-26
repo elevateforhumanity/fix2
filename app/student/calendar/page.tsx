@@ -91,7 +91,7 @@ export default function StudentCalendarPage() {
                 </div>
               </div>
 
-              <div className="border-l-4 border-blue-600 pl-3">
+              <div className="border-l-4 border-brandPrimary pl-3">
                 <div className="font-medium text-slate-900">Live Class</div>
                 <div className="text-sm text-slate-600 flex items-center gap-1 mt-1">
                   <Clock className="h-3 w-3" />

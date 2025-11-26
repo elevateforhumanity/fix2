@@ -174,7 +174,7 @@ elevateforhumanity.org`
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-orange-50 py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -272,7 +272,7 @@ elevateforhumanity.org`
                       type="checkbox"
                       checked={formData.partnershipType.includes(type)}
                       onChange={() => handleCheckboxChange("partnershipType", type)}
-                      className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      className="w-4 h-4 text-brandPrimary border-gray-300 rounded focus:ring-blue-500"
                     />
                     <span className="text-sm text-gray-700">{type}</span>
                   </label>
@@ -441,7 +441,7 @@ elevateforhumanity.org`
                       type="checkbox"
                       checked={formData.goals.includes(goal)}
                       onChange={() => handleCheckboxChange("goals", goal)}
-                      className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      className="w-4 h-4 text-brandPrimary border-gray-300 rounded focus:ring-blue-500"
                     />
                     <span className="text-sm text-gray-700">{goal}</span>
                   </label>
@@ -480,7 +480,7 @@ elevateforhumanity.org`
               <button
                 type="submit"
                 disabled={submitting}
-                className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
+                className="px-8 py-4 bg-brandPrimary text-white font-semibold rounded-xl hover:bg-brandPrimaryDark disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
               >
                 {submitting ? "Submitting..." : "Submit Partnership Application"}
               </button>

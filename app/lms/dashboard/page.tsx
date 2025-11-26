@@ -77,7 +77,7 @@ export default async function LMSDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <Link href="/" className="text-xl font-bold text-blue-600">
+              <Link href="/" className="text-xl font-bold text-brandPrimary">
                 Elevate LMS
               </Link>
               <div className="relative hidden md:block">
@@ -96,7 +96,7 @@ export default async function LMSDashboard() {
                   <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
                 )}
               </button>
-              <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
+              <div className="w-10 h-10 rounded-full bg-brandPrimary flex items-center justify-center text-white font-semibold">
                 {user.email?.charAt(0).toUpperCase() || "U"}
               </div>
             </div>
@@ -144,8 +144,8 @@ export default async function LMSDashboard() {
               <h2 className="text-xl font-bold text-slate-900 mb-6">Your Progress</h2>
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center p-4 bg-blue-50 rounded-lg">
-                  <BookOpen className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-blue-700">{activeEnrollments.length}</div>
+                  <BookOpen className="w-8 h-8 text-brandPrimary mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-brandPrimary">{activeEnrollments.length}</div>
                   <div className="text-sm text-slate-600">Active Courses</div>
                 </div>
                 <div className="text-center p-4 bg-purple-50 rounded-lg">
@@ -165,7 +165,7 @@ export default async function LMSDashboard() {
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-slate-900">Continue Learning</h2>
-                <Link href="/lms/courses" className="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-1">
+                <Link href="/lms/courses" className="text-brandPrimary font-semibold hover:text-brandPrimary flex items-center gap-1">
                   View All <ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -177,7 +177,7 @@ export default async function LMSDashboard() {
                       href={`/lms/courses/${enrollment.courses?.slug || enrollment.course_id}`}
                       className="flex gap-4 p-4 rounded-lg border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition"
                     >
-                      <div className="w-24 h-16 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex-shrink-0 flex items-center justify-center">
+                      <div className="w-24 h-16 rounded-lg bg-gradient-to-br from-red-600 to-indigo-700 flex-shrink-0 flex items-center justify-center">
                         <BookOpen className="text-white/40" size={32} />
                       </div>
                       <div className="flex-1">
@@ -185,12 +185,12 @@ export default async function LMSDashboard() {
                         <p className="text-sm text-slate-600 mt-1">Continue where you left off</p>
                         <div className="mt-2 flex items-center gap-2">
                           <div className="flex-1 bg-slate-200 rounded-full h-2">
-                            <div className="bg-blue-600 h-2 rounded-full" style={{ width: '45%' }} />
+                            <div className="bg-brandPrimary h-2 rounded-full" style={{ width: '45%' }} />
                           </div>
                           <span className="text-sm font-medium text-slate-700">45%</span>
                         </div>
                       </div>
-                      <button className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 transition">
+                      <button className="flex-shrink-0 w-10 h-10 rounded-full bg-brandPrimary flex items-center justify-center text-white hover:bg-brandPrimaryDark transition">
                         <PlayCircle className="w-5 h-5" />
                       </button>
                     </Link>
@@ -199,7 +199,7 @@ export default async function LMSDashboard() {
                   <div className="text-center py-8 text-slate-600">
                     <BookOpen className="w-12 h-12 mx-auto mb-3 text-slate-400" />
                     <p>No active courses yet</p>
-                    <Link href="/lms/courses" className="text-blue-600 hover:text-blue-700 font-medium mt-2 inline-block">
+                    <Link href="/lms/courses" className="text-brandPrimary hover:text-brandPrimary font-medium mt-2 inline-block">
                       Browse Courses →
                     </Link>
                   </div>
@@ -212,7 +212,7 @@ export default async function LMSDashboard() {
               <h2 className="text-xl font-bold text-slate-900 mb-4">Quick Access</h2>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 <Link href="/lms/forums" className="p-4 rounded-lg border border-slate-200 hover:border-blue-300 hover:bg-blue-50 transition text-center">
-                  <MessageSquare className="w-6 h-6 mx-auto mb-2 text-blue-600" />
+                  <MessageSquare className="w-6 h-6 mx-auto mb-2 text-brandPrimary" />
                   <div className="text-sm font-medium text-slate-900">Forums</div>
                 </Link>
                 <Link href="/lms/study-groups" className="p-4 rounded-lg border border-slate-200 hover:border-purple-300 hover:bg-purple-50 transition text-center">
@@ -237,13 +237,13 @@ export default async function LMSDashboard() {
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-bold text-slate-900">Upcoming</h3>
-                <Link href="/lms/calendar" className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+                <Link href="/lms/calendar" className="text-sm text-brandPrimary hover:text-brandPrimary font-medium">
                   View All
                 </Link>
               </div>
               <div className="space-y-3">
                 <div className="p-3 rounded-lg bg-blue-50 border border-blue-200">
-                  <div className="text-xs font-semibold text-blue-600 mb-1">Today</div>
+                  <div className="text-xs font-semibold text-brandPrimary mb-1">Today</div>
                   <div className="text-sm font-medium text-slate-900">Live Session</div>
                   <div className="text-xs text-slate-600 mt-1">2:00 PM</div>
                 </div>
@@ -259,7 +259,7 @@ export default async function LMSDashboard() {
             <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
               <h3 className="font-bold text-slate-900 mb-4">Recent Achievements</h3>
               <div className="space-y-3">
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200">
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-red-50 to-purple-50 border border-blue-200">
                   <div className="text-2xl">🏆</div>
                   <div>
                     <div className="text-sm font-semibold text-slate-900">Course Completed</div>

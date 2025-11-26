@@ -103,7 +103,7 @@ export default function CaseManagerDashboardPage() {
         {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <SummaryCard
-            icon={<Users className="w-6 h-6 text-blue-600" />}
+            icon={<Users className="w-6 h-6 text-brandPrimary" />}
             label="Assigned Learners"
             value={summary.assigned_learners}
             hint="Total learners assigned to your caseload"
@@ -229,7 +229,7 @@ export default function CaseManagerDashboardPage() {
                         <td className="px-4 py-3 text-right">
                           <Link
                             href={`/cm/learners/${l.learner_id}`}
-                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-medium hover:bg-blue-700 transition-colors"
+                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-brandPrimary text-white text-xs font-medium hover:bg-brandPrimaryDark transition-colors"
                           >
                             View
                           </Link>

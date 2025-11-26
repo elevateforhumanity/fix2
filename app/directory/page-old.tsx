@@ -10,7 +10,7 @@ export default function DirectoryPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-16">
+      <section className="bg-gradient-to-br from-red-600 to-indigo-700 text-white py-16">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <h1 className="text-5xl font-bold mb-4">Directory</h1>
           <p className="text-xl text-blue-100">
@@ -35,7 +35,7 @@ export default function DirectoryPage() {
                   >
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{program.name}</h3>
                     <p className="text-sm text-gray-600 mb-3">{program.duration}</p>
-                    <div className="flex items-center text-blue-600 font-medium text-sm">
+                    <div className="flex items-center text-brandPrimary font-medium text-sm">
                       Learn More
                       <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
@@ -110,27 +110,27 @@ d="M9 5l7 7-7 7" />
               <h3 className="text-lg font-bold text-gray-900 mb-4">Quick Links</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/apply" className="text-blue-600 hover:text-blue-700 font-medium">
+                  <Link href="/apply" className="text-brandPrimary hover:text-brandPrimary font-medium">
                     Apply for Training
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-blue-600 hover:text-blue-700 font-medium">
+                  <Link href="/contact" className="text-brandPrimary hover:text-brandPrimary font-medium">
                     Contact Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/faq" className="text-blue-600 hover:text-blue-700 font-medium">
+                  <Link href="/faq" className="text-brandPrimary hover:text-brandPrimary font-medium">
                     FAQ
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-blue-600 hover:text-blue-700 font-medium">
+                  <Link href="/about" className="text-brandPrimary hover:text-brandPrimary font-medium">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/success-stories" className="text-blue-600 hover:text-blue-700 font-medium">
+                  <Link href="/success-stories" className="text-brandPrimary hover:text-brandPrimary font-medium">
                     Success Stories
                   </Link>
                 </li>
@@ -145,7 +145,7 @@ d="M9 5l7 7-7 7" />
               </p>
               <Link
                 href="/contact"
-                className="block w-full text-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                className="block w-full text-center px-4 py-2 bg-brandPrimary text-white font-semibold rounded-lg hover:bg-brandPrimaryDark transition-colors"
               >
                 Get Support
               </Link>

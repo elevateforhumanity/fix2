@@ -177,7 +177,7 @@ export default function ManageCoursesPage() {
                         <Clock size={16} />
                         <span>{course.duration}</span>
                       </div>
-                      <div className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">
+                      <div className="px-3 py-1 bg-blue-50 text-brandPrimary rounded-full text-xs font-semibold">
                         {course.category}
                       </div>
                       <div className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold">
@@ -196,7 +196,7 @@ export default function ManageCoursesPage() {
                     </Link>
                     <Link
                       href={`/admin/courses/edit/${course.id}`}
-                      className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition"
+                      className="p-2 text-brandPrimary hover:bg-blue-50 rounded-lg transition"
                       title="Edit Course"
                     >
                       <Edit size={20} />

@@ -220,7 +220,7 @@ export default function EmployeePortalPage() {
           >
             <div className="flex items-center gap-4">
               <div className="p-3 bg-blue-100 rounded-lg">
-                <Calendar className="h-6 w-6 text-blue-600" />
+                <Calendar className="h-6 w-6 text-brandPrimary" />
               </div>
               <div>
                 <p className="text-sm text-gray-600">Request Time Off</p>

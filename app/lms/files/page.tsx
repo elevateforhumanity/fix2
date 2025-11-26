@@ -197,7 +197,7 @@ export default function FilesPage() {
                         href={file.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
+                        className="p-2 text-gray-600 hover:text-brandPrimary hover:bg-blue-50 rounded-lg transition"
                         title="Download"
                       >
                         <Download className="h-5 w-5" />

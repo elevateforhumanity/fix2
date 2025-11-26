@@ -109,7 +109,7 @@ export default function StudyGroupsPage() {
                 <span
                   className={`text-xs rounded-full px-3 py-1 font-medium ${
                     g.modality === "online"
-                      ? "bg-blue-100 text-blue-700"
+                      ? "bg-blue-100 text-brandPrimary"
                       : g.modality === "in_person"
                       ? "bg-green-100 text-green-700"
                       : "bg-purple-100 text-purple-700"
@@ -133,7 +133,7 @@ export default function StudyGroupsPage() {
                 {g.meetingLink && (
                   <div className="flex items-center gap-2 text-xs text-slate-600">
                     <Video className="w-4 h-4" />
-                    <a href={g.meetingLink} className="text-blue-600 hover:underline">
+                    <a href={g.meetingLink} className="text-brandPrimary hover:underline">
                       Join meeting link
                     </a>
                   </div>
@@ -161,7 +161,7 @@ export default function StudyGroupsPage() {
                   <button
                     type="button"
                     onClick={() => handleJoin(g.id)}
-                    className="text-xs rounded-full bg-blue-600 px-4 py-1.5 text-white font-medium hover:bg-blue-700 transition"
+                    className="text-xs rounded-full bg-brandPrimary px-4 py-1.5 text-white font-medium hover:bg-brandPrimaryDark transition"
                   >
                     Join group
                   </button>
@@ -189,7 +189,7 @@ function FilterButton({
       onClick={onClick}
       className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
         active
-          ? "bg-blue-600 text-white"
+          ? "bg-brandPrimary text-white"
           : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50"
       }`}
     >

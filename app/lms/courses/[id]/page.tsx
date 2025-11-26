@@ -142,7 +142,7 @@ export default async function CoursePage({ params }: Props) {
         </Link>
       </header>
       {/* Course Header */}
-      <section className="bg-gradient-to-br from-red-600 via-orange-500 to-blue-600 text-white py-12">
+      <section className="bg-gradient-to-br from-red-600 via-orange-500 to-orange-600 text-white py-12">
         <div className="elevate-container">
           <div className="max-w-4xl">
             <div className="text-sm font-semibold mb-2 opacity-90">

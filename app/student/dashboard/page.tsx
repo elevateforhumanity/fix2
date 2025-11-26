@@ -29,7 +29,7 @@ export default function StudentDashboardPage() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center rounded-md border border-blue-200 bg-blue-50 px-3 py-1.5 font-semibold text-blue-700 hover:bg-blue-100"
+              className="inline-flex items-center rounded-md border border-blue-200 bg-blue-50 px-3 py-1.5 font-semibold text-brandPrimary hover:bg-blue-100"
             >
               Talk To A Coach
             </Link>
@@ -70,7 +70,7 @@ export default function StudentDashboardPage() {
                   <div className="mt-2 flex gap-2 text-[11px]">
                     <Link
                       href={course.lmsPath}
-                      className="inline-flex items-center rounded-md bg-blue-600 px-3 py-1.5 font-semibold text-white hover:bg-blue-700"
+                      className="inline-flex items-center rounded-md bg-brandPrimary px-3 py-1.5 font-semibold text-white hover:bg-brandPrimaryDark"
                     >
                       Go To This Program
                     </Link>
@@ -114,7 +114,7 @@ export default function StudentDashboardPage() {
                       <span>{course.hoursTotal} hrs</span>
                       <Link
                         href={`/courses/${course.slug}`}
-                        className="font-semibold text-blue-600 hover:underline"
+                        className="font-semibold text-brandPrimary hover:underline"
                       >
                         View
                       </Link>

@@ -94,7 +94,7 @@ export default function ThreadPage() {
         <p className="text-sm text-slate-600 mb-4">Thread not found or unavailable.</p>
         <Link
           href={`/lms/forums/${forumId}`}
-          className="text-sm text-blue-600 hover:underline"
+          className="text-sm text-brandPrimary hover:underline"
         >
           ← Back to forum
         </Link>
@@ -107,7 +107,7 @@ export default function ThreadPage() {
       <header className="space-y-3">
         <Link
           href={`/lms/forums/${forumId}`}
-          className="inline-flex items-center gap-1 text-sm text-blue-600 hover:underline"
+          className="inline-flex items-center gap-1 text-sm text-brandPrimary hover:underline"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to forum
@@ -152,7 +152,7 @@ export default function ThreadPage() {
                     className="h-10 w-10 rounded-full object-cover"
                   />
                 ) : (
-                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center text-sm text-white font-bold">
+                  <div className="h-10 w-10 rounded-full bg-gradient-to-br from-red-500 to-purple-500 flex items-center justify-center text-sm text-white font-bold">
                     {p.authorName.charAt(0).toUpperCase()}
                   </div>
                 )}
@@ -163,7 +163,7 @@ export default function ThreadPage() {
                     <div className="flex items-center gap-2">
                       <span className="font-semibold text-slate-900">{p.authorName}</span>
                       {index === 0 && (
-                        <span className="text-xs rounded-full bg-blue-100 px-2 py-0.5 text-blue-700">
+                        <span className="text-xs rounded-full bg-blue-100 px-2 py-0.5 text-brandPrimary">
                           Original Poster
                         </span>
                       )}
@@ -183,7 +183,7 @@ export default function ThreadPage() {
                   {p.content}
                 </p>
                 <div className="flex items-center gap-4 mt-3 pt-3 border-t border-slate-100">
-                  <button className="flex items-center gap-1 text-xs text-slate-600 hover:text-blue-600 transition">
+                  <button className="flex items-center gap-1 text-xs text-slate-600 hover:text-brandPrimary transition">
                     <ThumbsUp className="w-3 h-3" />
                     {p.likesCount > 0 && <span>{p.likesCount}</span>}
                   </button>
@@ -208,13 +208,13 @@ export default function ThreadPage() {
               value={reply}
               onChange={(e) => setReply(e.target.value)}
               placeholder="Share your thoughts, answer the question, or add to the discussion..."
-              className="w-full rounded-lg border-2 border-slate-200 px-3 py-2 text-sm min-h-[100px] focus:border-blue-500 focus:outline-none"
+              className="w-full rounded-lg border-2 border-slate-200 px-3 py-2 text-sm min-h-[100px] focus:border-brandPrimary focus:outline-none"
             />
             <div className="flex justify-end">
               <button
                 type="submit"
                 disabled={posting || !reply.trim()}
-                className="rounded-lg bg-blue-600 px-6 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                className="rounded-lg bg-brandPrimary px-6 py-2 text-sm font-semibold text-white hover:bg-brandPrimaryDark disabled:opacity-50 disabled:cursor-not-allowed transition"
               >
                 {posting ? "Posting..." : "Post Reply"}
               </button>

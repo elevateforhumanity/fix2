@@ -227,7 +227,7 @@ export default async function CertificatesPage() {
                   className="elevate-card hover:shadow-lg transition-shadow"
                 >
                   {/* Certificate Header */}
-                  <div className="relative h-32 bg-gradient-to-br from-red-600 via-orange-500 to-blue-600 rounded-t-lg flex items-center justify-center mb-4">
+                  <div className="relative h-32 bg-gradient-to-br from-red-600 via-orange-500 to-orange-600 rounded-t-lg flex items-center justify-center mb-4">
                     <Award className="h-16 w-16 text-white opacity-90" />
                     <div className="absolute top-3 right-3">
                       <span className="elevate-pill elevate-pill--success text-xs">

@@ -96,7 +96,7 @@ export default function ProgramHolderAcknowledgementsPage() {
               placeholder="Search by organization, contact, or email..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full rounded-lg border border-slate-300 px-4 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full rounded-lg border border-slate-300 px-4 py-2 text-sm focus:border-brandPrimary focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
           </div>
           <div className="flex items-center gap-4 text-sm text-slate-600">
@@ -152,7 +152,7 @@ export default function ProgramHolderAcknowledgementsPage() {
             </p>
             <Link
               href="/program-holders/acknowledgement"
-              className="mt-4 inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+              className="mt-4 inline-flex items-center rounded-lg bg-brandPrimary px-4 py-2 text-sm font-medium text-white hover:bg-brandPrimaryDark"
             >
               View Acknowledgement Form
             </Link>
@@ -200,7 +200,7 @@ export default function ProgramHolderAcknowledgementsPage() {
                       <td className="whitespace-nowrap px-6 py-4">
                         <a
                           href={`mailto:${ack.email}`}
-                          className="text-sm text-blue-600 hover:text-blue-800"
+                          className="text-sm text-brandPrimary hover:text-blue-800"
                         >
                           {ack.email}
                         </a>

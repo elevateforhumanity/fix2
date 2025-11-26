@@ -118,7 +118,7 @@ export default function MigrationsPage() {
                   className="flex items-start gap-3 p-3 bg-white border rounded-lg"
                 >
                   <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-blue-600 font-bold text-sm">
+                    <span className="text-brandPrimary font-bold text-sm">
                       {index + 1}
                     </span>
                   </div>

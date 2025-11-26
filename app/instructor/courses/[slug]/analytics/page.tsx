@@ -213,7 +213,7 @@ export default async function InstructorCourseAnalyticsPage({
                           Completed
                         </span>
                       ) : s.progressPercent >= 1 ? (
-                        <span className="rounded-full bg-blue-50 px-2 py-0.5 text-blue-700">
+                        <span className="rounded-full bg-blue-50 px-2 py-0.5 text-brandPrimary">
                           In progress
                         </span>
                       ) : (

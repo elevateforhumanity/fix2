@@ -26,7 +26,7 @@ export default async function CoursesPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16">
+      <section className="bg-gradient-to-r from-red-600 to-orange-700 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Browse Our Courses
@@ -74,7 +74,7 @@ export default async function CoursesPage() {
                         </span>
                       )}
                     </div>
-                    <span className="text-blue-600 font-semibold text-right">
+                    <span className="text-brandPrimary font-semibold text-right">
                       View Course →
                     </span>
                   </div>
@@ -106,7 +106,7 @@ export default async function CoursesPage() {
               </p>
               <Link
                 href="/programs"
-                className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+                className="inline-block px-6 py-3 bg-brandPrimary text-white font-semibold rounded-lg hover:bg-brandPrimaryDark transition"
               >
                 View Training Programs
               </Link>
@@ -116,7 +116,7 @@ export default async function CoursesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-12">
+      <section className="bg-brandPrimary text-white py-12">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to Start Learning?
@@ -127,7 +127,7 @@ export default async function CoursesPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/apply"
-              className="px-8 py-3 bg-white text-blue-600 font-bold rounded-lg hover:bg-blue-50 transition"
+              className="px-8 py-3 bg-white text-brandPrimary font-bold rounded-lg hover:bg-blue-50 transition"
             >
               Apply Now
             </Link>

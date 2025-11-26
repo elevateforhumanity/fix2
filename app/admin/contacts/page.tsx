@@ -198,7 +198,7 @@ elevateforhumanity.org`);
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4" />
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brandPrimary mx-auto mb-4" />
           <p className="text-gray-600">Loading contacts...</p>
         </div>
       </div>
@@ -275,7 +275,7 @@ elevateforhumanity.org`);
                   <td className="px-6 py-4 whitespace-nowrap text-sm">
                     <button
                       onClick={() => openEmailModal(contact)}
-                      className="text-blue-600 hover:text-blue-900 font-medium"
+                      className="text-brandPrimary hover:text-blue-900 font-medium"
                     >
                       Send Welcome Email
                     </button>
@@ -345,7 +345,7 @@ d="M6 18L18 6M6 6l12 12" />
                 <button
                   onClick={() => sendWelcomeEmail(selectedContact)}
                   disabled={sendingEmail}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
+                  className="px-6 py-2 bg-brandPrimary text-white rounded-md hover:bg-brandPrimaryDark disabled:opacity-50"
                 >
                   {sendingEmail ? "Sending..." : "Send Email"}
                 </button>

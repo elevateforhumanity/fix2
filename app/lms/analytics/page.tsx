@@ -20,7 +20,7 @@ export default function AnalyticsPage() {
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
             <div className="flex items-center justify-between mb-4">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-blue-600" />
+                <TrendingUp className="w-6 h-6 text-brandPrimary" />
               </div>
               <span className="text-green-600 text-sm font-semibold">+12%</span>
             </div>
@@ -55,7 +55,7 @@ export default function AnalyticsPage() {
               <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
                 <Award className="w-6 h-6 text-yellow-600" />
               </div>
-              <span className="text-blue-600 text-sm font-semibold">+3 new</span>
+              <span className="text-brandPrimary text-sm font-semibold">+3 new</span>
             </div>
             <div className="text-2xl font-bold text-slate-900 mb-1">18</div>
             <div className="text-sm text-slate-600">Achievements Earned</div>
@@ -80,7 +80,7 @@ export default function AnalyticsPage() {
                     <div className="flex-1">
                       <div className="h-8 bg-slate-100 rounded-lg overflow-hidden">
                         <div 
-                          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-end px-3"
+                          className="h-full bg-gradient-to-r from-red-500 to-purple-500 rounded-lg flex items-center justify-end px-3"
                           style={{ width: `${data.percent}%` }}
                         >
                           <span className="text-white text-xs font-semibold">{data.hours}h</span>
@@ -94,7 +94,7 @@ export default function AnalyticsPage() {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl shadow-sm p-6 text-white">
+            <div className="bg-gradient-to-br from-red-600 to-purple-600 rounded-xl shadow-sm p-6 text-white">
               <h3 className="text-lg font-bold mb-4">This Month</h3>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">

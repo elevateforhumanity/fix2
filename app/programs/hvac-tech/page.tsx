@@ -261,7 +261,7 @@ export default function HVACTechPage() {
         </div>
       </section>
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-16 bg-gradient-to-br from-red-50 to-purple-50">
         <div className="elevate-container text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Ready to Start Your HVAC Career?

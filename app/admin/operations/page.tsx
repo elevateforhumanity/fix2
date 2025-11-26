@@ -73,7 +73,7 @@ export default async function AdminOperationsPage() {
     <main className="min-h-screen bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 py-8">
         <header className="mb-8">
-          <p className="text-sm font-medium text-blue-600">
+          <p className="text-sm font-medium text-brandPrimary">
             System Administration
           </p>
           <h1 className="text-3xl font-semibold text-slate-900">
@@ -232,7 +232,7 @@ function QuickLink({
       href={href}
       className="group rounded-2xl bg-white p-4 shadow-sm transition hover:bg-slate-50 hover:shadow-md"
     >
-      <h3 className="text-sm font-semibold text-slate-900 group-hover:text-blue-600">
+      <h3 className="text-sm font-semibold text-slate-900 group-hover:text-brandPrimary">
         {title}
       </h3>
       <p className="mt-1 text-xs text-slate-600">{description}</p>

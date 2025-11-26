@@ -47,7 +47,7 @@ export default function BulkOperationsPage() {
 
   const getColorClasses = (color: string) => {
     const colors: Record<string, string> = {
-      blue: 'bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100',
+      blue: 'bg-blue-50 text-brandPrimary border-blue-200 hover:bg-blue-100',
       purple: 'bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100',
       green: 'bg-green-50 text-green-700 border-green-200 hover:bg-green-100',
       orange: 'bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100',
@@ -80,7 +80,7 @@ export default function BulkOperationsPage() {
                   <h2 className="text-xl font-bold">Select Courses</h2>
                   <button
                     onClick={toggleSelectAll}
-                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium"
+                    className="flex items-center gap-2 text-sm text-brandPrimary hover:text-brandPrimary font-medium"
                   >
                     {selectAll ? (
                       <>
@@ -103,13 +103,13 @@ export default function BulkOperationsPage() {
                       onClick={() => toggleCourse(course.id)}
                       className={`flex items-center gap-4 p-4 border-2 rounded-lg cursor-pointer transition-all ${
                         selectedCourses.includes(course.id)
-                          ? 'border-blue-600 bg-blue-50'
+                          ? 'border-brandPrimary bg-blue-50'
                           : 'border-slate-200 hover:border-blue-300'
                       }`}
                     >
                       <div className="flex-shrink-0">
                         {selectedCourses.includes(course.id) ? (
-                          <CheckSquare className="h-6 w-6 text-blue-600" />
+                          <CheckSquare className="h-6 w-6 text-brandPrimary" />
                         ) : (
                           <Square className="h-6 w-6 text-slate-400" />
                         )}
@@ -234,7 +234,7 @@ export default function BulkOperationsPage() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
                   <div className="flex items-center gap-3">
-                    <Users className="h-5 w-5 text-blue-600" />
+                    <Users className="h-5 w-5 text-brandPrimary" />
                     <div>
                       <p className="text-sm font-medium text-slate-900">Enrolled 45 students</p>
                       <p className="text-xs text-slate-600">3 courses • 2 hours ago</p>

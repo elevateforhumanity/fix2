@@ -56,7 +56,7 @@ export default function MainHeader() {
         <div className="flex items-center gap-3">
           <Link
             href="/login"
-            className="hidden rounded-md bg-slate-900 px-3 py-1 text-xs font-semibold text-white hover:bg-slate-800 md:inline-block"
+            className="hidden rounded-md bg-brandPrimary px-3 py-1 text-xs font-semibold text-white hover:bg-brandPrimaryDark md:inline-block"
           >
             Staff / Partner Login
           </Link>
@@ -101,7 +101,7 @@ export default function MainHeader() {
             <Link
               href="/login"
               onClick={() => setMenuOpen(false)}
-              className="mt-3 block rounded-md bg-slate-900 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-slate-800"
+              className="mt-3 block rounded-md bg-brandPrimary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-brandPrimaryDark"
             >
               Staff / Partner Login
             </Link>

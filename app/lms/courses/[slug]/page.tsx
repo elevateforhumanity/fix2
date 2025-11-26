@@ -155,7 +155,7 @@ export default async function CoursePage({
               </span>
             )}
             {course.category && (
-              <span className="rounded-full bg-blue-50 px-3 py-1 font-semibold text-blue-700">
+              <span className="rounded-full bg-blue-50 px-3 py-1 font-semibold text-brandPrimary">
                 {course.category}
               </span>
             )}
@@ -279,7 +279,7 @@ function SidebarCourseCTA({
 
   return (
     <aside className="rounded-xl border bg-white p-5 shadow-sm">
-      <div className="mb-3 h-32 w-full rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center">
+      <div className="mb-3 h-32 w-full rounded-lg bg-gradient-to-br from-red-600 to-indigo-700 flex items-center justify-center">
         <BookOpen className="text-white/30" size={48} />
       </div>
 
