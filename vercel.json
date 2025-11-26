@@ -10,5 +10,10 @@
     "autoJobCancelation": true
   },
   "buildCommand": "pnpm build",
-  "installCommand": "pnpm install"
+  "installCommand": "pnpm install",
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--max-old-space-size=4096"
+    }
+  }
 }

@@ -189,7 +189,7 @@
     "make:images": "python3 tools/make_brand_images.py",
     "make:logo": "python3 tools/make_logo_assets.py",
     "prebuild": "node vercel-check.mjs",
-    "build": "NODE_OPTIONS=\"--max-old-space-size=4096\" next build",
+    "build": "NODE_OPTIONS=--max-old-space-size=4096 next build",
     "postbuild": "echo 'Next.js build complete'",
     "verify:build": "bash scripts/verify-build.sh || true",
     "verify:pwa": "node scripts/verify-pwa.cjs",
