@@ -5,6 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { Button } from "@/components/ui/Button";
 import { Metadata } from "next";
+import { allPrograms } from "@/lms-data/programs";
 
 export const metadata: Metadata = {
   title: "Career Training Programs - Healthcare, Trades & More",
@@ -103,6 +104,38 @@ export default function ProgramsPage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {/* Dynamic programs from new system */}
+            {allPrograms.filter(p => p.visiblePublic).map((program) => (
+              <Link key={program.slug} href={`/programs/${program.slug}`}>
+                <AnimatedCard className="h-full overflow-hidden cursor-pointer">
+                  <div className="relative h-48 w-full bg-gradient-to-br from-brandPrimary to-brandOrange flex items-center justify-center">
+                    <div className="text-white text-center p-4">
+                      <h3 className="text-xl font-bold">{program.title}</h3>
+                      <p className="text-sm mt-2">${program.salePrice}</p>
+                    </div>
+                  </div>
+                  <div className="p-4 md:p-5 flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <span className="inline-flex rounded-full bg-accent-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-500">
+                        {program.deliveryEngine}
+                      </span>
+                      <h3 className="text-base md:text-lg font-semibold text-slate-900">
+                        {program.title}
+                      </h3>
+                      <p className="text-xs md:text-sm text-slate-600">
+                        {program.description}
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between text-[11px] text-slate-600">
+                      <span>Tuition-based</span>
+                      <span className="text-right">{program.isStateTuitionFunded ? 'State Funded' : 'Self-Pay'}</span>
+                    </div>
+                  </div>
+                </AnimatedCard>
+              </Link>
+            ))}
+            
+            {/* Existing hardcoded programs */}
             {programs.map((program) => (
               <Link key={program.slug} href={`/programs/${program.slug}`}>
                 <AnimatedCard className="h-full overflow-hidden cursor-pointer">

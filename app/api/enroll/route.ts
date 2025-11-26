@@ -1,14 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { getProgramById } from "@/lms-data/programs";
+import { getCurrentUser } from "@/lib/auth-server";
 
-// TODO: replace with your real auth logic
 async function ensureStudent() {
-  // In real life, you'd grab the logged-in student from Supabase/Auth
-  // For now we mock a student object.
+  const user = await getCurrentUser();
+  
+  if (!user) {
+    throw new Error("Not authenticated");
+  }
+  
   return {
-    id: "student-demo-id",
-    email: "student@example.com",
+    id: user.id,
+    email: user.email || "no-email@example.com",
   };
 }
 
