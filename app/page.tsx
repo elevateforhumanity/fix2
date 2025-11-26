@@ -144,8 +144,8 @@ export default function HomePage() {
             <div className="relative h-[400px] w-full md:h-[500px] lg:h-[600px]">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-3xl blur-3xl" />
               <Image
-                src="/images/artlist/hero-training-1.jpg"
-                alt="Students in professional training"
+                src="/images/hero-banner-new.png"
+                alt="Professional training and career success"
                 fill
                 priority
                 className="rounded-3xl object-cover shadow-2xl ring-4 ring-white/20"
@@ -180,8 +180,8 @@ export default function HomePage() {
             <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-blue-50 to-white shadow-lg hover:shadow-2xl transition-all duration-300">
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
-                  src="/images/artlist/hero-training-3.jpg"
-                  alt="Adult learner in training"
+                  src="/images/PLACEHOLDER_SUCCESS_1.jpg"
+                  alt="Adult learner achieving career success"
                   fill
                   loading="lazy"
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -208,7 +208,7 @@ export default function HomePage() {
             <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-purple-50 to-white shadow-lg hover:shadow-2xl transition-all duration-300">
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
-                  src="/images/artlist/hero-training-4.jpg"
+                  src="/images/PLACEHOLDER_SUCCESS_2.jpg"
                   alt="Working family supported through training"
                   fill
                   loading="lazy"
@@ -236,8 +236,8 @@ export default function HomePage() {
             <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-green-50 to-white shadow-lg hover:shadow-2xl transition-all duration-300">
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
-                  src="/images/artlist/hero-training-5.jpg"
-                  alt="Returning citizen in a supported workforce program"
+                  src="/images/PLACEHOLDER_SUCCESS_3.jpg"
+                  alt="Returning citizen in workforce program"
                   fill
                   loading="lazy"
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -404,8 +404,8 @@ export default function HomePage() {
             <div className="relative">
               <div className="relative h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/20">
                 <Image
-                  src="/images/artlist/hero-training-2.jpg"
-                  alt="Advisor helping student with funding paperwork"
+                  src="/images/hero-banner.jpg"
+                  alt="Career advisor helping student with funding"
                   fill
                   className="object-cover"
                 />
@@ -442,8 +442,8 @@ export default function HomePage() {
             <div className="lg:col-span-2 space-y-6">
               <div className="relative h-80 w-full overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 shadow-2xl">
                 <Image
-                  src="/images/artlist/hero-training-8.jpg"
-                  alt="Graduate sharing their success story"
+                  src="/images/hero-banner.png"
+                  alt="Graduate celebrating career achievement"
                   fill
                   className="object-cover mix-blend-overlay opacity-40"
                 />
