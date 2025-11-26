@@ -1,7 +1,7 @@
-// app/lms/study-groups/page.tsx - ACTIVATED VERSION
-import Image from 'next/image';
 "use client";
 
+// app/lms/study-groups/page.tsx - ACTIVATED VERSION
+import Image from 'next/image';
 import { useEffect, useState } from "react";
 import { Users, MapPin, Calendar, Video, Clock } from "lucide-react";
 
