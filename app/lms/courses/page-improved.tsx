@@ -146,19 +146,11 @@ export default async function CoursesPage() {
                   href={`/lms/courses/${course.slug || course.id}`}
                   className="bg-white rounded-xl shadow-sm border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-200 overflow-hidden group"
                 >
-                  {/* Course Image */}
-                  <div className="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden">
-                    {course.thumbnail_url ? (
-                      <img
-                        src={course.thumbnail_url}
-                        alt={course.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <BookOpen className="w-16 h-16 text-white/50" />
-                      </div>
-                    )}
+                  {/* Course Hero Banner */}
+                  <div className="aspect-video bg-gradient-to-br from-blue-600 to-indigo-700 relative overflow-hidden">
+                    <div className="w-full h-full flex items-center justify-center">
+                      <BookOpen className="w-16 h-16 text-white/30 group-hover:scale-110 transition-transform duration-300" />
+                    </div>
                     {/* Badge */}
                     <div className="absolute top-3 left-3">
                       <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-blue-700">

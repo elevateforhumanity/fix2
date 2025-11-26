@@ -324,7 +324,6 @@ export default function LessonPage({ params }: Props) {
                   <ProfessionalVideoPlayer
                     src={lesson.content}
                     lessonId={params.lessonId}
-                    poster={lesson.thumbnail_url}
                   />
                 </div>
               )}

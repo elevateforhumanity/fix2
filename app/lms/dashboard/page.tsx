@@ -44,8 +44,7 @@ export default async function LMSDashboard() {
         courses (
           id,
           title,
-          slug,
-          thumbnail_url
+          slug
         )
       `
       )
@@ -166,14 +165,8 @@ export default async function LMSDashboard() {
                       href={`/lms/courses/${enrollment.courses?.slug || enrollment.course_id}`}
                       className="flex gap-4 p-4 rounded-lg border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 transition"
                     >
-                      <div className="w-24 h-16 rounded-lg bg-slate-200 flex-shrink-0 overflow-hidden">
-                        {enrollment.courses?.thumbnail_url && (
-                          <img 
-                            src={enrollment.courses.thumbnail_url} 
-                            alt={enrollment.courses?.title || 'Course'} 
-                            className="w-full h-full object-cover" 
-                          />
-                        )}
+                      <div className="w-24 h-16 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex-shrink-0 flex items-center justify-center">
+                        <BookOpen className="text-white/40" size={32} />
                       </div>
                       <div className="flex-1">
                         <h3 className="font-semibold text-slate-900">{enrollment.courses?.title || 'Untitled Course'}</h3>

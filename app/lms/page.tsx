@@ -166,16 +166,11 @@ export default async function LMSLandingPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {courses.map((course) => (
                 <div key={course.id} className="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200 hover:shadow-xl transition">
-                  {course.thumbnail_url && (
-                    <div className="relative h-48">
-                      <Image
-                        src={course.thumbnail_url}
-                        alt={course.title}
-                        fill
-                        className="object-cover"
-                      />
+                  <div className="relative h-48 bg-gradient-to-br from-blue-600 to-indigo-700">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <BookOpen className="text-white/20" size={80} />
                     </div>
-                  )}
+                  </div>
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-2">
                       {course.level && (

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { BookOpen } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/auth";
 import { CourseOverviewMeta } from "@/components/course/CourseOverviewMeta";
@@ -19,7 +20,6 @@ type CourseRow = {
   duration_hours: number | null;
   category: string | null;
   tags: string[] | null;
-  thumbnail_url: string | null;
   price_cents: number | null;
   metadata: any | null;
   instructor_id: string | null;
@@ -279,14 +279,9 @@ function SidebarCourseCTA({
 
   return (
     <aside className="rounded-xl border bg-white p-5 shadow-sm">
-      {course.thumbnail_url && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={course.thumbnail_url}
-          alt={course.title}
-          className="mb-3 h-32 w-full rounded-lg object-cover"
-        />
-      )}
+      <div className="mb-3 h-32 w-full rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center">
+        <BookOpen className="text-white/30" size={48} />
+      </div>
 
       <p className="text-xs font-semibold text-slate-700">{priceLabel}</p>
 

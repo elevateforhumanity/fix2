@@ -1,5 +1,7 @@
-# Elevate for Humanity - Enterprise Gitpod Configuration
-# Professional LMS development environment with enterprise features
+# Elevate for Humanity - Marketing + LMS Development Environment
+# One Next.js app serving both:
+# - Marketing site (www.elevateforhumanity.org)
+# - LMS platform (elevateforhumanityeducation.com / /lms routes)
 
 image:
   file: .gitpod.Dockerfile
@@ -8,8 +10,8 @@ ports:
   - port: 3000
     onOpen: open-preview
     visibility: public
-    name: Next.js Dev Server
-    description: Elevate LMS - Main Application
+    name: Marketing + LMS (Full Site)
+    description: "Marketing: / | LMS: /lms/* | Admin: /admin/*"
   - port: 5432
     onOpen: ignore
     visibility: private
