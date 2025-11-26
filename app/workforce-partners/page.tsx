@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "Workforce & Agency Partners | Elevate for Humanity",
@@ -69,8 +70,18 @@ export default function WorkforcePartnersPage() {
             </p>
           </div>
 
+          {/* HERO IMAGE */}
+          <div className="relative h-64 w-full md:w-96 rounded-2xl overflow-hidden shadow-xl">
+            <Image
+              src="/media/employers-hero.jpg"
+              alt="Workforce Partners"
+              fill
+              className="object-cover"
+            />
+          </div>
+
           {/* SNAPSHOT */}
-          <div className="w-full max-w-md rounded-2xl border border-slate-100 bg-slate-900 px-5 py-5 text-sm text-slate-50 shadow-lg md:w-80">
+          <div className="hidden w-full max-w-md rounded-2xl border border-slate-100 bg-slate-900 px-5 py-5 text-sm text-slate-50 shadow-lg md:w-80">
             <h2 className="text-sm font-semibold text-white">
               Agency & Board Snapshot
             </h2>
