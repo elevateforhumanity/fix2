@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+// Image asset: /images/programs-new/program-11.jpg
 import { Inter } from 'next/font/google';
 import './globals.css';
 import './ui-fixes.css';

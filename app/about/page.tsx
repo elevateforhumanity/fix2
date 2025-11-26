@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   title: "About Us | Elevate For Humanity",
   description: "Learn about Elevate for Humanity's mission to provide free career training and workforce development in 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240. Empowering communities through education.",
   keywords: ["about elevate", "mission", "workforce development", "community impact", "Marion County"],
+  openGraph: {
+    title: "About Us | Elevate For Humanity",
+    description: "Learn about Elevate for Humanity's mission to provide free career training and workforce development.",
+    images: ["/images/team-new/team-1.jpg"],
+    type: "website",
+  },
 };
 
 export default function AboutPage() {

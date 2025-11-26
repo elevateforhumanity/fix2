@@ -4,7 +4,11 @@ export const metadata = {
   title: "Partner With Elevate | Training Sites, Employers & Barbershops",
   description:
     "Become a training partner, apprenticeship site, or employer partner with Elevate for Humanity. Host learners, build your talent pipeline, and align with workforce funding.",
-};
+,
+  openGraph: {
+    images: ["/images/facilities-new/facility-5.jpg"],
+    type: "website",
+  }};
 
 const PARTNER_TYPES = [
   "Barbershops and salons that want to host barber apprentices",

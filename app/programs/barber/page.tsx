@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Barber Apprenticeship Program | Elevate for Humanity",
     description: "State-approved barber apprenticeship. Earn while you learn toward your barber license in real barbershops.",
-    images: ["/images/courses/barber-apprenticeship-10002417-cover.jpg"],
+    images: ["/images/programs-new/program-7.jpg"],
     type: "website",
   },
 };

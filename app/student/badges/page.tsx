@@ -5,7 +5,11 @@ import MicroCredentialsBadges from '@/components/MicroCredentialsBadges';
 export const metadata = {
   title: 'My Badges & Credentials | Student Portal',
   description: 'View and share your earned micro-credentials and digital badges',
-};
+,
+  openGraph: {
+    images: ["/images/students-new/student-20.jpg"],
+    type: "website",
+  }};
 
 export default async function BadgesPage() {
   const supabase = await createServerSupabaseClient();

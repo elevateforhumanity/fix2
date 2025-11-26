@@ -4,7 +4,11 @@ import { createServerSupabaseClient } from '@/lib/auth';
 export const metadata = {
   title: 'Browse Courses | Elevate for Humanity',
   description: 'Explore our comprehensive catalog of workforce training courses in healthcare, skilled trades, and technology.',
-};
+,
+  openGraph: {
+    images: ["/images/team-new/team-9.jpg"],
+    type: "website",
+  }};
 
 export default async function CoursesPage() {
   const supabase = await createServerSupabaseClient();

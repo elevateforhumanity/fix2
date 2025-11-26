@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CDL Training Program | Elevate for Humanity",
     description: "CDL training program. Get your Commercial Driver's License and start a transportation career. WIOA-funded.",
-    images: ["/images/homepage/cdl-training.png"],
+    images: ["/images/programs-new/program-18.jpg"],
     type: "website",
   },
 };

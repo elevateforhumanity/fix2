@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Workforce Readiness & Re-Entry Program | Elevate for Humanity",
     description: "Workforce readiness and re-entry program. Coaching and support to prepare for training or employment.",
-    images: ["/images/homepage/workforce-readiness.png"],
+    images: ["/images/programs-new/program-22.jpg"],
     type: "website",
   },
 };

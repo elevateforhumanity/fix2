@@ -5,7 +5,11 @@ import { ShoppingCart, DollarSign, CreditCard, TrendingUp, Shield, BookOpen, Awa
 export const metadata = {
   title: 'Consumer Education | Elevate For Humanity',
   description: 'Learn essential financial literacy and consumer skills',
-};
+,
+  openGraph: {
+    images: ["/images/students-new/student-10.jpg"],
+    type: "website",
+  }};
 
 export default function ConsumerEducationPage() {
   const courses = [

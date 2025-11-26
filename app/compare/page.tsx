@@ -5,7 +5,11 @@ export const metadata = {
   title: 'Compare Training Providers | Elevate for Humanity',
   description:
     'See how Elevate for Humanity compares to other workforce training providers',
-};
+,
+  openGraph: {
+    images: ["/images/students-new/student-21.jpg"],
+    type: "website",
+  }};
 
 export default function ComparePage() {
   return (

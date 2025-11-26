@@ -1,9 +1,11 @@
 import Link from "next/link";
 
-export const metadata = {
-  title: "Building Maintenance Technician Program | Elevate for Humanity",
-  description:
-    "Hands-on building maintenance training covering HVAC, plumbing, electrical, and facility systems with direct pathways to employment in property management and facilities.",
+  openGraph: {
+    title: "Program | Elevate for Humanity",
+    description: "Career training and workforce development programs.",
+    images: ["/images/programs-new/program-20.jpg"],
+    type: "website",
+  },
 };
 
 const buildingHighlights = [

@@ -1,5 +1,6 @@
 // app/portal/student/page.tsx - STUDENT PORTAL LOGIN
 "use client";
+// Suggested image: /images/success-new/success-14.jpg
 
 import { useState } from "react";
 import Link from "next/link";

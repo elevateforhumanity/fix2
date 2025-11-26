@@ -144,7 +144,7 @@ export default function HomePage() {
             <div className="relative h-[400px] w-full md:h-[500px] lg:h-[600px]">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-3xl blur-3xl" />
               <Image
-                src="/images/hero-banner-new.png"
+                src="/images/hero-new/hero-1.jpg"
                 alt="Professional training and career success"
                 fill
                 priority
@@ -180,7 +180,7 @@ export default function HomePage() {
             <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-blue-50 to-white shadow-lg hover:shadow-2xl transition-all duration-300">
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
-                  src="/images/PLACEHOLDER_SUCCESS_1.jpg"
+                  src="/images/students-new/student-1.jpg"
                   alt="Adult learner achieving career success"
                   fill
                   loading="lazy"
@@ -208,7 +208,7 @@ export default function HomePage() {
             <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-purple-50 to-white shadow-lg hover:shadow-2xl transition-all duration-300">
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
-                  src="/images/PLACEHOLDER_SUCCESS_2.jpg"
+                  src="/images/students-new/student-2.jpg"
                   alt="Working family supported through training"
                   fill
                   loading="lazy"
@@ -236,7 +236,7 @@ export default function HomePage() {
             <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-green-50 to-white shadow-lg hover:shadow-2xl transition-all duration-300">
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
-                  src="/images/PLACEHOLDER_SUCCESS_3.jpg"
+                  src="/images/students-new/student-3.jpg"
                   alt="Returning citizen in workforce program"
                   fill
                   loading="lazy"
@@ -288,42 +288,42 @@ export default function HomePage() {
             <ProgramCard
               title="Healthcare Pathways"
               description="Medical Assistant, CNA, and healthcare support careers with strong employer demand and job security."
-              image="/images/efh-cna-hero.jpg"
+              image="/images/programs-new/program-1.jpg"
               tag="State-Funded • ETPL"
               href="/programs/cna"
             />
             <ProgramCard
               title="Skilled Trades & Technical"
               description="HVAC, building maintenance, and technical careers with hands-on learning and high earning potential."
-              image="/images/efh-building-tech-hero.jpg"
+              image="/images/programs-new/program-2.jpg"
               tag="High-Demand • Hands-On"
               href="/programs/building-maintenance"
             />
             <ProgramCard
               title="Barber & Beauty"
               description="DOL-registered apprenticeships where you earn while you learn professional barbering skills."
-              image="/images/efh-barber-hero.jpg"
+              image="/images/programs-new/program-3.jpg"
               tag="DOL Apprenticeship"
               href="/programs/barber"
             />
             <ProgramCard
               title="Professional Esthetician"
               description="Master skincare, facial treatments, and client services in this growing beauty industry career."
-              image="/images/programs/efh-esthetician-client-services-hero.jpg"
+              image="/images/programs-new/program-4.jpg"
               tag="Beauty • Wellness"
               href="/programs/professional-esthetician"
             />
             <ProgramCard
               title="CPR & First Aid"
               description="Essential life-saving certifications for healthcare workers, educators, and community leaders."
-              image="/images/programs/efh-cpr-aed-first-aid-hero.jpg"
+              image="/images/programs-new/program-5.jpg"
               tag="Fast Track • Essential"
               href="/programs/cpr-certification"
             />
             <ProgramCard
               title="Career Educator Training"
               description="Train the next generation of beauty professionals with comprehensive instructor certification."
-              image="/images/programs/efh-beauty-career-educator-hero.jpg"
+              image="/images/programs-new/program-6.jpg"
               tag="Leadership • Teaching"
               href="/programs"
             />
@@ -404,7 +404,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="relative h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl ring-4 ring-white/20">
                 <Image
-                  src="/images/hero-banner.jpg"
+                  src="/images/hero-new/hero-2.jpg"
                   alt="Career advisor helping student with funding"
                   fill
                   className="object-cover"
@@ -442,7 +442,7 @@ export default function HomePage() {
             <div className="lg:col-span-2 space-y-6">
               <div className="relative h-80 w-full overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 shadow-2xl">
                 <Image
-                  src="/images/hero-banner.png"
+                  src="/images/success-new/success-1.jpg"
                   alt="Graduate celebrating career achievement"
                   fill
                   className="object-cover mix-blend-overlay opacity-40"
@@ -481,13 +481,13 @@ export default function HomePage() {
 
             <div className="space-y-6">
               <SuccessCard
-                image="/images/artlist/cropped/hero-training-7-square.jpg"
+                image="/images/success-new/success-2.jpg"
                 quote="I was nervous about going back to school. Elevate broke everything down and walked with me through funding and training."
                 name="Marcus J."
                 track="Skilled Trades Graduate"
               />
               <SuccessCard
-                image="/images/artlist/cropped/hero-training-4-square.jpg"
+                image="/images/success-new/success-3.jpg"
                 quote="As a returning citizen, I needed structure and support. This program helped me get a real job and a real second chance."
                 name="Lisa T."
                 track="Reentry Program Graduate"

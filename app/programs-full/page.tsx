@@ -14,7 +14,11 @@ export const metadata = {
   title: 'Workforce Training Programs | Elevate for Humanity',
   description:
     'WIOA, WRG, JRI, DOL Registered Apprenticeships. Free workforce training across Indiana.',
-};
+,
+  openGraph: {
+    images: ["/images/students-new/student-13.jpg"],
+    type: "website",
+  }};
 
 export default function ProgramsFullPage() {
   return (

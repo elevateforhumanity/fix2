@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Partner Portal | Elevate for Humanity",
     description: "Training provider portal. Manage students, track attendance, and handle compliance.",
-    images: ["/images/homepage/training-provider-partnerships.png"],
+    images: ["/images/programs-new/program-21.jpg"],
     type: "website",
   },
 };

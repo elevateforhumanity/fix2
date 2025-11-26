@@ -5,7 +5,11 @@ import { AdaptiveLearningPath } from '@/components/AdaptiveLearningPath';
 export const metadata = {
   title: 'My Learning Path | Student Portal',
   description: 'Your personalized learning journey',
-};
+,
+  openGraph: {
+    images: ["/images/facilities-new/facility-7.jpg"],
+    type: "website",
+  }};
 
 export default async function LearningPathPage() {
   const supabase = await createServerSupabaseClient();

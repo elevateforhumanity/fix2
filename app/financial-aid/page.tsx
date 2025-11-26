@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Financial Aid & Funding Options | Elevate for Humanity",
     description: "Learn about WIOA, workforce grants, and other funding sources that make career training free for eligible participants.",
-    images: ["/images/homepage/funding-navigation.png"],
+    images: ["/images/facilities-new/facility-8.jpg"],
     type: "website",
   },
 };

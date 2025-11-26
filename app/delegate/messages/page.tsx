@@ -5,7 +5,11 @@ import { MessageSquare, Send } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Messages | Delegate Dashboard',
   description: 'Communicate with students and staff',
-};
+,
+  openGraph: {
+    images: ["/images/team-new/team-8.jpg"],
+    type: "website",
+  }};
 
 export default function DelegateMessagesPage() {
   return (

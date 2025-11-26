@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Privacy Policy | Elevate for Humanity",
     description: "Understand how we collect, use, and protect your personal information. GDPR compliant.",
-    images: ["/images/hero-banner-new.png"],
+    images: ["/images/students-new/student-14.jpg"],
     type: "website",
   },
 };

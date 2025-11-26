@@ -5,7 +5,11 @@ import { Calendar, Clock } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Calendar | Student Portal',
   description: 'View your schedule and upcoming events',
-};
+,
+  openGraph: {
+    images: ["/images/students-new/student-29.jpg"],
+    type: "website",
+  }};
 
 export default function StudentCalendarPage() {
   return (

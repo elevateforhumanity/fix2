@@ -5,7 +5,11 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Milady LMS - Barber Training | Student Portal',
   description: 'Access your Milady Standard Barbering coursework and track apprenticeship hours',
-};
+,
+  openGraph: {
+    images: ["/images/students-new/student-28.jpg"],
+    type: "website",
+  }};
 
 export default async function MiladyLMSPage() {
   const supabase = await createServerSupabaseClient();

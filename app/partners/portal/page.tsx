@@ -3,7 +3,11 @@ import IndustryPartnershipPortal from '@/components/IndustryPartnershipPortal';
 export const metadata = {
   title: 'Industry Partnership Portal | Elevate for Humanity',
   description: 'Partner with us to provide training and employment opportunities',
-};
+,
+  openGraph: {
+    images: ["/images/students-new/student-12.jpg"],
+    type: "website",
+  }};
 
 export default function PartnerPortalPage() {
   return (

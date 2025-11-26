@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation';
+// Image asset: /images/facilities-new/facility-17.jpg
 import { createServerSupabaseClient } from '@/lib/auth';
 
 export const dynamic = 'force-dynamic';

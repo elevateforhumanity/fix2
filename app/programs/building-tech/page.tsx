@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Building Maintenance Technician Program | Elevate for Humanity",
     description: "Building maintenance technician training. Learn HVAC, electrical, plumbing, and facilities management. WIOA-funded.",
-    images: ["/images/homepage/building-maintenance.png"],
+    images: ["/images/programs-new/program-17.jpg"],
     type: "website",
   },
 };

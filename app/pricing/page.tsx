@@ -6,7 +6,11 @@ export const metadata = {
   title: 'Pricing | Elevate for Humanity',
   description:
     '100% free WIOA-funded training programs for eligible participants',
-};
+,
+  openGraph: {
+    images: ["/images/success-new/success-19.jpg"],
+    type: "website",
+  }};
 
 export default function PricingPage() {
   return (

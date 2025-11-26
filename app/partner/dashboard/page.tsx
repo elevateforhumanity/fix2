@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dashboard - Workforce Development Platform | Elevate for Humanity",
     description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
-    images: ["/images/hero-banner-new.png"],
+    images: ["/images/facilities-new/facility-14.jpg"],
     type: "website",
   },
   twitter: {

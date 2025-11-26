@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Terms of Service | Elevate for Humanity",
     description: "Understand the rules and guidelines for using our platform and services.",
-    images: ["/images/hero-banner-new.png"],
+    images: ["/images/facilities-new/facility-4.jpg"],
     type: "website",
   },
 };

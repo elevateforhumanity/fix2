@@ -1,9 +1,11 @@
 import Link from "next/link";
 
-export const metadata = {
-  title: "HVAC Technician Program | Elevate for Humanity",
-  description:
-    "Hands-on HVAC training with lab and field experience, EPA certification prep, and direct pathways to employment in heating, cooling, and refrigeration.",
+  openGraph: {
+    title: "Program | Elevate for Humanity",
+    description: "Career training and workforce development programs.",
+    images: ["/images/programs-new/program-16.jpg"],
+    type: "website",
+  },
 };
 
 const hvacHighlights = [

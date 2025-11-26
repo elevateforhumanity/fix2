@@ -5,7 +5,11 @@ import { requireAuth } from '@/lib/auth';
 export const metadata: Metadata = {
   title: 'Interactive Tutorials | Elevate for Humanity',
   description: 'Learn how to use all platform features with step-by-step interactive tutorials',
-};
+,
+  openGraph: {
+    images: ["/images/programs-new/program-25.jpg"],
+    type: "website",
+  }};
 
 export default async function TutorialsPage() {
   const session = await requireAuth();

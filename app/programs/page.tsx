@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Career Training Programs - Healthcare, Trades & More | Elevate for Humanity",
     description: "Explore 12+ WIOA-funded career training programs in healthcare, skilled trades, CDL, barbering, and more.",
-    images: ["/images/homepage/programs-overview.png"],
+    images: ["/images/hero-new/hero-4.jpg"],
     type: "website",
   },
 };

@@ -5,7 +5,11 @@ import { GraduationCap, Users, Briefcase, HelpCircle } from "lucide-react";
 export const metadata = {
   title: "Portal | Elevate For Humanity",
   description: "Access your student, staff, or employer portal",
-};
+,
+  openGraph: {
+    images: ["/images/students-new/student-11.jpg"],
+    type: "website",
+  }};
 
 export default function PortalHome() {
   return (

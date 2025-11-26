@@ -5,6 +5,12 @@ export const metadata = {
   title: "Workforce & Agency Partners | Elevate for Humanity",
   description:
     "Tools, reporting, and referral pathways for workforce boards, case managers, re-entry programs, and community agencies partnering with Elevate for Humanity.",
+  openGraph: {
+    title: "Workforce & Agency Partners | Elevate for Humanity",
+    description: "Tools, reporting, and referral pathways for workforce boards and community agencies.",
+    images: ["/images/facilities-new/facility-2.jpg"],
+    type: "website",
+  },
 };
 
 const AGENCIES = [

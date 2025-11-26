@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Student Portal | Elevate for Humanity",
     description: "Access your courses, assignments, grades, and track your career training progress.",
-    images: ["/images/homepage/student-portal.png"],
+    images: ["/images/students-new/student-16.jpg"],
     type: "website",
   },
 };

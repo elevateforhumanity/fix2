@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+// Image asset: /images/programs-new/program-23.jpg
 
 export const metadata: Metadata = {
   title: "Employer Dashboard - Manage Jobs & Candidates",

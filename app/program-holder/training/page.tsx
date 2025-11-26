@@ -13,7 +13,11 @@ export const metadata = {
   title: 'Program Holder Training | Elevate for Humanity',
   description:
     'Training resources and documentation for program holders and training providers',
-};
+,
+  openGraph: {
+    images: ["/images/hero-new/hero-6.jpg"],
+    type: "website",
+  }};
 
 export default function ProgramHolderTrainingPage() {
   const trainingModules = [

@@ -4,7 +4,11 @@ import CourseCatalogClient from './CourseCatalogClient';
 export const metadata = {
   title: 'Course Catalog | Elevate For Humanity',
   description: 'Browse our comprehensive catalog of fully-funded workforce training courses.',
-};
+,
+  openGraph: {
+    images: ["/images/programs-new/program-30.jpg"],
+    type: "website",
+  }};
 
 export default async function CourseCatalogPage() {
   const supabase = await createClient();

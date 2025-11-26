@@ -16,7 +16,11 @@ export const dynamic = 'force-dynamic';
 export const metadata = {
   title: 'Verify Certificate | Elevate for Humanity',
   description: 'Verify the authenticity of an Elevate for Humanity certificate',
-};
+,
+  openGraph: {
+    images: ["/images/programs-new/program-24.jpg"],
+    type: "website",
+  }};
 
 interface Props {
   params: {

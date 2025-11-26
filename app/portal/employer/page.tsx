@@ -1,5 +1,6 @@
 // app/portal/employer/page.tsx - EMPLOYER PORTAL LOGIN
 "use client";
+// Suggested image: /images/students-new/student-5.jpg
 
 import { useState } from "react";
 import Link from "next/link";

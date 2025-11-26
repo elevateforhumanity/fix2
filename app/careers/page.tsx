@@ -7,7 +7,11 @@ import { MapPin, Clock, DollarSign, Briefcase, Heart, Users, TrendingUp } from '
 export const metadata = {
   title: 'Careers at Elevate for Humanity | Join Our Team',
   description: 'Join our mission to transform lives through workforce development. Open positions in 8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240.',
-};
+,
+  openGraph: {
+    images: ["/images/success-new/success-15.jpg"],
+    type: "website",
+  }};
 
 export default function CareersPage() {
   const openings = [

@@ -4,7 +4,11 @@ export const metadata = {
   title: "Start Here | Student Onboarding | Elevate for Humanity",
   description:
     "Everything new learners need to know to start with Elevate for Humanity: expectations, support, technology, attendance, and next steps.",
-};
+,
+  openGraph: {
+    images: ["/images/facilities-new/facility-16.jpg"],
+    type: "website",
+  }};
 
 const STEPS = [
   "Confirm your contact information and emergency contact",

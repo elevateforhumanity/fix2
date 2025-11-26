@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { CheckCircle, Clock, Award, TrendingUp } from 'lucide-react';
 
-export const metadata = {
-  title: 'CDL Truck Driving | Elevate for Humanity',
-  description:
-    'Professional truck driver training leading to Class A Commercial Driver License. WIOA-funded, 160 hours, $50K-$65K starting salary.',
+  openGraph: {
+    title: "Program | Elevate for Humanity",
+    description: "Career training and workforce development programs.",
+    images: ["/images/programs-new/program-5.jpg"],
+    type: "website",
+  },
 };
 
 export default function TruckDrivingPage() {

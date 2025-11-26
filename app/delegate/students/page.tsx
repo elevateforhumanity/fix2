@@ -5,7 +5,11 @@ import { Users, Search } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'My Students | Delegate Dashboard',
   description: 'View and manage your assigned students',
-};
+,
+  openGraph: {
+    images: ["/images/students-new/student-18.jpg"],
+    type: "website",
+  }};
 
 export default function DelegateStudentsPage() {
   return (

@@ -23,7 +23,7 @@ export default async function LMSLandingPage() {
       <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white py-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/artlist/hero-training-1.jpg"
+            src="/images/hero-new/hero-5.jpg"
             alt="Learning Management System"
             fill
             className="object-cover opacity-20"

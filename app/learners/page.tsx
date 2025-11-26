@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "For Learners - Free Career Training | Elevate for Humanity",
     description: "Get free career training in healthcare, skilled trades, CDL, and barbering. No tuition, no debt.",
-    images: ["/images/hero-banner-new.png"],
+    images: ["/images/hero-new/hero-3.jpg"],
     type: "website",
   },
 };

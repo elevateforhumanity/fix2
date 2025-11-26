@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+// Image asset: /images/facilities-new/facility-15.jpg
 
 export const metadata: Metadata = {
   title: "Mobile App - Learn Anywhere | Elevate for Humanity",

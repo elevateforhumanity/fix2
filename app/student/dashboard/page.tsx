@@ -24,7 +24,7 @@ export default function StudentDashboardPage() {
       {/* Hero Banner */}
       <div className="relative h-48 bg-gradient-to-r from-blue-600 to-indigo-700 overflow-hidden">
         <Image
-          src="/images/artlist/cropped/hero-training-1-wide.jpg"
+          src="/images/students-new/student-4.jpg"
           alt="Student Dashboard"
           fill
           className="object-cover opacity-20"

@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   title: "For Employers | Elevate For Humanity",
   description: "Partner with Elevate for Humanity to access skilled, certified healthcare professionals. Reduce hiring costs, improve retention, and build your talent pipeline.",
   keywords: ["employer partnerships", "hire trained workers", "workforce solutions", "talent pipeline", "healthcare staffing"],
+  openGraph: {
+    title: "For Employers | Elevate For Humanity",
+    description: "Partner with Elevate for Humanity to access skilled, certified healthcare professionals.",
+    images: ["/images/facilities-new/facility-1.jpg"],
+    type: "website",
+  },
 };
 
 export default function EmployersPage() {

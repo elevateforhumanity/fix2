@@ -3,7 +3,11 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Terms of Service | Elevate for Humanity',
   description: 'Terms and conditions for using Elevate for Humanity services',
-};
+,
+  openGraph: {
+    images: ["/images/success-new/success-12.jpg"],
+    type: "website",
+  }};
 
 export default function TermsPage() {
   return (

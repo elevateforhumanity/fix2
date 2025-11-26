@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ojt And Funding - Financial Aid & Funding Options | Elevate for Humanity",
     description: "Learn about WIOA, workforce grants, JRI, and other funding sources that make career training free for eligible participants.",
-    images: ["/images/homepage/funding-navigation.png"],
+    images: ["/images/programs-new/program-31.jpg"],
     type: "website",
   },
   twitter: {

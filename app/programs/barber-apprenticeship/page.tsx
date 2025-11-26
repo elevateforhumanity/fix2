@@ -1,9 +1,11 @@
 import Link from "next/link";
 
-export const metadata = {
-  title: "Barber Apprenticeship Program | Elevate for Humanity",
-  description:
-    "State-approved Barber Apprenticeship with shop-based training, paid experience, and a clear path to licensure for Indiana learners, re-entry participants, and workforce clients.",
+  openGraph: {
+    title: "Program | Elevate for Humanity",
+    description: "Career training and workforce development programs.",
+    images: ["/images/programs-new/program-10.jpg"],
+    type: "website",
+  },
 };
 
 const HIGHLIGHTS = [

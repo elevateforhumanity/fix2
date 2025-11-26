@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Barber Spotlight Video | Elevate for Humanity",
     description: "Watch a success story from our barber apprenticeship program.",
-    images: ["/images/courses/barber-apprenticeship-10002417-cover.jpg"],
+    images: ["/images/success-new/success-17.jpg"],
     type: "website",
   },
 };

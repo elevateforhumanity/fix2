@@ -5,7 +5,11 @@ import { FileText, Video, Book, Download } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Resources | Student Portal',
   description: 'Access learning materials and resources',
-};
+,
+  openGraph: {
+    images: ["/images/programs-new/program-32.jpg"],
+    type: "website",
+  }};
 
 export default function StudentResourcesPage() {
   return (

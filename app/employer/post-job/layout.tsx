@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+// Image asset: /images/programs-new/program-26.jpg
 
 export const metadata: Metadata = {
   title: "Post a Job - Hire Skilled Workers",

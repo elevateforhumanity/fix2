@@ -13,14 +13,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "[Attemptid] - Learning Management System | Elevate for Humanity",
     description: "Access your courses, track progress, view assignments, and manage your learning journey in one place.",
-    images: ["/images/homepage/student-portal.png"],
+    images: ["/images/students-new/student-23.jpg"],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "[Attemptid] - Learning Management System | Elevate for Humanity",
     description: "Access your courses, track progress, view assignments, and manage your learning journey in one place.",
-    images: ["/images/homepage/student-portal.png"],
+    images: ["/images/students-new/student-23.jpg"],
   },
 };
 

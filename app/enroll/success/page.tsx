@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Success - Apply Now - Start Your Career Training | Elevate for Humanity",
     description: "Apply for free WIOA-funded career training in healthcare, skilled trades, CDL, or barbering. Check eligibility and start your application today.",
-    images: ["/images/homepage/apply-now.png"],
+    images: ["/images/programs-new/program-14.jpg"],
     type: "website",
   },
   twitter: {

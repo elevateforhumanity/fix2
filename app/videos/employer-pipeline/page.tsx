@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Employer Pipeline Video | Elevate for Humanity",
     description: "Learn how employers connect with job-ready candidates through our talent pipeline.",
-    images: ["/images/homepage/employer-partnerships.png"],
+    images: ["/images/success-new/success-20.jpg"],
     type: "website",
   },
 };

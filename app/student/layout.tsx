@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation';
+// Image asset: /images/success-new/success-14.jpg
 import { createServerSupabaseClient } from '@/lib/auth';
 import { Metadata } from 'next';
 

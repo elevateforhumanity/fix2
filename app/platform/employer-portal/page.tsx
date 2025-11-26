@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Employer Portal | Elevate for Humanity",
     description: "Manage OJT, WEX, and apprenticeship programs. Track candidates and access wage reimbursement reporting.",
-    images: ["/images/homepage/employer-partnerships.png"],
+    images: ["/images/facilities-new/facility-3.jpg"],
     type: "website",
   },
 };

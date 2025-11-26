@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "HVAC Technician Training Program | Elevate for Humanity",
     description: "HVAC technician training. Learn installation, maintenance, and repair. WIOA-funded, 12-16 weeks.",
-    images: ["/images/courses/hvac-technician-10002289-cover.jpg"],
+    images: ["/images/programs-new/program-15.jpg"],
     type: "website",
   },
 };

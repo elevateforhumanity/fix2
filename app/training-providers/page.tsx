@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Training Providers - Partner With Us | Elevate for Humanity",
     description: "Partner with us to fill seats with WIOA-funded learners. We handle compliance and workforce coordination.",
-    images: ["/images/homepage/training-provider-partnerships.png"],
+    images: ["/images/students-new/student-15.jpg"],
     type: "website",
   },
 };

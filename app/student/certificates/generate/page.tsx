@@ -5,7 +5,11 @@ import CertificateGenerator from '@/components/CertificateGenerator';
 export const metadata = {
   title: 'Generate Certificate | Student Portal',
   description: 'Generate your program completion certificate',
-};
+,
+  openGraph: {
+    images: ["/images/programs-new/program-33.jpg"],
+    type: "website",
+  }};
 
 export default async function GenerateCertificatePage() {
   const supabase = await createServerSupabaseClient();

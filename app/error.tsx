@@ -1,4 +1,5 @@
 'use client';
+// Image asset: /images/hero-new/hero-9.jpg
 
 import { useEffect } from 'react';
 import Link from 'next/link';

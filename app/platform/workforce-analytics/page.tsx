@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Workforce Analytics | Elevate for Humanity",
     description: "Track enrollment, completion rates, job placements, and compliance metrics in real-time.",
-    images: ["/images/hero-banner-new.png"],
+    images: ["/images/facilities-new/facility-11.jpg"],
     type: "website",
   },
 };

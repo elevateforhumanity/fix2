@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Elevate Overview Video | Elevate for Humanity",
     description: "Watch our overview video to learn how we connect job seekers with free career training.",
-    images: ["/images/homepage/pathways-to-employment-banner.png"],
+    images: ["/images/facilities-new/facility-12.jpg"],
     type: "website",
   },
 };

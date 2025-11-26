@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+// Image asset: /images/facilities-new/facility-10.jpg
 
 export const metadata: Metadata = {
   title: "Login - Access Your Account",

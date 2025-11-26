@@ -5,7 +5,11 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Staff Portal | Elevate for Humanity',
   description: 'Access student records, reports, and administrative tools',
-};
+,
+  openGraph: {
+    images: ["/images/students-new/student-8.jpg"],
+    type: "website",
+  }};
 
 export default async function StaffPortalPage() {
   const supabase = await createServerSupabaseClient();

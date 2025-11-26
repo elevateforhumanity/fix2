@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cookie Policy | Elevate for Humanity",
     description: "Learn about how we use cookies and similar technologies. Understand your rights and cookie preferences.",
-    images: ["/images/hero-banner-new.png"],
+    images: ["/images/team-new/team-2.jpg"],
     type: "website",
   },
 };

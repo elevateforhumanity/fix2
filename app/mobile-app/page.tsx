@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mobile Page.Tsx - Workforce Development Platform | Elevate for Humanity",
     description: "Elevate for Humanity connects job seekers with free career training and employers with skilled talent.",
-    images: ["/images/hero-banner-new.png"],
+    images: ["/images/hero-new/hero-10.jpg"],
     type: "website",
   },
   twitter: {

@@ -3,7 +3,11 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Become a Training Provider | Elevate for Humanity',
   description: 'Partner with Elevate for Humanity to provide workforce training. Learn what it means to be a training provider and how to get started.',
-};
+,
+  openGraph: {
+    images: ["/images/team-new/team-3.jpg"],
+    type: "website",
+  }};
 
 export default function TrainingProviderPage() {
   return (

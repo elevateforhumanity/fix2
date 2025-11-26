@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+// Image asset: /images/success-new/success-8.jpg
 import { redirect } from 'next/navigation';
 import { requireAdmin } from '@/lib/auth';
 import AdminNav from '@/components/AdminNav';

@@ -6,9 +6,12 @@ import {
   Users, BookOpen, Briefcase, TrendingUp, Heart 
 } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'CNA Training - Certified Nursing Assistant | Elevate For Humanity',
-  description: 'FREE CNA training through WIOA funding. Become a Certified Nursing Assistant in 6-8 weeks. 85% job placement rate. Start your healthcare career in Indianapolis.',
+  openGraph: {
+    title: "Program | Elevate for Humanity",
+    description: "Career training and workforce development programs.",
+    images: ["/images/programs-new/program-18.jpg"],
+    type: "website",
+  },
 };
 
 export default function CNAPage() {

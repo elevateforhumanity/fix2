@@ -14,7 +14,11 @@ export const metadata = {
   title: 'How to Utilize the System | Elevate for Humanity',
   description:
     'Complete guide on how to use the Elevate platform as a program holder',
-};
+,
+  openGraph: {
+    images: ["/images/success-new/success-10.jpg"],
+    type: "website",
+  }};
 
 export default function HowToUsePage() {
   const steps = [
