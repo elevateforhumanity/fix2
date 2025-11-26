@@ -86,10 +86,10 @@ export default function MainFooter() {
               </li>
               <li>
                 <a
-                  href="mailto:info@elevateforhumanity.org"
+                  href="mailto:Elevate4humanityedu@gmail.com"
                   className="text-slate-600 hover:text-orange-500"
                 >
-                  info@elevateforhumanity.org
+                  Elevate4humanityedu@gmail.com
                 </a>
               </li>
             </ul>
