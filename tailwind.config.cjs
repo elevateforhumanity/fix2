@@ -34,7 +34,20 @@ module.exports = {
         smooth: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
       },
       colors: {
-        // Professional Brand Colors - Blue (Trust) + Orange (Energy)
+        // Primary Brand Color - Blue (consistency across platform)
+        primary: {
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6', // Main brand blue
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+        },
+        // Keep brand as alias for backwards compatibility
         brand: {
           50: '#eff6ff',
           100: '#dbeafe',
