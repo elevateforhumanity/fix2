@@ -63,10 +63,10 @@ export default function Homepage() {
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
                 <div className="relative h-64 md:h-full min-h-[300px]">
                   <Image 
-                    src="/media/testimonials/testimonial-success-2-part4.png" 
+                    src="/media/programs/building-tech-hd.jpg" 
                     alt="Career Transformation Story" 
                     fill
-                    className="object-contain"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6 md:p-8">
@@ -90,10 +90,10 @@ export default function Homepage() {
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
                 <div className="relative h-64 md:h-full min-h-[300px]">
                   <Image 
-                    src="/media/testimonials/testimonial-success-3-part4.png" 
+                    src="/media/programs/cna-hd.jpg" 
                     alt="From Barriers to Breakthrough" 
                     fill
-                    className="object-contain"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6 md:p-8">
@@ -117,10 +117,10 @@ export default function Homepage() {
               <div className="grid md:grid-cols-[1fr,1.4fr] gap-6 items-center">
                 <div className="relative h-64 md:h-full min-h-[300px]">
                   <Image 
-                    src="/media/testimonials/testimonial-success-4-part3.png" 
+                    src="/media/programs/building-hd.jpg" 
                     alt="Building a Better Future" 
                     fill
-                    className="object-contain"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6 md:p-8">
