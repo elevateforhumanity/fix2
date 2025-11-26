@@ -34,16 +34,17 @@ module.exports = {
         smooth: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
       },
       colors: {
-        // Brand Colors - Red primary, minimal blue, white, black text
-        brandPrimary: '#DC2626',      // Red - main CTAs and accents
+        // Brand Colors - White background, red primary, hints of blue/orange, black text
+        brandPrimary: '#DC2626',      // Red - main CTAs and primary actions
         brandPrimaryDark: '#B91C1C',  // Darker red for hovers
-        brandSecondary: '#F97316',    // Orange - secondary accents
-        brandBlue: '#1E40AF',         // Minimal blue - only where needed
-        brandBlueDark: '#1E3A8A',     // Dark blue
+        brandSecondary: '#F97316',    // Orange - subtle accents only
+        brandBlue: '#2563EB',         // Blue - minimal hints/accents
+        brandBlueDark: '#1E40AF',     // Dark blue
         brandRed: '#DC2626',          // Alias for compatibility
         brandOrange: '#F97316',       // Alias for compatibility
-        brandWhite: '#FFFFFF',
-        brandBlack: '#0F172A',        // Near-black for text
+        brandWhite: '#FFFFFF',        // White backgrounds
+        brandBlack: '#000000',        // Pure black for text
+        brandText: '#0F172A',         // Near-black for body text
         
         // Primary Brand Color - Blue (consistency across platform)
         primaryBrand: {

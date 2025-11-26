@@ -9,16 +9,16 @@ export default function HomePage() {
   return (
     <div className="min-h-screen w-full bg-white">
       {/* HERO SECTION */}
-      <section className="w-full bg-gradient-to-r from-red-600 via-indigo-600 to-purple-600">
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 md:flex-row md:items-center md:justify-between">
-          <div className="max-w-xl text-white">
-            <p className="text-xs uppercase tracking-wide text-blue-100">
+      <section className="w-full bg-white border-b-4 border-brandPrimary">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-16 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-xl">
+            <p className="text-xs uppercase tracking-wide text-gray-600">
               Elevate For Humanity · Workforce · Education · Community
             </p>
-            <h1 className="mt-2 text-3xl font-bold md:text-4xl">
+            <h1 className="mt-2 text-4xl font-bold text-brandBlack md:text-5xl">
               Training, funding, and support that actually fit real life.
             </h1>
-            <p className="mt-3 text-sm text-blue-50">
+            <p className="mt-3 text-base text-gray-700">
               Elevate For Humanity connects people to{" "}
               <span className="font-semibold">
                 career training, state and federal workforce funding, and real
@@ -29,16 +29,16 @@ export default function HomePage() {
               more.
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-3 text-xs">
+            <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/programs"
-                className="inline-flex items-center justify-center rounded-md bg-white px-4 py-2 font-semibold text-brandPrimary shadow-sm hover:bg-red-50"
+                className="inline-flex items-center justify-center rounded-md bg-brandPrimary px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-brandPrimaryDark transition-colors"
               >
                 Explore Programs
               </Link>
               <Link
                 href="/funding"
-                className="inline-flex items-center justify-center rounded-md border border-white/30 bg-transparent px-4 py-2 font-semibold text-white hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-md border-2 border-brandPrimary bg-white px-6 py-3 text-sm font-semibold text-brandPrimary hover:bg-red-50 transition-colors"
               >
                 See How Funding Works
               </Link>
@@ -46,17 +46,29 @@ export default function HomePage() {
           </div>
 
           {/* Right side hero card */}
-          <div className="w-full max-w-sm rounded-2xl bg-white/10 p-4 text-xs text-blue-50 backdrop-blur-md">
-            <h2 className="text-sm font-semibold text-white">
+          <div className="w-full max-w-sm rounded-xl border-2 border-gray-200 bg-white p-6 shadow-lg">
+            <h2 className="text-lg font-bold text-brandBlack">
               Who We Serve
             </h2>
-            <ul className="mt-2 space-y-1 text-[11px]">
-              <li>• Adults ready for a career change.</li>
-              <li>• Youth 18–24 who need a real plan.</li>
-              <li>• Justice-involved individuals rebuilding their lives.</li>
-              <li>• Employers who want trained, supported talent.</li>
+            <ul className="mt-3 space-y-2 text-sm text-gray-700">
+              <li className="flex items-start">
+                <span className="mr-2 text-brandPrimary">•</span>
+                <span>Adults ready for a career change</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-brandPrimary">•</span>
+                <span>Youth 18–24 who need a real plan</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-brandPrimary">•</span>
+                <span>Justice-involved individuals rebuilding their lives</span>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-brandPrimary">•</span>
+                <span>Employers who want trained, supported talent</span>
+              </li>
             </ul>
-            <p className="mt-3 text-[11px] text-blue-100">
+            <p className="mt-4 text-sm text-gray-600 border-t border-gray-200 pt-4">
               Our job is to connect training, funding, and employers so you have
               a real path — not just a brochure.
             </p>
