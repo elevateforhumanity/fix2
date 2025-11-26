@@ -40,14 +40,75 @@ export default async function MarketplacePage() {
 
   return (
     <main className="min-h-screen bg-slate-50">
+      {/* Enhanced Hero Section */}
+      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-wide text-blue-200 mb-2">
+              Elevate Marketplace
+            </p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Discover Your Next Career Path
+            </h1>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Browse 27+ fully-funded training programs. Filter by industry, duration, and funding source.
+            </p>
+            
+            {/* Search Bar */}
+            <div className="max-w-2xl mx-auto">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="Search programs (e.g., HVAC, Medical Assistant, Barber)"
+                  className="flex-1 px-6 py-4 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                />
+                <button className="px-8 py-4 bg-white text-blue-600 rounded-lg font-bold hover:bg-blue-50 transition">
+                  Search
+                </button>
+              </div>
+            </div>
+
+            {/* Quick Filters */}
+            <div className="flex flex-wrap justify-center gap-3 mt-6">
+              {['Healthcare', 'Skilled Trades', 'Beauty & Wellness', 'Technology', 'Business'].map((cat) => (
+                <button key={cat} className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition">
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="bg-white border-b border-slate-200 py-8">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+              <div className="text-3xl font-bold text-blue-600">27+</div>
+              <div className="text-sm text-slate-600">Training Programs</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-green-600">100%</div>
+              <div className="text-sm text-slate-600">Funded Training</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-purple-600">2,847</div>
+              <div className="text-sm text-slate-600">Students Enrolled</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-orange-600">85%</div>
+              <div className="text-sm text-slate-600">Job Placement Rate</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-4 py-10">
         <header className="mb-6">
-          <p className="text-xs font-semibold uppercase tracking-wide text-orange-500">
-            Elevate Marketplace
-          </p>
-          <h1 className="mt-2 text-2xl font-semibold text-slate-900">
-            Workforce Programs Marketplace
-          </h1>
+          <h2 className="text-2xl font-semibold text-slate-900">
+            Available Programs
+          </h2>
           <p className="mt-2 max-w-2xl text-sm text-slate-600">
             Browse ready-to-launch programs you can license for your school,
             workforce board, or employer academy.
