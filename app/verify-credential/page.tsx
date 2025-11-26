@@ -3,7 +3,6 @@ import { BlockchainCredentialVerification } from '@/components/BlockchainCredent
 export const metadata = {
   title: 'Verify Credential | Elevate for Humanity',
   description: 'Verify the authenticity of certificates and credentials',
-,
   openGraph: {
     images: ["/images/students-new/student-22.jpg"],
     type: "website",

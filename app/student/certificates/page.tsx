@@ -7,7 +7,6 @@ import { redirect } from 'next/navigation';
 export const metadata: Metadata = {
   title: 'My Certificates | Student Portal',
   description: 'View and download your earned certificates',
-,
   openGraph: {
     images: ["/images/team-new/team-4.jpg"],
     type: "website",

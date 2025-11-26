@@ -1,5 +1,9 @@
 import Link from "next/link";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Building Maintenance Technician | Elevate for Humanity",
+  description: "Career training and workforce development programs.",
   openGraph: {
     title: "Program | Elevate for Humanity",
     description: "Career training and workforce development programs.",

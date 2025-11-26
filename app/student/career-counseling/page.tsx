@@ -5,7 +5,6 @@ import AICareerCounseling from '@/components/AICareerCounseling';
 export const metadata = {
   title: 'AI Career Counseling | Student Portal',
   description: 'Get personalized career guidance powered by AI',
-,
   openGraph: {
     images: ["/images/students-new/student-19.jpg"],
     type: "website",

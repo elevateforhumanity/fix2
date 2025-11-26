@@ -6,7 +6,6 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy | Elevate For Humanity",
   description: "Privacy policy for Elevate for Humanity. Learn how we collect, use, and protect your personal information.",
-,
   openGraph: {
     images: ["/images/students-new/student-9.jpg"],
     type: "website",

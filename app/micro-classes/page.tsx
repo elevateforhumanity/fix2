@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title: 'Micro Classes - Quick Certifications | Elevate For Humanity',
   description: 'Short-term certification programs through our partner training providers. Get certified quickly in high-demand skills.',
   keywords: ['micro classes', 'quick certifications', 'short-term training', 'partner programs'],
-,
   openGraph: {
     images: ["/images/programs-new/program-29.jpg"],
     type: "website",

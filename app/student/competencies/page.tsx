@@ -5,7 +5,6 @@ import CompetencyTracking from '@/components/CompetencyTracking';
 export const metadata = {
   title: 'Competency Tracking | Student Portal',
   description: 'Track your skill development and competency progress',
-,
   openGraph: {
     images: ["/images/success-new/success-18.jpg"],
     type: "website",

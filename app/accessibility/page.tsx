@@ -4,7 +4,6 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Accessibility Statement | Elevate for Humanity',
   description: 'Our commitment to digital accessibility for all users',
-,
   openGraph: {
     images: ["/images/facilities-new/facility-6.jpg"],
     type: "website",

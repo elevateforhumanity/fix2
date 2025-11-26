@@ -5,7 +5,6 @@ import SkillsGapAnalysis from '@/components/SkillsGapAnalysis';
 export const metadata = {
   title: 'Skills Gap Analysis | Student Portal',
   description: 'Identify skill gaps and get personalized learning recommendations',
-,
   openGraph: {
     images: ["/images/team-new/team-12.jpg"],
     type: "website",

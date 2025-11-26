@@ -6,6 +6,9 @@ import {
   Users, BookOpen, Briefcase, TrendingUp, Heart 
 } from 'lucide-react';
 
+export const metadata: Metadata = {
+  title: "Certified Nursing Assistant (CNA) | Elevate for Humanity",
+  description: "Career training and workforce development programs.",
   openGraph: {
     title: "Program | Elevate for Humanity",
     description: "Career training and workforce development programs.",

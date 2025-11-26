@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   title: 'Blog | Elevate for Humanity',
   description: 'Latest news, success stories, and workforce development insights from Elevate for Humanity. Learn about career training, funding programs, and student success.',
   keywords: ['workforce development', 'career training blog', 'student success stories', 'healthcare careers', 'training programs'],
-,
   openGraph: {
     images: ["/images/team-new/team-13.jpg"],
     type: "website",

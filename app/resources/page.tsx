@@ -6,7 +6,6 @@ import { FileText, Video, Download, ExternalLink, BookOpen, FileCheck } from 'lu
 export const metadata = {
   title: 'Resources | Elevate for Humanity',
   description: 'Training materials, guides, and resources for students',
-,
   openGraph: {
     images: ["/images/facilities-new/facility-18.jpg"],
     type: "website",

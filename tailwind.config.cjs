@@ -34,6 +34,13 @@ module.exports = {
         smooth: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
       },
       colors: {
+        // Brand Colors - Red, Blue, Orange, White
+        brandBlue: '#2563EB',
+        brandBlueDark: '#1D4ED8',
+        brandRed: '#DC2626',
+        brandOrange: '#F97316',
+        brandWhite: '#FFFFFF',
+        
         // Primary Brand Color - Blue (consistency across platform)
         primaryBrand: {
           50: '#eff6ff',

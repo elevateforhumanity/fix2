@@ -3,7 +3,6 @@ import VirtualCareerFair from '@/components/VirtualCareerFair';
 export const metadata = {
   title: 'Virtual Career Fair | Elevate for Humanity',
   description: 'Connect with employers and explore job opportunities',
-,
   openGraph: {
     images: ["/images/students-new/student-24.jpg"],
     type: "website",

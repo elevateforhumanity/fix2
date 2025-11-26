@@ -5,7 +5,6 @@ import { CourseCompletionTracking } from '@/components/CourseCompletionTracking'
 export const metadata = {
   title: 'My Progress | Student Portal',
   description: 'Track your course completion and achievements',
-,
   openGraph: {
     images: ["/images/team-new/team-6.jpg"],
     type: "website",

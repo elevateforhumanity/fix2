@@ -4,7 +4,6 @@ import Image from 'next/image';
 export const metadata = {
   title: 'What We Offer | Elevate for Humanity',
   description: 'Discover our comprehensive workforce training programs, support services, and career pathways. 100% funded through WIOA, WRG, JRI, and DOL programs.',
-,
   openGraph: {
     images: ["/images/team-new/team-5.jpg"],
     type: "website",

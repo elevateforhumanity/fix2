@@ -4,7 +4,6 @@ import { ShieldAlert } from 'lucide-react';
 export const metadata = {
   title: 'Unauthorized | Elevate for Humanity',
   description: 'Access denied',
-,
   openGraph: {
     images: ["/images/success-new/success-11.jpg"],
     type: "website",

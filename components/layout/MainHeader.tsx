@@ -55,10 +55,10 @@ export default function MainHeader() {
         {/* CTA Button + Mobile Menu Toggle */}
         <div className="flex items-center gap-3">
           <Link
-            href="/lms"
-            className="hidden rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 md:inline-block"
+            href="/login"
+            className="hidden rounded-md bg-slate-900 px-3 py-1 text-xs font-semibold text-white hover:bg-slate-800 md:inline-block"
           >
-            Go to LMS
+            Staff / Partner Login
           </Link>
 
           {/* Mobile Menu Button */}
@@ -99,11 +99,11 @@ export default function MainHeader() {
               </Link>
             ))}
             <Link
-              href="/lms"
+              href="/login"
               onClick={() => setMenuOpen(false)}
-              className="mt-3 block rounded-md bg-blue-600 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-blue-700"
+              className="mt-3 block rounded-md bg-slate-900 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-slate-800"
             >
-              Go to LMS
+              Staff / Partner Login
             </Link>
           </nav>
         </div>

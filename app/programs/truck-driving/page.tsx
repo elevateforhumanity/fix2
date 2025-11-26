@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import { CheckCircle, Clock, Award, TrendingUp } from 'lucide-react';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: "CDL Class A Driver | Elevate for Humanity",
+  description: "Career training and workforce development programs.",
   openGraph: {
     title: "Program | Elevate for Humanity",
     description: "Career training and workforce development programs.",

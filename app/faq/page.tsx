@@ -4,7 +4,6 @@ export const metadata = {
   title: 'FAQ | Elevate for Humanity',
   description:
     'Frequently asked questions about WIOA training programs and workforce development',
-,
   openGraph: {
     images: ["/images/success-new/success-9.jpg"],
     type: "website",

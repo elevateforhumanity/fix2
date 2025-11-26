@@ -5,7 +5,6 @@ import EmployerWorkforceAnalytics from '@/components/EmployerWorkforceAnalytics'
 export const metadata = {
   title: 'Workforce Analytics | Employer Portal',
   description: 'Analytics and insights for employer partners',
-,
   openGraph: {
     images: ["/images/students-new/student-27.jpg"],
     type: "website",

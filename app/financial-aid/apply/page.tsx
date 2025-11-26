@@ -3,7 +3,6 @@ import GrantScholarshipApplication from '@/components/GrantScholarshipApplicatio
 export const metadata = {
   title: 'Apply for Financial Aid | Elevate for Humanity',
   description: 'Apply for WIOA, WRG, JRI funding and scholarships',
-,
   openGraph: {
     images: ["/images/students-new/student-6.jpg"],
     type: "website",

@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title: "For Students | Elevate For Humanity",
   description: "Discover free career training programs, support services, and resources designed to help you succeed. No tuition, no debt, just opportunity.",
   keywords: ["student resources", "career training", "free education", "support services", "student success"],
-,
   openGraph: {
     images: ["/images/facilities-new/facility-13.jpg"],
     type: "website",

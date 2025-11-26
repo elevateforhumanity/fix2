@@ -14,7 +14,6 @@ import { createServerSupabaseClient } from '@/lib/auth';
 export const metadata = {
   title: 'Caseload Dashboard | Elevate for Humanity',
   description: 'Manage your student caseload',
-,
   openGraph: {
     images: ["/images/facilities-new/facility-20.jpg"],
     type: "website",

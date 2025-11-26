@@ -12,7 +12,6 @@ import {
 export const metadata = {
   title: "Student Dashboard | Elevate For Humanity",
   description: "Your complete learning hub",
-,
   openGraph: {
     images: ["/images/programs-new/program-19.jpg"],
     type: "website",

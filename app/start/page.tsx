@@ -3,7 +3,6 @@ import Link from "next/link";
 export const metadata = {
   title: "Start Your Journey | Elevate for Humanity",
   description: "Choose your path: learner, case manager, or employer. Start your journey with Elevate for Humanity today.",
-,
   openGraph: {
     images: ["/images/facilities-new/facility-19.jpg"],
     type: "website",
