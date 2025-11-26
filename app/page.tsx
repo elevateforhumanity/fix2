@@ -111,28 +111,61 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <article className="flex flex-col rounded-xl border border-slate-100 bg-slate-50 p-6">
-              <h3 className="text-lg font-semibold mb-3">Adult Learners</h3>
-              <p className="text-sm text-slate-600">
-                Get the skills, certifications, and confidence you need to
-                step into a high-demand career.
-              </p>
+            <article className="flex flex-col overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+              <div className="relative h-40 w-full">
+                <Image
+                  src="/images/PLACEHOLDER_WHO_ADULTS.jpg"
+                  alt="Adult learner in training"
+                  fill
+                  loading="lazy"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-1 flex-col gap-2 p-4">
+                <h3 className="text-base font-semibold">Adult Learners</h3>
+                <p className="text-sm text-slate-600">
+                  Get the skills, certifications, and confidence you need to
+                  step into a high-demand career.
+                </p>
+              </div>
             </article>
 
-            <article className="flex flex-col rounded-xl border border-slate-100 bg-slate-50 p-6">
-              <h3 className="text-lg font-semibold mb-3">Working Families</h3>
-              <p className="text-sm text-slate-600">
-                Flexible schedules and funded programs that fit your life —
-                not the other way around.
-              </p>
+            <article className="flex flex-col overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+              <div className="relative h-40 w-full">
+                <Image
+                  src="/images/PLACEHOLDER_WHO_FAMILIES.jpg"
+                  alt="Working family supported through training"
+                  fill
+                  loading="lazy"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-1 flex-col gap-2 p-4">
+                <h3 className="text-base font-semibold">Working Families</h3>
+                <p className="text-sm text-slate-600">
+                  Flexible schedules and funded programs that fit your life —
+                  not the other way around.
+                </p>
+              </div>
             </article>
 
-            <article className="flex flex-col rounded-xl border border-slate-100 bg-slate-50 p-6">
-              <h3 className="text-lg font-semibold mb-3">Returning Citizens</h3>
-              <p className="text-sm text-slate-600">
-                Structured training with support, accountability, and
-                employer-aligned pathways to rebuild and thrive.
-              </p>
+            <article className="flex flex-col overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+              <div className="relative h-40 w-full">
+                <Image
+                  src="/images/PLACEHOLDER_WHO_REENTRY.jpg"
+                  alt="Returning citizen in a supported workforce program"
+                  fill
+                  loading="lazy"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-1 flex-col gap-2 p-4">
+                <h3 className="text-base font-semibold">Returning Citizens</h3>
+                <p className="text-sm text-slate-600">
+                  Structured training with support, accountability, and
+                  employer-aligned pathways to rebuild and thrive.
+                </p>
+              </div>
             </article>
           </div>
         </div>
