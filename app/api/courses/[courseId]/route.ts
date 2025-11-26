@@ -9,8 +9,11 @@ export async function GET(
     const supabase = await createClient();
     const { courseId } = params;
 
+    // Check if courseId is a UUID or slug
+    const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(courseId);
+
     // Get course with lessons
-    const { data: course, error: courseError } = await supabase
+    const query = supabase
       .from('courses')
       .select(`
         *,
@@ -24,9 +27,12 @@ export async function GET(
           order_index,
           is_preview
         )
-      `)
-      .eq('id', courseId)
-      .single();
+      `);
+
+    // Query by ID or slug
+    const { data: course, error: courseError } = isUUID
+      ? await query.eq('id', courseId).single()
+      : await query.eq('slug', courseId).single();
 
     if (courseError) {
       return NextResponse.json({ error: courseError.message }, { status: 404 });
