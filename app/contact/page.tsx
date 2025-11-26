@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 
 export default function ContactPage() {
