@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BookOpen, FileText, Award, Calendar, TrendingUp, Clock, CheckCircle, MessageCircle, UserPlus, Video, MessageSquare, HelpCircle, Settings, GripVertical, Eye, EyeOff, Bell } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/Card';
 
@@ -20,15 +21,28 @@ export default function StudentDashboardPage() {
   });
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Hero Banner */}
+      <div className="relative h-48 bg-gradient-to-r from-blue-600 to-indigo-700 overflow-hidden">
+        <Image
+          src="/images/artlist/cropped/hero-training-1-wide.jpg"
+          alt="Student Dashboard"
+          fill
+          className="object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-indigo-900/60" />
+        <div className="relative max-w-6xl mx-auto px-6 h-full flex items-center">
+          <div>
+            <h1 className="text-4xl font-bold text-white">Welcome back, John!</h1>
+            <p className="text-blue-100 mt-2 text-lg">HVAC Technician Training</p>
+          </div>
+        </div>
+      </div>
+      
       {/* Simple Header */}
       <div className="bg-white border-b">
-        <div className="max-w-6xl mx-auto px-6 py-8">
+        <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Welcome back, John!</h1>
-              <p className="text-gray-600 mt-1">HVAC Technician Training</p>
-            </div>
-            <div className="flex items-center gap-3">
               {/* Notifications */}
               <div className="relative">
                 <button

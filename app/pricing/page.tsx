@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Check, X } from 'lucide-react';
 
 export const metadata = {
@@ -49,11 +50,21 @@ export default function PricingPage() {
         </div>
       </header>
       {/* Hero */}
-      <section className="elevate-hero">
-        <div className="elevate-hero-content text-center">
-          <div className="elevate-hero-kicker mx-auto">100% Free Training</div>
-          <h1 className="elevate-hero-title">No Hidden Costs. Ever.</h1>
-          <p className="elevate-hero-subtitle mx-auto">
+      <section className="relative elevate-hero overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/artlist/cropped/hero-training-7-wide.jpg"
+            alt="Pricing and Value"
+            fill
+            className="object-cover opacity-15"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-indigo-900/60" />
+        <div className="relative elevate-hero-content text-center">
+          <div className="elevate-hero-kicker mx-auto bg-white/20 backdrop-blur-sm">100% Free Training</div>
+          <h1 className="elevate-hero-title text-white">No Hidden Costs. Ever.</h1>
+          <p className="elevate-hero-subtitle mx-auto text-blue-100">
             All our training programs are 100% FREE for eligible participants
             through WIOA funding
           </p>

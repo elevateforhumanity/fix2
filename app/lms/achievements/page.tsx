@@ -1,4 +1,5 @@
 import MobileAchievementCard from '@/components/mobile/MobileAchievementCard';
+import Image from 'next/image';
 import { Award, Trophy, Star, Zap, Target, BookOpen } from 'lucide-react';
 
 export const metadata = {

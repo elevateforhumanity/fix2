@@ -1,4 +1,5 @@
 // app/lms/study-groups/page.tsx - ACTIVATED VERSION
+import Image from 'next/image';
 "use client";
 
 import { useEffect, useState } from "react";

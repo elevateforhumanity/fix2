@@ -2,6 +2,7 @@ import { Header } from '@/components/ui/Header';
 import { Footer } from '@/components/ui/Footer';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import Image from 'next/image';
 import { DollarSign, CheckCircle, Book, Home, Baby, Bus } from 'lucide-react';
 import { Metadata } from 'next';
 
@@ -63,13 +64,23 @@ export default function FinancialAidPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="py-20 px-4 bg-gradient-to-br from-green-50 to-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="success" className="mb-4">Financial Aid</Badge>
-            <h1 className="text-5xl font-bold text-slate-900 mb-6">
+        <section className="relative py-20 px-4 bg-gradient-to-br from-green-600 to-emerald-700 overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              src="/images/artlist/hero-training-2.jpg"
+              alt="Financial Aid and Funding"
+              fill
+              className="object-cover opacity-20"
+              priority
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 to-emerald-900/70" />
+          <div className="relative max-w-4xl mx-auto text-center">
+            <Badge variant="success" className="mb-4 bg-white/20 backdrop-blur-sm text-white border-white/30">Financial Aid</Badge>
+            <h1 className="text-5xl font-bold text-white mb-6">
               Training at No Cost to You
             </h1>
-            <p className="text-xl text-slate-600">
+            <p className="text-xl text-green-100">
               Multiple funding options available to cover your training expenses
             </p>
           </div>
