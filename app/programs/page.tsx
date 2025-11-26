@@ -1,5 +1,6 @@
 // app/programs/page.tsx
 import Link from "next/link";
+import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { Button } from "@/components/ui/Button";
@@ -27,6 +28,7 @@ const programs = [
     category: "Healthcare",
     length: "4–6 months · Hybrid",
     funding: "WRG · WIOA · Workforce Grants",
+    image: "/media/programs/medical-assistant-video-thumbnail.jpg",
     blurb:
       "Hands-on clinical and front-office skills for entry-level roles in clinics, hospitals, and specialty practices. Built with partner schools and Elevate support.",
   },
@@ -36,6 +38,7 @@ const programs = [
     category: "Apprenticeship · License Track",
     length: "12–18 months · Shop + Classroom",
     funding: "Apprenticeship · WIOA",
+    image: "/media/programs/barber-hd.jpg",
     blurb:
       "State-approved barber apprenticeship that mixes Milady-based theory with real shop experience, coaching, and licensing support.",
   },
@@ -45,6 +48,7 @@ const programs = [
     category: "Skilled Trades",
     length: "4–9 months · Lab + Field",
     funding: "Workforce Grants · Employer Sponsors",
+    image: "/media/programs/hvac-hd.jpg",
     blurb:
       "Partner-led technical training in heating, ventilation, and air conditioning with Elevate as the front door, tracker, and connector.",
   },
@@ -54,6 +58,7 @@ const programs = [
     category: "Facilities & Property",
     length: "4–9 months · On-site",
     funding: "Workforce Grants · Apprenticeship",
+    image: "/media/programs/building-tech-hd.jpg",
     blurb:
       "Training for core skills in building systems, repairs, and property maintenance for residential, commercial, or institutional sites.",
   },
@@ -63,6 +68,7 @@ const programs = [
     category: "Transportation",
     length: "Varies · Range + Road",
     funding: "Workforce Grants · Employer Sponsors",
+    image: "/media/programs/cdl-hd.jpg",
     blurb:
       "Connections to CDL programs and transportation employers, with Elevate support for readiness, paperwork, and employer alignment.",
   },
@@ -72,6 +78,7 @@ const programs = [
     category: "Readiness & Soft Skills",
     length: "4–12 weeks · Workshops + Coaching",
     funding: "Support Services · Referrals",
+    image: "/media/programs/counseling-training-hd.jpg",
     blurb:
       "Coaching, soft skills, and barrier support for adults and re-entry talent preparing to step back into training or employment.",
   },
@@ -98,21 +105,31 @@ export default function ProgramsPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {programs.map((program) => (
               <Link key={program.slug} href={`/programs/${program.slug}`}>
-                <AnimatedCard className="h-full p-4 md:p-5 flex flex-col justify-between cursor-pointer">
-                  <div className="space-y-3">
-                    <span className="inline-flex rounded-full bg-accent-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-500">
-                      {program.category}
-                    </span>
-                    <h3 className="text-base md:text-lg font-semibold text-slate-900">
-                      {program.name}
-                    </h3>
-                    <p className="text-xs md:text-sm text-slate-600">
-                      {program.blurb}
-                    </p>
+                <AnimatedCard className="h-full overflow-hidden cursor-pointer">
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={program.image}
+                      alt={program.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
-                  <div className="mt-4 flex items-center justify-between text-[11px] text-slate-600">
-                    <span>{program.length}</span>
-                    <span className="text-right">{program.funding}</span>
+                  <div className="p-4 md:p-5 flex flex-col justify-between">
+                    <div className="space-y-3">
+                      <span className="inline-flex rounded-full bg-accent-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-500">
+                        {program.category}
+                      </span>
+                      <h3 className="text-base md:text-lg font-semibold text-slate-900">
+                        {program.name}
+                      </h3>
+                      <p className="text-xs md:text-sm text-slate-600">
+                        {program.blurb}
+                      </p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between text-[11px] text-slate-600">
+                      <span>{program.length}</span>
+                      <span className="text-right">{program.funding}</span>
+                    </div>
                   </div>
                 </AnimatedCard>
               </Link>
