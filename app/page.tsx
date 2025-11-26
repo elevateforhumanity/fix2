@@ -442,7 +442,7 @@ export default function HomePage() {
             <div className="lg:col-span-2 space-y-6">
               <div className="relative h-80 w-full overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-indigo-700 shadow-2xl">
                 <Image
-                  src="/images/Success_Story_Portrait_Sarah_fc9f8fd1.png"
+                  src="/images/artlist/hero-training-8.jpg"
                   alt="Graduate sharing their success story"
                   fill
                   className="object-cover mix-blend-overlay opacity-40"
@@ -481,13 +481,13 @@ export default function HomePage() {
 
             <div className="space-y-6">
               <SuccessCard
-                image="/images/Success_Story_Portrait_Marcus_112c6bbd.png"
+                image="/images/artlist/cropped/hero-training-7-square.jpg"
                 quote="I was nervous about going back to school. Elevate broke everything down and walked with me through funding and training."
                 name="Marcus J."
                 track="Skilled Trades Graduate"
               />
               <SuccessCard
-                image="/images/Success_Story_Portrait_Lisa_9a59d350.png"
+                image="/images/artlist/cropped/hero-training-4-square.jpg"
                 quote="As a returning citizen, I needed structure and support. This program helped me get a real job and a real second chance."
                 name="Lisa T."
                 track="Reentry Program Graduate"
