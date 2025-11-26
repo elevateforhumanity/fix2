@@ -340,21 +340,35 @@ Test these APIs:
 
 ## 📈 Market Position
 
-### vs Coursera
-- ✅ Better: xAPI, certificate verification, workforce focus
-- ✅ Unique: Caseload, program holder portal, funding flows
-
 ### vs Canvas
-- ✅ Better: Modern UI, mobile app, setup simplicity
-- ✅ Unique: Public verification, workforce features
+- **Architecture:** Similar quality, but Canvas has more mature admin tools
+- **Advantage:** Modern Next.js stack vs Canvas's Ruby on Rails
+- **Unique:** Public certificate verification, caseload dashboard, program holder portal, WIOA/WRG/JRI enrollment flows
+- **Better:** Mobile app, setup simplicity, workforce-specific features
+
+### vs Coursera
+- **Flexibility:** More flexible and customizable (Coursera is rigid/templated)
+- **Advantage:** Self-hosted control vs Coursera's closed platform
+- **Unique:** Workforce funding flows, program holder portal, caseload tracking
+- **Better:** xAPI tracking, certificate verification, hands-on training support
 
 ### vs Moodle
-- ✅ Better: Everything (UI, mobile, features, setup)
-- ✅ Unique: All workforce-specific features
+- **Codebase:** Cleaner, more modern (Next.js/TypeScript vs PHP legacy)
+- **Advantage:** Modern architecture, faster performance, easier maintenance
+- **Unique:** All workforce-specific features, AI course builder, mobile app
+- **Better:** UI/UX, mobile experience, setup simplicity, developer experience
+
+### vs Udemy
+- **Focus:** Enterprise workforce training vs marketplace-centric
+- **Advantage:** Compliance features, funding program support, apprenticeships
+- **Unique:** WIOA/WRG/JRI flows, program holder portal, caseload dashboard
+- **Better:** Workforce alignment, employer verification, hands-on tracking
 
 ### vs Docebo
-- ✅ Better: Price, setup, workforce alignment
-- ✅ Unique: Program holder portal, funding flows
+- **Price:** More affordable with similar enterprise features
+- **Advantage:** Open architecture, customizable, workforce-focused
+- **Unique:** Public certificate verification, funding application flows
+- **Better:** Setup simplicity, workforce program alignment, cost-effectiveness
 
 ---
 
