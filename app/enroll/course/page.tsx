@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useState } from 'react';
 import Link from 'next/link';
 import {
@@ -51,10 +53,10 @@ export default function EnrollPage() {
               <p className="text-slate-600 mt-1">{course.title}</p>
             </div>
             <Link
-              href={`/courses/${params.courseId}`}
+              href="/courses"
               className="text-slate-600 hover:text-slate-900 transition-colors"
             >
-              Back to Course
+              Back to Courses
             </Link>
           </div>
         </div>
