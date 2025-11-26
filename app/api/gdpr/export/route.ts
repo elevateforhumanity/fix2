@@ -15,13 +15,13 @@ export async function POST(request: NextRequest) {
     const result = await requestDataPortability(user.id, format);
 
     if (!result.success) {
-      return NextResponse.json({ error: result.error }, { status: 500 });
+      return NextResponse.json({ error: (result as any).error || 'Export failed' }, { status: 500 });
     }
 
-    return new NextResponse(result.data, {
+    return new NextResponse((result as any).data, {
       headers: {
-        'Content-Type': result.contentType,
-        'Content-Disposition': `attachment; filename="${result.filename}"`,
+        'Content-Type': (result as any).contentType,
+        'Content-Disposition': `attachment; filename="${(result as any).filename}"`,
       },
     });
   } catch (error) {

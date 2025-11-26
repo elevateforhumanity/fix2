@@ -219,7 +219,8 @@ export function MobileOptimizedNav() {
                 <ol className="space-y-2 text-sm text-blue-800">
                   <li className="flex gap-2">
                     <span className="font-bold">1.</span>
-                    <span>Visit <a href="https://indianaconnect.com" target="_blank" rel="noopener noreferrer" className="underline font-bold">IndianaConnect.com</a></span>
+                    <span>Visit <a href="https://indianaconnect.com" target="_blank" rel="noopener noreferrer"
+className="underline font-bold">IndianaConnect.com</a></span>
                   </li>
                   <li className="flex gap-2">
                     <span className="font-bold">2.</span>

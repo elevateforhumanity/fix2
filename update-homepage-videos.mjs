@@ -102,7 +102,7 @@ const newVideoSection = `          <div className="grid grid-cols-1 sm:grid-cols
           </div>`;
 
 // Find and replace the video grid section
-const videoGridRegex = /          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">[\s\S]*?<\/div>\s*<\/div>/;
+const videoGridRegex = / {10}<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">[\s\S]*?<\/div>\s*<\/div>/;
 
 if (videoGridRegex.test(content)) {
   content = content.replace(videoGridRegex, newVideoSection + '\n        </div>');

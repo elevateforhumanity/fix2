@@ -3,13 +3,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getUserIdFromRequest } from "@/lib/getUserIdFromRequest";
 
-type Params = { params: { forumId: string; threadId: string } };
+type Params = { params: Promise<{ forumId: string; threadId: string }> };
 
 // GET: full thread details + posts
 export async function GET(_req: NextRequest, { params }: Params) {
   try {
+    const { threadId } = await params;
     const supabase = await createClient();
-    const threadId = params.threadId;
 
     // Get thread details
     const { data: thread, error: threadError } = await supabase
@@ -115,13 +115,13 @@ export async function GET(_req: NextRequest, { params }: Params) {
 // POST: add a reply to the thread
 export async function POST(req: NextRequest, { params }: Params) {
   try {
+    const { threadId } = await params;
     const userId = getUserIdFromRequest(req);
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const supabase = await createClient();
-    const threadId = params.threadId;
     const body = (await req.json()) as { content?: string };
 
     if (!body.content) {

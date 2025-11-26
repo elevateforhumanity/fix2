@@ -6,7 +6,7 @@ import { getCurrentUser } from '@/lib/auth';
 
 const stripeKey = process.env.STRIPE_SECRET_KEY || '';
 const stripe = stripeKey ? new Stripe(stripeKey, {
-  apiVersion: '2024-11-20.acacia',
+  apiVersion: '2025-10-29.clover',
 }) : null;
 
 export async function POST(request: NextRequest) {

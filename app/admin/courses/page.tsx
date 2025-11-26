@@ -112,8 +112,10 @@ export default async function AdminCoursesPage() {
                 <div className="bg-white p-4 rounded border border-red-300 mb-3">
                   <p className="text-sm font-semibold text-gray-900 mb-2">Quick Fix (2 minutes):</p>
                   <ol className="text-sm text-gray-800 space-y-1 list-decimal list-inside">
-                    <li>Open: <a href="https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new" target="_blank" className="text-blue-600 underline">Supabase SQL Editor</a></li>
-                    <li>Copy SQL from: <a href="https://raw.githubusercontent.com/elevateforhumanity/fix2/main/FINAL_MIGRATION.sql" target="_blank" className="text-blue-600 underline">FINAL_MIGRATION.sql</a></li>
+                    <li>Open: <a href="https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new" target="_blank" className="text-blue-600 underline"
+rel="noreferrer">Supabase SQL Editor</a></li>
+                    <li>Copy SQL from: <a href="https://raw.githubusercontent.com/elevateforhumanity/fix2/main/FINAL_MIGRATION.sql" target="_blank" className="text-blue-600 underline"
+rel="noreferrer">FINAL_MIGRATION.sql</a></li>
                     <li>Paste and click "Run"</li>
                     <li>Refresh this page</li>
                   </ol>

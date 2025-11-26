@@ -4,7 +4,7 @@ import { getCurrentUser } from "@/lib/auth";
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { lessonId: string } }
+  { params }: { params: Promise<{ lessonId: string }> }
 ) {
   const supabase = await createClient();
   const user = await getCurrentUser();
@@ -13,7 +13,7 @@ export async function GET(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { lessonId } = params;
+  const { lessonId } = await params;
 
   const { data, error } = await supabase
     .from("lesson_notes")
@@ -32,7 +32,7 @@ export async function GET(
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { lessonId: string } }
+  { params }: { params: Promise<{ lessonId: string }> }
 ) {
   const supabase = await createClient();
   const user = await getCurrentUser();
@@ -41,7 +41,7 @@ export async function POST(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { lessonId } = params;
+  const { lessonId } = await params;
   const body = await req.json();
   const { text, body: noteBody, positionSeconds } = body;
 

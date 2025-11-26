@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/auth';
-import AutoFlowCharts from '@/components/admin/AutoFlowCharts';
+import { AutoFlowCharts } from '@/components/admin/AutoFlowCharts';
 
 export const metadata = {
   title: 'Workflow Automation | Admin',

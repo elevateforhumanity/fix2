@@ -598,17 +598,19 @@ export async function handleStripeWebhook(event: Stripe.Event): Promise<void> {
   const supabase = await createClient();
 
   switch (event.type) {
-    case 'payment_intent.succeeded':
+    case 'payment_intent.succeeded': {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
       await confirmPayment(paymentIntent.id);
       break;
+    }
 
-    case 'payment_intent.payment_failed':
+    case 'payment_intent.payment_failed': {
       const failedIntent = event.data.object as Stripe.PaymentIntent;
       await handleFailedPayment(failedIntent.id);
       break;
+    }
 
-    case 'customer.subscription.updated':
+    case 'customer.subscription.updated': {
       const subscription = event.data.object as Stripe.Subscription;
       await supabase
         .from('subscriptions')
@@ -619,8 +621,9 @@ export async function handleStripeWebhook(event: Stripe.Event): Promise<void> {
         })
         .eq('stripe_subscription_id', subscription.id);
       break;
+    }
 
-    case 'customer.subscription.deleted':
+    case 'customer.subscription.deleted': {
       const deletedSub = event.data.object as Stripe.Subscription;
       await supabase
         .from('subscriptions')
@@ -630,6 +633,7 @@ export async function handleStripeWebhook(event: Stripe.Event): Promise<void> {
         })
         .eq('stripe_subscription_id', deletedSub.id);
       break;
+    }
 
     default:
       console.log(`Unhandled event type: ${event.type}`);

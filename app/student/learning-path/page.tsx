@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/auth';
-import AdaptiveLearningPath from '@/components/AdaptiveLearningPath';
+import { AdaptiveLearningPath } from '@/components/AdaptiveLearningPath';
 
 export const metadata = {
   title: 'My Learning Path | Student Portal',

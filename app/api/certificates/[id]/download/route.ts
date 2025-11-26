@@ -4,9 +4,10 @@ import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
@@ -18,7 +19,7 @@ export async function GET(
     const { data: certificate, error } = await supabase
       .from('certificates')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .eq('student_id', user.id)
       .single();
 
@@ -185,7 +186,7 @@ export async function GET(
     const pdfBytes = await pdfDoc.save();
 
     // Return PDF
-    return new NextResponse(pdfBytes, {
+    return new NextResponse(Buffer.from(pdfBytes), {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': `attachment; filename="certificate-${certificate.certificate_number}.pdf"`,

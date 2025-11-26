@@ -4,8 +4,9 @@ import { getServerSupabase } from "@/lib/supabaseClients";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   const supabase = getServerSupabase();
 
   if (!supabase) {
@@ -19,7 +20,7 @@ export async function GET(
     const { data: application, error } = await supabase
       .from("applications")
       .select("*")
-      .eq("id", params.id)
+      .eq("id", id)
       .maybeSingle();
 
     if (error) {

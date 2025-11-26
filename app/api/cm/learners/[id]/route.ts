@@ -5,7 +5,7 @@ import { getAuthUser } from "@/lib/auth";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   if (!supabaseAdmin) {
     return NextResponse.json(
@@ -15,16 +15,18 @@ export async function GET(
   }
 
   try {
+    const { id } = await params;
+    
     // Get current user
     const user = await getAuthUser();
-    if (!user || user.role !== "case_manager") {
+    if (!user || (user.role as string) !== "case_manager") {
       return NextResponse.json(
         { error: "Unauthorized - Case manager access required" },
         { status: 403 }
       );
     }
 
-    const learnerId = params.id;
+    const learnerId = id;
     const caseManagerId = user.id;
 
     // Verify case manager has access to this learner
@@ -91,13 +93,13 @@ export async function GET(
         .from("certificates")
         .select("certificate_url")
         .eq("user_id", learnerId)
-        .eq("program_id", enrollment.programs?.id)
+        .eq("program_id", (enrollment.programs as any)?.id)
         .maybeSingle();
 
       enrollmentDetails.push({
         id: enrollment.id,
-        program_title: enrollment.programs?.title || "Unknown Program",
-        program_slug: enrollment.programs?.slug || "",
+        program_title: (enrollment.programs as any)?.title || "Unknown Program",
+        program_slug: (enrollment.programs as any)?.slug || "",
         status: enrollment.status,
         funding_type: enrollment.funding_type,
         started_at: enrollment.started_at,

@@ -93,7 +93,7 @@ export default async function LMSDashboard() {
               <button className="relative p-2 hover:bg-slate-100 rounded-lg transition">
                 <Bell className="w-5 h-5 text-slate-600" />
                 {unreadNotifications.length > 0 && (
-                  <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                  <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
                 )}
               </button>
               <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
@@ -180,7 +180,7 @@ export default async function LMSDashboard() {
                         <p className="text-sm text-slate-600 mt-1">Continue where you left off</p>
                         <div className="mt-2 flex items-center gap-2">
                           <div className="flex-1 bg-slate-200 rounded-full h-2">
-                            <div className="bg-blue-600 h-2 rounded-full" style={{ width: '45%' }}></div>
+                            <div className="bg-blue-600 h-2 rounded-full" style={{ width: '45%' }} />
                           </div>
                           <span className="text-sm font-medium text-slate-700">45%</span>
                         </div>

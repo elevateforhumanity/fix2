@@ -37,7 +37,7 @@ export default function StudentDashboardSimple() {
             <div
               className="bg-white rounded-full h-3"
               style={{ width: '65%' }}
-            ></div>
+             />
           </div>
         </div>
 
@@ -103,7 +103,7 @@ export default function StudentDashboardSimple() {
             </div>
             <div className="space-y-3">
               <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2" />
                 <div className="flex-1">
                   <div className="font-semibold text-gray-900">
                     Refrigeration Quiz
@@ -114,7 +114,7 @@ export default function StudentDashboardSimple() {
                 </div>
               </div>
               <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2" />
                 <div className="flex-1">
                   <div className="font-semibold text-gray-900">
                     Safety Essay
@@ -125,7 +125,7 @@ export default function StudentDashboardSimple() {
                 </div>
               </div>
               <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
+                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2" />
                 <div className="flex-1">
                   <div className="font-semibold text-gray-900">
                     Next Class: HVAC Systems II

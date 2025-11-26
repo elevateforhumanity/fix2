@@ -20,7 +20,8 @@ export function SortableItem({
   };
 
   return (
-    <li ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <li ref={setNodeRef} style={style} {...attributes}
+{...listeners}>
       {children}
     </li>
   );

@@ -37,7 +37,7 @@ export function convertToCSV(data: any[], columns?: ExportColumn[]): string {
   const rows = data.map(row => {
     return cols.map(col => {
       const value = row[col.key];
-      const formatted = col.format ? col.format(value) : value;
+      const formatted = (col as any).format ? (col as any).format(value) : value;
       return escapeCSVValue(formatted);
     }).join(',');
   });
@@ -152,7 +152,7 @@ export function exportToPDF(
   const rows = data.map(row => 
     cols.map(col => {
       const value = row[col.key];
-      return col.format ? col.format(value) : String(value || '');
+      return (col as any).format ? (col as any).format(value) : String(value || '');
     })
   );
 
@@ -290,9 +290,9 @@ export async function exportCourses(options: ExportOptions = {}): Promise<any[]>
   return (data || []).map(course => ({
     ...course,
     instructor_name: course.instructor 
-      ? `${course.instructor.first_name} ${course.instructor.last_name}`
+      ? `${(course.instructor as any).first_name} ${(course.instructor as any).last_name}`
       : 'N/A',
-    instructor_email: course.instructor?.email || 'N/A',
+    instructor_email: (course.instructor as any)?.email || 'N/A',
   }));
 }
 

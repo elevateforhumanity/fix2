@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/auth';
-import ExcelChartGenerator from '@/components/admin/ExcelChartGenerator';
+import { ExcelChartGenerator } from '@/components/admin/ExcelChartGenerator';
 
 export const metadata = {
   title: 'Chart Generator | Admin',

@@ -20,7 +20,9 @@ export type AuditAction =
   | 'gdpr.export'
   | 'gdpr.delete'
   | 'admin.login'
-  | 'admin.logout';
+  | 'admin.logout'
+  | 'content_reported'
+  | 'content_moderated';
 
 interface AuditLogEntry {
   action: AuditAction;

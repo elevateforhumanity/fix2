@@ -46,7 +46,7 @@ export default function FundingPage() {
   useEffect(() => {
     // Run once on load with default
     run();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
   }, []);
 
   function togglePopulation(value: string) {

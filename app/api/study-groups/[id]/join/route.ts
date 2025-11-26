@@ -4,9 +4,10 @@ import { createClient } from "@/lib/supabase/server";
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const supabase = await createClient();
 
     // Get current user
@@ -19,7 +20,7 @@ export async function POST(
       );
     }
 
-    const groupId = params.id;
+    const groupId = id;
 
     // Check if group exists
     const { data: group, error: groupError } = await supabase

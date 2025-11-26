@@ -307,7 +307,7 @@ export default function EmployeesListPage() {
         ==================================================================== */}
         {loading && (
           <div className="bg-white rounded-lg shadow-md p-12 text-center">
-            <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-gray-300 border-t-blue-600 mb-4"></div>
+            <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-gray-300 border-t-blue-600 mb-4" />
             <p className="text-gray-600">Loading employees...</p>
           </div>
         )}

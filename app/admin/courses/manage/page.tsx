@@ -127,7 +127,7 @@ export default function ManageCoursesPage() {
       <div className="max-w-7xl mx-auto px-6 py-8">
         {loading ? (
           <div className="text-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto" />
             <p className="text-slate-600 mt-4">Loading courses...</p>
           </div>
         ) : courses.length === 0 ? (

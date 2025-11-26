@@ -455,8 +455,7 @@ export class SocialMediaAutomation {
     // console.log(`  - Views: ${report.totalEngagement.views}`);
     // console.log('\nTop Performing Posts:');
     report.topPerforming.forEach((post, i) => {
-      // console.log(
-      );
+      // console.log(post, i);
     });
 
     // Send via email (implement with your email service)

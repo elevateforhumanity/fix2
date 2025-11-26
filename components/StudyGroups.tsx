@@ -157,7 +157,8 @@ export function StudyGroups() {
                 <label className="block text-sm font-semibold mb-2">Privacy</label>
                 <div className="flex gap-4">
                   <label className="flex items-center gap-2">
-                    <input type="radio" name="privacy" value="public" defaultChecked />
+                    <input type="radio" name="privacy" value="public"
+defaultChecked />
                     <span>Public</span>
                   </label>
                   <label className="flex items-center gap-2">

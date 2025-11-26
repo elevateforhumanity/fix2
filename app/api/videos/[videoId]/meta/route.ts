@@ -2,12 +2,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
-type Params = { params: { videoId: string } };
+type Params = { params: Promise<{ videoId: string }> };
 
 export async function GET(_req: NextRequest, { params }: Params) {
   try {
+    const { videoId } = await params;
     const supabase = await createClient();
-    const videoId = params.videoId;
 
     // Get video chapters
     const { data: chapters, error: chaptersError } = await supabase
@@ -46,8 +46,8 @@ export async function GET(_req: NextRequest, { params }: Params) {
 
 export async function POST(req: NextRequest, { params }: Params) {
   try {
+    const { videoId } = await params;
     const supabase = await createClient();
-    const videoId = params.videoId;
 
     const {
       data: { user },

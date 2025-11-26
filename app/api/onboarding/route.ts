@@ -17,16 +17,16 @@ export async function GET(request: NextRequest) {
     const flowId = searchParams.get('flowId');
 
     if (action === 'recommended') {
-      const userRole = user.role || 'student';
+      const userRole = (user as any).role || 'student';
       const recommended = await getRecommendedOnboarding(
-        user.id,
+        (user as any).id,
         userRole as 'student' | 'instructor' | 'admin'
       );
       return NextResponse.json({ recommended });
     }
 
     if (action === 'progress' && flowId) {
-      const progress = await getOnboardingProgress(user.id, flowId);
+      const progress = await getOnboardingProgress((user as any).id, flowId);
       return NextResponse.json({ progress });
     }
 
@@ -58,19 +58,19 @@ export async function POST(request: NextRequest) {
 
     switch (action) {
       case 'start':
-        await startOnboarding(user.id, flowId);
+        await startOnboarding((user as any).id, flowId);
         return NextResponse.json({ success: true, message: 'Onboarding started' });
 
       case 'complete':
-        await completeOnboarding(user.id, flowId);
+        await completeOnboarding((user as any).id, flowId);
         return NextResponse.json({ success: true, message: 'Onboarding completed' });
 
       case 'skip':
-        await skipOnboarding(user.id, flowId);
+        await skipOnboarding((user as any).id, flowId);
         return NextResponse.json({ success: true, message: 'Onboarding skipped' });
 
       case 'reset':
-        await resetOnboarding(user.id, flowId);
+        await resetOnboarding((user as any).id, flowId);
         return NextResponse.json({ success: true, message: 'Onboarding reset' });
 
       default:

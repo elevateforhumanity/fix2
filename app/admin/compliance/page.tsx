@@ -163,8 +163,8 @@ export default function Compliance() {
     return (
       <div className="p-8">
         <div className="animate-pulse">
-          <div className="h-8 bg-gray-200 rounded w-1/4 mb-4"></div>
-          <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+          <div className="h-8 bg-gray-200 rounded w-1/4 mb-4" />
+          <div className="h-4 bg-gray-200 rounded w-1/2" />
         </div>
       </div>
     );
@@ -199,7 +199,7 @@ export default function Compliance() {
             <div
               className="bg-blue-600 h-2 rounded-full transition-all"
               style={{ width: `${completionPercentage}%` }}
-            ></div>
+             />
           </div>
         </div>
 
@@ -268,7 +268,7 @@ export default function Compliance() {
                     <div
                       className="bg-blue-600 h-2 rounded-full transition-all"
                       style={{ width: `${categoryProgress}%` }}
-                    ></div>
+                     />
                   </div>
                   <span className="text-sm font-medium text-gray-600 w-12 text-right">
                     {categoryProgress}%

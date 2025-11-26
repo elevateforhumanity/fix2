@@ -7,7 +7,7 @@ export default async function EnrollmentsPage() {
   const supabase = getServerSupabase();
 
   let enrollments: any[] = [];
-  let stats = {
+  const stats = {
     total: 0,
     active: 0,
     completed: 0,

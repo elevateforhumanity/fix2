@@ -8,14 +8,16 @@ export const metadata: Metadata = {
 };
 
 export default async function TutorialsPage() {
-  const user = await requireAuth();
+  const session = await requireAuth();
+  const userId = session?.user?.id || '';
+  const userRole = (session?.user as any)?.role || 'student';
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <TutorialLibrary 
-          userId={user.id} 
-          userRole={user.role || 'student'} 
+          userId={userId} 
+          userRole={userRole} 
         />
       </div>
     </div>

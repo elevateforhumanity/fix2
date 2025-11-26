@@ -50,7 +50,6 @@ export default function ElevateOverviewVideoPage() {
             <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-black shadow-2xl">
               <AdvancedVideoPlayer
                 src="/videos/elevate-overview.mp4"
-                title="Elevate for Humanity Overview"
               />
             </div>
 

@@ -115,7 +115,7 @@ export function CourseCatalog() {
   const categories = ['all', ...Array.from(new Set(courses.map(c => c.category)))];
   const levels = ['all', 'beginner', 'intermediate', 'advanced'];
 
-  let filteredCourses = courses.filter(course => {
+  const filteredCourses = courses.filter(course => {
     const matchesCategory = selectedCategory === 'all' || course.category === selectedCategory;
     const matchesLevel = selectedLevel === 'all' || course.level === selectedLevel;
     const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||

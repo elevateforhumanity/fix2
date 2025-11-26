@@ -35,7 +35,7 @@ module.exports = {
       },
       colors: {
         // Primary Brand Color - Blue (consistency across platform)
-        primary: {
+        primaryBrand: {
           50: '#eff6ff',
           100: '#dbeafe',
           200: '#bfdbfe',
@@ -131,5 +131,6 @@ module.exports = {
       },
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require('tailwindcss-animate')],
 };

@@ -4,8 +4,9 @@ import { getCurrentUser } from "@/lib/auth";
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { courseId: string } }
+  { params }: { params: Promise<{ courseId: string }> }
 ) {
+  const { courseId } = await params;
   const supabase = await createClient();
   const user = await getCurrentUser();
   if (!user) {
@@ -15,7 +16,7 @@ export async function GET(
   const { data, error } = await supabase
     .from("course_leaderboard")
     .select("user_id, progress_percent")
-    .eq("course_id", params.courseId)
+    .eq("course_id", courseId)
     .order("progress_percent", { ascending: false })
     .limit(10);
 

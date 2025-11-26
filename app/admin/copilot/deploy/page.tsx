@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/auth';
-import CopilotDeployment from '@/components/admin/CopilotDeployment';
+import { CopilotDeployment } from '@/components/admin/CopilotDeployment';
 
 export const metadata = {
   title: 'Copilot Deployment | Admin',

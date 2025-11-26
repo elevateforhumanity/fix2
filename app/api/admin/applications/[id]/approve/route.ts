@@ -4,8 +4,9 @@ import { supabaseAdmin } from "@/lib/supabaseClients";
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   if (!supabaseAdmin) {
     return NextResponse.json(
       { error: "Database not configured" },
@@ -14,7 +15,7 @@ export async function POST(
   }
 
   try {
-    const applicationId = params.id;
+    const applicationId = id;
     const body = await req.json().catch(() => ({}));
     const { program_id, funding_type, source } = body;
 
@@ -61,7 +62,7 @@ export async function POST(
     }
 
     let user = listUsers?.users?.find(
-      (u) => u.email?.toLowerCase() === email
+      (u: any) => u.email?.toLowerCase() === email
     );
 
     // 3) If no user, create one with a temp password

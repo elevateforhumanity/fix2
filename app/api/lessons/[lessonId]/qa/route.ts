@@ -4,8 +4,9 @@ import { getCurrentUser } from "@/lib/auth";
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { lessonId: string } }
+  { params }: { params: Promise<{ lessonId: string }> }
 ) {
+  const { lessonId } = await params;
   const supabase = await createClient();
 
   // Q + A list (readable without login if you want)
@@ -24,7 +25,7 @@ export async function GET(
       )
     `
     )
-    .eq("lesson_id", params.lessonId)
+    .eq("lesson_id", lessonId)
     .order("created_at", { ascending: false });
 
   if (error) {
@@ -38,8 +39,9 @@ export async function GET(
 // POST is multipurpose: kind = "question" | "answer"
 export async function POST(
   req: NextRequest,
-  { params }: { params: { lessonId: string } }
+  { params }: { params: Promise<{ lessonId: string }> }
 ) {
+  const { lessonId } = await params;
   const supabase = await createClient();
   const user = await getCurrentUser();
 
@@ -68,7 +70,7 @@ export async function POST(
     const { data, error } = await supabase
       .from("lesson_questions")
       .insert({
-        lesson_id: params.lessonId,
+        lesson_id: lessonId,
         author_id: user.id,
         title,
         body,

@@ -141,7 +141,7 @@ export default function LearningPathsPage() {
                       <div
                         className="bg-blue-600 rounded-full h-2 transition-all"
                         style={{ width: `${path.progress}%` }}
-                      ></div>
+                       />
                     </div>
                   </div>
                 )}
@@ -199,12 +199,12 @@ export default function LearningPathsPage() {
                   <h3 className="font-semibold mb-6">Course Progression</h3>
                   <div className="relative">
                     {/* Progress Line */}
-                    <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-slate-200"></div>
+                    <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-slate-200" />
                     {currentPath.enrolled && (
                       <div 
                         className="absolute left-6 top-8 w-0.5 bg-blue-600 transition-all duration-500"
                         style={{ height: `${(currentPath.progress / 100) * 85}%` }}
-                      ></div>
+                       />
                     )}
 
                     <div className="space-y-6">
@@ -243,7 +243,7 @@ export default function LearningPathsPage() {
                                       isCompleted ? 'bg-green-600' : 'bg-blue-600'
                                     }`}
                                     style={{ width: `${course.progress}%` }}
-                                  ></div>
+                                   />
                                 </div>
                               )}
 

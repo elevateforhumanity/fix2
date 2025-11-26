@@ -88,7 +88,7 @@ export default function RouteGuard({
 // Specific route guards for common use cases
 export function StudentRouteGuard({ children }: { children: React.ReactNode }) {
   return (
-    <RouteGuard requireAuth={true} allowedRoles={['student']}>
+    <RouteGuard requireAuth allowedRoles={['student']}>
       {children}
     </RouteGuard>
   );
@@ -96,7 +96,7 @@ export function StudentRouteGuard({ children }: { children: React.ReactNode }) {
 
 export function InstructorRouteGuard({ children }: { children: React.ReactNode }) {
   return (
-    <RouteGuard requireAuth={true} allowedRoles={['instructor', 'admin']}>
+    <RouteGuard requireAuth allowedRoles={['instructor', 'admin']}>
       {children}
     </RouteGuard>
   );
@@ -104,7 +104,7 @@ export function InstructorRouteGuard({ children }: { children: React.ReactNode }
 
 export function AdminRouteGuard({ children }: { children: React.ReactNode }) {
   return (
-    <RouteGuard requireAuth={true} allowedRoles={['admin']}>
+    <RouteGuard requireAuth allowedRoles={['admin']}>
       {children}
     </RouteGuard>
   );
@@ -112,7 +112,7 @@ export function AdminRouteGuard({ children }: { children: React.ReactNode }) {
 
 export function AuthenticatedRouteGuard({ children }: { children: React.ReactNode }) {
   return (
-    <RouteGuard requireAuth={true} allowedRoles={[]}>
+    <RouteGuard requireAuth allowedRoles={[]}>
       {children}
     </RouteGuard>
   );

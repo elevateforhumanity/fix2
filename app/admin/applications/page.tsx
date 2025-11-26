@@ -7,7 +7,7 @@ export default async function ApplicationsPage() {
   const supabase = getServerSupabase();
 
   let applications: any[] = [];
-  let stats = {
+  const stats = {
     total: 0,
     submitted: 0,
     converted: 0,

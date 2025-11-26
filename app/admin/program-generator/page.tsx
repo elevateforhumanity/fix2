@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/auth';
-import AutoProgramGenerator from '@/components/admin/AutoProgramGenerator';
+import { AutoProgramGenerator } from '@/components/admin/AutoProgramGenerator';
 
 export const metadata = {
   title: 'Program Generator | Admin',

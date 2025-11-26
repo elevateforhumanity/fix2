@@ -3,13 +3,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getUserIdFromRequest } from "@/lib/getUserIdFromRequest";
 
-type Params = { params: { forumId: string } };
+type Params = { params: Promise<{ forumId: string }> };
 
 // GET: list threads for a forum
 export async function GET(_req: NextRequest, { params }: Params) {
   try {
+    const { forumId } = await params;
     const supabase = await createClient();
-    const forumId = params.forumId;
 
     // Get threads with creator info
     const { data: threads, error: threadsError } = await supabase
@@ -90,8 +90,8 @@ export async function POST(req: NextRequest, { params }: Params) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { forumId } = await params;
     const supabase = await createClient();
-    const forumId = params.forumId;
     const body = (await req.json()) as { title?: string; content?: string };
 
     if (!body.title || !body.content) {

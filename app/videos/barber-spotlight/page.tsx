@@ -47,7 +47,6 @@ export default function BarberSpotlightVideoPage() {
             <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-black shadow-2xl">
               <AdvancedVideoPlayer
                 src="/videos/barber-spotlight.mp4"
-                title="Barber Apprenticeship Success Story"
               />
             </div>
 

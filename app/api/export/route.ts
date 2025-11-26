@@ -94,7 +94,7 @@ export async function GET(request: NextRequest) {
 
     // Log audit event
     await logAuditEvent({
-      action: 'data_export',
+      action: 'data_export' as any,
       actor_id: user.id,
       resource_type: type,
       metadata: {
@@ -102,7 +102,7 @@ export async function GET(request: NextRequest) {
         record_count: data.length,
         filters: options.filters,
       },
-    });
+    } as any);
 
     // Generate export based on format
     if (format === 'csv') {
@@ -193,14 +193,14 @@ export async function POST(request: NextRequest) {
 
     // Log audit event
     await logAuditEvent({
-      action: 'batch_export',
+      action: 'batch_export' as any,
       actor_id: user.id,
       metadata: {
         tables,
         format,
         total_records: Object.values(results).reduce((sum, data) => sum + data.length, 0),
       },
-    });
+    } as any);
 
     if (format === 'json') {
       return NextResponse.json({

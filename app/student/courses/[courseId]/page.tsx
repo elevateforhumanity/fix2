@@ -165,7 +165,7 @@ export default function CourseStructurePage() {
             <div
               className="bg-blue-600 rounded-full h-3 transition-all"
               style={{ width: `${courseData.progress}%` }}
-            ></div>
+             />
           </div>
         </div>
       </div>
@@ -290,7 +290,7 @@ export default function CourseStructurePage() {
                     <div className="space-y-1">
                       {courseData.conditions.requiredAssignments.map((assignment, index) => (
                         <div key={index} className="flex items-center gap-2">
-                          <div className="h-1.5 w-1.5 rounded-full bg-blue-600"></div>
+                          <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
                           <span className="text-slate-700">{assignment}</span>
                         </div>
                       ))}

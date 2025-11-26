@@ -2,12 +2,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
-type Params = { params: { certificateId: string } };
+type Params = { params: Promise<{ certificateId: string }> };
 
 export async function GET(_req: NextRequest, { params }: Params) {
   try {
+    const { certificateId } = await params;
     const supabase = await createClient();
-    const certificateId = params.certificateId;
 
     // Get certificate details
     const { data: certificate, error: certError } = await supabase

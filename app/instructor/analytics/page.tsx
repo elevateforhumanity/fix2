@@ -92,7 +92,7 @@ export default async function InstructorAnalyticsPage() {
       <section className="mx-auto max-w-5xl px-4 py-10">
         {/* Instructor Bio */}
         <InstructorBio
-          name={profile?.full_name || user.email || "Instructor"}
+          name={(profile as any)?.full_name || (user as any).email || "Instructor"}
           title="Course Instructor"
           photo="/images/split/piece-1.png"
           bio="Experienced educator dedicated to helping students succeed in their career training journey."
@@ -102,7 +102,7 @@ export default async function InstructorAnalyticsPage() {
             "Industry expert in career training"
           ]}
           specialties={["Career Training", "Workforce Development", "Student Success"]}
-          email={user.email}
+          email={(user as any).email}
           coursesCount={metrics.length}
           studentsCount={metrics.reduce((sum, m) => sum + m.enrollments, 0)}
         />

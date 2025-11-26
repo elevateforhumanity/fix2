@@ -131,7 +131,7 @@ export function NotificationCenter() {
                   <div className="flex justify-between items-start mb-1">
                     <h3 className="font-bold">{notification.title}</h3>
                     {!notification.read && (
-                      <span className="w-2 h-2 bg-red-600 rounded-full"></span>
+                      <span className="w-2 h-2 bg-red-600 rounded-full" />
                     )}
                   </div>
                   <p className="text-sm text-gray-700 mb-2">{notification.message}</p>

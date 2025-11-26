@@ -164,8 +164,8 @@ export async function reportContent(
   await logAuditEvent({
     action: 'content_reported',
     actor_id: reporterId,
-    resource_type: contentType,
-    resource_id: contentId,
+    target_type: contentType,
+    target_id: contentId,
     metadata: { reason, description },
   });
 
@@ -273,8 +273,8 @@ export async function reviewReport(
   await logAuditEvent({
     action: 'content_moderated',
     actor_id: moderatorId,
-    resource_type: report.content_type,
-    resource_id: report.content_id,
+    target_type: report.content_type,
+    target_id: report.content_id,
     metadata: {
       report_id: reportId,
       action,

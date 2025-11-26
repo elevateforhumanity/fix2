@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/auth';
-import CourseCompletionTracking from '@/components/CourseCompletionTracking';
+import { CourseCompletionTracking } from '@/components/CourseCompletionTracking';
 
 export const metadata = {
   title: 'My Progress | Student Portal',

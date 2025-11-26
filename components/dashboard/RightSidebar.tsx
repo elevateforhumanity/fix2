@@ -97,7 +97,7 @@ export function RightSidebar() {
         title: a.title,
         type: 'assignment' as const,
         dueDate: new Date(a.due_date),
-        courseTitle: a.courses?.title || 'Unknown Course',
+        courseTitle: (a.courses as any)?.title || 'Unknown Course',
         courseId: a.course_id
       }));
       setDeadlines(formattedDeadlines);
@@ -172,9 +172,9 @@ export function RightSidebar() {
     return (
       <div className="w-80 bg-white border-l border-slate-200 p-4">
         <div className="animate-pulse space-y-4">
-          <div className="h-32 bg-slate-200 rounded"></div>
-          <div className="h-32 bg-slate-200 rounded"></div>
-          <div className="h-32 bg-slate-200 rounded"></div>
+          <div className="h-32 bg-slate-200 rounded" />
+          <div className="h-32 bg-slate-200 rounded" />
+          <div className="h-32 bg-slate-200 rounded" />
         </div>
       </div>
     );

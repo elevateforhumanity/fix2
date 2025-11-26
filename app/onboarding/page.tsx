@@ -127,8 +127,10 @@ export default async function OnboardingHub() {
               </p>
               <div className="mt-4 flex items-center text-orange-400 text-sm font-semibold">
                 Start Onboarding
-                <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
+viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+d="M9 5l7 7-7 7" />
                 </svg>
               </div>
             </Link>

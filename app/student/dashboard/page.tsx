@@ -36,7 +36,7 @@ export default function StudentDashboardPage() {
                   className="relative p-2 rounded-lg hover:bg-slate-100 transition-colors"
                 >
                   <Bell className="h-6 w-6 text-slate-700" />
-                  <span className="absolute top-1 right-1 h-2 w-2 bg-red-500 rounded-full"></span>
+                  <span className="absolute top-1 right-1 h-2 w-2 bg-red-500 rounded-full" />
                 </button>
                 
                 {showNotifications && (
@@ -172,7 +172,7 @@ export default function StudentDashboardPage() {
             </div>
           </div>
           <div className="mt-6 bg-white/20 rounded-full h-3">
-            <div className="bg-white rounded-full h-3" style={{ width: '67%' }}></div>
+            <div className="bg-white rounded-full h-3" style={{ width: '67%' }} />
           </div>
         </div>
         )}
@@ -219,7 +219,7 @@ export default function StudentDashboardPage() {
             icon={<Award className="h-5 w-5" />}
             label="Certificates"
             href="/student/certificates"
-            color="yellow"
+            color="orange"
           />
           <QuickAction
             icon={<HelpCircle className="h-5 w-5" />}
@@ -496,11 +496,11 @@ function LearningPathVisualization() {
   return (
     <div className="relative">
       {/* Progress Line */}
-      <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-slate-200"></div>
+      <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-slate-200" />
       <div 
         className="absolute left-6 top-8 w-0.5 bg-blue-600 transition-all duration-500"
         style={{ height: '42%' }}
-      ></div>
+       />
 
       <div className="space-y-6">
         {pathSteps.map((step, index) => (
@@ -537,7 +537,7 @@ function LearningPathVisualization() {
                       step.status === 'completed' ? 'bg-green-600' : 'bg-blue-600'
                     }`}
                     style={{ width: `${step.progress}%` }}
-                  ></div>
+                   />
                 </div>
               )}
 
@@ -594,7 +594,7 @@ function NotificationItem({
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
             <h4 className="font-medium text-slate-900 text-sm">{title}</h4>
-            {unread && <div className="h-2 w-2 bg-blue-600 rounded-full flex-shrink-0 mt-1"></div>}
+            {unread && <div className="h-2 w-2 bg-blue-600 rounded-full flex-shrink-0 mt-1" />}
           </div>
           <p className="text-sm text-slate-600 mt-0.5">{message}</p>
           <p className="text-xs text-slate-500 mt-1">{time}</p>
@@ -657,7 +657,7 @@ function CourseCard({
         <div
           className="bg-blue-600 rounded-full h-2"
           style={{ width: `${progress}%` }}
-        ></div>
+         />
       </div>
       <Link
         href={href}
@@ -885,11 +885,11 @@ function CalendarWidget() {
 
       <div className="mt-4 space-y-2 text-xs">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded bg-blue-600"></div>
+          <div className="w-3 h-3 rounded bg-blue-600" />
           <span className="text-slate-600">Today</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded bg-blue-50 border border-blue-200"></div>
+          <div className="w-3 h-3 rounded bg-blue-50 border border-blue-200" />
           <span className="text-slate-600">Has events</span>
         </div>
       </div>

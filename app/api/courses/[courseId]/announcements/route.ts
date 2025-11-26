@@ -4,10 +4,10 @@ import { getCurrentUser } from "@/lib/auth";
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { courseId: string } }
+  { params }: { params: Promise<{ courseId: string }> }
 ) {
   const supabase = await createClient();
-  const { courseId } = params;
+  const { courseId } = await params;
 
   const { data, error } = await supabase
     .from("course_announcements")
@@ -25,7 +25,7 @@ export async function GET(
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { courseId: string } }
+  { params }: { params: Promise<{ courseId: string }> }
 ) {
   const supabase = await createClient();
   const user = await getCurrentUser();
@@ -34,7 +34,7 @@ export async function POST(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { courseId } = params;
+  const { courseId } = await params;
   const body = await req.json();
   const { title, message } = body;
 

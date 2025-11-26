@@ -20,13 +20,13 @@ export async function GET(request: NextRequest) {
       const result = await exportAuditLogs({ start_date: startDate || undefined, end_date: endDate || undefined });
       
       if (!result.success) {
-        return NextResponse.json({ error: result.error }, { status: 500 });
+        return NextResponse.json({ error: (result as any).error || 'Export failed' }, { status: 500 });
       }
 
-      return new NextResponse(result.data, {
+      return new NextResponse((result as any).data, {
         headers: {
           'Content-Type': 'text/csv',
-          'Content-Disposition': `attachment; filename="${result.filename}"`,
+          'Content-Disposition': `attachment; filename="${(result as any).filename}"`,
         },
       });
     }

@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/auth';
-import IntelligentDataProcessor from '@/components/admin/IntelligentDataProcessor';
+import { IntelligentDataProcessor } from '@/components/admin/IntelligentDataProcessor';
 
 export const metadata = {
   title: 'Data Processor | Admin',

@@ -37,8 +37,10 @@ export default function DirectoryPage() {
                     <p className="text-sm text-gray-600 mb-3">{program.duration}</p>
                     <div className="flex items-center text-blue-600 font-medium text-sm">
                       Learn More
-                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor"
+viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
                   </Link>

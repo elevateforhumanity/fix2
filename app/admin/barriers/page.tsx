@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/auth';
-import LearningBarrierAnalyzer from '@/components/admin/LearningBarrierAnalyzer';
+import { LearningBarrierAnalyzer } from '@/components/admin/LearningBarrierAnalyzer';
 
 export const metadata = {
   title: 'Learning Barrier Analyzer | Admin',

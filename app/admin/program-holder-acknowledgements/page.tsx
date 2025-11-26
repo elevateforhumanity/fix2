@@ -114,7 +114,7 @@ export default function ProgramHolderAcknowledgementsPage() {
         {/* Loading State */}
         {loading && (
           <div className="rounded-lg border border-slate-200 bg-white p-12 text-center">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-slate-200 border-t-blue-600"></div>
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-slate-200 border-t-blue-600" />
             <p className="mt-4 text-sm text-slate-600">Loading acknowledgements...</p>
           </div>
         )}

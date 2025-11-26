@@ -47,7 +47,6 @@ export default function EmployerPipelineVideoPage() {
             <div className="relative overflow-hidden rounded-3xl border border-slate-800 bg-black shadow-2xl">
               <AdvancedVideoPlayer
                 src="/videos/employer-pipeline.mp4"
-                title="Employer Talent Pipeline"
               />
             </div>
 

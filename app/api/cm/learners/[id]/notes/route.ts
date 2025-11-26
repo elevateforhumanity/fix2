@@ -5,7 +5,7 @@ import { getAuthUser } from "@/lib/auth";
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   if (!supabaseAdmin) {
     return NextResponse.json(
@@ -15,16 +15,18 @@ export async function POST(
   }
 
   try {
+    const { id } = await params;
+    
     // Get current user
     const user = await getAuthUser();
-    if (!user || user.role !== "case_manager") {
+    if (!user || (user.role as string) !== "case_manager") {
       return NextResponse.json(
         { error: "Unauthorized - Case manager access required" },
         { status: 403 }
       );
     }
 
-    const learnerId = params.id;
+    const learnerId = id;
     const caseManagerId = user.id;
 
     // Verify case manager has access to this learner

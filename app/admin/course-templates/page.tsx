@@ -174,7 +174,7 @@ export default function CourseTemplatesPage() {
                       <div className="space-y-1 ml-4">
                         {section.modules.map((module, mIndex) => (
                           <div key={mIndex} className="flex items-center gap-2 text-sm text-slate-600">
-                            <div className="h-1.5 w-1.5 rounded-full bg-blue-600"></div>
+                            <div className="h-1.5 w-1.5 rounded-full bg-blue-600" />
                             <span>{module}</span>
                           </div>
                         ))}

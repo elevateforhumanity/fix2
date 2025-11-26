@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerSupabaseClient } from '@/lib/auth';
-import AutoAttritionTracker from '@/components/admin/AutoAttritionTracker';
+import { AutoAttritionTracker } from '@/components/admin/AutoAttritionTracker';
 
 export const metadata = {
   title: 'Student Retention Tracker | Admin',

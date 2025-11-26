@@ -26,7 +26,8 @@ export default function SchoolOnboarding() {
               <label className="flex items-start gap-3"><input type="checkbox" required className="mt-1 w-4 h-4" /><span className="text-sm">Allow Elevate check-ins</span></label>
               <label className="flex items-start gap-3"><input type="checkbox" required className="mt-1 w-4 h-4" /><span className="text-sm">Notify Elevate of issues</span></label>
             </div>
-            <div className="mt-6"><label className="block text-sm font-semibold mb-2">Signature *</label><input type="text" required placeholder="Type your full name" className="w-full rounded-lg border border-white/20 bg-slate-800 px-4 py-2 text-white" /></div>
+            <div className="mt-6"><label className="block text-sm font-semibold mb-2">Signature *</label><input type="text" required placeholder="Type your full name"
+className="w-full rounded-lg border border-white/20 bg-slate-800 px-4 py-2 text-white" /></div>
           </div>
           <button type="submit" className="w-full rounded-full bg-orange-500 px-8 py-4 font-semibold text-white hover:bg-orange-400">Submit</button>
         </form>

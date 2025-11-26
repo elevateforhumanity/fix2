@@ -159,7 +159,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
                     <span className="text-2xl font-bold text-red-600">{program.outcomes.jobPlacement}%</span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-red-600 h-3 rounded-full" style={{ width: `${program.outcomes.jobPlacement}%` }}></div>
+                    <div className="bg-red-600 h-3 rounded-full" style={{ width: `${program.outcomes.jobPlacement}%` }} />
                   </div>
                 </div>
                 <div>
@@ -168,7 +168,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
                     <span className="text-2xl font-bold text-blue-600">{program.outcomes.certificationPass}%</span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-blue-600 h-3 rounded-full" style={{ width: `${program.outcomes.certificationPass}%` }}></div>
+                    <div className="bg-blue-600 h-3 rounded-full" style={{ width: `${program.outcomes.certificationPass}%` }} />
                   </div>
                 </div>
                 <div>
@@ -177,7 +177,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
                     <span className="text-2xl font-bold text-purple-600">{program.outcomes.satisfaction}%</span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-purple-600 h-3 rounded-full" style={{ width: `${program.outcomes.satisfaction}%` }}></div>
+                    <div className="bg-purple-600 h-3 rounded-full" style={{ width: `${program.outcomes.satisfaction}%` }} />
                   </div>
                 </div>
               </div>

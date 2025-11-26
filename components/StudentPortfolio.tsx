@@ -196,13 +196,16 @@ export function StudentPortfolio() {
                 <a href={`tel:${student.phone}`} className="text-white hover:text-red-100 transition-colors">
                   📱 {student.phone}
                 </a>
-                <a href={`https://${student.linkedin}`} target="_blank" rel="noopener noreferrer" className="text-white hover:text-red-100 transition-colors">
+                <a href={`https://${student.linkedin}`} target="_blank" rel="noopener noreferrer"
+className="text-white hover:text-red-100 transition-colors">
                   💼 LinkedIn
                 </a>
-                <a href={`https://${student.github}`} target="_blank" rel="noopener noreferrer" className="text-white hover:text-red-100 transition-colors">
+                <a href={`https://${student.github}`} target="_blank" rel="noopener noreferrer"
+className="text-white hover:text-red-100 transition-colors">
                   🔗 GitHub
                 </a>
-                <a href={`https://${student.portfolio}`} target="_blank" rel="noopener noreferrer" className="text-white hover:text-red-100 transition-colors">
+                <a href={`https://${student.portfolio}`} target="_blank" rel="noopener noreferrer"
+className="text-white hover:text-red-100 transition-colors">
                   🌐 Portfolio
                 </a>
               </div>
