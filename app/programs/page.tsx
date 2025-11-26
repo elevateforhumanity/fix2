@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Force dynamic rendering - no stale cache
-export const dynamic = "force-dynamic";
+// Cache for 1 hour - programs don't change often
+export const revalidate = 3600;
 
 const programs = [
   {

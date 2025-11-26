@@ -3,6 +3,9 @@ import { getServerSupabase } from "@/lib/supabaseClients";
 import Link from "next/link";
 import { Users, FileText, Award, TrendingUp, Clock, DollarSign, Info } from "lucide-react";
 
+// Enable caching for 5 minutes
+export const revalidate = 300;
+
 export default async function AdminDashboardPage() {
   const supabase = getServerSupabase();
 
@@ -18,41 +21,25 @@ export default async function AdminDashboardPage() {
 
   if (supabase) {
     try {
-      // Get applications count
-      const { count: totalApps } = await supabase
-        .from("applications")
-        .select("*", { count: "exact", head: true });
-
-      // Get applications this week
       const oneWeekAgo = new Date();
       oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-      const { count: weekApps } = await supabase
-        .from("applications")
-        .select("*", { count: "exact", head: true })
-        .gte("created_at", oneWeekAgo.toISOString());
 
-      // Get pending applications
-      const { count: pendingApps } = await supabase
-        .from("applications")
-        .select("*", { count: "exact", head: true })
-        .eq("status", "submitted");
-
-      // Get active enrollments
-      const { count: activeEnroll } = await supabase
-        .from("enrollments")
-        .select("*", { count: "exact", head: true })
-        .eq("status", "active");
-
-      // Get completed enrollments
-      const { count: completedEnroll } = await supabase
-        .from("enrollments")
-        .select("*", { count: "exact", head: true })
-        .eq("status", "completed");
-
-      // Get certificates issued
-      const { count: certs } = await supabase
-        .from("certificates")
-        .select("*", { count: "exact", head: true });
+      // Run all queries in parallel for better performance
+      const [
+        { count: totalApps },
+        { count: weekApps },
+        { count: pendingApps },
+        { count: activeEnroll },
+        { count: completedEnroll },
+        { count: certs }
+      ] = await Promise.all([
+        supabase.from("applications").select("*", { count: "exact", head: true }),
+        supabase.from("applications").select("*", { count: "exact", head: true }).gte("created_at", oneWeekAgo.toISOString()),
+        supabase.from("applications").select("*", { count: "exact", head: true }).eq("status", "submitted"),
+        supabase.from("enrollments").select("*", { count: "exact", head: true }).eq("status", "active"),
+        supabase.from("enrollments").select("*", { count: "exact", head: true }).eq("status", "completed"),
+        supabase.from("certificates").select("*", { count: "exact", head: true })
+      ]);
 
       stats = {
         totalApplications: totalApps || 0,
