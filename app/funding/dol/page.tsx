@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+import Image from 'next/image';
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,8 +25,16 @@ export const metadata: Metadata = {
 export default function DOLFundingPage() {
   return (
     <main className="min-h-screen bg-white">
-      <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white py-20">
-        <div className="mx-auto max-w-4xl px-6">
+      <div className="relative bg-gradient-to-r from-orange-600 to-red-600 text-white py-20">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/media/funding/funding-dol-v2-hd.jpg"
+            alt="DOL Apprenticeships"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="relative mx-auto max-w-4xl px-6">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             DOL Apprenticeships
           </h1>
