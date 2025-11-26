@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/auth";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   BookOpen, 
   Clock, 
@@ -105,22 +106,33 @@ export default async function LMSDashboard() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section - Primary Block 1 */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-8">
-          <h1 className="text-3xl font-bold mb-2">Welcome back!</h1>
-          <p className="text-blue-50 text-lg mb-6">Continue your learning journey</p>
-          <div className="flex gap-4">
-            <Link 
-              href="/lms/courses" 
-              className="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
-            >
-              Browse Courses
-            </Link>
-            <Link 
-              href="/lms/calendar" 
-              className="bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition"
-            >
-              View Calendar
-            </Link>
+        <div className="relative bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl overflow-hidden mb-8">
+          <div className="absolute inset-0">
+            <Image
+              src="/media/hero/hero-student-dashboard.jpg"
+              alt="Student learning environment"
+              fill
+              className="object-cover opacity-20"
+              priority
+            />
+          </div>
+          <div className="relative p-8 text-white">
+            <h1 className="text-3xl font-bold mb-2">Welcome back!</h1>
+            <p className="text-red-50 text-lg mb-6">Continue your learning journey</p>
+            <div className="flex gap-4">
+              <Link 
+                href="/lms/courses" 
+                className="bg-white text-red-700 px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition"
+              >
+                Browse Courses
+              </Link>
+              <Link 
+                href="/lms/calendar" 
+                className="bg-red-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-800 transition"
+              >
+                View Calendar
+              </Link>
+            </div>
           </div>
         </div>
 

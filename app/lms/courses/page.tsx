@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Card,
   CardContent,
@@ -118,8 +119,16 @@ export default async function CoursesPage() {
                 key={course.id}
                 className="flex flex-col hover:border-orange-500 transition-colors"
               >
-                <div className="h-48 bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
-                  <BookOpen className="h-16 w-16 text-white/80" />
+                <div className="relative h-48 bg-gradient-to-br from-red-500 to-orange-500 overflow-hidden">
+                  <Image
+                    src="/media/hero/hero-lms-courses.jpg"
+                    alt={course.title}
+                    fill
+                    className="object-cover opacity-30"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <BookOpen className="h-16 w-16 text-white/80" />
+                  </div>
                 </div>
                 <CardHeader>
                   <div className="flex items-start justify-between mb-2 gap-2">
