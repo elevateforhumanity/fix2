@@ -24,12 +24,20 @@ export default function ProgramDetailPage({ params }: PageProps) {
       <div className="mt-4 rounded-xl bg-slate-50 p-4 text-xs">
         <p className="font-semibold text-slate-900">Tuition</p>
         <p className="mt-1">
-          <span className="font-semibold">${program.salePrice.toFixed(2)}</span>{" "}
-          (tuition-based program)
+          {program.salePrice === 0 ? (
+            <span className="font-semibold text-green-600 text-lg">FREE</span>
+          ) : (
+            <>
+              <span className="font-semibold">${program.salePrice.toFixed(2)}</span>{" "}
+              (tuition-based program)
+            </>
+          )}
         </p>
         {program.earnWhileYouLearnNotes && (
           <p className="mt-2 text-slate-700">
-            <span className="font-semibold">Earn While You Learn:</span>{" "}
+            <span className="font-semibold">
+              {program.salePrice === 0 ? "Program Details:" : "Earn While You Learn:"}
+            </span>{" "}
             {program.earnWhileYouLearnNotes}
           </p>
         )}
@@ -54,30 +62,51 @@ export default function ProgramDetailPage({ params }: PageProps) {
       )}
 
       <div className="mt-8 flex flex-wrap gap-3 text-xs">
-        <form action={`/api/enroll?program=${program.id}&mode=full`} method="POST">
-          <button
-            type="submit"
-            className="rounded-md bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700"
-          >
-            Enroll – Pay in Full
-          </button>
-        </form>
+        {program.salePrice === 0 ? (
+          // Free/Apprenticeship program - no payment needed
+          <>
+            <Link
+              href="/contact"
+              className="rounded-md bg-green-600 px-4 py-2 font-semibold text-white hover:bg-green-700"
+            >
+              Apply for Apprenticeship
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-md border border-slate-300 px-4 py-2 font-semibold text-slate-700 hover:bg-slate-50"
+            >
+              Talk to an advisor
+            </Link>
+          </>
+        ) : (
+          // Paid program - show payment options
+          <>
+            <form action={`/api/enroll?program=${program.id}&mode=full`} method="POST">
+              <button
+                type="submit"
+                className="rounded-md bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700"
+              >
+                Enroll – Pay in Full
+              </button>
+            </form>
 
-        <form action={`/api/enroll?program=${program.id}&mode=plan`} method="POST">
-          <button
-            type="submit"
-            className="rounded-md border border-red-600 px-4 py-2 font-semibold text-red-600 hover:bg-red-50"
-          >
-            Enroll – Payment Plan
-          </button>
-        </form>
+            <form action={`/api/enroll?program=${program.id}&mode=plan`} method="POST">
+              <button
+                type="submit"
+                className="rounded-md border border-red-600 px-4 py-2 font-semibold text-red-600 hover:bg-red-50"
+              >
+                Enroll – Payment Plan
+              </button>
+            </form>
 
-        <Link
-          href="/contact"
-          className="rounded-md border border-slate-300 px-4 py-2 font-semibold text-slate-700 hover:bg-slate-50"
-        >
-          Talk to an advisor
-        </Link>
+            <Link
+              href="/contact"
+              className="rounded-md border border-slate-300 px-4 py-2 font-semibold text-slate-700 hover:bg-slate-50"
+            >
+              Talk to an advisor
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

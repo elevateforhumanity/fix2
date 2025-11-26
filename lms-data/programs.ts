@@ -49,11 +49,11 @@ const barberProgram: Program = {
   id: "prog-barber",
   slug: "barber-apprenticeship",
   title: "Barber Apprenticeship Career Pathway",
-  subtitle: "Milady-based barber theory with Earn While You Learn apprenticeship.",
+  subtitle: "FREE Milady-based barber theory with Earn While You Learn apprenticeship.",
   description:
-    "Prepare for a licensed barber career through Milady barber theory, EFH labs, and a registered apprenticeship model that allows you to earn while you learn in real shops.",
+    "Prepare for a licensed barber career through Milady barber theory, EFH labs, and a registered apprenticeship model that allows you to earn while you learn in real shops. This program is FREE - no tuition cost.",
   deliveryEngine: "NATIVE",
-  salePrice: computeSalePrice(barberPartnerIds, 1.5),
+  salePrice: 0, // FREE program
   stripeProductId: undefined,
   stripePriceId: undefined,
   stripePriceIdPlan: undefined,
@@ -61,9 +61,9 @@ const barberProgram: Program = {
     partnerCourseId: id,
     required: true,
   })),
-  isStateTuitionFunded: false,
+  isStateTuitionFunded: true, // Covered by apprenticeship funding
   earnWhileYouLearnNotes:
-    "Students can earn wages through registered apprenticeship placements while completing barber theory and EFH labs. Employers may choose to reimburse or cover tuition.",
+    "This program is FREE. Students earn wages through registered apprenticeship placements while completing barber theory and EFH labs. Apprenticeship funding covers all training costs.",
   visiblePublic: true,
 };
 
