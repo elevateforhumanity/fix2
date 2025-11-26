@@ -26,7 +26,7 @@ tasks:
       echo "🚀 Setting up Elevate for Humanity development environment..."
       
       # Install dependencies
-      npm install
+      pnpm install
       
       # Create .env.local if it doesn't exist
       if [ ! -f .env.local ]; then
@@ -51,17 +51,39 @@ tasks:
       echo "║  🎓 Elevate for Humanity - Development Environment Ready  ║"
       echo "╚════════════════════════════════════════════════════════════╝"
       echo ""
+      
+      # Try to pull Vercel environment variables
+      if [ ! -f .env.local ] || ! grep -q "NEXT_PUBLIC_SUPABASE_URL=https://" .env.local; then
+        echo "🔐 Attempting to pull Vercel environment variables..."
+        
+        # Check if vercel CLI is available
+        if command -v vercel &> /dev/null; then
+          echo "📥 Pulling environment variables from Vercel..."
+          vercel env pull .env.local --yes 2>/dev/null || {
+            echo "⚠️  Could not auto-pull Vercel env vars"
+            echo "📝 Run manually: bash scripts/pull-vercel-env.sh"
+          }
+        else
+          echo "⚠️  Vercel CLI not installed"
+          echo "📝 To get Supabase credentials:"
+          echo "   1. Run: bash scripts/pull-vercel-env.sh"
+          echo "   2. Or manually copy from Vercel dashboard"
+        fi
+      else
+        echo "✅ Supabase credentials already configured"
+      fi
+      
+      echo ""
       echo "📋 Quick Start Commands:"
-      echo "  npm run dev          - Start development server"
-      echo "  npm run build        - Build for production"
-      echo "  npm run db:migrate   - Run database migrations"
-      echo "  npm run test         - Run tests"
+      echo "  pnpm dev             - Start development server"
+      echo "  pnpm build           - Build for production"
+      echo "  node check-database.mjs - Verify Supabase connection"
+      echo "  bash scripts/pull-vercel-env.sh - Get Vercel env vars"
       echo ""
       echo "📚 Documentation:"
-      echo "  INTEGRATED_SITE_ARCHITECTURE.md"
-      echo "  MARKETING_LMS_INTEGRATION.md"
-      echo "  TESTING_GUIDE.md"
-      echo "  DEPLOYMENT_READY.md"
+      echo "  QUICK_START_GUIDE.md"
+      echo "  MASTER_FIX_PLAN.md"
+      echo "  WORKFORCE_LMS_COMPARISON.md"
       echo ""
       echo "🌐 Preview URL: $(gp url 3000)"
       echo ""

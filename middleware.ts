@@ -38,6 +38,11 @@ export default function proxy(request: NextRequest) {
              request.headers.get('x-real-ip') || 
              'unknown';
   
+  // Skip all middleware checks for local development
+  if (hostname.includes('localhost') || hostname.includes('127.0.0.1') || hostname.includes('gitpod.dev')) {
+    return NextResponse.next();
+  }
+  
   // Handle LMS domain - route to /lms
   if (hostname.includes('elevateforhumanityeducation.com')) {
     // Allow these paths without rewriting (they exist at root level)

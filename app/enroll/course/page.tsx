@@ -7,7 +7,7 @@ import {
   DollarSign, Calendar, ArrowRight, Info, AlertCircle
 } from 'lucide-react';
 
-export default function EnrollPage({ params }: { params: { courseId: string } }) {
+export default function EnrollPage() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -24,7 +24,7 @@ export default function EnrollPage({ params }: { params: { courseId: string } })
     agreeToTerms: false,
   });
 
-  const course = courseData[params.courseId] || courseData['vita-tax-prep'];
+  const course = courseData['vita-tax-prep'];
 
   const handleNext = () => {
     if (step < 3) setStep(step + 1);

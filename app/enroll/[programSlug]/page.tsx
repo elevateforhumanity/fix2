@@ -65,10 +65,10 @@ const courses = [
 export default function EnrollProgramPage({
   params,
 }: {
-  params: { program: string };
+  params: { programSlug: string };
 }) {
   const router = useRouter();
-  const program = params.program.toLowerCase();
+  const program = params.programSlug.toLowerCase();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');

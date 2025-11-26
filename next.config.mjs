@@ -21,7 +21,7 @@ const nextConfig = {
     ],
   },
   typescript: {
-    ignoreBuildErrors: true, // Temporarily ignore to complete deployment - fix in next iteration
+    ignoreBuildErrors: false, // ✅ TypeScript errors now fixed
   },
   async headers() {
     return [
