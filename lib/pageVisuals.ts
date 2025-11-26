@@ -155,9 +155,9 @@ export const barberVisuals: PageVisualConfig = {
       imageSrc: "/images/programs/barber/barber-hero-main.jpg",
       imageAlt: "Barber apprentice cutting hair in a modern barbershop.",
       eyebrow: "Barber Apprenticeship",
-      title: "Learn the Craft, Build a Book, and Get Paid While You Train.",
+      title: "Train in the Shop, Build Your Skills, and Get Paid While You Learn.",
       subtitle:
-        "Milady barber theory, live shop experience, and apprenticeship support wrapped into one pathway.",
+        "Milady barber theory, shop mentorship, and structured apprenticeship hours that move you toward licensure.",
       ctaLabel: "Start Barber Apprenticeship",
       ctaHref: "/programs/barber-apprenticeship",
     },
@@ -166,9 +166,9 @@ export const barberVisuals: PageVisualConfig = {
       imageSrc: "/images/programs/barber/barber-hero-earn.jpg",
       imageAlt: "Barber apprentice laughing with a client in the chair.",
       eyebrow: "Earn While You Learn",
-      title: "Apprenticeship hours that count toward licensure and income.",
+      title: "Real clients, real hours, real income.",
       subtitle:
-        "As you train, you can be in the shop gaining hours, building relationships, and learning the business side of barbering.",
+        "While you complete your theory modules, you can be in the shop gaining hours, building a client base, and learning how the business works.",
       ctaLabel: "Talk About Apprenticeship",
       ctaHref: "/contact",
     },
@@ -178,20 +178,20 @@ export const barberVisuals: PageVisualConfig = {
       id: "barber-training-overview",
       title: "What Your Barber Apprenticeship Includes",
       bullets: [
-        "Milady barber theory curriculum for foundational knowledge.",
-        "In-shop apprenticeship experience with real clients and mentors.",
-        "Drug-free workplace and professionalism training tailored to barber/beauty environments."
+        "Milady barber theory curriculum to cover all core concepts required for licensure.",
+        "In-shop apprenticeship experience with licensed barbers supervising your hours.",
+        "Drug-free workplace and professionalism training tailored to barber/beauty environments.",
       ],
       imageSrc: "/images/programs/barber/barber-training.jpg",
       imageAlt: "Instructor demonstrating a haircut technique to apprentices.",
     },
     {
       id: "barber-outcomes",
-      title: "Where Barber Training Can Take You",
+      title: "Where This Apprenticeship Can Take You",
       bullets: [
-        "Licensed barber opportunities in shops and salons.",
-        "Chair rental, commission, or shop ownership paths over time.",
-        "A portable skill set that moves with you wherever you go."
+        "Licensed barber roles in shops and salons once apprenticeship and testing are complete.",
+        "Paths into chair rental, commission-based work, or eventually shop ownership.",
+        "A portable licensed trade that lets you work, travel, and build your own brand.",
       ],
       imageSrc: "/images/programs/barber/barber-outcomes.jpg",
       imageAlt: "Barber proudly standing by their station with tools organized.",
