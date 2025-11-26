@@ -11,6 +11,8 @@ import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
 import { MainNav } from '@/components/layout/MainNav';
 import { SiteFooter } from '@/components/layout/Footer';
+import MainHeader from '@/components/layout/MainHeader';
+import MainFooter from '@/components/layout/MainFooter';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
@@ -125,9 +127,9 @@ sizes="192x192" />
         <GoogleAnalytics />
         <FacebookPixel />
         <PerformanceMonitor />
-        <MainNav />
+        <MainHeader />
         <main id="main-content">{children}</main>
-        <SiteFooter />
+        <MainFooter />
         <ElevateChatWidget />
         <CookieBanner />
         <PWAInstallPrompt />
