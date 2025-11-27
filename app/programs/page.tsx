@@ -21,7 +21,21 @@ const PROGRAM_GROUPS = [
   },
   {
     title: "Business & Technology",
-    items: ["Tax Prep / IRS VITA", "Office & Admin", "Customer Service", "Digital Skills"],
+    items: [
+      { name: "Tax Prep / IRS VITA", href: "/programs/tax-prep" },
+      { name: "Tax Business Management", href: "/programs/tax-business" },
+      "Office & Admin", 
+      "Customer Service", 
+      "Digital Skills"
+    ],
+  },
+  {
+    title: "Childcare & Early Education",
+    items: [
+      { name: "Childcare Provider Certification", href: "/programs/childcare" },
+      "Early Childhood Education",
+      "Home Daycare Business"
+    ],
   },
   {
     title: "Retail & Customer Service",

@@ -21,7 +21,7 @@ export default function AboutPage() {
               Legal Structure
             </h2>
             <p className="mt-3 text-sm text-slate-700">
-              <strong>Elevate for Humanity</strong> is the workforce development program of{" "}
+              <strong>Elevate for Humanity Training Center</strong> is the workforce development program of{" "}
               <strong>SELFISH INC</strong>, a 501(c)(3) tax-exempt nonprofit organization 
               (EIN: 99-3483511) dedicated to holistic support for individuals and families.
             </p>
@@ -29,9 +29,19 @@ export default function AboutPage() {
               SELFISH INC operates two primary programs:
             </p>
             <ul className="mt-2 ml-6 list-disc text-sm text-slate-700">
-              <li><strong>Elevate for Humanity</strong> - Workforce development and career training</li>
+              <li><strong>Elevate for Humanity Training Center</strong> - Workforce development and career training</li>
               <li><strong>Selfish Inc Mental Wellness</strong> - Trauma, divorce, and addiction support</li>
             </ul>
+            <div className="mt-4 rounded-lg border border-green-200 bg-green-50 p-4">
+              <p className="text-xs font-semibold text-green-900">
+                ✅ ETPL Approved Training Provider
+              </p>
+              <p className="mt-2 text-xs text-green-800">
+                <strong>Provider Name:</strong> Elevate for Humanity Training Center<br/>
+                <strong>Provider Location ID:</strong> 10000949<br/>
+                <strong>Status:</strong> Approved for Indiana's Eligible Training Provider List (INTraining)
+              </p>
+            </div>
           </div>
 
           <h2 className="text-xl font-semibold text-slate-900">
@@ -63,10 +73,22 @@ export default function AboutPage() {
               Approved Workforce Training Provider
             </h3>
             <p className="mt-3 text-sm text-slate-700">
-              Elevate for Humanity is an approved training provider authorized to deliver 
-              workforce development programs funded by federal and state agencies.
+              <strong>Elevate for Humanity Training Center</strong> (Provider ID: 10000949) is an 
+              approved training provider authorized to deliver workforce development programs 
+              funded by federal and state agencies.
             </p>
-            <div className="mt-4 grid gap-4 md:grid-cols-3">
+            <div className="mt-4 grid gap-4 md:grid-cols-4">
+              <div className="rounded-lg border border-green-300 bg-white p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">ETPL</span>
+                  </div>
+                  <h4 className="text-sm font-semibold text-slate-900">ETPL Approved</h4>
+                </div>
+                <p className="text-xs text-slate-700">
+                  Indiana Eligible Training Provider List (Provider ID: 10000949)
+                </p>
+              </div>
               <div className="rounded-lg border border-blue-300 bg-white p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <div className="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center">
@@ -80,7 +102,7 @@ export default function AboutPage() {
               </div>
               <div className="rounded-lg border border-blue-300 bg-white p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center">
+                  <div className="h-8 w-8 rounded-full bg-indigo-600 flex items-center justify-center">
                     <span className="text-white text-xs font-bold">✓</span>
                   </div>
                   <h4 className="text-sm font-semibold text-slate-900">WIOA Approved</h4>
@@ -207,6 +229,46 @@ export default function AboutPage() {
               </p>
               <p className="mt-3 text-xs text-slate-500">
                 EIN: 99-3483511 | Tax-Exempt Nonprofit
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                IRS VITA Site
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                IRS-certified VITA (Volunteer Income Tax Assistance) site providing 
+                free tax preparation services and tax preparer certification training.
+              </p>
+              <p className="mt-3 text-xs text-slate-500">
+                VITA SDIN: 99420837 | IRS-Certified Tax Preparation
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                Veteran-Owned Business
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                Proudly owned and operated by U.S. Army veteran Elizabeth Greene 
+                (2000-2007, Honorable Discharge). Veteran-friendly training programs 
+                with GI Bill acceptance and VA partnerships.
+              </p>
+              <p className="mt-3 text-xs text-slate-500">
+                U.S. Army Veteran | VOSB Eligible | Veteran-Friendly Employer
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                Licensed Educator
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                Licensed substitute teacher with expertise in youth and adult education. 
+                Qualified to deliver school-based programs and educational partnerships.
+              </p>
+              <p className="mt-3 text-xs text-slate-500">
+                Indiana Licensed Educator | Youth Program Qualified
               </p>
             </div>
           </div>
