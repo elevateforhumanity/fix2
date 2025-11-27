@@ -9,8 +9,8 @@
     "silent": true,
     "autoJobCancelation": true
   },
-  "buildCommand": "pnpm build",
-  "installCommand": "pnpm install",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
   "build": {
     "env": {
       "NODE_OPTIONS": "--max-old-space-size=4096"
