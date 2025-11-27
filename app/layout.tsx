@@ -93,10 +93,6 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     title: 'Elevate',
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
   verification: {
     google: '9sXnIdE4X4AoAeRlu16JXWqNxSOIxOCAvbpakSGp3so',
     other: {
