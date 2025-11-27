@@ -1,25 +1,18 @@
-import { HeroBanner } from "@/components/HeroBanner";
-import { ContentWithImage } from "@/components/ContentWithImage";
-import { homepageVisuals } from "@/lib/pageVisuals";
+import {
+  homeHeroImages,
+  homeSecondaryStripImages,
+  successStoryImages,
+} from "@/lms-data/media";
+import { HomeHero } from "@/components/media/HomeHero";
+import { HomeProgramStrip } from "@/components/media/HomeProgramStrip";
+import { SuccessStrip } from "@/components/media/SuccessStrip";
 
 export default function HomePage() {
-  const { heroes, sections } = homepageVisuals;
-
   return (
-    <main className="bg-white">
-      {heroes.map((hero) => (
-        <HeroBanner key={hero.id} hero={hero} />
-      ))}
-
-      <div className="bg-gray-50">
-        {sections.map((section, idx) => (
-          <ContentWithImage
-            key={section.id}
-            section={section}
-            reverse={idx % 2 === 1}
-          />
-        ))}
-      </div>
+    <main className="min-h-screen bg-slate-950">
+      <HomeHero images={homeHeroImages} />
+      <HomeProgramStrip items={homeSecondaryStripImages} />
+      <SuccessStrip stories={successStoryImages} />
     </main>
   );
 }
