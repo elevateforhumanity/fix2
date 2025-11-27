@@ -1,113 +1,117 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-export default function MainHeader() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
+const mainNav = [
+  { label: "Programs", href: "/programs" },
+  { label: "Funding", href: "/funding" },
+  { label: "Employers", href: "/employers" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
-  const isActive = (path: string) => pathname === path;
+const authNav = [
+  { label: "Student Login", href: "/auth/login?role=student" },
+  { label: "Staff Login", href: "/auth/login?role=staff" },
+];
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/programs", label: "Programs" },
-    { href: "/funding", label: "Funding" },
-    { href: "/student-portal", label: "Student Portal" },
-    { href: "/staff-portal", label: "Staff & Program Holders" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
-  ];
+export function MainHeader() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+    <header className="border-b border-slate-100 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4">
-        {/* Logo/Brand */}
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <img 
-            src="/logo.svg" 
-            alt="Elevate For Humanity" 
-            className="h-10 w-auto"
-          />
-          <span className="hidden text-base font-semibold text-slate-900 sm:inline">
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-red-600 text-sm font-bold text-white">
+            EFH
+          </span>
+          <span className="text-sm font-semibold text-slate-900 md:text-base">
             Elevate For Humanity
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-6 lg:flex">
-          {navLinks.map((link) => (
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-6 md:flex">
+          {mainNav.map((item) => (
             <Link
-              key={link.href}
-              href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-orange-500 ${
-                isActive(link.href)
-                  ? "text-orange-500"
-                  : "text-slate-700"
-              }`}
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-slate-700 hover:text-red-600"
             >
-              {link.label}
+              {item.label}
             </Link>
           ))}
         </nav>
 
-        {/* CTA Button + Mobile Menu Toggle */}
-        <div className="flex items-center gap-3">
+        {/* Auth + CTA (desktop) */}
+        <div className="hidden items-center gap-3 md:flex">
+          {authNav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-xs font-semibold text-slate-700 hover:text-blue-600"
+            >
+              {item.label}
+            </Link>
+          ))}
           <Link
-            href="/login"
-            className="hidden rounded-md bg-brandPrimary px-3 py-1 text-xs font-semibold text-white hover:bg-brandPrimaryDark md:inline-block"
+            href="/apply"
+            className="rounded-full bg-red-600 px-4 py-2 text-xs font-semibold text-white hover:bg-red-700"
           >
-            Staff / Partner Login
+            Apply Now
           </Link>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="flex h-9 w-9 items-center justify-center rounded-md border border-slate-200 bg-white text-slate-700 lg:hidden"
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
         </div>
+
+        {/* Mobile button */}
+        <button
+          onClick={() => setOpen((v) => !v)}
+          className="inline-flex items-center justify-center rounded-md border border-slate-200 p-2 md:hidden"
+        >
+          <span className="sr-only">Toggle menu</span>
+          <span className="h-0.5 w-4 bg-slate-900" />
+        </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      {menuOpen && (
-        <div className="border-t border-slate-200 bg-white lg:hidden">
-          <nav className="mx-auto max-w-6xl space-y-1 px-4 py-4">
-            {navLinks.map((link) => (
+      {/* Mobile menu */}
+      {open && (
+        <nav className="border-t border-slate-100 bg-white px-4 py-3 md:hidden">
+          <div className="space-y-2">
+            {mainNav.map((item) => (
               <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                  isActive(link.href)
-                    ? "bg-orange-50 text-orange-600"
-                    : "text-slate-700 hover:bg-slate-50"
-                }`}
+                key={item.href}
+                href={item.href}
+                className="block py-1 text-sm font-medium text-slate-800"
+                onClick={() => setOpen(false)}
               >
-                {link.label}
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {authNav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-700"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
               </Link>
             ))}
             <Link
-              href="/login"
-              onClick={() => setMenuOpen(false)}
-              className="mt-3 block rounded-md bg-brandPrimary px-3 py-2 text-center text-sm font-semibold text-white hover:bg-brandPrimaryDark"
+              href="/apply"
+              className="rounded-full bg-red-600 px-4 py-2 text-xs font-semibold text-white"
+              onClick={() => setOpen(false)}
             >
-              Staff / Partner Login
+              Apply Now
             </Link>
-          </nav>
-        </div>
+          </div>
+        </nav>
       )}
     </header>
   );
 }
+
+export default MainHeader;

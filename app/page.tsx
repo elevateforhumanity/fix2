@@ -1,120 +1,70 @@
 import Link from "next/link";
-import { HeroBanner } from "../components/HeroBanner";
-import { ImageSection } from "../components/ImageSection";
 
-export const metadata = {
-  title: "Elevate for Humanity – Workforce Training & Earn-While-You-Learn",
-  description:
-    "A workforce training platform connecting grants, apprenticeships, and employer partners so learners can skill up without drowning in debt.",
-};
-
-export default function HomeV2Page() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
-      <HeroBanner
-        mediaSlot="home_hero_primary"
-        title="Training that actually leads to jobs, not just certificates."
-        subtitle="Elevate for Humanity braids together grants, apprenticeships, employer partners, and AI-powered coaching so people can skill up, earn while they learn, and move into mortgage-paying careers."
-        ctaLabel="Explore Programs & Funding"
-        ctaHref="/programs"
-        secondaryText="Already referred by WorkOne, WRG, JRI, or an employer? Let us know on your interest form so we can stack your funding."
-      />
-
-      <section className="border-y border-slate-800 bg-slate-900/70">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 text-[11px] md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-[10px] uppercase tracking-wide text-slate-400">
-              For Learners
-            </p>
-            <p className="text-xs text-slate-200">
-              CNA • Barber Apprenticeship • HVAC • Building Tech • CDL • Tax &
-              VITA • Business Support • and more.
-            </p>
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-wide text-slate-400">
-              For Employers
-            </p>
-            <p className="text-xs text-slate-200">
-              WEX, OJT, apprenticeships, and upskilling pathways that reduce
-              hiring risk and strengthen your pipeline.
-            </p>
-          </div>
-          <div className="flex gap-2">
+    <main className="bg-white">
+      {/* Hero */}
+      <section className="border-b border-slate-100 bg-slate-50">
+        <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
+          <p className="text-xs font-semibold uppercase tracking-wide text-red-600">
+            Elevate For Humanity
+          </p>
+          <h1 className="mt-2 text-2xl font-bold text-slate-900 md:text-4xl">
+            Free and funded career training that leads to real jobs.
+          </h1>
+          <p className="mt-3 max-w-2xl text-sm text-slate-700 md:text-base">
+            We connect you to approved training, workforce grants, and employers
+            so you can start a new career in healthcare, trades, beauty, business, and more.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href="/enroll"
-              className="rounded-lg bg-red-600 px-3 py-1.5 text-[10px] font-semibold hover:bg-red-700"
+              href="/apply"
+              className="rounded-full bg-red-600 px-6 py-2 text-sm font-semibold text-white hover:bg-red-700"
             >
-              Start Enrollment
+              Apply Now
             </Link>
             <Link
-              href="/employer"
-              className="rounded-lg border border-slate-700 px-3 py-1.5 text-[10px] font-semibold text-slate-100 hover:bg-slate-800"
+              href="/funding"
+              className="rounded-full border border-slate-200 px-6 py-2 text-sm font-semibold text-slate-800 hover:border-red-300"
             >
-              Employer Partnerships
+              How Funding Works
             </Link>
           </div>
+          <p className="mt-3 text-[11px] text-slate-500">
+            Indiana residents may qualify for Workforce Ready Grants, WIOA funding, or paid apprenticeships.
+          </p>
         </div>
       </section>
 
-      <ImageSection
-        mediaSlot="home_student_story"
-        eyebrow="Learner Outcomes"
-        title="Not just sign-ups. Real completions and job placements."
-        body="Elevate is built around real outcomes: completions, credentials, and employer placements. Every program is designed with soft skills, technical skills, and real workplace experience woven together."
-        bullets={[
-          "Stacked funding so cost is not the main barrier",
-          "Job Ready Indy (JRI) modules to build soft skills",
-          "Work-based learning like WEX, OJT, and apprenticeships",
-          "Ongoing coaching and employer feedback loops",
-        ]}
-      />
-
-      <ImageSection
-        mediaSlot="home_employer_collage"
-        eyebrow="For Employers"
-        title="A single place to manage WEX, OJT, apprenticeships, and upskilling."
-        body="Instead of juggling emails and spreadsheets, Elevate gives you a simple way to host trainees, track hours, and tap into subsidies where available. We help reduce your hiring risk while building a stronger talent pipeline."
-        bullets={[
-          "Pre-screened learners with JRI and foundational skills",
-          "Support navigating WRG, WIOA, and other funding sources",
-          "Templates for WEX/OJT/apprenticeship agreements",
-          "Simple reporting on hours, participation, and outcomes",
-        ]}
-        reverse
-      />
-
-      <section className="bg-slate-950">
-        <div className="mx-auto max-w-6xl px-4 py-10 text-[11px]">
-          <p className="text-[10px] font-semibold uppercase tracking-wide text-orange-400">
-            How Funding Works
-          </p>
-          <h2 className="mt-2 text-sm font-semibold md:text-base">
-            We braid together grants, employer sponsorship, and philanthropy so
-            learners aren&apos;t blocked by tuition.
-          </h2>
-          <div className="mt-4 grid gap-3 md:grid-cols-3">
-            <article className="rounded-xl border border-slate-800 bg-slate-900 p-3">
-              <p className="text-[11px] font-semibold">State & Local Grants</p>
-              <p className="mt-1 text-[11px] text-slate-300">
-                When available, we work with WRG, WIOA, and other local funds so
-                eligible learners can reduce or eliminate tuition.
-              </p>
-            </article>
-            <article className="rounded-xl border border-slate-800 bg-slate-900 p-3">
-              <p className="text-[11px] font-semibold">Earn-While-You-Learn</p>
-              <p className="mt-1 text-[11px] text-slate-300">
-                Apprenticeships, WEX, and OJT placements help learners gain
-                experience and income while they train.
-              </p>
-            </article>
-            <article className="rounded-xl border border-slate-800 bg-slate-900 p-3">
-              <p className="text-[11px] font-semibold">Philanthropy & Payment Plans</p>
-              <p className="mt-1 text-[11px] text-slate-300">
-                For programs that require tuition, we use targeted scholarships
-                and simple payment plans so cost doesn&apos;t stop progress.
-              </p>
-            </article>
+      {/* 3 highlights */}
+      <section className="py-8 md:py-10">
+        <div className="mx-auto grid max-w-6xl gap-4 px-4 md:grid-cols-3">
+          <div className="rounded-xl border border-slate-100 bg-white p-4 text-sm shadow-sm">
+            <p className="text-xs font-semibold text-red-600">Programs</p>
+            <h2 className="mt-1 text-sm font-semibold text-slate-900">
+              20+ Career Pathways
+            </h2>
+            <p className="mt-1 text-xs text-slate-700">
+              CNA, HVAC, Building Maintenance, Barber, CDL, Tax Prep, and more.
+            </p>
+          </div>
+          <div className="rounded-xl border border-slate-100 bg-white p-4 text-sm shadow-sm">
+            <p className="text-xs font-semibold text-orange-500">Funding</p>
+            <h2 className="mt-1 text-sm font-semibold text-slate-900">
+              Grants & Paid Training
+            </h2>
+            <p className="mt-1 text-xs text-slate-700">
+              Many programs are covered through state and federal workforce funding.
+            </p>
+          </div>
+          <div className="rounded-xl border border-slate-100 bg-white p-4 text-sm shadow-sm">
+            <p className="text-xs font-semibold text-blue-600">Support</p>
+            <h2 className="mt-1 text-sm font-semibold text-slate-900">
+              Case Management & Employers
+            </h2>
+            <p className="mt-1 text-xs text-slate-700">
+              We work with workforce boards, case managers, and employers to support your journey.
+            </p>
           </div>
         </div>
       </section>

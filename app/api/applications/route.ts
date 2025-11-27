@@ -1,67 +1,51 @@
-import { NextRequest, NextResponse } from "next/server";
-import { supabase } from "@/lib/supabaseClient";
+import { NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 
-export async function POST(req: NextRequest) {
-  if (!supabase) {
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+
+const supabase = createClient(supabaseUrl, serviceKey);
+
+export async function POST(req: Request) {
+  try {
+    const body = await req.json();
+    const { full_name, email, phone, program_interest, referral_source } = body;
+
+    if (!full_name || !email) {
+      return NextResponse.json(
+        { error: "Name and email are required." },
+        { status: 400 }
+      );
+    }
+
+    const { data, error } = await supabase
+      .from("applications")
+      .insert([
+        {
+          full_name,
+          email,
+          phone,
+          program_interest,
+          referral_source,
+        },
+      ])
+      .select()
+      .single();
+
+    if (error) {
+      console.error("Supabase error:", error);
+      return NextResponse.json(
+        { error: "Could not save application." },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true, application: data });
+  } catch (err) {
+    console.error("Application error:", err);
     return NextResponse.json(
-      {
-        ok: false,
-        error:
-          "Supabase client not configured. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.",
-      },
+      { error: "Unexpected error." },
       { status: 500 }
     );
   }
-
-  const body = await req.json();
-
-  const {
-    firstName,
-    lastName,
-    email,
-    phone,
-    programId,
-    preferredStart,
-    heardAboutUs,
-    youth,
-    reentry,
-    interestedInJri,
-    interestedInWex,
-    interestedInOjt,
-    needsSupport,
-  } = body || {};
-
-  if (!firstName || !lastName || !email || !programId) {
-    return NextResponse.json(
-      { ok: false, error: "Missing required fields." },
-      { status: 400 }
-    );
-  }
-
-  const { error } = await supabase.from("applications").insert({
-    first_name: firstName,
-    last_name: lastName,
-    email,
-    phone,
-    program_id: programId,
-    preferred_start: preferredStart || null,
-    heard_about_us: heardAboutUs || null,
-    youth: !!youth,
-    reentry: !!reentry,
-    interested_in_jri: !!interestedInJri,
-    interested_in_wex: !!interestedInWex,
-    interested_in_ojt: !!interestedInOjt,
-    needs_support: Array.isArray(needsSupport) ? needsSupport : [],
-    status: "submitted",
-  });
-
-  if (error) {
-    console.error("[Applications] Insert error:", error);
-    return NextResponse.json(
-      { ok: false, error: error.message },
-      { status: 500 }
-    );
-  }
-
-  return NextResponse.json({ ok: true }, { status: 201 });
 }

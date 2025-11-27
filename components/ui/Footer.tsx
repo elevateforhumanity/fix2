@@ -46,10 +46,10 @@ export const Footer: React.FC = () => {
   };
 
   const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: 'https://facebook.com/elevateforhumanity' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/elevate4humanity' },
+    { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61571046346179' },
+    { name: 'Twitter', icon: Twitter, href: 'https://x.com/Elevate4Humani1' },
     { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/elevateforhumanity' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/elevateforhumanity' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/elevate-for-humanity-b5a2b3339/' },
     { name: 'YouTube', icon: Youtube, href: 'https://youtube.com/@elevateforhumanity' },
   ];
 

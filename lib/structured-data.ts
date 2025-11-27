@@ -23,9 +23,9 @@ export function generateOrganizationSchema() {
       email: 'Elevate4humanityedu@gmail.com',
     },
     sameAs: [
-      'https://facebook.com/elevateforhumanity',
-      'https://twitter.com/elevate4humanity',
-      'https://linkedin.com/company/elevateforhumanity',
+      'https://www.facebook.com/profile.php?id=61571046346179',
+      'https://x.com/Elevate4Humani1',
+      'https://www.linkedin.com/in/elevate-for-humanity-b5a2b3339/',
     ],
   };
 }

@@ -32,9 +32,9 @@ export const CONTACT_INFO = {
   
   // Social Media (optional)
   social: {
-    facebook: "https://facebook.com/elevateforhumanity",
-    linkedin: "https://linkedin.com/company/elevateforhumanity",
-    twitter: "https://twitter.com/elevate4humanity",
+    facebook: "https://www.facebook.com/profile.php?id=61571046346179",
+    linkedin: "https://www.linkedin.com/in/elevate-for-humanity-b5a2b3339/",
+    twitter: "https://x.com/Elevate4Humani1",
   },
 };
 

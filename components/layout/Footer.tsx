@@ -63,7 +63,7 @@ export function SiteFooter() {
             {/* Social Links */}
             <div className="flex items-center gap-4">
               <a 
-                href="https://facebook.com/elevateforhumanity" 
+                href="https://www.facebook.com/profile.php?id=61571046346179" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-lg bg-slate-700 hover:bg-red-500 text-white hover:text-white transition-all hover:scale-110"
@@ -72,7 +72,7 @@ export function SiteFooter() {
                 <Facebook size={20} strokeWidth={2.5} />
               </a>
               <a 
-                href="https://twitter.com/elevate4humanity" 
+                href="https://x.com/Elevate4Humani1" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-lg bg-slate-700 hover:bg-red-500 text-white hover:text-white transition-all hover:scale-110"
@@ -81,7 +81,7 @@ export function SiteFooter() {
                 <Twitter size={20} strokeWidth={2.5} />
               </a>
               <a 
-                href="https://linkedin.com/company/elevateforhumanity" 
+                href="https://www.linkedin.com/in/elevate-for-humanity-b5a2b3339/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-lg bg-slate-700 hover:bg-red-500 text-white hover:text-white transition-all hover:scale-110"

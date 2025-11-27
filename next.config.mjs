@@ -21,10 +21,10 @@ const nextConfig = {
     ],
   },
   typescript: {
-    ignoreBuildErrors: true, // Temporarily ignore to reduce memory usage during build
+    ignoreBuildErrors: false,
   },
   eslint: {
-    ignoreDuringBuilds: true, // Skip ESLint during build to save memory
+    ignoreDuringBuilds: false,
   },
   async headers() {
     return [
