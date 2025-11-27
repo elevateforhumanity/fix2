@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function HomeV2Page() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-h-screen bg-white text-slate-900">
       <HeroBanner
         mediaSlot="home_hero_primary"
         title="Training that actually leads to jobs, not just certificates."
@@ -20,57 +20,57 @@ export default function HomeV2Page() {
         secondaryText="Already referred by WorkOne, WRG, JRI, or an employer? Let us know on your interest form so we can stack your funding."
       />
 
-      <section className="border-y border-slate-800 bg-slate-900/70">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 text-[11px] md:flex-row md:items-center md:justify-between">
+      <section className="border-y border-slate-200 bg-slate-50">
+        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 text-sm md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-[10px] uppercase tracking-wide text-slate-400">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-600">
               For Learners
             </p>
-            <p className="text-xs text-slate-200">
+            <p className="text-sm text-slate-700">
               CNA • Barber Apprenticeship • HVAC • Building Tech • CDL • Tax &
               VITA • Business Support • and more.
             </p>
           </div>
           <div>
-            <p className="text-[10px] uppercase tracking-wide text-slate-400">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-600">
               For Employers
             </p>
-            <p className="text-xs text-slate-200">
+            <p className="text-sm text-slate-700">
               WEX, OJT, apprenticeships, and upskilling pathways that reduce
               hiring risk and strengthen your pipeline.
             </p>
           </div>
           <div className="flex gap-2">
             <Link
-              href="/enroll"
-              className="rounded-lg bg-orange-500 px-3 py-1.5 text-sm font-bold text-white shadow-lg hover:bg-orange-600"
+              href="/apply"
+              className="rounded-lg bg-orange-600 px-4 py-2 text-sm font-bold text-white shadow-md hover:bg-orange-700"
             >
-              Start Enrollment
+              Apply Now
             </Link>
             <Link
               href="/employers"
-              className="rounded-lg border-2 border-white bg-white px-3 py-1.5 text-sm font-bold text-slate-900 shadow-lg hover:bg-slate-100"
+              className="rounded-lg border-2 border-orange-600 bg-white px-4 py-2 text-sm font-bold text-orange-600 shadow-md hover:bg-orange-50"
             >
-              Employer Partnerships
+              For Employers
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-slate-900 text-white">
-        <div className="mx-auto max-w-6xl px-4 py-10">
+      <section className="bg-white text-slate-900">
+        <div className="mx-auto max-w-6xl px-4 py-12">
           <div className="grid gap-8 md:grid-cols-2">
             <article>
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-orange-400">
+              <p className="text-xs font-bold uppercase tracking-wide text-orange-600">
                 Learner Outcomes
               </p>
-              <h2 className="mt-2 text-sm font-semibold md:text-base">
+              <h2 className="mt-2 text-xl font-bold md:text-2xl">
                 Not just sign-ups. Real completions and job placements.
               </h2>
-              <p className="mt-3 text-[11px] text-slate-300">
+              <p className="mt-3 text-base text-slate-700">
                 Elevate is built around real outcomes: completions, credentials, and employer placements. Every program is designed with soft skills, technical skills, and real workplace experience woven together.
               </p>
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-[11px] text-slate-200">
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-base text-slate-700">
                 <li>Stacked funding so cost is not the main barrier</li>
                 <li>Job Ready Indy (JRI) modules to build soft skills</li>
                 <li>Work-based learning like WEX, OJT, and apprenticeships</li>
@@ -79,16 +79,16 @@ export default function HomeV2Page() {
             </article>
 
             <article>
-              <p className="text-[10px] font-semibold uppercase tracking-wide text-orange-400">
+              <p className="text-xs font-bold uppercase tracking-wide text-orange-600">
                 For Employers
               </p>
-              <h2 className="mt-2 text-sm font-semibold md:text-base">
+              <h2 className="mt-2 text-xl font-bold md:text-2xl">
                 A single place to manage WEX, OJT, apprenticeships, and upskilling.
               </h2>
-              <p className="mt-3 text-[11px] text-slate-300">
+              <p className="mt-3 text-base text-slate-700">
                 Instead of juggling emails and spreadsheets, Elevate gives you a simple way to host trainees, track hours, and tap into subsidies where available. We help reduce your hiring risk while building a stronger talent pipeline.
               </p>
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-[11px] text-slate-200">
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-base text-slate-700">
                 <li>Pre-screened learners with JRI and foundational skills</li>
                 <li>Support navigating WRG, WIOA, and other funding sources</li>
                 <li>Templates for WEX/OJT/apprenticeship agreements</li>
@@ -100,7 +100,7 @@ export default function HomeV2Page() {
       </section>
 
       {/* FEATURED PROGRAMS */}
-      <section className="bg-slate-950 py-12">
+      <section className="bg-slate-50 py-12">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <p className="text-xs font-semibold uppercase tracking-wide text-orange-400">
@@ -113,7 +113,7 @@ export default function HomeV2Page() {
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             <Link href="/programs/cna" className="group">
-              <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900 transition hover:border-orange-500">
+              <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-md transition hover:border-orange-500 hover:shadow-xl">
                 <div className="relative h-48">
                   <Image
                     src="/media/programs/cna-hd.jpg"
@@ -137,7 +137,7 @@ export default function HomeV2Page() {
             </Link>
 
             <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900 transition hover:border-orange-500">
+              <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-md transition hover:border-orange-500 hover:shadow-xl">
                 <div className="relative h-48">
                   <Image
                     src="/media/programs/beauty-hd.jpg"
@@ -161,7 +161,7 @@ export default function HomeV2Page() {
             </Link>
 
             <Link href="/programs/hvac-tech" className="group">
-              <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900 transition hover:border-orange-500">
+              <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-md transition hover:border-orange-500 hover:shadow-xl">
                 <div className="relative h-48">
                   <Image
                     src="/media/programs/hvac-hd.jpg"
@@ -188,7 +188,7 @@ export default function HomeV2Page() {
           <div className="mt-8 text-center">
             <Link
               href="/programs"
-              className="inline-flex items-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold hover:bg-slate-800"
+              className="inline-flex items-center rounded-lg border-2 border-orange-600 bg-white px-6 py-3 text-base font-bold text-orange-600 hover:bg-orange-50"
             >
               View All Programs
             </Link>
@@ -197,7 +197,7 @@ export default function HomeV2Page() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="bg-slate-900 py-12">
+      <section className="bg-white py-12">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <p className="text-xs font-semibold uppercase tracking-wide text-orange-400">
@@ -209,7 +209,7 @@ export default function HomeV2Page() {
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <div className="rounded-xl border border-slate-800 bg-slate-950 p-6">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-md">
               <div className="flex items-center gap-3">
                 <div className="relative h-12 w-12 overflow-hidden rounded-full">
                   <Image
@@ -273,7 +273,7 @@ export default function HomeV2Page() {
       </section>
 
       {/* FUNDING SECTION */}
-      <section className="bg-slate-950 py-12">
+      <section className="bg-slate-50 py-12">
         <div className="mx-auto max-w-6xl px-4">
           <p className="text-xs font-semibold uppercase tracking-wide text-orange-400">
             How Funding Works
@@ -282,21 +282,21 @@ export default function HomeV2Page() {
             We braid together grants, employer sponsorship, and philanthropy so learners aren't blocked by tuition.
           </h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <article className="rounded-xl border border-slate-800 bg-slate-900 p-6">
-              <p className="text-lg font-semibold">State & Local Grants</p>
-              <p className="mt-3 text-sm text-slate-300">
+            <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-md">
+              <p className="text-lg font-bold text-slate-900">State & Local Grants</p>
+              <p className="mt-3 text-base text-slate-700">
                 When available, we work with WRG, WIOA, and other local funds so eligible learners can reduce or eliminate tuition.
               </p>
             </article>
-            <article className="rounded-xl border border-slate-800 bg-slate-900 p-6">
-              <p className="text-lg font-semibold">Earn-While-You-Learn</p>
-              <p className="mt-3 text-sm text-slate-300">
+            <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-md">
+              <p className="text-lg font-bold text-slate-900">Earn-While-You-Learn</p>
+              <p className="mt-3 text-base text-slate-700">
                 Apprenticeships, WEX, and OJT placements help learners gain experience and income while they train.
               </p>
             </article>
-            <article className="rounded-xl border border-slate-800 bg-slate-900 p-6">
-              <p className="text-lg font-semibold">Philanthropy & Payment Plans</p>
-              <p className="mt-3 text-sm text-slate-300">
+            <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-md">
+              <p className="text-lg font-bold text-slate-900">Philanthropy & Payment Plans</p>
+              <p className="mt-3 text-base text-slate-700">
                 For programs that require tuition, we use targeted scholarships and simple payment plans so cost doesn't stop progress.
               </p>
             </article>

@@ -1,3 +1,15 @@
+set -e
+
+echo "🚀 Elevate: wiring enrollment API, /enroll page, student + admin enrollment views..."
+
+########################################
+# 1) Enrollment API
+#    app/api/enroll/route.ts
+########################################
+
+mkdir -p app/api/enroll
+
+cat << 'EOF' > app/api/enroll/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
@@ -82,3 +94,7 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+EOF
+
+echo "✅ Created POST /api/enroll"
+
