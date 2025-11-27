@@ -180,8 +180,10 @@ export default function ApplyPage() {
             <div className="mt-4 space-y-4">
               <div className="flex gap-3">
                 <div className="flex-shrink-0">
-                  <svg className="h-5 w-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg className="h-5 w-5 text-red-600" fill="none" stroke="currentColor"
+viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <div>
@@ -198,8 +200,10 @@ export default function ApplyPage() {
 
               <div className="flex gap-3">
                 <div className="flex-shrink-0">
-                  <svg className="h-5 w-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg className="h-5 w-5 text-red-600" fill="none" stroke="currentColor"
+viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <div>
@@ -213,8 +217,10 @@ export default function ApplyPage() {
 
               <div className="flex gap-3">
                 <div className="flex-shrink-0">
-                  <svg className="h-5 w-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg className="h-5 w-5 text-red-600" fill="none" stroke="currentColor"
+viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
                 <div>

@@ -65,6 +65,9 @@ export const metadata: Metadata = {
     },
   },
   manifest: '/manifest.json',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org',
+  },
   openGraph: {
     title: 'Elevate for Humanity | 100% Free Career Training',
     description:

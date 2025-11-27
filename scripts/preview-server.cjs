@@ -82,7 +82,7 @@ const server = http.createServer((req, res) => {
   }
 
   // Build full path
-  let fullPath = path.join(DIST_DIR, filePath);
+  const fullPath = path.join(DIST_DIR, filePath);
 
   // Check if file exists
   fs.stat(fullPath, (err, stats) => {

@@ -290,7 +290,7 @@ class BlogSystem {
         order = 'desc',
       } = req.query;
 
-      let posts = [...this.blogPosts];
+      const posts = [...this.blogPosts];
 
       // Sort posts
       posts.sort((a, b) => {

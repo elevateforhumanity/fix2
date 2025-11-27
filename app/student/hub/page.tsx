@@ -31,7 +31,7 @@ export default function StudentHubPage() {
   return (
     <>
       <AIBlockMeta />
-      <ContentProtection level="maximum" showWatermark={true}>
+      <ContentProtection level="maximum" showWatermark>
         <main className="min-h-screen bg-slate-900 text-white">
       {/* HERO */}
       <section className="border-b border-slate-800 bg-slate-900">

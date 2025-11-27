@@ -11,7 +11,7 @@ const { execSync, spawn } = require('child_process');
 const http = require('http');
 const https = require('https');
 
-let DEPLOYMENT_LOG = [];
+const DEPLOYMENT_LOG = [];
 let DEPLOYMENT_SUCCESS = false;
 let DEPLOYMENT_URL = null;
 

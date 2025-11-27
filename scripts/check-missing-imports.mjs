@@ -19,7 +19,7 @@ function scanFile(file) {
   const regex = /import\s+(?:[^'"]+from\s+)?["'](\.?\.?\/[^"']+)["'];?/g;
   let m;
   while ((m = regex.exec(src))) {
-    let imp = m[1];
+    const imp = m[1];
     if (imp.startsWith('http') || imp.startsWith('@')) continue;
     const resolvedCandidates = exts.map((e) =>
       path.resolve(path.dirname(file), imp + e)

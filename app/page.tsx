@@ -5,6 +5,9 @@ export const metadata = {
   title: "Elevate for Humanity | Free Career Training Indianapolis",
   description:
     "100% free workforce training through WIOA funding. CNA, HVAC, Barber, Tax Prep and more. Real jobs, real credentials, no tuition.",
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org",
+  },
 };
 
 export default function HomePage() {

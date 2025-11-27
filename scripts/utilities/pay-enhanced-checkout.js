@@ -130,7 +130,7 @@ enhancedCheckout.post('/api/checkout', async (req, res, next) => {
       return null;
     }
 
-    let line_items = [];
+    const line_items = [];
 
     if (priceId) {
       // If a fixed priceId is given, create a one-off discounted price if coupon applies

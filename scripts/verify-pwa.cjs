@@ -27,8 +27,8 @@ const REQUIRED_ICON_SIZES = [
   '512x512',
 ];
 
-let errors = [];
-let warnings = [];
+const errors = [];
+const warnings = [];
 let passed = 0;
 let total = 0;
 

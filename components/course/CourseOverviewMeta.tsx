@@ -88,7 +88,6 @@ export function CourseOverviewMeta({
       {instructor && (
         <div className="flex items-start gap-3 border-t pt-4">
           {instructor.avatar_url ? (
-            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={instructor.avatar_url}
               alt={instructor.full_name || "Instructor"}

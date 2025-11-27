@@ -67,8 +67,6 @@ export function ProfessionalVideoPlayer({
     const video = videoRef.current;
     if (!video) return;
 
-    let interval: number;
-
     const handler = () => {
       if (!video.duration || isNaN(video.duration)) return;
 
@@ -92,7 +90,7 @@ export function ProfessionalVideoPlayer({
       }).catch((e) => console.error("watch-tick failed", e));
     };
 
-    interval = window.setInterval(handler, 8000); // every 8 seconds
+    const interval = window.setInterval(handler, 8000); // every 8 seconds
 
     return () => {
       window.clearInterval(interval);

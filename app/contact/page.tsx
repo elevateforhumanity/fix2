@@ -57,7 +57,7 @@ export default function ContactPage() {
                 rows={4}
                 required
                 className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-900"
-              ></textarea>
+               />
             </div>
 
             <button

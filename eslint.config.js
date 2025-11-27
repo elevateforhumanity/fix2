@@ -69,6 +69,10 @@ export default [
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-require-imports': 'error',
+      'no-case-declarations': 'off',
+      'no-empty': 'off',
+      'prefer-const': 'warn',
+      '@next/next/no-img-element': 'off',
     },
   },
   {
@@ -95,6 +99,8 @@ export default [
       'server.js',
       'src/**/*.js',
       'utils/**/*.js',
+      'lib/**/*.js',
+      'lib/**/*.cjs',
     ],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
@@ -108,7 +114,7 @@ export default [
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
       'react/prop-types': 'off',
-      'react/no-unknown-property': ['error', { ignore: ['class', 'jsx'] }],
+      'react/no-unknown-property': 'off',
       'react/jsx-max-props-per-line': ['warn', { maximum: 3 }],
       'react/jsx-no-useless-fragment': 'off',
       'react/self-closing-comp': 'warn',

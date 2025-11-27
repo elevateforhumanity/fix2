@@ -14,7 +14,7 @@ const app = express();
 const PORT = 3000;
 
 // Store tokens temporarily
-let tokens = {};
+const tokens = {};
 
 // ============================================
 // YOUTUBE OAUTH

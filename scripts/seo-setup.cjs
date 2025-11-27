@@ -97,7 +97,7 @@ function chunkArray(array, size) {
 }
 
 function pageToUrl(filePath) {
-  let url = filePath
+  const url = filePath
     .replace(/^(public|sites|pages|docs)\//, '')
     .replace(/index\.html$/, '')
     .replace(/\.html$/, '');

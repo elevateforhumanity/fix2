@@ -7,7 +7,7 @@ import fs from 'fs';
 
 console.log('🔍 Production Readiness Verification\n');
 
-let allChecks = [];
+const allChecks = [];
 let passedChecks = 0;
 
 function check(name, condition, message = '') {

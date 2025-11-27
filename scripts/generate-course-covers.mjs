@@ -111,7 +111,7 @@ function main() {
   ensureDirExists(coversDir);
 
   let generated = 0;
-  let skipped = 0;
+  const skipped = 0;
 
   courses.forEach((course) => {
     const courseDir = path.join(coversDir, course.slug);

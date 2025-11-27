@@ -102,7 +102,7 @@ export default function ProgramHolderDashboardPage() {
                       Manage Modules
                     </Link>
                     <Link
-                      href={`/student/dashboard`}
+                      href="/student/dashboard"
                       className="rounded-md border border-slate-600 px-3 py-1.5 text-[11px] font-semibold text-slate-100 hover:bg-slate-900"
                     >
                       View as Student

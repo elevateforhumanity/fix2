@@ -157,7 +157,7 @@ function generateMetaTags(config, pageConfig) {
 // Update meta tags for all configured pages
 Object.entries(pageConfigs).forEach(([filename, pageConfig]) => {
   try {
-    let content = fs.readFileSync(filename, 'utf8');
+    const content = fs.readFileSync(filename, 'utf8');
 
     // Find the closing </head> tag and insert before it
     const headCloseIndex = content.indexOf('</head>');

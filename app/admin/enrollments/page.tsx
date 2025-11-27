@@ -182,7 +182,7 @@ export default async function AdminEnrollmentsPage() {
                           View Applicants (Filtered)
                         </Link>
                         <Link
-                          href={`/courses`}
+                          href="/courses"
                           className="rounded-md border border-slate-700 px-3 py-1 font-semibold text-slate-100 hover:bg-slate-900"
                         >
                           Go to Courses List

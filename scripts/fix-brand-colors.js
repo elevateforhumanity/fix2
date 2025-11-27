@@ -239,8 +239,8 @@ class BrandColorFixer {
   }
 
   fixRgbaColors(content) {
-    let modified = content;
-    let count = 0;
+    const modified = content;
+    const count = 0;
 
     // Common RGBA patterns to brand tokens
     const rgbaMap = {

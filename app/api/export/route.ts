@@ -73,7 +73,7 @@ export async function GET(request: NextRequest) {
       case 'grades':
         data = await exportGrades(options);
         break;
-      case 'analytics':
+      case 'analytics': {
         const entityId = searchParams.get('entityId');
         const entityType = searchParams.get('entityType') as 'course' | 'student' | 'instructor';
         if (!entityId || !entityType) {
@@ -85,6 +85,7 @@ export async function GET(request: NextRequest) {
         data = await exportAnalytics(entityType, entityId, options);
         filename = `analytics_${entityType}_${entityId}_${new Date().toISOString().split('T')[0]}`;
         break;
+      }
       default:
         return NextResponse.json(
           { error: 'Invalid export type' },

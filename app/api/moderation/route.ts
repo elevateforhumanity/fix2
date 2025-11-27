@@ -26,13 +26,14 @@ export async function GET(request: NextRequest) {
     const action = searchParams.get('action');
 
     switch (action) {
-      case 'pending':
+      case 'pending': {
         const contentType = searchParams.get('contentType') as ContentType | null;
         const limit = parseInt(searchParams.get('limit') || '50');
         const reports = await getPendingReports(contentType || undefined, limit);
         return NextResponse.json({ reports });
+      }
 
-      case 'content':
+      case 'content': {
         const type = searchParams.get('type') as ContentType;
         const contentId = searchParams.get('contentId');
         if (!type || !contentId) {
@@ -43,14 +44,16 @@ export async function GET(request: NextRequest) {
         }
         const contentReports = await getContentReports(type, contentId);
         return NextResponse.json({ reports: contentReports });
+      }
 
-      case 'stats':
+      case 'stats': {
         const startDate = searchParams.get('startDate') || undefined;
         const endDate = searchParams.get('endDate') || undefined;
         const stats = await getModerationStats(startDate, endDate);
         return NextResponse.json({ stats });
+      }
 
-      case 'performance':
+      case 'performance': {
         const moderatorId = searchParams.get('moderatorId') || user.id;
         const perfStartDate = searchParams.get('startDate') || undefined;
         const perfEndDate = searchParams.get('endDate') || undefined;
@@ -60,6 +63,7 @@ export async function GET(request: NextRequest) {
           perfEndDate
         );
         return NextResponse.json({ performance });
+      }
 
       default:
         return NextResponse.json(
@@ -89,7 +93,7 @@ export async function POST(request: NextRequest) {
     const { action } = body;
 
     switch (action) {
-      case 'report':
+      case 'report': {
         const { contentType, contentId, reason, description } = body;
         if (!contentType || !contentId || !reason) {
           return NextResponse.json(
@@ -105,8 +109,9 @@ export async function POST(request: NextRequest) {
           description
         );
         return NextResponse.json({ success: true, report });
+      }
 
-      case 'review':
+      case 'review': {
         const { reportId, moderationAction, notes } = body;
         if (!reportId || !moderationAction) {
           return NextResponse.json(
@@ -121,8 +126,9 @@ export async function POST(request: NextRequest) {
           notes
         );
         return NextResponse.json({ success: true });
+      }
 
-      case 'moderate':
+      case 'moderate': {
         const { type, id, moderationAction: action2, moderatorNotes } = body;
         if (!type || !id || !action2) {
           return NextResponse.json(
@@ -138,6 +144,7 @@ export async function POST(request: NextRequest) {
           moderatorNotes
         );
         return NextResponse.json({ success: true });
+      }
 
       default:
         return NextResponse.json(

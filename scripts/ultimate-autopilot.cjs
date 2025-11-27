@@ -328,7 +328,7 @@ function startLocalServer() {
   }
 
   const server = http.createServer((req, res) => {
-    let filePath = path.join(
+    const filePath = path.join(
       distPath,
       req.url === '/' ? 'index.html' : req.url
     );

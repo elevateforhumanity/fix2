@@ -3,7 +3,7 @@ import { join } from 'node:path';
 
 const LIMIT_KB = 300; // adjust
 const dist = 'dist/assets';
-let overs = [];
+const overs = [];
 try {
   for (const f of readdirSync(dist)) {
     const full = join(dist, f);
