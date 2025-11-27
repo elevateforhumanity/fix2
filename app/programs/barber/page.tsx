@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Barber Apprenticeship Program | Elevate for Humanity",
     description: "State-approved barber apprenticeship. Earn while you learn toward your barber license in real barbershops.",
-    images: ["/images/programs-new/program-7.jpg"],
+    images: ["/images/programs/efh-barber-hero.jpg"],
     type: "website",
   },
 };
@@ -26,6 +26,7 @@ export default function BarberProgramPage() {
       location="Partner barbershops and academies in Indiana"
       funding="Apprenticeship model with potential workforce funding support."
       audience="Individuals serious about a long-term career in barbering, customer service, and entrepreneurship."
+      heroImage="/images/programs/efh-barber-hero.jpg"
       outcomes={[
         "Develop core cutting, lining, and grooming skills under supervision",
         "Build real client relationships and service habits in a live shop",

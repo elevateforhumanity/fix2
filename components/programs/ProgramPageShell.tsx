@@ -3,6 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 
 type ProgramPageShellProps = {
   title: string;
@@ -19,6 +20,7 @@ type ProgramPageShellProps = {
   employerNotes?: string;
   applyHref?: string;
   videoUrl?: string;
+  heroImage?: string;
   children?: ReactNode;
 };
 
@@ -37,6 +39,7 @@ export function ProgramPageShell({
   employerNotes,
   applyHref = "/apply",
   videoUrl,
+  heroImage,
   children,
 }: ProgramPageShellProps) {
   return (
@@ -85,8 +88,21 @@ export function ProgramPageShell({
             </div>
           </div>
 
-          {/* Right side: Video or Program snapshot */}
+          {/* Right side: Image, Video or Program snapshot */}
           <div className="space-y-4">
+            {heroImage && (
+              <Card className="p-0 overflow-hidden">
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src={heroImage}
+                    alt={title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </Card>
+            )}
             {videoUrl && (
               <Card className="p-0 overflow-hidden">
                 <video

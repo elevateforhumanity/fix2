@@ -34,7 +34,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/programs"
-                className="inline-flex items-center justify-center rounded-full border-2 border-slate-300 px-6 py-3 text-sm font-semibold text-slate-900 hover:border-red-600 hover:text-red-600 transition-colors"
+                className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white hover:bg-red-700 transition-colors"
               >
                 Browse Programs
               </Link>
@@ -69,40 +69,55 @@ export default function HomePage() {
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <div className="flex flex-col p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
-                <svg className="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+            <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src="/images/programs-new/program-1.jpg"
+                  alt="Job seekers in training"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-slate-900">Job Seekers</h3>
-              <p className="mt-2 text-sm text-slate-700">
-                Get free training, earn credentials, and connect with employers hiring in Indianapolis.
-              </p>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-slate-900">Job Seekers</h3>
+                <p className="mt-2 text-sm text-slate-700">
+                  Get free training, earn credentials, and connect with employers hiring in Indianapolis.
+                </p>
+              </div>
             </div>
 
-            <div className="flex flex-col p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-100">
-                <svg className="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
+            <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src="/images/facilities-new/facility-1.jpg"
+                  alt="Employers partnering with Elevate"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-slate-900">Employers</h3>
-              <p className="mt-2 text-sm text-slate-700">
-                Access trained, job-ready candidates and build your workforce pipeline.
-              </p>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-slate-900">Employers</h3>
+                <p className="mt-2 text-sm text-slate-700">
+                  Access trained, job-ready candidates and build your workforce pipeline.
+                </p>
+              </div>
             </div>
 
-            <div className="flex flex-col p-6 bg-white rounded-2xl border border-slate-200 shadow-sm">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                <svg className="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+            <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src="/images/hero-new/hero-2.jpg"
+                  alt="Community partners supporting workforce development"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-slate-900">Community Partners</h3>
-              <p className="mt-2 text-sm text-slate-700">
-                Workforce boards, case managers, and nonprofits helping people access training.
-              </p>
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-slate-900">Community Partners</h3>
+                <p className="mt-2 text-sm text-slate-700">
+                  Workforce boards, case managers, and nonprofits helping people access training.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -122,9 +137,9 @@ export default function HomePage() {
             </div>
             <Link
               href="/programs"
-              className="hidden md:inline-flex items-center text-sm font-semibold text-red-600 hover:text-red-700"
+              className="hidden md:inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white hover:bg-red-700"
             >
-              View All Programs →
+              View All Programs
             </Link>
           </div>
 
@@ -146,9 +161,9 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/programs/cna"
-                  className="mt-3 inline-flex items-center text-sm font-semibold text-red-600 hover:text-red-700"
+                  className="mt-3 inline-flex items-center justify-center rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
                 >
-                  Learn More →
+                  Learn More
                 </Link>
               </div>
             </article>
@@ -170,9 +185,9 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/programs/hvac"
-                  className="mt-3 inline-flex items-center text-sm font-semibold text-red-600 hover:text-red-700"
+                  className="mt-3 inline-flex items-center justify-center rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
                 >
-                  Learn More →
+                  Learn More
                 </Link>
               </div>
             </article>
@@ -194,9 +209,9 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/programs/barber"
-                  className="mt-3 inline-flex items-center text-sm font-semibold text-red-600 hover:text-red-700"
+                  className="mt-3 inline-flex items-center justify-center rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
                 >
-                  Learn More →
+                  Learn More
                 </Link>
               </div>
             </article>
@@ -205,9 +220,9 @@ export default function HomePage() {
           <div className="mt-6 text-center md:hidden">
             <Link
               href="/programs"
-              className="inline-flex items-center text-sm font-semibold text-red-600 hover:text-red-700"
+              className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white hover:bg-red-700"
             >
-              View All 20+ Programs →
+              View All 20+ Programs
             </Link>
           </div>
         </div>
