@@ -2,16 +2,14 @@
 
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { allCourses, getCourseBySlug } from "@/lms-data/courses";
+import { courses, getCourseBySlug } from "@/lms-data/courses";
 
 interface EnrollPageProps {
   params: { slug: string };
 }
 
 export function generateStaticParams() {
-  return allCourses
-    .filter((c) => c.isPublished)
-    .map((course) => ({ slug: course.slug }));
+  return courses.map((course) => ({ slug: course.slug }));
 }
 
 function formatFundingLabel(code: string): string {

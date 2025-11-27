@@ -1,10 +1,10 @@
 // app/student/page.tsx
 
 import Link from "next/link";
-import { allCourses } from "@/lms-data/courses";
+import { courses } from "@/lms-data/courses";
 
 export default function StudentHomePage() {
-  const featuredCourses = allCourses.slice(0, 4); // show first few for now
+  const featuredCourses = courses.slice(0, 4); // show first few for now
 
   return (
     <div className="min-h-screen w-full bg-slate-50">
