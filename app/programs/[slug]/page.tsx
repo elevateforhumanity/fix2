@@ -4,6 +4,7 @@ import { getProgramBySlug } from "@/lms-data/programs";
 import { HeroBanner } from "@/components/HeroBanner";
 import { ContentWithImage } from "@/components/ContentWithImage";
 import { getProgramVisualsBySlug } from "@/lib/pageVisuals";
+import { TaxCredentialingSection } from "@/components/TaxCredentialingSection";
 
 interface PageProps {
   params: { slug: string };
@@ -14,6 +15,7 @@ export default function ProgramDetailPage({ params }: PageProps) {
   if (!program) notFound();
 
   const visuals = getProgramVisualsBySlug(params.slug);
+  const isTaxProgram = params.slug === "tax-preparation-vita";
 
   const partnerSection =
     program.partners.length > 0
@@ -70,6 +72,8 @@ export default function ProgramDetailPage({ params }: PageProps) {
                   </p>
                 )}
               </div>
+
+              {isTaxProgram && <TaxCredentialingSection />}
             </div>
 
             <div className="rounded-xl bg-white p-4 text-[11px] shadow-sm">
