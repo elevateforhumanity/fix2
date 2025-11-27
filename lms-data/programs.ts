@@ -15,10 +15,10 @@ const cnaPartnerIds = ["hsi-cna-main", "nationaldrug-basic", "careersafe-cna-saf
 const cnaProgram: Program = {
   id: "prog-cna",
   slug: "certified-nursing-assistant",
-  title: "Certified Nursing Assistant (CNA) Career Pathway",
-  subtitle: "Tuition-based CNA program with Earn While You Learn options.",
+  title: "Certified Nursing Assistant (CNA)",
+  subtitle: "Approved CNA training pathway",
   description:
-    "Train for high-demand CNA roles in long-term care, rehab, and home health. This tuition-based pathway combines CNA training with safety, drug-free workplace, and soft skills credentials.",
+    "Gain hands-on healthcare experience and prepare for Indiana CNA certification. This pathway blends HSI/Choice Medical CNA core training with CareerSafe healthcare safety basics and National Drug workplace training, plus soft skills support tied to local healthcare employers.",
   deliveryEngine: "NATIVE",
   salePrice: computeSalePrice(cnaPartnerIds, 1.5),
   stripeProductId: undefined,
@@ -40,11 +40,11 @@ const barberPartnerIds = ["milady-barber-theory", "nationaldrug-barber"];
 const barberProgram: Program = {
   id: "prog-barber",
   slug: "barber-apprenticeship",
-  title: "Barber Apprenticeship Career Pathway",
+  title: "Barber Apprenticeship",
   subtitle:
-    "Milady barber theory plus registered apprenticeship hours so you can earn while you learn in the shop.",
+    "Earn-While-You-Learn barber apprenticeship program",
   description:
-    "This apprenticeship pathway combines Milady barber theory with real shop experience under a licensed barber. As an apprentice, you build hours toward licensure while learning cuts, shaves, sanitation, customer service, and the business side of barbering. Tuition covers your theory content and support; apprenticeship placements are where you earn while you learn.",
+    "Milady barber theory plus in-shop apprenticeship hours under licensed barbers. Learners build real client experience, sanitation skills, and business habits while moving toward licensure. This pathway combines Milady barbering online theory with National Drug workplace training for barber/beauty environments. Tuition covers your theory content and support; apprenticeship placements are where you earn while you learn.",
   deliveryEngine: "NATIVE",
   salePrice: computeSalePrice(barberPartnerIds, 1.5),
   stripeProductId: undefined,
@@ -56,7 +56,7 @@ const barberProgram: Program = {
   })),
   isStateTuitionFunded: false,
   earnWhileYouLearnNotes:
-    "Apprentices log hours in real barbershops under licensed barbers. You can earn income while completing your theory and required apprenticeship hours toward licensure. Employers may also choose to reimburse or cover tuition.",
+    "Paid shop hours while completing training and building apprenticeship hours toward licensure. Employers may also choose to reimburse or cover tuition.",
   visiblePublic: true,
 };
 
@@ -68,9 +68,9 @@ const hvacProgram: Program = {
   slug: "hvac-building-technician",
   title: "HVAC & Building Technician Career Pathway",
   subtitle:
-    "Safety-first training for HVAC and building maintenance with pathways into real trade employment.",
+    "Heating, ventilation, and air conditioning training aligned with employers.",
   description:
-    "This pathway prepares learners for entry-level HVAC and building maintenance roles. It combines safety and drug-free workplace training with hands-on skills delivered through Elevate and employer partners.",
+    "This pathway introduces learners to residential and light commercial HVAC systems, safety, tools, troubleshooting, and customer interaction. It combines CareerSafe OSHA training with drug-free workplace standards and can connect to employer partners for entry-level helper roles or OJT.",
   deliveryEngine: "NATIVE",
   salePrice: computeSalePrice(hvacPartnerIds, 1.5),
   stripeProductId: undefined,
@@ -82,7 +82,7 @@ const hvacProgram: Program = {
   })),
   isStateTuitionFunded: false,
   earnWhileYouLearnNotes:
-    "Learners may qualify for paid Work Experience placements in maintenance, facilities, or apprentice roles, and OJT-supported employment with partner employers.",
+    "Learners may transition into helper or apprentice roles with employer partners while completing training, with opportunities for WEX placements and OJT-supported employment.",
   visiblePublic: true,
 };
 
@@ -92,11 +92,11 @@ const cdlPartnerIds = ["nationaldrug-cdl", "careersafe-cdl-safety"];
 const cdlProgram: Program = {
   id: "prog-cdl",
   slug: "cdl-transportation",
-  title: "CDL & Transportation Career Pathway",
+  title: "CDL & Transportation Support Pathway",
   subtitle:
-    "Transportation safety, DOT drug & alcohol awareness, and job readiness for CDL-driven careers.",
+    "Prep and support for CDL training and transportation careers.",
   description:
-    "This pathway supports learners preparing for CDL and transportation roles. It focuses on DOT drug & alcohol awareness, transportation safety, and workplace professionalism alongside external CDL training partners.",
+    "This pathway focuses on CDL test prep, DOT drug & alcohol awareness, transportation safety, trip planning, and soft skills for transportation careers. It includes National Drug DOT compliance training and CareerSafe transportation safety, and can connect learners to third-party CDL schools and employers needing drivers or support roles.",
   deliveryEngine: "NATIVE",
   salePrice: computeSalePrice(cdlPartnerIds, 1.5),
   stripeProductId: undefined,
@@ -108,7 +108,7 @@ const cdlProgram: Program = {
   })),
   isStateTuitionFunded: false,
   earnWhileYouLearnNotes:
-    "Learners may connect to WEX roles in transportation support and OJT-supported hiring with transportation employers after meeting CDL requirements.",
+    "Some learners may be eligible for WEX/OJT or employer-sponsored training while moving into transportation roles.",
   visiblePublic: true,
 };
 
@@ -118,11 +118,11 @@ const customerServicePartnerIds = ["rise-customer-service", "certiport-customer-
 const customerServiceProgram: Program = {
   id: "prog-customer-service",
   slug: "customer-service-pro",
-  title: "Customer Service Pro Career Pathway",
+  title: "Customer Service & Contact Center",
   subtitle:
-    "Communication, systems, and certification prep for front-line customer service and office roles.",
+    "Customer care, call center, and front-line service skills.",
   description:
-    "This pathway prepares learners for office, call center, and customer-facing roles. It combines Rise customer service modules, Certiport certification prep, and Elevate soft skills and job readiness content.",
+    "This pathway builds communication, de-escalation, documentation, and system navigation skills needed for contact center, front desk, or customer-facing roles in multiple industries. It combines Rise customer service fundamentals with Certiport certification prep and professional communication training.",
   deliveryEngine: "NATIVE",
   salePrice: computeSalePrice(customerServicePartnerIds, 1.5),
   stripeProductId: undefined,
@@ -134,7 +134,7 @@ const customerServiceProgram: Program = {
   })),
   isStateTuitionFunded: false,
   earnWhileYouLearnNotes:
-    "Learners may qualify for WEX placements in office and customer service environments and OJT-supported hiring with employer partners.",
+    "Ideal for WEX/OJT placements with employers needing reliable customer service talent.",
   visiblePublic: true,
 };
 
@@ -144,11 +144,11 @@ const itPartnerIds = ["certiport-it-specialist-core", "certiport-it-networking"]
 const itProgram: Program = {
   id: "prog-it-support",
   slug: "it-support-helpdesk",
-  title: "IT Support Helpdesk Career Pathway",
+  title: "IT Support & Helpdesk",
   subtitle:
-    "IT Specialist content plus helpdesk readiness for entry-level tech support roles.",
+    "Entry-level IT support skills for helpdesk and support roles.",
   description:
-    "This pathway prepares learners for IT support and helpdesk roles using Certiport IT Specialist content, soft skills training, and job readiness modules tailored to tech environments.",
+    "This pathway covers hardware basics, operating systems, troubleshooting, tickets, and customer support. It uses Certiport IT Specialist content for core IT and networking concepts, and can align with industry-recognized IT support certifications for remote or on-site helpdesk roles.",
   deliveryEngine: "NATIVE",
   salePrice: computeSalePrice(itPartnerIds, 1.5),
   stripeProductId: undefined,
@@ -160,7 +160,7 @@ const itProgram: Program = {
   })),
   isStateTuitionFunded: false,
   earnWhileYouLearnNotes:
-    "Learners may qualify for WEX placements in IT support settings and OJT-supported junior helpdesk roles.",
+    "Learners may qualify for earn-while-you-learn opportunities in IT support, especially through WEX/OJT or employer partnerships.",
   visiblePublic: true,
 };
 
@@ -196,11 +196,11 @@ const buildingMaintPartnerIds = ["careersafe-building-safety", "nationaldrug-bui
 const buildingMaintenanceProgram: Program = {
   id: "prog-building-maintenance",
   slug: "building-maintenance-facilities",
-  title: "Building Maintenance & Facilities Tech Pathway",
+  title: "Building Maintenance Technician Apprenticeship",
   subtitle:
-    "Safety, compliance, and basic maintenance concepts for facilities and building roles.",
+    "Facilities, basic repair, and building systems through an apprenticeship model.",
   description:
-    "This pathway prepares learners for building maintenance and facilities roles. It blends safety, drug-free workplace training, and EFH hands-on skill development aligned with employer expectations.",
+    "This pathway prepares learners for building and facilities maintenance roles. Topics include basic electrical, plumbing, painting, safety checks, and work order systems while working alongside experienced maintenance staff. It combines CareerSafe building safety training with drug-free workplace standards.",
   deliveryEngine: "NATIVE",
   salePrice: computeSalePrice(buildingMaintPartnerIds, 1.5),
   stripeProductId: undefined,
@@ -212,7 +212,7 @@ const buildingMaintenanceProgram: Program = {
   })),
   isStateTuitionFunded: false,
   earnWhileYouLearnNotes:
-    "Learners may qualify for WEX roles in facilities, janitorial, and maintenance, and OJT-supported hiring with property and facilities employers.",
+    "Apprentices support real properties and facilities while earning wages and building experience.",
   visiblePublic: true,
 };
 
@@ -224,9 +224,9 @@ const taxProgram: Program = {
   slug: "tax-preparation-vita",
   title: "Tax Preparation & IRS VITA Pathway",
   subtitle:
-    "Prepare taxes, support families, and earn income during tax season.",
+    "Serve the community and build tax preparation skills for seasonal or year-round work.",
   description:
-    "This pathway trains learners to support free tax preparation, IRS VITA standards, and basic individual tax prep. It blends IRS training modules, ethics, intake/interview skills, and real-world practice serving community members during tax season.",
+    "This pathway trains learners to support free tax preparation through IRS VITA/TCE standards and basic individual tax prep. It blends IRS Link & Learn training, ethics, intake/interview skills, and practice with real returns in a supervised environment. Includes IRS VITA certification training and Rise customer service for tax professionals.",
   deliveryEngine: "NATIVE",
   salePrice: computeSalePrice(taxPartnerIds, 1.5),
   stripeProductId: undefined,
@@ -238,7 +238,7 @@ const taxProgram: Program = {
   })),
   isStateTuitionFunded: false,
   earnWhileYouLearnNotes:
-    "Learners may support community members during tax season and can transition into paid seasonal or year-round tax prep roles.",
+    "Learners may support community members during tax season and can transition into paid seasonal or year-round tax preparation roles.",
   visiblePublic: true,
 };
 

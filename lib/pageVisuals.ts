@@ -208,12 +208,12 @@ export const hvacVisuals: PageVisualConfig = {
     {
       id: "hvac-hero-main",
       imageSrc: "/images/efh-building-tech-hero.jpg",
-      imageAlt: "Technician working on an HVAC unit on a rooftop.",
-      eyebrow: "HVAC & Building Tech",
-      title: "Hands-On Skills for HVAC and Building Maintenance Careers.",
+      imageAlt: "HVAC learner working on an outdoor unit.",
+      eyebrow: "Skilled Trades",
+      title: "HVAC & Building Technician Pathway",
       subtitle:
-        "Safety-focused training pathways that help you step into skilled trades and facilities roles.",
-      ctaLabel: "Explore HVAC & Building Tech",
+        "Heating, ventilation, and air conditioning basics aligned with employer needs.",
+      ctaLabel: "Explore HVAC Pathway",
       ctaHref: "/programs/hvac-building-technician",
     },
     {
@@ -223,33 +223,33 @@ export const hvacVisuals: PageVisualConfig = {
       eyebrow: "Earn While You Learn",
       title: "Earn experience while you build trade skills.",
       subtitle:
-        "Learners may access WEX roles in maintenance and facilities and move into OJT-supported employment with trade employers.",
+        "Learners may transition into helper or apprentice roles with employer partners while completing training.",
       ctaLabel: "Talk About Skilled Trades",
       ctaHref: "/contact",
     },
   ],
   sections: [
     {
-      id: "hvac-training-overview",
-      title: "What Your HVAC & Building Tech Pathway Includes",
+      id: "hvac-learn",
+      title: "What You Will Learn",
       bullets: [
-        "CareerSafe OSHA & safety content geared toward HVAC and building environments.",
-        "Drug-free workplace modules aligned with skilled trades expectations.",
-        "Elevate-led modules on basic tools, systems, and employer expectations for maintenance roles."
+        "Intro to residential and light commercial HVAC systems.",
+        "Tools, safety, and basic troubleshooting.",
+        "Customer interaction and professionalism in the field."
       ],
       imageSrc: "/images/facilities-new/facility-2.jpg",
-      imageAlt: "Instructor demonstrating a building system component to a learner.",
+      imageAlt: "HVAC student reviewing wiring on a unit.",
     },
     {
       id: "hvac-outcomes",
-      title: "Where This Pathway Can Take You",
+      title: "Where This Can Take You",
       bullets: [
-        "Entry-level maintenance tech roles in residential, commercial, and institutional settings.",
-        "Foundation for further HVAC certifications and trade licenses.",
-        "Real experience that can grow into higher-paying skilled trade careers."
+        "Helper or entry-level roles with HVAC employers.",
+        "On-the-job training or apprenticeships with partner companies.",
+        "A starting point for advanced HVAC credentials."
       ],
       imageSrc: "/images/facilities-new/facility-3.jpg",
-      imageAlt: "Maintenance technician walking through a building facility.",
+      imageAlt: "HVAC technician and apprentice working together.",
     },
   ],
 };
