@@ -50,7 +50,8 @@ export function MainFooter() {
       <div className="mx-auto max-w-6xl border-t border-slate-200 px-4 py-4">
         <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
           <div className="text-center text-[11px] text-slate-500 md:text-left">
-            © {currentYear} Elevate For Humanity. All rights reserved.
+            <p>© {currentYear} Elevate For Humanity. All rights reserved.</p>
+            <p className="mt-1">A workforce development program of <strong>SELFISH INC</strong>, a 501(c)(3) nonprofit organization (EIN: 99-3483511)</p>
           </div>
           <div className="flex items-center gap-4 text-[10px] text-slate-500">
             <div className="flex items-center gap-1.5">

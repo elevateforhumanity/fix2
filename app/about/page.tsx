@@ -16,14 +16,32 @@ export default function AboutPage() {
 
       <section className="py-10 md:py-12">
         <div className="mx-auto max-w-6xl px-4">
+          <div className="rounded-xl border border-blue-200 bg-blue-50 p-6 mb-8">
+            <h2 className="text-lg font-semibold text-slate-900">
+              Legal Structure
+            </h2>
+            <p className="mt-3 text-sm text-slate-700">
+              <strong>Elevate for Humanity</strong> is the workforce development program of{" "}
+              <strong>SELFISH INC</strong>, a 501(c)(3) tax-exempt nonprofit organization 
+              (EIN: 99-3483511) dedicated to holistic support for individuals and families.
+            </p>
+            <p className="mt-3 text-sm text-slate-700">
+              SELFISH INC operates two primary programs:
+            </p>
+            <ul className="mt-2 ml-6 list-disc text-sm text-slate-700">
+              <li><strong>Elevate for Humanity</strong> - Workforce development and career training</li>
+              <li><strong>Selfish Inc Mental Wellness</strong> - Trauma, divorce, and addiction support</li>
+            </ul>
+          </div>
+
           <h2 className="text-xl font-semibold text-slate-900">
             Our Mission
           </h2>
           <p className="mt-2 max-w-3xl text-sm text-slate-700">
-            We connect individuals to career training, supportive services, and
-            job placement by partnering with workforce boards, employers,
-            schools, and community-based organizations. Our goal is to break
-            cycles, build skills, and elevate families and communities.
+            Through our Elevate for Humanity program, we connect individuals to career training, 
+            supportive services, and job placement by partnering with workforce boards, employers,
+            schools, and community-based organizations. Our goal is to break cycles, build skills, 
+            and elevate families and communities.
           </p>
 
           <h2 className="mt-10 text-xl font-semibold text-slate-900">
