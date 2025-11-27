@@ -216,6 +216,32 @@ const buildingMaintenanceProgram: Program = {
   visiblePublic: true,
 };
 
+// ===== TAX PREPARATION / VITA =====
+const taxPartnerIds = ["irs-vita-training", "rise-tax-customer-service"];
+
+const taxProgram: Program = {
+  id: "prog-tax-vita",
+  slug: "tax-preparation-vita",
+  title: "Tax Preparation & IRS VITA Pathway",
+  subtitle:
+    "Prepare taxes, support families, and earn income during tax season.",
+  description:
+    "This pathway trains learners to support free tax preparation, IRS VITA standards, and basic individual tax prep. It blends IRS training modules, ethics, intake/interview skills, and real-world practice serving community members during tax season.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(taxPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: taxPartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Learners may support community members during tax season and can transition into paid seasonal or year-round tax prep roles.",
+  visiblePublic: true,
+};
+
 export const allPrograms: Program[] = [
   cnaProgram,
   barberProgram,
@@ -225,6 +251,7 @@ export const allPrograms: Program[] = [
   itProgram,
   entrepreneurshipProgram,
   buildingMaintenanceProgram,
+  taxProgram,
 ];
 
 export function getProgramBySlug(slug: string): ProgramWithPartners | undefined {

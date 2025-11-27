@@ -530,6 +530,63 @@ export const buildingMaintenanceVisuals: PageVisualConfig = {
 };
 
 // ----------------------
+// TAX PREPARATION / VITA VISUALS
+// ----------------------
+export const taxVisuals: PageVisualConfig = {
+  slug: "tax-preparation-vita",
+  heroes: [
+    {
+      id: "tax-hero-main",
+      imageSrc: "/images/students-new/student-10.jpg",
+      imageAlt: "Learner reviewing tax forms with a community member.",
+      eyebrow: "Tax & Financial Services",
+      title: "Tax Preparation & IRS VITA Pathway",
+      subtitle:
+        "Learn tax prep skills, support families during tax season, and build a pathway into paid tax preparation roles.",
+      ctaLabel: "Explore Tax Pathway",
+      ctaHref: "/programs/tax-preparation-vita",
+    },
+    {
+      id: "tax-hero-earn",
+      imageSrc: "/images/students-new/student-11.jpg",
+      imageAlt: "Tax preparer helping a client with paperwork.",
+      eyebrow: "Earn While You Learn",
+      title: "Serve your community while building professional skills.",
+      subtitle:
+        "Tax season offers opportunities for paid work experience and connections to year-round tax preparation roles.",
+      ctaLabel: "Talk About Tax Careers",
+      ctaHref: "/contact",
+    },
+  ],
+  sections: [
+    {
+      id: "tax-what-you-learn",
+      title: "What You Will Learn",
+      bullets: [
+        "IRS VITA training standards and ethical guidelines.",
+        "Intake, interview, and documentation review skills.",
+        "Basics of individual income tax, credits, and common deductions.",
+        "Using tax software to complete accurate returns.",
+      ],
+      imageSrc: "/images/students-new/student-12.jpg",
+      imageAlt: "Student working through tax software on a laptop.",
+    },
+    {
+      id: "tax-outcomes",
+      title: "Where This Pathway Can Take You",
+      bullets: [
+        "Serving in community-based free tax prep programs.",
+        "Seasonal employment with tax preparation companies.",
+        "A foundation to grow into advanced tax, accounting, or financial services roles.",
+        "Opportunities to support families and build trust in your community.",
+      ],
+      imageSrc: "/images/students-new/student-13.jpg",
+      imageAlt: "Tax preparer smiling while meeting with a client.",
+    },
+  ],
+};
+
+// ----------------------
 // Helper: get visuals by program slug
 // ----------------------
 export function getProgramVisualsBySlug(slug: string): PageVisualConfig | null {
@@ -550,6 +607,8 @@ export function getProgramVisualsBySlug(slug: string): PageVisualConfig | null {
       return entrepreneurshipVisuals;
     case buildingMaintenanceVisuals.slug:
       return buildingMaintenanceVisuals;
+    case taxVisuals.slug:
+      return taxVisuals;
     default:
       return null;
   }

@@ -163,6 +163,26 @@ export const partnerCourses: PartnerCourse[] = [
     hours: 2,
     baseCost: 35,
   },
+
+  // Tax Preparation / VITA
+  {
+    id: "irs-vita-training",
+    partnerSystem: "RISE",
+    partnerCode: "IRS-VITA-CORE",
+    title: "IRS VITA Tax Preparation Training",
+    description: "IRS Volunteer Income Tax Assistance training covering tax law basics, ethics, and return preparation.",
+    hours: 30,
+    baseCost: 350,
+  },
+  {
+    id: "rise-tax-customer-service",
+    partnerSystem: "RISE",
+    partnerCode: "RISE-TAX-CS",
+    title: "Rise Customer Service for Tax Professionals",
+    description: "Client communication and service skills for tax preparation environments.",
+    hours: 8,
+    baseCost: 50,
+  },
 ];
 
 export function getPartnerCourseById(id: string): PartnerCourse | undefined {
