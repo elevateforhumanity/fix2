@@ -4,10 +4,9 @@ import type { NextRequest } from 'next/server';
 const SUSPICIOUS_USER_AGENTS = [
   'scrapy',
   'python-requests',
-  'curl',
-  'wget',
-  'bot',
-  'crawler',
+  // Removed 'curl' and 'wget' - these are legitimate tools
+  // Removed 'bot' - too broad, blocks legitimate bots
+  'malicious-crawler',
   'spider',
   'scraper',
   'headless',
@@ -189,9 +188,10 @@ export default function proxy(request: NextRequest) {
     );
   }
   
-  // Check for missing or suspicious headers
-  if (!userAgent || userAgent.length < 10) {
-    console.warn(`Blocked request with invalid user agent from ${ip}`);
+  // Only block completely empty user agents (not short ones)
+  // Allow curl, wget, and other legitimate tools
+  if (!userAgent) {
+    console.warn(`Blocked request with no user agent from ${ip}`);
     return NextResponse.json(
       { error: 'Invalid request' },
       { status: 403 }
