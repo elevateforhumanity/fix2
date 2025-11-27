@@ -7,40 +7,49 @@ interface HeroBannerProps {
 
 export function HeroBanner({ hero }: HeroBannerProps) {
   return (
-    <section className="relative overflow-hidden bg-white">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 md:flex-row md:items-center md:py-16">
-        <div className="md:w-1/2">
-          {hero.eyebrow && (
-            <p className="text-xs font-semibold uppercase tracking-wide text-brandPrimary">
-              {hero.eyebrow}
-            </p>
-          )}
-          <h1 className="mt-2 text-3xl font-bold text-brandBlack md:text-4xl">
-            {hero.title}
-          </h1>
-          {hero.subtitle && (
-            <p className="mt-3 text-base leading-relaxed text-gray-700">
-              {hero.subtitle}
-            </p>
-          )}
-          {hero.ctaLabel && hero.ctaHref && (
-            <a
-              href={hero.ctaHref}
-              className="mt-6 inline-flex rounded-md bg-brandPrimary px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-brandPrimaryDark"
-            >
-              {hero.ctaLabel}
-            </a>
-          )}
-        </div>
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-xl md:w-1/2">
-          <Image
-            src={hero.imageSrc}
-            alt={hero.imageAlt}
-            fill
-            className="object-cover"
-            sizes="(min-width: 1024px) 480px, 100vw"
-            priority
-          />
+    <section className="relative w-full overflow-hidden bg-white">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+          {/* Text Content */}
+          <div className="flex flex-col justify-center space-y-6">
+            {hero.eyebrow && (
+              <p className="text-sm font-semibold uppercase tracking-wider text-brandPrimary">
+                {hero.eyebrow}
+              </p>
+            )}
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+              {hero.title}
+            </h1>
+            {hero.subtitle && (
+              <p className="text-lg leading-relaxed text-gray-600 max-w-2xl">
+                {hero.subtitle}
+              </p>
+            )}
+            {hero.ctaLabel && hero.ctaHref && (
+              <div className="pt-4">
+                <a
+                  href={hero.ctaHref}
+                  className="inline-flex items-center justify-center rounded-lg bg-brandPrimary px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:bg-brandPrimaryDark hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-brandPrimary focus:ring-offset-2"
+                >
+                  {hero.ctaLabel}
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* Image */}
+          <div className="relative">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl">
+              <Image
+                src={hero.imageSrc}
+                alt={hero.imageAlt}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

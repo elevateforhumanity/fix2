@@ -1,7 +1,6 @@
 import type { Program, ProgramWithPartners } from "@/types/program";
 import { partnerCourses, getPartnerCourseById } from "./partners/sample-partners";
 
-// Helper: compute sale price based on partner base costs & markup
 function computeSalePrice(partnerIds: string[], markupMultiplier: number): number {
   const base = partnerIds.reduce((sum, id) => {
     const pc = getPartnerCourseById(id);
@@ -10,12 +9,8 @@ function computeSalePrice(partnerIds: string[], markupMultiplier: number): numbe
   return Math.round(base * markupMultiplier);
 }
 
-// ===== CNA PROGRAM (TUITION-BASED, NOT STATE-FUNDED) =====
-const cnaPartnerIds = [
-  "hsi-cna-main",
-  "nationaldrug-basic",
-  "careersafe-cna-safety",
-];
+// ===== CNA =====
+const cnaPartnerIds = ["hsi-cna-main", "nationaldrug-basic", "careersafe-cna-safety"];
 
 const cnaProgram: Program = {
   id: "prog-cna",
@@ -25,25 +20,22 @@ const cnaProgram: Program = {
   description:
     "Train for high-demand CNA roles in long-term care, rehab, and home health. This tuition-based pathway combines CNA training with safety, drug-free workplace, and soft skills credentials.",
   deliveryEngine: "NATIVE",
-  salePrice: computeSalePrice(cnaPartnerIds, 1.5), // 50% markup
-  stripeProductId: undefined,          // fill after Stripe setup
-  stripePriceId: undefined,            // pay in full
-  stripePriceIdPlan: undefined,        // payment plan
+  salePrice: computeSalePrice(cnaPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
   partnerRequirements: cnaPartnerIds.map((id) => ({
     partnerCourseId: id,
     required: true,
   })),
-  isStateTuitionFunded: false, // CNA tuition is NOT state-funded in your case
+  isStateTuitionFunded: false,
   earnWhileYouLearnNotes:
     "CNA tuition is self-pay or employer-pay. Students may still qualify for paid Work Experience (WEX), JRI stipends, and OJT-supported employment after training.",
   visiblePublic: true,
 };
 
-// ===== BARBER APPRENTICESHIP (TUITION-BASED + APPRENTICESHIP WAGES) =====
-const barberPartnerIds = [
-  "milady-barber-theory",
-  "nationaldrug-barber",
-];
+// ===== BARBER (APPRENTICESHIP) =====
+const barberPartnerIds = ["milady-barber-theory", "nationaldrug-barber"];
 
 const barberProgram: Program = {
   id: "prog-barber",
@@ -62,13 +54,178 @@ const barberProgram: Program = {
     partnerCourseId: id,
     required: true,
   })),
-  isStateTuitionFunded: false, // tuition is self/employer pay, wages come from apprenticeship
+  isStateTuitionFunded: false,
   earnWhileYouLearnNotes:
     "Apprentices log hours in real barbershops under licensed barbers. You can earn income while completing your theory and required apprenticeship hours toward licensure. Employers may also choose to reimburse or cover tuition.",
   visiblePublic: true,
 };
 
-export const allPrograms: Program[] = [cnaProgram, barberProgram];
+// ===== HVAC / BUILDING TECH =====
+const hvacPartnerIds = ["careersafe-hvac-osha", "nationaldrug-hvac"];
+
+const hvacProgram: Program = {
+  id: "prog-hvac",
+  slug: "hvac-building-technician",
+  title: "HVAC & Building Technician Career Pathway",
+  subtitle:
+    "Safety-first training for HVAC and building maintenance with pathways into real trade employment.",
+  description:
+    "This pathway prepares learners for entry-level HVAC and building maintenance roles. It combines safety and drug-free workplace training with hands-on skills delivered through Elevate and employer partners.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(hvacPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: hvacPartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Learners may qualify for paid Work Experience placements in maintenance, facilities, or apprentice roles, and OJT-supported employment with partner employers.",
+  visiblePublic: true,
+};
+
+// ===== CDL / TRANSPORTATION =====
+const cdlPartnerIds = ["nationaldrug-cdl", "careersafe-cdl-safety"];
+
+const cdlProgram: Program = {
+  id: "prog-cdl",
+  slug: "cdl-transportation",
+  title: "CDL & Transportation Career Pathway",
+  subtitle:
+    "Transportation safety, DOT drug & alcohol awareness, and job readiness for CDL-driven careers.",
+  description:
+    "This pathway supports learners preparing for CDL and transportation roles. It focuses on DOT drug & alcohol awareness, transportation safety, and workplace professionalism alongside external CDL training partners.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(cdlPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: cdlPartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Learners may connect to WEX roles in transportation support and OJT-supported hiring with transportation employers after meeting CDL requirements.",
+  visiblePublic: true,
+};
+
+// ===== CUSTOMER SERVICE PRO =====
+const customerServicePartnerIds = ["rise-customer-service", "certiport-customer-service"];
+
+const customerServiceProgram: Program = {
+  id: "prog-customer-service",
+  slug: "customer-service-pro",
+  title: "Customer Service Pro Career Pathway",
+  subtitle:
+    "Communication, systems, and certification prep for front-line customer service and office roles.",
+  description:
+    "This pathway prepares learners for office, call center, and customer-facing roles. It combines Rise customer service modules, Certiport certification prep, and Elevate soft skills and job readiness content.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(customerServicePartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: customerServicePartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Learners may qualify for WEX placements in office and customer service environments and OJT-supported hiring with employer partners.",
+  visiblePublic: true,
+};
+
+// ===== IT SUPPORT HELPDESK =====
+const itPartnerIds = ["certiport-it-specialist-core", "certiport-it-networking"];
+
+const itProgram: Program = {
+  id: "prog-it-support",
+  slug: "it-support-helpdesk",
+  title: "IT Support Helpdesk Career Pathway",
+  subtitle:
+    "IT Specialist content plus helpdesk readiness for entry-level tech support roles.",
+  description:
+    "This pathway prepares learners for IT support and helpdesk roles using Certiport IT Specialist content, soft skills training, and job readiness modules tailored to tech environments.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(itPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: itPartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Learners may qualify for WEX placements in IT support settings and OJT-supported junior helpdesk roles.",
+  visiblePublic: true,
+};
+
+// ===== ENTREPRENEURSHIP =====
+const entrepreneurshipPartnerIds = ["certiport-esb"];
+
+const entrepreneurshipProgram: Program = {
+  id: "prog-entrepreneurship",
+  slug: "entrepreneurship-small-business",
+  title: "Entrepreneurship & Small Business Pathway",
+  subtitle:
+    "Certiport ESB plus EFH coaching for learners who want to start or grow a business.",
+  description:
+    "This pathway is for learners who want to turn ideas into income. It combines Certiport ESB content with Elevate coaching around planning, marketing, money management, and execution.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(entrepreneurshipPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: entrepreneurshipPartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Learners may continue to work in other roles while building their business, and may qualify for WEX or OJT if entrepreneurship pathways include employer-based roles.",
+  visiblePublic: true,
+};
+
+// ===== BUILDING MAINTENANCE / FACILITIES =====
+const buildingMaintPartnerIds = ["careersafe-building-safety", "nationaldrug-building"];
+
+const buildingMaintenanceProgram: Program = {
+  id: "prog-building-maintenance",
+  slug: "building-maintenance-facilities",
+  title: "Building Maintenance & Facilities Tech Pathway",
+  subtitle:
+    "Safety, compliance, and basic maintenance concepts for facilities and building roles.",
+  description:
+    "This pathway prepares learners for building maintenance and facilities roles. It blends safety, drug-free workplace training, and EFH hands-on skill development aligned with employer expectations.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(buildingMaintPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: buildingMaintPartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Learners may qualify for WEX roles in facilities, janitorial, and maintenance, and OJT-supported hiring with property and facilities employers.",
+  visiblePublic: true,
+};
+
+export const allPrograms: Program[] = [
+  cnaProgram,
+  barberProgram,
+  hvacProgram,
+  cdlProgram,
+  customerServiceProgram,
+  itProgram,
+  entrepreneurshipProgram,
+  buildingMaintenanceProgram,
+];
 
 export function getProgramBySlug(slug: string): ProgramWithPartners | undefined {
   const prog = allPrograms.find((p) => p.slug === slug);

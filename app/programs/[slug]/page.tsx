@@ -15,27 +15,13 @@ export default function ProgramDetailPage({ params }: PageProps) {
 
   const visuals = getProgramVisualsBySlug(params.slug);
 
-  const coreInfoSection = {
-    id: "program-core-info",
-    title: "Program Snapshot",
-    bullets: [
-      program.description,
-      `Tuition: $${program.salePrice.toFixed(2)} (tuition-based program).`,
-      program.isStateTuitionFunded
-        ? "This program may be eligible for state or workforce tuition support, depending on individual eligibility."
-        : "Tuition is self-pay or employer-pay. Funding support may still be available for work experience, stipends, and OJT.",
-    ],
-    imageSrc: undefined as string | undefined,
-    imageAlt: "",
-  };
-
   const partnerSection =
     program.partners.length > 0
       ? {
           id: "program-partners",
           title: "Credential Partners Included",
           bullets: program.partners.map((pc) => {
-            const system = pc.partnerSystem.replace("_", " ");
+            const system = pc.partnerSystem.toString().replace("_", " ");
             return `${pc.title} (${system}, approx. ${pc.hours} hours).`;
           }),
           imageSrc: undefined as string | undefined,
@@ -44,8 +30,7 @@ export default function ProgramDetailPage({ params }: PageProps) {
       : null;
 
   return (
-    <main className="bg-slate-950 text-white">
-      {/* If we have visual config for this program, show hero banners */}
+    <main className="bg-white">
       {visuals ? (
         <>
           {visuals.heroes.map((hero) => (
@@ -61,7 +46,6 @@ export default function ProgramDetailPage({ params }: PageProps) {
         </section>
       )}
 
-      {/* Program core info + partners */}
       <div className="bg-slate-100 text-slate-900">
         <div className="mx-auto max-w-6xl px-4 py-10">
           <div className="grid gap-6 md:grid-cols-3">
@@ -77,6 +61,14 @@ export default function ProgramDetailPage({ params }: PageProps) {
                 <p className="mt-1">
                   ${program.salePrice.toFixed(2)} (tuition-based program)
                 </p>
+                {program.earnWhileYouLearnNotes && (
+                  <p className="mt-2 text-slate-700">
+                    <span className="font-semibold">
+                      Earn While You Learn:
+                    </span>{" "}
+                    {program.earnWhileYouLearnNotes}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -121,7 +113,6 @@ export default function ProgramDetailPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Partner credentials section inline on the page */}
           {partnerSection && (
             <div className="mt-8 rounded-xl bg-white p-4 text-xs shadow-sm">
               <h2 className="text-sm font-semibold text-slate-900">
@@ -137,7 +128,6 @@ export default function ProgramDetailPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* Any extra visual sections defined for this program */}
       {visuals && visuals.sections.length > 0 && (
         <div className="bg-white">
           {visuals.sections.map((section, idx) => (
