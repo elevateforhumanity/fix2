@@ -36,6 +36,77 @@ export default function AboutPage() {
             <li>Guidance from application through job placement</li>
             <li>Special pathways for adults, parents, youth, and returning citizens</li>
           </ul>
+
+          <h2 className="mt-10 text-xl font-semibold text-slate-900">
+            Certifications & Partnerships
+          </h2>
+          <div className="mt-4 grid gap-6 md:grid-cols-2">
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                ByBlack Certified Business
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                Elevate for Humanity is officially certified as a Black-Owned and 
+                Operated business by U.S. Black Chambers, Inc. and ByBlack.us. 
+                This certification recognizes our commitment to economic empowerment 
+                and community development.
+              </p>
+              <div className="mt-4 flex items-center gap-3">
+                <a
+                  href="https://www.byblack.us"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-semibold text-red-600 hover:underline"
+                >
+                  Learn More About ByBlack →
+                </a>
+              </div>
+              <p className="mt-3 text-xs text-slate-500">
+                Certified by U.S. Black Chambers, Inc. | #ByBlackBusiness
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                NRF Foundation RISE Up Partner
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                As an approved training partner with the National Retail Federation 
+                Foundation, we deliver industry-backed RISE Up credentials that provide 
+                foundational employability skills for retail and customer service careers.
+              </p>
+              <div className="mt-4 flex items-center gap-3">
+                <a
+                  href="/programs/rise-up"
+                  className="text-xs font-semibold text-red-600 hover:underline"
+                >
+                  View RISE Up Program →
+                </a>
+              </div>
+              <p className="mt-3 text-xs text-slate-500">
+                Official NRF Foundation Training Partner
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-6">
+            <h3 className="text-base font-semibold text-slate-900">
+              Supplier Diversity & Contracting
+            </h3>
+            <p className="mt-2 text-sm text-slate-700">
+              Our ByBlack certification enables us to participate in supplier diversity 
+              programs and contracting opportunities. Organizations seeking to work with 
+              certified Black-owned businesses can find us in the{" "}
+              <a
+                href="https://www.byblack.us/signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-red-600 hover:underline"
+              >
+                ByBlack.us national database
+              </a>.
+            </p>
+          </div>
         </div>
       </section>
     </main>

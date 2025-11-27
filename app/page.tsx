@@ -68,6 +68,32 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Certifications */}
+      <section className="border-t border-slate-100 bg-slate-50 py-6">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-center">
+            <div className="flex items-center gap-2">
+              <div className="h-8 w-8 rounded-full bg-slate-900 flex items-center justify-center">
+                <span className="text-white text-xs font-bold">✓</span>
+              </div>
+              <div className="text-left">
+                <p className="text-xs font-semibold text-slate-900">ByBlack Certified</p>
+                <p className="text-[10px] text-slate-600">Black-Owned Business</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="h-8 w-8 rounded-full bg-red-600 flex items-center justify-center">
+                <span className="text-white text-xs font-bold">NRF</span>
+              </div>
+              <div className="text-left">
+                <p className="text-xs font-semibold text-slate-900">NRF Foundation Partner</p>
+                <p className="text-[10px] text-slate-600">RISE Up Training Provider</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

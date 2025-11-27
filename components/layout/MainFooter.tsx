@@ -48,8 +48,24 @@ export function MainFooter() {
 
       
       <div className="mx-auto max-w-6xl border-t border-slate-200 px-4 py-4">
-        <div className="text-center text-[11px] text-slate-500">
-          © {currentYear} Elevate For Humanity. All rights reserved.
+        <div className="flex flex-col items-center gap-3 md:flex-row md:justify-between">
+          <div className="text-center text-[11px] text-slate-500 md:text-left">
+            © {currentYear} Elevate For Humanity. All rights reserved.
+          </div>
+          <div className="flex items-center gap-4 text-[10px] text-slate-500">
+            <div className="flex items-center gap-1.5">
+              <div className="h-5 w-5 rounded-full bg-slate-900 flex items-center justify-center">
+                <span className="text-white text-[8px] font-bold">✓</span>
+              </div>
+              <span>ByBlack Certified</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="h-5 w-5 rounded-full bg-red-600 flex items-center justify-center">
+                <span className="text-white text-[7px] font-bold">NRF</span>
+              </div>
+              <span>NRF Partner</span>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
