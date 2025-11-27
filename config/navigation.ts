@@ -55,6 +55,7 @@ export const mainNav: NavItem[] = [
     children: [
       { label: "Our Story", href: "/about" },
       { label: "Impact & Success Stories", href: "/success-stories" },
+      { label: "Selfish Inc - Mental Wellness", href: "/selfish-inc" },
       { label: "Contact", href: "/contact" },
     ],
   },

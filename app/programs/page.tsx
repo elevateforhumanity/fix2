@@ -23,6 +23,12 @@ const PROGRAM_GROUPS = [
     title: "Business & Technology",
     items: ["Tax Prep / IRS VITA", "Office & Admin", "Customer Service", "Digital Skills"],
   },
+  {
+    title: "Retail & Customer Service",
+    items: [
+      { name: "NRF Foundation RISE Up", href: "/programs/rise-up" }
+    ],
+  },
 ];
 
 export default function ProgramsPage() {
@@ -49,24 +55,31 @@ export default function ProgramsPage() {
                 {group.title}
               </h2>
               <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-                {group.items.map((name) => (
-                  <div
-                    key={name}
-                    className="rounded-xl border border-slate-100 bg-white p-4 text-sm text-slate-800 shadow-sm"
-                  >
-                    <p className="font-semibold text-slate-900">{name}</p>
-                    <p className="mt-1 text-xs text-slate-700">
-                      Training with a clear path to certification, employment,
-                      or apprenticeship.
-                    </p>
-                    <Link
-                      href="/apply"
-                      className="mt-3 inline-block text-[11px] font-semibold text-red-600"
+                {group.items.map((item) => {
+                  const isObject = typeof item === 'object';
+                  const name = isObject ? item.name : item;
+                  const href = isObject ? item.href : '/apply';
+                  const linkText = isObject ? 'Learn More →' : 'I\'m interested →';
+                  
+                  return (
+                    <div
+                      key={name}
+                      className="rounded-xl border border-slate-100 bg-white p-4 text-sm text-slate-800 shadow-sm"
                     >
-                      I'm interested →
-                    </Link>
-                  </div>
-                ))}
+                      <p className="font-semibold text-slate-900">{name}</p>
+                      <p className="mt-1 text-xs text-slate-700">
+                        Training with a clear path to certification, employment,
+                        or apprenticeship.
+                      </p>
+                      <Link
+                        href={href}
+                        className="mt-3 inline-block text-[11px] font-semibold text-red-600"
+                      >
+                        {linkText}
+                      </Link>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ))}

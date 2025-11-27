@@ -101,11 +101,40 @@ export default function ApplyPage() {
               <label className="block text-xs font-semibold text-slate-700">
                 Which program are you most interested in?
               </label>
-              <input
+              <select
                 name="program_interest"
-                placeholder="Example: CNA, HVAC, Barber, CDL…"
                 className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
-              />
+              >
+                <option value="">Select a program...</option>
+                <optgroup label="Healthcare">
+                  <option value="CNA">Certified Nursing Assistant (CNA)</option>
+                  <option value="Medical Assistant">Medical Assistant</option>
+                  <option value="Phlebotomy">Phlebotomy</option>
+                  <option value="EKG Technician">EKG Technician</option>
+                  <option value="Patient Care Tech">Patient Care Tech</option>
+                </optgroup>
+                <optgroup label="Skilled Trades & Building">
+                  <option value="HVAC">HVAC</option>
+                  <option value="Building Maintenance">Building Maintenance</option>
+                  <option value="Facilities Tech">Facilities Tech</option>
+                  <option value="CDL">CDL / Transportation</option>
+                </optgroup>
+                <optgroup label="Beauty & Wellness">
+                  <option value="Barber">Barber Apprenticeship</option>
+                  <option value="Esthetics">Esthetics</option>
+                  <option value="Beauty Career Educator">Beauty Career Educator</option>
+                </optgroup>
+                <optgroup label="Business & Technology">
+                  <option value="Tax Prep">Tax Prep / IRS VITA</option>
+                  <option value="Office & Admin">Office & Admin</option>
+                  <option value="Customer Service">Customer Service</option>
+                  <option value="Digital Skills">Digital Skills</option>
+                </optgroup>
+                <optgroup label="Retail & Customer Service">
+                  <option value="RISE Up">NRF Foundation RISE Up</option>
+                </optgroup>
+                <option value="Other">Other / Unsure</option>
+              </select>
             </div>
 
             <div>

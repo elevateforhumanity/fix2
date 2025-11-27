@@ -10,9 +10,9 @@ interface EnrollmentRow {
   start_date: string | null;
   end_date: string | null;
   programs: {
-    name: string | null;
-    code: string | null;
-  } | null;
+    name: string;
+    code: string;
+  }[];
 }
 
 export default async function StudentDashboardV2Page() {
@@ -74,10 +74,10 @@ export default async function StudentDashboardV2Page() {
                   className="rounded-xl border border-slate-800 bg-slate-950 p-3"
                 >
                   <p className="text-[10px] uppercase text-slate-400">
-                    {enr.programs?.code ?? "Program"}
+                    {enr.programs?.[0]?.code ?? "Program"}
                   </p>
                   <p className="text-[12px] font-semibold text-white">
-                    {enr.programs?.name ?? "Program"}
+                    {enr.programs?.[0]?.name ?? "Program"}
                   </p>
                   <p className="mt-1 text-[11px] text-slate-300">
                     Status:{" "}

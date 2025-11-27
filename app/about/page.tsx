@@ -36,6 +36,181 @@ export default function AboutPage() {
             <li>Guidance from application through job placement</li>
             <li>Special pathways for adults, parents, youth, and returning citizens</li>
           </ul>
+
+          <h2 className="mt-10 text-xl font-semibold text-slate-900">
+            Government Approvals & Authorizations
+          </h2>
+          <div className="mt-4 rounded-xl border-2 border-blue-200 bg-blue-50 p-6">
+            <h3 className="text-lg font-semibold text-slate-900">
+              Approved Workforce Training Provider
+            </h3>
+            <p className="mt-3 text-sm text-slate-700">
+              Elevate for Humanity is an approved training provider authorized to deliver 
+              workforce development programs funded by federal and state agencies.
+            </p>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              <div className="rounded-lg border border-blue-300 bg-white p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">DOL</span>
+                  </div>
+                  <h4 className="text-sm font-semibold text-slate-900">DOL Sponsored</h4>
+                </div>
+                <p className="text-xs text-slate-700">
+                  U.S. Department of Labor approved training provider for workforce programs
+                </p>
+              </div>
+              <div className="rounded-lg border border-blue-300 bg-white p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">✓</span>
+                  </div>
+                  <h4 className="text-sm font-semibold text-slate-900">WIOA Approved</h4>
+                </div>
+                <p className="text-xs text-slate-700">
+                  Authorized provider for Workforce Innovation and Opportunity Act programs
+                </p>
+              </div>
+              <div className="rounded-lg border border-blue-300 bg-white p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="h-8 w-8 rounded-full bg-purple-600 flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">WRG</span>
+                  </div>
+                  <h4 className="text-sm font-semibold text-slate-900">WRG Authorized</h4>
+                </div>
+                <p className="text-xs text-slate-700">
+                  Approved for Indiana Workforce Ready Grants program delivery
+                </p>
+              </div>
+            </div>
+            <p className="mt-4 text-xs text-slate-600">
+              These approvals allow us to offer 100% free training to eligible participants 
+              through federal and state workforce funding programs.
+            </p>
+          </div>
+
+          <h2 className="mt-10 text-xl font-semibold text-slate-900">
+            Certifications & Partnerships
+          </h2>
+          <div className="mt-4 grid gap-6 md:grid-cols-2">
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                ByBlack Certified Business
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                Elevate for Humanity is officially certified as a Black-Owned and 
+                Operated business by U.S. Black Chambers, Inc. and ByBlack.us. 
+                This certification recognizes our commitment to economic empowerment 
+                and community development.
+              </p>
+              <div className="mt-4 flex items-center gap-3">
+                <a
+                  href="https://www.byblack.us"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-semibold text-red-600 hover:underline"
+                >
+                  Learn More About ByBlack →
+                </a>
+              </div>
+              <p className="mt-3 text-xs text-slate-500">
+                Certified by U.S. Black Chambers, Inc. | #ByBlackBusiness
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                NRF Foundation RISE Up Partner
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                As an approved training partner with the National Retail Federation 
+                Foundation, we deliver industry-backed RISE Up credentials that provide 
+                foundational employability skills for retail and customer service careers.
+              </p>
+              <div className="mt-4 flex items-center gap-3">
+                <a
+                  href="/programs/rise-up"
+                  className="text-xs font-semibold text-red-600 hover:underline"
+                >
+                  View RISE Up Program →
+                </a>
+              </div>
+              <p className="mt-3 text-xs text-slate-500">
+                Official NRF Foundation Training Partner
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                Indiana Registered Bidder
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                Registered with the Indiana Department of Administration as an approved 
+                bidder for state contracts and procurement opportunities.
+              </p>
+              <p className="mt-3 text-xs text-slate-500">
+                Bidder ID: 0000067741 | Indiana Dept. of Administration
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                Google for Nonprofits
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                Approved for Google Ad Grants providing $10,000/month in free advertising 
+                to promote our workforce training programs and reach more individuals in need.
+              </p>
+              <p className="mt-3 text-xs text-slate-500">
+                Charity ID: 99-3483511 | Google for Nonprofits Partner
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                VA-Approved Training Provider
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                Certified School Certifying Official (SCO) for On-the-Job Training & 
+                Apprenticeship Programs under the Harry W. Colmery Educational Assistance Act.
+              </p>
+              <p className="mt-3 text-xs text-slate-500">
+                Facility Code: 11111111 | VA-Approved Training
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                501(c)(3) Nonprofit Status
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                SELFISH INC operates as a registered 501(c)(3) nonprofit organization 
+                dedicated to workforce development and mental wellness support.
+              </p>
+              <p className="mt-3 text-xs text-slate-500">
+                EIN: 99-3483511 | Tax-Exempt Nonprofit
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-6">
+            <h3 className="text-base font-semibold text-slate-900">
+              Supplier Diversity & Contracting
+            </h3>
+            <p className="mt-2 text-sm text-slate-700">
+              Our ByBlack certification enables us to participate in supplier diversity 
+              programs and contracting opportunities. Organizations seeking to work with 
+              certified Black-owned businesses can find us in the{" "}
+              <a
+                href="https://www.byblack.us/signup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-red-600 hover:underline"
+              >
+                ByBlack.us national database
+              </a>.
+            </p>
+          </div>
         </div>
       </section>
     </main>

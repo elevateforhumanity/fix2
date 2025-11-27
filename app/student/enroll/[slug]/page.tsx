@@ -71,36 +71,22 @@ export default function EnrollPage({ params }: EnrollPageProps) {
               Quick Program Snapshot
             </h2>
             <p className="mt-1 text-[11px] text-slate-600">
-              {course.description}
+              {course.shortDescription || "Program details"}
             </p>
 
             <div className="mt-3 flex flex-wrap gap-2 text-[11px]">
               <span className="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-slate-700">
-                {course.hoursTotal} hours
+                {course.title}
               </span>
-              <span className="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-slate-700">
-                {course.deliveryMode === "IN_PERSON"
-                  ? "In-Person"
-                  : course.deliveryMode === "HYBRID"
-                  ? "Hybrid"
-                  : "Online"}
-              </span>
-              {course.locationLabel && (
-                <span className="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-slate-700">
-                  {course.locationLabel}
-                </span>
-              )}
             </div>
 
             <div className="mt-4">
               <h3 className="text-[11px] font-semibold text-slate-900">
-                What This Program Can Lead To
+                Program Information
               </h3>
-              <ul className="mt-1 list-disc space-y-1 pl-4 text-[11px] text-slate-700">
-                {course.outcomes.map((o, i) => (
-                  <li key={i}>{o}</li>
-                ))}
-              </ul>
+              <p className="mt-1 text-[11px] text-slate-700">
+                Complete this enrollment form to get started with {course.title}.
+              </p>
             </div>
           </section>
 
@@ -108,20 +94,11 @@ export default function EnrollPage({ params }: EnrollPageProps) {
           <aside className="space-y-4">
             <section className="rounded-xl border border-slate-200 bg-white p-4 text-xs text-slate-800 shadow-sm">
               <h2 className="text-sm font-semibold text-slate-900">
-                Possible Funding Paths
+                Funding Options
               </h2>
-              {course.fundingEligible.length ? (
-                <ul className="mt-2 space-y-1 text-[11px] text-slate-700">
-                  {course.fundingEligible.map((f) => (
-                    <li key={f}>• {formatFundingLabel(f)}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="mt-1 text-[11px] text-slate-600">
-                  This program may be self-pay or employer-funded. We can still
-                  walk through options with you.
-                </p>
-              )}
+              <p className="mt-2 text-[11px] text-slate-700">
+                Many programs are eligible for WIOA, WRG, or employer-sponsored funding.
+              </p>
               <p className="mt-2 text-[11px] text-slate-600">
                 We&apos;ll talk with you about your situation and help match you
                 with the best option available in your area.
