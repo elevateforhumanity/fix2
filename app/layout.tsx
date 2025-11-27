@@ -62,9 +62,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-    // Block AI scrapers
-    noai: true,
-    noimageai: true,
   },
   manifest: '/manifest.json',
   openGraph: {
