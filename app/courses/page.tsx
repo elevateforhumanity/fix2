@@ -66,7 +66,7 @@ export default function CoursesCatalogPage() {
                 <div className="mt-3 flex flex-wrap gap-2">
                   <Link
                     href={`/courses/${course.slug}`}
-                    className="rounded-md bg-red-600 px-3 py-1 text-[11px] font-semibold text-white hover:bg-red-700"
+                    className="rounded-md bg-orange-500 px-3 py-1 text-[11px] font-semibold text-white hover:bg-orange-600"
                   >
                     View Course
                   </Link>

@@ -87,12 +87,12 @@ export const homeHeroImages: HeroImage[] = [
 export const homeSecondaryStripImages: ProgramHighlightImage[] = [
   {
     id: "strip-barber-beauty",
-    src: "/images/programs-new/program-2.jpg",
+    src: "/images/programs/efh-barber-hero.jpg",
     alt: "Barber and beauty apprentices practicing",
     programId: "barber",
     label: "Barber & Beauty Apprenticeships",
     description:
-      "Earn hours in real shops while completing Milady-aligned coursework and career coaching.",
+      "FREE apprenticeship - earn hours in real shops while completing Milady-aligned coursework and career coaching.",
   },
   {
     id: "strip-healthcare-cna",

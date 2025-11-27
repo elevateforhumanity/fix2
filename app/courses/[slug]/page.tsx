@@ -74,7 +74,7 @@ export default function CourseDetailPage({ params }: PageProps) {
           <div className="mt-3 flex flex-wrap gap-2 text-[11px]">
             <Link
               href="/apply"
-              className="rounded-md bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700"
+              className="rounded-md bg-orange-500 px-4 py-2 font-semibold text-white hover:bg-orange-600"
             >
               Enroll in Program
             </Link>

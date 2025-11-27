@@ -16,12 +16,12 @@ export const metadata = {
 
 export default function HomeRedesignPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-h-screen bg-slate-800 text-white">
       {/* 1️⃣ TOP HERO – pulls from your homeHeroImages in lms-data/media.ts */}
       <HomeHero images={homeHeroImages} />
 
       {/* 2️⃣ HOW ELEVATE WORKS – simple 3-step explainer */}
-      <section className="border-b border-slate-800 bg-slate-900">
+      <section className="border-b border-slate-800 bg-slate-800">
         <div className="mx-auto max-w-6xl px-4 py-6">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
@@ -40,13 +40,13 @@ export default function HomeRedesignPage() {
             <div className="flex flex-wrap gap-2 text-[11px]">
               <Link
                 href="/apply"
-                className="rounded-md bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700"
+                className="rounded-md bg-orange-500 px-4 py-2 font-semibold text-white hover:bg-orange-600"
               >
                 Start Your Application
               </Link>
               <Link
                 href="/programs"
-                className="rounded-md border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:bg-slate-900"
+                className="rounded-md border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:bg-slate-800"
               >
                 Browse All Programs
               </Link>
@@ -54,7 +54,7 @@ export default function HomeRedesignPage() {
           </div>
 
           <div className="mt-4 grid gap-3 md:grid-cols-3 text-xs">
-            <div className="rounded-xl border border-slate-800 bg-slate-950/80 p-3">
+            <div className="rounded-xl border border-slate-800 bg-slate-800/80 p-3">
               <p className="text-[11px] font-semibold text-slate-100">
                 1. Choose a Pathway
               </p>
@@ -64,7 +64,7 @@ export default function HomeRedesignPage() {
                 real credentials and employers.
               </p>
             </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-950/80 p-3">
+            <div className="rounded-xl border border-slate-800 bg-slate-800/80 p-3">
               <p className="text-[11px] font-semibold text-slate-100">
                 2. Match to Funding
               </p>
@@ -74,7 +74,7 @@ export default function HomeRedesignPage() {
                 carrying this alone.
               </p>
             </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-950/80 p-3">
+            <div className="rounded-xl border border-slate-800 bg-slate-800/80 p-3">
               <p className="text-[11px] font-semibold text-slate-100">
                 3. Learn, Work, and Elevate
               </p>
@@ -92,7 +92,7 @@ export default function HomeRedesignPage() {
       <HomeProgramStrip items={homeSecondaryStripImages} />
 
       {/* 4️⃣ FUNDING & SUPPORT SECTION */}
-      <section className="border-b border-slate-800 bg-slate-950">
+      <section className="border-b border-slate-800 bg-slate-800">
         <div className="mx-auto max-w-6xl px-4 py-6 text-xs">
           <div className="grid gap-4 md:grid-cols-[1.3fr,1.4fr]">
             <div>
@@ -123,7 +123,7 @@ export default function HomeRedesignPage() {
                 </li>
               </ul>
             </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900/80 p-4">
+            <div className="rounded-xl border border-slate-800 bg-slate-800/80 p-4">
               <p className="text-[11px] font-semibold text-slate-100">
                 Who Elevate is For
               </p>
@@ -144,13 +144,13 @@ export default function HomeRedesignPage() {
               <div className="mt-3 flex flex-wrap gap-2 text-[11px]">
                 <Link
                   href="/apply"
-                  className="rounded-md bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700"
+                  className="rounded-md bg-orange-500 px-4 py-2 font-semibold text-white hover:bg-orange-600"
                 >
                   I'm a Student / Job Seeker
                 </Link>
                 <Link
                   href="/employer/dashboard"
-                  className="rounded-md border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:bg-slate-900"
+                  className="rounded-md border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:bg-slate-800"
                 >
                   I'm an Employer / Partner
                 </Link>
@@ -164,7 +164,7 @@ export default function HomeRedesignPage() {
       <SuccessStrip stories={successStoryImages} />
 
       {/* 6️⃣ AI INSTRUCTORS + LMS EXPERIENCE STRIP */}
-      <section className="border-b border-slate-800 bg-slate-900">
+      <section className="border-b border-slate-800 bg-slate-800">
         <div className="mx-auto max-w-6xl px-4 py-6 text-xs">
           <div className="grid gap-4 md:grid-cols-[1.4fr,1.3fr]">
             <div>
@@ -190,7 +190,7 @@ export default function HomeRedesignPage() {
                 </li>
               </ul>
             </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-950/80 p-4">
+            <div className="rounded-xl border border-slate-800 bg-slate-800/80 p-4">
               <p className="text-[11px] font-semibold text-slate-100">
                 Explore the LMS Experience
               </p>
@@ -233,7 +233,7 @@ export default function HomeRedesignPage() {
       </section>
 
       {/* 7️⃣ FINAL CTA BAND */}
-      <section className="bg-slate-950">
+      <section className="bg-slate-800">
         <div className="mx-auto max-w-6xl px-4 py-6 text-xs">
           <div className="flex flex-col gap-3 rounded-2xl border border-red-700/60 bg-gradient-to-r from-red-700/40 via-slate-950 to-slate-950 px-4 py-5 md:flex-row md:items-center md:justify-between">
             <div>
@@ -257,7 +257,7 @@ export default function HomeRedesignPage() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md border border-slate-200 px-4 py-2 font-semibold text-slate-100 hover:bg-slate-900"
+                className="inline-flex items-center justify-center rounded-md border border-slate-200 px-4 py-2 font-semibold text-slate-100 hover:bg-slate-800"
               >
                 Talk to the Elevate Team
               </Link>

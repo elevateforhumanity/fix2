@@ -42,11 +42,11 @@ const barberProgram: Program = {
   slug: "barber-apprenticeship",
   title: "Barber Apprenticeship",
   subtitle:
-    "Earn-While-You-Learn barber apprenticeship program",
+    "FREE Earn-While-You-Learn barber apprenticeship program",
   description:
-    "Milady barber theory plus in-shop apprenticeship hours under licensed barbers. Learners build real client experience, sanitation skills, and business habits while moving toward licensure. This pathway combines Milady barbering online theory with National Drug workplace training for barber/beauty environments. Tuition covers your theory content and support; apprenticeship placements are where you earn while you learn.",
+    "Milady barber theory plus in-shop apprenticeship hours under licensed barbers. Learners build real client experience, sanitation skills, and business habits while moving toward licensure. This pathway combines Milady barbering online theory with National Drug workplace training for barber/beauty environments. This apprenticeship program is FREE - you earn while you learn.",
   deliveryEngine: "NATIVE",
-  salePrice: computeSalePrice(barberPartnerIds, 1.5),
+  salePrice: 0,
   stripeProductId: undefined,
   stripePriceId: undefined,
   stripePriceIdPlan: undefined,
@@ -198,11 +198,11 @@ const buildingMaintenanceProgram: Program = {
   slug: "building-maintenance-facilities",
   title: "Building Maintenance Technician Apprenticeship",
   subtitle:
-    "Facilities, basic repair, and building systems through an apprenticeship model.",
+    "FREE facilities and building systems apprenticeship program.",
   description:
-    "This pathway prepares learners for building and facilities maintenance roles. Topics include basic electrical, plumbing, painting, safety checks, and work order systems while working alongside experienced maintenance staff. It combines CareerSafe building safety training with drug-free workplace standards.",
+    "This pathway prepares learners for building and facilities maintenance roles. Topics include basic electrical, plumbing, painting, safety checks, and work order systems while working alongside experienced maintenance staff. It combines CareerSafe building safety training with drug-free workplace standards. This apprenticeship program is FREE - you earn while you learn.",
   deliveryEngine: "NATIVE",
-  salePrice: computeSalePrice(buildingMaintPartnerIds, 1.5),
+  salePrice: 0,
   stripeProductId: undefined,
   stripePriceId: undefined,
   stripePriceIdPlan: undefined,
@@ -250,11 +250,11 @@ const businessEmsProgram: Program = {
   slug: "business-ems-apprenticeship",
   title: "Business EMS Apprenticeship",
   subtitle:
-    "Business, operations, and service skills in an emergency/health services environment.",
+    "FREE business and operations apprenticeship in emergency/health services.",
   description:
-    "This apprenticeship pathway focuses on business, office, scheduling, and customer service skills in environments that support emergency or health-related services. Learners gain experience in documentation, communication, and coordination while working alongside experienced staff.",
+    "This apprenticeship pathway focuses on business, office, scheduling, and customer service skills in environments that support emergency or health-related services. Learners gain experience in documentation, communication, and coordination while working alongside experienced staff. This apprenticeship program is FREE - you earn while you learn.",
   deliveryEngine: "NATIVE",
-  salePrice: computeSalePrice(businessEmsPartnerIds, 1.5),
+  salePrice: 0,
   stripeProductId: undefined,
   stripePriceId: undefined,
   stripePriceIdPlan: undefined,
@@ -276,11 +276,11 @@ const nailsProgram: Program = {
   slug: "nail-technician-apprenticeship",
   title: "Nail Technician Apprenticeship",
   subtitle:
-    "Hands-on nail technology apprenticeship with real clients and shop hours.",
+    "FREE nail technology apprenticeship with real clients and shop hours.",
   description:
-    "This pathway blends nail technology theory with in-salon apprenticeship hours. Learners practice manicures, pedicures, nail art, sanitation, and customer experience while preparing for state board requirements and building a client base.",
+    "This pathway blends nail technology theory with in-salon apprenticeship hours. Learners practice manicures, pedicures, nail art, sanitation, and customer experience while preparing for state board requirements and building a client base. This apprenticeship program is FREE - you earn while you learn.",
   deliveryEngine: "NATIVE",
-  salePrice: computeSalePrice(nailsPartnerIds, 1.5),
+  salePrice: 0,
   stripeProductId: undefined,
   stripePriceId: undefined,
   stripePriceIdPlan: undefined,
@@ -302,11 +302,11 @@ const estheticianProgram: Program = {
   slug: "esthetician-apprenticeship",
   title: "Esthetician Apprenticeship",
   subtitle:
-    "Skin care, spa services, and client experience through an apprenticeship model.",
+    "FREE skin care and spa services apprenticeship program.",
   description:
-    "This apprenticeship pathway focuses on facials, skin analysis, basic treatments, and spa customer service. Learners combine esthetics theory with supervised spa hours to prepare for state board and real-world employment.",
+    "This apprenticeship pathway focuses on facials, skin analysis, basic treatments, and spa customer service. Learners combine esthetics theory with supervised spa hours to prepare for state board and real-world employment. This apprenticeship program is FREE - you earn while you learn.",
   deliveryEngine: "NATIVE",
-  salePrice: computeSalePrice(estheticianPartnerIds, 1.5),
+  salePrice: 0,
   stripeProductId: undefined,
   stripePriceId: undefined,
   stripePriceIdPlan: undefined,
@@ -328,11 +328,11 @@ const culinaryProgram: Program = {
   slug: "culinary-apprenticeship",
   title: "Culinary Apprenticeship",
   subtitle:
-    "Back-of-house culinary skills and kitchen operations in real food service environments.",
+    "FREE culinary and kitchen operations apprenticeship program.",
   description:
-    "This pathway prepares learners for culinary and food service roles by combining kitchen safety, prep, line work, and service skills with real restaurant or institutional kitchen experience.",
+    "This pathway prepares learners for culinary and food service roles by combining kitchen safety, prep, line work, and service skills with real restaurant or institutional kitchen experience. This apprenticeship program is FREE - you earn while you learn.",
   deliveryEngine: "NATIVE",
-  salePrice: computeSalePrice(culinaryPartnerIds, 1.5),
+  salePrice: 0,
   stripeProductId: undefined,
   stripePriceId: undefined,
   stripePriceIdPlan: undefined,
@@ -354,11 +354,11 @@ const businessTechProgram: Program = {
   slug: "business-technician-apprenticeship",
   title: "Business Technician Apprenticeship",
   subtitle:
-    "Office technology, admin systems, and business operations in a paid apprenticeship.",
+    "FREE office technology and business operations apprenticeship.",
   description:
-    "This apprenticeship pathway combines digital tools, office systems, scheduling, customer support, and basic data/reporting. Learners support real businesses while building skills that apply to admin, coordinator, and support roles.",
+    "This apprenticeship pathway combines digital tools, office systems, scheduling, customer support, and basic data/reporting. Learners support real businesses while building skills that apply to admin, coordinator, and support roles. This apprenticeship program is FREE - you earn while you learn.",
   deliveryEngine: "NATIVE",
-  salePrice: computeSalePrice(businessTechPartnerIds, 1.5),
+  salePrice: 0,
   stripeProductId: undefined,
   stripePriceId: undefined,
   stripePriceIdPlan: undefined,

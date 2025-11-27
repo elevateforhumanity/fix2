@@ -9,7 +9,7 @@ export function SuccessStrip({ stories }: SuccessStripProps) {
   if (!stories.length) return null;
 
   return (
-    <section className="border-b border-slate-800 bg-slate-950">
+    <section className="border-b border-slate-800 bg-slate-800">
       <div className="mx-auto max-w-6xl px-3 py-5 text-white md:px-4">
         <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
@@ -30,7 +30,7 @@ export function SuccessStrip({ stories }: SuccessStripProps) {
           {stories.map((story) => (
             <article
               key={story.id}
-              className="flex flex-col overflow-hidden rounded-xl border border-slate-800 bg-slate-900/80"
+              className="flex flex-col overflow-hidden rounded-xl border border-slate-800 bg-slate-800/80"
             >
               <div className="relative w-full overflow-hidden aspect-[4/3]">
                 <Image

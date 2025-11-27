@@ -351,7 +351,7 @@ export default function ApplyPage() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="mt-2 inline-flex h-9 items-center justify-center rounded-md bg-red-600 px-4 text-[11px] font-semibold text-white hover:bg-red-700 disabled:opacity-60"
+                  className="mt-2 inline-flex h-9 items-center justify-center rounded-md bg-orange-500 px-4 text-[11px] font-semibold text-white hover:bg-orange-600 disabled:opacity-60"
                 >
                   {submitting ? "Submitting..." : "Submit Application"}
                 </button>
