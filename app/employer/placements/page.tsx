@@ -56,23 +56,8 @@ export default function EmployerPlacementsPage() {
             {samplePlacements.map((plc) => {
               const program = allPrograms.find((p) => p.id === plc.programId);
 
-              const typeLabel =
-                plc.workBasedType === "wex"
-                  ? "WEX – Work Experience"
-                  : plc.workBasedType === "ojt"
-                  ? "OJT – On-the-Job Training"
-                  : plc.workBasedType === "apprenticeship"
-                  ? "Apprenticeship / Earn While You Learn"
-                  : "Direct Hire";
-
-              const statusLabel =
-                plc.status === "screening"
-                  ? "Screening"
-                  : plc.status === "active"
-                  ? "Active"
-                  : plc.status === "completed"
-                  ? "Completed"
-                  : "On Hold";
+              const typeLabel = plc.placementType;
+              const statusLabel = "Active";
 
               return (
                 <article
@@ -86,7 +71,7 @@ export default function EmployerPlacementsPage() {
                     {plc.employerName}
                   </h2>
                   <p className="mt-1 text-[11px] text-slate-300">
-                    Learner: <span className="text-slate-100">{plc.learnerName}</span>
+                    Placement Type: <span className="text-slate-100">{typeLabel}</span>
                   </p>
 
                   {program && (
@@ -107,29 +92,15 @@ export default function EmployerPlacementsPage() {
                     </span>
                   </p>
 
-                  {plc.hoursCompleted != null && (
-                    <p className="mt-1 text-[11px] text-slate-300">
-                      Hours completed:{" "}
-                      <span className="text-slate-100">{plc.hoursCompleted}</span>
-                    </p>
-                  )}
+                  <p className="mt-1 text-[11px] text-slate-300">
+                    Outcome:{" "}
+                    <span className="text-slate-100">{plc.outcome}</span>
+                  </p>
 
-                  {plc.startDate && (
+                  {program && (
                     <p className="mt-1 text-[11px] text-slate-300">
-                      Start date:{" "}
-                      <span className="text-slate-100">{plc.startDate}</span>
-                    </p>
-                  )}
-                  {plc.endDate && (
-                    <p className="mt-1 text-[11px] text-slate-300">
-                      End date:{" "}
-                      <span className="text-slate-100">{plc.endDate}</span>
-                    </p>
-                  )}
-
-                  {plc.notes && (
-                    <p className="mt-2 text-[11px] text-slate-400">
-                      Notes: {plc.notes}
+                      Program:{" "}
+                      <span className="text-slate-100">{program.title}</span>
                     </p>
                   )}
 

@@ -50,7 +50,7 @@ export default function AdminAiConsolePage() {
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <p className="text-sm font-semibold text-white">
-                      {instructor.name}
+                      {instructor.displayName}
                     </p>
                     <p className="text-[11px] text-slate-400">
                       {instructor.role}
@@ -64,35 +64,28 @@ export default function AdminAiConsolePage() {
                 <div className="mt-3 space-y-2">
                   <div>
                     <p className="text-[10px] font-semibold text-slate-400">
-                      Teaching Style
+                      Tone
                     </p>
                     <p className="text-[11px] text-slate-300">
-                      {instructor.teachingStyle}
+                      {instructor.tone}
                     </p>
                   </div>
 
                   <div>
                     <p className="text-[10px] font-semibold text-slate-400">
-                      Specializations
+                      Expertise
                     </p>
-                    <div className="mt-1 flex flex-wrap gap-1">
-                      {instructor.specializations.map((spec) => (
-                        <span
-                          key={spec}
-                          className="rounded-full bg-slate-800 px-2 py-0.5 text-[10px] text-slate-100"
-                        >
-                          {spec}
-                        </span>
-                      ))}
-                    </div>
+                    <p className="text-[11px] text-slate-300">
+                      {instructor.expertiseSummary}
+                    </p>
                   </div>
 
                   <div>
                     <p className="text-[10px] font-semibold text-slate-400">
-                      System Prompt (Preview)
+                      Instructions (Preview)
                     </p>
                     <p className="text-[10px] text-slate-400 italic line-clamp-3">
-                      {instructor.systemPrompt}
+                      {instructor.instructionsForModel}
                     </p>
                   </div>
                 </div>

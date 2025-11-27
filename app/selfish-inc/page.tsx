@@ -353,6 +353,119 @@ export default function SelfishIncPage() {
         </div>
       </section>
 
+      {/* Related Services - Holistic Wellness Ecosystem */}
+      <section className="bg-slate-50 py-12 md:py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">
+              Complete Wellness Ecosystem
+            </h2>
+            <p className="mt-3 text-base text-slate-600">
+              Selfish Inc is part of a holistic wellness network supporting mind, body, and career
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Elevate for Humanity */}
+            <div className="rounded-xl border border-slate-200 bg-white p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center">
+                  <span className="text-red-600 text-xl font-bold">E</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    Elevate for Humanity
+                  </h3>
+                  <p className="text-xs text-slate-600">Career Training & Workforce Development</p>
+                </div>
+              </div>
+              <p className="text-sm text-slate-700">
+                Free career training programs in healthcare, trades, and business. WIOA-funded 
+                workforce development helping individuals achieve economic stability and career success.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="text-xs bg-red-50 text-red-700 px-2 py-1 rounded">CNA Training</span>
+                <span className="text-xs bg-red-50 text-red-700 px-2 py-1 rounded">HVAC</span>
+                <span className="text-xs bg-red-50 text-red-700 px-2 py-1 rounded">Barber</span>
+                <span className="text-xs bg-red-50 text-red-700 px-2 py-1 rounded">Retail Training</span>
+              </div>
+              <Link
+                href="/"
+                className="mt-4 inline-block text-sm font-semibold text-red-600 hover:underline"
+              >
+                Explore Career Training →
+              </Link>
+            </div>
+
+            {/* Curvature Body Sculpting */}
+            <div className="rounded-xl border border-slate-200 bg-white p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-12 w-12 rounded-full bg-pink-100 flex items-center justify-center">
+                  <span className="text-pink-600 text-xl font-bold">C</span>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    Curvature Body Sculpting
+                  </h3>
+                  <p className="text-xs text-slate-600">Physical Wellness & Body Confidence</p>
+                </div>
+              </div>
+              <p className="text-sm text-slate-700">
+                Non-invasive body contouring and wellness services supporting physical health 
+                and self-confidence. Part of our holistic approach to complete wellness.
+              </p>
+              <div className="mt-3 rounded-lg bg-green-50 border border-green-200 p-3">
+                <p className="text-xs font-semibold text-green-800">
+                  💚 Partnership Impact
+                </p>
+                <p className="mt-1 text-xs text-green-700">
+                  <strong>10% of all Curvature services</strong> directly support Selfish Inc mental wellness programs
+                </p>
+                <p className="mt-1 text-xs text-green-700">
+                  <strong>1% of Motivational Tea sales</strong> support educational initiatives
+                </p>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <span className="text-xs bg-pink-50 text-pink-700 px-2 py-1 rounded">Body Sculpting</span>
+                <span className="text-xs bg-pink-50 text-pink-700 px-2 py-1 rounded">Wellness</span>
+                <span className="text-xs bg-pink-50 text-pink-700 px-2 py-1 rounded">Motivational Tea</span>
+              </div>
+              <a
+                href="https://curvaturebodysculpting.store"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-sm font-semibold text-pink-600 hover:underline"
+              >
+                Shop & Support Mental Wellness →
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-6 text-center">
+            <h3 className="text-lg font-semibold text-slate-900">
+              Comprehensive Support for Your Journey
+            </h3>
+            <p className="mt-2 text-sm text-slate-700">
+              <strong>Mental Wellness</strong> (Selfish Inc) + <strong>Career Development</strong> (Elevate) + 
+              <strong> Physical Wellness</strong> (Curvature) = Complete life transformation
+            </p>
+            <p className="mt-3 text-xs text-slate-600">
+              All services work together to support your holistic well-being and success
+            </p>
+            <div className="mt-4 pt-4 border-t border-blue-300">
+              <p className="text-xs font-semibold text-blue-900">
+                Social Enterprise Partnership
+              </p>
+              <p className="mt-2 text-xs text-blue-700">
+                When you choose Curvature Body Sculpting services or purchase Motivational Tea, 
+                you're directly supporting mental wellness programs at Selfish Inc. 
+                <strong> 10% of services + 1% of tea sales</strong> fund free mental health support for those in need.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="border-t border-slate-100 py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-4 text-center">

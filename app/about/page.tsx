@@ -38,6 +38,58 @@ export default function AboutPage() {
           </ul>
 
           <h2 className="mt-10 text-xl font-semibold text-slate-900">
+            Government Approvals & Authorizations
+          </h2>
+          <div className="mt-4 rounded-xl border-2 border-blue-200 bg-blue-50 p-6">
+            <h3 className="text-lg font-semibold text-slate-900">
+              Approved Workforce Training Provider
+            </h3>
+            <p className="mt-3 text-sm text-slate-700">
+              Elevate for Humanity is an approved training provider authorized to deliver 
+              workforce development programs funded by federal and state agencies.
+            </p>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              <div className="rounded-lg border border-blue-300 bg-white p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="h-8 w-8 rounded-full bg-blue-600 flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">DOL</span>
+                  </div>
+                  <h4 className="text-sm font-semibold text-slate-900">DOL Sponsored</h4>
+                </div>
+                <p className="text-xs text-slate-700">
+                  U.S. Department of Labor approved training provider for workforce programs
+                </p>
+              </div>
+              <div className="rounded-lg border border-blue-300 bg-white p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">✓</span>
+                  </div>
+                  <h4 className="text-sm font-semibold text-slate-900">WIOA Approved</h4>
+                </div>
+                <p className="text-xs text-slate-700">
+                  Authorized provider for Workforce Innovation and Opportunity Act programs
+                </p>
+              </div>
+              <div className="rounded-lg border border-blue-300 bg-white p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="h-8 w-8 rounded-full bg-purple-600 flex items-center justify-center">
+                    <span className="text-white text-xs font-bold">WRG</span>
+                  </div>
+                  <h4 className="text-sm font-semibold text-slate-900">WRG Authorized</h4>
+                </div>
+                <p className="text-xs text-slate-700">
+                  Approved for Indiana Workforce Ready Grants program delivery
+                </p>
+              </div>
+            </div>
+            <p className="mt-4 text-xs text-slate-600">
+              These approvals allow us to offer 100% free training to eligible participants 
+              through federal and state workforce funding programs.
+            </p>
+          </div>
+
+          <h2 className="mt-10 text-xl font-semibold text-slate-900">
             Certifications & Partnerships
           </h2>
           <div className="mt-4 grid gap-6 md:grid-cols-2">
