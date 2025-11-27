@@ -57,32 +57,47 @@ export default function HomeV2Page() {
         </div>
       </section>
 
-      <ImageSection
-        mediaSlot="home_student_story"
-        eyebrow="Learner Outcomes"
-        title="Not just sign-ups. Real completions and job placements."
-        body="Elevate is built around real outcomes: completions, credentials, and employer placements. Every program is designed with soft skills, technical skills, and real workplace experience woven together."
-        bullets={[
-          "Stacked funding so cost is not the main barrier",
-          "Job Ready Indy (JRI) modules to build soft skills",
-          "Work-based learning like WEX, OJT, and apprenticeships",
-          "Ongoing coaching and employer feedback loops",
-        ]}
-      />
+      <section className="bg-slate-900 text-white">
+        <div className="mx-auto max-w-6xl px-4 py-10">
+          <div className="grid gap-8 md:grid-cols-2">
+            <article>
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-orange-400">
+                Learner Outcomes
+              </p>
+              <h2 className="mt-2 text-sm font-semibold md:text-base">
+                Not just sign-ups. Real completions and job placements.
+              </h2>
+              <p className="mt-3 text-[11px] text-slate-300">
+                Elevate is built around real outcomes: completions, credentials, and employer placements. Every program is designed with soft skills, technical skills, and real workplace experience woven together.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-[11px] text-slate-200">
+                <li>Stacked funding so cost is not the main barrier</li>
+                <li>Job Ready Indy (JRI) modules to build soft skills</li>
+                <li>Work-based learning like WEX, OJT, and apprenticeships</li>
+                <li>Ongoing coaching and employer feedback loops</li>
+              </ul>
+            </article>
 
-      <ImageSection
-        mediaSlot="home_employer_collage"
-        eyebrow="For Employers"
-        title="A single place to manage WEX, OJT, apprenticeships, and upskilling."
-        body="Instead of juggling emails and spreadsheets, Elevate gives you a simple way to host trainees, track hours, and tap into subsidies where available. We help reduce your hiring risk while building a stronger talent pipeline."
-        bullets={[
-          "Pre-screened learners with JRI and foundational skills",
-          "Support navigating WRG, WIOA, and other funding sources",
-          "Templates for WEX/OJT/apprenticeship agreements",
-          "Simple reporting on hours, participation, and outcomes",
-        ]}
-        reverse
-      />
+            <article>
+              <p className="text-[10px] font-semibold uppercase tracking-wide text-orange-400">
+                For Employers
+              </p>
+              <h2 className="mt-2 text-sm font-semibold md:text-base">
+                A single place to manage WEX, OJT, apprenticeships, and upskilling.
+              </h2>
+              <p className="mt-3 text-[11px] text-slate-300">
+                Instead of juggling emails and spreadsheets, Elevate gives you a simple way to host trainees, track hours, and tap into subsidies where available. We help reduce your hiring risk while building a stronger talent pipeline.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-[11px] text-slate-200">
+                <li>Pre-screened learners with JRI and foundational skills</li>
+                <li>Support navigating WRG, WIOA, and other funding sources</li>
+                <li>Templates for WEX/OJT/apprenticeship agreements</li>
+                <li>Simple reporting on hours, participation, and outcomes</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-slate-950">
         <div className="mx-auto max-w-6xl px-4 py-10 text-[11px]">
