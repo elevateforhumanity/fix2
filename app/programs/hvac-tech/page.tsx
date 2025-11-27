@@ -46,7 +46,7 @@ export default function HVACTechPage() {
             <div>
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="elevate-badge elevate-badge-blue">
-                  ETPL Approved
+                  ETPL Approved | Program ID: 10004322
                 </span>
                 <span className="elevate-badge elevate-badge-purple">
                   640 Hours
@@ -132,10 +132,20 @@ export default function HVACTechPage() {
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 HVAC technicians are in high demand across Indiana and
-                nationwide. This ETPL-approved program prepares you for EPA 608
+                nationwide. This ETPL-approved program (Program ID: 10004322) prepares you for EPA 608
                 certification and immediate employment in a growing industry.
                 100% free for WIOA-eligible participants.
               </p>
+              <div className="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <p className="text-sm font-semibold text-green-900">
+                  ✅ ETPL Approved | ✅ WRG Eligible | ✅ WIOA Funded
+                </p>
+                <p className="text-xs text-green-800 mt-2">
+                  <strong>Provider:</strong> Elevate for Humanity Training Center (ID: 10000949)<br/>
+                  <strong>Program ID:</strong> 10004322<br/>
+                  <strong>Status:</strong> Approved on Indiana's Eligible Training Provider List (INTraining)
+                </p>
+              </div>
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               What You'll Learn
