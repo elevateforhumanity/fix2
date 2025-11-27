@@ -14,7 +14,7 @@ const cnaPartnerIds = ["hsi-cna-main", "nationaldrug-basic", "careersafe-cna-saf
 
 const cnaProgram: Program = {
   id: "prog-cna",
-  slug: "certified-nursing-assistant",
+  slug: "cna",
   title: "Certified Nursing Assistant (CNA)",
   subtitle: "Approved CNA training pathway",
   description:

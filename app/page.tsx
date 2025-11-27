@@ -1,11 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { HeroBanner } from "../components/HeroBanner";
-import { ImageSection } from "../components/ImageSection";
 
 export const metadata = {
-  title: "Elevate for Humanity – Workforce Training & Earn-While-You-Learn",
+  title: "Elevate for Humanity – 100% Free Career Training | Indianapolis",
   description:
-    "A workforce training platform connecting grants, apprenticeships, and employer partners so learners can skill up without drowning in debt.",
+    "FREE workforce training through WIOA, WRG, and JRI funding. CNA, Barber, HVAC, CDL, Medical Assistant programs. Real jobs, no debt. Located at Keystone Crossing, Indianapolis.",
 };
 
 export default function HomeV2Page() {
@@ -43,13 +43,13 @@ export default function HomeV2Page() {
           <div className="flex gap-2">
             <Link
               href="/enroll"
-              className="rounded-lg bg-red-600 px-3 py-1.5 text-[10px] font-semibold hover:bg-red-700"
+              className="rounded-lg bg-orange-500 px-3 py-1.5 text-sm font-bold text-white shadow-lg hover:bg-orange-600"
             >
               Start Enrollment
             </Link>
             <Link
-              href="/employer"
-              className="rounded-lg border border-slate-700 px-3 py-1.5 text-[10px] font-semibold text-slate-100 hover:bg-slate-800"
+              href="/employers"
+              className="rounded-lg border-2 border-white bg-white px-3 py-1.5 text-sm font-bold text-slate-900 shadow-lg hover:bg-slate-100"
             >
               Employer Partnerships
             </Link>
@@ -99,38 +99,237 @@ export default function HomeV2Page() {
         </div>
       </section>
 
-      <section className="bg-slate-950">
-        <div className="mx-auto max-w-6xl px-4 py-10 text-[11px]">
-          <p className="text-[10px] font-semibold uppercase tracking-wide text-orange-400">
+      {/* FEATURED PROGRAMS */}
+      <section className="bg-slate-950 py-12">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-wide text-orange-400">
+              Featured Programs
+            </p>
+            <h2 className="mt-2 text-2xl font-bold md:text-3xl">
+              Start Your Career in High-Demand Fields
+            </h2>
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <Link href="/programs/cna" className="group">
+              <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900 transition hover:border-orange-500">
+                <div className="relative h-48">
+                  <Image
+                    src="/media/programs/cna-hd.jpg"
+                    alt="CNA Training Program"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold group-hover:text-orange-400">
+                    Certified Nursing Assistant (CNA)
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-300">
+                    4-6 weeks • Clinical training • Job placement support
+                  </p>
+                  <p className="mt-3 text-xs font-semibold text-orange-400">
+                    100% FREE with WIOA →
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/programs/barber-apprenticeship" className="group">
+              <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900 transition hover:border-orange-500">
+                <div className="relative h-48">
+                  <Image
+                    src="/media/programs/beauty-hd.jpg"
+                    alt="Barber Apprenticeship Program"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold group-hover:text-orange-400">
+                    Barber Apprenticeship
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-300">
+                    12-18 months • Earn while you learn • State licensure
+                  </p>
+                  <p className="mt-3 text-xs font-semibold text-orange-400">
+                    Funded through WRG →
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/programs/hvac-tech" className="group">
+              <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900 transition hover:border-orange-500">
+                <div className="relative h-48">
+                  <Image
+                    src="/media/programs/hvac-hd.jpg"
+                    alt="HVAC Technician Program"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold group-hover:text-orange-400">
+                    HVAC Technician
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-300">
+                    6-12 months • EPA certification • Apprenticeship ready
+                  </p>
+                  <p className="mt-3 text-xs font-semibold text-orange-400">
+                    Multiple funding options →
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/programs"
+              className="inline-flex items-center rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold hover:bg-slate-800"
+            >
+              View All Programs
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="bg-slate-900 py-12">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center">
+            <p className="text-xs font-semibold uppercase tracking-wide text-orange-400">
+              Success Stories
+            </p>
+            <h2 className="mt-2 text-2xl font-bold md:text-3xl">
+              Real People, Real Results
+            </h2>
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <div className="rounded-xl border border-slate-800 bg-slate-950 p-6">
+              <div className="flex items-center gap-3">
+                <div className="relative h-12 w-12 overflow-hidden rounded-full">
+                  <Image
+                    src="/images/Success_Story_Portrait_Sarah_fc9f8fd1.png"
+                    alt="Sarah M."
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="font-semibold">Sarah M.</p>
+                  <p className="text-xs text-slate-400">CNA Graduate</p>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-slate-300">
+                "I went from unemployed to working at a nursing home in 6 weeks. The WIOA funding covered everything, and the instructors really cared about us succeeding."
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-800 bg-slate-950 p-6">
+              <div className="flex items-center gap-3">
+                <div className="relative h-12 w-12 overflow-hidden rounded-full">
+                  <Image
+                    src="/images/Success_Story_Portrait_Marcus_112c6bbd.png"
+                    alt="Marcus J."
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="font-semibold">Marcus J.</p>
+                  <p className="text-xs text-slate-400">Barber Apprentice</p>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-slate-300">
+                "I'm earning money while I learn. The apprenticeship gave me real shop experience, not just classroom theory. Already building my client base."
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-800 bg-slate-950 p-6">
+              <div className="flex items-center gap-3">
+                <div className="relative h-12 w-12 overflow-hidden rounded-full">
+                  <Image
+                    src="/images/Success_Story_Portrait_Lisa_9a59d350.png"
+                    alt="Lisa T."
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="font-semibold">Lisa T.</p>
+                  <p className="text-xs text-slate-400">Medical Assistant</p>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-slate-300">
+                "After years of retail, I finally have a career with benefits. The job placement support was incredible - I had 3 offers before I even graduated."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FUNDING SECTION */}
+      <section className="bg-slate-950 py-12">
+        <div className="mx-auto max-w-6xl px-4">
+          <p className="text-xs font-semibold uppercase tracking-wide text-orange-400">
             How Funding Works
           </p>
-          <h2 className="mt-2 text-sm font-semibold md:text-base">
-            We braid together grants, employer sponsorship, and philanthropy so
-            learners aren&apos;t blocked by tuition.
+          <h2 className="mt-2 text-2xl font-bold md:text-3xl">
+            We braid together grants, employer sponsorship, and philanthropy so learners aren't blocked by tuition.
           </h2>
-          <div className="mt-4 grid gap-3 md:grid-cols-3">
-            <article className="rounded-xl border border-slate-800 bg-slate-900 p-3">
-              <p className="text-[11px] font-semibold">State & Local Grants</p>
-              <p className="mt-1 text-[11px] text-slate-300">
-                When available, we work with WRG, WIOA, and other local funds so
-                eligible learners can reduce or eliminate tuition.
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <article className="rounded-xl border border-slate-800 bg-slate-900 p-6">
+              <p className="text-lg font-semibold">State & Local Grants</p>
+              <p className="mt-3 text-sm text-slate-300">
+                When available, we work with WRG, WIOA, and other local funds so eligible learners can reduce or eliminate tuition.
               </p>
             </article>
-            <article className="rounded-xl border border-slate-800 bg-slate-900 p-3">
-              <p className="text-[11px] font-semibold">Earn-While-You-Learn</p>
-              <p className="mt-1 text-[11px] text-slate-300">
-                Apprenticeships, WEX, and OJT placements help learners gain
-                experience and income while they train.
+            <article className="rounded-xl border border-slate-800 bg-slate-900 p-6">
+              <p className="text-lg font-semibold">Earn-While-You-Learn</p>
+              <p className="mt-3 text-sm text-slate-300">
+                Apprenticeships, WEX, and OJT placements help learners gain experience and income while they train.
               </p>
             </article>
-            <article className="rounded-xl border border-slate-800 bg-slate-900 p-3">
-              <p className="text-[11px] font-semibold">Philanthropy & Payment Plans</p>
-              <p className="mt-1 text-[11px] text-slate-300">
-                For programs that require tuition, we use targeted scholarships
-                and simple payment plans so cost doesn&apos;t stop progress.
+            <article className="rounded-xl border border-slate-800 bg-slate-900 p-6">
+              <p className="text-lg font-semibold">Philanthropy & Payment Plans</p>
+              <p className="mt-3 text-sm text-slate-300">
+                For programs that require tuition, we use targeted scholarships and simple payment plans so cost doesn't stop progress.
               </p>
             </article>
           </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="bg-gradient-to-r from-orange-600 to-red-600 py-16">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <h2 className="text-3xl font-bold md:text-4xl">
+            Ready to Start Your Career?
+          </h2>
+          <p className="mt-4 text-lg text-orange-50">
+            Apply today and our team will help you find the right program and funding options.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/apply"
+              className="inline-flex items-center rounded-lg bg-white px-8 py-4 text-lg font-semibold text-orange-600 shadow-lg hover:bg-slate-50"
+            >
+              Apply Now
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center rounded-lg border-2 border-white px-8 py-4 text-lg font-semibold text-white hover:bg-white/10"
+            >
+              Contact Us
+            </Link>
+          </div>
+          <p className="mt-6 text-sm text-orange-100">
+            📍 Located at 8888 Keystone Crossing, Suite 1300, Indianapolis, IN 46240
+          </p>
         </div>
       </section>
     </main>

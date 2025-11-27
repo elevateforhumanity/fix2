@@ -5,33 +5,113 @@ import { getProgramVisualsBySlug } from "@/lib/pageVisuals";
 
 export default function ProgramsCatalogPage() {
   const visiblePrograms = allPrograms.filter((p) => p.visiblePublic);
-  const sortedPrograms = [...visiblePrograms].sort((a, b) =>
-    a.title.localeCompare(b.title)
-  );
+  
+  // Separate free/funded programs from tuition-based ETPL programs
+  const freePrograms = visiblePrograms.filter((p) => p.salePrice === 0 || p.salePrice < 100);
+  const etplPrograms = visiblePrograms.filter((p) => p.salePrice >= 100);
+  
+  const sortedFreePrograms = [...freePrograms].sort((a, b) => a.title.localeCompare(b.title));
+  const sortedEtplPrograms = [...etplPrograms].sort((a, b) => a.title.localeCompare(b.title));
 
   return (
-    <main className="bg-slate-950 text-white min-h-screen">
-      <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-red-700/40 via-slate-950 to-blue-900/60" />
-        <div className="relative mx-auto max-w-6xl px-4 py-14 md:py-18">
-          <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
+    <main className="bg-white text-slate-900 min-h-screen">
+      <section className="relative overflow-hidden bg-gradient-to-br from-orange-500 to-red-600 text-white">
+        <div className="relative mx-auto max-w-6xl px-4 py-16 md:py-20">
+          <p className="text-sm font-bold uppercase tracking-wide text-white/90">
             Elevate For Humanity Programs
           </p>
-          <h1 className="mt-2 text-2xl font-bold md:text-3xl">
+          <h1 className="mt-3 text-3xl font-bold md:text-4xl">
             Choose a Pathway That Matches Where You Want to Go.
           </h1>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-100/90">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/95">
             Every program is a real career pathway, paired with credential partners
-            and employer connections. Tuition is clear, funding and Earn While You
-            Learn options are explained, and support is available the whole way.
+            and employer connections. Free programs funded through WIOA, WRG, and JRI.
+            ETPL programs available with payment plans.
           </p>
         </div>
       </section>
 
-      <section className="bg-slate-100 text-slate-900">
-        <div className="mx-auto max-w-6xl px-4 py-10">
+      {/* FREE/FUNDED PROGRAMS */}
+      <section className="bg-white text-slate-900 py-12">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-slate-900">
+              100% Free Programs (WIOA, WRG, JRI Funded)
+            </h2>
+            <p className="mt-2 text-slate-600">
+              No tuition, no debt. These programs are fully funded for eligible participants.
+            </p>
+          </div>
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {sortedPrograms.map((program) => {
+            {sortedFreePrograms.map((program) => {
+              const visuals = getProgramVisualsBySlug(program.slug);
+              const primaryHeroImage =
+                visuals?.heroes[0]?.imageSrc || "/images/home/program-collage.jpg";
+
+              return (
+                <article
+                  key={program.id}
+                  className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-lg border-2 border-green-500"
+                >
+                  <div className="relative aspect-[4/3] w-full bg-slate-100">
+                    <Image
+                      src={primaryHeroImage}
+                      alt={program.title}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1280px) 360px, (min-width: 768px) 50vw, 100vw"
+                    />
+                    <div className="absolute top-3 right-3 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                      100% FREE
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col px-4 py-4">
+                    <h2 className="text-lg font-bold text-slate-900">
+                      {program.title}
+                    </h2>
+                    {program.subtitle && (
+                      <p className="mt-2 text-sm leading-relaxed text-slate-700">
+                        {program.subtitle}
+                      </p>
+                    )}
+
+                    <div className="mt-4 rounded-lg bg-green-50 border border-green-200 p-3">
+                      <p className="font-bold text-green-800">FREE with WIOA/WRG/JRI</p>
+                      <p className="mt-1 text-sm text-green-700">
+                        No tuition for eligible participants
+                      </p>
+                    </div>
+
+                    <div className="mt-4">
+                      <Link
+                        href={`/programs/${program.slug}`}
+                        className="block w-full text-center rounded-lg bg-green-600 px-4 py-3 text-sm font-bold text-white hover:bg-green-700"
+                      >
+                        Learn More & Apply
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ETPL TUITION-BASED PROGRAMS */}
+      {sortedEtplPrograms.length > 0 && (
+        <section className="bg-slate-50 text-slate-900 py-12">
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold text-slate-900">
+                ETPL Career Training Programs
+              </h2>
+              <p className="mt-2 text-slate-600">
+                Professional certification programs with tuition. Payment plans and employer sponsorship available.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {sortedEtplPrograms.map((program) => {
               const visuals = getProgramVisualsBySlug(program.slug);
               const primaryHeroImage =
                 visuals?.heroes[0]?.imageSrc || "/images/home/program-collage.jpg";
@@ -78,25 +158,13 @@ export default function ProgramsCatalogPage() {
                       )}
                     </div>
 
-                    <div className="mt-3 flex flex-wrap gap-2">
+                    <div className="mt-4">
                       <Link
-                        href={`/programs/${program.slug}`}
-                        className="inline-flex flex-1 items-center justify-center rounded-md bg-red-600 px-3 py-2 text-[11px] font-semibold text-white hover:bg-red-700"
+                        href={`/apply?program=${program.slug}`}
+                        className="block w-full text-center rounded-lg bg-orange-600 px-4 py-3 text-sm font-bold text-white hover:bg-orange-700"
                       >
-                        View Program
+                        Apply Now
                       </Link>
-                      <form
-                        action={`/api/enroll?program=${program.id}&mode=full`}
-                        method="POST"
-                        className="flex-1"
-                      >
-                        <button
-                          type="submit"
-                          className="inline-flex w-full items-center justify-center rounded-md border border-red-600 px-3 py-2 text-[11px] font-semibold text-red-600 hover:bg-red-50"
-                        >
-                          Enroll – Pay in Full
-                        </button>
-                      </form>
                     </div>
 
                     <p className="mt-2 text-[11px] text-slate-500">
@@ -111,6 +179,7 @@ export default function ProgramsCatalogPage() {
           </div>
         </div>
       </section>
+      )}
     </main>
   );
 }
