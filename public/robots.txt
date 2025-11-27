@@ -1,14 +1,59 @@
 # Robots.txt for https://www.elevateforhumanity.org
 
-# Allow all search engines
-User-agent: *
-Allow: /
+# Block AI scrapers and crawlers
+User-agent: GPTBot
+Disallow: /
 
-# Block private areas only
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+# Allow legitimate search engines (Google, Bing, etc.)
+User-agent: Googlebot
+Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
 Disallow: /private/
+Disallow: /checkout/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /checkout/
+
+# Block all other bots from sensitive areas
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /checkout/
+Disallow: /apply
+Disallow: /employers/intake
 
 # Sitemap
 Sitemap: https://www.elevateforhumanity.org/sitemap.xml

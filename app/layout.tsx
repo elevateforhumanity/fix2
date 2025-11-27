@@ -52,6 +52,20 @@ export const metadata: Metadata = {
     'Indiana',
   ],
   authors: [{ name: 'Elevate for Humanity' }],
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+    // Block AI scrapers
+    noai: true,
+    noimageai: true,
+  },
   manifest: '/manifest.json',
   openGraph: {
     title: 'Elevate for Humanity | 100% Free Career Training',
