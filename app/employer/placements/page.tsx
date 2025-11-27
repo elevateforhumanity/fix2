@@ -9,6 +9,7 @@ const samplePlacements = employers.map((emp, idx) => ({
   programId: emp.interestedPrograms[0] || "prog-cna",
   placementType: emp.wantsApprenticeship ? "Apprenticeship" : emp.wantsWex ? "WEX" : "OJT",
   outcome: "Hired full-time after completion",
+  learnerName: `Student ${idx + 1}`,
 }));
 
 export const metadata = {
@@ -57,7 +58,7 @@ export default function EmployerPlacementsPage() {
               const program = allPrograms.find((p) => p.id === plc.programId);
 
               const typeLabel = plc.placementType;
-              const statusLabel = "Active";
+              const statusLabel = "Completed";
 
               return (
                 <article
@@ -71,7 +72,7 @@ export default function EmployerPlacementsPage() {
                     {plc.employerName}
                   </h2>
                   <p className="mt-1 text-[11px] text-slate-300">
-                    Placement Type: <span className="text-slate-100">{typeLabel}</span>
+                    Learner: <span className="text-slate-100">{plc.learnerName}</span>
                   </p>
 
                   {program && (
@@ -93,16 +94,8 @@ export default function EmployerPlacementsPage() {
                   </p>
 
                   <p className="mt-1 text-[11px] text-slate-300">
-                    Outcome:{" "}
-                    <span className="text-slate-100">{plc.outcome}</span>
+                    Outcome: {plc.outcome}
                   </p>
-
-                  {program && (
-                    <p className="mt-1 text-[11px] text-slate-300">
-                      Program:{" "}
-                      <span className="text-slate-100">{program.title}</span>
-                    </p>
-                  )}
 
                   <div className="mt-3 rounded-lg bg-slate-900/80 p-3 text-[11px] text-slate-200">
                     <p className="font-semibold">Imagine this with your logo.</p>

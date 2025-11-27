@@ -55,6 +55,7 @@ export default function TakeQuizPage({ params }: Props) {
 
       return () => clearInterval(timer);
     }
+    return undefined;
   }, [timeRemaining]);
 
   const loadQuiz = async () => {
