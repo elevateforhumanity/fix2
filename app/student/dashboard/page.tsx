@@ -1,131 +1,158 @@
-// app/student/dashboard/page.tsx
-
 import Link from "next/link";
-import { allCourses } from "@/lms-data/courses";
+import { allPrograms } from "@/lms-data/programs";
+import { getModulesForProgram } from "@/lms-data/course-modules";
+import { scormPackages } from "@/lms-data/scorm";
+
+export const metadata = {
+  title: "Student Dashboard | Elevate for Humanity",
+  description:
+    "Your Elevate for Humanity student dashboard: view your programs, modules, and launch courses."
+};
 
 export default function StudentDashboardPage() {
-  const inProgress = allCourses.slice(0, 2); // replace with real progress later
-  const recommended = allCourses.slice(2, 5);
-
   return (
-    <div className="min-h-screen w-full bg-slate-50">
-      <div className="mx-auto max-w-6xl px-4 py-6">
-        <header className="mb-4 flex flex-col justify-between gap-3 md:flex-row md:items-center">
-          <div>
-            <h1 className="text-xl font-bold text-slate-900">
-              Your Learning Dashboard
-            </h1>
-            <p className="mt-1 text-xs text-slate-600">
-              This is your hub for courses, next steps, and progress. Take it
-              one step at a time — we&apos;re here to walk with you.
-            </p>
-          </div>
-          <div className="flex gap-2 text-xs">
-            <Link
-              href="/programs"
-              className="inline-flex items-center rounded-md bg-white px-3 py-1.5 font-semibold text-slate-800 shadow-sm hover:bg-slate-100"
-            >
-              Browse Programs
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center rounded-md border border-blue-200 bg-blue-50 px-3 py-1.5 font-semibold text-brandPrimary hover:bg-blue-100"
-            >
-              Talk To A Coach
-            </Link>
-          </div>
-        </header>
+    <main className="min-h-screen bg-slate-950 text-white">
+      {/* HERO */}
+      <section className="border-b border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+        <div className="mx-auto max-w-6xl px-4 py-6">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-400">
+            Student Dashboard
+          </p>
+          <h1 className="mt-1 text-2xl font-bold">
+            Welcome to Elevate for Humanity
+          </h1>
+          <p className="mt-2 text-xs text-slate-300">
+            This is your learning home base. Start with your program, then work
+            through the modules. Some modules launch in Elevate, others use
+            partner content like Job Ready Indy (JRI) delivered through SCORM.
+          </p>
+          <p className="mt-1 text-[11px] text-slate-400">
+            Progress tracking, badges, and certificates can be layered on next.
+            For now, focus on completing each module in order and staying in
+            touch with your instructor or advisor.
+          </p>
+        </div>
+      </section>
 
-        <div className="grid gap-4 md:grid-cols-3">
-          {/* Left: in-progress */}
-          <section className="md:col-span-2">
-            <h2 className="text-sm font-semibold text-slate-900">
-              Programs In Progress
-            </h2>
-            <p className="mt-1 text-xs text-slate-600">
-              Once you&apos;re officially enrolled, your active programs will
-              show here with clearer progress bars and due dates.
-            </p>
+      {/* PROGRAMS + MODULES */}
+      <section className="bg-slate-900">
+        <div className="mx-auto max-w-6xl px-4 py-6">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {allPrograms.map((program) => {
+              const modules = getModulesForProgram(program.id);
 
-            <div className="mt-3 space-y-3">
-              {inProgress.map((course) => (
+              return (
                 <article
-                  key={course.id}
-                  className="flex flex-col rounded-xl border border-slate-200 bg-white p-3 text-xs text-slate-800 shadow-sm"
+                  key={program.id}
+                  className="flex flex-col rounded-xl border border-slate-800 bg-slate-950/70 p-4 text-xs shadow-sm"
                 >
-                  <div className="flex flex-col justify-between gap-2 md:flex-row md:items-center">
-                    <div>
-                      <h3 className="text-sm font-semibold text-slate-900">
-                        {course.shortTitle ?? course.title}
-                      </h3>
-                      <p className="mt-1 text-[11px] text-slate-600">
-                        {course.description}
+                  <p className="text-[11px] font-semibold text-slate-300">
+                    Program
+                  </p>
+                  <h2 className="text-sm font-semibold text-white">
+                    {program.title}
+                  </h2>
+                  {program.subtitle && (
+                    <p className="mt-1 text-[11px] text-slate-300">
+                      {program.subtitle}
+                    </p>
+                  )}
+                  <p className="mt-1 line-clamp-3 text-[11px] text-slate-400">
+                    {program.description}
+                  </p>
+
+                  <div className="mt-2">
+                    <p className="text-[11px] font-semibold text-slate-200">
+                      Modules:
+                    </p>
+                    {modules.length === 0 ? (
+                      <p className="mt-1 text-[11px] text-slate-400">
+                        Modules are being loaded for this program. Check back
+                        soon or contact support.
                       </p>
-                    </div>
-                    <div className="flex flex-col items-start gap-1 text-[11px] text-slate-500 md:items-end">
-                      <span>{course.hoursTotal} hours total</span>
-                      <span>Progress: coming soon</span>
-                    </div>
+                    ) : (
+                      <ol className="mt-1 space-y-1 text-[11px] text-slate-300">
+                        {modules.map((m) => {
+                          const scorm =
+                            m.type === "scorm"
+                              ? scormPackages.find((p) => p.id === m.scormPackageId)
+                              : undefined;
+
+                          return (
+                            <li
+                              key={m.id}
+                              className="flex flex-col rounded-lg bg-slate-900/70 px-2 py-1.5"
+                            >
+                              <div className="flex items-center justify-between gap-2">
+                                <span className="font-semibold text-slate-100">
+                                  {m.order}. {m.title}
+                                </span>
+                                <span className="rounded-full border border-slate-700 bg-slate-950 px-2 py-0.5 text-[10px] uppercase tracking-wide text-slate-200">
+                                  {m.type === "video" && "Video"}
+                                  {m.type === "pdf" && "PDF"}
+                                  {m.type === "scorm" && "Partner / SCORM"}
+                                  {m.type === "quiz" && "Quiz"}
+                                  {m.type === "live" && "Live Session"}
+                                </span>
+                              </div>
+                              {m.description && (
+                                <p className="mt-0.5 text-[11px] text-slate-300">
+                                  {m.description}
+                                </p>
+                              )}
+                              <div className="mt-1 flex flex-wrap gap-2">
+                                {m.type === "scorm" && scorm && (
+                                  <Link
+                                    href={`/student/scorm/${scorm.id}`}
+                                    className="rounded-md bg-red-600 px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-red-700"
+                                  >
+                                    Launch Partner Course
+                                  </Link>
+                                )}
+                                {m.type === "video" && (
+                                  <button
+                                    type="button"
+                                    className="rounded-md bg-slate-800 px-3 py-1.5 text-[11px] font-semibold text-slate-100 hover:bg-slate-700"
+                                  >
+                                    Video coming online (upload via instructor)
+                                  </button>
+                                )}
+                                {m.type === "pdf" && (
+                                  <button
+                                    type="button"
+                                    className="rounded-md bg-slate-800 px-3 py-1.5 text-[11px] font-semibold text-slate-100 hover:bg-slate-700"
+                                  >
+                                    PDF / Handout (to be attached)
+                                  </button>
+                                )}
+                              </div>
+                            </li>
+                          );
+                        })}
+                      </ol>
+                    )}
                   </div>
-                  <div className="mt-2 flex gap-2 text-[11px]">
+
+                  <div className="mt-3 flex flex-wrap gap-2">
                     <Link
-                      href={course.lmsPath}
-                      className="inline-flex items-center rounded-md bg-brandPrimary px-3 py-1.5 font-semibold text-white hover:bg-brandPrimaryDark"
+                      href={`/programs/${program.slug}`}
+                      className="rounded-md bg-red-600 px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-red-700"
                     >
-                      Go To This Program
+                      View Program Page
                     </Link>
                     <Link
-                      href={`/courses/${course.slug}`}
-                      className="inline-flex items-center rounded-md border border-slate-200 bg-white px-3 py-1.5 font-semibold text-slate-800 hover:bg-slate-50"
+                      href="/student/scorm"
+                      className="rounded-md border border-slate-600 px-3 py-1.5 text-[11px] font-semibold text-slate-100 hover:bg-slate-900"
                     >
-                      View Details
+                      View All Partner Courses
                     </Link>
                   </div>
                 </article>
-              ))}
-            </div>
-          </section>
-
-          {/* Right: recommended / quick info */}
-          <aside className="space-y-4">
-            <section className="rounded-xl border border-slate-200 bg-white p-3 text-xs text-slate-800 shadow-sm">
-              <h2 className="text-sm font-semibold text-slate-900">
-                Funding & Support
-              </h2>
-              <p className="mt-1 text-[11px] text-slate-600">
-                Many EFH programs can use WIOA, WRG, JRI, WEX, or employer
-                funding. If you&apos;re not sure what you qualify for, mention it
-                when you talk with a coach and we&apos;ll walk you through the
-                options in plain language.
-              </p>
-            </section>
-
-            <section className="rounded-xl border border-slate-200 bg-white p-3 text-xs text-slate-800 shadow-sm">
-              <h2 className="text-sm font-semibold text-slate-900">
-                Suggested Programs For You
-              </h2>
-              <ul className="mt-2 space-y-2">
-                {recommended.map((course) => (
-                  <li key={course.id} className="flex flex-col rounded-lg bg-slate-50 p-2">
-                    <span className="text-[11px] font-semibold text-slate-900">
-                      {course.shortTitle ?? course.title}
-                    </span>
-                    <div className="mt-1 flex justify-between text-[11px] text-slate-600">
-                      <span>{course.hoursTotal} hrs</span>
-                      <Link
-                        href={`/courses/${course.slug}`}
-                        className="font-semibold text-brandPrimary hover:underline"
-                      >
-                        View
-                      </Link>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </aside>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

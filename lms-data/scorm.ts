@@ -22,7 +22,7 @@ export const scormPackages: ScormPackage[] = [
     title: "JRI Module 1 – Career Readiness Foundations",
     description:
       "Job Ready Indy module focused on basic employability skills, expectations, and mindset for work.",
-    programId: "prog-tax-vita", // example: also relevant for customer service & other programs
+    programId: "prog-customer-service-contact-center",
     launchUrl: "/scorm/jri/module-1/index.html",
     provider: "jri",
     order: 1,

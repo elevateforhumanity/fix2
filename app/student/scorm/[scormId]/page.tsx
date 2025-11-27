@@ -40,14 +40,6 @@ export default function ScormPlayerPage({ params }: PageProps) {
             >
               Back to SCORM Catalog
             </Link>
-            {pkg.programId && (
-              <Link
-                href={`/programs/${pkg.programId.replace("prog-", "")}`}
-                className="text-slate-300 underline"
-              >
-                Related Program
-              </Link>
-            )}
           </div>
         </div>
       </section>
