@@ -6,14 +6,20 @@ export default function TaxPrepPage() {
       <section className="border-b border-slate-100 bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
           <p className="text-xs font-semibold uppercase tracking-wide text-green-600">
-            IRS-Certified Training
+            IRS-Certified Training | ETPL Approved
           </p>
           <h1 className="mt-2 text-2xl font-bold text-slate-900 md:text-4xl">
-            Tax Preparation / IRS VITA
+            Tax Preparation Programs
           </h1>
+          <p className="mt-2 text-base font-semibold text-green-700">
+            RISE Forward Foundation
+          </p>
+          <p className="mt-1 text-xs text-slate-600">
+            A program of SELFISH INC (501c3) | IRS VITA Site SDIN: 99420837
+          </p>
           <p className="mt-3 max-w-2xl text-sm text-slate-700 md:text-base">
             Become an IRS-certified tax preparer through our VITA (Volunteer Income Tax Assistance) 
-            training program. Free training for eligible students.
+            and Tax Business Management programs. Free training for eligible students.
           </p>
           <div className="mt-6">
             <Link
@@ -31,18 +37,29 @@ export default function TaxPrepPage() {
           <div className="grid gap-8 md:grid-cols-2">
             <div>
               <h2 className="text-lg font-bold text-slate-900">
-                IRS VITA Certification
+                Two Training Pathways
               </h2>
-              <p className="mt-3 text-sm text-slate-700">
-                Our IRS-certified VITA site (SDIN: 99420837) provides training to become 
-                a volunteer tax preparer. Learn to prepare taxes for individuals and families, 
-                with a focus on low-income taxpayers and EITC (Earned Income Tax Credit) assistance.
-              </p>
-              <p className="mt-3 text-sm text-slate-700">
-                This program is perfect for those interested in accounting, finance, or 
-                helping their community. Certification is recognized by the IRS and can 
-                lead to paid tax preparation careers.
-              </p>
+              <div className="mt-3 space-y-4">
+                <div className="rounded-lg border border-green-200 bg-green-50 p-4">
+                  <h3 className="text-sm font-semibold text-green-900">
+                    1. VITA Certification (Free Tax Prep)
+                  </h3>
+                  <p className="mt-2 text-xs text-slate-700">
+                    IRS-certified volunteer tax preparer training through RISE Forward Foundation 
+                    (VITA Site SDIN: 99420837). Prepare taxes for low-income families and earn 
+                    IRS certification.
+                  </p>
+                </div>
+                <div className="rounded-lg border border-blue-200 bg-blue-50 p-4">
+                  <h3 className="text-sm font-semibold text-blue-900">
+                    2. Tax Business Management (ETPL Approved)
+                  </h3>
+                  <p className="mt-2 text-xs text-slate-700">
+                    Professional tax preparation and business management training. ETPL-approved 
+                    program with WIOA/WRG funding available. Career pathway to paid tax preparation.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div>
@@ -207,12 +224,32 @@ export default function TaxPrepPage() {
             </div>
           </div>
 
-          <div className="mt-8 text-xs text-slate-500">
-            <p>
-              <strong>IRS VITA Site:</strong> SDIN 99420837 | 
-              <strong> Certification:</strong> IRS-approved training provider | 
-              <strong> Funding:</strong> WIOA eligible
+          <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-6">
+            <h2 className="text-lg font-bold text-slate-900">
+              About RISE Forward Foundation
+            </h2>
+            <p className="mt-3 text-sm text-slate-700">
+              RISE Forward Foundation is a program of <strong>SELFISH INC</strong> (501c3, EIN: 99-3483511) 
+              dedicated to providing free tax preparation services and tax preparer training to the community.
             </p>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              <div>
+                <p className="text-xs font-semibold text-slate-900">IRS VITA Site</p>
+                <p className="text-xs text-slate-700">SDIN: 99420837</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-slate-900">ETPL Provider</p>
+                <p className="text-xs text-slate-700">Provider ID: 10000949</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-slate-900">Tax Preparer</p>
+                <p className="text-xs text-slate-700">PTIN: 358459</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-slate-900">Funding</p>
+                <p className="text-xs text-slate-700">WIOA/WRG Eligible</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

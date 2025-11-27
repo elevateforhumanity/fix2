@@ -13,11 +13,37 @@ const PROGRAM_GROUPS = [
   },
   {
     title: "Skilled Trades & Building",
-    items: ["HVAC", "Building Maintenance", "Facilities Tech", "CDL / Transportation"],
+    items: [
+      { name: "HVAC Technician", href: "/programs/hvac-tech" },
+      { name: "Building Technician", href: "/programs/building-tech" },
+      "Building Maintenance", 
+      "Facilities Tech", 
+      "CDL / Transportation"
+    ],
   },
   {
     title: "Beauty & Wellness",
-    items: ["Barber Apprenticeship", "Esthetics", "Beauty Career Educator"],
+    items: [
+      { name: "Barber Apprenticeship", href: "/programs/barber-apprenticeship" },
+      { name: "Esthetician", href: "/programs/esthetician" },
+      "Beauty Career Educator"
+    ],
+  },
+  {
+    title: "Culinary & Hospitality",
+    items: [
+      { name: "Culinary Arts", href: "/programs/culinary" },
+      "Food Service Management",
+      "Restaurant Operations"
+    ],
+  },
+  {
+    title: "Emergency Medical Services",
+    items: [
+      { name: "EMT Certification", href: "/programs/emt" },
+      "Paramedic Training",
+      "Emergency Response"
+    ],
   },
   {
     title: "Business & Technology",
