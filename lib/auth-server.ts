@@ -11,8 +11,8 @@ export interface AuthUser {
   role: "admin" | "staff" | "student" | "employer" | "guest";
 }
 
-function getSupabaseServerClient() {
-  const cookieStore = cookies();
+async function getSupabaseServerClient() {
+  const cookieStore = await cookies();
   
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -29,7 +29,7 @@ function getSupabaseServerClient() {
 
 export async function getCurrentUser(): Promise<AuthUser | null> {
   try {
-    const supabase = getSupabaseServerClient();
+    const supabase = await getSupabaseServerClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();

@@ -14,7 +14,7 @@ const cnaPartnerIds = ["hsi-cna-main", "nationaldrug-basic", "careersafe-cna-saf
 
 const cnaProgram: Program = {
   id: "prog-cna",
-  slug: "certified-nursing-assistant",
+  slug: "cna",
   title: "Certified Nursing Assistant (CNA)",
   subtitle: "Approved CNA training pathway",
   description:
@@ -65,7 +65,7 @@ const hvacPartnerIds = ["careersafe-hvac-osha", "nationaldrug-hvac"];
 
 const hvacProgram: Program = {
   id: "prog-hvac",
-  slug: "hvac-building-technician",
+  slug: "hvac-tech",
   title: "HVAC & Building Technician Career Pathway",
   subtitle:
     "Heating, ventilation, and air conditioning training aligned with employers.",
@@ -91,7 +91,7 @@ const cdlPartnerIds = ["nationaldrug-cdl", "careersafe-cdl-safety"];
 
 const cdlProgram: Program = {
   id: "prog-cdl",
-  slug: "cdl-transportation",
+  slug: "cdl",
   title: "CDL & Transportation Support Pathway",
   subtitle:
     "Prep and support for CDL training and transportation careers.",
@@ -195,7 +195,7 @@ const buildingMaintPartnerIds = ["careersafe-building-safety", "nationaldrug-bui
 
 const buildingMaintenanceProgram: Program = {
   id: "prog-building-maintenance",
-  slug: "building-maintenance-facilities",
+  slug: "building-tech",
   title: "Building Maintenance Technician Apprenticeship",
   subtitle:
     "FREE facilities and building systems apprenticeship program.",

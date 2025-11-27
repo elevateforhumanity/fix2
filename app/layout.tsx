@@ -62,9 +62,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-    // Block AI scrapers
-    noai: true,
-    noimageai: true,
   },
   manifest: '/manifest.json',
   openGraph: {
@@ -92,10 +89,6 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: 'default',
     title: 'Elevate',
-  },
-  robots: {
-    index: true,
-    follow: true,
   },
   verification: {
     google: '9sXnIdE4X4AoAeRlu16JXWqNxSOIxOCAvbpakSGp3so',

@@ -37,8 +37,8 @@ export const mediaConfig: MediaConfigItem[] = [
   // Homepage Images - High-impact hero sections
   {
     slot: "home_hero_primary",
-    imageSrc: "/media/hero-elevate-learners.jpg",
-    alt: "Diverse group of learners in training celebrating success together",
+    imageSrc: "/images/facilities-new/facility-1.jpg",
+    alt: "Elevate for Humanity training facility at Keystone Crossing, Indianapolis",
     category: "homepage"
   },
   {
