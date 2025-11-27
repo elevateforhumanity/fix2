@@ -96,9 +96,41 @@ export default function MainFooter() {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 border-t border-slate-200 pt-6 text-center text-xs text-slate-500">
-          © {currentYear} Elevate For Humanity. All rights reserved.
+        {/* Copyright & Legal */}
+        <div className="mt-8 border-t border-slate-200 pt-6 space-y-3">
+          <div className="text-center text-xs text-slate-500">
+            © {currentYear} Elevate For Humanity. All rights reserved.
+          </div>
+          
+          {/* Partner Disclaimer */}
+          <div className="text-center text-xs text-slate-400 max-w-4xl mx-auto">
+            <p>
+              Elevate for Humanity is an independent training provider. We partner with industry-leading 
+              credential providers including Milady, HSI, CareerSafe, Choice Medical Institute, National Drug, 
+              Certiport, IRS VITA, and others. All partner names and trademarks are property of their respective 
+              owners and are used for descriptive purposes only. Elevate for Humanity is not owned by or 
+              affiliated with these organizations beyond our educational partnerships.
+            </p>
+          </div>
+
+          {/* Legal Links */}
+          <div className="flex flex-wrap justify-center gap-4 text-xs text-slate-500">
+            <Link href="/terms" className="hover:text-orange-500">
+              Terms of Service
+            </Link>
+            <span>•</span>
+            <Link href="/privacy" className="hover:text-orange-500">
+              Privacy Policy
+            </Link>
+            <span>•</span>
+            <Link href="/copyright" className="hover:text-orange-500">
+              Copyright Notice
+            </Link>
+            <span>•</span>
+            <Link href="/contact" className="hover:text-orange-500">
+              Contact Us
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
