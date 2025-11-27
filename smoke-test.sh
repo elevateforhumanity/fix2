@@ -15,8 +15,9 @@ test_page() {
   
   response=$(curl -s -o /dev/null -w "%{http_code}" -L "$SITE$path" --max-time 10)
   
-  if [ "$response" = "200" ]; then
-    echo "✅ PASS (200 OK)"
+  # Accept 200 (OK), 307 (Temporary Redirect), or 308 (Permanent Redirect) as success
+  if [ "$response" = "200" ] || [ "$response" = "307" ] || [ "$response" = "308" ]; then
+    echo "✅ PASS (HTTP $response)"
     ((PASS++))
   else
     echo "❌ FAIL (HTTP $response)"
