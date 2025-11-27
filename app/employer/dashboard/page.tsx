@@ -1,154 +1,171 @@
-'use client';
+import Link from "next/link";
+import { getEmployerOpportunitiesWithDetails } from "@/lms-data/employers";
 
-import Link from 'next/link';
-import { Briefcase, Users, FileText, Plus } from 'lucide-react';
+export const metadata = {
+  title: "Employer Portal | Elevate for Humanity",
+  description:
+    "A simple portal for employers to explore partnerships with Elevate for Humanity: WEX, OJT, apprenticeship, and hiring pipelines."
+};
 
 export default function EmployerDashboardPage() {
+  const opportunities = getEmployerOpportunitiesWithDetails();
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-white border-b">
-        <div className="max-w-6xl mx-auto px-6 py-8">
-          <h1 className="text-3xl font-bold text-gray-900">
-            Employer Dashboard
-          </h1>
-          <p className="text-gray-600 mt-1">
-            Connect with qualified candidates
+    <main className="min-h-screen bg-slate-950 text-white">
+      {/* HERO */}
+      <section className="border-b border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+        <div className="mx-auto max-w-6xl px-4 py-6">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-400">
+            Employer Portal
           </p>
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-6 py-8">
-        {/* Quick Actions */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <Link
-            href="/employer/post-job"
-            className="bg-white rounded-xl p-6 hover:shadow-lg transition border-2 border-gray-100 hover:border-brandPrimary"
-          >
-            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-              <Plus className="w-6 h-6 text-brandPrimary" />
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Post a Job</h3>
-            <p className="text-gray-600 text-sm">Create a new job posting</p>
-          </Link>
-
-          <Link
-            href="/employer/jobs"
-            className="bg-white rounded-xl p-6 hover:shadow-lg transition border-2 border-gray-100 hover:border-orange-500"
-          >
-            <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-              <Briefcase className="w-6 h-6 text-orange-600" />
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">
-              My Job Postings
-            </h3>
-            <p className="text-gray-600 text-sm">View and manage your jobs</p>
-          </Link>
-
-          <Link
-            href="/employer/candidates"
-            className="bg-white rounded-xl p-6 hover:shadow-lg transition border-2 border-gray-100 hover:border-green-500"
-          >
-            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-              <Users className="w-6 h-6 text-green-600" />
-            </div>
-            <h3 className="text-lg font-bold text-gray-900 mb-2">
-              Browse Candidates
-            </h3>
-            <p className="text-gray-600 text-sm">Find qualified talent</p>
-          </Link>
-        </div>
-
-        {/* Getting Started */}
-        <div className="bg-white rounded-xl p-8 border border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Getting Started
-          </h2>
-          <div className="space-y-4">
-            <div className="flex items-start gap-4">
-              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-brandPrimary font-bold">1</span>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Post Your First Job
-                </h3>
-                <p className="text-gray-600 text-sm mb-2">
-                  Create a job posting to start receiving applications from
-                  qualified candidates.
-                </p>
-                <Link
-                  href="/employer/post-job"
-                  className="text-brandPrimary text-sm font-semibold hover:underline"
-                >
-                  Post a Job →
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-brandPrimary font-bold">2</span>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Browse Our Talent Pool
-                </h3>
-                <p className="text-gray-600 text-sm mb-2">
-                  Search through our database of trained and certified
-                  candidates.
-                </p>
-                <Link
-                  href="/employer/candidates"
-                  className="text-brandPrimary text-sm font-semibold hover:underline"
-                >
-                  Browse Candidates →
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-brandPrimary font-bold">3</span>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  Partner with Us
-                </h3>
-                <p className="text-gray-600 text-sm mb-2">
-                  Sign an MOU to become an official training partner and access
-                  additional benefits.
-                </p>
-                <Link
-                  href="/employer/mou"
-                  className="text-brandPrimary text-sm font-semibold hover:underline"
-                >
-                  View MOU Options →
-                </Link>
-              </div>
-            </div>
+          <h1 className="mt-1 text-2xl font-bold">
+            Partner with Elevate for Humanity
+          </h1>
+          <p className="mt-2 text-xs text-slate-300">
+            Elevate helps employers build pipelines of job-ready talent through
+            training, Job Ready Indy (JRI), work experience (WEX), On-the-Job
+            Training (OJT), apprenticeships, and direct hire pathways.
+          </p>
+          <p className="mt-1 text-[11px] text-slate-400">
+            Use this portal to explore which programs fit your roles, what work
+            experiences you can host, and how to get started with a simple
+            conversation.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-3 text-[11px]">
+            <Link
+              href="/employer/opportunities"
+              className="rounded-md bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700"
+            >
+              View Talent & Work-Based Learning Options
+            </Link>
+            <Link
+              href="/employer/placements"
+              className="rounded-md border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:bg-slate-900"
+            >
+              View Sample Placements & Outcomes
+            </Link>
+            <Link
+              href="/funding"
+              className="rounded-md border border-slate-600 px-4 py-2 font-semibold text-slate-100 hover:bg-slate-900"
+            >
+              Learn How Funding & Wages Work
+            </Link>
           </div>
         </div>
+      </section>
 
-        {/* Support */}
-        <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-100">
-          <div className="flex items-start gap-4">
-            <FileText className="w-6 h-6 text-brandPrimary flex-shrink-0 mt-1" />
-            <div>
-              <h3 className="font-bold text-gray-900 mb-2">Need Help?</h3>
-              <p className="text-gray-700 text-sm mb-3">
-                Our team is here to help you find the right talent for your
-                organization.
+      {/* QUICK OVERVIEW OF OPTIONS */}
+      <section className="bg-slate-900">
+        <div className="mx-auto max-w-6xl px-4 py-6 text-xs">
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-4">
+              <h2 className="text-sm font-semibold text-white">Work Experience (WEX)</h2>
+              <p className="mt-1 text-slate-300">
+                Time-limited paid work experience where wages may be covered by
+                workforce partners. Great for testing fit and giving youth or
+                adults their first step into your industry.
               </p>
-              <Link
-                href="/contact"
-                className="inline-block px-4 py-2 bg-brandPrimary text-white rounded-lg hover:bg-brandPrimaryDark transition text-sm font-semibold"
-              >
-                Contact Us
-              </Link>
+            </div>
+            <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-4">
+              <h2 className="text-sm font-semibold text-white">
+                On-the-Job Training (OJT)
+              </h2>
+              <p className="mt-1 text-slate-300">
+                You hire the participant, and a workforce partner reimburses a
+                portion of wages while they learn the job. Ideal for growing
+                permanent staff with support.
+              </p>
+            </div>
+            <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-4">
+              <h2 className="text-sm font-semibold text-white">
+                Apprenticeships & Earn-While-You-Learn
+              </h2>
+              <p className="mt-1 text-slate-300">
+                Structured training that blends paid work and coursework over
+                time. Strong alignment to licensure and long-term retention.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 rounded-xl border border-slate-800 bg-slate-950/70 p-4">
+            <h2 className="text-sm font-semibold text-white">
+              Where Elevate Has Talent Ready to Go
+            </h2>
+            <p className="mt-1 text-[11px] text-slate-300">
+              Below is a snapshot of programs where Elevate can connect you with
+              learners for WEX, OJT, apprenticeship, or direct hire pathways.
+            </p>
+
+            <div className="mt-3 grid gap-3 md:grid-cols-2">
+              {opportunities.map((opp) => {
+                const program = opp.program;
+                if (!program) return null;
+
+                return (
+                  <article
+                    key={opp.id}
+                    className="flex flex-col rounded-xl border border-slate-800 bg-slate-950/80 p-4 text-[11px]"
+                  >
+                    <p className="font-semibold text-slate-100">
+                      {program.title}
+                    </p>
+                    {program.subtitle && (
+                      <p className="mt-0.5 text-slate-300">
+                        {program.subtitle}
+                      </p>
+                    )}
+                    <p className="mt-1 line-clamp-3 text-slate-400">
+                      {program.description}
+                    </p>
+
+                    <p className="mt-2 text-slate-200">
+                      Roles you can host:
+                      <span className="ml-1 text-slate-100">
+                        {opp.idealRoles.join(", ")}
+                      </span>
+                    </p>
+
+                    <p className="mt-1 text-slate-200">
+                      Typical schedule:
+                      <span className="ml-1 text-slate-100">
+                        {opp.typicalHoursPerWeek} hours/week for{" "}
+                        {opp.typicalDurationWeeks} weeks
+                      </span>
+                    </p>
+
+                    <p className="mt-1 text-slate-300">
+                      {opp.notesForEmployer}
+                    </p>
+
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      <span className="rounded-full border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] text-slate-100">
+                        Options:{" "}
+                        {opp.workBasedTypes
+                          .map((t) =>
+                            t === "wex"
+                              ? "WEX"
+                              : t === "ojt"
+                              ? "OJT"
+                              : t === "apprenticeship"
+                              ? "Apprenticeship"
+                              : "Hire Only"
+                          )
+                          .join(" • ")}
+                      </span>
+                      <Link
+                        href="/employer/opportunities"
+                        className="rounded-md bg-red-600 px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-red-700"
+                      >
+                        I&apos;m Interested in Hosting
+                      </Link>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
