@@ -1,76 +1,65 @@
 "use client";
 
 import { useState } from "react";
-import type { Lesson } from "@/lms-data/courses";
-import { getScormPackageById } from "@/lms-data/scorm";
+import { getScormPackageById } from "@/lms-data/scorm/packages";
 
 interface Props {
-  lesson: Lesson;
+  scormPackageId?: string;
 }
 
-export function ScormLaunchPanel({ lesson }: Props) {
+export function ScormLaunchPanel({ scormPackageId }: Props) {
   const [launched, setLaunched] = useState(false);
 
-  if (lesson.type !== "scorm" || !lesson.scormPackageId) {
+  if (!scormPackageId) {
+    return null;
+  }
+
+  const pkg = getScormPackageById(scormPackageId);
+  if (!pkg) {
     return (
-      <div className="rounded-lg border border-slate-800 bg-slate-950/80 p-4 text-xs text-slate-200">
-        This lesson is not configured as a SCORM / JRI launch yet.
-      </div>
+      <p className="text-[10px] text-red-400">
+        SCORM package not found. Update lms-data/scorm/packages.ts with the
+        correct id and launchUrl.
+      </p>
     );
   }
 
-  const pkg = getScormPackageById(lesson.scormPackageId);
-
   const handleLaunch = () => {
-    if (pkg?.launchUrl) {
+    if (pkg.launchUrl.startsWith("http")) {
       window.open(pkg.launchUrl, "_blank", "noopener,noreferrer");
-      setLaunched(true);
     } else {
-      alert(
-        "This SCORM package does not have a launch URL configured yet. Ask Elevate staff to connect the SCORM host."
-      );
+      window.open(pkg.launchUrl, "_blank");
     }
+    setLaunched(true);
   };
 
   return (
-    <div className="space-y-3 rounded-lg border border-slate-800 bg-slate-950/80 p-4 text-xs text-slate-200">
-      <p className="text-[11px] font-semibold text-white">{lesson.title}</p>
-      {lesson.description && (
-        <p className="text-slate-300">{lesson.description}</p>
-      )}
-      <div className="rounded-md border border-slate-700 bg-slate-900/90 px-3 py-2 text-[11px] text-slate-200">
-        <p className="font-semibold">
-          {pkg?.title || "SCORM / JRI Module Launch"}
+    <div className="mt-3 rounded-md border border-slate-800 bg-slate-950 p-3 text-[10px] text-slate-200">
+      <p className="font-semibold text-slate-100">
+        SCORM Package: {pkg.title}
+      </p>
+      <p className="mt-1 text-slate-300">
+        This button launches the official SCORM content hosted for this course.
+        When fully wired with a SCORM runtime or external LMS, it will track
+        completions and scores.
+      </p>
+      {pkg.notes && (
+        <p className="mt-1 text-slate-400">
+          Setup note: <span className="italic">{pkg.notes}</span>
         </p>
-        {pkg?.provider && (
-          <p className="mt-0.5 text-[10px] text-slate-400">
-            Provider: {pkg.provider}
-          </p>
-        )}
-        {pkg?.notes && (
-          <p className="mt-1 text-[10px] text-slate-400">
-            {pkg.notes}
-          </p>
-        )}
-      </div>
+      )}
       <button
         type="button"
         onClick={handleLaunch}
-        className="inline-flex h-9 items-center justify-center rounded-md bg-red-600 px-4 text-[11px] font-semibold text-white hover:bg-red-700"
+        className="mt-2 rounded-md bg-orange-400 px-4 py-2 text-[10px] font-semibold text-white hover:bg-orange-500"
       >
-        Launch Training in New Window
+        Launch SCORM Content
       </button>
       {launched && (
-        <p className="text-[10px] text-green-300">
-          We opened the training in a new tab. When you finish, return here to
-          continue your Elevate course.
+        <p className="mt-1 text-[10px] text-green-400">
+          SCORM content opened in a new tab/window.
         </p>
       )}
-      <p className="text-[10px] text-slate-500">
-        This button will eventually connect directly to your hosted SCORM 2004
-        packages (JRI or others). Right now it&apos;s a placeholder shell so
-        your LMS structure is ready.
-      </p>
     </div>
   );
 }

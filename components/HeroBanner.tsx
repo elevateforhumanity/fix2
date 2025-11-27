@@ -1,56 +1,62 @@
 import Image from "next/image";
-import type { HeroSection } from "@/lib/pageVisuals";
+import Link from "next/link";
+import { getMediaBySlot, MediaSlot } from "../lms-data/mediaSlots";
 
 interface HeroBannerProps {
-  hero: HeroSection;
+  title: string;
+  subtitle: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  secondaryText?: string;
+  mediaSlot: MediaSlot;
 }
 
-export function HeroBanner({ hero }: HeroBannerProps) {
-  return (
-    <section className="relative w-full overflow-hidden bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-          {/* Text Content */}
-          <div className="flex flex-col justify-center space-y-6">
-            {hero.eyebrow && (
-              <p className="text-sm font-semibold uppercase tracking-wider text-brandPrimary">
-                {hero.eyebrow}
-              </p>
-            )}
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-              {hero.title}
-            </h1>
-            {hero.subtitle && (
-              <p className="text-lg leading-relaxed text-gray-600 max-w-2xl">
-                {hero.subtitle}
-              </p>
-            )}
-            {hero.ctaLabel && hero.ctaHref && (
-              <div className="pt-4">
-                <a
-                  href={hero.ctaHref}
-                  className="inline-flex items-center justify-center rounded-lg bg-brandPrimary px-8 py-4 text-base font-semibold text-white shadow-lg transition-all hover:bg-brandPrimaryDark hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-brandPrimary focus:ring-offset-2"
-                >
-                  {hero.ctaLabel}
-                </a>
-              </div>
-            )}
-          </div>
+export function HeroBanner({
+  title,
+  subtitle,
+  ctaLabel,
+  ctaHref,
+  secondaryText,
+  mediaSlot,
+}: HeroBannerProps) {
+  const media = getMediaBySlot(mediaSlot);
 
-          {/* Image */}
-          <div className="relative">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl">
-              <Image
-                src={hero.imageSrc}
-                alt={hero.imageAlt}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                priority
-              />
+  return (
+    <section className="bg-slate-950 text-white">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 md:flex-row md:items-center">
+        <div className="flex-1 space-y-3">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-400">
+            Elevate for Humanity Career & Training Institute
+          </p>
+          <h1 className="text-2xl font-bold md:text-3xl">{title}</h1>
+          <p className="text-xs text-slate-300 md:text-sm">{subtitle}</p>
+          {secondaryText && (
+            <p className="text-[11px] text-slate-400">{secondaryText}</p>
+          )}
+          {ctaLabel && ctaHref && (
+            <div className="pt-2">
+              <Link
+                href={ctaHref}
+                className="inline-flex rounded-lg bg-red-600 px-4 py-2 text-[11px] font-semibold text-white shadow hover:bg-red-700"
+              >
+                {ctaLabel}
+              </Link>
             </div>
-          </div>
+          )}
         </div>
+
+        {media && (
+          <div className="relative h-52 w-full flex-1 overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-lg md:h-64">
+            <Image
+              src={media.imageSrc}
+              alt={media.alt}
+              fill
+              className="object-contain"
+              sizes="(min-width: 768px) 50vw, 100vw"
+              priority
+            />
+          </div>
+        )}
       </div>
     </section>
   );

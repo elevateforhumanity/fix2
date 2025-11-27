@@ -30,6 +30,36 @@ const ALLOWED_BOTS = [
   'whatsapp',
 ];
 
+// AI scraper bots to block from protected content
+const AI_SCRAPER_BOTS = [
+  'gptbot',
+  'chatgpt',
+  'chatgpt-user',
+  'ccbot',
+  'anthropic',
+  'claude-web',
+  'google-extended',
+  'perplexitybot',
+  'omgilibot',
+  'bytespider',
+  'diffbot',
+  'imagesiftbot',
+  'cohere-ai',
+  'ai2bot',
+  'applebot-extended',
+];
+
+// Protected paths that should block AI scrapers
+const PROTECTED_PATHS = [
+  '/student',
+  '/course',
+  '/courses',
+  '/admin',
+  '/portal',
+  '/delegate',
+  '/lms',
+];
+
 export default function proxy(request: NextRequest) {
   const userAgent = request.headers.get('user-agent')?.toLowerCase() || '';
   const path = request.nextUrl.pathname;
@@ -41,6 +71,22 @@ export default function proxy(request: NextRequest) {
   // Skip all middleware checks for local development
   if (hostname.includes('localhost') || hostname.includes('127.0.0.1') || hostname.includes('gitpod.dev')) {
     return NextResponse.next();
+  }
+
+  // Block AI scrapers from protected content
+  const isProtectedPath = PROTECTED_PATHS.some(p => path.startsWith(p));
+  if (isProtectedPath) {
+    const isAIScraper = AI_SCRAPER_BOTS.some(bot => userAgent.includes(bot));
+    if (isAIScraper) {
+      console.warn(`[Security] Blocked AI scraper: ${userAgent} from ${path} (IP: ${ip})`);
+      return new NextResponse('Access Denied - AI scraping not permitted', {
+        status: 403,
+        headers: {
+          'X-Robots-Tag': 'noindex, nofollow, noarchive, noai, noimageai',
+          'Content-Type': 'text/plain',
+        },
+      });
+    }
   }
   
   // Handle LMS domain - route to /lms

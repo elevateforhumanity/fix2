@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { demoStudentProfile, getStudentProgramOverview } from "@/lms-data/studentProfile";
+import ContentProtection from "@/components/protection/ContentProtection";
+import AIBlockMeta from "@/components/protection/AIBlockMeta";
 
 export const metadata = {
   title: "My Learning Hub | Elevate for Humanity",
@@ -27,7 +29,10 @@ export default function StudentHubPage() {
   const overview = getStudentProgramOverview();
 
   return (
-    <main className="min-h-screen bg-slate-900 text-white">
+    <>
+      <AIBlockMeta />
+      <ContentProtection level="maximum" showWatermark={true}>
+        <main className="min-h-screen bg-slate-900 text-white">
       {/* HERO */}
       <section className="border-b border-slate-800 bg-slate-900">
         <div className="mx-auto max-w-5xl px-4 py-6">
@@ -172,5 +177,7 @@ export default function StudentHubPage() {
         </div>
       </section>
     </main>
+      </ContentProtection>
+    </>
   );
 }

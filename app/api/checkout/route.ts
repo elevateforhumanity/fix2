@@ -1,0 +1,104 @@
+import { NextRequest, NextResponse } from "next/server";
+import Stripe from "stripe";
+import { billingConfigs } from "../../../lms-data/billingConfig";
+
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+
+if (!stripeSecretKey) {
+  console.warn(
+    "[Elevate] STRIPE_SECRET_KEY is not set. /api/checkout will return 500 until configured.",
+  );
+}
+
+const stripe = stripeSecretKey
+  ? new Stripe(stripeSecretKey, {
+      apiVersion: "2023-10-16",
+    })
+  : null;
+
+export async function POST(req: NextRequest) {
+  try {
+    if (!stripe) {
+      return NextResponse.json(
+        { error: "Stripe is not configured on the server." },
+        { status: 500 },
+      );
+    }
+
+    const body = await req.json();
+    const { programId, planType, successUrl, cancelUrl } = body as {
+      programId: string;
+      planType?: "full" | "payment-plan";
+      successUrl?: string;
+      cancelUrl?: string;
+    };
+
+    if (!programId) {
+      return NextResponse.json(
+        { error: "Missing programId in request body." },
+        { status: 400 },
+      );
+    }
+
+    const config = billingConfigs.find((c) => c.programId === programId);
+    if (!config) {
+      return NextResponse.json(
+        { error: `No billing config found for programId=${programId}` },
+        { status: 404 },
+      );
+    }
+
+    const chosenPlan = planType ?? config.defaultPlan;
+
+    const priceId =
+      chosenPlan === "payment-plan"
+        ? config.stripePricePlan
+        : config.stripePriceFull;
+
+    if (!priceId) {
+      return NextResponse.json(
+        {
+          error: `No Stripe price configured for ${chosenPlan} on program ${config.label}.`,
+        },
+        { status: 400 },
+      );
+    }
+
+    const origin =
+      successUrl && typeof successUrl === "string"
+        ? new URL(successUrl).origin
+        : req.headers.get("origin") ?? "http://localhost:3000";
+
+    const session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      line_items: [
+        {
+          price: priceId,
+          quantity: 1,
+        },
+      ],
+      success_url:
+        successUrl ??
+        `${origin}/enroll/thank-you?programId=${encodeURIComponent(
+          programId,
+        )}`,
+      cancel_url:
+        cancelUrl ??
+        `${origin}/enroll/${encodeURIComponent(
+          programId,
+        )}?checkout=cancelled`,
+      metadata: {
+        programId,
+        planType: chosenPlan,
+      },
+    });
+
+    return NextResponse.json({ url: session.url }, { status: 200 });
+  } catch (err: any) {
+    console.error("[Elevate] Error in /api/checkout:", err);
+    return NextResponse.json(
+      { error: "Unable to create checkout session." },
+      { status: 500 },
+    );
+  }
+}

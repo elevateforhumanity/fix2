@@ -34,7 +34,7 @@ export function HomeHero({ images }: HomeHeroProps) {
                 alt={current.alt}
                 fill
                 sizes="100vw"
-                className="object-cover"
+                className="object-contain"
                 priority
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent" />
@@ -87,7 +87,7 @@ export function HomeHero({ images }: HomeHeroProps) {
                   alt={current.alt}
                   fill
                   sizes="(max-width: 1024px) 60vw, 40vw"
-                  className="object-cover"
+                  className="object-contain"
                   priority
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent" />
