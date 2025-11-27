@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const PROGRAM_GROUPS = [
   {
@@ -74,16 +75,29 @@ const PROGRAM_GROUPS = [
 export default function ProgramsPage() {
   return (
     <main className="bg-white">
-      <section className="border-b border-slate-100 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
-          <h1 className="text-2xl font-bold text-slate-900 md:text-4xl">
-            Training Programs
-          </h1>
-          <p className="mt-3 max-w-2xl text-sm text-slate-700 md:text-base">
+      {/* Hero Section with Image */}
+      <section className="relative bg-slate-900">
+        <div className="relative h-64 md:h-80">
+          <Image
+            src="/images/programs-new/program-4.jpg"
+            alt="Training Programs at Elevate for Humanity"
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-900/40" />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="mx-auto max-w-6xl px-4 w-full">
+            <h1 className="text-3xl font-bold text-white md:text-5xl">
+              Training Programs
+            </h1>
+            <p className="mt-3 max-w-2xl text-base text-slate-100 md:text-lg">
             Explore career pathways in healthcare, skilled trades, beauty,
             business, and more. Many programs are eligible for workforce
             funding and employer partnerships.
-          </p>
+            </p>
+          </div>
         </div>
       </section>
 

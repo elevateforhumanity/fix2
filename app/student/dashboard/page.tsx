@@ -1,4 +1,5 @@
 import { getSupabaseServerClient } from "../../../lib/supabaseServer";
+import Image from "next/image";
 
 export const metadata = {
   title: "Student Dashboard | Elevate LMS",
@@ -40,22 +41,35 @@ export default async function StudentDashboardV2Page() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      <section className="border-b border-slate-800 bg-slate-950">
-        <div className="mx-auto max-w-5xl px-4 py-6">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-400">
-            Student
-          </p>
-          <h1 className="mt-2 text-2xl font-bold">Welcome to Elevate</h1>
-          <p className="mt-2 text-xs text-slate-300 max-w-3xl">
-            This dashboard shows your active and recent programs. As we connect
-            authentication, this will filter to just your enrollments.
-          </p>
-          {error && (
-            <p className="mt-3 text-[11px] text-red-400">
-              There was a problem loading your enrollments. Check Supabase
-              configuration and migrations.
+      {/* Hero Section with Image */}
+      <section className="relative bg-slate-900">
+        <div className="relative h-48 md:h-56">
+          <Image
+            src="/images/programs-new/program-5.jpg"
+            alt="Student Dashboard"
+            fill
+            className="object-cover opacity-40"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/60" />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="mx-auto max-w-5xl px-4 w-full">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-400">
+              Student Portal
             </p>
-          )}
+            <h1 className="mt-2 text-2xl md:text-3xl font-bold text-white">Welcome to Elevate</h1>
+            <p className="mt-2 text-sm text-slate-200 max-w-3xl">
+              This dashboard shows your active and recent programs. As we connect
+              authentication, this will filter to just your enrollments.
+            </p>
+            {error && (
+              <p className="mt-3 text-[11px] text-red-400">
+                There was a problem loading your enrollments. Check Supabase
+                configuration and migrations.
+              </p>
+            )}
+          </div>
         </div>
       </section>
 

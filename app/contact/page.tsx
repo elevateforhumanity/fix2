@@ -1,21 +1,35 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
 
   return (
     <main className="bg-white">
-      <section className="border-b border-slate-100 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
-          <h1 className="text-2xl font-bold text-slate-900 md:text-4xl">
-            Contact Us
-          </h1>
-          <p className="mt-3 max-w-2xl text-sm text-slate-700 md:text-base">
-            Have questions about enrollment, programs, employers, or funding?
-            Send us a message and our team will connect with you.
-          </p>
+      {/* Hero Section with Image */}
+      <section className="relative bg-slate-900">
+        <div className="relative h-64 md:h-80">
+          <Image
+            src="/images/hero-new/hero-4.jpg"
+            alt="Contact Elevate for Humanity"
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-900/40" />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="mx-auto max-w-6xl px-4 w-full">
+            <h1 className="text-3xl font-bold text-white md:text-5xl">
+              Contact Us
+            </h1>
+            <p className="mt-3 max-w-2xl text-base text-slate-100 md:text-lg">
+              Have questions about enrollment, programs, employers, or funding?
+              Send us a message and our team will connect with you.
+            </p>
+          </div>
         </div>
       </section>
 

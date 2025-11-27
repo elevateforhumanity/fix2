@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function ApplyPage() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -45,15 +46,28 @@ export default function ApplyPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <section className="border-b border-slate-100 bg-slate-50 py-8">
-        <div className="mx-auto max-w-3xl px-4">
-          <h1 className="text-2xl font-bold text-slate-900">
-            Apply to Elevate For Humanity
-          </h1>
-          <p className="mt-2 text-sm text-slate-700">
-            Fill out this short form so we can match you with the right program and funding.
-            A staff member or case manager will follow up with your next steps.
-          </p>
+      {/* Hero Section with Image */}
+      <section className="relative bg-slate-900">
+        <div className="relative h-48 md:h-64">
+          <Image
+            src="/images/hero-new/hero-5.jpg"
+            alt="Apply to Elevate for Humanity"
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-900/40" />
+        </div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="mx-auto max-w-3xl px-4 w-full">
+            <h1 className="text-2xl font-bold text-white md:text-4xl">
+              Apply to Elevate For Humanity
+            </h1>
+            <p className="mt-2 text-base text-slate-100">
+              Fill out this short form so we can match you with the right program and funding.
+              A staff member or case manager will follow up with your next steps.
+            </p>
+          </div>
         </div>
       </section>
 
