@@ -181,7 +181,7 @@ export default function Compliance() {
         </div>
         <button
           onClick={downloadReport}
-          className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors text-sm font-semibold"
+          className="px-4 py-2 bg-orange-400 text-white rounded-lg hover:bg-orange-500 transition-colors text-sm font-semibold"
         >
           Download Compliance Report (PDF)
         </button>

@@ -126,7 +126,7 @@ export default function MOUGeneratorPage() {
             <button
               onClick={generate}
               disabled={loading}
-              className="mt-2 w-full rounded-2xl bg-orange-500 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-orange-600 disabled:opacity-60"
+              className="mt-2 w-full rounded-2xl bg-orange-400 text-white px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-orange-500 disabled:opacity-60"
             >
               {loading ? "Generating…" : "Generate MOU Draft"}
             </button>

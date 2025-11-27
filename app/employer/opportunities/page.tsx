@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getEmployerOpportunitiesWithDetails } from "@/lms-data/employers";
+import { getProgramsWithTuitionMeta } from "@/lms-data/tuition";
 
 export const metadata = {
   title: "Talent & Work-Based Learning Options | Employer Portal",
@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 export default function EmployerOpportunitiesPage() {
-  const opportunities = getEmployerOpportunitiesWithDetails();
+  const opportunities = getProgramsWithTuitionMeta();
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
@@ -45,15 +45,12 @@ export default function EmployerOpportunitiesPage() {
       <section className="bg-slate-900">
         <div className="mx-auto max-w-6xl px-4 py-6 text-xs">
           <div className="grid gap-4 md:grid-cols-2">
-            {opportunities.map((opp) => {
-              const program = opp.program;
+            {opportunities.map(({ program, tuition }) => {
               if (!program) return null;
-
-              const fundingLabels = opp.funding.map((f) => f.shortLabel);
 
               return (
                 <article
-                  key={opp.id}
+                  key={program.id}
                   className="flex flex-col rounded-xl border border-slate-800 bg-slate-950/80 p-4"
                 >
                   <p className="text-[11px] font-semibold text-slate-300">
@@ -72,46 +69,28 @@ export default function EmployerOpportunitiesPage() {
                     {program.description}
                   </p>
 
-                  <p className="mt-2 text-[11px] text-slate-200">
-                    Roles you can host:{" "}
-                    <span className="text-slate-100">
-                      {opp.idealRoles.join(", ")}
-                    </span>
-                  </p>
-
-                  <p className="mt-1 text-[11px] text-slate-200">
-                    Typical schedule:{" "}
-                    <span className="text-slate-100">
-                      {opp.typicalHoursPerWeek} hours/week for{" "}
-                      {opp.typicalDurationWeeks} weeks
-                    </span>
-                  </p>
-
-                  <p className="mt-1 text-[11px] text-slate-300">
-                    {opp.notesForEmployer}
-                  </p>
-
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    <span className="rounded-full border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] text-slate-100">
-                      Work-based options:{" "}
-                      {opp.workBasedTypes
-                        .map((t) =>
-                          t === "wex"
-                            ? "WEX (Work Experience)"
-                            : t === "ojt"
-                            ? "OJT (On-the-Job Training)"
-                            : t === "apprenticeship"
-                            ? "Apprenticeship"
-                            : "Hire Only"
-                        )
-                        .join(" • ")}
-                    </span>
-                    {fundingLabels.length > 0 && (
-                      <span className="rounded-full border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] text-slate-100">
-                        Often paired with: {fundingLabels.join(" • ")}
-                      </span>
-                    )}
-                  </div>
+                  {tuition && (
+                    <>
+                      <p className="mt-2 text-[11px] text-slate-200">
+                        Tuition range:{" "}
+                        <span className="text-slate-100">
+                          {tuition.baseTuition}
+                        </span>
+                      </p>
+                      {tuition.notes && (
+                        <p className="mt-1 text-[11px] text-slate-300">
+                          {tuition.notes}
+                        </p>
+                      )}
+                      {tuition.fundingFlags.length > 0 && (
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          <span className="rounded-full border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] text-slate-100">
+                            Funding options: {tuition.fundingFlags.join(" • ")}
+                          </span>
+                        </div>
+                      )}
+                    </>
+                  )}
 
                   <div className="mt-3 rounded-lg bg-slate-900/80 p-3 text-[11px] text-slate-200">
                     <p className="font-semibold">Ready to explore this option?</p>
@@ -120,10 +99,12 @@ export default function EmployerOpportunitiesPage() {
                       to design the right pathway for your roles, schedule,
                       wages, and funding opportunities.
                     </p>
-                    <p className="mt-1 text-[10px] text-slate-400">
-                      (In the next version, this will connect directly to an
-                      intake form and CRM/workforce systems.)
-                    </p>
+                    <Link
+                      href="/employers/intake"
+                      className="mt-2 inline-block rounded-md bg-orange-400 text-white px-3 py-1 font-semibold text-white hover:bg-orange-500"
+                    >
+                      Submit Interest
+                    </Link>
                   </div>
                 </article>
               );

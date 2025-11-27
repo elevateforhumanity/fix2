@@ -102,7 +102,7 @@ export default function ImpactDashboardPage() {
                     </div>
                     <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-slate-100">
                       <div
-                        className="h-full rounded-full bg-orange-500"
+                        className="h-full rounded-full bg-orange-400"
                         style={{ width: `${pct}%` }}
                       />
                     </div>

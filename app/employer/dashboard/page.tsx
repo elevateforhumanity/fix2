@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { getEmployerOpportunitiesWithDetails } from "@/lms-data/employers";
+import { employers } from "@/lms-data/employers";
+import { getProgramsWithTuitionMeta } from "@/lms-data/tuition";
 
 export const metadata = {
   title: "Employer Portal | Elevate for Humanity",
@@ -8,7 +9,8 @@ export const metadata = {
 };
 
 export default function EmployerDashboardPage() {
-  const opportunities = getEmployerOpportunitiesWithDetails();
+  const programsWithTuition = getProgramsWithTuitionMeta();
+  const opportunities = programsWithTuition;
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
@@ -34,7 +36,7 @@ export default function EmployerDashboardPage() {
           <div className="mt-3 flex flex-wrap gap-3 text-[11px]">
             <Link
               href="/employer/opportunities"
-              className="rounded-md bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700"
+              className="rounded-md bg-orange-400 text-white px-4 py-2 font-semibold text-white hover:bg-orange-500"
             >
               View Talent & Work-Based Learning Options
             </Link>
@@ -97,13 +99,12 @@ export default function EmployerDashboardPage() {
             </p>
 
             <div className="mt-3 grid gap-3 md:grid-cols-2">
-              {opportunities.map((opp) => {
-                const program = opp.program;
+              {opportunities.slice(0, 4).map(({ program, tuition }) => {
                 if (!program) return null;
 
                 return (
                   <article
-                    key={opp.id}
+                    key={program.id}
                     className="flex flex-col rounded-xl border border-slate-800 bg-slate-950/80 p-4 text-[11px]"
                   >
                     <p className="font-semibold text-slate-100">
@@ -118,43 +119,28 @@ export default function EmployerDashboardPage() {
                       {program.description}
                     </p>
 
-                    <p className="mt-2 text-slate-200">
-                      Roles you can host:
-                      <span className="ml-1 text-slate-100">
-                        {opp.idealRoles.join(", ")}
-                      </span>
-                    </p>
-
-                    <p className="mt-1 text-slate-200">
-                      Typical schedule:
-                      <span className="ml-1 text-slate-100">
-                        {opp.typicalHoursPerWeek} hours/week for{" "}
-                        {opp.typicalDurationWeeks} weeks
-                      </span>
-                    </p>
-
-                    <p className="mt-1 text-slate-300">
-                      {opp.notesForEmployer}
-                    </p>
+                    {tuition && (
+                      <>
+                        <p className="mt-2 text-slate-200">
+                          Tuition range:
+                          <span className="ml-1 text-slate-100">
+                            {tuition.baseTuition}
+                          </span>
+                        </p>
+                        {tuition.fundingFlags.length > 0 && (
+                          <div className="mt-2 flex flex-wrap gap-2">
+                            <span className="rounded-full border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] text-slate-100">
+                              Funding: {tuition.fundingFlags.join(" • ")}
+                            </span>
+                          </div>
+                        )}
+                      </>
+                    )}
 
                     <div className="mt-2 flex flex-wrap gap-2">
-                      <span className="rounded-full border border-slate-700 bg-slate-900 px-2 py-1 text-[10px] text-slate-100">
-                        Options:{" "}
-                        {opp.workBasedTypes
-                          .map((t) =>
-                            t === "wex"
-                              ? "WEX"
-                              : t === "ojt"
-                              ? "OJT"
-                              : t === "apprenticeship"
-                              ? "Apprenticeship"
-                              : "Hire Only"
-                          )
-                          .join(" • ")}
-                      </span>
                       <Link
-                        href="/employer/opportunities"
-                        className="rounded-md bg-red-600 px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-red-700"
+                        href="/employers/intake"
+                        className="rounded-md bg-orange-400 text-white px-3 py-1.5 text-[11px] font-semibold text-white hover:bg-orange-500"
                       >
                         I&apos;m Interested in Hosting
                       </Link>

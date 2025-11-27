@@ -61,7 +61,7 @@ export default async function ApplicationsPage() {
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-2 h-2 rounded-full bg-orange-500" />
+              <div className="w-2 h-2 rounded-full bg-orange-400" />
               <span className="text-xs font-medium text-gray-600">Pending</span>
             </div>
             <div className="text-2xl font-bold text-orange-600">{stats.submitted}</div>

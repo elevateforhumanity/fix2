@@ -111,7 +111,7 @@ export default function FundingPage() {
                       onClick={() => togglePopulation(p)}
                       className={`rounded-full px-3 py-1 text-[11px] font-semibold ${
                         targetPopulation.includes(p)
-                          ? "bg-orange-500 text-white"
+                          ? "bg-orange-400 text-white"
                           : "bg-slate-100 text-slate-700"
                       }`}
                     >
@@ -141,7 +141,7 @@ export default function FundingPage() {
             <button
               onClick={run}
               disabled={loading}
-              className="mt-2 w-full rounded-2xl bg-orange-500 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-orange-600 disabled:opacity-60"
+              className="mt-2 w-full rounded-2xl bg-orange-400 text-white px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-orange-500 disabled:opacity-60"
             >
               {loading ? "Analyzing…" : "Find funding matches"}
             </button>

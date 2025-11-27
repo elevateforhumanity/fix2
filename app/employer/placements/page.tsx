@@ -1,6 +1,15 @@
 import Link from "next/link";
-import { samplePlacements } from "@/lms-data/employers";
+import { employers } from "@/lms-data/employers";
 import { allPrograms } from "@/lms-data/programs";
+
+// Sample placements for demo purposes
+const samplePlacements = employers.map((emp, idx) => ({
+  id: `placement-${idx}`,
+  employerName: emp.name,
+  programId: emp.interestedPrograms[0] || "prog-cna",
+  placementType: emp.wantsApprenticeship ? "Apprenticeship" : emp.wantsWex ? "WEX" : "OJT",
+  outcome: "Hired full-time after completion",
+}));
 
 export const metadata = {
   title: "Sample Placements & Outcomes | Employer Portal",

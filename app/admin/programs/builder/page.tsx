@@ -136,7 +136,7 @@ export default function ProgramBuilderPage() {
             <h2 className="text-lg font-semibold text-slate-900">Modules</h2>
             <button
               onClick={addModule}
-              className="rounded-xl bg-orange-500 px-3 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-orange-600"
+              className="rounded-xl bg-orange-400 text-white px-3 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-orange-500"
             >
               + Add Module
             </button>
@@ -199,7 +199,7 @@ export default function ProgramBuilderPage() {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="rounded-xl bg-orange-500 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 disabled:opacity-50"
+            className="rounded-xl bg-orange-400 text-white px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 disabled:opacity-50"
           >
             {saving ? "Saving..." : "Save Program"}
           </button>
