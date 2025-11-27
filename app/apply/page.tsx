@@ -1,649 +1,442 @@
-// app/apply/page.tsx
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { ArrowRight, ArrowLeft, CheckCircle, User, GraduationCap, DollarSign, FileText } from "lucide-react";
+import { getProgramsWithEnrollmentMeta } from "@/lms-data/enrollment";
+import type { ProgramEnrollmentConfig } from "@/lms-data/enrollment";
+import { EligibilityBadges } from "@/components/enrollment/EligibilityBadges";
 
-type Step = 1 | 2 | 3 | 4;
+const programsWithEnrollment = getProgramsWithEnrollmentMeta();
+
+interface FormState {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  dateOfBirth: string;
+  zipCode: string;
+  preferredProgramId: string;
+  hasWorkOneCaseManager: string;
+  currentlyEmployed: string;
+  householdIncomeRange: string;
+  interestedInEarnWhileLearn: string;
+  fundingNotes: string;
+  howDidYouHear: string;
+  anythingElse: string;
+}
+
+const initialFormState: FormState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  dateOfBirth: "",
+  zipCode: "",
+  preferredProgramId: "",
+  hasWorkOneCaseManager: "",
+  currentlyEmployed: "",
+  householdIncomeRange: "",
+  interestedInEarnWhileLearn: "",
+  fundingNotes: "",
+  howDidYouHear: "",
+  anythingElse: "",
+};
 
 export default function ApplyPage() {
-  const [currentStep, setCurrentStep] = useState<Step>(1);
-  const [formData, setFormData] = useState({
-    // Step 1: Personal Information
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    dateOfBirth: "",
-    address: "",
-    city: "",
-    state: "IN",
-    zipCode: "",
-    
-    // Step 2: Program Selection
-    program: "",
-    startDate: "",
-    schedule: "",
-    
-    // Step 3: Funding & Eligibility
-    fundingType: "",
-    employmentStatus: "",
-    householdIncome: "",
-    hasHighSchoolDiploma: "",
-    
-    // Step 4: Additional Information
-    hasTransportation: "",
-    needsChildcare: "",
-    hasComputerAccess: "",
-    additionalInfo: "",
-  });
+  const [form, setForm] = useState<FormState>(initialFormState);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const selectedConfig: ProgramEnrollmentConfig | undefined =
+    programsWithEnrollment.find((p) => p.program.id === form.preferredProgramId)
+      ?.enrollment;
 
-  const handleNext = () => {
-    if (currentStep < 4) {
-      setCurrentStep((currentStep + 1) as Step);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
+  function updateField<K extends keyof FormState>(key: K, value: FormState[K]) {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  }
 
-  const handleBack = () => {
-    if (currentStep > 1) {
-      setCurrentStep((currentStep - 1) as Step);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    
+    setError(null);
+
+    if (!form.firstName || !form.lastName || !form.email || !form.preferredProgramId) {
+      setError("Please fill in your name, email, and choose a program.");
+      return;
+    }
+
     try {
-      const response = await fetch("/api/applications", {
+      setSubmitting(true);
+      const res = await fetch("/api/enroll/apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(form),
       });
 
-      if (response.ok) {
-        window.location.href = "/apply/success";
-      } else {
-        alert("There was an error submitting your application. Please try again.");
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.message || "Application could not be submitted.");
       }
-    } catch (error) {
-      alert("There was an error submitting your application. Please try again.");
-    }
-  };
 
-  const steps = [
-    { number: 1, title: "Personal Info", icon: <User size={20} /> },
-    { number: 2, title: "Program", icon: <GraduationCap size={20} /> },
-    { number: 3, title: "Funding", icon: <DollarSign size={20} /> },
-    { number: 4, title: "Review", icon: <FileText size={20} /> },
-  ];
+      setSubmitted(true);
+      setForm(initialFormState);
+    } catch (err: any) {
+      console.error(err);
+      setError(
+        err?.message ||
+          "Something went wrong submitting your application. Please try again."
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-slate-800 to-slate-900 text-white py-12">
-        <div className="mx-auto max-w-4xl px-6">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Start Your Application
-          </h1>
-          <p className="text-lg text-white/90 mb-4">
-            Begin your journey to a fully-funded career training program.
+    <main className="min-h-screen bg-slate-950 text-white">
+      <section className="border-b border-slate-800 bg-slate-950">
+        <div className="mx-auto max-w-4xl px-4 py-6">
+          <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-400">
+            Start Here
           </p>
-          <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4">
-            <p className="text-sm font-semibold mb-2">📍 Important: Start at Indiana Career Connect</p>
-            <p className="text-sm text-white/90 mb-3">
-              To access fully-funded training through WIOA, WRG, or JRI, you must first schedule an appointment with WorkOne through Indiana Career Connect.
-            </p>
-            <a 
-              href="https://www.indianacareerconnect.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold text-sm hover:bg-white/90 transition-colors"
-            >
-              Schedule at Indiana Career Connect
-              <ArrowRight size={16} />
-            </a>
-            <p className="text-xs text-white/75 mt-3">
-              Or call your local WorkOne office and tell them Elevate For Humanity is your training provider.
-            </p>
-          </div>
+          <h1 className="mt-1 text-2xl font-bold">Apply to Elevate Programs</h1>
+          <p className="mt-2 text-xs text-slate-300">
+            Answer a few questions so we can match you to the right program and
+            funding path. After you submit, a team member will follow up with
+            next steps, including any JRI, WRG, WEX, OJT, apprenticeship, or
+            state/federal funding options you may qualify for.
+          </p>
+          <p className="mt-1 text-[11px] text-slate-400">
+            This form does not lock you into one program forever. It starts the
+            conversation and helps us understand your goals.
+          </p>
         </div>
       </section>
 
-      {/* Progress Steps */}
-      <section className="bg-white border-b border-slate-200">
-        <div className="mx-auto max-w-4xl px-6 py-6">
-          <div className="flex items-center justify-between">
-            {steps.map((step, index) => (
-              <div key={step.number} className="flex items-center flex-1">
-                <div className="flex flex-col items-center flex-1">
-                  <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-colors ${
-                      currentStep >= step.number
-                        ? "bg-red-600 text-white"
-                        : "bg-slate-200 text-slate-500"
-                    }`}
-                  >
-                    {currentStep > step.number ? (
-                      <CheckCircle size={24} />
-                    ) : (
-                      step.icon
-                    )}
-                  </div>
-                  <div className="mt-2 text-center">
-                    <div className={`text-xs font-semibold ${
-                      currentStep >= step.number ? "text-red-600" : "text-slate-500"
-                    }`}>
-                      Step {step.number}
-                    </div>
-                    <div className="text-xs text-slate-600 hidden sm:block">
-                      {step.title}
-                    </div>
-                  </div>
+      <section className="bg-slate-900">
+        <div className="mx-auto max-w-4xl px-4 py-6">
+          <div className="grid gap-6 md:grid-cols-[1.6fr,1.1fr]">
+            <div className="rounded-xl border border-slate-800 bg-slate-950/80 p-4 text-xs">
+              {submitted && (
+                <div className="mb-3 rounded-md border border-green-500/60 bg-green-900/20 px-3 py-2 text-[11px] text-green-200">
+                  Thank you! Your application was submitted. A member of the
+                  Elevate team will review it and follow up with you about next
+                  steps, funding, and start dates.
                 </div>
-                {index < steps.length - 1 && (
-                  <div className={`h-1 flex-1 mx-2 transition-colors ${
-                    currentStep > step.number ? "bg-red-600" : "bg-slate-200"
-                  }`} />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              )}
 
-      {/* Form Section */}
-      <section className="py-12">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="bg-white rounded-3xl p-8 shadow-lg border border-slate-200">
-            <form onSubmit={handleSubmit}>
-              {/* Step 1: Personal Information */}
-              {currentStep === 1 && (
-                <div className="space-y-6">
+              {error && (
+                <div className="mb-3 rounded-md border border-red-500/60 bg-red-900/30 px-3 py-2 text-[11px] text-red-100">
+                  {error}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <div className="grid gap-3 md:grid-cols-2">
                   <div>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-2">
-                      Personal Information
-                    </h2>
-                    <p className="text-slate-600">
-                      Let's start with some basic information about you.
-                    </p>
-                  </div>
-
-                  <div className="grid gap-6 md:grid-cols-2">
-                    <div>
-                      <label htmlFor="firstName" className="block text-sm font-semibold text-slate-900 mb-2">
-                        First Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="lastName" className="block text-sm font-semibold text-slate-900 mb-2">
-                        Last Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid gap-6 md:grid-cols-2">
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-slate-900 mb-2">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="dateOfBirth" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Date of Birth *
-                    </label>
-                    <input
-                      type="date"
-                      id="dateOfBirth"
-                      name="dateOfBirth"
-                      value={formData.dateOfBirth}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="address" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Street Address *
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      First Name *
                     </label>
                     <input
                       type="text"
-                      id="address"
-                      name="address"
-                      value={formData.address}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
+                      value={form.firstName}
+                      onChange={(e) => updateField("firstName", e.target.value)}
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
                     />
                   </div>
-
-                  <div className="grid gap-6 md:grid-cols-3">
-                    <div>
-                      <label htmlFor="city" className="block text-sm font-semibold text-slate-900 mb-2">
-                        City *
-                      </label>
-                      <input
-                        type="text"
-                        id="city"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="state" className="block text-sm font-semibold text-slate-900 mb-2">
-                        State *
-                      </label>
-                      <select
-                        id="state"
-                        name="state"
-                        value={formData.state}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                      >
-                        <option value="IN">Indiana</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label htmlFor="zipCode" className="block text-sm font-semibold text-slate-900 mb-2">
-                        ZIP Code *
-                      </label>
-                      <input
-                        type="text"
-                        id="zipCode"
-                        name="zipCode"
-                        value={formData.zipCode}
-                        onChange={handleChange}
-                        required
-                        pattern="[0-9]{5}"
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                      />
-                    </div>
+                  <div>
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      value={form.lastName}
+                      onChange={(e) => updateField("lastName", e.target.value)}
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
+                    />
                   </div>
                 </div>
-              )}
 
-              {/* Step 2: Program Selection */}
-              {currentStep === 2 && (
-                <div className="space-y-6">
+                <div className="grid gap-3 md:grid-cols-2">
                   <div>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-2">
-                      Choose Your Program
-                    </h2>
-                    <p className="text-slate-600">
-                      Select the healthcare career training program you're interested in.
-                    </p>
-                  </div>
-
-                  <div>
-                    <label htmlFor="program" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Training Program *
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      Email *
                     </label>
-                    <select
-                      id="program"
-                      name="program"
-                      value={formData.program}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                    >
-                      <option value="">Select a program</option>
-                      <option value="medical-assistant">Medical Assistant (12 weeks)</option>
-                      <option value="phlebotomy">Phlebotomy Technician (8 weeks)</option>
-                      <option value="ekg-technician">EKG Technician (6 weeks)</option>
-                      <option value="pharmacy-technician">Pharmacy Technician (12 weeks)</option>
-                      <option value="dental-assistant">Dental Assistant (10 weeks)</option>
-                      <option value="patient-care-technician">Patient Care Technician (14 weeks)</option>
-                      <option value="sterile-processing">Sterile Processing Technician (12 weeks)</option>
-                      <option value="healthcare-administration">Healthcare Administration (16 weeks)</option>
-                    </select>
+                    <input
+                      type="email"
+                      value={form.email}
+                      onChange={(e) => updateField("email", e.target.value)}
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
+                    />
                   </div>
-
                   <div>
-                    <label htmlFor="startDate" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Preferred Start Date *
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      Phone
                     </label>
-                    <select
-                      id="startDate"
-                      name="startDate"
-                      value={formData.startDate}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                    >
-                      <option value="">Select a start date</option>
-                      <option value="asap">As soon as possible</option>
-                      <option value="next-month">Next month</option>
-                      <option value="2-3-months">2-3 months</option>
-                      <option value="flexible">Flexible</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="schedule" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Preferred Schedule *
-                    </label>
-                    <select
-                      id="schedule"
-                      name="schedule"
-                      value={formData.schedule}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                    >
-                      <option value="">Select a schedule</option>
-                      <option value="full-time-day">Full-time (Daytime)</option>
-                      <option value="part-time-evening">Part-time (Evenings)</option>
-                      <option value="weekend">Weekend</option>
-                      <option value="flexible">Flexible</option>
-                    </select>
-                  </div>
-
-                  <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
-                    <p className="text-sm text-slate-700">
-                      <strong>Note:</strong> All programs are 100% free through state and federal funding. You will not pay any tuition or fees.
-                    </p>
+                    <input
+                      type="tel"
+                      value={form.phone}
+                      onChange={(e) => updateField("phone", e.target.value)}
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
+                    />
                   </div>
                 </div>
-              )}
 
-              {/* Step 3: Funding & Eligibility */}
-              {currentStep === 3 && (
-                <div className="space-y-6">
+                <div className="grid gap-3 md:grid-cols-2">
                   <div>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-2">
-                      Funding & Eligibility
-                    </h2>
-                    <p className="text-slate-600">
-                      Help us determine which funding programs you may qualify for.
-                    </p>
-                  </div>
-
-                  <div>
-                    <label htmlFor="fundingType" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Preferred Funding Source *
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      Date of Birth
                     </label>
-                    <select
-                      id="fundingType"
-                      name="fundingType"
-                      value={formData.fundingType}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                    >
-                      <option value="">Select funding type</option>
-                      <option value="wioa">WIOA (Workforce Innovation and Opportunity Act)</option>
-                      <option value="wrg">WRG (Workforce Ready Grant)</option>
-                      <option value="next-level-jobs">Next Level Jobs</option>
-                      <option value="not-sure">Not sure / Need help</option>
-                    </select>
+                    <input
+                      type="date"
+                      value={form.dateOfBirth}
+                      onChange={(e) =>
+                        updateField("dateOfBirth", e.target.value)
+                      }
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
+                    />
                   </div>
-
                   <div>
-                    <label htmlFor="employmentStatus" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Current Employment Status *
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      ZIP Code
                     </label>
-                    <select
-                      id="employmentStatus"
-                      name="employmentStatus"
-                      value={formData.employmentStatus}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                    >
-                      <option value="">Select status</option>
-                      <option value="unemployed">Unemployed</option>
-                      <option value="underemployed">Underemployed (working part-time, want full-time)</option>
-                      <option value="employed">Employed (seeking career change)</option>
-                      <option value="student">Student</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="householdIncome" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Annual Household Income *
-                    </label>
-                    <select
-                      id="householdIncome"
-                      name="householdIncome"
-                      value={formData.householdIncome}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                    >
-                      <option value="">Select income range</option>
-                      <option value="under-25k">Under $25,000</option>
-                      <option value="25k-35k">$25,000 - $35,000</option>
-                      <option value="35k-50k">$35,000 - $50,000</option>
-                      <option value="50k-75k">$50,000 - $75,000</option>
-                      <option value="over-75k">Over $75,000</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="hasHighSchoolDiploma" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Do you have a high school diploma or GED? *
-                    </label>
-                    <select
-                      id="hasHighSchoolDiploma"
-                      name="hasHighSchoolDiploma"
-                      value={formData.hasHighSchoolDiploma}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                    >
-                      <option value="">Select option</option>
-                      <option value="yes">Yes</option>
-                      <option value="no">No, but working on it</option>
-                      <option value="no-not-working">No</option>
-                    </select>
-                  </div>
-
-                  <div className="p-4 bg-red-50 rounded-xl border border-red-200">
-                    <p className="text-sm text-slate-700">
-                      <strong>Good News:</strong> Most applicants qualify for at least one funding program. We'll help you through the entire process.
-                    </p>
+                    <input
+                      type="text"
+                      value={form.zipCode}
+                      onChange={(e) => updateField("zipCode", e.target.value)}
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
+                    />
                   </div>
                 </div>
-              )}
 
-              {/* Step 4: Review & Submit */}
-              {currentStep === 4 && (
-                <div className="space-y-6">
+                <div>
+                  <label className="block text-[11px] font-semibold text-slate-100">
+                    Which program are you MOST interested in right now? *
+                  </label>
+                  <select
+                    value={form.preferredProgramId}
+                    onChange={(e) =>
+                      updateField("preferredProgramId", e.target.value)
+                    }
+                    className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
+                  >
+                    <option value="">Select a program</option>
+                    {programsWithEnrollment.map(({ program, enrollment }) => (
+                      <option key={program.id} value={program.id}>
+                        {enrollment?.label || program.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="grid gap-3 md:grid-cols-2">
                   <div>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-2">
-                      Review & Submit
-                    </h2>
-                    <p className="text-slate-600">
-                      Please review your information and answer a few final questions.
-                    </p>
-                  </div>
-
-                  <div className="space-y-4 p-6 bg-slate-50 rounded-xl">
-                    <div>
-                      <div className="text-sm font-semibold text-slate-600 mb-1">Name</div>
-                      <div className="text-slate-900">{formData.firstName} {formData.lastName}</div>
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-slate-600 mb-1">Contact</div>
-                      <div className="text-slate-900">{formData.email}</div>
-                      <div className="text-slate-900">{formData.phone}</div>
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-slate-600 mb-1">Program</div>
-                      <div className="text-slate-900">{formData.program}</div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="hasTransportation" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Do you have reliable transportation? *
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      Do you currently have a WorkOne / workforce case manager?
                     </label>
                     <select
-                      id="hasTransportation"
-                      name="hasTransportation"
-                      value={formData.hasTransportation}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
+                      value={form.hasWorkOneCaseManager}
+                      onChange={(e) =>
+                        updateField("hasWorkOneCaseManager", e.target.value)
+                      }
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
                     >
-                      <option value="">Select option</option>
-                      <option value="yes">Yes</option>
-                      <option value="no">No, I need assistance</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="needsChildcare" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Do you need childcare assistance? *
-                    </label>
-                    <select
-                      id="needsChildcare"
-                      name="needsChildcare"
-                      value={formData.needsChildcare}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
-                    >
-                      <option value="">Select option</option>
+                      <option value="">Select</option>
                       <option value="yes">Yes</option>
                       <option value="no">No</option>
+                      <option value="unsure">Not sure</option>
                     </select>
                   </div>
-
                   <div>
-                    <label htmlFor="hasComputerAccess" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Do you have access to a computer and internet? *
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      Are you currently working?
                     </label>
                     <select
-                      id="hasComputerAccess"
-                      name="hasComputerAccess"
-                      value={formData.hasComputerAccess}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors"
+                      value={form.currentlyEmployed}
+                      onChange={(e) =>
+                        updateField("currentlyEmployed", e.target.value)
+                      }
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
                     >
-                      <option value="">Select option</option>
-                      <option value="yes">Yes</option>
-                      <option value="no">No, I need assistance</option>
+                      <option value="">Select</option>
+                      <option value="full-time">Yes, full-time</option>
+                      <option value="part-time">Yes, part-time</option>
+                      <option value="not-working">No, not currently working</option>
+                      <option value="gig">Gig / side work only</option>
                     </select>
                   </div>
+                </div>
 
+                <div className="grid gap-3 md:grid-cols-2">
                   <div>
-                    <label htmlFor="additionalInfo" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Additional Information (Optional)
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      About what is your household income per year?
                     </label>
-                    <textarea
-                      id="additionalInfo"
-                      name="additionalInfo"
-                      value={formData.additionalInfo}
-                      onChange={handleChange}
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-colors resize-none"
-                      placeholder="Is there anything else you'd like us to know?"
+                    <select
+                      value={form.householdIncomeRange}
+                      onChange={(e) =>
+                        updateField("householdIncomeRange", e.target.value)
+                      }
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
+                    >
+                      <option value="">Prefer not to say</option>
+                      <option value="under-20k">Under $20,000</option>
+                      <option value="20-40k">$20,000 – $40,000</option>
+                      <option value="40-60k">$40,000 – $60,000</option>
+                      <option value="60plus">Above $60,000</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      Are you interested in earn-while-you-learn options?
+                    </label>
+                    <select
+                      value={form.interestedInEarnWhileLearn}
+                      onChange={(e) =>
+                        updateField("interestedInEarnWhileLearn", e.target.value)
+                      }
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
+                    >
+                      <option value="">Select</option>
+                      <option value="yes">Yes, definitely</option>
+                      <option value="maybe">Maybe / tell me more</option>
+                      <option value="no">Not at this time</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-semibold text-slate-100">
+                    Do you receive SNAP, TANF, SSI/SSDI, or other benefits?
+                  </label>
+                  <textarea
+                    value={form.fundingNotes}
+                    onChange={(e) =>
+                      updateField("fundingNotes", e.target.value)
+                    }
+                    placeholder="Only share what you're comfortable sharing. This helps us understand grant eligibility."
+                    className="mt-1 min-h-[60px] w-full rounded-md border border-slate-700 bg-slate-900 px-2 py-1 text-[11px] text-slate-100"
+                  />
+                </div>
+
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div>
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      How did you hear about Elevate?
+                    </label>
+                    <input
+                      type="text"
+                      value={form.howDidYouHear}
+                      onChange={(e) =>
+                        updateField("howDidYouHear", e.target.value)
+                      }
+                      placeholder="Friend, social media, WorkOne, employer, etc."
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[11px] font-semibold text-slate-100">
+                      Anything else you want us to know?
+                    </label>
+                    <input
+                      type="text"
+                      value={form.anythingElse}
+                      onChange={(e) =>
+                        updateField("anythingElse", e.target.value)
+                      }
+                      placeholder="Barriers, goals, timelines, etc."
+                      className="mt-1 h-8 w-full rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100"
                     />
                   </div>
                 </div>
-              )}
 
-              {/* Navigation Buttons */}
-              <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-200">
-                {currentStep > 1 ? (
-                  <button
-                    type="button"
-                    onClick={handleBack}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-slate-300 text-slate-700 font-semibold hover:border-red-600 hover:text-red-600 transition-all"
-                  >
-                    <ArrowLeft size={20} />
-                    Back
-                  </button>
-                ) : (
-                  <Link
-                    href="/"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-slate-300 text-slate-700 font-semibold hover:border-red-600 hover:text-red-600 transition-all"
-                  >
-                    <ArrowLeft size={20} />
-                    Cancel
-                  </Link>
-                )}
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="mt-2 inline-flex h-9 items-center justify-center rounded-md bg-red-600 px-4 text-[11px] font-semibold text-white hover:bg-red-700 disabled:opacity-60"
+                >
+                  {submitting ? "Submitting..." : "Submit Application"}
+                </button>
 
-                {currentStep < 4 ? (
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-red-600 text-white font-bold shadow-lg hover:bg-red-700 transition-all hover:scale-105"
-                  >
-                    Continue
-                    <ArrowRight size={20} />
-                  </button>
+                <p className="mt-2 text-[10px] text-slate-500">
+                  By submitting, you agree to be contacted by Elevate for
+                  Humanity about programs and funding options. This is not a
+                  credit application or a guarantee of funding.
+                </p>
+              </form>
+            </div>
+
+            <aside className="space-y-3">
+              <div className="rounded-xl border border-slate-800 bg-slate-950/80 p-3 text-[11px]">
+                <p className="text-[11px] font-semibold text-slate-100">
+                  Program Snapshot
+                </p>
+                {selectedConfig ? (
+                  <>
+                    <p className="mt-1 text-slate-200">
+                      {selectedConfig.label}
+                    </p>
+                    <p className="mt-1 text-slate-300">
+                      {selectedConfig.shortDescription}
+                    </p>
+                    {selectedConfig.tuitionRange && (
+                      <p className="mt-1 text-slate-200">
+                        Tuition (estimated):{" "}
+                        <span className="text-slate-100">
+                          {selectedConfig.tuitionRange}
+                        </span>
+                      </p>
+                    )}
+                    {(selectedConfig.typicalDurationWeeks ||
+                      selectedConfig.typicalHoursPerWeek) && (
+                      <p className="mt-1 text-slate-200">
+                        Typical schedule:
+                        <span className="ml-1 text-slate-100">
+                          {selectedConfig.typicalHoursPerWeek
+                            ? `${selectedConfig.typicalHoursPerWeek} hrs/week`
+                            : ""}
+                          {selectedConfig.typicalDurationWeeks
+                            ? ` for ${selectedConfig.typicalDurationWeeks} weeks`
+                            : ""}
+                        </span>
+                      </p>
+                    )}
+                    <EligibilityBadges config={selectedConfig} />
+                    <p className="mt-2 text-[10px] text-slate-500">
+                      Final funding will be confirmed after an intake
+                      conversation and review of eligibility with workforce
+                      partners (like WorkOne, EmployIndy, or others).
+                    </p>
+                  </>
                 ) : (
-                  <button
-                    type="submit"
-                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-red-600 text-white font-bold shadow-lg hover:bg-red-700 transition-all hover:scale-105"
-                  >
-                    Submit Application
-                    <CheckCircle size={20} />
-                  </button>
+                  <p className="mt-1 text-slate-300">
+                    Choose a program on the left to see a snapshot of tuition,
+                    schedule, and potential funding options.
+                  </p>
                 )}
               </div>
-            </form>
+
+              <div className="rounded-xl border border-slate-800 bg-slate-950/80 p-3 text-[11px]">
+                <p className="text-[11px] font-semibold text-slate-100">
+                  Funding & "Earn While You Learn"
+                </p>
+                <p className="mt-1 text-slate-300">
+                  Elevate works with JRI, WRG, WEX, OJT, apprenticeships,
+                  employers, and philanthropy to reduce or remove out-of-pocket
+                  costs where possible. Answering funding questions honestly
+                  helps us match you to the best option.
+                </p>
+                <ul className="mt-2 list-disc space-y-1 pl-4 text-slate-300">
+                  <li>Some programs may be fully grant-funded.</li>
+                  <li>
+                    Some use WEX, OJT, or apprenticeship so you earn while you
+                    train.
+                  </li>
+                  <li>
+                    Some allow self-pay or payment plans when grants are not
+                    available.
+                  </li>
+                </ul>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
