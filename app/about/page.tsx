@@ -87,6 +87,58 @@ export default function AboutPage() {
                 Official NRF Foundation Training Partner
               </p>
             </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                Indiana Registered Bidder
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                Registered with the Indiana Department of Administration as an approved 
+                bidder for state contracts and procurement opportunities.
+              </p>
+              <p className="mt-3 text-xs text-slate-500">
+                Bidder ID: 0000067741 | Indiana Dept. of Administration
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                Google for Nonprofits
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                Approved for Google Ad Grants providing $10,000/month in free advertising 
+                to promote our workforce training programs and reach more individuals in need.
+              </p>
+              <p className="mt-3 text-xs text-slate-500">
+                Charity ID: 99-3483511 | Google for Nonprofits Partner
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                VA-Approved Training Provider
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                Certified School Certifying Official (SCO) for On-the-Job Training & 
+                Apprenticeship Programs under the Harry W. Colmery Educational Assistance Act.
+              </p>
+              <p className="mt-3 text-xs text-slate-500">
+                Facility Code: 11111111 | VA-Approved Training
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <h3 className="text-lg font-semibold text-slate-900">
+                501(c)(3) Nonprofit Status
+              </h3>
+              <p className="mt-2 text-sm text-slate-700">
+                SELFISH INC operates as a registered 501(c)(3) nonprofit organization 
+                dedicated to workforce development and mental wellness support.
+              </p>
+              <p className="mt-3 text-xs text-slate-500">
+                EIN: 99-3483511 | Tax-Exempt Nonprofit
+              </p>
+            </div>
           </div>
 
           <div className="mt-6 rounded-xl border border-blue-200 bg-blue-50 p-6">
