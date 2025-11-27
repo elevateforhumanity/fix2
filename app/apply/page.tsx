@@ -166,6 +166,67 @@ export default function ApplyPage() {
               {status === "submitting" ? "Submitting…" : "Submit Application"}
             </button>
           </form>
+
+          {/* Holistic Support Section */}
+          <div className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-6">
+            <h2 className="text-lg font-bold text-slate-900">
+              Holistic Support for Your Success
+            </h2>
+            <p className="mt-2 text-sm text-slate-700">
+              We recognize that career success requires support in multiple areas of life. 
+              Through our parent organization SELFISH INC, we offer:
+            </p>
+
+            <div className="mt-4 space-y-4">
+              <div className="flex gap-3">
+                <div className="flex-shrink-0">
+                  <svg className="h-5 w-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-slate-900">Mental Wellness Services</h3>
+                  <p className="mt-1 text-xs text-slate-600">
+                    Remove emotional barriers to employment through trauma recovery, divorce support, 
+                    and addiction counseling. Learn more at{" "}
+                    <a href="https://www.selfishinc.org" className="text-red-600 hover:underline">
+                      selfishinc.org
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <div className="flex-shrink-0">
+                  <svg className="h-5 w-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-slate-900">Financial Literacy Training</h3>
+                  <p className="mt-1 text-xs text-slate-600">
+                    Build financial stability through VITA tax preparation certification and tax business 
+                    management courses through RISE Forward Foundation.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3">
+                <div className="flex-shrink-0">
+                  <svg className="h-5 w-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-slate-900">Physical Wellness Resources</h3>
+                  <p className="mt-1 text-xs text-slate-600">
+                    Optional body contouring services through our partner Curvature Body Sculpting 
+                    for confidence and self-care.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

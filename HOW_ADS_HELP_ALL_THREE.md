@@ -1,30 +1,55 @@
-# How $10,000/Month Google Ads Helps All Three Entities
+# How Google Ads Help the SELFISH INC Ecosystem
 
-## The Funnel: How One Ad Benefits Everyone
+**Updated:** November 27, 2024
+
+## Legal Structure Clarification
+
+**Parent Entity:** SELFISH INC (501c3 nonprofit, EIN: 88-4058583)
+
+**Three Operating Names:**
+1. **Elevate for Humanity Training Center** (ETPL Provider ID: 10000949)
+2. **Selfish Inc Mental Wellness** (Mental health services)
+3. **RISE Forward Foundation** (VITA tax prep, SDIN: 99420837)
+
+**External Partner:**
+- **Curvature Body Sculpting** (For-profit wellness partner)
+
+## The Funnel: How Ads Benefit the Ecosystem
 
 ### Step 1: Google Ads Brings Traffic
-**$10,000/month** → **3,000-5,000 clicks** → **Elevate for Humanity website**
+**$12,400/month total budget:**
+- $10,000/month Google Ad Grant (workforce training)
+- $2,400/month paid ads (mental wellness + tax prep)
+
+**Expected Results:**
+- 3,500-6,000 clicks/month to Elevate for Humanity
+- 500-800 clicks/month to Selfish Inc Mental Wellness
+- 300-500 clicks/month to RISE Forward Foundation tax prep
 
 ### Step 2: Visitor Sees Complete Ecosystem
 Person searching for "free CNA training Indianapolis" lands on Elevate site and discovers:
 - ✅ Career training (what they searched for)
-- ✅ Mental wellness support (Selfish Inc)
-- ✅ Physical wellness options (Curvature)
+- ✅ Mental wellness support (Selfish Inc - same nonprofit)
+- ✅ Financial literacy (RISE Forward - same nonprofit)
+- ✅ Physical wellness options (Curvature - external partner)
 
 ### Step 3: Multiple Conversion Opportunities
-**One visitor can engage with all three:**
-1. Apply for CNA training (Elevate)
-2. Sign up for trauma support (Selfish Inc)
-3. Book body sculpting service (Curvature → 10% to Selfish Inc)
+**One visitor can engage with multiple programs:**
+1. Apply for CNA training (Elevate for Humanity)
+2. Sign up for trauma support (Selfish Inc Mental Wellness)
+3. Enroll in VITA tax training (RISE Forward Foundation)
+4. Book body sculpting service (Curvature - optional)
 
 ---
 
-## Direct Benefits to Each Entity
+## Direct Benefits to Each Program
 
-### 1. Elevate for Humanity (Primary Beneficiary)
+### 1. Elevate for Humanity Training Center (Primary Focus)
+
+**Google Ad Grant Budget:** $10,000/month
 
 **Direct Benefits:**
-- 3,000-5,000 website visitors per month
+- 3,500-5,000 website visitors per month
 - 150-300 training applications per month
 - Increased enrollment in WIOA programs
 - Better program utilization rates
@@ -37,64 +62,102 @@ Person searching for "free CNA training Indianapolis" lands on Elevate site and 
 - Increased grant eligibility (proven impact)
 
 **Estimated Value:**
-- $120,000/year in free advertising
+- $120,000/year in free advertising (Google Ad Grant)
 - 1,800-3,600 applications/year
 - Potential 500-1,000 new students/year
+- $500,000+ in WIOA funding from increased enrollment
 
 ---
 
-### 2. Selfish Inc (Secondary Beneficiary)
+### 2. Selfish Inc Mental Wellness (Secondary Focus)
+
+**Paid Ads Budget:** $1,500/month ($50/day)
 
 **Direct Benefits:**
-- Exposure to 3,000-5,000 people per month
-- Traffic from Elevate site visitors
+- 500-800 website visitors per month (paid ads)
+- 300-500 additional visitors from Elevate cross-promotion
 - Increased awareness of mental wellness programs
-- More volunteer sign-ups
-- More donations
+- More client inquiries
+- More program participants
 
 **Indirect Benefits:**
 - Career training students need mental health support
 - Trauma/divorce/addiction clients need career help
 - Cross-referrals between programs
-- 10% of Curvature sales = sustainable funding
+- Holistic support increases success rates
 
 **Financial Impact:**
-- Increased donations from website traffic
-- More program participants
-- Sustainable funding from Curvature partnership
+- 30-50 new client inquiries/month
+- Sliding scale fees generate revenue
 - Grant opportunities (proven reach)
+- Increased donations from visibility
 
 **Estimated Value:**
-- 300-500 new website visitors/month (organic from Elevate)
-- 50-100 program inquiries/month
-- $500-1,000/month in new donations
-- $300-500/month from Curvature partnership (10% of sales)
+- $18,000/year in paid advertising
+- 600-1,000 inquiries/year
+- $24,000-40,000/year in program fees (sliding scale)
+- Improved outcomes for career training students
 
 ---
 
-### 3. Curvature Body Sculpting (Tertiary Beneficiary)
+### 3. RISE Forward Foundation (Tax Prep Training)
+
+**Paid Ads Budget:** $900/month ($30/day)
 
 **Direct Benefits:**
-- Exposure to 3,000-5,000 people per month
-- Traffic from Elevate site visitors
+- 300-500 website visitors per month (paid ads)
+- 200-300 additional visitors from Elevate cross-promotion
+- VITA volunteer recruitment
+- Tax business training enrollment
+- Financial literacy program growth
+
+**Indirect Benefits:**
+- Career training graduates can start tax businesses
+- Mental wellness clients gain financial stability
+- Community tax prep services (VITA)
+- Economic empowerment for participants
+
+**Financial Impact:**
+- 20-30 VITA certifications/year
+- 10-15 tax business training enrollments/year
+- Community impact (free tax prep for low-income)
+- Additional revenue stream for SELFISH INC
+
+**Estimated Value:**
+- $10,800/year in paid advertising
+- 240-360 training inquiries/year
+- $15,000-25,000/year in tax business course fees
+- Community service value: $50,000+/year (free tax prep)
+
+---
+
+### 4. Curvature Body Sculpting (External Partner)
+
+**Ad Budget:** $0 (NOT advertised in Google Ads)
+
+**Direct Benefits:**
+- Exposure through website cross-promotion only
+- Optional wellness resource for program participants
 - Brand awareness in Indianapolis market
 - Association with nonprofit mission
-- Feel-good factor (10% supports mental health)
 
 **Indirect Benefits:**
 - Career training graduates have income for services
 - Mental wellness clients want physical wellness
-- Cross-referrals from both nonprofits
+- Referrals from nonprofit programs
 - Marketing value of partnership
 
 **Financial Impact:**
 - New customer acquisition (normally costs $50-200 per customer)
 - Increased bookings from referrals
 - Brand reputation boost
-- Tax benefits from charitable giving
+- Partnership with established nonprofit
 
 **Estimated Value:**
-- 100-200 new website visitors/month (from Elevate/Selfish)
+- 50-100 new website visitors/month (organic referrals)
+- 5-10 new clients/month from referrals
+- $5,000-10,000/month in additional revenue
+- Marketing value: $12,000/year (equivalent ad spend)
 - 10-20 new customer inquiries/month
 - 5-10 new bookings/month
 - $3,000-5,000/month in new revenue
