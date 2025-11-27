@@ -61,8 +61,8 @@ export const homepageVisuals: PageVisualConfig = {
         "Every pathway is tied to credential partners like Milady, HSI, CareerSafe, Certiport, Rise, National Drug, and JRI.",
         "Short, focused training that leads into employer connections, WEX, and OJT opportunities."
       ],
-      imageSrc: "/images/artlist/hero-training-8.jpg",
-      imageAlt: "Collage of Elevate For Humanity programs and students.",
+      imageSrc: "/images/artlist/hero-training-3.jpg",
+      imageAlt: "Students learning practical career skills in training programs.",
     },
     {
       id: "support-pathways",
@@ -72,8 +72,8 @@ export const homepageVisuals: PageVisualConfig = {
         "Clear next steps for enrollment, paperwork, and getting ready for work.",
         "Coaching for resumes, interviews, soft skills, and showing up professionally."
       ],
-      imageSrc: "/images/hero-new/hero-5.jpg",
-      imageAlt: "Coach sitting with a learner reviewing career options.",
+      imageSrc: "/images/facilities-new/facility-3.jpg",
+      imageAlt: "Elevate For Humanity training facility and learning environment.",
     },
     {
       id: "outcomes",
@@ -83,8 +83,8 @@ export const homepageVisuals: PageVisualConfig = {
         "WEX placements and OJT wage reimbursement to make it easier for employers to hire you.",
         "Stories of students who moved from stress and instability into stable income and career paths."
       ],
-      imageSrc: "/images/hero-new/hero-1.jpg",
-      imageAlt: "Graduate smiling after securing a job.",
+      imageSrc: "/images/artlist/hero-training-5.jpg",
+      imageAlt: "Students engaged in hands-on career training.",
     },
   ],
 };
