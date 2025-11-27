@@ -140,7 +140,7 @@ sizes="192x192" />
         <Breadcrumbs />
         <main id="main-content">{children}</main>
         <MainFooter />
-        <ElevateChatWidget />
+        {/* <ElevateChatWidget /> */}
         <CookieBanner />
         <PWAInstallPrompt />
         <Toaster
