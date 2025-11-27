@@ -242,6 +242,136 @@ const taxProgram: Program = {
   visiblePublic: true,
 };
 
+// ===== BUSINESS EMS APPRENTICESHIP =====
+const businessEmsPartnerIds = ["rise-customer-service", "certiport-customer-service"];
+
+const businessEmsProgram: Program = {
+  id: "prog-business-ems-apprenticeship",
+  slug: "business-ems-apprenticeship",
+  title: "Business EMS Apprenticeship",
+  subtitle:
+    "Business, operations, and service skills in an emergency/health services environment.",
+  description:
+    "This apprenticeship pathway focuses on business, office, scheduling, and customer service skills in environments that support emergency or health-related services. Learners gain experience in documentation, communication, and coordination while working alongside experienced staff.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(businessEmsPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: businessEmsPartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Apprentices can earn wages while learning front-office, dispatch, and coordination skills in real service environments.",
+  visiblePublic: true,
+};
+
+// ===== NAIL TECHNICIAN APPRENTICESHIP =====
+const nailsPartnerIds = ["milady-barber-theory", "nationaldrug-barber"];
+
+const nailsProgram: Program = {
+  id: "prog-nail-technician-apprenticeship",
+  slug: "nail-technician-apprenticeship",
+  title: "Nail Technician Apprenticeship",
+  subtitle:
+    "Hands-on nail technology apprenticeship with real clients and shop hours.",
+  description:
+    "This pathway blends nail technology theory with in-salon apprenticeship hours. Learners practice manicures, pedicures, nail art, sanitation, and customer experience while preparing for state board requirements and building a client base.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(nailsPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: nailsPartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Apprentices can earn while learning, taking clients under supervision and building hours toward licensure.",
+  visiblePublic: true,
+};
+
+// ===== ESTHETICIAN APPRENTICESHIP =====
+const estheticianPartnerIds = ["milady-barber-theory", "nationaldrug-barber"];
+
+const estheticianProgram: Program = {
+  id: "prog-esthetician-apprenticeship",
+  slug: "esthetician-apprenticeship",
+  title: "Esthetician Apprenticeship",
+  subtitle:
+    "Skin care, spa services, and client experience through an apprenticeship model.",
+  description:
+    "This apprenticeship pathway focuses on facials, skin analysis, basic treatments, and spa customer service. Learners combine esthetics theory with supervised spa hours to prepare for state board and real-world employment.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(estheticianPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: estheticianPartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Apprentices gain paid experience providing supervised services while completing required training hours.",
+  visiblePublic: true,
+};
+
+// ===== CULINARY APPRENTICESHIP =====
+const culinaryPartnerIds = ["careersafe-building-safety", "nationaldrug-building"];
+
+const culinaryProgram: Program = {
+  id: "prog-culinary-apprenticeship",
+  slug: "culinary-apprenticeship",
+  title: "Culinary Apprenticeship",
+  subtitle:
+    "Back-of-house culinary skills and kitchen operations in real food service environments.",
+  description:
+    "This pathway prepares learners for culinary and food service roles by combining kitchen safety, prep, line work, and service skills with real restaurant or institutional kitchen experience.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(culinaryPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: culinaryPartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Apprentices can earn wages in kitchens while training, with a focus on building reliable, promotable staff for employers.",
+  visiblePublic: true,
+};
+
+// ===== BUSINESS TECHNICIAN APPRENTICESHIP =====
+const businessTechPartnerIds = ["certiport-it-specialist-core", "rise-customer-service"];
+
+const businessTechProgram: Program = {
+  id: "prog-business-technician-apprenticeship",
+  slug: "business-technician-apprenticeship",
+  title: "Business Technician Apprenticeship",
+  subtitle:
+    "Office technology, admin systems, and business operations in a paid apprenticeship.",
+  description:
+    "This apprenticeship pathway combines digital tools, office systems, scheduling, customer support, and basic data/reporting. Learners support real businesses while building skills that apply to admin, coordinator, and support roles.",
+  deliveryEngine: "NATIVE",
+  salePrice: computeSalePrice(businessTechPartnerIds, 1.5),
+  stripeProductId: undefined,
+  stripePriceId: undefined,
+  stripePriceIdPlan: undefined,
+  partnerRequirements: businessTechPartnerIds.map((id) => ({
+    partnerCourseId: id,
+    required: true,
+  })),
+  isStateTuitionFunded: false,
+  earnWhileYouLearnNotes:
+    "Apprentices can earn while they learn in office environments, supporting day-to-day operations and customer interactions.",
+  visiblePublic: true,
+};
+
 export const allPrograms: Program[] = [
   cnaProgram,
   barberProgram,
@@ -252,6 +382,11 @@ export const allPrograms: Program[] = [
   entrepreneurshipProgram,
   buildingMaintenanceProgram,
   taxProgram,
+  businessEmsProgram,
+  nailsProgram,
+  estheticianProgram,
+  culinaryProgram,
+  businessTechProgram,
 ];
 
 export function getProgramBySlug(slug: string): ProgramWithPartners | undefined {

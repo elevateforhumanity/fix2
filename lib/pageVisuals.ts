@@ -587,6 +587,171 @@ export const taxVisuals: PageVisualConfig = {
 };
 
 // ----------------------
+// BUSINESS EMS APPRENTICESHIP VISUALS
+// ----------------------
+export const businessEmsVisuals: PageVisualConfig = {
+  slug: "business-ems-apprenticeship",
+  heroes: [
+    {
+      id: "business-ems-hero-main",
+      imageSrc: "/images/students-new/student-14.jpg",
+      imageAlt: "Apprentice handling calls and scheduling in an office.",
+      eyebrow: "Business & Service Operations",
+      title: "Business EMS Apprenticeship",
+      subtitle:
+        "Business, office, and coordination skills supporting high-demand service environments.",
+      ctaLabel: "Explore Business EMS Apprenticeship",
+      ctaHref: "/programs/business-ems-apprenticeship",
+    },
+  ],
+  sections: [
+    {
+      id: "business-ems-learn",
+      title: "What You Will Learn",
+      bullets: [
+        "Office workflows, scheduling, and basic documentation.",
+        "Customer service and communication across phone, email, and in-person.",
+        "Intro to compliance, confidentiality, and teamwork in service settings.",
+      ],
+      imageSrc: "/images/students-new/student-15.jpg",
+      imageAlt: "Office apprentice working at a computer and phone.",
+    },
+  ],
+};
+
+// ----------------------
+// NAIL TECHNICIAN APPRENTICESHIP VISUALS
+// ----------------------
+export const nailsVisuals: PageVisualConfig = {
+  slug: "nail-technician-apprenticeship",
+  heroes: [
+    {
+      id: "nails-hero-main",
+      imageSrc: "/images/PLACEHOLDER_PATHWAY_BEAUTY.jpg",
+      imageAlt: "Nail technician apprentice doing a manicure.",
+      eyebrow: "Beauty & Wellness",
+      title: "Nail Technician Apprenticeship",
+      subtitle:
+        "Hands-on nail services training with supervised shop hours and real clients.",
+      ctaLabel: "Explore Nail Technician Apprenticeship",
+      ctaHref: "/programs/nail-technician-apprenticeship",
+    },
+  ],
+  sections: [
+    {
+      id: "nails-learn",
+      title: "What You Will Learn",
+      bullets: [
+        "Manicures, pedicures, and basic nail enhancements.",
+        "Sanitation, disinfection, and safety standards.",
+        "Client experience, consultation, and rebooking.",
+      ],
+      imageSrc: "/images/hero-new/hero-3.jpg",
+      imageAlt: "Close-up of apprentice painting a client's nails.",
+    },
+  ],
+};
+
+// ----------------------
+// ESTHETICIAN APPRENTICESHIP VISUALS
+// ----------------------
+export const estheticianVisuals: PageVisualConfig = {
+  slug: "esthetician-apprenticeship",
+  heroes: [
+    {
+      id: "esthetician-hero-main",
+      imageSrc: "/images/students-new/student-16.jpg",
+      imageAlt: "Esthetician apprentice performing a facial.",
+      eyebrow: "Skin Care & Spa",
+      title: "Esthetician Apprenticeship",
+      subtitle:
+        "Skin care treatments, spa services, and client experience in a supervised setting.",
+      ctaLabel: "Explore Esthetician Apprenticeship",
+      ctaHref: "/programs/esthetician-apprenticeship",
+    },
+  ],
+  sections: [
+    {
+      id: "esthetician-learn",
+      title: "What You Will Learn",
+      bullets: [
+        "Basics of facials, skin analysis, and product knowledge.",
+        "Spa sanitation, safety, and infection control.",
+        "Customer service and communication in spa environments.",
+      ],
+      imageSrc: "/images/students-new/student-17.jpg",
+      imageAlt: "Learner practicing a facial on a demo client.",
+    },
+  ],
+};
+
+// ----------------------
+// CULINARY APPRENTICESHIP VISUALS
+// ----------------------
+export const culinaryVisuals: PageVisualConfig = {
+  slug: "culinary-apprenticeship",
+  heroes: [
+    {
+      id: "culinary-hero-main",
+      imageSrc: "/images/facilities-new/facility-10.jpg",
+      imageAlt: "Culinary apprentice plating food in a kitchen.",
+      eyebrow: "Food Service & Hospitality",
+      title: "Culinary Apprenticeship",
+      subtitle:
+        "Back-of-house culinary skills, safety, and kitchen operations in real kitchens.",
+      ctaLabel: "Explore Culinary Apprenticeship",
+      ctaHref: "/programs/culinary-apprenticeship",
+    },
+  ],
+  sections: [
+    {
+      id: "culinary-learn",
+      title: "What You Will Learn",
+      bullets: [
+        "Knife skills, prep work, and station setup.",
+        "Food safety, temperature control, and cleanliness.",
+        "Working a line, timing, and communication with kitchen teams.",
+      ],
+      imageSrc: "/images/facilities-new/facility-11.jpg",
+      imageAlt: "Kitchen apprentice chopping vegetables on a cutting board.",
+    },
+  ],
+};
+
+// ----------------------
+// BUSINESS TECHNICIAN APPRENTICESHIP VISUALS
+// ----------------------
+export const businessTechnicianVisuals: PageVisualConfig = {
+  slug: "business-technician-apprenticeship",
+  heroes: [
+    {
+      id: "business-tech-hero-main",
+      imageSrc: "/images/students-new/student-18.jpg",
+      imageAlt: "Business technician apprentice working on a laptop.",
+      eyebrow: "Business & Office Technology",
+      title: "Business Technician Apprenticeship",
+      subtitle:
+        "Digital tools, admin systems, and operations in a paid office apprenticeship.",
+      ctaLabel: "Explore Business Technician Apprenticeship",
+      ctaHref: "/programs/business-technician-apprenticeship",
+    },
+  ],
+  sections: [
+    {
+      id: "business-tech-learn",
+      title: "What You Will Learn",
+      bullets: [
+        "Office software, scheduling systems, and basic data entry.",
+        "Customer support and communication in office environments.",
+        "Intro to reports, checklists, and internal workflows.",
+      ],
+      imageSrc: "/images/students-new/student-19.jpg",
+      imageAlt: "Apprentice using office software at a workstation.",
+    },
+  ],
+};
+
+// ----------------------
 // Helper: get visuals by program slug
 // ----------------------
 export function getProgramVisualsBySlug(slug: string): PageVisualConfig | null {
@@ -609,6 +774,16 @@ export function getProgramVisualsBySlug(slug: string): PageVisualConfig | null {
       return buildingMaintenanceVisuals;
     case taxVisuals.slug:
       return taxVisuals;
+    case businessEmsVisuals.slug:
+      return businessEmsVisuals;
+    case nailsVisuals.slug:
+      return nailsVisuals;
+    case estheticianVisuals.slug:
+      return estheticianVisuals;
+    case culinaryVisuals.slug:
+      return culinaryVisuals;
+    case businessTechnicianVisuals.slug:
+      return businessTechnicianVisuals;
     default:
       return null;
   }
