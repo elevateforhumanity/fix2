@@ -9,6 +9,7 @@ const samplePlacements = employers.map((emp, idx) => ({
   programId: emp.interestedPrograms[0] || "prog-cna",
   placementType: emp.wantsApprenticeship ? "Apprenticeship" : emp.wantsWex ? "WEX" : "OJT",
   outcome: "Hired full-time after completion",
+  learnerName: `Student ${idx + 1}`,
 }));
 
 export const metadata = {
@@ -56,23 +57,8 @@ export default function EmployerPlacementsPage() {
             {samplePlacements.map((plc) => {
               const program = allPrograms.find((p) => p.id === plc.programId);
 
-              const typeLabel =
-                plc.workBasedType === "wex"
-                  ? "WEX – Work Experience"
-                  : plc.workBasedType === "ojt"
-                  ? "OJT – On-the-Job Training"
-                  : plc.workBasedType === "apprenticeship"
-                  ? "Apprenticeship / Earn While You Learn"
-                  : "Direct Hire";
-
-              const statusLabel =
-                plc.status === "screening"
-                  ? "Screening"
-                  : plc.status === "active"
-                  ? "Active"
-                  : plc.status === "completed"
-                  ? "Completed"
-                  : "On Hold";
+              const typeLabel = plc.placementType;
+              const statusLabel = "Completed";
 
               return (
                 <article
@@ -107,31 +93,9 @@ export default function EmployerPlacementsPage() {
                     </span>
                   </p>
 
-                  {plc.hoursCompleted != null && (
-                    <p className="mt-1 text-[11px] text-slate-300">
-                      Hours completed:{" "}
-                      <span className="text-slate-100">{plc.hoursCompleted}</span>
-                    </p>
-                  )}
-
-                  {plc.startDate && (
-                    <p className="mt-1 text-[11px] text-slate-300">
-                      Start date:{" "}
-                      <span className="text-slate-100">{plc.startDate}</span>
-                    </p>
-                  )}
-                  {plc.endDate && (
-                    <p className="mt-1 text-[11px] text-slate-300">
-                      End date:{" "}
-                      <span className="text-slate-100">{plc.endDate}</span>
-                    </p>
-                  )}
-
-                  {plc.notes && (
-                    <p className="mt-2 text-[11px] text-slate-400">
-                      Notes: {plc.notes}
-                    </p>
-                  )}
+                  <p className="mt-1 text-[11px] text-slate-300">
+                    Outcome: {plc.outcome}
+                  </p>
 
                   <div className="mt-3 rounded-lg bg-slate-900/80 p-3 text-[11px] text-slate-200">
                     <p className="font-semibold">Imagine this with your logo.</p>

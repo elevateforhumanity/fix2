@@ -14,6 +14,7 @@ import { MainNav } from '@/components/layout/MainNav';
 import { SiteFooter } from '@/components/layout/Footer';
 import MainHeader from '@/components/layout/MainHeader';
 import MainFooter from '@/components/layout/MainFooter';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
@@ -136,6 +137,7 @@ sizes="192x192" />
         <FacebookPixel />
         <PerformanceMonitor />
         <MainHeader />
+        <Breadcrumbs />
         <main id="main-content">{children}</main>
         <MainFooter />
         <ElevateChatWidget />

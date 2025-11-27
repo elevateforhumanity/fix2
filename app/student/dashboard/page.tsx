@@ -36,7 +36,7 @@ export default async function StudentDashboardV2Page() {
     .order("created_at", { ascending: false })
     .limit(25);
 
-  const enrollments = (data ?? []) as EnrollmentRow[];
+  const enrollments = (data ?? []) as unknown as EnrollmentRow[];
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">

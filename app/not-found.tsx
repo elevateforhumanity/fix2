@@ -1,7 +1,26 @@
+'use client';
+
 import Link from 'next/link';
-import { Home, Search, ArrowLeft } from 'lucide-react';
+import { Home, Search } from 'lucide-react';
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function NotFound() {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    // Track 404 errors
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'exception', {
+        description: `404 Error: ${pathname}`,
+        fatal: false,
+      });
+    }
+
+    // Log to console for debugging
+    console.warn(`404 Error: Page not found - ${pathname}`);
+  }, [pathname]);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-orange-50">
       <div className="text-center px-4 max-w-2xl">

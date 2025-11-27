@@ -68,6 +68,48 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Success Metrics */}
+      <section className="border-t border-slate-100 bg-white py-10 md:py-12">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center">
+            <h2 className="text-xl font-bold text-slate-900 md:text-2xl">
+              Real Results, Real Impact
+            </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Our programs connect people to careers that change lives
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-4">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-red-600 md:text-4xl">500+</div>
+              <div className="mt-1 text-xs text-slate-600">Students Enrolled</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-orange-500 md:text-4xl">85%</div>
+              <div className="mt-1 text-xs text-slate-600">Program Completion Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600 md:text-4xl">78%</div>
+              <div className="mt-1 text-xs text-slate-600">Job Placement Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green-600 md:text-4xl">$18/hr</div>
+              <div className="mt-1 text-xs text-slate-600">Average Starting Wage</div>
+            </div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/success-stories"
+              className="inline-block text-sm font-semibold text-red-600 hover:text-red-700"
+            >
+              Read Success Stories →
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

@@ -67,7 +67,7 @@ export default function Philanthropy() {
         <h1
           style={{ fontSize: '2.5rem', marginBottom: '1rem', color: '#7c3aed' }}
         >
-          Elevate for Humanity Foundation
+          Support Elevate for Humanity
         </h1>
         <p
           style={{
@@ -75,6 +75,18 @@ export default function Philanthropy() {
             color: '#6b7280',
             maxWidth: '800px',
             margin: '0 auto',
+          }}
+        >
+          Elevate For Humanity partners with RISE Foundation (SELFISH INC), a 501(c)(3) tax-exempt nonprofit.
+          <br />
+          <strong>EIN: 99-3483511</strong> • Your donation is tax-deductible.
+        </p>
+        <p
+          style={{
+            fontSize: '1rem',
+            color: '#6b7280',
+            maxWidth: '800px',
+            margin: '1rem auto 0',
           }}
         >
           {philanthropyData?.mission ||
