@@ -11,17 +11,18 @@ export function HomeProgramStrip({ items }: HomeProgramStripProps) {
 
   return (
     <section className="border-b border-slate-800 bg-slate-900">
-      <div className="mx-auto max-w-6xl px-4 py-6 text-white">
+      <div className="mx-auto max-w-6xl px-3 py-5 text-white md:px-4">
         <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-400">
               Program Pathways
             </p>
-            <h2 className="text-lg font-bold">Where Elevate Helps You Grow</h2>
-            <p className="mt-1 text-xs text-slate-300">
-              Choose from beauty, healthcare, trades, business, IT, tax/VITA,
-              and more. Each pathway is built with real credential partners and
-              workforce funding in mind.
+            <h2 className="text-base font-bold md:text-lg">
+              Where Elevate Helps You Grow
+            </h2>
+            <p className="mt-1 text-[11px] text-slate-300 md:text-xs">
+              Beauty, healthcare, trades, business, tax/VITA and more, aligned
+              with credential partners and real employers.
             </p>
           </div>
           <Link
@@ -32,13 +33,13 @@ export function HomeProgramStrip({ items }: HomeProgramStripProps) {
           </Link>
         </div>
 
-        <div className="mt-4 grid gap-4 md:grid-cols-4">
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 md:grid-cols-4">
           {items.map((item) => (
             <article
               key={item.id}
               className="flex flex-col overflow-hidden rounded-xl border border-slate-800 bg-slate-950/80"
             >
-              <div className="relative h-28 w-full">
+              <div className="relative w-full overflow-hidden aspect-[4/3]">
                 <Image
                   src={item.src}
                   alt={item.alt}

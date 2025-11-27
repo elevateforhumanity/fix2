@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getVisibleScormPackages } from "@/lms-data/scorm";
+import { scormPackages } from "@/lms-data/scorm";
 
 export const metadata = {
   title: "SCORM Courses | Elevate for Humanity",
@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 export default function ScormCatalogPage() {
-  const packages = getVisibleScormPackages();
+  const packages = scormPackages;
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
@@ -49,9 +49,11 @@ export default function ScormCatalogPage() {
                   <h2 className="mt-1 text-sm font-semibold text-white">
                     {pkg.title}
                   </h2>
-                  <p className="mt-1 line-clamp-3 text-[11px] text-slate-400">
-                    {pkg.description}
-                  </p>
+                  {pkg.notes && (
+                    <p className="mt-1 line-clamp-3 text-[11px] text-slate-400">
+                      {pkg.notes}
+                    </p>
+                  )}
 
                   <div className="mt-3 flex flex-wrap gap-2">
                     <Link

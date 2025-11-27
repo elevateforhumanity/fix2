@@ -7,8 +7,11 @@ export interface Lesson {
   title: string;
   type: LessonType;
   durationMinutes?: number;
+  // For video:
   videoUrl?: string;
+  // For SCORM (we'll hook JRI / VITA / partner SCORM here):
   scormPackageId?: string;
+  // For content:
   description?: string;
 }
 
@@ -33,6 +36,14 @@ export interface Course {
   isJriAligned?: boolean;
   modules: Module[];
 }
+
+/**
+ * SAMPLE COURSES
+ *
+ * 🔴 ELIZABETH:
+ * Same as before, but with one SCORM-style lesson added
+ * in the Tax/VITA course to show how JRI / VITA can launch.
+ */
 
 export const courses: Course[] = [
   {
@@ -193,6 +204,14 @@ export const courses: Course[] = [
             type: "video",
             durationMinutes: 12,
             videoUrl: "/videos/tax/career-paths.mp4",
+          },
+          {
+            id: "tax-lesson-1-3",
+            title: "Launch IRS Link & Learn / VITA Training",
+            type: "scorm",
+            scormPackageId: "vita-link-learn-1",
+            description:
+              "This will open your IRS Link & Learn / VITA training environment in a new tab, or a SCORM host once connected.",
           },
         ],
       },

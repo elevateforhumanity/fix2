@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getCourseBySlug, type Course, type Lesson } from "@/lms-data/courses";
-import { VideoLessonPlayer } from "@/components/course/VideoLessonPlayer";
+import { UniversalLessonPlayer } from "@/components/course/UniversalLessonPlayer";
 import { CourseOutline } from "@/components/course/CourseOutline";
 
 interface PageProps {
@@ -94,7 +94,7 @@ export default function CourseDetailPage({ params }: PageProps) {
           <div className="grid gap-4 md:grid-cols-[1.6fr,1.1fr]">
             <div className="space-y-3">
               {activeLesson ? (
-                <VideoLessonPlayer lesson={activeLesson} />
+                <UniversalLessonPlayer lesson={activeLesson} />
               ) : (
                 <div className="rounded-lg border border-slate-800 bg-slate-950/80 p-4 text-xs text-slate-300">
                   Choose a lesson from the outline to start.
@@ -115,7 +115,7 @@ export default function CourseDetailPage({ params }: PageProps) {
             <CourseOutline
               course={course}
               activeLessonId={activeLesson?.id}
-              onSelectLesson={(lesson) => setActiveLesson(lesson)}
+              onSelectLesson={(lesson: Lesson) => setActiveLesson(lesson)}
             />
           </div>
         </div>
