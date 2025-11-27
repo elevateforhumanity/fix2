@@ -50,7 +50,7 @@ export default function HomePage() {
           {/* Image side */}
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-xl">
             <Image
-              src="/images/facilities-new/facility-1.jpg"
+              src="/images/hero-new/hero-1.jpg"
               alt="Elevate for Humanity training facility"
               fill
               className="object-cover"
@@ -75,7 +75,7 @@ export default function HomePage() {
             <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/images/programs-new/program-1.jpg"
+                  src="/images/programs-new/program-2.jpg"
                   alt="Job seekers in training"
                   fill
                   className="object-cover"
@@ -92,7 +92,7 @@ export default function HomePage() {
             <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/images/facilities-new/facility-1.jpg"
+                  src="/images/facilities-new/facility-2.jpg"
                   alt="Employers partnering with Elevate"
                   fill
                   className="object-cover"
@@ -109,7 +109,7 @@ export default function HomePage() {
             <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/images/hero-new/hero-2.jpg"
+                  src="/images/hero-new/hero-3.jpg"
                   alt="Community partners supporting workforce development"
                   fill
                   className="object-cover"
