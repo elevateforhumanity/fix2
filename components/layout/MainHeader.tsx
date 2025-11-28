@@ -15,7 +15,6 @@ const mainNav = [
 const mobileOnlyNav = [
   { label: "Success Stories", href: "/success-stories" },
   { label: "FAQ", href: "/faq" },
-  { label: "JRI/SCORM Courses", href: "/student/scorm" },
 ];
 
 const authNav = [

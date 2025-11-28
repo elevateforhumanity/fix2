@@ -2,9 +2,13 @@ import Link from "next/link";
 import { scormPackages } from "@/lms-data/scormPackages";
 
 export const metadata = {
-  title: "SCORM Courses | Elevate for Humanity",
+  title: "Partner Courses | Student Portal",
   description:
-    "Browse SCORM-based courses such as Job Ready Indy (JRI) modules and other partner content."
+    "Access your assigned JRI and SCORM-based courses. For enrolled students only.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function ScormCatalogPage() {
