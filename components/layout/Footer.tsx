@@ -60,44 +60,52 @@ export function SiteFooter() {
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-4">
-              <a 
-                href="https://www.facebook.com/profile.php?id=61571046346179" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 rounded-lg bg-slate-700 hover:bg-red-500 text-white hover:text-white transition-all hover:scale-110"
-                aria-label="Facebook"
-              >
-                <Facebook size={20} strokeWidth={2.5} />
-              </a>
-              <a 
-                href="https://x.com/Elevate4Humani1" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 rounded-lg bg-slate-700 hover:bg-red-500 text-white hover:text-white transition-all hover:scale-110"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} strokeWidth={2.5} />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/elevate-for-humanity-b5a2b3339/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 rounded-lg bg-slate-700 hover:bg-red-500 text-white hover:text-white transition-all hover:scale-110"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} strokeWidth={2.5} />
-              </a>
-              <a 
-                href="https://instagram.com/elevateforhumanity" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 rounded-lg bg-slate-700 hover:bg-red-500 text-white hover:text-white transition-all hover:scale-110"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} strokeWidth={2.5} />
-              </a>
+            {/* Social Links with CTAs */}
+            <div>
+              <p className="text-sm font-bold text-orange-400 mb-3">FOLLOW US FOR UPDATES</p>
+              <div className="grid grid-cols-2 gap-3">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61571046346179" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 p-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all hover:scale-105 shadow-lg"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={24} strokeWidth={2.5} />
+                  <span className="font-semibold text-sm">Facebook</span>
+                </a>
+                <a 
+                  href="https://x.com/Elevate4Humani1" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 p-3 rounded-lg bg-slate-800 hover:bg-slate-900 text-white transition-all hover:scale-105 shadow-lg"
+                  aria-label="Twitter"
+                >
+                  <Twitter size={24} strokeWidth={2.5} />
+                  <span className="font-semibold text-sm">Twitter</span>
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/elevate-for-humanity-b5a2b3339/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 p-3 rounded-lg bg-blue-700 hover:bg-blue-800 text-white transition-all hover:scale-105 shadow-lg"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={24} strokeWidth={2.5} />
+                  <span className="font-semibold text-sm">LinkedIn</span>
+                </a>
+                <a 
+                  href="https://instagram.com/elevateforhumanity" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 p-3 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all hover:scale-105 shadow-lg"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={24} strokeWidth={2.5} />
+                  <span className="font-semibold text-sm">Instagram</span>
+                </a>
+              </div>
+              <p className="text-xs text-slate-400 mt-3">Get daily job tips, success stories & program updates!</p>
             </div>
           </div>
 
