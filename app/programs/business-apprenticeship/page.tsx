@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import { CheckCircle, Clock, DollarSign, Briefcase, ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Business Support Apprenticeship | Elevate for Humanity",
@@ -10,7 +12,76 @@ export default function BusinessApprenticeshipProgramPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       {/* HERO */}
-      <section className="border-b border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <section className="relative bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnptMCAzNmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnpNMCAzNmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] bg-repeat"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <span className="text-sm font-semibold">💼 Office Professional Career</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                Business Support Apprenticeship
+              </h1>
+              <p className="text-xl md:text-2xl text-blue-100 mb-4">
+                Admin, Customer Service & Office Professional Training
+              </p>
+              <p className="text-lg text-blue-50 mb-6">
+                Earn while you learn. Work in real offices while building skills in admin, customer success, call centers, and digital operations. Employer-sponsored apprenticeship.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-semibold">6-12 Months</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <DollarSign className="w-5 h-5" />
+                  <span className="font-semibold">$30K-$45K Salary</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Briefcase className="w-5 h-5" />
+                  <span className="font-semibold">Earn While Learning</span>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/apply?programId=prog-business-apprentice"
+                  className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all hover:scale-105 shadow-lg"
+                >
+                  Apply Now - FREE
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-800 transition-all border-2 border-white/20"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+                <Image
+                  src="/media/programs/business-hd.jpg"
+                  alt="Business Support Apprenticeship Training"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Original content continues */}
+      <section className="border-b border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 hidden">
         <div className="mx-auto max-w-5xl px-4 py-10">
           <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-400">
             Business Support Apprenticeship
