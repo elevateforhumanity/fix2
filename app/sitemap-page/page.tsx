@@ -1,4 +1,4 @@
-import { BookOpen, Briefcase, DollarSign, GraduationCap, Users, Settings, FileText, Award, Building2, Video, MessageSquare, Calendar, TrendingUp } from 'lucide-react'
+import { BookOpen, Briefcase, DollarSign, GraduationCap, Users, Settings, FileText, Award, Building2, Video, MessageSquare, Calendar, TrendingUp, Star } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata = {

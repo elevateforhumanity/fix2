@@ -1,15 +1,14 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { CheckCircle, Clock, Award, TrendingUp, DollarSign, Briefcase, ArrowRight } from 'lucide-react';
+import { CheckCircle, Clock, Award, TrendingUp } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "HVAC Technician Training | Elevate for Humanity",
-  description: "FREE HVAC technician training in 8-12 weeks. Learn heating, cooling, and refrigeration. 100% funded through WIOA. Start earning $45K-$65K.",
+  title: "HVAC Technician | Elevate for Humanity",
+  description: "Career training and workforce development programs.",
   openGraph: {
-    title: "HVAC Technician Training | Elevate for Humanity",
-    description: "FREE HVAC training. Earn $45K-$65K. 100% funded.",
-    images: ["/media/programs/hvac-hd.jpg"],
+    title: "Program | Elevate for Humanity",
+    description: "Career training and workforce development programs.",
+    images: ["/images/programs-new/program-12.jpg"],
     type: "website",
   },
 };
@@ -41,16 +40,14 @@ export default function HVACTechPage() {
         </div>
       </header>
       {/* Hero */}
-      <section className="relative bg-gradient-to-r from-orange-600 to-orange-500 text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnptMCAzNmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnpNMCAzNmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] bg-repeat"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="elevate-gradient-red-orange border-b border-white/10">
+        <div className="elevate-container py-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-                <span className="text-sm font-semibold">🔧 Skilled Trade | ETPL Approved</span>
-              </div>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="elevate-badge elevate-badge-blue">
+                  ETPL Approved | Program ID: 10004322
+                </span>
                 <span className="elevate-badge elevate-badge-purple">
                   640 Hours
                 </span>
@@ -93,24 +90,7 @@ export default function HVACTechPage() {
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
-                <Image
-                  src="/media/programs/hvac-hd.jpg"
-                  alt="HVAC Technician Training"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Rest of page - keeping existing content */}
-      <section className="elevate-card bg-white hidden">
+            <div className="elevate-card bg-white">
               <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
                 <div className="text-center p-8">
                   <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
