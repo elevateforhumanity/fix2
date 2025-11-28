@@ -3,21 +3,22 @@
 import Script from 'next/script';
 import { usePathname } from 'next/navigation';
 
-export default function GoogleAnalytics() {
+/**
+ * Google Analytics for LMS public pages only
+ * Tracks marketing pages and public LMS content
+ * Excludes private student/admin areas
+ */
+export default function GoogleAnalyticsLMS() {
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-SWPG2HVYVH';
   const pathname = usePathname();
 
-  // Don't track admin, student portal, or private pages
-  const isPrivatePage = pathname?.startsWith('/admin') || 
-                        pathname?.startsWith('/student') || 
-                        pathname?.startsWith('/portal') ||
-                        pathname?.startsWith('/delegate') ||
-                        pathname?.startsWith('/course/') ||
-                        pathname?.startsWith('/lms/profile') ||
-                        pathname?.startsWith('/lms/messages') ||
-                        pathname?.startsWith('/lms/notifications');
+  // Only track public LMS pages (courses catalog, public course pages)
+  const isPublicLMSPage = pathname?.startsWith('/lms/courses') && 
+                          !pathname?.includes('/profile') &&
+                          !pathname?.includes('/messages') &&
+                          !pathname?.includes('/notifications');
 
-  if (isPrivatePage) {
+  if (!isPublicLMSPage) {
     return null;
   }
 
@@ -27,7 +28,7 @@ export default function GoogleAnalytics() {
         src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics-lms" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
