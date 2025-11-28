@@ -229,7 +229,7 @@ export default async function AdminDashboardPage() {
         {/* Quick Actions */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-6">
           <h2 className="text-lg font-bold text-gray-900 mb-4">Quick Actions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
             <Link
               href="/admin/applications"
               className="p-4 border-2 border-gray-200 rounded-xl hover:border-brandPrimary hover:bg-blue-50 transition-all"
@@ -271,6 +271,118 @@ export default async function AdminDashboardPage() {
               <div className="font-semibold text-gray-900">Issue Certificates</div>
               <div className="text-xs text-gray-600 mt-1">
                 Award completions
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/reports"
+              className="p-4 border-2 border-gray-200 rounded-xl hover:border-orange-500 hover:bg-orange-50 transition-all"
+            >
+              <TrendingUp className="w-6 h-6 text-orange-600 mb-2" />
+              <div className="font-semibold text-gray-900">View Reports</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Analytics & insights
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        {/* Content Creation Tools */}
+        <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl shadow-sm border-2 border-indigo-200 p-6 mb-6">
+          <h2 className="text-lg font-bold text-gray-900 mb-2">Content Creation Tools</h2>
+          <p className="text-sm text-gray-600 mb-4">Build courses, upload videos, and manage digital content</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              href="/admin/course-builder"
+              className="p-4 bg-white border-2 border-indigo-200 rounded-xl hover:border-indigo-500 hover:shadow-lg transition-all"
+            >
+              <FileText className="w-6 h-6 text-indigo-600 mb-2" />
+              <div className="font-semibold text-gray-900">Course Builder</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Create new courses
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/ai-course-builder"
+              className="p-4 bg-white border-2 border-purple-200 rounded-xl hover:border-purple-500 hover:shadow-lg transition-all"
+            >
+              <TrendingUp className="w-6 h-6 text-purple-600 mb-2" />
+              <div className="font-semibold text-gray-900">AI Course Builder</div>
+              <div className="text-xs text-gray-600 mt-1">
+                AI-powered creation
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/videos/upload"
+              className="p-4 bg-white border-2 border-pink-200 rounded-xl hover:border-pink-500 hover:shadow-lg transition-all"
+            >
+              <FileText className="w-6 h-6 text-pink-600 mb-2" />
+              <div className="font-semibold text-gray-900">Video Builder</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Upload & manage videos
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/document-center"
+              className="p-4 bg-white border-2 border-blue-200 rounded-xl hover:border-blue-500 hover:shadow-lg transition-all"
+            >
+              <FileText className="w-6 h-6 text-blue-600 mb-2" />
+              <div className="font-semibold text-gray-900">Digital Binders</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Document management
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        {/* Additional Tools */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-6">
+          <h2 className="text-lg font-bold text-gray-900 mb-4">Additional Tools</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              href="/admin/quiz-builder"
+              className="p-4 border-2 border-gray-200 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all"
+            >
+              <FileText className="w-6 h-6 text-green-600 mb-2" />
+              <div className="font-semibold text-gray-900">Quiz Builder</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Create assessments
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/syllabus-generator"
+              className="p-4 border-2 border-gray-200 rounded-xl hover:border-yellow-500 hover:bg-yellow-50 transition-all"
+            >
+              <FileText className="w-6 h-6 text-yellow-600 mb-2" />
+              <div className="font-semibold text-gray-900">Syllabus Generator</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Auto-generate syllabi
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/program-generator"
+              className="p-4 border-2 border-gray-200 rounded-xl hover:border-teal-500 hover:bg-teal-50 transition-all"
+            >
+              <FileText className="w-6 h-6 text-teal-600 mb-2" />
+              <div className="font-semibold text-gray-900">Program Generator</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Build new programs
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/curriculum/upload"
+              className="p-4 border-2 border-gray-200 rounded-xl hover:border-orange-500 hover:bg-orange-50 transition-all"
+            >
+              <FileText className="w-6 h-6 text-orange-600 mb-2" />
+              <div className="font-semibold text-gray-900">Curriculum Upload</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Import curriculum
               </div>
             </Link>
           </div>
