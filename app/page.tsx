@@ -187,7 +187,7 @@ export default function HomePage() {
                   Hands-on training with HVAC equipment and systems for high-paying technical careers.
                 </p>
                 <Link
-                  href="/programs/hvac"
+                  href="/programs/hvac-tech"
                   className="mt-3 inline-flex items-center justify-center rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
                 >
                   Learn More
