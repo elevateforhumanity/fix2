@@ -338,6 +338,101 @@ export default async function AdminDashboardPage() {
           </div>
         </div>
 
+        {/* Reporting & Monitoring */}
+        <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl shadow-sm border-2 border-green-200 p-6 mb-6">
+          <h2 className="text-lg font-bold text-gray-900 mb-2">Reporting & Monitoring</h2>
+          <p className="text-sm text-gray-600 mb-4">Track performance, generate reports, and monitor system health</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              href="/admin/reports"
+              className="p-4 bg-white border-2 border-green-200 rounded-xl hover:border-green-500 hover:shadow-lg transition-all"
+            >
+              <TrendingUp className="w-6 h-6 text-green-600 mb-2" />
+              <div className="font-semibold text-gray-900">Reports</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Generate reports
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/analytics"
+              className="p-4 bg-white border-2 border-blue-200 rounded-xl hover:border-blue-500 hover:shadow-lg transition-all"
+            >
+              <TrendingUp className="w-6 h-6 text-blue-600 mb-2" />
+              <div className="font-semibold text-gray-900">Analytics</div>
+              <div className="text-xs text-gray-600 mt-1">
+                View insights
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/site-health"
+              className="p-4 bg-white border-2 border-teal-200 rounded-xl hover:border-teal-500 hover:shadow-lg transition-all"
+            >
+              <TrendingUp className="w-6 h-6 text-teal-600 mb-2" />
+              <div className="font-semibold text-gray-900">Site Health</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Monitor system
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/compliance-dashboard"
+              className="p-4 bg-white border-2 border-purple-200 rounded-xl hover:border-purple-500 hover:shadow-lg transition-all"
+            >
+              <FileText className="w-6 h-6 text-purple-600 mb-2" />
+              <div className="font-semibold text-gray-900">Compliance</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Track compliance
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/outcomes"
+              className="p-4 bg-white border-2 border-orange-200 rounded-xl hover:border-orange-500 hover:shadow-lg transition-all"
+            >
+              <Award className="w-6 h-6 text-orange-600 mb-2" />
+              <div className="font-semibold text-gray-900">Outcomes</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Student outcomes
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/impact"
+              className="p-4 bg-white border-2 border-pink-200 rounded-xl hover:border-pink-500 hover:shadow-lg transition-all"
+            >
+              <TrendingUp className="w-6 h-6 text-pink-600 mb-2" />
+              <div className="font-semibold text-gray-900">Impact</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Measure impact
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/retention"
+              className="p-4 bg-white border-2 border-indigo-200 rounded-xl hover:border-indigo-500 hover:shadow-lg transition-all"
+            >
+              <Users className="w-6 h-6 text-indigo-600 mb-2" />
+              <div className="font-semibold text-gray-900">Retention</div>
+              <div className="text-xs text-gray-600 mt-1">
+                Track retention
+              </div>
+            </Link>
+
+            <Link
+              href="/admin/audit-logs"
+              className="p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-gray-500 hover:shadow-lg transition-all"
+            >
+              <FileText className="w-6 h-6 text-gray-600 mb-2" />
+              <div className="font-semibold text-gray-900">Audit Logs</div>
+              <div className="text-xs text-gray-600 mt-1">
+                View activity logs
+              </div>
+            </Link>
+          </div>
+        </div>
+
         {/* Additional Tools */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mb-6">
           <h2 className="text-lg font-bold text-gray-900 mb-4">Additional Tools</h2>

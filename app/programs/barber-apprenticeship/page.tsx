@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { HourTracker } from "@/components/apprenticeship/HourTracker";
 import { Metadata } from "next";
+import { CheckCircle, Clock, DollarSign, Award, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Barber Apprenticeship | Elevate for Humanity",
@@ -76,7 +78,76 @@ export default function BarberApprenticeshipPage() {
   return (
     <main className="bg-slate-50 text-slate-900">
       {/* HERO */}
-      <section className="border-b border-slate-100 bg-white">
+      <section className="relative bg-gradient-to-r from-slate-900 to-slate-800 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnptMCAzNmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnpNMCAzNmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] bg-repeat"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <span className="text-sm font-semibold">✂️ DOL Registered Apprenticeship</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                Barber Apprenticeship
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-200 mb-4">
+                Earn While You Learn - Get Paid to Build Your Barber Career
+              </p>
+              <p className="text-lg text-slate-300 mb-6">
+                State-approved apprenticeship program. Work in real barbershops, earn wages, and build hours toward your Indiana barber license.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-semibold">12-18 Months</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <DollarSign className="w-5 h-5" />
+                  <span className="font-semibold">Earn While Learning</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Award className="w-5 h-5" />
+                  <span className="font-semibold">State License</span>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 bg-white text-slate-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-100 transition-all hover:scale-105 shadow-lg"
+                >
+                  Apply Now - FREE
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-slate-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-600 transition-all border-2 border-white/20"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+                <Image
+                  src="/media/programs/barber-hd.jpg"
+                  alt="Barber Apprenticeship Training"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Original content continues */}
+      <section className="border-b border-slate-100 bg-white hidden">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 md:flex-row md:items-center md:py-16">
           <div className="flex-1">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500">
