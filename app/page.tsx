@@ -147,23 +147,23 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {/* CNA */}
+            {/* Medical Assistant */}
             <article className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/media/programs/cna-training-video-thumbnail.jpg"
-                  alt="CNA Training Program"
+                  src="/images/medical-assistant-1.jpg"
+                  alt="Medical Assistant Training Program"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-slate-900">CNA & Healthcare</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Medical Assistant</h3>
                 <p className="mt-2 text-sm text-slate-700">
-                  Train for Certified Nursing Assistant roles with hands-on clinical experience and job placement.
+                  Train for Medical Assistant roles with hands-on clinical experience and job placement.
                 </p>
                 <Link
-                  href="/programs/cna"
+                  href="/programs/medical-assistant"
                   className="mt-3 inline-flex items-center justify-center rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
                 >
                   Learn More
@@ -175,16 +175,16 @@ export default function HomePage() {
             <article className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/media/programs/building-tech-hd.jpg"
-                  alt="HVAC & Building Tech Training Program"
+                  src="/media/programs/hvac-hd.jpg"
+                  alt="HVAC Technician Training Program"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-slate-900">HVAC & Building Tech</h3>
+                <h3 className="text-lg font-semibold text-slate-900">HVAC Technician</h3>
                 <p className="mt-2 text-sm text-slate-700">
-                  Hands-on training for high-paying technical careers in heating, cooling, and building systems.
+                  Hands-on training with HVAC equipment and systems for high-paying technical careers.
                 </p>
                 <Link
                   href="/programs/hvac"
