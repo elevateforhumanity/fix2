@@ -50,8 +50,8 @@ export default function HomePage() {
           {/* Image side */}
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-xl">
             <Image
-              src="/images/artlist/hero-training-1.jpg"
-              alt="Students in training at Elevate for Humanity"
+              src="/images/facilities-new/facility-1.jpg"
+              alt="Elevate for Humanity at Keystone Crossing"
               fill
               className="object-cover"
               priority
@@ -175,8 +175,8 @@ export default function HomePage() {
             <article className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/images/artlist/hero-training-5.jpg"
-                  alt="HVAC Training Program"
+                  src="/media/programs/building-tech-hd.jpg"
+                  alt="HVAC & Building Tech Training Program"
                   fill
                   className="object-cover"
                 />
@@ -199,7 +199,7 @@ export default function HomePage() {
             <article className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/images/programs/efh-barber-hero.jpg"
+                  src="/media/programs/barber-hd.jpg"
                   alt="Barber Apprenticeship Program"
                   fill
                   className="object-cover"
