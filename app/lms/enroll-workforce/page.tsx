@@ -126,9 +126,9 @@ export default function WorkforceEnrollmentPage() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
   const supabase = supabaseUrl && supabaseKey ? createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+    supabaseUrl,
+    supabaseKey
+  ) : null;
 
   const handleInputChange = (
     e: React.ChangeEvent<

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Calendar, User, ArrowRight, BookOpen } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -126,22 +127,32 @@ export default async function BlogPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-50 via-white to-orange-50 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
-              <BookOpen size={16} />
-              <span>Latest Updates</span>
+      {/* Hero Section with Image */}
+      <section className="relative h-80 overflow-hidden">
+        <Image
+          src="/images/team-new/team-13.jpg"
+          alt="Blog and Success Stories"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-900/80 to-red-900/60" />
+        <div className="relative h-full flex items-center">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur px-4 py-2 text-sm font-semibold text-white mb-6">
+                <BookOpen size={16} />
+                <span>Latest Updates</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+                Blog & Success Stories
+              </h1>
+              
+              <p className="text-lg text-white/90 leading-relaxed">
+                Latest insights on workforce development, career training, funding programs, and inspiring success stories from our students.
+              </p>
             </div>
-            
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-6">
-              Blog & Success Stories
-            </h1>
-            
-            <p className="text-lg text-slate-600 leading-relaxed">
-              Latest insights on workforce development, career training, funding programs, and inspiring success stories from our students.
-            </p>
           </div>
         </div>
       </section>

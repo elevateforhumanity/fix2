@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { demoStudentProfile, getStudentProgramOverview } from "@/lms-data/studentProfile";
 import ContentProtection from "@/components/protection/ContentProtection";
 import AIBlockMeta from "@/components/protection/AIBlockMeta";
@@ -32,40 +33,42 @@ export default function StudentHubPage() {
     <>
       <AIBlockMeta />
       <ContentProtection level="maximum" showWatermark>
-        <main className="min-h-screen bg-slate-900 text-white">
-      {/* HERO */}
-      <section className="border-b border-slate-800 bg-slate-900">
-        <div className="mx-auto max-w-5xl px-4 py-6">
-          <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-400">
-            Student
-          </p>
-          <h1 className="mt-1 text-2xl font-bold">
-            Hi, {demoStudentProfile.firstName} – this is your Elevate hub.
-          </h1>
-          <p className="mt-2 text-xs text-slate-300">
-            Here&apos;s where you can see your programs, applications, courses,
-            and next steps. As we connect more systems, this page will show live
-            progress, funding, and placements.
-          </p>
-          <div className="mt-3 flex flex-wrap gap-2 text-[11px]">
-            <Link
-              href="/programs"
-              className="rounded-md border border-slate-700 px-4 py-2 font-semibold text-slate-100 hover:bg-slate-800"
-            >
-              Explore All Programs
-            </Link>
-            <Link
-              href="/apply"
-              className="rounded-md bg-orange-400 px-4 py-2 font-semibold text-white hover:bg-orange-500"
-            >
-              Start / Update Application
-            </Link>
-            <Link
-              href="/funding"
-              className="rounded-md border border-slate-700 px-4 py-2 font-semibold text-slate-100 hover:bg-slate-800"
-            >
-              Learn About Funding
-            </Link>
+        <main className="min-h-screen bg-white text-slate-900">
+      {/* HERO WITH IMAGE */}
+      <section className="relative h-64 overflow-hidden">
+        <Image
+          src="/media/hero/hero-learners.jpg"
+          alt="Student Hub"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/60" />
+        <div className="relative h-full flex items-center">
+          <div className="mx-auto max-w-5xl px-4 w-full">
+            <p className="text-xs font-semibold uppercase tracking-wide text-orange-400">
+              Student Portal
+            </p>
+            <h1 className="mt-2 text-3xl font-bold text-white md:text-4xl">
+              Hi, {demoStudentProfile.firstName} – Welcome to Your Hub
+            </h1>
+            <p className="mt-3 text-sm text-white/90 max-w-2xl">
+              Track your programs, applications, courses, and next steps all in one place.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link
+                href="/programs"
+                className="rounded-full border-2 border-white bg-white/10 backdrop-blur px-6 py-2 text-sm font-semibold text-white hover:bg-white/20"
+              >
+                Explore Programs
+              </Link>
+              <Link
+                href="/apply"
+                className="rounded-full bg-orange-500 px-6 py-2 text-sm font-semibold text-white hover:bg-orange-600"
+              >
+                Update Application
+              </Link>
+            </div>
           </div>
         </div>
       </section>
