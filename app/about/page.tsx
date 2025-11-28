@@ -267,7 +267,7 @@ export default function AboutPage() {
                 free tax preparation services and tax preparer certification training.
               </p>
               <p className="mt-3 text-xs text-slate-500">
-                VITA SDIN: 99420837 | IRS-Certified Tax Preparation
+                IRS-Certified Tax Preparation | Official documentation available upon request
               </p>
             </div>
 

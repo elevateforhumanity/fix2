@@ -78,9 +78,7 @@ export function MainFooter() {
               <p className="mt-1 text-[11px] text-slate-600">
                 <strong>RISE Forward Foundation</strong>
                 <br />
-                VITA tax preparation training & business courses
-                <br />
-                SDIN: 99420837
+                IRS-certified VITA tax preparation training & business courses
               </p>
             </div>
           </div>

@@ -1,53 +1,76 @@
-import Link from "next/link";
 import { Metadata } from "next";
+import ProgramLandingPage from "@/components/templates/ProgramLandingPage";
 
 export const metadata: Metadata = {
-  title: "HVAC Technician | Elevate for Humanity",
-  description: "Career training and workforce development programs.",
+  title: "HVAC Technician Training | Elevate for Humanity",
+  description: "Hands-on HVAC training with EPA 608 certification prep. Connect to employers hiring in Marion County through workforce grants and employer sponsors.",
   openGraph: {
-    title: "Program | Elevate for Humanity",
-    description: "Career training and workforce development programs.",
+    title: "HVAC Technician Training | Elevate for Humanity",
+    description: "Hands-on HVAC training with EPA 608 certification prep and job placement support.",
     images: ["/images/programs-new/program-16.jpg"],
     type: "website",
   },
 };
 
-const hvacHighlights = [
-  "Heating, cooling, and refrigeration system fundamentals",
-  "Hands-on lab training with real HVAC equipment and tools",
-  "EPA 608 certification prep (required for refrigerant handling)",
-  "Electrical systems, troubleshooting, and safety protocols",
-  "Career coaching and job placement with HVAC contractors",
-];
-
-const whoItServes = [
-  "Young adults seeking a skilled trade with strong earning potential",
-  "Career changers looking for stable, in-demand technical work",
-  "Re-entry individuals rebuilding careers in the trades",
-  "Workforce clients referred by WRG and community partners",
-];
-
-const fundingOptions = [
-  "Workforce Ready Grant (WRG) – where eligible",
-  "WIOA & workforce board funding – where approved",
-  "Workforce grants and employer-sponsored training",
-  "Support services for tools, transportation, and supplies",
-  "Payment plans or self-pay options when funding is not available",
-];
-
-const outcomes = [
-  "EPA 608 certification (required for HVAC work)",
-  "Documented technical competencies in HVAC systems",
-  "Hands-on experience with installation, maintenance, and repair",
-  "Direct pathways to employment with HVAC contractors and service companies",
-];
-
 export default function HVACTechnicianPage() {
   return (
-    <main className="bg-slate-50">
-      {/* Hero */}
-      <section className="border-b border-slate-100 bg-white">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 md:flex-row md:items-center md:py-16">
+    <ProgramLandingPage
+      category="Skilled Trades • High-Demand"
+      title="HVAC Technician Training"
+      description="Hands-on training in heating, ventilation, and air conditioning systems with direct connections to employers that are hiring in Marion County."
+      duration="4–9 months"
+      fundingTags={["Workforce Grants", "Employer Sponsors"]}
+      format="Lab + Field"
+      imageSrc="/images/programs-new/program-16.jpg"
+      imageAlt="Learners working with HVAC equipment"
+      programSlug="hvac-technician"
+      whoThisIsFor={{
+        description: "Adults who want a skilled trade career with stable income, including career changers and re-entry talent ready for a fresh start.",
+        bullets: [
+          "No prior HVAC experience required",
+          "Comfortable with hands-on, technical work",
+          "Willing to pass employer screenings and show up consistently",
+        ],
+      }}
+      whatYouLearn={[
+        "HVAC safety, tools, and core systems",
+        "Residential and light commercial troubleshooting",
+        "EPA 608 certification prep (required for refrigerant handling)",
+        "Customer communication and soft skills",
+        "How to prepare for employer interviews and certifications",
+      ]}
+      howItWorks={[
+        {
+          step: 1,
+          title: "Apply with Elevate",
+          description: "We review your goals and barriers.",
+        },
+        {
+          step: 2,
+          title: "Get matched to funding",
+          description: "WRG, WIOA, or employer sponsors.",
+        },
+        {
+          step: 3,
+          title: "Start training",
+          description: "You attend lab + field with partner schools.",
+        },
+        {
+          step: 4,
+          title: "Connect to employers",
+          description: "We help with interviews and placement.",
+        },
+      ]}
+      fundingOptions={[
+        "Workforce Ready Grants",
+        "WIOA funding (partner workforce boards)",
+        "Employer-sponsored training pathways",
+        "Barrier support (transportation, childcare referrals, etc.)",
+      ]}
+      fundingNote="Elevate For Humanity is the front door – we help you navigate approvals with WorkOne, EmployIndy, and partner programs so you're not doing it alone."
+      schedule="Flexible scheduling with day and evening options. Hands-on lab work combined with field experience."
+      whatHappensAfter="Upon completion, you'll be connected to HVAC contractors and service companies hiring in the Indianapolis area. Many graduates start as apprentices or junior technicians."
+    />
           <div className="flex-1">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-500">
               HVAC Technician • Skilled Trade Pathway

@@ -15,7 +15,7 @@ export default function TaxPrepPage() {
             RISE Forward Foundation
           </p>
           <p className="mt-1 text-xs text-slate-600">
-            A program of SELFISH INC (501c3) | IRS VITA Site SDIN: 99420837
+            A program of SELFISH INC (501c3) | IRS-Certified VITA Site
           </p>
           <p className="mt-3 max-w-2xl text-sm text-slate-700 md:text-base">
             Become an IRS-certified tax preparer through our VITA (Volunteer Income Tax Assistance) 
@@ -45,9 +45,8 @@ export default function TaxPrepPage() {
                     1. VITA Certification (Free Tax Prep)
                   </h3>
                   <p className="mt-2 text-xs text-slate-700">
-                    IRS-certified volunteer tax preparer training through RISE Forward Foundation 
-                    (VITA Site SDIN: 99420837). Prepare taxes for low-income families and earn 
-                    IRS certification.
+                    IRS-certified volunteer tax preparer training through RISE Forward Foundation. 
+                    Prepare taxes for low-income families and earn IRS certification.
                   </p>
                 </div>
                 <div className="rounded-lg border border-blue-200 bg-blue-50 p-4">
@@ -235,7 +234,7 @@ export default function TaxPrepPage() {
             <div className="mt-4 grid gap-3 md:grid-cols-2">
               <div>
                 <p className="text-xs font-semibold text-slate-900">IRS VITA Site</p>
-                <p className="text-xs text-slate-700">SDIN: 99420837</p>
+                <p className="text-xs text-slate-700">IRS-Certified</p>
               </div>
               <div>
                 <p className="text-xs font-semibold text-slate-900">ETPL Provider</p>

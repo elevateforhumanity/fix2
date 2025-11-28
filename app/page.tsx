@@ -12,51 +12,84 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* HERO SECTION */}
-      <section className="w-full bg-white">
-        <div className="max-w-6xl mx-auto grid gap-8 px-4 py-12 lg:grid-cols-2 items-center">
-          {/* Text side */}
-          <div>
-            <span className="inline-flex items-center rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-600">
-              100% Free Training
-            </span>
-            <h1 className="mt-4 text-3xl lg:text-5xl font-bold text-slate-900 leading-tight">
-              Career Training That Leads to Real Jobs
-            </h1>
-            <p className="mt-4 text-base lg:text-lg text-slate-700">
-              Free workforce training through WIOA funding. No tuition, no debt. 
-              Learn healthcare, skilled trades, beauty, business, and more with job placement support.
+    <main className="bg-slate-50">
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-blue-600 text-white">
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,_#fff,_transparent_60%)]" />
+
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 py-16 md:flex-row md:py-24">
+          {/* Text */}
+          <div className="max-w-xl space-y-6">
+            <p className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide">
+              Free & funded training • Marion County
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <h1 className="text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
+              Career Training That Leads to <span className="underline decoration-white/70">Real Jobs</span>
+            </h1>
+            <p className="text-sm md:text-base text-white/90">
+              Elevate For Humanity connects you to approved training, workforce grants, and employers so you can
+              start a new career <span className="font-semibold">without tuition or debt</span>.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
               <Link
-                href="/apply"
-                className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white hover:bg-red-700 transition-colors"
+                href="/getstarted"
+                className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 shadow-md hover:bg-slate-100"
               >
-                Apply Now
+                Start My Application
               </Link>
               <Link
-                href="/programs"
-                className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white hover:bg-red-700 transition-colors"
+                href="/contact"
+                className="rounded-full border border-white/70 px-5 py-2 text-sm font-semibold text-white hover:bg-white/10"
               >
-                Browse Programs
+                Talk to Our Team
               </Link>
             </div>
-            <p className="mt-4 text-xs text-slate-500">
-              Indianapolis residents may qualify for Workforce Ready Grants, WIOA funding, or paid apprenticeships.
-            </p>
+
+            <div className="mt-4 flex flex-wrap gap-4 text-xs text-white/80">
+              <div>
+                <p className="font-semibold">Indianapolis Residents</p>
+                <p>May qualify for Workforce Ready Grants, WIOA funding, or paid apprenticeships.</p>
+              </div>
+            </div>
           </div>
 
-          {/* Image side */}
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-xl">
-            <Image
-              src="/images/facilities-new/facility-1.jpg"
-              alt="Elevate for Humanity at Keystone Crossing"
-              title="Elevate for Humanity Training Center at Keystone Crossing Indianapolis"
-              fill
-              className="object-cover"
-              priority
-            />
+          {/* Hero image / collage */}
+          <div className="grid max-w-md gap-4 md:max-w-lg md:grid-cols-2">
+            <div className="space-y-4">
+              <div className="relative h-40 w-full md:h-44">
+                <Image
+                  src="/media/hero/hero-learners.jpg"
+                  alt="Healthcare training lab"
+                  fill
+                  className="rounded-2xl object-cover shadow-lg"
+                  priority
+                />
+              </div>
+              <div className="relative h-32 w-full md:h-36">
+                <Image
+                  src="/images/artlist/hero-training-2.jpg"
+                  alt="HVAC students in training"
+                  fill
+                  className="rounded-2xl object-cover shadow-lg"
+                />
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div className="relative h-32 w-full md:h-36">
+                <Image
+                  src="/images/programs-new/program-11.jpg"
+                  alt="Barber apprenticeship in a real shop"
+                  fill
+                  className="rounded-2xl object-cover shadow-lg"
+                />
+              </div>
+              <div className="rounded-2xl bg-white/10 p-4 text-xs backdrop-blur">
+                <p className="font-semibold">20+ Workforce Programs</p>
+                <p>Healthcare • Trades • Beauty • Business • Readiness & Re-Entry</p>
+                <p className="mt-2 text-white/80">ETPL Provider · WIOA & WRG aligned · DOL Apprenticeship pathways</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

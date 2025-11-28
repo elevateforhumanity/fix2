@@ -40,79 +40,100 @@ export default async function StudentDashboardV2Page() {
   const enrollments = (data ?? []) as unknown as EnrollmentRow[];
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
-      {/* Hero Section with Image */}
-      <section className="relative bg-slate-900">
-        <div className="relative h-48 md:h-56">
-          <Image
-            src="/media/hero/hero-student-dashboard.jpg"
-            alt="Student Dashboard"
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/60" />
-        </div>
-        <div className="absolute inset-0 flex items-center">
-          <div className="mx-auto max-w-5xl px-4 w-full">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-400">
-              Student Portal
+    <main className="min-h-screen bg-slate-50">
+      <div className="mx-auto max-w-6xl px-4 py-8">
+        <header className="mb-6 flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900">Welcome back</h1>
+            <p className="text-sm text-slate-600">
+              Pick up where you left off, track your progress, and stay on top of your training.
             </p>
-            <h1 className="mt-2 text-2xl md:text-3xl font-bold text-white">Welcome to Elevate</h1>
-            <p className="mt-2 text-sm text-slate-200 max-w-3xl">
-              This dashboard shows your active and recent programs. As we connect
-              authentication, this will filter to just your enrollments.
-            </p>
-            {error && (
-              <p className="mt-3 text-[11px] text-red-400">
-                There was a problem loading your enrollments. Check Supabase
-                configuration and migrations.
-              </p>
-            )}
           </div>
-        </div>
-      </section>
+          <a
+            href="/programs"
+            className="rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white hover:bg-slate-800"
+          >
+            Browse All Programs
+          </a>
+        </header>
 
-      <section className="bg-slate-900">
-        <div className="mx-auto max-w-5xl px-4 py-6 space-y-4 text-[11px]">
-          {enrollments.length === 0 ? (
-            <p className="text-slate-300">
-              No enrollments yet. Once a coach enrolls you in a program, it will
+        {error && (
+          <div className="mb-6 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+            There was a problem loading your enrollments. Check Supabase configuration and migrations.
+          </div>
+        )}
+
+        <div className="grid gap-6 md:grid-cols-[2fr,1fr]">
+          {/* Left column */}
+          <div className="space-y-6">
+            {/* Continue learning */}
+            <section className="rounded-2xl bg-white p-5 shadow-sm">
+              <h2 className="text-sm font-semibold text-slate-900">Your Programs</h2>
+              {enrollments.length === 0 ? (
+                <p className="mt-3 text-xs text-slate-600">
+                  No enrollments yet. Once a coach enrolls you in a program, it will
               appear here.
             </p>
           ) : (
             <div className="grid gap-3 md:grid-cols-2">
-              {enrollments.map((enr) => (
-                <article
-                  key={enr.id}
-                  className="rounded-xl border border-slate-800 bg-slate-950 p-3"
-                >
-                  <p className="text-[10px] uppercase text-slate-400">
-                    {enr.programs?.[0]?.code ?? "Program"}
-                  </p>
-                  <p className="text-[12px] font-semibold text-white">
-                    {enr.programs?.[0]?.name ?? "Program"}
-                  </p>
-                  <p className="mt-1 text-[11px] text-slate-300">
-                    Status:{" "}
-                    <span className="font-semibold capitalize">
-                      {enr.status}
-                    </span>
-                  </p>
-                  <p className="mt-1 text-[10px] text-slate-400">
-                    Start: {enr.start_date ?? "TBD"} • End:{" "}
-                    {enr.end_date ?? "TBD"}
-                  </p>
-                  <p className="mt-2 text-[10px] text-slate-500">
-                    Later this card can show JRI completion, lesson progress,
-                    and links directly into your modules.
-                  </p>
-                </article>
-              ))}
-            </div>
-          )}
+              <div className="mt-3 space-y-3">
+                {enrollments.map((enr) => (
+                  <article
+                    key={enr.id}
+                    className="rounded-xl border border-slate-200 bg-slate-50 p-4"
+                  >
+                    <p className="text-[10px] uppercase tracking-wide text-orange-600">
+                      {enr.programs?.[0]?.code ?? "Program"}
+                    </p>
+                    <p className="text-sm font-semibold text-slate-900">
+                      {enr.programs?.[0]?.name ?? "Program"}
+                    </p>
+                    <p className="mt-1 text-xs text-slate-600">
+                      Status:{" "}
+                      <span className="font-semibold capitalize">
+                        {enr.status}
+                      </span>
+                    </p>
+                    <p className="mt-1 text-xs text-slate-500">
+                      Start: {enr.start_date ?? "TBD"} • End:{" "}
+                      {enr.end_date ?? "TBD"}
+                    </p>
+                    <button className="mt-3 inline-flex items-center rounded-full bg-orange-500 px-4 py-2 text-xs font-semibold text-white hover:bg-orange-600">
+                      Continue Learning
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          {/* Right column */}
+          <aside className="space-y-6">
+            <section className="rounded-2xl bg-white p-5 shadow-sm">
+              <h2 className="text-sm font-semibold text-slate-900">Funding & Support</h2>
+              <p className="mt-2 text-xs text-slate-600">
+                Need help with transportation, childcare, or paperwork? Your case manager and Elevate staff can help.
+              </p>
+              <a
+                href="/support"
+                className="mt-3 inline-flex rounded-full border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+              >
+                Request Support
+              </a>
+            </section>
+
+            <section className="rounded-2xl bg-slate-900 p-5 text-xs text-slate-100">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-orange-300">
+                Mobile App
+              </p>
+              <p className="mt-1 font-semibold">Take your learning anywhere.</p>
+              <p className="mt-2 text-slate-300">
+                Download the Elevate app to watch lessons, track progress, and get reminders on your phone.
+              </p>
+            </section>
+          </aside>
         </div>
-      </section>
+      </div>
     </main>
   );
 }
