@@ -79,7 +79,7 @@ export default function Philanthropy() {
         >
           Elevate For Humanity partners with RISE Foundation (SELFISH INC), a 501(c)(3) tax-exempt nonprofit.
           <br />
-          <strong>EIN: 99-3483511</strong> • Your donation is tax-deductible.
+          Your donation is tax-deductible.
         </p>
         <p
           style={{

@@ -49,7 +49,7 @@ export default function AboutPage() {
             <p className="mt-3 text-sm text-slate-700">
               <strong>Elevate for Humanity Training Center</strong> is the workforce development program of{" "}
               <strong>SELFISH INC</strong>, a 501(c)(3) tax-exempt nonprofit organization 
-              (EIN: 99-3483511) dedicated to holistic support for individuals and families.
+              dedicated to holistic support for individuals and families.
             </p>
             <p className="mt-3 text-sm text-slate-700">
               SELFISH INC operates two primary programs:
@@ -228,7 +228,7 @@ export default function AboutPage() {
                 to promote our workforce training programs and reach more individuals in need.
               </p>
               <p className="mt-3 text-xs text-slate-500">
-                Charity ID: 99-3483511 | Google for Nonprofits Partner
+                Google for Nonprofits Partner
               </p>
             </div>
 
@@ -254,7 +254,7 @@ export default function AboutPage() {
                 dedicated to workforce development and mental wellness support.
               </p>
               <p className="mt-3 text-xs text-slate-500">
-                EIN: 99-3483511 | Tax-Exempt Nonprofit
+                Tax-Exempt Nonprofit
               </p>
             </div>
 

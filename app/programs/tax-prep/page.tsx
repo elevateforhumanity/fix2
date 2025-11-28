@@ -229,7 +229,7 @@ export default function TaxPrepPage() {
               About RISE Forward Foundation
             </h2>
             <p className="mt-3 text-sm text-slate-700">
-              RISE Forward Foundation is a program of <strong>SELFISH INC</strong> (501c3, EIN: 99-3483511) 
+              RISE Forward Foundation is a program of <strong>SELFISH INC</strong> (501c3) 
               dedicated to providing free tax preparation services and tax preparer training to the community.
             </p>
             <div className="mt-4 grid gap-3 md:grid-cols-2">

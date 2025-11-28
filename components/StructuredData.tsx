@@ -8,7 +8,6 @@ export default function StructuredData() {
     logo: 'https://www.elevateforhumanity.org/assets/logo-efh.svg',
     description:
       'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
-    taxID: '88-2609728',
     identifier: {
       '@type': 'PropertyValue',
       propertyID: 'UEI',
