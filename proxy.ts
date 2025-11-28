@@ -206,17 +206,11 @@ export default function proxy(request: NextRequest) {
     });
   }
   
-  // Redirect individual blog posts to main blog page
-  if (path.startsWith('/blog/') && path !== '/blog') {
-    return NextResponse.redirect(new URL('/blog', request.url), 301);
-  }
+  // Allow individual blog posts to be accessible
+  // Removed redirect to make blog posts visible
   
-  // Consolidate student portals - redirect /student/* to /portal/student/*
-  // BUT keep /lms/* paths as-is (no redirect)
-  if (path.startsWith('/student/') && !path.startsWith('/students')) {
-    const newPath = path.replace('/student/', '/portal/student/');
-    return NextResponse.redirect(new URL(newPath, request.url), 301);
-  }
+  // Allow /student/* pages to be accessible directly
+  // Removed redirect to /portal/student/* to make student pages visible
   
   // REMOVED: No longer redirecting /lms/* to /portal/student/*
   // LMS routes stay at /lms for better performance and clarity

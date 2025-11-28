@@ -5,18 +5,21 @@ import { useState } from "react";
 
 const mainNav = [
   { label: "Programs", href: "/programs" },
+  { label: "Courses", href: "/courses" },
   { label: "Funding", href: "/financial-aid" },
   { label: "Employers", href: "/employers" },
-  { label: "Success Stories", href: "/success-stories" },
+  { label: "Resources", href: "/faq" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 const mobileOnlyNav = [
-  { label: "Courses", href: "/courses" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Hire Graduates", href: "/hire-graduates" },
+  { label: "Success Stories", href: "/success-stories" },
+  { label: "Student Hub", href: "/student/hub" },
   { label: "Career Services", href: "/career-services" },
+  { label: "Hire Graduates", href: "/hire-graduates" },
+  { label: "Blog", href: "/blog" },
+  { label: "Community", href: "/community" },
 ];
 
 const authNav = [
