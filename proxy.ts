@@ -72,6 +72,72 @@ export default function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Back office domain - require authentication for everything
+  if (hostname.includes('elevateconnectsdirectory.org')) {
+    // Allow login pages
+    if (path.startsWith('/admin/login') || 
+        path.startsWith('/program-holder/login') ||
+        path.startsWith('/staff/login') ||
+        path.startsWith('/workforce-board/login') ||
+        path === '/login') {
+      return NextResponse.next();
+    }
+
+    // Check authentication
+    const token = request.cookies.get('auth-token') || 
+                  request.cookies.get('admin-token') ||
+                  request.cookies.get('staff-token') ||
+                  request.cookies.get('program-holder-token');
+    
+    if (!token) {
+      // Redirect to appropriate login based on path
+      if (path.startsWith('/admin')) {
+        const url = new URL('/admin/login', request.url);
+        url.searchParams.set('redirect', path);
+        return NextResponse.redirect(url);
+      }
+      if (path.startsWith('/program-holder')) {
+        const url = new URL('/program-holder/login', request.url);
+        url.searchParams.set('redirect', path);
+        return NextResponse.redirect(url);
+      }
+      if (path.startsWith('/staff')) {
+        const url = new URL('/staff/login', request.url);
+        url.searchParams.set('redirect', path);
+        return NextResponse.redirect(url);
+      }
+      if (path.startsWith('/workforce-board')) {
+        const url = new URL('/workforce-board/login', request.url);
+        url.searchParams.set('redirect', path);
+        return NextResponse.redirect(url);
+      }
+      // Default to admin login
+      const url = new URL('/admin/login', request.url);
+      url.searchParams.set('redirect', path);
+      return NextResponse.redirect(url);
+    }
+  }
+
+  // Main public domain - protect specific internal routes
+  if (hostname.includes('elevateforhumanity.org')) {
+    // Protect admin routes on public domain
+    if (path.startsWith('/admin') || 
+        path.startsWith('/program-holder') ||
+        path.startsWith('/staff-portal') ||
+        path.startsWith('/workforce-board')) {
+      
+      const token = request.cookies.get('admin-token') ||
+                    request.cookies.get('staff-token') ||
+                    request.cookies.get('program-holder-token');
+      
+      if (!token && !path.includes('/login')) {
+        const url = new URL('/admin/login', request.url);
+        url.searchParams.set('redirect', path);
+        return NextResponse.redirect(url);
+      }
+    }
+  }
+
   // Block AI scrapers from protected content
   const isProtectedPath = PROTECTED_PATHS.some(p => path.startsWith(p));
   if (isProtectedPath) {
