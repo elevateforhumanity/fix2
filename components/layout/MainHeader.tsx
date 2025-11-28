@@ -11,6 +11,12 @@ const mainNav = [
   { label: "Contact", href: "/contact" },
 ];
 
+const mobileOnlyNav = [
+  { label: "Success Stories", href: "/success-stories" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Student LMS", href: "/student/dashboard" },
+];
+
 const authNav = [
   { label: "Student Portal", href: "/student/dashboard" },
   { label: "Admin Portal", href: "/admin/dashboard" },
@@ -82,39 +88,39 @@ export function MainHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block py-1 text-sm font-medium text-slate-800"
+                className="block py-2 text-sm font-medium text-slate-800"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/success-stories"
-              className="block py-1 text-sm font-medium text-slate-800"
-              onClick={() => setOpen(false)}
-            >
-              Success Stories
-            </Link>
-            <Link
-              href="/faq"
-              className="block py-1 text-sm font-medium text-slate-800"
-              onClick={() => setOpen(false)}
-            >
-              FAQ
-            </Link>
-          </div>
-          <div className="mt-4 space-y-2">
-            <p className="text-xs font-semibold text-slate-500 uppercase">Portals</p>
-            {authNav.map((item) => (
+            {mobileOnlyNav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700"
+                className="block py-2 text-sm font-medium text-slate-800"
                 onClick={() => setOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
+          </div>
+          <div className="mt-4 space-y-2">
+            <p className="text-xs font-semibold text-slate-500 uppercase">Portals</p>
+            <Link
+              href="/student/dashboard"
+              className="block rounded-lg bg-blue-50 border border-blue-200 px-4 py-3 text-sm font-semibold text-blue-900"
+              onClick={() => setOpen(false)}
+            >
+              📚 Student LMS Portal
+            </Link>
+            <Link
+              href="/admin/dashboard"
+              className="block rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-900"
+              onClick={() => setOpen(false)}
+            >
+              ⚙️ Admin Portal
+            </Link>
           </div>
           <div className="mt-4">
             <Link
