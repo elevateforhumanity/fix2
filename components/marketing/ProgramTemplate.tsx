@@ -83,13 +83,14 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
             </div>
 
             <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
                 <Image
                   src={program.heroImage}
                   alt={`${program.name} in training`}
-                  width={600}
-                  height={500}
-                  className="w-full h-auto object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
                 />
               </div>
             </div>
