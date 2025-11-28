@@ -178,7 +178,7 @@ export default function ChatAssistant({
     }
   };
 
-  if (!isOpen) {
+  if (!isOpen) return null; {
     return (
       <button
         onClick={() => setIsOpen(true)}

@@ -11,7 +11,7 @@ export function useLazyLoad<T extends HTMLElement>(
 
   useEffect(() => {
     const element = ref.current;
-    if (!element) return;
+    if (!element) return undefined;
 
     const observer = new IntersectionObserver(
       ([entry]) => {

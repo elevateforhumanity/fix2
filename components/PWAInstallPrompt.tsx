@@ -14,7 +14,7 @@ export default function PWAInstallPrompt() {
   useEffect(() => {
     // Check if already installed
     if (window.matchMedia('(display-mode: standalone)').matches) {
-      return;
+      return undefined;
     }
 
     // Check if user dismissed before
@@ -23,7 +23,7 @@ export default function PWAInstallPrompt() {
       const dismissedDate = new Date(dismissed);
       const daysSinceDismissed = (Date.now() - dismissedDate.getTime()) / (1000 * 60 * 60 * 24);
       if (daysSinceDismissed < 7) {
-        return; // Don't show again for 7 days
+        return undefined; // Don't show again for 7 days
       }
     }
 
@@ -45,7 +45,7 @@ export default function PWAInstallPrompt() {
   }, []);
 
   const handleInstall = async () => {
-    if (!deferredPrompt) return;
+    if (!deferredPrompt) return null; return;
 
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;

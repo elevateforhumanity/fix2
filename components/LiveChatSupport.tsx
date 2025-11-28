@@ -48,7 +48,7 @@ export function LiveChatSupport() {
     }, 1000);
   };
 
-  if (!isOpen) {
+  if (!isOpen) return null; {
     return (
       <button
         onClick={() => setIsOpen(true)}

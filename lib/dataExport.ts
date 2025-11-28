@@ -337,11 +337,11 @@ export async function exportEnrollments(options: ExportOptions = {}): Promise<an
   return (data || []).map(enrollment => ({
     ...enrollment,
     student_name: enrollment.student 
-      ? `${enrollment.student.first_name} ${enrollment.student.last_name}`
+      ? `${enrollment.student?.[0]?.first_name} ${enrollment.student?.[0]?.last_name}`
       : 'N/A',
     student_email: enrollment.student?.email || 'N/A',
-    course_title: enrollment.course?.title || 'N/A',
-    course_category: enrollment.course?.category || 'N/A',
+    course_title: (enrollment.course as any)?.[0]?.title || 'N/A',
+    course_category: (enrollment.course as any)?.[0]?.category || 'N/A',
   }));
 }
 
@@ -383,7 +383,7 @@ export async function exportAssignments(options: ExportOptions = {}): Promise<an
 
   return (data || []).map(assignment => ({
     ...assignment,
-    course_title: assignment.course?.title || 'N/A',
+    course_title: (assignment.course as any)?.[0]?.title || 'N/A',
   }));
 }
 
@@ -426,12 +426,12 @@ export async function exportGrades(options: ExportOptions = {}): Promise<any[]> 
   return (data || []).map(submission => ({
     ...submission,
     student_name: submission.student 
-      ? `${submission.student.first_name} ${submission.student.last_name}`
+      ? `${submission.student?.[0]?.first_name} ${submission.student?.[0]?.last_name}`
       : 'N/A',
-    student_email: submission.student?.email || 'N/A',
-    assignment_title: submission.assignment?.title || 'N/A',
-    assignment_points: submission.assignment?.points || 0,
-    course_title: submission.assignment?.course?.title || 'N/A',
+    student_email: (submission.student as any)?.[0]?.email || 'N/A',
+    assignment_title: (submission.assignment as any)?.[0]?.title || 'N/A',
+    assignment_points: (submission.assignment as any)?.points || 0,
+    course_title: (submission.assignment as any)?.course?.[0]?.title || 'N/A',
   }));
 }
 

@@ -28,7 +28,7 @@ export function CookieBanner() {
     setVisible(false);
   };
 
-  if (!visible) return null;
+  if (!visible) return null; return null;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 bg-slate-900/95 backdrop-blur-sm text-white shadow-2xl border-t border-slate-700">

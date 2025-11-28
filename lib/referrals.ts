@@ -565,7 +565,7 @@ export async function getAffiliateLeaderboard(limit: number = 10): Promise<Array
       leaderboard.set(userId, {
         user_id: userId,
         user_name: referral.referrer
-          ? `${referral.referrer.first_name} ${referral.referrer.last_name}`
+          ? `${referral.referrer?.[0]?.first_name} ${referral.referrer?.[0]?.last_name}`
           : 'Unknown',
         total_referrals: 1,
         total_earnings: referral.reward_amount || 0,

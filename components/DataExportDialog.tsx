@@ -20,7 +20,7 @@ export default function DataExportDialog({
   const [isExporting, setIsExporting] = useState(false);
   const [exportComplete, setExportComplete] = useState(false);
 
-  if (!isOpen) return null;
+  if (!isOpen) return null; return null;
 
   const handleExport = async () => {
     setIsExporting(true);
@@ -245,7 +245,7 @@ export function BatchExportDialog({ isOpen, onClose }: BatchExportDialogProps) {
   const [format, setFormat] = useState<'csv' | 'pdf' | 'json'>('csv');
   const [isExporting, setIsExporting] = useState(false);
 
-  if (!isOpen) return null;
+  if (!isOpen) return null; return null;
 
   const tables = [
     { id: 'students', label: 'Students', description: 'All student records' },

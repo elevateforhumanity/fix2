@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 // Initialize Stripe (only if key is available)
 const stripe = process.env.STRIPE_SECRET_KEY 
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2024-11-20.acacia' as any, // Type assertion for compatibility
+      apiVersion: '2024-11-20.acacia' as any as any, // Type assertion for compatibility
     })
   : null;
 
@@ -616,8 +616,8 @@ export async function handleStripeWebhook(event: Stripe.Event): Promise<void> {
         .from('subscriptions')
         .update({
           status: subscription.status,
-          current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-          current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
+          current_period_start: new Date((subscription as any).current_period_start * 1000).toISOString(),
+          current_period_end: new Date((subscription as any).current_period_end * 1000).toISOString(),
         })
         .eq('stripe_subscription_id', subscription.id);
       break;

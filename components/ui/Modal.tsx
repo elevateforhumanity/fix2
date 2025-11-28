@@ -36,7 +36,7 @@ export const Modal: React.FC<ModalProps> = ({
     }
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  if (!isOpen) return null; return null;
 
   const sizeClasses = {
     sm: 'max-w-md',

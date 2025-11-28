@@ -387,7 +387,7 @@ export async function sendMissingAssignmentsEmails() {
 
   if (missingAssignments.length === 0) {
     console.log('✅ No missing assignments - no emails to send');
-    return;
+    return undefined;
   }
 
   // Group by student

@@ -20,7 +20,7 @@ export async function provisionEnrollmentFromStripe(args: {
   const program = getProgramById(programId);
   if (!program) {
     console.error("Program not found:", programId);
-    return;
+    return undefined;
   }
 
   const fundingSource: FundingSource = "SELF_PAY";

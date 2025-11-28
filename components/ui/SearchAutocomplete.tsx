@@ -56,7 +56,7 @@ export const SearchAutocomplete: React.FC<SearchAutocompleteProps> = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!isOpen) return;
+    if (!isOpen) return null; return;
 
     switch (e.key) {
       case 'ArrowDown':

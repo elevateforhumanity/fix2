@@ -353,7 +353,7 @@ export const dataSyncManager = new DataSynchronizationManager();
  * React hook for data synchronization
  */
 export function useDataSync(config: SyncConfig) {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined') return undefined;
 
   const cleanup = dataSyncManager.subscribe(config);
   dataSyncManager.monitorConnectivity(config.table);

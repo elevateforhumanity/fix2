@@ -58,12 +58,12 @@ export async function sendVideoStatement(input: VideoStatementInput) {
         },
       },
       result: input.duration
-        ? {
+        ? ({
             extensions: {
               "https://w3id.org/xapi/video/extensions/time": input.currentTime || 0,
               "https://w3id.org/xapi/video/extensions/length": input.duration,
             },
-          }
+          } as any)
         : undefined,
     };
 

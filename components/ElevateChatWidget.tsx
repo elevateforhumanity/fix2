@@ -13,7 +13,7 @@ export function ElevateChatWidget() {
     const interacted = localStorage.getItem('elevate-chat-interacted');
     if (interacted) {
       setHasInteracted(true);
-      return;
+      return undefined;
     }
 
     // Show prompt after 3 seconds on first visit
