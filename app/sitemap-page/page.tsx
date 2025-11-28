@@ -230,6 +230,7 @@ export default function SiteMapPage() {
               <li><Link href="/webinars" className="text-blue-600 hover:underline">Webinars</Link></li>
               <li><Link href="/alumni" className="text-blue-600 hover:underline">Alumni Network</Link></li>
               <li><Link href="/workforce-partners" className="text-blue-600 hover:underline">Workforce Partners</Link></li>
+              <li><Link href="/docs/api" className="text-blue-600 hover:underline">API Documentation</Link></li>
             </ul>
           </div>
 
