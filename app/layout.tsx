@@ -39,6 +39,7 @@ export const viewport: Viewport = {
 
 // Cache bust: 2025-11-22T09:14:55Z
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'),
   title: 'Elevate for Humanity | Workforce Training & Career Development',
   description:
     'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
