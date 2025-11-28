@@ -80,17 +80,17 @@ d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" 
           </div>
           <div className="flex-1">
             <h3 className="text-white font-bold text-lg mb-1">
-              Install Elevate App
+              Add Elevate App
             </h3>
             <p className="text-slate-300 text-sm mb-4">
-              Get quick access to training programs, track your progress, and stay connected—right from your home screen.
+              Quick access to training from your home screen.
             </p>
             <div className="flex gap-3">
               <button
                 onClick={handleInstall}
-                className="flex-1 bg-emerald-400 text-slate-900 font-semibold py-2 px-4 rounded-lg hover:bg-emerald-300 transition"
+                className="flex-1 bg-orange-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-orange-600 transition"
               >
-                Install
+                Add App
               </button>
               <button
                 onClick={handleDismiss}
