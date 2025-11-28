@@ -109,7 +109,17 @@ export default function HVACTechPage() {
                     </svg>
                   </div>
                   <p className="text-gray-700 font-semibold">Program Video</p>
-                  <p className="text-gray-500 text-sm mt-2">Coming Soon</p>
+                  <div className="mt-4 aspect-video w-full bg-slate-900 rounded-lg overflow-hidden shadow-lg">
+                    <video
+                      controls
+                      className="w-full h-full"
+                      poster="/images/trades/program-hvac-overview.jpg"
+                    >
+                      <source src="/videos/courses/hvac-technician-10002289.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <p className="text-gray-600 text-xs mt-2">HVAC Technician Career Training Overview</p>
                 </div>
               </div>
             </div>
