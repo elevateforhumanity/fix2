@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const mainNav = [
   { label: "Programs", href: "/programs" },
+  { label: "Courses", href: "/courses" },
   { label: "Funding", href: "/funding" },
   { label: "Employers", href: "/employers" },
   { label: "About", href: "/about" },
@@ -14,7 +15,7 @@ const mainNav = [
 const mobileOnlyNav = [
   { label: "Success Stories", href: "/success-stories" },
   { label: "FAQ", href: "/faq" },
-  { label: "Student LMS", href: "/student/dashboard" },
+  { label: "JRI/SCORM Courses", href: "/student/scorm" },
 ];
 
 const authNav = [
