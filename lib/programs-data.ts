@@ -12,6 +12,7 @@ export interface ProgramData {
   duration: string;
   image: string;
   etplApproved: boolean;
+  syllabusUrl?: string;
 }
 
 export const PROGRAMS: ProgramData[] = [
@@ -23,6 +24,7 @@ export const PROGRAMS: ProgramData[] = [
     duration: '10 Weeks • 150 Hours',
     image: '/media/programs/tax-prep-hd.jpg',
     etplApproved: true,
+    syllabusUrl: '/docs/syllabi/tax-prep-financial-services.md',
   },
   {
     slug: 'business-startup-marketing',
@@ -32,6 +34,7 @@ export const PROGRAMS: ProgramData[] = [
     duration: '5 Weeks • 32 Hours',
     image: '/media/programs/building-tech-hd.jpg',
     etplApproved: true,
+    syllabusUrl: '/docs/syllabi/business-startup-marketing.md',
   },
   {
     slug: 'emergency-health-safety-tech',
@@ -41,6 +44,7 @@ export const PROGRAMS: ProgramData[] = [
     duration: '4 Weeks • 80 Hours',
     image: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=600&q=80',
     etplApproved: true,
+    syllabusUrl: "/docs/syllabi/emergency-health-safety-tech.md",
   },
   {
     slug: 'professional-esthetician',

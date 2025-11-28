@@ -1,5 +1,16 @@
 import Image from "next/image";
 
+export const metadata = {
+  title: 'About Us | Elevate for Humanity',
+  description: 'Elevate For Humanity is a workforce training and community development initiative focused on real people, real barriers, and real opportunity. Learn about our mission and impact.',
+  openGraph: {
+    title: 'About Elevate for Humanity',
+    description: 'Workforce training and community development for real people with real barriers.',
+    images: ['/media/hero/hero-learners.jpg'],
+    type: 'website',
+  },
+};
+
 export default function AboutPage() {
   return (
     <main className="bg-white">

@@ -264,7 +264,8 @@ d="M5 13l4 4L19 7" />
                   Phone: <a href="tel:1-800-891-6499" className="text-blue-600 hover:underline">1-800-891-6499</a>
                 </p>
                 <p className="text-sm text-slate-700">
-                  Website: <a href="https://www.in.gov/dwd/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">in.gov/dwd</a>
+                  Website: <a href="https://www.in.gov/dwd/" target="_blank" rel="noopener noreferrer"
+className="text-blue-600 hover:underline">in.gov/dwd</a>
                 </p>
               </div>
 
@@ -277,7 +278,8 @@ d="M5 13l4 4L19 7" />
                   Address: Multiple locations in Marion County
                 </p>
                 <p className="text-sm text-slate-700">
-                  Website: <a href="https://www.workone.in.gov/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">workone.in.gov</a>
+                  Website: <a href="https://www.workone.in.gov/" target="_blank" rel="noopener noreferrer"
+className="text-blue-600 hover:underline">workone.in.gov</a>
                 </p>
               </div>
 
