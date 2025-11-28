@@ -1,7 +1,7 @@
 // components/layout/Footer.tsx
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { ObfuscatedEmail } from "@/components/ui/ObfuscatedEmail";
 
 export function SiteFooter() {
@@ -63,7 +63,7 @@ export function SiteFooter() {
             {/* Social Links with CTAs */}
             <div>
               <p className="text-sm font-bold text-orange-400 mb-3">FOLLOW US FOR UPDATES</p>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-3 gap-3">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61571046346179" 
                   target="_blank" 
@@ -74,16 +74,7 @@ export function SiteFooter() {
                   <Facebook size={24} strokeWidth={2.5} />
                   <span className="font-semibold text-sm">Facebook</span>
                 </a>
-                <a 
-                  href="https://x.com/Elevate4Humani1" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 p-3 rounded-lg bg-slate-800 hover:bg-slate-900 text-white transition-all hover:scale-105 shadow-lg"
-                  aria-label="Twitter"
-                >
-                  <Twitter size={24} strokeWidth={2.5} />
-                  <span className="font-semibold text-sm">Twitter</span>
-                </a>
+
                 <a 
                   href="https://www.linkedin.com/in/elevate-for-humanity-b5a2b3339/" 
                   target="_blank" 
