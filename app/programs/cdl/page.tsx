@@ -1,6 +1,8 @@
 // app/programs/cdl/page.tsx
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
+import { CheckCircle, Clock, DollarSign, Truck, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "CDL Training Program - Commercial Driver's License",
@@ -18,7 +20,76 @@ export default function CdlProgramPage() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       {/* HERO */}
-      <section className="border-b border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <section className="relative bg-gradient-to-r from-orange-600 to-red-600 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnptMCAzNmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnpNMCAzNmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] bg-repeat"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <span className="text-sm font-semibold">🚛 Transportation Career</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                CDL Training Program
+              </h1>
+              <p className="text-xl md:text-2xl text-orange-100 mb-4">
+                Get Your Commercial Driver's License - Start Earning $50K-$70K
+              </p>
+              <p className="text-lg text-orange-50 mb-6">
+                Partner with top CDL schools. 100% funded through WIOA. Job placement with transportation companies. High demand for drivers nationwide.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-semibold">4-8 Weeks</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <DollarSign className="w-5 h-5" />
+                  <span className="font-semibold">$50K-$70K Salary</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Truck className="w-5 h-5" />
+                  <span className="font-semibold">Class A CDL</span>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 bg-white text-orange-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-50 transition-all hover:scale-105 shadow-lg"
+                >
+                  Apply Now - FREE
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-orange-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-800 transition-all border-2 border-white/20"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+                <Image
+                  src="/media/programs/cdl-hd.jpg"
+                  alt="CDL Training - Commercial Driver's License"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Original content continues */}
+      <section className="border-b border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 hidden">
         <div className="mx-auto max-w-6xl px-6 py-14 md:px-10 lg:px-12 lg:py-16">
           <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
             Transportation Pathway
