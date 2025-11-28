@@ -49,6 +49,7 @@ const PROGRAM_GROUPS = [
   {
     title: "Business & Technology",
     items: [
+      { name: "Business Support Apprenticeship", href: "/programs/business-apprenticeship" },
       { name: "Tax Prep / IRS VITA", href: "/programs/tax-prep" },
       { name: "Tax Business Management", href: "/programs/tax-business" },
       "Office & Admin", 
