@@ -83,12 +83,12 @@ export default function StudentHomePage() {
                     {course.title}
                   </h3>
                   <p className="mt-1 line-clamp-3 text-[11px] text-slate-600">
-                    {course.subtitle || 'Professional training program'}
+                    {(course as any).subtitle || 'Professional training program'}
                   </p>
                 </div>
                 <div className="mt-3 space-y-1">
                   <p className="text-[11px] text-slate-500">
-                    {course.duration_hours || 40} hours · Online
+                    {(course as any).duration_hours || 40} hours · Online
                   </p>
                   <Link
                     href={`/courses/${course.slug}`}

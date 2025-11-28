@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HourTracker } from "@/components/apprenticeship/HourTracker";
 
 export const metadata = {
   title: "Esthetics Apprenticeship | Elevate for Humanity",
@@ -101,6 +102,49 @@ export default function EstheticsApprenticeshipProgramPage() {
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* HOUR TRACKER */}
+      <section className="bg-gradient-to-b from-purple-900 to-slate-900 py-16">
+        <div className="mx-auto max-w-5xl px-4">
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl font-bold text-white">
+              Track Your Apprenticeship Hours
+            </h2>
+            <p className="mt-3 text-lg text-slate-300 max-w-2xl mx-auto">
+              Clock in and out of your training sessions. Track your progress toward the required 600 hours for Indiana esthetician licensure.
+            </p>
+          </div>
+          
+          <div className="max-w-2xl mx-auto">
+            <HourTracker 
+              programName="Esthetics Apprenticeship"
+              requiredHours={600}
+            />
+          </div>
+
+          <div className="mt-8 bg-purple-950/50 rounded-xl border-2 border-purple-700 p-6 max-w-2xl mx-auto">
+            <h3 className="font-bold text-white mb-2">💆 Esthetician Hour Requirements</h3>
+            <ul className="space-y-2 text-sm text-slate-300">
+              <li className="flex items-start gap-2">
+                <span className="text-purple-400 font-bold">•</span>
+                <span><strong>600 total hours</strong> required for Indiana esthetician license</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-400 font-bold">•</span>
+                <span><strong>Theory + Practical</strong> - Combination of classroom and hands-on training</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-400 font-bold">•</span>
+                <span><strong>Client Services</strong> - Documented facials, waxing, and skincare treatments</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-purple-400 font-bold">•</span>
+                <span><strong>State Exam Prep</strong> - Preparation for written and practical exams</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

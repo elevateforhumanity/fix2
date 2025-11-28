@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HourTracker } from "@/components/apprenticeship/HourTracker";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -608,6 +609,49 @@ d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.
                 <li>• What to do if you need to pause, restart, or relocate</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* HOUR TRACKER */}
+      <section className="bg-gradient-to-b from-purple-50 to-white py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl font-bold text-slate-900">
+              Track Your Apprenticeship Hours
+            </h2>
+            <p className="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">
+              Clock in and out of your training sessions. Track your progress toward the required 1,500 hours for Indiana barber licensure.
+            </p>
+          </div>
+          
+          <div className="max-w-2xl mx-auto">
+            <HourTracker 
+              programName="Barber Apprenticeship"
+              requiredHours={1500}
+            />
+          </div>
+
+          <div className="mt-8 bg-blue-50 rounded-xl border-2 border-blue-200 p-6 max-w-2xl mx-auto">
+            <h3 className="font-bold text-slate-900 mb-2">📱 How to Use the Hour Tracker</h3>
+            <ul className="space-y-2 text-sm text-slate-700">
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">1.</span>
+                <span><strong>Clock In</strong> when you arrive at the barbershop or start your training session</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">2.</span>
+                <span><strong>Clock Out</strong> when you finish for the day</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">3.</span>
+                <span><strong>Track Progress</strong> - Your hours are automatically saved and synced with your instructor</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-600 font-bold">4.</span>
+                <span><strong>Stay Compliant</strong> - Accurate hour tracking is required for state licensure</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
