@@ -322,15 +322,6 @@ export default function HomePage() {
 
       {/* PWA INSTALL */}
       <PWAInstallSection />
-                      <div className="text-xs text-slate-600">Career Training & LMS</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* FINAL CTA */}
       <section className="bg-gradient-to-br from-red-600 to-red-700 py-12">
