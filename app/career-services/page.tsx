@@ -3,6 +3,7 @@ import { Footer } from '@/components/ui/Footer';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { FileText, Users, Briefcase, TrendingUp, CheckCircle, Target } from 'lucide-react';
+import Image from 'next/image';
 
 import { Metadata } from "next";
 
@@ -66,16 +67,28 @@ export default function CareerServicesPage() {
       <Header />
 
       <main>
-        {/* Hero Section */}
-        <section className="py-20 px-4 bg-gradient-to-br from-red-50 to-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="primary" className="mb-4">Career Services</Badge>
-            <h1 className="text-5xl font-bold text-slate-900 mb-6">
-              We Don't Just Train You—We Help You Get Hired
-            </h1>
-            <p className="text-xl text-slate-600">
-              Comprehensive career support from training through job placement and beyond
-            </p>
+        {/* Hero Section with Image */}
+        <section className="relative h-96 overflow-hidden">
+          <Image
+            src="/images/hero-new/hero-7.jpg"
+            alt="Career Services"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 to-purple-900/70" />
+          <div className="relative h-full flex items-center">
+            <div className="max-w-6xl mx-auto px-4 w-full">
+              <div className="max-w-3xl">
+                <Badge variant="primary" className="mb-4 bg-white/20 border-white/30 text-white">Career Services</Badge>
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                  We Don't Just Train You—We Help You Get Hired
+                </h1>
+                <p className="text-xl text-white/90">
+                  Comprehensive career support from training through job placement and beyond
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
