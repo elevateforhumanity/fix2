@@ -79,7 +79,7 @@ export default function ProgramsPage() {
       <section className="relative bg-slate-900">
         <div className="relative h-64 md:h-80">
           <Image
-            src="/images/programs-new/program-4.jpg"
+            src="/media/programs/multi-training-programs-optimized.jpg"
             alt="Training Programs at Elevate for Humanity"
             fill
             className="object-cover opacity-60"

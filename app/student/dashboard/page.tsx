@@ -45,7 +45,7 @@ export default async function StudentDashboardV2Page() {
       <section className="relative bg-slate-900">
         <div className="relative h-48 md:h-56">
           <Image
-            src="/images/programs-new/program-5.jpg"
+            src="/media/hero/hero-student-dashboard.jpg"
             alt="Student Dashboard"
             fill
             className="object-cover opacity-40"

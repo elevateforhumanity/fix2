@@ -7,7 +7,7 @@ export default function AboutPage() {
       <section className="relative bg-slate-900">
         <div className="relative h-64 md:h-80">
           <Image
-            src="/images/facilities-new/facility-3.jpg"
+            src="/media/hero/hero-learners.jpg"
             alt="About Elevate for Humanity"
             fill
             className="object-cover opacity-60"

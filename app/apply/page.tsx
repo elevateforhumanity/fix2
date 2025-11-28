@@ -50,7 +50,7 @@ export default function ApplyPage() {
       <section className="relative bg-slate-900">
         <div className="relative h-48 md:h-64">
           <Image
-            src="/images/hero-new/hero-5.jpg"
+            src="/images/artlist/hero-training-7.jpg"
             alt="Apply to Elevate for Humanity"
             fill
             className="object-cover opacity-60"

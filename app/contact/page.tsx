@@ -12,7 +12,7 @@ export default function ContactPage() {
       <section className="relative bg-slate-900">
         <div className="relative h-64 md:h-80">
           <Image
-            src="/images/hero-new/hero-4.jpg"
+            src="/images/artlist/hero-training-6.jpg"
             alt="Contact Elevate for Humanity"
             fill
             className="object-cover opacity-60"
