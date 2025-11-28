@@ -123,7 +123,7 @@ export default function ProgramsPage() {
                 href="/financial-aid"
                 className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/10 backdrop-blur px-8 py-4 text-base font-semibold text-white hover:bg-white/20 transition-all shadow-xl"
               >
-                Learn About Funding
+                Explore Free Training Options (WIOA, WRG, Grants)
               </Link>
             </div>
           </div>

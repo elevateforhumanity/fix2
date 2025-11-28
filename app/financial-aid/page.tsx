@@ -21,22 +21,22 @@ export const metadata: Metadata = {
 export default function FinancialAidPage() {
   const fundingOptions = [
     {
-      icon: DollarSign,
+      image: '/images/funding/funding-dol-program-v2.jpg',
       title: 'WIOA Funding',
-      description: 'Full tuition coverage for eligible participants',
+      description: 'Workforce Innovation & Opportunity Act - Full tuition coverage for eligible participants',
       coverage: ['Tuition & fees', 'Books & supplies', 'Certification exams', 'Support services'],
     },
     {
-      icon: Book,
-      title: 'Pell Grants',
-      description: 'Federal grants for low-income students',
+      image: '/images/heroes/hero-federal-funding.jpg',
+      title: 'Pell Grants & Federal Aid',
+      description: 'Federal grants for low-income students pursuing career training',
       coverage: ['Up to $7,395/year', 'No repayment required', 'Based on financial need', 'Apply via FAFSA'],
     },
     {
-      icon: Home,
-      title: 'State Grants',
-      description: 'Indiana-specific financial aid programs',
-      coverage: ['Indiana Grant', 'Talent Incentive Program', 'Indian Student Assistance', 'Minority Retention Grant'],
+      image: '/images/heroes/hero-state-funding.jpg',
+      title: 'State Grants & WRG',
+      description: 'Indiana Workforce Ready Grants and state-specific financial aid programs',
+      coverage: ['Workforce Ready Grants', 'Indiana Grant', 'Talent Incentive Program', 'Next Level Jobs'],
     },
   ];
 

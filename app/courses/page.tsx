@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { getAllCoursesWithProgramMeta } from "@/lms-data/courses";
 
-const allCourses = getAllCoursesWithProgramMeta();
-
 export const metadata = {
   title: "Courses | Elevate for Humanity",
   description:
@@ -10,6 +8,7 @@ export const metadata = {
 };
 
 export default function CoursesCatalogPage() {
+  const allCourses = getAllCoursesWithProgramMeta();
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <section className="border-b border-slate-800 bg-slate-950">
