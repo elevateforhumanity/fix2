@@ -493,7 +493,7 @@ export default function SelfishIncPage() {
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-500">
-            <strong>SELFISH INC</strong> is a 501(c)(3) nonprofit organization
+            <strong>SELFISH INC</strong> is a 501(c)(3) nonprofit organization | Tax ID available upon request
           </p>
           <p className="mt-2 text-xs text-slate-500">
             Operating programs: Selfish Inc Mental Wellness & Elevate for Humanity Workforce Development

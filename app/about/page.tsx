@@ -254,7 +254,7 @@ export default function AboutPage() {
                 dedicated to workforce development and mental wellness support.
               </p>
               <p className="mt-3 text-xs text-slate-500">
-                Tax-Exempt Nonprofit
+                Tax-Exempt Nonprofit | Tax ID available upon request
               </p>
             </div>
 
