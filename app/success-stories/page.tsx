@@ -57,16 +57,26 @@ export default function SuccessStoriesPage() {
       <Header />
 
       <main>
-        {/* Hero Section */}
-        <section className="py-20 px-4 bg-gradient-to-br from-red-50 to-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="primary" className="mb-4">Success Stories</Badge>
-            <h1 className="text-5xl font-bold text-slate-900 mb-6">
-              Real People, Real Results
-            </h1>
-            <p className="text-xl text-slate-600">
-              See how WIOA-funded training has transformed lives and careers across Indiana
-            </p>
+        {/* Hero Section with Single Image */}
+        <section className="relative h-[500px] overflow-hidden">
+          <Image
+            src="/images/success-new/success-4.jpg"
+            alt="Success Stories"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-900/40" />
+          <div className="relative h-full flex items-center justify-center px-4">
+            <div className="max-w-4xl text-center text-white">
+              <Badge variant="primary" className="mb-4 bg-orange-500 border-orange-500">Success Stories</Badge>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                Real People, Real Results
+              </h1>
+              <p className="text-lg md:text-xl text-white/90">
+                See how WIOA-funded training has transformed lives and careers across Indiana
+              </p>
+            </div>
           </div>
         </section>
 
