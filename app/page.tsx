@@ -135,6 +135,169 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* HOW FUNDING WORKS - DETAILED */}
+      <section className="bg-gradient-to-br from-blue-900 to-blue-800 py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              How Your Training Gets Funded 100% FREE
+            </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              We connect you to government workforce programs that pay for everything. Here's exactly how each program works:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {/* WIOA */}
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">W</div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">WIOA Funding</h3>
+                  <p className="text-sm text-slate-600">Workforce Innovation & Opportunity Act</p>
+                </div>
+              </div>
+              <p className="text-slate-700 mb-3">
+                <strong>What it is:</strong> Federal workforce development money managed by EmployIndy (Marion County's workforce board)
+              </p>
+              <p className="text-slate-700 mb-3">
+                <strong>What it covers:</strong> Tuition, books, supplies, transportation, childcare, work clothes, tools
+              </p>
+              <p className="text-slate-700 mb-3">
+                <strong>Who qualifies:</strong> Adults, dislocated workers, youth - apply through WorkOne Career Centers
+              </p>
+              <p className="text-slate-700">
+                <strong>How to get it:</strong> We help you apply through WorkOne and coordinate everything
+              </p>
+            </div>
+
+            {/* Workforce Ready Grant */}
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl">WRG</div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">Workforce Ready Grant</h3>
+                  <p className="text-sm text-slate-600">Indiana State Program</p>
+                </div>
+              </div>
+              <p className="text-slate-700 mb-3">
+                <strong>What it is:</strong> Indiana state program for tuition-free certificate training in high-demand careers
+              </p>
+              <p className="text-slate-700 mb-3">
+                <strong>What it covers:</strong> Full tuition for approved certificate programs
+              </p>
+              <p className="text-slate-700 mb-3">
+                <strong>Who qualifies:</strong> Indiana residents with high school diploma, no college degree
+              </p>
+              <p className="text-slate-700">
+                <strong>How to get it:</strong> We verify your eligibility and submit the application for you
+              </p>
+            </div>
+
+            {/* OJT */}
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xl">OJT</div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">On-the-Job Training</h3>
+                  <p className="text-sm text-slate-600">Get PAID While You Train</p>
+                </div>
+              </div>
+              <p className="text-slate-700 mb-3">
+                <strong>What it is:</strong> You get hired by an employer and they pay you wages while you train ($15-$20/hour)
+              </p>
+              <p className="text-slate-700 mb-3">
+                <strong>What it covers:</strong> Government reimburses employer 50% of your wages for 3-6 months
+              </p>
+              <p className="text-slate-700 mb-3">
+                <strong>Who qualifies:</strong> Anyone we match with an employer partner
+              </p>
+              <p className="text-slate-700">
+                <strong>How it works:</strong> You're a real employee from day 1, earning real wages while learning on the job
+              </p>
+            </div>
+
+            {/* Apprenticeships */}
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl">APP</div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">DOL Apprenticeships</h3>
+                  <p className="text-sm text-slate-600">Earn While You Learn</p>
+                </div>
+              </div>
+              <p className="text-slate-700 mb-3">
+                <strong>What it is:</strong> Registered apprenticeship programs where you work full-time and get classroom training
+              </p>
+              <p className="text-slate-700 mb-3">
+                <strong>What it covers:</strong> Full wages ($15-$20/hour) + classroom training + path to license/credential
+              </p>
+              <p className="text-slate-700 mb-3">
+                <strong>Who qualifies:</strong> Anyone interested in trades (Barber, HVAC, Building Tech, etc.)
+              </p>
+              <p className="text-slate-700">
+                <strong>How it works:</strong> Work in a real shop/company, build required hours, get nationally recognized credential
+              </p>
+            </div>
+          </div>
+
+          {/* JRI Explanation */}
+          <div className="bg-orange-500 rounded-xl p-8 text-white">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-orange-600 font-bold text-2xl">JRI</div>
+              <div>
+                <h3 className="text-2xl font-bold">Job Ready Indy (JRI)</h3>
+                <p className="text-orange-100">Soft Skills Training FROM EmployIndy</p>
+              </div>
+            </div>
+            <p className="text-lg mb-4">
+              <strong>What it is:</strong> EmployIndy's soft skills curriculum that we include in ALL our programs
+            </p>
+            <p className="text-lg mb-4">
+              <strong>What you learn:</strong> Communication, professionalism, teamwork, problem-solving, financial literacy, career advancement
+            </p>
+            <p className="text-lg">
+              <strong>Why it matters:</strong> Employers want workers with BOTH technical skills (CNA, HVAC, etc.) AND soft skills (JRI). We give you both.
+            </p>
+          </div>
+
+          {/* Hybrid & Shortened Courses */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">🖥️ Hybrid Courses</h3>
+              <p className="text-slate-700 mb-3">
+                <strong>What they are:</strong> Mix of online learning + in-person hands-on training
+              </p>
+              <p className="text-slate-700 mb-3">
+                <strong>How they work:</strong> Study theory online at your own pace, then come in for practical skills training
+              </p>
+              <p className="text-slate-700">
+                <strong>Benefits:</strong> Flexible schedule, learn faster, less time away from work/family
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-lg">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">⚡ Shortened Courses</h3>
+              <p className="text-slate-700 mb-3">
+                <strong>What they are:</strong> Accelerated training programs (4-12 weeks instead of months/years)
+              </p>
+              <p className="text-slate-700 mb-3">
+                <strong>How they work:</strong> Focused on job-ready skills only, no filler content
+              </p>
+              <p className="text-slate-700">
+                <strong>Benefits:</strong> Get certified faster, start earning sooner, less time commitment
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <Link href="/funding/how-it-works" className="inline-block px-8 py-4 bg-white text-blue-900 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors">
+              Learn More About Funding →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* WHO WE SERVE */}
       <section className="bg-slate-50 py-12">
         <div className="max-w-6xl mx-auto px-4">
