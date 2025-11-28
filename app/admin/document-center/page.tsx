@@ -154,8 +154,8 @@ export default function AdminDocumentCenterPage() {
                   <li>Any local AARP / community partners</li>
                 </ul>
                 <p className="mt-2 text-[10px] text-slate-500">
-                  Add links to IRS Link & Learn, VITA site IDs, and intake
-                  forms (14446, 13715, 15272, etc.) as you build your VITA hub.
+                  Add links to IRS Link & Learn and intake forms as you build your VITA hub.
+                  Store sensitive site credentials securely in encrypted storage.
                 </p>
               </div>
 
