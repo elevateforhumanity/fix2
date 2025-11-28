@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 /**
  * GetStarted Page - Onboarding hub for all user types
@@ -79,31 +80,40 @@ export function GetStarted() {
   ];
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#f9fafb' }}>
-      {/* Hero Section */}
-      <div
-        style={{
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          color: '#fff',
-          padding: '4rem 2rem',
+    <div style={{ minHeight: '100vh', backgroundColor: '#ffffff' }}>
+      {/* Hero Section with Image */}
+      <div style={{ position: 'relative', height: '400px', overflow: 'hidden' }}>
+        <Image
+          src="/images/artlist/hero-training-2.jpg"
+          alt="Get Started with Elevate"
+          fill
+          style={{ objectFit: 'cover', opacity: 0.3 }}
+          priority
+        />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.9) 0%, rgba(234, 88, 12, 0.9) 100%)',
+        }} />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           textAlign: 'center',
-        }}
-      >
-        <h1
-          style={{ fontSize: '3rem', marginBottom: '1rem', fontWeight: '700' }}
-        >
-          Get Started with Elevate
-        </h1>
-        <p
-          style={{
-            fontSize: '1.25rem',
-            maxWidth: '800px',
-            margin: '0 auto',
-            opacity: 0.9,
-          }}
-        >
-          Everything you need to start teaching, learning, and collaborating
-        </p>
+          color: '#fff',
+          padding: '2rem',
+        }}>
+          <div>
+            <h1 style={{ fontSize: '3rem', marginBottom: '1rem', fontWeight: '700' }}>
+              Get Started with Elevate
+            </h1>
+            <p style={{ fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto', opacity: 0.95 }}>
+              Everything you need to start teaching, learning, and collaborating
+            </p>
+          </div>
+        </div>
       </div>
       {/* Quick Start by Role */}
       <div

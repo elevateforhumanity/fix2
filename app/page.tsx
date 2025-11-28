@@ -12,82 +12,59 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <main className="bg-slate-50">
+    <main className="bg-white">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-orange-500 via-red-500 to-blue-600 text-white">
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,_#fff,_transparent_60%)]" />
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-12 md:py-20">
+          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+            {/* Text */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center rounded-full bg-orange-100 px-4 py-2 text-xs font-semibold text-orange-700">
+                Free & Funded Training • Marion County
+              </div>
+              <h1 className="text-4xl font-bold leading-tight text-slate-900 md:text-5xl lg:text-6xl">
+                Career Training That Leads to Real Jobs
+              </h1>
+              <p className="text-base text-slate-600 md:text-lg">
+                Elevate For Humanity connects you to approved training, workforce grants, and employers so you can
+                start a new career <span className="font-semibold text-slate-900">without tuition or debt</span>.
+              </p>
 
-        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 px-4 py-16 md:flex-row md:py-24">
-          {/* Text */}
-          <div className="max-w-xl space-y-6">
-            <p className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide">
-              Free & funded training • Marion County
-            </p>
-            <h1 className="text-3xl font-bold leading-tight md:text-4xl lg:text-5xl">
-              Career Training That Leads to <span className="underline decoration-white/70">Real Jobs</span>
-            </h1>
-            <p className="text-sm md:text-base text-white/90">
-              Elevate For Humanity connects you to approved training, workforce grants, and employers so you can
-              start a new career <span className="font-semibold">without tuition or debt</span>.
-            </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/apply"
+                  className="rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-orange-600 transition-all"
+                >
+                  Start My Application
+                </Link>
+                <Link
+                  href="/contact"
+                  className="rounded-full border-2 border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:bg-slate-50 transition-all"
+                >
+                  Talk to Our Team
+                </Link>
+              </div>
 
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/getstarted"
-                className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-slate-900 shadow-md hover:bg-slate-100"
-              >
-                Start My Application
-              </Link>
-              <Link
-                href="/contact"
-                className="rounded-full border border-white/70 px-5 py-2 text-sm font-semibold text-white hover:bg-white/10"
-              >
-                Talk to Our Team
-              </Link>
-            </div>
-
-            <div className="mt-4 flex flex-wrap gap-4 text-xs text-white/80">
-              <div>
-                <p className="font-semibold">Indianapolis Residents</p>
-                <p>May qualify for Workforce Ready Grants, WIOA funding, or paid apprenticeships.</p>
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xs font-semibold text-slate-900">Indianapolis Residents</p>
+                <p className="mt-1 text-xs text-slate-600">
+                  May qualify for Workforce Ready Grants, WIOA funding, or paid apprenticeships.
+                </p>
               </div>
             </div>
-          </div>
 
-          {/* Hero image / collage */}
-          <div className="grid max-w-md gap-4 md:max-w-lg md:grid-cols-2">
-            <div className="space-y-4">
-              <div className="relative h-40 w-full md:h-44">
-                <Image
-                  src="/media/hero/hero-learners.jpg"
-                  alt="Healthcare training lab"
-                  fill
-                  className="rounded-2xl object-cover shadow-lg"
-                  priority
-                />
-              </div>
-              <div className="relative h-32 w-full md:h-36">
-                <Image
-                  src="/images/artlist/hero-training-2.jpg"
-                  alt="HVAC students in training"
-                  fill
-                  className="rounded-2xl object-cover shadow-lg"
-                />
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="relative h-32 w-full md:h-36">
-                <Image
-                  src="/images/programs-new/program-11.jpg"
-                  alt="Barber apprenticeship in a real shop"
-                  fill
-                  className="rounded-2xl object-cover shadow-lg"
-                />
-              </div>
-              <div className="rounded-2xl bg-white/10 p-4 text-xs backdrop-blur">
-                <p className="font-semibold">20+ Workforce Programs</p>
-                <p>Healthcare • Trades • Beauty • Business • Readiness & Re-Entry</p>
-                <p className="mt-2 text-white/80">ETPL Provider · WIOA & WRG aligned · DOL Apprenticeship pathways</p>
+            {/* Single Hero Image */}
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl">
+              <Image
+                src="/media/hero/hero-learners.jpg"
+                alt="Students in workforce training"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/80 to-transparent p-6">
+                <p className="text-sm font-semibold text-white">20+ Workforce Programs</p>
+                <p className="mt-1 text-xs text-white/90">Healthcare • Trades • Beauty • Business</p>
               </div>
             </div>
           </div>

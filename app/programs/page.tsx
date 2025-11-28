@@ -115,13 +115,13 @@ export default function ProgramsPage() {
             <div className="mt-6 flex flex-wrap gap-4">
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center rounded-full bg-red-600 px-8 py-4 text-base font-semibold text-white hover:bg-red-700 transition-all shadow-xl hover:scale-105"
+                className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-base font-semibold text-white hover:bg-orange-600 transition-all shadow-xl"
               >
                 Apply Now
               </Link>
               <Link
-                href="/funding"
-                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-slate-900 hover:bg-slate-100 transition-all shadow-xl hover:scale-105"
+                href="/financial-aid"
+                className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/10 backdrop-blur px-8 py-4 text-base font-semibold text-white hover:bg-white/20 transition-all shadow-xl"
               >
                 Learn About Funding
               </Link>
@@ -137,30 +137,37 @@ export default function ProgramsPage() {
               <h2 className="text-sm font-semibold text-slate-900 md:text-base">
                 {group.title}
               </h2>
-              <div className="mt-3 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-                {group.items.map((item) => {
+              <div className="mt-3 grid gap-4 md:grid-cols-2">
+                {group.items.map((item, idx) => {
                   const isObject = typeof item === 'object';
                   const name = isObject ? item.name : item;
                   const href = isObject ? item.href : '/apply';
                   const linkText = isObject ? 'Learn More →' : 'I\'m interested →';
                   
                   return (
-                    <div
+                    <Link
                       key={name}
-                      className="rounded-xl border border-slate-100 bg-white p-4 text-sm text-slate-800 shadow-sm"
+                      href={href}
+                      className="group flex gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow-md transition-all"
                     >
-                      <p className="font-semibold text-slate-900">{name}</p>
-                      <p className="mt-1 text-xs text-slate-700">
-                        Training with a clear path to certification, employment,
-                        or apprenticeship.
-                      </p>
-                      <Link
-                        href={href}
-                        className="mt-3 inline-block text-[11px] font-semibold text-red-600"
-                      >
-                        {linkText}
-                      </Link>
-                    </div>
+                      <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-slate-100">
+                        <Image
+                          src={`/images/programs-new/program-${(idx % 20) + 1}.jpg`}
+                          alt={name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-slate-900 group-hover:text-orange-600 transition-colors">{name}</p>
+                        <p className="mt-1 text-xs text-slate-600">
+                          Training with a clear path to certification and employment.
+                        </p>
+                        <span className="mt-2 inline-block text-xs font-semibold text-orange-500">
+                          {linkText}
+                        </span>
+                      </div>
+                    </Link>
                   );
                 })}
               </div>
