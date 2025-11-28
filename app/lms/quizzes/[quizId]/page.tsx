@@ -35,9 +35,9 @@ export default function TakeQuizPage({ params }: Props) {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
   const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
   const supabase = supabaseUrl && supabaseKey ? createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+    supabaseUrl,
+    supabaseKey
+  ) : null;
 
   useEffect(() => {
     loadQuiz();
@@ -62,6 +62,12 @@ export default function TakeQuizPage({ params }: Props) {
 
   const loadQuiz = async () => {
     try {
+      if (!supabase) {
+        setError('Database not configured');
+        setLoading(false);
+        return;
+      }
+
       const {
         data: { user },
       } = await supabase.auth.getUser();
