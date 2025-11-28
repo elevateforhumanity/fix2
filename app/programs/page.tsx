@@ -101,30 +101,68 @@ export default function ProgramsPage() {
         </div>
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto max-w-6xl px-4 w-full">
-            <span className="inline-flex items-center rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-lg">
-              20+ Career Pathways Available
+            <span className="inline-flex items-center rounded-full bg-green-500 px-4 py-2 text-sm font-semibold text-white shadow-lg animate-pulse">
+              💯 ALL PROGRAMS 100% FREE - Government Funded
             </span>
             <h1 className="mt-4 text-4xl font-bold text-white md:text-6xl">
-              Training Programs
+              Choose Your Career Path
             </h1>
-            <p className="mt-4 max-w-2xl text-lg text-slate-100 md:text-xl">
-              Explore career pathways in healthcare, skilled trades, beauty,
-              business, and more. Many programs are eligible for workforce
-              funding and employer partnerships.
+            <p className="mt-4 max-w-3xl text-xl text-slate-100 md:text-2xl font-semibold">
+              20+ high-paying careers. 4-12 week programs. $0 tuition. Real certifications. Job placement included.
             </p>
+            
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl">
+              <div className="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+                <p className="text-3xl font-bold text-white">$35K-$65K</p>
+                <p className="text-sm text-slate-200">Average Starting Salary</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+                <p className="text-3xl font-bold text-white">4-12 Weeks</p>
+                <p className="text-sm text-slate-200">Fast-Track Training</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
+                <p className="text-3xl font-bold text-white">100+ Jobs</p>
+                <p className="text-sm text-slate-200">Employer Partners Hiring</p>
+              </div>
+            </div>
+
             <div className="mt-6 flex flex-wrap gap-4">
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-base font-semibold text-white hover:bg-orange-600 transition-all shadow-xl"
+                className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-lg font-bold text-white hover:bg-orange-600 transition-all shadow-xl hover:scale-105"
               >
-                Apply Now
+                🚀 Apply Now - Start in 2 Weeks
               </Link>
               <Link
-                href="/financial-aid"
-                className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/10 backdrop-blur px-8 py-4 text-base font-semibold text-white hover:bg-white/20 transition-all shadow-xl"
+                href="/what-we-do"
+                className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/10 backdrop-blur px-8 py-4 text-lg font-semibold text-white hover:bg-white/20 transition-all shadow-xl"
               >
-                Explore Free Training Options (WIOA, WRG, Grants)
+                How Free Training Works →
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Funding Explanation */}
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-8">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-white text-center">
+            <div>
+              <p className="text-2xl font-bold mb-1">WIOA</p>
+              <p className="text-sm text-blue-100">Federal workforce funding covers tuition + support services</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold mb-1">Workforce Ready Grant</p>
+              <p className="text-sm text-blue-100">Indiana state program for certificate training</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold mb-1">OJT</p>
+              <p className="text-sm text-blue-100">Get PAID $15-20/hr while you train on the job</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold mb-1">Apprenticeships</p>
+              <p className="text-sm text-blue-100">Earn full wages while building your license</p>
             </div>
           </div>
         </div>

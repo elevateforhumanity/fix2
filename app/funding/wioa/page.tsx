@@ -105,14 +105,60 @@ export default function WIOAFundingPage() {
           </p>
         </section>
 
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">External Resources</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6">
+              <h3 className="font-bold text-xl mb-3">🔗 Indiana Career Connect</h3>
+              <p className="text-gray-700 mb-4">
+                Indiana's official workforce development portal. Check WIOA eligibility, find WorkOne locations, and access career resources.
+              </p>
+              <a
+                href="https://www.in.gov/dwd/indiana-career-connect/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+              >
+                Visit Indiana Career Connect →
+              </a>
+            </div>
+
+            <div className="bg-green-50 border-2 border-green-200 rounded-xl p-6">
+              <h3 className="font-bold text-xl mb-3">📍 WorkOne Indianapolis</h3>
+              <p className="text-gray-700 mb-2">
+                <strong>Address:</strong> 3901 Meadows Dr, Indianapolis, IN 46205
+              </p>
+              <p className="text-gray-700 mb-2">
+                <strong>Phone:</strong> (317) 684-2400
+              </p>
+              <p className="text-gray-700 mb-4">
+                <strong>Hours:</strong> Mon-Fri, 8:00 AM - 5:00 PM
+              </p>
+              <a
+                href="https://www.in.gov/dwd/workone-centers/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors"
+              >
+                Find Your WorkOne Center →
+              </a>
+            </div>
+          </div>
+        </section>
+
         <div className="bg-blue-50 border-l-4 border-brandPrimary p-6 mb-12">
           <h3 className="font-bold text-lg mb-2">Ready to Apply?</h3>
           <p className="text-gray-700 mb-4">
-            Contact us to see if you qualify for WIOA funding and start your career training today.
+            Contact us to see if you qualify for WIOA funding and start your career training today. We'll help you navigate the entire process.
           </p>
-          <Link href="/apply" className="inline-block bg-brandPrimary text-white px-6 py-3 rounded-lg font-bold hover:bg-brandPrimaryDark">
-            Apply Now
-          </Link>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/apply" className="inline-block bg-brandPrimary text-white px-6 py-3 rounded-lg font-bold hover:bg-brandPrimaryDark">
+              Apply Now
+            </Link>
+            <Link href="/contact" className="inline-block bg-white text-brandPrimary border-2 border-brandPrimary px-6 py-3 rounded-lg font-bold hover:bg-gray-50">
+              Contact Us
+            </Link>
+          </div>
         </div>
       </div>
     </main>

@@ -19,10 +19,10 @@ export function SiteFooter() {
         />
       </div>
       
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 md:px-10 lg:px-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5 text-xs text-white">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 text-xs text-white">
           {/* Brand & Contact */}
-          <div className="lg:col-span-2">
+          <div className="md:col-span-2 lg:col-span-1">
             <div className="mb-4 flex items-center gap-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-white text-xs font-black uppercase">
                 EFH
@@ -60,90 +60,77 @@ export function SiteFooter() {
               </div>
             </div>
 
-            {/* Social Links with CTAs */}
+            {/* Social Links */}
             <div>
-              <p className="text-sm font-bold text-orange-400 mb-3">FOLLOW US FOR UPDATES</p>
-              <div className="grid grid-cols-3 gap-3">
+              <p className="text-sm font-bold text-orange-400 mb-3">FOLLOW US</p>
+              <div className="flex gap-3">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61571046346179" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 p-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all hover:scale-105 shadow-lg"
+                  className="flex items-center justify-center w-10 h-10 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all hover:scale-105 shadow-lg"
                   aria-label="Facebook"
                 >
-                  <Facebook size={24} strokeWidth={2.5} />
-                  <span className="font-semibold text-sm">Facebook</span>
+                  <Facebook size={20} strokeWidth={2.5} />
                 </a>
 
                 <a 
                   href="https://www.linkedin.com/in/elevate-for-humanity-b5a2b3339/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 p-3 rounded-lg bg-blue-700 hover:bg-blue-800 text-white transition-all hover:scale-105 shadow-lg"
+                  className="flex items-center justify-center w-10 h-10 rounded-lg bg-blue-700 hover:bg-blue-800 text-white transition-all hover:scale-105 shadow-lg"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin size={24} strokeWidth={2.5} />
-                  <span className="font-semibold text-sm">LinkedIn</span>
+                  <Linkedin size={20} strokeWidth={2.5} />
                 </a>
                 <a 
                   href="https://instagram.com/elevateforhumanity" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 p-3 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all hover:scale-105 shadow-lg"
+                  className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all hover:scale-105 shadow-lg"
                   aria-label="Instagram"
                 >
-                  <Instagram size={24} strokeWidth={2.5} />
-                  <span className="font-semibold text-sm">Instagram</span>
+                  <Instagram size={20} strokeWidth={2.5} />
                 </a>
               </div>
-              <p className="text-xs text-slate-400 mt-3">Get daily job tips, success stories & program updates!</p>
+              <p className="text-xs text-slate-400 mt-3">Get updates & success stories!</p>
             </div>
           </div>
 
           {/* Programs */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
-              Main Programs
+              Programs
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2">
               <li>
-                <Link href="/programs/medical-assistant" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/programs" className="text-orange-400 hover:text-orange-300 transition text-sm font-bold">
+                  All Programs
+                </Link>
+              </li>
+              <li>
+                <Link href="/programs/medical-assistant" className="text-white hover:text-orange-300 transition text-sm">
                   Medical Assistant
                 </Link>
               </li>
               <li>
-                <Link href="/programs/barber-apprenticeship" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Barber Apprenticeship
+                <Link href="/programs/cna" className="text-white hover:text-orange-300 transition text-sm">
+                  CNA
                 </Link>
               </li>
               <li>
-                <Link href="/programs/hvac" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  HVAC Technician
+                <Link href="/programs/barber-apprenticeship" className="text-white hover:text-orange-300 transition text-sm">
+                  Barber
                 </Link>
               </li>
               <li>
-                <Link href="/programs/building-tech" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Building Maintenance
+                <Link href="/programs/hvac" className="text-white hover:text-orange-300 transition text-sm">
+                  HVAC
                 </Link>
               </li>
               <li>
-                <Link href="/programs/cdl" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  CDL / Transportation
-                </Link>
-              </li>
-              <li>
-                <Link href="/programs/workforce-readiness" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Workforce Readiness
-                </Link>
-              </li>
-              <li>
-                <Link href="/micro-classes" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Micro Classes →
-                </Link>
-              </li>
-              <li>
-                <Link href="/programs" className="text-orange-400 hover:text-orange-300 transition text-sm font-bold">
-                  View All Programs
+                <Link href="/programs/cdl" className="text-white hover:text-orange-300 transition text-sm">
+                  CDL
                 </Link>
               </li>
             </ul>

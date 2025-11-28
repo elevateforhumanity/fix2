@@ -38,79 +38,95 @@ export default function HomePage() {
     <main className="bg-white">
       {/* HERO */}
       <section className="bg-gradient-to-br from-orange-50 via-white to-blue-50">
-        <div className="mx-auto max-w-6xl px-4 py-12 md:py-20">
-          <div className="grid gap-10 md:grid-cols-2 md:items-center">
+        <div className="mx-auto max-w-7xl px-4 py-12 md:py-20">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             {/* Text */}
             <div className="space-y-6">
-              <div className="inline-flex items-center rounded-full bg-green-500 px-4 py-2 text-xs font-bold text-white">
-                💯 100% FREE TRAINING - NO COST TO YOU
+              <div className="inline-flex items-center rounded-full bg-green-500 px-4 py-2 text-xs font-bold text-white animate-pulse">
+                💯 100% FREE TRAINING - GOVERNMENT PAYS EVERYTHING
               </div>
               <h1 className="text-4xl font-bold leading-tight text-slate-900 md:text-5xl lg:text-6xl">
-                Get Trained. Get Hired. Get Paid.
+                From Unemployed to Employed in 4-12 Weeks
               </h1>
-              <p className="text-lg text-slate-700 md:text-xl font-medium">
-                We're an approved training provider that connects you to FREE government-funded career training (WIOA, Workforce Ready Grant, OJT, Apprenticeships) + connects you to employers hiring NOW.
+              <p className="text-xl text-slate-700 font-semibold">
+                Get trained in high-paying careers like CNA ($35K-$45K), HVAC ($45K-$65K), or Barber ($30K-$55K) — completely FREE through government workforce programs.
               </p>
-              
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
-                <p className="text-sm font-bold text-blue-900 mb-2">🔗 How It Works:</p>
-                <p className="text-sm text-blue-800 mb-3">
-                  <strong>EmployIndy</strong> (Marion County workforce board) + <strong>WorkOne</strong> + <strong>Indiana DWD</strong> fund your training through <strong>WIOA</strong>, <strong>Workforce Ready Grant</strong>, <strong>OJT</strong> (On-the-Job Training), or <strong>DOL Apprenticeships</strong>.
-                </p>
-                <p className="text-sm text-blue-800">
-                  <strong>We provide:</strong> Technical training (CNA, HVAC, Barber, CDL, etc.) + <strong>JRI (Job Ready Indy)</strong> soft skills curriculum from EmployIndy + job connections to 100+ employers.
-                </p>
+
+              {/* The Promise */}
+              <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-6 text-white shadow-xl">
+                <h2 className="text-2xl font-bold mb-3">Here's What You Get:</h2>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">💰</span>
+                    <div>
+                      <p className="font-bold text-lg">$0 Out of Pocket</p>
+                      <p className="text-orange-100">Government pays 100% of tuition, books, supplies. You pay NOTHING.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">📜</span>
+                    <div>
+                      <p className="font-bold text-lg">Real Credentials That Employers Want</p>
+                      <p className="text-orange-100">State-licensed certifications (CNA, Barber), industry credentials (HVAC, CDL), nationally recognized certificates.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">💼</span>
+                    <div>
+                      <p className="font-bold text-lg">Job Connections to 100+ Employers</p>
+                      <p className="text-orange-100">We partner with hospitals, HVAC companies, barbershops, trucking firms who are hiring NOW.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">🎓</span>
+                    <div>
+                      <p className="font-bold text-lg">Soft Skills Training (Job Ready Indy)</p>
+                      <p className="text-orange-100">Learn communication, professionalism, teamwork — the skills employers say are missing.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-2xl">🚗</span>
+                    <div>
+                      <p className="font-bold text-lg">Support Services Covered</p>
+                      <p className="text-orange-100">Transportation help, childcare assistance, work clothes, tools — we remove the barriers.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="space-y-3 bg-white rounded-xl p-5 border-2 border-green-200">
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white font-bold text-sm">✓</div>
-                  <div>
-                    <p className="font-bold text-slate-900">$0 Tuition - Government Pays</p>
-                    <p className="text-sm text-slate-600">WIOA & Workforce Ready Grants cover 100% of training costs</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white font-bold text-sm">✓</div>
-                  <div>
-                    <p className="font-bold text-slate-900">Real Certifications</p>
-                    <p className="text-sm text-slate-600">CNA, Medical Assistant, HVAC, Barber License, CDL & more</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white font-bold text-sm">✓</div>
-                  <div>
-                    <p className="font-bold text-slate-900">Job Placement Support</p>
-                    <p className="text-sm text-slate-600">We connect you to employers hiring in Indianapolis</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white font-bold text-sm">✓</div>
-                  <div>
-                    <p className="font-bold text-slate-900">Support Services Included</p>
-                    <p className="text-sm text-slate-600">Transportation, childcare, books - all covered</p>
-                  </div>
+              {/* How We're Different */}
+              <div className="bg-blue-50 border-2 border-blue-300 rounded-xl p-5">
+                <h3 className="text-lg font-bold text-blue-900 mb-3">🔥 Why We're Different:</h3>
+                <div className="space-y-2 text-sm text-blue-900">
+                  <p><strong>✓ We handle ALL the paperwork</strong> — We coordinate with WorkOne and handle all funding applications for you.</p>
+                  <p><strong>✓ Multiple funding sources</strong> — WIOA, Workforce Ready Grant, OJT, Apprenticeships. We find what you qualify for.</p>
+                  <p><strong>✓ Fast-track programs</strong> — 4-12 weeks, not months or years. Get working faster.</p>
+                  <p><strong>✓ Hybrid options</strong> — Online theory + in-person hands-on. Fits your schedule.</p>
+                  <p><strong>✓ Earn while you learn</strong> — OJT and Apprenticeships pay you $15-$20/hour WHILE training.</p>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/apply"
-                  className="rounded-full bg-orange-500 px-8 py-4 text-base font-bold text-white shadow-xl hover:bg-orange-600 transition-all hover:scale-105"
+                  className="rounded-full bg-orange-500 px-8 py-4 text-lg font-bold text-white shadow-xl hover:bg-orange-600 transition-all hover:scale-105 animate-bounce"
                 >
-                  Apply Now - It's FREE!
+                  🚀 Apply Now - Start in 2 Weeks!
                 </Link>
                 <Link
                   href="/programs"
-                  className="rounded-full border-2 border-orange-500 bg-white px-8 py-4 text-base font-bold text-orange-600 hover:bg-orange-50 transition-all"
+                  className="rounded-full border-2 border-orange-500 bg-white px-8 py-4 text-lg font-bold text-orange-600 hover:bg-orange-50 transition-all"
                 >
-                  See All Programs
+                  See All Programs →
                 </Link>
               </div>
 
-              <p className="text-xs text-slate-500">
-                ⭐ Indianapolis residents may qualify immediately. No income requirements for most programs.
-              </p>
+              <div className="bg-green-50 border-2 border-green-300 rounded-lg p-4">
+                <p className="text-sm font-bold text-green-900 mb-1">✨ No Catch. Seriously.</p>
+                <p className="text-sm text-green-800">
+                  No income requirements. No credit check. No hidden fees. If you're an Indianapolis resident who wants to work, you likely qualify. We'll tell you in 24 hours.
+                </p>
+              </div>
             </div>
 
             {/* Single Hero Image */}
@@ -149,72 +165,108 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* WIOA */}
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">W</div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900">WIOA Funding</h3>
-                  <p className="text-sm text-slate-600">Workforce Innovation & Opportunity Act</p>
+            <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="relative h-48 bg-gradient-to-br from-blue-500 to-blue-600">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-4xl font-bold">W</span>
+                    </div>
+                    <h3 className="text-2xl font-bold">WIOA Funding</h3>
+                    <p className="text-sm text-blue-100">Workforce Innovation & Opportunity Act</p>
+                  </div>
                 </div>
               </div>
-              <p className="text-slate-700 mb-3">
-                <strong>What it is:</strong> Federal workforce development money managed by EmployIndy (Marion County's workforce board)
-              </p>
-              <p className="text-slate-700 mb-3">
-                <strong>What it covers:</strong> Tuition, books, supplies, transportation, childcare, work clothes, tools
-              </p>
-              <p className="text-slate-700 mb-3">
-                <strong>Who qualifies:</strong> Adults, dislocated workers, youth - apply through WorkOne Career Centers
-              </p>
-              <p className="text-slate-700">
-                <strong>How to get it:</strong> We help you apply through WorkOne and coordinate everything
-              </p>
+              <div className="p-6">
+                <p className="text-slate-700 mb-3">
+                  <strong>What it is:</strong> Federal workforce development funding for job training and employment services
+                </p>
+                <p className="text-slate-700 mb-3">
+                  <strong>What it covers:</strong> Tuition, books, supplies, transportation, childcare, work clothes, tools
+                </p>
+                <p className="text-slate-700 mb-3">
+                  <strong>Who qualifies:</strong> Adults, dislocated workers, youth (16-24)
+                </p>
+                <p className="text-slate-700 mb-4">
+                  <strong>How to get it:</strong> Apply through WorkOne Career Centers - we help you with the entire process
+                </p>
+                <Link
+                  href="/funding/wioa"
+                  className="block w-full bg-blue-600 text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+                >
+                  Learn More About WIOA →
+                </Link>
+              </div>
             </div>
 
             {/* Workforce Ready Grant */}
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl">WRG</div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900">Workforce Ready Grant</h3>
-                  <p className="text-sm text-slate-600">Indiana State Program</p>
+            <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="relative h-48 bg-gradient-to-br from-green-500 to-green-600">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-3xl font-bold">WRG</span>
+                    </div>
+                    <h3 className="text-2xl font-bold">Workforce Ready Grant</h3>
+                    <p className="text-sm text-green-100">Indiana State Program</p>
+                  </div>
                 </div>
               </div>
-              <p className="text-slate-700 mb-3">
-                <strong>What it is:</strong> Indiana state program for tuition-free certificate training in high-demand careers
-              </p>
-              <p className="text-slate-700 mb-3">
-                <strong>What it covers:</strong> Full tuition for approved certificate programs
-              </p>
-              <p className="text-slate-700 mb-3">
-                <strong>Who qualifies:</strong> Indiana residents with high school diploma, no college degree
-              </p>
-              <p className="text-slate-700">
-                <strong>How to get it:</strong> We verify your eligibility and submit the application for you
-              </p>
+              <div className="p-6">
+                <p className="text-slate-700 mb-3">
+                  <strong>What it is:</strong> Indiana state program for tuition-free certificate training in high-demand careers
+                </p>
+                <p className="text-slate-700 mb-3">
+                  <strong>What it covers:</strong> Full tuition for approved certificate programs
+                </p>
+                <p className="text-slate-700 mb-3">
+                  <strong>Who qualifies:</strong> Indiana residents with high school diploma, no college degree
+                </p>
+                <p className="text-slate-700 mb-4">
+                  <strong>How to get it:</strong> We verify your eligibility and submit the application for you
+                </p>
+                <Link
+                  href="/funding/wrg"
+                  className="block w-full bg-green-600 text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors"
+                >
+                  Learn More About WRG →
+                </Link>
+              </div>
             </div>
 
             {/* OJT */}
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xl">OJT</div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900">On-the-Job Training</h3>
-                  <p className="text-sm text-slate-600">Get PAID While You Train</p>
+            <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="relative h-48 bg-gradient-to-br from-orange-500 to-orange-600">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center text-white">
+                    <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-3xl font-bold">OJT</span>
+                    </div>
+                    <h3 className="text-2xl font-bold">On-the-Job Training</h3>
+                    <p className="text-sm text-orange-100">Get PAID While You Train</p>
+                  </div>
                 </div>
               </div>
-              <p className="text-slate-700 mb-3">
-                <strong>What it is:</strong> You get hired by an employer and they pay you wages while you train ($15-$20/hour)
-              </p>
-              <p className="text-slate-700 mb-3">
-                <strong>What it covers:</strong> Government reimburses employer 50% of your wages for 3-6 months
-              </p>
-              <p className="text-slate-700 mb-3">
-                <strong>Who qualifies:</strong> Anyone we match with an employer partner
-              </p>
-              <p className="text-slate-700">
-                <strong>How it works:</strong> You're a real employee from day 1, earning real wages while learning on the job
-              </p>
+              <div className="p-6">
+                <p className="text-slate-700 mb-3">
+                  <strong>What it is:</strong> You get hired by an employer and they pay you wages while you train ($15-$20/hour)
+                </p>
+                <p className="text-slate-700 mb-3">
+                  <strong>What it covers:</strong> Government reimburses employer 50% of your wages for 3-6 months
+                </p>
+                <p className="text-slate-700 mb-3">
+                  <strong>Who qualifies:</strong> Anyone we match with an employer partner
+                </p>
+                <p className="text-slate-700 mb-4">
+                  <strong>How it works:</strong> You're a real employee from day 1, earning real wages while learning on the job
+                </p>
+                <Link
+                  href="/funding"
+                  className="block w-full bg-orange-600 text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-orange-700 transition-colors"
+                >
+                  Learn More About OJT →
+                </Link>
+              </div>
             </div>
 
             {/* Apprenticeships */}

@@ -2,37 +2,91 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 const mainNav = [
-  { label: "Programs", href: "/programs" },
-  { label: "Courses", href: "/courses" },
-  { label: "Funding", href: "/financial-aid" },
-  { label: "Employers", href: "/employers" },
-  { label: "Resources", href: "/faq" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { 
+    label: "Programs", 
+    href: "/programs",
+    dropdown: [
+      { label: "All Programs", href: "/programs" },
+      { label: "Medical Assistant", href: "/programs/medical-assistant" },
+      { label: "CNA", href: "/programs/cna" },
+      { label: "Barber Apprenticeship", href: "/programs/barber-apprenticeship" },
+      { label: "HVAC Technician", href: "/programs/hvac" },
+      { label: "Building Maintenance", href: "/programs/building-tech" },
+      { label: "CDL / Truck Driving", href: "/programs/cdl" },
+      { label: "Tax Prep (VITA)", href: "/programs/tax-vita" },
+      { label: "Workforce Readiness", href: "/programs/workforce-readiness" },
+    ]
+  },
+  { 
+    label: "Funding", 
+    href: "/funding",
+    dropdown: [
+      { label: "Funding Overview", href: "/funding" },
+      { label: "WIOA Funding", href: "/funding/wioa" },
+      { label: "Workforce Ready Grant", href: "/funding/wrg" },
+      { label: "Job Ready Indy (JRI)", href: "/funding/jri" },
+      { label: "DOL Apprenticeships", href: "/funding/dol" },
+      { label: "Financial Aid", href: "/financial-aid" },
+    ]
+  },
+  { 
+    label: "For Students", 
+    href: "/students",
+    dropdown: [
+      { label: "Student Portal", href: "/portal/student" },
+      { label: "Student Dashboard", href: "/student/dashboard" },
+      { label: "LMS", href: "/lms" },
+      { label: "My Courses", href: "/student/courses" },
+      { label: "Career Services", href: "/career-services" },
+      { label: "Job Board", href: "/careers/job-board" },
+      { label: "Resources", href: "/student/resources" },
+    ]
+  },
+  { 
+    label: "Partners", 
+    href: "/employers",
+    dropdown: [
+      { label: "For Employers", href: "/employers" },
+      { label: "Hire Graduates", href: "/hire-graduates" },
+      { label: "Program Holders", href: "/program-holders" },
+      { label: "Training Providers", href: "/training-providers" },
+      { label: "Workforce Partners", href: "/workforce-partners" },
+    ]
+  },
+  { 
+    label: "About", 
+    href: "/about",
+    dropdown: [
+      { label: "About Us", href: "/about" },
+      { label: "Success Stories", href: "/success-stories" },
+      { label: "Blog", href: "/blog" },
+      { label: "Credentials", href: "/credentials" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Contact", href: "/contact" },
+    ]
+  },
 ];
 
 const mobileOnlyNav = [
-  { label: "Success Stories", href: "/success-stories" },
-  { label: "Student Hub", href: "/student/hub" },
-  { label: "Career Services", href: "/career-services" },
-  { label: "Hire Graduates", href: "/hire-graduates" },
-  { label: "Blog", href: "/blog" },
   { label: "Community", href: "/community" },
+  { label: "Webinars", href: "/webinars" },
+  { label: "Alumni", href: "/alumni" },
 ];
 
 const authNav = [
-  { label: "Student Portal", href: "/student/dashboard" },
-  { label: "Admin Portal", href: "/admin/dashboard" },
+  { label: "Admin", href: "/admin" },
 ];
 
 export function MainHeader() {
   const [open, setOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <header className="border-b border-slate-100 bg-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:py-4">
+    <header className="border-b border-slate-100 bg-white sticky top-0 z-50">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-red-600 text-sm font-bold text-white">
@@ -44,15 +98,37 @@ export function MainHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {mainNav.map((item) => (
-            <Link
+            <div 
               key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-slate-700 hover:text-red-600"
+              className="relative"
+              onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
+              onMouseLeave={() => setActiveDropdown(null)}
             >
-              {item.label}
-            </Link>
+              <Link
+                href={item.href}
+                className="text-sm font-medium text-slate-700 hover:text-red-600 flex items-center gap-1"
+              >
+                {item.label}
+                {item.dropdown && <ChevronDown className="w-4 h-4" />}
+              </Link>
+              
+              {/* Dropdown Menu */}
+              {item.dropdown && activeDropdown === item.label && (
+                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
+                  {item.dropdown.map((subItem) => (
+                    <Link
+                      key={subItem.href}
+                      href={subItem.href}
+                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600"
+                    >
+                      {subItem.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </nav>
 
@@ -87,17 +163,32 @@ export function MainHeader() {
 
       {/* Mobile menu */}
       {open && (
-        <nav className="border-t border-slate-100 bg-white px-4 py-3 md:hidden">
+        <nav className="border-t border-slate-100 bg-white px-4 py-3 lg:hidden max-h-[80vh] overflow-y-auto">
           <div className="space-y-2">
             {mainNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block py-2 text-sm font-medium text-slate-800"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
+              <div key={item.href}>
+                <Link
+                  href={item.href}
+                  className="block py-2 text-sm font-bold text-slate-900"
+                  onClick={() => !item.dropdown && setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+                {item.dropdown && (
+                  <div className="ml-4 space-y-1 mt-1">
+                    {item.dropdown.map((subItem) => (
+                      <Link
+                        key={subItem.href}
+                        href={subItem.href}
+                        className="block py-1.5 text-sm text-slate-600 hover:text-red-600"
+                        onClick={() => setOpen(false)}
+                      >
+                        {subItem.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             {mobileOnlyNav.map((item) => (
               <Link
