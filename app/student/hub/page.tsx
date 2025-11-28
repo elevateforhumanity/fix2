@@ -93,9 +93,9 @@ export default function StudentHubPage() {
                     <p className="text-[11px] font-semibold text-slate-100">
                       {program ? program.title : status.programId}
                     </p>
-                    {program?.shortDescription && (
+                    {program?.description && (
                       <p className="mt-1 text-[10px] text-slate-300">
-                        {program.shortDescription}
+                        {program.description.substring(0, 100)}...
                       </p>
                     )}
                   </div>

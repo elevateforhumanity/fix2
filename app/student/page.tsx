@@ -80,20 +80,15 @@ export default function StudentHomePage() {
               >
                 <div>
                   <h3 className="text-sm font-semibold text-slate-900">
-                    {course.shortTitle ?? course.title}
+                    {course.title}
                   </h3>
                   <p className="mt-1 line-clamp-3 text-[11px] text-slate-600">
-                    {course.description}
+                    {course.subtitle || 'Professional training program'}
                   </p>
                 </div>
                 <div className="mt-3 space-y-1">
                   <p className="text-[11px] text-slate-500">
-                    {course.hoursTotal} hours ·{" "}
-                    {course.deliveryMode === "IN_PERSON"
-                      ? "In-Person"
-                      : course.deliveryMode === "HYBRID"
-                      ? "Hybrid"
-                      : "Online"}
+                    {course.duration_hours || 40} hours · Online
                   </p>
                   <Link
                     href={`/courses/${course.slug}`}

@@ -30,7 +30,7 @@ export default function ScormPlayerPage({ params }: PageProps) {
               {pkg.title}
             </h1>
             <p className="mt-1 text-[11px] text-slate-300">
-              {pkg.description}
+              {pkg.title} - SCORM Package
             </p>
           </div>
           <div className="hidden flex-col items-end gap-2 text-[11px] md:flex">
