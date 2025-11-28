@@ -71,12 +71,10 @@ export default async function StudentDashboardV2Page() {
               <h2 className="text-sm font-semibold text-slate-900">Your Programs</h2>
               {enrollments.length === 0 ? (
                 <p className="mt-3 text-xs text-slate-600">
-                  No enrollments yet. Once a coach enrolls you in a program, it will
-              appear here.
-            </p>
-          ) : (
-            <div className="grid gap-3 md:grid-cols-2">
-              <div className="mt-3 space-y-3">
+                  No enrollments yet. Once a coach enrolls you in a program, it will appear here.
+                </p>
+              ) : (
+                <div className="mt-3 space-y-3">
                 {enrollments.map((enr) => (
                   <article
                     key={enr.id}
@@ -103,7 +101,8 @@ export default async function StudentDashboardV2Page() {
                     </button>
                   </article>
                 ))}
-              </div>
+                </div>
+              )}
             </section>
           </div>
 
