@@ -13,16 +13,19 @@ export default function SiteMapPage() {
       <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-4">Site Map</h1>
-            <p className="text-xl text-indigo-100">
-              Complete directory of all pages and resources
+            <h1 className="text-5xl font-bold mb-4">Complete Site Map</h1>
+            <p className="text-xl text-indigo-100 mb-4">
+              All 479 pages organized by category
             </p>
+            <div className="inline-block bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+              <p className="text-sm font-semibold">Use Ctrl+F (Cmd+F on Mac) to search for specific pages</p>
+            </div>
           </div>
         </div>
       </section>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* Main Pages */}
           <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
@@ -243,6 +246,133 @@ export default function SiteMapPage() {
               <li><Link href="/terms-of-service" className="text-blue-600 hover:underline">Terms of Service</Link></li>
               <li><Link href="/refund-policy" className="text-blue-600 hover:underline">Refund Policy</Link></li>
               <li><Link href="/accessibility" className="text-blue-600 hover:underline">Accessibility</Link></li>
+            </ul>
+          </div>
+
+          {/* HR & Payroll */}
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center">
+                <Users className="w-6 h-6 text-emerald-600" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900">HR & Payroll</h2>
+            </div>
+            <ul className="space-y-2">
+              <li><Link href="/admin/hr" className="text-blue-600 hover:underline font-bold">HR Dashboard</Link></li>
+              <li><Link href="/admin/hr/payroll" className="text-blue-600 hover:underline">Admin Payroll</Link></li>
+              <li><Link href="/employee/payroll" className="text-blue-600 hover:underline">Employee Payroll</Link></li>
+              <li><Link href="/admin/hr/employees" className="text-blue-600 hover:underline">Employees</Link></li>
+              <li><Link href="/admin/hr/time" className="text-blue-600 hover:underline">Time Tracking</Link></li>
+              <li><Link href="/admin/hr/leave" className="text-blue-600 hover:underline">Leave Management</Link></li>
+              <li><Link href="/employee/documents" className="text-blue-600 hover:underline">Employee Documents</Link></li>
+              <li><Link href="/employee/time-off" className="text-blue-600 hover:underline">Time Off Requests</Link></li>
+            </ul>
+          </div>
+
+          {/* Case Management */}
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-violet-100 rounded-lg flex items-center justify-center">
+                <FileText className="w-6 h-6 text-violet-600" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900">Case Management</h2>
+            </div>
+            <ul className="space-y-2">
+              <li><Link href="/cm" className="text-blue-600 hover:underline font-bold">Case Management</Link></li>
+              <li><Link href="/docs/case-management" className="text-blue-600 hover:underline">CM Documentation</Link></li>
+              <li><Link href="/delegate/dashboard" className="text-blue-600 hover:underline">Delegate Dashboard</Link></li>
+              <li><Link href="/delegate/students" className="text-blue-600 hover:underline">Delegate Students</Link></li>
+              <li><Link href="/delegate/reports" className="text-blue-600 hover:underline">Delegate Reports</Link></li>
+              <li><Link href="/delegate/messages" className="text-blue-600 hover:underline">Delegate Messages</Link></li>
+            </ul>
+          </div>
+
+          {/* Boards & Governance */}
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+                <Users className="w-6 h-6 text-amber-600" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900">Boards</h2>
+            </div>
+            <ul className="space-y-2">
+              <li><Link href="/board/dashboard" className="text-blue-600 hover:underline">Board Dashboard</Link></li>
+              <li><Link href="/board/referrals" className="text-blue-600 hover:underline">Board Referrals</Link></li>
+              <li><Link href="/workforce-board/dashboard" className="text-blue-600 hover:underline">Workforce Board</Link></li>
+              <li><Link href="/platform/workforce-boards" className="text-blue-600 hover:underline">Workforce Boards Platform</Link></li>
+            </ul>
+          </div>
+
+          {/* Special Programs */}
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-rose-100 rounded-lg flex items-center justify-center">
+                <Star className="w-6 h-6 text-rose-600" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900">Special Programs</h2>
+            </div>
+            <ul className="space-y-2">
+              <li><Link href="/kingdom-konnect" className="text-blue-600 hover:underline font-bold">Kingdom Konnect</Link></li>
+              <li><Link href="/vita" className="text-blue-600 hover:underline font-bold">VITA Tax Program</Link></li>
+              <li><Link href="/serene-comfort-care" className="text-blue-600 hover:underline font-bold">Serene Comfort Care</Link></li>
+              <li><Link href="/urban-build-crew" className="text-blue-600 hover:underline font-bold">Urban Build Crew</Link></li>
+              <li><Link href="/selfish-inc" className="text-blue-600 hover:underline">Selfish Inc</Link></li>
+            </ul>
+          </div>
+
+          {/* Tools & Utilities */}
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-sky-100 rounded-lg flex items-center justify-center">
+                <Award className="w-6 h-6 text-sky-600" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900">Tools</h2>
+            </div>
+            <ul className="space-y-2">
+              <li><Link href="/file-manager" className="text-blue-600 hover:underline">File Manager</Link></li>
+              <li><Link href="/sheets" className="text-blue-600 hover:underline">Sheets</Link></li>
+              <li><Link href="/slides" className="text-blue-600 hover:underline">Slides</Link></li>
+              <li><Link href="/video" className="text-blue-600 hover:underline">Video</Link></li>
+              <li><Link href="/chat" className="text-blue-600 hover:underline">Chat</Link></li>
+              <li><Link href="/messages" className="text-blue-600 hover:underline">Messages</Link></li>
+              <li><Link href="/calendar" className="text-blue-600 hover:underline">Calendar</Link></li>
+              <li><Link href="/search" className="text-blue-600 hover:underline">Search</Link></li>
+              <li><Link href="/directory" className="text-blue-600 hover:underline">Directory</Link></li>
+            </ul>
+          </div>
+
+          {/* Instructor Tools */}
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-fuchsia-100 rounded-lg flex items-center justify-center">
+                <GraduationCap className="w-6 h-6 text-fuchsia-600" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900">Instructor</h2>
+            </div>
+            <ul className="space-y-2">
+              <li><Link href="/instructor/dashboard" className="text-blue-600 hover:underline font-bold">Instructor Dashboard</Link></li>
+              <li><Link href="/instructor/analytics" className="text-blue-600 hover:underline">Instructor Analytics</Link></li>
+              <li><Link href="/educatorhub" className="text-blue-600 hover:underline">Educator Hub</Link></li>
+              <li><Link href="/receptionist" className="text-blue-600 hover:underline">Receptionist</Link></li>
+            </ul>
+          </div>
+
+          {/* Reporting & Analytics */}
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-lime-100 rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-6 h-6 text-lime-600" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900">Reports</h2>
+            </div>
+            <ul className="space-y-2">
+              <li><Link href="/reports" className="text-blue-600 hover:underline font-bold">Reports</Link></li>
+              <li><Link href="/admin/reports" className="text-blue-600 hover:underline">Admin Reports</Link></li>
+              <li><Link href="/admin/reports/caseload" className="text-blue-600 hover:underline">Caseload Reports</Link></li>
+              <li><Link href="/admin/reports/charts" className="text-blue-600 hover:underline">Charts</Link></li>
+              <li><Link href="/admin/analytics" className="text-blue-600 hover:underline">Analytics</Link></li>
+              <li><Link href="/analyticsdashboard" className="text-blue-600 hover:underline">Analytics Dashboard</Link></li>
+              <li><Link href="/platform/workforce-analytics" className="text-blue-600 hover:underline">Workforce Analytics</Link></li>
             </ul>
           </div>
 

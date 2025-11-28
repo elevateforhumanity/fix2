@@ -29,7 +29,6 @@ const mainNav = [
       { label: "Workforce Ready Grant", href: "/funding/wrg" },
       { label: "Job Ready Indy (JRI)", href: "/funding/jri" },
       { label: "DOL Apprenticeships", href: "/funding/dol" },
-      { label: "Financial Aid", href: "/financial-aid" },
     ]
   },
   { 

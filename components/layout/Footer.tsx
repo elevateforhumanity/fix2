@@ -251,6 +251,11 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/sitemap-page" className="hover:text-orange-300 transition font-bold text-orange-400 text-sm">
+                  View All 479 Pages →
+                </Link>
+              </li>
+              <li>
                 <Link href="/getstarted" className="text-white hover:text-orange-300 transition text-sm font-medium">
                   Get Started
                 </Link>
