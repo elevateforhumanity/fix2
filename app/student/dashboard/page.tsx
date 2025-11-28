@@ -19,7 +19,6 @@ interface EnrollmentRow {
 export default async function StudentDashboardV2Page() {
   const supabase = getSupabaseServerClient();
 
-  // For now this pulls ALL enrollments. Later you will filter by logged-in user.
   const { data, error } = await supabase
     .from("enrollments")
     .select(
@@ -64,9 +63,7 @@ export default async function StudentDashboardV2Page() {
         )}
 
         <div className="grid gap-6 md:grid-cols-[2fr,1fr]">
-          {/* Left column */}
           <div className="space-y-6">
-            {/* Continue learning */}
             <section className="rounded-2xl bg-white p-5 shadow-sm">
               <h2 className="text-sm font-semibold text-slate-900">Your Programs</h2>
               {enrollments.length === 0 ? (
@@ -75,38 +72,37 @@ export default async function StudentDashboardV2Page() {
                 </p>
               ) : (
                 <div className="mt-3 space-y-3">
-                {enrollments.map((enr) => (
-                  <article
-                    key={enr.id}
-                    className="rounded-xl border border-slate-200 bg-slate-50 p-4"
-                  >
-                    <p className="text-[10px] uppercase tracking-wide text-orange-600">
-                      {enr.programs?.[0]?.code ?? "Program"}
-                    </p>
-                    <p className="text-sm font-semibold text-slate-900">
-                      {enr.programs?.[0]?.name ?? "Program"}
-                    </p>
-                    <p className="mt-1 text-xs text-slate-600">
-                      Status:{" "}
-                      <span className="font-semibold capitalize">
-                        {enr.status}
-                      </span>
-                    </p>
-                    <p className="mt-1 text-xs text-slate-500">
-                      Start: {enr.start_date ?? "TBD"} • End:{" "}
-                      {enr.end_date ?? "TBD"}
-                    </p>
-                    <button className="mt-3 inline-flex items-center rounded-full bg-orange-500 px-4 py-2 text-xs font-semibold text-white hover:bg-orange-600">
-                      Continue Learning
-                    </button>
-                  </article>
-                ))}
+                  {enrollments.map((enr) => (
+                    <article
+                      key={enr.id}
+                      className="rounded-xl border border-slate-200 bg-slate-50 p-4"
+                    >
+                      <p className="text-[10px] uppercase tracking-wide text-orange-600">
+                        {enr.programs?.[0]?.code ?? "Program"}
+                      </p>
+                      <p className="text-sm font-semibold text-slate-900">
+                        {enr.programs?.[0]?.name ?? "Program"}
+                      </p>
+                      <p className="mt-1 text-xs text-slate-600">
+                        Status:{" "}
+                        <span className="font-semibold capitalize">
+                          {enr.status}
+                        </span>
+                      </p>
+                      <p className="mt-1 text-xs text-slate-500">
+                        Start: {enr.start_date ?? "TBD"} • End:{" "}
+                        {enr.end_date ?? "TBD"}
+                      </p>
+                      <button className="mt-3 inline-flex items-center rounded-full bg-orange-500 px-4 py-2 text-xs font-semibold text-white hover:bg-orange-600">
+                        Continue Learning
+                      </button>
+                    </article>
+                  ))}
                 </div>
               )}
             </section>
           </div>
 
-          {/* Right column */}
           <aside className="space-y-6">
             <section className="rounded-2xl bg-white p-5 shadow-sm">
               <h2 className="text-sm font-semibold text-slate-900">Funding & Support</h2>
