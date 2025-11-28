@@ -151,7 +151,7 @@ export default function HomePage() {
             <article className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/images/medical-assistant-1.jpg"
+                  src="/images/medical-assistant-photos/medical-assistant-01.jpg"
                   alt="Medical Assistant Training Program"
                   fill
                   className="object-cover"
