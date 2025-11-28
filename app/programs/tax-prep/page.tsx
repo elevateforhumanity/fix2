@@ -1,9 +1,79 @@
 import Link from "next/link";
+import Image from "next/image";
+import { CheckCircle, Clock, DollarSign, Calculator, ArrowRight } from "lucide-react";
 
 export default function TaxPrepPage() {
   return (
     <main className="bg-white">
-      <section className="border-b border-slate-100 bg-slate-50">
+      <section className="relative bg-gradient-to-r from-green-600 to-green-500 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnptMCAzNmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnpNMCAzNmMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9nPjwvc3ZnPg==')] bg-repeat"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <span className="text-sm font-semibold">📊 IRS-Certified | ETPL Approved</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                Tax Preparation Programs
+              </h1>
+              <p className="text-xl md:text-2xl text-green-100 mb-4">
+                VITA & Tax Business Management Training
+              </p>
+              <p className="text-lg text-green-50 mb-6">
+                Become an IRS-certified tax preparer through RISE Forward Foundation. Free training for VITA certification or start your own tax business. ETPL-approved program.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-semibold">4-8 Weeks</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <DollarSign className="w-5 h-5" />
+                  <span className="font-semibold">$30K-$60K</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+                  <Calculator className="w-5 h-5" />
+                  <span className="font-semibold">IRS Certified</span>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 bg-white text-green-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-50 transition-all hover:scale-105 shadow-lg"
+                >
+                  Apply Now - FREE
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="/vita"
+                  className="inline-flex items-center gap-2 bg-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-800 transition-all border-2 border-white/20"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
+                <Image
+                  src="/media/programs/tax-prep-hd.jpg"
+                  alt="Tax Preparation Training"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-100 bg-slate-50 hidden">
         <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
           <p className="text-xs font-semibold uppercase tracking-wide text-green-600">
             IRS-Certified Training | ETPL Approved
