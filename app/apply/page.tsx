@@ -247,6 +247,52 @@ d="M5 13l4 4L19 7" />
               </div>
             </div>
           </div>
+
+          {/* Indiana WorkOne / DWD Contact Info */}
+          <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-6">
+            <h2 className="text-lg font-bold text-slate-900">
+              Need Help with WIOA or Workforce Ready Grant Funding?
+            </h2>
+            <p className="mt-2 text-sm text-slate-700">
+              Contact Indiana Department of Workforce Development (DWD) or your local WorkOne office to start the funding process:
+            </p>
+            
+            <div className="mt-4 space-y-4">
+              <div>
+                <h3 className="text-sm font-semibold text-slate-900">Indiana DWD</h3>
+                <p className="mt-1 text-sm text-slate-700">
+                  Phone: <a href="tel:1-800-891-6499" className="text-blue-600 hover:underline">1-800-891-6499</a>
+                </p>
+                <p className="text-sm text-slate-700">
+                  Website: <a href="https://www.in.gov/dwd/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">in.gov/dwd</a>
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-sm font-semibold text-slate-900">WorkOne Indianapolis</h3>
+                <p className="mt-1 text-sm text-slate-700">
+                  Phone: <a href="tel:317-684-2400" className="text-blue-600 hover:underline">(317) 684-2400</a>
+                </p>
+                <p className="text-sm text-slate-700">
+                  Address: Multiple locations in Marion County
+                </p>
+                <p className="text-sm text-slate-700">
+                  Website: <a href="https://www.workone.in.gov/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">workone.in.gov</a>
+                </p>
+              </div>
+
+              <div className="rounded-lg bg-white p-4 border border-blue-200">
+                <p className="text-xs font-semibold text-slate-900">How to Start:</p>
+                <ol className="mt-2 list-decimal list-inside space-y-1 text-xs text-slate-700">
+                  <li>Contact WorkOne or DWD to check your eligibility</li>
+                  <li>Complete their intake process and assessment</li>
+                  <li>Get approved for WIOA or Workforce Ready Grant funding</li>
+                  <li>Choose Elevate for Humanity as your training provider (ETPL ID: 10000949)</li>
+                  <li>We'll work with your case manager to enroll you</li>
+                </ol>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

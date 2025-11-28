@@ -12,8 +12,8 @@ const mainNav = [
 ];
 
 const authNav = [
-  { label: "Student Login", href: "/auth/login?role=student" },
-  { label: "Staff Login", href: "/auth/login?role=staff" },
+  { label: "Student Portal", href: "/student/dashboard" },
+  { label: "Admin Portal", href: "/admin/dashboard" },
 ];
 
 export function MainHeader() {
