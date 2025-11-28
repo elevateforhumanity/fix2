@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { scormPackages } from "@/lms-data/scorm";
+import { scormPackages } from "@/lms-data/scormPackages";
 
 export const metadata = {
   title: "SCORM Courses | Elevate for Humanity",

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "Partner With Elevate | Training Sites, Employers & Barbershops",
@@ -38,44 +39,59 @@ export default function PartnersPage() {
     <main className="bg-slate-50 text-slate-900">
       {/* HERO */}
       <section className="border-b border-slate-100 bg-white">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 md:flex-row md:items-center md:py-16">
-          <div className="flex-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500">
-              Partners • Training Sites • Employers
-            </p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-              Host Learners. Build Talent. Change What Work Looks Like.
-            </h1>
-            <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
-              Elevate for Humanity connects real people to real skills and real
-              workplaces. As a partner, you host learners, apprentices, or
-              interns — and we bring structure, coaching, and workforce
-              alignment so the experience is good for both you and them.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link
-                href="/apply?type=partner"
-                className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-600"
-              >
-                Apply to Become a Partner
+        <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
+          <div className="grid gap-10 lg:grid-cols-2 items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500">
+                Partners • Training Sites • Employers
+              </p>
+              <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+                Host Learners. Build Talent. Change What Work Looks Like.
+              </h1>
+              <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
+                Elevate for Humanity connects real people to real skills and real
+                workplaces. As a partner, you host learners, apprentices, or
+                interns — and we bring structure, coaching, and workforce
+                alignment so the experience is good for both you and them.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href="/apply?type=partner"
+                  className="inline-flex items-center justify-center rounded-2xl bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-600"
+                >
+                  Apply to Become a Partner
               </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:border-slate-400"
-              >
-                Schedule a Partner Call
-              </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:border-slate-400"
+                >
+                  Schedule a Partner Call
+                </Link>
+              </div>
+              <p className="mt-4 text-[11px] text-slate-500">
+                We work with barbershops, clinics, trades employers, logistics
+                companies, nonprofits, and more. If you support people or hire
+                people, there&apos;s likely a way to build with us.
+              </p>
             </div>
-            <p className="mt-4 text-[11px] text-slate-500">
-              We work with barbershops, clinics, trades employers, logistics
-              companies, nonprofits, and more. If you support people or hire
-              people, there&apos;s likely a way to build with us.
-            </p>
-          </div>
 
-          {/* SNAPSHOT */}
-          <div className="w-full max-w-md rounded-2xl border border-slate-100 bg-slate-900 px-5 py-5 text-sm text-slate-50 shadow-lg md:w-80">
-            <h2 className="text-sm font-semibold text-white">Partner Snapshot</h2>
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src="/images/facilities-new/facility-5.jpg"
+                alt="Partner training sites and workforce development"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PARTNER SNAPSHOT */}
+      <section className="py-10 bg-slate-50">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="w-full max-w-2xl mx-auto rounded-2xl border border-slate-100 bg-slate-900 px-6 py-6 text-sm text-slate-50 shadow-lg">
+            <h2 className="text-lg font-semibold text-white">Partner Snapshot</h2>
             <dl className="mt-3 space-y-2 text-xs text-slate-100/90">
               <div className="flex justify-between">
                 <dt className="text-slate-300">Partner Types</dt>

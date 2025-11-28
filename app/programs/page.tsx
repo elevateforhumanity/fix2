@@ -1,6 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
 
+export const metadata = {
+  title: 'Career Training Programs | Elevate for Humanity',
+  description: '20+ free career training programs in healthcare, skilled trades, technology, and more. 100% funded through WIOA, WRG, and workforce grants. Start your career today.',
+  openGraph: {
+    title: 'Career Training Programs | Elevate for Humanity',
+    description: '20+ free career training programs. 100% funded. Start your career today.',
+    images: ['/media/programs/multi-training-programs-optimized.jpg'],
+    type: 'website',
+  },
+};
+
 const PROGRAM_GROUPS = [
   {
     title: "Healthcare",
