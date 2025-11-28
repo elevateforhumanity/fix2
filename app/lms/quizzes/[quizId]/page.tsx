@@ -32,7 +32,9 @@ export default function TakeQuizPage({ params }: Props) {
   const [previousAttempts, setPreviousAttempts] = useState<any[]>([]);
   const [canTakeQuiz, setCanTakeQuiz] = useState(true);
 
-  const supabase = createBrowserClient(
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+  const supabase = supabaseUrl && supabaseKey ? createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );

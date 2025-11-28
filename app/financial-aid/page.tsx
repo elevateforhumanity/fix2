@@ -97,12 +97,16 @@ export default function FinancialAidPage() {
             </div>
             <div className="grid lg:grid-cols-3 gap-8">
               {fundingOptions.map((option) => {
-                const Icon = option.icon;
                 return (
                   <Card key={option.title}>
                     <CardContent className="p-6">
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-4">
-                        <Icon className="h-6 w-6 text-green-600" />
+                      <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden">
+                        <Image
+                          src={option.image}
+                          alt={option.title}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                       <h3 className="text-xl font-bold text-slate-900 mb-2">{option.title}</h3>
                       <p className="text-slate-600 mb-4">{option.description}</p>

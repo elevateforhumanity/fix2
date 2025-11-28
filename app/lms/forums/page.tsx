@@ -22,10 +22,9 @@ export default function ForumsPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  );
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+  const supabase = supabaseUrl && supabaseKey ? createBrowserClient(supabaseUrl, supabaseKey) : null;
 
   useEffect(() => {
     loadForums();
@@ -35,6 +34,12 @@ export default function ForumsPage() {
     try {
       setLoading(true);
       setError(null);
+
+      if (!supabase) {
+        setError('Database not configured');
+        setLoading(false);
+        return;
+      }
 
       // Get user's enrolled courses
       const { data: { user } } = await supabase.auth.getUser();
