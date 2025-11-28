@@ -1,6 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import PWAInstallSection from "@/components/PWAInstallSection";
+import {
+  MessageSquare,
+  Trophy,
+  Award,
+  Flame,
+  Sparkles,
+  BookOpen,
+  FileText,
+  Users,
+  BarChart3,
+  Smartphone,
+  CheckCircle,
+  TrendingUp,
+  Target,
+  Zap,
+  Star,
+  Download,
+  Globe,
+  Bell,
+  Eye,
+  Calendar,
+} from "lucide-react";
 
 export const metadata = {
   title: "Elevate for Humanity | Free Career Training Indianapolis",
@@ -27,8 +49,18 @@ export default function HomePage() {
                 Get Trained. Get Hired. Get Paid.
               </h1>
               <p className="text-lg text-slate-700 md:text-xl font-medium">
-                We train you for FREE in high-demand careers, then connect you directly to employers who are hiring NOW.
+                We're an approved training provider that connects you to FREE government-funded career training (WIOA, Workforce Ready Grant, OJT, Apprenticeships) + connects you to employers hiring NOW.
               </p>
+              
+              <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
+                <p className="text-sm font-bold text-blue-900 mb-2">🔗 How It Works:</p>
+                <p className="text-sm text-blue-800 mb-3">
+                  <strong>EmployIndy</strong> (Marion County workforce board) + <strong>WorkOne</strong> + <strong>Indiana DWD</strong> fund your training through <strong>WIOA</strong>, <strong>Workforce Ready Grant</strong>, <strong>OJT</strong> (On-the-Job Training), or <strong>DOL Apprenticeships</strong>.
+                </p>
+                <p className="text-sm text-blue-800">
+                  <strong>We provide:</strong> Technical training (CNA, HVAC, Barber, CDL, etc.) + <strong>JRI (Job Ready Indy)</strong> soft skills curriculum from EmployIndy + job connections to 100+ employers.
+                </p>
+              </div>
 
               <div className="space-y-3 bg-white rounded-xl p-5 border-2 border-green-200">
                 <div className="flex items-start gap-3">
