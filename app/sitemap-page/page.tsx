@@ -334,11 +334,51 @@ export default function SiteMapPage() {
               <li><Link href="/sheets" className="text-blue-600 hover:underline">Sheets</Link></li>
               <li><Link href="/slides" className="text-blue-600 hover:underline">Slides</Link></li>
               <li><Link href="/video" className="text-blue-600 hover:underline">Video</Link></li>
+              <li><Link href="/videos" className="text-blue-600 hover:underline">Videos</Link></li>
               <li><Link href="/chat" className="text-blue-600 hover:underline">Chat</Link></li>
               <li><Link href="/messages" className="text-blue-600 hover:underline">Messages</Link></li>
               <li><Link href="/calendar" className="text-blue-600 hover:underline">Calendar</Link></li>
               <li><Link href="/search" className="text-blue-600 hover:underline">Search</Link></li>
               <li><Link href="/directory" className="text-blue-600 hover:underline">Directory</Link></li>
+            </ul>
+          </div>
+
+          {/* Course & Content Builders */}
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                <BookOpen className="w-6 h-6 text-indigo-600" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900">Builders</h2>
+            </div>
+            <ul className="space-y-2">
+              <li><Link href="/admin/course-builder" className="text-blue-600 hover:underline font-bold">Course Builder</Link></li>
+              <li><Link href="/admin/ai-course-builder" className="text-blue-600 hover:underline">AI Course Builder</Link></li>
+              <li><Link href="/courses/coursebuilder" className="text-blue-600 hover:underline">Course Builder (Public)</Link></li>
+              <li><Link href="/admin/quiz-builder" className="text-blue-600 hover:underline">Quiz Builder</Link></li>
+              <li><Link href="/admin/syllabus-generator" className="text-blue-600 hover:underline">Syllabus Generator</Link></li>
+              <li><Link href="/admin/program-generator" className="text-blue-600 hover:underline">Program Generator</Link></li>
+              <li><Link href="/admin/videos/upload" className="text-blue-600 hover:underline">Video Upload</Link></li>
+              <li><Link href="/admin/curriculum/upload" className="text-blue-600 hover:underline">Curriculum Upload</Link></li>
+              <li><Link href="/curriculumupload" className="text-blue-600 hover:underline">Curriculum Upload (Alt)</Link></li>
+              <li><Link href="/create-course" className="text-blue-600 hover:underline">Create Course</Link></li>
+            </ul>
+          </div>
+
+          {/* Documents & Binders */}
+          <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                <FileText className="w-6 h-6 text-purple-600" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900">Documents</h2>
+            </div>
+            <ul className="space-y-2">
+              <li><Link href="/admin/document-center" className="text-blue-600 hover:underline font-bold">Document Center</Link></li>
+              <li><Link href="/admin/documents/upload" className="text-blue-600 hover:underline">Upload Documents</Link></li>
+              <li><Link href="/employee/documents" className="text-blue-600 hover:underline">Employee Documents</Link></li>
+              <li><Link href="/notebooklm" className="text-blue-600 hover:underline">NotebookLM</Link></li>
+              <li><Link href="/admin/internal-docs" className="text-blue-600 hover:underline">Internal Docs</Link></li>
             </ul>
           </div>
 
