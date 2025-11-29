@@ -10,8 +10,17 @@ export default function WRGPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-green-600 to-red-700 text-white py-20">
-        <div className="mx-auto max-w-7xl px-6 md:px-12">
+      <section className="relative bg-gradient-to-br from-green-600 to-red-700 text-white py-20">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/media/state-funding-hero.jpg"
+            alt="Workforce Ready Grant"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-6 md:px-12">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-6">
               💰 State of Indiana Funding

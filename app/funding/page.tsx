@@ -1,12 +1,22 @@
 import Link from "next/link";
+import Image from "next/image";
 import { DollarSign, CheckCircle, Clock, Users, Award, TrendingUp } from "lucide-react";
 
 export default function FundingPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-green-600 to-green-700 text-white py-16">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="relative bg-gradient-to-br from-green-600 to-green-700 text-white py-20">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/media/federal-funding-hero.jpg"
+            alt="Funding Options"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4">
           <div className="max-w-4xl">
             <span className="inline-block bg-white text-green-600 px-4 py-2 rounded-full text-sm font-bold mb-4">
               💯 100% FREE TRAINING OPTIONS

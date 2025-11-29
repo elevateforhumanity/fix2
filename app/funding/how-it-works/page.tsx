@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle, ArrowRight, Users, Building2, GraduationCap, Briefcase, DollarSign, FileText } from "lucide-react";
 
 export const metadata = {
@@ -10,8 +11,17 @@ export default async function HowItWorksPage() {
   return (
     <main className="min-h-screen bg-slate-950">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-orange-600 to-orange-700 border-b border-orange-500">
-        <div className="max-w-7xl mx-auto px-4 py-16">
+      <section className="relative bg-gradient-to-br from-orange-600 to-orange-700 border-b border-orange-500">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/media/federal-funding-hero.jpg"
+            alt="How Funding Works"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 py-16">
           <h1 className="text-5xl font-bold text-white mb-6">
             How Your Training Gets Funded 100% FREE
           </h1>
