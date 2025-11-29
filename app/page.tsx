@@ -322,9 +322,12 @@ export default function HomePage() {
             <div>
               <h3 className="text-xl font-bold mb-4">Elevate For Humanity</h3>
               <p className="text-slate-300 text-sm mb-4">
-                Free career training through state-funded workforce programs. Changing lives in Indianapolis and beyond.
+                Founded by Elizabeth L. Greene, Elevate For Humanity connects Indiana residents to 100% free career training through state-funded workforce programs.
               </p>
-              <div className="flex gap-3">
+              <Link href="/founder" className="text-orange-400 hover:text-orange-300 text-sm font-semibold transition-colors">
+                Meet Our Founder →
+              </Link>
+              <div className="flex gap-3 mt-4">
                 <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-orange-500 transition-colors">
                   <span className="sr-only">Facebook</span>
                   f
@@ -359,8 +362,9 @@ export default function HomePage() {
                 <li><Link href="/funding" className="hover:text-orange-400 transition-colors">Funding Options</Link></li>
                 <li><Link href="/funding/wioa" className="hover:text-orange-400 transition-colors">WIOA</Link></li>
                 <li><Link href="/funding/wrg" className="hover:text-orange-400 transition-colors">Workforce Ready Grant</Link></li>
-                <li><Link href="/faq" className="hover:text-orange-400 transition-colors">FAQs</Link></li>
                 <li><Link href="/success-stories" className="hover:text-orange-400 transition-colors">Success Stories</Link></li>
+                <li><Link href="/press" className="hover:text-orange-400 transition-colors">Press Kit</Link></li>
+                <li><Link href="/faq" className="hover:text-orange-400 transition-colors">FAQs</Link></li>
               </ul>
             </div>
 
