@@ -119,91 +119,286 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* THREE COLUMN FEATURES */}
-      <section className="py-12 bg-slate-50">
+      {/* SINGLE FEATURE - HEALTHCARE */}
+      <section className="py-16 bg-slate-50">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid md:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-3">
+                Healthcare Careers
+              </p>
+              <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight">
+                Start Your Healthcare Career in Weeks
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-4">
+                Train as a Certified Nursing Assistant, Medical Assistant, or Phlebotomist in 4-10 weeks. State certification included. Hospitals and clinics are hiring immediately.
+              </p>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                Starting pay: $16-$20/hour with benefits and room for advancement.
+              </p>
               <Link
-                key={index}
-                href={feature.link}
-                className="group bg-white rounded overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                href="/programs/cna"
+                className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors"
               >
-                <div className="relative h-64">
-                  <Image
-                    src={feature.image}
-                    alt={feature.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    quality={100}
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    {feature.description}
-                  </p>
-                  <span className="inline-flex items-center text-orange-600 font-semibold group-hover:underline">
-                    Learn more
-                    <ChevronRight size={18} />
-                  </span>
-                </div>
+                Explore healthcare programs
+                <ChevronRight size={20} />
               </Link>
-            ))}
+            </div>
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/media/programs/cna-hd.jpg"
+                alt="Healthcare training"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* PROGRAMS GRID */}
-      <section className="py-12 bg-white">
+      {/* SINGLE FEATURE - SKILLED TRADES */}
+      <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-8">
-            <h2 className="text-4xl font-light text-slate-900 mb-4">Training Programs</h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/media/programs/hvac-hd.jpg"
+                alt="HVAC training"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-3">
+                Skilled Trades
+              </p>
+              <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight">
+                Build a Career in High-Demand Trades
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-4">
+                HVAC technicians, welders, and building maintenance workers earn $20-$30/hour with benefits. Get EPA certification, OSHA training, and hands-on experience.
+              </p>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                Apprenticeships available with local employers.
+              </p>
+              <Link
+                href="/programs/hvac"
+                className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors"
+              >
+                Explore trades programs
+                <ChevronRight size={20} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SINGLE FEATURE - LICENSED PROFESSIONALS */}
+      <section className="py-16 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-3">
+                Licensed Professionals
+              </p>
+              <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight">
+                Get Licensed, Get Hired, Get Ahead
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-4">
+                Become a licensed barber, CDL truck driver, or cosmetologist. Own your chair, drive your own routes, or work for established companies.
+              </p>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                Flexible schedules and entrepreneurship opportunities.
+              </p>
+              <Link
+                href="/programs/barber"
+                className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors"
+              >
+                Explore licensed programs
+                <ChevronRight size={20} />
+              </Link>
+            </div>
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/media/programs/barber-hd.jpg"
+                alt="Barber training"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SINGLE FEATURE IMAGE - HANDS-ON TRAINING */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/media/programs/cpr-individual-practice-hd.jpg"
+                alt="Hands-on training with real equipment"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-3">
+                Real Training, Real Skills
+              </p>
+              <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight">
+                Learn by Doing, Not Just Watching
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-4">
+                Every program includes hands-on practice with real equipment, real scenarios, and real instructors who work in the field.
+              </p>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                You'll practice CPR on mannequins, work with actual HVAC systems, cut real hair, drive real trucks, and use the same tools professionals use every day.
+              </p>
+              <Link
+                href="/programs"
+                className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors"
+              >
+                See all training programs
+                <ChevronRight size={20} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SINGLE PROGRAM SHOWCASE - CNA */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-light text-slate-900 mb-4">Featured Training Programs</h2>
             <p className="text-xl text-slate-600 font-light">
               Industry-recognized credentials in high-demand fields
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {programs.map((program, index) => (
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/media/programs/cna-hd.jpg"
+                alt="Certified Nursing Assistant Training"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+            <div>
+              <h3 className="text-3xl font-semibold text-slate-900 mb-4">
+                Certified Nursing Assistant (CNA)
+              </h3>
+              <p className="text-lg text-slate-600 mb-4">
+                Start your healthcare career in just 4-6 weeks. Get hands-on training, clinical experience, and state certification.
+              </p>
+              <div className="flex gap-6 mb-6">
+                <div>
+                  <p className="text-sm text-slate-500">Duration</p>
+                  <p className="text-lg font-semibold text-slate-900">4-6 weeks</p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500">Salary Range</p>
+                  <p className="text-lg font-semibold text-slate-900">$35K-$45K</p>
+                </div>
+              </div>
               <Link
-                key={index}
-                href={program.link}
-                className="group bg-white rounded-lg overflow-hidden shadow-md border border-slate-200 hover:border-orange-600 hover:shadow-lg transition-all"
+                href="/programs/cna"
+                className="inline-flex items-center px-6 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors"
               >
-                <div className="relative h-48">
-                  <Image
-                    src={program.image}
-                    alt={program.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    quality={100}
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
-                    {program.title}
-                  </h3>
-                  <p className="text-sm text-slate-600 mb-3">
-                    {program.description}
-                  </p>
-                  <div className="text-xs text-slate-500">
-                    {program.duration} • {program.salary}
-                  </div>
-                </div>
+                Learn More
+                <ChevronRight size={20} />
               </Link>
-            ))}
+            </div>
           </div>
 
-          <div className="mt-8 text-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <h3 className="text-3xl font-semibold text-slate-900 mb-4">
+                HVAC Technician
+              </h3>
+              <p className="text-lg text-slate-600 mb-4">
+                Learn heating, ventilation, and air conditioning systems. Get EPA certification and OSHA training in 8-12 weeks.
+              </p>
+              <div className="flex gap-6 mb-6">
+                <div>
+                  <p className="text-sm text-slate-500">Duration</p>
+                  <p className="text-lg font-semibold text-slate-900">8-12 weeks</p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500">Salary Range</p>
+                  <p className="text-lg font-semibold text-slate-900">$45K-$65K</p>
+                </div>
+              </div>
+              <Link
+                href="/programs/hvac"
+                className="inline-flex items-center px-6 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors"
+              >
+                Learn More
+                <ChevronRight size={20} />
+              </Link>
+            </div>
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/media/programs/hvac-hd.jpg"
+                alt="HVAC Technician Training"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/media/programs/cdl-hd.jpg"
+                alt="Commercial Driver CDL Training"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+            <div>
+              <h3 className="text-3xl font-semibold text-slate-900 mb-4">
+                Commercial Driver (CDL)
+              </h3>
+              <p className="text-lg text-slate-600 mb-4">
+                Get your CDL license in 4-6 weeks. Drive for national carriers or local companies with excellent pay and benefits.
+              </p>
+              <div className="flex gap-6 mb-6">
+                <div>
+                  <p className="text-sm text-slate-500">Duration</p>
+                  <p className="text-lg font-semibold text-slate-900">4-6 weeks</p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500">Salary Range</p>
+                  <p className="text-lg font-semibold text-slate-900">$50K-$70K</p>
+                </div>
+              </div>
+              <Link
+                href="/programs/cdl"
+                className="inline-flex items-center px-6 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors"
+              >
+                Learn More
+                <ChevronRight size={20} />
+              </Link>
+            </div>
+          </div>
+
+          <div className="text-center">
             <Link
               href="/programs"
-              className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors"
+              className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors text-lg"
             >
-              View all programs
-              <ChevronRight size={20} />
+              View all 20+ training programs
+              <ChevronRight size={24} />
             </Link>
           </div>
         </div>
@@ -233,53 +428,113 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* NEWS / STORIES */}
-      <section className="py-12 bg-white">
+      {/* SUCCESS STORIES - SINGLE LARGE TESTIMONIALS */}
+      <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-8">
+          <div className="text-center mb-12">
             <h2 className="text-4xl font-light text-slate-900 mb-4">Success Stories</h2>
             <p className="text-xl text-slate-600 font-light">
               Real graduates, real careers
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {stories.map((story, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md border border-slate-200">
-                <div className="relative h-64">
-                  <Image
-                    src={story.image}
-                    alt={story.name}
-                    fill
-                    className="object-cover"
-                    quality={100}
-                  />
-                </div>
-                <div className="p-6">
-                  <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-2">
-                    {story.program}
-                  </p>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                    {story.name}
-                  </h3>
-                  <p className="text-slate-600 italic mb-3">
-                    "{story.quote}"
-                  </p>
-                  <p className="text-sm text-slate-500">
-                    {story.outcome}
-                  </p>
-                </div>
-              </div>
-            ))}
+          {/* Story 1 - Marcus */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/students-new/student-17.jpg"
+                alt="Marcus J. - CNA Graduate"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-3">
+                CNA Training Graduate
+              </p>
+              <h3 className="text-3xl font-semibold text-slate-900 mb-4">
+                Marcus J.
+              </h3>
+              <p className="text-2xl text-slate-700 italic mb-6 leading-relaxed">
+                "I went from unemployed to working at a hospital in 6 weeks."
+              </p>
+              <p className="text-lg text-slate-600 mb-4">
+                Marcus completed our CNA training program and was hired immediately after passing his state certification exam.
+              </p>
+              <p className="text-lg font-semibold text-slate-900">
+                Now earning $18/hr at Community Hospital
+              </p>
+            </div>
           </div>
 
-          <div className="mt-8 text-center">
+          {/* Story 2 - Tasha */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-3">
+                HVAC Technician Graduate
+              </p>
+              <h3 className="text-3xl font-semibold text-slate-900 mb-4">
+                Tasha W.
+              </h3>
+              <p className="text-2xl text-slate-700 italic mb-6 leading-relaxed">
+                "Free training, real skills, and a job waiting when I finished."
+              </p>
+              <p className="text-lg text-slate-600 mb-4">
+                Tasha trained with us through WIOA funding and secured employment before graduation.
+              </p>
+              <p className="text-lg font-semibold text-slate-900">
+                Hired by local HVAC company at $22/hr
+              </p>
+            </div>
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/students-new/student-13.jpg"
+                alt="Tasha W. - HVAC Graduate"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+          </div>
+
+          {/* Story 3 - David */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/students-new/student-11.jpg"
+                alt="David R. - CDL Graduate"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-3">
+                CDL Training Graduate
+              </p>
+              <h3 className="text-3xl font-semibold text-slate-900 mb-4">
+                David R.
+              </h3>
+              <p className="text-2xl text-slate-700 italic mb-6 leading-relaxed">
+                "I got my CDL without paying a dime. Best decision I made."
+              </p>
+              <p className="text-lg text-slate-600 mb-4">
+                David completed CDL training through Workforce Ready Grant funding and now drives for a national carrier.
+              </p>
+              <p className="text-lg font-semibold text-slate-900">
+                Driving for national carrier at $60K/year
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center">
             <Link
               href="/success-stories"
-              className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors"
+              className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors text-lg"
             >
               Read more success stories
-              <ChevronRight size={20} />
+              <ChevronRight size={24} />
             </Link>
           </div>
         </div>
