@@ -75,7 +75,7 @@ export default function BuildingMaintenanceProgramPage() {
             <div className="relative">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
                 <Image
-                  src="/media/programs/building-maintenance-hd.jpg"
+                  src="/media/programs/building-tech-hd.jpg"
                   alt="Building Maintenance Technician Training"
                   fill
                   className="object-cover"

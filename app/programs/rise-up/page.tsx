@@ -60,7 +60,7 @@ export default function RiseUpPage() {
             <div className="relative">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
                 <Image
-                  src="/media/programs/retail-hd.jpg"
+                  src="/media/programs/multi-training-programs-optimized.jpg"
                   alt="RISE Up Retail Training"
                   fill
                   className="object-cover"

@@ -21,6 +21,8 @@ import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
 import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
+import { InvisibleWatermark, DMCATrackingPixel } from '@/components/InvisibleWatermark';
+import { ScraperDetection } from '@/components/ScraperDetection';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -141,6 +143,12 @@ sizes="192x192" />
         <GoogleAnalytics />
         <FacebookPixel />
         <PerformanceMonitor />
+        <InvisibleWatermark 
+          owner="Elizabeth L. Greene / Elevate for Humanity"
+          siteId="EFH-ORIGINAL-2024"
+        />
+        <DMCATrackingPixel />
+        <ScraperDetection />
         <MainHeader />
         <Breadcrumbs />
         <main id="main-content">{children}</main>

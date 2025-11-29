@@ -1,0 +1,249 @@
+'use client';
+
+import { useEffect } from 'react';
+
+/**
+ * Invisible Watermark Component
+ * 
+ * This component embeds hidden tracking information throughout your site that:
+ * 1. Is invisible to users
+ * 2. Survives copy/paste
+ * 3. Can be detected if someone copies your site
+ * 4. Helps prove ownership in legal cases
+ * 
+ * Multiple layers of protection:
+ * - Hidden HTML comments
+ * - Invisible text elements
+ * - Meta tags
+ * - CSS-based markers
+ * - JavaScript fingerprinting
+ */
+
+interface WatermarkProps {
+  owner?: string;
+  siteId?: string;
+  timestamp?: string;
+}
+
+export function InvisibleWatermark({ 
+  owner = "Elizabeth L. Greene / Elevate for Humanity",
+  siteId = "EFH-ORIGINAL-2024",
+  timestamp = new Date().toISOString()
+}: WatermarkProps) {
+  
+  useEffect(() => {
+    // Add invisible watermark to body
+    const watermarkText = `ORIGINAL-SITE-${siteId}-${timestamp}-OWNER-${owner}`;
+    
+    // Method 1: Hidden div with zero opacity
+    const hiddenDiv = document.createElement('div');
+    hiddenDiv.style.cssText = 'position:absolute;width:0;height:0;opacity:0;pointer-events:none;';
+    hiddenDiv.setAttribute('data-site-owner', owner);
+    hiddenDiv.setAttribute('data-site-id', siteId);
+    hiddenDiv.setAttribute('data-original-timestamp', timestamp);
+    hiddenDiv.textContent = watermarkText;
+    document.body.appendChild(hiddenDiv);
+    
+    // Method 2: Add to console (visible to developers who copy)
+    console.log('%c⚠️ COPYRIGHT NOTICE', 'color: red; font-size: 20px; font-weight: bold;');
+    console.log('%cThis website and all its code, design, and content are protected by copyright.', 'font-size: 14px;');
+    console.log('%c© 2024 Elevate for Humanity. All Rights Reserved.', 'font-size: 14px; font-weight: bold;');
+    console.log('%cOwner: Elizabeth L. Greene', 'font-size: 12px;');
+    console.log('%cSite ID: ' + siteId, 'font-size: 12px;');
+    console.log('%cOriginal Timestamp: ' + timestamp, 'font-size: 12px;');
+    console.log('%cUnauthorized copying, scraping, or reproduction is illegal and will be prosecuted.', 'color: red; font-size: 12px;');
+    console.log('%cContact: legal@elevateforhumanity.org', 'font-size: 12px;');
+    
+    // Method 3: Add invisible text throughout the page
+    const addInvisibleMarkers = () => {
+      const markers = [
+        `<!--ORIGINAL-SITE-${siteId}-->`,
+        `<!--COPYRIGHT-${owner}-->`,
+        `<!--TIMESTAMP-${timestamp}-->`,
+        `<!--DO-NOT-COPY-LEGAL-ACTION-WILL-BE-TAKEN-->`
+      ];
+      
+      markers.forEach(marker => {
+        const comment = document.createComment(marker);
+        document.body.appendChild(comment);
+      });
+    };
+    
+    addInvisibleMarkers();
+    
+    // Method 4: Add to localStorage (persists across sessions)
+    try {
+      localStorage.setItem('site_original_owner', owner);
+      localStorage.setItem('site_original_id', siteId);
+      localStorage.setItem('site_original_timestamp', timestamp);
+    } catch (e) {
+      // Ignore if localStorage is disabled
+    }
+    
+    // Method 5: Detect if site is being viewed in iframe (common scraping technique)
+    if (window.self !== window.top) {
+      console.error('⚠️ This site is being displayed in an iframe. This may be unauthorized use.');
+      // Optionally break out of iframe
+      // window.top.location = window.self.location;
+    }
+    
+    // Method 6: Add fingerprint to page
+    const fingerprint = generateFingerprint();
+    const fpDiv = document.createElement('div');
+    fpDiv.style.display = 'none';
+    fpDiv.setAttribute('data-fp', fingerprint);
+    document.body.appendChild(fpDiv);
+    
+  }, [owner, siteId, timestamp]);
+  
+  return (
+    <>
+      {/* Method 7: Invisible text elements scattered throughout */}
+      <span style={{ 
+        position: 'absolute', 
+        width: '1px', 
+        height: '1px', 
+        opacity: 0, 
+        pointerEvents: 'none',
+        userSelect: 'none'
+      }}>
+        ORIGINAL-SITE-{siteId}-OWNER-{owner}
+      </span>
+      
+      {/* Method 8: Hidden meta tags */}
+      <meta name="site-owner" content={owner} />
+      <meta name="site-id" content={siteId} />
+      <meta name="original-timestamp" content={timestamp} />
+      <meta name="copyright" content={`© 2024 ${owner}. All Rights Reserved.`} />
+      
+      {/* Method 9: Invisible watermark text */}
+      <div 
+        style={{
+          position: 'fixed',
+          bottom: '-100px',
+          right: '-100px',
+          fontSize: '1px',
+          color: 'transparent',
+          pointerEvents: 'none',
+          userSelect: 'none',
+          zIndex: -1
+        }}
+        aria-hidden="true"
+      >
+        COPYRIGHT © 2024 ELEVATE FOR HUMANITY - ELIZABETH L. GREENE - ORIGINAL SITE ID: {siteId} - 
+        TIMESTAMP: {timestamp} - UNAUTHORIZED COPYING PROHIBITED - LEGAL ACTION WILL BE TAKEN - 
+        CONTACT: legal@elevateforhumanity.org
+      </div>
+    </>
+  );
+}
+
+/**
+ * Generate a unique fingerprint for this site instance
+ */
+function generateFingerprint(): string {
+  const data = [
+    navigator.userAgent,
+    screen.width,
+    screen.height,
+    new Date().getTimezoneOffset(),
+    navigator.language,
+    'EFH-ORIGINAL'
+  ].join('|');
+  
+  // Simple hash function
+  let hash = 0;
+  for (let i = 0; i < data.length; i++) {
+    const char = data.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  
+  return 'EFH-' + Math.abs(hash).toString(36).toUpperCase();
+}
+
+/**
+ * Visible Watermark Component (for demos/screenshots)
+ * Use this when showing the platform to anyone
+ */
+export function VisibleWatermark({ 
+  text = "CONFIDENTIAL DEMO",
+  email = "",
+  showTimestamp = true 
+}: { 
+  text?: string; 
+  email?: string;
+  showTimestamp?: boolean;
+}) {
+  const timestamp = new Date().toLocaleString();
+  
+  return (
+    <div 
+      style={{
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
+        padding: '8px 12px',
+        background: 'rgba(0, 0, 0, 0.7)',
+        color: 'white',
+        fontSize: '11px',
+        borderRadius: '4px',
+        zIndex: 9999,
+        pointerEvents: 'none',
+        fontFamily: 'monospace'
+      }}
+    >
+      <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>
+        {text}
+      </div>
+      {email && (
+        <div style={{ fontSize: '10px', opacity: 0.8 }}>
+          Viewer: {email}
+        </div>
+      )}
+      {showTimestamp && (
+        <div style={{ fontSize: '9px', opacity: 0.6, marginTop: '4px' }}>
+          {timestamp}
+        </div>
+      )}
+      <div style={{ fontSize: '9px', opacity: 0.6, marginTop: '4px' }}>
+        © 2024 Elevate for Humanity
+      </div>
+    </div>
+  );
+}
+
+/**
+ * DMCA Tracking Pixel
+ * Embeds a tracking pixel that phones home when page is loaded
+ * Helps detect if your site is being copied/hosted elsewhere
+ */
+export function DMCATrackingPixel() {
+  useEffect(() => {
+    // Only track in production
+    if (process.env.NODE_ENV !== 'production') return;
+    
+    const trackingData = {
+      siteId: 'EFH-ORIGINAL-2024',
+      owner: 'Elevate for Humanity',
+      url: window.location.href,
+      referrer: document.referrer,
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent
+    };
+    
+    // Send tracking beacon to detect unauthorized copies
+    fetch('/api/track-usage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(trackingData),
+      keepalive: true // Ensures request completes even if user navigates away
+    }).catch((error) => {
+      // Silently fail - don't disrupt user experience
+      console.log('[DMCA Tracking] Failed to send beacon:', error);
+    });
+    
+  }, []);
+  
+  return null;
+}

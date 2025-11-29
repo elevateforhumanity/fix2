@@ -417,7 +417,7 @@ const programs = [
     duration: "8-10 weeks",
     salary: "$32K-$42K",
     link: "/programs/medical-assistant",
-    image: "/media/programs/medical-assistant-hd.jpg",
+    image: "/media/programs/healthcare-professional-1-hd.jpg",
   },
   {
     title: "Building Maintenance",
@@ -425,7 +425,7 @@ const programs = [
     duration: "6-8 weeks",
     salary: "$38K-$52K",
     link: "/programs/building-maintenance",
-    image: "/media/programs/building-tech-hd.jpg",
+    image: "/media/programs/building-hd.jpg",
   },
   {
     title: "Phlebotomy",

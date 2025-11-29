@@ -1,0 +1,211 @@
+import { NextRequest, NextResponse } from 'next/server';
+
+/**
+ * DMCA Tracking Endpoint
+ * 
+ * This endpoint receives tracking data from your watermarked pages.
+ * If someone copies your site, this will alert you when their copy is accessed.
+ * 
+ * How it works:
+ * 1. Your site sends tracking data on every page load
+ * 2. We check if the domain matches your official domain
+ * 3. If it doesn't match, we know someone copied your site
+ * 4. We send you an alert email/notification
+ */
+
+const OFFICIAL_DOMAINS = [
+  'elevateforhumanity.org',
+  'www.elevateforhumanity.org',
+  'localhost', // for development
+  'vercel.app' // for preview deployments
+];
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    
+    const {
+      siteId,
+      owner,
+      url,
+      referrer,
+      timestamp,
+      userAgent
+    } = body;
+    
+    // Get the domain from the URL
+    const urlObj = new URL(url);
+    const domain = urlObj.hostname;
+    
+    // Check if this is an unauthorized copy
+    const isUnauthorized = !OFFICIAL_DOMAINS.some(officialDomain => 
+      domain.includes(officialDomain)
+    );
+    
+    if (isUnauthorized) {
+      // ALERT! Someone copied your site
+      console.error('🚨 UNAUTHORIZED SITE COPY DETECTED!');
+      console.error('Domain:', domain);
+      console.error('URL:', url);
+      console.error('Referrer:', referrer);
+      console.error('User Agent:', userAgent);
+      console.error('Timestamp:', timestamp);
+      
+      // Send alert email (implement this)
+      await sendAlertEmail({
+        domain,
+        url,
+        referrer,
+        userAgent,
+        timestamp
+      });
+      
+      // Log to database for evidence
+      await logUnauthorizedAccess({
+        domain,
+        url,
+        referrer,
+        userAgent,
+        timestamp,
+        ip: request.ip || request.headers.get('x-forwarded-for') || 'unknown'
+      });
+      
+      // Return response indicating unauthorized use
+      return NextResponse.json({
+        status: 'unauthorized',
+        message: 'This appears to be an unauthorized copy of Elevate for Humanity',
+        action: 'Legal team has been notified'
+      }, { status: 403 });
+    }
+    
+    // Authorized access - just log it
+    console.log('[Tracking] Authorized access:', domain);
+    
+    return NextResponse.json({
+      status: 'ok',
+      message: 'Tracking recorded'
+    });
+    
+  } catch (error) {
+    console.error('Tracking error:', error);
+    return NextResponse.json(
+      { error: 'Tracking failed' },
+      { status: 500 }
+    );
+  }
+}
+
+/**
+ * Send alert email when unauthorized copy is detected
+ */
+async function sendAlertEmail(data: {
+  domain: string;
+  url: string;
+  referrer: string;
+  userAgent: string;
+  timestamp: string;
+}) {
+  // TODO: Implement email sending
+  // Use SendGrid, AWS SES, or similar service
+  
+  const emailContent = `
+    🚨 UNAUTHORIZED SITE COPY DETECTED
+    
+    Someone has copied your website and is hosting it at:
+    Domain: ${data.domain}
+    Full URL: ${data.url}
+    
+    Details:
+    - Referrer: ${data.referrer}
+    - User Agent: ${data.userAgent}
+    - Timestamp: ${data.timestamp}
+    
+    IMMEDIATE ACTIONS REQUIRED:
+    1. Screenshot the unauthorized site
+    2. Save all evidence
+    3. Send cease and desist letter
+    4. File DMCA takedown notice
+    5. Contact attorney
+    
+    Evidence folder: /Evidence/unauthorized-copies/${data.domain}/
+    
+    Legal contacts:
+    - IP Attorney: [YOUR ATTORNEY]
+    - DMCA Agent: legal@elevateforhumanity.org
+  `;
+  
+  console.log('[ALERT EMAIL]', emailContent);
+  
+  // Uncomment when you have email service configured:
+  /*
+  const sgMail = require('@sendgrid/mail');
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  
+  await sgMail.send({
+    to: 'elizabeth@elevateforhumanity.org',
+    from: 'alerts@elevateforhumanity.org',
+    subject: '🚨 URGENT: Unauthorized Site Copy Detected',
+    text: emailContent,
+    html: emailContent.replace(/\n/g, '<br>')
+  });
+  */
+}
+
+/**
+ * Log unauthorized access to database for legal evidence
+ */
+async function logUnauthorizedAccess(data: {
+  domain: string;
+  url: string;
+  referrer: string;
+  userAgent: string;
+  timestamp: string;
+  ip: string;
+}) {
+  // TODO: Implement database logging
+  // This creates a permanent record for legal proceedings
+  
+  console.log('[EVIDENCE LOG]', {
+    type: 'UNAUTHORIZED_COPY',
+    ...data,
+    logged_at: new Date().toISOString()
+  });
+  
+  // Uncomment when you have database configured:
+  /*
+  const { createClient } = require('@/lib/supabase/server');
+  const supabase = await createClient();
+  
+  await supabase.from('unauthorized_access_log').insert({
+    domain: data.domain,
+    url: data.url,
+    referrer: data.referrer,
+    user_agent: data.userAgent,
+    ip_address: data.ip,
+    detected_at: data.timestamp,
+    logged_at: new Date().toISOString()
+  });
+  */
+}
+
+/**
+ * GET endpoint to check tracking status
+ */
+export async function GET(request: NextRequest) {
+  // Only allow from authorized domains
+  const origin = request.headers.get('origin') || '';
+  const isAuthorized = OFFICIAL_DOMAINS.some(domain => origin.includes(domain));
+  
+  if (!isAuthorized && origin !== '') {
+    return NextResponse.json(
+      { error: 'Unauthorized domain' },
+      { status: 403 }
+    );
+  }
+  
+  return NextResponse.json({
+    status: 'active',
+    message: 'DMCA tracking is active',
+    official_domains: OFFICIAL_DOMAINS
+  });
+}

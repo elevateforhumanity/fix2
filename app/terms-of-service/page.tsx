@@ -32,7 +32,12 @@ export default function TermsPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Terms of Service
           </h1>
-          <p className="text-lg text-gray-600">Last updated: November 2024</p>
+          <p className="text-lg text-gray-600">Last updated: November 29, 2024</p>
+          <div className="mt-4 p-4 bg-red-100 border-2 border-red-500 rounded-lg">
+            <p className="text-sm font-bold text-red-900">
+              ⚠️ LEGAL NOTICE: Unauthorized scraping, copying, or competitive use of this platform is strictly prohibited and will be prosecuted.
+            </p>
+          </div>
         </div>
       </section>
       {/* Content */}

@@ -60,7 +60,7 @@ export default function ChildcarePage() {
             <div className="relative">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/20">
                 <Image
-                  src="/media/programs/childcare-hd.jpg"
+                  src="/media/programs/counseling-training-hd.jpg"
                   alt="Childcare Provider Certification Training"
                   fill
                   className="object-cover"
