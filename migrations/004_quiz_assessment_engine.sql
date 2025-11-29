@@ -1,9 +1,9 @@
 -- Quiz and Assessment Engine Migration
 -- For course assessments, knowledge checks, and certification exams
 
--- ============================================================================
+--
 -- QUIZZES TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS quizzes (
     id SERIAL PRIMARY KEY,
     course_id INTEGER,
@@ -45,9 +45,9 @@ CREATE INDEX idx_quizzes_course ON quizzes(course_id);
 CREATE INDEX idx_quizzes_lesson ON quizzes(lesson_id);
 CREATE INDEX idx_quizzes_type ON quizzes(quiz_type);
 
--- ============================================================================
+--
 -- QUIZ QUESTIONS TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS quiz_questions (
     id SERIAL PRIMARY KEY,
     quiz_id INTEGER NOT NULL,
@@ -78,9 +78,9 @@ CREATE TABLE IF NOT EXISTS quiz_questions (
 CREATE INDEX idx_questions_quiz ON quiz_questions(quiz_id);
 CREATE INDEX idx_questions_order ON quiz_questions(quiz_id, question_order);
 
--- ============================================================================
+--
 -- QUIZ ANSWER OPTIONS TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS quiz_answer_options (
     id SERIAL PRIMARY KEY,
     question_id INTEGER NOT NULL,
@@ -102,9 +102,9 @@ CREATE TABLE IF NOT EXISTS quiz_answer_options (
 CREATE INDEX idx_answers_question ON quiz_answer_options(question_id);
 CREATE INDEX idx_answers_correct ON quiz_answer_options(question_id, is_correct);
 
--- ============================================================================
+--
 -- QUIZ ATTEMPTS TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS quiz_attempts (
     id SERIAL PRIMARY KEY,
     quiz_id INTEGER NOT NULL,
@@ -140,9 +140,9 @@ CREATE INDEX idx_attempts_user ON quiz_attempts(user_id);
 CREATE INDEX idx_attempts_status ON quiz_attempts(status);
 CREATE INDEX idx_attempts_user_quiz ON quiz_attempts(user_id, quiz_id);
 
--- ============================================================================
+--
 -- QUIZ RESPONSES TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS quiz_responses (
     id SERIAL PRIMARY KEY,
     attempt_id INTEGER NOT NULL,
@@ -172,9 +172,9 @@ CREATE TABLE IF NOT EXISTS quiz_responses (
 CREATE INDEX idx_responses_attempt ON quiz_responses(attempt_id);
 CREATE INDEX idx_responses_question ON quiz_responses(question_id);
 
--- ============================================================================
+--
 -- ASSESSMENTS TABLE (Pre/Post Tests, Skills Assessments)
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS assessments (
     id SERIAL PRIMARY KEY,
     program_id INTEGER,
@@ -198,9 +198,9 @@ CREATE TABLE IF NOT EXISTS assessments (
 CREATE INDEX idx_assessments_program ON assessments(program_id);
 CREATE INDEX idx_assessments_type ON assessments(assessment_type);
 
--- ============================================================================
+--
 -- ASSESSMENT RESULTS TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS assessment_results (
     id SERIAL PRIMARY KEY,
     assessment_id INTEGER NOT NULL,
@@ -229,9 +229,9 @@ CREATE INDEX idx_assessment_results_user ON assessment_results(user_id);
 CREATE INDEX idx_assessment_results_assessment ON assessment_results(assessment_id);
 CREATE INDEX idx_assessment_results_program ON assessment_results(program_id);
 
--- ============================================================================
+--
 -- QUESTION BANK TABLE (Reusable Questions)
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS question_bank (
     id SERIAL PRIMARY KEY,
     
@@ -265,9 +265,9 @@ CREATE INDEX idx_question_bank_subject ON question_bank(subject_area);
 CREATE INDEX idx_question_bank_topic ON question_bank(topic);
 CREATE INDEX idx_question_bank_difficulty ON question_bank(difficulty_level);
 
--- ============================================================================
+--
 -- TRIGGERS
--- ============================================================================
+--
 CREATE TRIGGER update_quizzes_updated_at BEFORE UPDATE ON quizzes
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
@@ -280,9 +280,9 @@ CREATE TRIGGER update_quiz_attempts_updated_at BEFORE UPDATE ON quiz_attempts
 CREATE TRIGGER update_assessments_updated_at BEFORE UPDATE ON assessments
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
--- ============================================================================
+--
 -- VIEWS FOR REPORTING
--- ============================================================================
+--
 
 -- Quiz Performance Summary
 CREATE OR REPLACE VIEW quiz_performance_summary AS
@@ -315,9 +315,9 @@ JOIN quizzes q ON qa.quiz_id = q.id
 WHERE qa.status = 'submitted'
 GROUP BY qa.user_id, qa.quiz_id, q.title, q.course_id;
 
--- ============================================================================
+--
 -- COMMENTS
--- ============================================================================
+--
 COMMENT ON TABLE quizzes IS 'Quiz definitions and settings';
 COMMENT ON TABLE quiz_questions IS 'Questions within quizzes';
 COMMENT ON TABLE quiz_answer_options IS 'Answer choices for quiz questions';

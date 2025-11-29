@@ -1,9 +1,7 @@
 -- Employment Outcomes and Credential Tracking Migration
 -- For WIOA compliance and workforce reporting
 
--- ============================================================================
 -- EMPLOYMENT OUTCOMES TABLE
--- ============================================================================
 CREATE TABLE IF NOT EXISTS employment_outcomes (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
@@ -51,9 +49,9 @@ CREATE INDEX idx_employment_program ON employment_outcomes(program_id);
 CREATE INDEX idx_employment_status ON employment_outcomes(employed);
 CREATE INDEX idx_employment_date ON employment_outcomes(employment_date);
 
--- ============================================================================
+--
 -- CREDENTIALS ATTAINMENT TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS credentials_attained (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
@@ -95,9 +93,9 @@ CREATE INDEX idx_credentials_type ON credentials_attained(credential_type);
 CREATE INDEX idx_credentials_status ON credentials_attained(status);
 CREATE INDEX idx_credentials_expiration ON credentials_attained(expiration_date);
 
--- ============================================================================
+--
 -- QUARTERLY PERFORMANCE METRICS (WIOA Reporting)
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS quarterly_performance (
     id SERIAL PRIMARY KEY,
     
@@ -149,9 +147,9 @@ CREATE TABLE IF NOT EXISTS quarterly_performance (
 CREATE INDEX idx_quarterly_period ON quarterly_performance(year, quarter);
 CREATE INDEX idx_quarterly_program ON quarterly_performance(program_id);
 
--- ============================================================================
+--
 -- PARTICIPANT DEMOGRAPHICS (for compliance reporting)
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS participant_demographics (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL UNIQUE,
@@ -196,9 +194,9 @@ CREATE INDEX idx_demographics_user ON participant_demographics(user_id);
 CREATE INDEX idx_demographics_veteran ON participant_demographics(is_veteran);
 CREATE INDEX idx_demographics_low_income ON participant_demographics(is_low_income);
 
--- ============================================================================
+--
 -- FOLLOW-UP SCHEDULE (for retention tracking)
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS followup_schedule (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
@@ -230,9 +228,9 @@ CREATE INDEX idx_followup_user ON followup_schedule(user_id);
 CREATE INDEX idx_followup_date ON followup_schedule(scheduled_date);
 CREATE INDEX idx_followup_status ON followup_schedule(status);
 
--- ============================================================================
+--
 -- TRIGGER: Update timestamps
--- ============================================================================
+--
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -256,9 +254,9 @@ CREATE TRIGGER update_participant_demographics_updated_at BEFORE UPDATE ON parti
 CREATE TRIGGER update_followup_schedule_updated_at BEFORE UPDATE ON followup_schedule
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
--- ============================================================================
+--
 -- COMMENTS
--- ============================================================================
+--
 COMMENT ON TABLE employment_outcomes IS 'Tracks employment outcomes for WIOA performance reporting';
 COMMENT ON TABLE credentials_attained IS 'Tracks credentials earned by participants';
 COMMENT ON TABLE quarterly_performance IS 'Aggregated quarterly performance metrics for WIOA reporting';

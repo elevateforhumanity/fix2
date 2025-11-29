@@ -2,9 +2,9 @@
 -- Logs when someone copies your site and hosts it elsewhere
 -- Creates permanent evidence for legal proceedings
 
--- ============================================================================
+--
 -- UNAUTHORIZED ACCESS LOG TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS unauthorized_access_log (
     id SERIAL PRIMARY KEY,
     
@@ -58,9 +58,9 @@ CREATE INDEX idx_unauthorized_detected ON unauthorized_access_log(detected_at);
 CREATE INDEX idx_unauthorized_status ON unauthorized_access_log(status);
 CREATE INDEX idx_unauthorized_resolved ON unauthorized_access_log(resolved);
 
--- ============================================================================
+--
 -- ALERT NOTIFICATIONS TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS alert_notifications (
     id SERIAL PRIMARY KEY,
     
@@ -101,9 +101,9 @@ CREATE INDEX idx_alerts_severity ON alert_notifications(severity);
 CREATE INDEX idx_alerts_sent ON alert_notifications(sent);
 CREATE INDEX idx_alerts_acknowledged ON alert_notifications(acknowledged);
 
--- ============================================================================
+--
 -- DMCA TAKEDOWN REQUESTS TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS dmca_takedown_requests (
     id SERIAL PRIMARY KEY,
     
@@ -152,9 +152,9 @@ CREATE INDEX idx_dmca_domain ON dmca_takedown_requests(infringing_domain);
 CREATE INDEX idx_dmca_status ON dmca_takedown_requests(status);
 CREATE INDEX idx_dmca_date ON dmca_takedown_requests(request_date);
 
--- ============================================================================
+--
 -- LEGAL ACTIONS TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS legal_actions (
     id SERIAL PRIMARY KEY,
     
@@ -205,9 +205,9 @@ CREATE INDEX idx_legal_defendant ON legal_actions(defendant_name);
 CREATE INDEX idx_legal_status ON legal_actions(status);
 CREATE INDEX idx_legal_date ON legal_actions(action_initiated_date);
 
--- ============================================================================
+--
 -- MONITORING ALERTS TABLE
--- ============================================================================
+--
 CREATE TABLE IF NOT EXISTS monitoring_alerts (
     id SERIAL PRIMARY KEY,
     
@@ -247,9 +247,9 @@ CREATE INDEX idx_monitoring_source ON monitoring_alerts(source);
 CREATE INDEX idx_monitoring_severity ON monitoring_alerts(severity);
 CREATE INDEX idx_monitoring_status ON monitoring_alerts(status);
 
--- ============================================================================
+--
 -- TRIGGERS
--- ============================================================================
+--
 CREATE TRIGGER update_unauthorized_access_log_updated_at BEFORE UPDATE ON unauthorized_access_log
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
@@ -265,9 +265,9 @@ CREATE TRIGGER update_legal_actions_updated_at BEFORE UPDATE ON legal_actions
 CREATE TRIGGER update_monitoring_alerts_updated_at BEFORE UPDATE ON monitoring_alerts
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
 
--- ============================================================================
+--
 -- VIEWS FOR REPORTING
--- ============================================================================
+--
 
 -- Active Unauthorized Copies
 CREATE OR REPLACE VIEW active_unauthorized_copies AS
@@ -316,18 +316,18 @@ SELECT
 FROM legal_actions
 GROUP BY status;
 
--- ============================================================================
+--
 -- COMMENTS
--- ============================================================================
+--
 COMMENT ON TABLE unauthorized_access_log IS 'Logs unauthorized copies of the website for legal evidence';
 COMMENT ON TABLE alert_notifications IS 'Tracks alerts sent to staff about security issues';
 COMMENT ON TABLE dmca_takedown_requests IS 'Tracks DMCA takedown notices sent to hosting providers';
 COMMENT ON TABLE legal_actions IS 'Tracks legal actions taken against infringers';
 COMMENT ON TABLE monitoring_alerts IS 'Tracks alerts from monitoring services (Google Alerts, Copyscape, etc.)';
 
--- ============================================================================
+--
 -- SAMPLE DATA (for testing)
--- ============================================================================
+--
 -- Uncomment to insert sample data for testing
 
 /*
