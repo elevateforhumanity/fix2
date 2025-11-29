@@ -106,23 +106,44 @@ export default function HomePage() {
       </section>
 
       {/* VALUE PROPOSITION */}
-      <section className="bg-gradient-to-br from-orange-50 via-white to-blue-50 py-16">
+      <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-            {/* Text */}
-            <div className="space-y-6">
-              <div className="inline-flex items-center rounded-full bg-green-500 px-4 py-2 text-xs font-bold text-white animate-pulse">
-                💯 100% FREE TRAINING - GOVERNMENT PAYS EVERYTHING
-              </div>
-              <h1 className="text-4xl font-bold leading-tight text-slate-900 md:text-5xl lg:text-6xl">
-                From Unemployed to Employed in 4-12 Weeks
-              </h1>
-              <p className="text-xl text-slate-700 font-semibold">
-                Get trained in high-paying careers like CNA ($35K-$45K), HVAC ($45K-$65K), or Barber ($30K-$55K) — completely FREE through government workforce programs.
-              </p>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Here's What You Get</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Everything you need to launch your career—completely FREE
+            </p>
+          </div>
 
-              {/* The Promise */}
-              <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-6 text-white shadow-xl">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 border-2 border-orange-200">
+              <div className="text-4xl mb-4">💰</div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">$0 Out of Pocket</h3>
+              <p className="text-slate-700">Government pays 100% of tuition, books, supplies. You pay NOTHING.</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border-2 border-blue-200">
+              <div className="text-4xl mb-4">📜</div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Real Credentials</h3>
+              <p className="text-slate-700">State-licensed certifications, industry credentials, nationally recognized certificates.</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border-2 border-green-200">
+              <div className="text-4xl mb-4">💼</div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Job Connections</h3>
+              <p className="text-slate-700">We partner with 100+ employers who are hiring NOW.</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border-2 border-purple-200">
+              <div className="text-4xl mb-4">🎓</div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Fast Training</h3>
+              <p className="text-slate-700">4-12 weeks to career-ready. Start earning quickly.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Old duplicate content - hidden */}
+      <div className="hidden">
+          <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl p-6 text-white shadow-xl">
                 <h2 className="text-2xl font-bold mb-3">Here's What You Get:</h2>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
@@ -218,7 +239,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* HOW FUNDING WORKS - DETAILED */}
       <section className="bg-gradient-to-br from-blue-900 to-blue-800 py-16">
