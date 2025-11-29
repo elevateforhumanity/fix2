@@ -5,6 +5,7 @@ import { getSupabaseServerClient } from "@/lib/supabaseServer";
 // import { LessonQuizSection } from "@/components/assessments/LessonQuizSection";
 import Link from "next/link";
 import { BookOpen, Download, MessageSquare, FileText, Captions } from "lucide-react";
+import { AIInstructorClient } from "@/components/ai/AIInstructorClient";
 
 interface LessonPageProps {
   params: { lessonId: string };
@@ -88,6 +89,12 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   return (
     <main className="min-h-screen bg-slate-950">
+      {/* AI Instructor */}
+      <AIInstructorClient 
+        lessonTitle={lesson.title}
+        context="lesson"
+      />
+      
       {/* Header / Breadcrumb */}
       <section className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-800">
         <div className="max-w-6xl mx-auto px-4 py-6">

@@ -20,7 +20,7 @@ export default async function StudentCertificatesPage() {
 
   // Fetch user's certificates
   const { data: certificates } = await supabase
-    .from('certificates')
+    .from('student_certificates')
     .select('*')
     .eq('student_id', user.id)
     .order('issued_date', { ascending: false });
@@ -53,27 +53,42 @@ export default async function StudentCertificatesPage() {
                     <h3 className="text-xl font-bold text-slate-900 mb-2">
                       Certificate of Completion
                     </h3>
-                    <p className="text-lg text-slate-700 mb-2">{cert.course_title}</p>
+                    <p className="text-lg text-slate-700 mb-2">{cert.course_name}</p>
                     <p className="text-sm text-slate-600">
-                      Issued: {new Date(cert.issued_date).toLocaleDateString()}
+                      Issued by: {cert.issuer}
+                    </p>
+                    <p className="text-sm text-slate-600">
+                      Date: {new Date(cert.issued_date).toLocaleDateString()}
                     </p>
                     <p className="text-xs text-slate-500 mt-2">
                       Certificate ID: {cert.certificate_number}
                     </p>
+                    <span className={`inline-block mt-2 px-3 py-1 rounded-full text-xs font-medium ${
+                      cert.certificate_type === 'program' 
+                        ? 'bg-red-100 text-red-800' 
+                        : 'bg-blue-100 text-blue-800'
+                    }`}>
+                      {cert.certificate_type === 'program' ? 'Program Certificate' : 'Module Certificate'}
+                    </span>
                   </div>
                 </div>
                 <div className="flex gap-2">
                   <a
-                    href={`/api/certificates/${cert.id}/download`}
-                    download
+                    href={cert.pdf_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition flex items-center justify-center gap-2"
                   >
                     <Download className="h-4 w-4" />
                     Download PDF
                   </a>
-                  <button className="px-4 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition">
+                  <Link
+                    href={`/certificates/verify?number=${cert.certificate_number}`}
+                    target="_blank"
+                    className="px-4 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition flex items-center justify-center"
+                  >
                     <Share2 className="h-4 w-4" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))

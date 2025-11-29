@@ -1,0 +1,28 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { issueProgramCertificate } from '@/lib/certificates/certificate-generator';
+
+export async function POST(request: NextRequest) {
+  try {
+    const { studentId, programId } = await request.json();
+
+    if (!studentId || !programId) {
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
+    }
+
+    const certificateNumber = await issueProgramCertificate(studentId, programId);
+
+    return NextResponse.json({
+      success: true,
+      certificateNumber
+    });
+  } catch (error) {
+    console.error('Error issuing program certificate:', error);
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : 'Failed to issue certificate' },
+      { status: 500 }
+    );
+  }
+}
