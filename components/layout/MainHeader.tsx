@@ -32,6 +32,8 @@ const mainNav = [
       { label: "DOL Apprenticeships", href: "/funding/dol" },
     ]
   },
+  { label: "Community", href: "/community" },
+  { label: "Career Center", href: "/career-center" },
   { 
     label: "For Students", 
     href: "/students",
