@@ -89,6 +89,21 @@ export default function CNAPage() {
         </div>
       </section>
 
+      {/* Training Image */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl mb-16">
+            <Image
+              src="/media/programs/cpr-group-training-hd.jpg"
+              alt="CNA students practicing hands-on skills"
+              fill
+              className="object-cover"
+              quality={100}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Program Overview */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -179,6 +194,34 @@ export default function CNAPage() {
         </div>
       </section>
 
+      {/* Clinical Training Image */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                Real Clinical Experience
+              </h2>
+              <p className="text-lg text-slate-600 mb-4">
+                Get 120 hours of hands-on clinical training in real healthcare facilities. Work with actual patients under the supervision of licensed nurses.
+              </p>
+              <p className="text-lg text-slate-600">
+                You'll practice in hospitals, nursing homes, and assisted living facilities throughout Indianapolis.
+              </p>
+            </div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/media/programs/healthcare-professional-1-hd.jpg"
+                alt="CNA clinical training in healthcare facility"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Program Details */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -207,6 +250,34 @@ export default function CNAPage() {
               <h3 className="text-xl font-bold text-slate-900 mb-3">Training Sites</h3>
               <p className="text-slate-600">
                 Ivy Tech Community College, American Red Cross, and partner healthcare facilities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Success Image */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/media/programs/healthcare-professional-2-hd.jpg"
+                alt="Successful CNA graduate working in healthcare"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">
+                Start Your Career Immediately
+              </h2>
+              <p className="text-lg text-slate-600 mb-4">
+                85% of our CNA graduates are hired within 30 days of certification. Hospitals and nursing homes are actively recruiting.
+              </p>
+              <p className="text-lg text-slate-600">
+                Starting pay ranges from $28K-$35K per year with benefits, paid time off, and opportunities for advancement.
               </p>
             </div>
           </div>

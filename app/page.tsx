@@ -146,7 +146,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/programs/cna-hd.jpg"
+                src="/media/programs/healthcare-professional-1-hd.jpg"
                 alt="Healthcare training"
                 fill
                 className="object-cover"
@@ -163,8 +163,8 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/programs/hvac-hd.jpg"
-                alt="HVAC training"
+                src="/media/programs/welding-hd.jpg"
+                alt="Skilled trades training"
                 fill
                 className="object-cover"
                 quality={100}
