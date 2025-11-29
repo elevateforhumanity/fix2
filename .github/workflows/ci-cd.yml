@@ -27,28 +27,23 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       - name: Lint
-        run: pnpm lint || echo "Linting completed with warnings"
+        run: npm run lint || echo "Linting completed with warnings"
 
       - name: Type check
-        run: pnpm type-check || echo "Type checking completed"
+        run: npm run type-check || echo "Type checking completed"
 
       - name: Run tests
-        run: pnpm test || echo "Tests completed with errors - continuing"
+        run: npm test || echo "Tests completed with errors - continuing"
         continue-on-error: true
 
       - name: Build
@@ -56,7 +51,7 @@ jobs:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-        run: pnpm build
+        run: npm run build
 
   migrate-and-deploy:
     name: Supabase Migrations + Vercel Deploy
@@ -68,19 +63,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
 
       # Supabase migrations
       - name: Install Supabase CLI
@@ -98,7 +88,7 @@ jobs:
 
       # Vercel deploy
       - name: Install Vercel CLI
-        run: pnpm add -g vercel@latest
+        run: npm install -g vercel@latest
 
       - name: Pull Vercel env
         env:
