@@ -57,6 +57,8 @@ export default function HVACPage() {
                 alt="HVAC Technician Training"
                 fill
                 className="object-cover"
+                quality={100}
+                priority
               />
             </div>
           </div>

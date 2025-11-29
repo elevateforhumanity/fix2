@@ -88,6 +88,7 @@ export default function HomePage() {
                 alt="Healthcare training students in clinical setting"
                 fill
                 className="object-cover"
+                quality={100}
               />
             </div>
             <div>
@@ -134,6 +135,7 @@ export default function HomePage() {
                     alt={feature.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    quality={100}
                   />
                 </div>
                 <div className="p-6">
@@ -177,6 +179,7 @@ export default function HomePage() {
                     alt={program.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    quality={100}
                   />
                 </div>
                 <div className="p-4">
@@ -249,6 +252,7 @@ export default function HomePage() {
                     alt={story.name}
                     fill
                     className="object-cover"
+                    quality={100}
                   />
                 </div>
                 <div className="p-6">

@@ -57,6 +57,8 @@ export default function CNAPage() {
                 alt="CNA Training - Certified Nursing Assistant"
                 fill
                 className="object-cover"
+                quality={100}
+                priority
               />
             </div>
           </div>
