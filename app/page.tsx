@@ -318,8 +318,8 @@ export default function HomePage() {
             </div>
             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/artlist/hero-training-4.jpg"
-                alt="Free training through government funding"
+                src="/media/programs/cpr-group-training-hd.jpg"
+                alt="Students in hands-on training classroom"
                 fill
                 className="object-cover"
               />

@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    image: "/images/artlist/hero-training-1.jpg",
+    image: "/media/programs/cpr-group-training-hd.jpg",
     title: "From Unemployed to Employed in 4-12 Weeks",
     subtitle: "100% FREE Career Training Through Government Funding",
     description: "CNA • HVAC • Barber • CDL • Medical Assistant • Building Tech",
@@ -15,7 +15,7 @@ const slides = [
     cta2: "Check Your Funding",
   },
   {
-    image: "/images/artlist/hero-training-2.jpg",
+    image: "/media/programs/cna-hd.jpg",
     title: "$0 Out of Pocket. Real Jobs. Real Credentials.",
     subtitle: "Government Pays 100% - You Pay Nothing",
     description: "WIOA • WRG • JRI • Apprenticeships • OJT Programs",
@@ -23,7 +23,7 @@ const slides = [
     cta2: "See Programs",
   },
   {
-    image: "/images/artlist/hero-training-3.jpg",
+    image: "/media/programs/hvac-hd.jpg",
     title: "Earn $35K-$65K After Training",
     subtitle: "High-Demand Careers in Healthcare, Trades & Tech",
     description: "Job placement support • Industry credentials • Soft skills training",
