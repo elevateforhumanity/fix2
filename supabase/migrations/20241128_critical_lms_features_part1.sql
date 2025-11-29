@@ -1,11 +1,12 @@
 -- ============================================================================
--- CRITICAL LMS FEATURES - COMPLETE IMPLEMENTATION
--- All 20 missing features for world-class LMS
+-- CRITICAL LMS FEATURES - PART 1
+-- INTERACTIVE QUIZZES • RESOURCES • TRANSCRIPTS • PROGRESS • FORUMS
+-- NO HANDS-ON LABS (PER CURRENT REQUIREMENTS)
 -- ============================================================================
 
--- ============================================================================
--- 1. INTERACTIVE QUIZZES WITH INSTANT FEEDBACK
--- ============================================================================
+-- 1. INTERACTIVE QUIZZES
+-- --------------------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS interactive_quizzes (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   lesson_id UUID NOT NULL REFERENCES lessons(id) ON DELETE CASCADE,
@@ -20,19 +21,30 @@ CREATE TABLE IF NOT EXISTS interactive_quizzes (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+CREATE INDEX IF NOT EXISTS idx_interactive_quizzes_lesson
+  ON interactive_quizzes(lesson_id);
+
+-- Quiz questions for interactive quizzes
 CREATE TABLE IF NOT EXISTS quiz_questions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   quiz_id UUID NOT NULL REFERENCES interactive_quizzes(id) ON DELETE CASCADE,
   question_text TEXT NOT NULL,
-  question_type TEXT NOT NULL CHECK (question_type IN ('multiple_choice', 'true_false', 'multiple_select', 'fill_blank', 'matching', 'ordering')),
-  options JSONB DEFAULT '[]'::jsonb,
+  question_type TEXT NOT NULL CHECK (
+    question_type IN ('multiple_choice', 'true_false', 'multiple_select')
+  ),
+  options TEXT[] NOT NULL,
   correct_answer JSONB NOT NULL,
-  explanation TEXT NOT NULL,
+  explanation TEXT,
   points INTEGER DEFAULT 1,
   order_index INTEGER DEFAULT 1,
-  created_at TIMESTAMPTZ DEFAULT NOW()
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+CREATE INDEX IF NOT EXISTS idx_quiz_questions_quiz
+  ON quiz_questions(quiz_id);
+
+-- Attempts and instant feedback
 CREATE TABLE IF NOT EXISTS quiz_attempts (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL,
@@ -48,19 +60,26 @@ CREATE TABLE IF NOT EXISTS quiz_attempts (
   completed_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE INDEX idx_quiz_questions_quiz ON quiz_questions(quiz_id);
-CREATE INDEX idx_quiz_attempts_user ON quiz_attempts(user_id);
-CREATE INDEX idx_quiz_attempts_quiz ON quiz_attempts(quiz_id);
+CREATE INDEX IF NOT EXISTS idx_quiz_attempts_user
+  ON quiz_attempts(user_id);
 
--- ============================================================================
+CREATE INDEX IF NOT EXISTS idx_quiz_attempts_quiz
+  ON quiz_attempts(quiz_id);
+
+CREATE INDEX IF NOT EXISTS idx_quiz_attempts_enrollment
+  ON quiz_attempts(enrollment_id);
+
 -- 2. DOWNLOADABLE RESOURCES
--- ============================================================================
+-- --------------------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS lesson_resources (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   lesson_id UUID NOT NULL REFERENCES lessons(id) ON DELETE CASCADE,
   title TEXT NOT NULL,
   description TEXT,
-  resource_type TEXT NOT NULL CHECK (resource_type IN ('pdf', 'template', 'checklist', 'worksheet', 'guide', 'tool', 'infographic')),
+  resource_type TEXT NOT NULL CHECK (
+    resource_type IN ('pdf', 'template', 'checklist', 'worksheet', 'guide', 'tool', 'infographic')
+  ),
   file_url TEXT NOT NULL,
   file_size_kb INTEGER,
   download_count INTEGER DEFAULT 0,
@@ -69,6 +88,9 @@ CREATE TABLE IF NOT EXISTS lesson_resources (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+CREATE INDEX IF NOT EXISTS idx_lesson_resources_lesson
+  ON lesson_resources(lesson_id);
+
 CREATE TABLE IF NOT EXISTS resource_downloads (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL,
@@ -76,16 +98,19 @@ CREATE TABLE IF NOT EXISTS resource_downloads (
   downloaded_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE INDEX idx_lesson_resources_lesson ON lesson_resources(lesson_id);
-CREATE INDEX idx_resource_downloads_user ON resource_downloads(user_id);
+CREATE INDEX IF NOT EXISTS idx_resource_downloads_user
+  ON resource_downloads(user_id);
 
--- ============================================================================
+CREATE INDEX IF NOT EXISTS idx_resource_downloads_resource
+  ON resource_downloads(resource_id);
+
 -- 3. VIDEO TRANSCRIPTS & CAPTIONS
--- ============================================================================
+-- --------------------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS video_transcripts (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   lesson_id UUID NOT NULL REFERENCES lessons(id) ON DELETE CASCADE,
-  language TEXT DEFAULT 'en',
+  language TEXT NOT NULL DEFAULT 'en',
   transcript_text TEXT NOT NULL,
   vtt_url TEXT,
   srt_url TEXT,
@@ -93,12 +118,15 @@ CREATE TABLE IF NOT EXISTS video_transcripts (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE INDEX idx_video_transcripts_lesson ON video_transcripts(lesson_id);
-CREATE UNIQUE INDEX idx_video_transcripts_lesson_lang ON video_transcripts(lesson_id, language);
+CREATE INDEX IF NOT EXISTS idx_video_transcripts_lesson
+  ON video_transcripts(lesson_id);
 
--- ============================================================================
--- 4. PROGRESS INDICATORS & COMPLETION TRACKING
--- ============================================================================
+CREATE UNIQUE INDEX IF NOT EXISTS idx_video_transcripts_lesson_lang
+  ON video_transcripts(lesson_id, language);
+
+-- 4. USER PROGRESS (FOR "YOU'RE 65% COMPLETE" ETC.)
+-- --------------------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS user_progress (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID NOT NULL,
@@ -117,12 +145,18 @@ CREATE TABLE IF NOT EXISTS user_progress (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
-CREATE UNIQUE INDEX idx_user_progress_enrollment ON user_progress(enrollment_id);
-CREATE INDEX idx_user_progress_user ON user_progress(user_id);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_user_progress_enrollment
+  ON user_progress(enrollment_id);
 
--- ============================================================================
--- 5. DISCUSSION FORUMS
--- ============================================================================
+CREATE INDEX IF NOT EXISTS idx_user_progress_user
+  ON user_progress(user_id);
+
+CREATE INDEX IF NOT EXISTS idx_user_progress_program
+  ON user_progress(program_id);
+
+-- 5. DISCUSSION FORUMS & COMMUNITY
+-- --------------------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS forum_categories (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name TEXT NOT NULL,
@@ -130,7 +164,8 @@ CREATE TABLE IF NOT EXISTS forum_categories (
   icon TEXT,
   order_index INTEGER DEFAULT 1,
   is_active BOOLEAN DEFAULT true,
-  created_at TIMESTAMPTZ DEFAULT NOW()
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS forum_threads (
@@ -167,10 +202,20 @@ CREATE TABLE IF NOT EXISTS forum_votes (
   reply_id UUID NOT NULL REFERENCES forum_replies(id) ON DELETE CASCADE,
   vote_type TEXT CHECK (vote_type IN ('up', 'down')),
   created_at TIMESTAMPTZ DEFAULT NOW(),
-  UNIQUE(user_id, reply_id)
+  UNIQUE (user_id, reply_id)
 );
 
-CREATE INDEX idx_forum_threads_category ON forum_threads(category_id);
-CREATE INDEX idx_forum_threads_program ON forum_threads(program_id);
-CREATE INDEX idx_forum_replies_thread ON forum_replies(thread_id);
-CREATE INDEX idx_forum_votes_reply ON forum_votes(reply_id);
+CREATE INDEX IF NOT EXISTS idx_forum_threads_category
+  ON forum_threads(category_id);
+
+CREATE INDEX IF NOT EXISTS idx_forum_threads_program
+  ON forum_threads(program_id);
+
+CREATE INDEX IF NOT EXISTS idx_forum_threads_lesson
+  ON forum_threads(lesson_id);
+
+CREATE INDEX IF NOT EXISTS idx_forum_replies_thread
+  ON forum_replies(thread_id);
+
+CREATE INDEX IF NOT EXISTS idx_forum_votes_reply
+  ON forum_votes(reply_id);
