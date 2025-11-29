@@ -5,6 +5,7 @@ import './globals.css';
 import './ui-fixes.css';
 import './print.css';
 import './mobile-fixes.css';
+import './animations.css';
 import '@/branding/brand.css';
 import '@/styles/tiktok-animations.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
