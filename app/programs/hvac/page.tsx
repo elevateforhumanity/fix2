@@ -21,7 +21,7 @@ export default function HVACPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 to-blue-700 text-white py-20">
+      <section className="relative bg-gradient-to-br from-blue-500 to-blue-600 text-white py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
