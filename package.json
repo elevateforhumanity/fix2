@@ -174,6 +174,7 @@
   },
   "scripts": {
     "preinstall": "corepack enable || true",
+    "approve-builds": "bash scripts/pnpm-approve-builds.sh",
     "ci:install": "pnpm install --frozen-lockfile",
     "ci:build": "pnpm build",
     "ci:check": "pnpm typecheck && pnpm lint",
