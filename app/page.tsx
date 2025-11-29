@@ -15,14 +15,14 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       {/* HERO - Large Image with Overlay Text (Princeton Style) */}
-      <section className="relative h-[650px] overflow-hidden">
+      <section className="relative h-[700px] overflow-hidden">
         <Image
           src="/media/programs/cpr-group-training-hd.jpg"
           alt="Students practicing hands-on CPR training in classroom"
           fill
           className="object-cover"
           priority
-          quality={95}
+          quality={100}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/60 to-transparent" />
         
@@ -38,14 +38,14 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors shadow-lg"
                 >
                   Apply for Training
                   <ArrowRight size={20} className="ml-2" />
                 </Link>
                 <Link
                   href="/programs"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold rounded border-2 border-white hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded border-2 border-white hover:bg-slate-50 transition-colors shadow-lg"
                 >
                   Explore Programs
                 </Link>
@@ -119,9 +119,9 @@ export default function HomePage() {
       </section>
 
       {/* THREE COLUMN FEATURES */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-12 bg-slate-50">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <Link
                 key={index}
@@ -155,9 +155,9 @@ export default function HomePage() {
       </section>
 
       {/* PROGRAMS GRID */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12">
+          <div className="mb-8">
             <h2 className="text-4xl font-light text-slate-900 mb-4">Training Programs</h2>
             <p className="text-xl text-slate-600 font-light">
               Industry-recognized credentials in high-demand fields
@@ -169,16 +169,26 @@ export default function HomePage() {
               <Link
                 key={index}
                 href={program.link}
-                className="group border border-slate-200 rounded hover:border-orange-600 transition-colors p-6"
+                className="group bg-white rounded-lg overflow-hidden shadow-md border border-slate-200 hover:border-orange-600 hover:shadow-lg transition-all"
               >
-                <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
-                  {program.title}
-                </h3>
-                <p className="text-sm text-slate-600 mb-3">
-                  {program.description}
-                </p>
-                <div className="text-xs text-slate-500">
-                  {program.duration} • {program.salary}
+                <div className="relative h-48">
+                  <Image
+                    src={program.image}
+                    alt={program.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-orange-600 transition-colors">
+                    {program.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 mb-3">
+                    {program.description}
+                  </p>
+                  <div className="text-xs text-slate-500">
+                    {program.duration} • {program.salary}
+                  </div>
                 </div>
               </Link>
             ))}
@@ -197,7 +207,7 @@ export default function HomePage() {
       </section>
 
       {/* IMPACT NUMBERS */}
-      <section className="py-16 bg-slate-900 text-white">
+      <section className="py-12 bg-slate-900 text-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
@@ -221,30 +231,40 @@ export default function HomePage() {
       </section>
 
       {/* NEWS / STORIES */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-12">
+          <div className="mb-8">
             <h2 className="text-4xl font-light text-slate-900 mb-4">Success Stories</h2>
             <p className="text-xl text-slate-600 font-light">
               Real graduates, real careers
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {stories.map((story, index) => (
-              <div key={index} className="border-l-4 border-orange-600 pl-6">
-                <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-2">
-                  {story.program}
-                </p>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                  {story.name}
-                </h3>
-                <p className="text-slate-600 italic mb-3">
-                  "{story.quote}"
-                </p>
-                <p className="text-sm text-slate-500">
-                  {story.outcome}
-                </p>
+              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md border border-slate-200">
+                <div className="relative h-64">
+                  <Image
+                    src={story.image}
+                    alt={story.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-2">
+                    {story.program}
+                  </p>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-3">
+                    {story.name}
+                  </h3>
+                  <p className="text-slate-600 italic mb-3">
+                    "{story.quote}"
+                  </p>
+                  <p className="text-sm text-slate-500">
+                    {story.outcome}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -262,7 +282,7 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT FOUNDER */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-12 bg-slate-50">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -297,7 +317,7 @@ export default function HomePage() {
       </section>
 
       {/* SIMPLE CTA */}
-      <section className="py-16 bg-white border-t border-slate-200">
+      <section className="py-12 bg-white border-t border-slate-200">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="text-4xl font-light text-slate-900 mb-6">
             Ready to Start Your Training?
@@ -308,14 +328,14 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white font-semibold rounded hover:bg-orange-700 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors shadow-lg"
             >
               Apply Now
               <ArrowRight size={20} className="ml-2" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded border-2 border-slate-300 hover:border-slate-400 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition-colors shadow-lg"
             >
               Contact Us
             </Link>
@@ -355,6 +375,7 @@ const programs = [
     duration: "4-6 weeks",
     salary: "$35K-$45K",
     link: "/programs/cna",
+    image: "/media/programs/cna-hd.jpg",
   },
   {
     title: "HVAC Technician",
@@ -362,6 +383,7 @@ const programs = [
     duration: "8-12 weeks",
     salary: "$45K-$65K",
     link: "/programs/hvac",
+    image: "/media/programs/hvac-hd.jpg",
   },
   {
     title: "Licensed Barber",
@@ -369,6 +391,7 @@ const programs = [
     duration: "12 weeks",
     salary: "$30K-$55K",
     link: "/programs/barber",
+    image: "/media/programs/barber-hd.jpg",
   },
   {
     title: "Commercial Driver",
@@ -376,6 +399,7 @@ const programs = [
     duration: "4-6 weeks",
     salary: "$50K-$70K",
     link: "/programs/cdl",
+    image: "/media/programs/cdl-hd.jpg",
   },
   {
     title: "Medical Assistant",
@@ -383,6 +407,7 @@ const programs = [
     duration: "8-10 weeks",
     salary: "$32K-$42K",
     link: "/programs/medical-assistant",
+    image: "/media/programs/medical-assistant-hd.jpg",
   },
   {
     title: "Building Maintenance",
@@ -390,6 +415,7 @@ const programs = [
     duration: "6-8 weeks",
     salary: "$38K-$52K",
     link: "/programs/building-maintenance",
+    image: "/media/programs/building-tech-hd.jpg",
   },
   {
     title: "Phlebotomy",
@@ -397,6 +423,7 @@ const programs = [
     duration: "4-6 weeks",
     salary: "$30K-$38K",
     link: "/programs/phlebotomy",
+    image: "/media/programs/medical-hd.jpg",
   },
   {
     title: "Welding",
@@ -404,6 +431,7 @@ const programs = [
     duration: "8-12 weeks",
     salary: "$40K-$55K",
     link: "/programs/welding",
+    image: "/media/programs/welding-hd.jpg",
   },
 ];
 
@@ -413,17 +441,20 @@ const stories = [
     program: "CNA Training",
     quote: "I went from unemployed to working at a hospital in 6 weeks.",
     outcome: "Now earning $18/hr at Community Hospital",
+    image: "/images/students-new/student-17.jpg",
   },
   {
     name: "Tasha W.",
     program: "HVAC Technician",
     quote: "Free training, real skills, and a job waiting when I finished.",
     outcome: "Hired by local HVAC company at $22/hr",
+    image: "/images/students-new/student-13.jpg",
   },
   {
     name: "David R.",
     program: "CDL Training",
     quote: "I got my CDL without paying a dime. Best decision I made.",
     outcome: "Driving for national carrier at $60K/year",
+    image: "/images/students-new/student-11.jpg",
   },
 ];

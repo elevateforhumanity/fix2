@@ -10,14 +10,15 @@ const mainNav = [
     href: "/programs",
     dropdown: [
       { label: "All Programs", href: "/programs" },
-      { label: "Medical Assistant", href: "/programs/medical-assistant" },
       { label: "CNA", href: "/programs/cna" },
-      { label: "Barber Apprenticeship", href: "/programs/barber-apprenticeship" },
       { label: "HVAC Technician", href: "/programs/hvac" },
-      { label: "Building Maintenance", href: "/programs/building-tech" },
+      { label: "Licensed Barber", href: "/programs/barber" },
       { label: "CDL / Truck Driving", href: "/programs/cdl" },
+      { label: "Medical Assistant", href: "/programs/medical-assistant" },
+      { label: "Building Maintenance", href: "/programs/building-maintenance" },
+      { label: "Phlebotomy", href: "/programs/phlebotomy" },
+      { label: "Welding", href: "/programs/welding" },
       { label: "Tax Prep (VITA)", href: "/programs/tax-vita" },
-      { label: "Workforce Readiness", href: "/programs/workforce-readiness" },
     ]
   },
   { 
@@ -60,9 +61,9 @@ const mainNav = [
     href: "/about",
     dropdown: [
       { label: "About Us", href: "/about" },
+      { label: "Our Founder", href: "/founder" },
       { label: "Success Stories", href: "/success-stories" },
-      { label: "Blog", href: "/blog" },
-      { label: "Credentials", href: "/credentials" },
+      { label: "Press Kit", href: "/press" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
     ]
