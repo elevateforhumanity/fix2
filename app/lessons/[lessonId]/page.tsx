@@ -2,7 +2,7 @@
 
 import { redirect, notFound } from "next/navigation";
 import { getSupabaseServerClient } from "@/lib/supabaseServer";
-import { LessonQuizSection } from "@/components/assessments/LessonQuizSection";
+// import { LessonQuizSection } from "@/components/assessments/LessonQuizSection";
 import Link from "next/link";
 import { BookOpen, Download, MessageSquare, FileText, Captions } from "lucide-react";
 
@@ -142,7 +142,12 @@ export default async function LessonPage({ params }: LessonPageProps) {
               <h2 className="text-xl font-bold text-white mb-4">
                 Knowledge Check: {quiz.title}
               </h2>
-              <LessonQuizSection quizId={quiz.id} enrollmentId={enrollment.id} />
+              <Link 
+                href={`/programs/${lesson.program_id}/quiz/${lesson.id}`}
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors inline-block"
+              >
+                Take Quiz
+              </Link>
             </div>
           ) : (
             <div className="bg-slate-900 rounded-2xl border border-slate-800 p-4 text-sm text-slate-400">

@@ -3,7 +3,9 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClientComponentClient } from '@/lib/supabase';
+
+export const dynamic = 'force-dynamic';
 
 export default function HSISuccessPage() {
   const searchParams = useSearchParams();

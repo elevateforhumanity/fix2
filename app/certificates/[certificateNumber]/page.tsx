@@ -158,17 +158,7 @@ export default async function CertificatePage({ params }: PageProps) {
           </Link>
         </div>
 
-        {/* Print Styles */}
-        <style jsx global>{`
-          @media print {
-            body {
-              background: white;
-            }
-            .no-print {
-              display: none !important;
-            }
-          }
-        `}</style>
+
       </div>
     </div>
   );

@@ -8,3 +8,8 @@ export const supabase = createBrowserClient(
   supabaseUrl,
   supabaseAnonKey
 );
+
+// Helper function for client components (replaces createClientComponentClient)
+export function createClientComponentClient() {
+  return createBrowserClient(supabaseUrl, supabaseAnonKey);
+}
