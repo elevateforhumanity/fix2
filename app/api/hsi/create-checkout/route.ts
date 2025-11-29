@@ -1,0 +1,85 @@
+import { NextRequest, NextResponse } from 'next/server';
+import Stripe from 'stripe';
+import { createClient } from '@supabase/supabase-js';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
+  apiVersion: '2024-11-20.acacia',
+});
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
+
+export async function POST(request: NextRequest) {
+  try {
+    const {
+      courseType,
+      studentId,
+      studentEmail,
+      studentName,
+      studentPhone,
+      studentAddress,
+    } = await request.json();
+
+    // Get course details
+    const { data: course, error: courseError } = await supabase
+      .from('hsi_course_products')
+      .select('*')
+      .eq('course_type', courseType)
+      .single();
+
+    if (courseError || !course) {
+      return NextResponse.json({ error: 'Course not found' }, { status: 404 });
+    }
+
+    // Create Stripe checkout session with Buy Now Pay Later options
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card', 'affirm', 'afterpay_clearpay', 'klarna', 'us_bank_account'],
+      line_items: [
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: course.course_name,
+              description: course.description,
+            },
+            unit_amount: Math.round(course.price * 100), // Convert to cents
+          },
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: `${process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'}/courses/hsi/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'}/courses/hsi/${courseType}/enroll`,
+      customer_email: studentEmail,
+      client_reference_id: studentId,
+      // Enable Buy Now Pay Later options
+      payment_method_options: {
+        affirm: {
+          enabled: true,
+        },
+        afterpay_clearpay: {
+          enabled: true,
+        },
+        klarna: {
+          enabled: true,
+        },
+      },
+      metadata: {
+        course_type: courseType,
+        student_id: studentId,
+        student_name: studentName,
+        student_email: studentEmail,
+        student_phone: studentPhone || '',
+        student_address: studentAddress || '',
+        provider: 'hsi',
+      },
+    });
+
+    return NextResponse.json({ sessionId: session.id });
+  } catch (error: any) {
+    console.error('Stripe checkout error:', error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}

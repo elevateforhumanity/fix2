@@ -98,3 +98,4 @@ nextjs-site-backup-*.tar.gz
 .vercel
 core
 .env*.local
+.env.certiport

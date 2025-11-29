@@ -49,6 +49,135 @@ export async function POST(request: NextRequest) {
     case 'checkout.session.completed': {
       const session = event.data.object as Stripe.Checkout.Session;
       
+      // Check if this is a partner course enrollment (new system)
+      if (session.metadata?.course_id && session.metadata?.provider_id) {
+        try {
+          // Create partner enrollment record
+          const { error: enrollmentError } = await supabase
+            .from('partner_lms_enrollments')
+            .insert({
+              provider_id: session.metadata.provider_id,
+              student_id: session.metadata.student_id,
+              course_id: session.metadata.course_id,
+              status: 'active',
+              payment_status: 'paid',
+              payment_amount: (session.amount_total || 0) / 100,
+              payment_session_id: session.id,
+              payment_completed_at: new Date().toISOString(),
+              course_name: session.metadata.course_code,
+              metadata: {
+                wholesale_cost: session.metadata.wholesale_cost,
+                retail_price: session.metadata.retail_price,
+                profit_margin: session.metadata.profit_margin,
+                course_url: session.metadata.course_url,
+              },
+            });
+
+          if (enrollmentError) {
+            console.error('Error creating partner enrollment:', enrollmentError);
+          } else {
+            console.log('✅ Partner course enrollment created:', session.metadata.course_code);
+          }
+
+          // Log payment
+          await supabase
+            .from('payment_logs')
+            .insert({
+              stripe_session_id: session.id,
+              stripe_payment_id: session.payment_intent as string,
+              amount: (session.amount_total || 0) / 100,
+              currency: 'usd',
+              status: 'completed',
+              metadata: session.metadata,
+            });
+
+          console.log('✅ Partner course payment logged');
+        } catch (err: any) {
+          console.error('Error processing partner course enrollment:', err);
+        }
+        break;
+      }
+      
+      // Check if this is an HSI enrollment (legacy system)
+      if (session.metadata?.provider === 'hsi') {
+        try {
+          // Get course details
+          const { data: course } = await supabase
+            .from('hsi_course_products')
+            .select('*')
+            .eq('course_type', session.metadata.course_type)
+            .single();
+
+          if (!course) {
+            console.error('HSI course not found:', session.metadata.course_type);
+            break;
+          }
+
+          // Create enrollment queue entry
+          const { error: queueError } = await supabase
+            .from('hsi_enrollment_queue')
+            .insert({
+              student_id: session.metadata.student_id,
+              course_type: session.metadata.course_type,
+              stripe_payment_id: session.payment_intent as string,
+              stripe_session_id: session.id,
+              amount_paid: (session.amount_total || 0) / 100,
+              student_email: session.metadata.student_email,
+              student_name: session.metadata.student_name,
+              student_phone: session.metadata.student_phone || '',
+              student_address: session.metadata.student_address || '',
+              hsi_enrollment_link: course.hsi_enrollment_link,
+              enrollment_status: 'pending',
+            });
+
+          if (queueError) {
+            console.error('Error creating HSI enrollment queue:', queueError);
+          } else {
+            console.log('✅ HSI enrollment queued:', session.metadata.student_name);
+          }
+
+          // Create partner enrollment record
+          const { data: provider } = await supabase
+            .from('partner_lms_providers')
+            .select('id')
+            .eq('provider_type', 'hsi')
+            .single();
+
+          if (provider) {
+            await supabase
+              .from('partner_lms_enrollments')
+              .insert({
+                provider_id: provider.id,
+                student_id: session.metadata.student_id,
+                status: 'payment_pending',
+                payment_status: 'paid',
+                payment_amount: (session.amount_total || 0) / 100,
+                payment_session_id: session.id,
+                payment_completed_at: new Date().toISOString(),
+                course_name: course.course_name,
+              });
+          }
+
+          // Log payment
+          await supabase
+            .from('payment_logs')
+            .insert({
+              stripe_session_id: session.id,
+              stripe_payment_id: session.payment_intent as string,
+              amount: (session.amount_total || 0) / 100,
+              currency: 'usd',
+              status: 'completed',
+              metadata: session.metadata,
+            });
+
+          console.log('✅ HSI payment logged successfully');
+        } catch (err: any) {
+          console.error('Error processing HSI enrollment:', err);
+        }
+        break;
+      }
+      
+      // Handle regular course enrollments
       const userId = session.metadata?.user_id;
       const courseId = session.metadata?.course_id;
       const enrollmentId = session.metadata?.enrollment_id;

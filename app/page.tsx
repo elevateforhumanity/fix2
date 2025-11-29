@@ -296,14 +296,20 @@ export default function HomePage() {
               <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight">
                 Elizabeth L. Greene
               </h2>
-              <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                Elizabeth L. Greene founded Elevate For Humanity to address the critical gap between available workforce funding and the people who need it most. A self-taught systems architect, she built the entire platform—including a full learning management system—to create pathways from unemployment to sustainable careers.
+              <p className="text-lg text-slate-600 leading-relaxed mb-4">
+                Elizabeth L. Greene is the Founder and CEO of Elevate For Humanity™, a mission-driven workforce organization dedicated to expanding access to quality training, career advancement, and employer-connected opportunities.
               </p>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                Elizabeth leads with a blend of professional discipline and genuine care for the people and communities Elevate For Humanity serves. Her approach is simple: keep the work human, keep the systems strong, and keep the focus on helping individuals move forward with confidence.
+              </p>
+              <blockquote className="border-l-4 border-orange-500 pl-4 py-2 italic text-slate-700 mb-6">
+                "Our goal is simple — to make career growth feel clear, achievable, and supported. Every learner deserves a pathway and someone who believes in their potential."
+              </blockquote>
               <Link
                 href="/founder"
                 className="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors"
               >
-                Read her story
+                Meet the Founder
                 <ChevronRight size={20} />
               </Link>
             </div>

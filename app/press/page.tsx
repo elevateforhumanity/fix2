@@ -99,23 +99,23 @@ export default function PressKitPage() {
                   Short Bio (100 words)
                 </p>
                 <p>
-                  Elizabeth L. Greene is the Founder and CEO of Elevate For Humanity, a workforce development platform connecting Indiana residents to free career training. A self-taught web developer and systems architect, Elizabeth built the entire platform—including a full learning management system—without a tech team or investors. Her work focuses on removing barriers to opportunity for underserved communities, including single parents, returning citizens, and youth. Elizabeth's approach combines technology, workforce policy expertise, and deep community understanding to create pathways from unemployment to sustainable careers.
+                  Elizabeth L. Greene is the Founder and CEO of Elevate For Humanity™, a mission-driven workforce organization dedicated to expanding access to quality training, career advancement, and employer-connected opportunities. Elizabeth leads with a blend of professional discipline and genuine care for the people and communities Elevate For Humanity serves. Her approach combines workforce policy expertise, technology innovation, and human-centered design to create clear pathways from unemployment to sustainable careers. Elizabeth's work focuses on removing barriers to opportunity for underserved communities while maintaining strong partnerships with workforce boards, training providers, and employers.
                 </p>
 
                 <p className="text-lg font-semibold text-slate-900 pt-4">
                   Extended Bio (250 words)
                 </p>
                 <p>
-                  Elizabeth L. Greene didn't inherit a system—she built one. As the Founder and CEO of Elevate For Humanity, Elizabeth created an entire workforce development ecosystem from the ground up, teaching herself advanced web development, AI integration, and workforce policy to build what her community desperately needed.
+                  Elizabeth L. Greene is the Founder and Chief Executive Officer of Elevate For Humanity™, a workforce development platform connecting Indiana residents to free career training through state and federal funding programs including WIOA, Workforce Ready Grants, and apprenticeships.
                 </p>
                 <p>
-                  With no tech team, no big budget, and no investors, Elizabeth designed and built a comprehensive platform that includes a learning management system, student and admin dashboards, funding navigation tools, and employer connection systems. She mastered the complexities of WIOA, Workforce Ready Grants, apprenticeships, and other state and federal programs, then translated that knowledge into simple, human-centered pathways.
+                  Under Elizabeth's leadership, Elevate For Humanity has developed a comprehensive ecosystem that includes a learning management system, student and admin dashboards, funding navigation tools, and employer connection systems. She brings expertise in workforce policy, technology innovation, and community partnerships to create accessible pathways for individuals seeking career advancement.
                 </p>
                 <p>
-                  Elizabeth's work is deeply personal. Having witnessed people she loves work themselves to exhaustion while barely surviving, she saw the pattern clearly: it wasn't a lack of talent—it was a lack of access. Elevate For Humanity is her answer to that systemic failure.
+                  Elizabeth's leadership style prioritizes access for every type of learner, clear supportive pathways to better careers, strong communication with partners and employers, high-quality training experiences, and professional dependable systems that build trust. Her work is grounded in respect, integrity, and the belief that opportunity should be understandable and reachable for everyone.
                 </p>
                 <p>
-                  Today, Elevate For Humanity serves hundreds of students across 20+ training programs, maintains partnerships with 100+ employers, and has achieved an 85% job placement rate. Elizabeth's vision extends beyond Indianapolis—she's building a model that can be replicated nationally, changing how opportunity works in America.
+                  Today, Elevate For Humanity serves students across 20+ training programs in high-demand fields including healthcare, skilled trades, transportation, and personal services. The organization maintains partnerships with 100+ employers and has achieved an 85% job placement rate. Elizabeth's vision extends beyond Indianapolis—she's building a model that can be replicated nationally, demonstrating that when financial barriers are removed and real support is provided, individuals don't just get jobs—they build careers and transform communities.
                 </p>
               </div>
             </div>

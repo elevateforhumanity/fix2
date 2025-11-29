@@ -276,9 +276,9 @@ export default function AboutPage() {
                 Veteran-Owned Business
               </h3>
               <p className="mt-2 text-sm text-slate-700">
-                Proudly owned and operated by U.S. Army veteran Elizabeth Greene 
-                (2000-2007, Honorable Discharge). Veteran-friendly training programs 
-                with GI Bill acceptance and VA partnerships.
+                Founded by U.S. Army veteran Elizabeth L. Greene, who served honorably 
+                from 2000-2007. We understand the challenges veterans face transitioning 
+                to civilian careers and offer veteran-friendly training with GI Bill acceptance.
               </p>
               <p className="mt-3 text-xs text-slate-500">
                 U.S. Army Veteran | VOSB Eligible | Veteran-Friendly Employer
