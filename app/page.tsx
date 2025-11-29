@@ -36,7 +36,63 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-white">
-      {/* HERO */}
+      {/* HERO BANNER */}
+      <section className="relative bg-gradient-to-r from-orange-600 to-red-600 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="/media/hero-elevate-learners.jpg"
+            alt="Career Training Success"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-600/90 to-red-600/90"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center">
+            <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 mb-6 animate-pulse">
+              <span className="text-lg font-bold">💯 100% FREE TRAINING - GOVERNMENT PAYS EVERYTHING</span>
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              From Unemployed to Employed<br />in 4-12 Weeks
+            </h1>
+            <p className="text-2xl md:text-3xl text-orange-100 mb-8 max-w-4xl mx-auto">
+              Get trained in high-paying careers — completely FREE through government workforce programs
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center mb-8">
+              <Link
+                href="/apply"
+                className="inline-flex items-center gap-2 bg-white text-orange-600 px-10 py-5 rounded-xl font-bold text-xl hover:bg-orange-50 transition-all hover:scale-105 shadow-2xl"
+              >
+                Apply Now - It's FREE!
+              </Link>
+              <Link
+                href="/programs"
+                className="inline-flex items-center gap-2 bg-orange-700 text-white px-10 py-5 rounded-xl font-bold text-xl hover:bg-orange-800 transition-all border-2 border-white/20"
+              >
+                View Programs
+              </Link>
+            </div>
+            <div className="flex items-center justify-center gap-8 text-lg">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-6 h-6" />
+                <span>No Cost</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-6 h-6" />
+                <span>4-12 Weeks</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-6 h-6" />
+                <span>Job Placement</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ORIGINAL HERO - Now secondary section */}
       <section className="bg-gradient-to-br from-orange-50 via-white to-blue-50">
         <div className="mx-auto max-w-7xl px-4 py-12 md:py-20">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
