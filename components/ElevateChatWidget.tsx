@@ -63,21 +63,36 @@ export function ElevateChatWidget() {
               </button>
             </div>
             <div className="p-4">
-              <p className="text-sm text-slate-700 mb-3">
-                👋 Hi! I'm here to help you find the right training program. Have questions about:
+              <p className="text-sm text-slate-700 mb-3 font-semibold">
+                👋 Welcome to Elevate For Humanity!
               </p>
-              <ul className="text-xs text-slate-600 space-y-1 mb-4">
-                <li>• Free training programs</li>
-                <li>• Funding & eligibility</li>
-                <li>• Application process</li>
-                <li>• Program schedules</li>
+              <p className="text-sm text-slate-600 mb-3">
+                I can help you with:
+              </p>
+              <ul className="text-xs text-slate-600 space-y-2 mb-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-500">✓</span>
+                  <span>Finding 100% FREE training programs</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-500">✓</span>
+                  <span>Checking your funding eligibility (WIOA, WRG)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-500">✓</span>
+                  <span>Starting your application</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-500">✓</span>
+                  <span>Answering questions about programs</span>
+                </li>
               </ul>
               <button
                 type="button"
                 onClick={handleOpen}
-                className="w-full bg-red-500 hover:bg-red-600 text-white text-sm font-semibold py-2.5 rounded-lg transition-colors"
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-sm font-bold py-3 rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105"
               >
-                Start Chat
+                Chat With Us Now
               </button>
             </div>
           </div>
