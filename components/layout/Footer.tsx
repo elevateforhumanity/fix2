@@ -20,7 +20,7 @@ export function SiteFooter() {
       </div>
       
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 text-xs text-white">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5 text-xs text-white">
           {/* Brand & Contact */}
           <div className="md:col-span-2 lg:col-span-1">
             <div className="mb-4 flex items-center gap-2">
@@ -109,27 +109,27 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/programs/medical-assistant" className="text-white hover:text-orange-300 transition text-sm">
+                <Link href="/programs/medical-administrative-assistant" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Medical Assistant
                 </Link>
               </li>
               <li>
-                <Link href="/programs/cna" className="text-white hover:text-orange-300 transition text-sm">
+                <Link href="/programs/cna-certification" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   CNA
                 </Link>
               </li>
               <li>
-                <Link href="/programs/barber-apprenticeship" className="text-white hover:text-orange-300 transition text-sm">
+                <Link href="/programs/barber-apprenticeship" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Barber
                 </Link>
               </li>
               <li>
-                <Link href="/programs/hvac" className="text-white hover:text-orange-300 transition text-sm">
+                <Link href="/programs/hvac-technician" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   HVAC
                 </Link>
               </li>
               <li>
-                <Link href="/programs/cdl" className="text-white hover:text-orange-300 transition text-sm">
+                <Link href="/programs/cdl-training" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   CDL
                 </Link>
               </li>
@@ -143,47 +143,47 @@ export function SiteFooter() {
             </h3>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/about" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/about" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/contact" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/blog" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/students" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/students" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   For Students
                 </Link>
               </li>
               <li>
-                <Link href="/employers" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/employers" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   For Employers
                 </Link>
               </li>
               <li>
-                <Link href="/training-providers" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/training-providers" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Training Providers
                 </Link>
               </li>
               <li>
-                <Link href="/workforce-partners" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/workforce-partners" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Workforce Partners
                 </Link>
               </li>
               <li>
-                <Link href="/courses" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/courses" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Course Catalog
                 </Link>
               </li>
               <li>
-                <Link href="/resources" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/resources" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Resources
                 </Link>
               </li>
@@ -197,42 +197,42 @@ export function SiteFooter() {
             </h3>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/portal/student/dashboard" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/portal/student/dashboard" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Student Portal
                 </Link>
               </li>
               <li>
-                <Link href="/lms/dashboard" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/lms/dashboard" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   LMS
                 </Link>
               </li>
               <li>
-                <Link href="/admin/dashboard" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/admin/dashboard" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Admin
                 </Link>
               </li>
               <li>
-                <Link href="/careers/job-board" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/careers/job-board" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Job Board
                 </Link>
               </li>
               <li>
-                <Link href="/careers/resume-builder" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/careers/resume-builder" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Resume Builder
                 </Link>
               </li>
               <li>
-                <Link href="/careers/interview-prep" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/careers/interview-prep" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Interview Prep
                 </Link>
               </li>
               <li>
-                <Link href="/webinars" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/webinars" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Webinars
                 </Link>
               </li>
               <li>
-                <Link href="/alumni" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/alumni" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Alumni Network
                 </Link>
               </li>
@@ -256,84 +256,79 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/getstarted" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/getstarted" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Get Started
                 </Link>
               </li>
               <li>
                 <a href="https://elevateforhumanityeducation.com" target="_blank" rel="noopener noreferrer"
-className="text-white hover:text-orange-300 transition text-sm font-medium">
+className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   LMS Dashboard
                 </a>
               </li>
               <li>
-                <Link href="/admin" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/admin" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Admin Console
                 </Link>
               </li>
               <li>
-                <Link href="/success-stories" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/success-stories" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Success Stories
                 </Link>
               </li>
               <li>
-                <Link href="/career-fair" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/career-fair" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Career Fair
                 </Link>
               </li>
               <li>
-                <Link href="/financial-aid" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/financial-aid" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Financial Aid
                 </Link>
               </li>
               <li>
-                <Link href="/community" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/community" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Community
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/faq" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/support" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/support" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Support
                 </Link>
               </li>
               <li>
-                <Link href="/accessibility" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/accessibility" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Accessibility
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/careers" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link href="/partners" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/partners" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Partners
                 </Link>
               </li>
               <li className="pt-3 mt-1 border-t border-slate-700">
-                <Link href="/privacy-policy" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/privacy-policy" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-service" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/terms-of-service" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/refund-policy" className="text-white hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/refund-policy" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Refund Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/accessibility" className="text-white hover:text-orange-300 transition text-sm font-medium">
-                  Accessibility
                 </Link>
               </li>
             </ul>
