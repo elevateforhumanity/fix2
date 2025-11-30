@@ -14,6 +14,28 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-white">
+      {/* TOP BANNER - Urgent Call to Action */}
+      <section className="bg-gradient-to-r from-orange-600 to-orange-500 py-3 sticky top-0 z-50 shadow-lg">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white animate-pulse">
+                🔥 NOW ENROLLING
+              </span>
+              <p className="text-white font-semibold text-sm sm:text-base">
+                Free Career Training - 100% Government Funded • Start in 2 Weeks
+              </p>
+            </div>
+            <a
+              href="/apply"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-bold text-orange-600 hover:bg-orange-50 transition-all shadow-lg hover:scale-105 whitespace-nowrap"
+            >
+              Apply Now →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* HERO - Large Image with Overlay Text (Princeton Style) */}
       <section className="relative h-[700px] overflow-hidden">
         <Image
@@ -617,19 +639,19 @@ const features = [
     title: "Healthcare Careers",
     description: "Train as a Certified Nursing Assistant, Medical Assistant, or Phlebotomist in 4-10 weeks. State certification included. Hospitals and clinics are hiring immediately. Starting pay: $16-$20/hour.",
     image: "/media/programs/cna-hd.jpg",
-    link: "/programs/cna",
+    link: "/programs/cna-certification",
   },
   {
     title: "Skilled Trades",
     description: "HVAC technicians, welders, and building maintenance workers earn $20-$30/hour with benefits. Get EPA certification, OSHA training, and hands-on experience. Apprenticeships available.",
     image: "/media/programs/hvac-hd.jpg",
-    link: "/programs/hvac",
+    link: "/programs/hvac-technician",
   },
   {
     title: "Licensed Professionals",
     description: "Become a licensed barber, CDL truck driver, or cosmetologist. Own your chair, drive your own routes, or work for established companies. Flexible schedules and entrepreneurship opportunities.",
     image: "/media/programs/barber-hd.jpg",
-    link: "/programs/barber",
+    link: "/programs/barber-apprenticeship",
   },
 ];
 
@@ -639,7 +661,7 @@ const programs = [
     description: "Healthcare career training",
     duration: "4-6 weeks",
     salary: "$35K-$45K",
-    link: "/programs/cna",
+    link: "/programs/cna-certification",
     image: "/media/programs/cna-hd.jpg",
   },
   {
@@ -647,7 +669,7 @@ const programs = [
     description: "Heating & cooling systems",
     duration: "8-12 weeks",
     salary: "$45K-$65K",
-    link: "/programs/hvac",
+    link: "/programs/hvac-technician",
     image: "/media/programs/hvac-hd.jpg",
   },
   {
@@ -655,7 +677,7 @@ const programs = [
     description: "Professional barbering",
     duration: "12 weeks",
     salary: "$30K-$55K",
-    link: "/programs/barber",
+    link: "/programs/barber-apprenticeship",
     image: "/media/programs/barber-hd.jpg",
   },
   {
@@ -663,7 +685,7 @@ const programs = [
     description: "CDL certification",
     duration: "4-6 weeks",
     salary: "$50K-$70K",
-    link: "/programs/cdl",
+    link: "/programs/cdl-training",
     image: "/media/programs/cdl-hd.jpg",
   },
   {
@@ -671,15 +693,15 @@ const programs = [
     description: "Clinical support role",
     duration: "8-10 weeks",
     salary: "$32K-$42K",
-    link: "/programs/medical-assistant",
-    image: "/media/programs/healthcare-professional-1-hd.jpg",
+    link: "/programs/medical-administrative-assistant",
+    image: "/media/programs/healthcare-professional-2-hd.jpg",
   },
   {
     title: "Building Maintenance",
     description: "Property maintenance",
     duration: "6-8 weeks",
     salary: "$38K-$52K",
-    link: "/programs/building-maintenance",
+    link: "/programs/building-maintenance-tech",
     image: "/media/programs/building-hd.jpg",
   },
   {
@@ -687,15 +709,15 @@ const programs = [
     description: "Blood draw specialist",
     duration: "4-6 weeks",
     salary: "$30K-$38K",
-    link: "/programs/phlebotomy",
+    link: "/programs/phlebotomy-technician",
     image: "/media/programs/medical-hd.jpg",
   },
   {
-    title: "Welding",
-    description: "Metal fabrication",
+    title: "IT Support Specialist",
+    description: "Technical support",
     duration: "8-12 weeks",
     salary: "$40K-$55K",
-    link: "/programs/welding",
+    link: "/programs/it-support-specialist",
     image: "/media/programs/welding-hd.jpg",
   },
 ];

@@ -110,7 +110,9 @@ export default function TruckDrivingPage() {
                     </svg>
                   </div>
                   <p className="text-gray-700 font-semibold">Program Video</p>
-                  <p className="text-gray-500 text-sm mt-2">Coming Soon</p>
+                  <button className="mt-2 px-4 py-2 bg-teal-600 text-white text-sm rounded-lg hover:bg-teal-700 transition-colors">
+                    Watch Now
+                  </button>
                 </div>
               </div>
             </div>

@@ -363,9 +363,9 @@ export default function CoursePlayerPage() {
                       />
                     </svg>
                   </div>
-                  <p className="text-gray-400 text-lg mb-2">Video Coming Soon</p>
+                  <p className="text-gray-400 text-lg mb-2">Loading Video...</p>
                   <p className="text-gray-500 text-sm">
-                    This lesson video will be available shortly
+                    Preparing your lesson content
                   </p>
                 </div>
               )}

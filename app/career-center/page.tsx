@@ -55,8 +55,10 @@ export default function CareerCenterPage() {
               <p className="text-slate-600 mb-4">
                 Display your certifications, projects, and achievements in a professional portfolio.
               </p>
-              <div className="flex items-center gap-2 text-slate-500 font-semibold">
-                <span>Coming Soon</span>
+              <div className="flex items-center gap-2">
+                <button className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                  Build Portfolio
+                </button>
               </div>
             </div>
 
@@ -68,8 +70,10 @@ export default function CareerCenterPage() {
               <p className="text-slate-600 mb-4">
                 Practice common interview questions and get tips for success in your field.
               </p>
-              <div className="flex items-center gap-2 text-slate-500 font-semibold">
-                <span>Coming Soon</span>
+              <div className="flex items-center gap-2">
+                <button className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                  Start Practicing
+                </button>
               </div>
             </div>
           </div>

@@ -243,12 +243,12 @@ export default function ProgramHolderTrainingPage() {
                 key={index}
                 className="elevate-card hover:shadow-xl transition-shadow"
               >
-                <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mb-4 flex items-center justify-center">
+                <div className="aspect-video bg-gradient-to-br from-teal-500 to-teal-700 rounded-lg mb-4 flex items-center justify-center cursor-pointer hover:from-teal-600 hover:to-teal-800 transition-all">
                   <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-red-600 flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
                       <Video className="h-8 w-8 text-white" />
                     </div>
-                    <p className="text-sm text-gray-600">Video Coming Soon</p>
+                    <p className="text-sm text-white font-medium">Watch Training Video</p>
                   </div>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">{video.title}</h3>

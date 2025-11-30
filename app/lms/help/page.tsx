@@ -63,8 +63,8 @@ export default function LMSHelpPage() {
             <p className="text-slate-600 mb-4">
               Watch step-by-step guides on using the platform
             </p>
-            <button className="text-red-600 hover:underline text-sm font-medium">
-              Coming Soon
+            <button className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium">
+              Watch Tutorials
             </button>
           </div>
 

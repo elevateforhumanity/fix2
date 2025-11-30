@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import { COMPLETE_PROGRAMS } from "@/lib/programs-data-complete";
 
 export const metadata = {
   title: 'Career Training Programs | Elevate for Humanity',
-  description: '20+ free career training programs in healthcare, skilled trades, technology, and more. 100% funded through WIOA, WRG, and workforce grants. Start your career today.',
+  description: '27+ free career training programs in healthcare, skilled trades, technology, and more. 100% funded through WIOA, WRG, and workforce grants. Start your career today.',
   openGraph: {
     title: 'Career Training Programs | Elevate for Humanity',
-    description: '20+ free career training programs. 100% funded. Start your career today.',
+    description: '27+ free career training programs. 100% funded. Start your career today.',
     images: ['/media/programs/multi-training-programs-optimized.jpg'],
     type: 'website',
   },
@@ -215,6 +216,69 @@ export default function ProgramsPage() {
           <div className="rounded-xl border border-slate-100 bg-slate-50 p-4 text-xs text-slate-700">
             Don't see your exact program listed? Select "Other / Unsure" on the
             application and our team will help you choose the best pathway.
+          </div>
+        </div>
+      </section>
+
+      {/* All Programs Grid */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              All Available Programs
+            </h2>
+            <p className="text-lg text-slate-600">
+              {COMPLETE_PROGRAMS.length} career training programs - all 100% funded
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {COMPLETE_PROGRAMS.map((program) => (
+              <Link
+                key={program.slug}
+                href={`/programs/${program.slug}`}
+                className="group bg-white rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-lg transition-all p-6"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center">
+                    <span className="text-2xl">📚</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-slate-900 group-hover:text-teal-600 transition-colors mb-2">
+                      {program.name}
+                    </h3>
+                    <p className="text-sm text-slate-600 mb-3">
+                      {program.tagline}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      <span className="inline-block px-2 py-1 bg-teal-50 text-teal-700 text-xs font-medium rounded">
+                        {program.duration}
+                      </span>
+                      {program.etplApproved && (
+                        <span className="inline-block px-2 py-1 bg-green-50 text-green-700 text-xs font-medium rounded">
+                          ETPL Approved
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-xs text-slate-500">
+                      Funding: {program.funding.join(", ")}
+                    </div>
+                    <span className="mt-3 inline-block text-sm font-semibold text-teal-600 group-hover:text-teal-700">
+                      Learn More →
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/apply"
+              className="inline-flex items-center justify-center rounded-full bg-teal-600 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-700 transition-all shadow-lg"
+            >
+              Apply to Any Program
+            </Link>
           </div>
         </div>
       </section>
