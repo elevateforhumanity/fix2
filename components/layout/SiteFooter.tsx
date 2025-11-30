@@ -56,16 +56,16 @@ export default function SiteFooter() {
             </Link>
           </div>
 
-          {/* All sections / all pages */}
+          {/* Key sections only - compact */}
           <div className="lg:col-span-3">
-            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 max-h-[420px] overflow-y-auto pr-2">
-              {footerSections.map((section) => (
-                <div key={section.id} className="space-y-2">
+            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+              {footerSections.slice(0, 8).map((section) => (
+                <div key={section.id} className="space-y-1.5">
                   <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
                     {section.title}
                   </h3>
-                  <ul className="space-y-1 text-xs sm:text-[13px]">
-                    {section.items.map((item) => (
+                  <ul className="space-y-0.5 text-xs">
+                    {section.items.slice(0, 6).map((item) => (
                       <li key={item.href}>
                         <Link
                           href={item.href}
@@ -75,6 +75,16 @@ export default function SiteFooter() {
                         </Link>
                       </li>
                     ))}
+                    {section.items.length > 6 && (
+                      <li>
+                        <Link
+                          href="/sitemap-page"
+                          className="text-xs text-orange-600 hover:text-orange-700 font-medium"
+                        >
+                          +{section.items.length - 6} more →
+                        </Link>
+                      </li>
+                    )}
                   </ul>
                 </div>
               ))}

@@ -26,7 +26,7 @@ export const headerNav: NavSection[] = [
   {
     label: "Programs",
     href: "/programs",
-    items: itemsFrom("programs"),
+    items: itemsFrom("programs").slice(0, 10),
   },
   {
     label: "Funding",
@@ -36,7 +36,7 @@ export const headerNav: NavSection[] = [
   {
     label: "For Students",
     href: "/student/portal",
-    items: itemsFrom("for-students"),
+    items: itemsFrom("for-students").slice(0, 8),
   },
   {
     label: "Career Center",
@@ -46,23 +46,28 @@ export const headerNav: NavSection[] = [
   {
     label: "Community",
     href: "/community",
-    items: itemsFrom("community"),
+    items: itemsFrom("community").slice(0, 6),
   },
   {
     label: "Partners",
     href: "/employers",
     items: [
-      ...itemsFrom("For Employers"),
-      ...itemsFrom("Program Holders"),
-      ...itemsFrom("Boards"),
+      ...itemsFrom("For Employers").slice(0, 4),
+      ...itemsFrom("Program Holders").slice(0, 4),
     ],
   },
   {
     label: "About",
     href: "/about",
     items: [
-      ...itemsFrom("Main Pages"),
-      ...itemsFrom("Legal & Policies"),
+      { label: "About Us", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Blog", href: "/blog" },
+      { label: "Success Stories", href: "/success-stories" },
+      { label: "Get Started", href: "/get-started" },
+      { label: "Apply Now", href: "/apply" },
+      { label: "Sitemap", href: "/sitemap-page" },
     ],
   },
 ];
