@@ -18,10 +18,20 @@ export default async function StudentCertificatesPage() {
   
   if (!user) redirect('/login');
 
-  // Fetch user's certificates
+  // Fetch user's certificates from partner courses
   const { data: certificates } = await supabase
-    .from('student_certificates')
-    .select('*')
+    .from('partner_certificates')
+    .select(`
+      *,
+      partner_lms_enrollments (
+        partner_courses (
+          course_name
+        ),
+        partner_lms_providers (
+          provider_name
+        )
+      )
+    `)
     .eq('student_id', user.id)
     .order('issued_date', { ascending: false });
   return (
@@ -45,60 +55,78 @@ export default async function StudentCertificatesPage() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {certificates && certificates.length > 0 ? (
-            certificates.map((cert) => (
-              <div key={cert.id} className="bg-white rounded-lg shadow-lg p-6">
-                <div className="border-4 border-red-600 rounded-lg p-6 mb-4">
-                  <div className="text-center">
-                    <Award className="h-16 w-16 text-red-600 mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">
-                      Certificate of Completion
-                    </h3>
-                    <p className="text-lg text-slate-700 mb-2">{cert.course_name}</p>
-                    <p className="text-sm text-slate-600">
-                      Issued by: {cert.issuer}
-                    </p>
-                    <p className="text-sm text-slate-600">
-                      Date: {new Date(cert.issued_date).toLocaleDateString()}
-                    </p>
-                    <p className="text-xs text-slate-500 mt-2">
-                      Certificate ID: {cert.certificate_number}
-                    </p>
-                    <span className={`inline-block mt-2 px-3 py-1 rounded-full text-xs font-medium ${
-                      cert.certificate_type === 'program' 
-                        ? 'bg-red-100 text-red-800' 
-                        : 'bg-blue-100 text-blue-800'
-                    }`}>
-                      {cert.certificate_type === 'program' ? 'Program Certificate' : 'Module Certificate'}
-                    </span>
+            certificates.map((cert: any) => {
+              const courseName = cert.partner_lms_enrollments?.partner_courses?.course_name || 'Course';
+              const providerName = cert.partner_lms_enrollments?.partner_lms_providers?.provider_name || 'Partner';
+              
+              return (
+                <div key={cert.id} className="bg-white rounded-lg shadow-lg p-6">
+                  <div className="border-4 border-emerald-600 rounded-lg p-6 mb-4">
+                    <div className="text-center">
+                      <Award className="h-16 w-16 text-emerald-600 mx-auto mb-4" />
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">
+                        Certificate of Completion
+                      </h3>
+                      <p className="text-lg text-slate-700 mb-2">{courseName}</p>
+                      <p className="text-sm text-slate-600">
+                        Issued by: {providerName}
+                      </p>
+                      <p className="text-sm text-slate-600">
+                        Date: {new Date(cert.issued_date).toLocaleDateString()}
+                      </p>
+                      {cert.expiration_date && (
+                        <p className="text-xs text-slate-500 mt-1">
+                          Expires: {new Date(cert.expiration_date).toLocaleDateString()}
+                        </p>
+                      )}
+                      {cert.certificate_number && (
+                        <p className="text-xs text-slate-500 mt-2 font-mono">
+                          ID: {cert.certificate_number}
+                        </p>
+                      )}
+                      <span className="inline-block mt-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                        Partner Certificate
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <a
+                      href={cert.certificate_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition flex items-center justify-center gap-2"
+                    >
+                      <Download className="h-4 w-4" />
+                      Download
+                    </a>
+                    {cert.verification_url && (
+                      <a
+                        href={cert.verification_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition flex items-center justify-center gap-2"
+                      >
+                        <Share2 className="h-4 w-4" />
+                        Verify
+                      </a>
+                    )}
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <a
-                    href={cert.pdf_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition flex items-center justify-center gap-2"
-                  >
-                    <Download className="h-4 w-4" />
-                    Download PDF
-                  </a>
-                  <Link
-                    href={`/certificates/verify?number=${cert.certificate_number}`}
-                    target="_blank"
-                    className="px-4 py-2 border border-slate-300 text-slate-700 rounded-lg hover:bg-slate-50 transition flex items-center justify-center"
-                  >
-                    <Share2 className="h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            ))
+              );
+            })
           ) : (
             <div className="col-span-2 text-center py-12">
               <Award className="h-16 w-16 text-slate-300 mx-auto mb-4" />
               <p className="text-slate-600">No certificates earned yet</p>
               <p className="text-sm text-slate-500 mt-2">
-                Complete your courses to earn certificates
+                Complete your partner courses to earn certificates
               </p>
+              <Link
+                href="/student/dashboard"
+                className="inline-block mt-4 px-6 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition"
+              >
+                View My Courses
+              </Link>
             </div>
           )}
         </div>
