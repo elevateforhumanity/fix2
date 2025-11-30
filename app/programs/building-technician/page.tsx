@@ -1,35 +1,35 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "HVAC Technician Training | Elevate For Humanity",
-  description: "Hands-on HVAC training matched to employer demand. Get EPA certified and start earning in a growing trade.",
+  title: "Building Technician Training | Elevate For Humanity",
+  description: "Facilities maintenance and building systems training. Real advancement paths in property management and operations.",
 };
 
 export default function Page() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-green-50 to-white border-b border-slate-200">
+      <section className="bg-gradient-to-br from-slate-50 to-white border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid gap-8 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] items-start">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-green-100 px-3 py-1 text-[11px] font-semibold text-green-700 border border-green-200 uppercase tracking-wide mb-3">
-                Skilled Trade • High Demand
+              <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold text-slate-700 border border-slate-200 uppercase tracking-wide mb-3">
+                Facilities • Property Management
               </div>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-3">
-                HVAC Technician Training
+                Building Technician Training
               </h1>
               <p className="text-lg text-slate-700 mb-4">
-                Master heating, ventilation, and air conditioning systems. Get EPA certified and step into a career with strong wages and job security.
+                Master building systems, maintenance, and operations. Step into facilities roles with clear advancement paths.
               </p>
               <p className="text-sm text-slate-600 mb-6">
-                HVAC technicians are essential in every building. This program combines classroom theory with hands-on lab work, preparing you for EPA 608 certification and entry-level technician roles.
+                Building technicians keep commercial and residential properties running smoothly. This program covers HVAC basics, electrical, plumbing, safety, and property management—preparing you for entry-level facilities roles with room to grow.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/apply" className="rounded-full bg-green-600 text-white px-6 py-3 font-semibold hover:bg-green-700">
+                <Link href="/apply" className="rounded-full bg-slate-700 text-white px-6 py-3 font-semibold hover:bg-slate-800">
                   Apply Now
                 </Link>
-                <Link href="/funding" className="rounded-full border border-slate-300 px-6 py-3 font-semibold hover:border-green-500 hover:text-green-700">
+                <Link href="/funding" className="rounded-full border border-slate-300 px-6 py-3 font-semibold hover:border-slate-500 hover:text-slate-700">
                   Check Funding
                 </Link>
               </div>
@@ -40,7 +40,7 @@ export default function Page() {
               <dl className="space-y-3 text-sm">
                 <div>
                   <dt className="font-semibold text-slate-700">Duration</dt>
-                  <dd className="text-slate-600">12-16 weeks</dd>
+                  <dd className="text-slate-600">8-12 weeks</dd>
                 </div>
                 <div>
                   <dt className="font-semibold text-slate-700">Format</dt>
@@ -48,7 +48,7 @@ export default function Page() {
                 </div>
                 <div>
                   <dt className="font-semibold text-slate-700">Credential</dt>
-                  <dd className="text-slate-600">EPA 608 Certification</dd>
+                  <dd className="text-slate-600">Building Technician Certificate</dd>
                 </div>
                 <div>
                   <dt className="font-semibold text-slate-700">Funding</dt>
@@ -56,7 +56,7 @@ export default function Page() {
                 </div>
                 <div>
                   <dt className="font-semibold text-slate-700">Avg. Starting Pay</dt>
-                  <dd className="text-slate-600">$35K-$50K annually</dd>
+                  <dd className="text-slate-600">$32K-$45K annually</dd>
                 </div>
               </dl>
             </aside>
@@ -70,33 +70,33 @@ export default function Page() {
         <div className="grid gap-6 md:grid-cols-3">
           {[
             {
-              title: "Core HVAC Systems",
+              title: "Building Systems",
               items: [
-                "Refrigeration cycle and principles",
-                "Heating systems (gas, electric, heat pumps)",
-                "Air conditioning and cooling",
-                "Ventilation and air quality",
-                "System diagnostics and troubleshooting",
+                "HVAC basics and troubleshooting",
+                "Electrical systems and circuits",
+                "Plumbing and water systems",
+                "Fire safety and suppression",
+                "Building automation systems",
               ],
             },
             {
-              title: "Technical Skills",
+              title: "Maintenance Skills",
               items: [
-                "Electrical circuits and controls",
-                "Refrigerant handling and recovery",
-                "Ductwork design and installation",
-                "System installation and startup",
-                "Preventive maintenance procedures",
+                "Preventive maintenance schedules",
+                "Equipment repair and replacement",
+                "Tool usage and safety",
+                "Work order management",
+                "Vendor coordination",
               ],
             },
             {
               title: "Professional Skills",
               items: [
-                "EPA 608 certification prep",
-                "Safety protocols and OSHA standards",
+                "OSHA safety standards",
                 "Customer service and communication",
-                "Tool usage and equipment operation",
-                "Blueprint reading and schematics",
+                "Documentation and reporting",
+                "Emergency response procedures",
+                "Career advancement planning",
               ],
             },
           ].map((col) => (
@@ -105,7 +105,7 @@ export default function Page() {
               <ul className="space-y-2 text-sm text-slate-700">
                 {col.items.map((item) => (
                   <li key={item} className="flex gap-2">
-                    <span className="text-green-500 mt-[3px]">●</span>
+                    <span className="text-slate-500 mt-[3px]">●</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -121,26 +121,26 @@ export default function Page() {
           <h2 className="text-2xl font-bold text-slate-900 mb-6">Career Outcomes</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <h3 className="font-semibold text-slate-900 mb-3">Where HVAC Techs Work</h3>
+              <h3 className="font-semibold text-slate-900 mb-3">Where Building Techs Work</h3>
               <ul className="space-y-2 text-sm text-slate-700">
-                <li>• HVAC service companies</li>
-                <li>• Commercial building maintenance</li>
-                <li>• Residential HVAC contractors</li>
-                <li>• Facilities management teams</li>
+                <li>• Commercial office buildings</li>
+                <li>• Apartment and residential complexes</li>
+                <li>• Hospitals and healthcare facilities</li>
+                <li>• Schools and universities</li>
                 <li>• Manufacturing plants</li>
-                <li>• Self-employed service businesses</li>
+                <li>• Property management companies</li>
               </ul>
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-white p-6">
               <h3 className="font-semibold text-slate-900 mb-3">Advancement Pathways</h3>
               <ul className="space-y-2 text-sm text-slate-700">
-                <li>• HVAC Master Technician</li>
-                <li>• Service Manager</li>
-                <li>• HVAC System Designer</li>
+                <li>• Facilities Manager</li>
+                <li>• Chief Engineer</li>
+                <li>• Property Manager</li>
                 <li>• Building Automation Specialist</li>
-                <li>• Business owner/contractor</li>
-                <li>• HVAC Instructor</li>
+                <li>• Maintenance Supervisor</li>
+                <li>• Specialized trades (HVAC, electrical, plumbing)</li>
               </ul>
             </div>
           </div>
@@ -153,16 +153,16 @@ export default function Page() {
         <div className="space-y-4">
           {[
             {
-              phase: "Weeks 1-4: Fundamentals",
-              desc: "HVAC theory, refrigeration cycle, electrical basics, and safety protocols.",
+              phase: "Weeks 1-3: Building Systems Overview",
+              desc: "Introduction to HVAC, electrical, plumbing, and safety protocols.",
             },
             {
-              phase: "Weeks 5-12: Hands-On Lab",
-              desc: "Install, diagnose, and repair systems in our training lab. Practice on real equipment.",
+              phase: "Weeks 4-9: Hands-On Maintenance",
+              desc: "Practice troubleshooting, repairs, and preventive maintenance in our training facility.",
             },
             {
-              phase: "Weeks 13-16: EPA Certification & Job Prep",
-              desc: "EPA 608 exam prep, resume building, and employer connections.",
+              phase: "Weeks 10-12: Professional Skills & Job Prep",
+              desc: "Work order systems, customer service, resume building, and employer connections.",
             },
           ].map((p) => (
             <div key={p.phase} className="rounded-2xl border border-slate-200 bg-white p-5">
@@ -174,16 +174,16 @@ export default function Page() {
       </section>
 
       {/* Funding CTA */}
-      <section className="bg-gradient-to-br from-green-600 to-green-700 text-white py-12">
+      <section className="bg-gradient-to-br from-slate-700 to-slate-800 text-white py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Most Students Pay $0 Out-of-Pocket
           </h2>
           <p className="text-lg mb-6 max-w-2xl mx-auto opacity-90">
-            WIOA and WRG cover tuition for eligible students. Employers often sponsor HVAC trainees. Let's check your options.
+            WIOA and WRG cover tuition for eligible students. Property management companies often sponsor trainees. Let's check your options.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/apply" className="rounded-full bg-white text-green-600 px-8 py-3 font-semibold hover:bg-slate-50">
+            <Link href="/apply" className="rounded-full bg-white text-slate-700 px-8 py-3 font-semibold hover:bg-slate-50">
               Start Application
             </Link>
             <Link href="/funding" className="rounded-full border-2 border-white text-white px-8 py-3 font-semibold hover:bg-white/10">
@@ -203,16 +203,16 @@ export default function Page() {
               a: "No. We start with the basics and build from there.",
             },
             {
-              q: "What is EPA 608 certification?",
-              a: "It's a federal requirement to handle refrigerants. You'll earn this credential as part of the program.",
+              q: "Is this the same as HVAC training?",
+              a: "No. Building technicians have broader skills across multiple systems, while HVAC techs specialize in heating and cooling.",
             },
             {
               q: "Is there job placement assistance?",
-              a: "Yes. We partner with HVAC companies actively hiring graduates.",
+              a: "Yes. We partner with property management companies and facilities teams actively hiring.",
             },
             {
-              q: "Can I work while in the program?",
-              a: "The program is designed for full-time students, but some flexibility is possible. Talk to an advisor.",
+              q: "Can I specialize later?",
+              a: "Absolutely. Many building techs go on to specialize in HVAC, electrical, or plumbing after gaining experience.",
             },
           ].map((faq) => (
             <div key={faq.q} className="rounded-2xl border border-slate-200 bg-white p-5">
