@@ -30,44 +30,49 @@ export default function ElevateLearn2EarnPage() {
         </h1>
         
         <p className="text-lg text-slate-700 mb-2">
-          Staffing Solutions That Connect Training to Employment
+          Post-Graduation Staffing for Internships & On-the-Job Training
         </p>
         
         <p className="text-sm text-slate-600 max-w-3xl">
-          ElevateLearn2Earn is our staffing division that connects employers with job-ready talent from our workforce training programs. Every candidate comes pre-screened, trained, and supported by our case management team.
+          ElevateLearn2Earn is our staffing service that places program graduates with employer partners for internships, on-the-job training (OJT), and permanent positions. When students complete their training, we align them with jobs that match their skills and career goals.
         </p>
       </section>
 
-      {/* Key Features */}
-      <section className="grid gap-6 md:grid-cols-3 mb-10">
-        <div className="rounded-2xl border border-slate-200 bg-white p-5">
-          <div className="text-2xl mb-3">🎯</div>
-          <h2 className="text-sm font-semibold text-slate-900 mb-2">
-            Pre-Screened Candidates
+      {/* How It Works */}
+      <section className="mb-10">
+        <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
+          <h2 className="text-lg font-semibold text-slate-900 mb-3">
+            How ElevateLearn2Earn Works
           </h2>
-          <p className="text-sm text-slate-700">
-            Every candidate has completed our training programs and passed background checks, drug screenings, and skills assessments.
+          <p className="text-sm text-slate-700 mb-4">
+            Our staffing service bridges the gap between training completion and career placement. Here's how we support both students and employer partners:
           </p>
-        </div>
+          
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="bg-white rounded-lg border border-blue-200 p-4">
+              <div className="text-2xl mb-2">🎓</div>
+              <h3 className="font-semibold text-slate-900 mb-2 text-sm">Students Complete Training</h3>
+              <p className="text-sm text-slate-700">
+                Students finish their program with certifications, hands-on experience, and job-ready skills.
+              </p>
+            </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-5">
-          <div className="text-2xl mb-3">📚</div>
-          <h2 className="text-sm font-semibold text-slate-900 mb-2">
-            Trained & Certified
-          </h2>
-          <p className="text-sm text-slate-700">
-            Candidates come with industry-recognized certifications and hands-on training in healthcare, trades, transportation, and more.
-          </p>
-        </div>
+            <div className="bg-white rounded-lg border border-blue-200 p-4">
+              <div className="text-2xl mb-2">🤝</div>
+              <h3 className="font-semibold text-slate-900 mb-2 text-sm">We Match & Place</h3>
+              <p className="text-sm text-slate-700">
+                Our team aligns graduates with employer partners for internships, OJT positions, or direct hire opportunities.
+              </p>
+            </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white p-5">
-          <div className="text-2xl mb-3">🤝</div>
-          <h2 className="text-sm font-semibold text-slate-900 mb-2">
-            Ongoing Support
-          </h2>
-          <p className="text-sm text-slate-700">
-            Our case managers stay connected with both employers and employees to ensure successful placements and retention.
-          </p>
+            <div className="bg-white rounded-lg border border-blue-200 p-4">
+              <div className="text-2xl mb-2">📈</div>
+              <h3 className="font-semibold text-slate-900 mb-2 text-sm">Ongoing Support</h3>
+              <p className="text-sm text-slate-700">
+                Case managers stay involved to support both the graduate and employer through onboarding and beyond.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -138,11 +143,11 @@ export default function ElevateLearn2EarnPage() {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* Placement Types */}
       <section className="mb-10">
         <div className="rounded-2xl border border-slate-200 bg-white p-6">
           <h2 className="text-lg font-semibold text-slate-900 mb-4">
-            How ElevateLearn2Earn Works
+            Placement Options for Graduates
           </h2>
           
           <div className="space-y-4">
@@ -151,9 +156,9 @@ export default function ElevateLearn2EarnPage() {
                 1
               </div>
               <div>
-                <h3 className="font-semibold text-slate-900 mb-1">Tell Us Your Needs</h3>
+                <h3 className="font-semibold text-slate-900 mb-1">Internships</h3>
                 <p className="text-sm text-slate-700">
-                  Share your job requirements, skills needed, and timeline. We'll match you with candidates from our training programs.
+                  Short-term placements (typically 3-6 months) where graduates gain real-world experience with employer partners while receiving mentorship and support.
                 </p>
               </div>
             </div>
@@ -163,9 +168,9 @@ export default function ElevateLearn2EarnPage() {
                 2
               </div>
               <div>
-                <h3 className="font-semibold text-slate-900 mb-1">Review Pre-Screened Candidates</h3>
+                <h3 className="font-semibold text-slate-900 mb-1">On-the-Job Training (OJT)</h3>
                 <p className="text-sm text-slate-700">
-                  We send you profiles of qualified candidates who have completed training, passed background checks, and are ready to work.
+                  Paid training positions where graduates learn company-specific skills while earning wages. Employers may qualify for OJT reimbursement through workforce funding.
                 </p>
               </div>
             </div>
@@ -175,9 +180,9 @@ export default function ElevateLearn2EarnPage() {
                 3
               </div>
               <div>
-                <h3 className="font-semibold text-slate-900 mb-1">Interview & Hire</h3>
+                <h3 className="font-semibold text-slate-900 mb-1">Direct Hire Placements</h3>
                 <p className="text-sm text-slate-700">
-                  Conduct interviews with candidates you like. We coordinate scheduling and provide additional information as needed.
+                  Permanent positions where graduates transition directly into full-time employment with ongoing support from our case management team.
                 </p>
               </div>
             </div>
@@ -187,21 +192,9 @@ export default function ElevateLearn2EarnPage() {
                 4
               </div>
               <div>
-                <h3 className="font-semibold text-slate-900 mb-1">Onboard with Support</h3>
+                <h3 className="font-semibold text-slate-900 mb-1">Apprenticeships</h3>
                 <p className="text-sm text-slate-700">
-                  Our case managers stay involved during onboarding to ensure smooth transitions and address any early challenges.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-white font-semibold text-sm">
-                5
-              </div>
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-1">Ongoing Check-Ins</h3>
-                <p className="text-sm text-slate-700">
-                  We follow up with both you and the employee at 30, 60, and 90 days to support retention and address any issues.
+                  DOL-registered apprenticeship placements where graduates earn while they continue learning advanced skills in their field.
                 </p>
               </div>
             </div>
@@ -209,20 +202,20 @@ export default function ElevateLearn2EarnPage() {
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* For Employers */}
       <section className="mb-10">
         <div className="rounded-2xl border border-orange-200 bg-orange-50 p-6">
           <h2 className="text-lg font-semibold text-slate-900 mb-4">
-            Why Employers Choose ElevateLearn2Earn
+            Benefits for Employer Partners
           </h2>
           
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="flex gap-3">
               <span className="text-orange-600 mt-1">✓</span>
               <div>
-                <h3 className="font-semibold text-slate-900 text-sm mb-1">Reduce Time-to-Hire</h3>
+                <h3 className="font-semibold text-slate-900 text-sm mb-1">Pre-Trained Candidates</h3>
                 <p className="text-sm text-slate-700">
-                  Skip the lengthy screening process. Our candidates are already trained and vetted.
+                  Graduates arrive with certifications, hands-on training, and industry-specific skills already in place.
                 </p>
               </div>
             </div>
@@ -230,9 +223,9 @@ export default function ElevateLearn2EarnPage() {
             <div className="flex gap-3">
               <span className="text-orange-600 mt-1">✓</span>
               <div>
-                <h3 className="font-semibold text-slate-900 text-sm mb-1">Lower Training Costs</h3>
+                <h3 className="font-semibold text-slate-900 text-sm mb-1">OJT Funding Available</h3>
                 <p className="text-sm text-slate-700">
-                  Candidates arrive with industry certifications and hands-on experience.
+                  Eligible employers can receive reimbursement for on-the-job training costs through workforce programs.
                 </p>
               </div>
             </div>
@@ -240,9 +233,9 @@ export default function ElevateLearn2EarnPage() {
             <div className="flex gap-3">
               <span className="text-orange-600 mt-1">✓</span>
               <div>
-                <h3 className="font-semibold text-slate-900 text-sm mb-1">Improve Retention</h3>
+                <h3 className="font-semibold text-slate-900 text-sm mb-1">Case Management Support</h3>
                 <p className="text-sm text-slate-700">
-                  Our ongoing support helps employees succeed and stay with your company longer.
+                  Our team stays involved to help both the graduate and employer navigate challenges and ensure success.
                 </p>
               </div>
             </div>
@@ -250,9 +243,9 @@ export default function ElevateLearn2EarnPage() {
             <div className="flex gap-3">
               <span className="text-orange-600 mt-1">✓</span>
               <div>
-                <h3 className="font-semibold text-slate-900 text-sm mb-1">Access Diverse Talent</h3>
+                <h3 className="font-semibold text-slate-900 text-sm mb-1">Retention Support</h3>
                 <p className="text-sm text-slate-700">
-                  We serve underrepresented communities and provide pathways for re-entry populations.
+                  Regular check-ins at 30, 60, and 90 days help address issues early and improve long-term retention.
                 </p>
               </div>
             </div>
@@ -260,9 +253,9 @@ export default function ElevateLearn2EarnPage() {
             <div className="flex gap-3">
               <span className="text-orange-600 mt-1">✓</span>
               <div>
-                <h3 className="font-semibold text-slate-900 text-sm mb-1">Funding Support</h3>
+                <h3 className="font-semibold text-slate-900 text-sm mb-1">Build Your Pipeline</h3>
                 <p className="text-sm text-slate-700">
-                  Eligible employers may qualify for OJT reimbursement and other workforce incentives.
+                  Partner with us to create a steady pipeline of trained talent aligned with your specific needs.
                 </p>
               </div>
             </div>
@@ -270,9 +263,60 @@ export default function ElevateLearn2EarnPage() {
             <div className="flex gap-3">
               <span className="text-orange-600 mt-1">✓</span>
               <div>
-                <h3 className="font-semibold text-slate-900 text-sm mb-1">Mission-Driven Partnership</h3>
+                <h3 className="font-semibold text-slate-900 text-sm mb-1">Community Impact</h3>
                 <p className="text-sm text-slate-700">
-                  Hiring through us supports workforce development and community impact.
+                  Hiring our graduates supports workforce development and creates opportunities for underserved communities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* For Students */}
+      <section className="mb-10">
+        <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
+          <h2 className="text-lg font-semibold text-slate-900 mb-4">
+            Support for Program Graduates
+          </h2>
+          
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="flex gap-3">
+              <span className="text-blue-600 mt-1">✓</span>
+              <div>
+                <h3 className="font-semibold text-slate-900 text-sm mb-1">Job Matching</h3>
+                <p className="text-sm text-slate-700">
+                  We align your skills and career goals with employer partners looking for your specific training.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <span className="text-blue-600 mt-1">✓</span>
+              <div>
+                <h3 className="font-semibold text-slate-900 text-sm mb-1">Interview Preparation</h3>
+                <p className="text-sm text-slate-700">
+                  Get coaching on resumes, interview skills, and professional communication before meeting employers.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <span className="text-blue-600 mt-1">✓</span>
+              <div>
+                <h3 className="font-semibold text-slate-900 text-sm mb-1">Ongoing Coaching</h3>
+                <p className="text-sm text-slate-700">
+                  Your case manager stays with you through placement and beyond to help you succeed in your new role.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <span className="text-blue-600 mt-1">✓</span>
+              <div>
+                <h3 className="font-semibold text-slate-900 text-sm mb-1">Career Advancement</h3>
+                <p className="text-sm text-slate-700">
+                  We help you plan next steps, whether that's moving from internship to full-time or advancing in your field.
                 </p>
               </div>
             </div>
@@ -284,23 +328,23 @@ export default function ElevateLearn2EarnPage() {
       <section className="mb-10">
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
           <h2 className="text-xl font-semibold text-slate-900 mb-3">
-            Ready to Hire Job-Ready Talent?
+            Partner with ElevateLearn2Earn
           </h2>
           <p className="text-sm text-slate-700 mb-5 max-w-2xl mx-auto">
-            Connect with our staffing team to discuss your hiring needs and get matched with pre-screened candidates from our training programs.
+            Whether you're an employer looking for trained talent or a graduate ready for placement, our staffing team connects the right people with the right opportunities.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
               href="/employers/hire-graduates"
               className="inline-flex items-center justify-center rounded-full bg-orange-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-orange-700"
             >
-              Start Hiring Now
+              Employers: Hire Graduates
             </Link>
             <Link
-              href="/employers/post-job"
-              className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 hover:border-orange-500 hover:text-orange-700"
+              href="/student/portal"
+              className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
             >
-              Post a Job Opening
+              Students: Access Portal
             </Link>
             <Link
               href="/contact"
