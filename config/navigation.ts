@@ -1,68 +1,75 @@
 // config/navigation.ts
-export type NavItem = {
+import { siteMapSections, type SiteMapItem } from "@/config/site-map.auto";
+
+export type NavItem = SiteMapItem;
+
+export type NavSection = {
   label: string;
-  href: string;
-  description?: string;
-  children?: NavItem[];
+  href?: string;
+  items?: NavItem[];
 };
 
-export const mainNav: NavItem[] = [
+// helper: find a section by id or title
+function itemsFrom(key: string): NavItem[] {
+  const section =
+    siteMapSections.find((s) => s.id === key) ||
+    siteMapSections.find((s) => s.title === key);
+  return section ? section.items : [];
+}
+
+/**
+ * HEADER NAV
+ * - high-level categories only (so it stays usable)
+ * - each dropdown uses *all* items from that section
+ */
+export const headerNav: NavSection[] = [
   {
     label: "Programs",
     href: "/programs",
-    children: [
-      { label: "All Programs", href: "/programs" },
-      { label: "Healthcare", href: "/programs/category/healthcare" },
-      { label: "Skilled Trades", href: "/programs/category/trades" },
-      { label: "Beauty & Barber", href: "/programs/category/beauty" },
-      { label: "Business & Tax", href: "/programs/category/business" },
-      { label: "Youth & Re-entry", href: "/programs/category/reentry" },
-    ],
+    items: itemsFrom("programs"),
   },
   {
-    label: "Students",
-    href: "/student",
-    children: [
-      { label: "Student Dashboard", href: "/student/dashboard" },
-      { label: "How Funding Works", href: "/funding/students" },
-      { label: "Orientation", href: "/student/orientation" },
-      { label: "FAQ", href: "/faq" },
-    ],
+    label: "Funding",
+    href: "/funding",
+    items: itemsFrom("funding"),
   },
   {
-    label: "Employers",
-    href: "/employers",
-    children: [
-      { label: "Employer Overview", href: "/employers" },
-      { label: "Post Jobs & OJT", href: "/employers/opportunities" },
-      { label: "Work-Based Learning (WEX)", href: "/employers/wex" },
-      { label: "JRI / Apprenticeships", href: "/employers/apprenticeships" },
-      { label: "Partner Directory", href: "/directory/employers" },
-    ],
+    label: "For Students",
+    href: "/student/portal",
+    items: itemsFrom("for-students"),
+  },
+  {
+    label: "Career Center",
+    href: "/career-services",
+    items: itemsFrom("career-services"),
+  },
+  {
+    label: "Community",
+    href: "/community",
+    items: itemsFrom("community"),
   },
   {
     label: "Partners",
-    href: "/partners",
-    children: [
-      { label: "Government & Workforce Boards", href: "/partners/government" },
-      { label: "Schools & Training Providers", href: "/partners/providers" },
-      { label: "Community Organizations", href: "/partners/community" },
+    href: "/employers",
+    items: [
+      ...itemsFrom("For Employers"),
+      ...itemsFrom("Program Holders"),
+      ...itemsFrom("Boards"),
     ],
   },
   {
     label: "About",
     href: "/about",
-    children: [
-      { label: "Our Story", href: "/about" },
-      { label: "Impact & Success Stories", href: "/success-stories" },
-      { label: "Selfish Inc - Mental Wellness", href: "/selfish-inc" },
-      { label: "Contact", href: "/contact" },
+    items: [
+      ...itemsFrom("Main Pages"),
+      ...itemsFrom("Legal & Policies"),
     ],
   },
 ];
 
-export const authNav: NavItem[] = [
-  { label: "Student Login", href: "/auth/login?role=student" },
-  { label: "Employer Login", href: "/auth/login?role=employer" },
-  { label: "Staff Login", href: "/auth/login?role=staff" },
-];
+/**
+ * FOOTER NAV
+ * - expose ALL sections (Main Pages, Programs, Funding, LMS, HR, Reports, etc.)
+ * - used by SiteFooter to render a mega-footer with every page
+ */
+export const footerSections = siteMapSections;

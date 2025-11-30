@@ -1,81 +1,96 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { footerSections } from "@/config/navigation";
 
 export default function SiteFooter() {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t bg-slate-950 text-slate-200">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 md:flex-row md:justify-between">
-        {/* Brand + mission */}
-        <div className="max-w-sm space-y-3">
-          <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-blue-500 font-bold text-xs text-white">
-              EFH
+    <footer className="border-t border-slate-200 bg-slate-50 mt-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid gap-8 lg:grid-cols-4">
+          {/* Brand / address column */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-white font-bold text-sm">
+                EFH
+              </span>
+              <div>
+                <div className="font-semibold text-slate-900 text-sm">
+                  Elevate For Humanity
+                </div>
+                <div className="text-xs text-slate-500">
+                  Career & Technical Institute
+                </div>
+              </div>
             </div>
-            <div>
-              <p className="text-sm font-semibold">Elevate For Humanity</p>
-              <p className="text-xs text-slate-400">Career & Technical Institute</p>
+
+            <p className="text-xs text-slate-500">
+              100% FREE career training through WIOA, WRG, and JRI funding. No
+              tuition, no debt. Real jobs waiting in Indianapolis, IN.
+            </p>
+
+            <p className="text-xs text-slate-500">
+              8888 Keystone Crossing Suite 1300
+              <br />
+              Indianapolis, IN 46240
+              <br />
+              (317) 314-3757
+            </p>
+
+            <Link
+              href="/contact"
+              className="inline-flex text-xs font-medium text-orange-600 hover:text-orange-700"
+            >
+              Contact Us →
+            </Link>
+
+            <Link
+              href="/sitemap-page"
+              className="block text-[11px] font-semibold text-slate-600 hover:text-orange-700 mt-2"
+            >
+              View Full Site Map ({footerSections.reduce(
+                (n, s) => n + s.items.length,
+                0
+              )}{" "}
+              pages)
+            </Link>
+          </div>
+
+          {/* All sections / all pages */}
+          <div className="lg:col-span-3">
+            <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 max-h-[420px] overflow-y-auto pr-2">
+              {footerSections.map((section) => (
+                <div key={section.id} className="space-y-2">
+                  <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    {section.title}
+                  </h3>
+                  <ul className="space-y-1 text-xs sm:text-[13px]">
+                    {section.items.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          className="text-slate-700 hover:text-orange-700 hover:underline"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
-          <p className="text-xs text-slate-300">
-            Free and funded career training, built for real life. We connect job seekers, employers, and community
-            partners through state-funded workforce programs and employer-backed training pathways.
-          </p>
-          <p className="text-[11px] text-slate-400">
-            A workforce development program of SELFISH INC, an IRS-recognized 501(c)(3) public charity. Official
-            documentation available upon request.
-          </p>
         </div>
 
-        {/* Columns */}
-        <div className="grid flex-1 gap-8 text-xs md:grid-cols-3">
-          <div>
-            <h4 className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-400">Programs</h4>
-            <ul className="space-y-1 text-slate-300">
-              <li><Link href="/programs" className="hover:text-white">View All Programs</Link></li>
-              <li><Link href="/programs/medical-assistant" className="hover:text-white">Medical Assistant</Link></li>
-              <li><Link href="/programs/barber-apprenticeship" className="hover:text-white">Barber Apprenticeship</Link></li>
-              <li><Link href="/programs/hvac-technician" className="hover:text-white">HVAC Technician</Link></li>
-              <li><Link href="/programs/workforce-readiness" className="hover:text-white">Workforce Readiness & Re-Entry</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-              Funding & Partners
-            </h4>
-            <ul className="space-y-1 text-slate-300">
-              <li><Link href="/financial-aid" className="hover:text-white">Funding Options (WRG, WIOA, Apprenticeship)</Link></li>
-              <li><Link href="/employer" className="hover:text-white">Employers & OJT / WEX</Link></li>
-              <li><Link href="/partner-application" className="hover:text-white">Become a Program Partner</Link></li>
-              <li><a href="https://intraining.dwd.in.gov/" target="_blank" rel="noopener noreferrer" className="hover:text-white">Indiana ETPL</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-              Platform & Legal
-            </h4>
-            <ul className="space-y-1 text-slate-300">
-              <li><Link href="/login" className="hover:text-white">Student Portal</Link></li>
-              <li><Link href="/admin" className="hover:text-white">Admin Portal</Link></li>
-              <li><Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link></li>
-              <li><Link href="/terms-of-service" className="hover:text-white">Terms of Use</Link></li>
-              <li><Link href="/refund-policy" className="hover:text-white">Refund Policy</Link></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div className="border-t border-slate-800">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-4">
-          <p className="text-[11px] text-slate-500">
-            © {currentYear} Elevate For Humanity. All rights reserved.
+        {/* Bottom bar */}
+        <div className="mt-8 flex flex-col items-start justify-between gap-2 border-t border-slate-200 pt-4 text-[11px] text-slate-500 sm:flex-row sm:items-center">
+          <p>
+            © {year} Elevate For Humanity. All rights reserved. Empowering
+            communities through workforce development.
           </p>
-          <div className="flex items-center gap-4 text-[11px] text-slate-400">
-            <span>ByBlack Certified</span>
-            <span>NRF Partner</span>
-          </div>
+          <p className="text-[10px]">
+            ORIGINAL-SITE-EFH-ORIGINAL-2024 • OWNER: Elizabeth L. Greene
+          </p>
         </div>
       </div>
     </footer>

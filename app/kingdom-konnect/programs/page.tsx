@@ -1,17 +1,17 @@
-import Link from 'next/link';
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
-export default function KingdomKonnectPage() {
+export const metadata: Metadata = {
+  title: "Programs | Elevate For Humanity",
+  description: "Learn more about Programs inside the Elevate For Humanity workforce ecosystem.",
+};
+
+export default function Page() {
   return (
-    <main className="min-h-screen bg-white py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Kingdom Konnect</h1>
-        <p className="text-lg text-gray-600 mb-8">
-          Faith-based workforce development and community support.
-        </p>
-        <Link href="/kingdomkonnect" className="text-red-600 hover:underline">
-          ← Back to Kingdom Konnect
-        </Link>
-      </div>
-    </main>
+    <AutoPolishedPage
+      route="/kingdom-konnect/programs"
+      label="Programs"
+      section="Special Programs"
+    />
   );
 }

@@ -1,4 +1,17 @@
-import { redirect } from 'next/navigation';
-export default function EmployersPlaybookRedirect() {
-  redirect('/admin/funding-playbook');
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
+
+export const metadata: Metadata = {
+  title: "Employers Playbook | Elevate For Humanity",
+  description: "Learn more about Employers Playbook inside the Elevate For Humanity workforce ecosystem.",
+};
+
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/admin/employers-playbook"
+      label="Employers Playbook"
+      section="Admin & Staff"
+    />
+  );
 }

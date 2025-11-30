@@ -1,5 +1,17 @@
-import { redirect } from 'next/navigation';
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
-export default function StudentSupportRedirect() {
-  redirect('/support');
+export const metadata: Metadata = {
+  title: "Support | Elevate For Humanity",
+  description: "Learn more about Support inside the Elevate For Humanity workforce ecosystem.",
+};
+
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/student/support"
+      label="Support"
+      section="For Students"
+    />
+  );
 }

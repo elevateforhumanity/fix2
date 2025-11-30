@@ -1,14 +1,17 @@
-import CourseAuthoringTool from '@/components/lms/CourseAuthoringTool';
-import { Metadata } from 'next';
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
 export const metadata: Metadata = {
-  title: 'Course Authoring | Admin',
-  robots: {
-    index: false,
-    follow: false,
-  },
+  title: "Course Authoring | Elevate For Humanity",
+  description: "Learn more about Course Authoring inside the Elevate For Humanity workforce ecosystem.",
 };
 
-export default function CourseAuthoringPage() {
-  return <CourseAuthoringTool />;
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/admin/course-authoring"
+      label="Course Authoring"
+      section="Admin & Staff"
+    />
+  );
 }

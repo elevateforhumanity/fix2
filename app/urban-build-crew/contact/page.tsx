@@ -1,17 +1,17 @@
-import Link from 'next/link';
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
-export default function UrbanBuildCrewPage() {
+export const metadata: Metadata = {
+  title: "Contact | Elevate For Humanity",
+  description: "Learn more about Contact inside the Elevate For Humanity workforce ecosystem.",
+};
+
+export default function Page() {
   return (
-    <main className="min-h-screen bg-white py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Urban Build Crew</h1>
-        <p className="text-lg text-gray-600 mb-8">
-          Construction and skilled trades training program.
-        </p>
-        <Link href="/urbanbuildcrew" className="text-red-600 hover:underline">
-          ← Back to Urban Build Crew
-        </Link>
-      </div>
-    </main>
+    <AutoPolishedPage
+      route="/urban-build-crew/contact"
+      label="Contact"
+      section="Special Programs"
+    />
   );
 }

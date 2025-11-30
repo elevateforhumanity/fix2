@@ -1,17 +1,17 @@
-// app/programs/dental-assistant/page.tsx
-import { ProgramTemplate } from "@/components/marketing/ProgramTemplate";
-import { programsData } from "@/lib/program-data";
 import type { Metadata } from "next";
-
-const programData = programsData["dental-assistant"];
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
 export const metadata: Metadata = {
-  openGraph: { images: ["/images/team-new/team-7.jpg"] },
-  title: `${programData.name} Training Program | Elevate For Humanity`,
-  description: programData.description,
-  keywords: [`${programData.name.toLowerCase()} training`, "free healthcare training", "WIOA program", "Marion County"],
+  title: "Dental Assistant | Elevate For Humanity",
+  description: "Learn more about Dental Assistant inside the Elevate For Humanity workforce ecosystem.",
 };
 
-export default function ProgramPage() {
-  return <ProgramTemplate program={programData} />;
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/programs/dental-assistant"
+      label="Dental Assistant"
+      section="Programs"
+    />
+  );
 }

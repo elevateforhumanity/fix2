@@ -1,17 +1,17 @@
-import Link from 'next/link';
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
-export default function DocsPage() {
+export const metadata: Metadata = {
+  title: "LMS | Elevate For Humanity",
+  description: "Learn more about LMS inside the Elevate For Humanity workforce ecosystem.",
+};
+
+export default function Page() {
   return (
-    <main className="min-h-screen bg-white py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Documentation</h1>
-        <p className="text-lg text-gray-600 mb-8">
-          Access guides, tutorials, and resources.
-        </p>
-        <Link href="/docs" className="text-red-600 hover:underline">
-          ← Back to Documentation
-        </Link>
-      </div>
-    </main>
+    <AutoPolishedPage
+      route="/docs/lms"
+      label="LMS"
+      section="Other Pages"
+    />
   );
 }

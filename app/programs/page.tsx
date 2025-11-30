@@ -1,285 +1,127 @@
 import Link from "next/link";
-import Image from "next/image";
-import { COMPLETE_PROGRAMS } from "@/lib/programs-data-complete";
 
-export const metadata = {
-  title: 'Career Training Programs | Elevate for Humanity',
-  description: '27+ free career training programs in healthcare, skilled trades, technology, and more. 100% funded through WIOA, WRG, and workforce grants. Start your career today.',
-  openGraph: {
-    title: 'Career Training Programs | Elevate for Humanity',
-    description: '27+ free career training programs. 100% funded. Start your career today.',
-    images: ['/media/programs/multi-training-programs-optimized.jpg'],
-    type: 'website',
-  },
-};
-
-const PROGRAM_GROUPS = [
+const programs = [
   {
-    title: "Healthcare",
-    items: [
-      "Certified Nursing Assistant (CNA)",
-      "Medical Assistant",
-      "Phlebotomy",
-      "EKG Technician",
-      "Patient Care Tech",
-    ],
+    slug: "medical-assistant",
+    name: "Medical Assistant",
+    blurb:
+      "Hands-on training to support doctors, nurses, and clinics with patient care and front office skills.",
   },
   {
-    title: "Skilled Trades & Building",
-    items: [
-      { name: "HVAC Technician", href: "/programs/hvac-tech" },
-      { name: "Building Technician", href: "/programs/building-tech" },
-      "Building Maintenance", 
-      "Facilities Tech", 
-      "CDL / Transportation"
-    ],
+    slug: "cna",
+    name: "CNA (Certified Nursing Assistant)",
+    blurb:
+      "Start your healthcare career helping patients with daily care in hospitals, nursing homes, and home care.",
   },
   {
-    title: "Beauty & Wellness",
-    items: [
-      { name: "Barber Apprenticeship", href: "/programs/barber-apprenticeship" },
-      { name: "Esthetician", href: "/programs/esthetician" },
-      "Beauty Career Educator"
-    ],
+    slug: "barber-apprenticeship",
+    name: "Barber Apprenticeship",
+    blurb:
+      "Earn while you learn under a licensed barber and build a career in grooming, style, and entrepreneurship.",
   },
   {
-    title: "Culinary & Hospitality",
-    items: [
-      { name: "Culinary Arts", href: "/programs/culinary" },
-      "Food Service Management",
-      "Restaurant Operations"
-    ],
+    slug: "hvac-technician",
+    name: "HVAC Technician",
+    blurb:
+      "Learn to install and service heating and cooling systems that keep homes and businesses comfortable.",
   },
   {
-    title: "Emergency Medical Services",
-    items: [
-      { name: "EMT Certification", href: "/programs/emt" },
-      "Paramedic Training",
-      "Emergency Response"
-    ],
+    slug: "building-maintenance-tech",
+    name: "Building Maintenance Technician",
+    blurb:
+      "Train to keep buildings safe, clean, and operating smoothly through hands-on maintenance skills.",
   },
   {
-    title: "Business & Technology",
-    items: [
-      { name: "Business Support Apprenticeship", href: "/programs/business-apprenticeship" },
-      { name: "Tax Prep / IRS VITA", href: "/vita" },
-      { name: "Tax Certification Program", href: "/programs/tax-vita" },
-      "Office & Admin", 
-      "Customer Service", 
-      "Digital Skills"
-    ],
+    slug: "cdl",
+    name: "CDL / Truck Driving",
+    blurb:
+      "Prepare for a career on the road with commercial driving skills that keep goods moving across the country.",
   },
   {
-    title: "Childcare & Early Education",
-    items: [
-      { name: "Childcare Provider Certification", href: "/programs/childcare" },
-      "Early Childhood Education",
-      "Home Daycare Business"
-    ],
+    slug: "tax-prep-vita",
+    name: "Tax Prep (VITA)",
+    blurb:
+      "Become an IRS-certified volunteer tax preparer and help families file accurate returns at no cost.",
   },
   {
-    title: "Retail & Customer Service",
-    items: [
-      { name: "NRF Foundation RISE Up", href: "/programs/rise-up" }
-    ],
+    slug: "workforce-readiness",
+    name: "Workforce Readiness",
+    blurb:
+      "Build the soft skills, digital skills, and confidence to show up strong on any job.",
+  },
+  {
+    slug: "micro-classes",
+    name: "Micro Classes",
+    blurb:
+      "Short, focused classes that help you test new careers, build specific skills, or stack credentials.",
   },
 ];
 
+export const metadata = {
+  title: "Programs | Elevate For Humanity",
+  description:
+    "Explore free career training programs in healthcare, trades, transportation, and workforce readiness funded through WIOA, WRG, and partner programs.",
+};
+
 export default function ProgramsPage() {
   return (
-    <main className="bg-white">
-      {/* Hero Section with Image */}
-      <section className="relative bg-slate-900">
-        <div className="relative h-96 md:h-[500px]">
-          <Image
-            src="/images/heroes/programs-overview.jpg"
-            alt="Training Programs at Elevate for Humanity"
-            fill
-            className="object-cover opacity-70"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent" />
-        </div>
-        <div className="absolute inset-0 flex items-center">
-          <div className="mx-auto max-w-6xl px-4 w-full">
-            <span className="inline-flex items-center rounded-full bg-green-500 px-4 py-2 text-sm font-semibold text-white shadow-lg animate-pulse">
-              💯 ALL PROGRAMS 100% FREE - Government Funded
-            </span>
-            <h1 className="mt-4 text-4xl font-bold text-white md:text-6xl">
-              Choose Your Career Path
-            </h1>
-            <p className="mt-4 max-w-3xl text-xl text-slate-100 md:text-2xl font-semibold">
-              20+ high-paying careers. 4-12 week programs. $0 tuition. Real certifications. Job placement included.
-            </p>
-            
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl">
-              <div className="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <p className="text-3xl font-bold text-white">$35K-$65K</p>
-                <p className="text-sm text-slate-200">Average Starting Salary</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <p className="text-3xl font-bold text-white">4-12 Weeks</p>
-                <p className="text-sm text-slate-200">Fast-Track Training</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-lg p-4 border border-white/20">
-                <p className="text-3xl font-bold text-white">100+ Jobs</p>
-                <p className="text-sm text-slate-200">Employer Partners Hiring</p>
-              </div>
-            </div>
+    <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
+      <div className="mb-3 text-[11px] text-slate-500 uppercase tracking-wide">
+        ORIGINAL-SITE-EFH-ORIGINAL-2024 • OWNER: Elizabeth L. Greene
+      </div>
 
-            <div className="mt-6 flex flex-wrap gap-4">
-              <Link
-                href="/apply"
-                className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-lg font-bold text-white hover:bg-orange-600 transition-all shadow-xl hover:scale-105"
-              >
-                🚀 Apply Now - Start in 2 Weeks
-              </Link>
-              <Link
-                href="/what-we-do"
-                className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/10 backdrop-blur px-8 py-4 text-lg font-semibold text-white hover:bg-white/20 transition-all shadow-xl"
-              >
-                How Free Training Works →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <header className="mb-6 space-y-2">
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">
+          Free career training programs
+        </h1>
+        <p className="text-sm sm:text-base text-slate-700 max-w-2xl">
+          Elevate For Humanity partners with workforce boards and employers to
+          offer no-cost training that leads to in-demand jobs. Most programs can
+          be fully funded through WIOA, Workforce Ready Grant, JRI, or employer
+          partners.
+        </p>
+      </header>
 
-      {/* Funding Explanation */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-8">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-white text-center">
-            <div>
-              <p className="text-2xl font-bold mb-1">WIOA</p>
-              <p className="text-sm text-blue-100">Federal workforce funding covers tuition + support services</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold mb-1">Workforce Ready Grant</p>
-              <p className="text-sm text-blue-100">Indiana state program for certificate training</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold mb-1">OJT</p>
-              <p className="text-sm text-blue-100">Get PAID $15-20/hr while you train on the job</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold mb-1">Apprenticeships</p>
-              <p className="text-sm text-blue-100">Earn full wages while building your license</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-10 md:py-12">
-        <div className="mx-auto max-w-6xl px-4 space-y-8">
-          {PROGRAM_GROUPS.map((group) => (
-            <div key={group.title}>
-              <h2 className="text-sm font-semibold text-slate-900 md:text-base">
-                {group.title}
-              </h2>
-              <div className="mt-3 grid gap-4 md:grid-cols-2">
-                {group.items.map((item, idx) => {
-                  const isObject = typeof item === 'object';
-                  const name = isObject ? item.name : item;
-                  const href = isObject ? item.href : '/apply';
-                  const linkText = isObject ? 'Learn More →' : 'I\'m interested →';
-                  
-                  return (
-                    <Link
-                      key={name}
-                      href={href}
-                      className="group flex gap-4 rounded-xl border border-slate-200 bg-white p-4 shadow-sm hover:shadow-md transition-all"
-                    >
-                      <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-slate-100">
-                        <Image
-                          src={`/images/programs-new/program-${(idx % 20) + 1}.jpg`}
-                          alt={name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-semibold text-slate-900 group-hover:text-orange-600 transition-colors">{name}</p>
-                        <p className="mt-1 text-xs text-slate-600">
-                          Training with a clear path to certification and employment.
-                        </p>
-                        <span className="mt-2 inline-block text-xs font-semibold text-orange-500">
-                          {linkText}
-                        </span>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
-
-          <div className="rounded-xl border border-slate-100 bg-slate-50 p-4 text-xs text-slate-700">
-            Don't see your exact program listed? Select "Other / Unsure" on the
-            application and our team will help you choose the best pathway.
-          </div>
-        </div>
-      </section>
-
-      {/* All Programs Grid */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              All Available Programs
+      <section className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {programs.map((program) => (
+          <Link
+            key={program.slug}
+            href={`/programs/${program.slug}`}
+            className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-orange-400 hover:shadow-md transition-all"
+          >
+            <h2 className="text-sm font-semibold text-slate-900 group-hover:text-orange-700">
+              {program.name}
             </h2>
-            <p className="text-lg text-slate-600">
-              {COMPLETE_PROGRAMS.length} career training programs - all 100% funded
+            <p className="mt-2 text-sm text-slate-700">{program.blurb}</p>
+            <p className="mt-3 text-[11px] font-semibold uppercase tracking-wide text-orange-700">
+              Learn more →
             </p>
-          </div>
+          </Link>
+        ))}
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {COMPLETE_PROGRAMS.map((program) => (
-              <Link
-                key={program.slug}
-                href={`/programs/${program.slug}`}
-                className="group bg-white rounded-xl border border-slate-200 hover:border-teal-500 hover:shadow-lg transition-all p-6"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center">
-                    <span className="text-2xl">📚</span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-slate-900 group-hover:text-teal-600 transition-colors mb-2">
-                      {program.name}
-                    </h3>
-                    <p className="text-sm text-slate-600 mb-3">
-                      {program.tagline}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="inline-block px-2 py-1 bg-teal-50 text-teal-700 text-xs font-medium rounded">
-                        {program.duration}
-                      </span>
-                      {program.etplApproved && (
-                        <span className="inline-block px-2 py-1 bg-green-50 text-green-700 text-xs font-medium rounded">
-                          ETPL Approved
-                        </span>
-                      )}
-                    </div>
-                    <div className="text-xs text-slate-500">
-                      Funding: {program.funding.join(", ")}
-                    </div>
-                    <span className="mt-3 inline-block text-sm font-semibold text-teal-600 group-hover:text-teal-700">
-                      Learn More →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-teal-600 px-8 py-4 text-lg font-semibold text-white hover:bg-teal-700 transition-all shadow-lg"
-            >
-              Apply to Any Program
-            </Link>
-          </div>
+      <section className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm text-slate-800">
+        <h2 className="text-sm font-semibold text-slate-900 mb-2">
+          Unsure which program fits you best?
+        </h2>
+        <p className="mb-3">
+          You don&apos;t have to figure it out alone. Our team can help you
+          explore options based on your interests, work history, and funding
+          eligibility.
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <Link
+            href="/get-started"
+            className="inline-flex items-center justify-center rounded-full bg-orange-600 px-5 py-2 text-xs sm:text-sm font-semibold text-white hover:bg-orange-700"
+          >
+            Get matched to a program
+          </Link>
+          <Link
+            href="/funding"
+            className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-xs sm:text-sm font-semibold text-slate-800 hover:border-orange-500 hover:text-orange-700"
+          >
+            Learn how funding works
+          </Link>
         </div>
       </section>
     </main>

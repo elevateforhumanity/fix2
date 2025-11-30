@@ -1,16 +1,17 @@
-// app/programs/pharmacy-technician/page.tsx
-import { ProgramTemplate } from "@/components/marketing/ProgramTemplate";
-import { programsData } from "@/lib/program-data";
 import type { Metadata } from "next";
-
-const programData = programsData["pharmacy-technician"];
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
 export const metadata: Metadata = {
-  title: `${programData.name} Training Program | Elevate For Humanity`,
-  description: programData.description,
-  keywords: [`${programData.name.toLowerCase()} training`, "free healthcare training", "WIOA program", "Marion County"],
+  title: "Pharmacy Technician | Elevate For Humanity",
+  description: "Learn more about Pharmacy Technician inside the Elevate For Humanity workforce ecosystem.",
 };
 
-export default function ProgramPage() {
-  return <ProgramTemplate program={programData} />;
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/programs/pharmacy-technician"
+      label="Pharmacy Technician"
+      section="Programs"
+    />
+  );
 }

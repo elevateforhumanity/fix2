@@ -1,17 +1,17 @@
-// app/programs/patient-care-technician/page.tsx
-import { ProgramTemplate } from "@/components/marketing/ProgramTemplate";
-import { programsData } from "@/lib/program-data";
 import type { Metadata } from "next";
-
-const programData = programsData["patient-care-technician"];
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
 export const metadata: Metadata = {
-  openGraph: { images: ["/images/team-new/team-11.jpg"] },
-  title: `${programData.name} Training Program | Elevate For Humanity`,
-  description: programData.description,
-  keywords: [`${programData.name.toLowerCase()} training`, "free healthcare training", "WIOA program", "Marion County"],
+  title: "Patient Care Technician | Elevate For Humanity",
+  description: "Learn more about Patient Care Technician inside the Elevate For Humanity workforce ecosystem.",
 };
 
-export default function ProgramPage() {
-  return <ProgramTemplate program={programData} />;
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/programs/patient-care-technician"
+      label="Patient Care Technician"
+      section="Programs"
+    />
+  );
 }

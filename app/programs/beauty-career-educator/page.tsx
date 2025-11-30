@@ -1,19 +1,17 @@
-// Auto-generated program page
-import { ProgramTemplate } from "@/components/marketing/ProgramTemplate";
-import { programsData } from "@/lib/program-data";
 import type { Metadata } from "next";
-
-const slug = "beauty-career-educator";
-const programData = programsData[slug];
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
 export const metadata: Metadata = {
-  title: `${programData?.name || 'Program'} Training | Elevate For Humanity`,
-  description: programData?.description || 'Career training program',
+  title: "Beauty Career Educator | Elevate For Humanity",
+  description: "Learn more about Beauty Career Educator inside the Elevate For Humanity workforce ecosystem.",
 };
 
-export default function ProgramPage() {
-  if (!programData) {
-    return <div>Program not found</div>;
-  }
-  return <ProgramTemplate program={programData} />;
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/programs/beauty-career-educator"
+      label="Beauty Career Educator"
+      section="Programs"
+    />
+  );
 }

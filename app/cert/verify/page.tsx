@@ -1,4 +1,17 @@
-import { redirect } from 'next/navigation';
-export default function CertVerifyRedirect() {
-  redirect('/verifycertificate');
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
+
+export const metadata: Metadata = {
+  title: "Verify | Elevate For Humanity",
+  description: "Learn more about Verify inside the Elevate For Humanity workforce ecosystem.",
+};
+
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/cert/verify"
+      label="Verify"
+      section="Other Pages"
+    />
+  );
 }

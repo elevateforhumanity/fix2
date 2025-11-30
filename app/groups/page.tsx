@@ -1,33 +1,17 @@
-'use client';
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
-/*
-  Copyright (c) 2025 Elevate for Humanity
-  Commercial License. No resale, sublicensing, or redistribution allowed.
-  See LICENSE file for details.
-*/
-import React from 'react';
-import AppLayout from '../layouts/AppLayout';
+export const metadata: Metadata = {
+  title: "Groups | Elevate For Humanity",
+  description: "Learn more about Groups inside the Elevate For Humanity workforce ecosystem.",
+};
 
-export default function Groups() {
+export default function Page() {
   return (
-    <AppLayout>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: 32 }}>
-        <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 32 }}>
-          Group Management
-        </h1>
-        <div
-          style={{
-            backgroundColor: '#fff',
-            padding: 24,
-            borderRadius: 8,
-            border: '1px solid #e0e0e0',
-          }}
-        >
-          <p style={{ fontSize: 16, color: '#666' }}>
-            Manage user groups and cohorts.
-          </p>
-        </div>
-      </div>
-    </AppLayout>
+    <AutoPolishedPage
+      route="/groups"
+      label="Groups"
+      section="Other Pages"
+    />
   );
 }

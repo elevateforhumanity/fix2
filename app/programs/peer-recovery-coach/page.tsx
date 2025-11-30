@@ -1,19 +1,17 @@
-// Auto-generated program page
-import { ProgramTemplate } from "@/components/marketing/ProgramTemplate";
-import { programsData } from "@/lib/program-data";
 import type { Metadata } from "next";
-
-const slug = "peer-recovery-coach";
-const programData = programsData[slug];
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
 export const metadata: Metadata = {
-  title: `${programData?.name || 'Program'} Training | Elevate For Humanity`,
-  description: programData?.description || 'Career training program',
+  title: "Peer Recovery Coach | Elevate For Humanity",
+  description: "Learn more about Peer Recovery Coach inside the Elevate For Humanity workforce ecosystem.",
 };
 
-export default function ProgramPage() {
-  if (!programData) {
-    return <div>Program not found</div>;
-  }
-  return <ProgramTemplate program={programData} />;
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/programs/peer-recovery-coach"
+      label="Peer Recovery Coach"
+      section="Programs"
+    />
+  );
 }

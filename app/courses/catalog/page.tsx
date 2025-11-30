@@ -1,28 +1,17 @@
-import { createClient } from '@/lib/supabase/server';
-import CourseCatalogClient from './CourseCatalogClient';
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
-export const metadata = {
-  title: 'Course Catalog | Elevate For Humanity',
-  description: 'Browse our comprehensive catalog of fully-funded workforce training courses.',
-  openGraph: {
-    images: ["/images/programs-new/program-30.jpg"],
-    type: "website",
-  }};
+export const metadata: Metadata = {
+  title: "Catalog | Elevate For Humanity",
+  description: "Learn more about Catalog inside the Elevate For Humanity workforce ecosystem.",
+};
 
-export default async function CourseCatalogPage() {
-  const supabase = await createClient();
-  
-  // Fetch courses from database
-  const { data: courses, error } = await supabase
-    .from('courses')
-    .select('*')
-    .eq('status', 'published')
-    .order('trending', { ascending: false })
-    .order('total_students', { ascending: false });
-
-  if (error) {
-    console.error('Error fetching courses:', error);
-  }
-
-  return <CourseCatalogClient courses={courses || []} />;
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/courses/catalog"
+      label="Catalog"
+      section="LMS"
+    />
+  );
 }

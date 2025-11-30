@@ -1,19 +1,17 @@
-// Auto-generated program page
-import { ProgramTemplate } from "@/components/marketing/ProgramTemplate";
-import { programsData } from "@/lib/program-data";
 import type { Metadata } from "next";
-
-const slug = "tax-prep-financial-services";
-const programData = programsData[slug];
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
 export const metadata: Metadata = {
-  title: `${programData?.name || 'Program'} Training | Elevate For Humanity`,
-  description: programData?.description || 'Career training program',
+  title: "Tax Prep Financial Services | Elevate For Humanity",
+  description: "Learn more about Tax Prep Financial Services inside the Elevate For Humanity workforce ecosystem.",
 };
 
-export default function ProgramPage() {
-  if (!programData) {
-    return <div>Program not found</div>;
-  }
-  return <ProgramTemplate program={programData} />;
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/programs/tax-prep-financial-services"
+      label="Tax Prep Financial Services"
+      section="Programs"
+    />
+  );
 }

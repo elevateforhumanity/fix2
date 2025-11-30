@@ -1,5 +1,17 @@
-import { redirect } from 'next/navigation';
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
-export default function AdminApplicantsRedirect() {
-  redirect('/admin/applications');
+export const metadata: Metadata = {
+  title: "Applicants | Elevate For Humanity",
+  description: "Learn more about Applicants inside the Elevate For Humanity workforce ecosystem.",
+};
+
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/admin/applicants"
+      label="Applicants"
+      section="Admin & Staff"
+    />
+  );
 }

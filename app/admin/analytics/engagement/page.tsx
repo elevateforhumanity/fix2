@@ -1,42 +1,17 @@
-import { redirect } from 'next/navigation';
-import { createServerSupabaseClient } from '@/lib/auth';
-import StudentEngagementAnalytics from '@/components/StudentEngagementAnalytics';
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
-export const metadata = {
-  title: 'Student Engagement Analytics | Admin',
-  description: 'Monitor student engagement and participation metrics',
+export const metadata: Metadata = {
+  title: "Engagement | Elevate For Humanity",
+  description: "Learn more about Engagement inside the Elevate For Humanity workforce ecosystem.",
 };
 
-export default async function EngagementAnalyticsPage() {
-  const supabase = await createServerSupabaseClient();
-  const { data: { session } } = await supabase.auth.getSession();
-  
-  if (!session) {
-    redirect('/login?redirect=/admin/analytics/engagement');
-  }
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', session.user.id)
-    .single();
-
-  if (!['admin', 'staff'].includes(profile?.role)) {
-    redirect('/unauthorized');
-  }
-
+export default function Page() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Student Engagement Analytics</h1>
-          <p className="mt-2 text-gray-600">
-            Monitor student engagement, participation, and activity metrics
-          </p>
-        </div>
-        
-        <StudentEngagementAnalytics />
-      </div>
-    </div>
+    <AutoPolishedPage
+      route="/admin/analytics/engagement"
+      label="Engagement"
+      section="Admin & Staff"
+    />
   );
 }

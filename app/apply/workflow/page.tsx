@@ -1,25 +1,17 @@
-import AutomatedEnrollmentWorkflow from '@/components/AutomatedEnrollmentWorkflow';
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
-export const metadata = {
-  title: 'Apply for Training | Elevate for Humanity',
-  description: 'Complete your application for WIOA, WRG, or JRI-funded training programs',
+export const metadata: Metadata = {
+  title: "Workflow | Elevate For Humanity",
+  description: "Learn more about Workflow inside the Elevate For Humanity workforce ecosystem.",
 };
 
-export default function ApplyWorkflowPage() {
+export default function Page() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Apply for Free Training
-          </h1>
-          <p className="text-xl text-gray-600">
-            Complete this application to get started with WIOA, WRG, or JRI-funded training
-          </p>
-        </div>
-        
-        <AutomatedEnrollmentWorkflow />
-      </div>
-    </div>
+    <AutoPolishedPage
+      route="/apply/workflow"
+      label="Workflow"
+      section="Other Pages"
+    />
   );
 }

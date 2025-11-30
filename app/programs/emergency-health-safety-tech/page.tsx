@@ -1,19 +1,17 @@
-// Auto-generated program page
-import { ProgramTemplate } from "@/components/marketing/ProgramTemplate";
-import { programsData } from "@/lib/program-data";
 import type { Metadata } from "next";
-
-const slug = "emergency-health-safety-tech";
-const programData = programsData[slug];
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
 export const metadata: Metadata = {
-  title: `${programData?.name || 'Program'} Training | Elevate For Humanity`,
-  description: programData?.description || 'Career training program',
+  title: "Emergency Health Safety Tech | Elevate For Humanity",
+  description: "Learn more about Emergency Health Safety Tech inside the Elevate For Humanity workforce ecosystem.",
 };
 
-export default function ProgramPage() {
-  if (!programData) {
-    return <div>Program not found</div>;
-  }
-  return <ProgramTemplate program={programData} />;
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/programs/emergency-health-safety-tech"
+      label="Emergency Health Safety Tech"
+      section="Programs"
+    />
+  );
 }

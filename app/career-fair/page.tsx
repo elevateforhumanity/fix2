@@ -1,26 +1,17 @@
-import VirtualCareerFair from '@/components/VirtualCareerFair';
+import type { Metadata } from "next";
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
-export const metadata = {
-  title: 'Virtual Career Fair | Elevate for Humanity',
-  description: 'Connect with employers and explore job opportunities',
-  openGraph: {
-    images: ["/images/students-new/student-24.jpg"],
-    type: "website",
-  }};
+export const metadata: Metadata = {
+  title: "Career Fair | Elevate For Humanity",
+  description: "Learn more about Career Fair inside the Elevate For Humanity workforce ecosystem.",
+};
 
-export default function CareerFairPage() {
+export default function Page() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Virtual Career Fair</h1>
-          <p className="mt-2 text-gray-600">
-            Connect with employers and explore job opportunities
-          </p>
-        </div>
-        
-        <VirtualCareerFair />
-      </div>
-    </div>
+    <AutoPolishedPage
+      route="/career-fair"
+      label="Career Fair"
+      section="Other Pages"
+    />
   );
 }

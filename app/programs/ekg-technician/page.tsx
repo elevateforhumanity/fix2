@@ -1,17 +1,17 @@
-// app/programs/ekg-technician/page.tsx
-import { ProgramTemplate } from "@/components/marketing/ProgramTemplate";
-import { programsData } from "@/lib/program-data";
 import type { Metadata } from "next";
-
-const programData = programsData["ekg-technician"];
+import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
 export const metadata: Metadata = {
-  openGraph: { images: ["/images/team-new/team-10.jpg"] },
-  title: `${programData.name} Training Program | Elevate For Humanity`,
-  description: programData.description,
-  keywords: [`${programData.name.toLowerCase()} training`, "free healthcare training", "WIOA program", "Marion County"],
+  title: "Ekg Technician | Elevate For Humanity",
+  description: "Learn more about Ekg Technician inside the Elevate For Humanity workforce ecosystem.",
 };
 
-export default function ProgramPage() {
-  return <ProgramTemplate program={programData} />;
+export default function Page() {
+  return (
+    <AutoPolishedPage
+      route="/programs/ekg-technician"
+      label="Ekg Technician"
+      section="Programs"
+    />
+  );
 }

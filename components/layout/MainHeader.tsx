@@ -2,237 +2,224 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
+import { headerNav } from "@/config/navigation";
 
-const mainNav = [
-  { 
-    label: "Programs", 
-    href: "/programs",
-    dropdown: [
-      { label: "All Programs", href: "/programs" },
-      { label: "CNA", href: "/programs/cna" },
-      { label: "HVAC Technician", href: "/programs/hvac" },
-      { label: "Licensed Barber", href: "/programs/barber" },
-      { label: "CDL / Truck Driving", href: "/programs/cdl" },
-      { label: "Medical Assistant", href: "/programs/medical-assistant" },
-      { label: "Building Maintenance", href: "/programs/building-maintenance" },
-      { label: "Phlebotomy", href: "/programs/phlebotomy" },
-      { label: "Welding", href: "/programs/welding" },
-      { label: "Tax Prep (VITA)", href: "/programs/tax-vita" },
-    ]
-  },
-  { 
-    label: "Funding", 
-    href: "/funding",
-    dropdown: [
-      { label: "Funding Overview", href: "/funding" },
-      { label: "WIOA Funding", href: "/funding/wioa" },
-      { label: "Workforce Ready Grant", href: "/funding/wrg" },
-      { label: "Job Ready Indy (JRI)", href: "/funding/jri" },
-      { label: "DOL Apprenticeships", href: "/funding/dol" },
-    ]
-  },
-  { label: "Community", href: "/community" },
-  { label: "Career Center", href: "/career-center" },
-  { 
-    label: "For Students", 
-    href: "/students",
-    dropdown: [
-      { label: "Student Portal", href: "/portal/student" },
-      { label: "Student Dashboard", href: "/student/dashboard" },
-      { label: "LMS", href: "/lms" },
-      { label: "My Courses", href: "/student/courses" },
-      { label: "Career Services", href: "/career-services" },
-      { label: "Job Board", href: "/careers/job-board" },
-      { label: "Resources", href: "/student/resources" },
-    ]
-  },
-  { 
-    label: "Partners", 
-    href: "/employers",
-    dropdown: [
-      { label: "For Employers", href: "/employers" },
-      { label: "Hire Graduates", href: "/hire-graduates" },
-      { label: "Program Holders", href: "/program-holders" },
-      { label: "Training Providers", href: "/training-providers" },
-      { label: "Workforce Partners", href: "/workforce-partners" },
-    ]
-  },
-  { 
-    label: "About", 
-    href: "/about",
-    dropdown: [
-      { label: "About Us", href: "/about" },
-      { label: "Our Founder", href: "/founder" },
-      { label: "Success Stories", href: "/success-stories" },
-      { label: "Press Kit", href: "/press" },
-      { label: "FAQ", href: "/faq" },
-      { label: "Contact", href: "/contact" },
-    ]
-  },
-];
+function classNames(...classes: (string | false | null | undefined)[]) {
+  return classes.filter(Boolean).join(" ");
+}
 
-const mobileOnlyNav = [
-  { label: "Community", href: "/community" },
-  { label: "Webinars", href: "/webinars" },
-  { label: "Alumni", href: "/alumni" },
-];
-
-const authNav = [
-  { label: "Admin", href: "/admin" },
-];
-
-export function MainHeader() {
-  const [open, setOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+export default function MainHeader() {
+  const pathname = usePathname();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   return (
-    <header className="border-b border-slate-100 bg-white sticky top-0 z-50">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:py-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-red-600 text-sm font-bold text-white">
-            EFH
-          </span>
-          <span className="text-sm font-semibold text-slate-900 md:text-base">
-            Elevate For Humanity
-          </span>
-        </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 lg:flex">
-          {mainNav.map((item) => (
-            <div 
-              key={item.href}
-              className="relative"
-              onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <Link
-                href={item.href}
-                className="text-sm font-medium text-slate-700 hover:text-red-600 flex items-center gap-1"
-              >
-                {item.label}
-                {item.dropdown && <ChevronDown className="w-4 h-4" />}
-              </Link>
-              
-              {/* Dropdown Menu */}
-              {item.dropdown && activeDropdown === item.label && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
-                  {item.dropdown.map((subItem) => (
-                    <Link
-                      key={subItem.href}
-                      href={subItem.href}
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600"
-                    >
-                      {subItem.label}
-                    </Link>
-                  ))}
+    <header className="border-b border-slate-200 bg-white/90 backdrop-blur z-40 sticky top-0">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between gap-4">
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-orange-500 text-white font-bold text-lg">
+                EFH
+              </span>
+              <div className="leading-tight">
+                <div className="font-semibold text-slate-900 text-sm sm:text-base">
+                  Elevate For Humanity
                 </div>
-              )}
-            </div>
-          ))}
-        </nav>
-
-        {/* Auth + CTA (desktop) */}
-        <div className="hidden items-center gap-3 md:flex">
-          {authNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-xs font-semibold text-slate-700 hover:text-blue-600"
-            >
-              {item.label}
+                <div className="text-[11px] text-slate-500 hidden sm:block">
+                  Career & Technical Institute
+                </div>
+              </div>
             </Link>
-          ))}
-          <Link
-            href="/apply"
-            className="rounded-full bg-red-600 px-4 py-2 text-xs font-semibold text-white hover:bg-red-700"
-          >
-            Apply Now
-          </Link>
-        </div>
+          </div>
 
-        {/* Mobile button */}
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-md border border-slate-200 p-2 md:hidden"
-        >
-          <span className="sr-only">Toggle menu</span>
-          <span className="h-0.5 w-4 bg-slate-900" />
-        </button>
-      </div>
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {headerNav.map((section) => {
+              const isActive =
+                section.href && pathname?.startsWith(section.href);
 
-      {/* Mobile menu */}
-      {open && (
-        <nav className="border-t border-slate-100 bg-white px-4 py-3 lg:hidden max-h-[80vh] overflow-y-auto">
-          <div className="space-y-2">
-            {mainNav.map((item) => (
-              <div key={item.href}>
-                <Link
-                  href={item.href}
-                  className="block py-2 text-sm font-bold text-slate-900"
-                  onClick={() => !item.dropdown && setOpen(false)}
+              if (!section.items || section.items.length === 0) {
+                return (
+                  <Link
+                    key={section.label}
+                    href={section.href || "/"}
+                    className={classNames(
+                      "text-sm font-medium hover:text-orange-600 transition-colors",
+                      isActive && "text-orange-600"
+                    )}
+                  >
+                    {section.label}
+                  </Link>
+                );
+              }
+
+              const isOpen = openMenu === section.label;
+
+              return (
+                <div
+                  key={section.label}
+                  className="relative"
+                  onMouseEnter={() => setOpenMenu(section.label)}
+                  onMouseLeave={() => setOpenMenu(null)}
                 >
-                  {item.label}
-                </Link>
-                {item.dropdown && (
-                  <div className="ml-4 space-y-1 mt-1">
-                    {item.dropdown.map((subItem) => (
+                  <button
+                    type="button"
+                    className={classNames(
+                      "inline-flex items-center gap-1 text-sm font-medium hover:text-orange-600 transition-colors",
+                      isActive && "text-orange-600"
+                    )}
+                  >
+                    {section.label}
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+
+                  {/* Dropdown panel */}
+                  <div
+                    className={classNames(
+                      "absolute left-0 mt-2 w-64 rounded-xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60 py-2",
+                      !isOpen && "hidden"
+                    )}
+                  >
+                    {section.href && (
                       <Link
-                        key={subItem.href}
-                        href={subItem.href}
-                        className="block py-1.5 text-sm text-slate-600 hover:text-red-600"
-                        onClick={() => setOpen(false)}
+                        href={section.href}
+                        className="block px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500 hover:text-orange-600"
                       >
-                        {subItem.label}
+                        Overview
+                      </Link>
+                    )}
+                    {section.items.map((item) => (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        className={classNames(
+                          "block px-4 py-2 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-700",
+                          pathname === item.href && "bg-orange-50 text-orange-700"
+                        )}
+                      >
+                        {item.label}
                       </Link>
                     ))}
                   </div>
-                )}
-              </div>
-            ))}
-            {mobileOnlyNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block py-2 text-sm font-medium text-slate-800"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-          <div className="mt-4 space-y-2">
-            <p className="text-xs font-semibold text-slate-500 uppercase">Portals</p>
+                </div>
+              );
+            })}
+          </nav>
+
+          {/* Right side CTAs */}
+          <div className="hidden lg:flex items-center gap-3">
             <Link
-              href="/student/dashboard"
-              className="block rounded-lg bg-blue-50 border border-blue-200 px-4 py-3 text-sm font-semibold text-blue-900"
-              onClick={() => setOpen(false)}
+              href="/student/portal"
+              className="text-xs font-medium text-slate-700 hover:text-orange-600"
             >
-              📚 Student LMS Portal
+              Student Portal
             </Link>
-            <Link
-              href="/admin/dashboard"
-              className="block rounded-lg bg-slate-50 border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-900"
-              onClick={() => setOpen(false)}
-            >
-              ⚙️ Admin Portal
-            </Link>
-          </div>
-          <div className="mt-4">
             <Link
               href="/apply"
-              className="block w-full rounded-full bg-red-600 px-4 py-3 text-center text-sm font-semibold text-white"
-              onClick={() => setOpen(false)}
+              className="inline-flex items-center justify-center rounded-full bg-orange-600 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-orange-700 transition-colors"
             >
-              Apply Now
+              Apply Now – It&apos;s Free
             </Link>
           </div>
-        </nav>
+
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            className="inline-flex lg:hidden items-center justify-center rounded-md border border-slate-300 p-1.5 text-slate-700"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Toggle main menu"
+          >
+            {mobileOpen ? (
+              <span className="text-lg">✕</span>
+            ) : (
+              <span className="text-lg">☰</span>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile nav panel */}
+      {mobileOpen && (
+        <div className="lg:hidden border-t border-slate-200 bg-white">
+          <div className="mx-auto max-w-6xl px-4 py-4 space-y-4">
+            {headerNav.map((section) => {
+              const hasChildren = section.items && section.items.length > 0;
+              const expanded = openMenu === section.label;
+
+              return (
+                <div key={section.label} className="border-b border-slate-100 pb-3">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between text-left text-sm font-semibold text-slate-800"
+                    onClick={() =>
+                      setOpenMenu((current) =>
+                        current === section.label ? null : section.label
+                      )
+                    }
+                  >
+                    <span>{section.label}</span>
+                    {hasChildren && (
+                      <ChevronDown
+                        className={classNames(
+                          "h-4 w-4 transition-transform",
+                          expanded && "rotate-180"
+                        )}
+                      />
+                    )}
+                  </button>
+
+                  {section.href && (
+                    <Link
+                      href={section.href}
+                      className="mt-1 block text-xs text-orange-600"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Go to {section.label} overview
+                    </Link>
+                  )}
+
+                  {hasChildren && expanded && (
+                    <div className="mt-2 space-y-1">
+                      {section.items!.map((item) => (
+                        <Link
+                          key={item.label}
+                          href={item.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="block text-sm text-slate-700 pl-3 py-1 rounded hover:bg-orange-50"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            <div className="pt-2 flex flex-col gap-2">
+              <Link
+                href="/student/portal"
+                onClick={() => setMobileOpen(false)}
+                className="w-full text-center rounded-full border border-slate-300 px-4 py-2 text-xs font-medium text-slate-800"
+              >
+                Student Portal
+              </Link>
+              <Link
+                href="/apply"
+                onClick={() => setMobileOpen(false)}
+                className="w-full text-center rounded-full bg-orange-600 px-4 py-2 text-xs font-semibold text-white"
+              >
+                Apply Now – It&apos;s Free
+              </Link>
+            </div>
+          </div>
+        </div>
       )}
     </header>
   );
 }
 
-export default MainHeader;
