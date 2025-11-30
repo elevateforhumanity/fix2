@@ -1,50 +1,46 @@
-import { redirect } from 'next/navigation';
-import { createServerSupabaseClient } from '@/lib/auth';
-import { AnalyticsDashboard } from '@/components/AnalyticsDashboard';
+import Link from "next/link";
 
-export const metadata = {
-  title: 'Analytics Dashboard | Admin',
-  description: 'Comprehensive analytics and insights',
-};
-
-export default async function AnalyticsPage() {
-  const supabase = await createServerSupabaseClient();
-  const { data: { session } } = await supabase.auth.getSession();
-  
-  if (!session) {
-    redirect('/login?redirect=/admin/analytics');
-  }
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', session.user.id)
-    .single();
-
-  if (!['admin', 'staff'].includes(profile?.role)) {
-    redirect('/unauthorized');
-  }
-
+export default function AdminAnalyticsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Analytics Dashboard</h1>
-          <p className="mt-2 text-gray-600">
-            Comprehensive insights and metrics
-          </p>
+    <div className="min-h-screen bg-slate-50">
+      <div className="max-w-7xl mx-auto px-6 py-10">
+        <div className="mb-6">
+          <Link href="/admin" className="text-sky-600 hover:underline text-sm">
+            ← Back to Admin Dashboard
+          </Link>
         </div>
         
-        <AnalyticsDashboard data={{
-          totalStudents: 0,
-          activeStudents: 0,
-          completionRate: 0,
-          averageScore: 0,
-          totalRevenue: 0,
-          coursesCompleted: 0,
-          studyHours: 0,
-          certificatesIssued: 0
-        }} />
+        <h1 className="text-3xl font-bold text-slate-900 mb-2">
+          Analytics Dashboard
+        </h1>
+        <p className="text-slate-600 mb-8">
+          Enrollment metrics, completion rates, and performance tracking.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <p className="text-sm text-slate-600 mb-1">Total Enrollments</p>
+            <p className="text-3xl font-bold text-slate-900">0</p>
+          </div>
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <p className="text-sm text-slate-600 mb-1">Active Students</p>
+            <p className="text-3xl font-bold text-emerald-600">0</p>
+          </div>
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <p className="text-sm text-slate-600 mb-1">Completions</p>
+            <p className="text-3xl font-bold text-sky-600">0</p>
+          </div>
+          <div className="bg-white rounded-lg border border-slate-200 p-6">
+            <p className="text-sm text-slate-600 mb-1">Completion Rate</p>
+            <p className="text-3xl font-bold text-slate-900">0%</p>
+          </div>
+        </div>
+        
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+          <p className="text-slate-600 text-center">
+            Analytics integration coming soon. Connect to Supabase for real-time metrics.
+          </p>
+        </div>
       </div>
     </div>
   );
