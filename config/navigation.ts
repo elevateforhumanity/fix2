@@ -52,8 +52,10 @@ export const headerNav: NavSection[] = [
     label: "Partners",
     href: "/employers",
     items: [
-      ...itemsFrom("For Employers").slice(0, 4),
-      ...itemsFrom("Program Holders").slice(0, 4),
+      { label: "For Employers", href: "/employers" },
+      { label: "ElevateLearn2Earn Staffing", href: "/elevatelearn2earn" },
+      ...itemsFrom("For Employers").slice(0, 3),
+      ...itemsFrom("Program Holders").slice(0, 3),
     ],
   },
   {
