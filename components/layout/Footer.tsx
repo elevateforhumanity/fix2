@@ -105,32 +105,22 @@ export function SiteFooter() {
             <ul className="space-y-2">
               <li>
                 <Link href="/programs" className="text-orange-400 hover:text-orange-300 transition text-sm font-bold">
-                  All Programs
+                  View All Programs →
                 </Link>
               </li>
               <li>
-                <Link href="/programs/medical-administrative-assistant" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Medical Assistant
-                </Link>
-              </li>
-              <li>
-                <Link href="/programs/cna-certification" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  CNA
-                </Link>
-              </li>
-              <li>
-                <Link href="/programs/barber-apprenticeship" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Barber
+                <Link href="/programs/medical-assistant" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
+                  Healthcare
                 </Link>
               </li>
               <li>
                 <Link href="/programs/hvac-technician" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  HVAC
+                  Skilled Trades
                 </Link>
               </li>
               <li>
-                <Link href="/programs/cdl-training" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  CDL
+                <Link href="/programs/barber" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
+                  Beauty & Wellness
                 </Link>
               </li>
             </ul>
@@ -190,95 +180,20 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Portals & Tools */}
+          {/* Resources */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
-              Portals
+              Resources
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2">
               <li>
-                <Link href="/portal/student/dashboard" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
+                <Link href="/student/dashboard" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                   Student Portal
                 </Link>
               </li>
               <li>
-                <Link href="/lms/dashboard" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  LMS
-                </Link>
-              </li>
-              <li>
-                <Link href="/admin/dashboard" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Admin
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers/job-board" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Job Board
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers/resume-builder" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Resume Builder
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers/interview-prep" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Interview Prep
-                </Link>
-              </li>
-              <li>
-                <Link href="/webinars" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Webinars
-                </Link>
-              </li>
-              <li>
-                <Link href="/alumni" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Alumni Network
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company & Legal */}
-          <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
-              Company
-            </h3>
-            <ul className="space-y-2.5">
-              <li>
-                <Link href="/apply" className="hover:text-orange-300 transition font-bold text-orange-400 text-sm">
-                  Apply Now
-                </Link>
-              </li>
-              <li>
-                <Link href="/sitemap-page" className="hover:text-orange-300 transition font-bold text-orange-400 text-sm">
-                  View All 479 Pages →
-                </Link>
-              </li>
-              <li>
-                <Link href="/getstarted" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Get Started
-                </Link>
-              </li>
-              <li>
-                <a href="https://elevateforhumanityeducation.com" target="_blank" rel="noopener noreferrer"
-className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  LMS Dashboard
-                </a>
-              </li>
-              <li>
-                <Link href="/admin" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Admin Console
-                </Link>
-              </li>
-              <li>
-                <Link href="/success-stories" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Success Stories
-                </Link>
-              </li>
-              <li>
-                <Link href="/career-fair" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Career Fair
+                <Link href="/career-center" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
+                  Career Center
                 </Link>
               </li>
               <li>
@@ -287,8 +202,37 @@ className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
                 </Link>
               </li>
               <li>
-                <Link href="/community" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
-                  Community
+                <Link href="/faq" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
+                  FAQ
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">
+              Company
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/apply" className="hover:text-orange-300 transition font-bold text-orange-400 text-sm">
+                  Apply Now →
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/employers" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
+                  For Employers
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-slate-200 hover:text-orange-300 transition text-sm font-medium">
+                  Contact
                 </Link>
               </li>
               <li>
