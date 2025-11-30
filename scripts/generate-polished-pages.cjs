@@ -5,6 +5,23 @@ const path = require("path");
 const APP_DIR = path.join(process.cwd(), "app");
 const PAGE_FILES = new Set(["page.tsx", "page.jsx", "page.ts", "page.js"]);
 
+// Skip routes with custom implementations (premium pages, complex flows, etc.)
+const SKIP_ROUTES = new Set([
+  "/",                                    // Home (custom hero)
+  "/about",                               // About (custom hero)
+  "/programs",                            // Programs index (custom hero)
+  "/funding",                             // Funding index (custom hero)
+  "/programs/barber-apprenticeship",      // Flagship program detail
+  "/programs/cna",                        // Flagship program detail
+  "/programs/hvac",                       // Flagship program detail
+  "/programs/building-technician",        // Flagship program detail
+  "/programs/cdl",                        // Flagship program detail
+  "/enroll",                              // Custom enrollment page
+  "/directory",                           // Custom employer directory
+  "/elevatelearn2earn",                   // Custom staffing page
+  "/employers",                           // Custom employer page
+]);
+
 function walk(dir, out = []) {
   if (!fs.existsSync(dir)) return out;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -93,9 +110,25 @@ export default function Page() {
   if (!files.length) { console.log("No page files found."); return; }
 
   let total = 0;
+  let skipped = 0;
   for (const filePath of files) {
     const route = fileToRoute(filePath);
+    
+    // Skip API routes
     if (!route.startsWith("/") || route.startsWith("/api")) continue;
+    
+    // Skip custom/premium pages
+    if (SKIP_ROUTES.has(route)) {
+      console.log("⏭️  Skipped (custom):", path.relative(process.cwd(), filePath), "->", route);
+      skipped++;
+      continue;
+    }
+    
+    // Skip Next.js special routes and route groups
+    if (/(^|\/)\(.*\)(\/|$)/.test(route)) continue; // route groups like (marketing)
+    if (["/not-found", "/error", "/loading"].includes(route)) continue;
+    if (/\[.*\]/.test(route)) continue; // dynamic segments like [slug]
+    
     const label = routeToLabel(route);
     const sectionTitle = routeToSectionTitle(route);
     const content = makePageContent(route, label, sectionTitle);
@@ -104,5 +137,8 @@ export default function Page() {
     console.log("✅ Polished:", path.relative(process.cwd(), filePath), "->", route);
   }
   console.log(`\n✨ Done. Polished ${total} pages using AutoPolishedPage.`);
+  if (skipped > 0) {
+    console.log(`   Skipped ${skipped} custom pages (protected from overwrite).`);
+  }
   console.log("   Review with \`git diff\`, then run \`npm run build\`.");
 })();
