@@ -9,65 +9,121 @@ export const metadata: Metadata = {
 
 export default function ElevateLearn2EarnPage() {
   return (
-    <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
-      {/* Tagline + breadcrumb */}
-      <div className="mb-3 flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
-        <span className="uppercase tracking-wide">
-          ORIGINAL-SITE-EFH-ORIGINAL-2024 • OWNER: Elizabeth L. Greene
-        </span>
-        <span className="hidden sm:inline text-slate-300">•</span>
-        <span>Staffing Solutions</span>
-      </div>
-
-      {/* Hero */}
-      <section className="mb-10">
-        <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-[11px] font-semibold text-orange-700 border border-orange-100 uppercase tracking-wide mb-4">
-          Staffing & Talent Solutions
-        </div>
-        
-        <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-          ElevateLearn2Earn
-        </h1>
-        
-        <p className="text-lg text-slate-700 mb-2">
-          Post-Graduation Staffing for Internships & On-the-Job Training
-        </p>
-        
-        <p className="text-sm text-slate-600 max-w-3xl">
-          ElevateLearn2Earn is our staffing service that places program graduates with employer partners for internships, on-the-job training (OJT), and permanent positions. When students complete their training, we align them with jobs that match their skills and career goals.
-        </p>
-      </section>
-
-      {/* How It Works */}
-      <section className="mb-10">
-        <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
-          <h2 className="text-lg font-semibold text-slate-900 mb-3">
-            How ElevateLearn2Earn Works
-          </h2>
-          <p className="text-sm text-slate-700 mb-4">
-            Our staffing service bridges the gap between training completion and career placement. Here's how we support both students and employer partners:
+    <main>
+      {/* Hero Banner with Image */}
+      <div 
+        className="relative bg-slate-900 text-white overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&h=500&fit=crop')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+          <div className="inline-flex items-center gap-2 rounded-full bg-orange-500/90 px-3 py-1 text-[11px] font-semibold text-white border border-orange-400 uppercase tracking-wide mb-4">
+            Staffing & Talent Solutions
+          </div>
+          
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+            ElevateLearn2Earn
+          </h1>
+          
+          <p className="text-xl sm:text-2xl text-orange-300 font-semibold mb-4">
+            Post-Graduation Staffing for Internships & On-the-Job Training
           </p>
           
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="bg-white rounded-lg border border-blue-200 p-4">
-              <div className="text-2xl mb-2">🎓</div>
-              <h3 className="font-semibold text-slate-900 mb-2 text-sm">Students Complete Training</h3>
+          <p className="text-base sm:text-lg text-slate-100 max-w-3xl mb-8">
+            We bridge the gap between training completion and career placement. When students finish their programs, we align them with employer partners for internships, OJT positions, and permanent employment.
+          </p>
+
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="#employers"
+              className="inline-flex items-center justify-center rounded-full bg-orange-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-orange-700 transition-colors"
+            >
+              For Employers
+            </a>
+            <a
+              href="#students"
+              className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/10 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+            >
+              For Students
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/10 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Tagline + breadcrumb */}
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mt-6 mb-3 flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
+          <span className="uppercase tracking-wide">
+            ORIGINAL-SITE-EFH-ORIGINAL-2024 • OWNER: Elizabeth L. Greene
+          </span>
+          <span className="hidden sm:inline text-slate-300">•</span>
+          <span>Staffing Solutions</span>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
+
+      {/* How It Works - with images */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">
+          How ElevateLearn2Earn Works
+        </h2>
+        <p className="text-center text-slate-700 mb-8 max-w-3xl mx-auto">
+          Our staffing service bridges the gap between training completion and career placement. Here's how we support both students and employer partners:
+        </p>
+        
+        <div className="grid gap-6 md:grid-cols-3">
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+            <div 
+              className="h-48 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop')`
+              }}
+            />
+            <div className="p-5">
+              <div className="text-3xl mb-2">🎓</div>
+              <h3 className="font-semibold text-slate-900 mb-2">Students Complete Training</h3>
               <p className="text-sm text-slate-700">
                 Students finish their program with certifications, hands-on experience, and job-ready skills.
               </p>
             </div>
+          </div>
 
-            <div className="bg-white rounded-lg border border-blue-200 p-4">
-              <div className="text-2xl mb-2">🤝</div>
-              <h3 className="font-semibold text-slate-900 mb-2 text-sm">We Match & Place</h3>
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+            <div 
+              className="h-48 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop')`
+              }}
+            />
+            <div className="p-5">
+              <div className="text-3xl mb-2">🤝</div>
+              <h3 className="font-semibold text-slate-900 mb-2">We Match & Place</h3>
               <p className="text-sm text-slate-700">
                 Our team aligns graduates with employer partners for internships, OJT positions, or direct hire opportunities.
               </p>
             </div>
+          </div>
 
-            <div className="bg-white rounded-lg border border-blue-200 p-4">
-              <div className="text-2xl mb-2">📈</div>
-              <h3 className="font-semibold text-slate-900 mb-2 text-sm">Ongoing Support</h3>
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+            <div 
+              className="h-48 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=400&fit=crop')`
+              }}
+            />
+            <div className="p-5">
+              <div className="text-3xl mb-2">📈</div>
+              <h3 className="font-semibold text-slate-900 mb-2">Ongoing Support</h3>
               <p className="text-sm text-slate-700">
                 Case managers stay involved to support both the graduate and employer through onboarding and beyond.
               </p>
@@ -324,6 +380,159 @@ export default function ElevateLearn2EarnPage() {
         </div>
       </section>
 
+      {/* Employer Directory */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">
+          Our Employer Partners
+        </h2>
+        <p className="text-center text-slate-700 mb-8 max-w-3xl mx-auto">
+          Join our network of leading employers who are committed to developing the next generation of talent through internships, OJT, and direct hire opportunities.
+        </p>
+        
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow">
+            <div 
+              className="h-48 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop')`
+              }}
+            />
+            <div className="p-5">
+              <h3 className="font-semibold text-slate-900 mb-2">Tech Innovators Inc.</h3>
+              <p className="text-orange-600 font-semibold text-sm mb-2">Technology</p>
+              <p className="text-sm text-slate-700 mb-3">
+                <span className="font-semibold">Open Positions:</span> Software Development, IT Support
+              </p>
+              <Link
+                href="/contact"
+                className="text-orange-600 hover:text-orange-700 font-semibold text-sm inline-flex items-center"
+              >
+                Learn More →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow">
+            <div 
+              className="h-48 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=400&fit=crop')`
+              }}
+            />
+            <div className="p-5">
+              <h3 className="font-semibold text-slate-900 mb-2">Healthcare Solutions</h3>
+              <p className="text-orange-600 font-semibold text-sm mb-2">Healthcare</p>
+              <p className="text-sm text-slate-700 mb-3">
+                <span className="font-semibold">Open Positions:</span> Medical Assistant, Admin Support
+              </p>
+              <Link
+                href="/contact"
+                className="text-orange-600 hover:text-orange-700 font-semibold text-sm inline-flex items-center"
+              >
+                Learn More →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow">
+            <div 
+              className="h-48 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&h=400&fit=crop')`
+              }}
+            />
+            <div className="p-5">
+              <h3 className="font-semibold text-slate-900 mb-2">Green Energy Corp</h3>
+              <p className="text-orange-600 font-semibold text-sm mb-2">Renewable Energy</p>
+              <p className="text-sm text-slate-700 mb-3">
+                <span className="font-semibold">Open Positions:</span> Engineering, Project Management
+              </p>
+              <Link
+                href="/contact"
+                className="text-orange-600 hover:text-orange-700 font-semibold text-sm inline-flex items-center"
+              >
+                Learn More →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow">
+            <div 
+              className="h-48 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop')`
+              }}
+            />
+            <div className="p-5">
+              <h3 className="font-semibold text-slate-900 mb-2">Financial Services Group</h3>
+              <p className="text-orange-600 font-semibold text-sm mb-2">Finance</p>
+              <p className="text-sm text-slate-700 mb-3">
+                <span className="font-semibold">Open Positions:</span> Accounting, Financial Analysis
+              </p>
+              <Link
+                href="/contact"
+                className="text-orange-600 hover:text-orange-700 font-semibold text-sm inline-flex items-center"
+              >
+                Learn More →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow">
+            <div 
+              className="h-48 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop')`
+              }}
+            />
+            <div className="p-5">
+              <h3 className="font-semibold text-slate-900 mb-2">Manufacturing Excellence</h3>
+              <p className="text-orange-600 font-semibold text-sm mb-2">Manufacturing</p>
+              <p className="text-sm text-slate-700 mb-3">
+                <span className="font-semibold">Open Positions:</span> Production, Quality Control
+              </p>
+              <Link
+                href="/contact"
+                className="text-orange-600 hover:text-orange-700 font-semibold text-sm inline-flex items-center"
+              >
+                Learn More →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-lg transition-shadow">
+            <div 
+              className="h-48 bg-cover bg-center"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop')`
+              }}
+            />
+            <div className="p-5">
+              <h3 className="font-semibold text-slate-900 mb-2">Hospitality Leaders</h3>
+              <p className="text-orange-600 font-semibold text-sm mb-2">Hospitality</p>
+              <p className="text-sm text-slate-700 mb-3">
+                <span className="font-semibold">Open Positions:</span> Hotel Management, Culinary Arts
+              </p>
+              <Link
+                href="/contact"
+                className="text-orange-600 hover:text-orange-700 font-semibold text-sm inline-flex items-center"
+              >
+                Learn More →
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center">
+          <Link 
+            href="/employers" 
+            className="inline-flex items-center justify-center rounded-full bg-orange-600 px-8 py-3 text-sm font-semibold text-white shadow-lg hover:bg-orange-700 transition-colors"
+          >
+            View All Employer Partners
+          </Link>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="mb-10">
         <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-center">
@@ -356,7 +565,10 @@ export default function ElevateLearn2EarnPage() {
         </div>
       </section>
 
+      </div>
+
       {/* Contact Info */}
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-10">
       <section>
         <div className="rounded-2xl border border-slate-200 bg-white p-6">
           <h2 className="text-lg font-semibold text-slate-900 mb-4">
@@ -394,6 +606,7 @@ export default function ElevateLearn2EarnPage() {
           </div>
         </div>
       </section>
+      </div>
     </main>
   );
 }
