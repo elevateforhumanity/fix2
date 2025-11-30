@@ -28,6 +28,14 @@ const navigation = [
     ]
   },
   {
+    name: 'Programs',
+    icon: BookOpen,
+    children: [
+      { name: 'All Programs', href: '/admin/programs' },
+      { name: 'Courses', href: '/admin/courses' },
+    ]
+  },
+  {
     name: 'Students',
     icon: GraduationCap,
     children: [

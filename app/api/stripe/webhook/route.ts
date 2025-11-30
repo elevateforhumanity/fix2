@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { supabase } from "@/lib/supabaseClient";
 import { programToCourseSlugs } from "@/lms-data/enrollmentMappings";
+import { autoEnrollPartnerCourse } from "@/lib/automation/partnerEnrollment";
 
 export const runtime = "nodejs";
 
@@ -174,6 +175,40 @@ export async function POST(req: NextRequest) {
       console.log(
         `[StripeWebhook] No course mapping found for program=${programId}; skipping student_courses insert.`
       );
+    }
+
+    // 5) Auto-enroll in partner courses if metadata includes partner info
+    const partnerId = session.metadata?.partnerId;
+    const courseId = session.metadata?.courseId;
+    const studentId = session.metadata?.studentId;
+
+    if (studentId && partnerId && courseId) {
+      console.log(
+        `[StripeWebhook] Auto-enrolling student ${studentId} in partner course ${courseId}`
+      );
+      
+      try {
+        const result = await autoEnrollPartnerCourse({
+          studentId,
+          partnerId,
+          courseId,
+          programId: programId || undefined,
+        });
+
+        if (result.success) {
+          console.log(
+            `[StripeWebhook] Partner enrollment successful: ${result.enrollmentId}`
+          );
+        } else {
+          console.error(
+            `[StripeWebhook] Partner enrollment failed: ${result.error}`
+          );
+        }
+      } catch (err: any) {
+        console.error(
+          `[StripeWebhook] Partner enrollment exception: ${err.message}`
+        );
+      }
     }
 
     console.log(
