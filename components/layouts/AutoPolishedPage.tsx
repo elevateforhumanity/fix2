@@ -430,44 +430,65 @@ function getAutoConfig(section: string, label: string, route: string): AutoConfi
 export function AutoPolishedPage({ route, label, section }: AutoPolishedPageProps) {
   const config = getAutoConfig(section, label, route);
 
-  return (
-    <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
-      {/* Tagline + breadcrumb */}
-      <div className="mb-3 flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
-        <span className="uppercase tracking-wide">
-          ORIGINAL-SITE-EFH-ORIGINAL-2024 • OWNER: Elizabeth L. Greene
-        </span>
-        <span className="hidden sm:inline text-slate-300">•</span>
-        <span>{config.categoryLabel}</span>
-        <span className="hidden sm:inline text-slate-300">•</span>
-        <span className="truncate">{route}</span>
-      </div>
+  // Get category-specific hero image
+  const cat = normalizeSection(section);
+  const heroImages: Record<string, string> = {
+    programs: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=400&fit=crop",
+    funding: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=400&fit=crop",
+    students: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&h=400&fit=crop",
+    lms: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200&h=400&fit=crop",
+    credentials: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=400&fit=crop",
+    employers: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&h=400&fit=crop",
+    "program-holders": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=400&fit=crop",
+    "career-services": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=400&fit=crop",
+    "admin-staff": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=400&fit=crop",
+    community: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&h=400&fit=crop",
+    legal: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=400&fit=crop",
+    "hr-payroll": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=400&fit=crop",
+    "case-management": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200&h=400&fit=crop",
+    boards: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1200&h=400&fit=crop",
+    "special-programs": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1200&h=400&fit=crop",
+    tools: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=1200&h=400&fit=crop",
+    builders: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&h=400&fit=crop",
+    documents: "https://images.unsplash.com/photo-1568667256549-094345857637?w=1200&h=400&fit=crop",
+    instructor: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&h=400&fit=crop",
+    reports: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=400&fit=crop",
+    "main-pages": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=400&fit=crop",
+    other: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=400&fit=crop",
+  };
 
-      {/* Hero */}
-      <section className="grid gap-6 md:grid-cols-[minmax(0,1.7fr)_minmax(0,1.1fr)] items-start mb-10">
-        <div className="space-y-3">
+  const heroImage = heroImages[cat] || heroImages.other;
+
+  return (
+    <main>
+      {/* Hero Banner with Image */}
+      <div 
+        className="relative bg-slate-900 text-white overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${heroImage}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
           {config.badge && (
-            <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-[11px] font-semibold text-orange-700 border border-orange-100 uppercase tracking-wide">
+            <div className="inline-flex items-center gap-2 rounded-full bg-orange-500/90 px-3 py-1 text-[11px] font-semibold text-white border border-orange-400 uppercase tracking-wide mb-4">
               {config.badge}
             </div>
           )}
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">{label}</h1>
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">{label}</h1>
+          <p className="text-sm font-semibold text-orange-300 uppercase tracking-wide mb-3">
             Built for: {config.audience}
           </p>
-          <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-100 leading-relaxed max-w-3xl mb-6">
             {config.description}
           </p>
-
-          <p className="text-xs sm:text-sm text-slate-600">
-            {config.shortTagline}
-          </p>
-
-          <div className="flex flex-wrap gap-3 mt-4">
+          
+          <div className="flex flex-wrap gap-3">
             {config.primaryCta && (
               <Link
                 href={config.primaryCta.href}
-                className="inline-flex items-center justify-center rounded-full bg-orange-600 px-5 py-2 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-orange-700"
+                className="inline-flex items-center justify-center rounded-full bg-orange-600 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-orange-700 transition-colors"
               >
                 {config.primaryCta.label}
               </Link>
@@ -475,31 +496,81 @@ export function AutoPolishedPage({ route, label, section }: AutoPolishedPageProp
             {config.secondaryCta && (
               <Link
                 href={config.secondaryCta.href}
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-xs sm:text-sm font-semibold text-slate-800 hover:border-orange-500 hover:text-orange-700"
+                className="inline-flex items-center justify-center rounded-full border-2 border-white bg-white/10 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
               >
                 {config.secondaryCta.label}
               </Link>
             )}
           </div>
         </div>
+      </div>
 
-        {/* Right column */}
-        <aside className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 sm:p-5 space-y-3">
-          <h2 className="text-sm font-semibold text-slate-900">
-            How this page fits the ecosystem
-          </h2>
-          <ul className="space-y-1 text-sm text-slate-700">
-            {config.bullets.map((b) => (
-              <li key={b} className="flex gap-2">
-                <span className="mt-[3px] text-orange-500">●</span>
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="border-t border-slate-200 pt-3 text-[11px] text-slate-500">
-            Route: <code className="bg-white px-1 py-[1px] rounded border border-slate-200">{route}</code>
+      {/* Tagline + breadcrumb */}
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mt-6 mb-3 flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
+          <span className="uppercase tracking-wide">
+            ORIGINAL-SITE-EFH-ORIGINAL-2024 • OWNER: Elizabeth L. Greene
+          </span>
+          <span className="hidden sm:inline text-slate-300">•</span>
+          <span>{config.categoryLabel}</span>
+          <span className="hidden sm:inline text-slate-300">•</span>
+          <span className="truncate">{route}</span>
+        </div>
+      </div>
+
+      {/* Content */}
+      <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid gap-6 md:grid-cols-[minmax(0,1.7fr)_minmax(0,1.1fr)] items-start">
+          <div className="space-y-4">
+            <p className="text-sm text-slate-600 italic">{config.shortTagline}</p>
+            
+            <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+              <h2 className="text-lg font-semibold text-slate-900 mb-3">Key Features</h2>
+              <ul className="space-y-2 text-sm text-slate-700">
+                {config.bullets.map((b) => (
+                  <li key={b} className="flex gap-2">
+                    <span className="mt-[3px] text-orange-500">●</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </aside>
+
+          {/* Right column */}
+          <aside className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 sm:p-5 space-y-3">
+            <h2 className="text-sm font-semibold text-slate-900">
+              Quick Links
+            </h2>
+            <div className="space-y-2">
+              {config.primaryCta && (
+                <Link
+                  href={config.primaryCta.href}
+                  className="block text-sm text-orange-600 hover:text-orange-700 font-medium"
+                >
+                  → {config.primaryCta.label}
+                </Link>
+              )}
+              {config.secondaryCta && (
+                <Link
+                  href={config.secondaryCta.href}
+                  className="block text-sm text-orange-600 hover:text-orange-700 font-medium"
+                >
+                  → {config.secondaryCta.label}
+                </Link>
+              )}
+              <Link
+                href="/sitemap-page"
+                className="block text-sm text-slate-600 hover:text-orange-700"
+              >
+                → View all pages
+              </Link>
+            </div>
+            <div className="border-t border-slate-200 pt-3 text-[11px] text-slate-500">
+              Route: <code className="bg-white px-1 py-[1px] rounded border border-slate-200">{route}</code>
+            </div>
+          </aside>
+        </div>
       </section>
     </main>
   );
