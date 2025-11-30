@@ -1,4 +1,4 @@
-// supabase/functions/send-partner-enrollment-email/index.ts
+// supabase/functions/send-partner-completion-email/index.ts
 // deno-lint-ignore-file no-explicit-any
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
@@ -7,69 +7,92 @@ type RequestBody = {
   studentName: string;
   courseName: string;
   partnerName: string;
-  launchUrl: string;
-  partnerLoginUrl: string;
-  username: string;
+  certificateUrl: string;
+  certificateNumber?: string;
+  verificationUrl?: string;
 };
 
 const SENDGRID_API_KEY = Deno.env.get("SENDGRID_API_KEY") ?? "";
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") ?? "";
-const EMAIL_FROM = Deno.env.get("EMAIL_FROM") ?? "no-reply@elevateforhumanity.org";
+const EMAIL_FROM =
+  Deno.env.get("EMAIL_FROM") ?? "no-reply@elevateforhumanity.org";
 const APP_NAME = "Elevate For Humanity";
 
 function buildSubject(data: RequestBody): string {
-  return `You're enrolled in ${data.courseName} (${data.partnerName})`;
+  return `You completed ${data.courseName}! 🎓`;
 }
 
 function buildTextBody(data: RequestBody): string {
   return `
 Hi ${data.studentName},
 
-You're officially enrolled in:
+Congratulations! You have successfully completed:
 
   ${data.courseName}
   Delivered through: ${data.partnerName}
 
-Start your course now:
-  ${data.launchUrl}
+You can download your certificate here:
+  ${data.certificateUrl}
 
-If the button/link above doesn't work, you can log in directly to the partner site:
+${
+  data.certificateNumber
+    ? `Certificate Number: ${data.certificateNumber}\n`
+    : ""
+}${
+    data.verificationUrl
+      ? `Verify your credential here: ${data.verificationUrl}\n`
+      : ""
+  }
 
-  Partner login: ${data.partnerLoginUrl}
-  Username: ${data.username}
+Your completion is recorded in your ${APP_NAME} student dashboard for WIOA / WRG / Apprenticeship reporting.
 
-This training is tracked in your ${APP_NAME} student dashboard for WIOA / WRG / Apprenticeship reporting.
-
-If you didn't request this enrollment, please reply to this email or contact support.
+Keep this email and your certificate for your records.
 
 – ${APP_NAME} Support
 `.trim();
 }
 
 function buildHtmlBody(data: RequestBody): string {
+  const certNumberBlock = data.certificateNumber
+    ? `<p style="margin: 4px 0 0; font-size: 13px; color: #374151;">
+        Certificate Number:
+        <strong>${data.certificateNumber}</strong>
+      </p>`
+    : "";
+
+  const verifyBlock = data.verificationUrl
+    ? `<p style="margin: 8px 0 0; font-size: 13px; color: #374151;">
+        Verify your credential:
+        <a href="${data.verificationUrl}" style="color: #0ea5e9; text-decoration: none;">
+          ${data.verificationUrl}
+        </a>
+      </p>`
+    : "";
+
   return `
   <html>
     <body style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background-color: #f7f7fb; padding: 24px;">
       <div style="max-width: 560px; margin: 0 auto; background: #ffffff; border-radius: 16px; padding: 24px 24px 20px; border: 1px solid #e5e7eb;">
         <h1 style="font-size: 20px; margin: 0 0 8px; color: #111827;">
-          You're enrolled in ${data.courseName}
+          🎉 Congratulations, ${data.studentName}!
         </h1>
         <p style="margin: 0 0 4px; font-size: 13px; color: #6b7280;">
-          Delivered through <strong>${data.partnerName}</strong>
+          You've completed your training.
         </p>
 
         <p style="margin: 16px 0 8px; font-size: 14px; color: #374151;">
-          Hi ${data.studentName},
+          You successfully completed:
         </p>
-        <p style="margin: 0 0 12px; font-size: 14px; color: #374151;">
-          Great news – you've been automatically enrolled in
-          <strong>${data.courseName}</strong> through our industry partner
-          <strong>${data.partnerName}</strong>.
+        <p style="margin: 0 0 8px; font-size: 14px; color: #111827;">
+          <strong>${data.courseName}</strong>
+        </p>
+        <p style="margin: 0 0 12px; font-size: 13px; color: #6b7280;">
+          Delivered through <strong>${data.partnerName}</strong>.
         </p>
 
-        <div style="margin: 16px 0;">
+        <div style="margin: 16px 0 12px;">
           <a
-            href="${data.launchUrl}"
+            href="${data.certificateUrl}"
             style="
               display: inline-block;
               background: #0ea5e9;
@@ -81,33 +104,23 @@ function buildHtmlBody(data: RequestBody): string {
               text-decoration: none;
             "
           >
-            Start / Continue Course
+            Download Your Certificate
           </a>
         </div>
 
-        <p style="margin: 12px 0 8px; font-size: 13px; color: #6b7280;">
-          If the button above doesn't work, you can log in directly to the partner site:
-        </p>
-        <ul style="margin: 0 0 12px 1.25rem; padding: 0; font-size: 13px; color: #374151;">
-          <li>
-            <strong>Partner login:</strong>
-            <a href="${data.partnerLoginUrl}" style="color: #0ea5e9; text-decoration: none;">
-              ${data.partnerLoginUrl}
-            </a>
-          </li>
-          <li><strong>Username:</strong> ${data.username}</li>
-        </ul>
+        ${certNumberBlock}
+        ${verifyBlock}
 
-        <p style="margin: 12px 0 8px; font-size: 13px; color: #6b7280;">
-          Your progress and completion will be tracked in your
-          <strong>${APP_NAME}</strong> student dashboard for WIOA / WRG / Apprenticeship records.
-        </p>
-
-        <p style="margin: 12px 0 8px; font-size: 12px; color: #9ca3af;">
-          If you didn't request this enrollment, please reply to this email or contact support.
+        <p style="margin: 16px 0 8px; font-size: 13px; color: #6b7280;">
+          Your completion is recorded in your
+          <strong>${APP_NAME}</strong> student dashboard for WIOA / WRG / Apprenticeship reporting.
         </p>
 
         <p style="margin: 8px 0 0; font-size: 12px; color: #6b7280;">
+          Keep this email and your certificate for your records. Employers may ask for your certificate or number during hiring or onboarding.
+        </p>
+
+        <p style="margin: 12px 0 0; font-size: 12px; color: #9ca3af;">
           – ${APP_NAME} Support
         </p>
       </div>
@@ -153,7 +166,7 @@ async function sendEmail(body: RequestBody): Promise<Response> {
         { status: 200, headers: { "Content-Type": "application/json" } },
       );
     }
-    
+
     const errText = await sgRes.text();
     console.error("SendGrid error:", sgRes.status, errText);
   }
@@ -206,9 +219,7 @@ Deno.serve(async (req) => {
     "studentName",
     "courseName",
     "partnerName",
-    "launchUrl",
-    "partnerLoginUrl",
-    "username",
+    "certificateUrl",
   ];
 
   for (const key of required) {
@@ -222,13 +233,10 @@ Deno.serve(async (req) => {
     studentName: payload.studentName,
     courseName: payload.courseName,
     partnerName: payload.partnerName,
-    launchUrl: payload.launchUrl,
-    partnerLoginUrl: payload.partnerLoginUrl,
-    username: payload.username,
+    certificateUrl: payload.certificateUrl,
+    certificateNumber: payload.certificateNumber,
+    verificationUrl: payload.verificationUrl,
   };
 
   return await sendEmail(body);
 });
-
-
-
