@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/compare"
       label="Compare"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

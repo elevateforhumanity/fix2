@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/accessibility"
       label="Accessibility"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

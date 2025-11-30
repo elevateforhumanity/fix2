@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/solutions/distance-learning"
       label="Distance Learning"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

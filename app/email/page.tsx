@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/email"
       label="Email"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

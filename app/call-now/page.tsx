@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/call-now"
       label="Call Now"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

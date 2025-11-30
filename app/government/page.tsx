@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/government"
       label="Government"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

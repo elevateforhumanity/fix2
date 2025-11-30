@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/curriculumupload"
       label="Curriculumupload"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

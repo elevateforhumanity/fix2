@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/onboarding/partner"
       label="Partner"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

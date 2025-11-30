@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/onboarding/handbook"
       label="Handbook"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/terms-of-service"
       label="Terms Of Service"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

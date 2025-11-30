@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/cookies"
       label="Cookies"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

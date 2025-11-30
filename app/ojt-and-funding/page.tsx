@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/ojt-and-funding"
       label="Ojt And Funding"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

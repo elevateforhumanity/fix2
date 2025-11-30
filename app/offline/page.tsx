@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/offline"
       label="Offline"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

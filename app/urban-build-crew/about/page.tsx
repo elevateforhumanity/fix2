@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/urban-build-crew/about"
       label="About"
-      section="Special Programs"
+      section="Other"
     />
   );
 }

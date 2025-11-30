@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/program-holder/portal/messages"
       label="Messages"
-      section="Other Pages"
+      section="Program Holders"
     />
   );
 }

@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/aitutor"
       label="Aitutor"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

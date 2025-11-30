@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/verifycertificate"
       label="Verifycertificate"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/program-holder/mou"
       label="Mou"
-      section="Other Pages"
+      section="Program Holders"
     />
   );
 }

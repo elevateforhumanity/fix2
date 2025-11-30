@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/verifyemail"
       label="Verifyemail"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

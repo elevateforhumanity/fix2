@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/checkout/prog-tax-vita"
       label="Prog Tax Vita"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

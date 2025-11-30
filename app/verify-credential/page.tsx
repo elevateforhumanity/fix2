@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/verify-credential"
       label="Verify Credential"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

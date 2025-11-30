@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/selfish-inc"
       label="Selfish Inc"
-      section="Special Programs"
+      section="Other"
     />
   );
 }

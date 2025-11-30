@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/wioa-eligibility"
       label="Wioa Eligibility"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

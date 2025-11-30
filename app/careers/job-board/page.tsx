@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/careers/job-board"
       label="Job Board"
-      section="Other Pages"
+      section="Career Services"
     />
   );
 }

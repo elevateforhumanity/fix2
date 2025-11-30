@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/docs/lms"
       label="LMS"
-      section="Other Pages"
+      section="Documents"
     />
   );
 }

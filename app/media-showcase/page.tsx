@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/media-showcase"
       label="Media Showcase"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

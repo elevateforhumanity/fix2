@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/platform/workforce-analytics"
       label="Workforce Analytics"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

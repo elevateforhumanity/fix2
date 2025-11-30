@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/notfound"
       label="Notfound"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/auth/forgot-password"
       label="Forgot Password"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

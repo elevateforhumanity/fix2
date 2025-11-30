@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/support/contact"
       label="Contact"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

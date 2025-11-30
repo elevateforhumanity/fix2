@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/press"
       label="Press"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/refund-policy"
       label="Refund Policy"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/portal"
       label="Portal"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

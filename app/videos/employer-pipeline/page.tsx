@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/videos/employer-pipeline"
       label="Employer Pipeline"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

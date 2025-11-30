@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/workforce-board/reports"
       label="Reports"
-      section="Other Pages"
+      section="Boards"
     />
   );
 }

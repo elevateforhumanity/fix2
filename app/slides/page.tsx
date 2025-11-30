@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/slides"
       label="Slides"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

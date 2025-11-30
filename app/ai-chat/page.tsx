@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/ai-chat"
       label="Ai Chat"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

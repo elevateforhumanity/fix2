@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/calendar"
       label="Calendar"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

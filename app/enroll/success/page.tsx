@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/enroll/success"
       label="Success"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

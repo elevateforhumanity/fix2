@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/study-groups"
       label="Study Groups"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

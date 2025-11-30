@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/videos/elevate-overview"
       label="Elevate Overview"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

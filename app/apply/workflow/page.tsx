@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/apply/workflow"
       label="Workflow"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

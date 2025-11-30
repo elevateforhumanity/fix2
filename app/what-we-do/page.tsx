@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/what-we-do"
       label="What We Do"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

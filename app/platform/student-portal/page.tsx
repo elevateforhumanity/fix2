@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/platform/student-portal"
       label="Student Portal"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

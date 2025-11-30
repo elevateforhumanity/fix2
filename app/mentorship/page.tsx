@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/mentorship"
       label="Mentorship"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

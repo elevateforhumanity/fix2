@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/platform/employer-portal"
       label="Employer Portal"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

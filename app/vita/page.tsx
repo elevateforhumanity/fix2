@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/vita"
       label="Vita"
-      section="Special Programs"
+      section="Other"
     />
   );
 }

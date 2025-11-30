@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/parent-portal"
       label="Parent Portal"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

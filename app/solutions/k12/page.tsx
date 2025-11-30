@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/solutions/k12"
       label="K12"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

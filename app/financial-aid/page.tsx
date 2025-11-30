@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/financial-aid"
       label="Financial Aid"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

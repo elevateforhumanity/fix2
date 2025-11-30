@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/messages"
       label="Messages"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/solutions/higher-ed"
       label="Higher Ed"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

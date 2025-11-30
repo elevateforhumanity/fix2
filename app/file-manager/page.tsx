@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/file-manager"
       label="File Manager"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

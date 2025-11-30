@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/program-holder/how-to-use"
       label="How To Use"
-      section="Other Pages"
+      section="Program Holders"
     />
   );
 }

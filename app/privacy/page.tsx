@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/privacy"
       label="Privacy"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

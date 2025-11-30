@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/share"
       label="Share"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

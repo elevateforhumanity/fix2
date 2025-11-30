@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/refunds"
       label="Refunds"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

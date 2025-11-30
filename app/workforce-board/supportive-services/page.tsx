@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/workforce-board/supportive-services"
       label="Supportive Services"
-      section="Other Pages"
+      section="Boards"
     />
   );
 }

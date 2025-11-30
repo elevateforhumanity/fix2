@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/pwa-test"
       label="Pwa Test"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

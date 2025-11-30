@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/receptionist"
       label="Receptionist"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

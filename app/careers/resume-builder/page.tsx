@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/careers/resume-builder"
       label="Resume Builder"
-      section="Other Pages"
+      section="Career Services"
     />
   );
 }

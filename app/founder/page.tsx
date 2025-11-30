@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/founder"
       label="Founder"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

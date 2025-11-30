@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/platform/training-providers"
       label="Training Providers"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

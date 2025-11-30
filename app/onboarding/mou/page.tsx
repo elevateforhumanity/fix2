@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/onboarding/mou"
       label="Mou"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

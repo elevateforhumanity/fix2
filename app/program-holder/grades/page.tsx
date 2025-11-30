@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/program-holder/grades"
       label="Grades"
-      section="Other Pages"
+      section="Program Holders"
     />
   );
 }

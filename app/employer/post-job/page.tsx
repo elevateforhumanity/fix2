@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/employer/post-job"
       label="Post Job"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

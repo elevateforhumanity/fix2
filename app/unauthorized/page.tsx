@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/unauthorized"
       label="Unauthorized"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

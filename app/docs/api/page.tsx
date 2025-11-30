@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/docs/api"
       label="API"
-      section="Other Pages"
+      section="Documents"
     />
   );
 }

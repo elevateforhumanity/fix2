@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/directory"
       label="Directory"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

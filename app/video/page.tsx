@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/video"
       label="Video"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

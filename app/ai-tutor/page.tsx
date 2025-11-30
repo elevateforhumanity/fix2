@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/ai-tutor"
       label="Ai Tutor"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

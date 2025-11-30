@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/orientation/competency-test"
       label="Competency Test"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

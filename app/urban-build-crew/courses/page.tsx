@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/urban-build-crew/courses"
       label="Courses"
-      section="Special Programs"
+      section="Other"
     />
   );
 }

@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/micro-classes"
       label="Micro Classes"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/signup"
       label="Signup"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

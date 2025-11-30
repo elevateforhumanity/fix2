@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/cm"
       label="Cm"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

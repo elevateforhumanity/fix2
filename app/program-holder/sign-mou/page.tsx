@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/program-holder/sign-mou"
       label="Sign Mou"
-      section="Other Pages"
+      section="Program Holders"
     />
   );
 }

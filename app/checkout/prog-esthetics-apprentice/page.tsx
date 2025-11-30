@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/checkout/prog-esthetics-apprentice"
       label="Prog Esthetics Apprentice"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

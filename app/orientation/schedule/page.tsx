@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/orientation/schedule"
       label="Schedule"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

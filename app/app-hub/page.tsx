@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/app-hub"
       label="App Hub"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

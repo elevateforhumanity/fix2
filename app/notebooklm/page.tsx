@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/notebooklm"
       label="Notebooklm"
-      section="Other Pages"
+      section="Other"
     />
   );
 }

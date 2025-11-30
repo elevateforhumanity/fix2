@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/employee/time-off"
       label="Time Off"
-      section="Other Pages"
+      section="HR & Payroll"
     />
   );
 }
