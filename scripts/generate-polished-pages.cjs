@@ -20,6 +20,7 @@ const SKIP_ROUTES = new Set([
   "/directory",                           // Custom employer directory
   "/elevatelearn2earn",                   // Custom staffing page
   "/employers",                           // Custom employer page
+  "/sitemap-page",                        // Custom sitemap (reads from config)
 ]);
 
 function walk(dir, out = []) {
