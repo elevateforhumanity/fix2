@@ -8,9 +8,9 @@ export function SiteFooter() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="relative border-t border-slate-700 bg-slate-900 overflow-hidden">
+    <footer className="relative border-t border-slate-200 bg-white overflow-hidden">
       {/* Watermark Background */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
         <Image
           src="/media/elevate-watermark.png"
           alt="Elevate For Humanity"
@@ -20,41 +20,41 @@ export function SiteFooter() {
       </div>
       
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5 text-xs text-white">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5 text-xs text-slate-900">
           {/* Brand & Contact */}
           <div className="md:col-span-2 lg:col-span-1">
             <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-white text-xs font-black uppercase">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-600 text-white text-xs font-black uppercase">
                 EFH
               </div>
               <div>
-                <div className="text-base font-bold text-white">
+                <div className="text-base font-bold text-slate-900">
                   Elevate For Humanity
                 </div>
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-slate-600">
                   Career & Technical Institute
                 </div>
               </div>
             </div>
-            <p className="text-sm text-white max-w-md mb-4 leading-relaxed font-medium">
+            <p className="text-sm text-slate-700 max-w-md mb-4 leading-relaxed font-medium">
               100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt. Real jobs waiting in Indianapolis, IN.
             </p>
             
             {/* Contact Info */}
             <div className="space-y-3 mb-6">
-              <div className="flex items-center gap-3 text-white">
-                <MapPin size={18} className="text-orange-400 flex-shrink-0" />
+              <div className="flex items-center gap-3 text-slate-700">
+                <MapPin size={18} className="text-teal-600 flex-shrink-0" />
                 <span className="text-sm font-semibold">8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240</span>
               </div>
-              <div className="flex items-center gap-3 text-white">
-                <Phone size={18} className="text-orange-400 flex-shrink-0" />
-                <a href="tel:+13173143757" className="text-sm hover:text-orange-300 transition font-bold">
+              <div className="flex items-center gap-3 text-slate-700">
+                <Phone size={18} className="text-teal-600 flex-shrink-0" />
+                <a href="tel:+13173143757" className="text-sm hover:text-teal-600 transition font-bold">
                   (317) 314-3757
                 </a>
               </div>
-              <div className="flex items-center gap-3 text-white">
-                <Mail size={18} className="text-orange-400 flex-shrink-0" />
-                <Link href="/contact" className="text-sm hover:text-orange-300 transition font-bold">
+              <div className="flex items-center gap-3 text-slate-700">
+                <Mail size={18} className="text-teal-600 flex-shrink-0" />
+                <Link href="/contact" className="text-sm hover:text-teal-600 transition font-bold">
                   Contact Us
                 </Link>
               </div>
@@ -62,7 +62,7 @@ export function SiteFooter() {
 
             {/* Social Links */}
             <div>
-              <p className="text-sm font-bold text-orange-400 mb-3">FOLLOW US</p>
+              <p className="text-sm font-bold text-slate-900 mb-3">FOLLOW US</p>
               <div className="flex gap-3">
                 <a 
                   href="https://www.facebook.com/profile.php?id=61571046346179" 
@@ -93,7 +93,7 @@ export function SiteFooter() {
                   <Instagram size={20} strokeWidth={2.5} />
                 </a>
               </div>
-              <p className="text-xs text-slate-400 mt-3">Get updates & success stories!</p>
+              <p className="text-xs text-slate-600 mt-3">Get updates & success stories!</p>
             </div>
           </div>
 
