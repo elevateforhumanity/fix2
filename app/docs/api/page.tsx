@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
 export const metadata: Metadata = {
-  title: "API | Elevate For Humanity",
-  description: "Learn more about API inside the Elevate For Humanity workforce ecosystem.",
+  title: "Api | Elevate For Humanity",
+  description: "Learn more about Api inside the Elevate For Humanity workforce ecosystem.",
 };
 
 export default function Page() {
   return (
     <AutoPolishedPage
       route="/docs/api"
-      label="API"
-      section="Documents"
+      label="Api"
+      section="Other"
     />
   );
 }

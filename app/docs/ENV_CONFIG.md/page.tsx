@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/docs/ENV_CONFIG.md"
       label="ENV_CONFIG.md"
-      section="Documents"
+      section="Other"
     />
   );
 }

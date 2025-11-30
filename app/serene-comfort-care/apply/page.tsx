@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/serene-comfort-care/apply"
       label="Apply"
-      section="Special Programs"
+      section="Other"
     />
   );
 }

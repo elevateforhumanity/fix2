@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/program-holder/courses/create"
       label="Create"
-      section="Program Holders"
+      section="Other"
     />
   );
 }

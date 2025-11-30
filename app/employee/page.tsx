@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/employee"
       label="Employee"
-      section="HR & Payroll"
+      section="Other"
     />
   );
 }

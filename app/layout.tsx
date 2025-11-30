@@ -11,10 +11,8 @@ import '@/styles/tiktok-animations.css';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FacebookPixel from '@/components/FacebookPixel';
 import StructuredData from '@/components/StructuredData';
-import { MainNav } from '@/components/layout/MainNav';
-import MainHeader from '@/components/layout/MainHeader';
-import MainFooter from '@/components/layout/MainFooter';
-import { SiteFooter } from '@/components/layout/Footer';
+import Header from '@/components/layouts/Header';
+import Footer from '@/components/layouts/Footer';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import { CookieBanner } from '@/components/CookieBanner';
@@ -149,10 +147,9 @@ sizes="192x192" />
         />
         <DMCATrackingPixel />
         <ScraperDetection />
-        <MainHeader />
-        <Breadcrumbs />
+        <Header />
         <main id="main-content">{children}</main>
-        <SiteFooter />
+        <Footer />
         {/* <ElevateChatWidget /> */}
         <CookieBanner />
         <PWAInstallPrompt />

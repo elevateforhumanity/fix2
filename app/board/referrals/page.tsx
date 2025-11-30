@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/board/referrals"
       label="Referrals"
-      section="Boards"
+      section="Other"
     />
   );
 }

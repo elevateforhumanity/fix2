@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/careers/interview-prep"
       label="Interview Prep"
-      section="Career Services"
+      section="Other"
     />
   );
 }

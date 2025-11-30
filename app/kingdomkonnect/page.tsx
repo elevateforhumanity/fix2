@@ -11,7 +11,7 @@ export default function Page() {
     <AutoPolishedPage
       route="/kingdomkonnect"
       label="Kingdomkonnect"
-      section="Special Programs"
+      section="Other"
     />
   );
 }
