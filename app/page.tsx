@@ -26,12 +26,12 @@ export default function HomePage() {
                 Free Career Training - 100% Government Funded • Start in 2 Weeks
               </p>
             </div>
-            <a
+            <Link
               href="/apply"
               className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-bold text-orange-600 hover:bg-orange-50 transition-all shadow-lg hover:scale-105 whitespace-nowrap"
             >
               Apply Now →
-            </a>
+            </Link>
           </div>
         </div>
       </section>
