@@ -566,29 +566,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SIMPLE CTA */}
-      <section className="py-12 bg-white border-t border-slate-200">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-4xl font-light text-slate-900 mb-6">
-            Ready to Start Your Training?
-          </h2>
-          <p className="text-xl text-slate-600 mb-8">
-            Apply now for free workforce training through state-funded programs
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/apply"
-              className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors shadow-lg"
-            >
-              Apply Now
-              <ArrowRight size={20} className="ml-2" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition-colors shadow-lg"
-            >
-              Contact Us
-            </Link>
+      {/* CTA WITH IMAGE */}
+      <section className="py-16 bg-gradient-to-r from-orange-600 to-orange-500">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/gallery/image11.jpg"
+                alt="Start your training today"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+            <div className="text-white">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Ready to Start Your Training?
+              </h2>
+              <p className="text-xl mb-8 text-orange-50">
+                Apply now for free workforce training through state-funded programs. No tuition. Real credentials. Direct job connections.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-orange-600 font-bold rounded-lg hover:bg-orange-50 transition-colors shadow-lg"
+                >
+                  Apply Now
+                  <ArrowRight size={20} className="ml-2" />
+                </Link>
+                <Link
+                  href="/programs"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-orange-700 text-white font-semibold rounded-lg hover:bg-orange-800 transition-colors shadow-lg"
+                >
+                  View Programs
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

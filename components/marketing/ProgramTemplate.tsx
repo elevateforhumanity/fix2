@@ -30,37 +30,69 @@ interface ProgramTemplateProps {
 export function ProgramTemplate({ program }: ProgramTemplateProps) {
   return (
     <main className="min-h-screen bg-white">
+      {/* TOP BANNER */}
+      <section className="bg-gradient-to-r from-orange-600 to-orange-500 py-3 sticky top-0 z-50 shadow-lg">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white animate-pulse">
+                🔥 NOW ENROLLING
+              </span>
+              <p className="text-white font-semibold text-sm sm:text-base">
+                Free Career Training - 100% Government Funded • Start in 2 Weeks
+              </p>
+            </div>
+            <Link
+              href="/apply"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-bold text-orange-600 hover:bg-orange-50 transition-all shadow-lg hover:scale-105 whitespace-nowrap"
+            >
+              Apply Now →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-6 py-16 md:py-20 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-700 mb-6">
+      <section className="relative h-[600px] overflow-hidden">
+        <Image
+          src={program.heroImage}
+          alt={`${program.name} in training`}
+          fill
+          className="object-cover"
+          priority
+          quality={100}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-transparent" />
+        
+        <div className="relative h-full flex items-center">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-4 py-2 text-sm font-bold text-white mb-6">
                 <Award size={16} />
                 <span>100% FREE Training</span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-6">
-                {program.name} Training Program
+              <h1 className="text-5xl md:text-6xl font-light text-white mb-6 leading-tight">
+                {program.name}
               </h1>
               
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl text-slate-200 font-light mb-8 leading-relaxed">
                 {program.description}
               </p>
 
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200">
-                  <Clock size={24} className="text-red-600" />
+              <div className="grid grid-cols-2 gap-4 mb-8 max-w-lg">
+                <div className="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                  <Clock size={24} className="text-white" />
                   <div>
-                    <div className="text-sm text-slate-600">Duration</div>
-                    <div className="font-bold text-slate-900">{program.duration}</div>
+                    <div className="text-sm text-slate-200">Duration</div>
+                    <div className="font-bold text-white">{program.duration}</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 p-4 bg-white rounded-xl border border-slate-200">
-                  <DollarSign size={24} className="text-red-600" />
+                <div className="flex items-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                  <DollarSign size={24} className="text-white" />
                   <div>
-                    <div className="text-sm text-slate-600">Salary Range</div>
-                    <div className="font-bold text-slate-900">{program.salaryRange}</div>
+                    <div className="text-sm text-slate-200">Salary Range</div>
+                    <div className="font-bold text-white">{program.salaryRange}</div>
                   </div>
                 </div>
               </div>
@@ -68,31 +100,41 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/apply"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-red-600 px-8 py-4 text-base font-bold text-white shadow-lg hover:bg-red-700 transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors shadow-lg"
                 >
-                  Apply Now - It's Free
-                  <ArrowRight size={20} />
+                  Apply Now
+                  <ArrowRight size={20} className="ml-2" />
                 </Link>
                 <Link
-                  href="/funding/state-programs"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-700 hover:border-red-600 hover:text-red-600 transition-all"
+                  href="/programs"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded border-2 border-white hover:bg-slate-50 transition-colors shadow-lg"
                 >
-                  Learn About Funding
+                  All Programs
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
-                <Image
-                  src={program.heroImage}
-                  alt={`${program.name} in training`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-              </div>
+      {/* GOVERNMENT PARTNERS BAR */}
+      <section className="bg-slate-50 border-y border-slate-200 py-6">
+        <div className="mx-auto max-w-7xl px-6">
+          <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
+            Approved Workforce Development Partner
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">EmployIndy</p>
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">WorkOne</p>
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">Indiana DWD</p>
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">US Dept of Labor</p>
             </div>
           </div>
         </div>
