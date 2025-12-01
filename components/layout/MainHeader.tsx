@@ -119,7 +119,7 @@ export default function MainHeader() {
           {/* Right side CTAs */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              href="/student/portal"
+              href="/student/dashboard"
               className="text-xs font-medium text-slate-700 hover:text-orange-600"
             >
               Student Portal
@@ -208,7 +208,7 @@ export default function MainHeader() {
 
             <div className="pt-2 flex flex-col gap-2">
               <Link
-                href="/student/portal"
+                href="/student/dashboard"
                 onClick={() => setMobileOpen(false)}
                 className="w-full text-center rounded-full border border-slate-300 px-4 py-2 text-xs font-medium text-slate-800"
               >
