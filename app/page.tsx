@@ -39,8 +39,8 @@ export default function HomePage() {
       {/* HERO - Large Image with Overlay Text (Princeton Style) */}
       <section className="relative h-[700px] overflow-hidden">
         <Image
-          src="/media/programs/cpr-group-training-hd.jpg"
-          alt="Students practicing hands-on CPR training in classroom"
+          src="/media/programs/healthcare-professional-1-hd.jpg"
+          alt="Healthcare training students learning hands-on skills"
           fill
           className="object-cover"
           priority
