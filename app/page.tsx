@@ -654,7 +654,7 @@ const programs = [
     duration: "4-6 weeks",
     salary: "$35K-$45K",
     link: "/programs/cna-certification",
-    image: "/media/programs/cna-hd.jpg",
+    image: "/images/artlist/hero-training-1.jpg",
   },
   {
     title: "HVAC Technician",
@@ -662,7 +662,7 @@ const programs = [
     duration: "8-12 weeks",
     salary: "$45K-$65K",
     link: "/programs/hvac-technician",
-    image: "/media/programs/hvac-hd.jpg",
+    image: "/images/artlist/hero-training-2.jpg",
   },
   {
     title: "Licensed Barber",
@@ -670,7 +670,7 @@ const programs = [
     duration: "12 weeks",
     salary: "$30K-$55K",
     link: "/programs/barber-apprenticeship",
-    image: "/media/programs/barber-hd.jpg",
+    image: "/images/artlist/hero-training-3.jpg",
   },
   {
     title: "Commercial Driver",
@@ -678,7 +678,7 @@ const programs = [
     duration: "4-6 weeks",
     salary: "$50K-$70K",
     link: "/programs/cdl-training",
-    image: "/media/programs/cdl-hd.jpg",
+    image: "/images/artlist/hero-training-4.jpg",
   },
   {
     title: "Medical Assistant",
@@ -686,7 +686,7 @@ const programs = [
     duration: "8-10 weeks",
     salary: "$32K-$42K",
     link: "/programs/medical-administrative-assistant",
-    image: "/media/programs/healthcare-professional-2-hd.jpg",
+    image: "/images/artlist/hero-training-5.jpg",
   },
   {
     title: "Building Maintenance",
