@@ -39,7 +39,7 @@ export default function SideHeroBanner() {
           {/* Right Side - Image */}
           <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/location-9.jpg"
+              src="/images/location-9.png"
               alt="Elevate For Humanity - Career Training Center"
               fill
               className="object-cover"

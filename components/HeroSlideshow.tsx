@@ -7,12 +7,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    image: "/images/location-4.jpg",
+    image: "/images/location-4.png",
     title: "Welcome to Elevate For Humanity",
     text: "Where everyday people turn real life into real careers",
   },
   {
-    image: "/images/location-5.jpg",
+    image: "/images/location-5.png",
     title: "Free Workforce Training",
     text: "State and Federal Funded - WIOA, Workforce Ready Grants, and registered apprenticeships",
   },
