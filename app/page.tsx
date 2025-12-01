@@ -17,21 +17,21 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-white">
-      {/* TOP BANNER - Urgent Call to Action */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-500 py-3 sticky top-0 z-50 shadow-lg">
+      {/* TOP BANNER - Ready to Start Training */}
+      <section className="bg-gradient-to-r from-teal-600 to-blue-600 py-4 sticky top-0 z-50 shadow-lg">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white animate-pulse">
-                🔥 NOW ENROLLING
+              <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white">
+                ✅ READY TO START TRAINING
               </span>
               <p className="text-white font-semibold text-sm sm:text-base">
-                Free Career Training - 100% Government Funded • Start in 2 Weeks
+                Free Career Training Starts in 2 Weeks • 100% Government Funded • No Cost to You
               </p>
             </div>
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-bold text-orange-600 hover:bg-orange-50 transition-all shadow-lg hover:scale-105 whitespace-nowrap"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-bold text-teal-600 hover:bg-teal-50 transition-all shadow-lg hover:scale-105 whitespace-nowrap"
             >
               Apply Now →
             </Link>
