@@ -5,43 +5,57 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
   body {
     @apply bg-slate-50 text-slate-900 antialiased;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   h1 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight;
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   h2 {
     @apply text-2xl md:text-3xl lg:text-4xl font-bold leading-snug;
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   h3 {
     @apply text-xl md:text-2xl font-semibold leading-snug;
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   h4 {
     @apply text-lg md:text-xl font-semibold;
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   p {
     @apply text-sm md:text-base leading-relaxed text-slate-700;
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   a {
     @apply transition-colors duration-200;
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  button, input, select, textarea {
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
 
   /* Focus visible styles for accessibility */
   *:focus-visible {
-    @apply outline-2 outline-offset-2 outline-teal-600 rounded;
+    @apply outline-2 outline-offset-2 outline-blue-600 rounded;
   }
 
   /* Skip to main content link */
   .skip-to-main {
-    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-teal-600 focus:text-white focus:rounded-md focus:shadow-lg;
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-md focus:shadow-lg;
   }
 }
 
@@ -110,7 +124,7 @@
   }
 
   .badge-error {
-    @apply badge bg-orange-100 text-orange-700;
+    @apply badge bg-red-100 text-red-700;
   }
 }
 

@@ -1,151 +1,125 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ChevronRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Elizabeth Greene - Founder & Executive Director | Elevate For Humanity',
-  description: 'Meet Elizabeth Greene, founder of Elevate for Humanity. Learn about her mission to connect everyday people to free workforce training that leads to real careers.',
+  title: 'Founder | Elevate For Humanity',
+  description: 'Learn more about Founder inside the Elevate For Humanity workforce ecosystem.',
 };
 
-export default function FounderPage() {
+export default function Page() {
   return (
-    <main className="bg-white">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/elizabeth-greene-founder.jpg"
-                alt="Elizabeth Greene - Founder & Executive Director, Elevate for Humanity"
-                fill
-                className="object-cover object-center"
-                quality={95}
-                priority
-              />
+    <div className="min-h-screen bg-white">
+      {/* Hero Banner */}
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-5xl font-bold mb-6">Founder | Elevate For Humanity</h1>
+            <p className="text-xl mb-8 text-blue-100">Learn more about Founder inside the Elevate For Humanity workforce ecosystem.</p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
+                Get Started
+              </Link>
+              <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
+                View Programs
+              </Link>
             </div>
-            <div>
-              <p className="text-sm font-semibold text-teal-600 uppercase tracking-wide mb-3">
-                Meet Our Founder
-              </p>
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight">
-                Elizabeth Greene
-              </h1>
-              <p className="text-xl text-orange-600 font-semibold mb-6">
-                Founder & Executive Director
-              </p>
-              <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                Elizabeth founded Elevate for Humanity with a simple mission: connect everyday people to free workforce training that leads to real careers.
-              </p>
-              <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                After seeing too many talented individuals held back by lack of access to training and opportunity, she built a system that removes every barrier—no tuition, no debt, just direct pathways to employment.
-              </p>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Today, Elevate for Humanity partners with government agencies, training providers, and employers to create a seamless journey from unemployment to career success.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition-colors shadow-lg"
-                >
-                  Learn More About Our Mission
-                  <ChevronRight size={20} />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-teal-600 text-teal-600 font-semibold rounded-lg hover:bg-teal-50 transition-colors"
-                >
-                  Get in Touch
-                </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Transform Your Future</h2>
+                <p className="text-gray-700 mb-6">Join thousands who have launched successful careers through our programs.</p>
+                <ul className="space-y-3">
+                  
+                  <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>100% government-funded training</span>
+                  </li>
+                  
+                  <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>No cost to you - completely free</span>
+                  </li>
+                  
+                  <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Flexible scheduling options</span>
+                  </li>
+                  
+                  <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Career support from start to finish</span>
+                  </li>
+                  
+                </ul>
+              </div>
+              <div className="relative">
+                <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg flex items-center justify-center">
+                  <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Vision & Mission */}
-      <section className="py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 text-center">
-              Vision & Mission
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Vision</h3>
-                <p className="text-lg text-slate-700 leading-relaxed">
-                  A community where every person has access to quality workforce training and a clear pathway to meaningful employment, regardless of their background or financial situation.
-                </p>
+      {/* Feature Cards */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              
+              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3">100% Funded</h3>
+                <p className="text-gray-600">All programs completely free through government funding</p>
               </div>
-              <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Mission</h3>
-                <p className="text-lg text-slate-700 leading-relaxed">
-                  To eliminate barriers to career advancement by connecting individuals with 100% funded training programs, supportive services, and direct employer partnerships.
-                </p>
+              
+              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Job Placement</h3>
+                <p className="text-gray-600">We help you find employment after training</p>
               </div>
+              
+              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
+                <p className="text-gray-600">Learn from industry professionals</p>
+              </div>
+              
             </div>
           </div>
         </div>
       </section>
-
-      {/* Impact */}
-      <section className="py-20 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Our Impact
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Under Elizabeth's leadership, Elevate for Humanity has transformed lives across Indianapolis
-            </p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-5xl font-bold text-teal-600 mb-2">500+</div>
-              <p className="text-slate-700 font-semibold">Students Trained</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-orange-600 mb-2">85%</div>
-              <p className="text-slate-700 font-semibold">Job Placement Rate</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-blue-600 mb-2">20+</div>
-              <p className="text-slate-700 font-semibold">Training Programs</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-purple-600 mb-2">100+</div>
-              <p className="text-slate-700 font-semibold">Employer Partners</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-teal-600 to-blue-600">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Start Your Journey?
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Join hundreds of graduates who have transformed their lives through our free training programs
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/apply"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-teal-700 font-bold rounded-lg hover:bg-teal-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105"
-            >
-              Apply Now - It's Free
-            </Link>
-            <Link
-              href="/programs"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all"
-            >
-              View Programs
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
+    </div>
   );
 }

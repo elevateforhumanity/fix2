@@ -1,56 +1,115 @@
 import { Metadata } from 'next';
-import { createClient } from '@/lib/supabase/server';
-import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Create | Elevate For Humanity',
   description: 'Learn more about Create inside the Elevate For Humanity workforce ecosystem.',
 };
 
-export default async function Page() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.id)
-    .single();
-
-  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
-    redirect('/unauthorized');
-  }
-
+export default function CreateProgramPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto py-8 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-bold mb-6">Create | Elevate For Humanity</h1>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Total</h3>
-              <p className="text-3xl font-bold">0</p>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Create | Elevate For Humanity
+            </h1>
+            <p className="text-xl mb-8 text-blue-100">
+              Learn more about Create inside the Elevate For Humanity workforce ecosystem.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link 
+                href="/apply" 
+                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
+              >
+                Apply Now
+              </Link>
+              <Link 
+                href="/contact" 
+                className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition border-2 border-white"
+              >
+                Learn More
+              </Link>
             </div>
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
-              <p className="text-3xl font-bold text-green-600">0</p>
-            </div>
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Pending</h3>
-              <p className="text-3xl font-bold text-orange-600">0</p>
-            </div>
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Completed</h3>
-              <p className="text-3xl font-bold text-blue-600">0</p>
-            </div>
-          </div>
-          <div className="bg-white rounded-lg shadow-sm border p-6">
-            <h2 className="text-xl font-semibold mb-4">Management</h2>
-            <p className="text-gray-600">Content loading...</p>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Program Details */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 mb-16">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Program Overview</h2>
+                <div className="space-y-4 text-gray-700">
+                  <p>
+                    Our create program provides hands-on training and certification 
+                    to prepare you for a successful career.
+                  </p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">✓</span>
+                      <span>100% government-funded training</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">✓</span>
+                      <span>Industry-recognized certification</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">✓</span>
+                      <span>Job placement assistance</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-600 mr-2">✓</span>
+                      <span>Flexible scheduling options</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 p-8 rounded-lg">
+                <h3 className="text-2xl font-bold mb-4">Quick Facts</h3>
+                <dl className="space-y-4">
+                  <div>
+                    <dt className="text-sm text-gray-600">Duration</dt>
+                    <dd className="text-lg font-semibold">4-12 weeks</dd>
+                  </div>
+                  <div>
+                    <dt className="text-sm text-gray-600">Cost</dt>
+                    <dd className="text-lg font-semibold text-green-600">$0 (Fully Funded)</dd>
+                  </div>
+                  <div>
+                    <dt className="text-sm text-gray-600">Format</dt>
+                    <dd className="text-lg font-semibold">In-person & Online</dd>
+                  </div>
+                  <div>
+                    <dt className="text-sm text-gray-600">Certification</dt>
+                    <dd className="text-lg font-semibold">Industry-Recognized</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            {/* CTA Section */}
+            <div className="bg-blue-50 rounded-lg p-8 text-center">
+              <h2 className="text-2xl font-bold mb-4">Ready to Start Your Career?</h2>
+              <p className="text-gray-700 mb-6">
+                Join thousands of students who have transformed their lives through our programs.
+              </p>
+              <Link 
+                href="/apply" 
+                className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+              >
+                Apply Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

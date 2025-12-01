@@ -131,9 +131,14 @@ export default async function CertificatesPage() {
                             </div>
                           )}
                         </div>
-                        <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <a
+                          href={`/api/certificates/download?enrollmentId=${enrollment.id}&type=internal`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block w-full px-4 py-2 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transition-colors"
+                        >
                           Download Certificate
-                        </button>
+                        </a>
                       </div>
                     </div>
                   );
@@ -175,9 +180,14 @@ export default async function CertificatesPage() {
                             <span className="font-medium">{course?.partner_lms_providers?.provider_name}</span>
                           </div>
                         </div>
-                        <button className="w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                        <a
+                          href={`/api/certificates/download?enrollmentId=${enrollment.id}&type=partner`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block w-full px-4 py-2 bg-purple-600 text-white text-center rounded-lg hover:bg-purple-700 transition-colors"
+                        >
                           Download Certificate
-                        </button>
+                        </a>
                       </div>
                     </div>
                   );
