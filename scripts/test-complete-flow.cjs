@@ -30,7 +30,13 @@ authFiles.forEach(file => {
   const fullPath = path.join(process.cwd(), file);
   if (fs.existsSync(fullPath)) {
     const content = fs.readFileSync(fullPath, 'utf8');
-    const hasAuth = content.includes('supabase') || content.includes('auth');
+    // Check for auth integration OR form imports (page wrappers)
+    const hasAuth = content.includes('supabase') || 
+                    content.includes('auth') || 
+                    content.includes('LoginForm') ||
+                    content.includes('SignupForm') ||
+                    content.includes('ForgotPasswordForm') ||
+                    content.includes('ResetPasswordForm');
     if (hasAuth) {
       console.log(`   ✅ ${file}`);
       results.passed.push(`Auth: ${file}`);
