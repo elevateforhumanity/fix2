@@ -1,0 +1,62 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
+export default function SideHeroBanner() {
+  return (
+    <section className="py-16 bg-gradient-to-br from-slate-900 to-slate-800">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
+          {/* Left Side - Content */}
+          <div className="text-white">
+            <div className="inline-flex items-center gap-2 rounded-full bg-teal-500 px-4 py-2 text-sm font-bold mb-6">
+              <span>💼</span>
+              <span>100% Job Placement Support</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Your Career Starts Here
+            </h2>
+            <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+              Our dedicated team connects you with employers before you even graduate. Real training, real credentials, real jobs waiting.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/apply"
+                className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-bold rounded-lg hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+              >
+                Start Your Application
+                <ArrowRight size={20} className="ml-2" />
+              </Link>
+              <Link
+                href="/programs"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all"
+              >
+                Browse Programs
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Side - Image */}
+          <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/location-9.jpg"
+              alt="Elevate For Humanity - Career Training Center"
+              fill
+              className="object-cover"
+              quality={100}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <p className="text-sm font-semibold uppercase tracking-wide mb-2">
+                Indianapolis, IN
+              </p>
+              <p className="text-2xl font-bold">
+                8888 Keystone Crossing Suite 1300
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

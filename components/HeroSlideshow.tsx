@@ -7,54 +7,19 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    image: "/images/gallery/image1.jpg",
+    image: "/images/location-4.jpg",
     title: "Welcome to Elevate For Humanity",
     text: "Where everyday people turn real life into real careers",
   },
   {
-    image: "/images/gallery/image2.jpg",
+    image: "/images/location-5.jpg",
     title: "Free Workforce Training",
     text: "State and Federal Funded - WIOA, Workforce Ready Grants, and registered apprenticeships",
   },
   {
-    image: "/images/gallery/image3.jpg",
-    title: "Healthcare Careers",
-    text: "CNA, medical assisting, and phlebotomy get you job-ready in just weeks",
-  },
-  {
-    image: "/images/gallery/image4.jpg",
-    title: "Skilled Trades",
-    text: "Learn HVAC and building maintenance skills that pay well",
-  },
-  {
-    image: "/images/gallery/image5.jpg",
-    title: "Transportation Careers",
-    text: "CDL and logistics training open doors to stable, high-demand careers",
-  },
-  {
-    image: "/images/gallery/image6.jpg",
-    title: "Support and Advising",
-    text: "Our team walks with you through funding, enrollment, and getting started",
-  },
-  {
-    image: "/images/gallery/image7.jpg",
-    title: "Mental Wellness Support",
-    text: "We see the whole person - mental wellness and life support are part of your journey",
-  },
-  {
-    image: "/images/gallery/image8.jpg",
-    title: "Real Outcomes",
-    text: "Our graduates move from stuck to hired with real certifications and real paychecks",
-  },
-  {
-    image: "/images/gallery/image9.jpg",
-    title: "Community and Family",
-    text: "When one person elevates, the whole family and community feel it",
-  },
-  {
-    image: "/images/gallery/image10.jpg",
-    title: "Ready for a Fresh Start?",
-    text: "Click apply and let's see what funding you qualify for",
+    image: "/images/elizabeth-greene-founder.jpg",
+    title: "Led by Elizabeth Greene",
+    text: "Our founder built a system that removes every barrier to career success",
   },
 ];
 

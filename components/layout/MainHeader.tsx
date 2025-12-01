@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
@@ -21,10 +22,15 @@ export default function MainHeader() {
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-orange-500 text-white font-bold text-lg">
-                EFH
-              </span>
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/logo.png"
+                alt="Elevate For Humanity"
+                width={48}
+                height={48}
+                className="h-12 w-12"
+                priority
+              />
               <div className="leading-tight">
                 <div className="font-semibold text-slate-900 text-sm sm:text-base">
                   Elevate For Humanity

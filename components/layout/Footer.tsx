@@ -23,10 +23,14 @@ export function SiteFooter() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5 text-xs text-slate-900">
           {/* Brand & Contact */}
           <div className="md:col-span-2 lg:col-span-1">
-            <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-600 text-white text-xs font-black uppercase">
-                EFH
-              </div>
+            <div className="mb-4 flex items-center gap-3">
+              <Image
+                src="/logo.png"
+                alt="Elevate For Humanity"
+                width={48}
+                height={48}
+                className="h-12 w-12"
+              />
               <div>
                 <div className="text-base font-bold text-slate-900">
                   Elevate For Humanity

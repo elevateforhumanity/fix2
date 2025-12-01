@@ -36,12 +36,12 @@
 
   /* Focus visible styles for accessibility */
   *:focus-visible {
-    @apply outline-2 outline-offset-2 outline-red-600 rounded;
+    @apply outline-2 outline-offset-2 outline-teal-600 rounded;
   }
 
   /* Skip to main content link */
   .skip-to-main {
-    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-red-600 focus:text-white focus:rounded-md focus:shadow-lg;
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-teal-600 focus:text-white focus:rounded-md focus:shadow-lg;
   }
 }
 
@@ -110,7 +110,7 @@
   }
 
   .badge-error {
-    @apply badge bg-red-100 text-red-700;
+    @apply badge bg-orange-100 text-orange-700;
   }
 }
 
