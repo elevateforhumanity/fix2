@@ -4,7 +4,6 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import SocialMediaHighlight from "@/components/SocialMediaHighlight";
 import SideHeroBanner from "@/components/SideHeroBanner";
-import ThreeBlockHero from "@/components/ThreeBlockHero";
 
 export const metadata = {
   title: "Elevate for Humanity | Workforce Development & Career Training",
@@ -107,118 +106,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* HOLISTIC SUPPORT HIGHLIGHT */}
-      <section className="py-20 bg-gradient-to-br from-teal-600 via-teal-700 to-blue-800 text-white relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        </div>
-        
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              We Don't Just Train You—We Support Your Entire Journey
-            </h2>
-            <p className="text-xl md:text-2xl text-teal-100 max-w-4xl mx-auto leading-relaxed">
-              Our holistic approach addresses every barrier to your success with dedicated support services that go far beyond the classroom.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {/* Housing Support */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all group">
-              <div className="relative h-48">
-                <Image
-                  src="/images/leslie-wafford.jpg"
-                  alt="Leslie Wafford - Director of Housing & Supportive Services"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 to-transparent"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">Housing Assistance</h3>
-                <p className="text-teal-100 leading-relaxed text-sm">
-                  Stable housing is essential. Our Director of Housing & Supportive Services helps you secure safe, affordable housing during training.
-                </p>
-              </div>
-            </div>
-
-            {/* Mental Health */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all group">
-              <div className="relative h-48">
-                <Image
-                  src="/images/alina-smith.jpg"
-                  alt="Alina Smith - Director of Behavioral Health Services"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 to-transparent"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">Mental Health Services</h3>
-                <p className="text-teal-100 leading-relaxed text-sm">
-                  Our Director of Behavioral Health Services (PMHNP) provides mental wellness support because we see the whole person.
-                </p>
-              </div>
-            </div>
-
-            {/* Life Coaching */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all group">
-              <div className="relative h-48">
-                <Image
-                  src="/images/clystjah-woodley.jpg"
-                  alt="Clystjah Woodley - Lead Life Coach"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 to-transparent"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">Life Coaching</h3>
-                <p className="text-teal-100 leading-relaxed text-sm">
-                  Our Lead Life Coach helps you build confidence, set goals, and develop the soft skills employers value.
-                </p>
-              </div>
-            </div>
-
-            {/* Direct Employer Connections */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all group">
-              <div className="relative h-48">
-                <Image
-                  src="/images/ameco-martin.jpg"
-                  alt="Ameco Martin - Director of Staffing"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 to-transparent"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">Employer Connections</h3>
-                <p className="text-teal-100 leading-relaxed text-sm">
-                  Our Director of Staffing connects you directly with hiring employers—many students have jobs before graduation.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              href="/team"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-teal-700 font-bold rounded-lg hover:bg-teal-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105 text-lg"
-            >
-              Meet Our Support Team
-              <ChevronRight size={24} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* SIDE HERO BANNER */}
       <SideHeroBanner />
-
-      {/* THREE BLOCK HERO */}
-      <ThreeBlockHero />
 
       {/* SINGLE FEATURE - HEALTHCARE */}
       <section className="py-16 bg-slate-50">
@@ -543,7 +432,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/students-new/student-17.jpg"
+                src="/media/programs/cna-hd.jpg"
                 alt="Marcus J. - CNA Graduate"
                 fill
                 className="object-cover"
@@ -590,7 +479,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/students-new/student-13.jpg"
+                src="/media/programs/hvac-hd.jpg"
                 alt="Tasha W. - HVAC Graduate"
                 fill
                 className="object-cover"
@@ -603,7 +492,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/students-new/student-11.jpg"
+                src="/media/programs/cdl-hd.jpg"
                 alt="David R. - CDL Graduate"
                 fill
                 className="object-cover"
@@ -823,20 +712,20 @@ const stories = [
     program: "CNA Training",
     quote: "I went from unemployed to working at a hospital in 6 weeks.",
     outcome: "Now earning $18/hr at Community Hospital",
-    image: "/images/students-new/student-17.jpg",
+    image: "/media/programs/cna-hd.jpg",
   },
   {
     name: "Tasha W.",
     program: "HVAC Technician",
     quote: "Free training, real skills, and a job waiting when I finished.",
     outcome: "Hired by local HVAC company at $22/hr",
-    image: "/images/students-new/student-13.jpg",
+    image: "/media/programs/hvac-hd.jpg",
   },
   {
     name: "David R.",
     program: "CDL Training",
     quote: "I got my CDL without paying a dime. Best decision I made.",
     outcome: "Driving for national carrier at $60K/year",
-    image: "/images/students-new/student-11.jpg",
+    image: "/media/programs/cdl-hd.jpg",
   },
 ];

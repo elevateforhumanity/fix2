@@ -6,18 +6,16 @@ const publicDir = '/workspaces/fix2/public';
 
 // Images to enhance
 const imagesToEnhance = [
-  // Location photos (low quality - need enhancement)
-  'images/location-1.jpg',
-  'images/location-2.jpg',
-  'images/location-3.jpg',
-  'images/location-4.jpg',
-  'images/location-5.jpg',
-  'images/location-6.jpg',
-  'images/location-7.jpg',
-  'images/location-8.jpg',
-  'images/location-9.jpg',
-  'images/location-10.jpg',
-  'images/location-11.jpg',
+  // Staff photos - enhance to excellent quality
+  'images/elizabeth-greene-founder.jpg',
+  'images/carlina-wilkes.jpg',
+  'images/sharon-douglas.jpg',
+  'images/jozanna-george.jpg',
+  'images/ameco-martin.jpg',
+  'images/leslie-wafford.jpg',
+  'images/alina-smith.jpg',
+  'images/clystjah-woodley.jpg',
+  'images/delores-reynolds.jpg',
 ];
 
 async function enhanceImage(inputPath) {
@@ -27,28 +25,29 @@ async function enhanceImage(inputPath) {
     
     console.log(`Enhancing: ${inputPath}`);
     
-    // Process to temp file
+    // Process to temp file - Professional portrait enhancement
     await sharp(fullInputPath)
-      .resize(1920, 1280, {
-        fit: 'cover',
+      .resize(2048, 2048, {
+        fit: 'inside',
         position: 'center',
         withoutEnlargement: false // Allow upscaling
       })
       .sharpen({
-        sigma: 1.5,
-        m1: 1.0,
-        m2: 0.7,
+        sigma: 2.0,
+        m1: 1.2,
+        m2: 0.8,
         x1: 3,
         y2: 15,
         y3: 15
       })
       .modulate({
-        brightness: 1.05,
-        saturation: 1.1,
+        brightness: 1.08,
+        saturation: 1.15,
         hue: 0
       })
+      .linear(1.1, -(128 * 0.1)) // Increase contrast
       .jpeg({
-        quality: 95,
+        quality: 98,
         chromaSubsampling: '4:4:4',
         mozjpeg: true
       })
