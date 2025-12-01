@@ -28,7 +28,7 @@ const heroBlocks = [
     cta: "Learn About Job Support",
     href: "/career-services",
     badge: "85% Placement Rate",
-    color: "from-orange-600 to-red-600",
+    color: "from-orange-600 to-orange-700",
   },
 ];
 
