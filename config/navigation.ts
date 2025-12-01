@@ -26,34 +26,33 @@ export const headerNav: NavSection[] = [
   {
     label: "Programs",
     href: "/programs",
-    items: itemsFrom("programs").slice(0, 10),
-  },
-  {
-    label: "Funding",
-    href: "/funding",
-    items: itemsFrom("funding"),
-  },
-  {
-    label: "For Students",
-    href: "/student/portal",
-    items: itemsFrom("for-students").slice(0, 8),
-  },
-  {
-    label: "Career Center",
-    href: "/career-services",
-    items: itemsFrom("career-services"),
-  },
-  {
-    label: "Community",
-    href: "/community",
-    items: itemsFrom("community").slice(0, 6),
-  },
-  {
-    label: "Partners",
-    href: "/employers",
     items: [
-      ...itemsFrom("For Employers").slice(0, 4),
-      ...itemsFrom("Program Holders").slice(0, 4),
+      { label: "View All Programs", href: "/programs" },
+      { label: "Healthcare Training", href: "/programs/cna" },
+      { label: "Skilled Trades", href: "/programs/hvac" },
+      { label: "Beauty & Wellness", href: "/programs/barber" },
+      { label: "Transportation", href: "/programs/cdl" },
+      { label: "Technology", href: "/programs/it" },
+    ],
+  },
+  {
+    label: "Get Started",
+    href: "/apply",
+    items: [
+      { label: "Apply Now", href: "/apply" },
+      { label: "Funding Options", href: "/funding" },
+      { label: "Eligibility", href: "/funding/wioa" },
+      { label: "FAQ", href: "/faq" },
+    ],
+  },
+  {
+    label: "For You",
+    href: "/students",
+    items: [
+      { label: "For Students", href: "/students" },
+      { label: "For Employers", href: "/employers" },
+      { label: "Training Providers", href: "/training-providers" },
+      { label: "Student Portal", href: "/student/dashboard" },
     ],
   },
   {
@@ -61,13 +60,11 @@ export const headerNav: NavSection[] = [
     href: "/about",
     items: [
       { label: "About Us", href: "/about" },
-      { label: "Contact", href: "/contact" },
-      { label: "FAQ", href: "/faq" },
-      { label: "Blog", href: "/blog" },
+      { label: "Our Founder", href: "/founder" },
+      { label: "Our Team", href: "/team" },
       { label: "Success Stories", href: "/success-stories" },
-      { label: "Get Started", href: "/get-started" },
-      { label: "Apply Now", href: "/apply" },
-      { label: "Sitemap", href: "/sitemap-page" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "Blog", href: "/blog" },
     ],
   },
 ];
