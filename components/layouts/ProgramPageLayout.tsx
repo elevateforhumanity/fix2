@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 type ProgramPageLayoutProps = {
   title: string;
@@ -36,23 +38,102 @@ export function ProgramPageLayout(props: ProgramPageLayoutProps) {
   } = props;
 
   return (
-    <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
-      {/* Top badge + breadcrumb */}
-      <div className="mb-3 text-[11px] text-slate-500 flex flex-wrap items-center gap-2">
-        <span className="uppercase tracking-wide">
-          ORIGINAL-SITE-EFH-ORIGINAL-2024 • OWNER: Elizabeth L. Greene
-        </span>
-        <span className="hidden sm:inline text-slate-300">•</span>
-        <span className="text-slate-500">
-          <Link href="/programs" className="hover:text-orange-600">
-            Programs
-          </Link>{" "}
-          / {title}
-        </span>
-      </div>
+    <main className="bg-white">
+      {/* TOP BANNER */}
+      <section className="bg-gradient-to-r from-orange-600 to-orange-500 py-3 sticky top-0 z-50 shadow-lg">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white animate-pulse">
+                🔥 NOW ENROLLING
+              </span>
+              <p className="text-white font-semibold text-sm sm:text-base">
+                Free Career Training - 100% Government Funded • Start in 2 Weeks
+              </p>
+            </div>
+            <Link
+              href="/apply"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-bold text-orange-600 hover:bg-orange-50 transition-all shadow-lg hover:scale-105 whitespace-nowrap"
+            >
+              Apply Now →
+            </Link>
+          </div>
+        </div>
+      </section>
 
-      {/* Hero */}
-      <section className="grid gap-6 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1.1fr)] items-start mb-10">
+      {/* HERO */}
+      <section className="relative h-[700px] overflow-hidden">
+        <Image
+          src="/images/gallery/image2.jpg"
+          alt={title}
+          fill
+          className="object-cover"
+          priority
+          quality={100}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-transparent" />
+        
+        <div className="relative h-full flex items-center">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
+            <div className="max-w-3xl">
+              {badge && (
+                <div className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-4 py-2 text-sm font-bold text-white mb-6">
+                  {badge}
+                </div>
+              )}
+              <h1 className="text-5xl md:text-6xl font-light text-white mb-6 leading-tight">
+                {title}
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-200 font-light mb-8 leading-relaxed">
+                {subtitle}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors shadow-lg"
+                >
+                  Apply Now
+                  <ArrowRight size={20} className="ml-2" />
+                </Link>
+                <Link
+                  href="/programs"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded border-2 border-white hover:bg-slate-50 transition-colors shadow-lg"
+                >
+                  All Programs
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GOVERNMENT PARTNERS BAR */}
+      <section className="bg-slate-50 border-y border-slate-200 py-6">
+        <div className="mx-auto max-w-7xl px-6">
+          <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
+            Approved Workforce Development Partner
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">EmployIndy</p>
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">WorkOne</p>
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">Indiana DWD</p>
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">US Dept of Labor</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTENT */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <section className="grid gap-6 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1.1fr)] items-start mb-10">
         <div className="space-y-4">
           {badge && (
             <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-[11px] font-semibold text-orange-700 border border-orange-100 uppercase tracking-wide">
@@ -247,31 +328,45 @@ export function ProgramPageLayout(props: ProgramPageLayoutProps) {
         </section>
       )}
 
-      {/* Bottom CTA */}
-      <section className="mb-4">
-        <div className="rounded-2xl border border-orange-200 bg-orange-50 px-5 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div>
-            <h2 className="text-sm font-semibold text-orange-900">
-              Ready to take the next step?
-            </h2>
-            <p className="text-xs sm:text-sm text-orange-900/80">
-              We&apos;ll help you check WIOA/WRG eligibility and walk you
-              through enrollment so you&apos;re not doing this alone.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-orange-700 px-5 py-2 text-xs sm:text-sm font-semibold text-white hover:bg-orange-800"
-            >
-              Apply for this program
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-xs sm:text-sm font-semibold text-orange-700 border border-orange-200 hover:bg-orange-100"
-            >
-              Talk to someone first
-            </Link>
+        </div>
+      </section>
+
+      {/* CTA WITH IMAGE */}
+      <section className="py-16 bg-gradient-to-r from-orange-600 to-orange-500">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/gallery/image11.jpg"
+                alt="Start your training today"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+            <div className="text-white">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Ready to take the next step?
+              </h2>
+              <p className="text-xl mb-8 text-orange-50">
+                We'll help you check WIOA/WRG eligibility and walk you through enrollment so you're not doing this alone.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-orange-600 font-bold rounded-lg hover:bg-orange-50 transition-colors shadow-lg"
+                >
+                  Apply Now
+                  <ArrowRight size={20} className="ml-2" />
+                </Link>
+                <Link
+                  href="/programs"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-orange-700 text-white font-semibold rounded-lg hover:bg-orange-800 transition-colors shadow-lg"
+                >
+                  View All Programs
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 export type AutoPolishedPageProps = {
   route: string;   // e.g. "/student/dashboard"
@@ -430,76 +432,148 @@ function getAutoConfig(section: string, label: string, route: string): AutoConfi
 export function AutoPolishedPage({ route, label, section }: AutoPolishedPageProps) {
   const config = getAutoConfig(section, label, route);
 
+  // Get hero image based on section
+  const getHeroImage = () => {
+    const cat = normalizeSection(section);
+    switch (cat) {
+      case "programs": return "/images/gallery/image2.jpg";
+      case "funding": return "/images/gallery/image3.jpg";
+      case "students": return "/images/gallery/image4.jpg";
+      case "lms": return "/images/gallery/image5.jpg";
+      case "employers": return "/images/gallery/image6.jpg";
+      case "community": return "/images/gallery/image7.jpg";
+      case "admin-staff": return "/images/gallery/image8.jpg";
+      default: return "/images/gallery/image1.jpg";
+    }
+  };
+
   return (
-    <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10">
-      {/* Tagline + breadcrumb */}
-      <div className="mb-3 flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
-        <span className="uppercase tracking-wide">
-          ORIGINAL-SITE-EFH-ORIGINAL-2024 • OWNER: Elizabeth L. Greene
-        </span>
-        <span className="hidden sm:inline text-slate-300">•</span>
-        <span>{config.categoryLabel}</span>
-        <span className="hidden sm:inline text-slate-300">•</span>
-        <span className="truncate">{route}</span>
-      </div>
-
-      {/* Hero */}
-      <section className="grid gap-6 md:grid-cols-[minmax(0,1.7fr)_minmax(0,1.1fr)] items-start mb-10">
-        <div className="space-y-3">
-          {config.badge && (
-            <div className="inline-flex items-center gap-2 rounded-full bg-orange-50 px-3 py-1 text-[11px] font-semibold text-orange-700 border border-orange-100 uppercase tracking-wide">
-              {config.badge}
+    <main className="bg-white">
+      {/* TOP BANNER */}
+      <section className="bg-gradient-to-r from-orange-600 to-orange-500 py-3 sticky top-0 z-50 shadow-lg">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white animate-pulse">
+                🔥 NOW ENROLLING
+              </span>
+              <p className="text-white font-semibold text-sm sm:text-base">
+                Free Career Training - 100% Government Funded • Start in 2 Weeks
+              </p>
             </div>
-          )}
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">{label}</h1>
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-            Built for: {config.audience}
-          </p>
-          <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-            {config.description}
-          </p>
-
-          <p className="text-xs sm:text-sm text-slate-600">
-            {config.shortTagline}
-          </p>
-
-          <div className="flex flex-wrap gap-3 mt-4">
-            {config.primaryCta && (
-              <Link
-                href={config.primaryCta.href}
-                className="inline-flex items-center justify-center rounded-full bg-orange-600 px-5 py-2 text-xs sm:text-sm font-semibold text-white shadow-sm hover:bg-orange-700"
-              >
-                {config.primaryCta.label}
-              </Link>
-            )}
-            {config.secondaryCta && (
-              <Link
-                href={config.secondaryCta.href}
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-xs sm:text-sm font-semibold text-slate-800 hover:border-orange-500 hover:text-orange-700"
-              >
-                {config.secondaryCta.label}
-              </Link>
-            )}
+            <Link
+              href="/apply"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-bold text-orange-600 hover:bg-orange-50 transition-all shadow-lg hover:scale-105 whitespace-nowrap"
+            >
+              Apply Now →
+            </Link>
           </div>
         </div>
+      </section>
 
-        {/* Right column */}
-        <aside className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 sm:p-5 space-y-3">
-          <h2 className="text-sm font-semibold text-slate-900">
-            How this page fits the ecosystem
-          </h2>
-          <ul className="space-y-1 text-sm text-slate-700">
-            {config.bullets.map((b) => (
-              <li key={b} className="flex gap-2">
-                <span className="mt-[3px] text-orange-500">●</span>
-                <span>{b}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="border-t border-slate-200 pt-3 text-[11px] text-slate-500">
-            Route: <code className="bg-white px-1 py-[1px] rounded border border-slate-200">{route}</code>
+      {/* HERO */}
+      <section className="relative h-[700px] overflow-hidden">
+        <Image
+          src={getHeroImage()}
+          alt={label}
+          fill
+          className="object-cover"
+          priority
+          quality={100}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-transparent" />
+        
+        <div className="relative h-full flex items-center">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
+            <div className="max-w-3xl">
+              {config.badge && (
+                <div className="inline-flex items-center gap-2 rounded-full bg-orange-500 px-4 py-2 text-sm font-bold text-white mb-6">
+                  {config.badge}
+                </div>
+              )}
+              <h1 className="text-5xl md:text-6xl font-light text-white mb-6 leading-tight">
+                {label}
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-200 font-light mb-8 leading-relaxed">
+                {config.shortTagline}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                {config.primaryCta && (
+                  <Link
+                    href={config.primaryCta.href}
+                    className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors shadow-lg"
+                  >
+                    {config.primaryCta.label}
+                    <ArrowRight size={20} className="ml-2" />
+                  </Link>
+                )}
+                {config.secondaryCta && (
+                  <Link
+                    href={config.secondaryCta.href}
+                    className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded border-2 border-white hover:bg-slate-50 transition-colors shadow-lg"
+                  >
+                    {config.secondaryCta.label}
+                  </Link>
+                )}
+              </div>
+            </div>
           </div>
-        </aside>
+        </div>
+      </section>
+
+      {/* GOVERNMENT PARTNERS BAR */}
+      <section className="bg-slate-50 border-y border-slate-200 py-6">
+        <div className="mx-auto max-w-7xl px-6">
+          <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
+            Approved Workforce Development Partner
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">EmployIndy</p>
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">WorkOne</p>
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">Indiana DWD</p>
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-slate-700">US Dept of Labor</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTENT */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-3">
+                {config.categoryLabel}
+              </p>
+              <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight">
+                Built for: {config.audience}
+              </h2>
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                {config.description}
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+              <h3 className="text-xl font-semibold text-slate-900 mb-4">
+                How this page fits the ecosystem
+              </h3>
+              <ul className="space-y-3 text-slate-700">
+                {config.bullets.map((b) => (
+                  <li key={b} className="flex gap-3">
+                    <span className="text-orange-500 font-bold">✓</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   );
