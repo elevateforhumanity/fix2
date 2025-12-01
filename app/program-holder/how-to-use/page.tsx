@@ -1,17 +1,8 @@
-import type { Metadata } from "next";
-import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
-
-export const metadata: Metadata = {
-  title: "How To Use | Elevate For Humanity",
-  description: "Learn more about How To Use inside the Elevate For Humanity workforce ecosystem.",
-};
-
-export default function Page() {
-  return (
-    <AutoPolishedPage
-      route="/program-holder/how-to-use"
-      label="How To Use"
-      section="Program Holders"
-    />
-  );
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
+export default async function Page() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect('/login');
+  return <div className="p-8"><h1 className="text-3xl font-bold">How To Use | Elevate For Humanity</h1></div>;
 }

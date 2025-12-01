@@ -1,17 +1,8 @@
-import type { Metadata } from "next";
-import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
-
-export const metadata: Metadata = {
-  title: "Career Counseling | Elevate For Humanity",
-  description: "Learn more about Career Counseling inside the Elevate For Humanity workforce ecosystem.",
-};
-
-export default function Page() {
-  return (
-    <AutoPolishedPage
-      route="/student/career-counseling"
-      label="Career Counseling"
-      section="For Students"
-    />
-  );
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
+export default async function Page() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect('/login');
+  return <div className="p-8"><h1 className="text-3xl font-bold">Career Counseling | Elevate For Humanity</h1></div>;
 }

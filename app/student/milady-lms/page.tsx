@@ -1,17 +1,8 @@
-import type { Metadata } from "next";
-import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
-
-export const metadata: Metadata = {
-  title: "Milady Lms | Elevate For Humanity",
-  description: "Learn more about Milady Lms inside the Elevate For Humanity workforce ecosystem.",
-};
-
-export default function Page() {
-  return (
-    <AutoPolishedPage
-      route="/student/milady-lms"
-      label="Milady Lms"
-      section="For Students"
-    />
-  );
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
+export default async function Page() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) redirect('/login');
+  return <div className="p-8"><h1 className="text-3xl font-bold">Milady Lms | Elevate For Humanity</h1></div>;
 }
