@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const programs = [
   {
@@ -6,54 +7,63 @@ const programs = [
     name: "Medical Assistant",
     blurb:
       "Hands-on training to support doctors, nurses, and clinics with patient care and front office skills.",
+    image: "/media/programs/healthcare-professional-1-hd.jpg",
   },
   {
     slug: "cna",
     name: "CNA (Certified Nursing Assistant)",
     blurb:
       "Start your healthcare career helping patients with daily care in hospitals, nursing homes, and home care.",
+    image: "/media/programs/cna-hd.jpg",
   },
   {
     slug: "barber-apprenticeship",
     name: "Barber Apprenticeship",
     blurb:
       "Earn while you learn under a licensed barber and build a career in grooming, style, and entrepreneurship.",
+    image: "/media/programs/barber-hd.jpg",
   },
   {
     slug: "hvac-technician",
     name: "HVAC Technician",
     blurb:
       "Learn to install and service heating and cooling systems that keep homes and businesses comfortable.",
+    image: "/media/programs/hvac-hd.jpg",
   },
   {
     slug: "building-maintenance-tech",
     name: "Building Maintenance Technician",
     blurb:
       "Train to keep buildings safe, clean, and operating smoothly through hands-on maintenance skills.",
+    image: "/media/programs/building-tech-hd.jpg",
   },
   {
     slug: "cdl",
     name: "CDL / Truck Driving",
     blurb:
       "Prepare for a career on the road with commercial driving skills that keep goods moving across the country.",
+    image: "/media/programs/cdl-hd.jpg",
   },
   {
     slug: "tax-prep-vita",
     name: "Tax Prep (VITA)",
     blurb:
       "Become an IRS-certified volunteer tax preparer and help families file accurate returns at no cost.",
+    image: "/media/programs/tax-prep-hd.jpg",
   },
   {
     slug: "workforce-readiness",
     name: "Workforce Readiness",
     blurb:
       "Build the soft skills, digital skills, and confidence to show up strong on any job.",
+    image: "/media/programs/multi-training-programs-optimized.jpg",
   },
   {
     slug: "micro-classes",
     name: "Micro Classes",
     blurb:
       "Short, focused classes that help you test new careers, build specific skills, or stack credentials.",
+    image: "/media/programs/cpr-group-training-hd.jpg",
   },
 ];
 
@@ -87,15 +97,26 @@ export default function ProgramsPage() {
           <Link
             key={program.slug}
             href={`/programs/${program.slug}`}
-            className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-orange-400 hover:shadow-md transition-all"
+            className="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:border-orange-400 hover:shadow-md transition-all"
           >
-            <h2 className="text-sm font-semibold text-slate-900 group-hover:text-orange-700">
-              {program.name}
-            </h2>
-            <p className="mt-2 text-sm text-slate-700">{program.blurb}</p>
-            <p className="mt-3 text-[11px] font-semibold uppercase tracking-wide text-orange-700">
-              Learn more →
-            </p>
+            <div className="relative h-48 w-full">
+              <Image
+                src={program.image}
+                alt={program.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="p-5">
+              <h2 className="text-sm font-semibold text-slate-900 group-hover:text-orange-700">
+                {program.name}
+              </h2>
+              <p className="mt-2 text-sm text-slate-700">{program.blurb}</p>
+              <p className="mt-3 text-[11px] font-semibold uppercase tracking-wide text-orange-700">
+                Learn more →
+              </p>
+            </div>
           </Link>
         ))}
       </section>
