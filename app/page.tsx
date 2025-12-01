@@ -126,45 +126,85 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {/* Housing Support */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all">
-              <div className="text-4xl mb-4">🏠</div>
-              <h3 className="text-xl font-bold mb-3">Housing Assistance</h3>
-              <p className="text-teal-100 leading-relaxed">
-                Stable housing is essential. Our Director of Housing & Supportive Services helps you secure safe, affordable housing during training.
-              </p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all group">
+              <div className="relative h-48">
+                <Image
+                  src="/images/leslie-wafford.jpg"
+                  alt="Leslie Wafford - Director of Housing & Supportive Services"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 to-transparent"></div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">Housing Assistance</h3>
+                <p className="text-teal-100 leading-relaxed text-sm">
+                  Stable housing is essential. Our Director of Housing & Supportive Services helps you secure safe, affordable housing during training.
+                </p>
+              </div>
             </div>
 
             {/* Mental Health */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all">
-              <div className="text-4xl mb-4">🧠</div>
-              <h3 className="text-xl font-bold mb-3">Mental Health Services</h3>
-              <p className="text-teal-100 leading-relaxed">
-                Our Director of Behavioral Health Services (PMHNP) provides mental wellness support because we see the whole person.
-              </p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all group">
+              <div className="relative h-48">
+                <Image
+                  src="/images/alina-smith.jpg"
+                  alt="Alina Smith - Director of Behavioral Health Services"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 to-transparent"></div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">Mental Health Services</h3>
+                <p className="text-teal-100 leading-relaxed text-sm">
+                  Our Director of Behavioral Health Services (PMHNP) provides mental wellness support because we see the whole person.
+                </p>
+              </div>
             </div>
 
             {/* Life Coaching */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all">
-              <div className="text-4xl mb-4">💪</div>
-              <h3 className="text-xl font-bold mb-3">Life Coaching</h3>
-              <p className="text-teal-100 leading-relaxed">
-                Our Lead Life Coach helps you build confidence, set goals, and develop the soft skills employers value.
-              </p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all group">
+              <div className="relative h-48">
+                <Image
+                  src="/images/clystjah-woodley.jpg"
+                  alt="Clystjah Woodley - Lead Life Coach"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 to-transparent"></div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">Life Coaching</h3>
+                <p className="text-teal-100 leading-relaxed text-sm">
+                  Our Lead Life Coach helps you build confidence, set goals, and develop the soft skills employers value.
+                </p>
+              </div>
             </div>
 
             {/* Direct Employer Connections */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all">
-              <div className="text-4xl mb-4">🤝</div>
-              <h3 className="text-xl font-bold mb-3">Employer Connections</h3>
-              <p className="text-teal-100 leading-relaxed">
-                Our Director of Staffing connects you directly with hiring employers—many students have jobs before graduation.
-              </p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/20 hover:bg-white/20 transition-all group">
+              <div className="relative h-48">
+                <Image
+                  src="/images/ameco-martin.jpg"
+                  alt="Ameco Martin - Director of Staffing"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-teal-900/90 to-transparent"></div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3">Employer Connections</h3>
+                <p className="text-teal-100 leading-relaxed text-sm">
+                  Our Director of Staffing connects you directly with hiring employers—many students have jobs before graduation.
+                </p>
+              </div>
             </div>
           </div>
 
           <div className="text-center mt-12">
             <Link
-              href="/about"
+              href="/team"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-teal-700 font-bold rounded-lg hover:bg-teal-50 transition-all shadow-xl hover:shadow-2xl hover:scale-105 text-lg"
             >
               Meet Our Support Team
@@ -176,59 +216,6 @@ export default function HomePage() {
 
       {/* SIDE HERO BANNER */}
       <SideHeroBanner />
-
-      {/* FOUNDER SECTION - ELIZABETH GREENE */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-orange-50">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/elizabeth-greene-founder.jpg"
-                alt="Elizabeth Greene - Founder & Executive Director, Elevate for Humanity"
-                fill
-                className="object-cover object-center"
-                quality={95}
-                priority
-              />
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-teal-600 uppercase tracking-wide mb-3">
-                Meet Our Founder
-              </p>
-              <h2 className="text-4xl font-bold text-slate-900 mb-4 leading-tight">
-                Elizabeth Greene
-              </h2>
-              <p className="text-xl text-orange-600 font-semibold mb-6">
-                Founder & Executive Director
-              </p>
-              <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                Elizabeth founded Elevate for Humanity with a simple mission: connect everyday people to free workforce training that leads to real careers.
-              </p>
-              <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                After seeing too many talented individuals held back by lack of access to training and opportunity, she built a system that removes every barrier—no tuition, no debt, just direct pathways to employment.
-              </p>
-              <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                Today, Elevate for Humanity partners with government agencies, training providers, and employers to create a seamless journey from unemployment to career success.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition-colors shadow-lg"
-                >
-                  Learn More About Our Mission
-                  <ChevronRight size={20} />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-teal-600 text-teal-600 font-semibold rounded-lg hover:bg-teal-50 transition-colors"
-                >
-                  Get in Touch
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* THREE BLOCK HERO */}
       <ThreeBlockHero />
