@@ -7,19 +7,24 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    image: "/images/location-4.png",
-    title: "Welcome to Elevate For Humanity",
-    text: "Where everyday people turn real life into real careers",
+    image: "/images/location-4.jpg",
+    title: "Your Career Starts Here",
+    text: "Free workforce training that leads to real jobs - 100% government funded",
   },
   {
-    image: "/images/location-5.png",
-    title: "Free Workforce Training",
+    image: "/images/location-5.jpg",
+    title: "Build a Career in High-Demand Trades",
+    text: "HVAC, welding, and building maintenance - earn $20-$30/hour with benefits",
+  },
+  {
+    image: "/images/artlist/hero-training-8.jpg",
+    title: "No Cost. No Debt. Just Opportunity.",
     text: "State and Federal Funded - WIOA, Workforce Ready Grants, and registered apprenticeships",
   },
   {
-    image: "/images/elizabeth-greene-founder.jpg",
-    title: "Led by Elizabeth Greene",
-    text: "Our founder built a system that removes every barrier to career success",
+    image: "/images/artlist/hero-training-1.jpg",
+    title: "Train Today. Work Tomorrow.",
+    text: "Healthcare, Skilled Trades, Technology, and Business programs with direct employer connections",
   },
 ];
 
@@ -31,6 +36,16 @@ export default function HeroSlideshow() {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
+  }, []);
+
+  // Auto-play voiceover on mount
+  useEffect(() => {
+    const audio = new Audio('/videos/voiceover.mp3');
+    audio.volume = 0.7;
+    audio.play().catch(err => {
+      // Autoplay blocked by browser - user needs to interact first
+      console.log('Autoplay prevented:', err);
+    });
   }, []);
 
   const goToSlide = (index: number) => {

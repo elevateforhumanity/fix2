@@ -31,7 +31,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-bold text-teal-600 hover:bg-teal-50 transition-all shadow-lg hover:scale-105 whitespace-nowrap"
+              className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-3 text-sm font-bold text-white hover:bg-orange-600 transition-all shadow-xl hover:scale-105 whitespace-nowrap"
             >
               Apply Now →
             </Link>
@@ -442,13 +442,13 @@ export default function HomePage() {
 
           {/* Story 1 - Marcus */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+            <div className="relative h-[350px] rounded-xl overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/cna-hd.jpg"
                 alt="Marcus J. - CNA Graduate"
                 fill
                 className="object-cover"
-                quality={100}
+                quality={95}
               />
             </div>
             <div>
@@ -489,26 +489,26 @@ export default function HomePage() {
                 Hired by local HVAC company at $22/hr
               </p>
             </div>
-            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+            <div className="relative h-[350px] rounded-xl overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/hvac-hd.jpg"
                 alt="Tasha W. - HVAC Graduate"
                 fill
                 className="object-cover"
-                quality={100}
+                quality={95}
               />
             </div>
           </div>
 
           {/* Story 3 - David */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
+            <div className="relative h-[350px] rounded-xl overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/cdl-hd.jpg"
                 alt="David R. - CDL Graduate"
                 fill
                 className="object-cover"
-                quality={100}
+                quality={95}
               />
             </div>
             <div>
