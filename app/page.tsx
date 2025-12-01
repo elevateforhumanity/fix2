@@ -75,8 +75,8 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded overflow-hidden shadow-xl">
               <Image
-                src="/images/location-4.png"
-                alt="Elevate For Humanity Office - Indianapolis"
+                src="/images/artlist/hero-training-3.jpg"
+                alt="Elevate For Humanity Training - Indianapolis"
                 fill
                 className="object-cover"
                 quality={100}
@@ -157,8 +157,8 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/location-5.png"
-                alt="Elevate For Humanity Training Facility"
+                src="/images/artlist/hero-training-7.jpg"
+                alt="Skilled Trades Training"
                 fill
                 className="object-cover"
                 quality={100}
@@ -216,7 +216,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/programs/barber-hd.png"
+                src="/media/programs/barber-hd.jpg"
                 alt="Barber training"
                 fill
                 className="object-cover"
@@ -233,8 +233,8 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/location-9.png"
-                alt="Elevate For Humanity Office Location"
+                src="/images/artlist/hero-training-8.jpg"
+                alt="Hands-On Training"
                 fill
                 className="object-cover"
                 quality={100}
@@ -278,7 +278,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/programs/cna-hd.png"
+                src="/media/programs/cna-hd.jpg"
                 alt="Certified Nursing Assistant Training"
                 fill
                 className="object-cover"
@@ -352,7 +352,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/programs/cdl-hd.png"
+                src="/media/programs/cdl-hd.jpg"
                 alt="Commercial Driver CDL Training"
                 fill
                 className="object-cover"
@@ -444,7 +444,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/programs/cna-hd.png"
+                src="/media/programs/cna-hd.jpg"
                 alt="Marcus J. - CNA Graduate"
                 fill
                 className="object-cover"
@@ -491,7 +491,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/programs/hvac-hd.png"
+                src="/media/programs/hvac-hd.jpg"
                 alt="Tasha W. - HVAC Graduate"
                 fill
                 className="object-cover"
@@ -504,7 +504,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/programs/cdl-hd.png"
+                src="/media/programs/cdl-hd.jpg"
                 alt="David R. - CDL Graduate"
                 fill
                 className="object-cover"
@@ -634,19 +634,19 @@ const features = [
   {
     title: "Healthcare Careers",
     description: "Train as a Certified Nursing Assistant, Medical Assistant, or Phlebotomist in 4-10 weeks. State certification included. Hospitals and clinics are hiring immediately. Starting pay: $16-$20/hour.",
-    image: "/media/programs/cna-hd.png",
+    image: "/media/programs/cna-hd.jpg",
     link: "/programs/cna-certification",
   },
   {
     title: "Skilled Trades",
     description: "HVAC technicians, welders, and building maintenance workers earn $20-$30/hour with benefits. Get EPA certification, OSHA training, and hands-on experience. Apprenticeships available.",
-    image: "/media/programs/hvac-hd.png",
+    image: "/media/programs/hvac-hd.jpg",
     link: "/programs/hvac-technician",
   },
   {
     title: "Licensed Professionals",
     description: "Become a licensed barber, CDL truck driver, or cosmetologist. Own your chair, drive your own routes, or work for established companies. Flexible schedules and entrepreneurship opportunities.",
-    image: "/media/programs/barber-hd.png",
+    image: "/media/programs/barber-hd.jpg",
     link: "/programs/barber-apprenticeship",
   },
 ];
@@ -658,7 +658,7 @@ const programs = [
     duration: "4-6 weeks",
     salary: "$35K-$45K",
     link: "/programs/cna-certification",
-    image: "/images/artlist/hero-training-1.png",
+    image: "/images/artlist/hero-training-1.jpg",
   },
   {
     title: "HVAC Technician",
@@ -666,7 +666,7 @@ const programs = [
     duration: "8-12 weeks",
     salary: "$45K-$65K",
     link: "/programs/hvac-technician",
-    image: "/images/artlist/hero-training-2.png",
+    image: "/images/artlist/hero-training-2.jpg",
   },
   {
     title: "Licensed Barber",
@@ -674,7 +674,7 @@ const programs = [
     duration: "12 weeks",
     salary: "$30K-$55K",
     link: "/programs/barber-apprenticeship",
-    image: "/images/artlist/hero-training-3.png",
+    image: "/images/artlist/hero-training-3.jpg",
   },
   {
     title: "Commercial Driver",
@@ -682,7 +682,7 @@ const programs = [
     duration: "4-6 weeks",
     salary: "$50K-$70K",
     link: "/programs/cdl-training",
-    image: "/images/artlist/hero-training-4.png",
+    image: "/images/artlist/hero-training-4.jpg",
   },
   {
     title: "Medical Assistant",
@@ -690,7 +690,7 @@ const programs = [
     duration: "8-10 weeks",
     salary: "$32K-$42K",
     link: "/programs/medical-administrative-assistant",
-    image: "/images/artlist/hero-training-5.png",
+    image: "/images/artlist/hero-training-5.jpg",
   },
   {
     title: "Building Maintenance",
@@ -724,20 +724,20 @@ const stories = [
     program: "CNA Training",
     quote: "I went from unemployed to working at a hospital in 6 weeks.",
     outcome: "Now earning $18/hr at Community Hospital",
-    image: "/media/programs/cna-hd.png",
+    image: "/media/programs/cna-hd.jpg",
   },
   {
     name: "Tasha W.",
     program: "HVAC Technician",
     quote: "Free training, real skills, and a job waiting when I finished.",
     outcome: "Hired by local HVAC company at $22/hr",
-    image: "/media/programs/hvac-hd.png",
+    image: "/media/programs/hvac-hd.jpg",
   },
   {
     name: "David R.",
     program: "CDL Training",
     quote: "I got my CDL without paying a dime. Best decision I made.",
     outcome: "Driving for national carrier at $60K/year",
-    image: "/media/programs/cdl-hd.png",
+    image: "/media/programs/cdl-hd.jpg",
   },
 ];
