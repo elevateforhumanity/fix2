@@ -4,19 +4,19 @@ import { ArrowRight } from "lucide-react";
 
 export default function SideHeroBanner() {
   return (
-    <section className="py-16 bg-gradient-to-br from-slate-900 to-slate-800">
+    <section className="py-16 bg-gradient-to-br from-white to-slate-50">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Side - Content */}
-          <div className="text-white">
-            <div className="inline-flex items-center gap-2 rounded-full bg-teal-500 px-4 py-2 text-sm font-bold mb-6">
+          <div className="text-slate-900">
+            <div className="inline-flex items-center gap-2 rounded-full bg-teal-500 px-4 py-2 text-sm font-bold mb-6 text-white">
               <span>💼</span>
               <span>100% Job Placement Support</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
               Your Career Starts Here
             </h2>
-            <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+            <p className="text-xl text-slate-700 mb-8 leading-relaxed">
               Our dedicated team connects you with employers before you even graduate. Real training, real credentials, real jobs waiting.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -29,7 +29,7 @@ export default function SideHeroBanner() {
               </Link>
               <Link
                 href="/programs"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-teal-600 text-teal-600 font-semibold rounded-lg hover:bg-teal-50 transition-all"
               >
                 Browse Programs
               </Link>
@@ -45,8 +45,8 @@ export default function SideHeroBanner() {
               className="object-cover"
               quality={100}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-            <div className="absolute bottom-6 left-6 right-6 text-white">
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+            <div className="absolute bottom-6 left-6 right-6 text-white drop-shadow-lg">
               <p className="text-sm font-semibold uppercase tracking-wide mb-2">
                 Indianapolis, IN
               </p>

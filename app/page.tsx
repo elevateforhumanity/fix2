@@ -395,24 +395,32 @@ export default function HomePage() {
       </section>
 
       {/* IMPACT NUMBERS */}
-      <section className="py-12 bg-slate-900 text-white">
+      <section className="py-16 bg-gradient-to-br from-teal-50 via-white to-orange-50">
         <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              Our Impact by the Numbers
+            </h2>
+            <p className="text-lg text-slate-600">
+              Real results from real people building real careers
+            </p>
+          </div>
           <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-5xl font-light mb-2">500+</div>
-              <p className="text-slate-300">Students Trained</p>
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-5xl font-bold text-teal-600 mb-2">500+</div>
+              <p className="text-slate-700 font-semibold">Students Trained</p>
             </div>
-            <div>
-              <div className="text-5xl font-light mb-2">85%</div>
-              <p className="text-slate-300">Job Placement Rate</p>
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-5xl font-bold text-orange-600 mb-2">85%</div>
+              <p className="text-slate-700 font-semibold">Job Placement Rate</p>
             </div>
-            <div>
-              <div className="text-5xl font-light mb-2">20+</div>
-              <p className="text-slate-300">Training Programs</p>
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-5xl font-bold text-blue-600 mb-2">20+</div>
+              <p className="text-slate-700 font-semibold">Training Programs</p>
             </div>
-            <div>
-              <div className="text-5xl font-light mb-2">100+</div>
-              <p className="text-slate-300">Employer Partners</p>
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="text-5xl font-bold text-purple-600 mb-2">100+</div>
+              <p className="text-slate-700 font-semibold">Employer Partners</p>
             </div>
           </div>
         </div>

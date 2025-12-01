@@ -62,7 +62,7 @@ export default function HeroSlideshow() {
             priority={index === 0}
             quality={100}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 via-slate-900/20 to-transparent" />
           
           <div className="relative h-full flex items-center">
             <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
