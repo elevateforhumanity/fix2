@@ -69,8 +69,8 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded overflow-hidden shadow-xl">
               <Image
-                src="/media/programs/healthcare-hd.jpg"
-                alt="Healthcare training students in clinical setting"
+                src="/images/facilities-new/facility-5.jpg"
+                alt="Students in training facility"
                 fill
                 className="object-cover"
                 quality={100}
