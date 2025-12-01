@@ -148,7 +148,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/programs/building-tech-hd.jpg"
+                src="/images/facilities-new/facility-10.jpg"
                 alt="Skilled trades training"
                 fill
                 className="object-cover"
@@ -331,7 +331,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/media/programs/hvac-hd.jpg"
+                src="/images/facilities-new/facility-15.jpg"
                 alt="HVAC Technician Training"
                 fill
                 className="object-cover"
