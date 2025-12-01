@@ -17,21 +17,21 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-white">
-      {/* TOP BANNER - Ready to Start Training */}
-      <section className="bg-gradient-to-r from-teal-600 to-blue-600 py-4 sticky top-0 z-50 shadow-lg">
+      {/* TOP BANNER - Urgent Call to Action */}
+      <section className="bg-gradient-to-r from-orange-600 to-orange-500 py-3 sticky top-0 z-50 shadow-lg">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white">
-                ✅ READY TO START TRAINING
+              <span className="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white animate-pulse">
+                🔥 NOW ENROLLING
               </span>
               <p className="text-white font-semibold text-sm sm:text-base">
-                Free Career Training Starts in 2 Weeks • 100% Government Funded • No Cost to You
+                Free Career Training - 100% Government Funded • Start in 2 Weeks
               </p>
             </div>
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-3 text-sm font-bold text-white hover:bg-orange-600 transition-all shadow-xl hover:scale-105 whitespace-nowrap"
+              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-bold text-orange-600 hover:bg-orange-50 transition-all shadow-lg hover:scale-105 whitespace-nowrap"
             >
               Apply Now →
             </Link>
@@ -42,28 +42,24 @@ export default function HomePage() {
       {/* HERO SLIDESHOW */}
       <HeroSlideshow />
 
-      {/* FUNDING PROGRAMS BAR */}
+      {/* GOVERNMENT PARTNERS BAR */}
       <section className="bg-slate-50 border-y border-slate-200 py-6">
         <div className="mx-auto max-w-7xl px-6">
           <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">
-            100% Funded Through Government Programs
+            Approved Workforce Development Partner
           </p>
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
             <div className="text-center">
-              <p className="font-semibold text-slate-700">WIOA</p>
-              <p className="text-xs text-slate-500">Workforce Innovation</p>
+              <p className="font-semibold text-slate-700">EmployIndy</p>
             </div>
             <div className="text-center">
-              <p className="font-semibold text-slate-700">WRG</p>
-              <p className="text-xs text-slate-500">Workforce Ready Grant</p>
+              <p className="font-semibold text-slate-700">WorkOne</p>
             </div>
             <div className="text-center">
-              <p className="font-semibold text-slate-700">JRI</p>
-              <p className="text-xs text-slate-500">Justice Reinvestment</p>
+              <p className="font-semibold text-slate-700">Indiana DWD</p>
             </div>
             <div className="text-center">
-              <p className="font-semibold text-slate-700">Apprenticeships</p>
-              <p className="text-xs text-slate-500">DOL Registered</p>
+              <p className="font-semibold text-slate-700">US Dept of Labor</p>
             </div>
           </div>
         </div>
@@ -75,8 +71,8 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded overflow-hidden shadow-xl">
               <Image
-                src="/images/artlist/hero-training-3.jpg"
-                alt="Elevate For Humanity Training - Indianapolis"
+                src="/images/location-4.jpg"
+                alt="Elevate For Humanity Office - Indianapolis"
                 fill
                 className="object-cover"
                 quality={100}
@@ -157,8 +153,8 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/artlist/hero-training-7.jpg"
-                alt="Skilled Trades Training"
+                src="/images/location-5.jpg"
+                alt="Elevate For Humanity Training Facility"
                 fill
                 className="object-cover"
                 quality={100}
@@ -233,8 +229,8 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/artlist/hero-training-8.jpg"
-                alt="Hands-On Training"
+                src="/images/location-9.jpg"
+                alt="Elevate For Humanity Office Location"
                 fill
                 className="object-cover"
                 quality={100}
@@ -399,32 +395,24 @@ export default function HomePage() {
       </section>
 
       {/* IMPACT NUMBERS */}
-      <section className="py-16 bg-gradient-to-br from-teal-50 via-white to-orange-50">
+      <section className="py-12 bg-slate-900 text-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Our Impact by the Numbers
-            </h2>
-            <p className="text-lg text-slate-600">
-              Real results from real people building real careers
-            </p>
-          </div>
           <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-teal-600 mb-2">500+</div>
-              <p className="text-slate-700 font-semibold">Students Trained</p>
+            <div>
+              <div className="text-5xl font-light mb-2">500+</div>
+              <p className="text-slate-300">Students Trained</p>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-orange-600 mb-2">85%</div>
-              <p className="text-slate-700 font-semibold">Job Placement Rate</p>
+            <div>
+              <div className="text-5xl font-light mb-2">85%</div>
+              <p className="text-slate-300">Job Placement Rate</p>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-blue-600 mb-2">20+</div>
-              <p className="text-slate-700 font-semibold">Training Programs</p>
+            <div>
+              <div className="text-5xl font-light mb-2">20+</div>
+              <p className="text-slate-300">Training Programs</p>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-5xl font-bold text-purple-600 mb-2">100+</div>
-              <p className="text-slate-700 font-semibold">Employer Partners</p>
+            <div>
+              <div className="text-5xl font-light mb-2">100+</div>
+              <p className="text-slate-300">Employer Partners</p>
             </div>
           </div>
         </div>
@@ -442,13 +430,13 @@ export default function HomePage() {
 
           {/* Story 1 - Marcus */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div className="relative h-[350px] rounded-xl overflow-hidden shadow-xl">
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
                 src="/media/programs/cna-hd.jpg"
                 alt="Marcus J. - CNA Graduate"
                 fill
                 className="object-cover"
-                quality={95}
+                quality={100}
               />
             </div>
             <div>
@@ -489,26 +477,26 @@ export default function HomePage() {
                 Hired by local HVAC company at $22/hr
               </p>
             </div>
-            <div className="relative h-[350px] rounded-xl overflow-hidden shadow-xl">
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
                 src="/media/programs/hvac-hd.jpg"
                 alt="Tasha W. - HVAC Graduate"
                 fill
                 className="object-cover"
-                quality={95}
+                quality={100}
               />
             </div>
           </div>
 
           {/* Story 3 - David */}
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
-            <div className="relative h-[350px] rounded-xl overflow-hidden shadow-xl">
+            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
                 src="/media/programs/cdl-hd.jpg"
                 alt="David R. - CDL Graduate"
                 fill
                 className="object-cover"
-                quality={95}
+                quality={100}
               />
             </div>
             <div>
@@ -658,7 +646,7 @@ const programs = [
     duration: "4-6 weeks",
     salary: "$35K-$45K",
     link: "/programs/cna-certification",
-    image: "/images/artlist/hero-training-1.jpg",
+    image: "/media/programs/cna-hd.jpg",
   },
   {
     title: "HVAC Technician",
@@ -666,7 +654,7 @@ const programs = [
     duration: "8-12 weeks",
     salary: "$45K-$65K",
     link: "/programs/hvac-technician",
-    image: "/images/artlist/hero-training-2.jpg",
+    image: "/media/programs/hvac-hd.jpg",
   },
   {
     title: "Licensed Barber",
@@ -674,7 +662,7 @@ const programs = [
     duration: "12 weeks",
     salary: "$30K-$55K",
     link: "/programs/barber-apprenticeship",
-    image: "/images/artlist/hero-training-3.jpg",
+    image: "/media/programs/barber-hd.jpg",
   },
   {
     title: "Commercial Driver",
@@ -682,7 +670,7 @@ const programs = [
     duration: "4-6 weeks",
     salary: "$50K-$70K",
     link: "/programs/cdl-training",
-    image: "/images/artlist/hero-training-4.jpg",
+    image: "/media/programs/cdl-hd.jpg",
   },
   {
     title: "Medical Assistant",
@@ -690,7 +678,7 @@ const programs = [
     duration: "8-10 weeks",
     salary: "$32K-$42K",
     link: "/programs/medical-administrative-assistant",
-    image: "/images/artlist/hero-training-5.jpg",
+    image: "/media/programs/healthcare-professional-2-hd.jpg",
   },
   {
     title: "Building Maintenance",
