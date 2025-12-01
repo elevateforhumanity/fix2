@@ -7,22 +7,22 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    image: "/images/location-4.jpg",
+    image: "",
     title: "Your Career Starts Here",
     text: "Free workforce training that leads to real jobs - 100% government funded",
   },
   {
-    image: "/images/location-5.jpg",
+    image: "",
     title: "Build a Career in High-Demand Trades",
     text: "HVAC, welding, and building maintenance - earn $20-$30/hour with benefits",
   },
   {
-    image: "/images/artlist/hero-training-8.jpg",
+    image: "",
     title: "No Cost. No Debt. Just Opportunity.",
     text: "State and Federal Funded - WIOA, Workforce Ready Grants, and registered apprenticeships",
   },
   {
-    image: "/images/artlist/hero-training-1.jpg",
+    image: "",
     title: "Train Today. Work Tomorrow.",
     text: "Healthcare, Skilled Trades, Technology, and Business programs with direct employer connections",
   },
@@ -69,15 +69,21 @@ export default function HeroSlideshow() {
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
-          <Image
-            src={slide.image}
-            alt={slide.title}
-            fill
-            className="object-cover"
-            priority={index === 0}
-            quality={100}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 via-slate-900/20 to-transparent" />
+          {slide.image ? (
+            <>
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                className="object-cover"
+                priority={index === 0}
+                quality={100}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 via-slate-900/20 to-transparent" />
+            </>
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-blue-600" />
+          )}
           
           <div className="relative h-full flex items-center">
             <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
