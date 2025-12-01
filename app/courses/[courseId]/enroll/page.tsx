@@ -1,39 +1,40 @@
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import EnrollmentForm from './EnrollmentForm';
+import InternalEnrollmentForm from './InternalEnrollmentForm';
 
 export const metadata: Metadata = {
   title: 'Enroll in Course | Elevate For Humanity',
-  description: 'Complete your enrollment in this partner course',
+  description: 'Complete your enrollment in this course',
 };
 
-export default async function PartnerEnrollPage({ params }: { params: { courseId: string } }) {
+export default async function InternalEnrollPage({ params }: { params: { courseId: string } }) {
   const supabase = await createClient();
 
   // Get current user
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) {
-    redirect('/auth/login?redirect=/courses/partners/' + params.courseId + '/enroll');
+    redirect('/auth/login?redirect=/courses/' + params.courseId + '/enroll');
   }
 
   // Fetch course details
   const { data: course } = await supabase
-    .from('partner_courses')
-    .select('*, partner_lms_providers(provider_name, logo_url)')
+    .from('courses')
+    .select('*')
     .eq('id', params.courseId)
+    .eq('is_published', true)
     .single();
 
   if (!course) {
-    redirect('/courses/partners');
+    redirect('/courses/catalog');
   }
 
   // Check if already enrolled
   const { data: existingEnrollment } = await supabase
-    .from('partner_enrollments')
+    .from('enrollments')
     .select('*')
     .eq('user_id', user.id)
-    .eq('partner_course_id', params.courseId)
+    .eq('course_id', params.courseId)
     .single();
 
   if (existingEnrollment) {
@@ -65,30 +66,30 @@ export default async function PartnerEnrollPage({ params }: { params: { courseId
                   <h2 className="text-xl font-bold mb-4">Course Summary</h2>
                   <div className="space-y-4">
                     <div>
-                      <h3 className="font-semibold text-gray-900">{course.course_name}</h3>
-                      <p className="text-sm text-gray-600 mt-1">
-                        {course.partner_lms_providers?.provider_name}
-                      </p>
+                      <h3 className="font-semibold text-gray-900">{course.title}</h3>
+                      {course.subtitle && (
+                        <p className="text-sm text-gray-600 mt-1">{course.subtitle}</p>
+                      )}
                     </div>
                     
-                    {course.duration_hours && (
+                    {course.duration && (
                       <div className="flex justify-between text-sm">
                         <span className="text-gray-600">Duration:</span>
-                        <span className="font-medium">{course.duration_hours} hours</span>
+                        <span className="font-medium">{course.duration}</span>
                       </div>
                     )}
                     
-                    {course.price && (
+                    {course.level && (
                       <div className="flex justify-between text-sm">
-                        <span className="text-gray-600">Price:</span>
-                        <span className="font-medium text-blue-600">${course.price}</span>
+                        <span className="text-gray-600">Level:</span>
+                        <span className="font-medium capitalize">{course.level}</span>
                       </div>
                     )}
                     
-                    {course.certification_name && (
+                    {course.category && (
                       <div className="pt-4 border-t">
-                        <p className="text-sm text-gray-600">Certification:</p>
-                        <p className="font-medium text-sm">{course.certification_name}</p>
+                        <p className="text-sm text-gray-600">Category:</p>
+                        <p className="font-medium text-sm">{course.category}</p>
                       </div>
                     )}
                   </div>
@@ -97,9 +98,9 @@ export default async function PartnerEnrollPage({ params }: { params: { courseId
 
               {/* Enrollment Form */}
               <div className="md:col-span-2">
-                <EnrollmentForm 
+                <InternalEnrollmentForm 
                   courseId={params.courseId}
-                  courseName={course.course_name}
+                  courseName={course.title}
                   userId={user.id}
                 />
               </div>

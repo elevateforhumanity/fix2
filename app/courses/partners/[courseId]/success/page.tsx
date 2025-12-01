@@ -1,39 +1,147 @@
 import { Metadata } from 'next';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Success | Elevate For Humanity',
-  description: 'Learn more about Success inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Enrollment Successful | Elevate For Humanity',
+  description: 'You have successfully enrolled in the course',
 };
 
-export default function Page() {
+export default async function EnrollmentSuccessPage({ params }: { params: { courseId: string } }) {
+  const supabase = await createClient();
+
+  // Get current user
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    redirect('/auth/login');
+  }
+
+  // Fetch enrollment details
+  const { data: enrollment } = await supabase
+    .from('partner_enrollments')
+    .select('*, partner_courses(course_name, partner_lms_providers(provider_name))')
+    .eq('user_id', user.id)
+    .eq('partner_course_id', params.courseId)
+    .single();
+
+  if (!enrollment) {
+    redirect('/courses/partners');
+  }
+
   return (
-    <div className="min-h-screen bg-white">
-      <div className="container mx-auto py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl font-bold text-center mb-6">Success | Elevate For Humanity</h1>
-          <p className="text-xl text-center text-gray-600 mb-12">Learn more about Success inside the Elevate For Humanity workforce ecosystem.</p>
-          <div className="prose prose-lg max-w-none">
-            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8">
-              <p className="text-lg">Welcome to Success | Elevate For Humanity.</p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Banner */}
+      <section className="bg-gradient-to-r from-green-600 to-green-800 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-6">
+              <svg
+                className="w-20 h-20 mx-auto text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
             </div>
-            <div className="grid md:grid-cols-2 gap-8 my-12">
-              <div className="border rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-3">Our Mission</h3>
-                <p>Providing accessible career training.</p>
-              </div>
-              <div className="border rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-3">Our Approach</h3>
-                <p>100% funded programs with job placement.</p>
+            <h1 className="text-4xl font-bold mb-4">Enrollment Successful!</h1>
+            <p className="text-xl text-green-100">
+              You're all set to start learning
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Details */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            {/* Course Info */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-6">
+              <h2 className="text-2xl font-bold mb-4">Course Details</h2>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm text-gray-600">Course Name</p>
+                  <p className="font-semibold text-lg">{enrollment.partner_courses?.course_name}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Provider</p>
+                  <p className="font-medium">{enrollment.partner_courses?.partner_lms_providers?.provider_name}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Enrollment Date</p>
+                  <p className="font-medium">
+                    {new Date(enrollment.enrolled_at).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-600">Status</p>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                    {enrollment.enrollment_status}
+                  </span>
+                </div>
               </div>
             </div>
-            <div className="text-center">
-              <Link href="/programs" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold mr-4">View Programs</Link>
-              <Link href="/apply" className="inline-block border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold">Apply Now</Link>
+
+            {/* Next Steps */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+              <h3 className="font-bold text-blue-900 mb-4">What's Next?</h3>
+              <ul className="space-y-3 text-blue-800">
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Access your course materials from the student dashboard</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Your progress will be tracked automatically as you complete lessons</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Upon completion, you'll receive a certificate of achievement</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span>Get help from AI tutors and instructors anytime you need it</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/student/courses"
+                className="flex-1 px-6 py-3 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              >
+                Go to My Courses
+              </Link>
+              <Link
+                href="/student/dashboard"
+                className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 text-center rounded-lg hover:bg-gray-50 transition-colors font-medium"
+              >
+                View Dashboard
+              </Link>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
