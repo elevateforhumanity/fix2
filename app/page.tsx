@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ChevronRight } from "lucide-react";
+import HeroSlideshow from "@/components/HeroSlideshow";
 
 export const metadata = {
   title: "Elevate for Humanity | Workforce Development & Career Training",
@@ -36,46 +37,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* HERO - Large Image with Overlay Text (Princeton Style) */}
-      <section className="relative h-[700px] overflow-hidden">
-        <Image
-          src="/media/programs/healthcare-professional-1-hd.jpg"
-          alt="Healthcare training students learning hands-on skills"
-          fill
-          className="object-cover"
-          priority
-          quality={100}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/40 to-transparent" />
-        
-        <div className="relative h-full flex items-center">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
-            <div className="max-w-3xl">
-              <h1 className="text-5xl md:text-6xl font-light text-white mb-6 leading-tight">
-                Free Workforce Training<br />Funded by the State
-              </h1>
-              <p className="text-xl md:text-2xl text-slate-200 font-light mb-8 leading-relaxed">
-                Indianapolis residents can access fully-funded career training through WIOA, Workforce Ready Grants, and apprenticeships. No tuition. Real credentials. Direct job connections.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/apply"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors shadow-lg"
-                >
-                  Apply for Training
-                  <ArrowRight size={20} className="ml-2" />
-                </Link>
-                <Link
-                  href="/programs"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded border-2 border-white hover:bg-slate-50 transition-colors shadow-lg"
-                >
-                  Explore Programs
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* HERO SLIDESHOW */}
+      <HeroSlideshow />
 
       {/* GOVERNMENT PARTNERS BAR */}
       <section className="bg-slate-50 border-y border-slate-200 py-6">
