@@ -52,7 +52,7 @@ export default function UniversalMarketingPage({
       </section>
 
       {/* HERO */}
-      <section className="relative h-[600px] overflow-hidden">
+      <section className="relative h-[700px] overflow-hidden">
         <Image
           src={heroImage}
           alt={title}

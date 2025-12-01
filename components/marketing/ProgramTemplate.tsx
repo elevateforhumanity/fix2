@@ -53,7 +53,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
       </section>
 
       {/* Hero Section */}
-      <section className="relative h-[600px] overflow-hidden">
+      <section className="relative h-[700px] overflow-hidden">
         <Image
           src={program.heroImage}
           alt={`${program.name} in training`}
@@ -141,7 +141,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
       </section>
 
       {/* What You'll Learn Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -169,7 +169,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
       </section>
 
       {/* Career Outcomes Section */}
-      <section className="py-16 md:py-20 bg-slate-50 border-y border-slate-200">
+      <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
@@ -240,7 +240,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
       </section>
 
       {/* Program Details Section */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -307,28 +307,42 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-red-600 to-red-700 text-white">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your {program.name} Career?
-          </h2>
-          <p className="text-xl text-emerald-100 mb-8">
-            Join our next cohort and begin your journey to a rewarding healthcare career. 100% funded training with no cost to you.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/apply"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-red-600 shadow-lg hover:bg-slate-50 transition-all hover:scale-105"
-            >
-              Apply Now - It's Free
-              <ArrowRight size={20} />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white px-8 py-4 text-base font-semibold text-white hover:bg-white/10 transition-all"
-            >
-              Contact Us
-            </Link>
+      {/* CTA WITH IMAGE */}
+      <section className="py-16 bg-gradient-to-r from-orange-600 to-orange-500">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/gallery/image11.jpg"
+                alt="Start your training today"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+            </div>
+            <div className="text-white">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Ready to Start Your {program.name} Career?
+              </h2>
+              <p className="text-xl mb-8 text-orange-50">
+                Join our next cohort and begin your journey. 100% funded training with no cost to you.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-orange-600 font-bold rounded-lg hover:bg-orange-50 transition-colors shadow-lg"
+                >
+                  Apply Now
+                  <ArrowRight size={20} className="ml-2" />
+                </Link>
+                <Link
+                  href="/programs"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-orange-700 text-white font-semibold rounded-lg hover:bg-orange-800 transition-colors shadow-lg"
+                >
+                  View Programs
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
