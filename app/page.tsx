@@ -60,12 +60,12 @@ export default function HomePage() {
                 src={banner.image}
                 alt={banner.title}
                 fill
-                className="object-cover"
+                className="object-cover brightness-110"
                 priority={index === 0}
                 quality={90}
                 sizes="100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
             </div>
             <div className="relative h-full flex items-center justify-center py-20">
               <div className="max-w-6xl mx-auto px-6 text-center">
@@ -157,11 +157,11 @@ export default function HomePage() {
                   src="/images/medical-assistant/large/ma-large-02.jpg"
                   alt="100% Free Training - No Tuition"
                   fill
-                  className="object-cover brightness-110"
+                  className="object-cover brightness-125"
                   sizes="(max-width: 768px) 100vw, 33vw" quality={85}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute top-5 right-5 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute top-5 right-5 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold">
                   $0 COST
                 </div>
               </div>
@@ -188,11 +188,11 @@ export default function HomePage() {
                   src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
                   alt="Government Certified Programs - Training"
                   fill
-                  className="object-cover"
+                  className="object-cover brightness-125"
                   sizes="(max-width: 768px) 100vw, 33vw" quality={85}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute top-5 right-5 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute top-5 right-5 bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">
                   CERTIFIED
                 </div>
               </div>
@@ -354,16 +354,18 @@ export default function HomePage() {
                 key={index}
                 className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all"
               >
-                <div className="relative h-64">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw" quality={85}
-                  />
+                <div className="flex justify-center pt-8 pb-4">
+                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-slate-200">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover"
+                      sizes="128px" quality={85}
+                    />
+                  </div>
                 </div>
-                <div className="p-8">
+                <div className="p-8 pt-4">
                   <div className="text-yellow-500 text-2xl mb-4 text-center">★★★★★</div>
                   <p className="text-slate-700 italic mb-6 leading-relaxed">
                     "{testimonial.quote}"
