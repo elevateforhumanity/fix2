@@ -154,10 +154,10 @@ export default function HomePage() {
             <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl hover:-translate-y-3 transition-all duration-300">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/medical-assistant/large/ma-large-02.jpg"
+                  src="/images/artlist/hero-training-7.jpg"
                   alt="100% Free Training - No Tuition"
                   fill
-                  className="object-cover brightness-125"
+                  className="object-cover brightness-110"
                   sizes="(max-width: 768px) 100vw, 33vw" quality={85}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
