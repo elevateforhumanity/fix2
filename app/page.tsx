@@ -1,685 +1,857 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-
-type Slide = {
-  id: number;
-  title: string;
-  subtitle: string;
-  ctaPrimary: { label: string; href: string };
-  ctaSecondary?: { label: string; href: string };
-  imageSrc: string;
-  imageAlt: string;
-};
-
-const slides: Slide[] = [
-  {
-    id: 1,
-    title: "Workforce Training That Actually Changes Lives",
-    subtitle:
-      "Short-term training, real certifications, and employer connections that help you move into a new career.",
-    ctaPrimary: { label: "Explore Programs", href: "/programs" },
-    ctaSecondary: { label: "Apply for Funding", href: "/funding" },
-    imageSrc: "/media-backup-20251128-043832/hero-elevate-learners.jpg",
-    imageAlt: "Students in a training program",
-  },
-  {
-    id: 2,
-    title: "State & Federal Funding May Cover Your Tuition",
-    subtitle:
-      "Workforce Ready Grant, WIOA, apprenticeships, and more. Many students qualify for little to no out-of-pocket cost.",
-    ctaPrimary: { label: "See If You Qualify", href: "/funding/eligibility" },
-    imageSrc: "/media-backup-20251128-043832/state-funding-hero.jpg",
-    imageAlt: "Advisor helping student with funding options",
-  },
-  {
-    id: 3,
-    title: "Start a New Career in as Little as 30–90 Days",
-    subtitle:
-      "Healthcare, skilled trades, barbering, CDL, building maintenance, and more—built with employers at the table.",
-    ctaPrimary: { label: "Get Started Today", href: "/apply" },
-    ctaSecondary: { label: "Talk to Our Team", href: "/contact" },
-    imageSrc: "/media-backup-20251128-043832/hero-slide-healthcare.jpg",
-    imageAlt: "Graduate celebrating new career",
-  },
-];
-
-const featuredPrograms = [
-  {
-    title: "Certified Nursing Assistant (CNA)",
-    description: "Hands-on healthcare training tied to real employer demand.",
-    href: "/programs/cna",
-    imageSrc: "/media-backup-20251128-043832/programs/cna.jpg",
-    imageAlt: "CNA student providing patient care",
-  },
-  {
-    title: "Barber & Beauty Apprenticeship",
-    description:
-      "Earn while you learn in a professional barbering environment.",
-    href: "/programs/barber",
-    imageSrc: "/media-backup-20251128-043832/programs/barber-hd.jpg",
-    imageAlt: "Barber shaping a client's haircut",
-  },
-  {
-    title: "HVAC Technician",
-    description: "High-demand skilled trade with strong earning potential.",
-    href: "/programs/hvac",
-    imageSrc: "/media-backup-20251128-043832/programs/hvac-hd.jpg",
-    imageAlt: "Technician working on HVAC unit",
-  },
-  {
-    title: "CDL & Transportation",
-    description: "Commercial driving pathways with local and regional routes.",
-    href: "/programs/cdl",
-    imageSrc: "/media-backup-20251128-043832/programs/cdl-hd.jpg",
-    imageAlt: "Commercial truck on the highway",
-  },
-  {
-    title: "Building Maintenance & Facilities",
-    description: "Keep buildings safe, running, and ready for the public.",
-    href: "/programs/building-maintenance",
-    imageSrc: "/media-backup-20251128-043832/programs/building-hd.jpg",
-    imageAlt: "Maintenance worker inspecting a facility",
-  },
-  {
-    title: "Guest Services & Hospitality",
-    description:
-      "Frontline guest service, tourism, and hospitality credentials.",
-    href: "/programs/hospitality",
-    imageSrc: "/media-backup-20251128-043832/programs/culinary-arts-hd.jpg",
-    imageAlt: "Hotel front desk guest service professional",
-  },
-];
-
-const successStories = [
-  {
-    name: "Alicia · CNA Graduate",
-    quote:
-      "I went from feeling stuck to working full-time in healthcare with benefits. Elevate walked with me from start to finish.",
-    imageSrc: "/media-backup-20251128-043832/testimonials/student1.jpg",
-    imageAlt: "Alicia smiling in scrubs",
-  },
-  {
-    name: "Marcus · Barber Apprentice",
-    quote:
-      "The apprenticeship let me earn while I trained. Now I have a chair, a clientele, and a clear path forward.",
-    imageSrc: "/media-backup-20251128-043832/testimonials/student2.jpg",
-    imageAlt: "Marcus cutting hair in a barbershop",
-  },
-  {
-    name: "Jamal · HVAC Tech",
-    quote:
-      "I finished in under 4 months and moved into a skilled trade that pays me what I'm worth.",
-    imageSrc: "/media-backup-20251128-043832/testimonials/student3.jpg",
-    imageAlt: "Jamal working on HVAC equipment",
-  },
-];
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function HomePage() {
-  const [activeSlide, setActiveSlide] = useState<number>(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentBanner, setCurrentBanner] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  const slides = [
+    {
+      title: "Transform Your Future",
+      subtitle: "Join thousands of graduates who found rewarding careers through our workforce development programs",
+      image: "/images/artlist/variations/hero-training-1-bright.jpg"
+    },
+    {
+      title: "Hands-On Training",
+      subtitle: "Learn from industry experts with real-world experience in state-of-the-art facilities",
+      image: "/images/artlist/variations/hero-training-2-bright.jpg"
+    },
+    {
+      title: "Career Services That Work",
+      subtitle: "From training to placement, we support you every step of your career journey",
+      image: "/images/artlist/variations/hero-training-3-bright.jpg"
+    }
+  ];
+
+  const banners = [
+    { 
+      title: "EARN WHILE YOU LEARN", 
+      subtitle: "Get paid during your training with our apprenticeship programs",
+      image: "/images/artlist/variations/hero-training-4-bright.jpg"
+    },
+    { 
+      title: "100% FREE TRAINING", 
+      subtitle: "Zero tuition. Zero hidden fees. Fully funded programs.",
+      image: "/images/artlist/variations/hero-training-5-bright.jpg"
+    },
+    { 
+      title: "GOVERNMENT CERTIFIED PROGRAMS", 
+      subtitle: "WRG, WIOA, OJT, ETPL certified training programs",
+      image: "/images/artlist/variations/hero-training-6-bright.jpg"
+    }
+  ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % slides.length);
+    setMounted(true);
+    
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    const bannerTimer = setInterval(() => {
+      setCurrentBanner((prev) => (prev + 1) % banners.length);
     }, 4000);
-    return () => clearInterval(interval);
+
+    return () => {
+      clearInterval(slideTimer);
+      clearInterval(bannerTimer);
+    };
   }, []);
 
-  const currentSlide = slides[activeSlide];
-
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-orange-50 via-white to-blue-50">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 lg:flex-row lg:items-center lg:py-20">
-          {/* Text */}
-          <div className="relative z-10 max-w-xl space-y-6">
-            {/* Logo */}
-            <div className="mb-4">
+    <main className="bg-white">
+      {/* Hero Slideshow */}
+      <section className="relative min-h-[600px] overflow-hidden">
+        {/* Voiceover Audio */}
+        {mounted && (
+          <audio autoPlay loop>
+            <source src="/videos/voiceover.mp3" type="audio/mpeg" />
+          </audio>
+        )}
+        
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 ${mounted ? 'transition-opacity duration-1000' : ''} ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0">
               <Image
-                src="/logo-wide.png"
-                alt="Elevate for Humanity"
-                width={350}
-                height={88}
-                className="drop-shadow-lg"
-                priority
+                src={slide.image}
+                alt={slide.title}
+                fill
+                className="object-cover brightness-110"
+                priority={index === 0}
+                quality={90}
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
             </div>
             
-            <p className="text-sm font-semibold uppercase tracking-wide text-orange-600">
-              Workforce Training & Career Development
-            </p>
-            <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-              {currentSlide.title}
-            </h1>
-            <p className="text-base leading-relaxed text-slate-700 sm:text-lg">
-              {currentSlide.subtitle}
-            </p>
-
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link
-                href={currentSlide.ctaPrimary.href}
-                className="rounded-full bg-orange-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-700"
-              >
-                {currentSlide.ctaPrimary.label}
-              </Link>
-              {currentSlide.ctaSecondary && (
+            {/* Content */}
+            <div className="relative h-full flex items-center justify-center py-20">
+              <div className="max-w-6xl mx-auto px-6 text-center">
+                <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-2xl">
+                  {slide.title}
+                </h1>
+                <p className="text-xl md:text-2xl text-white/95 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+                  {slide.subtitle}
+                </p>
                 <Link
-                  href={currentSlide.ctaSecondary.href}
-                  className="rounded-full border border-orange-200 bg-white px-5 py-2.5 text-sm font-semibold text-orange-700 shadow-sm transition hover:border-orange-400 hover:bg-orange-50"
+                  href="/apply"
+                  className="inline-block px-12 py-5 bg-white text-red-600 font-bold text-lg rounded-full hover:scale-110 transition-all shadow-2xl uppercase tracking-wide"
                 >
-                  {currentSlide.ctaSecondary.label}
+                  Start Your Journey
                 </Link>
-              )}
-            </div>
-
-            <div className="mt-4 flex items-center gap-3 text-xs text-slate-600 sm:text-sm">
-              <span className="inline-flex h-2 w-2 rounded-full bg-green-500" />
-              <span>
-                Many students qualify for state or federal funding to reduce or
-                eliminate tuition.
-              </span>
-            </div>
-
-            {/* Slide dots */}
-            <div className="mt-4 flex items-center gap-2">
-              {slides.map((slide, index) => (
-                <button
-                  key={slide.id}
-                  onClick={() => setActiveSlide(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                  className={`h-2.5 rounded-full transition-all ${
-                    index === activeSlide
-                      ? "w-6 bg-orange-600"
-                      : "w-2 bg-orange-200"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Image */}
-          <div className="relative flex flex-1 justify-center">
-            <div className="relative h-64 w-full max-w-md overflow-hidden rounded-2xl shadow-xl sm:h-80 lg:h-96">
-              <Image
-                src={currentSlide.imageSrc}
-                alt={currentSlide.imageAlt}
-                fill
-                className="object-cover"
-                sizes="(min-width: 1024px) 480px, 100vw"
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3-BOX HIGHLIGHT SECTION */}
-      <section className="border-b border-slate-100 bg-white">
-        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 md:grid-cols-3">
-          <div className="rounded-2xl border border-orange-100 bg-orange-50 p-5 shadow-sm">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-orange-700">
-              Funding Pathways
-            </h2>
-            <p className="mt-2 text-sm text-slate-700">
-              Workforce Ready Grant, WIOA, apprenticeships, JRI, WEX, OJT, and
-              more—built directly into our programs.
-            </p>
-            <Link
-              href="/funding"
-              className="mt-3 inline-flex text-sm font-semibold text-orange-700 hover:text-orange-800"
-            >
-              How funding works →
-            </Link>
-          </div>
-
-          <div className="rounded-2xl border border-blue-100 bg-blue-50 p-5 shadow-sm">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-blue-700">
-              Career Programs
-            </h2>
-            <p className="mt-2 text-sm text-slate-700">
-              CNA, Barber, HVAC, CDL, Building Tech, Hospitality and more, all
-              aligned to real jobs in your community.
-            </p>
-            <Link
-              href="/programs"
-              className="mt-3 inline-flex text-sm font-semibold text-blue-700 hover:text-blue-800"
-            >
-              View all programs →
-            </Link>
-          </div>
-
-          <div className="rounded-2xl border border-emerald-100 bg-emerald-50 p-5 shadow-sm">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-emerald-700">
-              Student Success
-            </h2>
-            <p className="mt-2 text-sm text-slate-700">
-              Real people. Real stories. See how learners moved from uncertainty
-              to career confidence.
-            </p>
-            <Link
-              href="/success-stories"
-              className="mt-3 inline-flex text-sm font-semibold text-emerald-700 hover:text-emerald-800"
-            >
-              See real stories →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW TO GET STARTED */}
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-14">
-          <div className="mb-8 max-w-2xl">
-            <h2 className="text-2xl font-bold text-slate-900">
-              How to Get Started with Elevate For Humanity
-            </h2>
-            <p className="mt-2 text-sm text-slate-700">
-              We keep the process simple and human. You don&apos;t need to have
-              it all figured out—we walk with you step by step.
-            </p>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-4">
-            {[
-              {
-                step: "Step 1",
-                title: "Choose a Program",
-                text: "Explore CNA, Barber, HVAC, CDL, Building Tech, and more to find the career that fits.",
-              },
-              {
-                step: "Step 2",
-                title: "Check Funding",
-                text: "We help you explore WRG, WIOA, apprenticeships, and other options that may cover tuition.",
-              },
-              {
-                step: "Step 3",
-                title: "Apply Online",
-                text: "Submit a simple online application so our team can review and connect with you.",
-              },
-              {
-                step: "Step 4",
-                title: "Start Training",
-                text: "Begin classes, earn your credentials, and move into your new career path.",
-              },
-            ].map((item) => (
-              <div
-                key={item.step}
-                className="flex flex-col rounded-2xl bg-white p-5 shadow-sm"
-              >
-                <span className="text-xs font-semibold uppercase tracking-wide text-orange-600">
-                  {item.step}
-                </span>
-                <h3 className="mt-1 text-sm font-semibold text-slate-900">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-slate-700">{item.text}</p>
               </div>
+            </div>
+          </div>
+        ))}
+        
+        {/* Slide Indicators */}
+        {mounted && (
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3 z-10">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
             ))}
           </div>
-
-          <div className="mt-6">
-            <Link
-              href="/apply"
-              className="inline-flex rounded-full bg-slate-900 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800"
-            >
-              Start the process
-            </Link>
-          </div>
-        </div>
+        )}
       </section>
 
-      {/* FEATURED PROGRAMS GRID */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-14">
-          <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900">
-                Featured Career Programs
-              </h2>
-              <p className="mt-2 text-sm text-slate-700">
-                These are some of the most in-demand training options in our
-                ecosystem. Each one connects directly to real employers.
-              </p>
+      {/* Rotating Banner Highlights */}
+      <section className="relative h-96 overflow-hidden">
+        {banners.map((banner, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentBanner ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <div className="absolute inset-0">
+              <Image
+                src={banner.image}
+                alt={banner.title}
+                fill
+                className="object-cover brightness-110"
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70" />
             </div>
-            <Link
-              href="/programs"
-              className="text-sm font-semibold text-orange-700 hover:text-orange-800"
-            >
-              View all programs →
-            </Link>
+            <div className="relative h-full flex items-center justify-center">
+              <div className="max-w-5xl mx-auto px-6 text-center">
+                <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-2xl">
+                  {banner.title}
+                </h2>
+                <p className="text-2xl md:text-3xl text-white/95 font-semibold drop-shadow-lg">
+                  {banner.subtitle}
+                </p>
+              </div>
+            </div>
           </div>
+        ))}
+      </section>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {featuredPrograms.map((program) => (
-              <Link
-                href={program.href}
-                key={program.title}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-              >
-                <div className="relative h-40 w-full">
-                  <Image
-                    src={program.imageSrc}
-                    alt={program.imageAlt}
-                    fill
-                    className="object-cover transition group-hover:scale-105"
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                  />
+      {/* Program Highlights */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-extrabold text-center mb-4">
+            Program Highlights
+          </h2>
+          <p className="text-xl text-center text-slate-600 mb-16 max-w-3xl mx-auto">
+            Real opportunities. Real training. Real careers.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Highlight 1 - Earn While You Learn */}
+            <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl hover:-translate-y-3 transition-all duration-300">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/images/trades/program-hvac-technician.jpg"
+                  alt="Earn While You Learn - Paid Apprenticeship"
+                  fill
+                  className="object-cover brightness-110"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute top-5 right-5 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold">
+                  PAID TRAINING
                 </div>
-                <div className="flex flex-1 flex-col p-4">
-                  <h3 className="text-sm font-semibold text-slate-900">
-                    {program.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-xs text-slate-700">
-                    {program.description}
-                  </p>
-                  <span className="mt-3 inline-flex items-center text-xs font-semibold text-orange-700">
-                    Program details →
+              </div>
+              <div className="p-8">
+                <h3 className="text-3xl font-extrabold mb-4">Earn While You Learn</h3>
+                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                  Start earning a paycheck from day one with our paid apprenticeship programs.
+                </p>
+                <div className="flex gap-3 flex-wrap">
+                  <span className="bg-yellow-100 text-yellow-900 px-4 py-2 rounded-full font-semibold text-sm">
+                    Get Paid
+                  </span>
+                  <span className="bg-yellow-100 text-yellow-900 px-4 py-2 rounded-full font-semibold text-sm">
+                    Gain Experience
                   </span>
                 </div>
-              </Link>
-            ))}
+              </div>
+            </div>
+
+            {/* Highlight 2 - 100% Free Training */}
+            <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl hover:-translate-y-3 transition-all duration-300">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/images/medical-assistant/large/ma-large-02.jpg"
+                  alt="100% Free Training - No Tuition"
+                  fill
+                  className="object-cover brightness-110"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute top-5 right-5 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold">
+                  $0 COST
+                </div>
+              </div>
+              <div className="p-8">
+                <h3 className="text-3xl font-extrabold mb-4">100% Free Training</h3>
+                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                  Zero tuition. Zero hidden fees. Fully funded programs.
+                </p>
+                <div className="flex gap-3 flex-wrap">
+                  <span className="bg-green-100 text-green-900 px-4 py-2 rounded-full font-semibold text-sm">
+                    No Tuition
+                  </span>
+                  <span className="bg-green-100 text-green-900 px-4 py-2 rounded-full font-semibold text-sm">
+                    No Fees
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Highlight 3 - Government Certified */}
+            <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl hover:-translate-y-3 transition-all duration-300">
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src="/images/artlist/hero-training-8.jpg"
+                  alt="Government Certified Programs - Training"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute top-5 right-5 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold">
+                  CERTIFIED
+                </div>
+              </div>
+              <div className="p-8">
+                <h3 className="text-3xl font-extrabold mb-4">Government Certified Programs</h3>
+                <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                  WRG, WIOA, OJT, ETPL certified training programs approved by government agencies.
+                </p>
+                <div className="flex gap-3 flex-wrap">
+                  <span className="bg-blue-100 text-blue-900 px-4 py-2 rounded-full font-semibold text-sm">
+                    WRG
+                  </span>
+                  <span className="bg-blue-100 text-blue-900 px-4 py-2 rounded-full font-semibold text-sm">
+                    WIOA
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FUNDING EXPLAINER */}
-      <section className="bg-gradient-to-r from-blue-50 via-white to-orange-50">
-        <div className="mx-auto max-w-6xl px-4 py-14">
-          <div className="grid gap-8 md:grid-cols-2">
+      {/* About Section */}
+      <section id="about" className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/facilities-new/facility-1.jpg"
+                alt="Elevate for Humanity training facility"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
             <div>
-              <h2 className="text-2xl font-bold text-slate-900">
-                State & Federal Funding Options
-              </h2>
-              <p className="mt-2 text-sm text-slate-700">
-                Elevate For Humanity is built to align with state and federal
-                workforce programs so more learners can access training with
-                little to no out-of-pocket cost.
+              <h2 className="text-5xl font-extrabold mb-6">Connecting People to Free Career Training</h2>
+              <p className="text-xl text-slate-700 leading-relaxed mb-6">
+                At Elevate for Humanity, we connect everyday people to 100% free workforce training that leads to real careers. No tuition, no debt—just direct pathways to employment through government-funded programs.
               </p>
-              <p className="mt-2 text-sm text-slate-700">
-                Our team works with you and your case managers to match the
-                right funding pathway to the right program.
+              <p className="text-xl text-slate-700 leading-relaxed mb-8">
+                Through partnerships with government agencies, training providers, and employers, we create a seamless journey from unemployment to career success. Our dedicated team guides you through eligibility, enrollment, training, and job placement.
               </p>
-
               <Link
-                href="/funding/eligibility"
-                className="mt-4 inline-flex rounded-full bg-orange-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-700"
+                href="/about"
+                className="inline-flex items-center px-8 py-4 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 transition-all shadow-lg"
               >
-                See if I qualify
+                Learn More About Us
+                <ArrowRight size={20} className="ml-2" />
               </Link>
-            </div>
-
-            <div className="grid gap-4 rounded-2xl border border-slate-100 bg-white p-4 text-sm shadow-sm sm:grid-cols-2">
-              <div>
-                <h3 className="text-xs font-semibold uppercase tracking-wide text-blue-700">
-                  State Pathways
-                </h3>
-                <ul className="mt-2 space-y-1 text-slate-700">
-                  <li>• Workforce Ready Grant (WRG)</li>
-                  <li>• Workforce Innovation and Opportunity Act (WIOA)</li>
-                  <li>• JAG & JRI Programs</li>
-                  <li>• Work Experience (WEX)</li>
-                  <li>• On-the-Job Training (OJT)</li>
-                  <li>• State Earn & Learn (SEAL)</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-xs font-semibold uppercase tracking-wide text-orange-700">
-                  Federal Pathways
-                </h3>
-                <ul className="mt-2 space-y-1 text-slate-700">
-                  <li>• Registered Apprenticeships</li>
-                  <li>• U.S. DOL-Recognized Credentials</li>
-                  <li>• National Industry Certifications</li>
-                  <li>• Youth & Opportunity Programs</li>
-                  <li>• Employer-Driven Upskilling</li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SUCCESS STORIES */}
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4 py-14">
-          <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900">
-                Real People. Real Outcomes.
-              </h2>
-              <p className="mt-2 text-sm text-slate-700">
-                Every program is tied to a story. Here are just a few of the
-                learners who changed their trajectory through Elevate For
-                Humanity.
-              </p>
-            </div>
-            <Link
-              href="/success-stories"
-              className="text-sm font-semibold text-orange-700 hover:text-orange-800"
-            >
-              View more stories →
-            </Link>
-          </div>
+      {/* Programs Section */}
+      <section id="programs" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-extrabold text-center mb-4">
+            Free Training Programs
+          </h2>
+          <p className="text-xl text-center text-slate-600 mb-16 max-w-3xl mx-auto">
+            100% funded through WIOA, WRG, and government programs. Start your new career today.
+          </p>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {successStories.map((story) => (
+          <div className="grid md:grid-cols-2 gap-8">
+            {programs.map((program, index) => (
               <div
-                key={story.name}
-                className="flex flex-col rounded-2xl bg-white p-4 shadow-sm"
+                key={index}
+                className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all"
               >
-                <div className="flex items-center gap-3">
-                  <div className="relative h-12 w-12 overflow-hidden rounded-full bg-slate-100">
-                    <Image
-                      src={story.imageSrc}
-                      alt={story.imageAlt}
-                      fill
-                      className="object-cover"
-                      sizes="48px"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-xs font-semibold text-slate-900">
-                      {story.name}
-                    </p>
+                <div className="relative h-64 overflow-hidden">
+                  <Image
+                    src={program.image}
+                    alt={program.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute bottom-6 left-6">
+                    <div className="text-6xl mb-2">{program.icon}</div>
+                    <h3 className="text-3xl font-extrabold text-white">{program.title}</h3>
                   </div>
                 </div>
-                <p className="mt-3 flex-1 text-xs text-slate-700">
-                  "{story.quote}"
-                </p>
-                <Link
-                  href="/success-stories"
-                  className="mt-3 inline-flex text-xs font-semibold text-orange-700 hover:text-orange-800"
-                >
-                  Watch story →
-                </Link>
+                <div className="p-8">
+                  <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                    {program.fullDescription}
+                  </p>
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="bg-slate-50 p-4 rounded-xl">
+                      <div className="text-sm text-slate-500 mb-1">Duration</div>
+                      <div className="text-lg font-bold text-slate-900">{program.duration}</div>
+                    </div>
+                    <div className="bg-slate-50 p-4 rounded-xl">
+                      <div className="text-sm text-slate-500 mb-1">Avg. Salary</div>
+                      <div className="text-lg font-bold text-slate-900">{program.salary}</div>
+                    </div>
+                  </div>
+                  <div className="mb-6">
+                    <div className="text-sm font-semibold text-slate-700 mb-2">What You'll Learn:</div>
+                    <ul className="space-y-1">
+                      {program.skills.map((skill, i) => (
+                        <li key={i} className="text-slate-600 flex items-start">
+                          <span className="text-green-600 mr-2">✓</span>
+                          {skill}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <Link
+                    href={program.link}
+                    className="block w-full text-center px-6 py-4 bg-red-600 text-white font-bold rounded-full hover:bg-red-700 transition-all shadow-lg"
+                  >
+                    Learn More & Apply
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* WHY ELEVATE SECTION */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-14">
-          <div className="grid gap-8 md:grid-cols-2">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900">
-                Why Elevate For Humanity Works
-              </h2>
-              <p className="mt-2 text-sm text-slate-700">
-                We sit in the middle of students, employers, and workforce
-                partners. That means every program is built with real jobs in
-                mind—not just seat time.
-              </p>
-              <p className="mt-2 text-sm text-slate-700">
-                From short-term training to apprenticeships, our platform
-                combines curriculum, dashboards, data, and human support to help
-                people move into sustainable careers.
-              </p>
+      {/* Why Choose Us */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-extrabold text-center mb-16">
+            Why Choose Elevate for Humanity?
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyChooseUs.map((item, index) => (
+              <div key={index} className="text-center group">
+                <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden shadow-lg">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    sizes="96px"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section id="testimonials" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-extrabold text-center mb-16">
+            Success Stories
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all"
+              >
+                <div className="relative h-64">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="text-yellow-500 text-2xl mb-4 text-center">★★★★★</div>
+                  <p className="text-slate-700 italic mb-6 leading-relaxed">
+                    "{testimonial.quote}"
+                  </p>
+                  <div className="text-center">
+                    <div className="font-bold text-lg">{testimonial.name}</div>
+                    <div className="text-slate-500 text-sm">{testimonial.program}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-extrabold text-center mb-16">
+            Your Path to Success
+          </h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {steps.map((step, index) => (
+              <div key={index} className="text-center group">
+                <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden shadow-lg">
+                  <Image
+                    src={step.image}
+                    alt={step.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    sizes="80px"
+                  />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <span className="text-white text-3xl font-extrabold">{step.number}</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-24 bg-gradient-to-br from-red-600 to-red-900">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-extrabold text-white text-center mb-16">
+            Our Impact
+          </h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-6xl font-extrabold text-white mb-2">2500+</div>
+              <p className="text-xl text-white/90 font-semibold">Graduates Placed</p>
             </div>
-            <div className="grid gap-4 text-sm text-slate-800 sm:grid-cols-2">
-              <div className="rounded-2xl bg-slate-50 p-4">
-                <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-900">
-                  Career-Aligned Training
-                </h3>
-                <p className="mt-2 text-xs text-slate-700">
-                  Programs are mapped to real job descriptions, certifications,
-                  and local employer needs.
-                </p>
-              </div>
-              <div className="rounded-2xl bg-slate-50 p-4">
-                <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-900">
-                  Employer Connections
-                </h3>
-                <p className="mt-2 text-xs text-slate-700">
-                  We partner with employers so learners have a clearer path from
-                  training to placement.
-                </p>
-              </div>
-              <div className="rounded-2xl bg-slate-50 p-4">
-                <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-900">
-                  Hybrid & Online Options
-                </h3>
-                <p className="mt-2 text-xs text-slate-700">
-                  Meet learners where they are with flexible, blended learning
-                  models.
-                </p>
-              </div>
-              <div className="rounded-2xl bg-slate-50 p-4">
-                <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-900">
-                  Data & Dashboards
-                </h3>
-                <p className="mt-2 text-xs text-slate-700">
-                  Students, staff, and partners see real-time progress, metrics,
-                  and outcomes—not just guesses.
-                </p>
-              </div>
+            <div className="text-center">
+              <div className="text-6xl font-extrabold text-white mb-2">95%</div>
+              <p className="text-xl text-white/90 font-semibold">Job Placement</p>
+            </div>
+            <div className="text-center">
+              <div className="text-6xl font-extrabold text-white mb-2">50+</div>
+              <p className="text-xl text-white/90 font-semibold">Career Paths</p>
+            </div>
+            <div className="text-center">
+              <div className="text-6xl font-extrabold text-white mb-2">100+</div>
+              <p className="text-xl text-white/90 font-semibold">Employer Partners</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA BANNER */}
-      <section className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-4 py-10 text-white sm:flex-row sm:items-center">
-          <div>
-            <h2 className="text-xl font-semibold">
-              Ready to start your next chapter?
-            </h2>
-            <p className="mt-1 text-sm text-slate-200">
-              Many learners can start training within 30–60 days once funding is
-              approved.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/apply"
-              className="rounded-full bg-orange-500 px-6 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-400"
-            >
-              Apply now
-            </Link>
-            <Link
-              href="/contact"
-              className="rounded-full border border-slate-500 px-6 py-2.5 text-sm font-semibold text-slate-100 transition hover:border-slate-300 hover:bg-slate-800"
-            >
-              Talk to our team
-            </Link>
+      {/* Partners */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-extrabold text-center mb-16">
+            Our Hiring Partners
+          </h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            {partners.map((partner, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all group"
+              >
+                <div className="relative h-48">
+                  <Image
+                    src={partner.image}
+                    alt={partner.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-5xl">
+                    {partner.icon}
+                  </div>
+                </div>
+                <div className="p-6 text-center">
+                  <div className="font-semibold text-lg">{partner.name}</div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-8 text-xs text-slate-600">
-          <div className="grid gap-6 sm:grid-cols-4">
-            <div>
-              <p className="text-sm font-semibold text-slate-900">
-                Elevate For Humanity
-              </p>
-              <p className="mt-2 text-xs text-slate-600">
-                Training, technology, and community partnerships to help people
-                move into stable, meaningful work.
-              </p>
-            </div>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-900">
-                Programs
-              </p>
-              <ul className="mt-2 space-y-1">
-                <li>
-                  <Link href="/programs/cna">CNA</Link>
-                </li>
-                <li>
-                  <Link href="/programs/barber">Barber & Beauty</Link>
-                </li>
-                <li>
-                  <Link href="/programs/hvac">HVAC</Link>
-                </li>
-                <li>
-                  <Link href="/programs/cdl">CDL</Link>
-                </li>
-                <li>
-                  <Link href="/programs">View all programs</Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-900">
-                Pathways
-              </p>
-              <ul className="mt-2 space-y-1">
-                <li>
-                  <Link href="/funding">State funding</Link>
-                </li>
-                <li>
-                  <Link href="/funding/federal">Federal programs</Link>
-                </li>
-                <li>
-                  <Link href="/employers">Employer portal</Link>
-                </li>
-                <li>
-                  <Link href="/auth/signin">Student login</Link>
-                </li>
-                <li>
-                  <Link href="/staff">Staff login</Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-900">
-                Legal & Contact
-              </p>
-              <ul className="mt-2 space-y-1">
-                <li>
-                  <Link href="/privacy">Privacy policy</Link>
-                </li>
-                <li>
-                  <Link href="/refund-policy">Refund policy</Link>
-                </li>
-                <li>
-                  <Link href="/terms">Terms & conditions</Link>
-                </li>
-                <li>
-                  <Link href="/accessibility">
-                    Non-discrimination & ADA
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact">Contact us</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-6 flex flex-col justify-between gap-2 border-t border-slate-100 pt-4 text-[11px] text-slate-500 sm:flex-row sm:items-center">
-            <p>© {new Date().getFullYear()} Elevate For Humanity. All rights reserved.</p>
-            <p>Powered by Elevate's learning and workforce ecosystem.</p>
+      {/* Facilities Showcase */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-extrabold text-center mb-4">
+            State-of-the-Art Facilities
+          </h2>
+          <p className="text-xl text-center text-slate-600 mb-16 max-w-3xl mx-auto">
+            Train in modern, fully-equipped facilities designed for hands-on learning
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {facilities.map((facility, index) => (
+              <div
+                key={index}
+                className="relative h-64 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all group"
+              >
+                <Image
+                  src={facility.image}
+                  alt={facility.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-white font-bold text-xl">{facility.name}</h3>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </footer>
-    </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-5xl font-extrabold text-center mb-16">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <details key={index} className="bg-white rounded-2xl p-6 shadow-lg group">
+                <summary className="font-bold text-xl cursor-pointer flex justify-between items-center">
+                  {faq.question}
+                  <span className="text-red-600 text-2xl group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="mt-4 text-slate-600 leading-relaxed">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Social Media Cards */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-5xl font-extrabold text-center mb-4">
+            Connect With Us
+          </h2>
+          <p className="text-xl text-center text-slate-600 mb-16 max-w-3xl mx-auto">
+            Follow our journey and join our community
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {socialMedia.map((social, index) => (
+              <a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${social.gradient} rounded-3xl p-8 text-center cursor-pointer hover:scale-105 transition-all duration-300 block`}
+              >
+                <div className="w-16 h-16 mx-auto mb-4 bg-white rounded-full flex items-center justify-center">
+                  <span className="text-3xl font-black" style={{ color: social.color }}>{social.initial}</span>
+                </div>
+                <h3 className="text-white text-2xl font-extrabold mb-3">{social.name}</h3>
+                <p className="text-white/90 text-sm mb-6 leading-relaxed">{social.description}</p>
+                <div className="bg-white text-black px-6 py-3 rounded-full font-bold text-sm inline-block hover:scale-110 transition-all">
+                  {social.cta}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-5xl font-extrabold mb-6">
+            Ready to Start Your New Career?
+          </h2>
+          <p className="text-2xl text-slate-600 mb-12">
+            Apply now for 100% free training. No tuition, no debt, real jobs waiting.
+          </p>
+          <Link
+            href="/apply"
+            className="inline-block px-12 py-5 bg-red-600 text-white font-bold text-lg rounded-full hover:bg-red-700 hover:scale-110 transition-all shadow-2xl uppercase tracking-wide"
+          >
+            Apply Now - It's Free
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }
+
+// Data
+const programs = [
+  {
+    title: "Healthcare",
+    description: "CNA, Medical Assistant, Phlebotomy",
+    fullDescription: "Launch your healthcare career with hands-on training in patient care, vital signs, medical terminology, and clinical procedures. Get certified and start working in hospitals, clinics, and care facilities.",
+    duration: "4-10 weeks",
+    salary: "$35K-$45K",
+    link: "/programs/cna",
+    color: "bg-teal-600",
+    image: "/images/general/program-cna.jpg",
+    skills: [
+      "Patient care and vital signs monitoring",
+      "Medical terminology and documentation",
+      "CPR and First Aid certification",
+      "Clinical procedures and safety protocols"
+    ]
+  },
+  {
+    title: "Skilled Trades",
+    description: "HVAC, Electrical, Plumbing",
+    fullDescription: "Master in-demand trade skills with expert instruction in HVAC systems, electrical wiring, and plumbing installation. Earn industry certifications and start a high-paying career with job security.",
+    duration: "8-12 weeks",
+    salary: "$45K-$65K",
+    link: "/programs/hvac",
+    color: "bg-orange-600",
+    image: "/images/trades/hero-program-hvac.jpg",
+    skills: [
+      "HVAC installation and repair",
+      "Electrical systems and wiring",
+      "Plumbing and pipe fitting",
+      "Safety codes and regulations"
+    ]
+  },
+  {
+    title: "Beauty & Wellness",
+    description: "Barber, Cosmetology, Esthetics",
+    fullDescription: "Build your beauty career with professional training in barbering, hair styling, skin care, and salon management. Get licensed and start your own business or work in top salons.",
+    duration: "12 weeks",
+    salary: "$30K-$55K",
+    link: "/programs/barber",
+    color: "bg-pink-600",
+    image: "/images/beauty/program-barber-training.jpg",
+    skills: [
+      "Hair cutting and styling techniques",
+      "Skin care and facial treatments",
+      "Salon safety and sanitation",
+      "Client consultation and business skills"
+    ]
+  },
+  {
+    title: "Transportation",
+    description: "CDL, Logistics, Delivery",
+    fullDescription: "Get your Commercial Driver's License and start earning immediately. Learn safe driving practices, vehicle inspection, and logistics operations. High demand with excellent pay and benefits.",
+    duration: "4-6 weeks",
+    salary: "$50K-$70K",
+    link: "/programs/cdl",
+    color: "bg-blue-600",
+    image: "/images/trades/hero-program-cdl.jpg",
+    skills: [
+      "Commercial vehicle operation",
+      "DOT safety regulations and compliance",
+      "Pre-trip inspection procedures",
+      "Defensive driving and road safety"
+    ]
+  },
+];
+
+const whyChooseUs = [
+  {
+    title: "Industry-Focused Curriculum",
+    description: "Programs designed with employer input to teach the exact skills needed in today's job market",
+    image: "/images/artlist/hero-training-5.jpg",
+  },
+  {
+    title: "Expert Instructors",
+    description: "Learn from professionals with years of real-world experience in their fields",
+    image: "/images/artlist/hero-training-6.jpg",
+  },
+  {
+    title: "Job Placement Support",
+    description: "Dedicated career services team helping you find employment after graduation",
+    image: "/images/heroes/career-services.jpg",
+  },
+  {
+    title: "100% Free Training",
+    description: "No tuition costs through WIOA, WRG, and government-funded programs",
+    image: "/images/funding/funding-dol-program.jpg",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Marcus Johnson",
+    program: "Electrical Training Graduate",
+    quote: "This program changed my life. Within 2 months of graduation, I landed a great job with benefits. The instructors truly care about your success.",
+    image: "/images/gallery/image4.jpg",
+  },
+  {
+    name: "Sarah Martinez",
+    program: "IT Support Specialist",
+    quote: "The hands-on training and career support were incredible. I went from no tech experience to landing my dream job in IT support.",
+    image: "/images/gallery/image2.jpg",
+  },
+  {
+    name: "David Thompson",
+    program: "Healthcare Graduate",
+    quote: "Elevate for Humanity gave me the skills and confidence to start a new career. The job placement assistance was outstanding.",
+    image: "/images/gallery/image5.jpg",
+  },
+];
+
+const steps = [
+  {
+    number: "1",
+    title: "Apply & Enroll",
+    description: "Complete a simple application and meet with our admissions team to explore your options",
+    image: "/images/gallery/image6.jpg",
+  },
+  {
+    number: "2",
+    title: "Train & Learn",
+    description: "Attend classes with expert instructors and gain hands-on experience in modern facilities",
+    image: "/images/artlist/hero-training-7.jpg",
+  },
+  {
+    number: "3",
+    title: "Earn Certification",
+    description: "Complete your program and earn industry-recognized certifications",
+    image: "/images/gallery/image7.jpg",
+  },
+  {
+    number: "4",
+    title: "Launch Your Career",
+    description: "Work with our career services team to find and secure your ideal job",
+    image: "/images/heroes/career-services.jpg",
+  },
+];
+
+const partners = [
+  { icon: "🏢", name: "Major Employers", image: "/images/employers/partnership-meeting.jpg" },
+  { icon: "🏭", name: "Industry Leaders", image: "/images/employers/partnership-office-meeting.jpg" },
+  { icon: "🏥", name: "Healthcare Systems", image: "/images/employers/partnership-hiring-event.jpg" },
+  { icon: "💻", name: "Tech Companies", image: "/images/employers/partnership-handshake.jpg" },
+];
+
+const facilities = [
+  { name: "Healthcare Training Lab", image: "/images/facilities-new/facility-1.jpg" },
+  { name: "HVAC Workshop", image: "/images/facilities-new/facility-2.jpg" },
+  { name: "Computer Lab", image: "/images/facilities-new/facility-3.jpg" },
+  { name: "Barber Training Studio", image: "/images/facilities-new/facility-4.jpg" },
+  { name: "Welding Workshop", image: "/images/facilities-new/facility-5.jpg" },
+  { name: "Classroom Facilities", image: "/images/facilities-new/facility-6.jpg" },
+];
+
+const faqs = [
+  {
+    question: "How long are the training programs?",
+    answer: "Program lengths vary from 8 weeks to 12 months depending on the career path. Most programs can be completed in 3-6 months with flexible day and evening schedules available.",
+  },
+  {
+    question: "What financial aid options are available?",
+    answer: "We offer federal financial aid, state grants, scholarships, and flexible payment plans. Our financial aid team will help you explore all available options.",
+  },
+  {
+    question: "Do I need prior experience to enroll?",
+    answer: "No prior experience is required! Our programs are designed for both career changers and those new to their chosen field. We start with fundamentals and build your skills progressively.",
+  },
+  {
+    question: "What is your job placement rate?",
+    answer: "Over 95% of our graduates secure employment within 6 months of completing their program. Our career services team provides resume help, interview prep, and direct connections to employers.",
+  },
+  {
+    question: "Can I visit the campus before enrolling?",
+    answer: "Absolutely! We encourage prospective students to tour our facilities, meet instructors, and see our training equipment. Contact us to schedule your personalized campus tour.",
+  },
+];
+
+const socialMedia = [
+  {
+    name: "Facebook",
+    initial: "f",
+    description: "Daily success stories and updates",
+    cta: "Follow Us",
+    gradient: "bg-gradient-to-br from-[#1877f2] to-[#0c63d4]",
+    color: "#1877f2",
+    url: "https://facebook.com/elevateforhumanity"
+  },
+  {
+    name: "Instagram",
+    initial: "IG",
+    description: "Students in action and campus life",
+    cta: "Follow Us",
+    gradient: "bg-gradient-to-br from-[#e1306c] via-[#c13584] to-[#833ab4]",
+    color: "#e1306c",
+    url: "https://instagram.com/elevateforhumanity"
+  },
+  {
+    name: "LinkedIn",
+    initial: "in",
+    description: "Professional networking and jobs",
+    cta: "Connect",
+    gradient: "bg-gradient-to-br from-[#0077b5] to-[#005885]",
+    color: "#0077b5",
+    url: "https://linkedin.com/company/elevateforhumanity"
+  },
+  {
+    name: "YouTube",
+    initial: "YT",
+    description: "Testimonials and campus tours",
+    cta: "Subscribe",
+    gradient: "bg-gradient-to-br from-[#ff0000] to-[#cc0000]",
+    color: "#ff0000",
+    url: "https://youtube.com/@elevateforhumanity"
+  },
+  {
+    name: "TikTok",
+    initial: "TT",
+    description: "Behind-the-scenes content",
+    cta: "Follow Us",
+    gradient: "bg-gradient-to-br from-[#000000] to-[#333333]",
+    color: "#000000",
+    url: "https://tiktok.com/@elevateforhumanity"
+  },
+];
