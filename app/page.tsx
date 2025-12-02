@@ -10,39 +10,21 @@ export default function HomePage() {
   const [currentBanner, setCurrentBanner] = useState(0);
   const [mounted, setMounted] = useState(false);
 
-  const slides = [
-    {
-      title: "Transform Your Future",
-      subtitle: "Join thousands of graduates who found rewarding careers through our workforce development programs",
-      image: "/images/artlist/variations/hero-training-1-bright.jpg"
-    },
-    {
-      title: "Hands-On Training",
-      subtitle: "Learn from industry experts with real-world experience in state-of-the-art facilities",
-      image: "/images/artlist/variations/hero-training-2-bright.jpg"
-    },
-    {
-      title: "Career Services That Work",
-      subtitle: "From training to placement, we support you every step of your career journey",
-      image: "/images/artlist/variations/hero-training-3-bright.jpg"
-    }
-  ];
-
   const banners = [
     { 
-      title: "EARN WHILE YOU LEARN", 
-      subtitle: "Get paid during your training with our apprenticeship programs",
-      image: "/images/artlist/variations/hero-training-4-bright.jpg"
+      title: "Transform Your Future", 
+      subtitle: "Join thousands of graduates who found rewarding careers through our workforce development programs",
+      image: "/images/artlist/hero-training-1.jpg"
     },
     { 
-      title: "100% FREE TRAINING", 
-      subtitle: "Zero tuition. Zero hidden fees. Fully funded programs.",
-      image: "/images/artlist/variations/hero-training-5-bright.jpg"
+      title: "Hands-On Training", 
+      subtitle: "Learn from industry experts with real-world experience in state-of-the-art facilities",
+      image: "/images/artlist/hero-training-2.jpg"
     },
     { 
-      title: "GOVERNMENT CERTIFIED PROGRAMS", 
-      subtitle: "WRG, WIOA, OJT, ETPL certified training programs",
-      image: "/images/artlist/variations/hero-training-6-bright.jpg"
+      title: "Career Services That Work", 
+      subtitle: "From training to placement, we support you every step of your career journey",
+      image: "/images/artlist/hero-training-3.jpg"
     }
   ];
 
@@ -65,43 +47,41 @@ export default function HomePage() {
 
   return (
     <main className="bg-white">
-      {/* Hero Slideshow */}
+      {/* Voiceover Audio */}
+      {mounted && (
+        <audio autoPlay loop>
+          <source src="/videos/voiceover.mp3" type="audio/mpeg" />
+        </audio>
+      )}
+
+      {/* Hero Banner with Rotating Slides */}
       <section className="relative min-h-[600px] overflow-hidden">
-        {/* Voiceover Audio */}
-        {mounted && (
-          <audio autoPlay loop>
-            <source src="/videos/voiceover.mp3" type="audio/mpeg" />
-          </audio>
-        )}
-        
-        {slides.map((slide, index) => (
+        {banners.map((banner, index) => (
           <div
             key={index}
             className={`absolute inset-0 ${mounted ? 'transition-opacity duration-1000' : ''} ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+              index === currentBanner ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            {/* Background Image with Overlay */}
             <div className="absolute inset-0">
               <Image
-                src={slide.image}
-                alt={slide.title}
+                src={banner.image}
+                alt={banner.title}
                 fill
-                className="object-cover brightness-110"
+                className="object-cover"
                 priority={index === 0}
                 quality={90}
+                sizes="100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600/80 to-red-900/80" />
             </div>
-            
-            {/* Content */}
             <div className="relative h-full flex items-center justify-center py-20">
               <div className="max-w-6xl mx-auto px-6 text-center">
                 <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-2xl">
-                  {slide.title}
+                  {banner.title}
                 </h1>
                 <p className="text-xl md:text-2xl text-white/95 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-                  {slide.subtitle}
+                  {banner.subtitle}
                 </p>
                 <Link
                   href="/apply"
@@ -117,51 +97,18 @@ export default function HomePage() {
         {/* Slide Indicators */}
         {mounted && (
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3 z-10">
-            {slides.map((_, index) => (
+            {banners.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => setCurrentBanner(index)}
                 className={`w-3 h-3 rounded-full transition-all ${
-                  index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
+                  index === currentBanner ? 'bg-white w-8' : 'bg-white/50'
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
         )}
-      </section>
-
-      {/* Rotating Banner Highlights */}
-      <section className="relative h-96 overflow-hidden">
-        {banners.map((banner, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentBanner ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <div className="absolute inset-0">
-              <Image
-                src={banner.image}
-                alt={banner.title}
-                fill
-                className="object-cover brightness-110"
-                sizes="100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70" />
-            </div>
-            <div className="relative h-full flex items-center justify-center">
-              <div className="max-w-5xl mx-auto px-6 text-center">
-                <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-2xl">
-                  {banner.title}
-                </h2>
-                <p className="text-2xl md:text-3xl text-white/95 font-semibold drop-shadow-lg">
-                  {banner.subtitle}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
       </section>
 
       {/* Program Highlights */}
