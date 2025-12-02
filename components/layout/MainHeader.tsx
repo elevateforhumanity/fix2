@@ -86,7 +86,7 @@ export default function MainHeader() {
                   {/* Dropdown panel */}
                   <div
                     className={classNames(
-                      "absolute left-0 mt-2 w-64 rounded-xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60 py-2",
+                      "absolute left-0 mt-2 w-64 rounded-xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60 py-2 z-50",
                       !isOpen && "hidden"
                     )}
                   >
