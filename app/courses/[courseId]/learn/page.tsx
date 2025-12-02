@@ -71,34 +71,34 @@ export default async function CourseLearnPage({
     );
   }
 
-  // For internal courses, show lesson viewer
+  // Fetch lessons for this course
+  const { data: lessons } = await supabase
+    .from('lessons')
+    .select('*')
+    .eq('course_id', params.courseId)
+    .order('order', { ascending: true });
+
+  // Fetch lesson progress
+  const { data: progress } = await supabase
+    .from('lesson_progress')
+    .select('lesson_id, completed')
+    .eq('user_id', user.id);
+
+  const progressMap = new Map(progress?.map(p => [p.lesson_id, p.completed]) || []);
+  const lessonsWithProgress = lessons?.map(lesson => ({
+    ...lesson,
+    completed: progressMap.get(lesson.id) || false,
+  })) || [];
+
+  // For internal courses, show course player
+  const CoursePlayer = (await import('./CoursePlayer')).default;
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto py-8 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-6">
-            <Link href="/student/courses" className="text-blue-600 hover:text-blue-700 flex items-center">
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to My Courses
-            </Link>
-          </div>
-
-          <div className="bg-white rounded-lg shadow-sm border p-8">
-            <h1 className="text-3xl font-bold mb-4">{course.title}</h1>
-            <p className="text-gray-600 mb-8">{course.description}</p>
-
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-              <h2 className="font-bold text-blue-900 mb-3">Course Content Coming Soon</h2>
-              <p className="text-blue-800 mb-4">
-                We're currently building out the lesson content for this course. In the meantime, you can:
-              </p>
-              <ul className="space-y-2 text-blue-800">
-                <li className="flex items-start">
-                  <svg className="w-5 h-5 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
+    <CoursePlayer
+      courseId={params.courseId}
+      courseTitle={course.title}
+      lessons={lessonsWithProgress}
+    />
                   <span>Track your progress on the course dashboard</span>
                 </li>
                 <li className="flex items-start">
