@@ -13,8 +13,8 @@ export default function HomePage() {
     { 
       title: "Free Training. Real Skills. A Career You Can Be Proud Of.", 
       subtitle: "Indianapolis • State-Approved & Federally Recognized Workforce Institute",
-      description: "Approved for ETPL, WRG, INTraining, JRI, and U.S. DOL Registered Apprenticeships so your training is funded, legitimate, and employer-recognized.",
-      image: "/media-backup-20251128-043832/hero-elevate-learners.jpg"
+      description: "Approved for ETPL, WRG, INTraining, JRI, and U.S. DOL Registered Apprenticeships. Your training is funded, legitimate, and employer-recognized.",
+      image: "/media-backup-20251128-043832/students-hero.jpg"
     },
     { 
       title: "Hands-On Training", 
