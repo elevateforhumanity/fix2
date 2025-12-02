@@ -19,6 +19,8 @@ export default function Page() {
           fill
           className="object-cover"
           priority
+          quality={85}
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
         
