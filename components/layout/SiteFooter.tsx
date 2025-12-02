@@ -34,7 +34,7 @@ export default function SiteFooter() {
               <br />
               Indianapolis, IN 46240
               <br />
-              (317) 314-3757
+              <a href="tel:317-760-7908" className="hover:text-orange-600">(317) 760-7908</a>
             </p>
 
             <Link

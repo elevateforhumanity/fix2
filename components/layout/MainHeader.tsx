@@ -126,9 +126,9 @@ export default function MainHeader() {
             </Link>
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-orange-600 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-orange-700 transition-colors"
+              className="inline-flex items-center justify-center rounded-full bg-orange-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-orange-700 transition-colors"
             >
-              Apply Now – It&apos;s Free
+              Apply Now – It's Free
             </Link>
           </div>
 
