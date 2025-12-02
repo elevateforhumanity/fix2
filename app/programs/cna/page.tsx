@@ -282,21 +282,18 @@ export default function CNAProgramPage() {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">IU Health</h3>
                 <p className="text-gray-700 mb-2">CNA - Hospital & Outpatient</p>
                 <p className="text-green-600 font-bold text-lg">$16-$18/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Full benefits • Tuition reimbursement • Career advancement</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">Ascension St. Vincent</h3>
                 <p className="text-gray-700 mb-2">Patient Care Technician</p>
                 <p className="text-green-600 font-bold text-lg">$15-$17/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Health insurance • 401k match • Shift differentials</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
                 <p className="text-gray-700 mb-2">CNA - Med/Surg Units</p>
                 <p className="text-green-600 font-bold text-lg">$16-$19/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Sign-on bonus • Flexible scheduling • Education assistance</p>

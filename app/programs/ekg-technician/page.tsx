@@ -196,66 +196,25 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Hiring Partners */}
+      {/* Career Support - Generic */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-4">Healthcare Employer Partners</h2>
-            <p className="text-center text-gray-600 mb-12 text-lg">Job placement with hospitals, cardiology clinics, and diagnostic centers</p>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">IU Health</h3>
-                <p className="text-gray-700 mb-2">EKG Technician</p>
-                <p className="text-green-600 font-bold text-lg">$15-$20/hour</p>
-                <p className="text-sm text-gray-600 mt-2">Full benefits • Shift differentials • Career advancement</p>
+          <div className="max-w-6xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6">Career Support Included</h2>
+            <p className="text-xl text-gray-700 mb-8">We help prepare you for employment in the healthcare field</p>
+            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold mb-3">Job Readiness</h3>
+                <p className="text-gray-600">Resume building and interview preparation</p>
               </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">Ascension St. Vincent</h3>
-                <p className="text-gray-700 mb-2">Cardiac Monitor Technician</p>
-                <p className="text-green-600 font-bold text-lg">$16-$21/hour</p>
-                <p className="text-sm text-gray-600 mt-2">Health insurance • Tuition reimbursement • Growth opportunities</p>
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold mb-3">Certification Prep</h3>
+                <p className="text-gray-600">Support for industry certification exams</p>
               </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
-                <p className="text-gray-700 mb-2">EKG Tech</p>
-                <p className="text-green-600 font-bold text-lg">$15-$19/hour</p>
-                <p className="text-sm text-gray-600 mt-2">Sign-on bonus • Benefits • Flexible scheduling</p>
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold mb-3">Career Guidance</h3>
+                <p className="text-gray-600">Ongoing support as you build your career</p>
               </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
-                <h3 className="text-xl font-bold mb-2">Cardiology Clinics</h3>
-                <p className="text-gray-700 mb-2">EKG/Stress Test Technician</p>
-                <p className="text-green-600 font-bold text-lg">$16-$22/hour</p>
-                <p className="text-sm text-gray-600 mt-2">Outpatient setting • Regular hours • Specialized training</p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
-                <h3 className="text-xl font-bold mb-2">Diagnostic Centers</h3>
-                <p className="text-gray-700 mb-2">Cardiac Diagnostic Technician</p>
-                <p className="text-green-600 font-bold text-lg">$17-$23/hour</p>
-                <p className="text-sm text-gray-600 mt-2">Holter monitoring • Event recorders • Benefits</p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
-                <h3 className="text-xl font-bold mb-2">Urgent Care Centers</h3>
-                <p className="text-gray-700 mb-2">EKG Technician</p>
-                <p className="text-green-600 font-bold text-lg">$16-$21/hour</p>
-                <p className="text-sm text-gray-600 mt-2">Fast-paced • Variety of cases • Evening/weekend shifts</p>
-              </div>
-            </div>
-
-            <div className="mt-12 bg-red-50 rounded-lg p-8">
-              <h3 className="text-2xl font-bold mb-4">Career Support</h3>
-              <p className="text-gray-700 mb-4">90%+ of graduates employed within 30 days</p>
-              <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
-                <li>• Resume and interview preparation</li>
-                <li>• Direct connections to hiring hospitals</li>
-                <li>• Clinical externship-to-hire opportunities</li>
-                <li>• CET exam prep and scheduling support</li>
-              </ul>
             </div>
           </div>
         </div>

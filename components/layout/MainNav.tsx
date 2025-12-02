@@ -69,10 +69,10 @@ export function MainNav() {
   const [portalsOpen, setPortalsOpen] = useState(false);
   const [mobilePortalsOpen, setMobilePortalsOpen] = useState(false);
   
-  // Timeout refs for delayed closing
-  const programsTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
-  const microClassesTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
-  const fundingTimeoutRef = useState<NodeJS.Timeout | null>(null)[0];
+  // Timeout refs for delayed closing - use useRef instead of useState
+  const [programsTimeoutRef, setProgramsTimeoutRef] = useState<NodeJS.Timeout | null>(null);
+  const [microClassesTimeoutRef, setMicroClassesTimeoutRef] = useState<NodeJS.Timeout | null>(null);
+  const [fundingTimeoutRef, setFundingTimeoutRef] = useState<NodeJS.Timeout | null>(null);
 
   // Helper functions for delayed dropdown closing
   const handleProgramsEnter = () => {
@@ -81,8 +81,8 @@ export function MainNav() {
   };
   
   const handleProgramsLeave = () => {
-    const timeout = setTimeout(() => setProgramsOpen(false), 300);
-    if (programsTimeoutRef) clearTimeout(programsTimeoutRef);
+    const timeout = setTimeout(() => setProgramsOpen(false), 500);
+    setProgramsTimeoutRef(timeout);
   };
 
   const handleMicroClassesEnter = () => {
@@ -91,8 +91,8 @@ export function MainNav() {
   };
   
   const handleMicroClassesLeave = () => {
-    const timeout = setTimeout(() => setMicroClassesOpen(false), 300);
-    if (microClassesTimeoutRef) clearTimeout(microClassesTimeoutRef);
+    const timeout = setTimeout(() => setMicroClassesOpen(false), 500);
+    setMicroClassesTimeoutRef(timeout);
   };
 
   const handleFundingEnter = () => {
@@ -101,8 +101,8 @@ export function MainNav() {
   };
   
   const handleFundingLeave = () => {
-    const timeout = setTimeout(() => setFundingOpen(false), 300);
-    if (fundingTimeoutRef) clearTimeout(fundingTimeoutRef);
+    const timeout = setTimeout(() => setFundingOpen(false), 500);
+    setFundingTimeoutRef(timeout);
   };
 
   // Prevent body scroll when mobile menu is open
@@ -167,21 +167,23 @@ export function MainNav() {
               </button>
               
               {programsOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
-                  {programsLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={clsx(
-                        "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
-                        pathname === link.href
-                          ? "text-red-600 font-semibold bg-red-50"
-                          : "text-slate-700"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                <div className="absolute top-full left-0 pt-2 z-50">
+                  <div className="w-64 bg-white rounded-lg shadow-xl border border-slate-200 py-2">
+                    {programsLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={clsx(
+                          "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
+                          pathname === link.href
+                            ? "text-red-600 font-semibold bg-red-50"
+                            : "text-slate-700"
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -207,17 +209,18 @@ export function MainNav() {
               </button>
               
               {microClassesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
-                  {microClassesLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={clsx(
-                        "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
-                        pathname === link.href
-                          ? "text-red-600 font-semibold bg-red-50"
-                          : "text-slate-700"
-                      )}
+                <div className="absolute top-full left-0 pt-2 z-50">
+                  <div className="w-64 bg-white rounded-lg shadow-xl border border-slate-200 py-2">
+                    {microClassesLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={clsx(
+                          "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
+                          pathname === link.href
+                            ? "text-red-600 font-semibold bg-red-50"
+                            : "text-slate-700"
+                        )}
                     >
                       {link.label}
                     </Link>
@@ -247,21 +250,23 @@ export function MainNav() {
               </button>
               
               {fundingOpen && (
-                <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
-                  {fundingLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={clsx(
-                        "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
-                        pathname === link.href
-                          ? "text-red-600 font-semibold bg-red-50"
-                          : "text-slate-700"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                <div className="absolute top-full left-0 pt-2 z-50">
+                  <div className="w-56 bg-white rounded-lg shadow-xl border border-slate-200 py-2">
+                    {fundingLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={clsx(
+                          "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
+                          pathname === link.href
+                            ? "text-red-600 font-semibold bg-red-50"
+                            : "text-slate-700"
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -287,21 +292,23 @@ export function MainNav() {
               </button>
               
               {portalsOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50">
-                  {portalLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={clsx(
-                        "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
-                        pathname === link.href
-                          ? "text-red-600 font-semibold bg-red-50"
-                          : "text-slate-700"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                <div className="absolute top-full left-0 pt-2 z-50">
+                  <div className="w-48 bg-white rounded-lg shadow-xl border border-slate-200 py-2">
+                    {portalLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={clsx(
+                          "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
+                          pathname === link.href
+                            ? "text-red-600 font-semibold bg-red-50"
+                            : "text-slate-700"
+                        )}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>

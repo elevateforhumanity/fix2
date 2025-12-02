@@ -239,14 +239,12 @@ export default function Page() {
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
-                <h3 className="text-xl font-bold mb-2">IU Health Pharmacies</h3>
                 <p className="text-gray-700 mb-2">Hospital Pharmacy Technician</p>
                 <p className="text-green-600 font-bold text-lg">$18-$24/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Full benefits • Tuition assistance • IV/sterile compounding</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
-                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
                 <p className="text-gray-700 mb-2">Inpatient Pharmacy Tech</p>
                 <p className="text-green-600 font-bold text-lg">$17-$23/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Shift differentials • Benefits • Career growth</p>

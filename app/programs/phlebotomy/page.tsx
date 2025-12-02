@@ -218,7 +218,6 @@ export default function Page() {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">IU Health Laboratories</h3>
                 <p className="text-gray-700 mb-2">Phlebotomist</p>
                 <p className="text-green-600 font-bold text-lg">$15-$19/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Full benefits • Shift differentials • Career advancement</p>
@@ -239,14 +238,12 @@ export default function Page() {
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
-                <h3 className="text-xl font-bold mb-2">Ascension St. Vincent</h3>
                 <p className="text-gray-700 mb-2">Hospital Phlebotomist</p>
                 <p className="text-green-600 font-bold text-lg">$16-$20/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Full benefits • Tuition reimbursement • Shift premiums</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
-                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
                 <p className="text-gray-700 mb-2">Phlebotomy Technician</p>
                 <p className="text-green-600 font-bold text-lg">$15-$19/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Sign-on bonus • Benefits • Growth opportunities</p>
