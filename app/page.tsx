@@ -31,7 +31,7 @@ export default function HomePage() {
   const banners = [
     { title: "EARN WHILE YOU LEARN", subtitle: "Get paid during your training with our apprenticeship programs" },
     { title: "100% FREE TRAINING", subtitle: "Zero tuition. Zero hidden fees. Fully funded programs." },
-    { title: "DOL APPROVED PROGRAMS", subtitle: "WRG, WIOA, OJT, ETPL, and DOL certified training programs" }
+    { title: "GOVERNMENT CERTIFIED PROGRAMS", subtitle: "WRG, WIOA, OJT, ETPL certified training programs" }
   ];
 
   useEffect(() => {
@@ -213,12 +213,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Highlight 3 - DOL Approved */}
+            {/* Highlight 3 - Government Certified */}
             <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl hover:-translate-y-3 transition-all duration-300">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/medical-assistant/large/ma-large-01.jpg"
-                  alt="DOL Approved Programs - Certified Training"
+                  src="/images/artlist/hero-training-8.jpg"
+                  alt="Government Certified Programs - Training"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -229,16 +229,16 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-3xl font-extrabold mb-4">DOL Approved Programs</h3>
+                <h3 className="text-3xl font-extrabold mb-4">Government Certified Programs</h3>
                 <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                  WRG, WIOA, OJT, ETPL, and DOL certified training programs.
+                  WRG, WIOA, OJT, ETPL certified training programs approved by government agencies.
                 </p>
                 <div className="flex gap-3 flex-wrap">
                   <span className="bg-blue-100 text-blue-900 px-4 py-2 rounded-full font-semibold text-sm">
                     WRG
                   </span>
                   <span className="bg-blue-100 text-blue-900 px-4 py-2 rounded-full font-semibold text-sm">
-                    DOL
+                    WIOA
                   </span>
                 </div>
               </div>
@@ -253,8 +253,8 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/general/hero-elevate-learners.jpg"
-                alt="Elevate for Humanity students in training"
+                src="/images/facilities-new/facility-1.jpg"
+                alt="Elevate for Humanity training facility"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
