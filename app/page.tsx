@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function HomePage() {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [currentBanner, setCurrentBanner] = useState(0);
   const [mounted, setMounted] = useState(false);
 
@@ -33,29 +32,19 @@ export default function HomePage() {
 
   useEffect(() => {
     setMounted(true);
-    
-    const slideTimer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
 
     const bannerTimer = setInterval(() => {
       setCurrentBanner((prev) => (prev + 1) % banners.length);
     }, 4000);
 
     return () => {
-      clearInterval(slideTimer);
       clearInterval(bannerTimer);
     };
   }, []);
 
   return (
     <main className="bg-white">
-      {/* Voiceover Audio */}
-      {mounted && (
-        <audio autoPlay loop>
-          <source src="/videos/voiceover.mp3" type="audio/mpeg" />
-        </audio>
-      )}
+
 
       {/* Hero Banner with Rotating Slides */}
       <section className="relative min-h-[600px] overflow-hidden">
@@ -76,7 +65,7 @@ export default function HomePage() {
                 quality={90}
                 sizes="100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-blue-900/75 to-slate-900/85" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
             </div>
             <div className="relative h-full flex items-center justify-center py-20">
               <div className="max-w-6xl mx-auto px-6 text-center">
