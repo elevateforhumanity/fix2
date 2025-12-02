@@ -108,88 +108,6 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* Approvals & Partners Band */}
-      <section className="py-16 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-4">
-            Official Approvals & Partners
-          </h2>
-          <p className="text-lg text-slate-300 text-center mb-12 max-w-4xl mx-auto leading-relaxed">
-            Elevate For Humanity operates as a state-approved, federally recognized workforce training institute under our 501(c)(3) nonprofit, Selfish Inc. We are proud to be:
-          </p>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-green-400 text-2xl mb-2">✅</div>
-              <h3 className="text-white font-bold text-lg mb-2">INTraining Approved Provider</h3>
-              <p className="text-slate-300 text-sm">Indiana Department of Workforce Development (Program Location ID: 10004621 – Emergency Health & Safety Technician)</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-green-400 text-2xl mb-2">✅</div>
-              <h3 className="text-white font-bold text-lg mb-2">Workforce Ready Grant (WRG)</h3>
-              <p className="text-slate-300 text-sm">Training Provider</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-green-400 text-2xl mb-2">✅</div>
-              <h3 className="text-white font-bold text-lg mb-2">Eligible Training Provider (ETP)</h3>
-              <p className="text-slate-300 text-sm">For WIOA-funded participants</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-green-400 text-2xl mb-2">✅</div>
-              <h3 className="text-white font-bold text-lg mb-2">U.S. DOL Registered Apprenticeship</h3>
-              <p className="text-slate-300 text-sm">Sponsor (Program ID: 2025-IN-132301)</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-green-400 text-2xl mb-2">✅</div>
-              <h3 className="text-white font-bold text-lg mb-2">Job Ready Indy (JRI)</h3>
-              <p className="text-slate-300 text-sm">Training Partner – Marion County</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-green-400 text-2xl mb-2">✅</div>
-              <h3 className="text-white font-bold text-lg mb-2">Certiport Authorized Testing Center</h3>
-              <p className="text-slate-300 text-sm">MOS, IC3, IT Specialist, Adobe, ESB, CSB</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-green-400 text-2xl mb-2">✅</div>
-              <h3 className="text-white font-bold text-lg mb-2">Milady RISE Partner School</h3>
-              <p className="text-slate-300 text-sm">Beauty & barber safety and client well-being</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-green-400 text-2xl mb-2">✅</div>
-              <h3 className="text-white font-bold text-lg mb-2">ByBlack Certified</h3>
-              <p className="text-slate-300 text-sm">Black-Owned Business</p>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div className="text-green-400 text-2xl mb-2">✅</div>
-              <h3 className="text-white font-bold text-lg mb-2">Federal Contractor</h3>
-              <p className="text-slate-300 text-sm">SAM.gov active – UEI VX2GK5S8SZH8 / CAGE 0Q856 for Selfish Inc</p>
-            </div>
-          </div>
-          
-          <p className="text-center text-slate-300 text-lg max-w-4xl mx-auto">
-            These approvals mean our students can access free or funded training, and our partners can trust that we meet state, federal, and industry standards.
-          </p>
-          
-          <div className="text-center mt-8">
-            <Link
-              href="/approvals"
-              className="inline-flex items-center px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-all shadow-lg"
-            >
-              View All Approvals & Credentials
-              <ArrowRight size={20} className="ml-2" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Program Highlights */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -267,7 +185,7 @@ export default function HomePage() {
             <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl hover:-translate-y-3 transition-all duration-300">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/artlist/hero-training-8.jpg"
+                  src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
                   alt="Government Certified Programs - Training"
                   fill
                   className="object-cover"
@@ -628,6 +546,150 @@ export default function HomePage() {
                 </div>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Approvals & Partners with Images */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4">
+            Official Approvals & Partners
+          </h2>
+          <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto leading-relaxed">
+            Elevate For Humanity operates as a state-approved, federally recognized workforce training institute under our 501(c)(3) nonprofit, Selfish Inc.
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {/* DWD Logo */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow flex flex-col items-center justify-center">
+              <div className="relative w-full h-24 mb-4">
+                <Image
+                  src="/logos/dwd.svg"
+                  alt="Indiana Department of Workforce Development"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+              <h3 className="font-bold text-center text-sm">Indiana DWD</h3>
+              <p className="text-xs text-gray-600 text-center mt-1">INTraining Approved</p>
+            </div>
+
+            {/* DOL Logo */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow flex flex-col items-center justify-center">
+              <div className="relative w-full h-24 mb-4">
+                <Image
+                  src="/logos/dol.svg"
+                  alt="U.S. Department of Labor"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+              <h3 className="font-bold text-center text-sm">U.S. DOL</h3>
+              <p className="text-xs text-gray-600 text-center mt-1">Registered Apprenticeship</p>
+            </div>
+
+            {/* WorkOne Logo */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow flex flex-col items-center justify-center">
+              <div className="relative w-full h-24 mb-4">
+                <Image
+                  src="/logos/workone.svg"
+                  alt="WorkOne Indiana"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+              <h3 className="font-bold text-center text-sm">WorkOne</h3>
+              <p className="text-xs text-gray-600 text-center mt-1">WIOA Partner</p>
+            </div>
+
+            {/* Placeholder for additional partner */}
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow flex flex-col items-center justify-center">
+              <div className="relative w-full h-24 mb-4 flex items-center justify-center">
+                <div className="text-4xl font-bold text-gray-300">501(c)(3)</div>
+              </div>
+              <h3 className="font-bold text-center text-sm">Selfish Inc</h3>
+              <p className="text-xs text-gray-600 text-center mt-1">Nonprofit Organization</p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-blue-500 transition-colors">
+              <div className="flex items-start">
+                <div className="text-green-600 text-2xl mr-3">✓</div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">Workforce Ready Grant (WRG)</h3>
+                  <p className="text-gray-600 text-sm">Approved training provider for state-funded programs</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-blue-500 transition-colors">
+              <div className="flex items-start">
+                <div className="text-green-600 text-2xl mr-3">✓</div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">Eligible Training Provider (ETPL)</h3>
+                  <p className="text-gray-600 text-sm">WIOA-approved for workforce development</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-blue-500 transition-colors">
+              <div className="flex items-start">
+                <div className="text-green-600 text-2xl mr-3">✓</div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">Job Ready Indy (JRI)</h3>
+                  <p className="text-gray-600 text-sm">Marion County training partner</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-blue-500 transition-colors">
+              <div className="flex items-start">
+                <div className="text-green-600 text-2xl mr-3">✓</div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">Certiport Testing Center</h3>
+                  <p className="text-gray-600 text-sm">MOS, IC3, IT Specialist certifications</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-blue-500 transition-colors">
+              <div className="flex items-start">
+                <div className="text-green-600 text-2xl mr-3">✓</div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">Milady RISE Partner</h3>
+                  <p className="text-gray-600 text-sm">Beauty & barber safety standards</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-xl p-6 border-2 border-gray-200 hover:border-blue-500 transition-colors">
+              <div className="flex items-start">
+                <div className="text-green-600 text-2xl mr-3">✓</div>
+                <div>
+                  <h3 className="font-bold text-lg mb-1">Federal Contractor</h3>
+                  <p className="text-gray-600 text-sm">SAM.gov registered (UEI: VX2GK5S8SZH8)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <p className="text-center text-gray-700 text-lg max-w-4xl mx-auto mb-8">
+            These approvals mean our students can access free or funded training, and our partners can trust that we meet state, federal, and industry standards.
+          </p>
+          
+          <div className="text-center">
+            <Link
+              href="/approvals"
+              className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all shadow-lg"
+            >
+              View All Approvals & Credentials
+              <ArrowRight size={20} className="ml-2" />
+            </Link>
           </div>
         </div>
       </section>
