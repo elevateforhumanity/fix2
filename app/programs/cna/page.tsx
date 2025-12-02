@@ -150,6 +150,251 @@ export default function CNAProgramPage() {
         </div>
       </section>
 
+      {/* Detailed Curriculum */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">4-6 Week Training Schedule</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <div className="border-l-4 border-blue-600 pl-6">
+                  <h3 className="text-2xl font-bold mb-3">Week 1: Introduction to Healthcare & Patient Care Basics</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Role and responsibilities of a CNA</li>
+                    <li>• Healthcare team dynamics and communication</li>
+                    <li>• Patient rights, confidentiality (HIPAA), and ethics</li>
+                    <li>• Infection control: handwashing, PPE, standard precautions</li>
+                    <li>• Body mechanics and safe patient handling</li>
+                    <li>• Medical terminology and abbreviations</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <div className="border-l-4 border-green-600 pl-6">
+                  <h3 className="text-2xl font-bold mb-3">Week 2: Vital Signs & Basic Nursing Skills</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Taking and recording vital signs (temperature, pulse, respiration, blood pressure)</li>
+                    <li>• Height, weight, and intake/output measurements</li>
+                    <li>• Bed making (occupied and unoccupied)</li>
+                    <li>• Personal hygiene assistance (bathing, oral care, grooming)</li>
+                    <li>• Toileting and incontinence care</li>
+                    <li>• Positioning and turning patients</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <div className="border-l-4 border-purple-600 pl-6">
+                  <h3 className="text-2xl font-bold mb-3">Week 3: Specialized Care & Safety</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Nutrition and feeding assistance</li>
+                    <li>• Range of motion exercises and ambulation</li>
+                    <li>• Transfer techniques (bed to chair, wheelchair)</li>
+                    <li>• Fall prevention and safety measures</li>
+                    <li>• Emergency procedures and choking response</li>
+                    <li>• Observation and reporting changes in patient condition</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <div className="border-l-4 border-orange-600 pl-6">
+                  <h3 className="text-2xl font-bold mb-3">Week 4: Special Populations & Clinical Skills</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Caring for elderly patients and dementia care</li>
+                    <li>• Mental health and behavioral challenges</li>
+                    <li>• End-of-life care and hospice support</li>
+                    <li>• Documentation and charting</li>
+                    <li>• Rehabilitation and restorative care</li>
+                    <li>• Cultural sensitivity and patient-centered care</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <div className="border-l-4 border-red-600 pl-6">
+                  <h3 className="text-2xl font-bold mb-3">Weeks 5-6: Clinical Experience & Exam Prep</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• 40+ hours of supervised clinical practice at healthcare facilities</li>
+                    <li>• Hands-on patient care under RN supervision</li>
+                    <li>• Skills lab practice and competency testing</li>
+                    <li>• State certification exam preparation (written and skills)</li>
+                    <li>• Job readiness training and interview skills</li>
+                    <li>• Resume building and job placement support</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-blue-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-6">Certifications Earned</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Indiana State CNA License</h4>
+                    <p className="text-gray-700">Registered with Indiana State Department of Health Nurse Aide Registry</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">CPR & First Aid Certification</h4>
+                    <p className="text-gray-700">American Heart Association BLS for Healthcare Providers</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Infection Control Certification</h4>
+                    <p className="text-gray-700">OSHA Bloodborne Pathogens and Standard Precautions</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Skills Competency Certificate</h4>
+                    <p className="text-gray-700">Verified proficiency in all 25 essential CNA skills</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Partners */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4">Our Hiring Partners</h2>
+            <p className="text-center text-gray-600 mb-12 text-lg">We work directly with top healthcare employers in Indianapolis</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">IU Health</h3>
+                <p className="text-gray-700 mb-2">CNA - Hospital & Outpatient</p>
+                <p className="text-green-600 font-bold text-lg">$16-$18/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Full benefits • Tuition reimbursement • Career advancement</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Ascension St. Vincent</h3>
+                <p className="text-gray-700 mb-2">Patient Care Technician</p>
+                <p className="text-green-600 font-bold text-lg">$15-$17/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Health insurance • 401k match • Shift differentials</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
+                <p className="text-gray-700 mb-2">CNA - Med/Surg Units</p>
+                <p className="text-green-600 font-bold text-lg">$16-$19/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Sign-on bonus • Flexible scheduling • Education assistance</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Brookdale Senior Living</h3>
+                <p className="text-gray-700 mb-2">CNA - Assisted Living</p>
+                <p className="text-green-600 font-bold text-lg">$14-$16/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Paid training • Flexible hours • Advancement opportunities</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">American Senior Communities</h3>
+                <p className="text-gray-700 mb-2">CNA - Skilled Nursing</p>
+                <p className="text-green-600 font-bold text-lg">$15-$17/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Weekend premium • Benefits • Referral bonuses</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
+                <h3 className="text-xl font-bold mb-2">Visiting Nurse & Hospice Home</h3>
+                <p className="text-gray-700 mb-2">Home Health Aide</p>
+                <p className="text-green-600 font-bold text-lg">$16-$20/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Mileage reimbursement • Flexible schedule • 1-on-1 care</p>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-blue-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4">Job Placement Support</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-bold text-lg mb-2">Before Graduation:</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Resume writing and formatting</li>
+                    <li>• Interview preparation and mock interviews</li>
+                    <li>• Job search strategies and online applications</li>
+                    <li>• Professional references and recommendations</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg mb-2">After Graduation:</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Direct connections to hiring managers</li>
+                    <li>• On-site job fairs with healthcare employers</li>
+                    <li>• 90-day follow-up and career coaching</li>
+                    <li>• Continuing education opportunities</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Progression */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Entry-Level CNA (0-1 year)</h3>
+                <p className="text-blue-100 text-lg mb-2">$30,000-$35,000/year ($14-$17/hour)</p>
+                <p className="text-blue-50">Start in nursing homes, assisted living, or hospitals. Build foundational skills and patient care experience.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Experienced CNA (1-3 years)</h3>
+                <p className="text-blue-100 text-lg mb-2">$35,000-$40,000/year ($17-$19/hour)</p>
+                <p className="text-blue-50">Move to specialty units (ICU, ER, pediatrics) or home health. Take on mentoring roles for new CNAs.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Senior CNA / Lead CNA (3-5 years)</h3>
+                <p className="text-blue-100 text-lg mb-2">$40,000-$45,000/year ($19-$22/hour)</p>
+                <p className="text-blue-50">Supervise other CNAs, coordinate patient care, assist with training programs. Leadership responsibilities.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Career Advancement Options</h3>
+                <p className="text-blue-100 text-lg mb-2">$45,000-$75,000+/year</p>
+                <p className="text-blue-50">Bridge to LPN (1 year) or RN (2-4 years) programs. Many employers offer tuition assistance. Medical Assistant, Phlebotomist, or Patient Care Coordinator roles also available.</p>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-xl text-blue-100 mb-6">
+                Many of our CNA graduates go on to become Licensed Practical Nurses (LPNs) or Registered Nurses (RNs) with employer-sponsored education.
+              </p>
+              <Link href="/apply" className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-50 shadow-2xl">
+                Start Your Healthcare Journey Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Career Opportunities */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
