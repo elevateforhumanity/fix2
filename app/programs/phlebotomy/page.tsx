@@ -103,6 +103,217 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Detailed Curriculum */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">4-8 Week Phlebotomy Training Program</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-red-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 1-2: Phlebotomy Fundamentals</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Introduction to phlebotomy and healthcare roles</li>
+                  <li>• Medical terminology and anatomy (circulatory system)</li>
+                  <li>• Infection control and standard precautions</li>
+                  <li>• OSHA bloodborne pathogens certification</li>
+                  <li>• Patient identification and safety protocols</li>
+                  <li>• Professional ethics and patient communication</li>
+                  <li>• Laboratory equipment and supplies</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 3-4: Venipuncture Techniques</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Venipuncture site selection and vein anatomy</li>
+                  <li>• Evacuated tube system (Vacutainer) technique</li>
+                  <li>• Butterfly needle and syringe methods</li>
+                  <li>• Order of draw and tube additives</li>
+                  <li>• Tourniquet application and release</li>
+                  <li>• Needle insertion angles and techniques</li>
+                  <li>• Hands-on practice with training arms</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 5-6: Capillary Puncture & Special Collections</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Capillary puncture (fingerstick and heelstick)</li>
+                  <li>• Pediatric and geriatric phlebotomy</li>
+                  <li>• Difficult draw techniques and problem-solving</li>
+                  <li>• Special collections (glucose tolerance, blood cultures)</li>
+                  <li>• Point-of-care testing (glucose, hemoglobin)</li>
+                  <li>• Specimen handling, labeling, and transport</li>
+                  <li>• Quality assurance and error prevention</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-purple-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 7-8: Clinical Externship & Certification</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• 100+ successful venipunctures on real patients</li>
+                  <li>• 25+ successful capillary punctures</li>
+                  <li>• Clinical rotation at hospitals and labs</li>
+                  <li>• EKG basics (optional add-on)</li>
+                  <li>• Certification exam preparation (CPT, PBT)</li>
+                  <li>• Resume building and interview skills</li>
+                  <li>• Job placement assistance</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-red-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-6">Certifications Earned</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Certified Phlebotomy Technician (CPT)</h4>
+                    <p className="text-gray-700">National Healthcareer Association (NHA) certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">OSHA Bloodborne Pathogens</h4>
+                    <p className="text-gray-700">Safety and infection control certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">CPR & First Aid</h4>
+                    <p className="text-gray-700">American Heart Association BLS certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Clinical Competency Certificate</h4>
+                    <p className="text-gray-700">Verified 100+ successful blood draws</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Partners */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4">Healthcare Employer Partners</h2>
+            <p className="text-center text-gray-600 mb-12 text-lg">Job placement with hospitals, labs, and blood donation centers</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">IU Health Laboratories</h3>
+                <p className="text-gray-700 mb-2">Phlebotomist</p>
+                <p className="text-green-600 font-bold text-lg">$15-$19/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Full benefits • Shift differentials • Career advancement</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Quest Diagnostics</h3>
+                <p className="text-gray-700 mb-2">Patient Service Technician</p>
+                <p className="text-green-600 font-bold text-lg">$14-$18/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Health insurance • 401k • Paid training • Flexible hours</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">LabCorp</h3>
+                <p className="text-gray-700 mb-2">Phlebotomist</p>
+                <p className="text-green-600 font-bold text-lg">$14-$18/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Benefits • Career development • National company</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Ascension St. Vincent</h3>
+                <p className="text-gray-700 mb-2">Hospital Phlebotomist</p>
+                <p className="text-green-600 font-bold text-lg">$16-$20/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Full benefits • Tuition reimbursement • Shift premiums</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
+                <p className="text-gray-700 mb-2">Phlebotomy Technician</p>
+                <p className="text-green-600 font-bold text-lg">$15-$19/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Sign-on bonus • Benefits • Growth opportunities</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
+                <h3 className="text-xl font-bold mb-2">Versiti Blood Center</h3>
+                <p className="text-gray-700 mb-2">Donor Phlebotomist</p>
+                <p className="text-green-600 font-bold text-lg">$16-$21/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Rewarding work • Benefits • Save lives daily</p>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-red-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4">Career Support</h3>
+              <p className="text-gray-700 mb-4">95%+ of graduates employed within 30 days</p>
+              <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
+                <li>• Resume and interview preparation</li>
+                <li>• Direct connections to hiring labs and hospitals</li>
+                <li>• Clinical externship-to-hire opportunities</li>
+                <li>• Certification exam prep and scheduling</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Progression */}
+      <section className="py-16 bg-gradient-to-r from-red-600 to-red-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Entry-Level Phlebotomist (0-2 years)</h3>
+                <p className="text-red-100 text-lg mb-2">$28,000-$36,000/year ($14-$17/hour)</p>
+                <p className="text-red-50">Start in labs, hospitals, or blood donation centers. Build speed and accuracy with blood draws.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Experienced Phlebotomist (2-5 years)</h3>
+                <p className="text-red-100 text-lg mb-2">$36,000-$44,000/year ($17-$21/hour)</p>
+                <p className="text-red-50">Move to specialized areas (pediatrics, oncology, mobile phlebotomy) or lead phlebotomist roles.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Senior/Lead Phlebotomist (5+ years)</h3>
+                <p className="text-red-100 text-lg mb-2">$44,000-$52,000+/year ($21-$25/hour)</p>
+                <p className="text-red-50">Supervise phlebotomy teams, train new staff, coordinate lab operations.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Career Advancement</h3>
+                <p className="text-red-100 text-lg mb-2">$50,000-$70,000+/year</p>
+                <p className="text-red-50">Lab Supervisor, Medical Lab Technician (MLT), Medical Lab Scientist (MLS), or Healthcare Administration.</p>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/apply" className="inline-block bg-white text-red-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-red-50 shadow-2xl">
+                Start Your Phlebotomy Career Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
