@@ -103,6 +103,204 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Detailed Curriculum */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">4-6 Week Emergency Health & Safety Training</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-red-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 1-2: CPR, First Aid & AED</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Adult, child, and infant CPR techniques</li>
+                  <li>• Automated External Defibrillator (AED) operation</li>
+                  <li>• Choking relief (Heimlich maneuver)</li>
+                  <li>• Wound care and bleeding control</li>
+                  <li>• Burns, fractures, and sprains</li>
+                  <li>• Shock recognition and treatment</li>
+                  <li>• Emergency scene assessment and safety</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 3-4: Workplace Safety & OSHA</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• OSHA 10-Hour General Industry certification</li>
+                  <li>• Hazard communication and safety data sheets</li>
+                  <li>• Personal protective equipment (PPE)</li>
+                  <li>• Fire safety and evacuation procedures</li>
+                  <li>• Electrical safety and lockout/tagout</li>
+                  <li>• Bloodborne pathogens and infection control</li>
+                  <li>• Workplace violence prevention</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 5-6: Specialized Emergency Response</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Emergency action plans and drills</li>
+                  <li>• Active shooter and workplace violence response</li>
+                  <li>• Natural disaster preparedness</li>
+                  <li>• Hazardous materials awareness</li>
+                  <li>• Mental health first aid basics</li>
+                  <li>• Incident reporting and documentation</li>
+                  <li>• Job placement and career development</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-red-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-6">Certifications Earned</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">BLS for Healthcare Providers</h4>
+                    <p className="text-gray-700">American Heart Association CPR/AED certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">First Aid Certification</h4>
+                    <p className="text-gray-700">American Red Cross or equivalent</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">OSHA 10-Hour General Industry</h4>
+                    <p className="text-gray-700">Workplace safety certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Bloodborne Pathogens</h4>
+                    <p className="text-gray-700">OSHA-compliant infection control</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Partners */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4">Employer Partners</h2>
+            <p className="text-center text-gray-600 mb-12 text-lg">Safety coordinators needed across all industries</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Manufacturing Companies</h3>
+                <p className="text-gray-700 mb-2">Safety Coordinator</p>
+                <p className="text-green-600 font-bold text-lg">$16-$22/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Benefits • Career growth • Industrial setting</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Schools & Universities</h3>
+                <p className="text-gray-700 mb-2">Emergency Response Coordinator</p>
+                <p className="text-green-600 font-bold text-lg">$15-$20/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Education environment • Benefits • Summers off</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Healthcare Facilities</h3>
+                <p className="text-gray-700 mb-2">Safety Officer</p>
+                <p className="text-green-600 font-bold text-lg">$17-$23/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Hospital/clinic setting • Benefits • Stable hours</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Construction Companies</h3>
+                <p className="text-gray-700 mb-2">Site Safety Technician</p>
+                <p className="text-green-600 font-bold text-lg">$18-$25/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Outdoor work • Benefits • Overtime opportunities</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Warehouses & Distribution</h3>
+                <p className="text-gray-700 mb-2">Safety Coordinator</p>
+                <p className="text-green-600 font-bold text-lg">$16-$21/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Logistics • Benefits • Shift options</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
+                <h3 className="text-xl font-bold mb-2">Corporate Offices</h3>
+                <p className="text-gray-700 mb-2">Emergency Preparedness Specialist</p>
+                <p className="text-green-600 font-bold text-lg">$17-$24/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Office environment • Benefits • Professional setting</p>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-red-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4">Career Support</h3>
+              <p className="text-gray-700 mb-4">Multiple certifications increase employability across industries</p>
+              <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
+                <li>• Resume highlighting safety certifications</li>
+                <li>• Interview preparation for safety roles</li>
+                <li>• Connections to employers needing safety staff</li>
+                <li>• Continuing education opportunities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Progression */}
+      <section className="py-16 bg-gradient-to-r from-red-600 to-orange-600 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Entry-Level Safety Technician (0-2 years)</h3>
+                <p className="text-orange-100 text-lg mb-2">$30,000-$42,000/year ($15-$20/hour)</p>
+                <p className="text-orange-50">Start as safety coordinator or emergency response team member. Conduct drills and maintain certifications.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Safety Specialist (2-5 years)</h3>
+                <p className="text-orange-100 text-lg mb-2">$42,000-$55,000/year ($20-$26/hour)</p>
+                <p className="text-orange-50">Lead safety programs, conduct training, manage compliance. Add OSHA 30-Hour certification.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Safety Manager (5-10 years)</h3>
+                <p className="text-orange-100 text-lg mb-2">$55,000-$75,000/year</p>
+                <p className="text-orange-50">Manage safety department, develop policies, oversee compliance programs.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Career Advancement</h3>
+                <p className="text-orange-100 text-lg mb-2">$70,000-$100,000+/year</p>
+                <p className="text-orange-50">Director of Safety, EHS Manager, or Certified Safety Professional (CSP) with additional credentials.</p>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/apply" className="inline-block bg-white text-red-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-red-50 shadow-2xl">
+                Start Your Safety Career Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
