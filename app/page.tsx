@@ -12,18 +12,21 @@ export default function HomePage() {
 
   const banners = [
     { 
-      title: "Transform Your Future", 
-      subtitle: "Join thousands of graduates who found rewarding careers through our workforce development programs",
+      title: "Free Training. Real Skills. A Career You Can Be Proud Of.", 
+      subtitle: "Indianapolis • State-Approved & Federally Recognized Workforce Institute",
+      description: "Approved for ETPL, WRG, INTraining, JRI, and U.S. DOL Registered Apprenticeships so your training is funded, legitimate, and employer-recognized.",
       image: "/media-backup-20251128-043832/hero-elevate-learners.jpg"
     },
     { 
       title: "Hands-On Training", 
       subtitle: "Learn from industry experts with real-world experience in state-of-the-art facilities",
+      description: "State-approved programs that meet federal quality standards",
       image: "/media-backup-20251128-043832/state-funding-hero.jpg"
     },
     { 
       title: "Career Services That Work", 
       subtitle: "From training to placement, we support you every step of your career journey",
+      description: "Workforce board approved and employer-recognized credentials",
       image: "/media-backup-20251128-043832/hero-slide-healthcare.jpg"
     }
   ];
@@ -80,9 +83,14 @@ export default function HomePage() {
                 <h1 className="text-6xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-2xl">
                   {banner.title}
                 </h1>
-                <p className="text-xl md:text-2xl text-white/95 mb-12 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+                <p className="text-xl md:text-2xl text-white/95 mb-4 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
                   {banner.subtitle}
                 </p>
+                {banner.description && (
+                  <p className="text-lg md:text-xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed drop-shadow-lg">
+                    {banner.description}
+                  </p>
+                )}
                 <Link
                   href="/apply"
                   className="inline-block px-12 py-5 bg-white text-red-600 font-bold text-lg rounded-full hover:scale-110 transition-all shadow-2xl uppercase tracking-wide"
@@ -109,6 +117,88 @@ export default function HomePage() {
             ))}
           </div>
         )}
+      </section>
+
+      {/* Approvals & Partners Band */}
+      <section className="py-16 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-4">
+            Official Approvals & Partners
+          </h2>
+          <p className="text-lg text-slate-300 text-center mb-12 max-w-4xl mx-auto leading-relaxed">
+            Elevate For Humanity operates as a state-approved, federally recognized workforce training institute under our 501(c)(3) nonprofit, Selfish Inc. We are proud to be:
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-green-400 text-2xl mb-2">✅</div>
+              <h3 className="text-white font-bold text-lg mb-2">INTraining Approved Provider</h3>
+              <p className="text-slate-300 text-sm">Indiana Department of Workforce Development (Program Location ID: 10004621 – Emergency Health & Safety Technician)</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-green-400 text-2xl mb-2">✅</div>
+              <h3 className="text-white font-bold text-lg mb-2">Workforce Ready Grant (WRG)</h3>
+              <p className="text-slate-300 text-sm">Training Provider</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-green-400 text-2xl mb-2">✅</div>
+              <h3 className="text-white font-bold text-lg mb-2">Eligible Training Provider (ETP)</h3>
+              <p className="text-slate-300 text-sm">For WIOA-funded participants</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-green-400 text-2xl mb-2">✅</div>
+              <h3 className="text-white font-bold text-lg mb-2">U.S. DOL Registered Apprenticeship</h3>
+              <p className="text-slate-300 text-sm">Sponsor (Program ID: 2025-IN-132301)</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-green-400 text-2xl mb-2">✅</div>
+              <h3 className="text-white font-bold text-lg mb-2">Job Ready Indy (JRI)</h3>
+              <p className="text-slate-300 text-sm">Training Partner – Marion County</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-green-400 text-2xl mb-2">✅</div>
+              <h3 className="text-white font-bold text-lg mb-2">Certiport Authorized Testing Center</h3>
+              <p className="text-slate-300 text-sm">MOS, IC3, IT Specialist, Adobe, ESB, CSB</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-green-400 text-2xl mb-2">✅</div>
+              <h3 className="text-white font-bold text-lg mb-2">Milady RISE Partner School</h3>
+              <p className="text-slate-300 text-sm">Beauty & barber safety and client well-being</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-green-400 text-2xl mb-2">✅</div>
+              <h3 className="text-white font-bold text-lg mb-2">ByBlack Certified</h3>
+              <p className="text-slate-300 text-sm">Black-Owned Business</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="text-green-400 text-2xl mb-2">✅</div>
+              <h3 className="text-white font-bold text-lg mb-2">Federal Contractor</h3>
+              <p className="text-slate-300 text-sm">SAM.gov active – UEI VX2GK5S8SZH8 / CAGE 0Q856 for Selfish Inc</p>
+            </div>
+          </div>
+          
+          <p className="text-center text-slate-300 text-lg max-w-4xl mx-auto">
+            These approvals mean our students can access free or funded training, and our partners can trust that we meet state, federal, and industry standards.
+          </p>
+          
+          <div className="text-center mt-8">
+            <Link
+              href="/approvals"
+              className="inline-flex items-center px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-all shadow-lg"
+            >
+              View All Approvals & Credentials
+              <ArrowRight size={20} className="ml-2" />
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Program Highlights */}

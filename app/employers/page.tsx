@@ -33,9 +33,96 @@ export default async function Page() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-16">
+      {/* Work Experience (WEX) & OJT Section */}
+      <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-extrabold mb-6">Work Experience (WEX) & On-the-Job Training (OJT)</h2>
+            <p className="text-xl text-slate-700 mb-8 leading-relaxed">
+              Elevate For Humanity works with workforce boards and employers to create paid work experiences and on-the-job training (OJT) tied to our programs in healthcare, trades, CDL, technology, beauty, and customer service.
+            </p>
+            
+            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 rounded-r-lg">
+              <p className="text-lg text-slate-700 leading-relaxed">
+                As an approved <strong>ETP</strong>, <strong>WRG</strong>, <strong>JRI provider</strong> and <strong>DOL Registered Apprenticeship sponsor</strong>, we help employers:
+              </p>
+              <ul className="mt-4 space-y-2 text-slate-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 font-bold">✓</span>
+                  <span>Build entry-level talent pipelines</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 font-bold">✓</span>
+                  <span>Access wage reimbursements and training incentives</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-600 font-bold">✓</span>
+                  <span>Connect with WEX, internships, and OJT programs through EmployIndy and WorkOne</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+              <h3 className="text-2xl font-bold mb-6">How It Works</h3>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                    1
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2">Design a Role</h4>
+                    <p className="text-slate-700">
+                      We help you define a WEX/OJT role that fits your business (e.g., Health & Safety Tech Apprentice, Logistics Assistant, Customer Service Representative, Barber Apprentice).
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                    2
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2">Match Candidates</h4>
+                    <p className="text-slate-700">
+                      We match students and jobseekers coming through our programs and workforce partners.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                    3
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2">Leverage Funding</h4>
+                    <p className="text-slate-700">
+                      We coordinate with workforce partners to explore WEX, OJT, apprenticeship, or WRG support where available.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-2xl p-8 text-center">
+              <h3 className="text-2xl font-bold mb-4">Interested in WEX or OJT?</h3>
+              <p className="text-lg mb-6">
+                Email us at <a href="mailto:employers@elevateforhumanity.org" className="underline font-semibold">employers@elevateforhumanity.org</a> or call <a href="tel:317-760-7908" className="underline font-semibold">317-760-7908</a> and ask for our Employer Workforce Partnership Packet.
+              </p>
+              <Link 
+                href="/contact" 
+                className="inline-block bg-white text-orange-600 px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition-all shadow-lg"
+              >
+                Contact Us Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-extrabold text-center mb-12">Employer Services</h2>
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             
             <div className="bg-white rounded-lg shadow-sm border p-6">

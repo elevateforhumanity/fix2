@@ -28,6 +28,39 @@ export default async function Page() {
         </div>
       </section>
 
+      {/* JRI Callout */}
+      <section className="py-16 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 border-l-4 border-blue-600">
+            <h2 className="text-3xl font-extrabold mb-4">Job Ready Indy (JRI) Partner – Marion County</h2>
+            <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+              Elevate For Humanity Career and Training Institute is an approved Job Ready Indy (JRI) partner in Marion County. JRI helps youth and adults build:
+            </p>
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">💼</span>
+                <span className="text-lg font-semibold">Work ethic</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">🤝</span>
+                <span className="text-lg font-semibold">Professionalism</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">💬</span>
+                <span className="text-lg font-semibold">Communication</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">🎯</span>
+                <span className="text-lg font-semibold">Self-management</span>
+              </div>
+            </div>
+            <p className="text-slate-700 leading-relaxed">
+              Eligible learners can access JRI modules through EmployIndy's Tovuti LMS, with Elevate For Humanity providing local training, coaching, and wraparound support.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Feature Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">

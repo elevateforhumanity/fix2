@@ -273,6 +273,43 @@ export default async function ProgramsPage() {
         </div>
       </section>
 
+      {/* Milady RISE Callout for Beauty & Barber */}
+      <section className="py-16 bg-gradient-to-r from-pink-50 to-purple-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-pink-600">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 text-4xl">💇</div>
+              <div>
+                <h2 className="text-3xl font-extrabold mb-4">Milady RISE Partner – Client Safety & Well-Being</h2>
+                <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                  Our beauty and barber students gain access to Milady RISE training in:
+                </p>
+                <div className="grid md:grid-cols-3 gap-4 mb-6">
+                  <div className="bg-pink-50 rounded-lg p-4">
+                    <div className="font-semibold text-pink-900 mb-1">Domestic Violence Awareness</div>
+                    <p className="text-sm text-slate-600">Recognize signs and provide support</p>
+                  </div>
+                  <div className="bg-pink-50 rounded-lg p-4">
+                    <div className="font-semibold text-pink-900 mb-1">Human Trafficking Awareness</div>
+                    <p className="text-sm text-slate-600">Identify and respond appropriately</p>
+                  </div>
+                  <div className="bg-pink-50 rounded-lg p-4">
+                    <div className="font-semibold text-pink-900 mb-1">Infection Control</div>
+                    <p className="text-sm text-slate-600">2-hour safety certification course</p>
+                  </div>
+                </div>
+                <p className="text-slate-700 mb-4">
+                  Students and staff who complete all modules earn a <strong>Client Well-Being & Safety Certification</strong> and can apply for Milady's <strong>$500 RISE scholarships</strong>.
+                </p>
+                <p className="text-slate-600">
+                  To enroll, students visit Milady's training portal and use our school code: <code className="bg-slate-100 px-3 py-1 rounded font-mono text-pink-700">efhcti-rise295</code>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA SECTION */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
