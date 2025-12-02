@@ -14,19 +14,19 @@ export default function CNAProgramPage() {
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/programs/efh-cna-hero.jpg"
+            src="/media-backup-20251128-043832/programs/cna-hd.jpg"
             alt="CNA Training Program"
             fill
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
         </div>
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">Certified Nursing Assistant (CNA) Training</h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">
-              Launch your healthcare career with our comprehensive, 100% funded CNA program
+            <h1 className="text-6xl md:text-7xl font-extrabold mb-6 drop-shadow-2xl leading-tight">Certified Nursing Assistant (CNA) Training</h1>
+            <p className="text-2xl md:text-3xl mb-8 drop-shadow-lg leading-relaxed">
+              Start your healthcare career in just 4-6 weeks. Work in hospitals, nursing homes, and home health. State certification exam included. $30-$35K starting salary.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/apply" className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-700 text-lg shadow-2xl">
