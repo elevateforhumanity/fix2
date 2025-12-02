@@ -20,46 +20,59 @@ async function getPrograms() {
   return programs || [];
 }
 
-// Map program categories to appropriate placeholder images
+// Map program categories to high-quality, properly sized images
 function getProgramImage(slug: string, category: string): string {
-  // If program has custom image, use it
+  // High-quality program-specific images (600x400 aspect ratio)
   const customImages: Record<string, string> = {
-    "medical-assistant": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
-    "phlebotomy-technician": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&h=600&fit=crop",
-    "pharmacy-technician": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&h=600&fit=crop",
-    "dental-assistant": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&h=600&fit=crop",
-    "it-support-specialist": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=600&fit=crop",
-    "cybersecurity-analyst": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop",
-    "web-development": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
-    "data-analytics": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-    "customer-service-representative": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-    "administrative-assistant": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-    "bookkeeping": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
-    "real-estate-agent": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
-    "insurance-agent": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop",
-    "solar-panel-installation": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop",
-    "automotive-technician": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop",
-    "diesel-mechanic": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&h=600&fit=crop",
-    "forklift-operator": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop",
-    "manufacturing-technician": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop",
-    "entrepreneurship-small-business": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
+    "medical-assistant": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=400&fit=crop&q=80",
+    "phlebotomy-technician": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&h=400&fit=crop&q=80",
+    "pharmacy-technician": "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&h=400&fit=crop&q=80",
+    "dental-assistant": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&h=400&fit=crop&q=80",
+    "it-support-specialist": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&h=400&fit=crop&q=80",
+    "cybersecurity-analyst": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop&q=80",
+    "web-development": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop&q=80",
+    "data-analytics": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80",
+    "customer-service-representative": "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=600&h=400&fit=crop&q=80",
+    "administrative-assistant": "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=600&h=400&fit=crop&q=80",
+    "bookkeeping": "https://images.unsplash.com/photo-1554224311-beee4ece3c5d?w=600&h=400&fit=crop&q=80",
+    "real-estate-agent": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&h=400&fit=crop&q=80",
+    "insurance-agent": "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=600&h=400&fit=crop&q=80",
+    "solar-panel-installation": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&h=400&fit=crop&q=80",
+    "automotive-technician": "https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=600&h=400&fit=crop&q=80",
+    "diesel-mechanic": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&h=400&fit=crop&q=80",
+    "forklift-operator": "https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop&q=80",
+    "manufacturing-technician": "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&h=400&fit=crop&q=80",
+    "entrepreneurship-small-business": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=400&fit=crop&q=80",
+    // Additional programs
+    "cna": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&h=400&fit=crop&q=80",
+    "certified-nursing-assistant": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&h=400&fit=crop&q=80",
+    "hvac-technician": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&h=400&fit=crop&q=80",
+    "cdl": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop&q=80",
+    "commercial-truck-driving": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop&q=80",
+    "barber-apprenticeship": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop&q=80",
+    "building-maintenance-technician": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&h=400&fit=crop&q=80",
   };
 
   if (customImages[slug]) {
     return customImages[slug];
   }
 
-  // Fallback based on category
+  // High-quality category fallback images
   const categoryImages: Record<string, string> = {
-    "Healthcare": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
-    "Technology": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
-    "Business": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-    "Sales": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-    "Skilled Trades": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop",
-    "Transportation": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&h=600&fit=crop",
+    "Healthcare": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&h=400&fit=crop&q=80",
+    "Technology": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop&q=80",
+    "Business": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&h=400&fit=crop&q=80",
+    "Sales": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop&q=80",
+    "Skilled Trades": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&h=400&fit=crop&q=80",
+    "Transportation": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop&q=80",
+    "trades": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&h=400&fit=crop&q=80",
+    "healthcare": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600&h=400&fit=crop&q=80",
+    "transportation": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&h=400&fit=crop&q=80",
+    "barber_beauty": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&h=400&fit=crop&q=80",
+    "professional": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&h=400&fit=crop&q=80",
   };
 
-  return categoryImages[category] || "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop";
+  return categoryImages[category] || "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop&q=80";
 }
 
 export const metadata = {
@@ -72,37 +85,110 @@ export default async function ProgramsPage() {
   const programs = await getPrograms();
 
   return (
-    <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
-      <div className="mb-3 text-[11px] text-slate-500 uppercase tracking-wide">
-        © {new Date().getFullYear()} Elevate For Humanity • All Rights Reserved
-      </div>
+    <main className="min-h-screen bg-white">
+      {/* HERO BANNER */}
+      <section className="relative h-[400px] w-full overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=800&fit=crop"
+            alt="Students learning together"
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/75" />
+        </div>
 
-      <header className="mb-8 space-y-3">
-        <h1 className="text-3xl sm:text-4xl font-bold text-slate-900">
-          Free Career Training Programs
-        </h1>
-        <p className="text-base sm:text-lg text-slate-700 max-w-3xl">
-          Elevate For Humanity partners with workforce boards and employers to
-          offer no-cost training that leads to in-demand jobs. Most programs can
-          be fully funded through WIOA, Workforce Ready Grant, or employer
-          partners.
-        </p>
-        <div className="flex flex-wrap gap-3 pt-2">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 text-teal-700 rounded-full text-sm font-medium">
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
-              <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd"/>
-            </svg>
-            {programs.length} Programs Available
-          </div>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 text-orange-700 rounded-full text-sm font-medium">
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/>
-            </svg>
-            100% Free Training
+        {/* Content */}
+        <div className="relative h-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center">
+          <div className="max-w-4xl space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-full text-sm font-semibold">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
+              </svg>
+              Career Training Programs
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Transform Your Future with Free Career Training
+            </h1>
+
+            <p className="text-xl sm:text-2xl text-slate-200 leading-relaxed">
+              Choose from {programs.length} workforce development programs. 100% funded through WIOA, grants, and employer partnerships.
+            </p>
+
+            <div className="flex flex-wrap gap-6 text-white pt-4">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                    <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold">{programs.length}</div>
+                  <div className="text-sm text-slate-300">Programs</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold">100%</div>
+                  <div className="text-sm text-slate-300">Free Training</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold">10k+</div>
+                  <div className="text-sm text-slate-300">Students Trained</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-4 pt-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white text-lg font-semibold rounded-full hover:bg-orange-700 transition-colors shadow-xl"
+              >
+                Get Started Today
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-lg font-semibold rounded-full hover:bg-white/20 transition-colors border-2 border-white/30"
+              >
+                Learn More
+              </Link>
+            </div>
           </div>
         </div>
-      </header>
+      </section>
+
+      {/* PROGRAMS GRID */}
+      <section className="py-16 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Explore Our Programs</h2>
+            <p className="text-lg text-slate-700 max-w-2xl mx-auto">
+              Choose from healthcare, technology, skilled trades, and business programs designed to get you hired fast.
+            </p>
+          </div>
 
       {programs.length === 0 ? (
         <div className="text-center py-12">
@@ -120,7 +206,7 @@ export default async function ProgramsPage() {
                 href={`/programs/${program.slug}`}
                 className="group rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:border-orange-400 hover:shadow-lg transition-all duration-200"
               >
-                <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+                <div className="relative w-full overflow-hidden bg-slate-100" style={{ aspectRatio: '3/2' }}>
                   <Image
                     src={imageUrl}
                     alt={displayName}
@@ -184,30 +270,40 @@ export default async function ProgramsPage() {
           })}
         </section>
       )}
+        </div>
+      </section>
 
-      <section className="mt-12 rounded-xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 shadow-sm">
-        <div className="max-w-2xl">
-          <h2 className="text-xl font-bold text-slate-900 mb-3">
-            Unsure which program fits you best?
-          </h2>
-          <p className="text-slate-700 mb-5">
-            You don&apos;t have to figure it out alone. Our team can help you
-            explore options based on your interests, work history, and funding
-            eligibility.
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-orange-600 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-700 transition-colors shadow-sm"
-            >
-              Get matched to a program
-            </Link>
-            <Link
-              href="/about"
-              className="inline-flex items-center justify-center rounded-full border-2 border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 hover:border-orange-500 hover:text-orange-700 transition-colors"
-            >
-              Learn how funding works
-            </Link>
+      {/* CTA SECTION */}
+      <section className="py-16 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 via-white to-blue-50 p-8 lg:p-12 shadow-lg">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                Unsure Which Program Fits You Best?
+              </h2>
+              <p className="text-lg text-slate-700 mb-8">
+                You don&apos;t have to figure it out alone. Our team can help you
+                explore options based on your interests, work history, and funding
+                eligibility.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-full bg-orange-600 px-8 py-4 text-lg font-semibold text-white hover:bg-orange-700 transition-colors shadow-lg"
+                >
+                  Get Matched to a Program
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center justify-center rounded-full border-2 border-orange-600 px-8 py-4 text-lg font-semibold text-orange-600 hover:bg-orange-50 transition-colors"
+                >
+                  Learn How Funding Works
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
