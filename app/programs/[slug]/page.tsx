@@ -149,37 +149,131 @@ export default function ProgramPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* ENROLL STEPS */}
-      <section className="py-10 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-4">
-          <h3 className="text-lg font-semibold">How to Enroll</h3>
-
-          <div className="mt-4 grid gap-4 sm:grid-cols-4 text-xs">
-            {[
-              ["Step 1", "Explore this program"],
-              ["Step 2", "Check funding with our team"],
-              ["Step 3", "Submit application"],
-              ["Step 4", "Start training"],
-            ].map(([step, title]) => (
-              <div key={step} className="bg-white p-4 rounded-xl shadow-sm">
-                <p className="text-orange-600 text-[11px] uppercase font-semibold">
-                  {step}
-                </p>
-                <p className="mt-2 text-sm font-medium">{title}</p>
+      {/* CAREER OUTLOOK */}
+      {program.careerOutlook && (
+        <section className="py-10 bg-white border-t border-slate-100">
+          <div className="mx-auto max-w-6xl px-4">
+            <h3 className="text-lg font-semibold mb-4">Career Outlook</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-emerald-50 p-4 rounded-xl">
+                <p className="text-xs uppercase text-emerald-700 font-semibold mb-2">Job Growth</p>
+                <p className="text-sm font-medium text-slate-900">{program.careerOutlook.jobGrowth}</p>
               </div>
-            ))}
+              <div className="bg-blue-50 p-4 rounded-xl">
+                <p className="text-xs uppercase text-blue-700 font-semibold mb-2">Annual Openings</p>
+                <p className="text-sm font-medium text-slate-900">{program.careerOutlook.openings}</p>
+              </div>
+              <div className="bg-purple-50 p-4 rounded-xl">
+                <p className="text-xs uppercase text-purple-700 font-semibold mb-2">Career Advancement</p>
+                <ul className="text-xs space-y-1">
+                  {program.careerOutlook.advancement.map((path) => (
+                    <li key={path} className="text-slate-700">→ {path}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
+        </section>
+      )}
 
-          <div className="mt-6 flex gap-3">
+      {/* FUNDING PATHWAYS */}
+      {program.fundingPathways && (
+        <section className="py-10 bg-gradient-to-r from-orange-50 to-blue-50">
+          <div className="mx-auto max-w-6xl px-4">
+            <h3 className="text-lg font-semibold mb-4">100% Free Training - Multiple Funding Pathways</h3>
+            <div className="bg-white rounded-xl p-6 shadow-sm">
+              <div className="flex flex-wrap gap-3 mb-4">
+                {program.fundingPathways.wioa && (
+                  <span className="px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-xs font-semibold">
+                    ✓ WIOA Eligible
+                  </span>
+                )}
+                {program.fundingPathways.wrg && (
+                  <span className="px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">
+                    ✓ WRG Eligible
+                  </span>
+                )}
+                {program.fundingPathways.jri && (
+                  <span className="px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-xs font-semibold">
+                    ✓ JRI Funding
+                  </span>
+                )}
+                {program.fundingPathways.seal && (
+                  <span className="px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-xs font-semibold">
+                    ✓ SEAL Grant
+                  </span>
+                )}
+                {program.fundingPathways.apprenticeship && (
+                  <span className="px-4 py-2 bg-teal-100 text-teal-800 rounded-full text-xs font-semibold">
+                    ✓ Apprenticeship
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-slate-700 mb-4">{program.fundingPathways.details}</p>
+              <Link
+                href={`/funding/eligibility?program=${program.slug}`}
+                className="inline-flex items-center px-6 py-3 bg-orange-600 text-white font-semibold rounded-full hover:bg-orange-700 text-sm"
+              >
+                See If I Qualify →
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ENROLL STEPS */}
+      <section className="py-10 bg-white">
+        <div className="mx-auto max-w-6xl px-4">
+          <h3 className="text-lg font-semibold mb-6">How to Enroll</h3>
+
+          {program.enrollmentSteps ? (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {program.enrollmentSteps.map((step) => (
+                <div key={step.step} className="bg-slate-50 p-6 rounded-xl">
+                  <div className="w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold mb-4">
+                    {step.step}
+                  </div>
+                  <h4 className="text-sm font-semibold text-slate-900 mb-2">{step.title}</h4>
+                  <p className="text-xs text-slate-600 mb-4">{step.description}</p>
+                  {step.action && step.actionUrl && (
+                    <Link
+                      href={step.actionUrl}
+                      className="text-xs font-semibold text-orange-600 hover:text-orange-700"
+                    >
+                      {step.action} →
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-4 text-xs">
+              {[
+                ["Step 1", "Explore this program"],
+                ["Step 2", "Check funding with our team"],
+                ["Step 3", "Submit application"],
+                ["Step 4", "Start training"],
+              ].map(([step, title]) => (
+                <div key={step} className="bg-white p-4 rounded-xl shadow-sm">
+                  <p className="text-orange-600 text-[11px] uppercase font-semibold">
+                    {step}
+                  </p>
+                  <p className="mt-2 text-sm font-medium">{title}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-8 flex gap-3 justify-center">
             <Link
               href={`/apply?program=${program.slug}`}
-              className="bg-slate-900 text-white px-6 py-2.5 rounded-full text-xs font-semibold hover:bg-slate-800"
+              className="bg-orange-600 text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-orange-700 shadow-lg"
             >
               Apply Now
             </Link>
             <Link
               href={`/contact?program=${program.slug}`}
-              className="border border-slate-300 px-6 py-2.5 rounded-full text-xs font-semibold hover:bg-slate-50"
+              className="border-2 border-orange-600 text-orange-600 px-8 py-3 rounded-full text-sm font-semibold hover:bg-orange-50"
             >
               Talk to an Advisor
             </Link>

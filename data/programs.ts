@@ -19,6 +19,32 @@ export type Program = {
   dayInTheLife: string[];
   isRightForYouIf: string[];
   fundingHighlights: string[];
+  
+  // Career Outlook
+  careerOutlook: {
+    jobGrowth: string;
+    openings: string;
+    advancement: string[];
+  };
+  
+  // Funding Pathways
+  fundingPathways: {
+    wioa: boolean;
+    wrg: boolean;
+    jri: boolean;
+    seal: boolean;
+    apprenticeship: boolean;
+    details: string;
+  };
+  
+  // How to Enroll
+  enrollmentSteps: {
+    step: number;
+    title: string;
+    description: string;
+    action?: string;
+    actionUrl?: string;
+  }[];
 };
 
 export const PROGRAMS: Program[] = [
@@ -59,6 +85,52 @@ export const PROGRAMS: Program[] = [
       "Eligible for WRG",
       "Often covered by WIOA",
       "Possible employer sponsorship"
+    ],
+    careerOutlook: {
+      jobGrowth: "8% growth through 2031 (faster than average)",
+      openings: "200,000+ openings annually nationwide",
+      advancement: [
+        "Licensed Practical Nurse (LPN)",
+        "Registered Nurse (RN)",
+        "Medical Assistant",
+        "Patient Care Technician"
+      ]
+    },
+    fundingPathways: {
+      wioa: true,
+      wrg: true,
+      jri: false,
+      seal: false,
+      apprenticeship: false,
+      details: "100% covered by WIOA or WRG for eligible participants. No out-of-pocket costs for tuition, books, or clinical fees."
+    },
+    enrollmentSteps: [
+      {
+        step: 1,
+        title: "Check Your Eligibility",
+        description: "See if you qualify for free training through WIOA or WRG funding",
+        action: "Check Eligibility",
+        actionUrl: "/funding/eligibility?program=cna"
+      },
+      {
+        step: 2,
+        title: "Complete Application",
+        description: "Submit your application online - takes 10 minutes",
+        action: "Apply Now",
+        actionUrl: "/apply?program=cna"
+      },
+      {
+        step: 3,
+        title: "Meet with Advisor",
+        description: "Schedule a call with our team to confirm funding and enrollment",
+        action: "Schedule Call",
+        actionUrl: "/contact?program=cna"
+      },
+      {
+        step: 4,
+        title: "Start Training",
+        description: "Begin your CNA training within 2 weeks of approval"
+      }
     ]
   },
   {
