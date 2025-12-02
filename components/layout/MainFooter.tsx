@@ -114,6 +114,16 @@ export function MainFooter() {
           </div>
         </div>
       </div>
+
+      {/* Equal Opportunity Statement */}
+      <div className="mx-auto max-w-6xl border-t border-slate-200 px-4 py-6">
+        <div className="text-center">
+          <h3 className="text-sm font-bold text-slate-800 mb-2">Equal Opportunity Statement</h3>
+          <p className="text-xs text-slate-600 leading-relaxed max-w-4xl mx-auto">
+            Elevate for Humanity Technical & Career Institute is an equal opportunity organization. No person will be denied admission, services, or participation on the basis of race, color, religion, sex, national origin, age, disability, veteran status, or any other protected characteristic, in accordance with applicable federal and state laws. Auxiliary aids and services are available upon request to individuals with disabilities.
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }
