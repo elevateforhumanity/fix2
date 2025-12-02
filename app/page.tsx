@@ -14,17 +14,17 @@ export default function HomePage() {
     { 
       title: "Transform Your Future", 
       subtitle: "Join thousands of graduates who found rewarding careers through our workforce development programs",
-      image: "/images/artlist/hero-training-1.jpg"
+      image: "/media-backup-20251128-043832/hero-elevate-learners.jpg"
     },
     { 
       title: "Hands-On Training", 
       subtitle: "Learn from industry experts with real-world experience in state-of-the-art facilities",
-      image: "/images/artlist/hero-training-2.jpg"
+      image: "/media-backup-20251128-043832/state-funding-hero.jpg"
     },
     { 
       title: "Career Services That Work", 
       subtitle: "From training to placement, we support you every step of your career journey",
-      image: "/images/artlist/hero-training-3.jpg"
+      image: "/media-backup-20251128-043832/hero-slide-healthcare.jpg"
     }
   ];
 
@@ -587,7 +587,7 @@ const programs = [
     salary: "$35K-$45K",
     link: "/programs/cna",
     color: "bg-teal-600",
-    image: "/images/general/program-cna.jpg",
+    image: "/media-backup-20251128-043832/programs/cna-hd.jpg",
     skills: [
       "Patient care and vital signs monitoring",
       "Medical terminology and documentation",
@@ -603,7 +603,7 @@ const programs = [
     salary: "$45K-$65K",
     link: "/programs/hvac",
     color: "bg-orange-600",
-    image: "/images/trades/hero-program-hvac.jpg",
+    image: "/media-backup-20251128-043832/programs/hvac-hd.jpg",
     skills: [
       "HVAC installation and repair",
       "Electrical systems and wiring",
@@ -619,7 +619,7 @@ const programs = [
     salary: "$30K-$55K",
     link: "/programs/barber",
     color: "bg-pink-600",
-    image: "/images/beauty/program-barber-training.jpg",
+    image: "/media-backup-20251128-043832/programs/barber-hd.jpg",
     skills: [
       "Hair cutting and styling techniques",
       "Skin care and facial treatments",
@@ -635,7 +635,7 @@ const programs = [
     salary: "$50K-$70K",
     link: "/programs/cdl",
     color: "bg-blue-600",
-    image: "/images/trades/hero-program-cdl.jpg",
+    image: "/media-backup-20251128-043832/programs/cdl-hd.jpg",
     skills: [
       "Commercial vehicle operation",
       "DOT safety regulations and compliance",
@@ -673,19 +673,19 @@ const testimonials = [
     name: "Marcus Johnson",
     program: "Electrical Training Graduate",
     quote: "This program changed my life. Within 2 months of graduation, I landed a great job with benefits. The instructors truly care about your success.",
-    image: "/images/gallery/image4.jpg",
+    image: "/media-backup-20251128-043832/testimonials/student1.jpg",
   },
   {
     name: "Sarah Martinez",
     program: "IT Support Specialist",
     quote: "The hands-on training and career support were incredible. I went from no tech experience to landing my dream job in IT support.",
-    image: "/images/gallery/image2.jpg",
+    image: "/media-backup-20251128-043832/testimonials/student2.jpg",
   },
   {
     name: "David Thompson",
     program: "Healthcare Graduate",
     quote: "Elevate for Humanity gave me the skills and confidence to start a new career. The job placement assistance was outstanding.",
-    image: "/images/gallery/image5.jpg",
+    image: "/media-backup-20251128-043832/testimonials/student3.jpg",
   },
 ];
 
