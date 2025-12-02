@@ -103,6 +103,215 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Detailed Curriculum */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">10-12 Week Dental Assistant Training</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 1-3: Dental Fundamentals & Office Procedures</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Dental terminology and tooth anatomy</li>
+                  <li>• Infection control and OSHA bloodborne pathogens</li>
+                  <li>• Dental office management and patient scheduling</li>
+                  <li>• Insurance billing and treatment planning</li>
+                  <li>• Patient communication and chairside manner</li>
+                  <li>• Dental software: Dentrix, Eaglesoft, Open Dental</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 4-6: Chairside Assisting & Procedures</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Four-handed dentistry techniques</li>
+                  <li>• Instrument identification and tray setups</li>
+                  <li>• Dental materials: amalgam, composite, cement</li>
+                  <li>• Impressions and bite registrations</li>
+                  <li>• Suction techniques and moisture control</li>
+                  <li>• Assisting with restorative procedures (fillings, crowns)</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-purple-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 7-9: Radiology & Specialized Procedures</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Dental X-ray safety and radiation protection</li>
+                  <li>• Intraoral radiography: bitewing, periapical, occlusal</li>
+                  <li>• Panoramic and cephalometric imaging</li>
+                  <li>• Digital radiography systems</li>
+                  <li>• Assisting with extractions and oral surgery</li>
+                  <li>• Endodontic procedures (root canals)</li>
+                  <li>• Periodontal treatments and scaling assistance</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 10-12: Advanced Skills & Certification</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Orthodontic assisting and bracket placement</li>
+                  <li>• Pediatric dentistry techniques</li>
+                  <li>• Coronal polishing and fluoride application</li>
+                  <li>• Dental laboratory procedures</li>
+                  <li>• 120+ hours clinical externship</li>
+                  <li>• DANB certification exam preparation</li>
+                  <li>• CPR and medical emergency protocols</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-blue-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-6">Certifications Earned</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Certified Dental Assistant (CDA)</h4>
+                    <p className="text-gray-700">DANB (Dental Assisting National Board) certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Radiation Health & Safety (RHS)</h4>
+                    <p className="text-gray-700">X-ray certification for dental radiography</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Infection Control (ICE)</h4>
+                    <p className="text-gray-700">OSHA bloodborne pathogens and sterilization</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">CPR & First Aid</h4>
+                    <p className="text-gray-700">Healthcare provider level certification</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Partners */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4">Dental Office Partners</h2>
+            <p className="text-center text-gray-600 mb-12 text-lg">Job placement with Indianapolis area dental practices</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Aspen Dental</h3>
+                <p className="text-gray-700 mb-2">Dental Assistant</p>
+                <p className="text-green-600 font-bold text-lg">$16-$21/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Benefits • Paid training • Career advancement • Flexible scheduling</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Heartland Dental</h3>
+                <p className="text-gray-700 mb-2">Dental Assistant</p>
+                <p className="text-green-600 font-bold text-lg">$17-$22/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Health insurance • 401k • Continuing education • Growth opportunities</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Gentle Dental</h3>
+                <p className="text-gray-700 mb-2">Chairside Dental Assistant</p>
+                <p className="text-green-600 font-bold text-lg">$15-$20/hour</p>
+                <p className="text-sm text-gray-600 mt-2">PTO • Employee discounts • Team environment</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Private Dental Practices</h3>
+                <p className="text-gray-700 mb-2">General & Specialty Dentistry</p>
+                <p className="text-green-600 font-bold text-lg">$16-$24/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Smaller teams • Variety of procedures • Personal relationships</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Orthodontic Offices</h3>
+                <p className="text-gray-700 mb-2">Orthodontic Assistant</p>
+                <p className="text-green-600 font-bold text-lg">$17-$23/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Specialized training • Predictable procedures • Family-friendly hours</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
+                <h3 className="text-xl font-bold mb-2">Pediatric Dental Offices</h3>
+                <p className="text-gray-700 mb-2">Pediatric Dental Assistant</p>
+                <p className="text-green-600 font-bold text-lg">$16-$22/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Work with children • Fun environment • Rewarding work</p>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-blue-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4">Career Support</h3>
+              <p className="text-gray-700 mb-4">85%+ of graduates employed within 30 days of certification</p>
+              <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
+                <li>• Resume and portfolio development</li>
+                <li>• Interview preparation with dental professionals</li>
+                <li>• Direct connections to hiring dental offices</li>
+                <li>• Externship-to-hire opportunities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Progression */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Entry-Level Dental Assistant (0-2 years)</h3>
+                <p className="text-blue-100 text-lg mb-2">$32,000-$40,000/year ($15-$19/hour)</p>
+                <p className="text-blue-50">Start in general dentistry. Learn chairside assisting, X-rays, and office procedures.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Experienced Dental Assistant (2-5 years)</h3>
+                <p className="text-blue-100 text-lg mb-2">$40,000-$50,000/year ($19-$24/hour)</p>
+                <p className="text-blue-50">Move to specialty practices (orthodontics, oral surgery, pediatrics) or lead assistant roles.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Specialized/Lead Dental Assistant (5+ years)</h3>
+                <p className="text-blue-100 text-lg mb-2">$50,000-$60,000+/year ($24-$29/hour)</p>
+                <p className="text-blue-50">Office manager, treatment coordinator, or expanded functions dental assistant (EFDA).</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Career Advancement</h3>
+                <p className="text-blue-100 text-lg mb-2">$55,000-$80,000+/year</p>
+                <p className="text-blue-50">Dental Hygienist (2-year degree), Office Manager, Dental Sales, or Dental School.</p>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/apply" className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-50 shadow-2xl">
+                Start Your Dental Career Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
