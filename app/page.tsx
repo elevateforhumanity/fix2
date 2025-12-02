@@ -367,8 +367,8 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-6 left-6">
-                    <div className="text-6xl mb-2">{program.icon}</div>
                     <h3 className="text-3xl font-extrabold text-white">{program.title}</h3>
+                    <p className="text-white/90 text-lg mt-1">{program.description}</p>
                   </div>
                 </div>
                 <div className="p-8">
@@ -548,13 +548,10 @@ export default function HomePage() {
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-5xl">
-                    {partner.icon}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 text-center">
+                    <div className="font-bold text-xl text-white">{partner.name}</div>
                   </div>
-                </div>
-                <div className="p-6 text-center">
-                  <div className="font-semibold text-lg">{partner.name}</div>
                 </div>
               </div>
             ))}

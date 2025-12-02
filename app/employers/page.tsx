@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Employers | Elevate For Humanity',
@@ -15,17 +16,30 @@ export default async function Page() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Employers | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Employers inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex gap-4 justify-center">
-              <Link href="/employer/jobs/new" className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-orange-50 text-lg">
+      {/* Hero Banner with Background Image */}
+      <section className="relative h-[500px] w-full overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=1000&fit=crop&q=80"
+          alt="Business team collaboration"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/80 to-blue-900/70" />
+        
+        <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-2xl">
+              Partner With Elevate For Humanity
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-blue-100 drop-shadow-lg">
+              Build your workforce with job-ready talent trained in high-demand skills
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link href="/employer/jobs/new" className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-700 text-lg shadow-2xl transition-all">
                 Post a Job
               </Link>
-              <Link href="/employer/candidates" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
+              <Link href="/employer/candidates" className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 border-2 border-white text-lg shadow-2xl transition-all">
                 Find Candidates
               </Link>
             </div>

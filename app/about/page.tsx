@@ -11,14 +11,23 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="bg-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Hero Section with Background Image */}
+      <section className="relative h-[400px] w-full overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=800&fit=crop&q=80"
+          alt="Team collaboration"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/80 to-blue-900/70" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl">
               About Elevate For Humanity
             </h1>
-            <p className="text-xl text-blue-100 leading-relaxed">
+            <p className="text-xl md:text-2xl text-blue-100 leading-relaxed drop-shadow-lg">
               Connecting people to 100% free workforce training that leads to real careers
             </p>
           </div>
@@ -98,7 +107,7 @@ export default function Page() {
                 <div className="md:col-span-1">
                   <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg mb-4">
                     <Image
-                      src="/images/team/elizabeth-greene.jpg"
+                      src="/images/elizabeth-greene-founder.jpg"
                       alt="Elizabeth L. Greene"
                       fill
                       className="object-cover"

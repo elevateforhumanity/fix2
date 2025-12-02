@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle, Award, Building2, Shield, Users, FileCheck } from "lucide-react";
 
 export const metadata = {
@@ -9,14 +10,23 @@ export const metadata = {
 export default function ApprovalsPage() {
   return (
     <main className="bg-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Hero Section with Background Image */}
+      <section className="relative h-[500px] w-full overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&h=1000&fit=crop&q=80"
+          alt="Official documents and certifications"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-slate-900/85" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl">
               Approvals, Credentials & Partnerships
             </h1>
-            <p className="text-xl text-slate-300 leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-200 leading-relaxed drop-shadow-lg">
               Elevate For Humanity operates under Selfish Inc, a 501(c)(3) nonprofit and registered federal contractor. Together, our entities form a multi-industry workforce ecosystem that is approved by state and federal agencies to deliver training, apprenticeships, and workforce services.
             </p>
           </div>
