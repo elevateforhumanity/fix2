@@ -103,6 +103,217 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Detailed Curriculum */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">8-12 Week Pharmacy Technician Training</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 1-3: Pharmacy Fundamentals & Medication Basics</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Pharmacy law and ethics (HIPAA, DEA regulations)</li>
+                  <li>• Medical and pharmaceutical terminology</li>
+                  <li>• Drug classifications and therapeutic categories</li>
+                  <li>• Prescription interpretation and processing</li>
+                  <li>• Pharmacy calculations and conversions</li>
+                  <li>• Measurement systems (metric, household, apothecary)</li>
+                  <li>• Dosage forms and routes of administration</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 4-6: Dispensing & Compounding</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Prescription filling procedures and workflow</li>
+                  <li>• Medication counting and measuring techniques</li>
+                  <li>• Compounding non-sterile preparations</li>
+                  <li>• Sterile compounding and IV admixture</li>
+                  <li>• USP 797 and USP 800 compliance</li>
+                  <li>• Aseptic technique and cleanroom procedures</li>
+                  <li>• Quality assurance and error prevention</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-purple-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 7-9: Pharmacy Operations & Technology</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Pharmacy management systems (QS/1, PioneerRx, Liberty)</li>
+                  <li>• Insurance billing and third-party adjudication</li>
+                  <li>• Inventory management and purchasing</li>
+                  <li>• Controlled substance handling and documentation</li>
+                  <li>• Medication therapy management (MTM)</li>
+                  <li>• Patient counseling support and communication</li>
+                  <li>• Pharmacy automation and robotics</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 10-12: Specialized Practice & Certification</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Hospital pharmacy operations</li>
+                  <li>• Long-term care pharmacy</li>
+                  <li>• Specialty pharmacy (oncology, infusion)</li>
+                  <li>• Medication safety and error reporting</li>
+                  <li>• 160+ hours clinical externship</li>
+                  <li>• PTCB/ExCPT certification exam preparation</li>
+                  <li>• State pharmacy law review</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-green-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-6">Certifications Earned</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Certified Pharmacy Technician (CPhT)</h4>
+                    <p className="text-gray-700">PTCB (Pharmacy Technician Certification Board) national certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Indiana Pharmacy Technician License</h4>
+                    <p className="text-gray-700">State registration with Indiana Board of Pharmacy</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Sterile Compounding Certification</h4>
+                    <p className="text-gray-700">USP 797 and USP 800 compliance training</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Immunization Certification</h4>
+                    <p className="text-gray-700">Vaccine administration training (where state-approved)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Partners */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4">Pharmacy Employer Partners</h2>
+            <p className="text-center text-gray-600 mb-12 text-lg">Job placement with retail, hospital, and specialty pharmacies</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">CVS Pharmacy</h3>
+                <p className="text-gray-700 mb-2">Pharmacy Technician</p>
+                <p className="text-green-600 font-bold text-lg">$16-$21/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Benefits • 401k • Tuition reimbursement • Career advancement</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Walgreens</h3>
+                <p className="text-gray-700 mb-2">Certified Pharmacy Technician</p>
+                <p className="text-green-600 font-bold text-lg">$15-$20/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Health insurance • Employee discounts • Flexible scheduling</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Kroger Pharmacy</h3>
+                <p className="text-gray-700 mb-2">Pharmacy Technician</p>
+                <p className="text-green-600 font-bold text-lg">$16-$22/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Union benefits • Pension • Paid training</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">IU Health Pharmacies</h3>
+                <p className="text-gray-700 mb-2">Hospital Pharmacy Technician</p>
+                <p className="text-green-600 font-bold text-lg">$18-$24/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Full benefits • Tuition assistance • IV/sterile compounding</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
+                <p className="text-gray-700 mb-2">Inpatient Pharmacy Tech</p>
+                <p className="text-green-600 font-bold text-lg">$17-$23/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Shift differentials • Benefits • Career growth</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
+                <h3 className="text-xl font-bold mb-2">Specialty Pharmacies</h3>
+                <p className="text-gray-700 mb-2">Specialty Pharmacy Technician</p>
+                <p className="text-green-600 font-bold text-lg">$19-$26/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Oncology, infusion, specialty medications • Higher pay</p>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-green-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4">Career Support</h3>
+              <p className="text-gray-700 mb-4">90%+ of graduates employed within 30 days of certification</p>
+              <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
+                <li>• Resume and interview preparation</li>
+                <li>• Direct connections to hiring pharmacies</li>
+                <li>• Externship-to-hire opportunities</li>
+                <li>• PTCB exam prep and scheduling support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Progression */}
+      <section className="py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Entry-Level Pharmacy Technician (0-2 years)</h3>
+                <p className="text-green-100 text-lg mb-2">$32,000-$40,000/year ($15-$19/hour)</p>
+                <p className="text-green-50">Start in retail pharmacy. Learn prescription processing, insurance billing, and customer service.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Experienced Pharmacy Technician (2-5 years)</h3>
+                <p className="text-green-100 text-lg mb-2">$40,000-$50,000/year ($19-$24/hour)</p>
+                <p className="text-green-50">Move to hospital pharmacy, specialty pharmacy, or lead technician roles. Handle complex medications and IV compounding.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Senior/Specialized Pharmacy Technician (5+ years)</h3>
+                <p className="text-green-100 text-lg mb-2">$50,000-$60,000+/year ($24-$29/hour)</p>
+                <p className="text-green-50">Specialty areas (oncology, nuclear, compounding), pharmacy supervisor, or inventory management specialist.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Career Advancement</h3>
+                <p className="text-green-100 text-lg mb-2">$60,000-$130,000+/year</p>
+                <p className="text-green-50">Pharmacy Manager, Pharmacist (with PharmD degree), Pharmaceutical Sales, or Clinical Research Coordinator.</p>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/apply" className="inline-block bg-white text-green-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-green-50 shadow-2xl">
+                Start Your Pharmacy Career Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
