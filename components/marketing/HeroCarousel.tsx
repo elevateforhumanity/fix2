@@ -38,7 +38,7 @@ const slides: Slide[] = [
     title: "From incarceration to income.",
     highlight: "Coaching + apprenticeships + employers.",
     body: "Barber, trades, and other pathways built specifically with re-entry in mind — structure, accountability, and real earning potential.",
-    image: "/generated-images/course-barber-cover.png",
+    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1200&h=675&fit=crop&q=80",
     primaryCtaLabel: "Explore re-entry pathways",
     primaryCtaHref: "/reentry",
     secondaryCtaLabel: "Watch 2-minute story",
