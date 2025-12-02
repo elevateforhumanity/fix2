@@ -103,6 +103,217 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Detailed Curriculum */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">8-12 Week Sterile Processing Technician Training</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 1-3: Decontamination & Cleaning</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Role of sterile processing in patient safety</li>
+                  <li>• Infection prevention and control principles</li>
+                  <li>• Decontamination area workflow and procedures</li>
+                  <li>• Manual and automated cleaning processes</li>
+                  <li>• Personal protective equipment (PPE) usage</li>
+                  <li>• Instrument identification and handling</li>
+                  <li>• Quality assurance and documentation</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 4-6: Preparation & Packaging</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Instrument assembly and inspection</li>
+                  <li>• Surgical instrument sets and trays</li>
+                  <li>• Packaging materials and techniques</li>
+                  <li>• Chemical and biological indicators</li>
+                  <li>• Sterilization wrap and pouches</li>
+                  <li>• Labeling and tracking systems</li>
+                  <li>• Inventory management</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-purple-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 7-9: Sterilization & Distribution</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Steam sterilization (autoclave) operation</li>
+                  <li>• Low-temperature sterilization methods</li>
+                  <li>• Sterilization monitoring and validation</li>
+                  <li>• Sterile storage and handling</li>
+                  <li>• Case cart preparation and delivery</li>
+                  <li>• Point-of-use processing</li>
+                  <li>• Regulatory compliance (AAMI, AORN, CDC)</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 10-12: Advanced Topics & Certification</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Endoscope reprocessing</li>
+                  <li>• High-level disinfection procedures</li>
+                  <li>• Surgical instrumentation specialties</li>
+                  <li>• Equipment maintenance and troubleshooting</li>
+                  <li>• 120+ hours clinical externship</li>
+                  <li>• CRCST certification exam preparation</li>
+                  <li>• Job placement assistance</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-blue-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-6">Certifications Earned</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Certified Registered Central Service Technician (CRCST)</h4>
+                    <p className="text-gray-700">HSPA (Healthcare Sterile Processing Association) certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">BLS for Healthcare Providers</h4>
+                    <p className="text-gray-700">CPR and AED certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">OSHA Bloodborne Pathogens</h4>
+                    <p className="text-gray-700">Safety and infection control</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Optional: CER, CIS, CHL</h4>
+                    <p className="text-gray-700">Advanced certifications in endoscopy, instruments, leadership</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Partners */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4">Hospital Employer Partners</h2>
+            <p className="text-center text-gray-600 mb-12 text-lg">Critical role in every hospital and surgical center</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">IU Health</h3>
+                <p className="text-gray-700 mb-2">Sterile Processing Technician</p>
+                <p className="text-green-600 font-bold text-lg">$17-$23/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Full benefits • Shift differentials • Tuition reimbursement • Career advancement</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Ascension St. Vincent</h3>
+                <p className="text-gray-700 mb-2">Central Sterile Supply Tech</p>
+                <p className="text-green-600 font-bold text-lg">$16-$22/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Health insurance • PTO • Education assistance • Sign-on bonus</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
+                <p className="text-gray-700 mb-2">SPD Technician</p>
+                <p className="text-green-600 font-bold text-lg">$17-$24/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Benefits • Flexible scheduling • Growth opportunities</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Eskenazi Health</h3>
+                <p className="text-gray-700 mb-2">Sterile Processing Tech</p>
+                <p className="text-green-600 font-bold text-lg">$16-$21/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Public service • Benefits • Diverse experience</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Franciscan Health</h3>
+                <p className="text-gray-700 mb-2">Central Supply Technician</p>
+                <p className="text-green-600 font-bold text-lg">$16-$22/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Benefits • Career development • Faith-based environment</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
+                <h3 className="text-xl font-bold mb-2">Ambulatory Surgery Centers</h3>
+                <p className="text-gray-700 mb-2">SPD Technician</p>
+                <p className="text-green-600 font-bold text-lg">$17-$23/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Outpatient setting • Regular hours • Benefits</p>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-blue-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4">Career Support</h3>
+              <p className="text-gray-700 mb-4">95%+ of graduates employed within 30 days</p>
+              <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
+                <li>• Resume and interview preparation</li>
+                <li>• Direct connections to hiring hospitals</li>
+                <li>• Clinical externship-to-hire opportunities</li>
+                <li>• CRCST exam prep and scheduling support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Progression */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Entry-Level SPD Technician (0-2 years)</h3>
+                <p className="text-blue-100 text-lg mb-2">$33,000-$44,000/year ($16-$21/hour)</p>
+                <p className="text-blue-50">Start in decontamination or prep/pack areas. Learn instrument processing and sterilization.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Experienced SPD Tech (2-5 years)</h3>
+                <p className="text-blue-100 text-lg mb-2">$44,000-$54,000/year ($21-$26/hour)</p>
+                <p className="text-blue-50">Specialize in endoscopy, surgical instruments, or quality assurance. Train new staff.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Lead/Senior SPD Tech (5-10 years)</h3>
+                <p className="text-blue-100 text-lg mb-2">$54,000-$65,000/year ($26-$31/hour)</p>
+                <p className="text-blue-50">Lead technician, shift supervisor, or quality coordinator roles.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">SPD Manager/Director (10+ years)</h3>
+                <p className="text-blue-100 text-lg mb-2">$65,000-$90,000+/year</p>
+                <p className="text-blue-50">Manage entire sterile processing department, staff, budget, and compliance programs.</p>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/apply" className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-blue-50 shadow-2xl">
+                Start Your Sterile Processing Career Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
