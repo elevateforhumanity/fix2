@@ -221,6 +221,193 @@ export async function calculateProgramMetrics(): Promise<ProgramMetrics[]> {
 }
 
 /**
+ * Calculate metrics by site (multi-location tracking)
+ */
+export async function calculateSiteMetrics(): Promise<SiteMetrics[]> {
+  const { createClient } = await import('@/lib/supabase/server');
+  const supabase = await createClient();
+  
+  const { data: sites } = await supabase
+    .from('sites')
+    .select('id, name, location');
+  
+  if (!sites) return [];
+  
+  const metrics: SiteMetrics[] = [];
+  
+  for (const site of sites) {
+    const { data: enrollments } = await supabase
+      .from('enrollments')
+      .select('*')
+      .eq('site_id', site.id);
+    
+    const totalEnrollments = enrollments?.length || 0;
+    const activeStudents = enrollments?.filter(e => e.status === 'active').length || 0;
+    const completions = enrollments?.filter(e => e.status === 'completed').length || 0;
+    const completionRate = totalEnrollments > 0 ? (completions / totalEnrollments) * 100 : 0;
+    
+    // Get outcomes for this site
+    const studentIds = enrollments?.map(e => e.student_id) || [];
+    const { data: outcomes } = await supabase
+      .from('employment_outcomes')
+      .select('*')
+      .in('participant_id', studentIds)
+      .eq('employed_at_exit', true);
+    
+    const placedInEmployment = outcomes?.length || 0;
+    const placementRate = completions > 0 ? (placedInEmployment / completions) * 100 : 0;
+    
+    // Calculate wages
+    const wages = outcomes?.map(o => o.hourly_wage).filter(Boolean) || [];
+    const averageWage = wages.length > 0 
+      ? wages.reduce((sum, w) => sum + w, 0) / wages.length 
+      : 0;
+    const medianWage = wages.length > 0 
+      ? wages.sort((a, b) => a - b)[Math.floor(wages.length / 2)]
+      : 0;
+    
+    // Calculate retention
+    const dropped = enrollments?.filter(e => e.status === 'dropped' || e.status === 'withdrawn').length || 0;
+    const retentionRate = totalEnrollments > 0 ? ((totalEnrollments - dropped) / totalEnrollments) * 100 : 0;
+    const dropoutRate = 100 - retentionRate;
+    
+    // Average completion time
+    const completedEnrollments = enrollments?.filter(e => e.status === 'completed' && e.completion_date) || [];
+    const completionTimes = completedEnrollments.map(e => {
+      const start = new Date(e.enrolled_at);
+      const end = new Date(e.completion_date);
+      return (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
+    });
+    const averageCompletionTime = completionTimes.length > 0
+      ? completionTimes.reduce((sum, t) => sum + t, 0) / completionTimes.length
+      : 0;
+    
+    // Funding metrics
+    const { data: funding } = await supabase
+      .from('funding_records')
+      .select('amount')
+      .eq('site_id', site.id);
+    
+    const totalFundingUsed = funding?.reduce((sum, f) => sum + (f.amount || 0), 0) || 0;
+    const costPerCompletion = completions > 0 ? totalFundingUsed / completions : 0;
+    
+    metrics.push({
+      siteId: site.id,
+      siteName: site.name,
+      location: site.location || 'Unknown',
+      totalEnrollments,
+      activeStudents,
+      completions,
+      completionRate,
+      placedInEmployment,
+      placementRate,
+      averageWage,
+      medianWage,
+      retentionRate,
+      dropoutRate,
+      averageCompletionTime,
+      totalFundingUsed,
+      costPerCompletion,
+    });
+  }
+  
+  return metrics;
+}
+
+/**
+ * Calculate metrics by funder (WIOA, WRG, JRI, SEAL, etc.)
+ */
+export async function calculateFunderMetrics(): Promise<FunderMetrics[]> {
+  const { createClient } = await import('@/lib/supabase/server');
+  const supabase = await createClient();
+  
+  const funderTypes = ['WIOA', 'WRG', 'JRI', 'SEAL', 'Apprenticeship', 'Other'] as const;
+  const metrics: FunderMetrics[] = [];
+  
+  for (const funderType of funderTypes) {
+    // Get funding records for this funder type
+    const { data: fundingRecords } = await supabase
+      .from('funding_records')
+      .select('*, enrollments(*)')
+      .eq('funder_type', funderType);
+    
+    if (!fundingRecords || fundingRecords.length === 0) continue;
+    
+    // Get all enrollments funded by this funder
+    const enrollmentIds = fundingRecords.map(f => f.enrollment_id).filter(Boolean);
+    const { data: enrollments } = await supabase
+      .from('enrollments')
+      .select('*')
+      .in('id', enrollmentIds);
+    
+    const totalEnrollments = enrollments?.length || 0;
+    const activeStudents = enrollments?.filter(e => e.status === 'active').length || 0;
+    const completions = enrollments?.filter(e => e.status === 'completed').length || 0;
+    const completionRate = totalEnrollments > 0 ? (completions / totalEnrollments) * 100 : 0;
+    
+    // Get outcomes
+    const studentIds = enrollments?.map(e => e.student_id) || [];
+    const { data: outcomes } = await supabase
+      .from('employment_outcomes')
+      .select('*')
+      .in('participant_id', studentIds)
+      .eq('employed_at_exit', true);
+    
+    const placedInEmployment = outcomes?.length || 0;
+    const placementRate = completions > 0 ? (placedInEmployment / completions) * 100 : 0;
+    
+    // Calculate wages
+    const wages = outcomes?.map(o => o.hourly_wage).filter(Boolean) || [];
+    const averageWage = wages.length > 0 
+      ? wages.reduce((sum, w) => sum + w, 0) / wages.length 
+      : 0;
+    const medianWage = wages.length > 0 
+      ? wages.sort((a, b) => a - b)[Math.floor(wages.length / 2)]
+      : 0;
+    
+    // Calculate retention
+    const dropped = enrollments?.filter(e => e.status === 'dropped' || e.status === 'withdrawn').length || 0;
+    const retentionRate = totalEnrollments > 0 ? ((totalEnrollments - dropped) / totalEnrollments) * 100 : 0;
+    const dropoutRate = 100 - retentionRate;
+    
+    // Average completion time
+    const completedEnrollments = enrollments?.filter(e => e.status === 'completed' && e.completion_date) || [];
+    const completionTimes = completedEnrollments.map(e => {
+      const start = new Date(e.enrolled_at);
+      const end = new Date(e.completion_date);
+      return (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
+    });
+    const averageCompletionTime = completionTimes.length > 0
+      ? completionTimes.reduce((sum, t) => sum + t, 0) / completionTimes.length
+      : 0;
+    
+    // Funding metrics
+    const totalFundingUsed = fundingRecords.reduce((sum, f) => sum + (f.amount || 0), 0);
+    const costPerCompletion = completions > 0 ? totalFundingUsed / completions : 0;
+    
+    metrics.push({
+      funderType,
+      funderName: funderType,
+      totalEnrollments,
+      activeStudents,
+      completions,
+      completionRate,
+      placedInEmployment,
+      placementRate,
+      averageWage,
+      medianWage,
+      retentionRate,
+      dropoutRate,
+      averageCompletionTime,
+      totalFundingUsed,
+      costPerCompletion,
+    });
+  }
+  
+  return metrics;
+}
+
+/**
  * Calculate equity metrics
  */
 export async function calculateEquityMetrics(): Promise<EquityMetrics> {
