@@ -103,6 +103,219 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Detailed Curriculum */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">8-12 Week Tax Preparation Training</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 1-3: Tax Fundamentals & Individual Returns</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Introduction to federal tax system and IRS regulations</li>
+                  <li>• Form 1040 and individual tax returns</li>
+                  <li>• Filing status and exemptions</li>
+                  <li>• Income types: W-2, 1099, interest, dividends</li>
+                  <li>• Standard vs. itemized deductions</li>
+                  <li>• Tax credits: EITC, Child Tax Credit, Education Credits</li>
+                  <li>• Tax software: TurboTax, H&R Block, Drake Tax</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 4-6: Business & Self-Employment Taxes</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Schedule C: Business income and expenses</li>
+                  <li>• Self-employment tax (Schedule SE)</li>
+                  <li>• Home office deduction</li>
+                  <li>• Vehicle and mileage deductions</li>
+                  <li>• Depreciation and Section 179</li>
+                  <li>• Estimated tax payments (Form 1040-ES)</li>
+                  <li>• Sole proprietor vs. LLC vs. S-Corp taxation</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-purple-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 7-9: Advanced Topics & State Taxes</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Rental property income (Schedule E)</li>
+                  <li>• Capital gains and losses</li>
+                  <li>• Retirement account distributions (IRA, 401k)</li>
+                  <li>• Indiana state tax returns (IT-40)</li>
+                  <li>• Local income taxes (county taxes)</li>
+                  <li>• Tax planning and strategies</li>
+                  <li>• Audit representation basics</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 10-12: Certification & Practice</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• IRS Volunteer Income Tax Assistance (VITA) certification</li>
+                  <li>• IRS Annual Filing Season Program (AFSP)</li>
+                  <li>• Preparer Tax Identification Number (PTIN) application</li>
+                  <li>• Ethics and professional standards (Circular 230)</li>
+                  <li>• Client interview and communication skills</li>
+                  <li>• Practice tax returns and case studies</li>
+                  <li>• Job placement and business startup guidance</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-green-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-6">Certifications & Credentials</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">IRS VITA Certification</h4>
+                    <p className="text-gray-700">Volunteer Income Tax Assistance program certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">IRS AFSP Record of Completion</h4>
+                    <p className="text-gray-700">Annual Filing Season Program credential</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">PTIN (Preparer Tax ID Number)</h4>
+                    <p className="text-gray-700">Required IRS identification for paid preparers</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Optional: EA or CPA Path</h4>
+                    <p className="text-gray-700">Foundation for Enrolled Agent or CPA credentials</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Partners */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4">Employer & Business Partners</h2>
+            <p className="text-center text-gray-600 mb-12 text-lg">Work for tax firms or start your own business</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">H&R Block</h3>
+                <p className="text-gray-700 mb-2">Tax Professional</p>
+                <p className="text-green-600 font-bold text-lg">$15-$25/hour (seasonal)</p>
+                <p className="text-sm text-gray-600 mt-2">Paid training • Flexible hours • Bonus opportunities</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Jackson Hewitt</h3>
+                <p className="text-gray-700 mb-2">Tax Preparer</p>
+                <p className="text-green-600 font-bold text-lg">$14-$22/hour (seasonal)</p>
+                <p className="text-sm text-gray-600 mt-2">Training provided • Commission potential • Part-time</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Liberty Tax</h3>
+                <p className="text-gray-700 mb-2">Tax Specialist</p>
+                <p className="text-green-600 font-bold text-lg">$15-$23/hour (seasonal)</p>
+                <p className="text-sm text-gray-600 mt-2">Flexible schedule • Advancement opportunities</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Local CPA Firms</h3>
+                <p className="text-gray-700 mb-2">Tax Preparation Assistant</p>
+                <p className="text-green-600 font-bold text-lg">$16-$24/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Year-round work • Learn from CPAs • Career growth</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">VITA Sites</h3>
+                <p className="text-gray-700 mb-2">Volunteer Tax Preparer</p>
+                <p className="text-green-600 font-bold text-lg">Volunteer (build experience)</p>
+                <p className="text-sm text-gray-600 mt-2">Free training • IRS certification • Community service</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
+                <h3 className="text-xl font-bold mb-2">Self-Employment</h3>
+                <p className="text-gray-700 mb-2">Independent Tax Preparer</p>
+                <p className="text-green-600 font-bold text-lg">$30,000-$80,000+/year</p>
+                <p className="text-sm text-gray-600 mt-2">Be your own boss • Set your rates • Build clientele</p>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-green-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4">Business Startup Support</h3>
+              <p className="text-gray-700 mb-4">We help you start your own tax preparation business</p>
+              <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
+                <li>• Business plan development</li>
+                <li>• PTIN and EFIN application assistance</li>
+                <li>• Tax software selection and setup</li>
+                <li>• Marketing and client acquisition strategies</li>
+                <li>• Pricing and service packages</li>
+                <li>• Professional liability insurance guidance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Progression */}
+      <section className="py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Entry-Level Tax Preparer (0-2 years)</h3>
+                <p className="text-green-100 text-lg mb-2">$15,000-$30,000/year (seasonal)</p>
+                <p className="text-green-50">Work Jan-April tax season at H&R Block, Jackson Hewitt, or VITA sites. Build experience and client base.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Experienced Preparer (2-5 years)</h3>
+                <p className="text-green-100 text-lg mb-2">$30,000-$50,000/year</p>
+                <p className="text-green-50">Handle complex returns, work year-round at CPA firms, or build independent practice. Add bookkeeping services.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Independent Tax Professional (5-10 years)</h3>
+                <p className="text-green-100 text-lg mb-2">$50,000-$100,000+/year</p>
+                <p className="text-green-50">Own tax business with 100-300 clients. Offer year-round services: tax planning, bookkeeping, payroll.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Career Advancement</h3>
+                <p className="text-green-100 text-lg mb-2">$60,000-$150,000+/year</p>
+                <p className="text-green-50">Enrolled Agent (EA), CPA, or multi-location tax franchise owner. Specialize in business taxes or wealth management.</p>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/apply" className="inline-block bg-white text-green-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-green-50 shadow-2xl">
+                Start Your Tax Preparation Career Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
