@@ -1,0 +1,296 @@
+{
+  "assignments": [
+    {
+      "autopilot_id": "autopilot-01",
+      "program": "Medical Assistant",
+      "slug": "medical-assistant",
+      "modules": 10,
+      "hours": 240,
+      "category": "Healthcare",
+      "priority": "high"
+    },
+    {
+      "autopilot_id": "autopilot-02",
+      "program": "Dental Assistant",
+      "slug": "dental-assistant",
+      "modules": 8,
+      "hours": 180,
+      "category": "Healthcare",
+      "priority": "high"
+    },
+    {
+      "autopilot_id": "autopilot-03",
+      "program": "Pharmacy Technician",
+      "slug": "pharmacy-tech",
+      "modules": 9,
+      "hours": 200,
+      "category": "Healthcare",
+      "priority": "high"
+    },
+    {
+      "autopilot_id": "autopilot-04",
+      "program": "Phlebotomy Technician",
+      "slug": "phlebotomy",
+      "modules": 6,
+      "hours": 120,
+      "category": "Healthcare",
+      "priority": "medium"
+    },
+    {
+      "autopilot_id": "autopilot-05",
+      "program": "EKG Technician",
+      "slug": "ekg-tech",
+      "modules": 6,
+      "hours": 100,
+      "category": "Healthcare",
+      "priority": "medium"
+    },
+    {
+      "autopilot_id": "autopilot-06",
+      "program": "Patient Care Technician",
+      "slug": "patient-care-tech",
+      "modules": 8,
+      "hours": 160,
+      "category": "Healthcare",
+      "priority": "high"
+    },
+    {
+      "autopilot_id": "autopilot-07",
+      "program": "Behavioral Health Technician",
+      "slug": "behavioral-health",
+      "modules": 9,
+      "hours": 180,
+      "category": "Healthcare",
+      "priority": "medium"
+    },
+    {
+      "autopilot_id": "autopilot-09",
+      "program": "Electrical Technician",
+      "slug": "electrical",
+      "modules": 10,
+      "hours": 280,
+      "category": "Skilled Trades",
+      "priority": "high"
+    },
+    {
+      "autopilot_id": "autopilot-10",
+      "program": "Plumbing",
+      "slug": "plumbing",
+      "modules": 10,
+      "hours": 260,
+      "category": "Skilled Trades",
+      "priority": "high"
+    },
+    {
+      "autopilot_id": "autopilot-11",
+      "program": "Welding",
+      "slug": "welding",
+      "modules": 9,
+      "hours": 240,
+      "category": "Skilled Trades",
+      "priority": "high"
+    },
+    {
+      "autopilot_id": "autopilot-12",
+      "program": "Construction Trades",
+      "slug": "construction-trades",
+      "modules": 10,
+      "hours": 280,
+      "category": "Skilled Trades",
+      "priority": "high"
+    },
+    {
+      "autopilot_id": "autopilot-13",
+      "program": "Forklift Operator",
+      "slug": "forklift",
+      "modules": 4,
+      "hours": 40,
+      "category": "Skilled Trades",
+      "priority": "low"
+    },
+    {
+      "autopilot_id": "autopilot-14",
+      "program": "CDL Hazmat Endorsement",
+      "slug": "cdl-hazmat",
+      "modules": 6,
+      "hours": 80,
+      "category": "Skilled Trades",
+      "priority": "medium"
+    },
+    {
+      "autopilot_id": "autopilot-15",
+      "program": "Security Officer",
+      "slug": "security-officer",
+      "modules": 7,
+      "hours": 120,
+      "category": "Skilled Trades",
+      "priority": "medium"
+    },
+    {
+      "autopilot_id": "autopilot-16",
+      "program": "Cosmetology",
+      "slug": "cosmetology",
+      "modules": 12,
+      "hours": 1500,
+      "category": "Beauty & Wellness",
+      "priority": "high"
+    },
+    {
+      "autopilot_id": "autopilot-17",
+      "program": "Esthetics Apprenticeship",
+      "slug": "esthetics-apprenticeship",
+      "modules": 10,
+      "hours": 600,
+      "category": "Beauty & Wellness",
+      "priority": "medium"
+    },
+    {
+      "autopilot_id": "autopilot-18",
+      "program": "Tax Preparation",
+      "slug": "tax-prep",
+      "modules": 8,
+      "hours": 120,
+      "category": "Business & Professional",
+      "priority": "medium"
+    },
+    {
+      "autopilot_id": "autopilot-19",
+      "program": "Medical Billing & Coding",
+      "slug": "medical-billing",
+      "modules": 10,
+      "hours": 240,
+      "category": "Business & Professional",
+      "priority": "high"
+    },
+    {
+      "autopilot_id": "autopilot-20",
+      "program": "IT Support Specialist",
+      "slug": "it-support",
+      "modules": 10,
+      "hours": 200,
+      "category": "Business & Professional",
+      "priority": "high",
+      "note": "File already exists - enhance existing content"
+    },
+    {
+      "autopilot_id": "autopilot-21",
+      "program": "Cybersecurity Fundamentals",
+      "slug": "cybersecurity",
+      "modules": 9,
+      "hours": 180,
+      "category": "Business & Professional",
+      "priority": "medium"
+    },
+    {
+      "autopilot_id": "autopilot-22",
+      "program": "Customer Service Excellence",
+      "slug": "customer-service",
+      "modules": 6,
+      "hours": 80,
+      "category": "Business & Professional",
+      "priority": "low",
+      "note": "File already exists - enhance existing content"
+    },
+    {
+      "autopilot_id": "autopilot-23",
+      "program": "Peer Recovery Specialist",
+      "slug": "peer-recovery",
+      "modules": 8,
+      "hours": 160,
+      "category": "Social Services",
+      "priority": "medium"
+    },
+    {
+      "autopilot_id": "autopilot-24",
+      "program": "Early Childhood Education",
+      "slug": "early-childhood",
+      "modules": 10,
+      "hours": 240,
+      "category": "Social Services",
+      "priority": "high"
+    },
+    {
+      "autopilot_id": "autopilot-25",
+      "program": "Hospitality & Food Service",
+      "slug": "hospitality",
+      "modules": 8,
+      "hours": 160,
+      "category": "Social Services",
+      "priority": "medium"
+    },
+    {
+      "autopilot_id": "autopilot-26",
+      "program": "Warehouse & Logistics",
+      "slug": "warehouse-logistics",
+      "modules": 7,
+      "hours": 120,
+      "category": "Logistics & Operations",
+      "priority": "medium"
+    },
+    {
+      "autopilot_id": "autopilot-27",
+      "program": "Commercial Cleaning",
+      "slug": "commercial-cleaning",
+      "modules": 5,
+      "hours": 80,
+      "category": "Logistics & Operations",
+      "priority": "low"
+    }
+  ],
+  "quality_review_team": [
+    "autopilot-28",
+    "autopilot-29",
+    "autopilot-30",
+    "autopilot-31",
+    "autopilot-32",
+    "autopilot-33",
+    "autopilot-34",
+    "autopilot-35",
+    "autopilot-36",
+    "autopilot-37",
+    "autopilot-38",
+    "autopilot-39",
+    "autopilot-40"
+  ],
+  "completed_programs": [
+    {
+      "program": "Certified Nursing Assistant",
+      "slug": "cna",
+      "modules": 13,
+      "status": "complete"
+    },
+    {
+      "program": "Barber Apprenticeship",
+      "slug": "barber-apprenticeship",
+      "modules": 10,
+      "status": "complete"
+    },
+    {
+      "program": "HVAC Technician",
+      "slug": "hvac",
+      "modules": 10,
+      "status": "complete"
+    },
+    {
+      "program": "CDL Class A",
+      "slug": "cdl",
+      "modules": 9,
+      "status": "complete"
+    },
+    {
+      "program": "Building Maintenance",
+      "slug": "building-tech",
+      "modules": 11,
+      "status": "in_progress"
+    }
+  ],
+  "summary": {
+    "total_programs": 30,
+    "completed": 4,
+    "in_progress": 1,
+    "assigned_to_autopilots": 25,
+    "autopilots_working": 27,
+    "autopilots_reviewing": 13,
+    "estimated_completion": "2-3 days"
+  }
+}
