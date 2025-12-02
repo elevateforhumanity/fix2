@@ -4,7 +4,7 @@ Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
   // Performance Monitoring
-  tracesSampleRate: 1.0, // Capture 100% of transactions in development, adjust for production
+  tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0, // 10% in production, 100% in dev
 
   // Session Replay
   replaysSessionSampleRate: 0.1, // 10% of sessions
@@ -19,7 +19,11 @@ Sentry.init({
   // Integrations
   integrations: [
     new Sentry.BrowserTracing({
-      tracePropagationTargets: ['localhost', /^https:\/\/yourserver\.io\/api/],
+      tracePropagationTargets: [
+        'localhost',
+        /^https:\/\/.*\.elevateforhumanity\.org/,
+        /^https:\/\/.*\.vercel\.app/,
+      ],
     }),
     new Sentry.Replay({
       maskAllText: true,

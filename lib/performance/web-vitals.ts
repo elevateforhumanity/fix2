@@ -117,19 +117,74 @@ export function monitorResources() {
   if (typeof window === 'undefined') return;
 
   window.addEventListener('load', () => {
-    const resources = performance.getEntriesByType('resource');
+    const resources = performance.getEntriesByType('resource') as PerformanceResourceTiming[];
     const slowResources = resources.filter((r) => r.duration > 1000);
 
     if (slowResources.length > 0) {
       console.warn('⚠️ Slow resources detected:', slowResources.map((r) => ({
         name: r.name,
-        duration: r.duration,
-        size: (r as any).transferSize,
+        duration: Math.round(r.duration),
+        size: r.transferSize ? `${(r.transferSize / 1024).toFixed(2)} KB` : 'unknown',
+        type: r.initiatorType,
       })));
+
+      // Send slow resource alerts to analytics
+      slowResources.forEach((resource) => {
+        fetch('/api/analytics/slow-resources', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: resource.name,
+            duration: resource.duration,
+            size: resource.transferSize,
+            type: resource.initiatorType,
+          }),
+          keepalive: true,
+        }).catch(console.error);
+      });
     }
 
     // Log total page weight
-    const totalSize = resources.reduce((sum, r) => sum + ((r as any).transferSize || 0), 0);
-    console.log('📦 Total page weight:', (totalSize / 1024 / 1024).toFixed(2), 'MB');
+    const totalSize = resources.reduce((sum, r) => sum + (r.transferSize || 0), 0);
+    const totalSizeMB = (totalSize / 1024 / 1024).toFixed(2);
+    
+    if (process.env.NODE_ENV === 'development') {
+      console.log('📦 Total page weight:', totalSizeMB, 'MB');
+    }
+
+    // Warn if page is too heavy and send alert
+    if (totalSize > 5 * 1024 * 1024) { // 5MB
+      const message = `Page weight exceeds 5MB (${totalSizeMB}MB). Consider optimizing resources.`;
+      
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('⚠️', message);
+      }
+      
+      // Send performance alert to analytics
+      fetch('/api/analytics/performance-alert', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'page_weight',
+          value: totalSize,
+          message,
+          url: window.location.href,
+        }),
+        keepalive: true,
+      }).catch(() => {}); // Silent fail
+    }
+
+    // Log resource breakdown by type
+    const resourcesByType = resources.reduce((acc, r) => {
+      const type = r.initiatorType || 'other';
+      acc[type] = (acc[type] || 0) + (r.transferSize || 0);
+      return acc;
+    }, {} as Record<string, number>);
+
+    console.log('📊 Resources by type:', Object.entries(resourcesByType).map(([type, size]) => ({
+      type,
+      size: `${(size / 1024).toFixed(2)} KB`,
+      percentage: `${((size / totalSize) * 100).toFixed(1)}%`,
+    })));
   });
 }
