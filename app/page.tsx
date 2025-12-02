@@ -27,6 +27,48 @@ export default function HomePage() {
       subtitle: "From training to placement, we support you every step of your career journey",
       description: "Workforce board approved and employer-recognized credentials",
       image: "/media-backup-20251128-043832/hero-slide-healthcare.jpg"
+    },
+    {
+      title: "Build Your Future in Healthcare",
+      subtitle: "CNA, Medical Assistant, Pharmacy Tech & More",
+      description: "Start your healthcare career with industry-recognized certifications",
+      image: "/images/artlist/hero-training-7.jpg"
+    },
+    {
+      title: "Master the Skilled Trades",
+      subtitle: "HVAC, Electrical, Plumbing, Welding & Construction",
+      description: "High-demand careers with excellent pay and job security",
+      image: "/images/trades/program-hvac-technician.jpg"
+    },
+    {
+      title: "Launch Your Tech Career",
+      subtitle: "IT Support, Cybersecurity & Digital Skills",
+      description: "Enter the technology field with in-demand certifications",
+      image: "/images/artlist/hero-training-8.jpg"
+    },
+    {
+      title: "Beauty & Wellness Careers",
+      subtitle: "Cosmetology, Barbering & Esthetics Programs",
+      description: "Turn your passion into a profitable career",
+      image: "/images/hero-new/hero-3.jpg"
+    },
+    {
+      title: "Drive Your Career Forward",
+      subtitle: "CDL Training & Commercial Driving",
+      description: "Get on the road to success with professional driver training",
+      image: "/images/hero-new/hero-5.jpg"
+    },
+    {
+      title: "Business & Professional Skills",
+      subtitle: "Tax Prep, Medical Billing & Customer Service",
+      description: "Office careers with flexible schedules and growth potential",
+      image: "/images/hero-new/hero-8.jpg"
+    },
+    {
+      title: "Early Childhood Education",
+      subtitle: "CDA Credential & Childcare Training",
+      description: "Make a difference in children's lives with professional training",
+      image: "/images/hero-new/hero-10.jpg"
     }
   ];
 
@@ -48,6 +90,11 @@ export default function HomePage() {
 
       {/* Hero Banner with Rotating Slides */}
       <section className="relative min-h-[500px] overflow-hidden">
+        {/* Voiceover Audio */}
+        <audio autoPlay loop className="hidden">
+          <source src="/videos/voiceover.mp3" type="audio/mpeg" />
+        </audio>
+        
         {banners.map((banner, index) => (
           <div
             key={index}
