@@ -407,7 +407,7 @@ export default function HomePage() {
                       src={testimonial.image}
                       alt={testimonial.name}
                       fill
-                      className="object-cover"
+                      className="object-cover object-top"
                       sizes="128px" quality={85}
                     />
                   </div>
