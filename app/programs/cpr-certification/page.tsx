@@ -103,6 +103,169 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Detailed Curriculum */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">1-Day CPR & First Aid Certification</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-red-600">
+                <h3 className="text-2xl font-bold mb-3">CPR Training (4-6 hours)</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Adult CPR techniques and chest compressions</li>
+                  <li>• Child and infant CPR procedures</li>
+                  <li>• Rescue breathing and ventilation</li>
+                  <li>• Automated External Defibrillator (AED) use</li>
+                  <li>• Choking relief (Heimlich maneuver)</li>
+                  <li>• Two-rescuer CPR scenarios</li>
+                  <li>• Hands-on practice with manikins</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-600">
+                <h3 className="text-2xl font-bold mb-3">First Aid Training (2-4 hours)</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Emergency scene assessment and safety</li>
+                  <li>• Bleeding control and wound care</li>
+                  <li>• Burns, fractures, and sprains</li>
+                  <li>• Shock recognition and treatment</li>
+                  <li>• Allergic reactions and anaphylaxis</li>
+                  <li>• Diabetic emergencies</li>
+                  <li>• Emergency action steps and 911 activation</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-red-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-6">Certifications Available</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">BLS for Healthcare Providers</h4>
+                    <p className="text-gray-700">American Heart Association - 2 year certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Heartsaver CPR AED</h4>
+                    <p className="text-gray-700">American Heart Association - General public certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">American Red Cross CPR/First Aid</h4>
+                    <p className="text-gray-700">Alternative certification option</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Digital Certification Card</h4>
+                    <p className="text-gray-700">Instant access to certification credentials</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who Needs This */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4">Who Needs CPR Certification?</h2>
+            <p className="text-center text-gray-600 mb-12 text-lg">Required for many careers and valuable for everyone</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold mb-2">Healthcare Workers</h3>
+                <p className="text-gray-700">CNAs, Medical Assistants, Dental Assistants, EKG Techs, Patient Care Techs</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold mb-2">Childcare Providers</h3>
+                <p className="text-gray-700">Daycare workers, teachers, camp counselors, nannies</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold mb-2">Fitness Professionals</h3>
+                <p className="text-gray-700">Personal trainers, gym staff, coaches, lifeguards</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold mb-2">Safety Officers</h3>
+                <p className="text-gray-700">Security guards, building managers, safety coordinators</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold mb-2">Teachers & Educators</h3>
+                <p className="text-gray-700">School staff, administrators, substitute teachers</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold mb-2">General Public</h3>
+                <p className="text-gray-700">Parents, caregivers, anyone wanting to be prepared</p>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-red-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4">Class Schedule & Pricing</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-bold text-lg mb-2">Available Classes:</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• BLS for Healthcare Providers (6 hours) - $75</li>
+                    <li>• Heartsaver CPR AED (4 hours) - $60</li>
+                    <li>• First Aid Only (4 hours) - $50</li>
+                    <li>• CPR + First Aid Combo (6 hours) - $85</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg mb-2">Class Times:</h4>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>• Weekday classes: 9am-3pm</li>
+                    <li>• Evening classes: 5pm-9pm</li>
+                    <li>• Weekend classes: 9am-3pm</li>
+                    <li>• Group/corporate training available</li>
+                  </ul>
+                </div>
+              </div>
+              <p className="mt-6 text-center text-lg font-bold text-gray-800">
+                100% funded through workforce programs for eligible students
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-gradient-to-r from-red-600 to-red-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6">Get Certified Today</h2>
+            <p className="text-xl mb-8">
+              Same-day certification • Nationally recognized • Required for many jobs
+            </p>
+            <Link href="/apply" className="inline-block bg-white text-red-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-red-50 shadow-2xl">
+              Register for CPR Class
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
