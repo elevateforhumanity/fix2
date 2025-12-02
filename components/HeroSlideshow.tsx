@@ -7,22 +7,22 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    image: "",
+    image: "/images/artlist/hero-training-3.jpg",
     title: "Your Career Starts Here",
     text: "Free workforce training that leads to real jobs - 100% government funded",
   },
   {
-    image: "",
+    image: "/images/artlist/hero-training-7.jpg",
     title: "Build a Career in High-Demand Trades",
     text: "HVAC, welding, and building maintenance - earn $20-$30/hour with benefits",
   },
   {
-    image: "",
+    image: "/images/artlist/hero-training-8.jpg",
     title: "No Cost. No Debt. Just Opportunity.",
     text: "State and Federal Funded - WIOA, Workforce Ready Grants, and registered apprenticeships",
   },
   {
-    image: "",
+    image: "/images/artlist/hero-training-1.jpg",
     title: "Train Today. Work Tomorrow.",
     text: "Healthcare, Skilled Trades, Technology, and Business programs with direct employer connections",
   },
