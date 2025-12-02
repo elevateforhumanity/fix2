@@ -55,7 +55,7 @@ function sendToAnalytics(metric: Metric) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(report),
       keepalive: true,
-    }).catch(console.error);
+    }).catch(() => {}); // Silent fail
   }
 
   // Log to console in development
@@ -82,7 +82,7 @@ export function observePerformance() {
   try {
     const longTaskObserver = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        if (entry.duration > 50) {
+        if (entry.duration > 50 && process.env.NODE_ENV === 'development') {
           console.warn('⚠️ Long task detected:', {
             duration: entry.duration,
             startTime: entry.startTime,
@@ -100,10 +100,12 @@ export function observePerformance() {
     const layoutShiftObserver = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
         if ((entry as any).hadRecentInput) continue;
-        console.log('📐 Layout shift:', {
-          value: (entry as any).value,
-          sources: (entry as any).sources,
-        });
+        if (process.env.NODE_ENV === 'development') {
+          console.log('📐 Layout shift:', {
+            value: (entry as any).value,
+            sources: (entry as any).sources,
+          });
+        }
       }
     });
     layoutShiftObserver.observe({ entryTypes: ['layout-shift'] });
@@ -121,14 +123,17 @@ export function monitorResources() {
     const slowResources = resources.filter((r) => r.duration > 1000);
 
     if (slowResources.length > 0) {
-      console.warn('⚠️ Slow resources detected:', slowResources.map((r) => ({
-        name: r.name,
-        duration: Math.round(r.duration),
-        size: r.transferSize ? `${(r.transferSize / 1024).toFixed(2)} KB` : 'unknown',
-        type: r.initiatorType,
-      })));
+      // Only log in development
+      if (process.env.NODE_ENV === 'development') {
+        console.warn('⚠️ Slow resources detected:', slowResources.map((r) => ({
+          name: r.name,
+          duration: Math.round(r.duration),
+          size: r.transferSize ? `${(r.transferSize / 1024).toFixed(2)} KB` : 'unknown',
+          type: r.initiatorType,
+        })));
+      }
 
-      // Send slow resource alerts to analytics
+      // Send slow resource alerts to analytics (production & development)
       slowResources.forEach((resource) => {
         fetch('/api/analytics/slow-resources', {
           method: 'POST',
@@ -140,7 +145,7 @@ export function monitorResources() {
             type: resource.initiatorType,
           }),
           keepalive: true,
-        }).catch(console.error);
+        }).catch(() => {}); // Silent fail in production
       });
     }
 
@@ -174,17 +179,19 @@ export function monitorResources() {
       }).catch(() => {}); // Silent fail
     }
 
-    // Log resource breakdown by type
-    const resourcesByType = resources.reduce((acc, r) => {
-      const type = r.initiatorType || 'other';
-      acc[type] = (acc[type] || 0) + (r.transferSize || 0);
-      return acc;
-    }, {} as Record<string, number>);
+    // Log resource breakdown by type (development only)
+    if (process.env.NODE_ENV === 'development') {
+      const resourcesByType = resources.reduce((acc, r) => {
+        const type = r.initiatorType || 'other';
+        acc[type] = (acc[type] || 0) + (r.transferSize || 0);
+        return acc;
+      }, {} as Record<string, number>);
 
-    console.log('📊 Resources by type:', Object.entries(resourcesByType).map(([type, size]) => ({
-      type,
-      size: `${(size / 1024).toFixed(2)} KB`,
-      percentage: `${((size / totalSize) * 100).toFixed(1)}%`,
-    })));
+      console.log('📊 Resources by type:', Object.entries(resourcesByType).map(([type, size]) => ({
+        type,
+        size: `${(size / 1024).toFixed(2)} KB`,
+        percentage: `${((size / totalSize) * 100).toFixed(1)}%`,
+      })));
+    }
   });
 }
