@@ -14,17 +14,17 @@ export default function HomePage() {
     {
       title: "Transform Your Future",
       subtitle: "Join thousands of graduates who found rewarding careers through our workforce development programs",
-      image: "/images/artlist/hero-training-1.jpg"
+      image: "/images/artlist/variations/hero-training-1-bright.jpg"
     },
     {
       title: "Hands-On Training",
       subtitle: "Learn from industry experts with real-world experience in state-of-the-art facilities",
-      image: "/images/artlist/hero-training-2.jpg"
+      image: "/images/artlist/variations/hero-training-2-bright.jpg"
     },
     {
       title: "Career Services That Work",
       subtitle: "From training to placement, we support you every step of your career journey",
-      image: "/images/artlist/hero-training-3.jpg"
+      image: "/images/artlist/variations/hero-training-3-bright.jpg"
     }
   ];
 
@@ -75,11 +75,11 @@ export default function HomePage() {
                 src={slide.image}
                 alt={slide.title}
                 fill
-                className="object-cover"
+                className="object-cover brightness-110"
                 priority={index === 0}
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
             </div>
             
             {/* Content */}
@@ -155,13 +155,13 @@ export default function HomePage() {
             <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl hover:-translate-y-3 transition-all duration-300">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/artlist/hero-training-4.jpg"
+                  src="/images/trades/program-hvac-technician.jpg"
                   alt="Earn While You Learn - Paid Apprenticeship"
                   fill
-                  className="object-cover"
+                  className="object-cover brightness-110"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute top-5 right-5 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold">
                   PAID TRAINING
                 </div>
@@ -186,13 +186,13 @@ export default function HomePage() {
             <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl hover:-translate-y-3 transition-all duration-300">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/funding/funding-dol-program-v2.jpg"
+                  src="/images/medical-assistant/large/ma-large-02.jpg"
                   alt="100% Free Training - No Tuition"
                   fill
-                  className="object-cover"
+                  className="object-cover brightness-110"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute top-5 right-5 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold">
                   $0 COST
                 </div>
@@ -648,7 +648,7 @@ const programs = [
     salary: "$30K-$55K",
     link: "/programs/barber",
     color: "bg-pink-600",
-    image: "/images/beauty/hero-barber-training.jpg",
+    image: "/images/beauty/program-barber-training.jpg",
     skills: [
       "Hair cutting and styling techniques",
       "Skin care and facial treatments",
@@ -664,7 +664,7 @@ const programs = [
     salary: "$50K-$70K",
     link: "/programs/cdl",
     color: "bg-blue-600",
-    image: "/images/transportation/hero-program-automotive.jpg",
+    image: "/images/trades/hero-program-cdl.jpg",
     skills: [
       "Commercial vehicle operation",
       "DOT safety regulations and compliance",
