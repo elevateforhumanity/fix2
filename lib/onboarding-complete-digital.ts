@@ -554,7 +554,7 @@ IP Address: ${data.ipAddress || 'N/A'}
 
 // Complete Onboarding Summary
 export function generateOnboardingSummary(data: OnboardingData): string {
-  const package = generateCompleteOnboardingPackage(data);
+  const onboardingPackage = generateCompleteOnboardingPackage(data);
   
   return `ONBOARDING SUMMARY
 
@@ -563,22 +563,22 @@ Position: ${data.position}
 Department: ${data.department}
 Start Date: ${data.startDate}
 
-Overall Progress: ${package.status.overallProgress}%
+Overall Progress: ${onboardingPackage.status.overallProgress}%
 
-Forms Completed: ${package.status.formsCompleted}/${package.status.formsTotal}
-Documents Acknowledged: ${package.status.documentsAcknowledged}/${package.status.documentsTotal}
-Checklist Items: ${package.status.checklistCompleted}/${package.status.checklistTotal}
+Forms Completed: ${onboardingPackage.status.formsCompleted}/${onboardingPackage.status.formsTotal}
+Documents Acknowledged: ${onboardingPackage.status.documentsAcknowledged}/${onboardingPackage.status.documentsTotal}
+Checklist Items: ${onboardingPackage.status.checklistCompleted}/${onboardingPackage.status.checklistTotal}
 
-Status: ${package.status.isComplete ? '✅ COMPLETE' : '⚠️ IN PROGRESS'}
-Can Start Work: ${package.status.canStartWork ? '✅ YES' : '❌ NO'}
+Status: ${onboardingPackage.status.isComplete ? '✅ COMPLETE' : '⚠️ IN PROGRESS'}
+Can Start Work: ${onboardingPackage.status.canStartWork ? '✅ YES' : '❌ NO'}
 
 Completed Forms:
-${package.forms.filter(f => f.completed).map(f => `✅ ${f.name}`).join('\n')}
+${onboardingPackage.forms.filter(f => f.completed).map(f => `✅ ${f.name}`).join('\n')}
 
 Pending Forms:
-${package.forms.filter(f => !f.completed).map(f => `⚠️ ${f.name}`).join('\n')}
+${onboardingPackage.forms.filter(f => !f.completed).map(f => `⚠️ ${f.name}`).join('\n')}
 
 Next Steps:
-${package.checklist.filter(c => !c.completed && c.required).map(c => `• ${c.title}`).join('\n')}
+${onboardingPackage.checklist.filter(c => !c.completed && c.required).map(c => `• ${c.title}`).join('\n')}
 `;
 }
