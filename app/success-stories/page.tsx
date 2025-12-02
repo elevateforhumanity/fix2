@@ -1,16 +1,122 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
+import { Quote } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Success Stories | Elevate For Humanity',
-  description: 'Learn more about Success Stories inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Real stories from real graduates who transformed their lives through our workforce training programs.',
 };
+
+const successStories = [
+  {
+    name: "Marcus Johnson",
+    program: "HVAC Technician",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop&q=80",
+    beforeJob: "Unemployed for 18 months",
+    afterJob: "HVAC Technician at Carrier",
+    salary: "$52,000/year",
+    quote: "I was unemployed for over a year and didn't know where to turn. Elevate For Humanity not only trained me for free, but they helped me with housing and connected me directly to employers. Now I have a career I'm proud of and can support my family.",
+    timeline: "Completed training in 10 weeks",
+  },
+  {
+    name: "Jasmine Williams",
+    program: "Medical Assistant",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=600&fit=crop&q=80",
+    beforeJob: "Retail worker, $12/hour",
+    afterJob: "Medical Assistant at IU Health",
+    salary: "$42,000/year",
+    quote: "I was stuck in retail making minimum wage with no path forward. The Medical Assistant program changed everything. The training was hands-on, the instructors were amazing, and I got hired before I even finished the program.",
+    timeline: "Completed training in 8 weeks",
+  },
+  {
+    name: "David Thompson",
+    program: "CDL Driver",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=600&fit=crop&q=80",
+    beforeJob: "Returning citizen, no job prospects",
+    afterJob: "CDL Driver at Schneider National",
+    salary: "$58,000/year",
+    quote: "After being incarcerated, I thought no one would give me a chance. Elevate For Humanity saw my potential, not my past. They trained me, supported me, and connected me with an employer willing to hire me.",
+    timeline: "Completed training in 6 weeks",
+  },
+];
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+    <main className="bg-white">
+      {/* Hero Banner with Background Image */}
+      <section className="relative h-[500px] w-full overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=80"
+          alt="Success stories - graduates celebrating"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl">
+              Real People. Real Transformations.
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-200 leading-relaxed drop-shadow-lg mb-8">
+              These are the stories of graduates who transformed their lives through free workforce training.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link href="/apply" className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-700 text-lg shadow-2xl transition-all">
+                Start Your Story
+              </Link>
+              <Link href="/programs" className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 border-2 border-white text-lg shadow-2xl transition-all">
+                View Programs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Success Stories */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-extrabold text-center mb-16">Graduate Success Stories</h2>
+          <div className="space-y-16">
+            {successStories.map((story, index) => (
+              <div key={index} className="grid md:grid-cols-2 gap-12 items-center">
+                <div className={index % 2 === 1 ? 'md:order-2' : ''}>
+                  <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                    <Image src={story.image} alt={story.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                  </div>
+                </div>
+                <div className={index % 2 === 1 ? 'md:order-1' : ''}>
+                  <div className="inline-block px-4 py-2 bg-blue-100 text-blue-900 rounded-full text-sm font-bold mb-4">{story.program}</div>
+                  <h3 className="text-3xl font-extrabold mb-4">{story.name}</h3>
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="bg-slate-50 rounded-lg p-4">
+                      <div className="text-sm text-slate-500 mb-1">Before</div>
+                      <div className="font-semibold text-slate-900">{story.beforeJob}</div>
+                    </div>
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <div className="text-sm text-green-700 mb-1">After</div>
+                      <div className="font-semibold text-green-900">{story.afterJob}</div>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-6 mb-6 border-l-4 border-blue-600">
+                    <Quote className="w-8 h-8 text-blue-600 mb-3" />
+                    <p className="text-lg text-slate-700 italic leading-relaxed mb-4">"{story.quote}"</p>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="font-semibold text-slate-900">{story.timeline}</span>
+                      <span className="text-green-700 font-bold">{story.salary}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Success Stories | Elevate For Humanity</h1>

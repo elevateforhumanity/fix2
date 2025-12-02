@@ -76,7 +76,7 @@ export default function HomePage() {
                 quality={90}
                 sizes="100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600/80 to-red-900/80" />
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-blue-900/75 to-slate-900/85" />
             </div>
             <div className="relative h-full flex items-center justify-center py-20">
               <div className="max-w-6xl mx-auto px-6 text-center">

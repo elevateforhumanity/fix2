@@ -133,42 +133,133 @@ export default async function Page() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-16 bg-white">
+      {/* Why Partner With Us */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-extrabold text-center mb-12">Employer Services</h2>
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-            
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+          <h2 className="text-4xl font-extrabold text-center mb-4">Why Partner With Elevate For Humanity?</h2>
+          <p className="text-xl text-slate-600 text-center mb-16 max-w-3xl mx-auto">
+            We connect you with job-ready talent while reducing your hiring costs and training time.
+          </p>
+          
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&h=200&fit=crop&q=80" alt="Pre-Screened Candidates" fill className="object-cover" sizes="80px" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Post Jobs</h3>
-              <p className="text-gray-600">Create and manage job postings</p>
+              <h3 className="text-2xl font-bold mb-4 text-center">Pre-Screened, Job-Ready Talent</h3>
+              <p className="text-slate-700 leading-relaxed">
+                All our graduates are pre-screened, background-checked, and trained to industry standards. They arrive on day one ready to contribute, reducing your onboarding time and training costs.
+              </p>
             </div>
-            
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+
+            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=200&h=200&fit=crop&q=80" alt="Zero Recruitment Costs" fill className="object-cover" sizes="80px" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Find Talent</h3>
-              <p className="text-gray-600">Access qualified candidates</p>
+              <h3 className="text-2xl font-bold mb-4 text-center">Zero Recruitment Costs</h3>
+              <p className="text-slate-700 leading-relaxed">
+                No placement fees, no recruiting costs. We connect you directly with qualified candidates at no charge. Our funding comes from government workforce programs, not employer fees.
+              </p>
             </div>
-            
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+
+            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=200&h=200&fit=crop&q=80" alt="Industry-Specific Training" fill className="object-cover" sizes="80px" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Hire Fast</h3>
-              <p className="text-gray-600">Streamlined hiring process</p>
+              <h3 className="text-2xl font-bold mb-4 text-center">Industry-Specific Training</h3>
+              <p className="text-slate-700 leading-relaxed">
+                Our programs are designed with employer input. Students learn the exact skills, tools, and processes your industry requires—not outdated textbook curriculum.
+              </p>
             </div>
-            
+
+            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=200&h=200&fit=crop&q=80" alt="Wage Reimbursement Programs" fill className="object-cover" sizes="80px" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-center">Wage Reimbursement Programs</h3>
+              <p className="text-slate-700 leading-relaxed">
+                Access WEX, OJT, and apprenticeship programs that reimburse up to 50% of wages during training periods. We handle all the paperwork and coordination with workforce boards.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=200&h=200&fit=crop&q=80" alt="Ongoing Support" fill className="object-cover" sizes="80px" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-center">Ongoing Support</h3>
+              <p className="text-slate-700 leading-relaxed">
+                We don't disappear after placement. Our team provides ongoing support to both employers and employees, addressing any issues that arise and ensuring long-term success.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop&q=80" alt="Diverse Talent Pool" fill className="object-cover" sizes="80px" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-center">Diverse Talent Pool</h3>
+              <p className="text-slate-700 leading-relaxed">
+                We serve diverse populations including returning citizens, veterans, single parents, and career changers. Build a workforce that reflects your community while meeting diversity goals.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries We Serve */}
+      <section className="py-20 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-extrabold text-center mb-16">Industries We Serve</h2>
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white rounded-xl p-6 shadow-md text-center">
+              <h3 className="text-xl font-bold mb-2">Healthcare</h3>
+              <p className="text-slate-600 text-sm">CNAs, Medical Assistants, Phlebotomists, Dental Assistants</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-md text-center">
+              <h3 className="text-xl font-bold mb-2">Skilled Trades</h3>
+              <p className="text-slate-600 text-sm">HVAC, Electrical, Plumbing, Welding, Construction</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-md text-center">
+              <h3 className="text-xl font-bold mb-2">Transportation</h3>
+              <p className="text-slate-600 text-sm">CDL Drivers, Logistics, Warehouse, Forklift Operators</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-md text-center">
+              <h3 className="text-xl font-bold mb-2">Technology</h3>
+              <p className="text-slate-600 text-sm">IT Support, Cybersecurity, Web Development, Data Analytics</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-md text-center">
+              <h3 className="text-xl font-bold mb-2">Beauty & Wellness</h3>
+              <p className="text-slate-600 text-sm">Barbers, Cosmetologists, Estheticians, Nail Technicians</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-md text-center">
+              <h3 className="text-xl font-bold mb-2">Business Services</h3>
+              <p className="text-slate-600 text-sm">Customer Service, Administrative, Bookkeeping, Sales</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-md text-center">
+              <h3 className="text-xl font-bold mb-2">Manufacturing</h3>
+              <p className="text-slate-600 text-sm">Production Workers, Quality Control, Machine Operators</p>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-md text-center">
+              <h3 className="text-xl font-bold mb-2">Hospitality</h3>
+              <p className="text-slate-600 text-sm">Culinary, Hotel Management, Event Planning</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Build Your Workforce?</h2>
+          <p className="text-xl text-white/90 mb-8">
+            Join over 100 employers who trust Elevate For Humanity to connect them with job-ready talent.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/contact" className="px-10 py-5 bg-white text-blue-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
+              Contact Us Today
+            </Link>
+            <Link href="/employer/jobs/new" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">
+              Post a Job
+            </Link>
           </div>
         </div>
       </section>

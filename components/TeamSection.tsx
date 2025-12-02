@@ -82,13 +82,13 @@ export default function TeamSection() {
               key={index}
               className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
             >
-              {/* Image */}
-              <div className="relative h-80 overflow-hidden bg-slate-100">
+              {/* Image - Professional Headshot Size */}
+              <div className="relative h-64 overflow-hidden bg-slate-100">
                 <Image
                   src={member.image}
                   alt={`${member.name} - ${member.title}`}
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
