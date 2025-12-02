@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'CDL Training Program | Elevate For Humanity',
@@ -9,18 +10,28 @@ export const metadata: Metadata = {
 export default function CDLProgramPage() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="bg-gradient-to-r from-orange-600 to-orange-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Commercial Driver License (CDL) Training</h1>
-            <p className="text-xl mb-8 text-orange-100">
+      <section className="relative min-h-[500px] flex items-center">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/transportation/hero-program-automotive.jpg"
+            alt="CDL Training Program"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
+        </div>
+        <div className="relative container mx-auto px-4 py-20">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">Commercial Driver License (CDL) Training</h1>
+            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">
               Start a high-paying trucking career with our comprehensive, 100% funded CDL program
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-orange-50 text-lg">
+              <Link href="/apply" className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-700 text-lg shadow-2xl">
                 Apply Now - Free Training
               </Link>
-              <Link href="/contact" className="bg-orange-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 border-2 border-white text-lg">
+              <Link href="/contact" className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl">
                 Learn More
               </Link>
             </div>
