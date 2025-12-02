@@ -103,6 +103,125 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Detailed Curriculum */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">120-Hour Child Development Associate (CDA) Training</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-yellow-500">
+                <h3 className="text-2xl font-bold mb-3">Child Development & Learning</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Child growth and development (birth-5 years)</li>
+                  <li>• Age-appropriate activities and curriculum</li>
+                  <li>• Early literacy and language development</li>
+                  <li>• Social-emotional development</li>
+                  <li>• Cognitive and physical development milestones</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
+                <h3 className="text-2xl font-bold mb-3">Health, Safety & Nutrition</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• CPR and First Aid certification</li>
+                  <li>• Child safety and injury prevention</li>
+                  <li>• Nutrition and meal planning</li>
+                  <li>• Health screening and illness prevention</li>
+                  <li>• Medication administration</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-600">
+                <h3 className="text-2xl font-bold mb-3">Family & Community Partnerships</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Family engagement strategies</li>
+                  <li>• Cultural competency and diversity</li>
+                  <li>• Communication with families</li>
+                  <li>• Community resources and referrals</li>
+                  <li>• Professional ethics and confidentiality</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-yellow-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-6">Certifications Earned</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-bold text-lg mb-1">Child Development Associate (CDA)</h4>
+                  <p className="text-gray-700">Council for Professional Recognition national credential</p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-lg mb-1">CPR & First Aid</h4>
+                  <p className="text-gray-700">Pediatric emergency response certification</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Partners */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">Childcare Employer Partners</h2>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Daycare Centers</h3>
+                <p className="text-gray-700 mb-2">Lead Teacher / Assistant</p>
+                <p className="text-green-600 font-bold text-lg">$13-$18/hour</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Head Start Programs</h3>
+                <p className="text-gray-700 mb-2">Early Childhood Educator</p>
+                <p className="text-green-600 font-bold text-lg">$15-$20/hour</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
+                <h3 className="text-xl font-bold mb-2">In-Home Childcare</h3>
+                <p className="text-gray-700 mb-2">Family Childcare Provider</p>
+                <p className="text-green-600 font-bold text-lg">$25,000-$45,000/year</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Progression */}
+      <section className="py-16 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 className="text-2xl font-bold mb-2">Entry-Level (0-2 years): $26,000-$35,000/year</h3>
+                <p>Assistant teacher or aide in daycare centers</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 className="text-2xl font-bold mb-2">Experienced (2-5 years): $35,000-$45,000/year</h3>
+                <p>Lead teacher or program coordinator</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 className="text-2xl font-bold mb-2">Advanced (5+ years): $45,000-$60,000+/year</h3>
+                <p>Center director or own childcare business</p>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/apply" className="inline-block bg-white text-yellow-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-yellow-50 shadow-2xl">
+                Start Your Childcare Career Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
