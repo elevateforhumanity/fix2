@@ -1,33 +1,65 @@
-<<<<<<< HEAD
-# Quick Start - Launch in 30 Minutes ⚡
+# ⚡ QUICK START - Get Live in 90 Minutes
 
-## Step 1: Database (5 min)
-
-Open Supabase SQL Editor and run these files in order:
-
-```sql
--- File 1: Create tables
--- Copy/paste: supabase/migrations/20241129_complete_partner_system.sql
--- Click "Run"
-
--- File 2: Add courses  
--- Copy/paste: supabase/migrations/20241129_partner_courses_two_models.sql
--- Click "Run"
-```
-
-**Verify**: Run `SELECT COUNT(*) FROM partner_courses;` → Should return 40+
+**Current Status:** ✅ Code 100% Complete | ⚠️ Needs Configuration
 
 ---
 
-## Step 2: Stripe (5 min)
+## 🎯 Your 90-Minute Launch Plan
 
-Go to [dashboard.stripe.com](https://dashboard.stripe.com):
+### Step 1: Supabase Keys (5 minutes)
 
-1. **Settings** → **Payment methods** → Enable:
-   - ✅ ACH Direct Debit
-   - ✅ Affirm
-   - ✅ Afterpay
-   - ✅ Klarna
+1. Go to [https://app.supabase.com](https://app.supabase.com)
+2. Select your project
+3. Settings → API
+4. Copy these 3 values:
+   - Project URL
+   - anon public key
+   - service_role secret key
+
+### Step 2: Add to Vercel (10 minutes)
+
+1. Go to [https://vercel.com/dashboard](https://vercel.com/dashboard)
+2. Click your project
+3. Settings → Environment Variables
+4. Add these 9 variables:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGc...
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGc...
+NEXT_PUBLIC_SITE_URL=https://www.elevateforhumanity.org
+NEXTAUTH_SECRET=<run: openssl rand -base64 32>
+NEXTAUTH_URL=https://www.elevateforhumanity.org
+STRIPE_PUBLIC_KEY=pk_test_... (get from stripe.com)
+STRIPE_SECRET_KEY=sk_test_... (get from stripe.com)
+STRIPE_WEBHOOK_SECRET=whsec_... (get from stripe.com)
+```
+
+5. Click "Redeploy" after adding all variables
+
+### Step 3: Run Database Migrations (15 minutes)
+
+1. Go to [https://app.supabase.com](https://app.supabase.com)
+2. Click SQL Editor (left sidebar)
+3. Click "New Query"
+4. Open file: `supabase/migrations/20241202_complete_programs_schema.sql`
+5. Copy entire contents → Paste → Run
+6. Click "New Query" again
+7. Open file: `supabase/migrations/20241202_complete_all_19_programs.sql`
+8. Copy entire contents → Paste → Run
+9. Verify: Run `SELECT COUNT(*) FROM programs;` → Should return 27+
+
+### Step 4: Set Up Stripe (30 minutes)
+
+1. Go to [https://dashboard.stripe.com/register](https://dashboard.stripe.com/register)
+2. Complete signup
+3. Dashboard → Developers → API keys
+4. Copy Publishable key and Secret key
+5. Dashboard → Developers → Webhooks
+6. Add endpoint: `https://www.elevateforhumanity.org/api/stripe/webhook`
+7. Select events: `checkout.session.completed`, `payment_intent.succeeded`
+8. Copy Signing secret
+9. Add all 3 keys to Vercel (see Step 2)
 
 2. **Settings** → **Webhooks** → Add endpoint:
    - URL: `https://yourdomain.com/api/webhooks/stripe`
