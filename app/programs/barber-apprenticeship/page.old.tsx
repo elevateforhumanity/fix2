@@ -148,7 +148,7 @@ export default function BarberApprenticeshipPage() {
 
       {/* Original content continues */}
       <section className="border-b border-slate-100 bg-white hidden">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 md:flex-row md:items-center md:py-16">
+        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 md:flex-row md:items-center md:py-20">
           <div className="flex-1">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500">
               Barber Apprenticeship • Licensed Trade Pathway
@@ -685,7 +685,7 @@ d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.
       </section>
 
       {/* HOUR TRACKER */}
-      <section className="bg-gradient-to-b from-purple-50 to-white py-16">
+      <section className="bg-gradient-to-b from-purple-50 to-white py-20">
         <div className="mx-auto max-w-6xl px-4">
           <div className="mb-8 text-center">
             <h2 className="text-3xl font-bold text-slate-900">

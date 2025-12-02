@@ -44,7 +44,7 @@ export default function EmployersPage() {
       </section>
 
       {/* Why Partner With Us */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-4xl font-bold text-slate-900 mb-4 text-center">
             Why Become an Employer Partner?
@@ -171,7 +171,7 @@ export default function EmployersPage() {
       </section>
 
       {/* Funding Programs */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center">
             Employer Funding Programs
@@ -371,7 +371,7 @@ export default function EmployersPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4">
           <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center">
             How to Become a Partner
@@ -414,7 +414,7 @@ export default function EmployersPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-700 text-white py-16">
+      <section className="bg-gradient-to-r from-orange-600 to-orange-700 text-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h2 className="text-4xl font-bold mb-4">
             Ready to Save on Hiring Costs?

@@ -29,7 +29,7 @@ export default async function Page() {
       </section>
 
       {/* Feature Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             

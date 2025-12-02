@@ -551,7 +551,7 @@ export default function HomePage() {
       </section>
 
       {/* Approvals & Partners with Images */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4">
             Official Approvals & Partners

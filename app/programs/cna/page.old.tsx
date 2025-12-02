@@ -90,7 +90,7 @@ export default function CNAPage() {
       </section>
 
       {/* Training Image */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl mb-16">
             <Image
@@ -105,7 +105,7 @@ export default function CNAPage() {
       </section>
 
       {/* Program Overview */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
@@ -195,7 +195,7 @@ export default function CNAPage() {
       </section>
 
       {/* Clinical Training Image */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -223,7 +223,7 @@ export default function CNAPage() {
       </section>
 
       {/* Program Details */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">
             Program Details
@@ -257,7 +257,7 @@ export default function CNAPage() {
       </section>
 
       {/* Career Success Image */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
@@ -285,7 +285,7 @@ export default function CNAPage() {
       </section>
 
       {/* Funding */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-green-50 to-orange-50 rounded-2xl p-8 md:p-12">
             <div className="max-w-3xl mx-auto text-center">
@@ -313,7 +313,7 @@ export default function CNAPage() {
       </section>
 
       {/* Prerequisites */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
             Requirements
@@ -348,7 +348,7 @@ export default function CNAPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-red-600 to-red-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-red-600 to-red-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Start Your Healthcare Career?

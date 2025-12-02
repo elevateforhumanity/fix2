@@ -34,7 +34,7 @@ export default async function Page() {
       </section>
 
       {/* Features */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
             

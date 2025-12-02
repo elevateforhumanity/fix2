@@ -52,7 +52,7 @@ export default function Page() {
       </section>
 
       {/* Features */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">Program Highlights</h2>

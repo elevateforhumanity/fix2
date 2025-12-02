@@ -260,7 +260,7 @@ export default async function ProgramsPage() {
       </section>
 
       {/* Featured Programs */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-slate-900 mb-3 text-center">
             🔥 Most Popular Programs
@@ -358,7 +358,7 @@ export default async function ProgramsPage() {
       </section>
 
       {/* All Programs */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-slate-900 mb-3 text-center">
             All Training Programs
@@ -418,7 +418,7 @@ export default async function ProgramsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-700 text-white py-16">
+      <section className="bg-gradient-to-r from-orange-600 to-orange-700 text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-4">
             Ready to Start Your Career?

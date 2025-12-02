@@ -166,7 +166,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
       </section>
 
       {/* AT A GLANCE */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-900 mb-8">Program at a Glance</h2>
 
@@ -263,7 +263,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
       </section>
 
       {/* WHAT YOU'LL LEARN & DAY IN THE LIFE */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2">
 
@@ -315,7 +315,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
 
       {/* EMPLOYERS & CAREER PATHS */}
       {(program.employers || program.career_outcomes) && (
-        <section className="py-16 bg-slate-50">
+        <section className="py-20 bg-slate-50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-12 lg:grid-cols-2">
 
@@ -374,7 +374,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
 
       {/* FUNDING OPTIONS */}
       {program.funding_pathways && program.funding_pathways.length > 0 && (
-        <section className="py-16 bg-gradient-to-br from-orange-50 via-white to-blue-50">
+        <section className="py-20 bg-gradient-to-br from-orange-50 via-white to-blue-50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-slate-900 mb-4">100% Free Training Available</h2>
@@ -431,7 +431,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
 
       {/* INDUSTRY DEMAND */}
       {program.industry_demand && (
-        <section className="py-16 bg-white">
+        <section className="py-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 lg:p-12 border-2 border-green-200">
               <div className="flex items-center gap-3 mb-6">
@@ -453,7 +453,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
       )}
 
       {/* READY TO START */}
-      <section className="py-16 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <section className="py-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Start Your Career?</h2>
           <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">

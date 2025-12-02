@@ -181,7 +181,7 @@ export default async function ProgramsPage() {
       </section>
 
       {/* PROGRAMS GRID */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Explore Our Programs</h2>
@@ -274,7 +274,7 @@ export default async function ProgramsPage() {
       </section>
 
       {/* Milady RISE Callout for Beauty & Barber */}
-      <section className="py-16 bg-gradient-to-r from-pink-50 to-purple-50">
+      <section className="py-20 bg-gradient-to-r from-pink-50 to-purple-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-pink-600">
             <div className="flex items-start gap-4">
@@ -311,7 +311,7 @@ export default async function ProgramsPage() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 via-white to-blue-50 p-8 lg:p-12 shadow-lg">
             <div className="max-w-3xl mx-auto text-center">

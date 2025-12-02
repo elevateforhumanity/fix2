@@ -134,7 +134,7 @@ export default function Page() {
       </section>
 
       {/* Image Section */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -186,7 +186,7 @@ export default function Page() {
       </section>
 
       {/* Feature Cards */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>

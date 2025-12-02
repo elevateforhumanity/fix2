@@ -221,7 +221,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* All Programs Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">

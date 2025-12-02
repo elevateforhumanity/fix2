@@ -62,7 +62,7 @@ export default function CDLProgramPage() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
@@ -147,7 +147,7 @@ export default function CDLProgramPage() {
       </section>
 
       {/* Detailed Curriculum */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12">4-8 Week CDL Class A Training Schedule</h2>
@@ -278,7 +278,7 @@ export default function CDLProgramPage() {
       </section>
 
       {/* Hiring Partners */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-4">Our Trucking Company Partners</h2>
@@ -380,7 +380,7 @@ export default function CDLProgramPage() {
       </section>
 
       {/* Career Progression */}
-      <section className="py-16 bg-gradient-to-r from-orange-600 to-orange-700 text-white">
+      <section className="py-20 bg-gradient-to-r from-orange-600 to-orange-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>
@@ -423,7 +423,7 @@ export default function CDLProgramPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">Career Opportunities</h2>
@@ -460,7 +460,7 @@ export default function CDLProgramPage() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-8">Program Requirements</h2>
@@ -502,7 +502,7 @@ export default function CDLProgramPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-orange-600 text-white">
+      <section className="py-20 bg-orange-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">Ready to Hit the Road?</h2>

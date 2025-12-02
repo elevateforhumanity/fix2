@@ -19,7 +19,7 @@ export default function WorkforceReadinessProgramPage() {
     <main className="min-h-screen bg-slate-950 text-white">
       {/* HERO */}
       <section className="border-b border-white/10 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-        <div className="mx-auto max-w-6xl px-6 py-14 md:px-10 lg:px-12 lg:py-16">
+        <div className="mx-auto max-w-6xl px-6 py-14 md:px-10 lg:px-12 lg:py-20">
           <p className="text-xs font-semibold uppercase tracking-wide text-orange-300">
             Readiness & Re-Entry Pathway
           </p>

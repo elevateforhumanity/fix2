@@ -43,7 +43,7 @@ export default async function Page() {
       </section>
 
       {/* JRI Callout */}
-      <section className="py-16 bg-blue-50">
+      <section className="py-20 bg-blue-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8 border-l-4 border-blue-600">
             <h2 className="text-3xl font-extrabold mb-4">Job Ready Indy (JRI) Partner – Marion County</h2>
