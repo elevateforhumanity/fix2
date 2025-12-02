@@ -103,6 +103,217 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Detailed Curriculum */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">8-12 Week Peer Recovery Coach Training</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-purple-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 1-3: Recovery Fundamentals & Ethics</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Introduction to peer recovery support services</li>
+                  <li>• Understanding addiction and recovery process</li>
+                  <li>• Ethics, boundaries, and confidentiality</li>
+                  <li>• Trauma-informed care principles</li>
+                  <li>• Cultural competency and diversity</li>
+                  <li>• Self-care and wellness for peer supporters</li>
+                  <li>• Recovery capital and strengths-based approach</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 4-6: Core Competencies & Skills</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Active listening and communication skills</li>
+                  <li>• Motivational interviewing techniques</li>
+                  <li>• Crisis intervention and de-escalation</li>
+                  <li>• Goal setting and action planning</li>
+                  <li>• Resource navigation and advocacy</li>
+                  <li>• Group facilitation skills</li>
+                  <li>• Documentation and record keeping</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 7-9: Specialized Topics</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Co-occurring mental health disorders</li>
+                  <li>• Medication-assisted treatment (MAT) support</li>
+                  <li>• Family and relationship recovery</li>
+                  <li>• Employment and housing assistance</li>
+                  <li>• Legal system navigation</li>
+                  <li>• Relapse prevention strategies</li>
+                  <li>• Community resource mapping</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-600">
+                <h3 className="text-2xl font-bold mb-3">Weeks 10-12: Practicum & Certification</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• 100+ hours supervised practicum experience</li>
+                  <li>• Working with individuals in recovery</li>
+                  <li>• Case studies and role-playing</li>
+                  <li>• Indiana Credentialing Board exam preparation</li>
+                  <li>• Professional development planning</li>
+                  <li>• Job placement assistance</li>
+                  <li>• Continuing education requirements</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-purple-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-6">Certifications & Credentials</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Certified Peer Recovery Coach (CPRC)</h4>
+                    <p className="text-gray-700">Indiana Credentialing Board certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Mental Health First Aid</h4>
+                    <p className="text-gray-700">Crisis intervention certification</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Trauma-Informed Care Certificate</h4>
+                    <p className="text-gray-700">Understanding trauma and recovery</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">CPR & First Aid</h4>
+                    <p className="text-gray-700">Emergency response training</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Partners */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4">Employer Partners</h2>
+            <p className="text-center text-gray-600 mb-12 text-lg">Work with treatment centers, community organizations, and healthcare facilities</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Fairbanks Recovery Center</h3>
+                <p className="text-gray-700 mb-2">Peer Recovery Specialist</p>
+                <p className="text-green-600 font-bold text-lg">$15-$20/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Benefits • Supervision • Career growth • Meaningful work</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Eskenazi Health</h3>
+                <p className="text-gray-700 mb-2">Peer Support Specialist</p>
+                <p className="text-green-600 font-bold text-lg">$16-$21/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Health insurance • Benefits • Hospital setting</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
+                <h3 className="text-xl font-bold mb-2">Aspire Indiana Health</h3>
+                <p className="text-gray-700 mb-2">Certified Peer Recovery Coach</p>
+                <p className="text-green-600 font-bold text-lg">$15-$19/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Community mental health • Benefits • Flexible hours</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Recovery Works</h3>
+                <p className="text-gray-700 mb-2">Peer Recovery Coach</p>
+                <p className="text-green-600 font-bold text-lg">$14-$18/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Residential treatment • Benefits • Supportive environment</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
+                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
+                <p className="text-gray-700 mb-2">Peer Support Navigator</p>
+                <p className="text-green-600 font-bold text-lg">$16-$20/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Hospital-based • Benefits • Career development</p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
+                <h3 className="text-xl font-bold mb-2">Recovery Cafes & Drop-In Centers</h3>
+                <p className="text-gray-700 mb-2">Peer Recovery Specialist</p>
+                <p className="text-green-600 font-bold text-lg">$14-$18/hour</p>
+                <p className="text-sm text-gray-600 mt-2">Community-based • Flexible • Grassroots work</p>
+              </div>
+            </div>
+
+            <div className="mt-12 bg-purple-50 rounded-lg p-8">
+              <h3 className="text-2xl font-bold mb-4">Career Support</h3>
+              <p className="text-gray-700 mb-4">85%+ of graduates employed within 60 days</p>
+              <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
+                <li>• Resume and interview preparation</li>
+                <li>• Direct connections to treatment centers</li>
+                <li>• Practicum-to-hire opportunities</li>
+                <li>• Ongoing supervision and mentorship</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career Progression */}
+      <section className="py-16 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>
+            
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Entry-Level Peer Recovery Coach (0-2 years)</h3>
+                <p className="text-purple-100 text-lg mb-2">$28,000-$38,000/year ($14-$18/hour)</p>
+                <p className="text-purple-50">Start at treatment centers or community organizations. Provide one-on-one peer support.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Experienced Peer Specialist (2-5 years)</h3>
+                <p className="text-purple-100 text-lg mb-2">$38,000-$48,000/year ($18-$23/hour)</p>
+                <p className="text-purple-50">Move to hospital settings, lead support groups, provide specialized services.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Senior/Supervisor (5-10 years)</h3>
+                <p className="text-purple-100 text-lg mb-2">$48,000-$58,000/year ($23-$28/hour)</p>
+                <p className="text-purple-50">Supervise peer staff, coordinate programs, train new peer coaches.</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                <h3 className="text-2xl font-bold mb-2">Career Advancement</h3>
+                <p className="text-purple-100 text-lg mb-2">$50,000-$70,000+/year</p>
+                <p className="text-purple-50">Program Director, Clinical Supervisor, Licensed Addiction Counselor (with additional education), or start your own recovery support organization.</p>
+              </div>
+            </div>
+
+            <div className="mt-12 text-center">
+              <Link href="/apply" className="inline-block bg-white text-purple-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-purple-50 shadow-2xl">
+                Start Your Peer Recovery Career Today
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
