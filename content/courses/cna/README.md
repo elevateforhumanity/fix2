@@ -350,10 +350,10 @@ To successfully complete the CNA program, students must:
 |--------|--------|----------------|
 | Module 1 | ✅ Complete | 2024-12-02 |
 | Module 2 | ✅ Complete | 2024-12-02 |
-| Module 3 | 📝 Outline only | TBD |
-| Module 4 | 📝 Outline only | TBD |
-| Module 5 | 📝 Outline only | TBD |
-| Module 6 | 📝 Outline only | TBD |
+| Module 3 | ✅ Complete | 2024-12-02 |
+| Module 4 | ✅ Complete | 2024-12-02 |
+| Module 5 | ✅ Complete | 2024-12-02 |
+| Module 6 | ✅ Complete | 2024-12-02 |
 | Module 7 | 📝 Outline only | TBD |
 | Module 8 | 📝 Outline only | TBD |
 | Module 9 | 📝 Outline only | TBD |
@@ -362,4 +362,4 @@ To successfully complete the CNA program, students must:
 | Module 12 | 📝 Outline only | TBD |
 | Module 13 | 📝 Outline only | TBD |
 
-**Note:** Modules 3-13 require detailed content development following the same comprehensive format as Modules 1-2.
+**Note:** Modules 1-6 are fully detailed with comprehensive content. Modules 7-13 have complete outlines ready for detailed content development.
