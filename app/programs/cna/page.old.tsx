@@ -58,7 +58,7 @@ export default function CNAPage() {
                 fill
                 className="object-cover"
                 quality={100}
-                priority
+                priority sizes="100vw"
               />
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function CNAPage() {
               alt="CNA students practicing hands-on skills"
               fill
               className="object-cover"
-              quality={100}
+              quality={100} sizes="100vw"
             />
           </div>
         </div>
@@ -215,7 +215,7 @@ export default function CNAPage() {
                 alt="CNA clinical training in healthcare facility"
                 fill
                 className="object-cover"
-                quality={100}
+                quality={100} sizes="100vw"
               />
             </div>
           </div>
@@ -266,7 +266,7 @@ export default function CNAPage() {
                 alt="Successful CNA graduate working in healthcare"
                 fill
                 className="object-cover"
-                quality={100}
+                quality={100} sizes="100vw"
               />
             </div>
             <div>

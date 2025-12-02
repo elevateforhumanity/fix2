@@ -13,11 +13,11 @@ export default function ApprovalsPage() {
       {/* Hero Section with Background Image */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&h=1000&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&h=1000&fit=crop&q=85"
           alt="Official documents and certifications"
           fill
           className="object-cover"
-          priority
+          priority quality={85} sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-slate-900/85" />
         

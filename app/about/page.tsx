@@ -12,9 +12,9 @@ export default function Page() {
   return (
     <main className="bg-white">
       {/* Hero Section with Background Image */}
-      <section className="relative h-[400px] w-full overflow-hidden">
+      <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=800&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1000&fit=crop&q=85"
           alt="Team collaboration"
           fill
           className="object-cover"
@@ -58,7 +58,7 @@ export default function Page() {
                 alt="Elevate for Humanity training facility"
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, 50vw" quality={85}
               />
             </div>
           </div>
@@ -122,11 +122,11 @@ export default function Page() {
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
               <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=200&h=200&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1000&fit=crop&q=85"
                   alt="Accessibility"
                   fill
                   className="object-cover"
-                  sizes="80px"
+                  sizes="80px" quality={85}
                 />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Accessibility</h3>
@@ -137,11 +137,11 @@ export default function Page() {
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
               <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=200&h=200&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1000&fit=crop&q=85"
                   alt="Quality"
                   fill
                   className="object-cover"
-                  sizes="80px"
+                  sizes="80px" quality={85}
                 />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Quality</h3>
@@ -152,11 +152,11 @@ export default function Page() {
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
               <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=200&h=200&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&h=1000&fit=crop&q=85"
                   alt="Community"
                   fill
                   className="object-cover"
-                  sizes="80px"
+                  sizes="80px" quality={85}
                 />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Community</h3>
@@ -167,11 +167,11 @@ export default function Page() {
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
               <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=200&h=200&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&h=1000&fit=crop&q=85"
                   alt="Impact"
                   fill
                   className="object-cover"
-                  sizes="80px"
+                  sizes="80px" quality={85}
                 />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Impact</h3>
@@ -197,7 +197,7 @@ export default function Page() {
                       alt="Elizabeth L. Greene"
                       fill
                       className="object-cover object-top"
-                      sizes="192px"
+                      sizes="192px" quality={85}
                     />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Elizabeth L. Greene</h3>
@@ -280,11 +280,11 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&h=200&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1000&fit=crop&q=85"
                   alt="Employer-Driven Training"
                   fill
                   className="object-cover"
-                  sizes="96px"
+                  sizes="96px" quality={85}
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Employer-Driven Training</h3>
@@ -295,11 +295,11 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1920&h=1000&fit=crop&q=85"
                   alt="Wraparound Support"
                   fill
                   className="object-cover"
-                  sizes="96px"
+                  sizes="96px" quality={85}
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Wraparound Support</h3>
@@ -310,11 +310,11 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=200&h=200&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=1000&fit=crop&q=85"
                   alt="Direct Employer Connections"
                   fill
                   className="object-cover"
-                  sizes="96px"
+                  sizes="96px" quality={85}
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Direct Employer Connections</h3>
@@ -412,6 +412,28 @@ export default function Page() {
           </div>
         </div>
       </section>
+    
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Get Started?</h2>
+          <p className="text-xl text-white/90 mb-8">
+            100% free training. No tuition, no fees, no debt. Just a direct pathway to your career.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/apply" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
+              Apply Now - It's Free
+            </Link>
+            <Link href="/contact" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">
+              Contact Us
+            </Link>
+          </div>
+          <p className="text-white/80 mt-8 text-sm">
+            Questions? Call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> or email <a href="mailto:elevateforhumanity.edu@gmail.com" className="underline font-semibold">elevateforhumanity.edu@gmail.com</a>
+          </p>
+        </div>
+      </section>
+
     </main>
   );
 }

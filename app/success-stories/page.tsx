@@ -12,7 +12,7 @@ const successStories = [
   {
     name: "Marcus Johnson",
     program: "HVAC Technician",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1000&fit=crop&q=85",
     beforeJob: "Unemployed for 18 months",
     afterJob: "HVAC Technician at Carrier",
     salary: "$52,000/year",
@@ -22,7 +22,7 @@ const successStories = [
   {
     name: "Jasmine Williams",
     program: "Medical Assistant",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=600&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1920&h=1000&fit=crop&q=85",
     beforeJob: "Retail worker, $12/hour",
     afterJob: "Medical Assistant at IU Health",
     salary: "$42,000/year",
@@ -32,7 +32,7 @@ const successStories = [
   {
     name: "David Thompson",
     program: "CDL Driver",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=600&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1920&h=1000&fit=crop&q=85",
     beforeJob: "Returning citizen, no job prospects",
     afterJob: "CDL Driver at Schneider National",
     salary: "$58,000/year",
@@ -47,11 +47,11 @@ export default function Page() {
       {/* Hero Banner with Background Image */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=85"
           alt="Success stories - graduates celebrating"
           fill
           className="object-cover"
-          priority
+          priority quality={85} sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
         
@@ -84,7 +84,7 @@ export default function Page() {
               <div key={index} className="grid md:grid-cols-2 gap-12 items-center">
                 <div className={index % 2 === 1 ? 'md:order-2' : ''}>
                   <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                    <Image src={story.image} alt={story.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                    <Image src={story.image} alt={story.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={85} />
                   </div>
                 </div>
                 <div className={index % 2 === 1 ? 'md:order-1' : ''}>

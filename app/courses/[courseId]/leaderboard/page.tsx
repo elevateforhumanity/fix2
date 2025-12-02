@@ -147,7 +147,7 @@ export default function CourseLeaderboardPage() {
                         alt={leaderboard[1].profiles.full_name}
                         width={80}
                         height={80}
-                        className="rounded-full"
+                        className="rounded-full" quality={85}
                       />
                     ) : (
                       <span className="text-2xl font-bold text-white">
@@ -173,7 +173,7 @@ export default function CourseLeaderboardPage() {
                         alt={leaderboard[0].profiles.full_name}
                         width={96}
                         height={96}
-                        className="rounded-full"
+                        className="rounded-full" quality={85}
                       />
                     ) : (
                       <span className="text-3xl font-bold text-white">
@@ -199,7 +199,7 @@ export default function CourseLeaderboardPage() {
                         alt={leaderboard[2].profiles.full_name}
                         width={80}
                         height={80}
-                        className="rounded-full"
+                        className="rounded-full" quality={85}
                       />
                     ) : (
                       <span className="text-2xl font-bold text-white">
@@ -244,7 +244,7 @@ export default function CourseLeaderboardPage() {
                             alt={entry.profiles.full_name}
                             width={48}
                             height={48}
-                            className="rounded-full"
+                            className="rounded-full" quality={85}
                           />
                         ) : (
                           <span className="text-purple-600 font-semibold">

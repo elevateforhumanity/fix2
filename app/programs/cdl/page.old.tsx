@@ -80,7 +80,7 @@ export default function CdlProgramPage() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
+                  priority quality={85}
                 />
               </div>
             </div>

@@ -181,7 +181,7 @@ export default function HomePage() {
                     src={program.image}
                     alt={program.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300" quality={85} sizes="100vw"
                   />
                   <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">
                     100% FREE
@@ -321,7 +321,7 @@ export default function HomePage() {
                 src="/images/artlist/hero-training-4.jpg"
                 alt="Free training through government funding"
                 fill
-                className="object-cover"
+                className="object-cover" quality={85} sizes="100vw"
               />
             </div>
           </div>

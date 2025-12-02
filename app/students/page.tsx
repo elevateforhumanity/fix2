@@ -19,13 +19,13 @@ export default async function Page() {
       {/* Hero Banner with Background Image */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=85"
           alt="Students learning together"
           fill
           className="object-cover"
-          priority
+          priority quality={85} sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 via-green-800/80 to-green-900/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
         
         <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center text-white">
@@ -86,7 +86,7 @@ export default async function Page() {
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1554224311-beee4ece3c5d?w=200&h=200&fit=crop&q=80" alt="100% Free Training" fill className="object-cover" sizes="80px" />
+                <Image src="https://images.unsplash.com/photo-1554224311-beee4ece3c5d?w=1920&h=1000&fit=crop&q=85" alt="100% Free Training" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">100% Free Training</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -96,7 +96,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=200&h=200&fit=crop&q=80" alt="Industry Certifications" fill className="object-cover" sizes="80px" />
+                <Image src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1000&fit=crop&q=85" alt="Industry Certifications" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Industry Certifications</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -106,7 +106,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&h=200&fit=crop&q=80" alt="Housing Assistance" fill className="object-cover" sizes="80px" />
+                <Image src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1920&h=1000&fit=crop&q=85" alt="Housing Assistance" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Housing Assistance</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -116,7 +116,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=200&h=200&fit=crop&q=80" alt="Mental Health Support" fill className="object-cover" sizes="80px" />
+                <Image src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&h=1000&fit=crop&q=85" alt="Mental Health Support" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Mental Health Support</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -126,7 +126,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&h=200&fit=crop&q=80" alt="Life Coaching" fill className="object-cover" sizes="80px" />
+                <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1000&fit=crop&q=85" alt="Life Coaching" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Life Coaching</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -136,7 +136,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=200&h=200&fit=crop&q=80" alt="Direct Employer Connections" fill className="object-cover" sizes="80px" />
+                <Image src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=1000&fit=crop&q=85" alt="Direct Employer Connections" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Direct Employer Connections</h3>
               <p className="text-slate-700 leading-relaxed">

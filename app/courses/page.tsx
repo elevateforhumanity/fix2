@@ -91,7 +91,7 @@ export default async function CoursesPage() {
                           src={course.thumbnail_url}
                           alt={course.title}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          className="object-cover group-hover:scale-105 transition-transform duration-300" quality={85} sizes="100vw"
                         />
                       </div>
                     ) : (

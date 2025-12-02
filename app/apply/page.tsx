@@ -120,6 +120,28 @@ export default function Page() {
           </div>
         </div>
       </section>
+    
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Get Started?</h2>
+          <p className="text-xl text-white/90 mb-8">
+            100% free training. No tuition, no fees, no debt. Just a direct pathway to your career.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/apply" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
+              Apply Now - It's Free
+            </Link>
+            <Link href="/contact" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">
+              Contact Us
+            </Link>
+          </div>
+          <p className="text-white/80 mt-8 text-sm">
+            Questions? Call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> or email <a href="mailto:elevateforhumanity.edu@gmail.com" className="underline font-semibold">elevateforhumanity.edu@gmail.com</a>
+          </p>
+        </div>
+      </section>
+
     </div>
   );
 }

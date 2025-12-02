@@ -96,7 +96,7 @@ export default function ProgramsPage() {
             alt="Training Programs at Elevate for Humanity"
             fill
             className="object-cover opacity-70"
-            priority
+            priority quality={85} sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent" />
         </div>
@@ -194,7 +194,7 @@ export default function ProgramsPage() {
                           src={`/images/programs-new/program-${(idx % 20) + 1}.jpg`}
                           alt={name}
                           fill
-                          className="object-cover"
+                          className="object-cover" quality={85} sizes="100vw"
                         />
                       </div>
                       <div className="flex-1">

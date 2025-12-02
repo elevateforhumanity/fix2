@@ -136,7 +136,7 @@ export default function HomePage() {
                 alt="Students in workforce training"
                 fill
                 className="object-cover"
-                priority
+                priority quality={85} sizes="100vw"
               />
               <div className="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                 500+ Graduates Hired
@@ -368,7 +368,7 @@ export default function HomePage() {
                   src="/images/artlist/hero-training-2.jpg"
                   alt="Job seekers in training"
                   fill
-                  className="object-cover"
+                  className="object-cover" quality={85} sizes="100vw"
                 />
               </div>
               <div className="p-6">
@@ -385,7 +385,7 @@ export default function HomePage() {
                   src="/images/artlist/hero-training-3.jpg"
                   alt="Employers partnering with Elevate"
                   fill
-                  className="object-cover"
+                  className="object-cover" quality={85} sizes="100vw"
                 />
               </div>
               <div className="p-6">
@@ -402,7 +402,7 @@ export default function HomePage() {
                   src="/images/artlist/hero-training-4.jpg"
                   alt="Community partners supporting workforce development"
                   fill
-                  className="object-cover"
+                  className="object-cover" quality={85} sizes="100vw"
                 />
               </div>
               <div className="p-6">
@@ -446,7 +446,7 @@ export default function HomePage() {
                   title="Healthcare Career Training - CNA, Medical Assistant & More"
                   fill
                   className="object-cover object-center"
-                  loading="lazy"
+                  loading="lazy" quality={85} sizes="100vw"
                 />
               </div>
               <div className="p-4">
@@ -470,7 +470,7 @@ export default function HomePage() {
                   src="/media/programs/hvac-hd.jpg"
                   alt="HVAC Technician Training Program"
                   fill
-                  className="object-cover"
+                  className="object-cover" quality={85} sizes="100vw"
                 />
               </div>
               <div className="p-4">
@@ -494,7 +494,7 @@ export default function HomePage() {
                   src="/media/programs/barber-hd.jpg"
                   alt="Barber Apprenticeship Program"
                   fill
-                  className="object-cover"
+                  className="object-cover" quality={85} sizes="100vw"
                 />
               </div>
               <div className="p-4">
