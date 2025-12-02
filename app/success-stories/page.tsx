@@ -226,6 +226,22 @@ export default function Page() {
           </div>
         </div>
       </section>
-    </div>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Start Your Success Story?</h2>
+          <p className="text-xl text-white/90 mb-8">Join thousands who transformed their lives through free training.</p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/apply" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
+              Apply Now - It's Free
+            </Link>
+            <Link href="/programs" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">
+              View Programs
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
