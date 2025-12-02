@@ -34,7 +34,7 @@ export default function SiteFooter() {
               <br />
               Indianapolis, IN 46240
               <br />
-              <a href="tel:317-760-7908" className="hover:text-orange-600">(317) 760-7908</a>
+              <a href="tel:317-314-3757" className="hover:text-orange-600">(317) 314-3757</a>
             </p>
 
             <Link
