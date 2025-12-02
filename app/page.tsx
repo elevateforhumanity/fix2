@@ -136,8 +136,20 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-16 lg:flex-row lg:items-center lg:py-20">
           {/* Text */}
           <div className="relative z-10 max-w-xl space-y-6">
+            {/* Logo */}
+            <div className="mb-4">
+              <Image
+                src="/logo-wide.png"
+                alt="Elevate for Humanity"
+                width={350}
+                height={88}
+                className="drop-shadow-lg"
+                priority
+              />
+            </div>
+            
             <p className="text-sm font-semibold uppercase tracking-wide text-orange-600">
-              Elevate For Humanity
+              Workforce Training & Career Development
             </p>
             <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
               {currentSlide.title}
