@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
     const origin =
       successUrl && typeof successUrl === "string"
         ? new URL(successUrl).origin
-        : req.headers.get("origin") ?? process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+        : req.headers.get("origin") ?? process.env.NEXT_PUBLIC_SITE_URL ?? `https://${process.env.VERCEL_URL}` ?? "http://localhost:3000";
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",

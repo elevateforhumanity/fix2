@@ -96,12 +96,6 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
       currentSessionStart: null,
     };
     localStorage.setItem(`hourTracker_${programName}`, JSON.stringify(data));
-
-    // TODO: Send to backend API
-    // await fetch('/api/apprenticeship/log-hours', {
-    //   method: 'POST',
-    //   body: JSON.stringify({ studentId, programName, hours: sessionHours, timestamp: now })
-    // });
   };
 
   const formatTime = (seconds: number) => {
