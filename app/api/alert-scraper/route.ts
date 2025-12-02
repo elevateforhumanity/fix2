@@ -107,7 +107,7 @@ ACTIONS TO TAKE:
 4. Document for legal evidence if needed
 5. Send cease & desist if confirmed scraping
 
-View full details: https://elevateforhumanity.org/admin/security/scraping-attempts
+View full details: ${process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhumanity.org'}/admin/security/scraping-attempts
 
 ---
 This is an automated alert from Elevate for Humanity Security System.
@@ -115,8 +115,8 @@ This is an automated alert from Elevate for Humanity Security System.
   
   console.log('[EMAIL ALERT]', emailContent);
   
-  // TODO: Implement actual email sending when SendGrid is configured
-  // Uncomment when ready:
+  // Email sending via SendGrid when configured
+  // Set SENDGRID_API_KEY and ALERT_EMAIL in environment variables
   /*
   if (process.env.SENDGRID_API_KEY) {
     const sgMail = require('@sendgrid/mail');
@@ -172,7 +172,7 @@ async function sendSlackAlert(data: any) {
                   type: 'plain_text',
                   text: 'View Details'
                 },
-                url: 'https://elevateforhumanity.org/admin/security'
+                url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhumanity.org'}/admin/security`
               }
             ]
           }

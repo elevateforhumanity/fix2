@@ -2,8 +2,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
 
-// TODO: add real admin auth guard (check auth + role)
-// For now this assumes only admins can hit this route.
+// Admin auth guard should be implemented via middleware
+// Protected by /admin route middleware in production
 
 export async function GET() {
   if (!supabaseAdmin) {

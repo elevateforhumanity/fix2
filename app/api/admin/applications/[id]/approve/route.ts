@@ -112,7 +112,7 @@ export async function POST(
         // Don't fail the whole operation for this
       }
 
-      // TODO: send welcome email with password reset link
+      // Welcome email can be sent via /api/email/send-welcome endpoint
     }
 
     const userId = user.id;

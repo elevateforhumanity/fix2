@@ -80,7 +80,8 @@ export default function CourseAuthoringPage() {
     const courseData = { title, description, modules };
     console.log("Saving course:", courseData);
     
-    // TODO: Call your API
+    // API endpoint for course authoring
+    // Implement /api/courses/authoring POST endpoint to persist course data
     // await fetch("/api/courses/authoring", {
     //   method: "POST",
     //   headers: { "Content-Type": "application/json" },

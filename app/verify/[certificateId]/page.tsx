@@ -201,7 +201,7 @@ export default async function VerifyCertificatePage({ params }: { params: { cert
                 <p>
                   <strong>Website:</strong>{' '}
                   <a
-                    href="https://elevateforhumanity.com"
+                    href={process.env.NEXT_PUBLIC_SITE_URL || "https://elevateforhumanity.com"}
                     className="underline hover:text-blue-900"
                     target="_blank"
                     rel="noopener noreferrer"

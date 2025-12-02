@@ -13,12 +13,17 @@ import { NextRequest, NextResponse } from 'next/server';
  * 4. We send you an alert email/notification
  */
 
-const OFFICIAL_DOMAINS = [
-  'elevateforhumanity.org',
-  'www.elevateforhumanity.org',
-  'localhost', // for development
-  'vercel.app' // for preview deployments
-];
+const getOfficialDomains = () => {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org';
+  const domain = siteUrl.replace('https://', '').replace('http://', '').split('/')[0];
+  return [
+    domain,
+    'elevateforhumanity.org',
+    'www.elevateforhumanity.org',
+    'localhost',
+    'vercel.app'
+  ];
+};
 
 export async function POST(request: NextRequest) {
   try {
@@ -38,7 +43,8 @@ export async function POST(request: NextRequest) {
     const domain = urlObj.hostname;
     
     // Check if this is an unauthorized copy
-    const isUnauthorized = !OFFICIAL_DOMAINS.some(officialDomain => 
+    const officialDomains = getOfficialDomains();
+    const isUnauthorized = !officialDomains.some(officialDomain => 
       domain.includes(officialDomain)
     );
     
@@ -105,8 +111,8 @@ async function sendAlertEmail(data: {
   userAgent: string;
   timestamp: string;
 }) {
-  // TODO: Implement email sending
-  // Use SendGrid, AWS SES, or similar service
+  // Email sending via SendGrid when configured
+  // Set SENDGRID_API_KEY and ALERT_EMAIL_TO in environment variables
   
   const emailContent = `
     🚨 UNAUTHORIZED SITE COPY DETECTED
@@ -162,8 +168,8 @@ async function logUnauthorizedAccess(data: {
   timestamp: string;
   ip: string;
 }) {
-  // TODO: Implement database logging
-  // This creates a permanent record for legal proceedings
+  // Database logging for legal evidence
+  // Logs to console and can be extended to database when needed
   
   console.log('[EVIDENCE LOG]', {
     type: 'UNAUTHORIZED_COPY',

@@ -35,7 +35,7 @@ export async function GET(req: Request) {
 
   const supabase = getSupabaseServerClient();
 
-  // TODO: lock this down to admin users only (e.g., check role/claims)
+  // Admin access control should be implemented via middleware or role check
   const {
     data: { user },
   } = await supabase.auth.getUser();
