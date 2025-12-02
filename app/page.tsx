@@ -402,12 +402,12 @@ export default function HomePage() {
                 className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all"
               >
                 <div className="flex justify-center pt-8 pb-4">
-                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-slate-200">
+                  <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-slate-200 bg-slate-100">
                     <Image
                       src={testimonial.image}
                       alt={testimonial.name}
                       fill
-                      className="object-cover object-top"
+                      className="object-cover object-center scale-110"
                       sizes="128px" quality={85}
                     />
                   </div>
