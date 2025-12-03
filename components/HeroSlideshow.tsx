@@ -17,7 +17,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: "/images/efh/hero/hero-main.jpg",
+    image: "/images/hero/hero-main-welcome.jpg",
     title: "Elevate for Humanity",
     text: "State-approved, federally aligned workforce training that opens doors to high-wage careers.",
     cta: {
@@ -26,7 +26,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/efh/hero/hero-barber.jpg",
+    image: "/images/hero/hero-barber.jpg",
     title: "DOL Registered Barber Apprenticeship",
     text: "2,000-hour apprenticeship or 1,500-hour program with financial aid. Earn while you learn. WIOA, WRG, and JRI fundable.",
     cta: {
@@ -35,7 +35,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/efh/hero/hero-health.jpg",
+    image: "/images/hero/hero-healthcare.jpg",
     title: "Healthcare Training Programs",
     text: "CNA certification through Choice Medical Institute. State-approved, workforce fundable, high-demand careers.",
     cta: {
@@ -44,7 +44,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/efh/programs/trades.jpg",
+    image: "/images/hero/hero-skilled-trades.jpg",
     title: "Skilled Trades & Building Technician",
     text: "HVAC, electrical, plumbing. Hands-on training for high-wage careers in construction and maintenance.",
     cta: {
@@ -53,7 +53,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/efh/hero/hero-beauty.jpg",
+    image: "/images/hero/hero-beauty-wellness.jpg",
     title: "Beauty & Esthetics Programs",
     text: "Nails, esthetics, and cosmetology training with experienced instructors.",
     cta: {
@@ -62,12 +62,48 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/efh/hero/hero-support.jpg",
-    title: "Whole-Person Support Services",
+    image: "/images/hero/hero-career-services.jpg",
+    title: "Career Services & Support",
     text: "Life coaching, mental health partnerships, and wraparound support to help you succeed.",
     cta: {
       text: "Learn About Support",
       href: "/support"
+    }
+  },
+  {
+    image: "/images/hero/hero-hands-on-training.jpg",
+    title: "Hands-On Training",
+    text: "Real-world skills training with experienced instructors in state-of-the-art facilities.",
+    cta: {
+      text: "See Our Facilities",
+      href: "/programs/barber-apprenticeship"
+    }
+  },
+  {
+    image: "/images/hero/hero-tech-careers.jpg",
+    title: "Technology Career Pathways",
+    text: "IT training and technology skills for the digital economy.",
+    cta: {
+      text: "Explore Tech Programs",
+      href: "/programs/barber-apprenticeship"
+    }
+  },
+  {
+    image: "/images/hero/hero-business.jpg",
+    title: "Business & Professional Skills",
+    text: "Office administration, customer service, and professional development training.",
+    cta: {
+      text: "View Business Programs",
+      href: "/programs/barber-apprenticeship"
+    }
+  },
+  {
+    image: "/images/hero/hero-early-childhood.jpg",
+    title: "Early Childhood Education",
+    text: "Childcare and early education training for rewarding careers working with children.",
+    cta: {
+      text: "Learn More",
+      href: "/programs/barber-apprenticeship"
     }
   }
 ];
