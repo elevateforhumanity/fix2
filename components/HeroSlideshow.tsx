@@ -17,7 +17,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: "/images/heroes/hero-homepage.jpg",
+    image: "/images/efh/hero/hero-main.jpg",
     title: "Elevate for Humanity",
     text: "State-approved, federally aligned workforce training that opens doors to high-wage careers.",
     cta: {
@@ -26,7 +26,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/programs/efh-barber-hero.jpg",
+    image: "/images/efh/hero/hero-barber.jpg",
     title: "DOL Registered Barber Apprenticeship",
     text: "2,000-hour apprenticeship or 1,500-hour program with financial aid. Earn while you learn. WIOA, WRG, and JRI fundable.",
     cta: {
@@ -35,7 +35,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/programs/efh-cna-hero.jpg",
+    image: "/images/efh/hero/hero-health.jpg",
     title: "Healthcare Training Programs",
     text: "CNA certification through Choice Medical Institute. State-approved, workforce fundable, high-demand careers.",
     cta: {
@@ -44,7 +44,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/programs/efh-building-tech-hero.jpg",
+    image: "/images/efh/programs/trades.jpg",
     title: "Skilled Trades & Building Technician",
     text: "HVAC, electrical, plumbing. Hands-on training for high-wage careers in construction and maintenance.",
     cta: {
@@ -53,7 +53,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/programs/efh-esthetician-client-services-hero.jpg",
+    image: "/images/efh/hero/hero-beauty.jpg",
     title: "Beauty & Esthetics Programs",
     text: "Nails, esthetics, and cosmetology training with experienced instructors.",
     cta: {
@@ -62,16 +62,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/heroes/hero-federal-funding.jpg",
-    title: "100% Fundable Programs",
-    text: "WIOA, Workforce Ready Grant, Justice Reinvestment Initiative. Most students pay $0 out of pocket.",
-    cta: {
-      text: "Explore Funding",
-      href: "/funding"
-    }
-  },
-  {
-    image: "/images/general/support-services-overview.jpg",
+    image: "/images/efh/hero/hero-support.jpg",
     title: "Whole-Person Support Services",
     text: "Life coaching, mental health partnerships, and wraparound support to help you succeed.",
     cta: {

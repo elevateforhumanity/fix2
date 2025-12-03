@@ -55,7 +55,7 @@ export default function Home() {
             <div className="rounded-xl bg-white shadow border overflow-hidden">
               <div className="relative h-36 w-full bg-slate-200">
                 <Image 
-                  src="/images/efh-barber.jpg" 
+                  src="/images/efh/programs/barber.jpg" 
                   alt="Barber Apprenticeship Training"
                   fill
                   className="object-cover"
@@ -78,7 +78,7 @@ export default function Home() {
             <div className="rounded-xl bg-white shadow border overflow-hidden">
               <div className="relative h-36 w-full bg-slate-200">
                 <Image 
-                  src="/images/efh-cna.jpg" 
+                  src="/images/efh/programs/cna.jpg" 
                   alt="CNA Healthcare Training"
                   fill
                   className="object-cover"
@@ -101,7 +101,7 @@ export default function Home() {
             <div className="rounded-xl bg-white shadow border overflow-hidden">
               <div className="relative h-36 w-full bg-slate-200">
                 <Image 
-                  src="/images/efh-beauty.jpg" 
+                  src="/images/efh/programs/beauty.jpg" 
                   alt="Beauty and Esthetics Training"
                   fill
                   className="object-cover"
@@ -111,6 +111,29 @@ export default function Home() {
                 <h3 className="text-sm font-semibold text-slate-900">Beauty & Esthetics Programs</h3>
                 <p className="mt-2 text-xs text-slate-700">
                   Nails, esthetics, and beauty pathways with 20+ year instructors.
+                </p>
+                <Link 
+                  href="/programs/barber-apprenticeship" 
+                  className="text-indigo-600 text-xs mt-2 block font-semibold hover:underline"
+                >
+                  Learn More →
+                </Link>
+              </div>
+            </div>
+
+            <div className="rounded-xl bg-white shadow border overflow-hidden">
+              <div className="relative h-36 w-full bg-slate-200">
+                <Image 
+                  src="/images/efh/programs/trades.jpg" 
+                  alt="Skilled Trades Training"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-sm font-semibold text-slate-900">Building Technician & Trades</h3>
+                <p className="mt-2 text-xs text-slate-700">
+                  HVAC, electrical, plumbing. Hands-on training for high-wage careers.
                 </p>
                 <Link 
                   href="/programs/barber-apprenticeship" 
