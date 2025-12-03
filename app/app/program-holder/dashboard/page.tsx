@@ -1,8 +1,14 @@
 // app/app/program-holder/dashboard/page.tsx
-export default function ProgramHolderDashboard() {
+import { getCurrentProfile } from '@/lib/getCurrentProfile';
+
+export default async function ProgramHolderDashboard() {
+  const profile = await getCurrentProfile();
+
   return (
     <div>
-      <h1 className="text-3xl font-bold text-slate-900 mb-6">Program Holder Dashboard</h1>
+      <h1 className="text-3xl font-bold text-slate-900 mb-6">
+        Program Holder Dashboard{profile?.full_name ? ` - ${profile.full_name}` : ''}
+      </h1>
       
       <div className="grid gap-6 md:grid-cols-3 mb-8">
         <div className="bg-white rounded-xl border p-6 shadow-sm">

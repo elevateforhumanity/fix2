@@ -1,8 +1,14 @@
 // app/app/student/dashboard/page.tsx
-export default function StudentDashboard() {
+import { getCurrentProfile } from '@/lib/getCurrentProfile';
+
+export default async function StudentDashboard() {
+  const profile = await getCurrentProfile();
+
   return (
     <div>
-      <h1 className="text-3xl font-bold text-slate-900 mb-6">Student Dashboard</h1>
+      <h1 className="text-3xl font-bold text-slate-900 mb-6">
+        Welcome{profile?.full_name ? `, ${profile.full_name}` : ''}
+      </h1>
       
       <div className="grid gap-6 md:grid-cols-3 mb-8">
         <div className="bg-white rounded-xl border p-6 shadow-sm">
