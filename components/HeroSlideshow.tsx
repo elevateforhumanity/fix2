@@ -17,7 +17,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: "/images/hero-banner.jpg",
+    image: "/images/heroes/hero-homepage.jpg",
     title: "Elevate for Humanity",
     text: "State-approved, federally aligned workforce training that opens doors to high-wage careers.",
     cta: {
@@ -26,7 +26,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/beauty/hero-program-barber.jpg",
+    image: "/images/programs/efh-barber-hero.jpg",
     title: "DOL Registered Barber Apprenticeship",
     text: "2,000-hour apprenticeship or 1,500-hour program with financial aid. Earn while you learn. WIOA, WRG, and JRI fundable.",
     cta: {
@@ -35,7 +35,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/healthcare/hero-programs-healthcare.jpg",
+    image: "/images/programs/efh-cna-hero.jpg",
     title: "Healthcare Training Programs",
     text: "CNA certification through Choice Medical Institute. State-approved, workforce fundable, high-demand careers.",
     cta: {
@@ -44,7 +44,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/trades/hero-program-hvac.jpg",
+    image: "/images/programs/efh-building-tech-hero.jpg",
     title: "Skilled Trades & Building Technician",
     text: "HVAC, electrical, plumbing. Hands-on training for high-wage careers in construction and maintenance.",
     cta: {
@@ -53,7 +53,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/beauty/hero-program-cosmetology.jpg",
+    image: "/images/programs/efh-esthetician-client-services-hero.jpg",
     title: "Beauty & Esthetics Programs",
     text: "Nails, esthetics, and cosmetology training with experienced instructors.",
     cta: {
@@ -62,7 +62,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/funding/funding-dol-program.jpg",
+    image: "/images/heroes/hero-federal-funding.jpg",
     title: "100% Fundable Programs",
     text: "WIOA, Workforce Ready Grant, Justice Reinvestment Initiative. Most students pay $0 out of pocket.",
     cta: {
@@ -71,7 +71,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/hero-training.jpg",
+    image: "/images/general/support-services-overview.jpg",
     title: "Whole-Person Support Services",
     text: "Life coaching, mental health partnerships, and wraparound support to help you succeed.",
     cta: {
