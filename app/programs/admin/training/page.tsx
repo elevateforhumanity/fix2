@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Staff Portal | Elevate For Humanity',
-  description: 'Learn more about Staff Portal inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Training | Elevate For Humanity',
+  description: 'Learn more about Training inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default function Page() {
@@ -13,8 +13,8 @@ export default function Page() {
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Staff Portal | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Staff Portal inside the Elevate For Humanity workforce ecosystem.</p>
+            <h1 className="text-5xl font-bold mb-6">Training | Elevate For Humanity</h1>
+            <p className="text-xl mb-8 text-blue-100">Learn more about Training inside the Elevate For Humanity workforce ecosystem.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
                 Get Started
