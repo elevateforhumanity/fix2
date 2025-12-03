@@ -1,71 +1,112 @@
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import Link from 'next/link';
+import { User, Mail, Phone, MapPin, Briefcase, GraduationCap } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Profile | Elevate For Humanity',
-  description: 'Learn more about Profile inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Profile | Student Portal',
+  description: 'Manage your profile',
 };
 
-export default async function Page() {
+export default async function ProfilePage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');
 
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Profile | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Profile inside the Elevate For Humanity workforce ecosystem.</p>
-            <Link href="/student/courses" className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 text-lg inline-block">
-              View My Courses
-            </Link>
-          </div>
-        </div>
-      </section>
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
 
-      {/* Feature Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-            
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">My Profile</h1>
+
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Profile Card */}
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-lg shadow p-6">
+              <div className="text-center">
+                <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <User size={64} className="text-white" />
+                </div>
+                <h2 className="text-2xl font-bold">{profile?.full_name || 'Student'}</h2>
+                <p className="text-gray-600">{user.email}</p>
+                <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 w-full">
+                  Edit Profile
+                </button>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Learn Anywhere</h3>
-              <p className="text-gray-600">Access courses on any device</p>
             </div>
-            
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
+          </div>
+
+          {/* Profile Details */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Personal Information */}
+            <div className="bg-white rounded-lg shadow">
+              <div className="p-6 border-b">
+                <h3 className="text-xl font-semibold">Personal Information</h3>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Track Progress</h3>
-              <p className="text-gray-600">Monitor your learning journey</p>
-            </div>
-            
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
+              <div className="p-6 space-y-4">
+                <div className="flex items-center gap-3">
+                  <Mail className="text-gray-400" size={20} />
+                  <div>
+                    <p className="text-sm text-gray-600">Email</p>
+                    <p className="font-medium">{user.email}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Phone className="text-gray-400" size={20} />
+                  <div>
+                    <p className="text-sm text-gray-600">Phone</p>
+                    <p className="font-medium">{profile?.phone || 'Not provided'}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MapPin className="text-gray-400" size={20} />
+                  <div>
+                    <p className="text-sm text-gray-600">Location</p>
+                    <p className="font-medium">{profile?.location || 'Not provided'}</p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Get Certified</h3>
-              <p className="text-gray-600">Earn industry-recognized certifications</p>
             </div>
-            
+
+            {/* Education */}
+            <div className="bg-white rounded-lg shadow">
+              <div className="p-6 border-b">
+                <h3 className="text-xl font-semibold">Education</h3>
+              </div>
+              <div className="p-6">
+                <div className="flex items-start gap-3">
+                  <GraduationCap className="text-gray-400 mt-1" size={20} />
+                  <div>
+                    <p className="font-medium">Current Programs</p>
+                    <p className="text-gray-600 text-sm mt-1">View your enrolled programs</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Work Experience */}
+            <div className="bg-white rounded-lg shadow">
+              <div className="p-6 border-b">
+                <h3 className="text-xl font-semibold">Work Experience</h3>
+              </div>
+              <div className="p-6">
+                <div className="flex items-start gap-3">
+                  <Briefcase className="text-gray-400 mt-1" size={20} />
+                  <div>
+                    <p className="font-medium">Add your work experience</p>
+                    <p className="text-gray-600 text-sm mt-1">Showcase your professional background</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
