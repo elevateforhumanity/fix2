@@ -8,7 +8,7 @@ export default function Home() {
       {/* HERO BANNER - Full Width, Clean */}
       <section className="relative h-[70vh] min-h-[500px] overflow-hidden bg-slate-100">
         <Image
-          src="/images/artlist/hero-training-1.jpg"
+          src="/images/artlist/hero-training-5.jpg"
           alt="Elevate for Humanity - Transform Your Future"
           fill
           className="object-cover"
@@ -195,7 +195,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHY CHOOSE US - Clean Feature Blocks */}
+      {/* WHY CHOOSE US - Image-Based Feature Blocks */}
       <section className="py-20 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -204,40 +204,55 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="/images/gallery/image1.jpg"
+                  alt="100% Fundable Programs"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">100% Fundable</h3>
-              <p className="text-slate-600 leading-relaxed">
-                WIOA, WRG, JRI, and ETPL approved. Most students pay $0 out of pocket.
-              </p>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">100% Fundable</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  WIOA, WRG, JRI, and ETPL approved. Most students pay $0 out of pocket.
+                </p>
+              </div>
             </div>
 
-            <div className="text-center p-8">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="/images/gallery/image2.jpg"
+                  alt="DOL Registered Apprenticeships"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">DOL Registered</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Federally recognized apprenticeships in barber, healthcare, and skilled trades.
-              </p>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">DOL Registered</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Federally recognized apprenticeships in barber, healthcare, and skilled trades.
+                </p>
+              </div>
             </div>
 
-            <div className="text-center p-8">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="/images/learners/coaching-session.jpg"
+                  alt="Wraparound Support Services"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-3">Wraparound Support</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Life coaching, housing assistance, childcare navigation, and mental health referrals.
-              </p>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">Wraparound Support</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Life coaching, housing assistance, childcare navigation, and mental health referrals.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -248,7 +263,7 @@ export default function Home() {
         <div className="grid md:grid-cols-2">
           <div className="relative h-[500px] overflow-hidden group">
             <Image
-              src="/images/artlist/hero-training-3.jpg"
+              src="/images/artlist/hero-training-6.jpg"
               alt="Hands-On Training"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -270,7 +285,7 @@ export default function Home() {
 
           <div className="relative h-[500px] overflow-hidden group">
             <Image
-              src="/images/artlist/hero-training-7.jpg"
+              src="/images/artlist/hero-training-8.jpg"
               alt="Career Services"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -292,7 +307,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS - Clean Cards */}
+      {/* TESTIMONIALS - With Real Photos */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -303,8 +318,13 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-slate-50 rounded-2xl p-10">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl">
-                  JM
+                <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                  <Image
+                    src="/images/students-new/student-1.jpg"
+                    alt="J. Moore"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div className="ml-4">
                   <p className="font-semibold text-slate-900">J. Moore</p>
@@ -318,8 +338,13 @@ export default function Home() {
 
             <div className="bg-slate-50 rounded-2xl p-10">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-xl">
-                  LA
+                <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                  <Image
+                    src="/images/students-new/student-2.jpg"
+                    alt="L. Anderson"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div className="ml-4">
                   <p className="font-semibold text-slate-900">L. Anderson</p>
@@ -329,6 +354,83 @@ export default function Home() {
               <p className="text-slate-700 leading-relaxed text-lg">
                 "The staff is amazing. They helped me get funding, childcare support, and confidence. I'm now working in healthcare and supporting my family."
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FACILITIES GALLERY */}
+      <section className="py-20 px-6 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Our Facilities</h2>
+            <p className="text-lg text-slate-600">Modern training spaces designed for hands-on learning</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-1.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-2.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-3.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-4.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-5.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-6.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-7.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-8.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
             </div>
           </div>
         </div>
