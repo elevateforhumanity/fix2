@@ -515,19 +515,16 @@ async function checkClinicalCompletion(placement_id: string): Promise<void> {
  * Send supervisor orientation email
  */
 async function sendSupervisorOrientationEmail(placement: ClinicalPlacement, site: ClinicalSite): Promise<void> {
-  console.log(`Sending orientation email to ${placement.supervisor_email}`);
 }
 
 /**
  * Send clinical verification request
  */
 async function sendClinicalVerificationRequest(log: ClinicalHoursLog): Promise<void> {
-  console.log(`Sending clinical verification request for log ${log.id}`);
 }
 
 /**
  * Send clinical completion notification
  */
 async function sendClinicalCompletionNotification(placement: ClinicalPlacement): Promise<void> {
-  console.log(`Sending clinical completion notification for placement ${placement.id}`);
 }

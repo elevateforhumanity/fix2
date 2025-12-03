@@ -26,11 +26,9 @@ export class PushService {
   async send(userId: string, notification: PushNotification): Promise<boolean> {
     try {
       // In production, integrate with Firebase Cloud Messaging or similar
-      // console.log('Sending push notification:', notification);
       
       // Check if browser supports notifications
       if (!('Notification' in window)) {
-        // console.log('Browser does not support notifications');
         return false;
       }
 

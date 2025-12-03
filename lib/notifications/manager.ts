@@ -79,7 +79,6 @@ export class NotificationManager {
           applicationServerKey: this.urlBase64ToUint8Array(vapidPublicKey),
         });
 
-        // console.log('[Notifications] Subscribed to push:', subscription);
 
         // Send subscription to server
         await this.sendSubscriptionToServer(subscription);
@@ -104,7 +103,6 @@ export class NotificationManager {
       if (subscription) {
         await subscription.unsubscribe();
         await this.removeSubscriptionFromServer(subscription);
-        // console.log('[Notifications] Unsubscribed from push');
         return true;
       }
 

@@ -93,11 +93,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true, message: 'Welcome email sent' });
     } else {
       // Log email for development
-      console.log('=== WELCOME EMAIL ===');
-      console.log('To:', to);
-      console.log('Subject: Welcome! Your LMS Access is Ready');
-      console.log('Content:', emailHTML);
-      console.log('====================');
 
       return NextResponse.json({ 
         success: true, 

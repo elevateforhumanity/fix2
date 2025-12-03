@@ -1,3 +1,4 @@
+import { sanitizeHtml } from '@/lib/sanitize';
 'use client';
 
 import { useState, useEffect } from 'react';

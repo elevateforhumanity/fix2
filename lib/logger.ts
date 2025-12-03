@@ -1,5 +1,4 @@
 // Centralized logging utility
-// Replaces console.log/error/warn with proper structured logging
 
 type LogLevel = 'debug' | 'info' | 'warn' | 'error';
 

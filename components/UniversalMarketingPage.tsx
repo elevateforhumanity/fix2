@@ -1,3 +1,4 @@
+import { sanitizeHtml } from '@/lib/sanitize';
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";

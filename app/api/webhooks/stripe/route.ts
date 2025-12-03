@@ -76,7 +76,6 @@ export async function POST(request: NextRequest) {
           if (enrollmentError) {
             console.error('Error creating partner enrollment:', enrollmentError);
           } else {
-            console.log('✅ Partner course enrollment created:', session.metadata.course_code);
           }
 
           // Log payment
@@ -91,7 +90,6 @@ export async function POST(request: NextRequest) {
               metadata: session.metadata,
             });
 
-          console.log('✅ Partner course payment logged');
         } catch (err: any) {
           console.error('Error processing partner course enrollment:', err);
         }
@@ -133,7 +131,6 @@ export async function POST(request: NextRequest) {
           if (queueError) {
             console.error('Error creating HSI enrollment queue:', queueError);
           } else {
-            console.log('✅ HSI enrollment queued:', session.metadata.student_name);
           }
 
           // Create partner enrollment record
@@ -170,7 +167,6 @@ export async function POST(request: NextRequest) {
               metadata: session.metadata,
             });
 
-          console.log('✅ HSI payment logged successfully');
         } catch (err: any) {
           console.error('Error processing HSI enrollment:', err);
         }
@@ -243,25 +239,21 @@ export async function POST(request: NextRequest) {
           }
         }
 
-        console.log(`✅ Payment processed: user ${userId}, course ${courseId}`);
       }
       break;
     }
 
     case 'payment_intent.succeeded': {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
-      console.log('PaymentIntent succeeded:', paymentIntent.id);
       break;
     }
 
     case 'payment_intent.payment_failed': {
       const failedPayment = event.data.object as Stripe.PaymentIntent;
-      console.log('Payment failed:', failedPayment.id);
       break;
     }
 
     default:
-      console.log(`Unhandled event type: ${event.type}`);
   }
 
   return NextResponse.json({ received: true });

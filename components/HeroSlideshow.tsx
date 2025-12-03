@@ -127,7 +127,6 @@ export default function HeroSlideshow() {
     audio.volume = 0.7;
     audio.play().catch(err => {
       // Autoplay blocked by browser - user needs to interact first
-      console.log('Autoplay prevented:', err);
     });
   }, []);
 

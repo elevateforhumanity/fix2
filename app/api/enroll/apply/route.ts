@@ -23,7 +23,6 @@ export async function POST(req: Request) {
     // - Send an email to your team
     // - Push into a CRM or Airtable, etc.
 
-    console.log("[New Elevate Application]", {
       firstName: body.firstName,
       lastName: body.lastName,
       email: body.email,

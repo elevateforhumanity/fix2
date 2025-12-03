@@ -60,7 +60,6 @@ function sendToAnalytics(metric: Metric) {
 
   // Log to console in development
   if (process.env.NODE_ENV === 'development') {
-    console.log('📊 Web Vital:', report);
   }
 }
 
@@ -101,7 +100,6 @@ export function observePerformance() {
       for (const entry of list.getEntries()) {
         if ((entry as any).hadRecentInput) continue;
         if (process.env.NODE_ENV === 'development') {
-          console.log('📐 Layout shift:', {
             value: (entry as any).value,
             sources: (entry as any).sources,
           });
@@ -154,7 +152,6 @@ export function monitorResources() {
     const totalSizeMB = (totalSize / 1024 / 1024).toFixed(2);
     
     if (process.env.NODE_ENV === 'development') {
-      console.log('📦 Total page weight:', totalSizeMB, 'MB');
     }
 
     // Warn if page is too heavy and send alert
@@ -187,7 +184,6 @@ export function monitorResources() {
         return acc;
       }, {} as Record<string, number>);
 
-      console.log('📊 Resources by type:', Object.entries(resourcesByType).map(([type, size]) => ({
         type,
         size: `${(size / 1024).toFixed(2)} KB`,
         percentage: `${((size / totalSize) * 100).toFixed(1)}%`,

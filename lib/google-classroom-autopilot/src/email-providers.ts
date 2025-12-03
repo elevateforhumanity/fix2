@@ -185,9 +185,6 @@ class SESProvider implements EmailProvider {
       // Note: This is a simplified implementation
       // For production, use AWS SDK: @aws-sdk/client-ses
 
-      console.log('AWS SES: Would send email via AWS SDK');
-      console.log('To:', message.to);
-      console.log('Subject:', message.subject);
 
       // TODO: Implement actual AWS SES sending
       // const client = new SESClient({ region: this.region, credentials: {...} });
@@ -239,9 +236,6 @@ class SMTPProvider implements EmailProvider {
       // Note: This requires nodemailer package
       // For production: npm install nodemailer @types/nodemailer
 
-      console.log('SMTP: Would send email via nodemailer');
-      console.log('To:', message.to);
-      console.log('Subject:', message.subject);
 
       // TODO: Implement actual SMTP sending
       // const transporter = nodemailer.createTransport(this.config);
@@ -282,7 +276,6 @@ export class EmailService {
     // Priority: Resend > Postmark > SES > SMTP
 
     if (process.env.RESEND_API_KEY) {
-      console.log('📧 Using Resend email provider');
       return new ResendProvider(
         process.env.RESEND_API_KEY,
         process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org'
@@ -290,7 +283,6 @@ export class EmailService {
     }
 
     if (process.env.POSTMARK_SERVER_TOKEN) {
-      console.log('📧 Using Postmark email provider');
       return new PostmarkProvider(
         process.env.POSTMARK_SERVER_TOKEN,
         process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org'
@@ -302,7 +294,6 @@ export class EmailService {
       process.env.AWS_ACCESS_KEY_ID &&
       process.env.AWS_SECRET_ACCESS_KEY
     ) {
-      console.log('📧 Using AWS SES email provider');
       return new SESProvider(
         process.env.AWS_SES_REGION,
         process.env.AWS_ACCESS_KEY_ID,
@@ -316,7 +307,6 @@ export class EmailService {
       process.env.SMTP_USER &&
       process.env.SMTP_PASS
     ) {
-      console.log('📧 Using SMTP email provider');
       return new SMTPProvider(
         process.env.SMTP_HOST,
         parseInt(process.env.SMTP_PORT || '587'),
@@ -334,10 +324,6 @@ export class EmailService {
   async send(
     message: EmailMessage
   ): Promise<{ success: boolean; messageId?: string; error?: string }> {
-    console.log(`📧 Sending email via ${this.provider.name}...`);
-    console.log(`   To: ${message.to.join(', ')}`);
-    if (message.cc?.length) console.log(`   CC: ${message.cc.join(', ')}`);
-    console.log(`   Subject: ${message.subject}`);
 
     // Log email event to database
     const eventIds: string[] = [];
@@ -387,7 +373,6 @@ export class EmailService {
           .eq('id', eventId);
       }
 
-      console.log(`✅ Email sent successfully (ID: ${result.messageId})`);
     } else {
       for (const eventId of eventIds) {
         await supabase

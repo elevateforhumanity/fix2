@@ -91,8 +91,6 @@ export async function sendAlert(
 ) {
   const timestamp = alert.timestamp || new Date();
 
-  console.log(`🚨 Alert [${alert.severity.toUpperCase()}]: ${alert.title}`);
-  console.log(`   ${alert.message}`);
 
   const results = {
     email: false,
@@ -258,7 +256,6 @@ async function sendEmailAlert(
 ) {
   // Use Supabase Edge Function or external email service
   // For now, log that email would be sent
-  console.log(
     `📧 Email alert would be sent to: ${config.recipients.join(', ')}`
   );
 
@@ -309,7 +306,6 @@ async function sendSMSAlert(
     recipients: string[];
   }
 ) {
-  console.log(`📱 SMS alert would be sent to: ${config.recipients.join(', ')}`);
 
   // TODO: Implement Twilio SMS
   // const message = `[CRITICAL] ${alert.title}: ${alert.message}`;
@@ -403,7 +399,6 @@ export async function alertCriticalError(error: {
  * Test alert system
  */
 export async function testAlerts() {
-  console.log('🧪 Testing alert system...\n');
 
   await sendAlert({
     severity: 'info',
@@ -415,7 +410,6 @@ export async function testAlerts() {
     },
   });
 
-  console.log('\n✅ Test alert sent!');
 }
 
 // CLI
@@ -428,7 +422,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       break;
 
     default:
-      console.log('Usage:');
-      console.log('  npx tsx src/alerts.ts test  - Send test alert');
   }
 }

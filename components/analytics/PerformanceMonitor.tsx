@@ -8,7 +8,6 @@ export function PerformanceMonitor() {
 
     // Monitor Core Web Vitals
     const reportWebVitals = (metric: any) => {
-      // console.log(metric);
       
       // Send to analytics
       if (window.gtag) {

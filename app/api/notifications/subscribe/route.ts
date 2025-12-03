@@ -6,7 +6,6 @@ export async function POST(request: NextRequest) {
 
     // Note: Store subscription in database
     // For now, just log it
-    // console.log('[Notifications] New subscription:', subscription);
 
     // In production, you would:
     // 1. Extract user ID from session/auth
