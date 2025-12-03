@@ -5,7 +5,7 @@ import { createClient } from '@supabase/supabase-js';
 
 const stripeKey = process.env.STRIPE_SECRET_KEY;
 const stripe = stripeKey ? new Stripe(stripeKey, {
-  apiVersion: '2025-10-29.clover',
+  apiVersion: '2024-11-20.acacia',
 }) : null;
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET || '';
