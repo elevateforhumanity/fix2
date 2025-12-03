@@ -33,7 +33,7 @@ export default function TakeQuizPage({
   }, [params.lessonId]);
 
   useEffect(() => {
-    if (timeRemaining === null || timeRemaining <= 0) return;
+    if (timeRemaining === null || timeRemaining <= 0) return undefined;
 
     const timer = setInterval(() => {
       setTimeRemaining(prev => {

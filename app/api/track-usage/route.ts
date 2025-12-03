@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
         referrer,
         userAgent,
         timestamp,
-        ip: request.ip || request.headers.get('x-forwarded-for') || 'unknown'
+        ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
       });
       
       // Return response indicating unauthorized use
@@ -200,7 +200,8 @@ async function logUnauthorizedAccess(data: {
 export async function GET(request: NextRequest) {
   // Only allow from authorized domains
   const origin = request.headers.get('origin') || '';
-  const isAuthorized = OFFICIAL_DOMAINS.some(domain => origin.includes(domain));
+  const officialDomains = getOfficialDomains();
+  const isAuthorized = officialDomains.some(domain => origin.includes(domain));
   
   if (!isAuthorized && origin !== '') {
     return NextResponse.json(
@@ -212,6 +213,6 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({
     status: 'active',
     message: 'DMCA tracking is active',
-    official_domains: OFFICIAL_DOMAINS
+    official_domains: officialDomains
   });
 }

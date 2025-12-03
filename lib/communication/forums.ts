@@ -251,7 +251,7 @@ export async function createForumPost(data: {
   // Check if thread is locked
   const { data: thread } = await supabase
     .from('forum_threads')
-    .select('locked')
+    .select('locked, reply_count')
     .eq('id', data.thread_id)
     .single();
   

@@ -398,7 +398,7 @@ export class GoogleCalendarIntegration {
       .eq('course_id', courseId)
       .gte('due_date', new Date().toISOString());
 
-    if (!assignments) return;
+    if (!assignments) return undefined;
 
     for (const assignment of assignments) {
       await this.createEvent({
@@ -408,6 +408,8 @@ export class GoogleCalendarIntegration {
         end: new Date(new Date(assignment.due_date).getTime() + 60 * 60 * 1000), // 1 hour
       });
     }
+    
+    return undefined;
 
     return assignments.length;
   }

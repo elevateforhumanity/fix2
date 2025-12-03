@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js';
 
 const stripe = process.env.STRIPE_SECRET_KEY 
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2024-11-20.acacia',
+      apiVersion: '2024-11-20.acacia' as any,
     })
   : null;
 
@@ -56,8 +56,6 @@ export async function POST(request: NextRequest) {
 
     // Create Stripe checkout session with Buy Now Pay Later options
     const session = await stripe.checkout.sessions.create({
-      // Enable multiple payment methods including BNPL and ACH
-      payment_method_types: ['card', 'affirm', 'afterpay_clearpay', 'klarna', 'us_bank_account'],
       line_items: [
         {
           price_data: {
@@ -108,7 +106,7 @@ export async function POST(request: NextRequest) {
         profit_margin: (course.retail_price - course.wholesale_cost).toString(),
         course_url: course.course_url || '',
       },
-    });
+    } as any);
 
     return NextResponse.json({ sessionId: session.id });
   } catch (error: any) {

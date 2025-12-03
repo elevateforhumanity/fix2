@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: Request) {
   try {
-    const formData = await request.FormData();
+    const formData = await request.formData();
     
     const firstName = formData.get('firstName') as string;
     const lastName = formData.get('lastName') as string;

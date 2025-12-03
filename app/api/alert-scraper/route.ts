@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       ...additionalData
     } = body;
     
-    const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
     const userAgent = request.headers.get('user-agent') || 'unknown';
     
     console.error('🚨 SCRAPING ATTEMPT DETECTED:', {
