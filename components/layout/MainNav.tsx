@@ -221,10 +221,11 @@ export function MainNav() {
                             ? "text-red-600 font-semibold bg-red-50"
                             : "text-slate-700"
                         )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
