@@ -146,6 +146,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/programs/tax-prep',
     '/programs/tax-prep-financial-services',
     '/programs/tax-vita',
+    '/supersonic-fast-cash',
+    '/supersonic-fast-cash/upload',
     '/programs/truck-driving',
     '/programs/workforce-readiness',
     '/pwa-test',

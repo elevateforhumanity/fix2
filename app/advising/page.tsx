@@ -1,7 +1,46 @@
 // app/advising/page.tsx
 'use client';
 
+import { useState } from 'react';
+
 export default function AdvisingPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      email: formData.get('email'),
+      programInterest: formData.get('programInterest'),
+      contactMethod: formData.getAll('contactMethod'),
+      questions: formData.get('questions'),
+    };
+
+    try {
+      // Send to your backend API or email service
+      const response = await fetch('/api/advising-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert('There was an error submitting your request. Please call us at 317-314-3757.');
+      }
+    } catch (error) {
+      alert('There was an error submitting your request. Please call us at 317-314-3757.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 py-12">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
@@ -17,22 +56,47 @@ export default function AdvisingPage() {
             you best? Our advising team will walk through your goals, barriers,
             and options so you don&apos;t have to figure it out alone.
           </p>
+          <p className="mt-4 text-sm text-slate-900">
+            <strong>Prefer to call?</strong> Reach us at{' '}
+            <a href="tel:3173143757" className="text-indigo-600 font-semibold hover:underline">
+              317-314-3757
+            </a>
+          </p>
         </header>
 
-        <section className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-          <h2 className="text-sm font-semibold text-slate-900">
-            Schedule a call or visit
-          </h2>
-          <p className="mt-2 text-xs text-slate-700">
-            Complete this form and a member of our team will reach out to you
-            within a reasonable timeframe to schedule a phone call, video
-            meeting, or in-person appointment where available.
-          </p>
+        {isSubmitted ? (
+          <section className="rounded-2xl bg-green-50 p-8 shadow-sm ring-1 ring-green-200 text-center">
+            <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">Request Submitted!</h2>
+            <p className="text-slate-700 mb-4">
+              Thank you for your interest. An advisor will contact you within 1-2 business days.
+            </p>
+            <p className="text-sm text-slate-600">
+              Need immediate assistance? Call us at{' '}
+              <a href="tel:3173143757" className="text-indigo-600 font-semibold hover:underline">
+                317-314-3757
+              </a>
+            </p>
+          </section>
+        ) : (
+          <section className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+            <h2 className="text-sm font-semibold text-slate-900">
+              Schedule a call or visit
+            </h2>
+            <p className="mt-2 text-xs text-slate-700">
+              Complete this form and a member of our team will reach out to you
+              within a reasonable timeframe to schedule a phone call, video
+              meeting, or in-person appointment where available.
+            </p>
 
-          <form
-            onSubmit={(e) => e.preventDefault()}
-            className="mt-5 space-y-5 text-sm text-slate-800"
-          >
+            <form
+              onSubmit={handleSubmit}
+              className="mt-5 space-y-5 text-sm text-slate-800"
+            >
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label
@@ -169,13 +233,15 @@ export default function AdvisingPage() {
             <div className="pt-2">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-full bg-indigo-600 px-6 py-2 text-xs font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+                disabled={isSubmitting}
+                className="inline-flex items-center justify-center rounded-full bg-indigo-600 px-6 py-2 text-xs font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Submit Advising Request
+                {isSubmitting ? 'Submitting...' : 'Submit Advising Request'}
               </button>
             </div>
           </form>
         </section>
+        )}
       </div>
     </main>
   );

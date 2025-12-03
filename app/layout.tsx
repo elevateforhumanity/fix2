@@ -151,7 +151,7 @@ sizes="192x192" />
         <ScraperDetection />
         <MainHeader />
         <Breadcrumbs />
-        <main id="main-content">{children}</main>
+        <main id="main-content" className="min-h-screen">{children}</main>
         <SiteFooter />
         {/* <ElevateChatWidget /> */}
         <CookieBanner />

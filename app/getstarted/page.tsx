@@ -11,38 +11,41 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner with Image */}
-      <section className="relative min-h-[500px] flex items-center">
+      <section className="relative min-h-[600px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/hero-banner.jpg"
+            src="/images/artlist/hero-training-5.jpg"
             alt="Get Started with Free Training"
             fill
             className="object-cover"
             priority 
-            quality={85} 
+            quality={90} 
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
         </div>
         
         <div className="relative container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">
-              Start Your Career Journey
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">
-              100% free training. No cost, no debt. Real careers waiting.
+          <div className="max-w-4xl text-white">
+            <p className="text-sm font-bold uppercase tracking-wide text-orange-400 mb-4">
+              Begin Your Journey
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">
+              Start Your Career Journey Today
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg text-white/95">
+              100% free training. No cost, no debt. Real careers waiting. Get started in 3 simple steps.
+            </p>
+            <div className="flex flex-wrap gap-4">
               <Link 
                 href="/apply" 
-                className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-700 text-lg shadow-2xl transition-all"
+                className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-700 text-lg shadow-2xl transition-all"
               >
                 Apply Now - It's Free
               </Link>
               <Link 
                 href="/programs" 
-                className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl transition-all"
+                className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl transition-all border-2 border-white"
               >
                 View Programs
               </Link>
@@ -91,12 +94,14 @@ export default function Page() {
                   
                 </ul>
               </div>
-              <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg flex items-center justify-center">
-                  <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/facilities-new/facility-1.jpg"
+                  alt="Training Facility"
+                  fill
+                  className="object-cover"
+                  quality={90}
+                />
               </div>
             </div>
           </div>

@@ -109,35 +109,23 @@ export default function CDLProgramPage() {
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <span className="text-orange-600 font-bold mr-2">•</span>
-                    <span>Vehicle inspection and maintenance</span>
+                    <span>Vehicle inspection & safe driving</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 font-bold mr-2">•</span>
-                    <span>Safe driving techniques</span>
+                    <span>Federal regulations & logbooks</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 font-bold mr-2">•</span>
-                    <span>Federal motor carrier regulations</span>
+                    <span>Backing, maneuvering & parking</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 font-bold mr-2">•</span>
-                    <span>Backing and maneuvering</span>
+                    <span>Cargo handling & securement</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-orange-600 font-bold mr-2">•</span>
-                    <span>Hours of service and logbook management</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-orange-600 font-bold mr-2">•</span>
-                    <span>Cargo handling and securement</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-orange-600 font-bold mr-2">•</span>
-                    <span>Emergency procedures</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-orange-600 font-bold mr-2">•</span>
-                    <span>Map reading and trip planning</span>
+                    <span>Emergency procedures & trip planning</span>
                   </li>
                 </ul>
               </div>

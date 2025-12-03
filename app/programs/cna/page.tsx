@@ -113,35 +113,23 @@ export default function CNAProgramPage() {
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Basic nursing skills and patient care</span>
+                    <span>Patient care & vital signs</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Vital signs monitoring</span>
+                    <span>Infection control & safety</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Infection control and safety</span>
+                    <span>Medical terminology & documentation</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Communication and interpersonal skills</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Medical terminology</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Patient rights and ethics</span>
+                    <span>Patient rights & ethics</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 font-bold mr-2">•</span>
                     <span>Emergency procedures</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Documentation and record keeping</span>
                   </li>
                 </ul>
               </div>
