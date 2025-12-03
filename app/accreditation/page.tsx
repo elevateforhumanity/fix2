@@ -1,236 +1,135 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
-
-export const metadata: Metadata = {
-  title: "Accreditation, Approvals & Funding Partners | Elevate For Humanity",
-  description: "Federal, state, and workforce board approvals. RAPIDS registered, ETPL approved, WIOA and WRG fundable programs.",
-};
-
-export default function Page() {
+// app/accreditation/page.tsx
+export default function AccreditationPage() {
   return (
-    <div className="min-h-screen bg-white">
-      
-      {/* Hero Banner */}
-      <section className="relative min-h-[500px] flex items-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-banner.jpg"
-            alt="Accreditation and Approvals"
-            fill
-            className="object-cover"
-            priority 
-            quality={85} 
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
-        </div>
-        
-        <div className="relative container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">
-              Accreditation, Approvals & Workforce Partners
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">
-              Elevate for Humanity Technical & Career Institute is built to meet federal, state, and workforce board standards so that our students can access free or low-cost training with confidence.
-            </p>
-          </div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-50 py-12">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <header className="mb-8">
+          <p className="text-xs font-semibold uppercase tracking-wide text-red-600">
+            Accreditation &amp; Approvals
+          </p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
+            Accreditation, Approvals &amp; Workforce Alignment
+          </h1>
+          <p className="mt-3 text-sm text-slate-700">
+            Elevate for Humanity Technical &amp; Career Institute is built to
+            align with federal, state, and workforce standards so learners and
+            partners can trust the quality, integrity, and funding readiness of
+            our programs.
+          </p>
+        </header>
 
-      {/* Federal & Apprenticeship Alignment */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-12">Federal & Apprenticeship Alignment</h2>
-            
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 border-l-4 border-blue-600">
-              <h3 className="text-2xl font-bold mb-4">U.S. Department of Labor Registered Apprenticeship Sponsor</h3>
-              <ul className="space-y-3 text-gray-700 text-lg">
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Programs listed in <strong>RAPIDS</strong> with active apprenticeship pathways in selected occupations</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Apprenticeship models built around <strong>earn-while-you-learn</strong> training and employer partnerships</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* Federal & Apprenticeship */}
+        <section className="mb-8 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+          <h2 className="text-lg font-semibold text-slate-900">
+            Federal &amp; Apprenticeship Alignment
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm text-slate-700">
+            <li>
+              <span className="font-semibold">
+                U.S. Department of Labor Registered Apprenticeship Sponsor:
+              </span>{" "}
+              Elevate participates in the federal Registered Apprenticeship
+              system, designing earn-while-you-learn pathways that blend
+              classroom learning with structured on-the-job training.
+            </li>
+            <li>
+              <span className="font-semibold">RAPIDS Listed Programs:</span> Our
+              apprenticeship programs are listed in the DOL's RAPIDS system,
+              documenting occupations, standards, and sponsor alignment.
+            </li>
+          </ul>
+        </section>
 
-      {/* State Workforce Alignment */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-12">State Workforce Alignment (Indiana)</h2>
-            
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-8 border-l-4 border-green-600 mb-8">
-              <h3 className="text-2xl font-bold mb-4">Eligible Training Provider List (ETPL) Approved Provider</h3>
-              <p className="text-gray-700 text-lg mb-4">Programs fundable through:</p>
-              <ul className="space-y-3 text-gray-700 text-lg">
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span><strong>WIOA</strong> (Workforce Innovation and Opportunity Act)</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span><strong>Workforce Ready Grant / Next Level Jobs (WRG)</strong> for eligible short-term programs</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span><strong>JRI (Justice Reinvestment Initiative)</strong> and re-entry-focused partners</span>
-                </li>
-              </ul>
-            </div>
+        {/* State & Workforce */}
+        <section className="mb-8 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+          <h2 className="text-lg font-semibold text-slate-900">
+            State Workforce &amp; Funding Alignment (Indiana)
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm text-slate-700">
+            <li>
+              <span className="font-semibold">
+                Eligible Training Provider List (ETPL):
+              </span>{" "}
+              Elevate for Humanity is an approved provider on Indiana&apos;s
+              ETPL, enabling eligible students to access workforce-funded
+              training.
+            </li>
+            <li>
+              <span className="font-semibold">WIOA Funding:</span> Select
+              programs are approved to receive funding through the Workforce
+              Innovation and Opportunity Act (WIOA) via local workforce boards
+              and WorkOne offices.
+            </li>
+            <li>
+              <span className="font-semibold">
+                Workforce Ready Grant (WRG):
+              </span>{" "}
+              Where applicable, learners may qualify for tuition support through
+              the Workforce Ready Grant / Next Level Jobs for approved
+              short-term, high-demand programs.
+            </li>
+            <li>
+              <span className="font-semibold">Jobs for Re-Entry (JRI):</span>{" "}
+              Elevate works with re-entry and JRI partners to provide training
+              pathways for justice-involved individuals who meet eligibility
+              requirements.
+            </li>
+          </ul>
+        </section>
 
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-bold mb-4">Active Workforce Partnerships</h3>
-              <p className="text-gray-700 text-lg">
-                Active collaboration with <strong>WorkOne</strong>, <strong>EmployIndy</strong>, and regional workforce boards
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* Program categories */}
+        <section className="mb-8 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+          <h2 className="text-lg font-semibold text-slate-900">
+            Program Categories Served
+          </h2>
+          <p className="mt-3 text-sm text-slate-700">
+            Our approved and fundable offerings (exact availability may vary by
+            region and partner) include training in:
+          </p>
+          <ul className="mt-3 grid gap-2 text-xs sm:grid-cols-2 text-slate-700">
+            <li>• Barber Apprenticeship and beauty industry pathways</li>
+            <li>• Healthcare support roles such as CNA and related pathways</li>
+            <li>• Skilled trades and building maintenance</li>
+            <li>• Transportation and logistics (e.g., CDL) where applicable</li>
+            <li>• Digital literacy and foundational workplace skills</li>
+          </ul>
+        </section>
 
-      {/* Program Categories */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-12">Program Categories Covered</h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              
-              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-red-600">
-                <h3 className="text-xl font-bold mb-3">Healthcare</h3>
-                <p className="text-gray-700">CNA, Medical Assistant, Phlebotomy, EKG (where approved)</p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
-                <h3 className="text-xl font-bold mb-3">Skilled Trades</h3>
-                <p className="text-gray-700">HVAC, Building Maintenance, Welding (where applicable)</p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-3">Transportation & Logistics</h3>
-                <p className="text-gray-700">CDL, Warehouse/Logistics</p>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
-                <h3 className="text-xl font-bold mb-3">Beauty & Barber</h3>
-                <p className="text-gray-700">Barber Apprenticeship and beauty pathways (WIOA fundable)</p>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Compliance & Student Protections */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-12">Compliance & Student Protections</h2>
-            
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <p className="text-gray-700 text-lg mb-6">
-                Elevate for Humanity is committed to:
-              </p>
-              <ul className="space-y-4 text-gray-700 text-lg">
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                  <span>Transparent tuition and fee structures</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                  <span>Non-discrimination and equal opportunity in all programs</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                  <span>Accessible services for individuals with disabilities</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                  <span>Trauma-informed and student-centered support</span>
-                </li>
-              </ul>
-              
-              <div className="mt-8 p-6 bg-gray-50 rounded-lg">
-                <p className="text-gray-700">
-                  For official documentation, policies, and legal notices, visit our <Link href="/docs" className="text-red-600 font-semibold hover:underline">Documents</Link> and <Link href="/terms-of-service" className="text-red-600 font-semibold hover:underline">Legal</Link> pages.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/cta-banner.jpg"
-            alt="Apply for approved training"
-            fill
-            className="object-cover"
-            quality={85}
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-red-600/95 to-red-700/95" />
-        </div>
-        
-        <div className="relative container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Start Approved Training?
-            </h2>
-            <p className="text-xl md:text-2xl mb-8">
-              Apply for free training through federally and state-approved programs
-            </p>
-            
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link 
-                href="/apply" 
-                className="bg-white text-red-600 px-10 py-5 rounded-full font-bold hover:bg-red-50 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link 
-                href="/programs" 
-                className="bg-white/10 backdrop-blur-sm text-white px-10 py-5 rounded-full font-bold hover:bg-white/20 border-2 border-white text-lg shadow-2xl transition-all"
-              >
-                View Programs
-              </Link>
-            </div>
-            
-            <p className="text-white/90 mt-8 text-sm">
-              Questions? Call <a href="tel:317-314-3757" className="underline font-semibold hover:text-white">317-314-3757</a> or email <a href="mailto:elevateforhumanity.edu@gmail.com" className="underline font-semibold hover:text-white">elevateforhumanity.edu@gmail.com</a>
-            </p>
-          </div>
-        </div>
-      </section>
-
-    </div>
+        {/* Compliance & equal opportunity */}
+        <section className="mb-8 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+          <h2 className="text-lg font-semibold text-slate-900">
+            Compliance, Equity &amp; Student Protections
+          </h2>
+          <p className="mt-3 text-sm text-slate-700">
+            Elevate for Humanity maintains policies and procedures designed to
+            protect students, uphold quality, and support safe and inclusive
+            learning environments.
+          </p>
+          <ul className="mt-3 space-y-2 text-sm text-slate-700">
+            <li>
+              Transparent program information, tuition expectations, and
+              training requirements.
+            </li>
+            <li>
+              Non-discrimination and equal opportunity in admissions, training,
+              and services.
+            </li>
+            <li>
+              Trauma-informed approaches to student support and re-entry
+              populations.
+            </li>
+            <li>
+              Collaboration with workforce boards, employers, and community
+              partners to strengthen outcomes.
+            </li>
+          </ul>
+          <p className="mt-4 text-[0.75rem] text-slate-600">
+            Elevate for Humanity Technical &amp; Career Institute is an equal
+            opportunity training provider. Auxiliary aids and services are
+            available upon request to individuals with disabilities.
+          </p>
+        </section>
+      </div>
+    </main>
   );
 }
