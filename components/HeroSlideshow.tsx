@@ -5,48 +5,121 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const slides = [
+interface Slide {
+  image: string;
+  title: string;
+  text: string;
+  cta?: {
+    text: string;
+    href: string;
+  };
+}
+
+const slides: Slide[] = [
   {
-    image: "/images/artlist/hero-training-3.jpg",
-    title: "Your Career Starts Here",
-    text: "Free workforce training that leads to real jobs - 100% government funded",
+    image: "/images/elizabeth-greene-founder.jpg",
+    title: "Meet Elizabeth Greene, CEO & Founder",
+    text: "Visionary workforce architect committed to creating equitable pathways for individuals and families across Indiana.",
+    cta: {
+      text: "Meet Our Team",
+      href: "/team"
+    }
   },
   {
-    image: "/images/artlist/hero-training-7.jpg",
-    title: "Build a Career in High-Demand Trades",
-    text: "HVAC, welding, and building maintenance - earn $20-$30/hour with benefits",
+    image: "/images/efh-barber-hero.jpg",
+    title: "DOL Registered Barber Apprenticeship",
+    text: "2,000-hour apprenticeship or 1,500-hour program with financial aid. Earn while you learn. WIOA, WRG, and JRI fundable.",
+    cta: {
+      text: "Learn More",
+      href: "/programs/barber-apprenticeship"
+    }
   },
   {
-    image: "/images/artlist/hero-training-8.jpg",
-    title: "No Cost. No Debt. Just Opportunity.",
-    text: "State and Federal Funded - WIOA, Workforce Ready Grants, and registered apprenticeships",
+    image: "/images/efh-cna-hero.jpg",
+    title: "Healthcare Training Programs",
+    text: "CNA certification through Choice Medical Institute. State-approved, workforce fundable, high-demand careers.",
+    cta: {
+      text: "Explore Healthcare",
+      href: "/programs/barber-apprenticeship"
+    }
   },
   {
-    image: "/images/artlist/hero-training-1.jpg",
-    title: "Train Today. Work Tomorrow.",
-    text: "Healthcare, Skilled Trades, Technology, and Business programs with direct employer connections",
+    image: "/images/carlina-wilkes.jpg",
+    title: "Dr. Carlina Wilkes, Executive Director",
+    text: "24+ years federal service. Leading financial operations and organizational compliance with integrity.",
+    cta: {
+      text: "Meet Our Leadership",
+      href: "/team/carlina-wilkes"
+    }
   },
+  {
+    image: "/images/efh-building-tech-hero.jpg",
+    title: "Skilled Trades & Building Technician",
+    text: "HVAC, electrical, plumbing. Hands-on training for high-wage careers in construction and maintenance.",
+    cta: {
+      text: "View Programs",
+      href: "/programs/barber-apprenticeship"
+    }
+  },
+  {
+    image: "/images/clystjah-woodley.jpg",
+    title: "Clystjah Woodley, Life Coach",
+    text: "Empowering students with mindset coaching, accountability, and emotional wellness support.",
+    cta: {
+      text: "Learn About Support",
+      href: "/support"
+    }
+  },
+  {
+    image: "/images/hero-banner.jpg",
+    title: "100% Fundable Programs",
+    text: "WIOA, Workforce Ready Grant, Justice Reinvestment Initiative. Most students pay $0 out of pocket.",
+    cta: {
+      text: "Explore Funding",
+      href: "/funding"
+    }
+  },
+  {
+    image: "/images/delores-reynolds.jpg",
+    title: "Delores Reynolds, Social Media Director",
+    text: "Amplifying our mission through digital storytelling and community connection.",
+    cta: {
+      text: "Follow Our Story",
+      href: "/team"
+    }
+  },
+  {
+    image: "/images/alina-smith.jpg",
+    title: "Mental Health Partnership",
+    text: "Alina Perfect, PMHNP provides psychiatric evaluation and wellness support through Perfect Wellness Behavioral Health.",
+    cta: {
+      text: "Learn More",
+      href: "/team/alina-perfect"
+    }
+  },
+  {
+    image: "/images/hero-training.jpg",
+    title: "State & Federal Alignment",
+    text: "DOL Registered Apprenticeship Sponsor. ETPL Approved. Indiana Workforce Development Partner.",
+    cta: {
+      text: "Apply Now",
+      href: "/apply"
+    }
+  }
 ];
 
 export default function HeroSlideshow() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
+    if (!isAutoPlaying) return;
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
-
-  // Auto-play voiceover on mount
-  useEffect(() => {
-    const audio = new Audio('/videos/voiceover.mp3');
-    audio.volume = 0.7;
-    audio.play().catch(err => {
-      // Autoplay blocked by browser - user needs to interact first
-      console.log('Autoplay prevented:', err);
-    });
-  }, []);
+  }, [isAutoPlaying]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -94,20 +167,22 @@ export default function HeroSlideshow() {
                 <p className="text-xl md:text-2xl text-slate-200 font-light mb-8 leading-relaxed">
                   {slide.text}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/apply"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors shadow-lg"
-                  >
-                    Apply Now
-                  </Link>
-                  <Link
-                    href="/programs"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded border-2 border-white hover:bg-slate-50 transition-colors shadow-lg"
-                  >
-                    Explore Programs
-                  </Link>
-                </div>
+                {slide.cta && (
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Link
+                      href={slide.cta.href}
+                      className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded hover:bg-slate-100 transition-colors shadow-lg"
+                    >
+                      {slide.cta.text}
+                    </Link>
+                    <Link
+                      href="/apply"
+                      className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold rounded border-2 border-white hover:bg-white/10 transition-colors"
+                    >
+                      Apply Now
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>

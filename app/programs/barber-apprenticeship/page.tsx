@@ -44,7 +44,7 @@ export default function BarberApprenticeshipPage() {
             <div>
               <dt className="font-semibold text-slate-900">Length</dt>
               <dd className="mt-1 text-slate-700">
-                1,500 hours (meets Indiana barber licensure requirements)
+                2,000 hours (meets Indiana barber licensure requirements)
               </dd>
             </div>
             <div>

@@ -1,4 +1,6 @@
 // app/apply/page.tsx
+'use client';
+
 export default function ApplyPage() {
   return (
     <main className="min-h-screen bg-slate-50 py-12">
