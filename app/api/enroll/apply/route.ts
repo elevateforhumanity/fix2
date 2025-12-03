@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     // - Write it to Supabase
     // - Send an email to your team
     // - Push into a CRM or Airtable, etc.
-
+    console.log('Application received:', {
       firstName: body.firstName,
       lastName: body.lastName,
       email: body.email,
