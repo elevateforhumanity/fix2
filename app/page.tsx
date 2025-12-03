@@ -5,86 +5,42 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50">
-      {/* THREE HERO BANNERS */}
-      <section className="grid md:grid-cols-3 gap-0">
-        {/* Hero Banner 1 - Barber Apprenticeship */}
-        <div className="relative h-[400px] overflow-hidden group">
-          <Image
-            src="/images/hero/hero-barber.jpg"
-            alt="Barber Apprenticeship Training"
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            priority
-            quality={100}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
-          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-center">
-            <h2 className="text-3xl font-bold text-white mb-3">
-              Barber Apprenticeship
-            </h2>
-            <p className="text-slate-200 text-sm mb-4 max-w-xs">
-              DOL Registered. 2,000-hour program. Earn while you learn.
-            </p>
-            <Link
-              href="/programs/barber-apprenticeship"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 font-semibold rounded hover:bg-slate-100 transition-colors"
-            >
-              Learn More
-            </Link>
-          </div>
-        </div>
-
-        {/* Hero Banner 2 - Healthcare Training */}
-        <div className="relative h-[400px] overflow-hidden group">
-          <Image
-            src="/images/hero/hero-healthcare.jpg"
-            alt="Healthcare Training Programs"
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            priority
-            quality={100}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
-          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-center">
-            <h2 className="text-3xl font-bold text-white mb-3">
-              Healthcare Training
-            </h2>
-            <p className="text-slate-200 text-sm mb-4 max-w-xs">
-              CNA certification. State-approved. High-demand careers.
-            </p>
-            <Link
-              href="/programs/barber-apprenticeship"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 font-semibold rounded hover:bg-slate-100 transition-colors"
-            >
-              Learn More
-            </Link>
-          </div>
-        </div>
-
-        {/* Hero Banner 3 - Skilled Trades */}
-        <div className="relative h-[400px] overflow-hidden group">
-          <Image
-            src="/images/hero/hero-skilled-trades.jpg"
-            alt="Skilled Trades Training"
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            priority
-            quality={100}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
-          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-center">
-            <h2 className="text-3xl font-bold text-white mb-3">
-              Skilled Trades
-            </h2>
-            <p className="text-slate-200 text-sm mb-4 max-w-xs">
-              HVAC, electrical, plumbing. Hands-on training for high wages.
-            </p>
-            <Link
-              href="/programs/barber-apprenticeship"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 font-semibold rounded hover:bg-slate-100 transition-colors"
-            >
-              Learn More
-            </Link>
+      {/* HERO BANNER */}
+      <section className="relative h-[600px] overflow-hidden">
+        <Image
+          src="/images/hero/hero-main-welcome.jpg"
+          alt="Elevate for Humanity - Workforce Training"
+          fill
+          className="object-cover"
+          priority
+          quality={100}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/50 to-transparent" />
+        
+        <div className="relative h-full flex items-center">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
+            <div className="max-w-3xl">
+              <h1 className="text-5xl md:text-6xl font-light text-white mb-6 leading-tight">
+                Elevate for Humanity
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-200 font-light mb-8 leading-relaxed">
+                State-approved, federally aligned workforce training that opens doors to high-wage careers.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/programs/barber-apprenticeship"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded hover:bg-slate-100 transition-colors shadow-lg"
+                >
+                  Explore Programs
+                </Link>
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold rounded border-2 border-white hover:bg-white/10 transition-colors"
+                >
+                  Apply Now
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
