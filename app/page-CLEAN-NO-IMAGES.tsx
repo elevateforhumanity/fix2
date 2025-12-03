@@ -1,6 +1,5 @@
-// app/page.tsx - Professional Homepage with Images
+// app/page.tsx - Clean Professional Homepage
 import Link from "next/link";
-import Image from "next/image";
 
 function PrimaryButton({
   href,
@@ -39,20 +38,9 @@ function SecondaryButton({
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
-      {/* HERO WITH IMAGE */}
-      <section className="relative overflow-hidden min-h-[600px] flex items-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-banner.jpg"
-            alt="Elevate For Humanity Career Training"
-            fill
-            className="object-cover"
-            priority
-            quality={90}
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-red-900/95" />
-        </div>
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-red-900 text-white">
+        <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_top,_#dc2626_0,_transparent_45%),radial-gradient(circle_at_bottom,_#22c55e_0,_transparent_45%)]" />
         <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-[1.15fr,0.85fr] items-center">
             {/* Text */}
@@ -145,61 +133,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HIGHLIGHTS WITH IMAGES */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="text-center">
-              <div className="relative h-48 rounded-lg overflow-hidden mb-4 shadow-lg">
-                <Image
-                  src="/images/programs-new/program-02.jpg"
-                  alt="Free Training"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">100% Funded Training</h3>
-              <p className="text-xs text-slate-700">
-                WIOA, WRG, and JRI funding available for eligible students. No student loan debt.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="relative h-48 rounded-lg overflow-hidden mb-4 shadow-lg">
-                <Image
-                  src="/images/programs-new/program-03.jpg"
-                  alt="Federal Alignment"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">Federally Aligned</h3>
-              <p className="text-xs text-slate-700">
-                DOL Registered Apprenticeship sponsor with programs listed on RAPIDS and Indiana ETPL.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="relative h-48 rounded-lg overflow-hidden mb-4 shadow-lg">
-                <Image
-                  src="/images/programs-new/program-04.jpg"
-                  alt="Wraparound Support"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">Wraparound Support</h3>
-              <p className="text-xs text-slate-700">
-                Life coaching, mental health partnerships, and case management to help you succeed.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* WHO WE ARE */}
       <section className="bg-slate-50 py-12 sm:py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -275,118 +208,74 @@ export default function Home() {
 
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {/* Card 1 */}
-            <article className="flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-              <div className="relative h-40">
-                <Image
-                  src="/images/programs-new/program-01.jpg"
-                  alt="Career Training Programs"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-sm font-semibold text-slate-900">
-                  Career Training Programs
-                </h3>
-                <p className="mt-2 text-xs text-slate-700">
-                  Barbering, healthcare, trades, CDL, building maintenance and
-                  more—structured to lead directly into employment or
-                  higher-level credentials.
-                </p>
-                <Link
-                  href="/programs"
-                  className="mt-3 inline-block text-xs font-semibold text-red-600 hover:text-red-700"
-                >
-                  Explore career programs →
-                </Link>
-              </div>
+            <article className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="text-sm font-semibold text-slate-900">
+                Career Training Programs
+              </h3>
+              <p className="mt-2 text-xs text-slate-700">
+                Barbering, healthcare, trades, CDL, building maintenance and
+                more—structured to lead directly into employment or
+                higher-level credentials.
+              </p>
+              <Link
+                href="/programs"
+                className="mt-3 text-xs font-semibold text-red-600 hover:text-red-700"
+              >
+                Explore career programs →
+              </Link>
             </article>
 
             {/* Card 2 */}
-            <article className="flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-              <div className="relative h-40">
-                <Image
-                  src="/images/efh-barber-card.jpg"
-                  alt="Registered Apprenticeships"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-sm font-semibold text-slate-900">
-                  Registered Apprenticeships
-                </h3>
-                <p className="mt-2 text-xs text-slate-700">
-                  Earn while you learn through DOL Registered Apprenticeships
-                  with structured on-the-job training and classroom instruction.
-                </p>
-                <Link
-                  href="/programs/barber-apprenticeship"
-                  className="mt-3 inline-block text-xs font-semibold text-red-600 hover:text-red-700"
-                >
-                  View apprenticeships →
-                </Link>
-              </div>
+            <article className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="text-sm font-semibold text-slate-900">
+                Registered Apprenticeships
+              </h3>
+              <p className="mt-2 text-xs text-slate-700">
+                Earn while you learn through DOL Registered Apprenticeships
+                with structured on-the-job training and classroom instruction.
+              </p>
+              <Link
+                href="/programs/barber-apprenticeship"
+                className="mt-3 text-xs font-semibold text-red-600 hover:text-red-700"
+              >
+                View apprenticeships →
+              </Link>
             </article>
 
             {/* Card 3 */}
-            <article className="flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-              <div className="relative h-40">
-                <Image
-                  src="/images/efh-barber-hero.jpg"
-                  alt="Beauty & Barber Institute"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-sm font-semibold text-slate-900">
-                  Beauty &amp; Barber Institute
-                </h3>
-                <p className="mt-2 text-xs text-slate-700">
-                  Barber Apprenticeship, nail, esthetics and related beauty
-                  programs guided by licensed professionals with 20+ years in the
-                  industry.
-                </p>
-                <Link
-                  href="/programs/barber-apprenticeship"
-                  className="mt-3 inline-block text-xs font-semibold text-red-600 hover:text-red-700"
-                >
-                  Learn about barber apprenticeship →
-                </Link>
-              </div>
+            <article className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="text-sm font-semibold text-slate-900">
+                Beauty &amp; Barber Institute
+              </h3>
+              <p className="mt-2 text-xs text-slate-700">
+                Barber Apprenticeship, nail, esthetics and related beauty
+                programs guided by licensed professionals with 20+ years in the
+                industry.
+              </p>
+              <Link
+                href="/programs/barber-apprenticeship"
+                className="mt-3 text-xs font-semibold text-red-600 hover:text-red-700"
+              >
+                Learn about barber apprenticeship →
+              </Link>
             </article>
 
             {/* Card 4 */}
-            <article className="flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-              <div className="relative h-40">
-                <Image
-                  src="/images/team-new/team-01.jpg"
-                  alt="Support & Coaching"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-sm font-semibold text-slate-900">
-                  Support &amp; Coaching
-                </h3>
-                <p className="mt-2 text-xs text-slate-700">
-                  Life coaching, mental wellness partnerships, workforce
-                  navigation, and barrier-removal services to help you stay on
-                  track.
-                </p>
-                <Link
-                  href="/support"
-                  className="mt-3 inline-block text-xs font-semibold text-red-600 hover:text-red-700"
-                >
-                  See support services →
-                </Link>
-              </div>
+            <article className="flex flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="text-sm font-semibold text-slate-900">
+                Support &amp; Coaching
+              </h3>
+              <p className="mt-2 text-xs text-slate-700">
+                Life coaching, mental wellness partnerships, workforce
+                navigation, and barrier-removal services to help you stay on
+                track.
+              </p>
+              <Link
+                href="/team"
+                className="mt-3 text-xs font-semibold text-red-600 hover:text-red-700"
+              >
+                See support services →
+              </Link>
             </article>
           </div>
         </div>
@@ -573,85 +462,6 @@ export default function Home() {
 
           <div className="mt-8 flex justify-center">
             <PrimaryButton href="/apply">Start Your Application</PrimaryButton>
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="bg-white py-12 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-xs font-semibold uppercase tracking-wide text-red-600">
-              Student Success
-            </p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">
-              Real people. Real pathways. Real results.
-            </h2>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            <article className="rounded-2xl bg-slate-50 p-5 shadow-sm ring-1 ring-slate-200">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="relative h-12 w-12 rounded-full overflow-hidden bg-slate-200">
-                  <Image
-                    src="/images/testimonials/testimonial-01.jpg"
-                    alt="Student testimonial"
-                    fill
-                    className="object-cover"
-                    sizes="48px"
-                  />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">Marcus J.</p>
-                  <p className="text-xs text-slate-600">Barber Apprentice</p>
-                </div>
-              </div>
-              <p className="text-xs text-slate-700 italic">
-                "Elevate helped me get funding through JRI and connected me with a shop where I could learn. Now I'm building my own clientele."
-              </p>
-            </article>
-
-            <article className="rounded-2xl bg-slate-50 p-5 shadow-sm ring-1 ring-slate-200">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="relative h-12 w-12 rounded-full overflow-hidden bg-slate-200">
-                  <Image
-                    src="/images/testimonials/testimonial-02.jpg"
-                    alt="Student testimonial"
-                    fill
-                    className="object-cover"
-                    sizes="48px"
-                  />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">Tasha M.</p>
-                  <p className="text-xs text-slate-600">CNA Graduate</p>
-                </div>
-              </div>
-              <p className="text-xs text-slate-700 italic">
-                "The support team helped me with childcare and transportation so I could finish my training. I start my new job next week."
-              </p>
-            </article>
-
-            <article className="rounded-2xl bg-slate-50 p-5 shadow-sm ring-1 ring-slate-200">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="relative h-12 w-12 rounded-full overflow-hidden bg-slate-200">
-                  <Image
-                    src="/images/testimonials/testimonial-03.jpg"
-                    alt="Student testimonial"
-                    fill
-                    className="object-cover"
-                    sizes="48px"
-                  />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">James R.</p>
-                  <p className="text-xs text-slate-600">HVAC Student</p>
-                </div>
-              </div>
-              <p className="text-xs text-slate-700 italic">
-                "After years of setbacks, Elevate gave me a real chance. The life coaching and mental health support made all the difference."
-              </p>
-            </article>
           </div>
         </div>
       </section>
