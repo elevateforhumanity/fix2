@@ -1,24 +1,46 @@
 // app/programs/barber-apprenticeship/page.tsx
 import Link from "next/link";
+import Image from "next/image";
 
 export default function BarberApprenticeshipPage() {
   return (
-    <main className="min-h-screen bg-slate-50 py-12">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <header className="mb-8">
-          <p className="text-xs font-semibold uppercase tracking-wide text-red-600">
-            Program | Registered Apprenticeship
-          </p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
-            Barber Apprenticeship – Federally Aligned, State-Licensed Pathway
-          </h1>
-          <p className="mt-3 text-sm text-slate-700">
-            Become a licensed barber through a federal and state–aligned
-            apprenticeship program that combines classroom instruction, real
-            shop experience, and direct support toward state licensure—with
-            funding options that can remove the need for student loans.
-          </p>
-        </header>
+    <main className="min-h-screen bg-white">
+      {/* Hero Banner with Image */}
+      <section className="relative min-h-[500px] flex items-center">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/programs/efh-barber-hero.jpg"
+            alt="Barber Apprenticeship Training"
+            fill
+            className="object-cover"
+            priority quality={85} sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+        </div>
+        <div className="relative container mx-auto px-4 py-20">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <p className="text-sm font-semibold uppercase tracking-wide text-red-400 mb-4">
+              DOL Registered Apprenticeship
+            </p>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">
+              Barber Apprenticeship
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">
+              Become a licensed barber through a federally aligned apprenticeship. 2,000 hours of training with funding options available.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link href="/apply" className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-700 text-lg shadow-2xl">
+                Apply Now
+              </Link>
+              <Link href="/contact" className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl">
+                Learn More
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
 
         {/* Overview */}
         <section className="mb-8 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">

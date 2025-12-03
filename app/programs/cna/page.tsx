@@ -14,7 +14,7 @@ export default function CNAProgramPage() {
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/media-backup-20251128-043832/programs/cna-hd.jpg"
+            src="/images/programs/efh-cna-hero.jpg"
             alt="CNA Training Program"
             fill
             className="object-cover"

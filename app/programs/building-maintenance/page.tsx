@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Building Maintenance | Elevate For Humanity',
@@ -9,17 +10,27 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Building Maintenance | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Building Maintenance inside the Elevate For Humanity workforce ecosystem.</p>
+      {/* Hero Banner with Image */}
+      <section className="relative min-h-[500px] flex items-center">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/programs/efh-building-tech-hero.jpg"
+            alt="Building Maintenance Training"
+            fill
+            className="object-cover"
+            priority quality={85} sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+        </div>
+        <div className="relative container mx-auto px-4 py-20">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">Building Maintenance Training</h1>
+            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">Master HVAC, electrical, plumbing, and facility maintenance skills for high-demand careers</p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 text-lg">
+              <Link href="/apply" className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-700 text-lg shadow-2xl">
                 Apply Now - Free Training
               </Link>
-              <Link href="/contact" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
+              <Link href="/contact" className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl">
                 Learn More
               </Link>
             </div>
