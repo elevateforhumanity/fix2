@@ -1,13 +1,93 @@
 // app/page.tsx - Polished Professional Homepage
 import Link from "next/link";
 import Image from "next/image";
-import HeroSlideshow from "@/components/HeroSlideshow";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50">
-      {/* HERO SLIDESHOW */}
-      <HeroSlideshow />
+      {/* THREE HERO BANNERS */}
+      <section className="grid md:grid-cols-3 gap-0">
+        {/* Hero Banner 1 - Barber Apprenticeship */}
+        <div className="relative h-[400px] overflow-hidden group">
+          <Image
+            src="/images/hero/hero-barber.jpg"
+            alt="Barber Apprenticeship Training"
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            priority
+            quality={100}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
+          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-center">
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Barber Apprenticeship
+            </h2>
+            <p className="text-slate-200 text-sm mb-4 max-w-xs">
+              DOL Registered. 2,000-hour program. Earn while you learn.
+            </p>
+            <Link
+              href="/programs/barber-apprenticeship"
+              className="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 font-semibold rounded hover:bg-slate-100 transition-colors"
+            >
+              Learn More
+            </Link>
+          </div>
+        </div>
+
+        {/* Hero Banner 2 - Healthcare Training */}
+        <div className="relative h-[400px] overflow-hidden group">
+          <Image
+            src="/images/hero/hero-healthcare.jpg"
+            alt="Healthcare Training Programs"
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            priority
+            quality={100}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
+          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-center">
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Healthcare Training
+            </h2>
+            <p className="text-slate-200 text-sm mb-4 max-w-xs">
+              CNA certification. State-approved. High-demand careers.
+            </p>
+            <Link
+              href="/programs/barber-apprenticeship"
+              className="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 font-semibold rounded hover:bg-slate-100 transition-colors"
+            >
+              Learn More
+            </Link>
+          </div>
+        </div>
+
+        {/* Hero Banner 3 - Skilled Trades */}
+        <div className="relative h-[400px] overflow-hidden group">
+          <Image
+            src="/images/hero/hero-skilled-trades.jpg"
+            alt="Skilled Trades Training"
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            priority
+            quality={100}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
+          <div className="absolute inset-0 flex flex-col items-center justify-end p-8 text-center">
+            <h2 className="text-3xl font-bold text-white mb-3">
+              Skilled Trades
+            </h2>
+            <p className="text-slate-200 text-sm mb-4 max-w-xs">
+              HVAC, electrical, plumbing. Hands-on training for high wages.
+            </p>
+            <Link
+              href="/programs/barber-apprenticeship"
+              className="inline-flex items-center justify-center px-6 py-3 bg-white text-slate-900 font-semibold rounded hover:bg-slate-100 transition-colors"
+            >
+              Learn More
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* HIGHLIGHT STRIP */}
       <section className="py-10 bg-white px-6">
