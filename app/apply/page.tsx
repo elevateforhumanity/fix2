@@ -1,147 +1,229 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-
-export const metadata: Metadata = {
-  title: 'Apply | Elevate For Humanity',
-  description: 'Learn more about Apply inside the Elevate For Humanity workforce ecosystem.',
-};
-
-export default function Page() {
+// app/apply/page.tsx
+export default function ApplyPage() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Apply | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Apply inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
-                Get Started
-              </Link>
-              <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
-                View Programs
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+    <main className="min-h-screen bg-slate-50 py-12">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <header className="mb-8">
+          <p className="text-xs font-semibold uppercase tracking-wide text-red-600">
+            Application
+          </p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
+            Apply to Elevate for Humanity
+          </h1>
+          <p className="mt-3 text-sm text-slate-700">
+            This form helps us learn who you are, what you&apos;re interested in,
+            and what kinds of support you may need. After you submit, an advisor
+            will follow up to talk about programs and funding options.
+          </p>
+        </header>
 
-      {/* Image Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+        <section className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="space-y-5 text-sm text-slate-800"
+          >
+            {/* Contact info */}
+            <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Transform Your Future</h2>
-                <p className="text-gray-700 mb-6">Join thousands who have launched successful careers through our programs.</p>
-                <ul className="space-y-3">
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>100% government-funded training</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>No cost to you - completely free</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Flexible scheduling options</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Career support from start to finish</span>
-                  </li>
-                  
-                </ul>
+                <label
+                  htmlFor="firstName"
+                  className="block text-xs font-semibold text-slate-900"
+                >
+                  First Name
+                </label>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                  required
+                />
               </div>
-              <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg flex items-center justify-center">
-                  <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
+              <div>
+                <label
+                  htmlFor="lastName"
+                  className="block text-xs font-semibold text-slate-900"
+                >
+                  Last Name
+                </label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                  required
+                />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Feature Cards */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">100% Funded</h3>
-                <p className="text-gray-600">All programs completely free through government funding</p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label
+                  htmlFor="phone"
+                  className="block text-xs font-semibold text-slate-900"
+                >
+                  Phone Number
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                  required
+                />
               </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Job Placement</h3>
-                <p className="text-gray-600">We help you find employment after training</p>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-xs font-semibold text-slate-900"
+                >
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                />
               </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
-              </div>
-              
             </div>
-          </div>
-        </div>
-      </section>
-    
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Get Started?</h2>
-          <p className="text-xl text-white/90 mb-8">
-            100% free training. No tuition, no fees, no debt. Just a direct pathway to your career.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/apply" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
-              Apply Now - It's Free
-            </Link>
-            <Link href="/contact" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">
-              Contact Us
-            </Link>
-          </div>
-          <p className="text-white/80 mt-8 text-sm">
-            Questions? Call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> or email <a href="mailto:elevateforhumanity.edu@gmail.com" className="underline font-semibold">elevateforhumanity.edu@gmail.com</a>
-          </p>
-        </div>
-      </section>
 
-    </div>
+            {/* Location */}
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div>
+                <label
+                  htmlFor="city"
+                  className="block text-xs font-semibold text-slate-900"
+                >
+                  City
+                </label>
+                <input
+                  id="city"
+                  name="city"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="zip"
+                  className="block text-xs font-semibold text-slate-900"
+                >
+                  ZIP Code
+                </label>
+                <input
+                  id="zip"
+                  name="zip"
+                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                />
+              </div>
+            </div>
+
+            {/* Program interest */}
+            <div>
+              <label
+                htmlFor="program"
+                className="block text-xs font-semibold text-slate-900"
+              >
+                Program You&apos;re Most Interested In
+              </label>
+              <select
+                id="program"
+                name="program"
+                className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                defaultValue=""
+                required
+              >
+                <option value="" disabled>
+                  Select a program
+                </option>
+                <option value="barber-apprenticeship">
+                  Barber Apprenticeship
+                </option>
+                <option value="beauty">
+                  Beauty / Nails / Esthetics (where available)
+                </option>
+                <option value="healthcare">Healthcare (e.g., CNA)</option>
+                <option value="skilled-trades">
+                  Skilled Trades / Building Maintenance
+                </option>
+                <option value="cdl">Transportation / CDL</option>
+                <option value="other">Other / Not sure yet</option>
+              </select>
+            </div>
+
+            {/* Background / barriers */}
+            <div>
+              <label
+                htmlFor="background"
+                className="block text-xs font-semibold text-slate-900"
+              >
+                Anything we should know to better support you?
+              </label>
+              <p className="mt-1 text-[0.7rem] text-slate-500">
+                (Optional) For example: justice involvement, housing needs,
+                childcare, transportation, technology access, or anything else
+                you&apos;re comfortable sharing.
+              </p>
+              <textarea
+                id="background"
+                name="background"
+                rows={4}
+                className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
+              />
+            </div>
+
+            {/* Contact preference */}
+            <div>
+              <span className="block text-xs font-semibold text-slate-900">
+                Best way to contact you
+              </span>
+              <div className="mt-2 flex flex-wrap gap-4 text-xs text-slate-700">
+                <label className="inline-flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    name="contactPreference"
+                    value="call"
+                    className="h-3.5 w-3.5 rounded border-slate-300 text-red-600 focus:ring-red-500"
+                  />
+                  Phone Call
+                </label>
+                <label className="inline-flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    name="contactPreference"
+                    value="text"
+                    className="h-3.5 w-3.5 rounded border-slate-300 text-red-600 focus:ring-red-500"
+                  />
+                  Text Message
+                </label>
+                <label className="inline-flex items-center gap-2">
+                  <input
+                    type="checkbox"
+                    name="contactPreference"
+                    value="email"
+                    className="h-3.5 w-3.5 rounded border-slate-300 text-red-600 focus:ring-red-500"
+                  />
+                  Email
+                </label>
+              </div>
+            </div>
+
+            {/* Submit note */}
+            <p className="text-[0.7rem] text-slate-500">
+              By submitting this form, you are giving Elevate for Humanity
+              permission to contact you about training, funding, and support
+              services. This is not a credit application and will not impact
+              your credit score.
+            </p>
+
+            <div className="pt-2">
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-2 text-xs font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+              >
+                Submit Application
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
   );
 }
