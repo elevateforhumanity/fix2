@@ -17,16 +17,16 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: "/images/elizabeth-greene-founder.jpg",
-    title: "Meet Elizabeth Greene, CEO & Founder",
-    text: "Visionary workforce architect committed to creating equitable pathways for individuals and families across Indiana.",
+    image: "/images/artlist/hero-training-3.jpg",
+    title: "Elevate for Humanity",
+    text: "State-approved, federally aligned workforce training that opens doors to high-wage careers.",
     cta: {
-      text: "Meet Our Team",
-      href: "/team"
+      text: "Explore Programs",
+      href: "/programs/barber-apprenticeship"
     }
   },
   {
-    image: "/images/efh-barber-hero.jpg",
+    image: "/images/artlist/hero-training-1.jpg",
     title: "DOL Registered Barber Apprenticeship",
     text: "2,000-hour apprenticeship or 1,500-hour program with financial aid. Earn while you learn. WIOA, WRG, and JRI fundable.",
     cta: {
@@ -35,7 +35,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/efh-cna-hero.jpg",
+    image: "/images/artlist/hero-training-7.jpg",
     title: "Healthcare Training Programs",
     text: "CNA certification through Choice Medical Institute. State-approved, workforce fundable, high-demand careers.",
     cta: {
@@ -44,16 +44,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/carlina-wilkes.jpg",
-    title: "Dr. Carlina Wilkes, Executive Director",
-    text: "24+ years federal service. Leading financial operations and organizational compliance with integrity.",
-    cta: {
-      text: "Meet Our Leadership",
-      href: "/team/carlina-wilkes"
-    }
-  },
-  {
-    image: "/images/efh-building-tech-hero.jpg",
+    image: "/images/artlist/hero-training-8.jpg",
     title: "Skilled Trades & Building Technician",
     text: "HVAC, electrical, plumbing. Hands-on training for high-wage careers in construction and maintenance.",
     cta: {
@@ -62,16 +53,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/clystjah-woodley.jpg",
-    title: "Clystjah Woodley, Life Coach",
-    text: "Empowering students with mindset coaching, accountability, and emotional wellness support.",
-    cta: {
-      text: "Learn About Support",
-      href: "/support"
-    }
-  },
-  {
-    image: "/images/hero-banner.jpg",
+    image: "/images/artlist/hero-training-4.jpg",
     title: "100% Fundable Programs",
     text: "WIOA, Workforce Ready Grant, Justice Reinvestment Initiative. Most students pay $0 out of pocket.",
     cta: {
@@ -80,25 +62,16 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/delores-reynolds.jpg",
-    title: "Delores Reynolds, Social Media Director",
-    text: "Amplifying our mission through digital storytelling and community connection.",
+    image: "/images/artlist/hero-training-6.jpg",
+    title: "Whole-Person Support Services",
+    text: "Life coaching, mental health partnerships, and wraparound support to help you succeed.",
     cta: {
-      text: "Follow Our Story",
-      href: "/team"
+      text: "Learn About Support",
+      href: "/support"
     }
   },
   {
-    image: "/images/alina-smith.jpg",
-    title: "Mental Health Partnership",
-    text: "Alina Perfect, PMHNP provides psychiatric evaluation and wellness support through Perfect Wellness Behavioral Health.",
-    cta: {
-      text: "Learn More",
-      href: "/team/alina-perfect"
-    }
-  },
-  {
-    image: "/images/hero-training.jpg",
+    image: "/images/artlist/hero-training-5.png",
     title: "State & Federal Alignment",
     text: "DOL Registered Apprenticeship Sponsor. ETPL Approved. Indiana Workforce Development Partner.",
     cta: {
