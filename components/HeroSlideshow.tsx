@@ -17,7 +17,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: "/images/artlist/hero-training-3.jpg",
+    image: "/images/hero-banner.jpg",
     title: "Elevate for Humanity",
     text: "State-approved, federally aligned workforce training that opens doors to high-wage careers.",
     cta: {
@@ -26,7 +26,7 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/artlist/hero-training-1.jpg",
+    image: "/images/beauty/hero-program-barber.jpg",
     title: "DOL Registered Barber Apprenticeship",
     text: "2,000-hour apprenticeship or 1,500-hour program with financial aid. Earn while you learn. WIOA, WRG, and JRI fundable.",
     cta: {
@@ -35,25 +35,34 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/artlist/hero-training-7.jpg",
+    image: "/images/healthcare/hero-programs-healthcare.jpg",
     title: "Healthcare Training Programs",
     text: "CNA certification through Choice Medical Institute. State-approved, workforce fundable, high-demand careers.",
     cta: {
-      text: "Explore Healthcare",
+      text: "View Healthcare Programs",
       href: "/programs/barber-apprenticeship"
     }
   },
   {
-    image: "/images/artlist/hero-training-8.jpg",
+    image: "/images/trades/hero-program-hvac.jpg",
     title: "Skilled Trades & Building Technician",
     text: "HVAC, electrical, plumbing. Hands-on training for high-wage careers in construction and maintenance.",
     cta: {
-      text: "View Programs",
+      text: "View Trades Programs",
       href: "/programs/barber-apprenticeship"
     }
   },
   {
-    image: "/images/artlist/hero-training-4.jpg",
+    image: "/images/beauty/hero-program-cosmetology.jpg",
+    title: "Beauty & Esthetics Programs",
+    text: "Nails, esthetics, and cosmetology training with experienced instructors.",
+    cta: {
+      text: "View Beauty Programs",
+      href: "/programs/barber-apprenticeship"
+    }
+  },
+  {
+    image: "/images/funding/funding-dol-program.jpg",
     title: "100% Fundable Programs",
     text: "WIOA, Workforce Ready Grant, Justice Reinvestment Initiative. Most students pay $0 out of pocket.",
     cta: {
@@ -62,21 +71,12 @@ const slides: Slide[] = [
     }
   },
   {
-    image: "/images/artlist/hero-training-6.jpg",
+    image: "/images/hero-training.jpg",
     title: "Whole-Person Support Services",
     text: "Life coaching, mental health partnerships, and wraparound support to help you succeed.",
     cta: {
       text: "Learn About Support",
       href: "/support"
-    }
-  },
-  {
-    image: "/images/artlist/hero-training-5.png",
-    title: "State & Federal Alignment",
-    text: "DOL Registered Apprenticeship Sponsor. ETPL Approved. Indiana Workforce Development Partner.",
-    cta: {
-      text: "Apply Now",
-      href: "/apply"
     }
   }
 ];
@@ -93,6 +93,16 @@ export default function HeroSlideshow() {
     }, 5000);
     return () => clearInterval(timer);
   }, [isAutoPlaying]);
+
+  // Auto-play voiceover on mount
+  useEffect(() => {
+    const audio = new Audio('/videos/voiceover.mp3');
+    audio.volume = 0.7;
+    audio.play().catch(err => {
+      // Autoplay blocked by browser - user needs to interact first
+      console.log('Autoplay prevented:', err);
+    });
+  }, []);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
