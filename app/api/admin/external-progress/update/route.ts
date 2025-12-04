@@ -2,9 +2,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 
-type Status = "approved" | "in_progress";
-
 export async function POST(req: NextRequest) {
+  type Status = "approved" | "in_progress";
   try {
     const body = await req.json();
     const { id, status } = body as { id: string; status: Status };
