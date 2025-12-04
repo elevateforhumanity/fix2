@@ -100,6 +100,7 @@ export function observePerformance() {
       for (const entry of list.getEntries()) {
         if ((entry as any).hadRecentInput) continue;
         if (process.env.NODE_ENV === 'development') {
+          console.log('Layout Shift:', {
             value: (entry as any).value,
             sources: (entry as any).sources,
           });
@@ -184,6 +185,8 @@ export function monitorResources() {
         return acc;
       }, {} as Record<string, number>);
 
+      const totalSize = Object.values(resourcesByType).reduce((a, b) => a + b, 0);
+      console.log('Resources by type:', Object.entries(resourcesByType).map(([type, size]) => ({
         type,
         size: `${(size / 1024).toFixed(2)} KB`,
         percentage: `${((size / totalSize) * 100).toFixed(1)}%`,

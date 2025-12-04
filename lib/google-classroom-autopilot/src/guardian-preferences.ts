@@ -397,11 +397,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       break;
 
     default:
-        '  npx tsx src/guardian-preferences.ts check <email> [studentId]'
-      );
-        '  npx tsx src/guardian-preferences.ts opt-out <email> [studentId]'
-      );
-        '  npx tsx src/guardian-preferences.ts opt-in <email> [studentId]'
-      );
+      console.log('  npx tsx src/guardian-preferences.ts check <email> [studentId]');
+      console.log('  npx tsx src/guardian-preferences.ts opt-out <email> [studentId]');
+      console.log('  npx tsx src/guardian-preferences.ts opt-in <email> [studentId]');
   }
 }

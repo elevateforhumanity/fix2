@@ -285,9 +285,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const testPayload = process.argv[3];
 
   if (!provider || !testPayload) {
-      'Usage: npx tsx src/email-webhooks.ts <provider> <json-payload>'
+    console.log(
     );
-      'Example: npx tsx src/email-webhooks.ts resend \'{"type":"email.delivered","data":{"email_id":"123"}}\''
+    console.log(
     );
     process.exit(1);
   }
