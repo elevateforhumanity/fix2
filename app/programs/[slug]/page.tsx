@@ -27,25 +27,25 @@ async function getProgram(slug: string) {
 
 function getProgramImage(slug: string, category: string): string {
   const customImages: Record<string, string> = {
-    "medical-assistant": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&h=1000&fit=crop&q=85",
-    "phlebotomy-technician": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1920&h=1000&fit=crop&q=85",
-    "pharmacy-technician": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1920&h=1000&fit=crop&q=85",
-    "dental-assistant": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1920&h=1000&fit=crop&q=85",
-    "it-support-specialist": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1920&h=1000&fit=crop&q=85",
-    "cybersecurity-analyst": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&h=1000&fit=crop&q=85",
-    "web-development": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1000&fit=crop&q=85",
-    "data-analytics": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1000&fit=crop&q=85",
-    "customer-service-representative": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&h=1000&fit=crop&q=85",
-    "administrative-assistant": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&h=1000&fit=crop&q=85",
-    "bookkeeping": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1920&h=1000&fit=crop&q=85",
-    "real-estate-agent": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&h=1000&fit=crop&q=85",
-    "insurance-agent": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&h=1000&fit=crop&q=85",
-    "solar-panel-installation": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&h=1000&fit=crop&q=85",
-    "automotive-technician": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1920&h=1000&fit=crop&q=85",
-    "diesel-mechanic": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&h=1000&fit=crop&q=85",
-    "forklift-operator": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1000&fit=crop&q=85",
-    "manufacturing-technician": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&h=1000&fit=crop&q=85",
-    "entrepreneurship-small-business": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&h=1000&fit=crop&q=85",
+    "medical-assistant": "/images/efh/programs/cna.jpg",
+    "phlebotomy-technician": "/images/artlist/hero-training-1.jpg",
+    "pharmacy-technician": "/images/artlist/hero-training-1.jpg",
+    "dental-assistant": "/images/artlist/hero-training-1.jpg",
+    "it-support-specialist": "/images/artlist/hero-training-1.jpg",
+    "cybersecurity-analyst": "/images/artlist/hero-training-1.jpg",
+    "web-development": "/images/artlist/hero-training-1.jpg",
+    "data-analytics": "/images/artlist/hero-training-1.jpg",
+    "customer-service-representative": "/images/artlist/hero-training-1.jpg",
+    "administrative-assistant": "/images/efh/sections/classroom.jpg",
+    "bookkeeping": "/images/artlist/hero-training-1.jpg",
+    "real-estate-agent": "/images/artlist/hero-training-1.jpg",
+    "insurance-agent": "/images/artlist/hero-training-1.jpg",
+    "solar-panel-installation": "/images/artlist/hero-training-1.jpg",
+    "automotive-technician": "/images/artlist/hero-training-1.jpg",
+    "diesel-mechanic": "/images/artlist/hero-training-1.jpg",
+    "forklift-operator": "/images/artlist/hero-training-1.jpg",
+    "manufacturing-technician": "/images/artlist/hero-training-1.jpg",
+    "entrepreneurship-small-business": "/images/efh/sections/classroom.jpg",
   };
 
   if (customImages[slug]) {
@@ -53,14 +53,14 @@ function getProgramImage(slug: string, category: string): string {
   }
 
   const categoryImages: Record<string, string> = {
-    "Healthcare": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&h=1000&fit=crop&q=85",
-    "Technology": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&h=1000&fit=crop&q=85",
-    "Business": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&h=1000&fit=crop&q=85",
-    "Sales": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&h=1000&fit=crop&q=85",
-    "Skilled Trades": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&h=1000&fit=crop&q=85",
+    "Healthcare": "/images/efh/programs/cna.jpg",
+    "Technology": "/images/artlist/hero-training-1.jpg",
+    "Business": "/images/efh/sections/classroom.jpg",
+    "Sales": "/images/artlist/hero-training-1.jpg",
+    "Skilled Trades": "/images/artlist/hero-training-1.jpg",
   };
 
-  return categoryImages[category] || "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&h=1000&fit=crop&q=85";
+  return categoryImages[category] || "/images/efh/sections/classroom.jpg";
 }
 
 export default async function ProgramPage({ params }: { params: { slug: string } }) {

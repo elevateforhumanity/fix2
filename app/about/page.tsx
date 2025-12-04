@@ -14,7 +14,7 @@ export default function Page() {
       {/* Hero Section with Background Image */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1000&fit=crop&q=85"
+          src="/images/artlist/hero-training-8.jpg"
           alt="Team collaboration"
           fill
           className="object-cover"
@@ -122,7 +122,7 @@ export default function Page() {
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
               <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1000&fit=crop&q=85"
+                  src="/images/artlist/hero-training-1.jpg"
                   alt="Accessibility"
                   fill
                   className="object-cover"
@@ -137,7 +137,7 @@ export default function Page() {
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
               <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1000&fit=crop&q=85"
+                  src="/images/artlist/hero-training-1.jpg"
                   alt="Quality"
                   fill
                   className="object-cover"
@@ -152,7 +152,7 @@ export default function Page() {
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
               <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&h=1000&fit=crop&q=85"
+                  src="/images/artlist/hero-training-1.jpg"
                   alt="Community"
                   fill
                   className="object-cover"
@@ -167,7 +167,7 @@ export default function Page() {
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
               <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&h=1000&fit=crop&q=85"
+                  src="/images/artlist/hero-training-1.jpg"
                   alt="Impact"
                   fill
                   className="object-cover"
@@ -280,7 +280,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1000&fit=crop&q=85"
+                  src="/images/artlist/hero-training-1.jpg"
                   alt="Employer-Driven Training"
                   fill
                   className="object-cover"
@@ -295,7 +295,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1920&h=1000&fit=crop&q=85"
+                  src="/images/artlist/hero-training-1.jpg"
                   alt="Wraparound Support"
                   fill
                   className="object-cover"
@@ -310,7 +310,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=1000&fit=crop&q=85"
+                  src="/images/artlist/hero-training-1.jpg"
                   alt="Direct Employer Connections"
                   fill
                   className="object-cover"

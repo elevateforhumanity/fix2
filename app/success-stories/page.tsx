@@ -12,7 +12,7 @@ const successStories = [
   {
     name: "Marcus Johnson",
     program: "HVAC Technician",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1000&fit=crop&q=85",
+    image: "/images/artlist/hero-training-1.jpg",
     beforeJob: "Unemployed for 18 months",
     afterJob: "HVAC Technician at Carrier",
     salary: "$52,000/year",
@@ -22,7 +22,7 @@ const successStories = [
   {
     name: "Jasmine Williams",
     program: "Medical Assistant",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1920&h=1000&fit=crop&q=85",
+    image: "/images/artlist/hero-training-1.jpg",
     beforeJob: "Retail worker, $12/hour",
     afterJob: "Medical Assistant at IU Health",
     salary: "$42,000/year",
@@ -32,7 +32,7 @@ const successStories = [
   {
     name: "David Thompson",
     program: "CDL Driver",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1920&h=1000&fit=crop&q=85",
+    image: "/images/artlist/hero-training-1.jpg",
     beforeJob: "Returning citizen, no job prospects",
     afterJob: "CDL Driver at Schneider National",
     salary: "$58,000/year",
@@ -47,7 +47,7 @@ export default function Page() {
       {/* Hero Banner with Background Image */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=85"
+          src="/images/artlist/hero-training-1.jpg"
           alt="Success stories - graduates celebrating"
           fill
           className="object-cover"

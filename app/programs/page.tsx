@@ -24,33 +24,33 @@ async function getPrograms() {
 function getProgramImage(slug: string, category: string): string {
   // High-quality program-specific images (600x400 aspect ratio)
   const customImages: Record<string, string> = {
-    "medical-assistant": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1920&h=1000&fit=crop&q=85",
-    "phlebotomy-technician": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1920&h=1000&fit=crop&q=85",
-    "pharmacy-technician": "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=1920&h=1000&fit=crop&q=85",
-    "dental-assistant": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1920&h=1000&fit=crop&q=85",
-    "it-support-specialist": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1920&h=1000&fit=crop&q=85",
-    "cybersecurity-analyst": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1920&h=1000&fit=crop&q=85",
-    "web-development": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920&h=1000&fit=crop&q=85",
-    "data-analytics": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1000&fit=crop&q=85",
-    "customer-service-representative": "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&h=1000&fit=crop&q=85",
-    "administrative-assistant": "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1920&h=1000&fit=crop&q=85",
-    "bookkeeping": "https://images.unsplash.com/photo-1554224311-beee4ece3c5d?w=1920&h=1000&fit=crop&q=85",
-    "real-estate-agent": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1920&h=1000&fit=crop&q=85",
-    "insurance-agent": "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1920&h=1000&fit=crop&q=85",
-    "solar-panel-installation": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1920&h=1000&fit=crop&q=85",
-    "automotive-technician": "https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=1920&h=1000&fit=crop&q=85",
-    "diesel-mechanic": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1920&h=1000&fit=crop&q=85",
-    "forklift-operator": "https://images.unsplash.com/photo-1553413077-190dd305871c?w=1920&h=1000&fit=crop&q=85",
-    "manufacturing-technician": "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1920&h=1000&fit=crop&q=85",
-    "entrepreneurship-small-business": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1000&fit=crop&q=85",
+    "medical-assistant": "/images/efh/programs/cna.jpg",
+    "phlebotomy-technician": "/images/artlist/hero-training-1.jpg",
+    "pharmacy-technician": "/images/artlist/hero-training-1.jpg",
+    "dental-assistant": "/images/artlist/hero-training-1.jpg",
+    "it-support-specialist": "/images/artlist/hero-training-1.jpg",
+    "cybersecurity-analyst": "/images/artlist/hero-training-1.jpg",
+    "web-development": "/images/artlist/hero-training-1.jpg",
+    "data-analytics": "/images/artlist/hero-training-1.jpg",
+    "customer-service-representative": "/images/artlist/hero-training-1.jpg",
+    "administrative-assistant": "/images/artlist/hero-training-1.jpg",
+    "bookkeeping": "/images/artlist/hero-training-1.jpg",
+    "real-estate-agent": "/images/artlist/hero-training-1.jpg",
+    "insurance-agent": "/images/artlist/hero-training-1.jpg",
+    "solar-panel-installation": "/images/artlist/hero-training-1.jpg",
+    "automotive-technician": "/images/artlist/hero-training-1.jpg",
+    "diesel-mechanic": "/images/artlist/hero-training-1.jpg",
+    "forklift-operator": "/images/artlist/hero-training-1.jpg",
+    "manufacturing-technician": "/images/artlist/hero-training-1.jpg",
+    "entrepreneurship-small-business": "/images/artlist/hero-training-1.jpg",
     // Additional programs
-    "cna": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1920&h=1000&fit=crop&q=85",
-    "certified-nursing-assistant": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1920&h=1000&fit=crop&q=85",
-    "hvac-technician": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1000&fit=crop&q=85",
-    "cdl": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&h=1000&fit=crop&q=85",
-    "commercial-truck-driving": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&h=1000&fit=crop&q=85",
-    "barber-apprenticeship": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&h=1000&fit=crop&q=85",
-    "building-maintenance-technician": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&h=1000&fit=crop&q=85",
+    "cna": "/images/artlist/hero-training-1.jpg",
+    "certified-nursing-assistant": "/images/artlist/hero-training-1.jpg",
+    "hvac-technician": "/images/trades/program-hvac-technician.jpg",
+    "cdl": "/images/artlist/hero-training-1.jpg",
+    "commercial-truck-driving": "/images/artlist/hero-training-1.jpg",
+    "barber-apprenticeship": "/images/efh/programs/barber.jpg",
+    "building-maintenance-technician": "/images/artlist/hero-training-1.jpg",
   };
 
   if (customImages[slug]) {
@@ -59,20 +59,20 @@ function getProgramImage(slug: string, category: string): string {
 
   // High-quality category fallback images
   const categoryImages: Record<string, string> = {
-    "Healthcare": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1920&h=1000&fit=crop&q=85",
-    "Technology": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&h=1000&fit=crop&q=85",
-    "Business": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1920&h=1000&fit=crop&q=85",
-    "Sales": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&h=1000&fit=crop&q=85",
-    "Skilled Trades": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&h=1000&fit=crop&q=85",
-    "Transportation": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&h=1000&fit=crop&q=85",
-    "trades": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&h=1000&fit=crop&q=85",
-    "healthcare": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1920&h=1000&fit=crop&q=85",
-    "transportation": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&h=1000&fit=crop&q=85",
-    "barber_beauty": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&h=1000&fit=crop&q=85",
-    "professional": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1920&h=1000&fit=crop&q=85",
+    "Healthcare": "/images/artlist/hero-training-1.jpg",
+    "Technology": "/images/artlist/hero-training-1.jpg",
+    "Business": "/images/artlist/hero-training-1.jpg",
+    "Sales": "/images/artlist/hero-training-1.jpg",
+    "Skilled Trades": "/images/artlist/hero-training-1.jpg",
+    "Transportation": "/images/artlist/hero-training-1.jpg",
+    "trades": "/images/artlist/hero-training-1.jpg",
+    "healthcare": "/images/artlist/hero-training-1.jpg",
+    "transportation": "/images/artlist/hero-training-1.jpg",
+    "barber_beauty": "/images/efh/programs/barber.jpg",
+    "professional": "/images/artlist/hero-training-1.jpg",
   };
 
-  return categoryImages[category] || "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=85";
+  return categoryImages[category] || "/images/artlist/hero-training-1.jpg";
 }
 
 export const metadata = {
@@ -282,6 +282,9 @@ export default async function ProgramsPage() {
                   alt="Barber Apprenticeship - Earn While You Learn"
                   fill
                   className="object-cover"
+                  quality={90}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
                 />
               </div>
             </div>
@@ -376,7 +379,7 @@ export default async function ProgramsPage() {
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
                 <Image
-                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1000&fit=crop&q=85"
+                  src="/images/artlist/hero-training-1.jpg"
                   alt="Business Training Programs"
                   fill
                   className="object-cover"
