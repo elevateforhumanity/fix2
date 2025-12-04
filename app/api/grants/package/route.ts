@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
         }
         const pkg = await buildGrantPackage(applicationId);
 
-        return new NextResponse(pkg.files.complete_package_zip, {
+        return new NextResponse(pkg.files.complete_package_zip as unknown as BodyInit, {
           headers: {
             'Content-Type': 'application/zip',
             'Content-Disposition': `attachment; filename="grant_package_${applicationId}.zip"`,
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
 
         if (format === 'pdf') {
           const pdf = await generateNarrativePdf(applicationId);
-          return new NextResponse(pdf, {
+          return new NextResponse(pdf as unknown as BodyInit, {
             headers: {
               'Content-Type': 'application/pdf',
               'Content-Disposition': `attachment; filename="narrative_${applicationId}.pdf"`,
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
           });
         } else {
           const docx = await generateNarrativeDocx(applicationId);
-          return new NextResponse(docx, {
+          return new NextResponse(docx as unknown as BodyInit, {
             headers: {
               'Content-Type':
                 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
           );
         }
         const capability = await generateCapabilityStatement(entityId);
-        return new NextResponse(capability, {
+        return new NextResponse(capability as unknown as BodyInit, {
           headers: {
             'Content-Type': 'application/pdf',
             'Content-Disposition': `attachment; filename="capability_statement_${entityId}.pdf"`,
@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
           );
         }
         const budget = await generateBudgetSpreadsheet(applicationId);
-        return new NextResponse(budget, {
+        return new NextResponse(budget as unknown as BodyInit, {
           headers: {
             'Content-Type': 'text/csv',
             'Content-Disposition': `attachment; filename="budget_${applicationId}.csv"`,
