@@ -56,10 +56,11 @@ export async function GET(request: Request) {
         existing.points += achievement.points || 0;
         existing.achievements += 1;
       } else {
+        const profile = Array.isArray(achievement.profiles) ? achievement.profiles[0] : achievement.profiles;
         userPoints.set(userId, {
           userId,
-          name: achievement.profiles?.full_name || 'Anonymous',
-          avatar: achievement.profiles?.avatar_url || '',
+          name: profile?.full_name || 'Anonymous',
+          avatar: profile?.avatar_url || '',
           points: achievement.points || 0,
           achievements: 1,
         });

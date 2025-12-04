@@ -389,7 +389,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       break;
 
     default:
-        '  npx tsx src/email-correlation.ts correlation <correlation-id>'
-      );
+      console.log('Usage:');
+      console.log('  npx tsx src/email-correlation.ts correlation <correlation-id>');
   }
 }

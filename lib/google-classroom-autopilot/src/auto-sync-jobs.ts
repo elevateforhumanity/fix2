@@ -222,7 +222,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       break;
 
     default:
-        '  npx tsx src/auto-sync-jobs.ts queue  - Queue jobs that should run now'
-      );
+      console.log('Usage:');
+      console.log('  npx tsx src/auto-sync-jobs.ts queue  - Queue jobs that should run now');
   }
 }
