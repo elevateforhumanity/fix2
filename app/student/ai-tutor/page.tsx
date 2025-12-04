@@ -4,6 +4,8 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import AIInstructor from '@/app/components/AIInstructor';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'AI Tutor | Student Portal',
   description: 'Get personalized help from your AI instructor',

@@ -3,6 +3,8 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { Award, Download, Share2, CheckCircle, Calendar, FileText, ExternalLink, Shield } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Certificates | Student Portal',
   description: 'View and download your certificates',

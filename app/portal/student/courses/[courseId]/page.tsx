@@ -4,6 +4,8 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import CourseProgressTracker from './CourseProgressTracker';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata({ params }: { params: { courseId: string } }): Promise<Metadata> {
   const supabase = await createClient();
   const { data: course } = await supabase

@@ -3,6 +3,8 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { BarChart3, TrendingUp, Clock, Target, BookOpen, Award, Calendar, Eye } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Learning Analytics | Student Portal',
   description: 'Track your learning performance and insights',

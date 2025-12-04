@@ -3,6 +3,8 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { HSICoursePlayer } from './HSICoursePlayer';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'HSI Course | Elevate For Humanity',
 };

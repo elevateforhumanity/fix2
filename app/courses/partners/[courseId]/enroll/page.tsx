@@ -3,6 +3,8 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import EnrollmentForm from './EnrollmentForm';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Enroll in Course | Elevate For Humanity',
   description: 'Complete your enrollment in this partner course',

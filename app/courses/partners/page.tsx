@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Partner Course Catalog | Elevate For Humanity',
   description: '1200+ professional courses from industry-leading partners',

@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 
+export const dynamic = 'force-dynamic';
+
 async function getPrograms() {
   const supabase = await createClient();
   

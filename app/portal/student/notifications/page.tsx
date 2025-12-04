@@ -3,6 +3,8 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { Bell, CheckCheck, Trash2, Settings, BookOpen, Award, MessageSquare, Calendar, AlertCircle } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Notifications | Student Portal',
   description: 'View and manage your notifications',

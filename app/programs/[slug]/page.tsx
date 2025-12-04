@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 
+export const dynamic = 'force-dynamic';
+
 export async function generateStaticParams() {
   // Return empty array to enable dynamic rendering
   // Pages will be generated on-demand

@@ -3,6 +3,8 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { HelpCircle, MessageCircle, Book, Video, Mail, Phone, Clock, CheckCircle } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Support & Help | Student Portal',
 };

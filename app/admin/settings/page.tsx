@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Settings | Elevate For Humanity',
   description: 'Learn more about Settings inside the Elevate For Humanity workforce ecosystem.',

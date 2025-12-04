@@ -4,6 +4,8 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { BookOpen, Award, Clock, TrendingUp, CheckCircle, Calendar, Target, Bell } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Student Dashboard | Elevate For Humanity',
   description: 'Your personalized learning dashboard',

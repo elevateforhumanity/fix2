@@ -3,6 +3,8 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Intake | Elevate For Humanity',
   description: 'Learn more about Intake inside the Elevate For Humanity workforce ecosystem.',

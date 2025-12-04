@@ -5,6 +5,8 @@ import { createClient } from '@/lib/supabase/client';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export default function CourseDiscussionsPage() {
   const params = useParams();
   const router = useRouter();

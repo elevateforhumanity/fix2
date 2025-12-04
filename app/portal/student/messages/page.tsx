@@ -4,6 +4,8 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { MessageSquare, Send, Search, Paperclip, MoreVertical, User } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Messages | Student Portal',
   description: 'Send and receive messages',

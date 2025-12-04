@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { CheckCircle, XCircle, Download, Share2 } from 'lucide-react';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Verify Certificate | Elevate For Humanity',
   description: 'Verify the authenticity of an Elevate For Humanity certificate',

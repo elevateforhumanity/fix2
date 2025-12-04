@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Course Builder | Elevate For Humanity',
   description: 'Learn more about Course Builder inside the Elevate For Humanity workforce ecosystem.',
