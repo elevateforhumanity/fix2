@@ -29,7 +29,7 @@ export function handleApiError(error: unknown): NextResponse {
     );
   }
 
-  logger.error('Unknown Error', { error });
+  logger.error('Unknown Error: ' + String(error));
   return NextResponse.json(
     { error: 'An unexpected error occurred' },
     { status: 500 }
