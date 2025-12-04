@@ -4,8 +4,8 @@
  */
 
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
-import { sendEmail } from '@/lib/notifications/email';
-import { sendSMS } from '@/lib/notifications/sms';
+import { EmailService } from '@/lib/notifications/email';
+import { SMSService } from '@/lib/notifications/sms';
 
 export type GrantNotificationType =
   | 'draft_generated'
@@ -145,10 +145,12 @@ async function sendEmailNotification(
 </html>
   `;
 
-  await sendEmail({
+  const emailService = EmailService.getInstance();
+  await emailService.send({
     to: recipient.email,
     subject,
     html,
+    text: notification.message,
   });
 }
 
@@ -164,7 +166,8 @@ async function sendSMSNotification(
 
   const message = `EFH GRANT ALERT: ${notification.title}\n\nGrant: ${grantTitle}\n\nPriority: ${notification.priority.toUpperCase()}\n\nView: ${process.env.NEXT_PUBLIC_APP_URL}/admin/grants/workflow`;
 
-  await sendSMS({
+  const smsService = SMSService.getInstance();
+  await smsService.send({
     to: recipient.phone,
     message,
   });
