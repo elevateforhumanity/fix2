@@ -13,7 +13,7 @@ export default function Page() {
       <ProgramHero
         title="CPR Certification Training"
         description="Get CPR certified. Learn life-saving techniques. Required for many healthcare and childcare positions."
-        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageSrc="/images/healthcare/program-cpr-certification.jpg"
         imageAlt="CPR Certification Training"
         duration="1 Day"
         cost="$0"

@@ -13,7 +13,7 @@ export default function Page() {
       <ProgramHero
         title="Patient Care Technician Training"
         description="100% free training. Learn patient care, vital signs, and medical assistance. Get certified and start your career."
-        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageSrc="/images/healthcare/hero-program-patient-care.jpg"
         imageAlt="Patient Care Technician Training"
         duration="8-12 Weeks"
         cost="$0"

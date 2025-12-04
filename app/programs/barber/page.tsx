@@ -13,7 +13,7 @@ export default function Page() {
       <ProgramHero
         title="Barber Training Program"
         description="100% free barber training. Learn cutting, styling, and grooming techniques. Get licensed and start your career."
-        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageSrc="/images/efh/programs/barber.jpg"
         imageAlt="Barber Training Program"
         duration="12-16 Weeks"
         cost="$0"

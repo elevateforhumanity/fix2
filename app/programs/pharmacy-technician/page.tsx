@@ -13,7 +13,7 @@ export default function Page() {
       <ProgramHero
         title="Pharmacy Technician Training"
         description="100% free training. Learn medication dispensing, inventory management, and patient counseling. Get certified."
-        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageSrc="/images/healthcare/program-medical-assistant.jpg"
         imageAlt="Pharmacy Technician Training"
         duration="8-12 Weeks"
         cost="$0"

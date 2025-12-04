@@ -12,7 +12,7 @@ export default function Page() {
       <ProgramHero
         title="Commercial Driver License (CDL) Training"
         description="100% free CDL training. Learn to drive commercial vehicles. Get your CDL and start earning immediately."
-        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageSrc="/images/trades/hero-program-cdl.jpg"
         imageAlt="Commercial Driver License (CDL) Training"
         duration="4-6 Weeks"
         cost="$0"

@@ -13,7 +13,7 @@ export default function Page() {
       <ProgramHero
         title="Phlebotomy Technician Training"
         description="100% free training. Learn blood collection, lab procedures, and patient care. Get certified and start your career."
-        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageSrc="/images/healthcare/hero-program-phlebotomy.jpg"
         imageAlt="Phlebotomy Technician Training"
         duration="4-8 Weeks"
         cost="$0"

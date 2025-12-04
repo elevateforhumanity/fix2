@@ -13,7 +13,7 @@ export default function Page() {
       <ProgramHero
         title="Sterile Processing Technician Training"
         description="100% free training. Learn medical equipment sterilization and infection control. Get certified."
-        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageSrc="/images/healthcare/hero-healthcare-professionals.jpg"
         imageAlt="Sterile Processing Technician Training"
         duration="8-12 Weeks"
         cost="$0"

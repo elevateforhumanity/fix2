@@ -13,7 +13,7 @@ export default function Page() {
       <ProgramHero
         title="Childcare Professional Training"
         description="100% free childcare training. Learn early childhood education and development. Get certified and work with children."
-        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageSrc="/images/efh/programs/beauty.jpg"
         imageAlt="Childcare Professional Training"
         duration="8-12 Weeks"
         cost="$0"

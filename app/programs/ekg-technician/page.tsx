@@ -13,7 +13,7 @@ export default function Page() {
       <ProgramHero
         title="EKG Technician Training"
         description="100% free EKG technician training. Learn to perform electrocardiograms and monitor heart health. Get certified."
-        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageSrc="/images/healthcare/hero-healthcare-professionals.jpg"
         imageAlt="EKG Technician Training"
         duration="6-8 Weeks"
         cost="$0"
