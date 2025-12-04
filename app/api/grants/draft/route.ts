@@ -3,12 +3,21 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || 'placeholder-key',
-});
+const openai = process.env.OPENAI_API_KEY
+  ? new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    })
+  : null;
 
 export async function POST(req: NextRequest) {
   try {
+    if (!openai) {
+      return NextResponse.json(
+        { error: 'AI service not configured' },
+        { status: 503 }
+      );
+    }
+
     const body = await req.json();
     const { grantId, entityId } = body as { grantId: string; entityId: string };
 

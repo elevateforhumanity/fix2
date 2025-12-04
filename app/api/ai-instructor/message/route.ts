@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const openai = process.env.OPENAI_API_KEY 
+  ? new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    })
+  : null;
 
 const contextPrompts = {
   welcome: 'You are a warm, encouraging AI instructor welcoming a new student to their training program. Be brief (2-3 sentences), supportive, and motivating.',
@@ -14,6 +16,13 @@ const contextPrompts = {
 
 export async function POST(req: NextRequest) {
   try {
+    if (!openai) {
+      return NextResponse.json(
+        { error: 'AI instructor not configured' },
+        { status: 503 }
+      );
+    }
+
     const { programId, lessonId, context = 'welcome' } = await req.json();
 
     const systemPrompt = contextPrompts[context as keyof typeof contextPrompts] || contextPrompts.welcome;
