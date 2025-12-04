@@ -23,6 +23,8 @@ import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
 import { InvisibleWatermark, DMCATrackingPixel } from '@/components/InvisibleWatermark';
 import { ScraperDetection } from '@/components/ScraperDetection';
+import { OfflineIndicator } from '@/components/offline-indicator';
+import { ServiceWorkerInit } from '@/components/service-worker-init';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -156,6 +158,8 @@ sizes="192x192" />
         {/* <ElevateChatWidget /> */}
         <CookieBanner />
         <PWAInstallPrompt />
+        <OfflineIndicator />
+        <ServiceWorkerInit />
         <Toaster
           position="top-right"
           toastOptions={{

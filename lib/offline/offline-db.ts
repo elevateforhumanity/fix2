@@ -111,6 +111,11 @@ class OfflineDB {
     });
   }
 
+  // Alias for compatibility with service worker
+  async deleteOfflineAction(id: number): Promise<void> {
+    return this.removeOfflineAction(id);
+  }
+
   // Cached Data
   async setCachedData(key: string, data: any, expiresIn?: number): Promise<void> {
     if (!this.db) await this.init();
@@ -239,4 +244,5 @@ class OfflineDB {
   }
 }
 
+export { OfflineDB };
 export const offlineDB = new OfflineDB();
