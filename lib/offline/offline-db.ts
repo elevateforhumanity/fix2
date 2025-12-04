@@ -7,6 +7,7 @@ const DB_VERSION = 1;
 
 export interface OfflineAction {
   id?: number;
+  type?: string;
   url: string;
   method: string;
   headers: Record<string, string>;
