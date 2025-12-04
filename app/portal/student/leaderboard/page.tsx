@@ -53,9 +53,9 @@ export default async function LeaderboardPage() {
           <div className="divide-y">
             {rankings && rankings.length > 0 ? (
               rankings.map((student: any, index: number) => (
-                <div key={student.id} className={\`p-4 flex items-center justify-between \${student.id === user.id ? 'bg-blue-50' : 'hover:bg-gray-50'}\`}>
+                <div key={student.id} className={`p-4 flex items-center justify-between \${student.id === user.id ? 'bg-blue-50' : 'hover:bg-gray-50'}`}>
                   <div className="flex items-center gap-4">
-                    <span className={\`text-2xl font-bold \${index < 3 ? 'text-yellow-600' : 'text-gray-400'}\`}>
+                    <span className={`text-2xl font-bold \${index < 3 ? 'text-yellow-600' : 'text-gray-400'}`}>
                       #{index + 1}
                     </span>
                     <div>

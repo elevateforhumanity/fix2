@@ -101,11 +101,11 @@ export default async function SupportPage() {
                     <div key={ticket.id} className="border border-gray-200 rounded-lg p-4">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-semibold">{ticket.subject}</h3>
-                        <span className={\`px-3 py-1 rounded-full text-sm font-medium \${
+                        <span className={`px-3 py-1 rounded-full text-sm font-medium \${
                           ticket.status === 'open' ? 'bg-orange-100 text-orange-700' :
                           ticket.status === 'resolved' ? 'bg-green-100 text-green-700' :
                           'bg-gray-100 text-gray-700'
-                        }\`}>
+                        }`}>
                           {ticket.status}
                         </span>
                       </div>

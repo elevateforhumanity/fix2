@@ -14,10 +14,10 @@ export default async function LearningPathsPage() {
 
   const { data: enrollments } = await supabase
     .from('enrollments')
-    .select(\`
+    .select(`
       *,
       programs(name, duration_weeks)
-    \`)
+    `)
     .eq('user_id', user.id);
 
   const paths = [
@@ -116,7 +116,7 @@ export default async function LearningPathsPage() {
                       <div className="w-full bg-gray-200 rounded-full h-3">
                         <div 
                           className="bg-gradient-to-r from-blue-600 to-purple-600 h-3 rounded-full transition-all"
-                          style={{ width: \`\${path.progress}%\` }}
+                          style={{ width: `\${path.progress}%` }}
                         ></div>
                       </div>
                     </div>
@@ -130,11 +130,11 @@ export default async function LearningPathsPage() {
                         return (
                           <div 
                             key={index}
-                            className={\`p-4 rounded-lg border-2 \${
+                            className={`p-4 rounded-lg border-2 \${
                               isCompleted ? 'border-green-500 bg-green-50' :
                               isCurrent ? 'border-blue-500 bg-blue-50' :
                               'border-gray-200 bg-gray-50'
-                            }\`}
+                            }`}
                           >
                             <div className="flex items-center gap-2 mb-2">
                               {isCompleted && <CheckCircle size={20} className="text-green-600" />}
@@ -142,7 +142,7 @@ export default async function LearningPathsPage() {
                               {isLocked && <Lock size={20} className="text-gray-400" />}
                               <span className="text-sm font-medium">{index + 1}</span>
                             </div>
-                            <p className={\`text-sm font-medium \${isLocked ? 'text-gray-400' : 'text-gray-900'}\`}>
+                            <p className={`text-sm font-medium \${isLocked ? 'text-gray-400' : 'text-gray-900'}`}>
                               {course}
                             </p>
                           </div>

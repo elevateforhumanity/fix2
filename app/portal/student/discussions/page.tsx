@@ -14,11 +14,11 @@
 `
 `  const { data: threads } = await supabase
 `    .from('discussion_threads')
-`    .select(\`
+`    .select(`
 `      *,
 `      author:profiles!discussion_threads_author_id_fkey(full_name),
 `      replies:discussion_replies(count)
-`    \`)
+`    `)
 `    .order('created_at', { ascending: false })
 `    .limit(20);
 `

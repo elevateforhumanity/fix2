@@ -54,9 +54,9 @@ export default async function ResourcesPage() {
             {categories.map((cat) => (
               <button
                 key={cat}
-                className={\`px-4 py-2 rounded-lg font-medium whitespace-nowrap \${
+                className={`px-4 py-2 rounded-lg font-medium whitespace-nowrap \${
                   cat === 'All' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }\`}
+                }`}
               >
                 {cat}
               </button>

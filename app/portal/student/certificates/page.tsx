@@ -21,7 +21,7 @@ export default async function CertificatesPage() {
 
   const { data: completedEnrollments } = await supabase
     .from('enrollments')
-    .select(\`
+    .select(`
       *,
       programs (
         name,
@@ -29,7 +29,7 @@ export default async function CertificatesPage() {
         duration_weeks,
         certificate_type
       )
-    \`)
+    `)
     .eq('user_id', user.id)
     .eq('status', 'completed');
 
@@ -41,7 +41,7 @@ export default async function CertificatesPage() {
     certificateType: enrollment.programs?.certificate_type || 'Completion',
     duration: enrollment.programs?.duration_weeks || 0,
     grade: enrollment.final_grade || 'Pass',
-    credentialId: \`CERT-\${enrollment.id.substring(0, 8).toUpperCase()}\`,
+    credentialId: `CERT-${enrollment.id.substring(0, 8).toUpperCase()}`,
     verified: true,
   })) || [];
 
