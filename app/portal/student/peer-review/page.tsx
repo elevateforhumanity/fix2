@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Manage your peer-review',
 };
 
-export default async function Peer-reviewPage() {
+export default async function PeerReviewPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');

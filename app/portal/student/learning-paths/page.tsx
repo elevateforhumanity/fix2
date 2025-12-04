@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Manage your learning-paths',
 };
 
-export default async function Learning-pathsPage() {
+export default async function LearningPathsPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');

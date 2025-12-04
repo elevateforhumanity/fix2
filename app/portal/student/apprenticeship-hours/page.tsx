@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Manage your apprenticeship-hours',
 };
 
-export default async function Apprenticeship-hoursPage() {
+export default async function ApprenticeshipHoursPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');

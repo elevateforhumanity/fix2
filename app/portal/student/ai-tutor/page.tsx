@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Manage your ai-tutor',
 };
 
-export default async function Ai-tutorPage() {
+export default async function AiTutorPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');
