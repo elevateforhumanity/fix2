@@ -274,12 +274,15 @@ INSERT INTO grant_sources (name, code, base_url, active)
 VALUES ('SAM.gov', 'sam_gov', 'https://api.sam.gov', true)
 ON CONFLICT (code) DO NOTHING;
 
--- Sample Entity (Elevate for Humanity)
+-- Real Entities - UPDATE WITH YOUR ACTUAL SAM.gov REGISTRATION DATA
+
+-- Entity 1: Elevate for Humanity (Nonprofit)
 INSERT INTO entities (
   name,
   entity_type,
   uei,
   ein,
+  cage_code,
   naics_list,
   address,
   city,
@@ -289,26 +292,117 @@ INSERT INTO entities (
   email,
   congressional_district,
   capability_narrative,
+  org_history,
+  key_personnel,
   contact_first_name,
   contact_last_name,
   contact_title
 ) VALUES (
   'Elevate for Humanity',
   'nonprofit',
-  'ABC123DEF456',
-  '12-3456789',
-  ARRAY['611519', '624190', '611430'],
-  '123 Main Street',
+  NULL, -- TODO: Add your actual UEI from SAM.gov
+  NULL, -- TODO: Add your actual EIN (Federal Tax ID)
+  NULL, -- TODO: Add your actual CAGE code from SAM.gov
+  ARRAY['611519', '624190', '611430', '624310'], -- NAICS: Training, Vocational Rehab
+  NULL, -- TODO: Add your actual street address
   'Indianapolis',
   'IN',
-  '46204',
-  '(317) 555-0100',
+  NULL, -- TODO: Add your actual ZIP code
+  NULL, -- TODO: Add your actual phone number
   'Elevate4humanityedu@gmail.com',
-  '07',
-  'Elevate for Humanity provides workforce development training in high-demand fields including HVAC, CNA, Barbering, and Building Technology.',
+  '07', -- Indianapolis Congressional District
+  'Elevate for Humanity is a 501(c)(3) nonprofit organization providing workforce development training in high-demand fields including HVAC Technology, Certified Nursing Assistant (CNA), Barbering, and Building Technology. We serve underserved communities in Indianapolis, Indiana, with a focus on creating pathways to sustainable careers and economic mobility.',
+  'Founded to address workforce gaps in Indianapolis, Elevate for Humanity partners with industry leaders to provide hands-on training, certification preparation, and job placement assistance. Our programs are designed to meet local workforce needs while providing comprehensive support services to ensure student success.',
+  'Elizabeth Greene, Executive Director - Oversees all organizational operations, program development, and strategic partnerships.',
   'Elizabeth',
   'Greene',
   'Executive Director'
+) ON CONFLICT DO NOTHING;
+
+-- Entity 2: Curvature Body Sculpting (For-Profit)
+INSERT INTO entities (
+  name,
+  entity_type,
+  uei,
+  ein,
+  cage_code,
+  naics_list,
+  address,
+  city,
+  state,
+  zip,
+  phone,
+  email,
+  congressional_district,
+  capability_narrative,
+  org_history,
+  key_personnel,
+  contact_first_name,
+  contact_last_name,
+  contact_title
+) VALUES (
+  'Curvature Body Sculpting',
+  'for_profit',
+  NULL, -- TODO: Add your actual UEI from SAM.gov
+  NULL, -- TODO: Add your actual EIN (Federal Tax ID)
+  NULL, -- TODO: Add your actual CAGE code from SAM.gov
+  ARRAY['812199', '621399'], -- NAICS: Personal Care Services, Wellness
+  NULL, -- TODO: Add your actual street address
+  'Indianapolis',
+  'IN',
+  NULL, -- TODO: Add your actual ZIP code
+  NULL, -- TODO: Add your actual phone number
+  'Elevate4humanityedu@gmail.com',
+  '07', -- Indianapolis Congressional District
+  'Curvature Body Sculpting provides non-invasive body contouring and wellness services. We specialize in advanced body sculpting technologies and personalized wellness programs designed to help clients achieve their health and aesthetic goals.',
+  'Established to provide accessible wellness and body contouring services, Curvature Body Sculpting combines cutting-edge technology with personalized care to serve the Indianapolis community.',
+  'Elizabeth Greene, Owner/Operator - Manages all business operations and client services.',
+  'Elizabeth',
+  'Greene',
+  'Owner/Operator'
+) ON CONFLICT DO NOTHING;
+
+-- Entity 3: Selfish Inc (For-Profit)
+INSERT INTO entities (
+  name,
+  entity_type,
+  uei,
+  ein,
+  cage_code,
+  naics_list,
+  address,
+  city,
+  state,
+  zip,
+  phone,
+  email,
+  congressional_district,
+  capability_narrative,
+  org_history,
+  key_personnel,
+  contact_first_name,
+  contact_last_name,
+  contact_title
+) VALUES (
+  'Selfish Inc',
+  'for_profit',
+  NULL, -- TODO: Add your actual UEI from SAM.gov
+  NULL, -- TODO: Add your actual EIN (Federal Tax ID)
+  NULL, -- TODO: Add your actual CAGE code from SAM.gov
+  ARRAY['541990', '611710'], -- NAICS: Professional Services, Educational Support
+  NULL, -- TODO: Add your actual street address
+  'Indianapolis',
+  'IN',
+  NULL, -- TODO: Add your actual ZIP code
+  NULL, -- TODO: Add your actual phone number
+  'Elevate4humanityedu@gmail.com',
+  '07', -- Indianapolis Congressional District
+  'Selfish Inc provides professional services and educational support solutions. We focus on innovative approaches to personal and professional development.',
+  'Selfish Inc was founded to provide specialized professional services and educational support to individuals and organizations seeking growth and development.',
+  'Elizabeth Greene, CEO - Leads strategic direction and business development.',
+  'Elizabeth',
+  'Greene',
+  'CEO'
 ) ON CONFLICT DO NOTHING;
 
 -- =====================================================
