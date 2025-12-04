@@ -9,7 +9,6 @@ export default async function PortalPage() {
     redirect('/login');
   }
 
-  // Get user role
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
@@ -18,19 +17,23 @@ export default async function PortalPage() {
 
   const role = profile?.role || 'student';
 
-  // Redirect based on role
   switch (role) {
     case 'student':
       redirect('/portal/student/dashboard');
+      break;
     case 'staff':
     case 'instructor':
       redirect('/portal/staff/dashboard');
+      break;
     case 'parent':
       redirect('/portal/parent/dashboard');
+      break;
     case 'employer':
       redirect('/portal/employer/dashboard');
+      break;
     case 'admin':
       redirect('/admin');
+      break;
     default:
       redirect('/portal/student/dashboard');
   }
