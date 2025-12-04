@@ -21,37 +21,44 @@ export async function POST(req: NextRequest) {
     }
 
     // Build update object based on status
-    let updateData;
-    
     if (status === "approved") {
-      updateData = {
-        status,
-        approved_at: new Date().toISOString()
-      };
+      const { error } = await supabaseAdmin
+        .from("external_partner_progress")
+        .update({
+          status,
+          approved_at: new Date().toISOString()
+        })
+        .eq("id", id);
+
+      if (error) {
+        console.error("Error updating external progress", error);
+        return NextResponse.json(
+          { error: "Failed to update status" },
+          { status: 500 }
+        );
+      }
     } else {
       // status === "in_progress"
-      updateData = {
-        status,
-        proof_file_url: null,
-        approved_at: null,
-        approved_by: null
-      };
+      const { error } = await supabaseAdmin
+        .from("external_partner_progress")
+        .update({
+          status,
+          proof_file_url: null,
+          approved_at: null,
+          approved_by: null
+        })
+        .eq("id", id);
+
+      if (error) {
+        console.error("Error updating external progress", error);
+        return NextResponse.json(
+          { error: "Failed to update status" },
+          { status: 500 }
+        );
+      }
     }
 
-    const { error } = await supabaseAdmin
-      .from("external_partner_progress")
-      .update(updateData)
-      .eq("id", id);
 
-    if (error) {
-      console.error("Error updating external progress", error);
-      return NextResponse.json(
-        { error: "Failed to update status" },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.json({ ok: true });
   } catch (err: any) {
     console.error(err);
     return NextResponse.json(
