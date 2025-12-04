@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function CDLProgramPage() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative min-h-[500px] flex items-center">
+      <section className="relative min-h-[400px] flex items-center">
         <div className="absolute inset-0">
           <Image
             src="/images/trades/hero-program-cdl.jpg"

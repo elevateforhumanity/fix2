@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner with Modern Design */}
-      <section className="relative min-h-[600px] flex items-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+      <section className="relative min-h-[400px] flex items-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('/images/patterns/barber-tools.svg')] bg-repeat opacity-20"></div>
         </div>

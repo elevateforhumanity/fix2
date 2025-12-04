@@ -293,6 +293,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const payload = JSON.parse(testPayload);
   handleEmailWebhook(provider, payload)
     .then((result) => {
+      console.log('Result:', result);
     })
     .catch((error) => {
       console.error('Error:', error);

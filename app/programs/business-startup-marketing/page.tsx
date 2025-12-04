@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner */}
-      <section className="relative min-h-[500px] flex items-center">
+      <section className="relative min-h-[400px] flex items-center">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Business Startup Marketing | Elevate For Humanity</h1>

@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       {/* HERO BANNER - Full Width, Clean */}
-      <section className="relative h-[70vh] min-h-[500px] overflow-hidden bg-slate-100">
+      <section className="relative h-[450px] overflow-hidden bg-slate-100">
         <Image
           src="/images/artlist/hero-training-5.jpg"
           alt="Elevate for Humanity - Transform Your Future"
