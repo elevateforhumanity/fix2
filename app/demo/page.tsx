@@ -168,42 +168,42 @@ export default function Page() {
             <p className="text-xl text-gray-600 text-center mb-12">Explore each section with interactive demos</p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link href="/app/student" className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
+              <Link href="/demo/student" className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">🎓</div>
                 <h3 className="text-2xl font-bold mb-2">Student Portal</h3>
                 <p className="text-blue-100 mb-4">Course access, progress tracking, certificates</p>
                 <div className="text-sm font-semibold">Try Demo →</div>
               </Link>
 
-              <Link href="/app/program-holder" className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
+              <Link href="/demo/program-holder" className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">🏢</div>
                 <h3 className="text-2xl font-bold mb-2">Program Holder</h3>
                 <p className="text-purple-100 mb-4">Manage students, track outcomes, reporting</p>
                 <div className="text-sm font-semibold">Try Demo →</div>
               </Link>
 
-              <Link href="/app/admin" className="bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
+              <Link href="/demo/admin" className="bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">⚙️</div>
                 <h3 className="text-2xl font-bold mb-2">Admin Dashboard</h3>
                 <p className="text-red-100 mb-4">Full platform control, analytics, settings</p>
                 <div className="text-sm font-semibold">Try Demo →</div>
               </Link>
 
-              <Link href="/app/grants" className="bg-gradient-to-br from-green-500 to-green-700 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
+              <Link href="/demo/grants" className="bg-gradient-to-br from-green-500 to-green-700 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">📝</div>
                 <h3 className="text-2xl font-bold mb-2">Grant Autopilot</h3>
                 <p className="text-green-100 mb-4">AI-powered grant writing and management</p>
                 <div className="text-sm font-semibold">Try Demo →</div>
               </Link>
 
-              <Link href="/app/vita" className="bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
+              <Link href="/demo/vita" className="bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">💰</div>
                 <h3 className="text-2xl font-bold mb-2">VITA Tax Services</h3>
                 <p className="text-yellow-100 mb-4">Free tax preparation for students</p>
                 <div className="text-sm font-semibold">Try Demo →</div>
               </Link>
 
-              <Link href="/app/supersonic" className="bg-gradient-to-br from-pink-500 to-rose-700 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
+              <Link href="/demo/supersonic" className="bg-gradient-to-br from-pink-500 to-rose-700 rounded-xl p-8 text-white hover:shadow-xl transition-shadow">
                 <div className="text-4xl mb-4">⚡</div>
                 <h3 className="text-2xl font-bold mb-2">Supersonic Fast Cash</h3>
                 <p className="text-pink-100 mb-4">Tax refund advances and financial services</p>
