@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation';
 // Image asset: /images/success-new/success-14.jpg
 import { createServerSupabaseClient } from '@/lib/auth';
 import { Metadata } from 'next';
+import StudentPortalNav from '@/components/StudentPortalNav';
 
 export const metadata: Metadata = {
   title: "Student Portal - My Learning Journey",
@@ -41,5 +42,10 @@ export default async function StudentLayout({ children }: { children: React.Reac
     redirect('/apply?message=You must be enrolled in a program to access student portal');
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      <StudentPortalNav />
+      {children}
+    </>
+  );
 }
