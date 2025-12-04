@@ -57,7 +57,7 @@ function loadState(): AutopilotState {
 // Save autopilot state to disk
 function saveState(state: AutopilotState): void {
   fs.mkdirSync(path.dirname(DATA_PATH), { recursive: true });
-  state.updatedAt = generateId();
+  state.updatedAt = Date.now();
   fs.writeFileSync(DATA_PATH, JSON.stringify(state, null, 2), 'utf8');
 }
 
