@@ -1,16 +1,40 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: NextRequest) {
   try {
     const subscription = await request.json();
+    const supabase = await createClient();
+    
+    // Get current user
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    if (!user) {
+      return NextResponse.json(
+        { success: false, error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
 
-    // Note: Store subscription in database
-    // For now, just log it
+    // Store subscription in database
+    const { error } = await supabase
+      .from('push_subscriptions')
+      .upsert({
+        user_id: user.id,
+        subscription: subscription,
+        endpoint: subscription.endpoint,
+        updated_at: new Date().toISOString(),
+      }, {
+        onConflict: 'user_id,endpoint',
+      });
 
-    // In production, you would:
-    // 1. Extract user ID from session/auth
-    // 2. Store subscription in database with user ID
-    // 3. Associate with user preferences
+    if (error) {
+      console.error('[Notifications] Database error:', error);
+      return NextResponse.json(
+        { success: false, error: 'Failed to save subscription' },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({
       success: true,
