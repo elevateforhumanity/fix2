@@ -2,8 +2,7 @@
  * Sentry Error Tracking and Performance Monitoring
  */
 
-import * as Sentry from '@sentry/react';
-import { BrowserTracing } from '@sentry/tracing';
+import * as Sentry from '@sentry/nextjs';
 
 /**
  * Initialize Sentry for error tracking
@@ -17,11 +16,6 @@ export function initSentry() {
   Sentry.init({
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
     environment: process.env.NODE_ENV || 'development',
-    
-    // Performance monitoring
-    integrations: [
-      new BrowserTracing(),
-    ],
     
     // Sample rate for performance monitoring (10% of transactions)
     tracesSampleRate: 0.1,
@@ -104,13 +98,13 @@ export function addBreadcrumb(message: string, category: string, data?: Record<s
 }
 
 /**
- * Start a transaction for performance monitoring
+ * Start a span for performance monitoring
  */
-export function startTransaction(name: string, op: string) {
-  return Sentry.startTransaction({
+export function startSpan(name: string, op: string, callback: () => void) {
+  return Sentry.startSpan({
     name,
     op,
-  });
+  }, callback);
 }
 
 /**
