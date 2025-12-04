@@ -21,8 +21,8 @@ export async function POST(req: NextRequest) {
 
     // Build update object based on status
     if (status === "approved") {
-      const { error } = await supabaseAdmin
-        .from("external_partner_progress")
+      const { error } = await (supabaseAdmin
+        .from("external_partner_progress") as any)
         .update({
           status,
           approved_at: new Date().toISOString()
@@ -38,8 +38,8 @@ export async function POST(req: NextRequest) {
       }
     } else {
       // status === "in_progress"
-      const { error } = await supabaseAdmin
-        .from("external_partner_progress")
+      const { error } = await (supabaseAdmin
+        .from("external_partner_progress") as any)
         .update({
           status,
           proof_file_url: null,
