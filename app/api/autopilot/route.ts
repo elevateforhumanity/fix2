@@ -40,16 +40,16 @@ function loadState(): AutopilotState {
       tasks: Array.isArray(parsed.tasks) ? parsed.tasks : [],
       counters: parsed.counters || {},
       content: Array.isArray(parsed.content) ? parsed.content : seedContent(),
-      createdAt: parsed.createdAt || generateId(),
-      updatedAt: parsed.updatedAt || generateId(),
+      createdAt: parsed.createdAt || Date.now(),
+      updatedAt: parsed.updatedAt || Date.now(),
     };
   } catch {
     return {
       tasks: [],
       counters: {},
       content: seedContent(),
-      createdAt: generateId(),
-      updatedAt: generateId(),
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
     };
   }
 }
