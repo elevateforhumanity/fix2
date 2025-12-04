@@ -1,5 +1,4 @@
 /**
-import { generateId, generateShortId } from '@/lib/utils/id-generator';
  * Autopilot API - Next.js Route Handler
  * Converted from legacy autopilot system
  * 
@@ -7,6 +6,7 @@ import { generateId, generateShortId } from '@/lib/utils/id-generator';
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { generateId, generateShortId } from '@/lib/utils/id-generator';
 import fs from 'fs';
 import path from 'path';
 
