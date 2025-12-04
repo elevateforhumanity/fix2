@@ -2,11 +2,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabaseServer";
 
-type Params = { params: { courseId: string } };
+type Params = { params: Promise<{ courseId: string }> };
 
 export async function POST(req: NextRequest, { params }: Params) {
   const supabase = getSupabaseServerClient();
-  const { courseId } = params;
+  const { courseId } = await params;
 
   // 1) Get current user
   const {
@@ -110,7 +110,7 @@ export async function POST(req: NextRequest, { params }: Params) {
 // GET endpoint to check status without updating
 export async function GET(req: NextRequest, { params }: Params) {
   const supabase = getSupabaseServerClient();
-  const { courseId } = params;
+  const { courseId } = await params;
 
   const {
     data: { user },

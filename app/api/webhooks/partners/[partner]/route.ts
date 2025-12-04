@@ -12,9 +12,10 @@ const supabase = createClient(
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { partner: string } }
+  { params }: { params: Promise<{ partner: string }> }
 ) {
-  const partner = params.partner as PartnerType;
+  const { partner: partnerName } = await params;
+  const partner = partnerName as PartnerType;
 
   try {
     // Get webhook signature from headers
