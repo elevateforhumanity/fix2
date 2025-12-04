@@ -3,7 +3,7 @@
 // app/student/courses/[courseId]/external/[moduleId]/ExternalModuleClient.tsx
 // Client component for external partner module interaction
 
-import { supabaseBrowser } from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 import { useState } from "react";
 
 type Module = {
@@ -56,7 +56,7 @@ export default function ExternalModuleClient({
   async function ensureRow(statusOverride?: Progress["status"]) {
     const nextStatus = statusOverride ?? status;
 
-    const { data, error } = await supabaseBrowser
+    const { data, error } = await supabase
       .from("external_partner_progress")
       .upsert(
         {
@@ -94,17 +94,17 @@ export default function ExternalModuleClient({
     try {
       // Create storage path: moduleId/userId/filename
       const path = `${module.id}/${userId}/${file.name}`;
-      const { error: uploadError } = await supabaseBrowser.storage
+      const { error: uploadError } = await supabase.storage
         .from("external-proof")
         .upload(path, file, { upsert: true });
 
       if (uploadError) throw uploadError;
 
-      const publicUrl = supabaseBrowser.storage
+      const publicUrl = supabase.storage
         .from("external-proof")
         .getPublicUrl(path).data.publicUrl;
 
-      const { data, error } = await supabaseBrowser
+      const { data, error } = await supabase
         .from("external_partner_progress")
         .upsert(
           {
