@@ -75,7 +75,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
     <div className="min-h-screen bg-white text-slate-900">
 
       {/* HERO BANNER WITH FULL IMAGE */}
-      <section className="relative h-[500px] w-full overflow-hidden">
+      <section className="relative h-[400px] w-full overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image

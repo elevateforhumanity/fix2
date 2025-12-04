@@ -48,7 +48,7 @@ export default async function Page() {
   return (
     <main className="bg-white">
       {/* Hero Banner */}
-      <section className="relative h-[500px] w-full overflow-hidden">
+      <section className="relative h-[400px] w-full overflow-hidden">
         <Image
           src="/images/artlist/hero-training-4.jpg"
           alt="Blog and news"
