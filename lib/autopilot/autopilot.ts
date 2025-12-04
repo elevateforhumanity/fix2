@@ -132,13 +132,13 @@ export async function syncSecrets(req: Request, res: Response) {
       vercel: await worker.syncToVercel(),
     };
 
-    res.json({
+    return res.json({
       status: 'ok',
       synced: results,
       message: 'Secrets synced successfully',
     });
   } catch (error: any) {
-    res.status(500).json({
+    return res.status(500).json({
       error: 'Secret sync failed',
       message: error.message,
     });
@@ -168,12 +168,12 @@ export async function startWorker(req: Request, res: Response) {
 
     await worker.start();
 
-    res.json({
+    return res.json({
       status: 'ok',
       message: 'Autopilot started successfully',
     });
   } catch (error: any) {
-    res.status(500).json({
+    return res.status(500).json({
       error: 'Failed to start autopilot',
       message: error.message,
     });
@@ -196,12 +196,12 @@ export async function stopWorker(req: Request, res: Response) {
 
     worker.stop();
 
-    res.json({
+    return res.json({
       status: 'ok',
       message: 'Autopilot stopped successfully',
     });
   } catch (error: any) {
-    res.status(500).json({
+    return res.status(500).json({
       error: 'Failed to stop autopilot',
       message: error.message,
     });
