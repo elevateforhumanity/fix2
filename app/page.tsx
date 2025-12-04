@@ -354,12 +354,12 @@ export default function HomePage() {
                 key={index}
                 className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all"
               >
-                <div className="relative h-64">
+                <div className="relative h-64 bg-slate-100">
                   <Image
                     src={testimonial.image}
                     alt={testimonial.name}
                     fill
-                    className="object-cover"
+                    className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 33vw" quality={85}
                   />
                 </div>
