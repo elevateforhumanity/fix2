@@ -86,94 +86,79 @@ export default async function ProgramsPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* HERO BANNER */}
-      <section className="relative h-[500px] w-full overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=85"
-            alt="Students learning together"
-            fill
-            className="object-cover"
-            priority
-            unoptimized quality={85} sizes="100vw"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/75" />
-        </div>
-
-        {/* Content */}
-        <div className="relative h-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center">
-          <div className="max-w-4xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-full text-sm font-semibold">
+      {/* HERO SECTION - Humanized */}
+      <section className="relative py-20 bg-gradient-to-br from-red-50 via-white to-blue-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
               </svg>
-              Career Training Programs
+              {programs.length} Career Paths Available
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-              Transform Your Future with Free Career Training
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+              Find Your Path to a Better Career
             </h1>
 
-            <p className="text-xl sm:text-2xl text-slate-200 leading-relaxed">
-              Choose from {programs.length} workforce development programs. 100% funded through WIOA, grants, and employer partnerships.
+            <p className="text-xl sm:text-2xl text-slate-700 leading-relaxed">
+              Real training for real jobs. Whether you want to work in healthcare, learn a trade, or start your own business—we've got you covered. And yes, it's 100% free.
             </p>
 
-            <div className="flex flex-wrap gap-6 text-white pt-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
-                    <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">{programs.length}</div>
-                  <div className="text-sm text-slate-300">Programs</div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <div className="flex flex-wrap gap-6 justify-center pt-6">
+              <div className="flex items-center gap-3 bg-white rounded-xl p-4 shadow-sm">
+                <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                   </svg>
                 </div>
-                <div>
-                  <div className="text-2xl font-bold">100%</div>
-                  <div className="text-sm text-slate-300">Free Training</div>
+                <div className="text-left">
+                  <div className="text-2xl font-bold text-slate-900">100%</div>
+                  <div className="text-sm text-slate-600">Free Training</div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+              <div className="flex items-center gap-3 bg-white rounded-xl p-4 shadow-sm">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd"/>
                   </svg>
                 </div>
-                <div>
-                  <div className="text-2xl font-bold">10k+</div>
-                  <div className="text-sm text-slate-300">Students Trained</div>
+                <div className="text-left">
+                  <div className="text-2xl font-bold text-slate-900">$35K-$75K</div>
+                  <div className="text-sm text-slate-600">Starting Salary</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 bg-white rounded-xl p-4 shadow-sm">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <div className="text-2xl font-bold text-slate-900">8-16</div>
+                  <div className="text-sm text-slate-600">Weeks to Complete</div>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 justify-center pt-8">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white text-lg font-bold rounded-full hover:bg-orange-700 transition-colors shadow-xl"
+                className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white text-lg font-bold rounded-full hover:bg-orange-700 transition-colors shadow-lg"
               >
-                Get Started Today
+                Talk to Someone Today
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </Link>
               <Link
-                href="/about"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 text-lg font-bold rounded-full hover:bg-slate-100 transition-colors border-2 border-white shadow-xl"
+                href="/book-appointment"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 text-lg font-bold rounded-full hover:bg-slate-50 transition-colors border-2 border-slate-200 shadow-lg"
               >
-                Learn More
+                Book a Free Appointment
               </Link>
             </div>
           </div>
@@ -240,49 +225,61 @@ export default async function ProgramsPage() {
               </div>
             </div>
 
-            {/* Barber & Beauty Programs */}
+            {/* Barber & Beauty Programs - Earn While You Learn */}
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="order-2 md:order-1">
-                <div className="inline-block px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold mb-4">
-                  Beauty & Barbering
+                <div className="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-4">
+                  Earn While You Learn
                 </div>
-                <h3 className="text-3xl font-bold text-slate-900 mb-4">Barber & Beauty Training</h3>
-                <p className="text-lg text-slate-600 mb-6">
-                  Master the art of barbering and beauty through our DOL Registered Apprenticeship or traditional school programs. Earn while you learn and build your own clientele.
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">Barber & Beauty Apprenticeship</h3>
+                <p className="text-lg text-slate-700 mb-6">
+                  Get paid to learn! Our DOL Registered Apprenticeship lets you work in a real barbershop or salon while earning your Indiana license. No student debt, just real paychecks.
                 </p>
+                
+                <div className="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6">
+                  <h4 className="font-bold text-blue-900 mb-2">How to Enroll:</h4>
+                  <ol className="space-y-2 text-sm text-blue-900">
+                    <li><strong>1.</strong> Book a free appointment or call us at (317) 314-3757</li>
+                    <li><strong>2.</strong> We'll help you find a barbershop/salon sponsor</li>
+                    <li><strong>3.</strong> Start working and earning immediately</li>
+                    <li><strong>4.</strong> Complete 1,500 hours while getting paid</li>
+                    <li><strong>5.</strong> Take your state board exam (we cover the cost)</li>
+                  </ol>
+                </div>
+
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-slate-700"><strong>Earn While Learning:</strong> Get paid during apprenticeship</span>
+                    <span className="text-slate-900"><strong>$15-$25/hour</strong> while training + tips</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-slate-700"><strong>State Licensed:</strong> Indiana barber license upon completion</span>
+                    <span className="text-slate-900"><strong>Indiana State License</strong> upon completion</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-slate-700"><strong>Own Your Business:</strong> Suite ownership training included</span>
+                    <span className="text-slate-900"><strong>Suite Ownership Training</strong> - start your own business</span>
                   </li>
                 </ul>
                 <div className="flex flex-wrap gap-4">
-                  <Link href="/programs/barber-apprenticeship" className="px-6 py-3 bg-purple-600 text-white font-bold rounded-full hover:bg-purple-700 transition">
-                    View Barber Programs
+                  <Link href="/book-appointment" className="px-6 py-3 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition">
+                    Book Free Appointment
                   </Link>
-                  <Link href="/apply" className="px-6 py-3 border-2 border-purple-600 text-purple-600 font-bold rounded-full hover:bg-purple-50 transition">
-                    Apply Now
+                  <Link href="/programs/barber-apprenticeship" className="px-6 py-3 border-2 border-orange-600 text-orange-600 font-bold rounded-full hover:bg-orange-50 transition">
+                    Learn More
                   </Link>
                 </div>
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
                 <Image
-                  src="/images/programs/efh-barber-hero.jpg"
-                  alt="Barber Training Programs"
+                  src="/images/efh/programs/barber.jpg"
+                  alt="Barber Apprenticeship - Earn While You Learn"
                   fill
                   className="object-cover"
                 />
