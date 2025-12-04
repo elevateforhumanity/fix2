@@ -129,7 +129,8 @@ export class ServiceWorkerManager {
     }
 
     try {
-      await this.registration.sync.register(tag);
+      const syncManager = (this.registration as any).sync;
+      await syncManager.register(tag);
       console.log('Background sync registered:', tag);
     } catch (error) {
       console.error('Background sync registration failed:', error);
