@@ -110,7 +110,7 @@ export async function POST(request: NextRequest) {
         title: body.title || 'Untitled Task',
         status: 'pending' as const,
         priority: body.priority || 5,
-        createdAt: generateId(),
+        createdAt: Date.now(),
       };
       state.tasks.push(newTask);
       saveState(state);
