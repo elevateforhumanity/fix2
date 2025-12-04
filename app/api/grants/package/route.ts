@@ -1,0 +1,110 @@
+/**
+ * Grant Package Builder API
+ * Generate submission-ready grant packages
+ */
+
+import { NextRequest, NextResponse } from 'next/server';
+import {
+  buildGrantPackage,
+  generateNarrativeDocx,
+  generateNarrativePdf,
+  generateCapabilityStatement,
+  generateBudgetSpreadsheet,
+} from '@/lib/grants/package-builder';
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
+    const { action, applicationId, entityId, format } = body;
+
+    switch (action) {
+      case 'build_complete':
+        if (!applicationId) {
+          return NextResponse.json(
+            { error: 'applicationId required' },
+            { status: 400 }
+          );
+        }
+        const pkg = await buildGrantPackage(applicationId);
+
+        return new NextResponse(pkg.files.complete_package_zip, {
+          headers: {
+            'Content-Type': 'application/zip',
+            'Content-Disposition': `attachment; filename="grant_package_${applicationId}.zip"`,
+          },
+        });
+
+      case 'generate_narrative':
+        if (!applicationId) {
+          return NextResponse.json(
+            { error: 'applicationId required' },
+            { status: 400 }
+          );
+        }
+
+        if (format === 'pdf') {
+          const pdf = await generateNarrativePdf(applicationId);
+          return new NextResponse(pdf, {
+            headers: {
+              'Content-Type': 'application/pdf',
+              'Content-Disposition': `attachment; filename="narrative_${applicationId}.pdf"`,
+            },
+          });
+        } else {
+          const docx = await generateNarrativeDocx(applicationId);
+          return new NextResponse(docx, {
+            headers: {
+              'Content-Type':
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+              'Content-Disposition': `attachment; filename="narrative_${applicationId}.docx"`,
+            },
+          });
+        }
+
+      case 'generate_capability':
+        if (!entityId) {
+          return NextResponse.json(
+            { error: 'entityId required' },
+            { status: 400 }
+          );
+        }
+        const capability = await generateCapabilityStatement(entityId);
+        return new NextResponse(capability, {
+          headers: {
+            'Content-Type': 'application/pdf',
+            'Content-Disposition': `attachment; filename="capability_statement_${entityId}.pdf"`,
+          },
+        });
+
+      case 'generate_budget':
+        if (!applicationId) {
+          return NextResponse.json(
+            { error: 'applicationId required' },
+            { status: 400 }
+          );
+        }
+        const budget = await generateBudgetSpreadsheet(applicationId);
+        return new NextResponse(budget, {
+          headers: {
+            'Content-Type': 'text/csv',
+            'Content-Disposition': `attachment; filename="budget_${applicationId}.csv"`,
+          },
+        });
+
+      default:
+        return NextResponse.json(
+          {
+            error:
+              'Invalid action. Use: build_complete, generate_narrative, generate_capability, or generate_budget',
+          },
+          { status: 400 }
+        );
+    }
+  } catch (error) {
+    console.error('Package builder error:', error);
+    return NextResponse.json(
+      { error: (error as Error).message },
+      { status: 500 }
+    );
+  }
+}
