@@ -2,6 +2,8 @@
  * Offline Database - IndexedDB wrapper for offline functionality
  */
 
+import { generateId, generateOfflineActionId } from '@/lib/utils/id-generator';
+
 const DB_NAME = 'efh-offline-db';
 const DB_VERSION = 1;
 

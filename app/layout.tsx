@@ -25,6 +25,7 @@ import { InvisibleWatermark, DMCATrackingPixel } from '@/components/InvisibleWat
 import { ScraperDetection } from '@/components/ScraperDetection';
 import { OfflineIndicator } from '@/components/offline-indicator';
 import { ServiceWorkerInit } from '@/components/service-worker-init';
+import { SentryInit } from '@/components/sentry-init';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -160,6 +161,7 @@ sizes="192x192" />
         <PWAInstallPrompt />
         <OfflineIndicator />
         <ServiceWorkerInit />
+        <SentryInit />
         <Toaster
           position="top-right"
           toastOptions={{
