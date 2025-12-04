@@ -300,7 +300,6 @@ async function createRecipients(announcement: Announcement): Promise<void> {
  */
 async function sendEmailNotifications(announcement: Announcement, recipients: string[]): Promise<void> {
   // Implementation would use email service (SendGrid, AWS SES, etc.)
-  console.log(`Sending email notifications for announcement ${announcement.id} to ${recipients.length} recipients`);
   
   // Update email_sent status
   const supabase = await createClient();
@@ -316,7 +315,6 @@ async function sendEmailNotifications(announcement: Announcement, recipients: st
  */
 async function sendSMSNotifications(announcement: Announcement, recipients: string[]): Promise<void> {
   // Implementation would use SMS service (Twilio, AWS SNS, etc.)
-  console.log(`Sending SMS notifications for announcement ${announcement.id} to ${recipients.length} recipients`);
   
   // Update sms_sent status
   const supabase = await createClient();

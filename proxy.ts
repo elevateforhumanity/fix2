@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+const CSRF_TOKEN_HEADER = 'x-csrf-token';
+const CSRF_TOKEN_COOKIE = 'csrf-token';
+
 const SUSPICIOUS_USER_AGENTS = [
   'scrapy',
   'python-requests',
@@ -215,6 +218,22 @@ export default function proxy(request: NextRequest) {
   // REMOVED: No longer redirecting /lms/* to /portal/student/*
   // LMS routes stay at /lms for better performance and clarity
   
+  // CSRF Protection for API routes (except webhooks)
+  if (path.startsWith('/api/') && !path.startsWith('/api/webhooks/')) {
+    if (!['GET', 'HEAD', 'OPTIONS'].includes(request.method)) {
+      const token = request.headers.get(CSRF_TOKEN_HEADER);
+      const cookieToken = request.cookies.get(CSRF_TOKEN_COOKIE)?.value;
+      
+      // Only enforce CSRF if tokens are configured
+      if (cookieToken && (!token || token !== cookieToken)) {
+        return NextResponse.json(
+          { error: 'Invalid CSRF token' },
+          { status: 403 }
+        );
+      }
+    }
+  }
+
   // Skip middleware for static files and public routes
   if (
     path.startsWith('/_next') ||

@@ -216,7 +216,6 @@ export async function POST(req: NextRequest) {
     );
   } else {
     // For now, just acknowledge other events
-    console.log("[StripeWebhook] Received event type:", event.type);
   }
 
   return NextResponse.json({ received: true }, { status: 200 });

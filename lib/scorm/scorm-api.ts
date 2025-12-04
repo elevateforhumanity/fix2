@@ -79,7 +79,6 @@ export class SCORMAPIWrapper {
       this.initialized = result === 'true';
 
       if (this.initialized) {
-        // console.log(`[SCORM] Initialized (version ${this.version})`);
       } else {
         console.error('[SCORM] Initialization failed');
       }
@@ -167,7 +166,6 @@ export class SCORMAPIWrapper {
       this.initialized = false;
 
       if (result === 'true') {
-        // console.log('[SCORM] Terminated successfully');
       }
 
       return result === 'true';

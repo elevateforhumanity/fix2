@@ -79,21 +79,18 @@ export const AUTO_SYNC_JOBS: AutoSyncJob[] = [
  * Queue auto-sync jobs based on schedule
  */
 export async function queueAutoSyncJobs() {
-  console.log('🔄 Queueing auto-sync jobs...');
 
   const now = new Date();
   const results = [];
 
   for (const job of AUTO_SYNC_JOBS) {
     if (!job.enabled) {
-      console.log(`⏭️  Skipping disabled job: ${job.name}`);
       continue;
     }
 
     try {
       // Check if job should run based on schedule
       if (shouldRunJob(job.schedule, now)) {
-        console.log(`✅ Queueing job: ${job.name}`);
 
         const { data, error } = await supabase
           .from('tasks')
@@ -117,7 +114,6 @@ export async function queueAutoSyncJobs() {
           taskId: data.id,
         });
       } else {
-        console.log(`⏰ Not time yet for: ${job.name}`);
       }
     } catch (error: any) {
       console.error(`❌ Failed to queue job ${job.name}:`, error.message);
@@ -209,22 +205,14 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
   switch (command) {
     case 'list':
-      console.log('📋 Auto-Sync Jobs:\n');
       listAutoSyncJobs().forEach((job) => {
-        console.log(`${job.enabled ? '✅' : '❌'} ${job.name}`);
-        console.log(`   ${job.description}`);
-        console.log(`   Schedule: ${job.schedule}`);
-        console.log(`   Next run: ${job.nextRun.toLocaleString()}`);
-        console.log('');
       });
       break;
 
     case 'queue':
       queueAutoSyncJobs()
         .then((results) => {
-          console.log('\n✅ Auto-sync jobs queued:');
           results.forEach((r) => {
-            console.log(`   ${r.job}: ${r.status}`);
           });
         })
         .catch((error) => {
@@ -234,9 +222,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       break;
 
     default:
-      console.log('Usage:');
-      console.log('  npx tsx src/auto-sync-jobs.ts list   - List all jobs');
-      console.log(
         '  npx tsx src/auto-sync-jobs.ts queue  - Queue jobs that should run now'
       );
   }

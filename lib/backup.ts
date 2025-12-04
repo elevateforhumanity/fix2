@@ -77,7 +77,6 @@ export async function scheduleBackup(intervalHours: number = 24) {
     storage_location: 'supabase_storage',
   };
 
-  console.log('Backup scheduled:', backupConfig);
   return backupConfig;
 }
 

@@ -6,7 +6,6 @@ export async function POST(req: NextRequest) {
     const supabase = await createClient();
 
     // Step 1: Create the table
-    // console.log("Creating marketing_contacts table...");
     
     const createTableSQL = `
       CREATE TABLE IF NOT EXISTS public.marketing_contacts (
@@ -72,7 +71,6 @@ export async function POST(req: NextRequest) {
     }
 
     // Step 2: Insert contacts
-    // console.log("Inserting contacts...");
     
     const contacts = [
       {

@@ -6,6 +6,7 @@ export async function GET(
   request: Request,
   { params }: { params: Promise<{ certificateId: string }> }
 ) {
+  const { certificateId } = await params;
   try {
     const { certificateId } = await params;
     const supabase = await createClient();

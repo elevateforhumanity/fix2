@@ -59,7 +59,6 @@ export function extractWatermark(content: string): {
  */
 export async function logContentAccess(data: WatermarkData): Promise<void> {
   // Log to console (in production, log to database)
-  // console.log('Content accessed:', {
   //   user: data.userEmail,
   //   content: data.contentId,
   //   type: data.contentType,
@@ -98,7 +97,6 @@ export async function detectSuspiciousUsage(
 ): Promise<boolean> {
   // In production, check database for patterns
   // For now, just log
-  // console.log('Checking usage pattern:', { userId, contentId });
   
   // Example: Check if user accessed same content multiple times rapidly
   // Example: Check if content was accessed from multiple IPs
@@ -135,7 +133,6 @@ Value: $2.5M - $8M
   
   try {
     await notifySendgrid('Build Deployment Alert', message);
-    // console.log('Build watermarked and notification sent');
   } catch (error) {
     console.error('Failed to send build notification:', error);
   }

@@ -636,7 +636,6 @@ export async function handleStripeWebhook(event: Stripe.Event): Promise<void> {
     }
 
     default:
-      console.log(`Unhandled event type: ${event.type}`);
   }
 }
 

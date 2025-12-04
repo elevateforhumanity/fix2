@@ -1,0 +1,613 @@
+{
+  "mission": "FEATURE CONSOLIDATION - SINGLE PHASE PARALLEL EXECUTION",
+  "objective": "Consolidate all duplicate features, increase completion from 25.4% to 40.9%",
+  "execution_mode": "parallel",
+  "total_autopilots": 40,
+  "estimated_completion": "2-4 hours",
+  
+  "phase_1_portal_consolidation": {
+    "description": "Consolidate 7 portal/student directories into 1 unified portal",
+    "priority": "CRITICAL",
+    "autopilots_assigned": 15,
+    "tasks": [
+      {
+        "task_id": "P1-01",
+        "autopilot_id": "autopilot-01",
+        "task": "Create unified portal structure",
+        "actions": [
+          "mkdir -p app/portal/student",
+          "mkdir -p app/portal/staff", 
+          "mkdir -p app/portal/parent",
+          "mkdir -p app/portal/employer"
+        ],
+        "deliverable": "Portal directory structure created",
+        "estimated_time": "5 minutes"
+      },
+      {
+        "task_id": "P1-02",
+        "autopilot_id": "autopilot-02",
+        "task": "Move student dashboard (best version)",
+        "actions": [
+          "cp app/student/dashboard/page-old-backup.tsx app/portal/student/dashboard/page.tsx",
+          "Verify gamification components work",
+          "Test database queries"
+        ],
+        "deliverable": "Student dashboard with 291 lines (gamification)",
+        "estimated_time": "15 minutes"
+      },
+      {
+        "task_id": "P1-03",
+        "autopilot_id": "autopilot-03",
+        "task": "Move student courses",
+        "actions": [
+          "cp -r app/student/courses app/portal/student/",
+          "cp -r app/student/courses-v2 app/portal/student/",
+          "Update route references"
+        ],
+        "deliverable": "Student courses moved",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P1-04",
+        "autopilot_id": "autopilot-04",
+        "task": "Move student certificates",
+        "actions": [
+          "cp -r app/student/certificates app/portal/student/",
+          "cp -r app/student/certifications app/portal/student/",
+          "Update certificate generation routes"
+        ],
+        "deliverable": "Certificate features moved",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P1-05",
+        "autopilot_id": "autopilot-05",
+        "task": "Move student analytics & progress",
+        "actions": [
+          "cp -r app/student/analytics app/portal/student/",
+          "cp -r app/student/progress app/portal/student/",
+          "cp -r app/student/leaderboard app/portal/student/"
+        ],
+        "deliverable": "Analytics features moved",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P1-06",
+        "autopilot_id": "autopilot-06",
+        "task": "Move student assignments & grades",
+        "actions": [
+          "cp -r app/student/assignments app/portal/student/",
+          "cp -r app/student/grades app/portal/student/",
+          "cp -r app/student/competencies app/portal/student/"
+        ],
+        "deliverable": "Assignment features moved",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P1-07",
+        "autopilot_id": "autopilot-07",
+        "task": "Move student apprenticeship features",
+        "actions": [
+          "cp -r app/student/apprenticeship app/portal/student/",
+          "cp -r app/student/apprenticeship-hours app/portal/student/",
+          "Update OJT tracking"
+        ],
+        "deliverable": "Apprenticeship features moved",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P1-08",
+        "autopilot_id": "autopilot-08",
+        "task": "Move student support features",
+        "actions": [
+          "cp -r app/student/calendar app/portal/student/",
+          "cp -r app/student/support app/portal/student/",
+          "cp -r app/student/resources app/portal/student/",
+          "cp -r app/student/career-counseling app/portal/student/"
+        ],
+        "deliverable": "Support features moved",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P1-09",
+        "autopilot_id": "autopilot-09",
+        "task": "Move student learning features",
+        "actions": [
+          "cp -r app/student/learning-path app/portal/student/",
+          "cp -r app/student/learning-paths app/portal/student/",
+          "cp -r app/student/skills-gap app/portal/student/",
+          "cp -r app/student/discussions app/portal/student/"
+        ],
+        "deliverable": "Learning features moved",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P1-10",
+        "autopilot_id": "autopilot-10",
+        "task": "Move student profile & settings",
+        "actions": [
+          "cp -r app/student/profile app/portal/student/",
+          "cp -r app/student/badges app/portal/student/",
+          "cp app/student/layout.tsx app/portal/student/"
+        ],
+        "deliverable": "Profile features moved",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P1-11",
+        "autopilot_id": "autopilot-11",
+        "task": "Move staff portal features",
+        "actions": [
+          "cp -r app/staff-portal/* app/portal/staff/",
+          "Update staff dashboard",
+          "Update student management views"
+        ],
+        "deliverable": "Staff portal moved (442 lines)",
+        "estimated_time": "15 minutes"
+      },
+      {
+        "task_id": "P1-12",
+        "autopilot_id": "autopilot-12",
+        "task": "Create parent portal",
+        "actions": [
+          "Create app/portal/parent/dashboard/page.tsx",
+          "Create app/portal/parent/children/page.tsx",
+          "Add child progress tracking",
+          "Add communication features"
+        ],
+        "deliverable": "Parent portal created",
+        "estimated_time": "20 minutes"
+      },
+      {
+        "task_id": "P1-13",
+        "autopilot_id": "autopilot-13",
+        "task": "Create role-based portal routing",
+        "actions": [
+          "Update app/portal/page.tsx with role detection",
+          "Add redirects: student → /portal/student/dashboard",
+          "Add redirects: staff → /portal/staff/dashboard",
+          "Add redirects: parent → /portal/parent/dashboard",
+          "Add redirects: employer → /portal/employer/dashboard"
+        ],
+        "deliverable": "Role-based routing implemented",
+        "estimated_time": "15 minutes"
+      },
+      {
+        "task_id": "P1-14",
+        "autopilot_id": "autopilot-14",
+        "task": "Update all portal route references",
+        "actions": [
+          "Find and replace: /student/ → /portal/student/",
+          "Find and replace: /student-portal/ → /portal/student/",
+          "Find and replace: /staff-portal/ → /portal/staff/",
+          "Update navigation menus",
+          "Update API route references"
+        ],
+        "deliverable": "All routes updated",
+        "estimated_time": "20 minutes"
+      },
+      {
+        "task_id": "P1-15",
+        "autopilot_id": "autopilot-15",
+        "task": "Test and validate portal consolidation",
+        "actions": [
+          "Test student portal loads",
+          "Test dashboard displays correctly",
+          "Test course navigation",
+          "Test certificate access",
+          "Verify all 4,596 lines functional",
+          "Run smoke tests"
+        ],
+        "deliverable": "Portal consolidation validated",
+        "estimated_time": "30 minutes"
+      }
+    ]
+  },
+
+  "phase_2_program_consolidation": {
+    "description": "Consolidate 5 program directories into 1 unified programs feature",
+    "priority": "HIGH",
+    "autopilots_assigned": 8,
+    "tasks": [
+      {
+        "task_id": "P2-01",
+        "autopilot_id": "autopilot-16",
+        "task": "Create programs admin structure",
+        "actions": [
+          "mkdir -p app/programs/admin",
+          "Verify app/programs/page.tsx exists (500 lines)"
+        ],
+        "deliverable": "Admin structure created",
+        "estimated_time": "5 minutes"
+      },
+      {
+        "task_id": "P2-02",
+        "autopilot_id": "autopilot-17",
+        "task": "Move program-holder to programs/admin",
+        "actions": [
+          "cp -r app/program-holder/* app/programs/admin/",
+          "Verify 2,017 lines moved",
+          "Keep dashboard, courses, grades, mou, settings"
+        ],
+        "deliverable": "Program admin portal moved",
+        "estimated_time": "15 minutes"
+      },
+      {
+        "task_id": "P2-03",
+        "autopilot_id": "autopilot-18",
+        "task": "Add role-based access to programs/admin",
+        "actions": [
+          "Add middleware to check program_holder role",
+          "Update layout with role verification",
+          "Add unauthorized redirect"
+        ],
+        "deliverable": "Access control implemented",
+        "estimated_time": "15 minutes"
+      },
+      {
+        "task_id": "P2-04",
+        "autopilot_id": "autopilot-19",
+        "task": "Update program route references",
+        "actions": [
+          "Find and replace: /program-holder/ → /programs/admin/",
+          "Find and replace: /program-holders/ → /programs/admin/",
+          "Update navigation links",
+          "Update API calls"
+        ],
+        "deliverable": "Routes updated",
+        "estimated_time": "20 minutes"
+      },
+      {
+        "task_id": "P2-05",
+        "autopilot_id": "autopilot-20",
+        "task": "Enhance programs main page",
+        "actions": [
+          "Verify database integration works",
+          "Verify program images load",
+          "Verify category filtering",
+          "Verify individual program pages",
+          "Test dynamic routing"
+        ],
+        "deliverable": "Main programs page validated",
+        "estimated_time": "20 minutes"
+      },
+      {
+        "task_id": "P2-06",
+        "autopilot_id": "autopilot-21",
+        "task": "Test program consolidation",
+        "actions": [
+          "Test programs listing page",
+          "Test individual program pages",
+          "Test admin portal access",
+          "Test MOU generation",
+          "Verify 4,517 total lines functional"
+        ],
+        "deliverable": "Programs consolidation validated",
+        "estimated_time": "25 minutes"
+      },
+      {
+        "task_id": "P2-07",
+        "autopilot_id": "autopilot-22",
+        "task": "Remove duplicate program directories",
+        "actions": [
+          "Backup: git add app/programs-full app/programs-lms app/program-holders",
+          "Remove: rm -rf app/programs-full",
+          "Remove: rm -rf app/programs-lms",
+          "Remove: rm -rf app/program-holders",
+          "Verify no broken references"
+        ],
+        "deliverable": "Duplicates removed",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P2-08",
+        "autopilot_id": "autopilot-23",
+        "task": "Update programs documentation",
+        "actions": [
+          "Update README with new structure",
+          "Update API documentation",
+          "Update navigation docs",
+          "Create programs/admin/README.md"
+        ],
+        "deliverable": "Documentation updated",
+        "estimated_time": "15 minutes"
+      }
+    ]
+  },
+
+  "phase_3_analytics_consolidation": {
+    "description": "Consolidate 3 analytics directories into 1 organized API",
+    "priority": "MEDIUM",
+    "autopilots_assigned": 7,
+    "tasks": [
+      {
+        "task_id": "P3-01",
+        "autopilot_id": "autopilot-24",
+        "task": "Create analytics subdirectories",
+        "actions": [
+          "mkdir -p app/api/analytics/reports",
+          "mkdir -p app/api/analytics/metrics",
+          "mkdir -p app/api/analytics/performance"
+        ],
+        "deliverable": "Analytics structure created",
+        "estimated_time": "5 minutes"
+      },
+      {
+        "task_id": "P3-02",
+        "autopilot_id": "autopilot-25",
+        "task": "Move reports to analytics/reports",
+        "actions": [
+          "cp -r app/api/reports/* app/api/analytics/reports/",
+          "Verify WIOA reports (92 lines)",
+          "Verify usage reports",
+          "Verify caseload reports"
+        ],
+        "deliverable": "Reports moved (985 lines)",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P3-03",
+        "autopilot_id": "autopilot-26",
+        "task": "Move reporting to analytics/metrics",
+        "actions": [
+          "cp -r app/api/reporting/* app/api/analytics/metrics/",
+          "Rename overall-metrics to overall",
+          "Rename program-metrics to program",
+          "Rename funder-metrics to funder",
+          "Rename site-metrics to site"
+        ],
+        "deliverable": "Metrics moved (166 lines)",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P3-04",
+        "autopilot_id": "autopilot-27",
+        "task": "Organize performance routes",
+        "actions": [
+          "mv app/api/analytics/performance-alert app/api/analytics/performance/alert",
+          "mv app/api/analytics/slow-resources app/api/analytics/performance/slow-resources",
+          "Update route imports"
+        ],
+        "deliverable": "Performance routes organized",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P3-05",
+        "autopilot_id": "autopilot-28",
+        "task": "Update analytics API references",
+        "actions": [
+          "Find and replace: /api/reports/ → /api/analytics/reports/",
+          "Find and replace: /api/reporting/ → /api/analytics/metrics/",
+          "Update frontend API calls",
+          "Update admin dashboard"
+        ],
+        "deliverable": "API references updated",
+        "estimated_time": "20 minutes"
+      },
+      {
+        "task_id": "P3-06",
+        "autopilot_id": "autopilot-29",
+        "task": "Test analytics consolidation",
+        "actions": [
+          "Test /api/analytics/admin",
+          "Test /api/analytics/reports/wioa",
+          "Test /api/analytics/metrics/overall",
+          "Test /api/analytics/performance/alert",
+          "Verify all 1,802 lines functional"
+        ],
+        "deliverable": "Analytics validated",
+        "estimated_time": "25 minutes"
+      },
+      {
+        "task_id": "P3-07",
+        "autopilot_id": "autopilot-30",
+        "task": "Remove duplicate analytics directories",
+        "actions": [
+          "Backup: git add app/api/reports app/api/reporting",
+          "Remove: rm -rf app/api/reports",
+          "Remove: rm -rf app/api/reporting",
+          "Verify no broken API calls"
+        ],
+        "deliverable": "Duplicates removed",
+        "estimated_time": "10 minutes"
+      }
+    ]
+  },
+
+  "phase_4_cleanup_and_validation": {
+    "description": "Remove old directories and validate entire consolidation",
+    "priority": "CRITICAL",
+    "autopilots_assigned": 10,
+    "tasks": [
+      {
+        "task_id": "P4-01",
+        "autopilot_id": "autopilot-31",
+        "task": "Remove old portal directories",
+        "actions": [
+          "Verify portal consolidation complete",
+          "rm -rf app/student-portal",
+          "rm -rf app/staff-portal",
+          "rm -rf app/parent-portal",
+          "rm -rf app/students",
+          "Verify no broken links"
+        ],
+        "deliverable": "Old portals removed",
+        "estimated_time": "15 minutes"
+      },
+      {
+        "task_id": "P4-02",
+        "autopilot_id": "autopilot-32",
+        "task": "Remove old student directory",
+        "actions": [
+          "Verify all student features moved to portal/student",
+          "Double-check no unique files left",
+          "rm -rf app/student",
+          "Verify routes work"
+        ],
+        "deliverable": "Old student directory removed",
+        "estimated_time": "15 minutes"
+      },
+      {
+        "task_id": "P4-03",
+        "autopilot_id": "autopilot-33",
+        "task": "Remove old program directories",
+        "actions": [
+          "Verify program consolidation complete",
+          "rm -rf app/program-holder",
+          "Verify admin portal works"
+        ],
+        "deliverable": "Old program directories removed",
+        "estimated_time": "10 minutes"
+      },
+      {
+        "task_id": "P4-04",
+        "autopilot_id": "autopilot-34",
+        "task": "Run comprehensive tests",
+        "actions": [
+          "npm run lint",
+          "npm run type-check",
+          "npm run test",
+          "Fix any errors found"
+        ],
+        "deliverable": "All tests passing",
+        "estimated_time": "30 minutes"
+      },
+      {
+        "task_id": "P4-05",
+        "autopilot_id": "autopilot-35",
+        "task": "Validate student portal",
+        "actions": [
+          "Test /portal/student/dashboard loads",
+          "Test gamification displays",
+          "Test courses accessible",
+          "Test certificates work",
+          "Test all 4,596 lines functional"
+        ],
+        "deliverable": "Student portal validated",
+        "estimated_time": "20 minutes"
+      },
+      {
+        "task_id": "P4-06",
+        "autopilot_id": "autopilot-36",
+        "task": "Validate programs feature",
+        "actions": [
+          "Test /programs listing",
+          "Test individual program pages",
+          "Test /programs/admin portal",
+          "Test MOU generation",
+          "Verify 4,517 lines functional"
+        ],
+        "deliverable": "Programs validated",
+        "estimated_time": "20 minutes"
+      },
+      {
+        "task_id": "P4-07",
+        "autopilot_id": "autopilot-37",
+        "task": "Validate analytics API",
+        "actions": [
+          "Test all analytics endpoints",
+          "Test reports generation",
+          "Test metrics calculation",
+          "Verify 1,802 lines functional"
+        ],
+        "deliverable": "Analytics validated",
+        "estimated_time": "20 minutes"
+      },
+      {
+        "task_id": "P4-08",
+        "autopilot_id": "autopilot-38",
+        "task": "Update all documentation",
+        "actions": [
+          "Update README.md",
+          "Update CONSOLIDATION_REPORT.md with results",
+          "Update API documentation",
+          "Create CONSOLIDATION_COMPLETE.md"
+        ],
+        "deliverable": "Documentation updated",
+        "estimated_time": "25 minutes"
+      },
+      {
+        "task_id": "P4-09",
+        "autopilot_id": "autopilot-39",
+        "task": "Calculate final metrics",
+        "actions": [
+          "Count directories (should be ~140)",
+          "Count pages (should be ~480)",
+          "Count API routes (should be ~270)",
+          "Calculate completion rate (should be 40.9%)",
+          "Generate metrics report"
+        ],
+        "deliverable": "Final metrics calculated",
+        "estimated_time": "15 minutes"
+      },
+      {
+        "task_id": "P4-10",
+        "autopilot_id": "autopilot-40",
+        "task": "Create consolidation success report",
+        "actions": [
+          "Document all changes made",
+          "List all removed directories",
+          "Show before/after metrics",
+          "Verify 40.9% completion achieved",
+          "Create celebration report"
+        ],
+        "deliverable": "Success report created",
+        "estimated_time": "20 minutes"
+      }
+    ]
+  },
+
+  "execution_summary": {
+    "total_tasks": 40,
+    "phase_1_tasks": 15,
+    "phase_2_tasks": 8,
+    "phase_3_tasks": 7,
+    "phase_4_tasks": 10,
+    "estimated_total_time": "2-4 hours (parallel execution)",
+    "expected_outcome": {
+      "completion_rate": "40.9% (up from 25.4%)",
+      "fully_implemented_features": 6,
+      "directories_removed": 26,
+      "student_portal_lines": "4,596 (up from 70)",
+      "duplicate_features_eliminated": 12
+    }
+  },
+
+  "coordination": {
+    "task_dependencies": {
+      "P1-13": ["P1-01", "P1-02", "P1-11", "P1-12"],
+      "P1-14": ["P1-02", "P1-03", "P1-04", "P1-05", "P1-06", "P1-07", "P1-08", "P1-09", "P1-10", "P1-11"],
+      "P1-15": ["P1-14"],
+      "P2-03": ["P2-02"],
+      "P2-04": ["P2-02"],
+      "P2-06": ["P2-05"],
+      "P2-07": ["P2-06"],
+      "P3-05": ["P3-02", "P3-03", "P3-04"],
+      "P3-06": ["P3-05"],
+      "P3-07": ["P3-06"],
+      "P4-01": ["P1-15"],
+      "P4-02": ["P1-15"],
+      "P4-03": ["P2-06"],
+      "P4-04": ["P4-01", "P4-02", "P4-03"],
+      "P4-05": ["P4-04"],
+      "P4-06": ["P4-04"],
+      "P4-07": ["P4-04"],
+      "P4-08": ["P4-05", "P4-06", "P4-07"],
+      "P4-09": ["P4-08"],
+      "P4-10": ["P4-09"]
+    },
+    "parallel_execution_groups": {
+      "group_1": ["P1-01", "P2-01", "P3-01"],
+      "group_2": ["P1-02", "P1-03", "P1-04", "P1-05", "P1-06", "P1-07", "P1-08", "P1-09", "P1-10"],
+      "group_3": ["P1-11", "P1-12", "P2-02", "P3-02", "P3-03", "P3-04"],
+      "group_4": ["P1-13", "P2-03", "P2-04"],
+      "group_5": ["P1-14", "P2-05", "P3-05"],
+      "group_6": ["P1-15", "P2-06", "P3-06"],
+      "group_7": ["P2-07", "P2-08", "P3-07"],
+      "group_8": ["P4-01", "P4-02", "P4-03"],
+      "group_9": ["P4-04"],
+      "group_10": ["P4-05", "P4-06", "P4-07"],
+      "group_11": ["P4-08", "P4-09", "P4-10"]
+    }
+  }
+}

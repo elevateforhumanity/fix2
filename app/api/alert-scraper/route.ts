@@ -113,7 +113,6 @@ View full details: ${process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhuma
 This is an automated alert from Elevate for Humanity Security System.
   `;
   
-  console.log('[EMAIL ALERT]', emailContent);
   
   // Email sending via SendGrid when configured
   // Set SENDGRID_API_KEY and ALERT_EMAIL in environment variables

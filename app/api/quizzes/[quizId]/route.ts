@@ -6,6 +6,7 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ quizId: string }> }
 ) {
+  const resolvedParams = await params;
   try {
     const { quizId } = await params;
     const supabase = getSupabaseServerClient();
@@ -50,6 +51,7 @@ export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ quizId: string }> }
 ) {
+  const resolvedParams = await params;
   try {
     const { quizId } = await params;
     const supabase = getSupabaseServerClient();

@@ -319,7 +319,6 @@ export async function filterGuardianEmails(
     if (shouldSend) {
       filtered.push(guardian.email);
     } else {
-      console.log(`⏭️  Skipping ${guardian.email} (opted out or preferences)`);
     }
   }
 
@@ -372,7 +371,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         process.exit(1);
       }
       shouldSendToGuardian(email, studentId).then((should) => {
-        console.log(`Should send to ${email}:`, should);
       });
       break;
 
@@ -384,7 +382,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         process.exit(1);
       }
       optOutGuardian(email, studentId).then((result) => {
-        console.log(result.message);
       });
       break;
 
@@ -396,19 +393,14 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         process.exit(1);
       }
       optInGuardian(email, studentId).then((result) => {
-        console.log(result.message);
       });
       break;
 
     default:
-      console.log('Usage:');
-      console.log(
         '  npx tsx src/guardian-preferences.ts check <email> [studentId]'
       );
-      console.log(
         '  npx tsx src/guardian-preferences.ts opt-out <email> [studentId]'
       );
-      console.log(
         '  npx tsx src/guardian-preferences.ts opt-in <email> [studentId]'
       );
   }
