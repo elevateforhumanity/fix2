@@ -24,22 +24,22 @@ export default function ProgramHero({
 }: ProgramHeroProps) {
   return (
     <>
-      {/* Simple Hero - Not Stretched */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-16">
+      {/* Simple Hero - No Gradient, No Stretch */}
+      <section className="bg-white py-16 border-b">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
-            <p className="text-lg md:text-xl mb-8">{description}</p>
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">{title}</h1>
+            <p className="text-lg md:text-xl mb-8 text-gray-700">{description}</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link 
                 href="/apply" 
-                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition"
+                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition"
               >
                 Apply Now - Free Training
               </Link>
               <Link 
                 href="/contact" 
-                className="bg-blue-700 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-800 transition border-2 border-white"
+                className="bg-gray-100 text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-200 transition border-2 border-gray-300"
               >
                 Learn More
               </Link>
