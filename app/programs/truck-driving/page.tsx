@@ -1,32 +1,24 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
+import ProgramHero from '@/components/ProgramHero';
 
 export const metadata: Metadata = {
-  title: 'Truck Driving | Elevate For Humanity',
-  description: 'Learn more about Truck Driving inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Truck Driving Training | Elevate For Humanity',
+  description: '100% free truck driving training. Get your CDL and start a high-demand career. Job placement assistance included.',
 };
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Truck Driving | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Truck Driving inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 text-lg">
-                Apply Now - Free Training
-              </Link>
-              <Link href="/contact" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
-                Learn More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <ProgramHero
+        title="Truck Driving Training"
+        description="100% free truck driving training. Get your CDL and start a high-demand career. Job placement assistance included."
+        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageAlt="Truck Driving Training"
+        duration="4-6 Weeks"
+        cost="$0"
+        placement="95%+"
+        salary="$50K+"
+      />
       {/* Quick Facts */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">

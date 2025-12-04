@@ -1,32 +1,24 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
+import ProgramHero from '@/components/ProgramHero';
 
 export const metadata: Metadata = {
-  title: 'Hvac Tech | Elevate For Humanity',
-  description: 'Learn more about Hvac Tech inside the Elevate For Humanity workforce ecosystem.',
+  title: 'HVAC Tech Training | Elevate For Humanity',
+  description: '100% free HVAC technician training. Learn heating and cooling systems. High-demand career with great pay.',
 };
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Hvac Tech | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Hvac Tech inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 text-lg">
-                Apply Now - Free Training
-              </Link>
-              <Link href="/contact" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
-                Learn More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <ProgramHero
+        title="HVAC Tech Training"
+        description="100% free HVAC technician training. Learn heating and cooling systems. High-demand career with great pay."
+        imageSrc="/images/trades/program-hvac-technician.jpg"
+        imageAlt="HVAC Tech Training"
+        duration="12-16 Weeks"
+        cost="$0"
+        placement="90%+"
+        salary="$45K+"
+      />
       {/* Quick Facts */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">

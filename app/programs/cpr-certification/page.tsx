@@ -1,43 +1,24 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
+import ProgramHero from '@/components/ProgramHero';
 
 export const metadata: Metadata = {
-  title: 'CPR & First Aid Certification | Elevate For Humanity',
-  description: '100% free CPR and First Aid certification. Learn life-saving skills, AED use, and emergency response. Get certified.',
+  title: 'CPR Certification Training | Elevate For Humanity',
+  description: 'Get CPR certified. Learn life-saving techniques. Required for many healthcare and childcare positions.',
 };
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner with Image */}
-      <section className="relative min-h-[400px] flex items-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/programs/efh-cpr-aed-first-aid-hero.jpg"
-            alt="CPR & First Aid Certification"
-            fill
-            className="object-cover"
-            priority quality={85} sizes="100vw"
-          />
-          
-        </div>
-        <div className="relative container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">CPR & First Aid Certification</h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">100% free certification. Learn life-saving skills, AED use, and emergency response. Get certified.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-700 text-lg shadow-2xl">
-                Apply Now - Free Training
-              </Link>
-              <Link href="/contact" className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl">
-                Learn More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <ProgramHero
+        title="CPR Certification Training"
+        description="Get CPR certified. Learn life-saving techniques. Required for many healthcare and childcare positions."
+        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageAlt="CPR Certification Training"
+        duration="1 Day"
+        cost="$0"
+        placement="100%"
+        salary="N/A"
+      />
       {/* Quick Facts */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">

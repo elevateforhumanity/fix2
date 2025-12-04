@@ -1,43 +1,24 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
+import ProgramHero from '@/components/ProgramHero';
 
 export const metadata: Metadata = {
   title: 'Patient Care Technician Training | Elevate For Humanity',
-  description: '100% free Patient Care Technician training. Learn patient care, vital signs, and clinical support. Get certified.',
+  description: '100% free training. Learn patient care, vital signs, and medical assistance. Get certified and start your career.',
 };
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner with Image */}
-      <section className="relative min-h-[400px] flex items-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/healthcare/cpr-individual-practice.jpg"
-            alt="Patient Care Technician Training"
-            fill
-            className="object-cover"
-            priority quality={85} sizes="100vw"
-          />
-          
-        </div>
-        <div className="relative container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">Patient Care Technician Training</h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">100% free training. Learn patient care, vital signs, and clinical support. Get certified.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-700 text-lg shadow-2xl">
-                Apply Now - Free Training
-              </Link>
-              <Link href="/contact" className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl">
-                Learn More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <ProgramHero
+        title="Patient Care Technician Training"
+        description="100% free training. Learn patient care, vital signs, and medical assistance. Get certified and start your career."
+        imageSrc="/images/artlist/hero-training-1.jpg"
+        imageAlt="Patient Care Technician Training"
+        duration="8-12 Weeks"
+        cost="$0"
+        placement="85%+"
+        salary="$32K+"
+      />
       {/* Quick Facts */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">

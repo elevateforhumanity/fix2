@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
+import ProgramHero from '@/components/ProgramHero';
 
 export const metadata: Metadata = {
   title: 'CNA Training Program | Elevate For Humanity',
@@ -10,44 +9,16 @@ export const metadata: Metadata = {
 export default function CNAProgramPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with Image */}
-      <section className="relative min-h-[400px] flex items-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/programs/efh-cna-hero.jpg"
-            alt="CNA Training Program"
-            fill
-            className="object-cover"
-            priority quality={85} sizes="100vw"
-          />
-          
-        </div>
-        <div className="relative container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-6xl md:text-7xl font-extrabold mb-6 drop-shadow-2xl leading-tight">Certified Nursing Assistant (CNA) Training</h1>
-            <p className="text-2xl md:text-3xl mb-8 drop-shadow-lg leading-relaxed">
-              Start your healthcare career in just 4-6 weeks. Work in hospitals, nursing homes, and home health. State certification exam included. $30-$35K starting salary.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-700 text-lg shadow-2xl">
-                Apply Now - Free Training
-              </Link>
-              <Link href="/contact" className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl">
-                Learn More
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Facts */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">4-6 Weeks</div>
-              <div className="text-gray-600">Program Duration</div>
-            </div>
+      <ProgramHero
+        title="Certified Nursing Assistant (CNA) Training"
+        description="Start your healthcare career in just 4-6 weeks. Work in hospitals, nursing homes, and home health. State certification exam included."
+        imageSrc="/images/programs/efh-cna-hero.jpg"
+        imageAlt="CNA Training Program"
+        duration="4-6 Weeks"
+        cost="$0"
+        placement="90%+"
+        salary="$30-35K"
+      />
             <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
               <div className="text-3xl font-bold text-green-600 mb-2">$0</div>
               <div className="text-gray-600">100% Funded</div>
