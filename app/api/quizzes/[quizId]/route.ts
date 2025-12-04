@@ -4,8 +4,9 @@ import { getSupabaseServerClient } from "@/lib/supabaseServer";
 // GET /api/quizzes/[quizId] - Load quiz with questions
 export async function GET(
   request: NextRequest,
-  { params }: { params: { quizId: string } }
+  { params }: { params: Promise<{ quizId: string }> }
 ) {
+  const resolvedParams = await params;
   try {
     const supabase = getSupabaseServerClient();
     const { quizId } = params;
@@ -48,8 +49,9 @@ export async function GET(
 // POST /api/quizzes/[quizId] - Submit quiz attempt
 export async function POST(
   request: NextRequest,
-  { params }: { params: { quizId: string } }
+  { params }: { params: Promise<{ quizId: string }> }
 ) {
+  const resolvedParams = await params;
   try {
     const supabase = getSupabaseServerClient();
     const { quizId } = params;

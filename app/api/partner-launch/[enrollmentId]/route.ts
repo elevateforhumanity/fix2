@@ -20,12 +20,12 @@ async function getSupabaseServerClient() {
 }
 
 interface Params {
-  params: { enrollmentId: string };
+  params: Promise<{ enrollmentId: string }>;
 }
 
 export async function GET(_req: Request, { params }: Params) {
   const supabase = await getSupabaseServerClient();
-  const enrollmentId = params.enrollmentId;
+  const { enrollmentId } = await params;
 
   const { data: enrollment, error } = await supabase
     .from("partner_lms_enrollments")
