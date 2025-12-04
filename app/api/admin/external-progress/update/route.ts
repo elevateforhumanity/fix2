@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Update the status
-    const updates: any = { status };
+    const updates: Record<string, any> = { status };
 
     // If approving, set approved_at timestamp
     if (status === "approved") {
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
 
     const { error } = await supabaseAdmin
       .from("external_partner_progress")
-      .update(updates)
+      .update(updates as any)
       .eq("id", id);
 
     if (error) {
