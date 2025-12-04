@@ -146,6 +146,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/programs/tax-prep',
     '/programs/tax-prep-financial-services',
     '/programs/tax-vita',
+    '/supersonic-fast-cash',
+    '/supersonic-fast-cash/upload',
     '/programs/truck-driving',
     '/programs/workforce-readiness',
     '/pwa-test',
@@ -315,7 +317,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Skip dynamic content during build if no database connection
     if (!process.env.NEXT_PUBLIC_SUPABASE_URL || 
         process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder')) {
-      // console.log('Sitemap: Using static routes only (no database connection)');
       return staticSitemap;
     }
 
@@ -331,7 +332,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const courses = null;
 
     if (programsError) {
-      // console.log('Sitemap: Database query failed, using static routes only');
       return staticSitemap;
     }
 
@@ -349,7 +349,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     return sitemap;
   } catch (err) {
-    // console.log('Sitemap: Error during generation, using static routes only');
     // Fallback to static sitemap if Supabase fails
     return staticSitemap;
   }

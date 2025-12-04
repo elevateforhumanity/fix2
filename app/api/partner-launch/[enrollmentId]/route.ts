@@ -4,8 +4,8 @@ import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
 import { getPartnerClient, PartnerType } from "@/lib/partners";
 
-function getSupabaseServerClient() {
-  const cookieStore = cookies();
+async function getSupabaseServerClient() {
+  const cookieStore = await cookies();
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -20,12 +20,12 @@ function getSupabaseServerClient() {
 }
 
 interface Params {
-  params: { enrollmentId: string };
+  params: Promise<{ enrollmentId: string }>;
 }
 
 export async function GET(_req: Request, { params }: Params) {
-  const supabase = getSupabaseServerClient();
-  const enrollmentId = params.enrollmentId;
+  const supabase = await getSupabaseServerClient();
+  const { enrollmentId } = await params;
 
   const { data: enrollment, error } = await supabase
     .from("partner_lms_enrollments")

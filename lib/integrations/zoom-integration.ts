@@ -246,7 +246,7 @@ export class ZoomIntegration {
       .eq('zoom_meeting_id', meetingId)
       .single();
 
-    if (!session) return;
+    if (!session) return 0;
 
     // Record attendance
     for (const participant of participants) {
@@ -290,7 +290,7 @@ export class ZoomIntegration {
       .eq('zoom_meeting_id', meetingId)
       .single();
 
-    if (!session) return;
+    if (!session) return 0;
 
     for (const recording of recordings) {
       if (recording.file_type === 'MP4') {

@@ -78,7 +78,6 @@ export default function CourseAuthoringPage() {
 
   async function handleSave() {
     const courseData = { title, description, modules };
-    console.log("Saving course:", courseData);
     
     // API endpoint for course authoring
     // Implement /api/courses/authoring POST endpoint to persist course data

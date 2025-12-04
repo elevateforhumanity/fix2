@@ -47,7 +47,6 @@ interface SyncTask {
  * Process a single sync task
  */
 async function processSyncTask(task: SyncTask): Promise<void> {
-  console.log(`Processing task ${task.id}: ${task.event_type}`);
 
   try {
     const classroom = getClassroomClient();
@@ -81,7 +80,6 @@ async function processSyncTask(task: SyncTask): Promise<void> {
       p_sync_result: { status: 'success', timestamp: new Date().toISOString() },
     });
 
-    console.log(`✅ Task ${task.id} completed successfully`);
   } catch (error: any) {
     console.error(`❌ Task ${task.id} failed:`, error.message);
 
@@ -128,7 +126,6 @@ async function syncCourse(classroom: any, task: SyncTask): Promise<string> {
       },
     });
 
-    console.log(`Updated course: ${classroomCourseId}`);
   } else {
     // Create new course
     const response = await classroom.courses.create({
@@ -143,7 +140,6 @@ async function syncCourse(classroom: any, task: SyncTask): Promise<string> {
     });
 
     classroomCourseId = response.data.id!;
-    console.log(`Created course: ${classroomCourseId}`);
   }
 
   // Update mapping
@@ -204,7 +200,6 @@ async function syncTopic(classroom: any, task: SyncTask): Promise<string> {
       },
     });
 
-    console.log(`Updated topic: ${classroomTopicId}`);
   } else {
     // Create new topic
     const response = await classroom.courses.topics.create({
@@ -215,7 +210,6 @@ async function syncTopic(classroom: any, task: SyncTask): Promise<string> {
     });
 
     classroomTopicId = response.data.topicId!;
-    console.log(`Created topic: ${classroomTopicId}`);
   }
 
   // Update mapping
@@ -301,7 +295,6 @@ async function syncCoursework(classroom: any, task: SyncTask): Promise<string> {
       requestBody: courseworkData,
     });
 
-    console.log(`Updated coursework: ${classroomWorkId}`);
   } else {
     // Create new coursework
     const response = await classroom.courses.courseWork.create({
@@ -310,7 +303,6 @@ async function syncCoursework(classroom: any, task: SyncTask): Promise<string> {
     });
 
     classroomWorkId = response.data.id!;
-    console.log(`Created coursework: ${classroomWorkId}`);
   }
 
   // Update mapping
@@ -363,7 +355,6 @@ async function syncRoster(classroom: any, task: SyncTask): Promise<string> {
   if (existingMapping && payload.action !== 'remove') {
     // Already enrolled
     enrollmentId = existingMapping.classroom_enrollment_id;
-    console.log(`Student already enrolled: ${payload.user_email}`);
   } else if (payload.action === 'remove') {
     // Remove student
     if (existingMapping) {
@@ -380,7 +371,6 @@ async function syncRoster(classroom: any, task: SyncTask): Promise<string> {
         .eq('lms_course_id', payload.course_id)
         .eq('lms_user_id', payload.user_id);
 
-      console.log(`Removed student: ${payload.user_email}`);
     }
     enrollmentId = 'removed';
   } else {
@@ -409,7 +399,6 @@ async function syncRoster(classroom: any, task: SyncTask): Promise<string> {
       last_synced_at: new Date().toISOString(),
     });
 
-    console.log(`Enrolled student: ${payload.user_email}`);
   }
 
   return enrollmentId;
@@ -443,7 +432,6 @@ function parseDueTime(timeString: string): { hours: number; minutes: number } {
  * Main sync loop
  */
 async function runSyncLoop(maxTasks: number = 10): Promise<void> {
-  console.log(`🔄 Starting sync loop (max ${maxTasks} tasks)...`);
 
   let processedCount = 0;
 
@@ -457,7 +445,6 @@ async function runSyncLoop(maxTasks: number = 10): Promise<void> {
     }
 
     if (!tasks || tasks.length === 0) {
-      console.log('No more tasks to process');
       break;
     }
 
@@ -466,7 +453,6 @@ async function runSyncLoop(maxTasks: number = 10): Promise<void> {
     processedCount++;
   }
 
-  console.log(`✅ Processed ${processedCount} tasks`);
 }
 
 /**
@@ -477,7 +463,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
 
   runSyncLoop(maxTasks)
     .then(() => {
-      console.log('Sync complete');
       process.exit(0);
     })
     .catch((error) => {

@@ -62,7 +62,7 @@ function FacebookPixelContent() {
         width="1"
         style={{ display: 'none' }}
         src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
-        alt=""
+        alt="Facebook Pixel"
       />
     </noscript>
   );

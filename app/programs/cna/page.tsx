@@ -14,7 +14,7 @@ export default function CNAProgramPage() {
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/media-backup-20251128-043832/programs/cna-hd.jpg"
+            src="/images/programs/efh-cna-hero.jpg"
             alt="CNA Training Program"
             fill
             className="object-cover"
@@ -113,35 +113,23 @@ export default function CNAProgramPage() {
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Basic nursing skills and patient care</span>
+                    <span>Patient care & vital signs</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Vital signs monitoring</span>
+                    <span>Infection control & safety</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Infection control and safety</span>
+                    <span>Medical terminology & documentation</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Communication and interpersonal skills</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Medical terminology</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Patient rights and ethics</span>
+                    <span>Patient rights & ethics</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 font-bold mr-2">•</span>
                     <span>Emergency procedures</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 font-bold mr-2">•</span>
-                    <span>Documentation and record keeping</span>
                   </li>
                 </ul>
               </div>
@@ -282,21 +270,18 @@ export default function CNAProgramPage() {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">IU Health</h3>
                 <p className="text-gray-700 mb-2">CNA - Hospital & Outpatient</p>
                 <p className="text-green-600 font-bold text-lg">$16-$18/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Full benefits • Tuition reimbursement • Career advancement</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">Ascension St. Vincent</h3>
                 <p className="text-gray-700 mb-2">Patient Care Technician</p>
                 <p className="text-green-600 font-bold text-lg">$15-$17/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Health insurance • 401k match • Shift differentials</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
                 <p className="text-gray-700 mb-2">CNA - Med/Surg Units</p>
                 <p className="text-green-600 font-bold text-lg">$16-$19/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Sign-on bonus • Flexible scheduling • Education assistance</p>

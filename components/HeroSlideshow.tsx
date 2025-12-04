@@ -5,38 +5,121 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const slides = [
+interface Slide {
+  image: string;
+  title: string;
+  text: string;
+  cta?: {
+    text: string;
+    href: string;
+  };
+}
+
+const slides: Slide[] = [
   {
-    image: "/images/artlist/hero-training-3.jpg",
-    title: "Your Career Starts Here",
-    text: "Free workforce training that leads to real jobs - 100% government funded",
+    image: "/images/hero/hero-main-welcome.jpg",
+    title: "Elevate for Humanity",
+    text: "State-approved, federally aligned workforce training that opens doors to high-wage careers.",
+    cta: {
+      text: "Explore Programs",
+      href: "/programs/barber-apprenticeship"
+    }
   },
   {
-    image: "/images/artlist/hero-training-7.jpg",
-    title: "Build a Career in High-Demand Trades",
-    text: "HVAC, welding, and building maintenance - earn $20-$30/hour with benefits",
+    image: "/images/hero/hero-barber.jpg",
+    title: "DOL Registered Barber Apprenticeship",
+    text: "2,000-hour apprenticeship or 1,500-hour program with financial aid. Earn while you learn. WIOA, WRG, and JRI fundable.",
+    cta: {
+      text: "Learn More",
+      href: "/programs/barber-apprenticeship"
+    }
   },
   {
-    image: "/images/artlist/hero-training-8.jpg",
-    title: "No Cost. No Debt. Just Opportunity.",
-    text: "State and Federal Funded - WIOA, Workforce Ready Grants, and registered apprenticeships",
+    image: "/images/hero/hero-healthcare.jpg",
+    title: "Healthcare Training Programs",
+    text: "CNA certification through Choice Medical Institute. State-approved, workforce fundable, high-demand careers.",
+    cta: {
+      text: "View Healthcare Programs",
+      href: "/programs/barber-apprenticeship"
+    }
   },
   {
-    image: "/images/artlist/hero-training-1.jpg",
-    title: "Train Today. Work Tomorrow.",
-    text: "Healthcare, Skilled Trades, Technology, and Business programs with direct employer connections",
+    image: "/images/hero/hero-skilled-trades.jpg",
+    title: "Skilled Trades & Building Technician",
+    text: "HVAC, electrical, plumbing. Hands-on training for high-wage careers in construction and maintenance.",
+    cta: {
+      text: "View Trades Programs",
+      href: "/programs/barber-apprenticeship"
+    }
   },
+  {
+    image: "/images/hero/hero-beauty-wellness.jpg",
+    title: "Beauty & Esthetics Programs",
+    text: "Nails, esthetics, and cosmetology training with experienced instructors.",
+    cta: {
+      text: "View Beauty Programs",
+      href: "/programs/barber-apprenticeship"
+    }
+  },
+  {
+    image: "/images/hero/hero-career-services.jpg",
+    title: "Career Services & Support",
+    text: "Life coaching, mental health partnerships, and wraparound support to help you succeed.",
+    cta: {
+      text: "Learn About Support",
+      href: "/support"
+    }
+  },
+  {
+    image: "/images/hero/hero-hands-on-training.jpg",
+    title: "Hands-On Training",
+    text: "Real-world skills training with experienced instructors in state-of-the-art facilities.",
+    cta: {
+      text: "See Our Facilities",
+      href: "/programs/barber-apprenticeship"
+    }
+  },
+  {
+    image: "/images/hero/hero-tech-careers.jpg",
+    title: "Technology Career Pathways",
+    text: "IT training and technology skills for the digital economy.",
+    cta: {
+      text: "Explore Tech Programs",
+      href: "/programs/barber-apprenticeship"
+    }
+  },
+  {
+    image: "/images/hero/hero-business.jpg",
+    title: "Business & Professional Skills",
+    text: "Office administration, customer service, and professional development training.",
+    cta: {
+      text: "View Business Programs",
+      href: "/programs/barber-apprenticeship"
+    }
+  },
+  {
+    image: "/images/hero/hero-early-childhood.jpg",
+    title: "Early Childhood Education",
+    text: "Childcare and early education training for rewarding careers working with children.",
+    cta: {
+      text: "Learn More",
+      href: "/programs/barber-apprenticeship"
+    }
+  }
 ];
 
 export default function HeroSlideshow() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
+    if (!isAutoPlaying) return;
+
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isAutoPlaying]);
 
   // Auto-play voiceover on mount
   useEffect(() => {
@@ -44,7 +127,6 @@ export default function HeroSlideshow() {
     audio.volume = 0.7;
     audio.play().catch(err => {
       // Autoplay blocked by browser - user needs to interact first
-      console.log('Autoplay prevented:', err);
     });
   }, []);
 
@@ -94,20 +176,22 @@ export default function HeroSlideshow() {
                 <p className="text-xl md:text-2xl text-slate-200 font-light mb-8 leading-relaxed">
                   {slide.text}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/apply"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition-colors shadow-lg"
-                  >
-                    Apply Now
-                  </Link>
-                  <Link
-                    href="/programs"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded border-2 border-white hover:bg-slate-50 transition-colors shadow-lg"
-                  >
-                    Explore Programs
-                  </Link>
-                </div>
+                {slide.cta && (
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Link
+                      href={slide.cta.href}
+                      className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 font-semibold rounded hover:bg-slate-100 transition-colors shadow-lg"
+                    >
+                      {slide.cta.text}
+                    </Link>
+                    <Link
+                      href="/apply"
+                      className="inline-flex items-center justify-center px-8 py-4 bg-transparent text-white font-semibold rounded border-2 border-white hover:bg-white/10 transition-colors"
+                    >
+                      Apply Now
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -129,21 +213,6 @@ export default function HeroSlideshow() {
       >
         <ChevronRight size={24} />
       </button>
-
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide
-                ? "bg-white w-8"
-                : "bg-white/50 hover:bg-white/75"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
     </section>
   );
 }

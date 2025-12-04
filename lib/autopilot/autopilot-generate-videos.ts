@@ -19,8 +19,6 @@ import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 import path from 'path';
 
-console.log('🤖 AUTOPILOT: Video Generation System');
-console.log('=====================================\n');
 
 // Check environment
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
@@ -28,20 +26,11 @@ const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!OPENAI_API_KEY) {
-  console.log('⚠️  OPENAI_API_KEY not set');
-  console.log('\n📝 To generate AI thumbnails:');
-  console.log('1. Get API key: https://platform.openai.com/api-keys');
-  console.log('2. Add to .env.local: OPENAI_API_KEY=sk-...');
-  console.log('3. Run: source .env.local');
-  console.log('4. Run this script again\n');
-  console.log('💡 Or use manual video generation (see AI_VIDEO_GENERATION_GUIDE.md)\n');
   process.exit(0);
 }
 
-console.log('✅ OpenAI API key found');
 
 if (!SUPABASE_URL || !SUPABASE_KEY) {
-  console.log('⚠️  Supabase not configured (optional for this demo)');
 }
 
 // Video configurations
@@ -134,7 +123,6 @@ const videos = [
 
 async function generateThumbnail(video: typeof videos[0]): Promise<string | null> {
   try {
-    console.log(`  🎨 Generating thumbnail: ${video.title}`);
     
     const response = await fetch('http://localhost:3000/api/ai/generate-asset', {
       method: 'POST',
@@ -148,21 +136,17 @@ async function generateThumbnail(video: typeof videos[0]): Promise<string | null
 
     if (!response.ok) {
       const error = await response.text();
-      console.log(`  ❌ Failed: ${response.status} - ${error}`);
       return null;
     }
 
     const data = await response.json();
     
     if (data.url) {
-      console.log(`  ✅ Generated: ${data.url.substring(0, 60)}...`);
       return data.url;
     } else {
-      console.log(`  ❌ No URL in response`);
       return null;
     }
   } catch (error: any) {
-    console.log(`  ❌ Error: ${error.message}`);
     return null;
   }
 }
@@ -179,26 +163,13 @@ async function checkServer(): Promise<boolean> {
 }
 
 async function main() {
-  console.log('🔍 Checking dev server...\n');
   
   const serverRunning = await checkServer();
   
   if (!serverRunning) {
-    console.log('❌ Dev server not running!\n');
-    console.log('To fix:');
-    console.log('1. Open a new terminal');
-    console.log('2. Run: npm run dev');
-    console.log('3. Wait for "Ready" message');
-    console.log('4. Run this script again\n');
     process.exit(1);
   }
   
-  console.log('✅ Dev server is running\n');
-  console.log(`📹 Found ${videos.length} videos to generate\n`);
-  console.log('💰 Estimated cost: $${(videos.length * 0.04).toFixed(2)} (${videos.length} images × $0.04)\n');
-  console.log('⏱️  Estimated time: ~${Math.ceil(videos.length * 0.5)} minutes\n');
-  console.log('Starting generation...\n');
-  console.log('='.repeat(60));
   
   const results: Array<{
     video: typeof videos[0];
@@ -209,10 +180,6 @@ async function main() {
   
   for (let i = 0; i < videos.length; i++) {
     const video = videos[i];
-    console.log(`\n[${i + 1}/${videos.length}] ${video.title}`);
-    console.log(`  📄 Script: ${video.script}`);
-    console.log(`  📍 Page: ${video.page}`);
-    console.log(`  ⏱️  Duration: ${video.duration}s`);
     
     // Read script
     const scriptPath = path.join(process.cwd(), 'content/video-scripts', video.script);
@@ -220,9 +187,7 @@ async function main() {
     
     try {
       scriptContent = fs.readFileSync(scriptPath, 'utf-8');
-      console.log(`  ✅ Script loaded (${scriptContent.length} chars)`);
     } catch (error) {
-      console.log(`  ❌ Could not read script file`);
       results.push({ video, thumbnail: null, script: '', success: false });
       continue;
     }
@@ -239,60 +204,34 @@ async function main() {
     
     // Rate limiting - wait 2 seconds between requests
     if (i < videos.length - 1) {
-      console.log(`  ⏳ Waiting 2s before next request...`);
       await new Promise(resolve => setTimeout(resolve, 2000));
     }
   }
   
   // Generate report
-  console.log('\n' + '='.repeat(60));
-  console.log('📊 GENERATION REPORT');
-  console.log('='.repeat(60));
   
   const successful = results.filter(r => r.success).length;
   const failed = results.filter(r => !r.success).length;
   
-  console.log(`\n✅ Successful: ${successful}/${videos.length}`);
-  console.log(`❌ Failed: ${failed}/${videos.length}`);
   
   if (successful > 0) {
-    console.log('\n📸 Generated Thumbnails:');
     results
       .filter(r => r.success)
       .forEach(r => {
-        console.log(`  ✓ ${r.video.title}`);
-        console.log(`    ${r.thumbnail}`);
       });
   }
   
   if (failed > 0) {
-    console.log('\n❌ Failed:');
     results
       .filter(r => !r.success)
       .forEach(r => {
-        console.log(`  ✗ ${r.video.title}`);
       });
   }
   
   // Save report
   const reportPath = path.join(process.cwd(), 'video-generation-report.json');
   fs.writeFileSync(reportPath, JSON.stringify(results, null, 2));
-  console.log(`\n💾 Report saved: ${reportPath}`);
   
-  console.log('\n' + '='.repeat(60));
-  console.log('🎬 NEXT STEPS');
-  console.log('='.repeat(60));
-  console.log('\n1. Review generated thumbnails above');
-  console.log('2. Use scripts in content/video-scripts/ with:');
-  console.log('   - HeyGen (heygen.com) - $24/month unlimited');
-  console.log('   - Synthesia (synthesia.io) - $22/month');
-  console.log('   - Pictory (pictory.ai) - $19/month');
-  console.log('   - D-ID (d-id.com) - $29/month');
-  console.log('3. Generate 12 videos (30-60 sec each)');
-  console.log('4. Upload to YouTube');
-  console.log('5. Update database with video URLs');
-  console.log('6. Replace VideoPlaceholder with real videos\n');
-  console.log('📖 See: AI_VIDEO_GENERATION_GUIDE.md for details\n');
 }
 
 main().catch(error => {

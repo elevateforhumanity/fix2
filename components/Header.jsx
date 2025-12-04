@@ -10,9 +10,12 @@ const Header = () => {
         </Link>
         <nav className="header-nav">
           <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/blog">Blog</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="/programs/barber-apprenticeship">Programs</Link>
+          <Link href="/funding">Funding</Link>
+          <Link href="/team">Team</Link>
+          <Link href="/advising">Advising</Link>
+          <Link href="/support">Support</Link>
+          <Link href="/apply">Apply</Link>
         </nav>
       </div>
     </header>

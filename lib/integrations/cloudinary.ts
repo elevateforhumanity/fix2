@@ -85,7 +85,10 @@ class CloudinaryClient {
     const signature = await this.sign(params);
 
     const formData = new FormData();
-    formData.append('file', options.file);
+    const fileData: string | Blob = options.file instanceof Buffer 
+      ? new Blob([options.file as any]) 
+      : (options.file as string | Blob);
+    formData.append('file', fileData);
     formData.append('api_key', this.config.apiKey);
     formData.append('timestamp', timestamp.toString());
     formData.append('signature', signature);

@@ -8,6 +8,7 @@ interface Course {
   course_name: string;
   description: string;
   category: string;
+  provider_name: string;
   retail_price: number;
   duration_hours: number | null;
   enrollment_type: 'paid' | 'direct' | 'wioa' | 'apprenticeship';

@@ -246,7 +246,6 @@ export default function Page() {
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
-                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
                 <p className="text-gray-700 mb-2">Peer Support Navigator</p>
                 <p className="text-green-600 font-bold text-lg">$16-$20/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Hospital-based • Benefits • Career development</p>

@@ -68,10 +68,14 @@ class S3Client {
       }), {})),
     });
 
+    const bodyData: string | Blob = options.body instanceof Buffer 
+      ? new Blob([options.body as any]) 
+      : (options.body as string | Blob);
+    
     const response = await fetch(`${this.baseUrl}/${options.key}`, {
       method: 'PUT',
       headers,
-      body: options.body,
+      body: bodyData,
     });
 
     if (!response.ok) {

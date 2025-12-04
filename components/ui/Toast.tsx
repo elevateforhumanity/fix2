@@ -19,10 +19,10 @@ export const Toast: React.FC<ToastProps> = ({
   duration = 5000,
 }) => {
   useEffect(() => {
-    if (duration > 0) {
-      const timer = setTimeout(onClose, duration);
-      return () => clearTimeout(timer);
-    }
+    if (duration <= 0) return undefined;
+    
+    const timer = setTimeout(onClose, duration);
+    return () => clearTimeout(timer);
   }, [duration, onClose]);
 
   const icons = {

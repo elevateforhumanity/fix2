@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       ...additionalData
     } = body;
     
-    const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
     const userAgent = request.headers.get('user-agent') || 'unknown';
     
     console.error('🚨 SCRAPING ATTEMPT DETECTED:', {
@@ -113,7 +113,6 @@ View full details: ${process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhuma
 This is an automated alert from Elevate for Humanity Security System.
   `;
   
-  console.log('[EMAIL ALERT]', emailContent);
   
   // Email sending via SendGrid when configured
   // Set SENDGRID_API_KEY and ALERT_EMAIL in environment variables

@@ -379,20 +379,16 @@ function generateInstructorEmail(report: InstructorReport): string {
  * Send missing assignments emails
  */
 export async function sendMissingAssignmentsEmails() {
-  console.log('📧 Generating missing assignments emails...\n');
 
   // Get all missing assignments
   const missingAssignments = await getMissingAssignments();
-  console.log(`Found ${missingAssignments.length} missing assignments`);
 
   if (missingAssignments.length === 0) {
-    console.log('✅ No missing assignments - no emails to send');
     return undefined;
   }
 
   // Group by student
   const studentReports = groupByStudent(missingAssignments);
-  console.log(`Affecting ${studentReports.size} students`);
 
   // Get guardian emails
   const guardianEmails = await getGuardianEmails(
@@ -406,7 +402,6 @@ export async function sendMissingAssignmentsEmails() {
 
   // Generate correlation ID for this digest run
   const correlationId = generateCorrelationId('missing_assignments_digest');
-  console.log(`Correlation ID: ${correlationId}`);
 
   // Queue emails for students and guardians
   let studentEmailsSent = 0;
@@ -513,10 +508,7 @@ export async function sendMissingAssignmentsEmails() {
     }
   }
 
-  console.log(`\n✅ Sent ${studentEmailsSent} student emails`);
-  console.log(`✅ Sent ${guardianEmailsSent} guardian emails`);
   if (guardianEmailsSkipped > 0) {
-    console.log(
       `⏭️  Skipped ${guardianEmailsSkipped} guardian emails (opted out or preferences)`
     );
   }
@@ -537,7 +529,6 @@ export async function sendMissingAssignmentsEmails() {
 if (import.meta.url === `file://${process.argv[1]}`) {
   sendMissingAssignmentsEmails()
     .then((result) => {
-      console.log('\n📊 Summary:', result);
     })
     .catch((error) => {
       console.error('❌ Error:', error);

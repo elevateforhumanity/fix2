@@ -162,7 +162,7 @@ export default async function ProgramsPage() {
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white text-lg font-semibold rounded-full hover:bg-orange-700 transition-colors shadow-xl"
+                className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white text-lg font-bold rounded-full hover:bg-orange-700 transition-colors shadow-xl"
               >
                 Get Started Today
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -171,7 +171,7 @@ export default async function ProgramsPage() {
               </Link>
               <Link
                 href="/about"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-lg font-semibold rounded-full hover:bg-white/20 transition-colors border-2 border-white/30"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 text-lg font-bold rounded-full hover:bg-slate-100 transition-colors border-2 border-white shadow-xl"
               >
                 Learn More
               </Link>
@@ -180,96 +180,225 @@ export default async function ProgramsPage() {
         </div>
       </section>
 
-      {/* PROGRAMS GRID */}
-      <section className="py-20 bg-slate-50">
+      {/* PROGRAM HIGHLIGHTS */}
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Explore Our Programs</h2>
-            <p className="text-lg text-slate-700 max-w-2xl mx-auto">
-              Choose from healthcare, technology, skilled trades, and business programs designed to get you hired fast.
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Program Highlights</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Explore our most popular career training programs with 100% funding available through WIOA, WRG, and partner grants.
             </p>
           </div>
 
-      {programs.length === 0 ? (
-        <div className="text-center py-12">
-          <p className="text-slate-600">No programs available at this time.</p>
-        </div>
-      ) : (
-        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {programs.map((program) => {
-            const imageUrl = getProgramImage(program.slug, program.category || "Business");
-            const displayName = program.title || program.name;
-            
-            return (
-              <Link
-                key={program.slug}
-                href={`/programs/${program.slug}`}
-                className="group rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:border-orange-400 hover:shadow-lg transition-all duration-200"
-              >
-                <div className="relative w-full overflow-hidden bg-slate-100" style={{ aspectRatio: '3/2' }}>
-                  <Image
-                    src={imageUrl}
-                    alt={displayName}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-200"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    unoptimized quality={85}
-                  />
-                  {program.featured && (
-                    <div className="absolute top-3 right-3 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                      Featured
-                    </div>
-                  )}
+          <div className="space-y-16">
+            {/* Healthcare Programs */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/programs/efh-cna-hero.jpg"
+                  alt="Healthcare Training Programs"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <div className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
+                  Healthcare
                 </div>
-                <div className="p-5">
-                  <div className="flex items-start justify-between gap-2 mb-2">
-                    <h2 className="text-lg font-semibold text-slate-900 group-hover:text-orange-700 transition-colors">
-                      {displayName}
-                    </h2>
-                  </div>
-                  
-                  {program.category && (
-                    <div className="inline-block px-2 py-1 bg-slate-100 text-slate-700 text-xs font-medium rounded mb-3">
-                      {program.category}
-                    </div>
-                  )}
-                  
-                  <p className="text-sm text-slate-600 line-clamp-2 mb-3">
-                    {program.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
-                    {program.duration_weeks && (
-                      <span className="flex items-center gap-1">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
-                        </svg>
-                        {program.duration_weeks} weeks
-                      </span>
-                    )}
-                    {program.salary_min && program.salary_max && (
-                      <span className="flex items-center gap-1 font-medium text-teal-700">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd"/>
-                        </svg>
-                        ${(program.salary_min / 1000).toFixed(0)}k-${(program.salary_max / 1000).toFixed(0)}k
-                      </span>
-                    )}
-                  </div>
-                  
-                  <div className="flex items-center text-sm font-semibold text-orange-700 group-hover:text-orange-800">
-                    Learn more
-                    <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">Healthcare Training</h3>
+                <p className="text-lg text-slate-600 mb-6">
+                  Launch your healthcare career with programs in Medical Assistant, CNA, Pharmacy Tech, Phlebotomy, and more. Get hands-on clinical training and graduate job-ready in 8-24 weeks.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                  </div>
+                    <span className="text-slate-700"><strong>Clinical Experience:</strong> Real hospital and clinic placements</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-slate-700"><strong>High Demand:</strong> $35K-$55K starting salaries</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-slate-700"><strong>Fast Track:</strong> Complete in 8-24 weeks</span>
+                  </li>
+                </ul>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/programs/medical-assistant" className="px-6 py-3 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition">
+                    View Healthcare Programs
+                  </Link>
+                  <Link href="/apply" className="px-6 py-3 border-2 border-blue-600 text-blue-600 font-bold rounded-full hover:bg-blue-50 transition">
+                    Apply Now
+                  </Link>
                 </div>
-              </Link>
-            );
-          })}
-        </section>
-      )}
+              </div>
+            </div>
+
+            {/* Barber & Beauty Programs */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="order-2 md:order-1">
+                <div className="inline-block px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-semibold mb-4">
+                  Beauty & Barbering
+                </div>
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">Barber & Beauty Training</h3>
+                <p className="text-lg text-slate-600 mb-6">
+                  Master the art of barbering and beauty through our DOL Registered Apprenticeship or traditional school programs. Earn while you learn and build your own clientele.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-slate-700"><strong>Earn While Learning:</strong> Get paid during apprenticeship</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-slate-700"><strong>State Licensed:</strong> Indiana barber license upon completion</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-slate-700"><strong>Own Your Business:</strong> Suite ownership training included</span>
+                  </li>
+                </ul>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/programs/barber-apprenticeship" className="px-6 py-3 bg-purple-600 text-white font-bold rounded-full hover:bg-purple-700 transition">
+                    View Barber Programs
+                  </Link>
+                  <Link href="/apply" className="px-6 py-3 border-2 border-purple-600 text-purple-600 font-bold rounded-full hover:bg-purple-50 transition">
+                    Apply Now
+                  </Link>
+                </div>
+              </div>
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
+                <Image
+                  src="/images/programs/efh-barber-hero.jpg"
+                  alt="Barber Training Programs"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Skilled Trades Programs */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/hero/hero-skilled-trades.jpg"
+                  alt="Skilled Trades Training"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <div className="inline-block px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-4">
+                  Skilled Trades
+                </div>
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">Skilled Trades Training</h3>
+                <p className="text-lg text-slate-600 mb-6">
+                  Build a high-paying career in HVAC, building maintenance, and construction trades. Hands-on training with industry certifications and job placement support.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-slate-700"><strong>High Wages:</strong> $45K-$75K+ earning potential</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-slate-700"><strong>Industry Certs:</strong> EPA, OSHA, and trade certifications</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-slate-700"><strong>Job Ready:</strong> Immediate employment opportunities</span>
+                  </li>
+                </ul>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/programs/hvac-technician" className="px-6 py-3 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition">
+                    View Trades Programs
+                  </Link>
+                  <Link href="/apply" className="px-6 py-3 border-2 border-orange-600 text-orange-600 font-bold rounded-full hover:bg-orange-50 transition">
+                    Apply Now
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Business & Professional Programs */}
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="order-2 md:order-1">
+                <div className="inline-block px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold mb-4">
+                  Business & Professional
+                </div>
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">Business & Workforce Training</h3>
+                <p className="text-lg text-slate-600 mb-6">
+                  Start your own business or advance your professional career with programs in tax preparation, entrepreneurship, and workforce readiness.
+                </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-slate-700"><strong>Quick Start:</strong> Programs as short as 5-10 weeks</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-slate-700"><strong>Certifications:</strong> IRS VITA, QuickBooks, Microsoft 365</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-slate-700"><strong>Startup Support:</strong> Business mentorship and funding</span>
+                  </li>
+                </ul>
+                <div className="flex flex-wrap gap-4">
+                  <Link href="/programs/tax-prep" className="px-6 py-3 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition">
+                    View Business Programs
+                  </Link>
+                  <Link href="/apply" className="px-6 py-3 border-2 border-green-600 text-green-600 font-bold rounded-full hover:bg-green-50 transition">
+                    Apply Now
+                  </Link>
+                </div>
+              </div>
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
+                <Image
+                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1000&fit=crop&q=85"
+                  alt="Business Training Programs"
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* View All Programs CTA */}
+          <div className="mt-16 text-center bg-slate-50 rounded-2xl p-12">
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">Explore All {programs.length}+ Programs</h3>
+            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+              We offer training in healthcare, trades, transportation, beauty, business, and more. All programs include funding assistance and job placement support.
+            </p>
+            <Link href="/contact" className="inline-block px-8 py-4 bg-indigo-600 text-white font-bold rounded-full hover:bg-indigo-700 transition text-lg">
+              Talk to an Advisor
+            </Link>
+          </div>
         </div>
       </section>
 

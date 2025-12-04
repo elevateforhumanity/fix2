@@ -218,21 +218,18 @@ export default function Page() {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">IU Health</h3>
                 <p className="text-gray-700 mb-2">Patient Care Technician</p>
                 <p className="text-green-600 font-bold text-lg">$17-$22/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Full benefits • Tuition reimbursement • Career ladder • Shift differentials</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">Ascension St. Vincent</h3>
                 <p className="text-gray-700 mb-2">Multi-Skilled Technician</p>
                 <p className="text-green-600 font-bold text-lg">$16-$21/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Health insurance • PTO • Education assistance • Sign-on bonus</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
-                <h3 className="text-xl font-bold mb-2">Community Health Network</h3>
                 <p className="text-gray-700 mb-2">PCT - Med/Surg Units</p>
                 <p className="text-green-600 font-bold text-lg">$17-$23/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Benefits • Flexible scheduling • Advancement opportunities</p>
