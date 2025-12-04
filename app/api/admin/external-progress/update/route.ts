@@ -21,6 +21,7 @@ export async function POST(req: NextRequest) {
 
     // Build update object based on status
     if (status === "approved") {
+      // @ts-ignore - external_partner_progress table not in generated types
       const { error } = await supabaseAdmin
         .from("external_partner_progress")
         .update({
@@ -38,6 +39,7 @@ export async function POST(req: NextRequest) {
       }
     } else {
       // status === "in_progress"
+      // @ts-ignore - external_partner_progress table not in generated types
       const { error } = await supabaseAdmin
         .from("external_partner_progress")
         .update({
