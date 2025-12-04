@@ -9,12 +9,17 @@ SELECT
   title,
   slug,
   category,
+  wioa_approved,
+  dol_registered,
+  funding_tags,
   created_at
 FROM programs
 WHERE 
-  -- ETPL programs typically have these characteristics
-  funding @> ARRAY['WIOA']::text[]
-  OR funding @> ARRAY['WRG']::text[]
+  -- ETPL programs are typically WIOA-approved or DOL-registered
+  wioa_approved = true
+  OR dol_registered = true
+  OR funding_tags @> ARRAY['WIOA']::text[]
+  OR funding_tags @> ARRAY['WRG']::text[]
   OR slug IN (
     'business-startup-marketing',
     'emergency-health-safety-tech',
