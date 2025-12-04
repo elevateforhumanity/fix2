@@ -10,29 +10,104 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner with Image */}
-      <section className="relative min-h-[500px] flex items-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/beauty/hero-barber-training.jpg"
-            alt="Barber Training Program"
-            fill
-            className="object-cover"
-            priority quality={85} sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
+      {/* Hero Banner with Modern Design */}
+      <section className="relative min-h-[600px] flex items-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[url('/images/patterns/barber-tools.svg')] bg-repeat opacity-20"></div>
         </div>
-        <div className="relative container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">Barber Training Program</h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">100% free training. Learn cutting, styling, and business skills. Get licensed and start your career.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-700 text-lg shadow-2xl">
-                Apply Now - Free Training
-              </Link>
-              <Link href="/contact" className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl">
-                Learn More
-              </Link>
+        <div className="relative container mx-auto px-4 py-24">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="text-white space-y-6">
+                <div className="inline-block px-4 py-2 bg-red-600 rounded-full text-sm font-semibold mb-4">
+                  100% Free Training
+                </div>
+                <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+                  Master the Art of
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
+                    Barbering
+                  </span>
+                </h1>
+                <p className="text-xl md:text-2xl text-slate-300 leading-relaxed">
+                  Transform your passion into a profession. Learn cutting-edge techniques, build your clientele, and launch your career in just 4-12 weeks.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <Link 
+                    href="/apply" 
+                    className="bg-red-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-red-700 text-lg shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 text-center"
+                  >
+                    Start Your Journey
+                  </Link>
+                  <Link 
+                    href="#program-details" 
+                    className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold hover:bg-white/20 text-lg border-2 border-white/30 text-center"
+                  >
+                    View Curriculum
+                  </Link>
+                </div>
+                <div className="flex items-center gap-6 pt-6 text-sm text-slate-400">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span>State Licensed</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span>Job Placement</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span>Tools Included</span>
+                  </div>
+                </div>
+              </div>
+              <div className="hidden md:block">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl transform rotate-3"></div>
+                  <div className="relative bg-white rounded-2xl p-8 shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform">
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+                          <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-slate-900">4-12 Weeks</div>
+                          <div className="text-slate-600">Flexible Schedule</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                          <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-slate-900">$0 Cost</div>
+                          <div className="text-slate-600">100% Free</div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                          <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-slate-900">Licensed</div>
+                          <div className="text-slate-600">State Certified</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
