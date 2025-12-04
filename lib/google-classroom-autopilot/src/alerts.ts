@@ -244,7 +244,7 @@ async function sendDiscordAlert(alert: Alert, config: { webhookUrl: string }) {
 }
 
 /**
- * Send email notification
+ * Send email notification using Resend API
  */
 async function sendEmailAlert(
   alert: Alert,
@@ -256,19 +256,13 @@ async function sendEmailAlert(
     smtpPass?: string;
   }
 ) {
-  // Use Supabase Edge Function or external email service
-  // For now, log that email would be sent
-  console.log(
-    `📧 Email alert would be sent to: ${config.recipients.join(', ')}`
-  );
+  const resendApiKey = process.env.RESEND_API_KEY;
+  
+  if (!resendApiKey) {
+    console.warn('RESEND_API_KEY not configured, skipping email alert');
+    return;
+  }
 
-  // TODO: Implement actual email sending
-  // Options:
-  // 1. Supabase Edge Function with Resend/SendGrid
-  // 2. Direct SMTP with nodemailer
-  // 3. AWS SES
-
-  // Placeholder implementation
   const emailBody = `
     <h2>${alert.title}</h2>
     <p><strong>Severity:</strong> ${alert.severity.toUpperCase()}</p>
@@ -288,17 +282,31 @@ async function sendEmailAlert(
     <p><small>Sent at ${(alert.timestamp || new Date()).toLocaleString()}</small></p>
   `;
 
-  // Store email in Supabase for later sending
-  await supabase.from('pending_emails').insert({
-    recipients: config.recipients,
-    subject: `[${alert.severity.toUpperCase()}] ${alert.title}`,
-    body: emailBody,
-    created_at: new Date().toISOString(),
+  // Send email via Resend API
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${resendApiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'alerts@elevateforhumanity.org',
+      to: config.recipients,
+      subject: `[${alert.severity.toUpperCase()}] ${alert.title}`,
+      html: emailBody,
+    }),
   });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(`Resend API error: ${error.message || response.statusText}`);
+  }
+
+  console.log(`📧 Email alert sent to: ${config.recipients.join(', ')}`);
 }
 
 /**
- * Send SMS notification (critical alerts only)
+ * Send SMS notification via Twilio (critical alerts only)
  */
 async function sendSMSAlert(
   alert: Alert,
@@ -309,12 +317,43 @@ async function sendSMSAlert(
     recipients: string[];
   }
 ) {
-  console.log(`📱 SMS alert would be sent to: ${config.recipients.join(', ')}`);
+  if (!config.twilioAccountSid || !config.twilioAuthToken || !config.twilioPhoneNumber) {
+    console.warn('Twilio credentials not configured, skipping SMS alert');
+    return;
+  }
 
-  // TODO: Implement Twilio SMS
-  // const message = `[CRITICAL] ${alert.title}: ${alert.message}`;
+  const message = `[CRITICAL] ${alert.title}: ${alert.message}`;
+  const auth = Buffer.from(`${config.twilioAccountSid}:${config.twilioAuthToken}`).toString('base64');
 
-  // For each recipient, send SMS via Twilio API
+  // Send SMS to each recipient
+  for (const recipient of config.recipients) {
+    try {
+      const response = await fetch(
+        `https://api.twilio.com/2010-04-01/Accounts/${config.twilioAccountSid}/Messages.json`,
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Basic ${auth}`,
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams({
+            To: recipient,
+            From: config.twilioPhoneNumber,
+            Body: message,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(`Twilio API error: ${error.message || response.statusText}`);
+      }
+
+      console.log(`📱 SMS alert sent to: ${recipient}`);
+    } catch (error: any) {
+      console.error(`Failed to send SMS to ${recipient}:`, error.message);
+    }
+  }
 }
 
 /**
