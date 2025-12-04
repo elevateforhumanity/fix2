@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description: 'Latest news, success stories, and workforce development insights from Elevate For Humanity.',
 };
 
+export const dynamic = 'force-dynamic';
 export const revalidate = 300; // Revalidate every 5 minutes
 
 async function getBlogPosts() {
