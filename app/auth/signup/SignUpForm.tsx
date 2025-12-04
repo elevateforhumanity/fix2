@@ -1,53 +1,40 @@
 'use client';
 
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
+const signupSchema = z.object({
+  firstName: z.string().min(2, 'First name must be at least 2 characters'),
+  lastName: z.string().min(2, 'Last name must be at least 2 characters'),
+  email: z.string().email('Invalid email address'),
+  password: z.string().min(8, 'Password must be at least 8 characters'),
+  confirmPassword: z.string().min(8, 'Password must be at least 8 characters'),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ['confirmPassword'],
+});
+
+type SignupFormData = z.infer<typeof signupSchema>;
+
 export default function SignUpForm() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<SignupFormData>({
+    resolver: zodResolver(signupSchema),
   });
+  
   const [showPassword, setShowPassword] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const router = useRouter();
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const validateForm = () => {
-    if (!formData.firstName || !formData.lastName) {
-      setError('Please enter your full name');
-      return false;
-    }
-    if (!formData.email) {
-      setError('Please enter your email address');
-      return false;
-    }
-    if (formData.password.length < 8) {
-      setError('Password must be at least 8 characters long');
-      return false;
-    }
-    if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
-      return false;
-    }
-    if (!agreedToTerms) {
-      setError('Please agree to the Terms of Service and Privacy Policy');
-      return false;
-    }
     return true;
   };
 
@@ -55,22 +42,24 @@ export default function SignUpForm() {
     e.preventDefault();
     setError('');
 
-    if (!validateForm()) {
+  const onSubmit = async (data: SignupFormData) => {
+    if (!agreedToTerms) {
+      setError('Please agree to the Terms of Service and Privacy Policy');
       return;
     }
 
-    setLoading(true);
+    setError('');
 
     try {
       const supabase = createClient();
-      const { data, error: signUpError } = await supabase.auth.signUp({
-        email: formData.email,
-        password: formData.password,
+      const { data: authData, error: signUpError } = await supabase.auth.signUp({
+        email: data.email,
+        password: data.password,
         options: {
           data: {
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-            full_name: `${formData.firstName} ${formData.lastName}`,
+            first_name: data.firstName,
+            last_name: data.lastName,
+            full_name: `${data.firstName} ${data.lastName}`,
           },
           emailRedirectTo: `${window.location.origin}/auth/callback`,
         },
@@ -78,17 +67,15 @@ export default function SignUpForm() {
 
       if (signUpError) {
         setError(signUpError.message);
-        setLoading(false);
         return;
       }
 
-      if (data.user) {
+      if (authData.user) {
         setSuccess(true);
         // If email confirmation is required, show success message
         // Otherwise, redirect to dashboard
-        if (data.user.identities && data.user.identities.length === 0) {
+        if (authData.user.identities && authData.user.identities.length === 0) {
           setError('An account with this email already exists');
-          setLoading(false);
         } else {
           setTimeout(() => {
             router.push('/student/dashboard');
@@ -160,7 +147,7 @@ export default function SignUpForm() {
           </div>
         )}
 
-        <form onSubmit={handleSignUp} className="space-y-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium text-slate-700 mb-2">
@@ -168,14 +155,14 @@ export default function SignUpForm() {
               </label>
               <input
                 id="firstName"
-                name="firstName"
                 type="text"
-                value={formData.firstName}
-                onChange={handleChange}
-                required
+                {...register('firstName')}
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition"
                 placeholder="John"
               />
+              {errors.firstName && (
+                <p className="text-red-600 text-sm mt-1">{errors.firstName.message}</p>
+              )}
             </div>
             <div>
               <label htmlFor="lastName" className="block text-sm font-medium text-slate-700 mb-2">
@@ -183,14 +170,14 @@ export default function SignUpForm() {
               </label>
               <input
                 id="lastName"
-                name="lastName"
                 type="text"
-                value={formData.lastName}
-                onChange={handleChange}
-                required
+                {...register('lastName')}
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition"
                 placeholder="Doe"
               />
+              {errors.lastName && (
+                <p className="text-red-600 text-sm mt-1">{errors.lastName.message}</p>
+              )}
             </div>
           </div>
 
