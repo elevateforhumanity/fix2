@@ -13,8 +13,8 @@ export default function CDLProgramPage() {
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/transportation/hero-program-automotive.jpg"
-            alt="CDL Training Program"
+            src="/images/trades/hero-program-cdl.jpg"
+            alt="Professional CDL truck driver in modern semi-truck on highway"
             fill
             className="object-cover"
             priority quality={85} sizes="100vw"

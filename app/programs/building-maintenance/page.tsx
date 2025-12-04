@@ -14,8 +14,8 @@ export default function Page() {
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/programs/efh-building-tech-hero.jpg"
-            alt="Building Maintenance Training"
+            src="/images/trades/program-building-construction.jpg"
+            alt="Building maintenance technician working on facility systems"
             fill
             className="object-cover"
             priority quality={85} sizes="100vw"
