@@ -378,7 +378,82 @@ export async function buildGrantPackage(
   const capabilityPdf = await generateCapabilityStatement(app.entity_id);
   const budgetXlsx = await generateBudgetSpreadsheet(applicationId);
 
-  const formsPdf = Buffer.from('Federal forms placeholder', 'utf-8');
+  // Generate federal forms PDF
+  const { generateAllFederalForms } = await import('./federal-forms');
+  const federalForms = await generateAllFederalForms(applicationId);
+  
+  const formsHtml = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 1in; }
+    h1 { font-size: 18pt; margin-bottom: 20px; }
+    h2 { font-size: 14pt; margin-top: 20px; margin-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+    th { background: #f0f0f0; font-weight: bold; }
+    .section { page-break-after: always; }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <h1>SF-424: Application for Federal Assistance</h1>
+    <table>
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>Legal Name</td><td>${federalForms.sf424.applicant.legalName}</td></tr>
+      <tr><td>UEI</td><td>${federalForms.sf424.applicant.organizationalUEI}</td></tr>
+      <tr><td>EIN</td><td>${federalForms.sf424.applicant.employerTaxId}</td></tr>
+      <tr><td>Address</td><td>${federalForms.sf424.applicant.addressLine1}</td></tr>
+      <tr><td>City, State, ZIP</td><td>${federalForms.sf424.applicant.city}, ${federalForms.sf424.applicant.state} ${federalForms.sf424.applicant.zip}</td></tr>
+      <tr><td>Federal Agency</td><td>${federalForms.sf424.federalAgency}</td></tr>
+      <tr><td>Project Title</td><td>${federalForms.sf424.projectTitle}</td></tr>
+      <tr><td>Congressional District</td><td>${federalForms.sf424.congressionalDistricts.applicant}</td></tr>
+      <tr><td>Project Start Date</td><td>${federalForms.sf424.projectDates.start}</td></tr>
+      <tr><td>Project End Date</td><td>${federalForms.sf424.projectDates.end}</td></tr>
+      <tr><td>Federal Funding Requested</td><td>$${federalForms.sf424.funding.federal.toLocaleString()}</td></tr>
+    </table>
+  </div>
+  
+  <div class="section">
+    <h1>SF-424A: Budget Information</h1>
+    <h2>Budget Categories</h2>
+    <table>
+      <tr><th>Category</th><th>Amount</th></tr>
+      <tr><td>Personnel</td><td>$${federalForms.sf424a.sections.budgetCategories.personnel.toLocaleString()}</td></tr>
+      <tr><td>Fringe Benefits</td><td>$${federalForms.sf424a.sections.budgetCategories.fringeBenefits.toLocaleString()}</td></tr>
+      <tr><td>Travel</td><td>$${federalForms.sf424a.sections.budgetCategories.travel.toLocaleString()}</td></tr>
+      <tr><td>Equipment</td><td>$${federalForms.sf424a.sections.budgetCategories.equipment.toLocaleString()}</td></tr>
+      <tr><td>Supplies</td><td>$${federalForms.sf424a.sections.budgetCategories.supplies.toLocaleString()}</td></tr>
+      <tr><td>Contractual</td><td>$${federalForms.sf424a.sections.budgetCategories.contractual.toLocaleString()}</td></tr>
+      <tr><td>Other</td><td>$${federalForms.sf424a.sections.budgetCategories.other.toLocaleString()}</td></tr>
+      <tr><td>Indirect Charges</td><td>$${federalForms.sf424a.sections.budgetCategories.indirectCharges.toLocaleString()}</td></tr>
+      <tr><th>Total</th><th>$${federalForms.sf424a.sections.budgetCategories.total.toLocaleString()}</th></tr>
+    </table>
+  </div>
+  
+  <div class="section">
+    <h1>SF-LLL: Disclosure of Lobbying Activities</h1>
+    <table>
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>Federal Action Type</td><td>${federalForms.sflll.federalActionType}</td></tr>
+      <tr><td>Federal Action Status</td><td>${federalForms.sflll.federalActionStatus}</td></tr>
+      <tr><td>Report Type</td><td>${federalForms.sflll.reportType}</td></tr>
+      <tr><td>Organization Name</td><td>${federalForms.sflll.reportingEntity.name}</td></tr>
+      <tr><td>Federal Department</td><td>${federalForms.sflll.federalDepartment}</td></tr>
+      <tr><td>Federal Program</td><td>${federalForms.sflll.federalProgram}</td></tr>
+      <tr><td>Authorized</td><td>${federalForms.sflll.authorized ? 'Yes' : 'No'}</td></tr>
+      <tr><td>Signature</td><td>${federalForms.sflll.signature.name}</td></tr>
+      <tr><td>Title</td><td>${federalForms.sflll.signature.title}</td></tr>
+      <tr><td>Date</td><td>${federalForms.sflll.signature.date}</td></tr>
+    </table>
+  </div>
+</body>
+</html>
+  `;
+  
+  const formsPdf = Buffer.from(formsHtml, 'utf-8');
 
   const zip = new JSZip();
   zip.file('01_Narrative.docx', narrativeDocx);
