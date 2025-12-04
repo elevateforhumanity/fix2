@@ -20,24 +20,27 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid status" }, { status: 400 });
     }
 
-    // Update the status
-    const updates: Record<string, any> = { status };
-
-    // If approving, set approved_at timestamp
+    // Build update object based on status
+    let updateData;
+    
     if (status === "approved") {
-      updates.approved_at = new Date().toISOString();
-    }
-
-    // If resetting to in_progress, clear proof and approved_at
-    if (status === "in_progress") {
-      updates.proof_file_url = null;
-      updates.approved_at = null;
-      updates.approved_by = null;
+      updateData = {
+        status,
+        approved_at: new Date().toISOString()
+      };
+    } else {
+      // status === "in_progress"
+      updateData = {
+        status,
+        proof_file_url: null,
+        approved_at: null,
+        approved_by: null
+      };
     }
 
     const { error } = await supabaseAdmin
       .from("external_partner_progress")
-      .update(updates as any)
+      .update(updateData)
       .eq("id", id);
 
     if (error) {
