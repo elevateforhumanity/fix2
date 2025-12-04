@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import { generateId, generateShortId } from '@/lib/utils/id-generator';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { generateMOUPDF } from '@/lib/mou-pdf-generator';
 import { PDFDocument } from 'pdf-lib';
@@ -127,7 +128,7 @@ export async function POST(req: Request) {
     const signedPdfBytes = await pdfDoc.save();
 
     // Upload to Supabase Storage
-    const filename = `${holder.id}_mou_signed_${Date.now()}.pdf`;
+    const filename = `${holder.id}_mou_signed_${generateShortId()}.pdf`;
     const { error: uploadError } = await supabase.storage
       .from('mous')
       .upload(filename, signedPdfBytes, {

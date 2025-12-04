@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { generateId, generateShortId } from '@/lib/utils/id-generator';
 import { createClient } from '@/lib/supabase/server';
 
 // Use Node.js runtime for file uploads
@@ -49,7 +50,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Upload to Supabase Storage
-  const fileName = `${user.id}/${Date.now()}-${file.name}`;
+  const fileName = `${user.id}/${generateShortId()}-${file.name}`;
   const { data: uploadData, error: uploadError } = await supabase.storage
     .from('files')
     .upload(fileName, file);

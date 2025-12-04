@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Bot, Send, Sparkles, BookOpen, HelpCircle, Lightbulb, MessageSquare, Clock, Trash2, Download, Upload, Copy, Check, X, Settings, Zap } from 'lucide-react';
+import { generateId } from '@/lib/utils/id-generator';
 
 interface Message {
   id: string;
@@ -63,7 +64,7 @@ export default function AiTutorPage() {
     if (!inputMessage.trim()) return;
 
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: generateId(),
       role: 'user',
       content: inputMessage,
       timestamp: new Date().toISOString(),
@@ -76,7 +77,7 @@ export default function AiTutorPage() {
     // Simulate AI response
     setTimeout(() => {
       const aiMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: generateId(),
         role: 'assistant',
         content: 'I understand your question. Let me help you with that...',
         timestamp: new Date().toISOString(),
@@ -102,7 +103,7 @@ export default function AiTutorPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `ai-tutor-chat-${Date.now()}.txt`;
+    a.download = `ai-tutor-chat-${generateId().slice(0, 8)}.txt`;
     a.click();
   };
 

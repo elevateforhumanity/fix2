@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { generateId, generateShortId } from '@/lib/utils/id-generator';
 import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: Request) {
@@ -143,7 +144,7 @@ export async function POST(request: Request) {
       .maybeSingle();
 
     // 5) Generate certificate metadata
-    const certificateNumber = `EFH-${course_id}-${Date.now()}`;
+    const certificateNumber = `EFH-${course_id}-${generateShortId()}`;
     const verificationCode = generateVerificationCode();
     const totalHours = course?.duration_hours || 0;
 

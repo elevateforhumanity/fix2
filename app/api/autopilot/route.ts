@@ -1,4 +1,5 @@
 /**
+import { generateId, generateShortId } from '@/lib/utils/id-generator';
  * Autopilot API - Next.js Route Handler
  * Converted from legacy autopilot system
  * 
@@ -39,16 +40,16 @@ function loadState(): AutopilotState {
       tasks: Array.isArray(parsed.tasks) ? parsed.tasks : [],
       counters: parsed.counters || {},
       content: Array.isArray(parsed.content) ? parsed.content : seedContent(),
-      createdAt: parsed.createdAt || Date.now(),
-      updatedAt: parsed.updatedAt || Date.now(),
+      createdAt: parsed.createdAt || generateId(),
+      updatedAt: parsed.updatedAt || generateId(),
     };
   } catch {
     return {
       tasks: [],
       counters: {},
       content: seedContent(),
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
+      createdAt: generateId(),
+      updatedAt: generateId(),
     };
   }
 }
@@ -56,7 +57,7 @@ function loadState(): AutopilotState {
 // Save autopilot state to disk
 function saveState(state: AutopilotState): void {
   fs.mkdirSync(path.dirname(DATA_PATH), { recursive: true });
-  state.updatedAt = Date.now();
+  state.updatedAt = generateId();
   fs.writeFileSync(DATA_PATH, JSON.stringify(state, null, 2), 'utf8');
 }
 
@@ -105,11 +106,11 @@ export async function POST(request: NextRequest) {
 
     if (body.action === 'add_task') {
       const newTask = {
-        id: `task_${Date.now()}`,
+        id: `task_${generateId()}`,
         title: body.title || 'Untitled Task',
         status: 'pending' as const,
         priority: body.priority || 5,
-        createdAt: Date.now(),
+        createdAt: generateId(),
       };
       state.tasks.push(newTask);
       saveState(state);
@@ -128,7 +129,7 @@ export async function POST(request: NextRequest) {
 
     if (body.action === 'add_content') {
       const newContent = {
-        id: `content_${Date.now()}`,
+        id: `content_${generateId()}`,
         title: body.title || 'Untitled',
         tags: body.tags || [],
         body: body.body || '',

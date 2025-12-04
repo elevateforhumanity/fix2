@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { generateId, generateShortId } from '@/lib/utils/id-generator';
 import { createServerSupabaseClient } from '@/lib/auth';
 
 export async function POST(request: Request) {
@@ -17,7 +18,7 @@ export async function POST(request: Request) {
     const supabase = await createServerSupabaseClient();
 
     // Upload to Supabase Storage
-    const fileName = `${Date.now()}-${file.name}`;
+    const fileName = `${generateId()}-${file.name}`;
     const { data: uploadData, error: uploadError } = await supabase.storage
       .from('videos')
       .upload(fileName, file);

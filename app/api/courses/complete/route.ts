@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+import { generateId, generateShortId } from '@/lib/utils/id-generator';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
@@ -20,7 +21,7 @@ export async function POST(req: NextRequest) {
     if (updateError) throw updateError;
 
     // Create certificate record
-    const certificateNumber = `EFH-${Date.now()}-${courseId.substring(0, 8)}`;
+    const certificateNumber = `EFH-${generateShortId()}-${courseId.substring(0, 8)}`;
     
     const { error: certError } = await supabase
       .from('module_certificates')
