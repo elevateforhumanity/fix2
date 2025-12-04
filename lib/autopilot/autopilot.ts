@@ -38,7 +38,7 @@ export async function getStatus(req: Request, res: Response) {
       });
     }
 
-    res.json({
+    return res.json({
       status: 'ok',
       running: worker.isRunning,
       config: {
@@ -49,7 +49,7 @@ export async function getStatus(req: Request, res: Response) {
       },
     });
   } catch (error: any) {
-    res.status(500).json({
+    return res.status(500).json({
       error: 'Failed to get autopilot status',
       message: error.message,
     });
@@ -72,12 +72,12 @@ export async function triggerHealthCheck(req: Request, res: Response) {
 
     const health = await worker.checkHealth();
 
-    res.json({
+    return res.json({
       status: 'ok',
       health,
     });
   } catch (error: any) {
-    res.status(500).json({
+    return res.status(500).json({
       error: 'Health check failed',
       message: error.message,
     });
@@ -100,13 +100,13 @@ export async function triggerSelfHeal(req: Request, res: Response) {
 
     const success = await worker.selfHeal();
 
-    res.json({
+    return res.json({
       status: 'ok',
       healed: success,
       message: success ? 'Self-heal successful' : 'Self-heal failed',
     });
   } catch (error: any) {
-    res.status(500).json({
+    return res.status(500).json({
       error: 'Self-heal failed',
       message: error.message,
     });
