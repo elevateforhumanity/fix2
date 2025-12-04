@@ -20,7 +20,7 @@ export default function CNAProgramPage() {
             className="object-cover"
             priority quality={85} sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+          
         </div>
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center text-white">

@@ -68,7 +68,6 @@ export default function Page() {
               </div>
               <div className="hidden md:block">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl transform rotate-3"></div>
                   <div className="relative bg-white rounded-2xl p-8 shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform">
                     <div className="space-y-6">
                       <div className="flex items-center gap-4">

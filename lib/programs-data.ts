@@ -42,7 +42,7 @@ export const PROGRAMS: ProgramData[] = [
     blurb: 'DOL Federally Registered Apprenticeship! Earn OSHA 10, CPR, and Emergency Medical Responder (EMR) certifications in 4 weeks. Prepare for life-saving response roles in schools, workplaces, and emergency settings. Hybrid program with 80 instructional hours.',
     funding: 'WIOA • WRG • Apprenticeship',
     duration: '4 Weeks • 80 Hours',
-    image: 'https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=600&q=80',
+    image: '/images/programs/efh-cpr-aed-first-aid-hero.jpg',
     etplApproved: true,
     syllabusUrl: "/docs/syllabi/emergency-health-safety-tech.md",
   },
@@ -52,7 +52,7 @@ export const PROGRAMS: ProgramData[] = [
     blurb: 'DOL Federally Registered Apprenticeship! Master skincare, facial treatments, hair removal, and client services in 5 weeks. Earn OSHA 10, Customer Service, and Business of Retail certifications. Hands-on training in professional spa setting with career readiness and business startup support.',
     funding: 'WIOA • WRG • Apprenticeship',
     duration: '5 Weeks • 60 Hours',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80',
+    image: '/images/programs/efh-esthetician-client-services-hero.jpg',
     etplApproved: true,
   },
   {

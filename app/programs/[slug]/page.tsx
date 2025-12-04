@@ -87,7 +87,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
             unoptimized quality={85} sizes="100vw"
           />
           {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/50" />
+          
         </div>
 
         {/* Content */}
