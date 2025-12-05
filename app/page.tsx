@@ -10,34 +10,37 @@ export default function Home() {
       {/* HERO BANNER - Full Width, Clean */}
       <section className="relative h-[450px] overflow-hidden bg-slate-100">
         <Image
-          src="/images/artlist/hero-training-1.jpg"
-          alt="Elevate for Humanity - Transform Your Future"
+          src="/images/efh/hero/hero-main.jpg"
+          alt="Elevate for Humanity - Career Training Programs"
           fill
           className="object-cover"
           priority
           quality={90}
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
         
         <div className="relative h-full flex items-center justify-center text-center">
           <div className="max-w-4xl px-6">
             <h1 className="text-5xl md:text-7xl font-light text-white mb-6 tracking-tight">
-              Transform Your Future
+              Build Your Career
             </h1>
             <p className="text-xl md:text-2xl text-white/95 font-light mb-10 max-w-2xl mx-auto">
-              State-approved workforce training programs that lead to high-wage careers
+              WIOA-approved workforce training programs in skilled trades, healthcare, and transportation
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/programs/barber-apprenticeship"
-                className="px-10 py-4 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-50 transition-all shadow-lg text-base"
+                href="/programs"
+                className="px-10 py-4 bg-orange-500 text-white font-semibold rounded-full hover:bg-orange-600 transition-all shadow-lg text-base"
               >
-                Explore Programs
+                View All Programs
               </Link>
               <Link
-                href="/apply"
+                href="https://www.indianacareerconnect.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-10 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-slate-900 transition-all text-base"
               >
-                Apply Now
+                Apply via Indiana Career Connect
               </Link>
             </div>
           </div>
