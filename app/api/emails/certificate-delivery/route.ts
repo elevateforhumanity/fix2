@@ -134,8 +134,6 @@ export async function POST(req: NextRequest) {
     // Send email using your email service (Resend, SendGrid, etc.)
     // For now, returning success - integrate with actual email service
     
-    console.log('Certificate email would be sent to:', email);
-    console.log('Certificate URL:', certificateUrl);
 
     return NextResponse.json({ success: true });
   } catch (error: any) {

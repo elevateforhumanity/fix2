@@ -42,7 +42,6 @@ export async function POST(req: Request) {
       );
     }
 
-    console.log("[New Elevate Application] Saved:", data.id);
 
     return NextResponse.json(
       {

@@ -168,7 +168,6 @@ async function logUnauthorizedAccess(data: {
 }) {
   // Database logging for legal evidence
   // Logs to console and can be extended to database when needed
-  console.log('Unauthorized copy detected:', {
     type: 'UNAUTHORIZED_COPY',
     ...data,
     logged_at: new Date().toISOString()

@@ -43,7 +43,6 @@ export async function POST(
     // Parse webhook payload
     const payload: WebhookPayload = JSON.parse(rawBody);
 
-    console.log(`[Webhook] Received ${partner} webhook:`, {
       event: payload.event,
       timestamp: payload.timestamp,
     });
@@ -87,7 +86,6 @@ async function handleEnrollmentCreated(
   partner: PartnerType,
   data: any
 ): Promise<void> {
-  console.log(`[Webhook] Enrollment created for ${partner}:`, data);
   
   // Update enrollment status in database
   const { error } = await supabase
@@ -110,7 +108,6 @@ async function handleProgressUpdated(
   partner: PartnerType,
   data: any
 ): Promise<void> {
-  console.log(`[Webhook] Progress updated for ${partner}:`, data);
 
   // Update progress in database
   const { error } = await supabase
@@ -134,7 +131,6 @@ async function handleCourseCompleted(
   partner: PartnerType,
   data: any
 ): Promise<void> {
-  console.log(`[Webhook] Course completed for ${partner}:`, data);
 
   // Update enrollment to completed
   const { error } = await supabase
@@ -167,7 +163,6 @@ async function handleCertificateIssued(
   partner: PartnerType,
   data: any
 ): Promise<void> {
-  console.log(`[Webhook] Certificate issued for ${partner}:`, data);
 
   // Update enrollment with certificate data
   const { error } = await supabase
