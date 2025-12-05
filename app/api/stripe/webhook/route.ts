@@ -183,6 +183,7 @@ export async function POST(req: NextRequest) {
     const studentId = session.metadata?.studentId;
 
     if (studentId && partnerId && courseId) {
+      console.log(
         `[StripeWebhook] Auto-enrolling student ${studentId} in partner course ${courseId}`
       );
       
@@ -195,6 +196,7 @@ export async function POST(req: NextRequest) {
         });
 
         if (result.success) {
+          console.log(
             `[StripeWebhook] Partner enrollment successful: ${result.enrollmentId}`
           );
         } else {
@@ -209,6 +211,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
+    console.log(
       `[StripeWebhook] Enrollment recorded for email=${email}, program=${programId}, appId=${matchedApplicationId}, enrollmentId=${enrollmentId}`
     );
   } else {
