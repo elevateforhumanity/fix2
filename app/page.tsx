@@ -10,13 +10,14 @@ export default function Home() {
       {/* HERO BANNER - Full Width, Clean */}
       <section className="relative h-[600px] overflow-hidden bg-white">
         <Image
-          src="/images/artlist/hero-training-1.jpg"
+          src="/images/efh/hero/hero-main.jpg"
           alt="Elevate for Humanity - Career Training Programs"
           fill
-          className="object-cover"
+          className="object-cover brightness-110"
           priority
           quality={95}
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/40 to-transparent" />
         
         <div className="relative h-full flex items-center justify-start text-left">
           <div className="max-w-7xl px-8 md:px-12">
