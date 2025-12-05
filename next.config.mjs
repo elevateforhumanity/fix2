@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+// Build: 2025-12-05 - Force cache clear
 const nextConfig = {
   output: 'standalone',
   reactStrictMode: true,
