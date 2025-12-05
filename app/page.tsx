@@ -10,7 +10,7 @@ export default function Home() {
       {/* HERO BANNER - Full Width, Clean */}
       <section className="relative h-[600px] overflow-hidden bg-white">
         <Image
-          src="/images/efh/hero/hero-main.jpg"
+          src="/images/artlist/hero-training-1.jpg"
           alt="Elevate for Humanity - Career Training Programs"
           fill
           className="object-cover"
@@ -68,7 +68,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-80 overflow-hidden">
                   <Image
-                    src="/images/efh/programs/barber.jpg"
+                    src="/images/beauty/program-barber-overview.jpg"
                     alt="Barber Apprenticeship"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -91,7 +91,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-80 overflow-hidden">
                   <Image
-                    src="/images/healthcare/hero-program-medical-assistant.jpg"
+                    src="/images/healthcare/video-thumbnail-cna-training.jpg"
                     alt="Healthcare Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -114,7 +114,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-80 overflow-hidden">
                   <Image
-                    src="/images/trades/hero-program-hvac.jpg"
+                    src="/images/trades/program-hvac-overview.jpg"
                     alt="Skilled Trades"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
