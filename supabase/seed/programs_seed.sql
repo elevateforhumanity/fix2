@@ -74,7 +74,7 @@ INSERT INTO programs (
   '/programs/barber-hero.jpg',
   'Apprentice barber practicing a fade on a client.',
   'Entry-Level Apprenticeship',
-  '1–2 years (varies by state requirements)',
+  '2,000 hours (typically 1–2 years)',
   'On-the-job apprenticeship + related classroom instruction',
   'Flexible schedules set with your sponsoring shop',
   'Many apprenticeship hours are paid. Some related instruction may be grant or employer funded.',
@@ -89,7 +89,7 @@ INSERT INTO programs (
     'Individuals who want to build a long-term career and potentially own a shop'
   ],
   ARRAY[
-    'Complete a structured barber apprenticeship with on-the-job hours',
+    'Complete 2,000 hours of structured barber apprenticeship training',
     'Gain real client experience with supervision and coaching',
     'Prepare to meet state licensing or examination requirements (varies by state)',
     'Build a strong professional portfolio and client base while in training'
