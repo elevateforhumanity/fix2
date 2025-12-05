@@ -17,7 +17,6 @@ export default function Home() {
           priority
           quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
         
         <div className="relative h-full flex items-center justify-center text-center">
           <div className="max-w-4xl px-6">
@@ -276,7 +275,6 @@ export default function Home() {
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             <div className="absolute inset-0 flex items-end p-12">
               <div>
                 <h3 className="text-3xl font-light text-white mb-4">Hands-On Training</h3>
@@ -298,7 +296,6 @@ export default function Home() {
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             <div className="absolute inset-0 flex items-end p-12">
               <div>
                 <h3 className="text-3xl font-light text-white mb-4">Career Services</h3>

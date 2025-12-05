@@ -21,7 +21,6 @@ export default function JRIPage() {
             priority
             quality={90}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
         
         <div className="relative container mx-auto px-4 py-20">
@@ -172,7 +171,7 @@ export default function JRIPage() {
               <div className="bg-slate-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition">
                 <div className="relative h-48">
                   <Image
-                    src="/images/programs/efh-barber-hero.jpg"
+                    src="/images/beauty/hero-program-barber.jpg"
                     alt="Barber Apprenticeship"
                     fill
                     className="object-cover"
@@ -238,7 +237,7 @@ export default function JRIPage() {
               <div className="bg-slate-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition">
                 <div className="relative h-48">
                   <Image
-                    src="/images/programs/efh-cna-hero.jpg"
+                    src="/images/healthcare/healthcare-professional-portrait-1.jpg"
                     alt="Peer Recovery Coach"
                     fill
                     className="object-cover"
