@@ -118,7 +118,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/images/efh/programs/cna.jpg" alt="Mental Health Support" fill className="object-cover" sizes="80px" quality={85} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Mental Health Support" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Mental Health Support</h3>
               <p className="text-slate-700 leading-relaxed">
