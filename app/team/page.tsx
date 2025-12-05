@@ -80,7 +80,7 @@ export default function TeamPage() {
     <main className="min-h-screen bg-slate-50 py-12">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <header className="mb-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-900">
             Our Team
           </p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
@@ -93,24 +93,24 @@ export default function TeamPage() {
           </p>
         </header>
 
-        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
             <article
               key={member.name}
-              className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200"
+              className="flex flex-col overflow-hidden rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-700 ease-out hover:translate-y-[-8px]"
             >
-              <div className="h-52 w-full overflow-hidden bg-slate-100">
+              <div className="aspect-[4/5] w-full overflow-hidden bg-slate-100">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover object-top"
                 />
               </div>
               <div className="flex flex-1 flex-col p-4">
                 <h2 className="text-sm font-semibold text-slate-900">
                   {member.name}
                 </h2>
-                <p className="mt-1 text-[0.8rem] font-medium text-indigo-700">
+                <p className="mt-1 text-[0.8rem] font-medium text-slate-900">
                   {member.title}
                 </p>
                 <p className="mt-2 text-xs text-slate-700 leading-relaxed">
@@ -120,7 +120,7 @@ export default function TeamPage() {
                   <div className="mt-3">
                     <a
                       href={member.link}
-                      className="text-[0.75rem] font-semibold text-indigo-600 hover:text-indigo-700"
+                      className="text-[0.75rem] font-semibold text-slate-900 hover:text-slate-900"
                     >
                       View Profile →
                     </a>
