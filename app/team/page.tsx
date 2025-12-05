@@ -61,13 +61,6 @@ const team: TeamMember[] = [
       "Respiratory therapist and health informatics professional with 30+ years of experience in patient safety, quality, and clinical operations.",
   },
   {
-    name: "Ameco Martin",
-    title: "Director of Staffing & Workforce Placement",
-    image: "/images/ameco-martin.jpg",
-    blurb:
-      "Connects students to real jobs, internships, apprenticeships, and employer partners, supporting transitions from training to employment.",
-  },
-  {
     name: "Alina Perfect, PMHNP",
     title: "Psychiatric Mental Health Partner",
     image: "/images/alina-smith.jpg",
