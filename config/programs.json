@@ -34,12 +34,12 @@
       "Designed to align with local employer needs and apprenticeship pathways"
     ],
     "ctaPrimary": {
-      "label": "Apply for HVAC Training",
-      "href": "/apply?program=hvac-technician"
+      "label": "Apply via Indiana Career Connect",
+      "href": "https://www.indianacareerconnect.com/"
     },
     "ctaSecondary": {
-      "label": "Request HVAC Info Session",
-      "href": "/contact?topic=hvac-technician"
+      "label": "Schedule WorkOne Appointment",
+      "href": "https://www.in.gov/dwd/workone-centers/"
     }
   },
   {
@@ -76,12 +76,12 @@
       "Apprenticeship hours tracked and aligned with state regulations where applicable"
     ],
     "ctaPrimary": {
-      "label": "Start Barber Apprenticeship",
-      "href": "/apply?program=barber-apprenticeship"
+      "label": "Apply via Indiana Career Connect",
+      "href": "https://www.indianacareerconnect.com/"
     },
     "ctaSecondary": {
-      "label": "Talk with a Barber Pathway Coach",
-      "href": "/contact?topic=barber-apprenticeship"
+      "label": "Schedule WorkOne Appointment",
+      "href": "https://www.in.gov/dwd/workone-centers/"
     }
   },
   {
@@ -118,12 +118,12 @@
       "Stackable toward additional healthcare credentials over time"
     ],
     "ctaPrimary": {
-      "label": "Apply for CNA Training",
-      "href": "/apply?program=cna-training"
+      "label": "Apply via Indiana Career Connect",
+      "href": "https://www.indianacareerconnect.com/"
     },
     "ctaSecondary": {
-      "label": "Ask About CNA Funding",
-      "href": "/contact?topic=cna-training"
+      "label": "Schedule WorkOne Appointment",
+      "href": "https://www.in.gov/dwd/workone-centers/"
     }
   },
   {
@@ -160,12 +160,12 @@
       "Stackable with other Elevate trades and technical pathways"
     ],
     "ctaPrimary": {
-      "label": "Apply for Building Technician Training",
-      "href": "/apply?program=building-technician"
+      "label": "Apply via Indiana Career Connect",
+      "href": "https://www.indianacareerconnect.com/"
     },
     "ctaSecondary": {
-      "label": "Request Building Technician Info",
-      "href": "/contact?topic=building-technician"
+      "label": "Schedule WorkOne Appointment",
+      "href": "https://www.in.gov/dwd/workone-centers/"
     }
   },
   {
@@ -202,12 +202,12 @@
       "Connections to broader Elevate workforce services beyond CDL"
     ],
     "ctaPrimary": {
-      "label": "Start CDL & Transport Pathway",
-      "href": "/apply?program=cdl-and-transport"
+      "label": "Apply via Indiana Career Connect",
+      "href": "https://www.indianacareerconnect.com/"
     },
     "ctaSecondary": {
-      "label": "Talk with a Transportation Coach",
-      "href": "/contact?topic=cdl-and-transport"
+      "label": "Schedule WorkOne Appointment",
+      "href": "https://www.in.gov/dwd/workone-centers/"
     }
   },
   {
@@ -244,12 +244,12 @@
       "Can be bundled with trades, healthcare, or apprenticeship pathways"
     ],
     "ctaPrimary": {
-      "label": "Join a Career Readiness Cohort",
-      "href": "/apply?program=career-readiness"
+      "label": "Apply via Indiana Career Connect",
+      "href": "https://www.indianacareerconnect.com/"
     },
     "ctaSecondary": {
-      "label": "Ask About Upcoming Workshops",
-      "href": "/contact?topic=career-readiness"
+      "label": "Schedule WorkOne Appointment",
+      "href": "https://www.in.gov/dwd/workone-centers/"
     }
   }
 ]

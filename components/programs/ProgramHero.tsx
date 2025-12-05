@@ -38,16 +38,20 @@ export function ProgramHero({ program }: { program: Program }) {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href={program.ctaPrimary.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-orange-500 px-5 py-2 text-xs font-semibold text-white shadow-sm hover:bg-orange-600"
             >
-              {program.ctaPrimary.label}
+              {program.ctaPrimary.label} →
             </a>
             {program.ctaSecondary ? (
               <a
                 href={program.ctaSecondary.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full border border-slate-400 px-5 py-2 text-xs font-semibold text-slate-50 hover:bg-slate-800"
               >
-                {program.ctaSecondary.label}
+                {program.ctaSecondary.label} →
               </a>
             ) : null}
           </div>
