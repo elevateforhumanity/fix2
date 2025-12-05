@@ -11,20 +11,9 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="bg-white">
-      {/* Hero Section with Background Image */}
-      <section className="relative h-[500px] w-full overflow-hidden bg-white">
-        <Image
-          src="/images/efh/hero/hero-main.jpg"
-          alt="Team collaboration"
-          fill
-          className="object-cover brightness-110"
-          priority
-          quality={95}
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 h-full flex items-center">
+      {/* Hero Section - Clean White */}
+      <section className="bg-white py-24">
+        <div className="max-w-7xl mx-auto px-8 md:px-12">
           <div className="max-w-4xl">
             <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight">
               About Elevate
@@ -120,14 +109,8 @@ export default function Page() {
           </p>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
-              <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
-                <Image
-                  src="/images/artlist/hero-training-1.jpg"
-                  alt="Accessibility"
-                  fill
-                  className="object-cover"
-                  sizes="80px" quality={85}
-                />
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                <Users className="w-10 h-10 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Accessibility</h3>
               <p className="text-slate-600 text-center leading-relaxed">
@@ -135,14 +118,8 @@ export default function Page() {
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
-              <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
-                <Image
-                  src="/images/artlist/hero-training-1.jpg"
-                  alt="Quality"
-                  fill
-                  className="object-cover"
-                  sizes="80px" quality={85}
-                />
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
+                <Award className="w-10 h-10 text-green-600" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Quality</h3>
               <p className="text-slate-600 text-center leading-relaxed">
@@ -150,14 +127,8 @@ export default function Page() {
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
-              <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
-                <Image
-                  src="/images/artlist/hero-training-1.jpg"
-                  alt="Community"
-                  fill
-                  className="object-cover"
-                  sizes="80px" quality={85}
-                />
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-purple-100 flex items-center justify-center">
+                <Heart className="w-10 h-10 text-purple-600" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Community</h3>
               <p className="text-slate-600 text-center leading-relaxed">
@@ -165,14 +136,8 @@ export default function Page() {
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
-              <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
-                <Image
-                  src="/images/artlist/hero-training-1.jpg"
-                  alt="Impact"
-                  fill
-                  className="object-cover"
-                  sizes="80px" quality={85}
-                />
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-orange-100 flex items-center justify-center">
+                <Target className="w-10 h-10 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Impact</h3>
               <p className="text-slate-600 text-center leading-relaxed">
@@ -280,7 +245,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="/images/artlist/hero-training-1.jpg"
+                  src="/images/programs/efh-cna-hero.jpg"
                   alt="Employer-Driven Training"
                   fill
                   className="object-cover"
@@ -295,7 +260,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="/images/artlist/hero-training-1.jpg"
+                  src="/images/programs/efh-cna-hero.jpg"
                   alt="Wraparound Support"
                   fill
                   className="object-cover"
@@ -310,7 +275,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="/images/artlist/hero-training-1.jpg"
+                  src="/images/programs/efh-cna-hero.jpg"
                   alt="Direct Employer Connections"
                   fill
                   className="object-cover"

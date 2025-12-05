@@ -7,14 +7,14 @@ import HomeProgramsSection from "@/components/home/HomeProgramsSection";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* HERO BANNER - Clean White, No Gradient */}
-      <section className="bg-white py-20">
+      {/* HERO BANNER - Clean White, No Images */}
+      <section className="bg-white py-24">
         <div className="max-w-7xl mx-auto px-8 md:px-12">
-          <div className="text-center mb-12">
+          <div className="text-center">
             <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight">
               Career training that works.
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-slate-700 mb-10 max-w-3xl mx-auto">
               WIOA-approved programs. Real careers. 100% funded training.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -33,19 +33,6 @@ export default function Home() {
                 Apply Now
               </Link>
             </div>
-          </div>
-          
-          {/* Hero Image - Not Stretched */}
-          <div className="mt-12 rounded-xl overflow-hidden shadow-2xl">
-            <Image
-              src="/images/efh/hero/hero-main.jpg"
-              alt="Elevate for Humanity - Career Training Programs"
-              width={1400}
-              height={700}
-              className="w-full h-auto"
-              priority
-              quality={95}
-            />
           </div>
         </div>
       </section>
@@ -69,7 +56,7 @@ export default function Home() {
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/artlist/hero-training-2.jpg"
+                  src="/images/programs/efh-cna-hero.jpg"
                   alt="100% Fundable Programs"
                   width={400}
                   height={300}
@@ -87,7 +74,7 @@ export default function Home() {
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/artlist/hero-training-5.jpg"
+                  src="/images/programs/barber-hero.jpg"
                   alt="DOL Registered Apprenticeships"
                   width={400}
                   height={300}
@@ -105,7 +92,7 @@ export default function Home() {
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/artlist/hero-training-7.jpg"
+                  src="/images/learners/coaching-session.jpg"
                   alt="Wraparound Support Services"
                   width={400}
                   height={300}
@@ -123,12 +110,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DUAL IMAGE SECTION - Avon Style */}
+      {/* DUAL IMAGE SECTION */}
       <section className="py-0">
         <div className="grid md:grid-cols-2">
           <div className="relative h-[500px] overflow-hidden group">
             <Image
-              src="/images/artlist/hero-training-6.jpg"
+              src="/images/efh/hero/hero-barber.jpg"
               alt="Hands-On Training"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -149,7 +136,7 @@ export default function Home() {
 
           <div className="relative h-[500px] overflow-hidden group">
             <Image
-              src="/images/artlist/hero-training-8.jpg"
+              src="/images/efh/hero/hero-support.jpg"
               alt="Career Services"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"

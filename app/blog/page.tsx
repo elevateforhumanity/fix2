@@ -48,25 +48,14 @@ export default async function Page() {
 
   return (
     <main className="bg-white">
-      {/* Hero Banner */}
-      <section className="relative h-[400px] w-full overflow-hidden">
-        <Image
-          src="/images/artlist/hero-training-4.jpg"
-          alt="Blog and news"
-          fill
-          className="object-cover"
-          priority
-          quality={85}
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
+      {/* Hero Banner - Clean White */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6">
               News & Success Stories
             </h1>
-            <p className="text-xl md:text-2xl text-slate-200 leading-relaxed drop-shadow-lg mb-8">
+            <p className="text-xl md:text-2xl text-slate-700 leading-relaxed mb-8">
               Stay updated with the latest workforce development news, student success stories, and career insights
             </p>
           </div>
