@@ -1,6 +1,5 @@
-// app/page.tsx - Avon-Inspired Modern Homepage
+// app/page.tsx - Clean Homepage (No Images - Awaiting Facility Photos)
 import Link from "next/link";
-import Image from "next/image";
 import HighlightStrip from "@/components/home/HighlightStrip";
 import HomeProgramsSection from "@/components/home/HomeProgramsSection";
 
@@ -44,67 +43,49 @@ export default function Home() {
       <HomeProgramsSection />
 
 
-      {/* WHY CHOOSE US - Image-Based Feature Blocks */}
-      <section className="py-40 px-12 bg-white">
+      {/* WHY CHOOSE US - No Images */}
+      <section className="py-20 px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Why Choose Elevate</h2>
-            <p className="text-lg text-slate-600">Built for people navigating real barriers</p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Why Choose Elevate</h2>
+            <p className="text-xl text-slate-600">Built for people navigating real barriers</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src="/images/programs/efh-cna-hero.jpg"
-                  alt="100% Fundable Programs"
-                  width={400}
-                  height={300}
-                  className="w-full h-full object-cover"
-                />
+            <div className="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">100% Fundable</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  WIOA, WRG, JRI, and ETPL approved. Most students pay $0 out of pocket.
-                </p>
-              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">100% Fundable</h3>
+              <p className="text-slate-600 leading-relaxed text-center">
+                WIOA, WRG, JRI, and ETPL approved. Most students pay $0 out of pocket.
+              </p>
             </div>
 
-            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src="/images/programs/barber-hero.jpg"
-                  alt="DOL Registered Apprenticeships"
-                  width={400}
-                  height={300}
-                  className="w-full h-full object-cover"
-                />
+            <div className="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                </svg>
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">DOL Registered</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Federally recognized apprenticeships in barber, healthcare, and skilled trades.
-                </p>
-              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">DOL Registered</h3>
+              <p className="text-slate-600 leading-relaxed text-center">
+                Federally recognized apprenticeships in barber, healthcare, and skilled trades.
+              </p>
             </div>
 
-            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src="/images/learners/coaching-session.jpg"
-                  alt="Wraparound Support Services"
-                  width={400}
-                  height={300}
-                  className="w-full h-full object-cover"
-                />
+            <div className="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">Wraparound Support</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  Life coaching, housing assistance, childcare navigation, and mental health referrals.
-                </p>
-              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">Wraparound Support</h3>
+              <p className="text-slate-600 leading-relaxed text-center">
+                Life coaching, housing assistance, childcare navigation, and mental health referrals.
+              </p>
             </div>
           </div>
         </div>
