@@ -1,25 +1,36 @@
-// app/page.tsx - Clean Homepage (No Images - Awaiting Facility Photos)
+// app/page.tsx - Avon-Inspired Modern Homepage
 import Link from "next/link";
+import Image from "next/image";
 import HighlightStrip from "@/components/home/HighlightStrip";
 import HomeProgramsSection from "@/components/home/HomeProgramsSection";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* HERO BANNER - Clean White, No Images */}
-      <section className="bg-white py-24">
-        <div className="max-w-7xl mx-auto px-8 md:px-12">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight">
+      {/* HERO BANNER - Full Width, Clean */}
+      <section className="relative h-[600px] overflow-hidden bg-white">
+        <Image
+          src="/images/efh/hero/hero-main.jpg"
+          alt="Elevate for Humanity - Career Training Programs"
+          fill
+          className="object-cover brightness-110"
+          priority
+          quality={95}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/40 to-transparent" />
+        
+        <div className="relative h-full flex items-center justify-start text-left">
+          <div className="max-w-7xl px-8 md:px-12">
+            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight max-w-4xl">
               Career training that works.
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-10 max-w-3xl mx-auto">
-              WIOA-approved programs. Real careers. 100% funded training.
+            <p className="text-2xl md:text-3xl text-slate-700 font-normal mb-12 max-w-2xl">
+              WIOA-approved programs. Real careers.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/programs"
-                className="px-12 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all text-lg"
+                className="px-12 py-5 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition-all text-lg"
               >
                 View Programs
               </Link>
@@ -27,7 +38,7 @@ export default function Home() {
                 href="https://www.indianacareerconnect.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-12 py-4 bg-gray-100 text-slate-900 font-semibold rounded-lg border-2 border-gray-300 hover:border-gray-400 transition-all text-lg"
+                className="px-12 py-5 bg-white text-slate-900 font-semibold rounded-md border-2 border-slate-300 hover:border-slate-400 transition-all text-lg"
               >
                 Apply Now
               </Link>
@@ -43,77 +54,159 @@ export default function Home() {
       <HomeProgramsSection />
 
 
-      {/* WHY CHOOSE US - No Images */}
-      <section className="py-20 px-12 bg-white">
+      {/* WHY CHOOSE US - Image-Based Feature Blocks */}
+      <section className="py-40 px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Why Choose Elevate</h2>
-            <p className="text-xl text-slate-600">Built for people navigating real barriers</p>
+          <div className="text-center mb-24">
+            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Why Choose Elevate</h2>
+            <p className="text-lg text-slate-600">Built for people navigating real barriers</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="/images/gallery/image1.jpg"
+                  alt="100% Fundable Programs"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">100% Fundable</h3>
-              <p className="text-slate-600 leading-relaxed text-center">
-                WIOA, WRG, JRI, and ETPL approved. Most students pay $0 out of pocket.
-              </p>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">100% Fundable</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  WIOA, WRG, JRI, and ETPL approved. Most students pay $0 out of pocket.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="/images/gallery/image2.jpg"
+                  alt="DOL Registered Apprenticeships"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">DOL Registered</h3>
-              <p className="text-slate-600 leading-relaxed text-center">
-                Federally recognized apprenticeships in barber, healthcare, and skilled trades.
-              </p>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">DOL Registered</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Federally recognized apprenticeships in barber, healthcare, and skilled trades.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition-all">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
+            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="/images/learners/coaching-session.jpg"
+                  alt="Wraparound Support Services"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">Wraparound Support</h3>
-              <p className="text-slate-600 leading-relaxed text-center">
-                Life coaching, housing assistance, childcare navigation, and mental health referrals.
-              </p>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold text-slate-900 mb-3">Wraparound Support</h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Life coaching, housing assistance, childcare navigation, and mental health referrals.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIALS - Text Only */}
-      <section className="py-20 px-12 bg-gray-50">
+      {/* DUAL IMAGE SECTION - Avon Style */}
+      <section className="py-0">
+        <div className="grid md:grid-cols-2">
+          <div className="relative h-[500px] overflow-hidden group">
+            <Image
+              src="/images/artlist/hero-training-6.jpg"
+              alt="Hands-On Training"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 flex items-end p-12">
+              <div>
+                <h3 className="text-3xl font-light text-white mb-4">Hands-On Training</h3>
+                <p className="text-white/90 mb-6 text-lg">Real-world skills with experienced instructors</p>
+                <Link
+                  href="/programs/barber-apprenticeship"
+                  className="inline-block px-8 py-3 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-100 transition"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative h-[500px] overflow-hidden group">
+            <Image
+              src="/images/artlist/hero-training-8.jpg"
+              alt="Career Services"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 flex items-end p-12">
+              <div>
+                <h3 className="text-3xl font-light text-white mb-4">Career Services</h3>
+                <p className="text-white/90 mb-6 text-lg">Job placement and ongoing support</p>
+                <Link
+                  href="/support"
+                  className="inline-block px-8 py-3 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-100 transition"
+                >
+                  Get Support
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS - With Real Photos */}
+      <section className="py-40 px-12 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Success Stories</h2>
-            <p className="text-xl text-slate-600">Hear from our graduates</p>
+          <div className="text-center mb-24">
+            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Success Stories</h2>
+            <p className="text-lg text-slate-600">Hear from our graduates</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-10 shadow-sm">
-              <div className="mb-6">
-                <p className="font-bold text-2xl text-slate-900">J. Moore</p>
-                <p className="text-sm text-slate-600">Barber Apprentice</p>
+            <div className="bg-white rounded-2xl p-10">
+              <div className="flex items-center mb-6">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                  <Image
+                    src="/images/students-new/student-1.jpg"
+                    alt="J. Moore"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="ml-4">
+                  <p className="font-semibold text-slate-900">J. Moore</p>
+                  <p className="text-sm text-slate-600">Barber Apprentice</p>
+                </div>
               </div>
               <p className="text-slate-700 leading-relaxed text-lg">
                 "Elevate helped me restart my life. I went from struggling to becoming a licensed barber apprentice. They believed in me when no one else did."
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-10 shadow-sm">
-              <div className="mb-6">
-                <p className="font-bold text-2xl text-slate-900">L. Anderson</p>
-                <p className="text-sm text-slate-600">CNA Graduate</p>
+            <div className="bg-white rounded-2xl p-10">
+              <div className="flex items-center mb-6">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                  <Image
+                    src="/images/students-new/student-2.jpg"
+                    alt="L. Anderson"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="ml-4">
+                  <p className="font-semibold text-slate-900">L. Anderson</p>
+                  <p className="text-sm text-slate-600">CNA Graduate</p>
+                </div>
               </div>
               <p className="text-slate-700 leading-relaxed text-lg">
                 "The staff is amazing. They helped me get funding, childcare support, and confidence. I'm now working in healthcare and supporting my family."
@@ -123,7 +216,82 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FACILITIES GALLERY */}
+      <section className="py-40 px-12 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-24">
+            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Our Facilities</h2>
+            <p className="text-lg text-slate-600">Modern training spaces designed for hands-on learning</p>
+          </div>
 
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-1.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-2.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-3.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-4.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-5.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-6.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-7.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative h-64 overflow-hidden rounded-lg group">
+              <Image
+                src="/images/facilities-new/facility-8.jpg"
+                alt="Training Facility"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA SECTION - Bold and Clean */}
       <section className="py-40 px-12 bg-slate-900 text-white">
