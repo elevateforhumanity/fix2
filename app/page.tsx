@@ -7,30 +7,20 @@ import HomeProgramsSection from "@/components/home/HomeProgramsSection";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* HERO BANNER - Full Width, Clean */}
-      <section className="relative h-[600px] overflow-hidden bg-white">
-        <Image
-          src="/images/efh/hero/hero-main.jpg"
-          alt="Elevate for Humanity - Career Training Programs"
-          fill
-          className="object-cover brightness-110"
-          priority
-          quality={95}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/40 to-transparent" />
-        
-        <div className="relative h-full flex items-center justify-start text-left">
-          <div className="max-w-7xl px-8 md:px-12">
-            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight max-w-4xl">
+      {/* HERO BANNER - Clean White, No Gradient */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-8 md:px-12">
+          <div className="text-center mb-12">
+            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight">
               Career training that works.
             </h1>
-            <p className="text-2xl md:text-3xl text-slate-700 font-normal mb-12 max-w-2xl">
-              WIOA-approved programs. Real careers.
+            <p className="text-xl md:text-2xl text-slate-700 mb-8 max-w-3xl mx-auto">
+              WIOA-approved programs. Real careers. 100% funded training.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/programs"
-                className="px-12 py-5 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition-all text-lg"
+                className="px-12 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all text-lg"
               >
                 View Programs
               </Link>
@@ -38,11 +28,24 @@ export default function Home() {
                 href="https://www.indianacareerconnect.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-12 py-5 bg-white text-slate-900 font-semibold rounded-md border-2 border-slate-300 hover:border-slate-400 transition-all text-lg"
+                className="px-12 py-4 bg-gray-100 text-slate-900 font-semibold rounded-lg border-2 border-gray-300 hover:border-gray-400 transition-all text-lg"
               >
                 Apply Now
               </Link>
             </div>
+          </div>
+          
+          {/* Hero Image - Not Stretched */}
+          <div className="mt-12 rounded-xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/efh/hero/hero-main.jpg"
+              alt="Elevate for Humanity - Career Training Programs"
+              width={1400}
+              height={700}
+              className="w-full h-auto"
+              priority
+              quality={95}
+            />
           </div>
         </div>
       </section>
@@ -64,12 +67,13 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/gallery/image1.jpg"
+                  src="/images/artlist/hero-training-2.jpg"
                   alt="100% Fundable Programs"
-                  fill
-                  className="object-cover"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 text-center">
@@ -81,12 +85,13 @@ export default function Home() {
             </div>
 
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/gallery/image2.jpg"
+                  src="/images/artlist/hero-training-5.jpg"
                   alt="DOL Registered Apprenticeships"
-                  fill
-                  className="object-cover"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 text-center">
@@ -98,12 +103,13 @@ export default function Home() {
             </div>
 
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/learners/coaching-session.jpg"
+                  src="/images/artlist/hero-training-7.jpg"
                   alt="Wraparound Support Services"
-                  fill
-                  className="object-cover"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6 text-center">
