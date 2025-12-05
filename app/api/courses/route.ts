@@ -8,7 +8,7 @@ export async function GET() {
     const { data: courses, error } = await supabase
       .from('courses')
       .select('*')
-      .eq('status', 'published')
+      .eq('moderation_status', 'approved')
       .order('created_at', { ascending: false });
 
     if (error) {
@@ -37,12 +37,11 @@ export async function POST(request: Request) {
       .from('courses')
       .insert({
         title: body.title,
-        subtitle: body.subtitle,
+        slug: body.slug || body.title.toLowerCase().replace(/\s+/g, '-'),
         description: body.description,
         level: body.level,
-        duration_hours: body.duration_hours,
-        status: body.status || 'draft',
-        is_free: body.is_free || true,
+        duration_weeks: body.duration_weeks || Math.ceil((body.duration_hours || 40) / 40),
+        moderation_status: body.moderation_status || 'pending',
       })
       .select()
       .single();

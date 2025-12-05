@@ -13,11 +13,11 @@ export const metadata: Metadata = {
 export default async function CoursesPage() {
   const supabase = await createClient();
   
-  // Fetch published courses
+  // Fetch approved courses
   const { data: courses } = await supabase
     .from('courses')
     .select('*')
-    .eq('status', 'published')
+    .eq('moderation_status', 'approved')
     .order('title');
 
   // Get course categories
