@@ -66,7 +66,7 @@ const team: TeamMember[] = [
     image: "/images/alina-smith.jpg",
     blurb:
       "Board-certified Psychiatric Mental Health Nurse Practitioner partnering with Elevate to provide mental health assessment and medication management.",
-    link: "/team/alina-perfect",
+    link: "https://www.choicetherapyllc.com",
   },
 ];
 
