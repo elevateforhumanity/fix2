@@ -52,160 +52,9 @@ export default function Home() {
       {/* Dynamic Programs Section from centralized data */}
       <HomeProgramsSection />
 
-      {/* FEATURED PROGRAMS - Large Product-Style Cards */}
-      <section className="py-40 px-12 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Featured Programs</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              DOL Registered Apprenticeships and State-Approved Training
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {/* Barber Program */}
-            <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src="/images/beauty/program-barber-overview.jpg"
-                    alt="Barber Apprenticeship"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Barber Apprenticeship</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    2,000-hour DOL Registered Apprenticeship. Earn while you learn with WIOA, WRG, and JRI funding.
-                  </p>
-                  <span className="text-slate-900 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Healthcare Program */}
-            <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src="/images/healthcare/video-thumbnail-cna-training.jpg"
-                    alt="Healthcare Training"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Healthcare Training</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    CNA certification through Choice Medical Institute. State-approved with clinical placement.
-                  </p>
-                  <span className="text-slate-900 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Skilled Trades */}
-            <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src="/images/trades/program-hvac-overview.jpg"
-                    alt="Skilled Trades"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Skilled Trades</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    HVAC, electrical, and plumbing training. Hands-on learning for high-wage careers.
-                  </p>
-                  <span className="text-slate-900 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Beauty & Esthetics */}
-            <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src="/images/beauty/hero-program-cosmetology.jpg"
-                    alt="Beauty & Esthetics"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Beauty & Esthetics</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    Nails, esthetics, and cosmetology with experienced instructors and modern facilities.
-                  </p>
-                  <span className="text-slate-900 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Support Services */}
-            <Link href="/support" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src="/images/efh/sections/coaching.jpg"
-                    alt="Support Services"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Support Services</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    Life coaching, mental health support, and wraparound services to help you succeed.
-                  </p>
-                  <span className="text-slate-900 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Classroom Training */}
-            <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src="/images/efh/sections/classroom.jpg"
-                    alt="Classroom Training"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-semibold text-slate-900 mb-3">Classroom Training</h3>
-                  <p className="text-slate-600 mb-4 leading-relaxed">
-                    Modern facilities with hands-on instruction and real-world skill development.
-                  </p>
-                  <span className="text-slate-900 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* WHY CHOOSE US - Image-Based Feature Blocks */}
-      <section className="py-40 px-12 bg-slate-50">
+      <section className="py-40 px-12 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Why Choose Elevate</h2>
@@ -323,7 +172,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-slate-50 rounded-2xl p-10">
+            <div className="bg-white rounded-2xl p-10">
               <div className="flex items-center mb-6">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden">
                   <Image
@@ -343,7 +192,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-slate-50 rounded-2xl p-10">
+            <div className="bg-white rounded-2xl p-10">
               <div className="flex items-center mb-6">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden">
                   <Image
@@ -367,7 +216,7 @@ export default function Home() {
       </section>
 
       {/* FACILITIES GALLERY */}
-      <section className="py-40 px-12 bg-slate-50">
+      <section className="py-40 px-12 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
             <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Our Facilities</h2>
@@ -456,7 +305,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <Link
               href="/apply"
-              className="px-10 py-4 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-50 transition-all shadow-lg text-lg"
+              className="px-10 py-4 bg-white text-slate-900 font-semibold rounded-full hover:bg-white transition-all shadow-lg text-lg"
             >
               Apply Now
             </Link>
