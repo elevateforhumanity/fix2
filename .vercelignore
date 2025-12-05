@@ -1,0 +1,4 @@
+# Force fresh build - ignore cache
+.next/
+.turbo/
+node_modules/.cache/
