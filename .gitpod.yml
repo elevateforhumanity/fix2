@@ -29,11 +29,200 @@ ports:
     description: Node.js debugging port
 
 tasks:
-  - name: Setup
-    init: pnpm install || true
+  - name: Setup & Pricing System
+    init: |
+      echo "🔧 Installing EFH platform dependencies..."
+      pnpm install || true
+      
+      echo "💰 Setting up pricing system..."
+      mkdir -p config
+      
+      # Ensure pricing.json exists with latest structure
+      if [ ! -f config/pricing.json ]; then
+        echo "Creating pricing.json..."
+        cat > config/pricing.json << 'PRICING_EOF'
+{
+  "currency": "USD",
+  "tiers": [
+    {
+      "key": "single-org",
+      "label": "Single Organization License",
+      "price": 50000,
+      "summary": "Use the full multi-app platform for one organization with your branding and configuration.",
+      "highlights": [
+        "Learner, Provider, Board & Admin apps",
+        "Branding & configuration for your org",
+        "WIOA/ETPL/apprenticeship-aligned flows",
+        "Deploy on your cloud or ours"
+      ],
+      "cta": { "label": "Talk about single-org license", "href": "/contact?topic=license-single" },
+      "badge": "Most Popular",
+      "perLearnerAt": 200
+    },
+    {
+      "key": "white-label",
+      "label": "White-Label Partner Suite",
+      "price": 100000,
+      "summary": "Launch your own branded platform to serve multiple schools/providers or regions.",
+      "highlights": [
+        "Multi-instance or multi-tenant ready",
+        "Separate Learner / Provider / Board apps",
+        "Partner & territory restrictions by contract",
+        "Designed for grant-funded ecosystems"
+      ],
+      "cta": { "label": "Explore white-label options", "href": "/contact?topic=license-whitelabel" },
+      "accent": true,
+      "perLearnerAt": 500
+    },
+    {
+      "key": "acquisition",
+      "label": "Full Codebase Acquisition",
+      "price": 500000,
+      "summary": "Acquire the entire multi-app codebase to own and operate your version at scale.",
+      "highlights": [
+        "Complete monorepo & app suite",
+        "Grant Autopilot + VITA modules included",
+        "Roadmap freedom for your team",
+        "Ideal for large institutions"
+      ],
+      "cta": { "label": "Discuss acquisition", "href": "/contact?topic=license-acquisition" },
+      "perLearnerAt": 1000
+    }
+  ],
+  "apps": [
+    {
+      "key": "learner-app",
+      "label": "Learner & Student App",
+      "basePrice": 15000,
+      "summary": "Program catalog, onboarding, progress tracking, certificates, and messaging built for youth and adult learners.",
+      "exampleLearners": 200,
+      "highlights": [
+        "Program discovery & stacked credentials",
+        "Applications, forms, and checklists",
+        "Notifications and reminders"
+      ]
+    },
+    {
+      "key": "provider-app",
+      "label": "Training Provider / School App",
+      "basePrice": 15000,
+      "summary": "Cohort, attendance, and outcome tracking for CNA schools, barber academies, HVAC/CDL partners, and more.",
+      "exampleLearners": 150,
+      "highlights": [
+        "Program & cohort management",
+        "Rosters, progress, completions",
+        "Documents and credential tracking"
+      ]
+    },
+    {
+      "key": "board-dashboard",
+      "label": "Workforce Board & Funder Dashboard",
+      "basePrice": 20000,
+      "summary": "Outcomes, enrollments, and grant-aligned reporting in one view for boards, funders, and regional partners.",
+      "exampleLearners": 400,
+      "highlights": [
+        "Program & ETPL-style views",
+        "Enrollment & completion metrics",
+        "Exportable grant/outcome reports"
+      ]
+    },
+    {
+      "key": "admin-console",
+      "label": "Admin & Operations Console",
+      "basePrice": 12000,
+      "summary": "Internal operations layer for managing users, orgs, approvals, and platform configuration.",
+      "exampleLearners": 200,
+      "highlights": [
+        "User, org, and role management",
+        "Program approvals & publishing",
+        "Settings, automations, and logs"
+      ]
+    },
+    {
+      "key": "grant-autopilot",
+      "label": "Grant Autopilot Workspace",
+      "basePrice": 10000,
+      "summary": "Workspace for grants, deadlines, and AI-assisted drafting and reporting.",
+      "exampleLearners": 200,
+      "highlights": [
+        "Grant intake & tracking",
+        "Deadline & requirement management",
+        "Autopilot hooks for AI drafting"
+      ]
+    },
+    {
+      "key": "vita-module",
+      "label": "Tax & VITA Support Module",
+      "basePrice": 8000,
+      "summary": "Components for VITA-style intake, client workflows, and document handling.",
+      "exampleLearners": 150,
+      "highlights": [
+        "Client intake & documents",
+        "Client tracking & follow-up",
+        "Configurable to align with VITA"
+      ]
+    }
+  ],
+  "addOns": [
+    {
+      "key": "implementation",
+      "label": "Implementation Package",
+      "price": 15000,
+      "summary": "Hands-on deployment, domain, environment, and initial data setup.",
+      "details": ["Cloud deploy + DNS", "Branding & theming", "Admin training (2 sessions)"]
+    },
+    {
+      "key": "support",
+      "label": "Support & Updates (Annual)",
+      "price": 10000,
+      "summary": "Priority support, security updates, and quarterly upgrade windows.",
+      "details": ["Email/Slack support", "Security & maintenance releases", "Upgrade guidance"]
+    }
+  ],
+  "notes": [
+    "Per-learner figures are simple first-year illustrations based on the sample learner counts shown.",
+    "Most partners fund licenses via workforce grants, philanthropy, or innovation budgets.",
+    "Prices shown are one-time unless marked 'Annual'. Taxes and payment terms may apply."
+  ]
+}
+PRICING_EOF
+        echo "✅ Pricing system installed"
+      else
+        echo "✅ Pricing system already configured"
+      fi
+      
+      echo "🎨 Verifying branding system..."
+      if [ ! -f config/branding.json ]; then
+        cat > config/branding.json << 'BRANDING_EOF'
+{
+  "appName": "Elevate Workforce Platform",
+  "primaryColor": "#EA580C",
+  "logoPath": "/branding/logo.png"
+}
+BRANDING_EOF
+        echo "✅ Branding system installed"
+      fi
+      
+      echo "🔐 Verifying license system..."
+      if [ ! -f config/license.json ]; then
+        cat > config/license.json << 'LICENSE_EOF'
+{
+  "licenseHolder": "Elevate for Humanity",
+  "licenseId": "EFH-2025-MASTER-000",
+  "licenseType": "master",
+  "issuedAt": "2025-01-01",
+  "validDomains": ["localhost", "*.elevateforhumanity.org", "*.gitpod.io"],
+  "status": "active"
+}
+LICENSE_EOF
+        echo "✅ License system installed"
+      fi
+      
+      echo "✅ EFH platform ready"
     command: |
       pnpm approve-builds --all
       pnpm install
+      echo "🚀 Starting EFH platform..."
       pnpm dev
   - name: LMS UX & Compliance Benchmark
     init: |

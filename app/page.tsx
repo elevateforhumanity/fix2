@@ -1,6 +1,8 @@
 // app/page.tsx - Avon-Inspired Modern Homepage
 import Link from "next/link";
 import Image from "next/image";
+import HighlightStrip from "@/components/home/HighlightStrip";
+import HomeProgramsSection from "@/components/home/HomeProgramsSection";
 
 export default function Home() {
   return (
@@ -42,6 +44,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Workforce credibility strip */}
+      <HighlightStrip />
+
+      {/* Dynamic Programs Section from centralized data */}
+      <HomeProgramsSection />
 
       {/* FEATURED PROGRAMS - Large Product-Style Cards */}
       <section className="py-20 px-6 bg-white">

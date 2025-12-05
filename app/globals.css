@@ -4,6 +4,23 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --brand-color: #EA580C; /* fallback if JS fails */
+}
+
+/* Brand utility classes */
+.bg-brand {
+  background-color: var(--brand-color);
+}
+
+.text-brand {
+  color: var(--brand-color);
+}
+
+.border-brand {
+  border-color: var(--brand-color);
+}
+
 @layer base {
   * {
     font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;

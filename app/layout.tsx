@@ -1,3 +1,4 @@
+// EFH LICENSE FINGERPRINT: EFH-2025-MASTER-000
 import type { Metadata, Viewport } from 'next';
 // Image asset: /images/programs-new/program-11.jpg
 import { Inter } from 'next/font/google';
@@ -26,6 +27,8 @@ import { ScraperDetection } from '@/components/ScraperDetection';
 import { OfflineIndicator } from '@/components/offline-indicator';
 import { ServiceWorkerInit } from '@/components/service-worker-init';
 import { SentryInit } from '@/components/sentry-init';
+import FundingToast from '@/components/ui/FundingToast';
+import { getBranding } from '@/lib/branding';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -126,8 +129,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const branding = getBranding();
+  
   return (
-    <html lang="en" className={inter.variable}>
+    <html 
+      lang="en" 
+      className={inter.variable}
+      data-app-name={branding.appName}
+      data-primary-color={branding.primaryColor}
+    >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.png" type="image/png"
@@ -136,7 +146,10 @@ sizes="192x192" />
         <meta name="theme-color" content="#10b981" />
         <StructuredData />
       </head>
-      <body className={`${inter.className} antialiased bg-white`}>
+      <body 
+        className={`${inter.className} antialiased bg-white`}
+        style={{ ['--brand-color' as string]: branding.primaryColor }}
+      >
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brandPrimary focus:text-white focus:rounded-md focus:shadow-lg"
@@ -184,6 +197,9 @@ sizes="192x192" />
             },
           }}
         />
+        
+        {/* Global funding toast */}
+        <FundingToast />
       </body>
     </html>
   );

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import PricingTable from '@/components/store/PricingTable';
 
 interface Product {
   id: string;
@@ -278,6 +279,9 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Dynamic Pricing Models */}
+      <PricingTable />
 
       {/* Product Detail Modal */}
       {selectedProduct && (

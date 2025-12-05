@@ -6,6 +6,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { headerNav } from "@/config/navigation";
+import { getBranding } from "@/lib/branding";
 
 function classNames(...classes: (string | false | null | undefined)[]) {
   return classes.filter(Boolean).join(" ");
@@ -15,6 +16,7 @@ export default function MainHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const branding = getBranding();
 
   return (
     <header className="bg-white/95 backdrop-blur z-50 sticky top-0 shadow-sm">
@@ -24,16 +26,16 @@ export default function MainHeader() {
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-3">
               <Image
-                src="/logo.png"
-                alt="Elevate For Humanity"
+                src={branding.logoPath}
+                alt={branding.appName}
                 width={48}
                 height={48}
-                className="h-12 w-12"
+                className="h-12 w-12 rounded-full object-cover"
                 priority
               />
               <div className="leading-tight">
                 <div className="font-semibold text-slate-900 text-sm sm:text-base">
-                  Elevate For Humanity
+                  {branding.appName}
                 </div>
                 <div className="text-[11px] text-slate-500 hidden sm:block">
                   Career & Technical Institute
