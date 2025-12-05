@@ -30,6 +30,14 @@ const TESTIMONIALS: Testimonial[] = [
 ];
 
 export default function Testimonials() {
+  const getInitials = (name: string) => {
+    return name
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase();
+  };
+
   return (
     <section className="section bg-slate-50">
       <div className="container">
@@ -45,12 +53,9 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t) => (
             <div key={t.name} className="card p-6">
               <div className="flex items-center gap-4">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="h-16 w-16 rounded-full object-cover ring-2 ring-red-100"
-                  loading="lazy"
-                />
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-orange-100 text-lg font-bold text-orange-600 ring-2 ring-orange-200">
+                  {getInitials(t.name)}
+                </div>
                 <div>
                   <div className="font-semibold">{t.name}</div>
                   <div className="text-sm text-slate-600">{t.role}</div>
