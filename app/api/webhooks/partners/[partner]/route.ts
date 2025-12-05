@@ -5,10 +5,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getPartnerClient, PartnerType, WebhookPayload } from "@/lib/partners";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  
+  if (!supabaseUrl || !supabaseKey) {
+    throw new Error("Supabase credentials not configured");
+  }
+  
+  return createClient(supabaseUrl, supabaseKey);
+}
 
 export async function POST(
   request: NextRequest,
@@ -16,6 +22,8 @@ export async function POST(
 ) {
   const { partner: partnerName } = await params;
   const partner = partnerName as PartnerType;
+  
+  const supabase = getSupabaseClient();
 
   try {
     // Get webhook signature from headers
