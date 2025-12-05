@@ -8,18 +8,18 @@ export default function HomeProgramsSection() {
   const featured = programs;
 
   return (
-    <section className="bg-white py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-4">
+    <section className="bg-white py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-8 md:px-12">
         <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-orange-500">
               Elevate For Humanity
             </p>
-            <h2 className="mt-1 text-3xl font-bold text-slate-900 md:text-4xl">
-              Career Training Programs
+            <h2 className="mt-1 text-4xl font-bold text-slate-900 md:text-5xl">
+              Training programs for real careers
             </h2>
-            <p className="mt-3 max-w-2xl text-base text-slate-600">
-              WIOA-approved workforce training in skilled trades, healthcare, and transportation
+            <p className="mt-4 max-w-2xl text-lg text-slate-600">
+              Skilled trades, healthcare, and transportation
             </p>
           </div>
           <Link
@@ -30,20 +30,20 @@ export default function HomeProgramsSection() {
           </Link>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((program) => (
             <article
               key={program.slug}
               className="group flex h-full flex-col overflow-hidden rounded-lg bg-white border border-slate-200 transition hover:shadow-lg"
             >
               {/* Image */}
-              <div className="relative h-48 w-full bg-slate-50">
+              <div className="relative h-56 w-full bg-slate-50">
                 {program.heroImage ? (
                   <Image
                     src={program.heroImage}
                     alt={program.heroImageAlt || program.name}
                     fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover brightness-105 transition-transform duration-300 group-hover:scale-105"
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   />
                 ) : (
