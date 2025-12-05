@@ -8,16 +8,16 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       {/* HERO BANNER - Full Width, Clean */}
-      <section className="relative h-[450px] overflow-hidden bg-slate-100">
+      <section className="relative h-[500px] overflow-hidden bg-white">
         <Image
           src="/images/efh/hero/hero-main.jpg"
           alt="Elevate for Humanity - Career Training Programs"
           fill
           className="object-cover"
           priority
-          quality={90}
+          quality={95}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/50 to-transparent" />
         
         <div className="relative h-full flex items-center justify-center text-center">
           <div className="max-w-4xl px-6">

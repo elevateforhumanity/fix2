@@ -8,19 +8,18 @@ export default function HomeProgramsSection() {
   const featured = programs;
 
   return (
-    <section className="bg-slate-50 py-12 md:py-16">
-      <div className="mx-auto max-w-6xl px-4">
+    <section className="bg-white py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-4">
         <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-orange-500">
               Elevate For Humanity
             </p>
-            <h2 className="mt-1 text-2xl font-bold text-slate-900 md:text-3xl">
-              Career-Ready Training Programs
+            <h2 className="mt-1 text-3xl font-bold text-slate-900 md:text-4xl">
+              Career Training Programs
             </h2>
-            <p className="mt-2 max-w-xl text-sm text-slate-700">
-              Explore programs built for real people with real goals — from skilled trades and
-              healthcare to transportation and workforce readiness.
+            <p className="mt-3 max-w-2xl text-base text-slate-600">
+              WIOA-approved workforce training in skilled trades, healthcare, and transportation
             </p>
           </div>
           <Link
@@ -35,10 +34,10 @@ export default function HomeProgramsSection() {
           {featured.map((program) => (
             <article
               key={program.slug}
-              className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-100 transition hover:-translate-y-0.5 hover:shadow-md"
+              className="group flex h-full flex-col overflow-hidden rounded-lg bg-white border border-slate-200 transition hover:shadow-lg"
             >
               {/* Image */}
-              <div className="relative h-40 w-full bg-slate-100">
+              <div className="relative h-48 w-full bg-slate-50">
                 {program.heroImage ? (
                   <Image
                     src={program.heroImage}
@@ -55,8 +54,8 @@ export default function HomeProgramsSection() {
               </div>
 
               {/* Content */}
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="text-base font-semibold text-slate-900 group-hover:text-orange-600">
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-lg font-semibold text-slate-900">
                   {program.name}
                 </h3>
                 <p className="mt-2 line-clamp-3 text-sm text-slate-700">
