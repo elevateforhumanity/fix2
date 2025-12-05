@@ -31,6 +31,7 @@ const team: TeamMember[] = [
     image: "/images/leslie-wafford.jpg",
     blurb:
       "Focused on low-barrier, eviction-prevention practices and educating residents about their rights so families can remain housed and stable.",
+    link: "/team/leslie-wafford",
   },
   {
     name: "Clystjah Woodley",
@@ -38,6 +39,7 @@ const team: TeamMember[] = [
     image: "/images/clystjah-woodley.jpg",
     blurb:
       "Provides life coaching, mindset support, and accountability to help learners navigate real-life barriers while they complete training.",
+    link: "/team/clystjah-woodley",
   },
   {
     name: "Delores Reynolds",
@@ -45,13 +47,15 @@ const team: TeamMember[] = [
     image: "/images/delores-reynolds.jpg",
     blurb:
       "Leads Elevate's online presence, storytelling, and engagement strategies to keep students and partners informed and inspired.",
+    link: "/team/delores-reynolds",
   },
   {
-    name: "Johanna George",
+    name: "Jozanna George",
     title: "Director of Beauty & Esthetics Programs",
     image: "/images/jozanna-george.jpg",
     blurb:
       "Licensed for over 20 years in nails and esthetics and former beauty school leader, overseeing enrollment and beauty-industry pathways.",
+    link: "/team/jozanna-george",
   },
   {
     name: "Sharon Douglass",
@@ -59,6 +63,7 @@ const team: TeamMember[] = [
     image: "/images/sharon-douglas.jpg",
     blurb:
       "Respiratory therapist and health informatics professional with 30+ years of experience in patient safety, quality, and clinical operations.",
+    link: "/team/sharon-douglass",
   },
   {
     name: "Alina Perfect, PMHNP",
