@@ -91,96 +91,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DUAL IMAGE SECTION */}
-      <section className="py-0">
-        <div className="grid md:grid-cols-2">
-          <div className="relative h-[500px] overflow-hidden group">
-            <Image
-              src="/images/efh/hero/hero-barber.jpg"
-              alt="Hands-On Training"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 flex items-end p-12">
-              <div>
-                <h3 className="text-3xl font-light text-white mb-4">Hands-On Training</h3>
-                <p className="text-white/90 mb-6 text-lg">Real-world skills with experienced instructors</p>
-                <Link
-                  href="/programs/barber-apprenticeship"
-                  className="inline-block px-8 py-3 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-100 transition"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative h-[500px] overflow-hidden group">
-            <Image
-              src="/images/efh/hero/hero-support.jpg"
-              alt="Career Services"
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 flex items-end p-12">
-              <div>
-                <h3 className="text-3xl font-light text-white mb-4">Career Services</h3>
-                <p className="text-white/90 mb-6 text-lg">Job placement and ongoing support</p>
-                <Link
-                  href="/support"
-                  className="inline-block px-8 py-3 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-100 transition"
-                >
-                  Get Support
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS - With Real Photos */}
-      <section className="py-40 px-12 bg-white">
+      {/* TESTIMONIALS - Text Only */}
+      <section className="py-20 px-12 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Success Stories</h2>
-            <p className="text-lg text-slate-600">Hear from our graduates</p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Success Stories</h2>
+            <p className="text-xl text-slate-600">Hear from our graduates</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-10">
-              <div className="flex items-center mb-6">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/students-new/student-1.jpg"
-                    alt="J. Moore"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold text-slate-900">J. Moore</p>
-                  <p className="text-sm text-slate-600">Barber Apprentice</p>
-                </div>
+            <div className="bg-white rounded-2xl p-10 shadow-sm">
+              <div className="mb-6">
+                <p className="font-bold text-2xl text-slate-900">J. Moore</p>
+                <p className="text-sm text-slate-600">Barber Apprentice</p>
               </div>
               <p className="text-slate-700 leading-relaxed text-lg">
                 "Elevate helped me restart my life. I went from struggling to becoming a licensed barber apprentice. They believed in me when no one else did."
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-10">
-              <div className="flex items-center mb-6">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/students-new/student-2.jpg"
-                    alt="L. Anderson"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold text-slate-900">L. Anderson</p>
-                  <p className="text-sm text-slate-600">CNA Graduate</p>
-                </div>
+            <div className="bg-white rounded-2xl p-10 shadow-sm">
+              <div className="mb-6">
+                <p className="font-bold text-2xl text-slate-900">L. Anderson</p>
+                <p className="text-sm text-slate-600">CNA Graduate</p>
               </div>
               <p className="text-slate-700 leading-relaxed text-lg">
                 "The staff is amazing. They helped me get funding, childcare support, and confidence. I'm now working in healthcare and supporting my family."
@@ -190,82 +123,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FACILITIES GALLERY */}
-      <section className="py-40 px-12 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Our Facilities</h2>
-            <p className="text-lg text-slate-600">Modern training spaces designed for hands-on learning</p>
-          </div>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <div className="relative h-64 overflow-hidden rounded-lg group">
-              <Image
-                src="/images/facilities-new/facility-1.jpg"
-                alt="Training Facility"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative h-64 overflow-hidden rounded-lg group">
-              <Image
-                src="/images/facilities-new/facility-2.jpg"
-                alt="Training Facility"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative h-64 overflow-hidden rounded-lg group">
-              <Image
-                src="/images/facilities-new/facility-3.jpg"
-                alt="Training Facility"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative h-64 overflow-hidden rounded-lg group">
-              <Image
-                src="/images/facilities-new/facility-4.jpg"
-                alt="Training Facility"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative h-64 overflow-hidden rounded-lg group">
-              <Image
-                src="/images/facilities-new/facility-5.jpg"
-                alt="Training Facility"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative h-64 overflow-hidden rounded-lg group">
-              <Image
-                src="/images/facilities-new/facility-6.jpg"
-                alt="Training Facility"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative h-64 overflow-hidden rounded-lg group">
-              <Image
-                src="/images/facilities-new/facility-7.jpg"
-                alt="Training Facility"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative h-64 overflow-hidden rounded-lg group">
-              <Image
-                src="/images/facilities-new/facility-8.jpg"
-                alt="Training Facility"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA SECTION - Bold and Clean */}
       <section className="py-40 px-12 bg-slate-900 text-white">
