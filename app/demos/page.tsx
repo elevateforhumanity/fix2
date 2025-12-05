@@ -10,16 +10,16 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Demos | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Demos inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
+      <section className="bg-white py-24 md:py-32">
+        <div className="container mx-auto px-8 md:px-12">
+          <div className="max-w-4xl">
+            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight">Platform demos</h1>
+            <p className="text-2xl md:text-3xl text-slate-700 mb-12">See how our workforce training platform works.</p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/apply" className="px-12 py-5 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition-all text-lg">
                 Get Started
               </Link>
-              <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
+              <Link href="/programs" className="px-12 py-5 bg-white text-slate-900 font-semibold rounded-md border-2 border-slate-300 hover:border-slate-400 transition-all text-lg">
                 View Programs
               </Link>
             </div>
