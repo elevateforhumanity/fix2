@@ -11,7 +11,7 @@ interface FooterPageTemplateProps {
 export default function FooterPageTemplate({
   title,
   description,
-  heroImage = "/images/artlist/hero-training-5.jpg",
+  heroImage = "/images/programs/building-maintenance-hero.jpg",
   children,
 }: FooterPageTemplateProps) {
   return (

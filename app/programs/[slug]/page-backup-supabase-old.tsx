@@ -30,23 +30,23 @@ async function getProgram(slug: string) {
 function getProgramImage(slug: string, category: string): string {
   const customImages: Record<string, string> = {
     "medical-assistant": "/images/efh/programs/cna.jpg",
-    "phlebotomy-technician": "/images/artlist/hero-training-1.jpg",
-    "pharmacy-technician": "/images/artlist/hero-training-1.jpg",
-    "dental-assistant": "/images/artlist/hero-training-1.jpg",
-    "it-support-specialist": "/images/artlist/hero-training-1.jpg",
-    "cybersecurity-analyst": "/images/artlist/hero-training-1.jpg",
-    "web-development": "/images/artlist/hero-training-1.jpg",
-    "data-analytics": "/images/artlist/hero-training-1.jpg",
-    "customer-service-representative": "/images/artlist/hero-training-1.jpg",
+    "phlebotomy-technician": "/images/programs/efh-cna-hero.jpg",
+    "pharmacy-technician": "/images/programs/efh-cna-hero.jpg",
+    "dental-assistant": "/images/programs/efh-cna-hero.jpg",
+    "it-support-specialist": "/images/programs/efh-cna-hero.jpg",
+    "cybersecurity-analyst": "/images/programs/efh-cna-hero.jpg",
+    "web-development": "/images/programs/efh-cna-hero.jpg",
+    "data-analytics": "/images/programs/efh-cna-hero.jpg",
+    "customer-service-representative": "/images/programs/efh-cna-hero.jpg",
     "administrative-assistant": "/images/efh/sections/classroom.jpg",
-    "bookkeeping": "/images/artlist/hero-training-1.jpg",
-    "real-estate-agent": "/images/artlist/hero-training-1.jpg",
-    "insurance-agent": "/images/artlist/hero-training-1.jpg",
-    "solar-panel-installation": "/images/artlist/hero-training-1.jpg",
-    "automotive-technician": "/images/artlist/hero-training-1.jpg",
-    "diesel-mechanic": "/images/artlist/hero-training-1.jpg",
-    "forklift-operator": "/images/artlist/hero-training-1.jpg",
-    "manufacturing-technician": "/images/artlist/hero-training-1.jpg",
+    "bookkeeping": "/images/programs/efh-cna-hero.jpg",
+    "real-estate-agent": "/images/programs/efh-cna-hero.jpg",
+    "insurance-agent": "/images/programs/efh-cna-hero.jpg",
+    "solar-panel-installation": "/images/programs/efh-cna-hero.jpg",
+    "automotive-technician": "/images/programs/efh-cna-hero.jpg",
+    "diesel-mechanic": "/images/programs/efh-cna-hero.jpg",
+    "forklift-operator": "/images/programs/efh-cna-hero.jpg",
+    "manufacturing-technician": "/images/programs/efh-cna-hero.jpg",
     "entrepreneurship-small-business": "/images/efh/sections/classroom.jpg",
   };
 
@@ -56,10 +56,10 @@ function getProgramImage(slug: string, category: string): string {
 
   const categoryImages: Record<string, string> = {
     "Healthcare": "/images/efh/programs/cna.jpg",
-    "Technology": "/images/artlist/hero-training-1.jpg",
+    "Technology": "/images/programs/efh-cna-hero.jpg",
     "Business": "/images/efh/sections/classroom.jpg",
-    "Sales": "/images/artlist/hero-training-1.jpg",
-    "Skilled Trades": "/images/artlist/hero-training-1.jpg",
+    "Sales": "/images/programs/efh-cna-hero.jpg",
+    "Skilled Trades": "/images/programs/efh-cna-hero.jpg",
   };
 
   return categoryImages[category] || "/images/efh/sections/classroom.jpg";

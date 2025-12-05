@@ -284,7 +284,7 @@ export default function HomePage() {
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/images/efh-barber-hero.jpg"
+            src="/images/programs/efh-barber-hero.jpg"
             alt="Barber Apprenticeship Program"
             fill
             className="object-cover"

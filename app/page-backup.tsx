@@ -152,7 +152,7 @@ export default function Home() {
             <div className="text-center">
               <div className="relative h-48 rounded-lg overflow-hidden mb-4 shadow-lg">
                 <Image
-                  src="/images/programs-new/program-02.jpg"
+                  src="/images/programs/barber-hero.jpg"
                   alt="Free Training"
                   fill
                   className="object-cover"
@@ -168,7 +168,7 @@ export default function Home() {
             <div className="text-center">
               <div className="relative h-48 rounded-lg overflow-hidden mb-4 shadow-lg">
                 <Image
-                  src="/images/programs-new/program-03.jpg"
+                  src="/images/programs/hvac-hero.jpg"
                   alt="Federal Alignment"
                   fill
                   className="object-cover"
@@ -184,7 +184,7 @@ export default function Home() {
             <div className="text-center">
               <div className="relative h-48 rounded-lg overflow-hidden mb-4 shadow-lg">
                 <Image
-                  src="/images/programs-new/program-04.jpg"
+                  src="/images/programs/cdl-hero.jpg"
                   alt="Wraparound Support"
                   fill
                   className="object-cover"
@@ -278,7 +278,7 @@ export default function Home() {
             <article className="flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
               <div className="relative h-40">
                 <Image
-                  src="/images/programs-new/program-01.jpg"
+                  src="/images/programs/efh-cna-hero.jpg"
                   alt="Career Training Programs"
                   fill
                   className="object-cover"
@@ -307,7 +307,7 @@ export default function Home() {
             <article className="flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
               <div className="relative h-40">
                 <Image
-                  src="/images/efh-barber-card.jpg"
+                  src="/images/programs/efh-barber-card.jpg"
                   alt="Registered Apprenticeships"
                   fill
                   className="object-cover"
@@ -335,7 +335,7 @@ export default function Home() {
             <article className="flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
               <div className="relative h-40">
                 <Image
-                  src="/images/efh-barber-hero.jpg"
+                  src="/images/programs/efh-barber-hero.jpg"
                   alt="Beauty & Barber Institute"
                   fill
                   className="object-cover"
@@ -364,7 +364,7 @@ export default function Home() {
             <article className="flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
               <div className="relative h-40">
                 <Image
-                  src="/images/team-new/team-01.jpg"
+                  src="/images/team/founder/elizabeth-greene-founder-hero-01.jpg"
                   alt="Support & Coaching"
                   fill
                   className="object-cover"
@@ -594,7 +594,7 @@ export default function Home() {
               <div className="flex items-center gap-3 mb-3">
                 <div className="relative h-12 w-12 rounded-full overflow-hidden bg-slate-200">
                   <Image
-                    src="/images/testimonials/testimonial-01.jpg"
+                    src="/images/programs/efh-cna-hero.jpg"
                     alt="Student testimonial"
                     fill
                     className="object-cover"
@@ -615,7 +615,7 @@ export default function Home() {
               <div className="flex items-center gap-3 mb-3">
                 <div className="relative h-12 w-12 rounded-full overflow-hidden bg-slate-200">
                   <Image
-                    src="/images/testimonials/testimonial-02.jpg"
+                    src="/images/programs/barber-hero.jpg"
                     alt="Student testimonial"
                     fill
                     className="object-cover"
@@ -636,7 +636,7 @@ export default function Home() {
               <div className="flex items-center gap-3 mb-3">
                 <div className="relative h-12 w-12 rounded-full overflow-hidden bg-slate-200">
                   <Image
-                    src="/images/testimonials/testimonial-03.jpg"
+                    src="/images/programs/hvac-hero.jpg"
                     alt="Student testimonial"
                     fill
                     className="object-cover"

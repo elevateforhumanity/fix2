@@ -436,14 +436,14 @@ export function AutoPolishedPage({ route, label, section }: AutoPolishedPageProp
   const getHeroImage = () => {
     const cat = normalizeSection(section);
     switch (cat) {
-      case "programs": return "/images/gallery/image2.jpg";
+      case "programs": return "/images/programs/barber-hero.jpg";
       case "funding": return "/images/gallery/image3.jpg";
       case "students": return "/images/gallery/image4.jpg";
       case "lms": return "/images/gallery/image5.jpg";
       case "employers": return "/images/gallery/image6.jpg";
       case "community": return "/images/gallery/image7.jpg";
       case "admin-staff": return "/images/gallery/image8.jpg";
-      default: return "/images/gallery/image1.jpg";
+      default: return "/images/programs/efh-cna-hero.jpg";
     }
   };
 

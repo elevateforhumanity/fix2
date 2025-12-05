@@ -14,7 +14,7 @@ export default function JRIPage() {
       <section className="relative min-h-[400px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/artlist/hero-training-5.jpg"
+            src="/images/programs/building-maintenance-hero.jpg"
             alt="Job Ready Indy Programs"
             fill
             className="object-cover"

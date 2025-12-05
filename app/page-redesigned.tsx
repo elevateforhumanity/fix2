@@ -14,7 +14,7 @@ export default function HomePage() {
       title: "No-Cost Career Training for Eligible Participants", 
       subtitle: "State-Approved ETPL Provider • DOL Registered Apprenticeship Sponsor",
       description: "Workforce Innovation and Opportunity Act (WIOA) funded training programs leading to industry-recognized credentials and employment opportunities.",
-      image: "/media-backup-20251128-043832/hero-elevate-learners.jpg",
+      image: "/images/efh/hero/hero-health.jpg",
       badge: "ETPL Approved Provider"
     },
     { 
@@ -170,7 +170,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <div className="relative h-64">
                 <Image
-                  src="/images/healthcare/medical-assistant-hero.jpg"
+                  src="/images/programs/efh-cna-hero.jpg"
                   alt="Healthcare Careers"
                   fill
                   className="object-cover"
@@ -214,7 +214,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <div className="relative h-64">
                 <Image
-                  src="/images/trades/hvac-hero.jpg"
+                  src="/images/programs/hvac-hero.jpg"
                   alt="Skilled Trades Careers"
                   fill
                   className="object-cover"
@@ -258,7 +258,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <div className="relative h-64">
                 <Image
-                  src="/images/business/it-support-hero.jpg"
+                  src="/images/programs/efh-building-tech-hero.jpg"
                   alt="Business & Technology Careers"
                   fill
                   className="object-cover"

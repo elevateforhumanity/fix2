@@ -130,7 +130,7 @@ export default function HomePage() {
             <div className="bg-white rounded overflow-hidden border border-slate-200">
               <div className="relative h-56">
                 <Image
-                  src="/media/programs/medical-assistant-hd.jpg"
+                  src="/images/programs/efh-cna-hero.jpg"
                   alt="Healthcare Training"
                   fill
                   className="object-cover" quality={85} sizes="100vw"
@@ -172,7 +172,7 @@ export default function HomePage() {
             <div className="bg-white rounded overflow-hidden border border-slate-200">
               <div className="relative h-56">
                 <Image
-                  src="/media/programs/business-hd.jpg"
+                  src="/images/programs/efh-business-startup-marketing-hero.jpg"
                   alt="Business Services Training"
                   fill
                   className="object-cover" quality={85} sizes="100vw"

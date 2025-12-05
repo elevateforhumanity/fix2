@@ -365,7 +365,7 @@ export default function HomePage() {
             <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/images/artlist/hero-training-2.jpg"
+                  src="/images/programs/barber-hero.jpg"
                   alt="Job seekers in training"
                   fill
                   className="object-cover" quality={85} sizes="100vw"
@@ -382,7 +382,7 @@ export default function HomePage() {
             <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/images/artlist/hero-training-3.jpg"
+                  src="/images/programs/hvac-hero.jpg"
                   alt="Employers partnering with Elevate"
                   fill
                   className="object-cover" quality={85} sizes="100vw"
@@ -399,7 +399,7 @@ export default function HomePage() {
             <div className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
               <div className="relative aspect-[4/3] w-full">
                 <Image
-                  src="/images/artlist/hero-training-4.jpg"
+                  src="/images/programs/cdl-hero.jpg"
                   alt="Community partners supporting workforce development"
                   fill
                   className="object-cover" quality={85} sizes="100vw"

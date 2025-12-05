@@ -13,7 +13,7 @@ export default function ApprovalsPage() {
       {/* Hero Section with Background Image */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="/images/artlist/hero-training-1.jpg"
+          src="/images/programs/efh-cna-hero.jpg"
           alt="Official documents and certifications"
           fill
           className="object-cover"

@@ -14,7 +14,7 @@ export default function HomePage() {
       title: "Free Training. Real Skills. A Career You Can Be Proud Of.", 
       subtitle: "Indianapolis • State-Approved & Federally Recognized Workforce Institute",
       description: "Approved for ETPL, WRG, INTraining, JRI, and U.S. DOL Registered Apprenticeships so your training is funded, legitimate, and employer-recognized.",
-      image: "/media-backup-20251128-043832/hero-elevate-learners.jpg"
+      image: "/images/efh/hero/hero-health.jpg"
     },
     { 
       title: "Hands-On Training", 
@@ -185,7 +185,7 @@ export default function HomePage() {
             <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl hover:-translate-y-3 transition-all duration-300">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
+                  src="/images/efh/hero/hero-health.jpg"
                   alt="Government Certified Programs - Training"
                   fill
                   className="object-cover"
@@ -787,12 +787,12 @@ const whyChooseUs = [
   {
     title: "Industry-Focused Curriculum",
     description: "Programs designed with employer input to teach the exact skills needed in today's job market",
-    image: "/images/artlist/hero-training-5.jpg",
+    image: "/images/programs/building-maintenance-hero.jpg",
   },
   {
     title: "Expert Instructors",
     description: "Learn from professionals with years of real-world experience in their fields",
-    image: "/images/artlist/hero-training-6.jpg",
+    image: "/images/efh/hero/hero-barber.jpg",
   },
   {
     title: "Job Placement Support",
@@ -838,7 +838,7 @@ const steps = [
     number: "2",
     title: "Train & Learn",
     description: "Attend classes with expert instructors and gain hands-on experience in modern facilities",
-    image: "/images/artlist/hero-training-7.jpg",
+    image: "/images/efh/hero/hero-health.jpg",
   },
   {
     number: "3",
