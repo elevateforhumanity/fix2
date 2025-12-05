@@ -53,19 +53,19 @@ export default function Home() {
       <HomeProgramsSection />
 
       {/* FEATURED PROGRAMS - Large Product-Style Cards */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-40 px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-24">
             <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Featured Programs</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               DOL Registered Apprenticeships and State-Approved Training
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {/* Barber Program */}
             <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
                 <div className="relative h-80 overflow-hidden">
                   <Image
                     src="/images/beauty/program-barber-overview.jpg"
@@ -79,7 +79,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     2,000-hour DOL Registered Apprenticeship. Earn while you learn with WIOA, WRG, and JRI funding.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-slate-900 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -88,7 +88,7 @@ export default function Home() {
 
             {/* Healthcare Program */}
             <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
                 <div className="relative h-80 overflow-hidden">
                   <Image
                     src="/images/healthcare/video-thumbnail-cna-training.jpg"
@@ -102,7 +102,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     CNA certification through Choice Medical Institute. State-approved with clinical placement.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-slate-900 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -111,7 +111,7 @@ export default function Home() {
 
             {/* Skilled Trades */}
             <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
                 <div className="relative h-80 overflow-hidden">
                   <Image
                     src="/images/trades/program-hvac-overview.jpg"
@@ -125,7 +125,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     HVAC, electrical, and plumbing training. Hands-on learning for high-wage careers.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-slate-900 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -134,7 +134,7 @@ export default function Home() {
 
             {/* Beauty & Esthetics */}
             <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
                 <div className="relative h-80 overflow-hidden">
                   <Image
                     src="/images/beauty/hero-program-cosmetology.jpg"
@@ -148,7 +148,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     Nails, esthetics, and cosmetology with experienced instructors and modern facilities.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-slate-900 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -157,7 +157,7 @@ export default function Home() {
 
             {/* Support Services */}
             <Link href="/support" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
                 <div className="relative h-80 overflow-hidden">
                   <Image
                     src="/images/efh/sections/coaching.jpg"
@@ -171,7 +171,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     Life coaching, mental health support, and wraparound services to help you succeed.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-slate-900 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -180,7 +180,7 @@ export default function Home() {
 
             {/* Classroom Training */}
             <Link href="/programs/barber-apprenticeship" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
+              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-700 ease-out hover:translate-y-[-8px]">
                 <div className="relative h-80 overflow-hidden">
                   <Image
                     src="/images/efh/sections/classroom.jpg"
@@ -194,7 +194,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     Modern facilities with hands-on instruction and real-world skill development.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-slate-900 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -205,9 +205,9 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US - Image-Based Feature Blocks */}
-      <section className="py-20 px-6 bg-slate-50">
+      <section className="py-40 px-12 bg-slate-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-24">
             <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Why Choose Elevate</h2>
             <p className="text-lg text-slate-600">Built for people navigating real barriers</p>
           </div>
@@ -315,9 +315,9 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS - With Real Photos */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-40 px-12 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-24">
             <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Success Stories</h2>
             <p className="text-lg text-slate-600">Hear from our graduates</p>
           </div>
@@ -367,9 +367,9 @@ export default function Home() {
       </section>
 
       {/* FACILITIES GALLERY */}
-      <section className="py-20 px-6 bg-slate-50">
+      <section className="py-40 px-12 bg-slate-50">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-24">
             <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Our Facilities</h2>
             <p className="text-lg text-slate-600">Modern training spaces designed for hands-on learning</p>
           </div>
@@ -444,31 +444,31 @@ export default function Home() {
       </section>
 
       {/* CTA SECTION - Bold and Clean */}
-      <section className="py-24 px-6 bg-gradient-to-br from-indigo-600 to-indigo-800 text-white">
+      <section className="py-40 px-12 bg-slate-900 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-light mb-6">
             Ready to Transform Your Future?
           </h2>
-          <p className="text-xl text-indigo-100 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-100 mb-10 max-w-2xl mx-auto">
             Funding is available. Programs fill fast. Take the first step today.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <Link
               href="/apply"
-              className="px-10 py-4 bg-white text-indigo-700 font-semibold rounded-full hover:bg-slate-50 transition-all shadow-lg text-lg"
+              className="px-10 py-4 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-50 transition-all shadow-lg text-lg"
             >
               Apply Now
             </Link>
             <Link
               href="/advising"
-              className="px-10 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-indigo-700 transition-all text-lg"
+              className="px-10 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-slate-900 transition-all text-lg"
             >
               Talk to an Advisor
             </Link>
           </div>
 
-          <div className="text-indigo-100">
+          <div className="text-slate-100">
             <p className="mb-2">Questions? We're here to help.</p>
             <p>
               Call <a href="tel:317-314-3757" className="underline font-semibold hover:text-white">317-314-3757</a> or 
