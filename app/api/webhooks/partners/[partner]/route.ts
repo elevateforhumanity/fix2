@@ -51,6 +51,7 @@ export async function POST(
     // Parse webhook payload
     const payload: WebhookPayload = JSON.parse(rawBody);
 
+    console.log({
       event: payload.event,
       timestamp: payload.timestamp,
     });

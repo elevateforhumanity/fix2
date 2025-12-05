@@ -165,12 +165,14 @@ export async function POST(req: NextRequest) {
           scError
         );
       } else {
+        console.log(
           `[StripeWebhook] Auto-assigned courses ${courseSlugs.join(
             ", "
           )} for email=${email}, program=${programId}`
         );
       }
     } else {
+      console.log(
         `[StripeWebhook] No course mapping found for program=${programId}; skipping student_courses insert.`
       );
     }
