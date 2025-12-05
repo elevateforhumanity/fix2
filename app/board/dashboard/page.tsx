@@ -1,31 +1,22 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
+import RoleDashboard from '@/components/dashboards/RoleDashboard';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
-  title: 'Dashboard | Elevate For Humanity',
-  description: 'Learn more about Dashboard inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Workforce Board Dashboard | Elevate For Humanity',
+  description: 'Monitor workforce development metrics and program outcomes',
 };
 
-export default function Page() {
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Dashboard | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Dashboard inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
-                Get Started
-              </Link>
-              <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
-                View Programs
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+export default async function Page() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    redirect('/login');
+  }
+
+  return <RoleDashboard role="board" userName={user.email?.split('@')[0]} />;
 
       {/* Image Section */}
       <section className="py-16">
