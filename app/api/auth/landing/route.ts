@@ -43,10 +43,10 @@ export async function GET() {
       redirectTo = '/app/student/dashboard';
       break;
     case 'program_holder':
-      redirectTo = '/app/program-holder/dashboard';
+      redirectTo = '/partner/dashboard';
       break;
     case 'instructor':
-      redirectTo = '/app/program-holder/dashboard';
+      redirectTo = '/instructor/dashboard';
       break;
     case 'admin':
       redirectTo = '/app/admin/dashboard';
