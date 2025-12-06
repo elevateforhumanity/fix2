@@ -8,7 +8,7 @@ export default function Home() {
       {/* HERO BANNER - Full Width, Clean */}
       <section className="relative h-[600px] overflow-hidden bg-white">
         <Image
-          src="/images/artlist/hero-training-5.jpg"
+          src="/images/general/hero-banner-latest.png"
           alt="Elevate for Humanity - Career Training Programs"
           fill
           className="object-cover"
@@ -60,7 +60,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/images/facilities-new/facility-7.jpg"
+                    src="/images/gallery/image2.jpg"
                     alt="Barber Apprenticeship"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -83,7 +83,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/images/facilities-new/facility-1.jpg"
+                    src="/images/location-4.jpg"
                     alt="Healthcare Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -106,7 +106,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/images/facilities-new/facility-10.jpg"
+                    src="/images/location-5.jpg"
                     alt="Skilled Trades"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"

@@ -14,7 +14,7 @@ export default function Page() {
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/programs/efh-cpr-aed-first-aid-hero.jpg"
+            src="/images/facilities-new/facility-1.jpg"
             alt="CPR & First Aid Certification"
             fill
             className="object-cover"
