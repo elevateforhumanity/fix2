@@ -6,10 +6,10 @@ import { EFH_IMAGES } from "@/src/config/efhImages";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* TOP HERO – Nail Class */}
+      {/* TOP HERO – NAIL CLASS / BEAUTY */}
       <section className="relative w-full overflow-hidden">
         <Image
-          src="/images/beauty/program-beauty-training.jpg"
+          src="/images/hero/hero-beauty-wellness.jpg"
           alt="Elevate for Humanity - Nail Class Training"
           width={1920}
           height={800}
@@ -19,7 +19,7 @@ export default function Home() {
         />
       </section>
 
-      {/* SECOND HERO - Program Grid */}
+      {/* SECOND HERO - YOUR PROGRAM GRID */}
       <section className="relative w-full py-10">
         <div className="max-w-7xl mx-auto px-6">
           <Image
@@ -220,11 +220,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LARGE FACILITY IMAGE */}
+      {/* HERO BANNER - HEALTHCARE */}
       <section className="relative w-full">
         <Image
-          src="/images/location-4.png"
-          alt="Elevate for Humanity Training Facility"
+          src="/images/hero/hero-healthcare.jpg"
+          alt="Healthcare Training Programs"
           width={1920}
           height={1080}
           className="w-full h-auto object-cover"
@@ -378,11 +378,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LARGE FACILITY IMAGE 2 */}
+      {/* HERO BANNER - SKILLED TRADES */}
       <section className="relative w-full">
         <Image
-          src="/images/location-9.png"
-          alt="Elevate for Humanity Campus"
+          src="/images/hero/hero-skilled-trades.jpg"
+          alt="Skilled Trades Training"
           width={1920}
           height={1080}
           className="w-full h-auto object-cover"
@@ -390,36 +390,28 @@ export default function Home() {
         />
       </section>
 
-      {/* ADDITIONAL FACILITY SHOWCASE */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            <Image
-              src="/images/location-1.jpg"
-              alt="Training Facility"
-              width={800}
-              height={600}
-              className="w-full h-auto rounded-lg shadow-lg object-cover"
-              quality={100}
-            />
-            <Image
-              src="/images/location-2.jpg"
-              alt="Training Facility"
-              width={800}
-              height={600}
-              className="w-full h-auto rounded-lg shadow-lg object-cover"
-              quality={100}
-            />
-            <Image
-              src="/images/location-3.jpg"
-              alt="Training Facility"
-              width={800}
-              height={600}
-              className="w-full h-auto rounded-lg shadow-lg object-cover"
-              quality={100}
-            />
-          </div>
-        </div>
+      {/* HERO BANNER - HANDS ON TRAINING */}
+      <section className="relative w-full">
+        <Image
+          src="/images/hero/hero-hands-on-training.jpg"
+          alt="Hands-On Training Programs"
+          width={1920}
+          height={1080}
+          className="w-full h-auto object-cover"
+          quality={100}
+        />
+      </section>
+
+      {/* HERO BANNER - CAREER SERVICES */}
+      <section className="relative w-full">
+        <Image
+          src="/images/hero/hero-career-services.jpg"
+          alt="Career Services and Support"
+          width={1920}
+          height={1080}
+          className="w-full h-auto object-cover"
+          quality={100}
+        />
       </section>
 
       {/* FACILITIES GALLERY */}
