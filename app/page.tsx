@@ -6,6 +6,13 @@ import { EFH_IMAGES } from "@/src/config/efhImages";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
+      {/* DEPLOYMENT VERIFICATION BANNER */}
+      <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 text-center">
+        <p className="text-sm sm:text-base font-semibold">
+          ✨ NEW: Industrious-Quality Design • Updated Dec 6, 2025 • <a href="https://www.industriousoffice.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-orange-100">Visit Industrious Office</a>
+        </p>
+      </div>
+      
       {/* TOP HERO - Industrious Quality */}
       <section className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden bg-slate-50">
         {/* High quality hero image - Industrious standard */}
@@ -27,11 +34,11 @@ export default function Home() {
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
             <div className="max-w-4xl">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white mb-6 sm:mb-8 leading-[1.1] tracking-tight">
-                The <em className="font-bold italic">best</em> career training experience, period.
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white mb-8 leading-[1.05] tracking-tight">
+                The <em className="font-bold italic not-italic">best</em> workplace and career training experience, <em className="font-bold italic not-italic">period</em>.
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-10 leading-relaxed font-light">
-                100% free training. Real careers. Life-changing results.
+              <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-10 leading-relaxed font-light max-w-3xl">
+                100% free training • Real careers • Life-changing results
               </p>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                 <Link
@@ -53,13 +60,16 @@ export default function Home() {
       </section>
 
       {/* FEATURED PROGRAMS - Industrious Quality */}
-      <section className="py-16 sm:py-20 md:py-24 lg:py-32 px-6 sm:px-8 lg:px-12 bg-white">
+      <section className="py-20 sm:py-24 md:py-32 px-6 sm:px-8 lg:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-4 sm:mb-6 tracking-tight">Training solutions for careers of all types</h2>
-            <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light">
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-slate-900 mb-6 tracking-tight">Training solutions for careers of all types</h2>
+            <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto font-light leading-relaxed">
               DOL Registered Apprenticeships and State-Approved Training Programs
             </p>
+            <Link href="/programs" className="inline-block mt-8 text-lg text-orange-600 hover:text-orange-700 font-semibold hover:underline">
+              Explore All Training Solutions →
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
