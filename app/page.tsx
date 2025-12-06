@@ -5,15 +5,28 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* HERO BANNER - Full Width, Clean */}
-      <section className="relative h-[600px] overflow-hidden bg-white">
+      {/* Top Homepage Hero Banner (gradient) */}
+      <section className="relative w-full">
+        <Image
+          src="/images/general/hero-banner-latest.png"
+          alt="Elevate for Humanity gradient hero banner"
+          width={1920}
+          height={800}
+          className="w-full h-auto object-cover"
+          priority
+          quality={100}
+        />
+      </section>
+
+      {/* 2nd Hero Banner - Program Grid */}
+      <section className="relative w-full max-w-5xl mx-auto py-10">
         <Image
           src="/images/efh/hero/hero-main.jpg"
-          alt="Elevate for Humanity - Career Training Programs"
-          fill
-          className="object-cover"
-          priority
-          quality={95}
+          alt="Program overview with four feature boxes"
+          width={1920}
+          height={1080}
+          className="w-full h-auto object-contain"
+          quality={100}
         />
       </section>
 
