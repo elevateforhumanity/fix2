@@ -19,18 +19,16 @@ export default function Home() {
         />
       </section>
 
-      {/* SECOND HERO - YOUR PROGRAM GRID */}
-      <section className="relative w-full py-10">
-        <div className="max-w-7xl mx-auto px-6">
-          <Image
-            src="/images/hero/home-hero-second-program-grid.jpg"
-            alt="Elevate for Humanity - Career Training Programs"
-            width={1920}
-            height={1080}
-            className="w-full h-auto object-cover rounded-2xl shadow-lg"
-            quality={100}
-          />
-        </div>
+      {/* FACILITY IMAGE - HOMEPAGE */}
+      <section className="relative w-full">
+        <Image
+          src="/images/location-1.jpg"
+          alt="Elevate for Humanity Training Facility"
+          width={1920}
+          height={1080}
+          className="w-full h-auto object-cover"
+          quality={100}
+        />
       </section>
 
       {/* FEATURED PROGRAMS - Large Product-Style Cards */}
@@ -191,11 +189,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HERO BANNER - HEALTHCARE */}
+      {/* FACILITY IMAGE 2 */}
       <section className="relative w-full">
         <Image
-          src="/images/hero/hero-healthcare.jpg"
-          alt="Healthcare Training Programs"
+          src="/images/location-3.jpg"
+          alt="Training Facility"
           width={1920}
           height={1080}
           className="w-full h-auto object-cover"
@@ -349,11 +347,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HERO BANNER - SKILLED TRADES */}
+      {/* FACILITY IMAGE 3 */}
       <section className="relative w-full">
         <Image
-          src="/images/hero/hero-skilled-trades.jpg"
-          alt="Skilled Trades Training"
+          src="/images/location-6.jpg"
+          alt="Training Facility"
           width={1920}
           height={1080}
           className="w-full h-auto object-cover"
@@ -361,11 +359,11 @@ export default function Home() {
         />
       </section>
 
-      {/* HERO BANNER - HANDS ON TRAINING */}
+      {/* FACILITY IMAGE 4 */}
       <section className="relative w-full">
         <Image
-          src="/images/hero/hero-hands-on-training.jpg"
-          alt="Hands-On Training Programs"
+          src="/images/location-8.jpg"
+          alt="Training Facility"
           width={1920}
           height={1080}
           className="w-full h-auto object-cover"
@@ -373,11 +371,11 @@ export default function Home() {
         />
       </section>
 
-      {/* HERO BANNER - CAREER SERVICES */}
+      {/* FACILITY IMAGE 5 */}
       <section className="relative w-full">
         <Image
-          src="/images/hero/hero-career-services.jpg"
-          alt="Career Services and Support"
+          src="/images/location-10.jpg"
+          alt="Training Facility"
           width={1920}
           height={1080}
           className="w-full h-auto object-cover"
