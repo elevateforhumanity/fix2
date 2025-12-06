@@ -89,14 +89,15 @@ export default async function ProgramsPage() {
       {/* HERO BANNER - Mobile Optimized */}
       <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden bg-white">
         <Image
-          src="/media/homepage-hero.jpg"
-          alt="Students learning together"
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&fit=crop&q=90"
+          alt="Students learning and training together"
           fill
-          className="object-cover brightness-110"
+          className="object-cover"
           priority
-          quality={100}
+          quality={90}
           sizes="100vw"
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/50" />
         
 
         {/* Content - Mobile Optimized */}

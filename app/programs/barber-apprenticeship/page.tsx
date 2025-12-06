@@ -6,30 +6,32 @@ export default function BarberApprenticeshipPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Banner */}
-      <section className="relative h-[500px] w-full overflow-hidden">
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden">
         <Image
-          src="/images/programs/barber-hero.jpg"
-          alt="Barber Apprenticeship Training"
+          src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&h=1080&fit=crop&q=90"
+          alt="Professional barber training and apprenticeship"
           fill
-          className="object-cover brightness-105"
+          className="object-cover"
           priority
-          quality={100}
+          quality={90}
+          sizes="100vw"
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/50 to-slate-900/30" />
         
         
-        <div className="relative z-10 max-w-7xl mx-auto px-8 h-full flex items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-full flex items-center">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-orange-600 mb-3">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-orange-500 mb-2 sm:mb-3">
               Your Path to Success
             </p>
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Become a Barber
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-6">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-4 sm:mb-6">
               Get paid to learn your craft. No tuition. Real barbershops. Real future.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/apply" className="bg-orange-500 text-white px-8 py-3 rounded-md font-semibold hover:bg-orange-600 transition-all">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link href="/apply" className="bg-orange-500 text-white px-6 sm:px-8 py-3 rounded-md font-semibold hover:bg-orange-600 transition-all text-center">
                 Apply Now
               </Link>
             </div>
