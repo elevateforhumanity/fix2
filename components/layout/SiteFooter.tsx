@@ -30,9 +30,16 @@ export default function SiteFooter() {
             </p>
 
             <p className="text-xs text-slate-500">
-              8888 Keystone Crossing Suite 1300
+              8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240
               <br />
-              Indianapolis, IN 46240
+              <a 
+                href="https://www.industriousoffice.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-teal-600 hover:text-teal-700 font-semibold hover:underline"
+              >
+                www.industriousoffice.com
+              </a>
               <br />
               <a href="tel:317-314-3757" className="hover:text-orange-600">(317) 314-3757</a>
             </p>

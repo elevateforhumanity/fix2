@@ -48,7 +48,18 @@ export function SiteFooter() {
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3 text-slate-700">
                 <MapPin size={18} className="text-teal-600 flex-shrink-0" />
-                <span className="text-sm font-semibold">8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240</span>
+                <div className="text-sm">
+                  <span className="font-semibold">8888 Keystone Crossing Suite 1300, Indianapolis, IN 46240</span>
+                  <span className="mx-2">•</span>
+                  <a 
+                    href="https://www.industriousoffice.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-teal-600 hover:text-teal-700 font-semibold hover:underline transition"
+                  >
+                    Industrious Office
+                  </a>
+                </div>
               </div>
               <div className="flex items-center gap-3 text-slate-700">
                 <Phone size={18} className="text-teal-600 flex-shrink-0" />

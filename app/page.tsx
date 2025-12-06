@@ -6,43 +6,43 @@ import { EFH_IMAGES } from "@/src/config/efhImages";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* TOP HERO - High Quality, Mobile Optimized */}
-      <section className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
-        {/* High quality hero image from Unsplash */}
+      {/* TOP HERO - Industrious Quality */}
+      <section className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden bg-slate-50">
+        {/* High quality hero image - Industrious standard */}
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=1080&fit=crop&q=90"
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=2048&h=1365&fit=crop&q=100"
             alt="Students collaborating and learning together"
             fill
             className="object-cover"
             priority
-            quality={90}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
+            quality={100}
+            sizes="100vw"
           />
-          {/* Gradient overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/70 to-blue-900/60" />
+          {/* Subtle gradient overlay - Industrious style */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/50 to-transparent" />
         </div>
         
-        {/* Hero Content - Mobile Optimized */}
+        {/* Hero Content - Industrious Style */}
         <div className="relative z-10 h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="max-w-3xl">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                Transform Your Future
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+            <div className="max-w-4xl">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white mb-6 sm:mb-8 leading-[1.1] tracking-tight">
+                The <em className="font-bold italic">best</em> career training experience, period.
               </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-6 sm:mb-8 leading-relaxed">
-                Free career training. Real opportunities. Life-changing results.
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/90 mb-8 sm:mb-10 leading-relaxed font-light">
+                100% free training. Real careers. Life-changing results.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                 <Link
                   href="/programs"
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-orange-500 text-white font-bold text-center rounded-full hover:bg-orange-600 transition-all shadow-xl text-base sm:text-lg"
+                  className="inline-block px-10 py-5 bg-orange-500 text-white font-semibold text-center rounded-lg hover:bg-orange-600 transition-all shadow-2xl text-lg"
                 >
                   Explore Programs
                 </Link>
                 <Link
                   href="/apply"
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-slate-900 font-bold text-center rounded-full hover:bg-slate-100 transition-all shadow-xl text-base sm:text-lg"
+                  className="inline-block px-10 py-5 bg-white text-slate-900 font-semibold text-center rounded-lg hover:bg-slate-100 transition-all shadow-2xl text-lg"
                 >
                   Apply Now
                 </Link>
@@ -52,13 +52,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURED PROGRAMS - Mobile Optimized */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
+      {/* FEATURED PROGRAMS - Industrious Quality */}
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32 px-6 sm:px-8 lg:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-slate-900 mb-3 sm:mb-4">Featured Programs</h2>
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto px-4">
-              DOL Registered Apprenticeships and State-Approved Training
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-4 sm:mb-6 tracking-tight">Training solutions for careers of all types</h2>
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-light">
+              DOL Registered Apprenticeships and State-Approved Training Programs
             </p>
           </div>
 
