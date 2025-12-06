@@ -18,16 +18,12 @@ export async function POST(request: Request) {
     const { error: dbError } = await supabase
       .from('applications')
       .insert({
-        first_name: firstName,
-        last_name: lastName,
+        full_name: `${firstName} ${lastName}`,
         phone,
         email,
-        city,
-        state,
         program_interest: program,
-        background_notes: background,
-        contact_preferences: contactPreference,
-        created_at: new Date().toISOString(),
+        referral_source: Array.isArray(contactPreference) ? contactPreference.join(', ') : 'Website',
+        status: 'pending',
       });
 
     if (dbError) {
