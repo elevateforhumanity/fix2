@@ -8,21 +8,20 @@ export default function Home() {
       {/* HERO BANNER - Full Width, Clean */}
       <section className="relative h-[600px] overflow-hidden bg-white">
         <Image
-          src="/media/homepage-hero.jpg"
+          src="/images/artlist/hero-training-5.jpg"
           alt="Elevate for Humanity - Career Training Programs"
           fill
-          className="object-cover brightness-110"
+          className="object-cover"
           priority
-          quality={95}
+          quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/40 to-transparent" />
         
         <div className="relative h-full flex items-center justify-start text-left">
           <div className="max-w-7xl px-8 md:px-12">
-            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight max-w-4xl">
+            <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tight max-w-4xl drop-shadow-2xl">
               Career training that works.
             </h1>
-            <p className="text-2xl md:text-3xl text-slate-700 font-normal mb-12 max-w-2xl">
+            <p className="text-2xl md:text-3xl text-white font-normal mb-12 max-w-2xl drop-shadow-lg">
               WIOA-approved programs. Real careers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
