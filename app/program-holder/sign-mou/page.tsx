@@ -1,125 +1,126 @@
 import { Metadata } from 'next';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { SignMOUForm } from './SignMOUForm';
+import { FileText, Shield, CheckCircle } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Sign Mou | Elevate For Humanity',
-  description: 'Learn more about Sign Mou inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Sign MOU | Elevate For Humanity',
+  description: 'Review and digitally sign your Program Partner Memorandum of Understanding.',
 };
 
-export default function Page() {
+export default async function SignMOUPage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    redirect('/login');
+  }
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Sign Mou | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Sign Mou inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
-                Get Started
-              </Link>
-              <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
-                View Programs
-              </Link>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Header */}
+      <div className="bg-white border-b border-slate-200">
+        <div className="mx-auto max-w-4xl px-6 py-6">
+          <div className="flex items-center gap-3">
+            <FileText className="text-blue-600" size={32} />
+            <div>
+              <h1 className="text-3xl font-bold text-slate-900">
+                Sign Program Partner MOU
+              </h1>
+              <p className="text-slate-600 mt-1">Memorandum of Understanding</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Image Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Transform Your Future</h2>
-                <p className="text-gray-700 mb-6">Join thousands who have launched successful careers through our programs.</p>
-                <ul className="space-y-3">
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>100% government-funded training</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>No cost to you - completely free</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Flexible scheduling options</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Career support from start to finish</span>
-                  </li>
-                  
-                </ul>
-              </div>
-              <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg flex items-center justify-center">
-                  <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-              </div>
-            </div>
+      <div className="mx-auto max-w-4xl px-6 py-8">
+        {/* Info Cards */}
+        <div className="grid md:grid-cols-3 gap-4 mb-8">
+          <div className="bg-white rounded-lg p-4 border border-slate-200">
+            <Shield className="text-blue-600 mb-2" size={24} />
+            <h3 className="font-semibold text-slate-900 text-sm">Legally Binding</h3>
+            <p className="text-xs text-slate-600 mt-1">Digital signatures have the same legal effect as handwritten signatures</p>
+          </div>
+          <div className="bg-white rounded-lg p-4 border border-slate-200">
+            <CheckCircle className="text-green-600 mb-2" size={24} />
+            <h3 className="font-semibold text-slate-900 text-sm">Secure Process</h3>
+            <p className="text-xs text-slate-600 mt-1">Your signature is encrypted and stored securely</p>
+          </div>
+          <div className="bg-white rounded-lg p-4 border border-slate-200">
+            <FileText className="text-purple-600 mb-2" size={24} />
+            <h3 className="font-semibold text-slate-900 text-sm">Instant Processing</h3>
+            <p className="text-xs text-slate-600 mt-1">Receive confirmation immediately upon signing</p>
           </div>
         </div>
-      </section>
 
-      {/* Feature Cards */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">100% Funded</h3>
-                <p className="text-gray-600">All programs completely free through government funding</p>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Job Placement</h3>
-                <p className="text-gray-600">We help you find employment after training</p>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
-              </div>
-              
-            </div>
+        {/* MOU Document */}
+        <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200 mb-8">
+          <h2 className="text-2xl font-bold text-slate-900 mb-6">
+            Program Partner Memorandum of Understanding
+          </h2>
+          
+          <div className="prose prose-slate max-w-none space-y-4 text-sm">
+            <p>
+              This Memorandum of Understanding ("MOU") is entered into between <strong>Elevate for Humanity</strong> ("EFH") 
+              and the Program Partner identified below.
+            </p>
+
+            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">Purpose</h3>
+            <p>
+              This MOU establishes a partnership to provide workforce development training and apprenticeship opportunities 
+              to eligible participants through WIOA-funded programs.
+            </p>
+
+            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">Program Partner Responsibilities</h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Provide on-the-job training and mentorship to apprentices</li>
+              <li>Maintain a safe and compliant work environment</li>
+              <li>Track and report apprentice hours and progress</li>
+              <li>Comply with all applicable labor laws and regulations</li>
+              <li>Participate in program evaluations and reporting</li>
+            </ul>
+
+            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">EFH Responsibilities</h3>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Provide classroom instruction and curriculum</li>
+              <li>Recruit and screen qualified apprentices</li>
+              <li>Provide ongoing support and case management</li>
+              <li>Handle WIOA compliance and reporting</li>
+              <li>Facilitate wage reimbursement (if applicable)</li>
+            </ul>
+
+            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">Term</h3>
+            <p>
+              This MOU shall remain in effect for one (1) year from the date of execution and may be renewed 
+              by mutual agreement of both parties.
+            </p>
+
+            <h3 className="text-lg font-semibold text-slate-900 mt-6 mb-3">Termination</h3>
+            <p>
+              Either party may terminate this MOU with thirty (30) days written notice to the other party.
+            </p>
           </div>
         </div>
-      </section>
+
+        {/* Signature Form */}
+        <div className="bg-white rounded-xl p-8 shadow-sm border border-slate-200">
+          <h2 className="text-xl font-bold text-slate-900 mb-6">
+            Sign Agreement
+          </h2>
+          <SignMOUForm />
+        </div>
+
+        {/* Footer Note */}
+        <div className="mt-6 text-center">
+          <p className="text-sm text-slate-600">
+            Questions? <Link href="/contact" className="text-blue-600 hover:text-blue-700 font-medium">Contact us</Link> for assistance.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
