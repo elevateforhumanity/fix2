@@ -14,11 +14,11 @@ export default function Page() {
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/facilities-new/facility-10.jpg"
+            src="/images/programs/building-maintenance-hero.jpg"
             alt="Building Maintenance Training"
             fill
             className="object-cover"
-            priority quality={85} sizes="100vw"
+            priority quality={95} sizes="100vw"
           />
         </div>
         <div className="relative container mx-auto px-4 py-20">
