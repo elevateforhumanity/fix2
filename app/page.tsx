@@ -71,7 +71,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     2,000-hour DOL Registered Apprenticeship. Earn while you learn with WIOA, WRG, and JRI funding.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-orange-600 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -94,7 +94,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     CNA certification through Choice Medical Institute. State-approved with clinical placement.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-orange-600 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -117,7 +117,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     HVAC, electrical, and plumbing training. Hands-on learning for high-wage careers.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-orange-600 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -140,7 +140,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     Nails, esthetics, and cosmetology with experienced instructors and modern facilities.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-orange-600 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -163,7 +163,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     Life coaching, mental health support, and wraparound services to help you succeed.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-orange-600 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -186,7 +186,7 @@ export default function Home() {
                   <p className="text-slate-600 mb-4 leading-relaxed">
                     Modern facilities with hands-on instruction and real-world skill development.
                   </p>
-                  <span className="text-indigo-600 font-semibold group-hover:underline">
+                  <span className="text-orange-600 font-semibold group-hover:underline">
                     Learn More →
                   </span>
                 </div>
@@ -438,31 +438,31 @@ export default function Home() {
       </section>
 
       {/* CTA SECTION - Bold and Clean */}
-      <section className="py-24 px-6 bg-gradient-to-br from-indigo-600 to-indigo-800 text-white">
+      <section className="py-24 px-6 bg-orange-500 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-light mb-6">
             Ready to Transform Your Future?
           </h2>
-          <p className="text-xl text-indigo-100 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-white mb-10 max-w-2xl mx-auto">
             Funding is available. Programs fill fast. Take the first step today.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <Link
               href="/apply"
-              className="px-10 py-4 bg-white text-indigo-700 font-semibold rounded-full hover:bg-slate-50 transition-all shadow-lg text-lg"
+              className="px-10 py-4 bg-white text-orange-600 font-semibold rounded-full hover:bg-slate-50 transition-all shadow-lg text-lg"
             >
               Apply Now
             </Link>
             <Link
               href="/advising"
-              className="px-10 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-indigo-700 transition-all text-lg"
+              className="px-10 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-orange-600 transition-all text-lg"
             >
               Talk to an Advisor
             </Link>
           </div>
 
-          <div className="text-indigo-100">
+          <div className="text-white">
             <p className="mb-2">Questions? We're here to help.</p>
             <p>
               Call <a href="tel:317-314-3757" className="underline font-semibold hover:text-white">317-314-3757</a> or 
