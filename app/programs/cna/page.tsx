@@ -13,7 +13,7 @@ export default function CNAProgramPage() {
       {/* Hero Banner */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="/images/facilities-new/facility-1.jpg"
+          src="/images/programs/cna-hero.jpg"
           alt="CNA Training Program"
           fill
           className="object-cover brightness-105"

@@ -13,7 +13,7 @@ export default function CDLProgramPage() {
       {/* Hero Banner */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="/images/facilities-new/facility-3.jpg"
+          src="/images/programs/cdl-hero.jpg"
           alt="CDL Training Program"
           fill
           className="object-cover brightness-105"
