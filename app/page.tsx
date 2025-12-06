@@ -60,7 +60,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-80 overflow-hidden">
                   <Image
-                    src="/images/efh/programs/barber.jpg"
+                    src="/images/facilities-new/facility-7.jpg"
                     alt="Barber Apprenticeship"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -79,11 +79,11 @@ export default function Home() {
             </Link>
 
             {/* Healthcare Program */}
-            <Link href="/programs/barber-apprenticeship" className="group">
+            <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-80 overflow-hidden">
                   <Image
-                    src="/images/efh/programs/cna.jpg"
+                    src="/images/facilities-new/facility-1.jpg"
                     alt="Healthcare Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -102,11 +102,11 @@ export default function Home() {
             </Link>
 
             {/* Skilled Trades */}
-            <Link href="/programs/barber-apprenticeship" className="group">
+            <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-80 overflow-hidden">
                   <Image
-                    src="/images/trades/program-hvac-technician.jpg"
+                    src="/images/facilities-new/facility-10.jpg"
                     alt="Skilled Trades"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"

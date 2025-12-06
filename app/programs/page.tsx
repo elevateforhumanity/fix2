@@ -192,7 +192,7 @@ export default async function ProgramsPage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/programs/efh-cna-hero.jpg"
+                  src="/images/facilities-new/facility-2.jpg"
                   alt="Healthcare Training Programs"
                   fill
                   className="object-cover"
@@ -278,7 +278,7 @@ export default async function ProgramsPage() {
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
                 <Image
-                  src="/images/beauty/hero-program-barber.jpg"
+                  src="/images/facilities-new/facility-8.jpg"
                   alt="Barber Training Programs"
                   fill
                   className="object-cover"
@@ -290,7 +290,7 @@ export default async function ProgramsPage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/hero/hero-skilled-trades.jpg"
+                  src="/images/facilities-new/facility-11.jpg"
                   alt="Skilled Trades Training"
                   fill
                   className="object-cover"
