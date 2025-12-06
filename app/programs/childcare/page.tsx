@@ -183,7 +183,6 @@ export default function Page() {
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
                 <h3 className="text-xl font-bold mb-2">In-Home Childcare</h3>
                 <p className="text-gray-700 mb-2">Family Childcare Provider</p>
-                <p className="text-green-600 font-bold text-lg">$25,000-$45,000/year</p>
               </div>
             </div>
           </div>
@@ -198,12 +197,10 @@ export default function Page() {
             
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <h3 className="text-2xl font-bold mb-2">Entry-Level (0-2 years): $26,000-$35,000/year</h3>
                 <p>Assistant teacher or aide in daycare centers</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <h3 className="text-2xl font-bold mb-2">Experienced (2-5 years): $35,000-$45,000/year</h3>
                 <p>Lead teacher or program coordinator</p>
               </div>
 

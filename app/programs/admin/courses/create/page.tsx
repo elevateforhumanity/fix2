@@ -76,7 +76,6 @@ export default function CreateProgramPage() {
                 <dl className="space-y-4">
                   <div>
                     <dt className="text-sm text-gray-600">Duration</dt>
-                    <dd className="text-lg font-semibold">4-12 weeks</dd>
                   </div>
                   <div>
                     <dt className="text-sm text-gray-600">Cost</dt>

@@ -282,19 +282,16 @@ export default function Page() {
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Entry-Level Maintenance Technician (0-2 years)</h3>
-                <p className="text-orange-100 text-lg mb-2">$32,000-$42,000/year ($16-$20/hour)</p>
                 <p className="text-orange-50">Start in apartments, schools, or commercial buildings. Learn systems and build skills.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Experienced Technician (2-5 years)</h3>
-                <p className="text-orange-100 text-lg mb-2">$42,000-$52,000/year ($20-$25/hour)</p>
                 <p className="text-orange-50">Handle complex repairs, emergency response, and specialized systems.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Lead/Senior Technician (5-10 years)</h3>
-                <p className="text-orange-100 text-lg mb-2">$52,000-$65,000/year ($25-$31/hour)</p>
                 <p className="text-orange-50">Supervise teams, manage projects, coordinate contractors.</p>
               </div>
 

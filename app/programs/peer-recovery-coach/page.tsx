@@ -281,19 +281,16 @@ export default function Page() {
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Entry-Level Peer Recovery Coach (0-2 years)</h3>
-                <p className="text-purple-100 text-lg mb-2">$28,000-$38,000/year ($14-$18/hour)</p>
                 <p className="text-purple-50">Start at treatment centers or community organizations. Provide one-on-one peer support.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Experienced Peer Specialist (2-5 years)</h3>
-                <p className="text-purple-100 text-lg mb-2">$38,000-$48,000/year ($18-$23/hour)</p>
                 <p className="text-purple-50">Move to hospital settings, lead support groups, provide specialized services.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Senior/Supervisor (5-10 years)</h3>
-                <p className="text-purple-100 text-lg mb-2">$48,000-$58,000/year ($23-$28/hour)</p>
                 <p className="text-purple-50">Supervise peer staff, coordinate programs, train new peer coaches.</p>
               </div>
 

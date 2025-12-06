@@ -4,7 +4,6 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'CNA Training Program | Elevate For Humanity',
-  description: 'Become a Certified Nursing Assistant in 4-6 weeks. Free training, real jobs.',
 };
 
 export default function CNAProgramPage() {
@@ -31,7 +30,6 @@ export default function CNAProgramPage() {
               Become a CNA
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 mb-6">
-              4-6 weeks. Free training. Real healthcare jobs waiting for you.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/apply" className="bg-blue-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-700 transition-all">

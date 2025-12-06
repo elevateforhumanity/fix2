@@ -228,13 +228,11 @@ export default function Page() {
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Entry-Level EKG Technician (0-2 years)</h3>
-                <p className="text-red-100 text-lg mb-2">$30,000-$38,000/year ($15-$18/hour)</p>
                 <p className="text-red-50">Start in hospitals or clinics. Perform routine 12-lead EKGs and assist with cardiac monitoring.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Experienced EKG Tech (2-5 years)</h3>
-                <p className="text-red-100 text-lg mb-2">$38,000-$48,000/year ($18-$23/hour)</p>
                 <p className="text-red-50">Move to specialized units (ICU, ER, cardiology). Handle Holter monitors and stress tests.</p>
               </div>
 

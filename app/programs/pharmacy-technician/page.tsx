@@ -14,7 +14,7 @@ export default function Page() {
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/location-1.jpg"
+            src="/images/gallery/image8.jpg"
             alt="Pharmacy Technician Training"
             fill
             className="object-cover"
@@ -280,13 +280,11 @@ export default function Page() {
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Entry-Level Pharmacy Technician (0-2 years)</h3>
-                <p className="text-green-100 text-lg mb-2">$32,000-$40,000/year ($15-$19/hour)</p>
                 <p className="text-green-50">Start in retail pharmacy. Learn prescription processing, insurance billing, and customer service.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Experienced Pharmacy Technician (2-5 years)</h3>
-                <p className="text-green-100 text-lg mb-2">$40,000-$50,000/year ($19-$24/hour)</p>
                 <p className="text-green-50">Move to hospital pharmacy, specialty pharmacy, or lead technician roles. Handle complex medications and IV compounding.</p>
               </div>
 

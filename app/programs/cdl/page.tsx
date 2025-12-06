@@ -31,7 +31,6 @@ export default function CDLProgramPage() {
               Become a Truck Driver
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 mb-6">
-              Get your CDL in 4-8 weeks. Start earning $50K+ right away. Companies are hiring now.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/apply" className="bg-orange-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-orange-700 transition-all">

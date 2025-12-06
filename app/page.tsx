@@ -6,29 +6,59 @@ import { EFH_IMAGES } from "@/src/config/efhImages";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* TOP HERO – YOUR MAIN GRADIENT BANNER */}
-      <section className="relative w-full overflow-hidden">
-        <Image
-          src="/images/hero/home-hero-top-gradient.jpg"
-          alt="Elevate for Humanity - Empowering Futures"
-          width={1920}
-          height={1080}
-          className="w-full h-auto object-cover"
-          priority
-          quality={100}
-        />
+      {/* TOP HERO – WITH MOVEMENT */}
+      <section className="relative w-full h-[600px] overflow-hidden group">
+        <div className="absolute inset-0 transition-transform duration-[20000ms] ease-in-out group-hover:scale-110">
+          <Image
+            src="/images/hero/home-hero-top-gradient.jpg"
+            alt="Elevate for Humanity - Empowering Futures"
+            fill
+            className="object-cover"
+            priority
+            quality={100}
+          />
+        </div>
+        
+        {/* Overlay Content with Animation */}
+        <div className="relative z-10 h-full flex items-center bg-black/20">
+          <div className="max-w-7xl mx-auto px-6 w-full">
+            <div className="max-w-3xl opacity-0 translate-y-8 animate-[fadeInUp_1s_ease-out_forwards]">
+              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
+                Transform Your Future
+              </h1>
+              <p className="text-xl md:text-2xl text-white mb-8 drop-shadow-lg">
+                Free career training. Real opportunities. Life-changing results.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/programs"
+                  className="px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 shadow-2xl"
+                >
+                  Explore Programs
+                </Link>
+                <Link
+                  href="/apply"
+                  className="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-all transform hover:scale-105 shadow-2xl"
+                >
+                  Apply Now
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* FACILITY IMAGE - HOMEPAGE */}
-      <section className="relative w-full">
-        <Image
-          src="/images/location-1.jpg"
-          alt="Elevate for Humanity Training Facility"
-          width={1920}
-          height={1080}
-          className="w-full h-auto object-cover"
-          quality={100}
-        />
+      {/* FACILITY IMAGE - HOMEPAGE WITH PARALLAX */}
+      <section className="relative w-full h-[500px] overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/location-1.jpg"
+            alt="Elevate for Humanity Training Facility"
+            fill
+            className="object-cover hover:scale-105 transition-transform duration-700"
+            quality={100}
+          />
+        </div>
       </section>
 
       {/* FEATURED PROGRAMS - Large Product-Style Cards */}
@@ -326,8 +356,8 @@ export default function Home() {
               <Image
                 src="/images/testimonials/testimonial-success-story-2.png"
                 alt="Student Success Story"
-                width={800}
-                height={600}
+                width={1920}
+                height={1080}
                 className="w-full h-auto object-cover"
                 quality={100}
               />
@@ -337,8 +367,8 @@ export default function Home() {
               <Image
                 src="/images/testimonials/testimonial-medical-assistant.png"
                 alt="Medical Assistant Graduate"
-                width={800}
-                height={600}
+                width={1920}
+                height={1080}
                 className="w-full h-auto object-cover"
                 quality={100}
               />
@@ -453,10 +483,11 @@ export default function Home() {
             </div>
             <div className="relative h-64 overflow-hidden rounded-lg group">
               <Image
-                src="/images/location-1.jpg"
+                src="/images/location-11.jpg"
                 alt="Training Facility"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
+                quality={100}
               />
             </div>
           </div>

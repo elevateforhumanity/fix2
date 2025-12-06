@@ -284,13 +284,11 @@ export default function Page() {
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Entry-Level Tax Preparer (0-2 years)</h3>
-                <p className="text-green-100 text-lg mb-2">$15,000-$30,000/year (seasonal)</p>
                 <p className="text-green-50">Work Jan-April tax season at H&R Block, Jackson Hewitt, or VITA sites. Build experience and client base.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Experienced Preparer (2-5 years)</h3>
-                <p className="text-green-100 text-lg mb-2">$30,000-$50,000/year</p>
                 <p className="text-green-50">Handle complex returns, work year-round at CPA firms, or build independent practice. Add bookkeeping services.</p>
               </div>
 

@@ -214,7 +214,6 @@ export default function Page() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h2 className="text-5xl font-extrabold mb-6">Start Your $45K+ HVAC Career</h2>
-            <p className="text-2xl mb-10">Next class starts in 2 weeks. Apply today - spots fill fast!</p>
             <Link href="/apply" className="inline-block bg-white text-orange-600 px-12 py-6 rounded-full font-bold hover:bg-orange-50 text-xl shadow-2xl hover:scale-105 transition-all">
               Apply Now - 100% Free Training
             </Link>

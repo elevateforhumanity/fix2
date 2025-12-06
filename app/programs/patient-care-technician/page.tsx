@@ -279,13 +279,11 @@ export default function Page() {
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Entry-Level PCT (0-2 years)</h3>
-                <p className="text-teal-100 text-lg mb-2">$33,000-$42,000/year ($16-$20/hour)</p>
                 <p className="text-teal-50">Start on med/surg floors. Provide basic patient care, vital signs, EKGs, and blood draws.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Experienced PCT (2-5 years)</h3>
-                <p className="text-teal-100 text-lg mb-2">$42,000-$52,000/year ($20-$25/hour)</p>
                 <p className="text-teal-50">Move to specialty units (ICU, ER, cardiac, oncology). Handle more complex patient care.</p>
               </div>
 

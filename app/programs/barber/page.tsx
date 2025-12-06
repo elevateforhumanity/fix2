@@ -13,7 +13,7 @@ export default function Page() {
       {/* Hero Banner with Image */}
       <section className="relative h-[500px] w-full overflow-hidden bg-white">
         <Image
-          src="/images/location-1.jpg"
+          src="/images/programs/barber-hero.jpg"
           alt="Barber Training Program"
           fill
           className="object-cover brightness-110"
@@ -246,42 +246,36 @@ export default function Page() {
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
                 <h3 className="text-xl font-bold mb-2">Sport Clips</h3>
                 <p className="text-gray-700 mb-2">Barber / Stylist</p>
-                <p className="text-green-600 font-bold text-lg">$30,000-$45,000/year + tips</p>
                 <p className="text-sm text-gray-600 mt-2">Flexible hours • Benefits • Training program • Tips average $5-10/hour</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
                 <h3 className="text-xl font-bold mb-2">Great Clips</h3>
                 <p className="text-gray-700 mb-2">Licensed Barber</p>
-                <p className="text-green-600 font-bold text-lg">$28,000-$42,000/year + tips</p>
                 <p className="text-sm text-gray-600 mt-2">Health insurance • 401k • Paid training • Flexible scheduling</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600">
                 <h3 className="text-xl font-bold mb-2">Supercuts</h3>
                 <p className="text-gray-700 mb-2">Barber Stylist</p>
-                <p className="text-green-600 font-bold text-lg">$27,000-$40,000/year + tips</p>
                 <p className="text-sm text-gray-600 mt-2">Paid vacation • Product discounts • Career advancement</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
                 <h3 className="text-xl font-bold mb-2">Independent Barbershops</h3>
                 <p className="text-gray-700 mb-2">Chair Rental / Commission</p>
-                <p className="text-green-600 font-bold text-lg">$35,000-$60,000/year</p>
                 <p className="text-sm text-gray-600 mt-2">Build your clientele • Set your schedule • Higher earning potential</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
                 <h3 className="text-xl font-bold mb-2">High-End Barbershops</h3>
                 <p className="text-gray-700 mb-2">Master Barber</p>
-                <p className="text-green-600 font-bold text-lg">$45,000-$75,000/year</p>
                 <p className="text-sm text-gray-600 mt-2">Premium clientele • Higher service prices • Luxury environment</p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-purple-600">
                 <h3 className="text-xl font-bold mb-2">Mobile Barber Services</h3>
                 <p className="text-gray-700 mb-2">Independent Contractor</p>
-                <p className="text-green-600 font-bold text-lg">$40,000-$70,000/year</p>
                 <p className="text-sm text-gray-600 mt-2">Be your own boss • Flexible schedule • Corporate clients</p>
               </div>
             </div>
@@ -324,19 +318,16 @@ export default function Page() {
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Entry-Level Barber (0-2 years)</h3>
-                <p className="text-purple-100 text-lg mb-2">$28,000-$40,000/year ($13-$19/hour + tips)</p>
                 <p className="text-purple-50">Start at chain salons or barbershops. Build skills, speed, and client base. Average 10-15 clients per day.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Experienced Barber (2-5 years)</h3>
-                <p className="text-purple-100 text-lg mb-2">$40,000-$60,000/year</p>
                 <p className="text-purple-50">Develop loyal clientele. Move to booth rental or commission-based positions. Specialize in fades, beard work, or color. Average 15-20 clients per day.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Master Barber / Booth Owner (5-10 years)</h3>
-                <p className="text-purple-100 text-lg mb-2">$60,000-$90,000/year</p>
                 <p className="text-purple-50">Rent your own booth or chair. Set your own prices and schedule. Build premium clientele willing to pay $40-$80 per service.</p>
               </div>
 

@@ -269,19 +269,16 @@ export default function Page() {
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Entry-Level Safety Technician (0-2 years)</h3>
-                <p className="text-orange-100 text-lg mb-2">$30,000-$42,000/year ($15-$20/hour)</p>
                 <p className="text-orange-50">Start as safety coordinator or emergency response team member. Conduct drills and maintain certifications.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Safety Specialist (2-5 years)</h3>
-                <p className="text-orange-100 text-lg mb-2">$42,000-$55,000/year ($20-$26/hour)</p>
                 <p className="text-orange-50">Lead safety programs, conduct training, manage compliance. Add OSHA 30-Hour certification.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Safety Manager (5-10 years)</h3>
-                <p className="text-orange-100 text-lg mb-2">$55,000-$75,000/year</p>
                 <p className="text-orange-50">Manage safety department, develop policies, oversee compliance programs.</p>
               </div>
 

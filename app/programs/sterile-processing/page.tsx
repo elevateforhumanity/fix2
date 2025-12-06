@@ -282,19 +282,16 @@ export default function Page() {
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Entry-Level SPD Technician (0-2 years)</h3>
-                <p className="text-blue-100 text-lg mb-2">$33,000-$44,000/year ($16-$21/hour)</p>
                 <p className="text-blue-50">Start in decontamination or prep/pack areas. Learn instrument processing and sterilization.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Experienced SPD Tech (2-5 years)</h3>
-                <p className="text-blue-100 text-lg mb-2">$44,000-$54,000/year ($21-$26/hour)</p>
                 <p className="text-blue-50">Specialize in endoscopy, surgical instruments, or quality assurance. Train new staff.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Lead/Senior SPD Tech (5-10 years)</h3>
-                <p className="text-blue-100 text-lg mb-2">$54,000-$65,000/year ($26-$31/hour)</p>
                 <p className="text-blue-50">Lead technician, shift supervisor, or quality coordinator roles.</p>
               </div>
 

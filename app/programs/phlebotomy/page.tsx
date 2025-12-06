@@ -279,13 +279,11 @@ export default function Page() {
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Entry-Level Phlebotomist (0-2 years)</h3>
-                <p className="text-red-100 text-lg mb-2">$28,000-$36,000/year ($14-$17/hour)</p>
                 <p className="text-red-50">Start in labs, hospitals, or blood donation centers. Build speed and accuracy with blood draws.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <h3 className="text-2xl font-bold mb-2">Experienced Phlebotomist (2-5 years)</h3>
-                <p className="text-red-100 text-lg mb-2">$36,000-$44,000/year ($17-$21/hour)</p>
                 <p className="text-red-50">Move to specialized areas (pediatrics, oncology, mobile phlebotomy) or lead phlebotomist roles.</p>
               </div>
 
