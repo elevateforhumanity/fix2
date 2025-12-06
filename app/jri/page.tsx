@@ -19,7 +19,7 @@ export default function JRIPage() {
             fill
             className="object-cover"
             priority
-            quality={90}
+            quality={100}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
@@ -83,7 +83,7 @@ export default function JRIPage() {
                   alt="JRI Training Programs"
                   fill
                   className="object-cover"
-                  quality={90}
+                  quality={100}
                 />
               </div>
             </div>
@@ -242,7 +242,7 @@ export default function JRIPage() {
                     alt="Peer Recovery Coach"
                     fill
                     className="object-cover"
-                    quality={90}
+                    quality={100}
                   />
                   <div className="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
                     JRI Funded

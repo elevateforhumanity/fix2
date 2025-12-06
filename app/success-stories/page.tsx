@@ -52,7 +52,7 @@ export default function Page() {
           fill
           className="object-cover brightness-110"
           priority
-          quality={95}
+          quality={100}
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
@@ -86,7 +86,7 @@ export default function Page() {
               <div key={index} className="grid md:grid-cols-2 gap-12 items-center">
                 <div className={index % 2 === 1 ? 'md:order-2' : ''}>
                   <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                    <Image src={story.image} alt={story.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={85} />
+                    <Image src={story.image} alt={story.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={100} />
                   </div>
                 </div>
                 <div className={index % 2 === 1 ? 'md:order-1' : ''}>

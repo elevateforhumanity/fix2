@@ -19,7 +19,7 @@ export default function Page() {
           fill
           className="object-cover brightness-110"
           priority
-          quality={95}
+          quality={100}
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
@@ -58,7 +58,7 @@ export default function Page() {
                 alt="Elevate for Humanity training facility"
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw" quality={85}
+                sizes="(max-width: 768px) 100vw, 50vw" quality={100}
               />
             </div>
           </div>
@@ -126,7 +126,7 @@ export default function Page() {
                   alt="Accessibility"
                   fill
                   className="object-cover"
-                  sizes="80px" quality={85}
+                  sizes="80px" quality={100}
                 />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Accessibility</h3>
@@ -141,7 +141,7 @@ export default function Page() {
                   alt="Quality"
                   fill
                   className="object-cover"
-                  sizes="80px" quality={85}
+                  sizes="80px" quality={100}
                 />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Quality</h3>
@@ -156,7 +156,7 @@ export default function Page() {
                   alt="Community"
                   fill
                   className="object-cover"
-                  sizes="80px" quality={85}
+                  sizes="80px" quality={100}
                 />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Community</h3>
@@ -171,7 +171,7 @@ export default function Page() {
                   alt="Impact"
                   fill
                   className="object-cover"
-                  sizes="80px" quality={85}
+                  sizes="80px" quality={100}
                 />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Impact</h3>
@@ -197,7 +197,7 @@ export default function Page() {
                       alt="Elizabeth L. Greene"
                       fill
                       className="object-cover object-top"
-                      sizes="192px" quality={85}
+                      sizes="192px" quality={100}
                     />
                   </div>
                   <h3 className="text-2xl font-bold mb-2">Elizabeth L. Greene</h3>
@@ -284,7 +284,7 @@ export default function Page() {
                   alt="Employer-Driven Training"
                   fill
                   className="object-cover"
-                  sizes="96px" quality={85}
+                  sizes="96px" quality={100}
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Employer-Driven Training</h3>
@@ -299,7 +299,7 @@ export default function Page() {
                   alt="Wraparound Support"
                   fill
                   className="object-cover"
-                  sizes="96px" quality={85}
+                  sizes="96px" quality={100}
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Wraparound Support</h3>
@@ -314,7 +314,7 @@ export default function Page() {
                   alt="Direct Employer Connections"
                   fill
                   className="object-cover"
-                  sizes="96px" quality={85}
+                  sizes="96px" quality={100}
                 />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Direct Employer Connections</h3>

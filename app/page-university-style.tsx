@@ -22,7 +22,7 @@ export default function HomePage() {
           fill
           className="object-cover"
           priority
-          quality={95} sizes="100vw"
+          quality={100} sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 via-slate-900/60 to-transparent" />
         
@@ -87,7 +87,7 @@ export default function HomePage() {
                 src="/media/programs/healthcare-hd.jpg"
                 alt="Healthcare training students in clinical setting"
                 fill
-                className="object-cover" quality={85} sizes="100vw"
+                className="object-cover" quality={100} sizes="100vw"
               />
             </div>
             <div>
@@ -133,7 +133,7 @@ export default function HomePage() {
                     src={feature.image}
                     alt={feature.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" quality={85} sizes="100vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500" quality={100} sizes="100vw"
                   />
                 </div>
                 <div className="p-6">

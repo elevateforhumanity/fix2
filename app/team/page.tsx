@@ -89,7 +89,7 @@ export default function TeamPage() {
           fill
           className="object-cover brightness-105"
           priority
-          quality={90}
+          quality={100}
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white/75 via-white/50 to-transparent" />

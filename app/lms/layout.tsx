@@ -1,5 +1,5 @@
 import { LmsSidebar } from '@/components/lms/LmsSidebar';
-// Image asset: /images/facilities-new/facility-9.jpg
+// Image asset: /images/location-1.jpg
 import MobileNav from '@/components/mobile/MobileNav';
 import InstallPrompt from '@/components/mobile/InstallPrompt';
 

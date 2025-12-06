@@ -17,7 +17,7 @@ export default function ApprovalsPage() {
           alt="Official documents and certifications"
           fill
           className="object-cover"
-          priority quality={85} sizes="100vw"
+          priority quality={100} sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-slate-900/85" />
         

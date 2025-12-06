@@ -94,7 +94,7 @@ export default async function ProgramsPage() {
           fill
           className="object-cover brightness-110"
           priority
-          quality={95}
+          quality={100}
           sizes="100vw"
         />
         
@@ -278,7 +278,7 @@ export default async function ProgramsPage() {
               </div>
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
                 <Image
-                  src="/images/facilities-new/facility-8.jpg"
+                  src="/images/location-1.jpg"
                   alt="Barber Training Programs"
                   fill
                   className="object-cover"

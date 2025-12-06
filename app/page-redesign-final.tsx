@@ -24,7 +24,7 @@ export default function HomePage() {
             fill
             className="object-cover"
             priority
-            quality={90} sizes="100vw"
+            quality={100} sizes="100vw"
           />
         </div>
 
@@ -232,7 +232,7 @@ export default function HomePage() {
                     src={program.image}
                     alt={program.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500" quality={85} sizes="100vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-500" quality={100} sizes="100vw"
                   />
                   <div className="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                     FREE
@@ -344,7 +344,7 @@ export default function HomePage() {
                 src="/images/gallery/image6.jpg"
                 alt="Training facility"
                 fill
-                className="object-cover" quality={85} sizes="100vw"
+                className="object-cover" quality={100} sizes="100vw"
               />
             </div>
           </div>

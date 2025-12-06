@@ -13,7 +13,7 @@ export default function BarberApprenticeshipPage() {
           fill
           className="object-cover brightness-105"
           priority
-          quality={90}
+          quality={100}
         />
         
         

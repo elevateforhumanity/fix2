@@ -51,7 +51,7 @@ export default function Home() {
                     alt="Barber Apprenticeship"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    quality={95}
+                    quality={100}
                   />
                 </div>
                 <div className="p-6">
@@ -75,7 +75,7 @@ export default function Home() {
                     alt="Healthcare Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    quality={95}
+                    quality={100}
                   />
                 </div>
                 <div className="p-6">
@@ -99,7 +99,7 @@ export default function Home() {
                     alt="Skilled Trades"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    quality={95}
+                    quality={100}
                   />
                 </div>
                 <div className="p-6">
@@ -123,7 +123,7 @@ export default function Home() {
                     alt="Beauty & Esthetics"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    quality={95}
+                    quality={100}
                   />
                 </div>
                 <div className="p-6">
@@ -147,7 +147,7 @@ export default function Home() {
                     alt="Support Services"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    quality={95}
+                    quality={100}
                   />
                 </div>
                 <div className="p-6">
@@ -171,7 +171,7 @@ export default function Home() {
                     alt="Classroom Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    quality={95}
+                    quality={100}
                   />
                 </div>
                 <div className="p-6">
@@ -453,7 +453,7 @@ export default function Home() {
             </div>
             <div className="relative h-64 overflow-hidden rounded-lg group">
               <Image
-                src="/images/facilities-new/facility-8.jpg"
+                src="/images/location-1.jpg"
                 alt="Training Facility"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"

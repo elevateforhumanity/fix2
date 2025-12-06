@@ -62,7 +62,7 @@ export default function HomePage() {
                 fill
                 className="object-cover"
                 priority={index === 0}
-                quality={90}
+                quality={100}
                 sizes="100vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
@@ -127,7 +127,7 @@ export default function HomePage() {
                   alt="Earn While You Learn - Paid Apprenticeship"
                   fill
                   className="object-cover brightness-110"
-                  sizes="(max-width: 768px) 100vw, 33vw" quality={85}
+                  sizes="(max-width: 768px) 100vw, 33vw" quality={100}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute top-5 right-5 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold">
@@ -158,7 +158,7 @@ export default function HomePage() {
                   alt="100% Free Training - No Tuition"
                   fill
                   className="object-cover brightness-110"
-                  sizes="(max-width: 768px) 100vw, 33vw" quality={85}
+                  sizes="(max-width: 768px) 100vw, 33vw" quality={100}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute top-5 right-5 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold">
@@ -189,7 +189,7 @@ export default function HomePage() {
                   alt="Government Certified Programs - Training"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw" quality={85}
+                  sizes="(max-width: 768px) 100vw, 33vw" quality={100}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute top-5 right-5 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold">
@@ -225,7 +225,7 @@ export default function HomePage() {
                 alt="Elevate for Humanity training facility"
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw" quality={85}
+                sizes="(max-width: 768px) 100vw, 50vw" quality={100}
               />
             </div>
             <div>
@@ -270,7 +270,7 @@ export default function HomePage() {
                     alt={program.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, 50vw" quality={85}
+                    sizes="(max-width: 768px) 100vw, 50vw" quality={100}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                   <div className="absolute bottom-6 left-6">
@@ -331,7 +331,7 @@ export default function HomePage() {
                     alt={item.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    sizes="96px" quality={85}
+                    sizes="96px" quality={100}
                   />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
@@ -360,7 +360,7 @@ export default function HomePage() {
                     alt={testimonial.name}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw" quality={85}
+                    sizes="(max-width: 768px) 100vw, 33vw" quality={100}
                   />
                 </div>
                 <div className="p-8">
@@ -394,7 +394,7 @@ export default function HomePage() {
                     alt={step.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    sizes="80px" quality={85}
+                    sizes="80px" quality={100}
                   />
                   <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                     <span className="text-white text-3xl font-extrabold">{step.number}</span>
@@ -453,7 +453,7 @@ export default function HomePage() {
                     alt={partner.name}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, 25vw" quality={85}
+                    sizes="(max-width: 768px) 100vw, 25vw" quality={100}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4 text-center">
@@ -486,7 +486,7 @@ export default function HomePage() {
                   alt={facility.name}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, 33vw" quality={85}
+                  sizes="(max-width: 768px) 100vw, 33vw" quality={100}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
@@ -569,7 +569,7 @@ export default function HomePage() {
                   alt="Indiana Department of Workforce Development"
                   fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 50vw, 25vw" quality={85}
+                  sizes="(max-width: 768px) 50vw, 25vw" quality={100}
                 />
               </div>
               <h3 className="font-bold text-center text-sm">Indiana DWD</h3>
@@ -584,7 +584,7 @@ export default function HomePage() {
                   alt="U.S. Department of Labor"
                   fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 50vw, 25vw" quality={85}
+                  sizes="(max-width: 768px) 50vw, 25vw" quality={100}
                 />
               </div>
               <h3 className="font-bold text-center text-sm">U.S. DOL</h3>
@@ -599,7 +599,7 @@ export default function HomePage() {
                   alt="WorkOne Indiana"
                   fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 50vw, 25vw" quality={85}
+                  sizes="(max-width: 768px) 50vw, 25vw" quality={100}
                 />
               </div>
               <h3 className="font-bold text-center text-sm">WorkOne</h3>
@@ -792,7 +792,7 @@ const whyChooseUs = [
   {
     title: "Expert Instructors",
     description: "Learn from professionals with years of real-world experience in their fields",
-    image: "/images/artlist/hero-training-6.jpg",
+    image: "/images/location-6.jpg",
   },
   {
     title: "Job Placement Support",
@@ -838,7 +838,7 @@ const steps = [
     number: "2",
     title: "Train & Learn",
     description: "Attend classes with expert instructors and gain hands-on experience in modern facilities",
-    image: "/images/artlist/hero-training-7.jpg",
+    image: "/images/location-6.jpg",
   },
   {
     number: "3",
@@ -865,9 +865,9 @@ const facilities = [
   { name: "Healthcare Training Lab", image: "/images/gallery/image3.jpg" },
   { name: "HVAC Workshop", image: "/images/gallery/image4.jpg" },
   { name: "Computer Lab", image: "/images/gallery/image5.jpg" },
-  { name: "Barber Training Studio", image: "/images/facilities-new/facility-4.jpg" },
+  { name: "Barber Training Studio", image: "/images/location-1.jpg" },
   { name: "Welding Workshop", image: "/images/gallery/image6.jpg" },
-  { name: "Classroom Facilities", image: "/images/facilities-new/facility-6.jpg" },
+  { name: "Classroom Facilities", image: "/images/location-1.jpg" },
 ];
 
 const faqs = [

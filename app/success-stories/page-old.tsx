@@ -64,7 +64,7 @@ export default function SuccessStoriesPage() {
             alt="Success Stories"
             fill
             className="object-cover"
-            priority quality={85} sizes="100vw"
+            priority quality={100} sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-900/40" />
           <div className="relative h-full flex items-center justify-center px-4">
@@ -117,7 +117,7 @@ export default function SuccessStoriesPage() {
                           src={story.image}
                           alt={story.name}
                           fill
-                          className="object-cover" quality={85} sizes="100vw"
+                          className="object-cover" quality={100} sizes="100vw"
                         />
                       </div>
                       <div className="p-8 flex flex-col justify-center">

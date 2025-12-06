@@ -83,7 +83,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
           fill
           className="object-cover brightness-110"
           priority
-          quality={95}
+          quality={100}
           sizes="100vw"
         />
         

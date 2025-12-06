@@ -19,7 +19,7 @@ export default function Page() {
             fill
             className="object-cover"
             priority 
-            quality={90} 
+            quality={100} 
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
@@ -100,7 +100,7 @@ export default function Page() {
                   alt="Training Facility"
                   fill
                   className="object-cover"
-                  quality={90}
+                  quality={100}
                 />
               </div>
             </div>

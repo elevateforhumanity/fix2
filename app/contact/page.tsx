@@ -18,7 +18,7 @@ export default function Page() {
           fill
           className="object-cover brightness-110"
           priority
-          quality={95}
+          quality={100}
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />

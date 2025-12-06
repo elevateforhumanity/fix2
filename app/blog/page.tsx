@@ -56,7 +56,7 @@ export default async function Page() {
           fill
           className="object-cover"
           priority
-          quality={85}
+          quality={100}
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
@@ -83,7 +83,7 @@ export default async function Page() {
                 <Link key={post.id} href={`/blog/${post.slug}`} className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all overflow-hidden">
                   {post.featured_image && (
                     <div className="relative h-48 overflow-hidden">
-                      <Image src={post.featured_image} alt={post.title} fill className="object-cover group-hover:scale-110 transition-transform duration-300" quality={85} sizes="(max-width: 768px) 100vw, 33vw" />
+                      <Image src={post.featured_image} alt={post.title} fill className="object-cover group-hover:scale-110 transition-transform duration-300" quality={100} sizes="(max-width: 768px) 100vw, 33vw" />
                     </div>
                   )}
                   <div className="p-6">
@@ -116,7 +116,7 @@ export default async function Page() {
                     <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold">{post.platform.charAt(0).toUpperCase()}</div>
                     <div><div className="font-semibold capitalize">{post.platform}</div><div className="text-sm text-slate-500">{new Date(post.posted_at).toLocaleDateString()}</div></div>
                   </div>
-                  {post.image_url && <div className="relative h-48 rounded-lg overflow-hidden mb-4"><Image src={post.image_url} alt="Social post" fill className="object-cover" quality={85} sizes="(max-width: 768px) 100vw, 33vw" /></div>}
+                  {post.image_url && <div className="relative h-48 rounded-lg overflow-hidden mb-4"><Image src={post.image_url} alt="Social post" fill className="object-cover" quality={100} sizes="(max-width: 768px) 100vw, 33vw" /></div>}
                   <p className="text-slate-700 mb-4 line-clamp-4">{post.content}</p>
                   <div className="flex items-center gap-4 text-sm text-slate-500"><span>❤️ {post.likes}</span><span>💬 {post.comments}</span></div>
                 </a>

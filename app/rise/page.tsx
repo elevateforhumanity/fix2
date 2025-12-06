@@ -18,7 +18,7 @@ export default function RiseFoundationPage() {
           fill
           className="object-cover opacity-40"
           priority
-          quality={95}
+          quality={100}
         />
         <div className="relative z-10 flex h-full items-center">
           <div className="mx-auto max-w-7xl px-12 text-center text-white">

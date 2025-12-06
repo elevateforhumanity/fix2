@@ -47,7 +47,7 @@ export default function HomePage() {
             fill
             className="object-cover"
             priority
-            quality={90}
+            quality={100}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-slate-900/95" />
@@ -288,7 +288,7 @@ export default function HomePage() {
             alt="Barber Apprenticeship Program"
             fill
             className="object-cover"
-            quality={85}
+            quality={100}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-slate-900/95" />
@@ -527,7 +527,7 @@ export default function HomePage() {
             alt="Start your journey"
             fill
             className="object-cover"
-            quality={85}
+            quality={100}
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-red-600/95 to-red-700/95" />

@@ -44,11 +44,21 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Image Section */}
+      {/* Image Section - Elizabeth Full Body */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="flex justify-center">
+                <Image
+                  src="/images/team/founder/elizabeth-greene-founder-hero-01.jpg"
+                  alt="Elizabeth L. Greene - Full Body"
+                  width={600}
+                  height={900}
+                  className="w-full h-auto max-w-md rounded-2xl shadow-xl object-cover"
+                  quality={100}
+                />
+              </div>
               <div>
                 <h2 className="text-3xl font-bold mb-6">Transform Your Future</h2>
                 <p className="text-gray-700 mb-6">Join thousands who have launched successful careers through our programs.</p>

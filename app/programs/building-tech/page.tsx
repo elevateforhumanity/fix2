@@ -18,7 +18,7 @@ export default function Page() {
             alt="Building Technology Training"
             fill
             className="object-cover"
-            priority quality={95} sizes="100vw"
+            priority quality={100} sizes="100vw"
           />
         </div>
         <div className="relative container mx-auto px-4 py-20">
