@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Copy SQL Migration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #666;
+            margin-top: 0;
+        }
+        pre {
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        button:active {
+            background: #3d8b40;
+        }
+        .success {
+            color: #4CAF50;
+            font-weight: bold;
+            display: none;
+        }
+        .instructions {
+            background: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #2196F3;
+            margin: 15px 0;
+        }
+        .step {
+            font-weight: bold;
+            color: #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Supabase Courses Migration</h1>
+    
+    <div class="instructions">
+        <p><strong>Instructions:</strong></p>
+        <ol>
+            <li>Click each "Copy" button below (in order)</li>
+            <li>Go to <a href="https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new" target="_blank">Supabase SQL Editor</a></li>
+            <li>Paste and click "Run"</li>
+            <li>Repeat for all 3 parts</li>
+        </ol>
+    </div>
+
+    <!-- PART 1 -->
+    <div class="section">
+        <h2><span class="step">Part 1:</span> Create Table</h2>
+        <button onclick="copyPart1()">📋 Copy Part 1</button>
+        <span id="success1" class="success">✅ Copied!</span>
+        <pre id="part1">CREATE TABLE IF NOT EXISTS courses (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title TEXT NOT NULL,
+  subtitle TEXT,
+  description TEXT,
+  slug TEXT UNIQUE NOT NULL,
+  level TEXT DEFAULT 'beginner',
+  duration_hours INTEGER DEFAULT 0,
+  status TEXT DEFAULT 'published',
+  is_free BOOLEAN DEFAULT true,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_courses_slug ON courses(slug);
+CREATE INDEX IF NOT EXISTS idx_courses_status ON courses(status);</pre>
+    </div>
+
+    <!-- PART 2 -->
+    <div class="section">
+        <h2><span class="step">Part 2:</span> Insert First 9 Courses</h2>
+        <button onclick="copyPart2()">📋 Copy Part 2</button>
+        <span id="success2" class="success">✅ Copied!</span>
+        <pre id="part2">INSERT INTO courses (slug, title, subtitle, description, level, duration_hours, status, is_free) VALUES
+('hvac-technician', 'HVAC Technician', 'Master HVAC systems', '600-hour HVAC training program', 'beginner', 600, 'published', true),
+('barber-apprenticeship', 'Barber Apprenticeship', 'Earn while you learn', '1500-hour DOL apprenticeship', 'beginner', 1500, 'published', true),
+('medical-assistant', 'Medical Assistant', 'Healthcare career', '720-hour medical assistant program', 'beginner', 720, 'published', true),
+('business-startup', 'Business Start-Up', 'Launch your business', 'Business entrepreneurship program', 'beginner', 32, 'published', true),
+('dsp-training', 'Direct Support Professional', 'Support individuals', '120-hour DSP certification', 'beginner', 120, 'published', true),
+('esthetician', 'Professional Esthetician', 'Skincare specialist', '700-hour esthetician program', 'beginner', 700, 'published', true),
+('tax-preparation', 'Tax Preparation', 'Become a tax preparer', '80-hour tax prep program', 'beginner', 80, 'published', true),
+('reentry-specialist', 'Reentry Specialist', 'Support justice-involved', '160-hour reentry program', 'beginner', 160, 'published', true),
+('beauty-educator', 'Beauty Educator', 'Train professionals', '240-hour educator program', 'intermediate', 240, 'published', true);</pre>
+    </div>
+
+    <!-- PART 3 -->
+    <div class="section">
+        <h2><span class="step">Part 3:</span> Insert Last 8 Courses</h2>
+        <button onclick="copyPart3()">📋 Copy Part 3</button>
+        <span id="success3" class="success">✅ Copied!</span>
+        <pre id="part3">INSERT INTO courses (slug, title, subtitle, description, level, duration_hours, status, is_free) VALUES
+('peer-support', 'Peer Support Professional', 'Support in recovery', '80-hour peer support program', 'beginner', 80, 'published', true),
+('recovery-coach', 'Recovery Coach', 'Guide recovery', '80-hour recovery coach program', 'beginner', 80, 'published', true),
+('cpr-certification', 'CPR Certification', 'Life-saving skills', '8-hour CPR training', 'beginner', 8, 'published', true),
+('community-health-worker', 'Community Healthcare Worker', 'Bridge healthcare', '160-hour CHW program', 'beginner', 160, 'published', true),
+('emergency-safety', 'Emergency Health & Safety', 'Workplace safety', '40-hour safety program', 'beginner', 40, 'published', true),
+('nrf-rise-up', 'NRF Rise Up', 'Retail fundamentals', '40-hour retail program', 'beginner', 40, 'published', true),
+('jri-series', 'JRI Complete Series', 'Justice reinvestment', '120-hour JRI program', 'beginner', 120, 'published', true),
+('rise-up-certificate', 'Rise Up Certificate', 'Additional certification', '40-hour certificate program', 'beginner', 40, 'published', true);
+
+SELECT COUNT(*) as total_courses FROM courses;</pre>
+    </div>
+
+    <div class="section" style="background: #e8f5e9;">
+        <h2>✅ After Running All 3 Parts:</h2>
+        <p>You should see: <strong>17 courses</strong></p>
+        <p>Check your website: <a href="https://fix2-gpql-r0x49ne29-elevate-48e460c9.vercel.app/admin/courses" target="_blank">Admin Courses Page</a></p>
+    </div>
+
+    <script>
+        function copyToClipboard(text, successId) {
+            navigator.clipboard.writeText(text).then(function() {
+                const successEl = document.getElementById(successId);
+                successEl.style.display = 'inline';
+                setTimeout(() => {
+                    successEl.style.display = 'none';
+                }, 2000);
+            });
+        }
+
+        function copyPart1() {
+            const text = document.getElementById('part1').textContent;
+            copyToClipboard(text, 'success1');
+        }
+
+        function copyPart2() {
+            const text = document.getElementById('part2').textContent;
+            copyToClipboard(text, 'success2');
+        }
+
+        function copyPart3() {
+            const text = document.getElementById('part3').textContent;
+            copyToClipboard(text, 'success3');
+        }
+    </script>
+</body>
+</html>

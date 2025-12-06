@@ -5,6 +5,7 @@ import { getUserById } from '@/lib/supabase-admin';
 
 // Simple email function (replace with Resend in production)
 async function sendEmail(to: string, subject: string, text: string) {
+  // console.log('[EMAIL]', { to, subject, text });
   // Note: Replace with actual email service (Resend, Postmark, etc.)
   return true;
 }

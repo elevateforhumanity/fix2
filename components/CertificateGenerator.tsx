@@ -19,10 +19,12 @@ export default function CertificateGenerator({
 }: CertificateGeneratorProps = {}) {
   const handleDownload = () => {
     // Generate PDF certificate
+    // console.log('Downloading certificate...');
   };
 
   const handleShare = () => {
     // Share to LinkedIn, etc.
+    // console.log('Sharing certificate...');
   };
 
   return (

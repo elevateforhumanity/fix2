@@ -62,8 +62,6 @@
     "supabase/functions",
     ".archive",
     "backend",
-    "lib/new-ecosystem-services",
-    "app/page-backup2.tsx",
-    "app/page-old-final.tsx"
+    "lib/new-ecosystem-services"
   ]
 }

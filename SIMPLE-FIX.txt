@@ -1,0 +1,32 @@
+╔══════════════════════════════════════════════════════════════════════════╗
+║                                                                          ║
+║                    SIMPLE FIX - 2 MINUTES                                ║
+║                                                                          ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+STEP 1: Go to this URL
+https://supabase.com/dashboard/project/cuxzzpsyufcewtmicszk/editor
+
+STEP 2: Click "New query"
+
+STEP 3: Copy this file content:
+supabase/migrations/20241124_simple_add_columns.sql
+
+STEP 4: Paste into SQL Editor
+
+STEP 5: Click "Run"
+
+DONE.
+
+This adds the columns your database needs.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+IF IT SAYS "NOT COMPATIBLE":
+
+The file is already open in your code editor.
+Just copy the SQL text and paste it.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+THAT'S IT. 2 MINUTES.

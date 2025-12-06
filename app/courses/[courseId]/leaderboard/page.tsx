@@ -6,8 +6,6 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const dynamic = 'force-dynamic';
-
 export default function CourseLeaderboardPage() {
   const params = useParams();
   const courseId = params.courseId as string;

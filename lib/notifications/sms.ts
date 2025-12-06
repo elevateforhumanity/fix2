@@ -24,6 +24,7 @@ export class SMSService {
   async send(notification: SMSNotification): Promise<boolean> {
     try {
       // SMS notifications disabled - use email or in-app notifications instead
+      // console.log('SMS notification (disabled):', notification);
       return true;
     } catch (error) {
       console.error('SMS send error:', error);

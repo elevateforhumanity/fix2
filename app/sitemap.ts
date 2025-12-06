@@ -199,6 +199,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/docs/admins',
     '/docs/case-management',
     '/docs/lms',
+    '/docs/program-holders',
     '/docs/reporting',
     '/docs/students',
     '/kingdom-konnect/events',
@@ -265,6 +266,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/sitemap-page',
     '/all-pages',
     '/credentials',
+    '/program-holders',
+    '/program-holder/portal',
+    '/program-holder/mou',
+    '/program-holder/sign-mou',
+    '/program-holder/apply',
+    '/program-holder/dashboard',
+    '/program-holder/training',
+    '/program-holder/how-to-use',
     '/hire-graduates',
     '/what-we-do',
     '/orientation',
@@ -291,6 +300,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/demos',
     '/workforce-board/dashboard',
     '/funding/how-it-works',
+    '/program-holders/acknowledgement',
     '/partners/create-program',
     '/cert/verify',
     '/healthcare-administration',
@@ -307,6 +317,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Skip dynamic content during build if no database connection
     if (!process.env.NEXT_PUBLIC_SUPABASE_URL || 
         process.env.NEXT_PUBLIC_SUPABASE_URL.includes('placeholder')) {
+      // console.log('Sitemap: Using static routes only (no database connection)');
       return staticSitemap;
     }
 
@@ -322,6 +333,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const courses = null;
 
     if (programsError) {
+      // console.log('Sitemap: Database query failed, using static routes only');
       return staticSitemap;
     }
 
@@ -339,6 +351,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     return sitemap;
   } catch (err) {
+    // console.log('Sitemap: Error during generation, using static routes only');
     // Fallback to static sitemap if Supabase fails
     return staticSitemap;
   }

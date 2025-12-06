@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
         referrer,
         userAgent,
         timestamp,
-        ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown'
+        ip: request.ip || request.headers.get('x-forwarded-for') || 'unknown'
       });
       
       // Return response indicating unauthorized use
@@ -85,6 +85,7 @@ export async function POST(request: NextRequest) {
     }
     
     // Authorized access - just log it
+    console.log('[Tracking] Authorized access:', domain);
     
     return NextResponse.json({
       status: 'ok',
@@ -139,6 +140,7 @@ async function sendAlertEmail(data: {
     - DMCA Agent: legal@elevateforhumanity.org
   `;
   
+  console.log('[ALERT EMAIL]', emailContent);
   
   // Uncomment when you have email service configured:
   /*
@@ -168,7 +170,8 @@ async function logUnauthorizedAccess(data: {
 }) {
   // Database logging for legal evidence
   // Logs to console and can be extended to database when needed
-  console.log({
+  
+  console.log('[EVIDENCE LOG]', {
     type: 'UNAUTHORIZED_COPY',
     ...data,
     logged_at: new Date().toISOString()
@@ -197,8 +200,7 @@ async function logUnauthorizedAccess(data: {
 export async function GET(request: NextRequest) {
   // Only allow from authorized domains
   const origin = request.headers.get('origin') || '';
-  const officialDomains = getOfficialDomains();
-  const isAuthorized = officialDomains.some(domain => origin.includes(domain));
+  const isAuthorized = OFFICIAL_DOMAINS.some(domain => origin.includes(domain));
   
   if (!isAuthorized && origin !== '') {
     return NextResponse.json(
@@ -210,6 +212,6 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({
     status: 'active',
     message: 'DMCA tracking is active',
-    official_domains: officialDomains
+    official_domains: OFFICIAL_DOMAINS
   });
 }

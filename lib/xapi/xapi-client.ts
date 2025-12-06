@@ -63,6 +63,7 @@ export class XAPIClient {
 
   async sendStatement(statement: XAPIStatement): Promise<void> {
     if (!this.enabled) {
+      // console.log('[xAPI] Disabled - statement not sent:', statement);
       return;
     }
 
@@ -86,6 +87,7 @@ export class XAPIClient {
         );
       }
 
+      // console.log('[xAPI] Statement sent successfully');
     } catch (error) {
       console.error('[xAPI] Failed to send statement:', error);
       // Don't throw - we don't want tracking failures to break the app

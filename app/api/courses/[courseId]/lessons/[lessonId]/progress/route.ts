@@ -3,10 +3,9 @@ import { NextResponse } from 'next/server';
 
 export async function POST(
   request: Request,
-  { params }: { params: Promise<{ courseId: string; lessonId: string }> }
+  { params }: { params: { courseId: string; lessonId: string } }
 ) {
   try {
-    const { lessonId } = await params;
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
@@ -20,7 +19,7 @@ export async function POST(
       .from('video_progress')
       .upsert({
         user_id: user.id,
-        lesson_id: lessonId,
+        lesson_id: params.lessonId,
         progress_seconds: progress,
         last_watched: new Date().toISOString(),
       });

@@ -24,8 +24,8 @@ export interface AutoEnrollmentResult {
   error?: string;
 }
 
-async function getSupabaseServerClient() {
-  const cookieStore = await cookies();
+function getSupabaseServerClient() {
+  const cookieStore = cookies();
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -42,7 +42,7 @@ async function getSupabaseServerClient() {
 export async function autoEnrollPartnerCourse(
   payload: AutoEnrollmentRequest
 ): Promise<AutoEnrollmentResult> {
-  const supabase = await getSupabaseServerClient();
+  const supabase = getSupabaseServerClient();
 
   try {
     // 1) Load student profile
@@ -154,7 +154,7 @@ export async function autoEnrollPartnerCourse(
   } catch (err: any) {
     console.error("[autoEnrollPartnerCourse] Error", err);
 
-    const supabase2 = await getSupabaseServerClient();
+    const supabase2 = getSupabaseServerClient();
     await supabase2.from("partner_lms_enrollment_failures").insert({
       student_id: payload.studentId,
       provider_id: payload.partnerId,

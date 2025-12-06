@@ -1,0 +1,358 @@
+         | ✅                       |
+"Get Paid to Learn" (sounds like a scam)
+"View All Programs" (vague)
+"What you'll learn" section
+### 11. Discussion Forums 
+### 12. Q&A System 
+### 13. Ratings & Reviews 
+### 14. Certificates 
+### Needs Work 
+### Social Features: 0% 
+### What Elevate Needs 
+### What's MISSING 
+### What's Next 
+**4 critical missing** - Need immediate attention
+**Add "What you'll learn"** section to course pages
+**Add Q&A section** per lesson
+**Add calendar sync**
+**Add calendar widget** to dashboard
+**Add certificates** with verification
+**Add course progress** tracking visible on all pages
+**Add course reviews** and ratings
+**Add discussion boards** to courses
+**Add group projects**
+**Add instructor bios** with photos
+**Add note-taking** feature
+**Add partner logos** carousel to homepage
+**Add peer review**
+**Add rubric grading**
+**Add search bar** to header
+**Add testimonials** with photos
+**Add to-do list** to dashboard
+**Add trending courses** section
+**Improve video player** - Add controls (speed, quality)
+**Preview Deployments** (can be enabled for PRs)
+**We're missing**: All of these
+**We're missing**: All video controls, note-taking
+**We're missing**: Module organization, discussion boards
+**We're missing**: Partner logos carousel, trending courses section
+**We're missing**: Search functionality in header
+**We're missing**: To-do list, recent activity feed
+**We're missing**: Transcript feature, instructor bios
+- **In the database:** NO 
+- **On the live site:** NO 
+- Content: 0% 
+- Database: 0% 
+- Student Access: 0% 
+1 missing image file
+1 page: Blocked due to other 4xx issue
+111 pages: Crawled - currently not indexed
+13 pages: Duplicate without user-selected canonical
+14 pages: Blocked by robots.txt
+17 pages: Not found (404)
+18 pages: Blocked due to access forbidden (403)
+2 pages: Redirect error
+27 pages: Page with redirect
+29 placeholder domain references
+3 critical 404 errors in main navigation
+30 pages: Alternate page with proper canonical tag
+4 pages: Excluded by 'noindex' tag
+400x400px split images (cropped sections)
+404
+72 DPI (standard web)
+Activity feed
+Activity logs
+Advanced video player
+Analytics
+Announcements
+Assignments
+BROKEN - Fix Immediately
+Badge system
+Badges system
+Basic breadcrumb
+Basic layout
+Basic list format
+Blurry when scaled up
+Bookmarks
+Bookmarks feature
+Broken or non-functional
+Build errors (smart quotes, lockfile, client component)
+Bulk operations
+But too many, looks cluttered
+Calendar integration
+Certificate generation
+Chapter markers in videos
+Chat
+Cloning
+Comments
+Commit .env.local to git
+Competencies
+Competency tracking
+Completion criteria
+Completion reports
+Course categories
+Course page enhancements
+Course reports
+Course requirements
+Course templates
+Critical Missing Elements:**
+Custom reports
+Customizable blocks
+Database tables not created in Supabase
+Dependencies not installed (node_modules missing)
+Discussion boards
+Discussion forums
+Domain not pointing to latest main branch deployment
+Downloadable resources
+Email notifications
+Enhanced dashboard
+Enrollment counts
+Enrollment management
+Export functionality
+Feedback tools
+Forums
+Generic, not program-specific
+Glossaries
+Grade calculations
+Grade reports
+Gradebook
+Group projects
+Groups/cohorts
+H5P
+Hands-on labs
+Hardcode secrets in code
+Hidden or inaccessible
+Homepage video links lead to 404 errors (3 links)
+Import/export
+Incomplete funding program pages (WIOA, JRI, DOL)
+Instructor bio with photo
+Instructor bios with photos
+Instructor profiles
+Interactive exercises
+Just stock photos
+Keyboard shortcuts (space, arrows)
+LTI
+Learning path visualization
+Learning paths
+Learning paths by role
+Left/right sidebars
+Looks "salesy" not "official"
+Looks AI-generated, not official
+Messaging (basic exists)
+Missing `/app` redirect (student portal link)
+Missing `/community` redirect (footer link)
+Missing `/learners` page (main nav link)
+Missing barber image
+Missing from sitemap (if public)
+Missing key compliance elements on live site
+Mobile app
+Multiple activity types
+Multiple question types
+NEXT_PUBLIC_SUPABASE_ANON_KEY: Not set
+NEXT_PUBLIC_SUPABASE_URL: Not set
+NO
+NO - Database is NOT populated yet
+NO `courses` table
+NO `enrollments` table
+NO `lesson_progress` table
+NO `lessons` table
+NO `modules` table
+NOT USED - Need to Add to Website:
+NOT YET STARTED
+No "Find a location" option
+No "Talk to an advisor" option
+No "Talk to us" option
+No "What you'll learn" section
+No DOL logo
+No DOL/WIOA compliance language
+No EIN/nonprofit status
+No EmployIndy logo
+No FAQ on homepage
+No Q&A
+No UI for course creation
+No WIOA logo
+No accessibility statement
+No actual course content in database
+No auto-resume
+No automation
+No bookmarks
+No branding tools
+No calendar
+No certificate preview
+No clear "what you get" list
+No clear contact method
+No clear eligibility info
+No clear process explained
+No communication tools
+No community features
+No completion marking
+No content upload interface
+No course management UI
+No credibility markers
+No difficulty badge
+No discussion
+No download option
+No eligibility requirements listed
+No enrollment count
+No enrollment management
+No enrollment system active
+No equal opportunity statement
+No expandable sections
+No government backing visible
+No gradebook setup
+No hamburger menu on mobile
+No instructor photos
+No integrations UI
+No keyboard shortcuts
+No lessons/modules populated
+No live chat
+No mark complete
+No module breakdown visible
+No notes section
+No notifications
+No partner logos
+No phone number visible
+No playback speed control
+No prev/next buttons
+No privacy policy link visible
+No progress bars
+No progress indicator
+No progress indicators
+No progress tracking
+No quality selector
+No quick resume
+No ratings
+No ratings/reviews
+No real data
+No real student photos
+No real success stories or testimonials
+No reports
+No resources
+No search bar
+No settings configuration
+No sidebar navigation
+No skills tags
+No skip forward/backward
+No subtitles/captions
+No success stories
+No success stories on homepage
+No support services mentioned
+No sync across devices
+No system settings
+No tabs
+No team photos
+No testimonials
+No testimonials on course page
+No time estimates
+No transcript
+No user management UI
+No way to access Programs, About, Learners, Employers, Partners, Success Stories, FAQ, or Contact pages on mobile
+Notes with timestamps
+Notifications center
+Offline mode
+Parent/observer access
+Partner logos carousel
+Peer review
+Peer-graded assignments
+Plagiarism detection
+Playback speed controls (0.5x - 2x)
+Plugin system
+Poor mobile user experience for navigation
+Poor user experience
+Practice exams
+Prerequisites/conditions
+Professional tone needs refinement
+Program pathways (MicroMasters equivalent)
+Progress bar with hover preview
+Pulsing "FREE" badge (too salesy)
+Pulsing animations (unprofessional)
+Push notifications
+Q&A per lesson
+Q&A system
+Quality selector (360p, 720p, 1080p)
+Quick actions
+Ratings/reviews
+Real calendar integration
+Real progress data
+Recent activity feed
+Removed: Financial Aid (we don't offer this)
+Removed: Individual programs (Medical Assistant, HVAC, Barber, CDL)
+Resources (files, pages, links)
+Returning 404 errors
+Reviews/ratings system
+Rubric grading
+Rubrics
+SCORM
+SMS
+SUPABASE_SERVICE_ROLE_KEY: Not set
+Scheduled reports
+Search functionality
+Searchable transcripts
+Sections/modules organization
+Share .env.local files via email/slack
+Share your service role key
+Shows "Loading..."
+Shows "Loading..." (no data)
+Skill assessments
+Skill assessments (IQ tests)
+Social integration
+Social proof
+Stock photos, not real students
+Student profiles (basic exists)
+Student reviews/ratings
+Students cannot access courses (no data)
+Students don't know if they qualify
+Students have unanswered questions
+Subtitles/captions
+Supabase CLI not found. Install: npm install -g supabase"
+Surveys
+Sync across devices
+Templates
+To-do list
+To-do list (UI exists, not functional)
+Too many colors (6 different funding badges)
+Training providers page shows broken image
+Transcript panel
+Transcripts
+Trending courses section
+TypeScript compilation disabled (`ignoreBuildErrors: true`)
+Upcoming deadlines
+Use production keys locally
+Using placeholder content
+Verified certificates with blockchain
+Video conferencing
+Video transcripts
+Videos not linked to lessons
+Visible progress tracking
+WHAT'S NOT WORKING (Needs Fixing)
+What Is Missing (4 critical + 7 optional)
+Wikis
+Workshops
+`/app` - 404 error (student portal link)
+`/community` - 404 error (footer link)
+`/images/efh-hero-learners.jpg` - Used in `page-previous.tsx` and `page-coursera-style.tsx`
+`/images/efh-hero-learners.jpg` | `page-previous.tsx`, `page-coursera-style.tsx` | None - backup pages not in use |
+`/images/hero/training-providers-hero.jpg` | Hero background image | Broken image on training providers page |
+`/images/videos/barber-spotlight-thumb.jpg` - Video poster frame
+`/images/videos/barber-spotlight-thumb.jpg` | Video poster frame | Minor - video will show black frame |
+`/images/videos/elevate-overview-thumb.jpg` - Video poster frame
+`/images/videos/elevate-overview-thumb.jpg` | Video poster frame | Minor - video will show black frame |
+`/images/videos/employer-pipeline-thumb.jpg` - Video poster frame
+`/images/videos/employer-pipeline-thumb.jpg` | Video poster frame | Minor - video will show black frame |
+`/learners` - 404 error (main navigation)
+`/twitter-card.png` - Twitter card metadata (can use `/og.jpg` as fallback)
+`/twitter-card.png` | Twitter card metadata | Minor - can use `/og.jpg` as fallback |
+`/videos/barber-spotlight.mp4` | Barber program spotlight video | 404 error on `/videos/barber-spotlight` |
+`/videos/elevate-demo.mp4` - Used in `page-old-backup.tsx`
+`/videos/elevate-demo.mp4` | `page-old-backup.tsx` | None - backup page not in use |
+`/videos/elevate-overview.mp4` | General Elevate overview | 404 error on `/videos/elevate-overview` |
+`/videos/employer-pipeline.mp4` | Employer partnership video | 404 error on `/videos/employer-pipeline` |
+`/videos/program-barber-apprenticeship.mp4` - Used in `programs/barber/page-old.tsx`
+`/videos/program-barber-apprenticeship.mp4` | `programs/barber/page-old.tsx` | None - old page not in use |
+|
+| HIGH |
+| LOW |
+| MEDIUM |
+| Not started |
+| ✅ | **Unique to Elevate** |
+| ✅ | ✅ | ⚠️ Basic |

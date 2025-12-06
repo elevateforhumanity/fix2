@@ -354,7 +354,7 @@ export function generateCompleteOnboardingPackage(data: Partial<OnboardingData>)
     requiredFormsCompleted === requiredFormsTotal &&
     data.ndaAccepted &&
     data.backgroundCheckConsent &&
-    !!data.signature;
+    data.signature;
 
   return {
     forms,

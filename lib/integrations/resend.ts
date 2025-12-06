@@ -31,6 +31,7 @@ export interface ResendEmailOptions {
 export async function sendResendEmail(options: ResendEmailOptions) {
   const client = getResendClient();
   if (!client) {
+    console.log('Resend not configured, email not sent:', options);
     return { success: false, error: 'Resend not configured' };
   }
 
@@ -41,7 +42,7 @@ export async function sendResendEmail(options: ResendEmailOptions) {
       subject: options.subject,
       html: options.html,
       text: options.text,
-      replyTo: options.replyTo,
+      reply_to: options.replyTo,
       cc: options.cc,
       bcc: options.bcc,
       tags: options.tags,

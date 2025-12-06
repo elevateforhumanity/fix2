@@ -17,7 +17,6 @@ interface MixpanelEvent {
 
 interface MixpanelUserProfile {
   $distinct_id: string;
-  $token?: string;
   $set?: Record<string, any>;
   $set_once?: Record<string, any>;
   $add?: Record<string, number>;

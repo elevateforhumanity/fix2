@@ -1,4 +1,3 @@
-import { sanitizeHtml } from '@/lib/sanitize';
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronRight } from "lucide-react";
@@ -185,7 +184,7 @@ export default function UniversalMarketingPage({
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/programs/hvac-hero.jpg"
+                  src="/images/gallery/image11.jpg"
                   alt="Take action today"
                   fill
                   className="object-cover"

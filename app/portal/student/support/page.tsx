@@ -1,12 +1,11 @@
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import { HelpCircle, MessageCircle, Book, Video, Mail, Phone, Clock, CheckCircle } from 'lucide-react';
-
-export const dynamic = 'force-dynamic';
+import { BarChart3, TrendingUp, Award, Users, BookOpen, Target } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Support & Help | Student Portal',
+  title: 'Support | Student Portal',
+  description: 'Manage your support',
 };
 
 export default async function SupportPage() {
@@ -14,120 +13,109 @@ export default async function SupportPage() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');
 
-  const { data: tickets } = await supabase
-    .from('support_tickets')
+  // Fetch relevant data
+  const { data: items } = await supabase
+    .from('support')
     .select('*')
     .eq('user_id', user.id)
     .order('created_at', { ascending: false })
-    .limit(10);
-
-  const openTickets = tickets?.filter(t => t.status === 'open').length || 0;
-  const resolvedTickets = tickets?.filter(t => t.status === 'resolved').length || 0;
-
-  const faqs = [
-    { q: 'How do I reset my password?', a: 'Go to Settings > Security > Change Password' },
-    { q: 'How do I enroll in a course?', a: 'Browse Programs and click Enroll on any course' },
-    { q: 'Where can I view my certificates?', a: 'Navigate to Certificates in the student portal' },
-    { q: 'How do I contact my instructor?', a: 'Use the Messages feature to send direct messages' },
-  ];
+    .limit(20);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Support & Help Center</h1>
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h1 className="text-3xl font-bold capitalize">support</h1>
+            <p className="text-gray-600 mt-1">Manage and track your support</p>
+          </div>
+          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            New Item
+          </button>
+        </div>
 
+        {/* Stats Grid */}
         <div className="grid md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg shadow">
-            <MessageCircle className="text-blue-600 mb-3" size={32} />
-            <p className="text-2xl font-bold">{tickets?.length || 0}</p>
-            <p className="text-sm text-gray-600">Total Tickets</p>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <BarChart3 className="text-blue-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">{items?.length || 0}</p>
+                <p className="text-sm text-gray-600">Total Items</p>
+              </div>
+            </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <Clock className="text-orange-600 mb-3" size={32} />
-            <p className="text-2xl font-bold">{openTickets}</p>
-            <p className="text-sm text-gray-600">Open Tickets</p>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <TrendingUp className="text-green-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">0</p>
+                <p className="text-sm text-gray-600">Active</p>
+              </div>
+            </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <CheckCircle className="text-green-600 mb-3" size={32} />
-            <p className="text-2xl font-bold">{resolvedTickets}</p>
-            <p className="text-sm text-gray-600">Resolved</p>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                <Award className="text-purple-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">0</p>
+                <p className="text-sm text-gray-600">Completed</p>
+              </div>
+            </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <HelpCircle className="text-purple-600 mb-3" size={32} />
-            <p className="text-2xl font-bold">24/7</p>
-            <p className="text-sm text-gray-600">Support Available</p>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <Target className="text-orange-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">0%</p>
+                <p className="text-sm text-gray-600">Progress</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 mb-8">
-          <button className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-left">
-            <MessageCircle className="text-blue-600 mb-3" size={40} />
-            <h3 className="font-bold text-lg mb-2">Live Chat</h3>
-            <p className="text-gray-600 text-sm">Chat with support team instantly</p>
-          </button>
-          <button className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-left">
-            <Mail className="text-green-600 mb-3" size={40} />
-            <h3 className="font-bold text-lg mb-2">Email Support</h3>
-            <p className="text-gray-600 text-sm">Send us an email, we'll respond within 24h</p>
-          </button>
-          <button className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-left">
-            <Phone className="text-purple-600 mb-3" size={40} />
-            <h3 className="font-bold text-lg mb-2">Phone Support</h3>
-            <p className="text-gray-600 text-sm">Call us: 1-800-SUPPORT</p>
-          </button>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-6">
-          <div className="bg-white rounded-lg shadow">
-            <div className="p-6 border-b">
-              <h2 className="text-xl font-semibold">Frequently Asked Questions</h2>
-            </div>
-            <div className="p-6 space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="border-l-4 border-blue-500 pl-4 py-2">
-                  <h3 className="font-semibold mb-1">{faq.q}</h3>
-                  <p className="text-sm text-gray-600">{faq.a}</p>
-                </div>
-              ))}
-            </div>
+        {/* Main Content */}
+        <div className="bg-white rounded-lg shadow">
+          <div className="p-6 border-b">
+            <h2 className="text-xl font-semibold">Recent Activity</h2>
           </div>
-
-          <div className="bg-white rounded-lg shadow">
-            <div className="p-6 border-b">
-              <h2 className="text-xl font-semibold">My Support Tickets</h2>
-            </div>
-            <div className="p-6">
-              {tickets && tickets.length > 0 ? (
-                <div className="space-y-4">
-                  {tickets.map((ticket: any) => (
-                    <div key={ticket.id} className="border border-gray-200 rounded-lg p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="font-semibold">{ticket.subject}</h3>
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium \${
-                          ticket.status === 'open' ? 'bg-orange-100 text-orange-700' :
-                          ticket.status === 'resolved' ? 'bg-green-100 text-green-700' :
-                          'bg-gray-100 text-gray-700'
-                        }`}>
-                          {ticket.status}
-                        </span>
+          <div className="p-6">
+            {items && items.length > 0 ? (
+              <div className="space-y-4">
+                {items.map((item: any) => (
+                  <div key={item.id} className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-semibold">{item.title || item.name || 'Item'}</h3>
+                        <p className="text-sm text-gray-600 mt-1">
+                          {new Date(item.created_at).toLocaleDateString()}
+                        </p>
                       </div>
-                      <p className="text-sm text-gray-600 mb-2">{ticket.description}</p>
-                      <p className="text-xs text-gray-500">
-                        {new Date(ticket.created_at).toLocaleDateString()}
-                      </p>
+                      <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        View Details
+                      </button>
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-8">
-                  <HelpCircle className="mx-auto text-gray-400 mb-3" size={48} />
-                  <p className="text-gray-600">No support tickets yet</p>
-                  <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                    Create Ticket
-                  </button>
-                </div>
-              )}
-            </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <BookOpen className="mx-auto text-gray-400 mb-4" size={64} />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">No items yet</h3>
+                <p className="text-gray-600 mb-4">Get started by creating your first item</p>
+                <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                  Create New
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

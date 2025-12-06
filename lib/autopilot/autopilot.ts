@@ -38,7 +38,7 @@ export async function getStatus(req: Request, res: Response) {
       });
     }
 
-    return res.json({
+    res.json({
       status: 'ok',
       running: worker.isRunning,
       config: {
@@ -49,7 +49,7 @@ export async function getStatus(req: Request, res: Response) {
       },
     });
   } catch (error: any) {
-    return res.status(500).json({
+    res.status(500).json({
       error: 'Failed to get autopilot status',
       message: error.message,
     });
@@ -72,12 +72,12 @@ export async function triggerHealthCheck(req: Request, res: Response) {
 
     const health = await worker.checkHealth();
 
-    return res.json({
+    res.json({
       status: 'ok',
       health,
     });
   } catch (error: any) {
-    return res.status(500).json({
+    res.status(500).json({
       error: 'Health check failed',
       message: error.message,
     });
@@ -100,13 +100,13 @@ export async function triggerSelfHeal(req: Request, res: Response) {
 
     const success = await worker.selfHeal();
 
-    return res.json({
+    res.json({
       status: 'ok',
       healed: success,
       message: success ? 'Self-heal successful' : 'Self-heal failed',
     });
   } catch (error: any) {
-    return res.status(500).json({
+    res.status(500).json({
       error: 'Self-heal failed',
       message: error.message,
     });
@@ -132,13 +132,13 @@ export async function syncSecrets(req: Request, res: Response) {
       vercel: await worker.syncToVercel(),
     };
 
-    return res.json({
+    res.json({
       status: 'ok',
       synced: results,
       message: 'Secrets synced successfully',
     });
   } catch (error: any) {
-    return res.status(500).json({
+    res.status(500).json({
       error: 'Secret sync failed',
       message: error.message,
     });
@@ -168,12 +168,12 @@ export async function startWorker(req: Request, res: Response) {
 
     await worker.start();
 
-    return res.json({
+    res.json({
       status: 'ok',
       message: 'Autopilot started successfully',
     });
   } catch (error: any) {
-    return res.status(500).json({
+    res.status(500).json({
       error: 'Failed to start autopilot',
       message: error.message,
     });
@@ -196,12 +196,12 @@ export async function stopWorker(req: Request, res: Response) {
 
     worker.stop();
 
-    return res.json({
+    res.json({
       status: 'ok',
       message: 'Autopilot stopped successfully',
     });
   } catch (error: any) {
-    return res.status(500).json({
+    res.status(500).json({
       error: 'Failed to stop autopilot',
       message: error.message,
     });

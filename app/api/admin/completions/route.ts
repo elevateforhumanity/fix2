@@ -3,8 +3,8 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
 
-async function getSupabaseServerClient() {
-  const cookieStore = await cookies();
+function getSupabaseServerClient() {
+  const cookieStore = cookies();
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -33,7 +33,7 @@ export async function GET(req: Request) {
   const since = new Date();
   since.setDate(since.getDate() - (isNaN(days) ? 7 : days));
 
-  const supabase = await getSupabaseServerClient();
+  const supabase = getSupabaseServerClient();
 
   // Admin access control should be implemented via middleware or role check
   const {

@@ -534,4 +534,5 @@ async function createMessageNotifications(
     .insert(notifications);
   
   // Send push/email notifications
+  console.log(`Sending message notifications to ${recipient_ids.length} users`);
 }

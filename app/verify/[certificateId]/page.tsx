@@ -3,8 +3,6 @@ import { createClient } from '@/lib/supabase/server';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Verify Certificate | Elevate For Humanity',
   description: 'Verify the authenticity of a certificate issued by Elevate For Humanity',

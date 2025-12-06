@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
 
 export async function POST(req: Request) {
   try {
@@ -17,37 +16,26 @@ export async function POST(req: Request) {
       );
     }
 
-    // Save application to database
-    const supabase = await createClient();
-    
-    const { data, error } = await supabase
-      .from("applications")
-      .insert({
-        first_name: body.firstName,
-        last_name: body.lastName,
-        email: body.email,
-        phone: body.phone || null,
-        program_id: body.preferredProgramId,
-        status: "pending",
-        submitted_at: new Date().toISOString(),
-      })
-      .select()
-      .single();
+    // 🔴 PLACEHOLDER STORAGE LOGIC
+    // Right now, we just log the application server-side
+    // and pretend it is stored. You (or a dev) can later:
+    // - Write it to Supabase
+    // - Send an email to your team
+    // - Push into a CRM or Airtable, etc.
 
-    if (error) {
-      console.error("[Enroll Apply] Database error:", error);
-      return NextResponse.json(
-        { message: "Failed to submit application. Please try again." },
-        { status: 500 }
-      );
-    }
-
+    console.log("[New Elevate Application]", {
+      firstName: body.firstName,
+      lastName: body.lastName,
+      email: body.email,
+      phone: body.phone,
+      preferredProgramId: body.preferredProgramId,
+      submittedAt: new Date().toISOString(),
+    });
 
     return NextResponse.json(
       {
         message:
           "Application received. A member of the Elevate team will follow up.",
-        applicationId: data.id,
       },
       { status: 200 }
     );

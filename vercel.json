@@ -1,35 +1,59 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  },
+  "github": {
+    "silent": true,
+    "autoJobCancelation": true
+  },
+  "build": {
+    "env": {
+      "NODE_OPTIONS": "--max-old-space-size=4096"
+    }
+  },
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/admin/:path*",
       "headers": [
         {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
         },
         {
-          "key": "Pragma",
-          "value": "no-cache"
-        },
-        {
-          "key": "Expires",
-          "value": "0"
+          "key": "X-Frame-Options",
+          "value": "DENY"
         }
       ]
-    }
-  ],
-  "crons": [
-    {
-      "path": "/api/cron/morning-reminders",
-      "schedule": "0 8 * * 1-5"
     },
     {
-      "path": "/api/cron/missed-checkins",
-      "schedule": "0 10 * * 1-5"
+      "source": "/program-holder/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     },
     {
-      "path": "/api/cron/end-of-day-summary",
-      "schedule": "0 17 * * 1-5"
+      "source": "/staff-portal/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/workforce-board/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }

@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
         },
         signature: data.signature,
         signature_date: data.signatureDate,
-        ip_address: data.ipAddress || request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip'),
+        ip_address: data.ipAddress || request.headers.get('x-forwarded-for') || request.ip,
         forms_generated: {
           w4: w4Form,
           i9: i9Form,

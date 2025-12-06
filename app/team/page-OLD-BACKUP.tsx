@@ -71,7 +71,7 @@ export default function TeamPage() {
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/team/founder/elizabeth-greene-founder-hero-01.jpg"
+            src="/images/team-new/team-01.jpg"
             alt="Elevate For Humanity Leadership Team"
             fill
             className="object-cover"

@@ -3,8 +3,6 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { User, Mail, Phone, MapPin, Briefcase, GraduationCap } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Profile | Student Portal',
   description: 'Manage your profile',

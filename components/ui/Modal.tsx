@@ -21,19 +21,19 @@ export const Modal: React.FC<ModalProps> = ({
   showCloseButton = true,
 }) => {
   useEffect(() => {
-    if (!isOpen) return undefined;
-    
-    document.body.style.overflow = 'hidden';
-    
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    
-    document.addEventListener('keydown', handleEscape);
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.removeEventListener('keydown', handleEscape);
-    };
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      
+      const handleEscape = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') onClose();
+      };
+      
+      document.addEventListener('keydown', handleEscape);
+      return () => {
+        document.body.style.overflow = 'unset';
+        document.removeEventListener('keydown', handleEscape);
+      };
+    }
   }, [isOpen, onClose]);
 
   if (!isOpen) return null; return null;

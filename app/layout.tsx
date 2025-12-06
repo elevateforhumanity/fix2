@@ -1,4 +1,3 @@
-// EFH LICENSE FINGERPRINT: EFH-2025-MASTER-000
 import type { Metadata, Viewport } from 'next';
 // Image asset: /images/programs-new/program-11.jpg
 import { Inter } from 'next/font/google';
@@ -24,17 +23,12 @@ import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
 import { InvisibleWatermark, DMCATrackingPixel } from '@/components/InvisibleWatermark';
 import { ScraperDetection } from '@/components/ScraperDetection';
-import { OfflineIndicator } from '@/components/offline-indicator';
-import { ServiceWorkerInit } from '@/components/service-worker-init';
-import { SentryInit } from '@/components/sentry-init';
-import FundingToast from '@/components/ui/FundingToast';
-import { getBranding } from '@/lib/branding';
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   preload: true,
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-inter',
 });
 
@@ -129,15 +123,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const branding = getBranding();
-  
   return (
-    <html 
-      lang="en" 
-      className={inter.variable}
-      data-app-name={branding.appName}
-      data-primary-color={branding.primaryColor}
-    >
+    <html lang="en" className={inter.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.png" type="image/png"
@@ -146,10 +133,7 @@ sizes="192x192" />
         <meta name="theme-color" content="#10b981" />
         <StructuredData />
       </head>
-      <body 
-        className={`${inter.className} antialiased bg-white`}
-        style={{ ['--brand-color' as string]: branding.primaryColor }}
-      >
+      <body className={`${inter.className} antialiased bg-white`}>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brandPrimary focus:text-white focus:rounded-md focus:shadow-lg"
@@ -172,9 +156,6 @@ sizes="192x192" />
         {/* <ElevateChatWidget /> */}
         <CookieBanner />
         <PWAInstallPrompt />
-        <OfflineIndicator />
-        <ServiceWorkerInit />
-        <SentryInit />
         <Toaster
           position="top-right"
           toastOptions={{
@@ -197,9 +178,6 @@ sizes="192x192" />
             },
           }}
         />
-        
-        {/* Global funding toast */}
-        <FundingToast />
       </body>
     </html>
   );

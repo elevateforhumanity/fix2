@@ -187,6 +187,7 @@ export class SocialMediaAutomation {
    */
   async publishPost(post: SocialMediaPost): Promise<void> {
     try {
+      // console.log(`📤 Publishing to ${post.platform}:`, post.content);
 
       // Call appropriate API based on platform
       switch (post.platform) {
@@ -202,6 +203,7 @@ export class SocialMediaAutomation {
       }
 
       post.status = 'posted';
+      // console.log(`✅ Posted to ${post.platform}`);
 
       // Trigger Zapier webhook
       await this.triggerZapier(post);
@@ -343,6 +345,7 @@ export class SocialMediaAutomation {
         }),
       });
 
+      // console.log('✅ Zapier webhook triggered');
     } catch (error) {
       console.error('❌ Zapier webhook failed:', error);
     }
@@ -441,7 +444,18 @@ export class SocialMediaAutomation {
    * Send report via email/notification
    */
   private async sendReport(report: DailyReport): Promise<void> {
+    // console.log('📊 Daily Social Media Report');
+    // console.log('============================');
+    // console.log(`Date: ${report.date.toLocaleDateString()}`);
+    // console.log(`Total Posts: ${report.posts.length}`);
+    // console.log(`Total Engagement:`);
+    // console.log(`  - Likes: ${report.totalEngagement.likes}`);
+    // console.log(`  - Shares: ${report.totalEngagement.shares}`);
+    // console.log(`  - Comments: ${report.totalEngagement.comments}`);
+    // console.log(`  - Views: ${report.totalEngagement.views}`);
+    // console.log('\nTop Performing Posts:');
     report.topPerforming.forEach((post, i) => {
+      // console.log(post, i);
     });
 
     // Send via email (implement with your email service)
@@ -477,6 +491,7 @@ export class SocialMediaAutomation {
    * Start automation
    */
   startAutomation(): void {
+    // console.log('🚀 Starting social media automation...');
 
     // Schedule daily posts
     this.scheduleDailyPosts();
@@ -492,6 +507,9 @@ export class SocialMediaAutomation {
       24 * 60 * 60 * 1000
     );
 
+    // console.log('✅ Social media automation started');
+    // console.log('📅 Posts scheduled 3x daily: 9 AM, 1 PM, 6 PM');
+    // console.log('📊 Reports scheduled 3x daily: 10 AM, 3 PM, 8 PM');
   }
 }
 

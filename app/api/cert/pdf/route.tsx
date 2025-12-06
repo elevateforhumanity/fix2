@@ -94,7 +94,7 @@ export async function GET(req: NextRequest) {
           <Text style={styles.row}>Serial: {cert.serial}</Text>
         </View>
         <View style={styles.qrRow}>
-          <Image src={qrDataUrl} style={{ width: 88, height: 88 }} />
+          <Image src={qrDataUrl} style={{ width: 88, height: 88 }} quality={85} />
           <View>
             <Text style={styles.qrText}>Scan to verify certificate</Text>
             <Text style={styles.qrText}>{verifyUrl}</Text>

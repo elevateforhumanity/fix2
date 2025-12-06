@@ -332,6 +332,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       }
       Promise.all([getEmailsForTask(id), getTaskEmailStats(id)]).then(
         ([emails, stats]) => {
+          console.log('Emails:', emails.length);
+          console.log('Stats:', stats);
         }
       );
       break;
@@ -345,6 +347,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       }
       Promise.all([getEmailsForSyncRun(id), getSyncRunEmailStats(id)]).then(
         ([emails, stats]) => {
+          console.log('Emails:', emails.length);
+          console.log('Stats:', stats);
         }
       );
       break;
@@ -357,7 +361,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         process.exit(1);
       }
       getEmailsForContent(id).then((emails) => {
+        console.log('Emails:', emails.length);
         emails.forEach((e) => {
+          console.log(`  ${e.recipient} - ${e.status} - ${e.created_at}`);
         });
       });
       break;
@@ -370,7 +376,9 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         process.exit(1);
       }
       getEmailsByCorrelation(id).then((emails) => {
+        console.log('Emails in correlation group:', emails.length);
         emails.forEach((e) => {
+          console.log(`  ${e.recipient} - ${e.status} - ${e.created_at}`);
         });
       });
       break;
@@ -383,13 +391,21 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         process.exit(1);
       }
       getEmailThread(id).then((thread) => {
+        console.log('Email thread:', thread.length, 'messages');
         thread.forEach((e) => {
+          console.log(`  ${e.created_at} - ${e.recipient} - ${e.status}`);
         });
       });
       break;
 
     default:
       console.log('Usage:');
-      console.log('  npx tsx src/email-correlation.ts correlation <correlation-id>');
+      console.log('  npx tsx src/email-correlation.ts task <task-id>');
+      console.log('  npx tsx src/email-correlation.ts sync <sync-run-id>');
+      console.log('  npx tsx src/email-correlation.ts content <content-id>');
+      console.log(
+        '  npx tsx src/email-correlation.ts correlation <correlation-id>'
+      );
+      console.log('  npx tsx src/email-correlation.ts thread <event-id>');
   }
 }

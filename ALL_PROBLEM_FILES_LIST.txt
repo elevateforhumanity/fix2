@@ -1,0 +1,62 @@
+COMPLETE LIST OF FILES WITH ESLINT ERRORS
+==========================================
+
+To get each file's content, run:
+cat [filename]
+
+PRIORITY 1 - API ROUTES (Critical Production Code):
+---------------------------------------------------
+app/api/export/route.ts
+app/api/moderation/route.ts
+app/api/payments/route.ts
+app/api/referrals/route.ts
+app/api/webhooks/route.ts
+
+PRIORITY 2 - ADMIN/STUDENT PAGES:
+----------------------------------
+app/admin/enrollments/page.tsx
+app/program-holder/dashboard/page.tsx
+app/student/hub/page.tsx
+app/student/success/page.tsx
+
+PRIORITY 3 - COMPONENTS:
+------------------------
+components/TaxCredentialingSection.tsx
+components/course/CourseMetaPanel.tsx
+components/course/CourseOverviewMeta.tsx
+components/protection/ContentProtection.tsx
+components/video/ProfessionalVideoPlayer.tsx
+lib/feedback.ts
+
+LOW PRIORITY - CAN IGNORE OR DELETE:
+------------------------------------
+HOMEPAGE_IMPLEMENTATION.tsx (template file - can delete)
+READY_TO_PASTE_HOMEPAGE.tsx (template file - can delete)
+app/page-old.tsx (backup file - can delete)
+add-await-params.cjs (utility script - add to .eslintignore)
+fix-all-routes.cjs (utility script - add to .eslintignore)
+fix-imports.cjs (utility script - add to .eslintignore)
+fix-remaining-params.cjs (utility script - add to .eslintignore)
+lib/autopilot/autopilot-core.js (add to .eslintignore)
+lib/autopilot/copilot-autopilot.js (add to .eslintignore)
+
+COMMANDS TO RUN:
+================
+
+# See all errors:
+pnpm run lint
+
+# Auto-fix what's possible:
+pnpm run lint:fix
+
+# Fix specific file:
+pnpm exec eslint --fix app/api/export/route.ts
+
+# Check TypeScript:
+pnpm run type-check
+
+# Test build:
+pnpm run build
+
+# Count remaining errors:
+pnpm run lint 2>&1 | grep "error" | wc -l

@@ -89,8 +89,10 @@ export async function handleResendWebhook(
       break;
     case 'email.delivery_delayed':
       // Don't update status, just log
+      console.log('Email delivery delayed:', messageId);
       return true;
     default:
+      console.log('Unknown Resend webhook type:', type);
       return true;
   }
 
@@ -128,6 +130,7 @@ export async function handlePostmarkWebhook(payload: any): Promise<boolean> {
       errorMessage = Complaint?.ComplaintFeedbackType;
       break;
     default:
+      console.log('Unknown Postmark webhook type:', RecordType);
       return true;
   }
 
@@ -189,6 +192,7 @@ export async function handleSESWebhook(payload: any): Promise<boolean> {
       errorMessage = 'Email rejected by SES';
       break;
     default:
+      console.log('Unknown SES webhook type:', eventType);
       return true;
   }
 
@@ -269,6 +273,7 @@ export const webhookHandlers = {
     // Handle SNS subscription confirmation
     if (req.body.Type === 'SubscriptionConfirmation') {
       const subscribeUrl = req.body.SubscribeURL;
+      console.log('SNS Subscription confirmation:', subscribeUrl);
       // In production, automatically confirm by fetching the URL
       res.status(200).json({ message: 'Subscription confirmation received' });
       return;
@@ -285,8 +290,12 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const testPayload = process.argv[3];
 
   if (!provider || !testPayload) {
-    console.log('Usage: npx tsx src/email-webhooks.ts <provider> <json-payload>');
-    console.log('Example: npx tsx src/email-webhooks.ts resend \'{"type":"email.delivered","data":{"email_id":"123"}}\'');
+    console.log(
+      'Usage: npx tsx src/email-webhooks.ts <provider> <json-payload>'
+    );
+    console.log(
+      'Example: npx tsx src/email-webhooks.ts resend \'{"type":"email.delivered","data":{"email_id":"123"}}\''
+    );
     process.exit(1);
   }
 

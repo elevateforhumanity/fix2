@@ -13,7 +13,7 @@ export function HomeHero({ images }: HomeHeroProps) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    if (images.length <= 1) return undefined;
+    if (images.length <= 1) return;
     const id = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, 8000);

@@ -32,7 +32,7 @@ export default function HomePage() {
       title: "Build Your Future in Healthcare",
       subtitle: "CNA, Medical Assistant, Pharmacy Tech & More",
       description: "Start your healthcare career with industry-recognized certifications",
-      image: "/images/efh/hero/hero-health.jpg"
+      image: "/images/artlist/hero-training-7.jpg"
     },
     {
       title: "Master the Skilled Trades",
@@ -44,7 +44,7 @@ export default function HomePage() {
       title: "Launch Your Tech Career",
       subtitle: "IT Support, Cybersecurity & Digital Skills",
       description: "Enter the technology field with in-demand certifications",
-      image: "/images/efh/hero/hero-support.jpg"
+      image: "/images/artlist/hero-training-8.jpg"
     },
     {
       title: "Beauty & Wellness Careers",
@@ -201,7 +201,7 @@ export default function HomePage() {
             <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl hover:-translate-y-3 transition-all duration-300">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/efh/hero/hero-health.jpg"
+                  src="/images/artlist/hero-training-7.jpg"
                   alt="100% Free Training - No Tuition"
                   fill
                   className="object-cover brightness-110"
@@ -232,7 +232,7 @@ export default function HomePage() {
             <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl hover:-translate-y-3 transition-all duration-300">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/images/efh/hero/hero-health.jpg"
+                  src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
                   alt="Government Certified Programs - Training"
                   fill
                   className="object-cover brightness-125"
@@ -836,12 +836,12 @@ const whyChooseUs = [
   {
     title: "Industry-Focused Curriculum",
     description: "Programs designed with employer input to teach the exact skills needed in today's job market",
-    image: "/images/programs/building-maintenance-hero.jpg",
+    image: "/images/artlist/hero-training-5.jpg",
   },
   {
     title: "Expert Instructors",
     description: "Learn from professionals with years of real-world experience in their fields",
-    image: "/images/efh/hero/hero-barber.jpg",
+    image: "/images/artlist/hero-training-6.jpg",
   },
   {
     title: "Job Placement Support",
@@ -887,7 +887,7 @@ const steps = [
     number: "2",
     title: "Train & Learn",
     description: "Attend classes with expert instructors and gain hands-on experience in modern facilities",
-    image: "/images/efh/hero/hero-health.jpg",
+    image: "/images/artlist/hero-training-7.jpg",
   },
   {
     number: "3",

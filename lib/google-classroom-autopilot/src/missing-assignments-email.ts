@@ -406,8 +406,6 @@ export async function sendMissingAssignmentsEmails() {
 
   // Generate correlation ID for this digest run
   const correlationId = generateCorrelationId('missing_assignments_digest');
-  const taskId = `missing_assignments_${Date.now()}`;
-  const syncRunId = `sync_${Date.now()}`;
   console.log(`Correlation ID: ${correlationId}`);
 
   // Queue emails for students and guardians
@@ -523,37 +521,8 @@ export async function sendMissingAssignmentsEmails() {
     );
   }
 
-  // Generate instructor reports
-  const instructorReports = await generateInstructorReports(missingAssignments);
-  let instructorEmailsSent = 0;
-
-  for (const [instructorEmail, report] of instructorReports.entries()) {
-    try {
-      const html = generateInstructorReportEmail(report);
-      
-      await emailService.send({
-        to: [instructorEmail],
-        from: process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
-        subject: `📊 Weekly Class Report: ${report.totalMissing} Missing Assignments`,
-        html,
-        tags: {
-          type: 'instructor_report',
-          course_count: report.courses.length.toString(),
-        },
-        taskId,
-        syncRunId,
-      });
-
-      instructorEmailsSent++;
-      console.log(`✅ Sent instructor report to ${instructorEmail}`);
-    } catch (error: any) {
-      console.error(`❌ Failed to send instructor report to ${instructorEmail}:`, error.message);
-    }
-  }
-
-  if (instructorEmailsSent > 0) {
-    console.log(`\n📧 Sent ${instructorEmailsSent} instructor reports`);
-  }
+  // TODO: Generate instructor reports
+  // Group by course/instructor and send summary
 
   return {
     totalMissing: missingAssignments.length,
@@ -561,127 +530,7 @@ export async function sendMissingAssignmentsEmails() {
     studentEmailsSent,
     guardianEmailsSent,
     guardianEmailsSkipped,
-    instructorEmailsSent,
   };
-}
-
-/**
- * Generate instructor reports grouped by course
- */
-async function generateInstructorReports(
-  missingAssignments: any[]
-): Promise<Map<string, any>> {
-  const reports = new Map();
-
-  // Group assignments by instructor
-  for (const assignment of missingAssignments) {
-    const instructorEmail = assignment.instructor_email;
-    if (!instructorEmail) continue;
-
-    if (!reports.has(instructorEmail)) {
-      reports.set(instructorEmail, {
-        instructorName: assignment.instructor_name || 'Instructor',
-        courses: new Map(),
-        totalMissing: 0,
-        totalStudents: new Set(),
-      });
-    }
-
-    const report = reports.get(instructorEmail);
-    const courseId = assignment.course_id;
-
-    if (!report.courses.has(courseId)) {
-      report.courses.set(courseId, {
-        courseName: assignment.course_name,
-        assignments: [],
-        studentsAffected: new Set(),
-      });
-    }
-
-    const courseReport = report.courses.get(courseId);
-    courseReport.assignments.push(assignment);
-    courseReport.studentsAffected.add(assignment.student_id);
-    report.totalStudents.add(assignment.student_id);
-    report.totalMissing++;
-  }
-
-  // Convert courses Map to Array
-  for (const [email, report] of reports.entries()) {
-    report.courses = Array.from(report.courses.values());
-    report.totalStudents = report.totalStudents.size;
-  }
-
-  return reports;
-}
-
-/**
- * Generate instructor report email HTML
- */
-function generateInstructorReportEmail(report: any): string {
-  return `
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-    .container { max-width: 700px; margin: 0 auto; padding: 20px; }
-    .header { background: #1a73e8; color: white; padding: 20px; border-radius: 8px 8px 0 0; }
-    .content { background: #f9f9f9; padding: 20px; border-radius: 0 0 8px 8px; }
-    .summary { background: white; padding: 15px; margin: 15px 0; border-radius: 4px; border-left: 4px solid #1a73e8; }
-    .course-section { background: white; padding: 15px; margin: 15px 0; border-radius: 4px; }
-    .stats { display: flex; justify-content: space-around; margin: 20px 0; }
-    .stat { text-align: center; }
-    .stat-number { font-size: 32px; font-weight: bold; color: #1a73e8; }
-    .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>📊 Weekly Class Report</h1>
-      <p>Missing Assignments Summary for ${report.instructorName}</p>
-    </div>
-    <div class="content">
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-number">${report.totalMissing}</div>
-          <div>Missing Assignments</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">${report.totalStudents}</div>
-          <div>Students Affected</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">${report.courses.length}</div>
-          <div>Courses</div>
-        </div>
-      </div>
-
-      ${report.courses.map((course: any) => `
-        <div class="course-section">
-          <h3>${course.courseName}</h3>
-          <p><strong>${course.studentsAffected.size}</strong> students with <strong>${course.assignments.length}</strong> missing assignments</p>
-          <ul>
-            ${course.assignments.slice(0, 5).map((a: any) => `
-              <li>${a.student_name}: ${a.title} (Due: ${new Date(a.due_date).toLocaleDateString()})</li>
-            `).join('')}
-            ${course.assignments.length > 5 ? `<li><em>...and ${course.assignments.length - 5} more</em></li>` : ''}
-          </ul>
-        </div>
-      `).join('')}
-
-      <center>
-        <a href="https://classroom.google.com" style="display: inline-block; background: #1a73e8; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; margin: 20px 0;">View in Google Classroom</a>
-      </center>
-    </div>
-    <div class="footer">
-      <p>This is an automated weekly report from Elevate for Humanity LMS</p>
-      <p>Questions? Contact: Elevate4humanityedu@gmail.com</p>
-    </div>
-  </div>
-</body>
-</html>
-  `;
 }
 
 // CLI

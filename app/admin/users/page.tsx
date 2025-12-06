@@ -3,8 +3,6 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'User Management | Admin',
   description: 'Manage all users in the platform',

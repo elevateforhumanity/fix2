@@ -1,123 +1,117 @@
--- ============================================
--- COPY THIS ENTIRE FILE AND PASTE INTO SUPABASE SQL EDITOR
--- ============================================
+-- =====================================================
+-- COPY AND PASTE THIS ENTIRE FILE INTO SUPABASE SQL EDITOR
+-- =====================================================
+-- This creates the certificate system for AI Instructor
+-- Run this once in your Supabase project
+-- =====================================================
 
--- Step 1: Add missing fields to courses table
-ALTER TABLE courses 
-  ADD COLUMN IF NOT EXISTS thumbnail_url TEXT,
-  ADD COLUMN IF NOT EXISTS category TEXT,
-  ADD COLUMN IF NOT EXISTS duration_hours INTEGER,
-  ADD COLUMN IF NOT EXISTS level TEXT CHECK (level IN ('beginner', 'intermediate', 'advanced', 'all'));
+-- Create student_certificates table
+CREATE TABLE IF NOT EXISTS student_certificates (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  student_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
+  certificate_type TEXT NOT NULL CHECK (certificate_type IN ('module', 'program')),
+  certificate_number TEXT UNIQUE NOT NULL,
+  course_name TEXT NOT NULL,
+  issued_date TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  issuer TEXT NOT NULL,
+  pdf_url TEXT,
+  metadata JSONB DEFAULT '{}',
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
 
--- Step 2: Create indexes for better performance
-CREATE INDEX IF NOT EXISTS idx_courses_moderation_status ON courses (moderation_status);
-CREATE INDEX IF NOT EXISTS idx_courses_category ON courses (category);
-CREATE INDEX IF NOT EXISTS idx_courses_level ON courses (level);
+-- Create indexes
+CREATE INDEX IF NOT EXISTS idx_student_certificates_student_id ON student_certificates(student_id);
+CREATE INDEX IF NOT EXISTS idx_student_certificates_number ON student_certificates(certificate_number);
+CREATE INDEX IF NOT EXISTS idx_student_certificates_type ON student_certificates(certificate_type);
+CREATE INDEX IF NOT EXISTS idx_student_certificates_issued_date ON student_certificates(issued_date DESC);
 
--- Step 3: Insert sample courses
-INSERT INTO courses (
-  title, 
-  slug, 
-  description, 
-  duration_weeks, 
-  moderation_status, 
-  category, 
-  level, 
-  thumbnail_url,
-  duration_hours
-)
-VALUES
-  (
-    'Certified Nursing Assistant (CNA) Training',
-    'cna-training',
-    'Fast-track CNA training that prepares you for entry-level roles in long-term care, hospitals, and home health. 100% free through WIOA funding.',
-    6,
-    'approved',
-    'Healthcare',
-    'beginner',
-    '/images/programs/efh-cna-hero.jpg',
-    120
-  ),
-  (
-    'HVAC Technician Training',
-    'hvac-technician',
-    'Learn to keep homes, schools, and businesses comfortable year-round. Hands-on training in heating, ventilation, and air conditioning systems.',
-    12,
-    'approved',
-    'Skilled Trades',
-    'intermediate',
-    '/images/programs/hvac-hero.jpg',
-    480
-  ),
-  (
-    'Barber Apprenticeship',
-    'barber-apprenticeship',
-    'Earn while you learn through a licensed barber apprenticeship. Real shop experience and preparation for state licensure.',
-    52,
-    'approved',
-    'Beauty & Wellness',
-    'beginner',
-    '/images/programs/barber-hero.jpg',
-    1500
-  ),
-  (
-    'Commercial Driver''s License (CDL) Training',
-    'cdl-training',
-    'Professional CDL training that prepares you for Class A or Class B licensing and entry-level commercial driving careers.',
-    8,
-    'approved',
-    'Transportation',
-    'beginner',
-    '/images/programs/cdl-hero.jpg',
-    160
-  ),
-  (
-    'Building Maintenance Technician',
-    'building-maintenance',
-    'Hands-on training for individuals seeking roles in building repair, maintenance, and facility operations.',
-    10,
-    'approved',
-    'Skilled Trades',
-    'beginner',
-    '/images/programs/building-maintenance-hero.jpg',
-    200
-  ),
-  (
-    'Workforce Readiness Training',
-    'workforce-readiness',
-    'A job-readiness program that builds the essential skills needed to succeed in employment, training, and career advancement.',
-    4,
-    'approved',
-    'Career Development',
-    'all',
-    '/images/programs/efh-building-tech-hero.jpg',
-    40
-  )
-ON CONFLICT (slug) DO UPDATE SET
-  description = EXCLUDED.description,
-  duration_weeks = EXCLUDED.duration_weeks,
-  moderation_status = EXCLUDED.moderation_status,
-  category = EXCLUDED.category,
-  level = EXCLUDED.level,
-  thumbnail_url = EXCLUDED.thumbnail_url,
-  duration_hours = EXCLUDED.duration_hours,
-  updated_at = NOW();
+-- Enable Row Level Security
+ALTER TABLE student_certificates ENABLE ROW LEVEL SECURITY;
 
--- Step 4: Verify the data was inserted
-SELECT 
-  id, 
-  title, 
-  slug,
-  moderation_status, 
-  category, 
-  level,
-  duration_weeks,
-  duration_hours,
-  thumbnail_url 
-FROM courses 
-WHERE moderation_status = 'approved'
-ORDER BY title;
+-- RLS Policies
+DROP POLICY IF EXISTS "Students can view their own certificates" ON student_certificates;
+CREATE POLICY "Students can view their own certificates"
+  ON student_certificates FOR SELECT
+  USING (auth.uid() = student_id);
 
--- ============================================
--- DONE! You should see 6 courses in the results
--- ============================================
+DROP POLICY IF EXISTS "Service role can insert certificates" ON student_certificates;
+CREATE POLICY "Service role can insert certificates"
+  ON student_certificates FOR INSERT
+  WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Service role can update certificates" ON student_certificates;
+CREATE POLICY "Service role can update certificates"
+  ON student_certificates FOR UPDATE
+  USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Public can verify certificates" ON student_certificates;
+CREATE POLICY "Public can verify certificates"
+  ON student_certificates FOR SELECT
+  USING (true);
+
+-- Create storage bucket for certificates
+INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+VALUES ('certificates', 'certificates', true, 5242880, ARRAY['application/pdf'])
+ON CONFLICT (id) DO UPDATE SET
+  public = true,
+  file_size_limit = 5242880,
+  allowed_mime_types = ARRAY['application/pdf'];
+
+-- Storage policies
+DROP POLICY IF EXISTS "Anyone can view certificates" ON storage.objects;
+CREATE POLICY "Anyone can view certificates"
+  ON storage.objects FOR SELECT
+  USING (bucket_id = 'certificates');
+
+DROP POLICY IF EXISTS "Service role can upload certificates" ON storage.objects;
+CREATE POLICY "Service role can upload certificates"
+  ON storage.objects FOR INSERT
+  WITH CHECK (bucket_id = 'certificates');
+
+DROP POLICY IF EXISTS "Service role can update certificates" ON storage.objects;
+CREATE POLICY "Service role can update certificates"
+  ON storage.objects FOR UPDATE
+  USING (bucket_id = 'certificates') WITH CHECK (bucket_id = 'certificates');
+
+DROP POLICY IF EXISTS "Service role can delete certificates" ON storage.objects;
+CREATE POLICY "Service role can delete certificates"
+  ON storage.objects FOR DELETE
+  USING (bucket_id = 'certificates');
+
+-- Update timestamp function
+CREATE OR REPLACE FUNCTION update_updated_at_column()
+RETURNS TRIGGER AS $$
+BEGIN
+  NEW.updated_at = NOW();
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Trigger for updated_at
+DROP TRIGGER IF EXISTS update_student_certificates_updated_at ON student_certificates;
+CREATE TRIGGER update_student_certificates_updated_at
+  BEFORE UPDATE ON student_certificates
+  FOR EACH ROW
+  EXECUTE FUNCTION update_updated_at_column();
+
+-- Add completed_modules to partner_course_enrollments
+DO $$ 
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM information_schema.columns 
+    WHERE table_name = 'partner_course_enrollments' 
+    AND column_name = 'completed_modules'
+  ) THEN
+    ALTER TABLE partner_course_enrollments ADD COLUMN completed_modules TEXT[] DEFAULT '{}';
+  END IF;
+END $$;
+
+CREATE INDEX IF NOT EXISTS idx_partner_course_enrollments_completed_modules 
+  ON partner_course_enrollments USING GIN(completed_modules);
+
+-- Grant permissions
+GRANT SELECT ON student_certificates TO anon, authenticated;
+GRANT ALL ON student_certificates TO service_role;
+GRANT SELECT ON storage.objects TO anon, authenticated;
+GRANT ALL ON storage.objects TO service_role;

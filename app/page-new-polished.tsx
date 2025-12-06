@@ -318,7 +318,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/programs/cdl-hero.jpg"
+                src="/images/artlist/hero-training-4.jpg"
                 alt="Free training through government funding"
                 fill
                 className="object-cover" quality={85} sizes="100vw"
@@ -400,7 +400,7 @@ const programs = [
     duration: "8-10 weeks",
     salary: "$32K-$42K",
     rating: "4.6",
-    image: "/images/programs/efh-cna-hero.jpg",
+    image: "/media/programs/medical-assistant-hd.jpg",
     link: "/programs/medical-assistant",
   },
   {

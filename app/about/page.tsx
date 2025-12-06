@@ -11,15 +11,26 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="bg-white">
-      {/* Hero Section - Clean White */}
-      <section className="bg-white py-24">
-        <div className="max-w-7xl mx-auto px-8 md:px-12">
-          <div className="max-w-4xl">
-            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight">
-              About Elevate
+      {/* Hero Section with Background Image */}
+      <section className="relative h-[500px] w-full overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1000&fit=crop&q=85"
+          alt="Team collaboration"
+          fill
+          className="object-cover"
+          priority
+          quality={85}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl">
+              About Elevate For Humanity
             </h1>
-            <p className="text-2xl md:text-3xl text-slate-700 leading-relaxed">
-              Connecting people to free workforce training
+            <p className="text-xl md:text-2xl text-blue-100 leading-relaxed drop-shadow-lg">
+              Connecting people to 100% free workforce training that leads to real careers
             </p>
           </div>
         </div>
@@ -109,8 +120,14 @@ export default function Page() {
           </p>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
-                <Users className="w-10 h-10 text-blue-600" />
+              <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=1920&h=1000&fit=crop&q=85"
+                  alt="Accessibility"
+                  fill
+                  className="object-cover"
+                  sizes="80px" quality={85}
+                />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Accessibility</h3>
               <p className="text-slate-600 text-center leading-relaxed">
@@ -118,8 +135,14 @@ export default function Page() {
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
-                <Award className="w-10 h-10 text-green-600" />
+              <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1000&fit=crop&q=85"
+                  alt="Quality"
+                  fill
+                  className="object-cover"
+                  sizes="80px" quality={85}
+                />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Quality</h3>
               <p className="text-slate-600 text-center leading-relaxed">
@@ -127,8 +150,14 @@ export default function Page() {
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-purple-100 flex items-center justify-center">
-                <Heart className="w-10 h-10 text-purple-600" />
+              <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1920&h=1000&fit=crop&q=85"
+                  alt="Community"
+                  fill
+                  className="object-cover"
+                  sizes="80px" quality={85}
+                />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Community</h3>
               <p className="text-slate-600 text-center leading-relaxed">
@@ -136,8 +165,14 @@ export default function Page() {
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-orange-100 flex items-center justify-center">
-                <Target className="w-10 h-10 text-orange-600" />
+              <div className="relative w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&h=1000&fit=crop&q=85"
+                  alt="Impact"
+                  fill
+                  className="object-cover"
+                  sizes="80px" quality={85}
+                />
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Impact</h3>
               <p className="text-slate-600 text-center leading-relaxed">
@@ -245,7 +280,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="/images/healthcare/video-thumbnail-cna-training.jpg"
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1000&fit=crop&q=85"
                   alt="Employer-Driven Training"
                   fill
                   className="object-cover"
@@ -260,7 +295,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="/images/healthcare/video-thumbnail-cna-training.jpg"
+                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1920&h=1000&fit=crop&q=85"
                   alt="Wraparound Support"
                   fill
                   className="object-cover"
@@ -275,7 +310,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="/images/healthcare/video-thumbnail-cna-training.jpg"
+                  src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=1000&fit=crop&q=85"
                   alt="Direct Employer Connections"
                   fill
                   className="object-cover"

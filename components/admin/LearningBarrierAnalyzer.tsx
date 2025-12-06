@@ -223,6 +223,7 @@ export function LearningBarrierAnalyzer() {
     for (const barrier of barriers) {
       if (barrier.severity === 'high' || barrier.severity === 'critical') {
         // Auto-create and deploy remediation content
+        // console.log(`🤖 Auto-deploying: ${barrier.autoRemediation.title}`);
         // This would integrate with your LMS to create actual content
       }
     }

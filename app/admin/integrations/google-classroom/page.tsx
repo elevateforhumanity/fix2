@@ -3,8 +3,6 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Google Classroom | Elevate For Humanity',
   description: 'Learn more about Google Classroom inside the Elevate For Humanity workforce ecosystem.',

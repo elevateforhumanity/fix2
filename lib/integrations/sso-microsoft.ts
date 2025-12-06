@@ -370,7 +370,7 @@ export class OutlookCalendarIntegration {
       .eq('course_id', courseId)
       .gte('due_date', new Date().toISOString());
 
-    if (!assignments) return 0;
+    if (!assignments) return;
 
     for (const assignment of assignments) {
       await this.createEvent({

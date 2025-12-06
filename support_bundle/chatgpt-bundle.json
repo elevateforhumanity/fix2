@@ -1,0 +1,2466 @@
+{
+  "generatedAt": "2025-11-11T22:20:10.152Z",
+  "host": {
+    "os": "linux 6.14.10-gitpod",
+    "arch": "x64",
+    "node": "v22.17.0",
+    "npm": "9.8.1",
+    "container": false
+  },
+  "repo": {
+    "remote": "https://github.com/elevateforhumanity/fix2.git",
+    "branch": "main",
+    "commit": "6617c919"
+  },
+  "packageJson": {
+    "parsed": {
+      "name": "efh-autopilot",
+      "type": "module",
+      "version": "2.0.0",
+      "engines": {
+        "node": ">=20.11.1 <23"
+      },
+      "packageManager": "pnpm@9.7.0",
+      "lint-staged": {
+        "*.{ts,tsx,js,jsx,css,md}": ["prettier --write"]
+      },
+      "dependencies": {
+        "@capacitor/app": "^7.0.2",
+        "@capacitor/core": "^7.4.4",
+        "@capacitor/haptics": "^7.0.2",
+        "@capacitor/keyboard": "^7.0.2",
+        "@capacitor/status-bar": "^7.0.2",
+        "@hookform/resolvers": "^5.2.2",
+        "@stripe/stripe-js": "^8.1.0",
+        "@supabase/auth-js": "^2.76.1",
+        "@supabase/supabase-js": "2.57.4",
+        "@vitejs/plugin-react": "5.1.0",
+        "autoprefixer": "^10.4.21",
+        "axios": "^1.12.2",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "compression": "^1.8.1",
+        "dompurify": "3.3.0",
+        "express": "^5.1.0",
+        "glob": "^10.4.5",
+        "jsdom": "23.2.0",
+        "lucide-react": "^0.471.0",
+        "node-fetch": "3.3.2",
+        "openai": "^6.7.0",
+        "parse-multipart-data": "^1.5.0",
+        "postcss": "^8.5.6",
+        "prop-types": "15.8.1",
+        "react": "19.1.1",
+        "react-dom": "19.1.1",
+        "react-helmet-async": "^2.0.5",
+        "react-hook-form": "^7.64.0",
+        "react-router-dom": "^6.28.0",
+        "recharts": "^3.3.0",
+        "rollup-plugin-visualizer": "6.0.3",
+        "sitemap": "^8.0.1",
+        "slugify": "1.6.6",
+        "socket.io-client": "^4.8.1",
+        "stripe": "^19.1.0",
+        "tailwind-merge": "^3.3.1",
+        "tailwindcss": "^3.4.18",
+        "tailwindcss-animate": "^1.0.7",
+        "vite": "7.1.12",
+        "zod": "^4.1.11",
+        "zustand": "^5.0.8"
+      },
+      "devDependencies": {
+        "@axe-core/playwright": "4.11.0",
+        "@capacitor/android": "^7.4.4",
+        "@capacitor/cli": "^7.4.4",
+        "@capacitor/ios": "^7.4.4",
+        "@eslint/js": "^9.38.0",
+        "@iarna/toml": "2.2.5",
+        "@netlify/functions": "^5.0.1",
+        "@playwright/test": "1.56.1",
+        "@tailwindcss/forms": "^0.5.10",
+        "@tailwindcss/typography": "^0.5.19",
+        "@testing-library/jest-dom": "^6.9.1",
+        "@testing-library/react": "^16.3.0",
+        "@testing-library/user-event": "^14.6.1",
+        "@types/dompurify": "3.2.0",
+        "@types/node": "^24.7.2",
+        "@types/react": "^19.2.2",
+        "@types/react-dom": "^19.2.2",
+        "@typescript-eslint/eslint-plugin": "^8.46.1",
+        "@typescript-eslint/parser": "^8.46.1",
+        "@vitest/coverage-v8": "^3.2.4",
+        "@vitest/ui": "^3.2.4",
+        "dotenv": "^17.2.3",
+        "eslint": "^9.37.0",
+        "eslint-plugin-react": "^7.37.5",
+        "eslint-plugin-react-hooks": "^7.0.0",
+        "globals": "^16.4.0",
+        "happy-dom": "^20.0.0",
+        "husky": "^8.0.0",
+        "jest": "^29.7.0",
+        "js-yaml": "^4.1.0",
+        "linkinator": "^7.4.0",
+        "lint-staged": "^16.2.4",
+        "netlify-cli": "^23.9.5",
+        "netlify-plugin-cache": "^1.0.3",
+        "netlify-plugin-submit-sitemap": "^0.4.0",
+        "prettier": "^3.6.2",
+        "puppeteer": "^24.27.0",
+        "rimraf": "5.0.10",
+        "serve": "14.2.5",
+        "sort-package-json": "^3.4.0",
+        "stylelint": "^16.25.0",
+        "stylelint-config-standard": "^39.0.1",
+        "stylelint-config-tailwindcss": "^1.0.0",
+        "terser": "^5.44.0",
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.46.1",
+        "vite-plugin-html": "^3.2.0",
+        "vite-plugin-sitemap": "^0.8.2",
+        "vite-ssg": "^0.24.0",
+        "vitest": "^3.2.4",
+        "web-vitals": "^5.1.0",
+        "wrangler": "^4.43.0"
+      },
+      "scripts": {
+        "preinstall": "corepack enable || true",
+        "ci:install": "pnpm install --frozen-lockfile",
+        "ci:build": "pnpm build",
+        "ci:check": "pnpm typecheck && pnpm lint",
+        "clean:full": "rimraf node_modules dist .vite .turbo && pnpm store prune",
+        "autopilot": "node workers/start-autopilot.js",
+        "autopilot:bg": "node workers/start-autopilot.js &",
+        "dev:with-autopilot": "pnpm autopilot:bg && pnpm dev",
+        "predev": "echo 'Starting dev server...'",
+        "dev": "vite",
+        "make:images": "python3 tools/make_brand_images.py",
+        "make:logo": "python3 tools/make_logo_assets.py",
+        "prebuild": "node scripts/generate-routes.mjs",
+        "build": "vite build",
+        "postbuild": "node scripts/no-source-maps.cjs && bash scripts/copy-bridge-files.sh",
+        "verify:build": "bash scripts/verify-build.sh",
+        "preview": "node scripts/preview-server.cjs",
+        "preview:serve": "serve -c serve.json -l 8080 --no-clipboard",
+        "preview:vite": "vite preview --port 8080 --host 0.0.0.0",
+        "check:links": "linkinator http://127.0.0.1:8080 --recurse --skip 'mailto:|tel:'",
+        "ci:lh": "lhci collect --url=http://127.0.0.1:8080 --numberOfRuns=1 --settings.preset=desktop",
+        "test": "vitest --run",
+        "test:watch": "vitest",
+        "test:ui": "vitest --ui",
+        "test:coverage": "vitest run --coverage",
+        "format": "prettier . --write",
+        "format:check": "prettier --check .",
+        "typecheck": "tsc --noEmit",
+        "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+        "lint:brand": "node scripts/reviewer.js src",
+        "lint:brand:all": "node scripts/reviewer.js",
+        "fix:brand": "node scripts/fix-brand-colors.js src",
+        "fix:brand:dry": "node scripts/fix-brand-colors.js src --dry-run",
+        "brand:guard": "node tools/brand-guard.cjs",
+        "polish:check": "npm run lint:brand && npm run brand:guard",
+        "polish:fix": "npm run fix:brand",
+        "tokens:guard": "node tools/brand-guard.cjs",
+        "sitemap:gen": "node tools/sitemap-gen.cjs",
+        "robots:gen": "node tools/robots-gen.cjs",
+        "autopilot:migrate": "node scripts/autopilot-migrate.mjs",
+        "autopilot:setup": "node scripts/autopilot-ultimate.mjs",
+        "autopilot:fix": "npm run format && npm run fix:brand && npm run sitemap:gen && npm run robots:gen && npm run tokens:guard && echo '✅ Auto-fixes complete'",
+        "autopilot:check": "npm run lint && npm run typecheck && npm run tokens:guard && npm run build && echo '✅ All checks passed'",
+        "autopilot:prepush": "npm run lint && npm run typecheck && npm run tokens:guard && echo '✅ Pre-push checks passed'",
+        "clean": "rimraf dist coverage .cache",
+        "prepare": "husky install || true",
+        "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+        "css:lint": "stylelint \"**/*.{css,pcss,scss}\"",
+        "css:fix": "stylelint \"**/*.{css,pcss,scss}\" --fix",
+        "doctor": "npm run format && npm run lint:fix && npm run css:fix && npm run build --if-present",
+        "mobile:copy": "pnpm build && pnpm exec cap copy",
+        "mobile:sync": "pnpm build && pnpm exec cap sync",
+        "mobile:android": "pnpm build && pnpm exec cap open android",
+        "mobile:ios": "pnpm build && pnpm exec cap open ios"
+      }
+    },
+    "raw": "{\n  \"name\": \"efh-autopilot\",\n  \"type\": \"module\",\n  \"version\": \"2.0.0\",\n  \"engines\": {\n    \"node\": \">=20.11.1 <23\"\n  },\n  \"packageManager\": \"pnpm@9.7.0\",\n  \"lint-staged\": {\n    \"*.{ts,tsx,js,jsx,css,md}\": [\n      \"prettier --write\"\n    ]\n  },\n  \"dependencies\": {\n    \"@capacitor/app\": \"^7.0.2\",\n    \"@capacitor/core\": \"^7.4.4\",\n    \"@capacitor/haptics\": \"^7.0.2\",\n    \"@capacitor/keyboard\": \"^7.0.2\",\n    \"@capacitor/status-bar\": \"^7.0.2\",\n    \"@hookform/resolvers\": \"^5.2.2\",\n    \"@stripe/stripe-js\": \"^8.1.0\",\n    \"@supabase/auth-js\": \"^2.76.1\",\n    \"@supabase/supabase-js\": \"2.57.4\",\n    \"@vitejs/plugin-react\": \"5.1.0\",\n    \"autoprefixer\": \"^10.4.21\",\n    \"axios\": \"^1.12.2\",\n    \"class-variance-authority\": \"^0.7.1\",\n    \"clsx\": \"^2.1.1\",\n    \"compression\": \"^1.8.1\",\n    \"dompurify\": \"3.3.0\",\n    \"express\": \"^5.1.0\",\n    \"glob\": \"^10.4.5\",\n    \"jsdom\": \"23.2.0\",\n    \"lucide-react\": \"^0.471.0\",\n    \"node-fetch\": \"3.3.2\",\n    \"openai\": \"^6.7.0\",\n    \"parse-multipart-data\": \"^1.5.0\",\n    \"postcss\": \"^8.5.6\",\n    \"prop-types\": \"15.8.1\",\n    \"react\": \"19.1.1\",\n    \"react-dom\": \"19.1.1\",\n    \"react-helmet-async\": \"^2.0.5\",\n    \"react-hook-form\": \"^7.64.0\",\n    \"react-router-dom\": \"^6.28.0\",\n    \"recharts\": \"^3.3.0\",\n    \"rollup-plugin-visualizer\": \"6.0.3\",\n    \"sitemap\": \"^8.0.1\",\n    \"slugify\": \"1.6.6\",\n    \"socket.io-client\": \"^4.8.1\",\n    \"stripe\": \"^19.1.0\",\n    \"tailwind-merge\": \"^3.3.1\",\n    \"tailwindcss\": \"^3.4.18\",\n    \"tailwindcss-animate\": \"^1.0.7\",\n    \"vite\": \"7.1.12\",\n    \"zod\": \"^4.1.11\",\n    \"zustand\": \"^5.0.8\"\n  },\n  \"devDependencies\": {\n    \"@axe-core/playwright\": \"4.11.0\",\n    \"@capacitor/android\": \"^7.4.4\",\n    \"@capacitor/cli\": \"^7.4.4\",\n    \"@capacitor/ios\": \"^7.4.4\",\n    \"@eslint/js\": \"^9.38.0\",\n    \"@iarna/toml\": \"2.2.5\",\n    \"@netlify/functions\": \"^5.0.1\",\n    \"@playwright/test\": \"1.56.1\",\n    \"@tailwindcss/forms\": \"^0.5.10\",\n    \"@tailwindcss/typography\": \"^0.5.19\",\n    \"@testing-library/jest-dom\": \"^6.9.1\",\n    \"@testing-library/react\": \"^16.3.0\",\n    \"@testing-library/user-event\": \"^14.6.1\",\n    \"@types/dompurify\": \"3.2.0\",\n    \"@types/node\": \"^24.7.2\",\n    \"@types/react\": \"^19.2.2\",\n    \"@types/react-dom\": \"^19.2.2\",\n    \"@typescript-eslint/eslint-plugin\": \"^8.46.1\",\n    \"@typescript-eslint/parser\": \"^8.46.1\",\n    \"@vitest/coverage-v8\": \"^3.2.4\",\n    \"@vitest/ui\": \"^3.2.4\",\n    \"dotenv\": \"^17.2.3\",\n    \"eslint\": \"^9.37.0\",\n    \"eslint-plugin-react\": \"^7.37.5\",\n    \"eslint-plugin-react-hooks\": \"^7.0.0\",\n    \"globals\": \"^16.4.0\",\n    \"happy-dom\": \"^20.0.0\",\n    \"husky\": \"^8.0.0\",\n    \"jest\": \"^29.7.0\",\n    \"js-yaml\": \"^4.1.0\",\n    \"linkinator\": \"^7.4.0\",\n    \"lint-staged\": \"^16.2.4\",\n    \"netlify-cli\": \"^23.9.5\",\n    \"netlify-plugin-cache\": \"^1.0.3\",\n    \"netlify-plugin-submit-sitemap\": \"^0.4.0\",\n    \"prettier\": \"^3.6.2\",\n    \"puppeteer\": \"^24.27.0\",\n    \"rimraf\": \"5.0.10\",\n    \"serve\": \"14.2.5\",\n    \"sort-package-json\": \"^3.4.0\",\n    \"stylelint\": \"^16.25.0\",\n    \"stylelint-config-standard\": \"^39.0.1\",\n    \"stylelint-config-tailwindcss\": \"^1.0.0\",\n    \"terser\": \"^5.44.0\",\n    \"typescript\": \"^5.9.3\",\n    \"typescript-eslint\": \"^8.46.1\",\n    \"vite-plugin-html\": \"^3.2.0\",\n    \"vite-plugin-sitemap\": \"^0.8.2\",\n    \"vite-ssg\": \"^0.24.0\",\n    \"vitest\": \"^3.2.4\",\n    \"web-vitals\": \"^5.1.0\",\n    \"wrangler\": \"^4.43.0\"\n  },\n  \"scripts\": {\n    \"preinstall\": \"corepack enable || true\",\n    \"ci:install\": \"pnpm install --frozen-lockfile\",\n    \"ci:build\": \"pnpm build\",\n    \"ci:check\": \"pnpm typecheck && pnpm lint\",\n    \"clean:full\": \"rimraf node_modules dist .vite .turbo && pnpm store prune\",\n    \"autopilot\": \"node workers/start-autopilot.js\",\n    \"autopilot:bg\": \"node workers/start-autopilot.js &\",\n    \"dev:with-autopilot\": \"pnpm autopilot:bg && pnpm dev\",\n    \"predev\": \"echo 'Starting dev server...'\",\n    \"dev\": \"vite\",\n    \"make:images\": \"python3 tools/make_brand_images.py\",\n    \"make:logo\": \"python3 tools/make_logo_assets.py\",\n    \"prebuild\": \"node scripts/generate-routes.mjs\",\n    \"build\": \"vite build\",\n    \"postbuild\": \"node scripts/no-source-maps.cjs && bash scripts/copy-bridge-files.sh\",\n    \"verify:build\": \"bash scripts/verify-build.sh\",\n    \"preview\": \"node scripts/preview-server.cjs\",\n    \"preview:serve\": \"serve -c serve.json -l 8080 --no-clipboard\",\n    \"preview:vite\": \"vite preview --port 8080 --host 0.0.0.0\",\n    \"check:links\": \"linkinator http://127.0.0.1:8080 --recurse --skip 'mailto:|tel:'\",\n    \"ci:lh\": \"lhci collect --url=http://127.0.0.1:8080 --numberOfRuns=1 --settings.preset=desktop\",\n    \"test\": \"vitest --run\",\n    \"test:watch\": \"vitest\",\n    \"test:ui\": \"vitest --ui\",\n    \"test:coverage\": \"vitest run --coverage\",\n    \"format\": \"prettier . --write\",\n    \"format:check\": \"prettier --check .\",\n    \"typecheck\": \"tsc --noEmit\",\n    \"lint\": \"eslint . --ext .js,.jsx,.ts,.tsx\",\n    \"lint:brand\": \"node scripts/reviewer.js src\",\n    \"lint:brand:all\": \"node scripts/reviewer.js\",\n    \"fix:brand\": \"node scripts/fix-brand-colors.js src\",\n    \"fix:brand:dry\": \"node scripts/fix-brand-colors.js src --dry-run\",\n    \"brand:guard\": \"node tools/brand-guard.cjs\",\n    \"polish:check\": \"npm run lint:brand && npm run brand:guard\",\n    \"polish:fix\": \"npm run fix:brand\",\n    \"tokens:guard\": \"node tools/brand-guard.cjs\",\n    \"sitemap:gen\": \"node tools/sitemap-gen.cjs\",\n    \"robots:gen\": \"node tools/robots-gen.cjs\",\n    \"autopilot:migrate\": \"node scripts/autopilot-migrate.mjs\",\n    \"autopilot:setup\": \"node scripts/autopilot-ultimate.mjs\",\n    \"autopilot:fix\": \"npm run format && npm run fix:brand && npm run sitemap:gen && npm run robots:gen && npm run tokens:guard && echo '✅ Auto-fixes complete'\",\n    \"autopilot:check\": \"npm run lint && npm run typecheck && npm run tokens:guard && npm run build && echo '✅ All checks passed'\",\n    \"autopilot:prepush\": \"npm run lint && npm run typecheck && npm run tokens:guard && echo '✅ Pre-push checks passed'\",\n    \"clean\": \"rimraf dist coverage .cache\",\n    \"prepare\": \"husky install || true\",\n    \"lint:fix\": \"eslint . --ext .js,.jsx,.ts,.tsx --fix\",\n    \"css:lint\": \"stylelint \\\"**/*.{css,pcss,scss}\\\"\",\n    \"css:fix\": \"stylelint \\\"**/*.{css,pcss,scss}\\\" --fix\",\n    \"doctor\": \"npm run format && npm run lint:fix && npm run css:fix && npm run build --if-present\",\n    \"mobile:copy\": \"pnpm build && pnpm exec cap copy\",\n    \"mobile:sync\": \"pnpm build && pnpm exec cap sync\",\n    \"mobile:android\": \"pnpm build && pnpm exec cap open android\",\n    \"mobile:ios\": \"pnpm build && pnpm exec cap open ios\"\n  }\n}\n",
+    "lockFiles": [
+      {
+        "name": "pnpm-lock.yaml",
+        "sha256": "1a6bb501fbb8d9d5e25ec35086960db7e089f1902091b4598f7f6c4fbd62d8fc"
+      }
+    ]
+  },
+  "configs": {
+    "netlifyTomlRaw": "[build]\n  command = \"npm run build\"\n  publish = \"dist\"\n\n[build.environment]\n  NODE_VERSION = \"20.19.0\"\n\n# SPA fallback for client-side routing\n[[redirects]]\n  from = \"/*\"\n  to = \"/index.html\"\n  status = 200\n\n# Security headers with cache busting\n[[headers]]\n  for = \"/*\"\n  [headers.values]\n    Cache-Control = \"public, max-age=0, must-revalidate\"\n    Strict-Transport-Security = \"max-age=15552000; includeSubDomains; preload\"\n    X-Frame-Options = \"SAMEORIGIN\"\n    X-Content-Type-Options = \"nosniff\"\n    Referrer-Policy = \"strict-origin-when-cross-origin\"\n    Content-Security-Policy = \"default-src 'self' https:; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; connect-src 'self' https:\"\n\n# Bust cache on JS/CSS files\n[[headers]]\n  for = \"/*.js\"\n  [headers.values]\n    Cache-Control = \"public, max-age=0, must-revalidate\"\n\n[[headers]]\n  for = \"/*.css\"\n  [headers.values]\n    Cache-Control = \"public, max-age=0, must-revalidate\"\n\n# Images can cache longer\n[[headers]]\n  for = \"/images/*\"\n  [headers.values]\n    Cache-Control = \"public, max-age=31536000, immutable\"\n",
+    "vercelJsonRaw": null,
+    "wranglerTomlRaw": null,
+    "viteConfigRaw": "import { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\nimport path from 'path';\nimport sitemap from 'vite-plugin-sitemap';\nimport { copyFileSync, mkdirSync, cpSync, existsSync } from 'fs';\n\n// Define all routes for sitemap generation\nconst routes = [\n  // Core pages\n  '/',\n  '/about',\n  '/community',\n  '/connect',\n  '/contact',\n  '/donate',\n  '/apply',\n\n  // Programs\n  '/programs',\n  '/programs/barber',\n  '/programs/building-tech',\n  '/programs/healthcare',\n  '/programs/tax-business',\n  '/programs/hvac',\n  '/programs/cprs',\n  '/programs/digital-skills',\n  '/programs/drug-testing',\n  '/programs/leadership',\n\n  // LMS\n  '/lms',\n  '/lms/dashboard',\n  '/lms/courses',\n  '/lms/courses-index',\n  '/student-portal-lms',\n\n  // Certificates\n  '/certificates',\n  '/verify',\n\n  // Auth\n  '/auth/login',\n  '/auth/signup',\n\n  // Legal\n  '/legal/terms',\n  '/legal/privacy',\n  '/legal/ip-notice',\n  '/legal/dmca',\n\n  // Additional\n  '/partners',\n  '/support',\n  '/employers',\n  '/blog',\n  '/calendar',\n];\n\nexport default defineConfig({\n  define: {\n    __APP_VERSION__: JSON.stringify(process.env.VITE_BUILD_ID || 'dev'),\n  },\n  plugins: [\n    react(),\n    // Sitemap disabled - causing build issues\n    // sitemap({\n    //   hostname: 'https://elevateforhumanity.org',\n    //   dynamicRoutes: routes,\n    //   outDir: 'dist',\n    //   changefreq: 'weekly',\n    //   priority: 0.8,\n    //   lastmod: new Date().toISOString(),\n    //   robots: false,\n    // }),\n    {\n      name: 'copy-assets-and-bridge-files',\n      closeBundle() {\n        // Copy bridge files and ensure all public assets are in dist\n        try {\n          // Copy API config\n          mkdirSync('dist/api', { recursive: true });\n          copyFileSync(\n            'public/api/efh-config.json',\n            'dist/api/efh-config.json'\n          );\n          \n          // NOTE: Durable.co injection files (efh-bridge.js, inject-bridge.js, auto-inject-bridge.html) \n          // have been removed as they are no longer needed\n          \n          // Ensure all images are copied (Vite should do this, but double-check)\n          if (existsSync('public/images')) {\n            mkdirSync('dist/images', { recursive: true });\n            cpSync('public/images', 'dist/images', { recursive: true });\n            console.log('✅ Images directory verified/copied to dist/');\n          }\n          \n          console.log('✅ All bridge files and assets copied to dist/');\n        } catch (err) {\n          console.error('⚠️ Failed to copy files:', err.message);\n        }\n      },\n    },\n  ],\n  base: '/',\n  resolve: {\n    alias: {\n      '@': path.resolve(__dirname, './src'),\n    },\n  },\n  build: {\n    outDir: 'dist',\n    sourcemap: false, // Disable sourcemaps for production\n    target: 'es2019',\n    minify: 'terser',\n    assetsInlineLimit: 0, // Don't inline any assets - keep them as separate files\n    terserOptions: {\n      compress: {\n        drop_console: false, // Keep console for error tracking\n        drop_debugger: true,\n      },\n    },\n    rollupOptions: {\n      external: ['workers/autopilot-worker.js', 'workers/start-autopilot.js'],\n      output: {\n        assetFileNames: (assetInfo) => {\n          // Preserve original asset paths for images\n          if (assetInfo.name && /\\.(png|jpe?g|gif|svg|webp|ico)$/i.test(assetInfo.name)) {\n            // Keep images in their original structure\n            return 'images/[name][extname]';\n          }\n          // Default for other assets\n          return 'assets/[name]-[hash][extname]';\n        },\n        manualChunks(id) {\n          if (id.includes('node_modules')) {\n            if (id.includes('react-router')) return 'vendor-router';\n            if (id.includes('@supabase')) return 'vendor-supabase';\n            if (id.includes('stripe')) return 'vendor-stripe';\n            if (id.includes('react') || id.includes('react-dom'))\n              return 'vendor-react';\n            return 'vendor';\n          }\n        },\n      },\n    },\n    chunkSizeWarningLimit: 1000,\n  },\n  server: {\n    host: '0.0.0.0', // listen on all interfaces\n    port: 5173,\n    strictPort: false, // allow fallback to other ports\n    hmr: {\n      clientPort: 443,\n      host: process.env.GITPOD_WORKSPACE_URL\n        ? process.env.GITPOD_WORKSPACE_URL.replace('https://', '5173-')\n        : undefined,\n    },\n  },\n  preview: {\n    host: '0.0.0.0', // listen on all interfaces\n    port: 8080,\n    strictPort: false, // allow fallback to other ports\n  },\n});\n",
+    "devcontainerRaw": "{\n  \"name\": \"Ona\",\n  \"image\": \"mcr.microsoft.com/devcontainers/universal:3.0.3\",\n  \"forwardPorts\": [5173, 8080, 4173],\n  \"portsAttributes\": {\n    \"5173\": {\n      \"label\": \"Vite Dev Server\",\n      \"onAutoForward\": \"openPreview\"\n    },\n    \"8080\": {\n      \"label\": \"Vite Preview Server\",\n      \"onAutoForward\": \"openPreview\"\n    },\n    \"4173\": {\n      \"label\": \"Vite Preview (Alt)\",\n      \"onAutoForward\": \"openPreview\"\n    }\n  },\n  \"customizations\": {\n    \"vscode\": {\n      \"extensions\": [\n        \"dbaeumer.vscode-eslint\",\n        \"esbenp.prettier-vscode\",\n        \"github.copilot\",\n        \"github.copilot-chat\",\n        \"eamodio.gitlens\",\n        \"ms-python.python\",\n        \"ms-vscode.vscode-typescript-next\",\n        \"github.vscode-pull-request-github\",\n        \"redhat.vscode-yaml\",\n        \"ms-azuretools.vscode-docker\",\n        \"christian-kohler.path-intellisense\",\n        \"yzhang.markdown-all-in-one\",\n        \"bradlc.vscode-tailwindcss\"\n      ]\n    }\n  }\n}\n",
+    "nvmrcRaw": "v20.19.0\n",
+    "npmrcRaw": "fund=false\naudit=false\nprogress=false\nsave-exact=true\n",
+    "envExampleRaw": "# Required for build (safe placeholders for previews)\nPUBLIC_SITE_URL=https://elevateconnects1.netlify.app\nVITE_APP_ENV=production\nVITE_SUPABASE_URL=https://cuxzzpsyufcewtmicszk.supabase.co\nVITE_SUPABASE_ANON_KEY=placeholder_for_preview_builds\nVITE_STRIPE_PUBLISHABLE_KEY=placeholder_for_preview_builds\nVITE_API_URL=https://cuxzzpsyufcewtmicszk.supabase.co\nVITE_SITE_URL=https://elevateconnects1.netlify.app\nNODE_ENV=production\n",
+    "indexHtmlRaw": "<!doctype html><html lang=\"en\"><head>\n<meta charset=\"UTF-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n<title>Elevate for Humanity - Career Training & Workforce Development</title>\n<meta name=\"description\" content=\"Transform your career with free training programs. 100% funded apprenticeships and certifications in healthcare, construction, technology, and more. Marion County, Indiana.\"/>\n<meta name=\"keywords\" content=\"career training, workforce development, apprenticeships, free training, WIOA, WRG, Marion County, Indiana, job training, certifications\"/>\n<meta name=\"author\" content=\"Elevate for Humanity\"/>\n<meta name=\"robots\" content=\"index, follow\"/>\n<link rel=\"canonical\" href=\"https://elevateconnects1.netlify.app/\"/>\n\n<!-- Open Graph / Facebook -->\n<meta property=\"og:type\" content=\"website\"/>\n<meta property=\"og:url\" content=\"https://elevateconnects1.netlify.app/\"/>\n<meta property=\"og:title\" content=\"Elevate for Humanity - Career Training & Workforce Development\"/>\n<meta property=\"og:description\" content=\"Transform your career with free training programs. 100% funded apprenticeships and certifications.\"/>\n<meta property=\"og:image\" content=\"https://elevateconnects1.netlify.app/images/og-image.jpg\"/>\n<meta property=\"og:site_name\" content=\"Elevate for Humanity\"/>\n<meta property=\"og:locale\" content=\"en_US\"/>\n\n<!-- Twitter Card -->\n<meta name=\"twitter:card\" content=\"summary_large_image\"/>\n<meta name=\"twitter:url\" content=\"https://elevateconnects1.netlify.app/\"/>\n<meta name=\"twitter:title\" content=\"Elevate for Humanity - Career Training & Workforce Development\"/>\n<meta name=\"twitter:description\" content=\"Transform your career with free training programs. 100% funded apprenticeships and certifications.\"/>\n<meta name=\"twitter:image\" content=\"https://elevateconnects1.netlify.app/images/og-image.jpg\"/>\n\n<!-- Additional SEO -->\n<meta name=\"theme-color\" content=\"#2563EB\"/>\n<meta name=\"apple-mobile-web-app-capable\" content=\"yes\"/>\n<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black-translucent\"/>\n<meta name=\"apple-mobile-web-app-title\" content=\"Elevate for Humanity\"/>\n\n<!-- Google Analytics -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-EFHWORKFORCE01\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', 'G-EFHWORKFORCE01', {\n    'send_page_view': true,\n    'anonymize_ip': true\n  });\n</script>\n\n<link rel=\"icon\" href=\"/assets/logo-efh.svg\"/><link rel=\"manifest\" href=\"/manifest.webmanifest\"/>\n</head><body><div id=\"root\"></div><script type=\"module\" src=\"/src/main.tsx\"></script></body></html>\n",
+    "robotsTxtRaw": "# Robots.txt for https://elevateconnects1.netlify.app\n# Generated: Tue Nov 11 11:28:59 UTC 2025\n\nUser-agent: *\nAllow: /\n\n# Sitemaps\nSitemap: https://elevateconnects1.netlify.app/sitemap.xml\n\n# Disallow admin areas\nDisallow: /admin/\nDisallow: /api/\nDisallow: /.netlify/\n\n# Crawl delay\nCrawl-delay: 1\n",
+    "sitemapIndexRaw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <url>\n    <loc>https://elevateconnects1.netlify.app/</loc>\n    <lastmod>2025-11-11</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n  <url>\n    <loc>https://elevateconnects1.netlify.app/about</loc>\n    <lastmod>2025-11-11</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  <url>\n    <loc>https://elevateconnects1.netlify.app/programs</loc>\n    <lastmod>2025-11-11</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  <url>\n    <loc>https://elevateconnects1.netlify.app/programs/barber</loc>\n    <lastmod>2025-11-11</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  <url>\n    <loc>https://elevateconnects1.netlify.app/programs/building-tech</loc>\n    <lastmod>2025-11-11</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  <url>\n    <loc>https://elevateconnects1.netlify.app/programs/healthcare</loc>\n    <lastmod>2025-11-11</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  <url>\n    <loc>https://elevateconnects1.netlify.app/apply</loc>\n    <lastmod>2025-11-11</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  <url>\n    <loc>https://elevateconnects1.netlify.app/contact</loc>\n    <lastmod>2025-11-11</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  <url>\n    <loc>https://elevateconnects1.netlify.app/lms</loc>\n    <lastmod>2025-11-11</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  <url>\n    <loc>https://elevateconnects1.netlify.app/lms/dashboard</loc>\n    <lastmod>2025-11-11</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  <url>\n    <loc>https://elevateconnects1.netlify.app/lms/courses</loc>\n    <lastmod>2025-11-11</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n</urlset>",
+    "stripeWebhookRaw": null
+  },
+  "supabase": {
+    "schemaRaw": null,
+    "migrations": [
+      "001_lms_schema.sql",
+      "001_unicorn_lms_schema.sql",
+      "001_user_roles.sql",
+      "002_auth_instructor_certificates.sql",
+      "002_certificates.sql",
+      "002_production_unicorn_schema.sql",
+      "003_analytics_events.sql",
+      "003_enhanced_lms_schema.sql",
+      "004_add_missing_rls_policies.sql",
+      "004_analytics_rls.sql",
+      "004_load_milady_barber_course.sql",
+      "005_notifications.sql",
+      "006_add_funding_type.sql",
+      "007_autopilot_system.sql",
+      "2025-11-06_feature_pack.sql",
+      "20250104_milady_rise_tables.sql",
+      "20250111_lms_schema.sql",
+      "20250127000000_autopilot_logging.sql",
+      "20250127000001_autopilot_phase4_dashboard.sql",
+      "20250127_create_automation_tables.sql",
+      "20250127_create_generated_content.sql",
+      "20250127_create_scholarship_applications.sql",
+      "20250127_create_stripe_split_tables.sql",
+      "20250128000000_alerting_rules.sql",
+      "20250128000001_performance_profiling.sql",
+      "20251103_admin_features.sql",
+      "20251103_admin_features_rls.sql",
+      "20251103_cron_jobs.sql",
+      "20251103_missing_tables.sql",
+      "20251103_missing_tables_rls.sql",
+      "ALL_IN_ONE__paste_into_dashboard.sql",
+      "APPLY_ALL_MIGRATIONS.sql"
+    ]
+  },
+  "sizes": {
+    "workspaceBytes": 842690797,
+    "nodeModulesBytes": 683080326,
+    "distBytes": 11995494,
+    "srcBytes": 3377597,
+    "human": {
+      "workspace": "803.65 MB",
+      "node_modules": "651.44 MB",
+      "dist": "11.44 MB",
+      "src": "3.22 MB"
+    }
+  },
+  "pages": {
+    "roots": ["src/pages", "public"],
+    "fileCount": 441,
+    "truncated": false,
+    "note": "Increase maxFiles= to capture more.",
+    "files": [
+      {
+        "path": "src/pages/AITutor.jsx",
+        "size": 10475,
+        "sha256": "5d97c2232efe3c572a8867a5608f0883717585db297386be423d4e274b2c3b57"
+      },
+      {
+        "path": "src/pages/About.tsx",
+        "size": 7032,
+        "sha256": "9151527091d1df0315d0a894b9675f7c305ffc87cde6623f1908b6d844af9edb"
+      },
+      {
+        "path": "src/pages/Accessibility.jsx",
+        "size": 16549,
+        "sha256": "60c8981088c3c192b88d1a539a450a069d7c3ad08992f20c016f172108226aa7"
+      },
+      {
+        "path": "src/pages/AccessibilitySettings.jsx",
+        "size": 675,
+        "sha256": "ecc5b6b9f472c9f00420f9ef0deb60ab6db6a7b13a801598b93a72d85f2d5510"
+      },
+      {
+        "path": "src/pages/Account.jsx",
+        "size": 11168,
+        "sha256": "267294cfa001ddea3ef1f6b28e913aab3b943e2f152f60e862cc037031e10545"
+      },
+      {
+        "path": "src/pages/AdminConsole.jsx",
+        "size": 23532,
+        "sha256": "9c41c059eb047d701359628ced9b038234c365bfaaa76863aad9bc30feb2c32d"
+      },
+      {
+        "path": "src/pages/AdminDashboard.jsx",
+        "size": 13785,
+        "sha256": "f9c09c2b1b5b73b315bd80dd18940ca01f0a4b62e1922e6e37f2f7706b855fc0"
+      },
+      {
+        "path": "src/pages/Analytics.jsx",
+        "size": 10720,
+        "sha256": "4d8f5ce9aa713c4098f7cc92de04698a5a0025945840ff835326617cd976dc96"
+      },
+      {
+        "path": "src/pages/AnalyticsDashboard.jsx",
+        "size": 2138,
+        "sha256": "597628c205bd9e552b8166c329f9582aceaeb387a4bc810bce92a3b138614670"
+      },
+      {
+        "path": "src/pages/AnalyticsDashboardRUM.tsx",
+        "size": 14664,
+        "sha256": "118c26c83b342f675b9518fe0a31f951489ffaec6e76d75b594b1e7f048f6a64"
+      },
+      {
+        "path": "src/pages/ApplyPage.tsx",
+        "size": 6838,
+        "sha256": "52af772647584f9b7cc7a49616f092a29a90ceef1f71e26de59d10368fedce6f"
+      },
+      {
+        "path": "src/pages/ApplyScholarship.tsx",
+        "size": 26929,
+        "sha256": "df26d81a1f4ff3c9b9c6b4d9641960677195f88c6287f317e89c773cd1ba9325"
+      },
+      {
+        "path": "src/pages/ApplySuccessPage.tsx",
+        "size": 1344,
+        "sha256": "819915e88bfe2d71d0b0494087c7ce8e54cfd8a5dd130fad5994b4d3453909da"
+      },
+      {
+        "path": "src/pages/ApprenticeshipPrograms.tsx",
+        "size": 27636,
+        "sha256": "fa1d219e2b708263720dd27e41e9fccdca5783966d4cdaa388ad970f45f04cd0"
+      },
+      {
+        "path": "src/pages/Assignment.jsx",
+        "size": 1533,
+        "sha256": "10f94986a448e0a12be8298497764dbb9df2af27829ec83d0ed5f79b3f6ba9d8"
+      },
+      {
+        "path": "src/pages/AuthCallback.jsx",
+        "size": 1379,
+        "sha256": "4a1996136ca1eb3f97de35fb06e8c32dbfe865c952a890a5dfcbfd31b61857ad"
+      },
+      {
+        "path": "src/pages/AutopilotAdmin.tsx",
+        "size": 26231,
+        "sha256": "53d6648f9babce4ccc39c8fe68b54b2e1d96fe413a67661b4391872f2c710fa2"
+      },
+      {
+        "path": "src/pages/BingSiteVerification.jsx",
+        "size": 751,
+        "sha256": "9bb43097a2811cd8367a7becc0afa073812680b8d0df84a94e9342f6d39c0458"
+      },
+      {
+        "path": "src/pages/Blog.tsx",
+        "size": 2814,
+        "sha256": "1ff449b21a5fb03c4c3fb8e0b6a847a18d05337ec9c284c33a00d07f1ef725cb"
+      },
+      {
+        "path": "src/pages/Branding.jsx",
+        "size": 4086,
+        "sha256": "c78d37711529149d0d2b7f54a9f016d74322c064bae0604def2a5f9e13d22d8f"
+      },
+      {
+        "path": "src/pages/BusinessHub.jsx",
+        "size": 8143,
+        "sha256": "c0d579d7c3a1ea2493fe8004ffcd8ca31f90af4264d9f1cfb2511ab4abe3bed8"
+      },
+      {
+        "path": "src/pages/CPRFirstAidTraining.jsx",
+        "size": 29063,
+        "sha256": "43200f9c23f0ab75a3f984b3de31e2d1c5a063b4c89bb969b4d30428ed486b10"
+      },
+      {
+        "path": "src/pages/CRMDashboardPage.tsx",
+        "size": 198,
+        "sha256": "2278fd78d218b9e1b51987572017afca745dda3f7eb7fee88c5f4a1ebd9ffedf"
+      },
+      {
+        "path": "src/pages/Calendar.jsx",
+        "size": 12912,
+        "sha256": "0c17b7d1cb1bb1ea12b6d8251a1c2ad81df474d0ec39036136c02755a390a971"
+      },
+      {
+        "path": "src/pages/CertificatePage.tsx",
+        "size": 3534,
+        "sha256": "1e546753a9a982014d187bc33f5d00600ac7f6206b135e2ce232e4e67791376c"
+      },
+      {
+        "path": "src/pages/Certificates.jsx",
+        "size": 19786,
+        "sha256": "fb8bbc8a776d562d82ba92d6fdc71a108fe22075c66d46e094b28dfe94a2ad04"
+      },
+      {
+        "path": "src/pages/CertiportTestingCenter.jsx",
+        "size": 15877,
+        "sha256": "a20b33050af7b77a463ffb786a81ec70c9758d7c5a74fc8c887f05beace2a75b"
+      },
+      {
+        "path": "src/pages/CloneLanding.jsx",
+        "size": 3974,
+        "sha256": "12ad56ae1cee9d697af7f9d89f4826cb3b0cc8f48611dc0349c53d773d743e0d"
+      },
+      {
+        "path": "src/pages/Community.jsx",
+        "size": 873,
+        "sha256": "734a145512672b230e5ad9c063c0fe17c1527c926b6040741db2a3710b82a581"
+      },
+      {
+        "path": "src/pages/CommunityHub.jsx",
+        "size": 8284,
+        "sha256": "27f7b651582a94871cef1d37e293769acff1639916b40234c34d21e3999050e7"
+      },
+      {
+        "path": "src/pages/Compliance.tsx",
+        "size": 19476,
+        "sha256": "1b8a5539279ba61c40d70b8b458f5aaf707c69e57c67d97f36c09511ede089c2"
+      },
+      {
+        "path": "src/pages/Connect.tsx",
+        "size": 19471,
+        "sha256": "8679f33b0accf0b499728f8df27361f1478d752c6efd580a2efa02e2308d1a89"
+      },
+      {
+        "path": "src/pages/Contact.tsx",
+        "size": 6511,
+        "sha256": "752cd422126520143e2f9c41374242e05efb37ab9bc91cad1df05baf638c5397"
+      },
+      {
+        "path": "src/pages/Course.jsx",
+        "size": 19991,
+        "sha256": "c5b7d376e703816c98a1b832baec6646a7cb696c4ea45b85090f59b2e87bb3ee"
+      },
+      {
+        "path": "src/pages/CourseBuilder.jsx",
+        "size": 2741,
+        "sha256": "185e468014b3b119b680bd0faaa50190f45ae0591e4cd7aa8a4eca5654513a18"
+      },
+      {
+        "path": "src/pages/CourseCatalog.jsx",
+        "size": 12175,
+        "sha256": "af03d778a43f870bd73a4b66df38b7248054e707e80ba5fb551f49aaa12578c3"
+      },
+      {
+        "path": "src/pages/CourseCatalogPage.tsx",
+        "size": 20506,
+        "sha256": "c8f1e283fd42ffefd3be490bb294638b9b0601585ea3144c29a8645d9bf0e9d8"
+      },
+      {
+        "path": "src/pages/CourseDetail.jsx",
+        "size": 4252,
+        "sha256": "3f6efddf86a35b20065d821a81c35354c70dd026656131e577da1d1b431ecc87"
+      },
+      {
+        "path": "src/pages/CourseLibrary.jsx",
+        "size": 9570,
+        "sha256": "f40223b9ea9afb4e2518021593f95db75dc84181ff28d4538add36602726e4a9"
+      },
+      {
+        "path": "src/pages/Courses.tsx",
+        "size": 20506,
+        "sha256": "c8f1e283fd42ffefd3be490bb294638b9b0601585ea3144c29a8645d9bf0e9d8"
+      },
+      {
+        "path": "src/pages/CurriculumUpload.jsx",
+        "size": 2580,
+        "sha256": "ba37f6a75a05bd1ca8e69e85318b331f805936fe4b27097015007334997bd06e"
+      },
+      {
+        "path": "src/pages/Docs.jsx",
+        "size": 10338,
+        "sha256": "d8090e1b2af1934fbe5bf47c4d7dfe7f677df1695ac31c236ce2dc3897d5a858"
+      },
+      {
+        "path": "src/pages/Donate.jsx",
+        "size": 11315,
+        "sha256": "cffac4f73910c45c1264aba6daee5050b24d07dff37fdcd4e2ec028d3ff19a9f"
+      },
+      {
+        "path": "src/pages/Donate.tsx",
+        "size": 13056,
+        "sha256": "c4347f49b2ea3028166663d50846a111339fd563280b76cbeda20f0511b8236f"
+      },
+      {
+        "path": "src/pages/DonateSuccess.tsx",
+        "size": 10928,
+        "sha256": "5927316d8bfd8c1f19b72d93d6fa0b0e7dc5993e4766d4a9c42d0a2699fdbf7e"
+      },
+      {
+        "path": "src/pages/EFHLanding.tsx",
+        "size": 8260,
+        "sha256": "e25e987bd4760a6d83428e329953426e3a7aaa67a81b9fd3bccfb45db7d768c2"
+      },
+      {
+        "path": "src/pages/Ecommerce.jsx",
+        "size": 604,
+        "sha256": "2d39914e068fd54e14ac8e37f040da7c6886f599384b0cb61b335fcb840e612d"
+      },
+      {
+        "path": "src/pages/Ecosystem.jsx",
+        "size": 6476,
+        "sha256": "f165e65a95ad5b4c64f6b3c5174a132ae9911dc47f3ceab3431ef86a20bc36bd"
+      },
+      {
+        "path": "src/pages/EducatorHub.jsx",
+        "size": 8239,
+        "sha256": "a4404f4ed8189739519072747c808703802b03c5af8ea9bf7a82604ca0b7f99d"
+      },
+      {
+        "path": "src/pages/Elevate.tsx",
+        "size": 5150,
+        "sha256": "290fc79a7f320ab5f1940394c72c225c3b2b5b787f9f2f8db5de7ac8e4fb32cd"
+      },
+      {
+        "path": "src/pages/ElevateBrain.jsx",
+        "size": 14559,
+        "sha256": "9ffa3139e7460061786c7f469f9d28e0a4e76ba0246e741cd152cce4a1b6e579"
+      },
+      {
+        "path": "src/pages/Email.jsx",
+        "size": 14227,
+        "sha256": "7f52f05d88bf14a2bc05d71ee93bff660f4fdd7509428e45e559a560a445c628"
+      },
+      {
+        "path": "src/pages/FAQ.tsx",
+        "size": 6202,
+        "sha256": "d3d1a9c699c9c5df1eb45956a3e74447134520ade2bff59354ba8680c6e0e795"
+      },
+      {
+        "path": "src/pages/FileManager.jsx",
+        "size": 12997,
+        "sha256": "931f46dd37d3d4d37b0d7038871394e59a209473dec77d0de6bf1d1e767f2bb5"
+      },
+      {
+        "path": "src/pages/ForgotPassword.jsx",
+        "size": 2245,
+        "sha256": "528cd25367be693c9c45d191130e16cef7d1cd8302315f896c925e8af4d9b6e3"
+      },
+      {
+        "path": "src/pages/Forms.jsx",
+        "size": 567,
+        "sha256": "bec2649201b1464feb2c3ba523b55cad3d80186dc1032827ba61e570249a5aea"
+      },
+      {
+        "path": "src/pages/FullSailLanding.jsx",
+        "size": 14098,
+        "sha256": "474220c1ad217095d4305664f0e26a6f11149a92a1a6fcd13ddc5a71e50c89f5"
+      },
+      {
+        "path": "src/pages/FundingImpact.jsx",
+        "size": 2242,
+        "sha256": "98763fb4e3ca3a3aee9a04cc0148e030313fb072801092a0a681aa50f5f47129"
+      },
+      {
+        "path": "src/pages/GetStarted.tsx",
+        "size": 6712,
+        "sha256": "f903ccd7274548a70ba4a2ee0e807b4e5e9ee3d735cbe92f269231c37ce3d6ba"
+      },
+      {
+        "path": "src/pages/GoogleAnalyticsSetup.jsx",
+        "size": 738,
+        "sha256": "7384c25e64b55d30ef258718b25388e90d6cc4083c46f66e1f1a19eaa3cbf1b5"
+      },
+      {
+        "path": "src/pages/GoogleSiteVerification.jsx",
+        "size": 758,
+        "sha256": "192592abb6ed41a86a71ea0c05eb669e1b1d0ca71526403d5b3949d361290fe7"
+      },
+      {
+        "path": "src/pages/Government.jsx",
+        "size": 7944,
+        "sha256": "42bd8c9ba56ff188a99570d89e60029f169f2f33088734946ecae4c8b0ff0072"
+      },
+      {
+        "path": "src/pages/GradeBook.jsx",
+        "size": 11921,
+        "sha256": "255875a23c564c6b75bc99a0e1798ddef89b72a8f41677e63cdf55eb9d15e864"
+      },
+      {
+        "path": "src/pages/Groups.jsx",
+        "size": 560,
+        "sha256": "dd16fdd0df6976cadf6e16d1775f76844ee0085917cb65887d9c7beafe4e6833"
+      },
+      {
+        "path": "src/pages/Home.jsx",
+        "size": 10209,
+        "sha256": "b1eee95602b76d329b09cd77b47ecf2e34e176f3664423ebf0c92a95743707db"
+      },
+      {
+        "path": "src/pages/Home.tsx",
+        "size": 29434,
+        "sha256": "f82c84ce6c4498ad11ffdae76c2ce4ed50388a36fea60da13d13e3cd167e2154"
+      },
+      {
+        "path": "src/pages/HomePage.tsx",
+        "size": 8602,
+        "sha256": "326ebac47213b40898a98e3eb28eba86eac82226b5f36bf589a64c97e7bf3832"
+      },
+      {
+        "path": "src/pages/HomeProduction.tsx",
+        "size": 15211,
+        "sha256": "240e7951157d59a833d2b8322c535d1e990d4d8095cefc1d7dc69e2c637a3c33"
+      },
+      {
+        "path": "src/pages/HomeProfessional.jsx",
+        "size": 16585,
+        "sha256": "e2e7358c6d5332a78230cbe0791c3b7fd5a0e7f67c94b6aa2c5c4506710fa21d"
+      },
+      {
+        "path": "src/pages/Hub.tsx",
+        "size": 9493,
+        "sha256": "f15d1432ecef957c8d109458f7a68091561d1726f1d427bd9e375578b20d5b93"
+      },
+      {
+        "path": "src/pages/Instructor.jsx",
+        "size": 6378,
+        "sha256": "a37b00b94bdb6f9861dfe2221afa52f4780240712cace5e62347958ae181ef88"
+      },
+      {
+        "path": "src/pages/InstructorCourseCreate.jsx",
+        "size": 12274,
+        "sha256": "d4450ce5361d260cc6a034c6e0e263b3fc358578f2889c7b259358b9e0e4b258"
+      },
+      {
+        "path": "src/pages/InstructorEdit.jsx",
+        "size": 29660,
+        "sha256": "3fe5e423149a7c1fa4835486b906576a12973a06858aa8a5727eb5bab32ed6e6"
+      },
+      {
+        "path": "src/pages/InstructorNew.jsx",
+        "size": 23564,
+        "sha256": "daa3ca02707dfb1468ae190b4235b1c0ed85f468483e8c7d0c9bfb374cd2a59e"
+      },
+      {
+        "path": "src/pages/Integrations.jsx",
+        "size": 611,
+        "sha256": "ab2affcb142359dbb2a8cfecaca05316a73a8560adad3eecc0da2549a43d55b6"
+      },
+      {
+        "path": "src/pages/IntuitTaxBookkeeping.jsx",
+        "size": 16971,
+        "sha256": "5e89399b6548a163c9c22bf845b0036a926615c61011be0483df4d489eacc592"
+      },
+      {
+        "path": "src/pages/InvoiceCreatorPage.tsx",
+        "size": 214,
+        "sha256": "d7b3f638a717217060d68a4079056dfa1db8690b1f12b651944b4e713c6b7a7b"
+      },
+      {
+        "path": "src/pages/InvoiceListPage.tsx",
+        "size": 199,
+        "sha256": "c921607d375b325e3979700d564be636952f5224686017f16ad5b576804e7027"
+      },
+      {
+        "path": "src/pages/JobReadyIndy.jsx",
+        "size": 13788,
+        "sha256": "63073b3366c989e5a94335132a6e20dd77964ac69fb30881048906c8b750f1aa"
+      },
+      {
+        "path": "src/pages/LMS.tsx",
+        "size": 23898,
+        "sha256": "8facebe6df0fde1e5b3714e66c9e1f1106a9896f5f81df2f10f4835abc09e36a"
+      },
+      {
+        "path": "src/pages/LMSCourses.tsx",
+        "size": 10939,
+        "sha256": "837f5522d62f2472d01fa63638a6ee45419288abaf03fd8b5831bc0e031c8f72"
+      },
+      {
+        "path": "src/pages/LMSDashboard.jsx",
+        "size": 11127,
+        "sha256": "2e0f5dfd39df2d64b0b10b4a4e90622ab1c60c78322ac810b901ec8db897529a"
+      },
+      {
+        "path": "src/pages/LMSLanding.jsx",
+        "size": 16831,
+        "sha256": "ec7f30ccc777235f775ce325d05133559ab3473ad40c6136a562b64e12cb7074"
+      },
+      {
+        "path": "src/pages/LiveClassRoom.jsx",
+        "size": 5124,
+        "sha256": "40e116c3a608041c07d2693abd066df13e4821766599ae60d0ce0470124fe6a7"
+      },
+      {
+        "path": "src/pages/LiveClassSchedule.jsx",
+        "size": 7509,
+        "sha256": "2e33c9ad425c7c200ee264cea4eb2543907943b357f33ec974ffcea1792d542e"
+      },
+      {
+        "path": "src/pages/Login.jsx",
+        "size": 4427,
+        "sha256": "5122fcce150567919c25a891098fbc792d4afc8c8a642c106f6a239cfaae5cb1"
+      },
+      {
+        "path": "src/pages/MainLanding.jsx",
+        "size": 74400,
+        "sha256": "8fb8d9684532dbecbe4643c5deb8deabccaac20020338ccf948035bdfeccaaad"
+      },
+      {
+        "path": "src/pages/MobileApp.jsx",
+        "size": 604,
+        "sha256": "8d8b521c4a52c937116a464c1f0775e2fbf3188e1d444c544373dea3d1dc037e"
+      },
+      {
+        "path": "src/pages/MyCertificates.jsx",
+        "size": 6042,
+        "sha256": "9f20376b54cb953c37cffc5be22cdbdddcdba2f39f9ec6af7cce46b6a623f0fa"
+      },
+      {
+        "path": "src/pages/MyCertificates.tsx",
+        "size": 2822,
+        "sha256": "6f6d4b491ae4d91c020dc689ac6db949c24e01eb589f72668d800cf793c761ed"
+      },
+      {
+        "path": "src/pages/NCCERCareerStarter.jsx",
+        "size": 18381,
+        "sha256": "a24aeae1b58a1790cb086087e574df260970dfb39d2a27b96d6518cd3c7d91b8"
+      },
+      {
+        "path": "src/pages/NotAuthorized.tsx",
+        "size": 1911,
+        "sha256": "cff55871bb1ac418c3f3cf04ebe98cbcb807e05d7da56860778d2e9466499be9"
+      },
+      {
+        "path": "src/pages/NotFound.tsx",
+        "size": 1836,
+        "sha256": "d603a150276eee3f5dd242c116dbeaa1559f51e3de0d04af6c1f4240c6323b12"
+      },
+      {
+        "path": "src/pages/NotebookLM.jsx",
+        "size": 15981,
+        "sha256": "d8d64e0d3695570c024e1b59966d86b56730aa1660a31e881f34161c984c21aa"
+      },
+      {
+        "path": "src/pages/NotificationCenter.jsx",
+        "size": 8965,
+        "sha256": "c620958c47df4477543aadab21df498f2f79889b61cff3beda39a38269662ba9"
+      },
+      {
+        "path": "src/pages/NotificationSettings.jsx",
+        "size": 8273,
+        "sha256": "f6f05d6255ea87cef0b7adf6ee478b220bf947eea853d8e42204260b00686451"
+      },
+      {
+        "path": "src/pages/Notifications.jsx",
+        "size": 627,
+        "sha256": "a6c079ce0cf056d210f338af2f807e3a2c6a5eac1bed36f9a422475865602999"
+      },
+      {
+        "path": "src/pages/OurPartners.jsx",
+        "size": 10840,
+        "sha256": "385c47ac8a3956f7fc9c7fb967546bcc532a073149af383dda251f4ccbaf9521"
+      },
+      {
+        "path": "src/pages/Partners.jsx",
+        "size": 15298,
+        "sha256": "a61c1e7f25884f488180e616193738a65db18200d72eed2d364b9904092c6ba6"
+      },
+      {
+        "path": "src/pages/PartnersPage.tsx",
+        "size": 3291,
+        "sha256": "b50f90f841093d24c0b2c1666a1bb9ffd9fe458c10d0b97eb2354821df8b30f0"
+      },
+      {
+        "path": "src/pages/Pay.tsx",
+        "size": 25777,
+        "sha256": "4e1642aa50cb3fa527c171750b3f246779acff2e6dc80007dac065a9d87c545a"
+      },
+      {
+        "path": "src/pages/PaymentCancelled.tsx",
+        "size": 3290,
+        "sha256": "094743a8e7b654129bef38c2ca6229cadc4de6fd6621956cc66f933a865653e3"
+      },
+      {
+        "path": "src/pages/PaymentSuccess.tsx",
+        "size": 4994,
+        "sha256": "9d6b2260c0c78bbd9a6db2d8acd9ad5717107d97be99fb4065aef42c063a858d"
+      },
+      {
+        "path": "src/pages/Philanthropy.jsx",
+        "size": 5982,
+        "sha256": "b711788149e0d4e537e26c34cd4ca3140b719252ec555d36c2d13c8fc0d11f7c"
+      },
+      {
+        "path": "src/pages/PrivacyPage.tsx",
+        "size": 5946,
+        "sha256": "8b761488494aada980a0745ddcad95fcc93910ef427ca1a15cdb06336eb5c928"
+      },
+      {
+        "path": "src/pages/PrivacyPolicy.jsx",
+        "size": 12701,
+        "sha256": "bc457d2b17b7de77243963a37a2589318c082e9a26be98f4e2906e7afd00b423"
+      },
+      {
+        "path": "src/pages/ProfessionalHome.jsx",
+        "size": 717,
+        "sha256": "c27c19f294c3d67dabb81bba8b59c73bebb513c082f5a6f8cbf42b88f04bdcdd"
+      },
+      {
+        "path": "src/pages/ProfessionalSite.jsx",
+        "size": 31775,
+        "sha256": "49074d7107aa2306dbb9212468aec133d39660e4715ce7fb2ba991f843709308"
+      },
+      {
+        "path": "src/pages/Profile.jsx",
+        "size": 18015,
+        "sha256": "76feb4d6d9918ceba80ee5b02d27b9d4842e87d8e33ee9914a97cfd4a1afc97e"
+      },
+      {
+        "path": "src/pages/ProgramDetail.tsx",
+        "size": 14248,
+        "sha256": "e968227191c189599c24abc41557bad918626878d9a92ec4970724c8ba93524c"
+      },
+      {
+        "path": "src/pages/ProgramPage.tsx",
+        "size": 6025,
+        "sha256": "d8ec1598f24bdd91a8b63a7dc906762f5b2abb62d4a6973776437420ab5da58f"
+      },
+      {
+        "path": "src/pages/Programs.tsx",
+        "size": 11684,
+        "sha256": "d16423bbdda0311e53ea6c153f45494fbf0a46800666d2ddb6d2ab2e26c697fe"
+      },
+      {
+        "path": "src/pages/ProgramsIndex.tsx",
+        "size": 2191,
+        "sha256": "8f70126d5d680d7acedc1a87e3981825e9c0321933bac904565e87de9c59e991"
+      },
+      {
+        "path": "src/pages/ProgramsPage.tsx",
+        "size": 5479,
+        "sha256": "d0df860d83d3e8ebd57d5ecdaadae0e553658d29359b4c624332d0c406705be7"
+      },
+      {
+        "path": "src/pages/Quiz.jsx",
+        "size": 4565,
+        "sha256": "083d9b476bbd3f6ac3dcb52b08639039b89737d04b3abb8954ec6328c3c31504"
+      },
+      {
+        "path": "src/pages/QuizBuilder.jsx",
+        "size": 9376,
+        "sha256": "3c97c1d17b2d0deaccd99605af9a45226f15eba043edd646703c6614e3146117"
+      },
+      {
+        "path": "src/pages/QuizResults.jsx",
+        "size": 6478,
+        "sha256": "6b4619af0a6452cdfdd2d5a96710448b5ea6945f4601d24e3b1d0699e9977d16"
+      },
+      {
+        "path": "src/pages/QuizTake.jsx",
+        "size": 8174,
+        "sha256": "938d0b8b657a849bf3c8a4e61cfb07154067b5a7504ee8c57be26125b0e84f3d"
+      },
+      {
+        "path": "src/pages/RefundPolicy.jsx",
+        "size": 8423,
+        "sha256": "f8c4f60417916d49ba02130ebc5fc36867929badc2bf9843e064b807c4f8b14f"
+      },
+      {
+        "path": "src/pages/ResetPassword.tsx",
+        "size": 6147,
+        "sha256": "978b67882f5bd6bd6d015d87fae5d50690f50be4014f68e9ec6ef755dcc3676b"
+      },
+      {
+        "path": "src/pages/SearchResults.jsx",
+        "size": 11043,
+        "sha256": "507ec6ec304aeae8248d447d646b7eea90d649146bb523f90ee80619a50c7db7"
+      },
+      {
+        "path": "src/pages/SereneComfortCare.jsx",
+        "size": 15259,
+        "sha256": "3a100cffaa4be25d9b1a7afc087bd5a9a92e14143f70741fd363f8e967497e8e"
+      },
+      {
+        "path": "src/pages/Services.tsx",
+        "size": 3080,
+        "sha256": "1718137da601ab465621cd0180bea220f77457537ceeb538ee77a6a10090c9cd"
+      },
+      {
+        "path": "src/pages/Settings.jsx",
+        "size": 30819,
+        "sha256": "7ad9b6d0205d28ca7a9f5fe7b18ff0034cac005d60bc6d4edf154436aab237e8"
+      },
+      {
+        "path": "src/pages/Sheets.jsx",
+        "size": 9926,
+        "sha256": "6758bf6dcdcab5287c66e2cc54ef2de1d9e7f0dff0d3aa999ea304d9def1ab8a"
+      },
+      {
+        "path": "src/pages/Signup.jsx",
+        "size": 3848,
+        "sha256": "213ad1dc4add058cc9e24eddf379364deca50787f2c9f7a64e417f54a828a108"
+      },
+      {
+        "path": "src/pages/Sitemap.tsx",
+        "size": 3626,
+        "sha256": "9c3af93dcbfab79e46dc1c539c0c8d521424895bbc6f9be48f36a0f43b956990"
+      },
+      {
+        "path": "src/pages/Sites.jsx",
+        "size": 555,
+        "sha256": "43c9a408bf0cfe881769f7182467ac3ffe6f1ae4fd8c7045b282abb19dbd316e"
+      },
+      {
+        "path": "src/pages/Slides.jsx",
+        "size": 11545,
+        "sha256": "50fc0f03a24e31c8f61520893de10d35afb3336396587d628feab323c1cf71b0"
+      },
+      {
+        "path": "src/pages/SocialMediaManager.tsx",
+        "size": 20893,
+        "sha256": "373a9ac63a91403f2fc048dbb4a9a5afad35780dec875eeea5cf3c4b27a8ecf5"
+      },
+      {
+        "path": "src/pages/StaffPanel.jsx",
+        "size": 9235,
+        "sha256": "584731bfe3f540f4882ec7d7695f38028e9c094f5208164dba9430c1e46af4b2"
+      },
+      {
+        "path": "src/pages/StatePrograms.tsx",
+        "size": 22322,
+        "sha256": "190904127b154d6c1f6fa267661479b53b5b3798dab26a5ef6e0770cf1ddd95c"
+      },
+      {
+        "path": "src/pages/Student.jsx",
+        "size": 3938,
+        "sha256": "4e6bc0d238123eb7f8e5023eed6123e65ab1dd8cd6498af93dca4a5725ae7566"
+      },
+      {
+        "path": "src/pages/StudentDashboard.jsx",
+        "size": 8895,
+        "sha256": "ae64201efdbfeff71076c207c1454869dcacda0724f0cda4641edb28f00dc242"
+      },
+      {
+        "path": "src/pages/StudentGrades.jsx",
+        "size": 10621,
+        "sha256": "2715c82a3491ac431fd43360f79e2031259da4f67c9b2f1e676a79a79515589c"
+      },
+      {
+        "path": "src/pages/StudentHandbook.jsx",
+        "size": 17308,
+        "sha256": "5d40ca4bb1f36b113a35babd79ded069e2d6bf2c1d6a159e0c93d770efc7dc4a"
+      },
+      {
+        "path": "src/pages/StudentHub.jsx",
+        "size": 8402,
+        "sha256": "89d3f4cef857894d923a7be1f4b207b246d86c43b8c5c8bb1e4b07a0c01eb086"
+      },
+      {
+        "path": "src/pages/StudentPortal.tsx",
+        "size": 7202,
+        "sha256": "7d65cd8e4dedd51692b99d31122513c0753aef0fbc4136380135914ffd976f3b"
+      },
+      {
+        "path": "src/pages/StudentPortalLMS.jsx",
+        "size": 22210,
+        "sha256": "228d7efc8be2c2bf832541d02fe23ca9d8d0abc9bd5d7b0c9d5354cf21e393b6"
+      },
+      {
+        "path": "src/pages/Support.jsx",
+        "size": 18709,
+        "sha256": "63fda02d30cbff97f132755732a5c02fe06dd25483f362c978940cf30a6422d9"
+      },
+      {
+        "path": "src/pages/TermsOfService.jsx",
+        "size": 11908,
+        "sha256": "3407caa831c3b3ea05f71857527672ae3dde08df16f88135f5e1c0124fc7efb3"
+      },
+      {
+        "path": "src/pages/TermsPage.tsx",
+        "size": 6977,
+        "sha256": "59485a5b435a76c78dd6226260c707b4ca5734969ab8a203673e4d0efaa4e4cb"
+      },
+      {
+        "path": "src/pages/ThankYou.tsx",
+        "size": 2868,
+        "sha256": "eb92156bdb1fd45806cfd9ce8273872cf9c91f060e81ca21690b5446ffaa6410"
+      },
+      {
+        "path": "src/pages/UrbanBuildCrew.jsx",
+        "size": 14857,
+        "sha256": "7946ed004689fa7ec8cd25b895dc302e304c6a8733f4c69663fb6a1e0444ec26"
+      },
+      {
+        "path": "src/pages/UserManagement.jsx",
+        "size": 632,
+        "sha256": "75b28c2117c258b2703214a50ab625f06774c11f84201bac0eec0d44016ef401"
+      },
+      {
+        "path": "src/pages/VITAProgram.jsx",
+        "size": 10062,
+        "sha256": "89f4be52678ccaa7b3fdd6061e1aa39db90945ecb31a2cb1c3889e21dae34a8b"
+      },
+      {
+        "path": "src/pages/VITATaxCertification.jsx",
+        "size": 17675,
+        "sha256": "b3b8c2f7e20504415bd28a3e70801777e5a7c37649b31287fb243ab6d2d1b5e3"
+      },
+      {
+        "path": "src/pages/Verify.jsx",
+        "size": 6965,
+        "sha256": "a2e47139e3734a859db44499c1e9447ff810dfa3d7acd39f8d693a832d33c3e3"
+      },
+      {
+        "path": "src/pages/VerifyCertificate.tsx",
+        "size": 3795,
+        "sha256": "690c19c57939ae42471e86ce34990114fcf8285f112eeb2067b3a0071e536e9d"
+      },
+      {
+        "path": "src/pages/VerifyCertificatePage.tsx",
+        "size": 6442,
+        "sha256": "b9000262846f646e1726ee90b290304b7837105384bcef19f02c04def7c4fd87"
+      },
+      {
+        "path": "src/pages/VerifyEmail.jsx",
+        "size": 1613,
+        "sha256": "f87627075096a5567b5d4b082943066f49945cc192023cbd8390716c5e81b8f2"
+      },
+      {
+        "path": "src/pages/VideoMeeting.jsx",
+        "size": 8421,
+        "sha256": "31106cccfc98509a55b831cff9cfd548542a480c32c5ac37ce324baff296977a"
+      },
+      {
+        "path": "src/pages/Vids.jsx",
+        "size": 555,
+        "sha256": "674e13bd55bd699d85c3567f9ca1040e447b9bd198d2279d9e3d3cbf6ce23163"
+      },
+      {
+        "path": "src/pages/WebsiteBuilder.jsx",
+        "size": 14244,
+        "sha256": "b80ce6e12309ea15af873484928f3a4d3b71138ac37feccc916ba58ac1599a6d"
+      },
+      {
+        "path": "src/pages/index.astro",
+        "size": 1187,
+        "sha256": "08043cae293cc493d11a012e12d8ea1edd04abd6a0bfd56c8063e4c25b76c64f"
+      },
+      {
+        "path": "src/pages/simple.astro",
+        "size": 9057,
+        "sha256": "998130253881d89cf8bda00a92dea0986c1ae20ff2ba4c9cc52c7f7ac376a01f"
+      },
+      {
+        "path": "src/pages/student/Dashboard.tsx",
+        "size": 8556,
+        "sha256": "9c63d6707ee16d740a871595bd2e605fd71ef85e79b9eabd95b19dad261e4871"
+      },
+      {
+        "path": "src/pages/student/MyCourses.tsx",
+        "size": 8571,
+        "sha256": "8a82853d592a0f83ed1e86acdfa655668c2a2d3d19507f8a27c183d7d4cdab59"
+      },
+      {
+        "path": "src/pages/staff/CourseBuilder.tsx",
+        "size": 17202,
+        "sha256": "6640a501a560169aef0202744b56ba2b648a4e8375d228585a93e551ec4ae21e"
+      },
+      {
+        "path": "src/pages/staff/QuizBuilder.tsx",
+        "size": 20743,
+        "sha256": "c555acd5ab5483c158b9223b7e95f00696a88edb8f946a291d1fca7a503e4576"
+      },
+      {
+        "path": "src/pages/staff/TextBuilder.tsx",
+        "size": 13509,
+        "sha256": "93128b439e9d85d08f7ba7f5ffa0b5f25969d330b7d73f967d381bf5a0d5c779"
+      },
+      {
+        "path": "src/pages/staff/VideoBuilder.tsx",
+        "size": 20206,
+        "sha256": "58315547c286d64f7153b783eabd26761f28e867efb43b576a96982c7d2d052e"
+      },
+      {
+        "path": "src/pages/sisters/MentorDirectory.jsx",
+        "size": 3146,
+        "sha256": "541e89402f4f3b320c31b18752215761923bb415639b67113f06cba9ab130d88"
+      },
+      {
+        "path": "src/pages/sisters/MentorSignup.jsx",
+        "size": 4489,
+        "sha256": "40c1b1770242ba96749dbca6014cf5cfb93d8dd7289ca639fa362c885f33cf07"
+      },
+      {
+        "path": "src/pages/sisters/Mentorship-old.jsx",
+        "size": 4294,
+        "sha256": "d7a0d0e55c4a80e09e1b19569c003ce24233f5953872593a8da5ab81c2673b0e"
+      },
+      {
+        "path": "src/pages/sisters/Mentorship.jsx",
+        "size": 3721,
+        "sha256": "10b73a01640f636d78b2e43f5af6cd2da8a0c7b126f0da33a5b91a3cfa76d5f9"
+      },
+      {
+        "path": "src/pages/sisters/PeerSupport.jsx",
+        "size": 3198,
+        "sha256": "4199b01912194ce62bc9b1644fd905a80b4386a3b4d9d902c1f59bc7ac177fe1"
+      },
+      {
+        "path": "src/pages/sisters/Volunteer.jsx",
+        "size": 3122,
+        "sha256": "e44b660cccdf9888354e21c674e602bea0e0ccfad6a653c9f16c850093414ebe"
+      },
+      {
+        "path": "src/pages/sisters/VolunteerOpportunities.jsx",
+        "size": 3127,
+        "sha256": "0c84cf924ee13de664cd720453c6230f755462d277a2bf196311fe7598f815f2"
+      },
+      {
+        "path": "src/pages/sisters/VolunteerStories.jsx",
+        "size": 3109,
+        "sha256": "b9b4424a57a8c3b056b7ca0507b85482c5674a40f49356975db6286d72b921a4"
+      },
+      {
+        "path": "src/pages/sisters/Wellness.jsx",
+        "size": 3128,
+        "sha256": "580fe175f3934bf5a799baa652fa54afb9dbefba08a5353f184e7bd65d18650f"
+      },
+      {
+        "path": "src/pages/sisters/WellnessResources.jsx",
+        "size": 3834,
+        "sha256": "6eceae7d6f9a3204c3f627148b480a4f1c786d724992456a9911795f74370698"
+      },
+      {
+        "path": "src/pages/programs/BarberPage.tsx",
+        "size": 3109,
+        "sha256": "3900f994fb2bc7f9cddb704397536df782369f5a4d1dd1e3b05c1ba4fe7feee5"
+      },
+      {
+        "path": "src/pages/programs/BuildingTechPage.tsx",
+        "size": 3022,
+        "sha256": "a2eec1d53bea4c9a2864ba698d19fd0c07e2a382614ddfec63bbd2e10962f20e"
+      },
+      {
+        "path": "src/pages/programs/CPRSPage.tsx",
+        "size": 2632,
+        "sha256": "fa6ec2270d92aa1d851ca37e9a0d78fb9e3c311d9be81ac06431a015f1288b80"
+      },
+      {
+        "path": "src/pages/programs/DigitalSkillsPage.tsx",
+        "size": 2555,
+        "sha256": "8b42df9296c4143ce907b12c5b208af5c9431de52ceda70535dcd3118893cebb"
+      },
+      {
+        "path": "src/pages/programs/DrugTestingPage.tsx",
+        "size": 2500,
+        "sha256": "022ffe3759e3bcfdd5275114a40239572d6c3ac5a6fdfcc1465b3892b1fe6ec2"
+      },
+      {
+        "path": "src/pages/programs/HVACPage.tsx",
+        "size": 2489,
+        "sha256": "a7e1a98714541f162364c23fcec46a409a694023ca107271f6c862fb97cd15a7"
+      },
+      {
+        "path": "src/pages/programs/HealthcarePage.tsx",
+        "size": 2647,
+        "sha256": "7a5bc571662a2f181f506e7478e866d3d0746945a15f86537d73ea66c138e5d4"
+      },
+      {
+        "path": "src/pages/programs/LeadershipPage.tsx",
+        "size": 2504,
+        "sha256": "911a06b7c0115d8af67be98867dba9fdee2b3a2a135ee2c160fa768d5478bab8"
+      },
+      {
+        "path": "src/pages/programs/ProgramTemplate.tsx",
+        "size": 13140,
+        "sha256": "1cbd6a1821945a67740756113ead87bdd9b8df4ee68104452eea56f295e4a289"
+      },
+      {
+        "path": "src/pages/programs/programsData.ts",
+        "size": 16315,
+        "sha256": "a2fef75d7e3847354cbfebfd45edb408b8ef8fafca1380fe4d60d9cda5cceaf8"
+      },
+      {
+        "path": "src/pages/portals/PartnerPortal.tsx",
+        "size": 11491,
+        "sha256": "c3af16c1ef8df5a150b4780059020f5a9950a8ff2100b68b0f422b984b66d5ff"
+      },
+      {
+        "path": "src/pages/portals/StaffPortal.tsx",
+        "size": 11654,
+        "sha256": "72c19279e0da10671cc9f0c1f99019d6dcd317ca55b5e343190cfd782382c060"
+      },
+      {
+        "path": "src/pages/portals/StudentPortalAccess.tsx",
+        "size": 8967,
+        "sha256": "eb099c2e9bb82d89e14c6be3bed0aa3678ee6f1689dabe6d595627ad60affd36"
+      },
+      {
+        "path": "src/pages/partner/ManageStudents.tsx",
+        "size": 9823,
+        "sha256": "bc195dfb6db6a0698780cc6e23985e876366547dede2fbe4cc9d2f684acb12c9"
+      },
+      {
+        "path": "src/pages/lms/ClientSafetyCertification.jsx",
+        "size": 606,
+        "sha256": "07a3cf212dcb31106870a366555d194b1f5a3558a06edb819b7189c390496a94"
+      },
+      {
+        "path": "src/pages/lms/CoursePage.tsx",
+        "size": 10280,
+        "sha256": "c37a59240854c7d27c5dc8b7a5088e51703e33250b3df8a5728970ebe872d735"
+      },
+      {
+        "path": "src/pages/lms/CoursesIndex.tsx",
+        "size": 4066,
+        "sha256": "74f6b47b9578187e42a53b6240cd19176953b525344c35fda219d50806d346d1"
+      },
+      {
+        "path": "src/pages/lms/Dashboard.tsx",
+        "size": 3363,
+        "sha256": "7bfd7d990691fd9cb6bba176251877aa24cf4fc6f071f3dfd81bdced5aa0cf9a"
+      },
+      {
+        "path": "src/pages/lms/DiscussionsPage.tsx",
+        "size": 2525,
+        "sha256": "e5e42c5c4162bbccdec0abe1bc15abac96577c3cc00f2f6135bb012adaa4b823"
+      },
+      {
+        "path": "src/pages/lms/EnrollmentSuccess.jsx",
+        "size": 678,
+        "sha256": "67a4d1bb76041a2a35b5523497524190bc0d7d90707e7163ce096164b0affdf0"
+      },
+      {
+        "path": "src/pages/lms/LessonPage.jsx",
+        "size": 12897,
+        "sha256": "e28ee6d4ac2efe5ab7ebdae9f0b9ba04c8d2ecde9457729251c1ace3683d9283"
+      },
+      {
+        "path": "src/pages/lms/LessonPage.tsx",
+        "size": 7982,
+        "sha256": "39372a387d167d021eba8ea2c2f4482153e3534277b10cc0080cec63490e30d1"
+      },
+      {
+        "path": "src/pages/lms/MiladyBarberApprenticeship.jsx",
+        "size": 611,
+        "sha256": "98babd86a9efe5225e48e5b3efad01e15cb26a1a2961fddec59b4c92ddefcef0"
+      },
+      {
+        "path": "src/pages/lms/MiladyBarberCourse.jsx",
+        "size": 12164,
+        "sha256": "08720c3547ff63d3297fb3f11dc8af12a5f5c47a162caacb47cb615736e19319"
+      },
+      {
+        "path": "src/pages/lms/MiladyRISEEnrollment.jsx",
+        "size": 7878,
+        "sha256": "f6125cc0e6c7c37c5df20faddc8134b53a4e45e05e236466679961523ce34379"
+      },
+      {
+        "path": "src/pages/lms/MiladyRISEIntegration.jsx",
+        "size": 591,
+        "sha256": "a0952303994555813788bcba418573072a966311ee6c6334b5d1c8701e2a75c0"
+      },
+      {
+        "path": "src/pages/lms/MyCertificatesPage.tsx",
+        "size": 7242,
+        "sha256": "314468ddcaf103a261f5b1c58160564060fe8dd87bd555e300b3baf9876f3d47"
+      },
+      {
+        "path": "src/pages/lms/QuizBlock.tsx",
+        "size": 8877,
+        "sha256": "6782f1d481e1f893275e047015391fa0f2856ebce0f78ed252125712caaa02ad"
+      },
+      {
+        "path": "src/pages/legal/DMCA.tsx",
+        "size": 1462,
+        "sha256": "2936a27c22baeda64354908913f68dcd7d77c8aedc66c98c920dfe8b187c8bfd"
+      },
+      {
+        "path": "src/pages/legal/LegalIPNotice.tsx",
+        "size": 1501,
+        "sha256": "0c845cebaf5f96826fe55c2c6daa763338a63ba2e59a434ac2c27115946d4869"
+      },
+      {
+        "path": "src/pages/legal/Privacy.tsx",
+        "size": 1466,
+        "sha256": "232c0d655ee86526da2661b1f0225f8afc798e95f92952483b99fab6d9225812"
+      },
+      {
+        "path": "src/pages/legal/TermsOfUse.tsx",
+        "size": 1457,
+        "sha256": "f3a000b3c8a8703297ab4c6e497d478829e6466554b710e49aed98d57c32b3ad"
+      },
+      {
+        "path": "src/pages/instructor/CourseEditor.tsx",
+        "size": 4836,
+        "sha256": "c72be4c54b653143e81d5b32120e545b25641b66ea87a8afc137aef24df1ecf1"
+      },
+      {
+        "path": "src/pages/instructor/InstructorDashboard.tsx",
+        "size": 10669,
+        "sha256": "b3122dd4381979ff8bbb2f2c44466b6905dd96a42ed3e728c0b981fb0b26d463"
+      },
+      {
+        "path": "src/pages/instructor/LessonManager.tsx",
+        "size": 5488,
+        "sha256": "cacb888a7800b9e51b5a01a247795261c3b252fe07015d23613531ebf5217c49"
+      },
+      {
+        "path": "src/pages/auth/Account.tsx",
+        "size": 3185,
+        "sha256": "cef170b5ec4956e87e8dd136d571950f6b4e27b5d3f1b17dcab50f8b5d76ccf5"
+      },
+      {
+        "path": "src/pages/auth/ForgotPassword.tsx",
+        "size": 1845,
+        "sha256": "8425877698d520504298f41fd62c14552b0263ace5b1f1a51d96a52267aef857"
+      },
+      {
+        "path": "src/pages/auth/Login.tsx",
+        "size": 2444,
+        "sha256": "354a76d954504d5b59b27e1f204cfe384b9e9c2fac61f1c2a66ba75f643639ff"
+      },
+      {
+        "path": "src/pages/auth/Signup.tsx",
+        "size": 2684,
+        "sha256": "fc06d78071ef101a485d38a2d2d1c6a4d7e1aad7803aea4d1a9aae51a17ce444"
+      },
+      {
+        "path": "src/pages/admin/AutopilotTasks.tsx",
+        "size": 11714,
+        "sha256": "1bf9a0a70b51a42b2873b16300faff24dfacfa337db933fc5f735e9f49eba694"
+      },
+      {
+        "path": "src/pages/__tests__/Quiz.test.jsx",
+        "size": 609,
+        "sha256": "c1f321ee7a102c73c6f85c1bd2efbe2132955c83763fa4f596efa9bb08151f5e"
+      },
+      {
+        "path": "public/.keep",
+        "size": 1,
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+      },
+      {
+        "path": "public/404.html",
+        "size": 2620,
+        "sha256": "41792e8648e26ae076f0ed7130baa2c1c25d3a1e186480b262faa2e19665fb50"
+      },
+      {
+        "path": "public/ASSETS_README.md",
+        "size": 1906,
+        "sha256": "995ea92bbd09974335ef572aa2e4677e34b3b18f167913bb826be26ad4a0e410"
+      },
+      {
+        "path": "public/BingSiteAuth.xml",
+        "size": 118,
+        "sha256": "140e2ff76398d30cab74789f45b4d712b3aa39edca4a552067a64d46ca7608f9"
+      },
+      {
+        "path": "public/IMAGE_REQUIREMENTS.md",
+        "size": 3168,
+        "sha256": "73680e8dc10feed91d65d29cfbd1fc7365c4ef09965ffb0c7cf9ca85d35d2668"
+      },
+      {
+        "path": "public/OG_IMAGE_INSTRUCTIONS.md",
+        "size": 2183,
+        "sha256": "d451d9fc6a5801b050de68b3c3ea39c49abae248f8c0755a00af4dfa81736877"
+      },
+      {
+        "path": "public/_headers",
+        "size": 2007,
+        "sha256": "c62cca596e0c1dc22cf5016a8c5275a34c2e7c216d7264731410b64a07a8fcdc"
+      },
+      {
+        "path": "public/_headers.bak.20251014-212558",
+        "size": 2026,
+        "sha256": "0ba63b0575a83d7b17773ca63636ca0b55b267123321570ed190e74c0c26ca1d"
+      },
+      {
+        "path": "public/_redirects",
+        "size": 71,
+        "sha256": "c81a2a3783c2560903450d57ca6cb40e0ca73749eda8dd35764a6661fb428d8d"
+      },
+      {
+        "path": "public/_redirects.bak.20251014-214305",
+        "size": 24,
+        "sha256": "66584af744075248a042165adbdbd6a0551fa708a85650ea1e3e777eee17080c"
+      },
+      {
+        "path": "public/academic-calendar.html",
+        "size": 10245,
+        "sha256": "bfb74e7bb198a38d54248d9a0562eaac2faaee7a40b8442f4e20ff267839c09b"
+      },
+      {
+        "path": "public/analytics.html",
+        "size": 1909,
+        "sha256": "ca10b4b6bd90265c9a4ce0c8ac9c4344cb97e66457a9d31730fd9d22867fba9a"
+      },
+      {
+        "path": "public/apply.html",
+        "size": 8591,
+        "sha256": "751ad52600ee7e7a7c1039c3bbeb347c830b642c8bc35e4181f2bd8de82a52ca"
+      },
+      {
+        "path": "public/donate.html",
+        "size": 2257,
+        "sha256": "a11989263352725ad0b4dcfd1fe08a149c6a6641c8cd1d42c4b74ac0e0190b4d"
+      },
+      {
+        "path": "public/embed.js",
+        "size": 4420,
+        "sha256": "5734df482fade7a9a2598737514d9f28ab216c4c940671c2c2b42198d9200ab7"
+      },
+      {
+        "path": "public/employers.html",
+        "size": 8694,
+        "sha256": "ab7f3827e96d9ef866fc528210b2671d93e8437b10341ad9887daaed445c8af3"
+      },
+      {
+        "path": "public/enrollment-test.html",
+        "size": 1235,
+        "sha256": "c71164307cefec9d0531ada8c282c71bf52eef174138306384ce3291cf6c8da6"
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 22382,
+        "sha256": "e44df5678caaa52cbd8f16e7e7480e326e9b6bd991452d90a36c02e4a75d2205"
+      },
+      {
+        "path": "public/favicon.png",
+        "size": 3793,
+        "sha256": "c853342b4759c6890ab4bfe39a5f30cb3528a07e6ff8b2294eef2275110cd3bb"
+      },
+      {
+        "path": "public/favicon.svg",
+        "size": 251,
+        "sha256": "6dcdd3c167dc52cc0133f6b936812e2eae3b6101c3a738c029bb124c3936c2f0"
+      },
+      {
+        "path": "public/federal-apprenticeships.html",
+        "size": 8819,
+        "sha256": "25b11dcf0f4f3206d423704003fbc228664d04897a19a54f70a027d2ea132338"
+      },
+      {
+        "path": "public/flash-sale-store.html",
+        "size": 2908,
+        "sha256": "c90c08ad4f4dba08e98c6a8daf50c2149e5d511ef6b27de0e5372756610d7709"
+      },
+      {
+        "path": "public/google-site-verification.html",
+        "size": 698,
+        "sha256": "f36eb5c4328e9f3894e80c0158210e5f243852fc02746290449153c33f096ad7"
+      },
+      {
+        "path": "public/health.txt",
+        "size": 3,
+        "sha256": "dc51b8c96c2d745df3bd5590d990230a482fd247123599548e0632fdbf97fc22"
+      },
+      {
+        "path": "public/index-production.html",
+        "size": 2451,
+        "sha256": "19815940932bfd3d4d2736bb6ee987e0b2cecaca39d2312f3a3242ffc55a24d2"
+      },
+      {
+        "path": "public/logo-dark.svg",
+        "size": 641,
+        "sha256": "6218b4e7425ebea2e8fc291630fc94a217f731b43ad8bbad46acd7de9856dc99"
+      },
+      {
+        "path": "public/logo.svg",
+        "size": 641,
+        "sha256": "36dcd18a4892f081bb8882dee09dd1b49b32573cda49967342755e68f6b84f1b"
+      },
+      {
+        "path": "public/manifest.json",
+        "size": 759,
+        "sha256": "202830c78cf367fffed96768b09dbbe0a360308b8dd92f577f594b962a273ab6"
+      },
+      {
+        "path": "public/manifest.webmanifest",
+        "size": 221,
+        "sha256": "69068759cb73f3fe0fa5bb793d0830f0ad2317d5d11b80332e800ed257f31ef0"
+      },
+      {
+        "path": "public/meta-tags.json",
+        "size": 24812,
+        "sha256": "229ff24c654d5e85006f628a58d46d04309507eac4a6d1ed17fe34dadcbb3f24"
+      },
+      {
+        "path": "public/offline.html",
+        "size": 3842,
+        "sha256": "390e9d66102cdc2e1d1d8fb9f83cbfcb69323df0ca959c2ee1cf004ad7119cd6"
+      },
+      {
+        "path": "public/og-image.svg",
+        "size": 2193,
+        "sha256": "c0f0bc3ba181da5e3a8c06a19069943938b38d348065b8dad6ad521b11f2f8f2"
+      },
+      {
+        "path": "public/og-placeholder.html",
+        "size": 1929,
+        "sha256": "7fe39cb9f507c4df80f4b4339491b9e2c202cab7d30ff5129e0c58b7e699f35a"
+      },
+      {
+        "path": "public/og.jpg",
+        "size": 290210,
+        "sha256": "e3e9aafd2bd00e17604133518dc85daa7cee19b1822ad69008127939726c748d"
+      },
+      {
+        "path": "public/og.svg",
+        "size": 1484,
+        "sha256": "c72343e5884d79ad9214c6ceb59ae14d0b79eacc04bbdb57b9343daea99e772a"
+      },
+      {
+        "path": "public/pay.html",
+        "size": 8705,
+        "sha256": "9fa5d0f48e3cb61edf859ec13c7f872e3ce724eda144c2a6d14e9df98ffd5240"
+      },
+      {
+        "path": "public/robots.txt",
+        "size": 299,
+        "sha256": "be92f57beb90010c6271902aeb8cd52b244ac9934e7dc3d02f581a7514febf94"
+      },
+      {
+        "path": "public/search.html",
+        "size": 10054,
+        "sha256": "60c5ed26009c9c6ec390304ac0721e9336e2974abd5fa21c9041e6dbbab59a9d"
+      },
+      {
+        "path": "public/sister_sites_nav_config.json",
+        "size": 1303,
+        "sha256": "4951a6914f2603ef7905237a23d42709a22bbe10ab8d17635f305456864fc993"
+      },
+      {
+        "path": "public/sitemap.xml",
+        "size": 2076,
+        "sha256": "f0a9c8a415d07dc3d08bd20def92a3f539d820584fa71681a98eb1b310e0e4cf"
+      },
+      {
+        "path": "public/styles.css",
+        "size": 88349,
+        "sha256": "fb5243e9df0fdb9384f9eea60da749d6d307aa045d775efc2ee4183f3e64ef71"
+      },
+      {
+        "path": "public/sw.js",
+        "size": 6458,
+        "sha256": "9c1ea7c677a11e7bd19c34dba8128ccf2a66f875db4803f551f2c0763c587545"
+      },
+      {
+        "path": "public/unified-navigation.js",
+        "size": 10257,
+        "sha256": "ebbf9b94b892c5d12b664cc88f745164bdfca3add80c540f02a618b0a65ae36c"
+      },
+      {
+        "path": "public/widget.js",
+        "size": 12069,
+        "sha256": "bbede54a064b0849b3c777f96ceed5b8091957a353da135b6decd04299933f08"
+      },
+      {
+        "path": "public/schema/organization.jsonld",
+        "size": 375,
+        "sha256": "80154a2fbfa7723d55f0ce421f7614c8dedfeff71241a0417c9e6e5ea1f0c109"
+      },
+      {
+        "path": "public/programs/.gitkeep",
+        "size": 80,
+        "sha256": "3446f0df48862b7b7b7ef58853efe4bdf0ee7f82dac1c0fe06dbc43aa8987472"
+      },
+      {
+        "path": "public/programs/cdl.jpg",
+        "size": 451,
+        "sha256": "bf1718776f178eaebfa5a67463ca6a85a7d3093697446fa14a23af57fd64d66e"
+      },
+      {
+        "path": "public/programs/cna.jpg",
+        "size": 451,
+        "sha256": "bf1718776f178eaebfa5a67463ca6a85a7d3093697446fa14a23af57fd64d66e"
+      },
+      {
+        "path": "public/programs/nails.jpg",
+        "size": 451,
+        "sha256": "bf1718776f178eaebfa5a67463ca6a85a7d3093697446fa14a23af57fd64d66e"
+      },
+      {
+        "path": "public/programs/office.jpg",
+        "size": 451,
+        "sha256": "bf1718776f178eaebfa5a67463ca6a85a7d3093697446fa14a23af57fd64d66e"
+      },
+      {
+        "path": "public/programs/osha.jpg",
+        "size": 451,
+        "sha256": "bf1718776f178eaebfa5a67463ca6a85a7d3093697446fa14a23af57fd64d66e"
+      },
+      {
+        "path": "public/programs/placeholder.svg",
+        "size": 451,
+        "sha256": "bf1718776f178eaebfa5a67463ca6a85a7d3093697446fa14a23af57fd64d66e"
+      },
+      {
+        "path": "public/programs/welding.jpg",
+        "size": 451,
+        "sha256": "bf1718776f178eaebfa5a67463ca6a85a7d3093697446fa14a23af57fd64d66e"
+      },
+      {
+        "path": "public/policies/privacy.html",
+        "size": 1692,
+        "sha256": "e89c8108784190470280c28bbda9bea2c384f2de8dd379f7fc6117a23767882d"
+      },
+      {
+        "path": "public/policies/terms.html",
+        "size": 1643,
+        "sha256": "8d12641d7e455d567a566231026451909d0cc1e7901ce75d16b6669f69bfd27d"
+      },
+      {
+        "path": "public/people/alicia.jpg",
+        "size": 368,
+        "sha256": "394d077d1a7c2b6348084468e01578fce59953cef7be50528679fe20de192134"
+      },
+      {
+        "path": "public/people/avatar-template.svg",
+        "size": 368,
+        "sha256": "394d077d1a7c2b6348084468e01578fce59953cef7be50528679fe20de192134"
+      },
+      {
+        "path": "public/people/marcus.jpg",
+        "size": 368,
+        "sha256": "394d077d1a7c2b6348084468e01578fce59953cef7be50528679fe20de192134"
+      },
+      {
+        "path": "public/people/sharon.jpg",
+        "size": 368,
+        "sha256": "394d077d1a7c2b6348084468e01578fce59953cef7be50528679fe20de192134"
+      },
+      {
+        "path": "public/pages/EMERGENCY_SALE_BUY_NOW.html",
+        "size": 17264,
+        "sha256": "a92124925b13c02e4be936e2b71b44250e5f4ef9cd8f8b59ce082e1a5eb67cc4"
+      },
+      {
+        "path": "public/pages/READY_FOR_TRANSFER_index.html",
+        "size": 25917,
+        "sha256": "f06b4f8ea84615843e7877b82b136b26d2e5f1464524759186e9a2cdc23145f0"
+      },
+      {
+        "path": "public/pages/acc-style-landing.html",
+        "size": 24215,
+        "sha256": "653a7d4d00d15bcf8af971a9a617d55caf4671e0f871f6e7952bbe4331f13ede"
+      },
+      {
+        "path": "public/pages/account.html",
+        "size": 27775,
+        "sha256": "48330aa61891880489c03f4fd28db8a856483432232f437934f127bb800b7576"
+      },
+      {
+        "path": "public/pages/auth-login.html",
+        "size": 6258,
+        "sha256": "02335e125b898f52b886c8da6d1ad1d2b48254c351a4fe6663646481b64de5e4"
+      },
+      {
+        "path": "public/pages/bing-site-verification.html",
+        "size": 2098,
+        "sha256": "b98b601030fcdf1a041a490f40c58606826f55f5d2ddba86e0eb39634e08bb2a"
+      },
+      {
+        "path": "public/pages/blog.html",
+        "size": 18006,
+        "sha256": "b4f0a268f6f24c03cb1ad38ffae2debb27f5fc856923b3c5c3493fb0ff91fbcc"
+      },
+      {
+        "path": "public/pages/bnpl-frontend.html",
+        "size": 15000,
+        "sha256": "bc535cb7619de812bb6a04abaa91b4fd712da832576980a14b6380c39c445547"
+      },
+      {
+        "path": "public/pages/buy-license.html",
+        "size": 16271,
+        "sha256": "a736fbd23e550bd6bb3408919270287e5b3533a2a26e5685cafbe5a0b97062fb"
+      },
+      {
+        "path": "public/pages/check-deployment.html",
+        "size": 6007,
+        "sha256": "5b35133f4a4034c57915f5927c324597bf0ecab0151de161fd0d9e0da4c52e10"
+      },
+      {
+        "path": "public/pages/clean-professional.html",
+        "size": 9693,
+        "sha256": "63e1dab7a26a3cf1024bcb01d11b4429806c854b300bd1ac751de40b5d029499"
+      },
+      {
+        "path": "public/pages/compliance.html",
+        "size": 20761,
+        "sha256": "bbc7413f25ce1dce893c9bc53a56eec382179480b8f2dde32dbb1ddf16582dc8"
+      },
+      {
+        "path": "public/pages/connect.html",
+        "size": 41351,
+        "sha256": "84cc9aaa8de0bfa2603daeeed109f4d98fda8070511c34d0313696fcc4cc14cd"
+      },
+      {
+        "path": "public/pages/cost-tracking.html",
+        "size": 40684,
+        "sha256": "acc6d416f9dde3f9f564097944c2c684e3180a9d6cd2c9700a51127bc6388c8f"
+      },
+      {
+        "path": "public/pages/digital-binder.html",
+        "size": 17017,
+        "sha256": "d8509b769e2d3acd8a81edc889ba7aeec9cbc6dacfea04bb707360ee7f23c173"
+      },
+      {
+        "path": "public/pages/donate.html",
+        "size": 5517,
+        "sha256": "6e4d1c2d124bdc5fa550d806876e3ccd8469d8ef7b6a0c2c4cee52ff134638b6"
+      },
+      {
+        "path": "public/pages/ecosystem-status.html",
+        "size": 29598,
+        "sha256": "ac2027f05c1117c5e68ad9d0655f4b31572989d3f3cff8f6b2b903ed56319400"
+      },
+      {
+        "path": "public/pages/elevate-store.html",
+        "size": 31538,
+        "sha256": "c373e65409a11af495d0fc46db550a0b49798fd955ef1572b31b8fc56f5bc645"
+      },
+      {
+        "path": "public/pages/elevate_license_dashboard.html",
+        "size": 4426,
+        "sha256": "aea42b621e798bd8c8537e0a65a2e85acd58abca3ceb0771ec2b4a0e2a26c699"
+      },
+      {
+        "path": "public/pages/eligibility-check.html",
+        "size": 16607,
+        "sha256": "cf5b8e557c35a4b7d65312b8a4b0edf19337e88555d071463d7d642ce70eac82"
+      },
+      {
+        "path": "public/pages/eligibility-verification.html",
+        "size": 61768,
+        "sha256": "852c4e37dab75366dc5fcc7228b48c7f50ee51278f92a32ab0996ffd6b2f6a84"
+      },
+      {
+        "path": "public/pages/emergency-buy-now.html",
+        "size": 11958,
+        "sha256": "7b052f60df5c711ad9b270b991789498f7eed7da5d8a3d9445b3a30703cf62d2"
+      },
+      {
+        "path": "public/pages/employer-dashboard.html",
+        "size": 44832,
+        "sha256": "a25312c3bbd36bcc5f9799fbdf372d1f2b699b3752a8fc0a6bf7def42ce3cd12"
+      },
+      {
+        "path": "public/pages/enroll-complete.html",
+        "size": 10973,
+        "sha256": "ea1c598372c122b643f14227fbb17439bba0d2f0e244d402078ccdafb37efd6f"
+      },
+      {
+        "path": "public/pages/flash-sale-store.html",
+        "size": 17060,
+        "sha256": "b56c240ab2e2716fb37656a759a60fb37e44c97d3ff07171c541e28200e36627"
+      },
+      {
+        "path": "public/pages/flash-sale-success.html",
+        "size": 12423,
+        "sha256": "6302d4a04a85c2b8be94f4c5ea5be0ba45aa89290984bd6e5bc1f93be80c0263"
+      },
+      {
+        "path": "public/pages/fullsail-style-landing.html",
+        "size": 18852,
+        "sha256": "488ea4cec9ff5a12a3290c60c36ec13d2c871078271d305f3b3f127e4bc72cf6"
+      },
+      {
+        "path": "public/pages/funding-options.html",
+        "size": 15310,
+        "sha256": "85947f17ea1129e1613f08f2b57da167d6bbf9d35c447d5d6c21d104970333fc"
+      },
+      {
+        "path": "public/pages/google-analytics-setup.html",
+        "size": 6502,
+        "sha256": "98ec5c9aa555f1d418f1201ea86ddcae04d3dc5b2f9b14ff6924a8dbfe259084"
+      },
+      {
+        "path": "public/pages/google-search-console-setup.html",
+        "size": 5682,
+        "sha256": "b686a622686d720d8a25c7a58a30479bf40b2f0233ebab9a6e5fd3147b9d7219"
+      },
+      {
+        "path": "public/pages/google-search-console-submit.html",
+        "size": 6543,
+        "sha256": "2bae16e28e5472843b518f14d4ef02ca84310994c522e966fbe067c52efa5ab2"
+      },
+      {
+        "path": "public/pages/google-site-verification.html",
+        "size": 1840,
+        "sha256": "469b37d0b9de7e70e7acdc2a00ec8a12eccb0210e326f53fc2b3df6fed27c632"
+      },
+      {
+        "path": "public/pages/government-services.html",
+        "size": 19927,
+        "sha256": "4ab21eb55e44bc7525605d1f5cab61e9dd08678a5e9424dcc1c6f57e596c7819"
+      },
+      {
+        "path": "public/pages/healthcare-services.html",
+        "size": 13766,
+        "sha256": "9197286f9938ad24444f0c488503cb4926d9d5ae3ee1d51de2dfd3427daf294a"
+      },
+      {
+        "path": "public/pages/hub.html",
+        "size": 30545,
+        "sha256": "6bca39f692c755a6099d150c0b6d7a6d49019171743d51a0b03a42c3867da5de"
+      },
+      {
+        "path": "public/pages/humanized-program-template.html",
+        "size": 22633,
+        "sha256": "226938548203c1a24cf0027cddc17fd8a5d5512b696cad7cb9a7bacb2d4caf4a"
+      },
+      {
+        "path": "public/pages/iep-management.html",
+        "size": 25376,
+        "sha256": "cfe0d4092f5e051c9720cb0c5f8b86be4bc7cce3d37987119f76e2ec375464e7"
+      },
+      {
+        "path": "public/pages/index-authentic.html",
+        "size": 17556,
+        "sha256": "46e0a38f0b89722a76df6d6e3db8c1c200d1f9aabbc5e458f0f5647ae4e781b1"
+      },
+      {
+        "path": "public/pages/index-ecosystem.html",
+        "size": 9519,
+        "sha256": "8ff4fbb2be8ed6b955a258a53837ee6765d79ed98f4430a642b892ce2db824a7"
+      },
+      {
+        "path": "public/pages/index-professional.html",
+        "size": 15120,
+        "sha256": "fa511e07e8b7ac861cd37f073b677aa63270108a8a016a13710cbbe02e782067"
+      },
+      {
+        "path": "public/pages/index.react.html",
+        "size": 9103,
+        "sha256": "270623175506fbfb623f685a1250b9bc292363b2aabb6b9b0e257acf67195a0d"
+      },
+      {
+        "path": "public/pages/license-dashboard.html",
+        "size": 11969,
+        "sha256": "6933655acf5c3d820a87bfb118c8e379cdfabed665a87fcc418c4ef2b19fd374"
+      },
+      {
+        "path": "public/pages/live-professional.html",
+        "size": 23287,
+        "sha256": "5be772e82259884eacc61df23cefc329dff9f58687ec1059138b58b19a5b18da"
+      },
+      {
+        "path": "public/pages/live-site.html",
+        "size": 11679,
+        "sha256": "3af9ec05f8a7aa2bb6bbda3562c75ce346caad7311d12723105b3ffe8176c5b3"
+      },
+      {
+        "path": "public/pages/merged-site.html",
+        "size": 22293,
+        "sha256": "9c1d51b3f7b102caf99fa973d77d7daae8d96e8fabd39ad631df3974c147faa6"
+      },
+      {
+        "path": "public/pages/monitor-dashboard.html",
+        "size": 19170,
+        "sha256": "081c4652f5fddbebc81b9e9a199a3ae466b6cfb3e312879de54c18f080ee0e19"
+      },
+      {
+        "path": "public/pages/onboarding.html",
+        "size": 26511,
+        "sha256": "210e07050b10a3e4176e9e6ccec4c4f186bab00fac5b5a5724becdfbfcbb4120"
+      },
+      {
+        "path": "public/pages/operational-agreements.html",
+        "size": 17970,
+        "sha256": "a7d1913478ad7fd8946f67aa0a91d5d81c0d75f911eaec23caca10e724047972"
+      },
+      {
+        "path": "public/pages/partner-marketplace.html",
+        "size": 24710,
+        "sha256": "82c3e7f220b2c689c598de2e9ce71efb271b46c4759a42906461ac53fb6e40da"
+      },
+      {
+        "path": "public/pages/partner-onboarding.html",
+        "size": 14995,
+        "sha256": "f78e7d77a97cc4e6ba26efb8e5c329973b0059960d0f0d46f5022969e28498cc"
+      },
+      {
+        "path": "public/pages/partners.html",
+        "size": 7238,
+        "sha256": "670935fb2600ba6402aa2f03c51268a395affa4f2b5eca0d77508db3729cd4fa"
+      },
+      {
+        "path": "public/pages/pay.html",
+        "size": 10510,
+        "sha256": "a2d9010d5fdf1f71f02dec9d583ab464d308ce5e03b9b199da8290ae64587d18"
+      },
+      {
+        "path": "public/pages/performance-tracking.html",
+        "size": 56507,
+        "sha256": "df6a0cb4bc932045142460cd9c2bcd4f09f612791e7a4acdcff2ee1df4cc0889"
+      },
+      {
+        "path": "public/pages/pirl-reporting.html",
+        "size": 33230,
+        "sha256": "3d78cd5a5aee1576df5afd53532a97aee72ffb6d55557c08ea73dbd1587b3a56"
+      },
+      {
+        "path": "public/pages/privacy-policy.html",
+        "size": 4933,
+        "sha256": "7e754a14cdcd106903aa394b6ed0d5700b0366160c0e4659809c09dcd03c08b2"
+      },
+      {
+        "path": "public/pages/professional-site.html",
+        "size": 15029,
+        "sha256": "e39329fca2441b0b778e03c84a9c92688bee0183dbd8f7078016bbe01be5b461"
+      },
+      {
+        "path": "public/pages/programs.html",
+        "size": 92928,
+        "sha256": "3f4507deec0b921387d21e6154e104564bdc70360b46230c577933590b656da1"
+      },
+      {
+        "path": "public/pages/protected-site.html",
+        "size": 21309,
+        "sha256": "ef8d69991aa1736f62f09296cebeb931dc72d05203ae5707d8eb62ceb8d6e06b"
+      },
+      {
+        "path": "public/pages/quick-deploy.html",
+        "size": 9576,
+        "sha256": "60345eba7db2c0d4a3b81ccc7c7caf0256a0927b46cd7721362e3e59b36a189e"
+      },
+      {
+        "path": "public/pages/redesigned-homepage.html",
+        "size": 26395,
+        "sha256": "f7825c1455d24bec03ab78627c0824296539f80a9407c0dbc7050c20e58e926f"
+      },
+      {
+        "path": "public/pages/refund-policy.html",
+        "size": 5603,
+        "sha256": "636c6abac1669bad07a7c65cfdf9e57da01b43952e73e73cbbbaf541e361e35a"
+      },
+      {
+        "path": "public/pages/revenue-tracking-dashboard.html",
+        "size": 22156,
+        "sha256": "613dfa6aaf9f44eafeb3d034c640caeaf1dc54f4ca50b95d3dfdb72e222f0d4c"
+      },
+      {
+        "path": "public/pages/selfish-inc.html",
+        "size": 16690,
+        "sha256": "c18164d074d7776218e715980a1c77081b88e07f1161647f6747d9273a11f41e"
+      },
+      {
+        "path": "public/pages/seo-audit.html",
+        "size": 12717,
+        "sha256": "51c0f6291e2f71fbe12b21608e9a43884c700b078f15ebc0b8382119c039bb8d"
+      },
+      {
+        "path": "public/pages/serene-comfort-care.html",
+        "size": 7287,
+        "sha256": "dd686a49aa74d445aa7a69f36070569bdb48ac2c0228afe4bc1ee7081511d894"
+      },
+      {
+        "path": "public/pages/sister-sites-health-check.html",
+        "size": 22931,
+        "sha256": "225d42e8e1cb3cbdbada29cf38272a43f7f8643c470cb61f4c5d245af268375b"
+      },
+      {
+        "path": "public/pages/sister-sites.html",
+        "size": 17017,
+        "sha256": "b77e65d7fe1f8a03bfbdf6dea5b891d32275472c452a1258886507031514dfe6"
+      },
+      {
+        "path": "public/pages/sitemap.html",
+        "size": 5895,
+        "sha256": "7c60f95bd3a2d6b58954366db1bbe5b214042132dded7d466e54ca5ff2cacb3d"
+      },
+      {
+        "path": "public/pages/skills-assessment.html",
+        "size": 28488,
+        "sha256": "9992bbc75d58cb738c7727a3cd0d34c24248df4ff3877eed265498749dd44483"
+      },
+      {
+        "path": "public/pages/store.html",
+        "size": 21782,
+        "sha256": "8348a7664165c07165bf94b681bb07eca430ef7e9df9ff8ee6653ab07e1e89a5"
+      },
+      {
+        "path": "public/pages/student-acquisition.html",
+        "size": 25616,
+        "sha256": "cb4a536752953b3a48e828b8833a071b81aecae83043151721608cab583b03ed"
+      },
+      {
+        "path": "public/pages/student-dashboard.html",
+        "size": 12998,
+        "sha256": "a0c990f667ba138c3c93edb9362f5891872d8cc5dbe5833e3c87eb2229040355"
+      },
+      {
+        "path": "public/pages/student-outcomes.html",
+        "size": 20197,
+        "sha256": "433087f5bff5aaccd7106917820c4f4403be158de4fc3b045950994a97d80f0a"
+      },
+      {
+        "path": "public/pages/student-portal.html",
+        "size": 27573,
+        "sha256": "cea83c127bde444d28a70542bf43c561c73f65fa20d4b6de21448a8c8f79496a"
+      },
+      {
+        "path": "public/pages/subscription-frontend.html",
+        "size": 9123,
+        "sha256": "455bf86fde3889e8115b74dcc32b3b46a35cc3bd740acd9b59c17b194f0ba2df"
+      },
+      {
+        "path": "public/pages/success.html",
+        "size": 8258,
+        "sha256": "02ed88eb61d6e07b6e8f2682f168dfd6c9ed9f6837788c05c4560cfe2eac40a9"
+      },
+      {
+        "path": "public/pages/thank-you.html",
+        "size": 6736,
+        "sha256": "9ab7785d19ba993dd1c76b27dc2662b49f98a71cd23c1f960bfbcd632a4f29f6"
+      },
+      {
+        "path": "public/pages/urban-build-crew.html",
+        "size": 7309,
+        "sha256": "4340f2c59cbce7116c355533e6435aee985813b80a96ab8ed38e97e7a670072f"
+      },
+      {
+        "path": "public/pages/user-dashboard.html",
+        "size": 6038,
+        "sha256": "2c0b63e19d4819c6ceb9213dc8437f3f92f9f51373adcebbe6b2b741b157b9e8"
+      },
+      {
+        "path": "public/logos/dol.svg",
+        "size": 293,
+        "sha256": "981a3f8a5abd501ad7f57636b3c9a60298895ba2c9405e5e944b3e2e4dbdcbe7"
+      },
+      {
+        "path": "public/logos/dwd.svg",
+        "size": 293,
+        "sha256": "2952757abf611cd6bc9695c1fcb6bd0d20bcc91ed022dafda399176667b90aec"
+      },
+      {
+        "path": "public/logos/supabase.svg",
+        "size": 298,
+        "sha256": "d51a8ad3894917c153f0b3fddd1bb72f15094072e90c69c052ec251acbe99e49"
+      },
+      {
+        "path": "public/logos/workone.svg",
+        "size": 297,
+        "sha256": "f12ca084ae46d9f01bd551443546c39ec06d4b7fcd5fd67302a6938e6ba4f5c9"
+      },
+      {
+        "path": "public/js/download.js",
+        "size": 9747,
+        "sha256": "6276902ffa4c75eb258984555626e6d19b260d8f3532d0afb49f8a57476fb287"
+      },
+      {
+        "path": "public/images/AI_Data_Science_Team_1c1aed48.png",
+        "size": 245,
+        "sha256": "8d59d553370caab4a176507bea03cfb5c0f68eab390c906b70b350cfb9412054"
+      },
+      {
+        "path": "public/images/Elevate_for_Humanity_logo_81bf0fab.png",
+        "size": 271,
+        "sha256": "643094ee9adddde67392541f56406e88bb59c167e2d066a4818e3706c2d5dba5"
+      },
+      {
+        "path": "public/images/README.md",
+        "size": 2142,
+        "sha256": "9b0496e5520ffbaa968e0ddbb79c085bded6bfc0e938d0cdb9e1fa78d77c910f"
+      },
+      {
+        "path": "public/images/Success_Story_Portrait_Lisa_9a59d350.png",
+        "size": 343,
+        "sha256": "565f16ed92dc5cbf135457093fc3f15a8a309e64adc669032613ba7838b9c055"
+      },
+      {
+        "path": "public/images/Success_Story_Portrait_Marcus_112c6bbd.png",
+        "size": 345,
+        "sha256": "ac20581974bf30ce74498d30e5ce515edda5da0f8b0a7876614f9f9805f7c690"
+      },
+      {
+        "path": "public/images/Success_Story_Portrait_Sarah_fc9f8fd1.png",
+        "size": 344,
+        "sha256": "8828999511d88873586ac58a266cfb293709943e49058433625efbc313871f9b"
+      },
+      {
+        "path": "public/images/cta-banner.jpg",
+        "size": 60279,
+        "sha256": "0dfe7fb9d86c004b5c59880e1bd6c6d309471b88460f8fb8723cb57a61064849"
+      },
+      {
+        "path": "public/images/efh-barber-card.jpg",
+        "size": 212397,
+        "sha256": "020f44bbdff4d46ef08850a10501fd50ca67c819d543f1c9107d5504781ffaa6"
+      },
+      {
+        "path": "public/images/efh-barber-hero.jpg",
+        "size": 182144,
+        "sha256": "2ffb2ce4e9a2197c0f458cd7f6b3f5295fb19a867091704ccfe7ee0d98157ecb"
+      },
+      {
+        "path": "public/images/efh-building-tech-card.jpg",
+        "size": 212565,
+        "sha256": "86c7c48dd27c877e01b8ea06a7c6d439b27cc5b1b9f22643a1ac2b46a1dbe411"
+      },
+      {
+        "path": "public/images/efh-building-tech-hero.jpg",
+        "size": 181599,
+        "sha256": "2a2acea5b7cc0250fdf23f16444171f468f02ca0c634d817d4d872d9a4a2baff"
+      },
+      {
+        "path": "public/images/efh-cna-card.jpg",
+        "size": 224596,
+        "sha256": "3eafef1c120d3ca5d2a14f78802151d6309300f1246520df99e286585349c253"
+      },
+      {
+        "path": "public/images/efh-cna-hero.jpg",
+        "size": 190129,
+        "sha256": "b6eafc8f1b2f2942e76fe3a017c7205c33005abd99bdf9ca710e06758fa85e43"
+      },
+      {
+        "path": "public/images/favicon-16.png",
+        "size": 1002,
+        "sha256": "b6f58cc110ce99cf7e2e12cf67e88474d2a06d650a1cde7b7769cd145a9dfa63"
+      },
+      {
+        "path": "public/images/favicon-32.png",
+        "size": 1659,
+        "sha256": "1082994fbbbd7c754d46adde597a51571eaab34fa7d992e4b5d8f35179ce185e"
+      },
+      {
+        "path": "public/images/favicon-64.png",
+        "size": 2595,
+        "sha256": "277ffb7983e5f682ff665f77f186c94cf2fe57d60faf51489c5cfaa7040143a1"
+      },
+      {
+        "path": "public/images/favicon.ico",
+        "size": 22382,
+        "sha256": "e44df5678caaa52cbd8f16e7e7480e326e9b6bd991452d90a36c02e4a75d2205"
+      },
+      {
+        "path": "public/images/favicon.png",
+        "size": 3793,
+        "sha256": "c853342b4759c6890ab4bfe39a5f30cb3528a07e6ff8b2294eef2275110cd3bb"
+      },
+      {
+        "path": "public/images/hero-banner.jpg",
+        "size": 96877,
+        "sha256": "d02c2d328a50cebeb952bb21d5fafeb6a9aa83a0764a50c8aadf0c0e68e384ff"
+      },
+      {
+        "path": "public/images/hero-training.jpg",
+        "size": 84808,
+        "sha256": "429d1afbac4d8fcd0f60f238ade69f5ca9ff0045ae815785e6c85fe9d514b5c7"
+      },
+      {
+        "path": "public/images/og-cover.jpg",
+        "size": 63055,
+        "sha256": "7754a6854f732abbdd2a9ce8810fda0a4defe4dc6f5d787e4ad3c64e7c8cfe19"
+      },
+      {
+        "path": "public/images/og-image.jpg",
+        "size": 71439,
+        "sha256": "0f36b3c6a7f1381260400a3c7cafb38b3314da96d200aff2ec4744f0768760ab"
+      },
+      {
+        "path": "public/images/programs-banner.jpg",
+        "size": 64432,
+        "sha256": "339affe77680bdc2a7d3b75614d7944e538f7d3bea3150dbc2003d237db129f1"
+      },
+      {
+        "path": "public/images/tile-apply.jpg",
+        "size": 34791,
+        "sha256": "5a36db096b5d87d0b74f79366d3687520a0affd1a29c9c118591ae34b6a7f0c7"
+      },
+      {
+        "path": "public/images/tile-contact.jpg",
+        "size": 34455,
+        "sha256": "724ea53c24a01050592948699be082e304b078af195505be3102386c61f42e57"
+      },
+      {
+        "path": "public/images/tile-programs.jpg",
+        "size": 33794,
+        "sha256": "fc811d94a6ae98ce62ea850b64094f3134299a5ccd5d37de264d48468b4e6eb3"
+      },
+      {
+        "path": "public/images/programs/efh-barber-card.jpg",
+        "size": 173013,
+        "sha256": "e919165fef5790e0798e3d17a979f6b91b71408b37ab8189b08a236e4c174148"
+      },
+      {
+        "path": "public/images/programs/efh-barber-hero.jpg",
+        "size": 157976,
+        "sha256": "c2e9afbbd4c9907da18c527f1843228ac61eaf2d5d96551eea87fd365ba811d9"
+      },
+      {
+        "path": "public/images/programs/efh-barber-og.jpg",
+        "size": 139841,
+        "sha256": "34c4314dfe92ec1b8d06c856d796ef411cd1cd216265ecf049d6b3e34915f30a"
+      },
+      {
+        "path": "public/images/programs/efh-beauty-career-educator-card.jpg",
+        "size": 165445,
+        "sha256": "e8d9622f308e8a20dbc7cd23ddc4bf64ebc755b59c4773c14266b87e3c8a6f15"
+      },
+      {
+        "path": "public/images/programs/efh-beauty-career-educator-hero.jpg",
+        "size": 150487,
+        "sha256": "89e91611211a628630444286c72051584b1b8d5aa27b5d55f3d01bff3fecc79e"
+      },
+      {
+        "path": "public/images/programs/efh-beauty-career-educator-og.jpg",
+        "size": 134120,
+        "sha256": "cbd11618218c9cb23bdb888a74e89586fcfd9af750872e4ae6c4273772edc093"
+      },
+      {
+        "path": "public/images/programs/efh-building-tech-card.jpg",
+        "size": 163958,
+        "sha256": "c60c7e74d1e3c954f89dcc1cfad61423d1ffc177d3df70ba6ae706225a0d319c"
+      },
+      {
+        "path": "public/images/programs/efh-building-tech-hero.jpg",
+        "size": 148585,
+        "sha256": "207089275ccfb1c10511a549c7a111f8b2f5d138b4cece630dd018b2c72a6ee2"
+      },
+      {
+        "path": "public/images/programs/efh-building-tech-og.jpg",
+        "size": 131313,
+        "sha256": "d22f62a9b61d016ec64137dea143476d579a4698a72c0222aa97a480422e502d"
+      },
+      {
+        "path": "public/images/programs/efh-business-startup-marketing-card.jpg",
+        "size": 163924,
+        "sha256": "9ec31d3a0e9a7b2addb06f68e5fb28a2c763879deb4251abcea48908bc59f46f"
+      },
+      {
+        "path": "public/images/programs/efh-business-startup-marketing-hero.jpg",
+        "size": 148842,
+        "sha256": "64cacdccb2000e38676430c1e5cd7e3a2d6add260d51c6ef185a28c80fbb4066"
+      },
+      {
+        "path": "public/images/programs/efh-business-startup-marketing-og.jpg",
+        "size": 132319,
+        "sha256": "fe70ee8d0f3f7355b7651712dd021bad75b3025fcc6810b77de890f01c242617"
+      },
+      {
+        "path": "public/images/programs/efh-cna-card.jpg",
+        "size": 168359,
+        "sha256": "f3e1e0c5302850febcfe9b283a0d6bf8ee4807cda6b1d2ed5d06c06c62acc8d6"
+      },
+      {
+        "path": "public/images/programs/efh-cna-hero.jpg",
+        "size": 152490,
+        "sha256": "b84fb04d42124864db6f9d69b4f00e63aebe00fc45deeb51efb2532296573e3d"
+      },
+      {
+        "path": "public/images/programs/efh-cna-og.jpg",
+        "size": 135639,
+        "sha256": "0ad9fe05fedf09dcec1553059b60231c362ac41e0c1f5fc36416ae8d011a41a3"
+      },
+      {
+        "path": "public/images/programs/efh-cpr-aed-first-aid-card.jpg",
+        "size": 166147,
+        "sha256": "e81418fc856553598f7992f3b7b16057765f7ad0c45eecedbb5661bb92fab385"
+      },
+      {
+        "path": "public/images/programs/efh-cpr-aed-first-aid-hero.jpg",
+        "size": 150950,
+        "sha256": "bcfc4af16eee18953aa96862b83cc057661f22c1dc56f354876e3dfd9b227b68"
+      },
+      {
+        "path": "public/images/programs/efh-cpr-aed-first-aid-og.jpg",
+        "size": 134678,
+        "sha256": "6dcfa91fa0ecfa6edf8df7dd3ec0eb67b6fffcaa7751940771a9ab787e936c68"
+      },
+      {
+        "path": "public/images/programs/efh-esthetician-client-services-card.jpg",
+        "size": 173873,
+        "sha256": "82b58b569f7b83f581430ca9df05591ea0ae0f529bd171ca74666fb95b713f35"
+      },
+      {
+        "path": "public/images/programs/efh-esthetician-client-services-hero.jpg",
+        "size": 159252,
+        "sha256": "d251798b4d009543860c91cc6f84cf5ed16643f82211c27e414169200a038d17"
+      },
+      {
+        "path": "public/images/programs/efh-esthetician-client-services-og.jpg",
+        "size": 129449,
+        "sha256": "7e9d1dfa00d2ed35777a35d13b90e58555b8e6a42c306d5d6422966d7ba10c41"
+      },
+      {
+        "path": "public/images/programs/efh-public-safety-reentry-card.jpg",
+        "size": 166790,
+        "sha256": "232ca410cad33a7ec951f789ce08c7cb7b5e7e4a89fcf6820b4b156766abe66a"
+      },
+      {
+        "path": "public/images/programs/efh-public-safety-reentry-hero.jpg",
+        "size": 151698,
+        "sha256": "80c8ecc7a7df862e222374d7a0651cc4ee8201cde8d1d43c26ce8a7bf411d723"
+      },
+      {
+        "path": "public/images/programs/efh-public-safety-reentry-og.jpg",
+        "size": 135484,
+        "sha256": "a2445efa41253bf653a192d0d300d44f9a4f5570e82575496c24672a334a43ef"
+      },
+      {
+        "path": "public/images/programs/efh-tax-office-startup-card.jpg",
+        "size": 154114,
+        "sha256": "7d2e3e0ebcff19db1cebe7be62160fc4d552a82dc944c042cbde023ce6727075"
+      },
+      {
+        "path": "public/images/programs/efh-tax-office-startup-hero.jpg",
+        "size": 139044,
+        "sha256": "16fc4a21ed4e52254bc5b3a32f1f278cf231b2803888be0f86e103becc855dd4"
+      },
+      {
+        "path": "public/images/programs/efh-tax-office-startup-og.jpg",
+        "size": 122935,
+        "sha256": "65e90793e27585e99762bc297efccb8e93848a34d07a593dd1336b085dd9eeee"
+      },
+      {
+        "path": "public/images/partners/dwd.webp",
+        "size": 1338,
+        "sha256": "2fea9fcc3851c4590a216abfcd0eaa579d0277ee0698b8d2fe8ef25f455f8a74"
+      },
+      {
+        "path": "public/images/partners/microsoft-logo.png",
+        "size": 4054,
+        "sha256": "112fec798b78aa02e102a724b5cb1990c0f909bc1d8b7b1fa256eab41bbc0960"
+      },
+      {
+        "path": "public/images/partners/nextleveljobs.webp",
+        "size": 1370,
+        "sha256": "07955104318138ff0e81ea53660778c84ff36a88e2b5923774b35eab3ce7e192"
+      },
+      {
+        "path": "public/images/partners/osha.webp",
+        "size": 892,
+        "sha256": "54c160c9940223e71c59eea8dfb2c52ee8db14cece43743041ad4e85058a7aff"
+      },
+      {
+        "path": "public/images/partners/usdol.webp",
+        "size": 1010,
+        "sha256": "f803de4ee3a30a31a6146472ec72aacb80e50d6fda57f379c59c4ae09f03c85c"
+      },
+      {
+        "path": "public/images/partners/workone.webp",
+        "size": 1338,
+        "sha256": "8a5202ecba3401a0489dd0f97cd5f3d4422f1e5baaf4c26643f9b5cd5bae9058"
+      },
+      {
+        "path": "public/hls/sample/README.md",
+        "size": 641,
+        "sha256": "d05bcd6b40534d100158b0b9aea96eb54d97fb552794587d02bd15f2eeebcf16"
+      },
+      {
+        "path": "public/hls/sample/index.m3u8",
+        "size": 157,
+        "sha256": "3b50a50b2369a15b4c28323c4c581260f1c6cfadd7cbdd47a1f5aeb73835ea6f"
+      },
+      {
+        "path": "public/hls/sample/seg0.ts",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "public/hls/sample/seg1.ts",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "public/hls/sample/seg2.ts",
+        "size": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "public/hero/efh-hero.jpg",
+        "size": 746,
+        "sha256": "a43c720a522405d0a1f103ed6c06206e268f8bbf49880b90f34c7a09d348c8c6"
+      },
+      {
+        "path": "public/hero/efh-hero@1x.jpg",
+        "size": 746,
+        "sha256": "a43c720a522405d0a1f103ed6c06206e268f8bbf49880b90f34c7a09d348c8c6"
+      },
+      {
+        "path": "public/hero/efh-hero@2x.jpg",
+        "size": 746,
+        "sha256": "a43c720a522405d0a1f103ed6c06206e268f8bbf49880b90f34c7a09d348c8c6"
+      },
+      {
+        "path": "public/hero/efh-hero@3x.jpg",
+        "size": 746,
+        "sha256": "a43c720a522405d0a1f103ed6c06206e268f8bbf49880b90f34c7a09d348c8c6"
+      },
+      {
+        "path": "public/embed/courses.js",
+        "size": 5144,
+        "sha256": "323dbb94f9d652e00200b20174f48c1e96e10a65dc673f6b73330bf328e86642"
+      },
+      {
+        "path": "public/embed/lms-widget.js",
+        "size": 648,
+        "sha256": "4879eeb75e646ad7196c89b0f38f30031bca0fc45a9ba68e19f4c0992dd85696"
+      },
+      {
+        "path": "public/durable-pages/programs.html",
+        "size": 10955,
+        "sha256": "2924c6542af599d48afa043c386f4b2594ea73f50fe0516df0dd4464d9706af1"
+      },
+      {
+        "path": "public/docs/CERTIFICATION_PORTFOLIO.md",
+        "size": 11885,
+        "sha256": "93eb3badc077126ff298055a7dfdc26caf6d604c70c36af59703cd72cf14442d"
+      },
+      {
+        "path": "public/digital-products/README.md",
+        "size": 2066,
+        "sha256": "9ca6d3cb832255b1c08e27d1cbdf860f17ae4c9a316b082ddda140d288e1b110"
+      },
+      {
+        "path": "public/catalog/pages.json",
+        "size": 41700,
+        "sha256": "be45671f10ababd4e3fcde41f80521f975a143925ef8c13fee7eecce0d227783"
+      },
+      {
+        "path": "public/assets/banner-feature.svg",
+        "size": 660,
+        "sha256": "03c93b9c7f46110c812ed5d18d0c0d962862d39e37f72a09c9bd514fcb8914b4"
+      },
+      {
+        "path": "public/assets/hero-wide.svg",
+        "size": 600,
+        "sha256": "0cdfa76d59726322574f68de6b519ce984ac7e0a916eba1223d61ab8d0f4df40"
+      },
+      {
+        "path": "public/assets/logo-efh.svg",
+        "size": 430,
+        "sha256": "c33113a90b01b572072625ef9b9f227124597eb7ddf48f7cd4a6de6b67b332f8"
+      },
+      {
+        "path": "public/assets/og/efh-hero.png",
+        "size": 585332,
+        "sha256": null
+      },
+      {
+        "path": "public/api/efh-config.json",
+        "size": 4443,
+        "sha256": "64a8abfccfe298762eeb2a0084575cc5607b6f84f0a6d7387bb8a5d80a988399"
+      },
+      {
+        "path": "public/api/health.json",
+        "size": 195,
+        "sha256": "f86b2d31ffeae070d8a2f647eb7a1d586b41ee41257afe26f07c39c7e6443007"
+      },
+      {
+        "path": "public/api/partnerships.json",
+        "size": 5076,
+        "sha256": "1371eff1727fcdafedfd0ecbba845293221c3156d1c0902f78557b9e1aea9ea8"
+      },
+      {
+        "path": "public/api/programs.json",
+        "size": 3052,
+        "sha256": "2e276446435c177d1ba85c71c191b0abf10d3db3c02ec1dd603381bedc4bc963"
+      },
+      {
+        "path": "public/api/stats.json",
+        "size": 2535,
+        "sha256": "5535f6650dffee289d9b80ebcc9cd53ab13c2df126c88cdc7ea8eed9a38d3f92"
+      },
+      {
+        "path": "public/.well-known/1000009072.png",
+        "size": 1140921,
+        "sha256": null
+      },
+      {
+        "path": "public/.well-known/security.txt",
+        "size": 265,
+        "sha256": "b250ecbf950ec147fd56f64e1ad539e5171401bbb340e988f94ef416660c023b"
+      }
+    ]
+  }
+}

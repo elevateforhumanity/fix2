@@ -57,6 +57,7 @@ export function ApplicationForm() {
   };
 
   const handleSubmit = () => {
+    // console.log('Form submitted:', formData);
     setStep(6); // Success screen
   };
 

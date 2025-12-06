@@ -1,205 +1,121 @@
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import { Map, Target, CheckCircle, Lock, TrendingUp, Award, BookOpen } from 'lucide-react';
-
-export const dynamic = 'force-dynamic';
+import { BarChart3, TrendingUp, Award, Users, BookOpen, Target } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Learning Paths | Student Portal',
+  title: 'Learning-paths | Student Portal',
+  description: 'Manage your learning-paths',
 };
 
-export default async function LearningPathsPage() {
+export default async function Learning-pathsPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');
 
-  const { data: enrollments } = await supabase
-    .from('enrollments')
-    .select(`
-      *,
-      programs(name, duration_weeks)
-    `)
-    .eq('user_id', user.id);
-
-  const paths = [
-    {
-      id: 1,
-      name: 'Web Development Fundamentals',
-      description: 'Master the basics of web development',
-      courses: ['HTML & CSS', 'JavaScript Basics', 'React Fundamentals', 'Node.js Intro'],
-      progress: 50,
-      enrolled: true,
-      duration: '12 weeks',
-      level: 'Beginner'
-    },
-    {
-      id: 2,
-      name: 'Data Science Track',
-      description: 'Learn data analysis and machine learning',
-      courses: ['Python Basics', 'Data Analysis', 'Machine Learning', 'Deep Learning'],
-      progress: 0,
-      enrolled: false,
-      duration: '16 weeks',
-      level: 'Intermediate'
-    },
-    {
-      id: 3,
-      name: 'Cloud Computing Path',
-      description: 'Master cloud technologies and DevOps',
-      courses: ['AWS Basics', 'Docker & Kubernetes', 'CI/CD', 'Cloud Architecture'],
-      progress: 0,
-      enrolled: false,
-      duration: '14 weeks',
-      level: 'Advanced'
-    }
-  ];
-
-  const enrolledPaths = paths.filter(p => p.enrolled);
-  const recommendedPaths = paths.filter(p => !p.enrolled);
+  // Fetch relevant data
+  const { data: items } = await supabase
+    .from('learning_paths')
+    .select('*')
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: false })
+    .limit(20);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold">Learning Paths</h1>
-          <p className="text-gray-600 mt-1">Follow structured paths to achieve your learning goals</p>
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h1 className="text-3xl font-bold capitalize">learning paths</h1>
+            <p className="text-gray-600 mt-1">Manage and track your learning paths</p>
+          </div>
+          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            New Item
+          </button>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
+        {/* Stats Grid */}
+        <div className="grid md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg shadow">
-            <Map className="text-blue-600 mb-3" size={32} />
-            <p className="text-2xl font-bold">{enrolledPaths.length}</p>
-            <p className="text-sm text-gray-600">Active Paths</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <Target className="text-green-600 mb-3" size={32} />
-            <p className="text-2xl font-bold">{enrollments?.length || 0}</p>
-            <p className="text-sm text-gray-600">Courses Completed</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <Award className="text-purple-600 mb-3" size={32} />
-            <p className="text-2xl font-bold">0</p>
-            <p className="text-sm text-gray-600">Paths Completed</p>
-          </div>
-        </div>
-
-        {enrolledPaths.length > 0 && (
-          <div className="mb-8">
-            <h2 className="text-2xl font-bold mb-4">My Learning Paths</h2>
-            <div className="space-y-6">
-              {enrolledPaths.map((path) => (
-                <div key={path.id} className="bg-white rounded-lg shadow overflow-hidden">
-                  <div className="p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-xl font-bold">{path.name}</h3>
-                          <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-                            {path.level}
-                          </span>
-                        </div>
-                        <p className="text-gray-600 mb-4">{path.description}</p>
-                        <div className="flex items-center gap-4 text-sm text-gray-500">
-                          <span className="flex items-center gap-1">
-                            <BookOpen size={16} />
-                            {path.courses.length} courses
-                          </span>
-                          <span>{path.duration}</span>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-3xl font-bold text-blue-600">{path.progress}%</p>
-                        <p className="text-sm text-gray-600">Complete</p>
-                      </div>
-                    </div>
-
-                    <div className="mb-4">
-                      <div className="w-full bg-gray-200 rounded-full h-3">
-                        <div 
-                          className="bg-gradient-to-r from-blue-600 to-purple-600 h-3 rounded-full transition-all"
-                          style={{ width: `\${path.progress}%` }}
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-4 gap-4">
-                      {path.courses.map((course, index) => {
-                        const isCompleted = index < (path.courses.length * path.progress / 100);
-                        const isCurrent = index === Math.floor(path.courses.length * path.progress / 100);
-                        const isLocked = index > Math.floor(path.courses.length * path.progress / 100);
-
-                        return (
-                          <div 
-                            key={index}
-                            className={`p-4 rounded-lg border-2 \${
-                              isCompleted ? 'border-green-500 bg-green-50' :
-                              isCurrent ? 'border-blue-500 bg-blue-50' :
-                              'border-gray-200 bg-gray-50'
-                            }`}
-                          >
-                            <div className="flex items-center gap-2 mb-2">
-                              {isCompleted && <CheckCircle size={20} className="text-green-600" />}
-                              {isCurrent && <TrendingUp size={20} className="text-blue-600" />}
-                              {isLocked && <Lock size={20} className="text-gray-400" />}
-                              <span className="text-sm font-medium">{index + 1}</span>
-                            </div>
-                            <p className={`text-sm font-medium \${isLocked ? 'text-gray-400' : 'text-gray-900'}`}>
-                              {course}
-                            </p>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                  <div className="bg-gray-50 px-6 py-4 flex justify-between items-center">
-                    <button className="text-blue-600 hover:text-blue-700 font-medium">
-                      View Details
-                    </button>
-                    <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                      Continue Learning
-                    </button>
-                  </div>
-                </div>
-              ))}
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <BarChart3 className="text-blue-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">{items?.length || 0}</p>
+                <p className="text-sm text-gray-600">Total Items</p>
+              </div>
             </div>
           </div>
-        )}
-
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Recommended Paths</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {recommendedPaths.map((path) => (
-              <div key={path.id} className="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition">
-                <div className="p-6">
-                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
-                    {path.level}
-                  </span>
-                  <h3 className="text-xl font-bold mt-3 mb-2">{path.name}</h3>
-                  <p className="text-gray-600 mb-4">{path.description}</p>
-                  <div className="space-y-2 mb-4">
-                    {path.courses.map((course, index) => (
-                      <div key={index} className="flex items-center gap-2 text-sm text-gray-600">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                        {course}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-                    <span className="flex items-center gap-1">
-                      <BookOpen size={16} />
-                      {path.courses.length} courses
-                    </span>
-                    <span>{path.duration}</span>
-                  </div>
-                </div>
-                <div className="bg-gray-50 px-6 py-4">
-                  <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                    Enroll in Path
-                  </button>
-                </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <TrendingUp className="text-green-600" size={24} />
               </div>
-            ))}
+              <div>
+                <p className="text-2xl font-bold">0</p>
+                <p className="text-sm text-gray-600">Active</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                <Award className="text-purple-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">0</p>
+                <p className="text-sm text-gray-600">Completed</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <Target className="text-orange-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">0%</p>
+                <p className="text-sm text-gray-600">Progress</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="bg-white rounded-lg shadow">
+          <div className="p-6 border-b">
+            <h2 className="text-xl font-semibold">Recent Activity</h2>
+          </div>
+          <div className="p-6">
+            {items && items.length > 0 ? (
+              <div className="space-y-4">
+                {items.map((item: any) => (
+                  <div key={item.id} className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-semibold">{item.title || item.name || 'Item'}</h3>
+                        <p className="text-sm text-gray-600 mt-1">
+                          {new Date(item.created_at).toLocaleDateString()}
+                        </p>
+                      </div>
+                      <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        View Details
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12">
+                <BookOpen className="mx-auto text-gray-400 mb-4" size={64} />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">No items yet</h3>
+                <p className="text-gray-600 mb-4">Get started by creating your first item</p>
+                <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                  Create New
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

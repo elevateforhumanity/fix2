@@ -21,6 +21,7 @@ export function MobileVoiceOver() {
         // Auto-play the audio
         if (audioRef.current) {
           audioRef.current.play().catch(error => {
+            console.log('Auto-play prevented:', error);
             // If auto-play is blocked, show the play button
           });
         }

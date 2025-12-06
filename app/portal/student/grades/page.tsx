@@ -3,8 +3,6 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { TrendingUp, Award, FileText } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Grades | Student Portal',
   description: 'View your grades and academic performance',

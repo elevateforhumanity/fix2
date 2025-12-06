@@ -142,5 +142,6 @@ function sendAlert(data: any) {
     body: JSON.stringify(data),
     keepalive: true
   }).catch((error) => {
+    console.log('[Scraper Detection] Failed to send alert:', error);
   });
 }

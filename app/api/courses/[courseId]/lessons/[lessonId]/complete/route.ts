@@ -3,10 +3,9 @@ import { NextResponse } from 'next/server';
 
 export async function POST(
   request: Request,
-  { params }: { params: Promise<{ courseId: string; lessonId: string }> }
+  { params }: { params: { courseId: string; lessonId: string } }
 ) {
   try {
-    const { lessonId } = await params;
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
@@ -18,7 +17,7 @@ export async function POST(
       .from('lesson_progress')
       .upsert({
         user_id: user.id,
-        lesson_id: lessonId,
+        lesson_id: params.lessonId,
         completed: true,
         completed_at: new Date().toISOString(),
       });

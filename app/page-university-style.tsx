@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       {/* HERO - Large Image with Overlay Text (Princeton Style) */}
-      <section className="relative h-[400px] overflow-hidden">
+      <section className="relative h-[650px] overflow-hidden">
         <Image
           src="/media/programs/cpr-group-training-hd.jpg"
           alt="Students practicing hands-on CPR training in classroom"

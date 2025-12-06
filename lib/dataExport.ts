@@ -337,9 +337,9 @@ export async function exportEnrollments(options: ExportOptions = {}): Promise<an
   return (data || []).map(enrollment => ({
     ...enrollment,
     student_name: enrollment.student 
-      ? `${(enrollment.student as any)?.[0]?.first_name} ${(enrollment.student as any)?.[0]?.last_name}`
+      ? `${enrollment.student?.[0]?.first_name} ${enrollment.student?.[0]?.last_name}`
       : 'N/A',
-    student_email: (enrollment.student as any)?.[0]?.email || 'N/A',
+    student_email: enrollment.student?.email || 'N/A',
     course_title: (enrollment.course as any)?.[0]?.title || 'N/A',
     course_category: (enrollment.course as any)?.[0]?.category || 'N/A',
   }));

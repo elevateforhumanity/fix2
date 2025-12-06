@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-// Build: 2025-12-05 - Force cache clear
 const nextConfig = {
   output: 'standalone',
   reactStrictMode: true,
@@ -29,15 +28,6 @@ const nextConfig = {
   },
   async headers() {
     return [
-      {
-        source: '/programs/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=0, must-revalidate',
-          },
-        ],
-      },
       {
         source: '/images/:path*',
         headers: [

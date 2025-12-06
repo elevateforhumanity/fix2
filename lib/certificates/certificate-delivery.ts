@@ -21,6 +21,7 @@ interface EmailData {
 async function sendCertificateEmail(emailData: EmailData) {
   // Send email via your email service
   // This is a placeholder - integrate with your email service (SendGrid, Resend, etc.)
+  console.log('Sending certificate email:', emailData);
   
   // Example with fetch to your email API
   try {

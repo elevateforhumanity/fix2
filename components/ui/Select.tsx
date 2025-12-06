@@ -57,16 +57,16 @@ export const SelectTrigger = React.forwardRef<HTMLButtonElement, SelectTriggerPr
     const triggerRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
-      if (!open) return undefined;
-      
       const handleClickOutside = (event: MouseEvent) => {
         if (triggerRef.current && !triggerRef.current.contains(event.target as Node)) {
           setOpen(false);
         }
       };
 
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
+      if (open) {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+      }
     }, [open, setOpen]);
 
     return (

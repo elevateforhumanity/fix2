@@ -13,6 +13,7 @@ export function getRedisClient(): Redis | null {
   if (!redis) {
     try {
       redis = new Redis(process.env.REDIS_URL);
+      console.log('✅ Redis connected');
     } catch (error) {
       console.error('❌ Redis connection failed:', error);
       return null;

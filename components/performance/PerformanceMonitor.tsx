@@ -19,6 +19,7 @@ export function PerformanceMonitor() {
       window.addEventListener('load', () => {
         const perfData = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
         
+        console.log('⚡ Performance Metrics:', {
           'DNS Lookup': `${(perfData.domainLookupEnd - perfData.domainLookupStart).toFixed(2)}ms`,
           'TCP Connection': `${(perfData.connectEnd - perfData.connectStart).toFixed(2)}ms`,
           'Request Time': `${(perfData.responseStart - perfData.requestStart).toFixed(2)}ms`,

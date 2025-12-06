@@ -14,6 +14,7 @@ export async function sendSecurityLog(event: {
 }) {
   if (!SIEM_ENDPOINT || !SIEM_API_KEY) {
     // No SIEM configured – fail soft, but still log locally.
+    // console.log("[SIEM]", event);
     return;
   }
 

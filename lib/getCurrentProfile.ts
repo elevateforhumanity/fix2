@@ -19,7 +19,7 @@ export type CurrentProfile = {
 } | null;
 
 export async function getCurrentProfile(): Promise<CurrentProfile> {
-  const cookieStore = await cookies();
+  const cookieStore = cookies();
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',

@@ -40,6 +40,7 @@ export async function sendTeamsMessage(
         sections,
       }),
     });
+    // console.log(`Teams message sent: ${title}`);
   } catch (error) {
     console.error('Failed to send Teams message:', error);
   }

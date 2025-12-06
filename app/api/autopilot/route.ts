@@ -6,7 +6,6 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { generateId, generateShortId } from '@/lib/utils/id-generator';
 import fs from 'fs';
 import path from 'path';
 
@@ -106,7 +105,7 @@ export async function POST(request: NextRequest) {
 
     if (body.action === 'add_task') {
       const newTask = {
-        id: `task_${generateId()}`,
+        id: `task_${Date.now()}`,
         title: body.title || 'Untitled Task',
         status: 'pending' as const,
         priority: body.priority || 5,
@@ -129,7 +128,7 @@ export async function POST(request: NextRequest) {
 
     if (body.action === 'add_content') {
       const newContent = {
-        id: `content_${generateId()}`,
+        id: `content_${Date.now()}`,
         title: body.title || 'Untitled',
         tags: body.tags || [],
         body: body.body || '',

@@ -1,54 +1,34 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getPushNotificationService } from '@/lib/notifications/push-service';
-import { createClient } from '@/lib/supabase/server';
+import webpush from 'web-push';
+
+// Configure web-push with VAPID keys
+// In production, these should be in environment variables
+const vapidPublicKey = process.env.VAPID_PUBLIC_KEY || '';
+const vapidPrivateKey = process.env.VAPID_PRIVATE_KEY || '';
+const vapidSubject =
+  process.env.VAPID_SUBJECT || 'mailto:admin@elevateforhumanity.org';
+
+if (vapidPublicKey && vapidPrivateKey) {
+  webpush.setVapidDetails(vapidSubject, vapidPublicKey, vapidPrivateKey);
+}
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { userId, userIds, notification, broadcast } = body;
+    const { subscription, notification } = await request.json();
 
-    if (!notification) {
+    if (!subscription || !notification) {
       return NextResponse.json(
-        { success: false, error: 'Missing notification data' },
+        { success: false, error: 'Missing subscription or notification data' },
         { status: 400 }
       );
     }
 
-    // Verify authentication for admin operations
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
-
-    if (!user) {
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
-
-    const pushService = getPushNotificationService();
-    let sentCount = 0;
-
-    if (broadcast) {
-      // Broadcast to all users (admin only)
-      // TODO: Add admin role check
-      sentCount = await pushService.broadcast(notification);
-    } else if (userIds && Array.isArray(userIds)) {
-      // Send to multiple users
-      sentCount = await pushService.sendToUsers(userIds, notification);
-    } else if (userId) {
-      // Send to single user
-      sentCount = await pushService.sendToUser(userId, notification);
-    } else {
-      return NextResponse.json(
-        { success: false, error: 'Must specify userId, userIds, or broadcast' },
-        { status: 400 }
-      );
-    }
+    // Send push notification
+    await webpush.sendNotification(subscription, JSON.stringify(notification));
 
     return NextResponse.json({
       success: true,
       message: 'Notification sent',
-      sentCount,
     });
   } catch (error) {
     console.error('[Notifications] Send error:', error);

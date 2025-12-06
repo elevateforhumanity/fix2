@@ -2,18 +2,17 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
 export async function POST(req: Request) {
-  try {
-    const supabase = await createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-    if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+  if (!user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
 
-    const { imageBase64, latitude, longitude, scheduledStart, meetingId } =
-      await req.json();
+  const { imageBase64, latitude, longitude, scheduledStart, meetingId } =
+    await req.json();
 
   // Validate image presence
   if (!imageBase64) {
@@ -57,35 +56,20 @@ export async function POST(req: Request) {
   // 2. Compare against stored user photo
   // 3. Check for liveness detection
 
-    // For now, log the attendance attempt
-    const { error: insertError } = await supabase.from("attendance_records").insert({
-      user_id: user.id,
-      meeting_id: meetingId,
-      verified: true,
-      verification_method: "photo_time_location",
-      latitude,
-      longitude,
-      checked_in_at: now.toISOString(),
-    });
+  // For now, log the attendance attempt
+  await supabase.from("attendance_records").insert({
+    user_id: user.id,
+    meeting_id: meetingId,
+    verified: true,
+    verification_method: "photo_time_location",
+    latitude,
+    longitude,
+    checked_in_at: now.toISOString(),
+  });
 
-    if (insertError) {
-      console.error("Failed to record attendance:", insertError);
-      return NextResponse.json(
-        { error: "Failed to record attendance. Please try again." },
-        { status: 500 }
-      );
-    }
-
-    return NextResponse.json({
-      verified: true,
-      reason: "Basic checks passed (image + time window + location).",
-      timestamp: now.toISOString(),
-    });
-  } catch (error) {
-    console.error("Attendance verification error:", error);
-    return NextResponse.json(
-      { error: "An unexpected error occurred. Please try again." },
-      { status: 500 }
-    );
-  }
+  return NextResponse.json({
+    verified: true,
+    reason: "Basic checks passed (image + time window + location).",
+    timestamp: now.toISOString(),
+  });
 }

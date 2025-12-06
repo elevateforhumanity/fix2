@@ -3,8 +3,6 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Notifications | Elevate For Humanity',
   description: 'Learn more about Notifications inside the Elevate For Humanity workforce ecosystem.',

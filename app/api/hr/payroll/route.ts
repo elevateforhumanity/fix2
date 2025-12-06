@@ -1,99 +1,24 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 
-/**
- * Calculate payroll taxes using 2024 tax tables
- * Note: This is a simplified implementation. For production use:
- * - Integrate with a payroll tax service (Gusto, ADP, etc.)
- * - Account for employee W-4 withholding allowances
- * - Handle state-specific tax rules
- * - Update tax tables annually
- */
-function calculateTaxes(
-  grossPay: number,
-  payFrequency: 'weekly' | 'bi-weekly' | 'semi-monthly' | 'monthly' = 'bi-weekly',
-  filingStatus: 'single' | 'married' | 'head_of_household' = 'single'
-) {
-  // Annualize the gross pay for tax bracket calculation
-  const periodsPerYear = {
-    weekly: 52,
-    'bi-weekly': 26,
-    'semi-monthly': 24,
-    monthly: 12,
-  };
-  
-  const annualizedGross = grossPay * periodsPerYear[payFrequency];
-  
-  // 2024 Federal Income Tax Brackets (Single filer)
-  let federalTax = 0;
-  if (filingStatus === 'single') {
-    if (annualizedGross <= 11600) {
-      federalTax = annualizedGross * 0.10;
-    } else if (annualizedGross <= 47150) {
-      federalTax = 1160 + (annualizedGross - 11600) * 0.12;
-    } else if (annualizedGross <= 100525) {
-      federalTax = 5426 + (annualizedGross - 47150) * 0.22;
-    } else if (annualizedGross <= 191950) {
-      federalTax = 17168.50 + (annualizedGross - 100525) * 0.24;
-    } else if (annualizedGross <= 243725) {
-      federalTax = 39110.50 + (annualizedGross - 191950) * 0.32;
-    } else if (annualizedGross <= 609350) {
-      federalTax = 55678.50 + (annualizedGross - 243725) * 0.35;
-    } else {
-      federalTax = 183647.25 + (annualizedGross - 609350) * 0.37;
-    }
-  } else if (filingStatus === 'married') {
-    // 2024 Married Filing Jointly brackets
-    if (annualizedGross <= 23200) {
-      federalTax = annualizedGross * 0.10;
-    } else if (annualizedGross <= 94300) {
-      federalTax = 2320 + (annualizedGross - 23200) * 0.12;
-    } else if (annualizedGross <= 201050) {
-      federalTax = 10852 + (annualizedGross - 94300) * 0.22;
-    } else if (annualizedGross <= 383900) {
-      federalTax = 34337 + (annualizedGross - 201050) * 0.24;
-    } else if (annualizedGross <= 487450) {
-      federalTax = 78221 + (annualizedGross - 383900) * 0.32;
-    } else if (annualizedGross <= 731200) {
-      federalTax = 111357 + (annualizedGross - 487450) * 0.35;
-    } else {
-      federalTax = 196669.50 + (annualizedGross - 731200) * 0.37;
-    }
-  }
-  
-  // Convert annual tax to per-period
-  federalTax = federalTax / periodsPerYear[payFrequency];
-  
-  // State tax (example: 5% flat - adjust per state)
-  // TODO: Implement state-specific tax tables
-  const stateTax = grossPay * 0.05;
-  
-  // Local tax (example: 1% - adjust per locality)
-  // TODO: Implement locality-specific tax rates
-  const localTax = grossPay * 0.01;
-  
-  // FICA taxes (fixed rates for 2024)
-  // Social Security: 6.2% up to $168,600 wage base
-  const socialSecurityWageBase = 168600;
-  const annualSocialSecurityWages = Math.min(annualizedGross, socialSecurityWageBase);
-  const socialSecurity = (annualSocialSecurityWages * 0.062) / periodsPerYear[payFrequency];
-  
-  // Medicare: 1.45% on all wages + 0.9% additional on wages over $200k
-  let medicare = grossPay * 0.0145;
-  if (annualizedGross > 200000) {
-    const additionalMedicareWages = annualizedGross - 200000;
-    medicare += (additionalMedicareWages * 0.009) / periodsPerYear[payFrequency];
-  }
+// Utility: simple tax calc (you can later replace with real tax engine)
+function calculateTaxes(grossPay: number) {
+  const federalTax = grossPay * 0.12; // placeholder
+  const stateTax = grossPay * 0.05; // placeholder
+  const localTax = grossPay * 0.01; // placeholder
+  const socialSecurity = grossPay * 0.062;
+  const medicare = grossPay * 0.0145;
 
-  const totalTaxes = federalTax + stateTax + localTax + socialSecurity + medicare;
+  const totalTaxes =
+    federalTax + stateTax + localTax + socialSecurity + medicare;
 
   return {
-    federalTax: Math.round(federalTax * 100) / 100,
-    stateTax: Math.round(stateTax * 100) / 100,
-    localTax: Math.round(localTax * 100) / 100,
-    socialSecurity: Math.round(socialSecurity * 100) / 100,
-    medicare: Math.round(medicare * 100) / 100,
-    totalTaxes: Math.round(totalTaxes * 100) / 100,
+    federalTax,
+    stateTax,
+    localTax,
+    socialSecurity,
+    medicare,
+    totalTaxes,
   };
 }
 

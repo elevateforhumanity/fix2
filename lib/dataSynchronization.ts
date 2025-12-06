@@ -80,6 +80,7 @@ class DataSynchronizationManager {
           filter: filter ? this.buildFilter(filter) : undefined,
         },
         (payload) => {
+          // console.log(`[Sync] UPDATE on ${table}:`, payload);
           onUpdate(payload);
           this.updateSyncState(table);
         }
@@ -95,6 +96,7 @@ class DataSynchronizationManager {
           filter: filter ? this.buildFilter(filter) : undefined,
         },
         (payload) => {
+          // console.log(`[Sync] INSERT on ${table}:`, payload);
           onInsert(payload);
           this.updateSyncState(table);
         }
@@ -111,6 +113,7 @@ class DataSynchronizationManager {
           filter: filter ? this.buildFilter(filter) : undefined,
         },
         (payload) => {
+          // console.log(`[Sync] DELETE on ${table}:`, payload);
           onDelete(payload);
           this.updateSyncState(table);
         }
@@ -118,12 +121,14 @@ class DataSynchronizationManager {
     }
 
     channel.subscribe((status) => {
+      // console.log(`[Sync] Channel ${channelName} status:`, status);
     });
 
     this.subscriptions.set(channelName, channel);
 
     // Return cleanup function
     return () => {
+      // console.log(`[Sync] Unsubscribing from ${channelName}`);
       channel.unsubscribe();
       this.subscriptions.delete(channelName);
       this.syncState.delete(table);
@@ -147,6 +152,7 @@ class DataSynchronizationManager {
     }
 
     if (!state.isOnline) {
+      // console.log(`[Sync] Offline - queuing change for ${table}`);
       this.queueChange(table, { data, operation, timestamp: Date.now() });
       return false;
     }
@@ -175,6 +181,7 @@ class DataSynchronizationManager {
         throw result.error;
       }
 
+      // console.log(`[Sync] ${operation} successful on ${table}`);
       this.updateSyncState(table);
       return true;
     } catch (error) {
@@ -204,6 +211,7 @@ class DataSynchronizationManager {
     }
 
     const delay = this.retryDelay * Math.pow(2, attempt - 1);
+    // console.log(`[Sync] Retrying ${operation} on ${table} (attempt ${attempt}) in ${delay}ms`);
 
     await new Promise((resolve) => setTimeout(resolve, delay));
 
@@ -227,6 +235,7 @@ class DataSynchronizationManager {
       state.pendingChanges = queue;
     }
 
+    // console.log(`[Sync] Queued change for ${table}. Queue size: ${queue.length}`);
   }
 
   /**
@@ -238,6 +247,7 @@ class DataSynchronizationManager {
       return;
     }
 
+    // console.log(`[Sync] Processing ${queue.length} queued changes for ${table}`);
 
     for (const change of queue) {
       const success = await this.syncData(
@@ -289,6 +299,7 @@ class DataSynchronizationManager {
     if (typeof window === 'undefined') return () => {};
 
     const handleOnline = () => {
+      // console.log('[Sync] Connection restored');
       const state = this.syncState.get(table);
       if (state) {
         state.isOnline = true;
@@ -297,6 +308,7 @@ class DataSynchronizationManager {
     };
 
     const handleOffline = () => {
+      // console.log('[Sync] Connection lost');
       const state = this.syncState.get(table);
       if (state) {
         state.isOnline = false;
@@ -324,6 +336,7 @@ class DataSynchronizationManager {
    * Unsubscribe from all channels
    */
   unsubscribeAll(): void {
+    // console.log('[Sync] Unsubscribing from all channels');
     this.subscriptions.forEach((channel) => {
       channel.unsubscribe();
     });

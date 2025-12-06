@@ -1,9 +1,5 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { getLicense, isDomainAuthorized, logLicenseWarning } from './lib/license';
-
-const CSRF_TOKEN_HEADER = 'x-csrf-token';
-const CSRF_TOKEN_COOKIE = 'csrf-token';
 
 const SUSPICIOUS_USER_AGENTS = [
   'scrapy',
@@ -71,31 +67,9 @@ export default function proxy(request: NextRequest) {
              request.headers.get('x-real-ip') || 
              'unknown';
   
-  // License tracking (runs on all domains)
-  const license = getLicense();
-  
-  // Check domain authorization
-  if (!isDomainAuthorized(hostname)) {
-    logLicenseWarning(`Unauthorized domain access`, { 
-      hostname, 
-      path: request.nextUrl.pathname 
-    });
-  }
-
-  // Check license status
-  if (license.status === "suspended") {
-    logLicenseWarning(`Suspended license in use`, { hostname });
-  }
-
-  if (license.status === "expired") {
-    logLicenseWarning(`Expired license in use`, { hostname });
-  }
-  
   // Skip all middleware checks for local development
   if (hostname.includes('localhost') || hostname.includes('127.0.0.1') || hostname.includes('gitpod.dev')) {
-    const response = NextResponse.next();
-    response.headers.set("X-EFH-License-ID", license.licenseId);
-    return response;
+    return NextResponse.next();
   }
 
   // Back office domain - require authentication for everything
@@ -241,22 +215,6 @@ export default function proxy(request: NextRequest) {
   // REMOVED: No longer redirecting /lms/* to /portal/student/*
   // LMS routes stay at /lms for better performance and clarity
   
-  // CSRF Protection for API routes (except webhooks)
-  if (path.startsWith('/api/') && !path.startsWith('/api/webhooks/')) {
-    if (!['GET', 'HEAD', 'OPTIONS'].includes(request.method)) {
-      const token = request.headers.get(CSRF_TOKEN_HEADER);
-      const cookieToken = request.cookies.get(CSRF_TOKEN_COOKIE)?.value;
-      
-      // Only enforce CSRF if tokens are configured
-      if (cookieToken && (!token || token !== cookieToken)) {
-        return NextResponse.json(
-          { error: 'Invalid CSRF token' },
-          { status: 403 }
-        );
-      }
-    }
-  }
-
   // Skip middleware for static files and public routes
   if (
     path.startsWith('/_next') ||
@@ -302,15 +260,6 @@ export default function proxy(request: NextRequest) {
   
   // Add security headers to response
   const response = NextResponse.next();
-  
-  // License headers
-  response.headers.set("X-EFH-License-ID", license.licenseId);
-  if (license.status === "suspended") {
-    response.headers.set("X-EFH-License-Suspended", "true");
-  }
-  if (license.status === "expired") {
-    response.headers.set("X-EFH-License-Expired", "true");
-  }
   
   // Security Headers
   response.headers.set('X-DNS-Prefetch-Control', 'on');

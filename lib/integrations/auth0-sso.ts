@@ -173,7 +173,7 @@ class Auth0SSOClient {
     return response.json();
   }
 
-  async logout(returnTo: string): Promise<string> {
+  async logout(returnTo: string): string {
     const params = new URLSearchParams({
       client_id: this.config.clientId,
       returnTo,

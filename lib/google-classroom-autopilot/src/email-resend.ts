@@ -420,6 +420,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         process.exit(1);
       }
       resendEmail(id, process.argv[4]).then((result) => {
+        console.log('Result:', result);
       });
       break;
 
@@ -431,6 +432,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         process.exit(1);
       }
       resendTaskEmails(id).then((result) => {
+        console.log('Batch result:', result);
       });
       break;
 
@@ -442,16 +444,28 @@ if (import.meta.url === `file://${process.argv[1]}`) {
         process.exit(1);
       }
       resendSyncRunEmails(id).then((result) => {
+        console.log('Batch result:', result);
       });
       break;
 
     case 'recommendations':
       getResendRecommendations().then((recs) => {
+        console.log('Resend Recommendations:');
+        console.log(`  Failed emails (24h): ${recs.failedEmails}`);
+        console.log(`  Bounced emails (24h): ${recs.bouncedEmails}`);
+        console.log(`  Blocked recipients (DNC): ${recs.blockedRecipients}`);
+        console.log(`\nRecent failures:`);
         recs.recentFailures.forEach((f) => {
+          console.log(`  ${f.recipient} - ${f.subject} (${f.error_message})`);
         });
       });
       break;
 
     default:
+      console.log('Usage:');
+      console.log('  npx tsx src/email-resend.ts resend <event-id>');
+      console.log('  npx tsx src/email-resend.ts resend-task <task-id>');
+      console.log('  npx tsx src/email-resend.ts resend-sync <sync-run-id>');
+      console.log('  npx tsx src/email-resend.ts recommendations');
   }
 }

@@ -3,8 +3,6 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Study Groups | Elevate For Humanity',
   description: 'Learn more about Study Groups inside the Elevate For Humanity workforce ecosystem.',

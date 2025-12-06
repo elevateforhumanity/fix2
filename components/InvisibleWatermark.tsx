@@ -45,6 +45,14 @@ export function InvisibleWatermark({
     document.body.appendChild(hiddenDiv);
     
     // Method 2: Add to console (visible to developers who copy)
+    console.log('%c⚠️ COPYRIGHT NOTICE', 'color: red; font-size: 20px; font-weight: bold;');
+    console.log('%cThis website and all its code, design, and content are protected by copyright.', 'font-size: 14px;');
+    console.log('%c© 2024 Elevate for Humanity. All Rights Reserved.', 'font-size: 14px; font-weight: bold;');
+    console.log('%cOwner: Elizabeth L. Greene', 'font-size: 12px;');
+    console.log('%cSite ID: ' + siteId, 'font-size: 12px;');
+    console.log('%cOriginal Timestamp: ' + timestamp, 'font-size: 12px;');
+    console.log('%cUnauthorized copying, scraping, or reproduction is illegal and will be prosecuted.', 'color: red; font-size: 12px;');
+    console.log('%cContact: legal@elevateforhumanity.org', 'font-size: 12px;');
     
     // Method 3: Add invisible text throughout the page
     const addInvisibleMarkers = () => {
@@ -232,6 +240,7 @@ export function DMCATrackingPixel() {
       keepalive: true // Ensures request completes even if user navigates away
     }).catch((error) => {
       // Silently fail - don't disrupt user experience
+      console.log('[DMCA Tracking] Failed to send beacon:', error);
     });
     
   }, []);

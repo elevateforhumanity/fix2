@@ -1,13 +1,11 @@
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import { Trophy, Star, Award, TrendingUp } from 'lucide-react';
-
-export const dynamic = 'force-dynamic';
+import { BarChart3, TrendingUp, Award, Users, BookOpen, Target } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Leaderboard | Student Portal',
-  description: 'Compete with other students',
+  description: 'Manage your leaderboard',
 };
 
 export default async function LeaderboardPage() {
@@ -15,64 +13,107 @@ export default async function LeaderboardPage() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');
 
-  const { data: profile } = await supabase
-    .from('profiles')
+  // Fetch relevant data
+  const { data: items } = await supabase
+    .from('leaderboard')
     .select('*')
-    .eq('id', user.id)
-    .single();
-
-  const { data: rankings } = await supabase
-    .from('profiles')
-    .select('id, full_name, points')
-    .order('points', { ascending: false })
-    .limit(50);
-
-  const userRank = rankings?.findIndex(r => r.id === user.id) + 1 || 0;
-  const userPoints = profile?.points || 0;
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: false })
+    .limit(20);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Leaderboard</h1>
-        
-        <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-xl p-6 mb-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-yellow-100 mb-1">Your Rank</p>
-              <p className="text-4xl font-bold">#{userRank || 'Unranked'}</p>
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h1 className="text-3xl font-bold capitalize">leaderboard</h1>
+            <p className="text-gray-600 mt-1">Manage and track your leaderboard</p>
+          </div>
+          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            New Item
+          </button>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid md:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <BarChart3 className="text-blue-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">{items?.length || 0}</p>
+                <p className="text-sm text-gray-600">Total Items</p>
+              </div>
             </div>
-            <div className="text-right">
-              <p className="text-yellow-100 mb-1">Your Points</p>
-              <p className="text-4xl font-bold">{userPoints}</p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <TrendingUp className="text-green-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">0</p>
+                <p className="text-sm text-gray-600">Active</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                <Award className="text-purple-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">0</p>
+                <p className="text-sm text-gray-600">Completed</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <Target className="text-orange-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">0%</p>
+                <p className="text-sm text-gray-600">Progress</p>
+              </div>
             </div>
           </div>
         </div>
 
+        {/* Main Content */}
         <div className="bg-white rounded-lg shadow">
           <div className="p-6 border-b">
-            <h2 className="text-xl font-semibold">Top Students</h2>
+            <h2 className="text-xl font-semibold">Recent Activity</h2>
           </div>
-          <div className="divide-y">
-            {rankings && rankings.length > 0 ? (
-              rankings.map((student: any, index: number) => (
-                <div key={student.id} className={`p-4 flex items-center justify-between \${student.id === user.id ? 'bg-blue-50' : 'hover:bg-gray-50'}`}>
-                  <div className="flex items-center gap-4">
-                    <span className={`text-2xl font-bold \${index < 3 ? 'text-yellow-600' : 'text-gray-400'}`}>
-                      #{index + 1}
-                    </span>
-                    <div>
-                      <p className="font-semibold">{student.full_name || 'Anonymous'}</p>
-                      <p className="text-sm text-gray-600">{student.points} points</p>
+          <div className="p-6">
+            {items && items.length > 0 ? (
+              <div className="space-y-4">
+                {items.map((item: any) => (
+                  <div key={item.id} className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-semibold">{item.title || item.name || 'Item'}</h3>
+                        <p className="text-sm text-gray-600 mt-1">
+                          {new Date(item.created_at).toLocaleDateString()}
+                        </p>
+                      </div>
+                      <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        View Details
+                      </button>
                     </div>
                   </div>
-                  {index === 0 && <span className="text-2xl">🥇</span>}
-                  {index === 1 && <span className="text-2xl">🥈</span>}
-                  {index === 2 && <span className="text-2xl">🥉</span>}
-                </div>
-              ))
+                ))}
+              </div>
             ) : (
-              <div className="p-12 text-center text-gray-600">
-                No rankings yet
+              <div className="text-center py-12">
+                <BookOpen className="mx-auto text-gray-400 mb-4" size={64} />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">No items yet</h3>
+                <p className="text-gray-600 mb-4">Get started by creating your first item</p>
+                <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                  Create New
+                </button>
               </div>
             )}
           </div>
@@ -80,5 +121,4 @@ export default async function LeaderboardPage() {
       </div>
     </div>
   );
-
 }

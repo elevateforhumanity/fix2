@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase-api';
-import { generateId } from '@/lib/utils/id-generator';
 
 // GET /api/wioa/case-management - Get all cases
 export async function GET(request: NextRequest) {
@@ -67,7 +66,7 @@ export async function POST(request: NextRequest) {
       notes: intakeNotes
         ? [
             {
-              id: `note_${generateId()}`,
+              id: `note_${Date.now()}`,
               date: new Date().toISOString(),
               type: 'general',
               content: intakeNotes,

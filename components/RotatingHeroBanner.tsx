@@ -37,7 +37,7 @@ export default function RotatingHeroBanner() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
-    if (!isAutoPlaying) return undefined;
+    if (!isAutoPlaying) return;
     
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);

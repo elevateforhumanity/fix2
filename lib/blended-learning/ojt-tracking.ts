@@ -420,6 +420,7 @@ async function checkPlacementCompletion(placement_id: string): Promise<void> {
  */
 async function sendSupervisorWelcomeEmail(placement: OJTPlacement): Promise<void> {
   // Implementation would use email service
+  console.log(`Sending welcome email to ${placement.supervisor_email}`);
 }
 
 /**
@@ -427,6 +428,7 @@ async function sendSupervisorWelcomeEmail(placement: OJTPlacement): Promise<void
  */
 async function sendVerificationRequest(log: OJTHoursLog, placement: OJTPlacement): Promise<void> {
   // Implementation would use email service
+  console.log(`Sending verification request to ${placement.supervisor_email}`);
 }
 
 /**
@@ -434,4 +436,5 @@ async function sendVerificationRequest(log: OJTHoursLog, placement: OJTPlacement
  */
 async function sendCompletionNotification(placement: OJTPlacement): Promise<void> {
   // Implementation would use email service
+  console.log(`Sending completion notification for placement ${placement.id}`);
 }

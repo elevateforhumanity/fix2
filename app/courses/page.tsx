@@ -3,8 +3,6 @@ import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Course Catalog | Elevate For Humanity',
   description: 'Browse our complete catalog of workforce development courses. 100% free training programs funded by WIOA.',
@@ -13,11 +11,11 @@ export const metadata: Metadata = {
 export default async function CoursesPage() {
   const supabase = await createClient();
   
-  // Fetch approved courses
+  // Fetch published courses
   const { data: courses } = await supabase
     .from('courses')
     .select('*')
-    .eq('moderation_status', 'approved')
+    .eq('status', 'published')
     .order('title');
 
   // Get course categories

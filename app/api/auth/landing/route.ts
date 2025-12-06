@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { createServerClient } from '@supabase/ssr';
 
 export async function GET() {
-  const cookieStore = await cookies();
+  const cookieStore = cookies();
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -43,10 +43,10 @@ export async function GET() {
       redirectTo = '/app/student/dashboard';
       break;
     case 'program_holder':
-      redirectTo = '/partner/dashboard';
+      redirectTo = '/app/program-holder/dashboard';
       break;
     case 'instructor':
-      redirectTo = '/instructor/dashboard';
+      redirectTo = '/app/program-holder/dashboard';
       break;
     case 'admin':
       redirectTo = '/app/admin/dashboard';

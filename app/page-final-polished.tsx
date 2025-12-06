@@ -460,7 +460,7 @@ const programs = [
     description: "Clinical Support Role",
     duration: "8-10 weeks",
     salary: "$32K-$42K",
-    image: "/images/programs/efh-cna-hero.jpg",
+    image: "/media/programs/medical-assistant-hd.jpg",
     link: "/programs/medical-assistant",
   },
   {

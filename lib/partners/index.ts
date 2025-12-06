@@ -1,58 +1,89 @@
 // lib/partners/index.ts
-import { BasePartnerAPI, PartnerType } from "./base";
-import { getPartnerConfig, validatePartnerConfig } from "./config";
-import { HsiAPI } from "./hsi";
-import { CertiportAPI } from "./certiport";
-import { CareerSafeAPI } from "./careersafe";
-import { MiladyAPI } from "./milady";
-import { JriAPI } from "./jri";
-import { NrfAPI } from "./nrf";
-import { NdsAPI } from "./nds";
+import {
+  BasePartnerAPI,
+  PartnerAPIConfig,
+  PartnerType,
+  StudentData,
+  PartnerAccount,
+  CourseEnrollment,
+  ProgressData,
+  CertificateData,
+} from "./base";
 
 /**
- * Factory function to get the appropriate partner API client
- * Uses real implementations when credentials are configured,
- * throws error if credentials are missing
+ * TEMP STUB IMPLEMENTATION
+ * ------------------------
+ * These stubs let the automation system work end-to-end NOW.
+ * You / a dev will later replace each stub with real API
+ * calls using the vendor's documentation.
  */
-export function getPartnerClient(partner: PartnerType): BasePartnerAPI {
-  const config = getPartnerConfig(partner);
-  
-  // Validate configuration
-  const validation = validatePartnerConfig(partner, config);
-  if (!validation.valid) {
-    console.warn(
-      `[PartnerAPI] Configuration issues for ${partner}:`,
-      validation.errors
-    );
-    // Continue anyway - API calls will fail with clear error messages
+
+class StubPartnerAPI extends BasePartnerAPI {
+  async createAccount(student: StudentData): Promise<PartnerAccount> {
+    // In production: call real partner API here
+    const fakeId = `${this.partner}_${student.id}`;
+    return {
+      externalId: fakeId,
+      username: student.email,
+      loginUrl: "https://partner.example.com/login",
+      passwordPlaintext: undefined,
+    };
   }
 
-  switch (partner) {
-    case "hsi":
-      return new HsiAPI(config);
-    case "certiport":
-      return new CertiportAPI(config);
-    case "careersafe":
-      return new CareerSafeAPI(config);
-    case "milady":
-      return new MiladyAPI(config);
-    case "jri":
-      return new JriAPI(config);
-    case "nrf":
-      return new NrfAPI(config);
-    case "nds":
-      return new NdsAPI(config);
-    default:
-      throw new Error(`Unknown partner type: ${partner}`);
+  async enrollInCourse(
+    accountExternalId: string,
+    courseExternalCode: string
+  ): Promise<CourseEnrollment> {
+    // In production: call real partner API here
+    return {
+      externalEnrollmentId: `${this.partner}_${accountExternalId}_${courseExternalCode}`,
+      courseId: courseExternalCode,
+      courseName: `Course ${courseExternalCode}`,
+      accessUrl: "https://partner.example.com/course/launch",
+    };
+  }
+
+  async getProgress(
+    externalEnrollmentId: string
+  ): Promise<ProgressData | null> {
+    // In production: call real partner API here
+    // Stub: mark everything as "in progress"
+    return {
+      percentage: 50,
+      completed: false,
+      lastAccessed: new Date(),
+      lessonsCompleted: 3,
+      totalLessons: 6,
+    };
+  }
+
+  async getCertificate(
+    externalEnrollmentId: string
+  ): Promise<CertificateData | null> {
+    // In production: call real partner API here
+    // Stub: no cert yet
+    return null;
+  }
+
+  async getSsoLaunchUrl(params: {
+    accountExternalId: string;
+    externalEnrollmentId: string;
+    returnTo?: string;
+  }): Promise<string> {
+    // In production: generate real SSO link
+    return `https://partner.example.com/sso/launch?enrollment=${encodeURIComponent(
+      params.externalEnrollmentId
+    )}`;
   }
 }
 
+export function getPartnerClient(partner: PartnerType): BasePartnerAPI {
+  // Later: you can switch specific partners to real client classes
+  // e.g. if (partner === "hsi") return new HsiApi(configFromEnv);
+  const config: PartnerAPIConfig = {
+    baseUrl: process.env.PARTNER_API_BASE_URL,
+  };
+  return new StubPartnerAPI(partner, config);
+}
+
 export * from "./base";
-export * from "./config";
-export { HsiAPI } from "./hsi";
-export { CertiportAPI } from "./certiport";
-export { CareerSafeAPI } from "./careersafe";
-export { MiladyAPI } from "./milady";
-export { JriAPI } from "./jri";
-export { NrfAPI } from "./nrf";
-export { NdsAPI } from "./nds";

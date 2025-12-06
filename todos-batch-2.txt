@@ -1,0 +1,30 @@
+# Batch 2: Next 20 High-Priority Components (21-40 of 207)
+
+## Admin Components (10)
+1. AnalyticsDashboard → /admin/analytics
+2. AutoAttritionTracker → /admin/retention
+3. AutoFlowCharts → /admin/workflows
+4. AutoProgramGenerator → /admin/program-generator
+5. CopilotAssistant → /admin/copilot
+6. CopilotDeployment → /admin/copilot/deploy
+7. ExcelChartGenerator → /admin/reports/charts
+8. IntelligentDataProcessor → /admin/data-processor
+9. LearningBarrierAnalyzer → /admin/barriers
+10. AdminReportingDashboard → /admin/reports
+
+## LMS Components (5)
+11. AttendanceTracker → /lms/attendance
+12. ContentLibrary → /lms/library
+13. AdaptiveLearning → /lms/adaptive
+14. AdaptiveLearningPath → /student/learning-path
+15. CourseCompletionTracking → /student/progress
+
+## Integration Components (5)
+16. CalendarIntegration → /student/calendar
+17. PeerReviewSystem → /lms/peer-review
+18. RealTimeCollaboration → /lms/collaborate
+19. BlockchainCredentialVerification → /verify-credential
+20. AutomatedCertificateWorkflow → /admin/certificates/workflow
+
+Total: 20 components
+Progress: 36/207 (17%)

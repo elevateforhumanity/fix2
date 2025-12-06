@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import VideoSection from './VideoSection';
 import ResourceSection from './ResourceSection';
-import { sanitizeHtml } from '@/lib/sanitize';
 
 interface Lesson {
   id: string;
@@ -74,7 +73,7 @@ export default function LessonContent({
         <div className="mt-8 prose prose-slate max-w-none">
           <div
             className="bg-white rounded-xl border border-slate-200 p-8"
-            dangerouslySetInnerHTML={{ __html: sanitizeHtml(lesson.content) }}
+            dangerouslySetInnerHTML={{ __html: lesson.content }}
           />
         </div>
       )}

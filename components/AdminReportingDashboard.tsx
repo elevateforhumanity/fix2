@@ -68,6 +68,7 @@ export function AdminReportingDashboard() {
   ];
 
   const exportReport = (format: string) => {
+    // console.log(`Exporting report as ${format}`);
     alert(`Report exported as ${format.toUpperCase()}`);
   };
 

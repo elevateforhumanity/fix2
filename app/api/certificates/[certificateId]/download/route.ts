@@ -4,11 +4,9 @@ import { generateCertificatePDF } from '@/lib/certificates/generator';
 
 export async function GET(
   request: Request,
-  { params }: { params: Promise<{ certificateId: string }> }
+  { params }: { params: { certificateId: string } }
 ) {
-  const { certificateId } = await params;
   try {
-    const { certificateId } = await params;
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
@@ -19,7 +17,7 @@ export async function GET(
     const { data: certificate } = await supabase
       .from('certificates')
       .select('*, profiles(full_name), courses(title, program_hours)')
-      .eq('id', certificateId)
+      .eq('id', params.certificateId)
       .eq('user_id', user.id)
       .single();
 

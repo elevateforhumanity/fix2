@@ -1,12 +1,11 @@
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import { Award, Star, Trophy, Target, Zap, Crown, Lock } from 'lucide-react';
-
-export const dynamic = 'force-dynamic';
+import { BarChart3, TrendingUp, Award, Users, BookOpen, Target } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Badges & Achievements | Student Portal',
+  title: 'Badges | Student Portal',
+  description: 'Manage your badges',
 };
 
 export default async function BadgesPage() {
@@ -14,141 +13,109 @@ export default async function BadgesPage() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');
 
-  const { data: profile } = await supabase
-    .from('profiles')
+  // Fetch relevant data
+  const { data: items } = await supabase
+    .from('badges')
     .select('*')
-    .eq('id', user.id)
-    .single();
-
-  const { data: enrollments } = await supabase
-    .from('enrollments')
-    .select('*')
-    .eq('user_id', user.id);
-
-  const totalPoints = (profile?.points || 0);
-  const level = Math.floor(totalPoints / 100) + 1;
-  const nextLevelPoints = level * 100;
-  const progressToNext = ((totalPoints % 100) / 100) * 100;
-
-  const badges = [
-    { id: 1, name: 'First Steps', description: 'Complete your first course', icon: Star, earned: enrollments && enrollments.length > 0, points: 10 },
-    { id: 2, name: 'Quick Learner', description: 'Complete 3 courses', icon: Zap, earned: enrollments && enrollments.length >= 3, points: 25 },
-    { id: 3, name: 'Dedicated Student', description: 'Complete 5 courses', icon: Trophy, earned: enrollments && enrollments.length >= 5, points: 50 },
-    { id: 4, name: 'Master Learner', description: 'Complete 10 courses', icon: Crown, earned: enrollments && enrollments.length >= 10, points: 100 },
-    { id: 5, name: 'Perfect Score', description: 'Get 100% on an assignment', icon: Target, earned: false, points: 20 },
-    { id: 6, name: 'Early Bird', description: 'Submit 5 assignments early', icon: Award, earned: false, points: 15 },
-  ];
-
-  const earnedBadges = badges.filter(b => b.earned);
-  const lockedBadges = badges.filter(b => !b.earned);
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: false })
+    .limit(20);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Badges & Achievements</h1>
-
-        {/* Level Progress */}
-        <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl p-8 mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <p className="text-purple-100 mb-2">Current Level</p>
-              <p className="text-5xl font-bold">Level {level}</p>
-            </div>
-            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center">
-              <Crown size={48} className="text-white" />
-            </div>
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h1 className="text-3xl font-bold capitalize">badges</h1>
+            <p className="text-gray-600 mt-1">Manage and track your badges</p>
           </div>
-          <div className="space-y-2">
-            <div className="flex justify-between text-sm">
-              <span>{totalPoints} points</span>
-              <span>{nextLevelPoints} points to Level {level + 1}</span>
-            </div>
-            <div className="w-full bg-white/20 rounded-full h-3">
-              <div className="bg-white h-3 rounded-full transition-all" style={{ width: `${progressToNext}%` }}></div>
-            </div>
-          </div>
+          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            New Item
+          </button>
         </div>
 
-        {/* Stats */}
+        {/* Stats Grid */}
         <div className="grid md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg shadow">
-            <Award className="text-yellow-600 mb-3" size={32} />
-            <p className="text-2xl font-bold">{earnedBadges.length}</p>
-            <p className="text-sm text-gray-600">Badges Earned</p>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <BarChart3 className="text-blue-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">{items?.length || 0}</p>
+                <p className="text-sm text-gray-600">Total Items</p>
+              </div>
+            </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <Star className="text-blue-600 mb-3" size={32} />
-            <p className="text-2xl font-bold">{totalPoints}</p>
-            <p className="text-sm text-gray-600">Total Points</p>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <TrendingUp className="text-green-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">0</p>
+                <p className="text-sm text-gray-600">Active</p>
+              </div>
+            </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <Trophy className="text-purple-600 mb-3" size={32} />
-            <p className="text-2xl font-bold">{level}</p>
-            <p className="text-sm text-gray-600">Current Level</p>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                <Award className="text-purple-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">0</p>
+                <p className="text-sm text-gray-600">Completed</p>
+              </div>
+            </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <Target className="text-green-600 mb-3" size={32} />
-            <p className="text-2xl font-bold">{lockedBadges.length}</p>
-            <p className="text-sm text-gray-600">To Unlock</p>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                <Target className="text-orange-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold">0%</p>
+                <p className="text-sm text-gray-600">Progress</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Earned Badges */}
-        <div className="bg-white rounded-lg shadow mb-8">
+        {/* Main Content */}
+        <div className="bg-white rounded-lg shadow">
           <div className="p-6 border-b">
-            <h2 className="text-xl font-semibold">Earned Badges</h2>
+            <h2 className="text-xl font-semibold">Recent Activity</h2>
           </div>
           <div className="p-6">
-            {earnedBadges.length > 0 ? (
-              <div className="grid md:grid-cols-3 gap-6">
-                {earnedBadges.map((badge) => {
-                  const Icon = badge.icon;
-                  return (
-                    <div key={badge.id} className="border-2 border-yellow-400 bg-yellow-50 rounded-lg p-6 text-center">
-                      <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Icon size={40} className="text-white" />
+            {items && items.length > 0 ? (
+              <div className="space-y-4">
+                {items.map((item: any) => (
+                  <div key={item.id} className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-semibold">{item.title || item.name || 'Item'}</h3>
+                        <p className="text-sm text-gray-600 mt-1">
+                          {new Date(item.created_at).toLocaleDateString()}
+                        </p>
                       </div>
-                      <h3 className="font-bold text-lg mb-2">{badge.name}</h3>
-                      <p className="text-sm text-gray-600 mb-3">{badge.description}</p>
-                      <span className="inline-block px-3 py-1 bg-yellow-400 text-yellow-900 rounded-full text-sm font-medium">
-                        +{badge.points} points
-                      </span>
+                      <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        View Details
+                      </button>
                     </div>
-                  );
-                })}
+                  </div>
+                ))}
               </div>
             ) : (
               <div className="text-center py-12">
-                <Award className="mx-auto text-gray-400 mb-4" size={64} />
-                <p className="text-gray-600">No badges earned yet. Start learning to unlock achievements!</p>
+                <BookOpen className="mx-auto text-gray-400 mb-4" size={64} />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">No items yet</h3>
+                <p className="text-gray-600 mb-4">Get started by creating your first item</p>
+                <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                  Create New
+                </button>
               </div>
             )}
-          </div>
-        </div>
-
-        {/* Locked Badges */}
-        <div className="bg-white rounded-lg shadow">
-          <div className="p-6 border-b">
-            <h2 className="text-xl font-semibold">Locked Badges</h2>
-          </div>
-          <div className="p-6">
-            <div className="grid md:grid-cols-3 gap-6">
-              {lockedBadges.map((badge) => {
-                const Icon = badge.icon;
-                return (
-                  <div key={badge.id} className="border-2 border-gray-300 bg-gray-50 rounded-lg p-6 text-center opacity-60">
-                    <div className="w-20 h-20 bg-gray-300 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Lock size={40} className="text-gray-500" />
-                    </div>
-                    <h3 className="font-bold text-lg mb-2">{badge.name}</h3>
-                    <p className="text-sm text-gray-600 mb-3">{badge.description}</p>
-                    <span className="inline-block px-3 py-1 bg-gray-300 text-gray-700 rounded-full text-sm font-medium">
-                      +{badge.points} points
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
           </div>
         </div>
       </div>

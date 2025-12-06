@@ -74,6 +74,7 @@ export class OfflineVideoManager {
         cachedAt: Date.now(),
       });
 
+      // console.log(`[OfflineVideo] Downloaded video ${videoId}`);
       return true;
     } catch (error) {
       console.error('[OfflineVideo] Download failed:', error);
@@ -121,6 +122,7 @@ export class OfflineVideoManager {
     try {
       const db = await getDB();
       await db.deleteVideo(videoId);
+      // console.log(`[OfflineVideo] Deleted video ${videoId}`);
       return true;
     } catch (error) {
       console.error('[OfflineVideo] Delete failed:', error);
@@ -154,6 +156,7 @@ export class OfflineVideoManager {
     try {
       const db = await getDB();
       // Would need to implement getAllVideos and delete each
+      // console.log('[OfflineVideo] Cleared all videos');
       return true;
     } catch (error) {
       console.error('[OfflineVideo] Clear failed:', error);
