@@ -12,7 +12,7 @@ const successStories = [
   {
     name: "Marcus Johnson",
     program: "HVAC Technician",
-    image: "/images/programs/efh-cna-hero.jpg",
+    image: "/images/healthcare/video-thumbnail-cna-training.jpg",
     beforeJob: "Unemployed for 18 months",
     afterJob: "HVAC Technician at Carrier",
     salary: "$52,000/year",
@@ -22,7 +22,7 @@ const successStories = [
   {
     name: "Jasmine Williams",
     program: "Medical Assistant",
-    image: "/images/programs/efh-cna-hero.jpg",
+    image: "/images/healthcare/video-thumbnail-cna-training.jpg",
     beforeJob: "Retail worker, $12/hour",
     afterJob: "Medical Assistant at IU Health",
     salary: "$42,000/year",
@@ -32,7 +32,7 @@ const successStories = [
   {
     name: "David Thompson",
     program: "CDL Driver",
-    image: "/images/programs/efh-cna-hero.jpg",
+    image: "/images/healthcare/video-thumbnail-cna-training.jpg",
     beforeJob: "Returning citizen, no job prospects",
     afterJob: "CDL Driver at Schneider National",
     salary: "$58,000/year",
@@ -47,7 +47,7 @@ export default function Page() {
       {/* Hero Banner with Background Image */}
       <section className="relative h-[400px] w-full overflow-hidden">
         <Image
-          src="/images/programs/efh-cna-hero.jpg"
+          src="/images/healthcare/video-thumbnail-cna-training.jpg"
           alt="Success stories - graduates celebrating"
           fill
           className="object-cover"

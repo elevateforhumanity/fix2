@@ -21,7 +21,7 @@ export default async function Page() {
       {/* Hero Banner with Background Image */}
       <section className="relative h-[400px] w-full overflow-hidden">
         <Image
-          src="/images/programs/efh-cna-hero.jpg"
+          src="/images/healthcare/video-thumbnail-cna-training.jpg"
           alt="Students learning together"
           fill
           className="object-cover"
@@ -88,7 +88,7 @@ export default async function Page() {
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/images/programs/efh-cna-hero.jpg" alt="100% Free Training" fill className="object-cover" sizes="80px" quality={85} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="100% Free Training" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">100% Free Training</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -98,7 +98,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/images/programs/efh-cna-hero.jpg" alt="Industry Certifications" fill className="object-cover" sizes="80px" quality={85} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Industry Certifications" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Industry Certifications</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -108,7 +108,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/images/programs/efh-cna-hero.jpg" alt="Housing Assistance" fill className="object-cover" sizes="80px" quality={85} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Housing Assistance" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Housing Assistance</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -128,7 +128,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/images/programs/efh-cna-hero.jpg" alt="Life Coaching" fill className="object-cover" sizes="80px" quality={85} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Life Coaching" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Life Coaching</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -138,7 +138,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/images/programs/efh-cna-hero.jpg" alt="Direct Employer Connections" fill className="object-cover" sizes="80px" quality={85} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Direct Employer Connections" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Direct Employer Connections</h3>
               <p className="text-slate-700 leading-relaxed">

@@ -21,7 +21,7 @@ export default async function Page() {
       {/* Hero Banner with Background Image */}
       <section className="relative h-[400px] w-full overflow-hidden">
         <Image
-          src="/images/programs/efh-cna-hero.jpg"
+          src="/images/healthcare/video-thumbnail-cna-training.jpg"
           alt="Business team collaboration"
           fill
           className="object-cover"
@@ -146,7 +146,7 @@ export default async function Page() {
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/images/programs/efh-cna-hero.jpg" alt="Pre-Screened Candidates" fill className="object-cover" sizes="80px" quality={85} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Pre-Screened Candidates" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Pre-Screened, Job-Ready Talent</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -166,7 +166,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/images/programs/efh-cna-hero.jpg" alt="Industry-Specific Training" fill className="object-cover" sizes="80px" quality={85} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Industry-Specific Training" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Industry-Specific Training</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -176,7 +176,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/images/programs/efh-cna-hero.jpg" alt="Wage Reimbursement Programs" fill className="object-cover" sizes="80px" quality={85} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Wage Reimbursement Programs" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Wage Reimbursement Programs</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -186,7 +186,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/images/programs/efh-cna-hero.jpg" alt="Ongoing Support" fill className="object-cover" sizes="80px" quality={85} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Ongoing Support" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Ongoing Support</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -196,7 +196,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/images/programs/efh-cna-hero.jpg" alt="Diverse Talent Pool" fill className="object-cover" sizes="80px" quality={85} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Diverse Talent Pool" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Diverse Talent Pool</h3>
               <p className="text-slate-700 leading-relaxed">

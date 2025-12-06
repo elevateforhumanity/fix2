@@ -245,7 +245,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="/images/programs/efh-cna-hero.jpg"
+                  src="/images/healthcare/video-thumbnail-cna-training.jpg"
                   alt="Employer-Driven Training"
                   fill
                   className="object-cover"
@@ -260,7 +260,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="/images/programs/efh-cna-hero.jpg"
+                  src="/images/healthcare/video-thumbnail-cna-training.jpg"
                   alt="Wraparound Support"
                   fill
                   className="object-cover"
@@ -275,7 +275,7 @@ export default function Page() {
             <div className="bg-slate-50 rounded-xl p-8 hover:shadow-lg transition-all">
               <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image
-                  src="/images/programs/efh-cna-hero.jpg"
+                  src="/images/healthcare/video-thumbnail-cna-training.jpg"
                   alt="Direct Employer Connections"
                   fill
                   className="object-cover"
