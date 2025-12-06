@@ -1,20 +1,38 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Founder | Elevate For Humanity',
-  description: 'Learn more about Founder inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Elizabeth L. Greene - Founder | Elevate For Humanity',
+  description: 'Meet Elizabeth L. Greene, founder and CEO of Elevate For Humanity.',
 };
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Founder | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Founder inside the Elevate For Humanity workforce ecosystem.</p>
+      {/* Hero Banner with Founder Image */}
+      <section className="relative h-[500px] w-full overflow-hidden">
+        <Image
+          src="/images/team/founder/elizabeth-greene-founder-hero-01.jpg"
+          alt="Elizabeth L. Greene - Founder"
+          fill
+          className="object-cover brightness-105"
+          priority
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/75 via-white/50 to-transparent" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-8 h-full flex items-center">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
+              Our Founder
+            </p>
+            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
+              Elizabeth L. Greene
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-700 mb-6">
+              Building pathways from poverty to prosperity through workforce training.
+            </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
                 Get Started

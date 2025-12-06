@@ -13,7 +13,7 @@ export default function MedicalAssistantPage() {
       {/* Hero Banner */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="/images/medical-assistant/large/ma-large-02.jpg"
+          src="/images/facilities-new/facility-5.jpg"
           alt="Medical Assistant Training"
           fill
           className="object-cover brightness-105"
