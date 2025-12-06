@@ -1,4 +1,4 @@
-const CACHE_NAME = 'elevate-v2'; // Changed version to force cache refresh
+const CACHE_NAME = 'elevate-v3-dec6-2025'; // FORCE CACHE CLEAR - Industrious Update
 const urlsToCache = [
   '/offline',
   '/manifest.json',

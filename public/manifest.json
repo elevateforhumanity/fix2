@@ -2,7 +2,7 @@
   "name": "Elevate for Humanity - Career Training",
   "short_name": "Elevate",
   "description": "100% funded career training in healthcare, skilled trades, CDL, and more. WIOA-approved programs in Marion County, Indiana.",
-  "start_url": "/?source=pwa",
+  "start_url": "/?source=pwa&v=20251206",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#dc2626",
