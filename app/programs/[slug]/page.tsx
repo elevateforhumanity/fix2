@@ -86,7 +86,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
           quality={95}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
+        
 
         {/* Content */}
         <div className="relative h-full mx-auto max-w-7xl px-8 md:px-12 flex items-center">

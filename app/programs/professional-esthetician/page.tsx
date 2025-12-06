@@ -14,13 +14,12 @@ export default function Page() {
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/programs/efh-esthetician-client-services-hero.jpg"
+            src="/images/facilities-new/facility-9.jpg"
             alt="Professional Esthetician Training"
             fill
             className="object-cover"
             priority quality={85} sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
         </div>
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center text-white">

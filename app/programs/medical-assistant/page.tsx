@@ -20,7 +20,7 @@ export default function MedicalAssistantPage() {
           priority
           quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/75 via-white/50 to-transparent" />
+        
         
         <div className="relative z-10 max-w-7xl mx-auto px-8 h-full flex items-center">
           <div className="max-w-3xl">

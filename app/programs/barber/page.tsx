@@ -21,7 +21,7 @@ export default function Page() {
           quality={95}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
+        
         
         <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 h-full flex items-center">
           <div className="max-w-4xl">
@@ -316,7 +316,6 @@ export default function Page() {
       </section>
 
       {/* Career Progression */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>

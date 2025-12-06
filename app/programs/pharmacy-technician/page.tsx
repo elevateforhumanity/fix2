@@ -14,13 +14,12 @@ export default function Page() {
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/facilities-new/facility-2.jpg"
+            src="/images/facilities-new/facility-6.jpg"
             alt="Pharmacy Technician Training"
             fill
             className="object-cover"
             priority quality={85} sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
         </div>
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center text-white">
@@ -273,7 +272,6 @@ export default function Page() {
       </section>
 
       {/* Career Progression */}
-      <section className="py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>

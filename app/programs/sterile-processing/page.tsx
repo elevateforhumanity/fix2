@@ -20,7 +20,6 @@ export default function Page() {
             className="object-cover"
             priority quality={85} sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
         </div>
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center text-white">
@@ -275,7 +274,6 @@ export default function Page() {
       </section>
 
       {/* Career Progression */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-12">Career Path & Earning Potential</h2>

@@ -97,7 +97,7 @@ export default async function ProgramsPage() {
           quality={95}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
+        
 
         {/* Content */}
         <div className="relative h-full mx-auto max-w-7xl px-8 md:px-12 flex items-center">
@@ -400,7 +400,6 @@ export default async function ProgramsPage() {
       </section>
 
       {/* Milady RISE Callout for Beauty & Barber */}
-      <section className="py-20 bg-gradient-to-r from-pink-50 to-purple-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-lg p-8 border-l-4 border-pink-600">
             <div className="flex items-start gap-4">
@@ -472,7 +471,6 @@ export default async function ProgramsPage() {
       </section>
     
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Get Started?</h2>
           <p className="text-xl text-white/90 mb-8">
