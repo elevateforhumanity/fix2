@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Manage your career-counseling',
 };
 
-export default async function Career-counselingPage() {
+export default async function CareerCounselingPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Manage your study-groups',
 };
 
-export default async function Study-groupsPage() {
+export default async function StudyGroupsPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');
