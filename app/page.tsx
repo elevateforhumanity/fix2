@@ -6,35 +6,37 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       {/* HERO BANNER - Full Width, Clean */}
-      <section className="relative h-[70vh] min-h-[500px] overflow-hidden bg-slate-100">
+      <section className="relative h-[600px] overflow-hidden bg-white">
         <Image
-          src="/images/artlist/hero-training-5.jpg"
-          alt="Elevate for Humanity - Transform Your Future"
+          src="/media/homepage-hero.jpg"
+          alt="Elevate for Humanity - Career Training Programs"
           fill
-          className="object-cover"
+          className="object-cover brightness-110"
           priority
-          quality={90}
+          quality={95}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/40 to-transparent" />
         
-        <div className="relative h-full flex items-center justify-center text-center">
-          <div className="max-w-4xl px-6">
-            <h1 className="text-5xl md:text-7xl font-light text-white mb-6 tracking-tight">
-              Transform Your Future
+        <div className="relative h-full flex items-center justify-start text-left">
+          <div className="max-w-7xl px-8 md:px-12">
+            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight max-w-4xl">
+              Career training that works.
             </h1>
-            <p className="text-xl md:text-2xl text-white/95 font-light mb-10 max-w-2xl mx-auto">
-              State-approved workforce training programs that lead to high-wage careers
+            <p className="text-2xl md:text-3xl text-slate-700 font-normal mb-12 max-w-2xl">
+              WIOA-approved programs. Real careers.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/programs/barber-apprenticeship"
-                className="px-10 py-4 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-50 transition-all shadow-lg text-base"
+                href="/programs"
+                className="px-12 py-5 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition-all text-lg"
               >
-                Explore Programs
+                View Programs
               </Link>
               <Link
-                href="/apply"
-                className="px-10 py-4 bg-transparent text-white font-semibold rounded-full border-2 border-white hover:bg-white hover:text-slate-900 transition-all text-base"
+                href="https://www.indianacareerconnect.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-12 py-5 bg-white text-slate-900 font-semibold rounded-md border-2 border-slate-300 hover:border-slate-400 transition-all text-lg"
               >
                 Apply Now
               </Link>
