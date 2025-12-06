@@ -7,50 +7,16 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       {/* TOP HERO – gradient */}
-      <section className="relative overflow-hidden rounded-2xl shadow-lg">
+      <section className="relative w-full overflow-hidden">
         <Image
-          src={EFH_IMAGES.homeHeroTopGradient}
+          src="/images/general/hero-banner-latest.png"
           alt="Elevate for Humanity - Empowering Futures Through Innovation & Opportunity"
-          width={1600}
-          height={600}
+          width={1920}
+          height={800}
           className="w-full h-auto object-cover"
           priority
+          quality={100}
         />
-      </section>
-
-      {/* SECOND HERO – program grid */}
-      <section className="rounded-2xl shadow-lg bg-white">
-        <Image
-          src={EFH_IMAGES.homeHeroSecondPrograms}
-          alt="Career & technical training, apprenticeships, digital badges, entrepreneurship"
-          width={1600}
-          height={900}
-          className="w-full h-auto object-cover"
-        />
-      </section>
-
-      {/* FOUNDER FULL-BODY ON HOME PAGE */}
-      <section className="grid gap-8 md:grid-cols-[1.1fr,1fr] items-center py-16">
-        <div className="space-y-4">
-          <h2 className="text-3xl font-bold">Meet Our Founder</h2>
-          <p className="text-base leading-relaxed">
-            Elizabeth L. Greene is the visionary behind Elevate for Humanity, blending
-            workforce innovation, entrepreneurship, and community-centered training to
-            help learners step into high-demand careers with confidence.
-          </p>
-          <Link href="/founder" className="inline-block bg-orange-500 text-white px-8 py-3 rounded-md hover:bg-orange-600 transition-all font-semibold">
-            Learn More
-          </Link>
-        </div>
-        <div className="flex justify-center">
-          <Image
-            src={EFH_IMAGES.founderHomeFullBody}
-            alt="Elizabeth L. Greene, Founder of Elevate for Humanity"
-            width={700}
-            height={1400}
-            className="h-auto rounded-2xl shadow-lg object-cover"
-          />
-        </div>
       </section>
 
       {/* FEATURED PROGRAMS - Large Product-Style Cards */}
@@ -279,12 +245,12 @@ export default function Home() {
         <div className="grid md:grid-cols-2">
           <div className="relative h-[500px] overflow-hidden group">
             <Image
-              src="/images/artlist/hero-training-6.jpg"
+              src="/images/gallery/image10.jpg"
               alt="Hands-On Training"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
+              quality={100}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             <div className="absolute inset-0 flex items-end p-12">
               <div>
                 <h3 className="text-3xl font-light text-white mb-4">Hands-On Training</h3>
@@ -301,12 +267,12 @@ export default function Home() {
 
           <div className="relative h-[500px] overflow-hidden group">
             <Image
-              src="/images/artlist/hero-training-8.jpg"
+              src="/images/gallery/image11.jpg"
               alt="Career Services"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
+              quality={100}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             <div className="absolute inset-0 flex items-end p-12">
               <div>
                 <h3 className="text-3xl font-light text-white mb-4">Career Services</h3>
@@ -332,44 +298,26 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-slate-50 rounded-2xl p-10">
-              <div className="flex items-center mb-6">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/students-new/student-1.jpg"
-                    alt="J. Moore"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold text-slate-900">J. Moore</p>
-                  <p className="text-sm text-slate-600">Barber Apprentice</p>
-                </div>
-              </div>
-              <p className="text-slate-700 leading-relaxed text-lg">
-                "Elevate helped me restart my life. I went from struggling to becoming a licensed barber apprentice. They believed in me when no one else did."
-              </p>
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/testimonials/testimonial-success-story-2.png"
+                alt="Student Success Story"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover"
+                quality={100}
+              />
             </div>
 
-            <div className="bg-slate-50 rounded-2xl p-10">
-              <div className="flex items-center mb-6">
-                <div className="relative w-16 h-16 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/students-new/student-2.jpg"
-                    alt="L. Anderson"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="ml-4">
-                  <p className="font-semibold text-slate-900">L. Anderson</p>
-                  <p className="text-sm text-slate-600">CNA Graduate</p>
-                </div>
-              </div>
-              <p className="text-slate-700 leading-relaxed text-lg">
-                "The staff is amazing. They helped me get funding, childcare support, and confidence. I'm now working in healthcare and supporting my family."
-              </p>
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/testimonials/testimonial-medical-assistant.png"
+                alt="Medical Assistant Graduate"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover"
+                quality={100}
+              />
             </div>
           </div>
         </div>
@@ -410,10 +358,11 @@ export default function Home() {
             </div>
             <div className="relative h-64 overflow-hidden rounded-lg group">
               <Image
-                src="/images/facilities-new/facility-4.jpg"
+                src="/images/gallery/image7.jpg"
                 alt="Training Facility"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
+                quality={100}
               />
             </div>
             <div className="relative h-64 overflow-hidden rounded-lg group">
@@ -422,14 +371,16 @@ export default function Home() {
                 alt="Training Facility"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
+                quality={100}
               />
             </div>
             <div className="relative h-64 overflow-hidden rounded-lg group">
               <Image
-                src="/images/facilities-new/facility-6.jpg"
+                src="/images/gallery/image9.jpg"
                 alt="Training Facility"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
+                quality={100}
               />
             </div>
             <div className="relative h-64 overflow-hidden rounded-lg group">
