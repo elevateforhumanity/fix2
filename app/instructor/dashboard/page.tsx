@@ -1,53 +1,196 @@
 import { Metadata } from 'next';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import { Users, BookOpen, Award, TrendingUp, Clock, CheckCircle } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Dashboard | Elevate For Humanity',
-  description: 'Learn more about Dashboard inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Instructor Dashboard | Elevate For Humanity',
+  description: 'Manage your students, track progress, and oversee training programs.',
 };
 
-export default function Page() {
+export default async function ProgramHolderDashboard() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    redirect('/login');
+  }
+
+  // Fetch profile
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  // Fetch students/students under this program holder
+  const { data: students } = await supabase
+    .from('enrollments')
+    .select(`
+      *,
+      profiles (id, full_name, email),
+      programs (id, title, name, training_hours)
+    `)
+    .order('created_at', { ascending: false })
+    .limit(10);
+
+  // Calculate stats
+  const totalStudents = students?.length || 0;
+  const activeStudents = students?.filter(e => e.status === 'active').length || 0;
+  const completedStudents = students?.filter(e => e.status === 'completed').length || 0;
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Dashboard | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Dashboard inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
-                Get Started
-              </Link>
-              <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
-                View Programs
-              </Link>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Header */}
+      <div className="bg-white border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-6 py-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-slate-900">
+                Instructor Dashboard
+              </h1>
+              <p className="text-slate-600 mt-1">Welcome back, {profile?.full_name || 'Instructor'}!</p>
+            </div>
+            <Link
+              href="/instructor/students/new"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition"
+            >
+              Add Student
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-6 py-8">
+        {/* Quick Stats */}
+        <div className="grid md:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                <Users className="text-blue-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-slate-900">{totalStudents}</p>
+                <p className="text-sm text-slate-600">Total Students</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                <CheckCircle className="text-green-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-slate-900">{activeStudents}</p>
+                <p className="text-sm text-slate-600">Active</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
+                <Award className="text-purple-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-slate-900">{completedStudents}</p>
+                <p className="text-sm text-slate-600">Completed</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
+                <Clock className="text-orange-600" size={24} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-slate-900">0</p>
+                <p className="text-sm text-slate-600">Pending Review</p>
+              </div>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Image Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Transform Your Future</h2>
-                <p className="text-gray-700 mb-6">Join thousands who have launched successful careers through our programs.</p>
-                <ul className="space-y-3">
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>100% government-funded training</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Students List */}
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-bold text-slate-900">Recent Students</h2>
+                <Link href="/instructor/students" className="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                  View All
+                </Link>
+              </div>
+              {students && students.length > 0 ? (
+                <div className="space-y-4">
+                  {students.slice(0, 5).map((student: any) => (
+                    <div key={student.id} className="border border-slate-200 rounded-lg p-4 hover:border-blue-300 transition">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h3 className="font-semibold text-slate-900">{student.profiles?.full_name || 'Unknown'}</h3>
+                          <p className="text-sm text-slate-600">{student.programs?.title || student.programs?.name}</p>
+                          <p className="text-xs text-slate-500 mt-1">{student.programs?.training_hours} hours</p>
+                        </div>
+                        <div className="text-right">
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                            student.status === 'active' ? 'bg-green-100 text-green-700' :
+                            student.status === 'completed' ? 'bg-blue-100 text-blue-700' :
+                            'bg-gray-100 text-gray-700'
+                          }`}>
+                            {student.status}
+                          </span>
+                          <p className="text-xs text-slate-500 mt-2">
+                            Started {new Date(student.started_at || student.created_at).toLocaleDateString()}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-8">
+                  <Users className="mx-auto h-12 w-12 text-slate-400 mb-4" />
+                  <p className="text-slate-600 mb-4">No students yet</p>
+                  <Link href="/instructor/students/new" className="text-blue-600 hover:text-blue-700 font-medium">
+                    Add Your First Student
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="space-y-6">
+            {/* Quick Actions */}
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+              <h3 className="font-bold text-slate-900 mb-4">Quick Actions</h3>
+              <div className="space-y-3">
+                <Link href="/instructor/students" className="block w-full text-left px-4 py-3 bg-slate-50 hover:bg-slate-100 rounded-lg transition">
+                  <p className="font-medium text-slate-900">Manage Students</p>
+                  <p className="text-xs text-slate-600">View and manage all students</p>
+                </Link>
+                <Link href="/instructor/programs" className="block w-full text-left px-4 py-3 bg-slate-50 hover:bg-slate-100 rounded-lg transition">
+                  <p className="font-medium text-slate-900">View Programs</p>
+                  <p className="text-xs text-slate-600">Browse available programs</p>
+                </Link>
+                <Link href="/instructor/settings" className="block w-full text-left px-4 py-3 bg-slate-50 hover:bg-slate-100 rounded-lg transition">
+                  <p className="font-medium text-slate-900">Settings</p>
+                  <p className="text-xs text-slate-600">Update your profile</p>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
                     <span>No cost to you - completely free</span>
                   </li>
                   
