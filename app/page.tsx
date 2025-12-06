@@ -9,7 +9,7 @@ export default function Home() {
       {/* TOP HERO – gradient */}
       <section className="relative w-full overflow-hidden">
         <Image
-          src="/images/general/hero-banner-latest.png"
+          src="/images/hero/home-hero-top-gradient.jpg"
           alt="Elevate for Humanity - Empowering Futures Through Innovation & Opportunity"
           width={1920}
           height={800}
@@ -17,6 +17,20 @@ export default function Home() {
           priority
           quality={100}
         />
+      </section>
+
+      {/* SECOND HERO - Program Grid */}
+      <section className="relative w-full py-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <Image
+            src="/images/hero/home-hero-second-program-grid.jpg"
+            alt="Elevate for Humanity - Career Training Programs"
+            width={1920}
+            height={1080}
+            className="w-full h-auto object-cover rounded-2xl shadow-lg"
+            quality={100}
+          />
+        </div>
       </section>
 
       {/* FEATURED PROGRAMS - Large Product-Style Cards */}
@@ -177,6 +191,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* LARGE FEATURE IMAGE */}
+      <section className="relative w-full">
+        <Image
+          src="/images/location-4.png"
+          alt="Elevate for Humanity Training Facility"
+          width={1920}
+          height={1080}
+          className="w-full h-auto object-cover"
+          quality={100}
+        />
+      </section>
+
       {/* WHY CHOOSE US - Image-Based Feature Blocks */}
       <section className="py-20 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
@@ -321,6 +347,18 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* LARGE FEATURE IMAGE 2 */}
+      <section className="relative w-full">
+        <Image
+          src="/images/location-5.png"
+          alt="Elevate for Humanity Campus"
+          width={1920}
+          height={1080}
+          className="w-full h-auto object-cover"
+          quality={100}
+        />
       </section>
 
       {/* FACILITIES GALLERY */}
