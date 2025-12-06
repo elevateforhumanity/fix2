@@ -1,33 +1,56 @@
 // app/page.tsx - Avon-Inspired Modern Homepage
 import Link from "next/link";
 import Image from "next/image";
+import { EFH_IMAGES } from "@/src/config/efhImages";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Top Homepage Hero Banner (gradient) */}
-      <section className="relative w-full">
+      {/* TOP HERO – gradient */}
+      <section className="relative overflow-hidden rounded-2xl shadow-lg">
         <Image
-          src="/images/general/hero-banner-latest.png"
-          alt="Elevate for Humanity gradient hero banner"
-          width={1920}
-          height={800}
+          src={EFH_IMAGES.homeHeroTopGradient}
+          alt="Elevate for Humanity - Empowering Futures Through Innovation & Opportunity"
+          width={1600}
+          height={600}
           className="w-full h-auto object-cover"
           priority
-          quality={100}
         />
       </section>
 
-      {/* 2nd Hero Banner - Program Grid */}
-      <section className="relative w-full max-w-5xl mx-auto py-10">
+      {/* SECOND HERO – program grid */}
+      <section className="rounded-2xl shadow-lg bg-white">
         <Image
-          src="/images/efh/hero/hero-main.jpg"
-          alt="Program overview with four feature boxes"
-          width={1920}
-          height={1080}
-          className="w-full h-auto object-contain"
-          quality={100}
+          src={EFH_IMAGES.homeHeroSecondPrograms}
+          alt="Career & technical training, apprenticeships, digital badges, entrepreneurship"
+          width={1600}
+          height={900}
+          className="w-full h-auto object-cover"
         />
+      </section>
+
+      {/* FOUNDER FULL-BODY ON HOME PAGE */}
+      <section className="grid gap-8 md:grid-cols-[1.1fr,1fr] items-center py-16">
+        <div className="space-y-4">
+          <h2 className="text-3xl font-bold">Meet Our Founder</h2>
+          <p className="text-base leading-relaxed">
+            Elizabeth L. Greene is the visionary behind Elevate for Humanity, blending
+            workforce innovation, entrepreneurship, and community-centered training to
+            help learners step into high-demand careers with confidence.
+          </p>
+          <Link href="/founder" className="inline-block bg-orange-500 text-white px-8 py-3 rounded-md hover:bg-orange-600 transition-all font-semibold">
+            Learn More
+          </Link>
+        </div>
+        <div className="flex justify-center">
+          <Image
+            src={EFH_IMAGES.founderHomeFullBody}
+            alt="Elizabeth L. Greene, Founder of Elevate for Humanity"
+            width={700}
+            height={1400}
+            className="h-auto rounded-2xl shadow-lg object-cover"
+          />
+        </div>
       </section>
 
       {/* FEATURED PROGRAMS - Large Product-Style Cards */}

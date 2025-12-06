@@ -1,50 +1,20 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -e
 
-echo ">>> Creating image folders..."
-mkdir -p public/images/certificates
-mkdir -p public/images/homepage
-mkdir -p public/images/founder
-mkdir -p src/config
+echo "🔧 Setting up Elevate for Humanity images..."
 
-cat << 'CONF' > src/config/homepage-images.ts
-// CENTRAL IMAGE MAP FOR ELEVATE FOR HUMANITY
-// Make sure the physical files exist at these exact paths under /public
+# Make sure target folder exists
+mkdir -p public/images/efh
 
-export const EFH_IMAGES = {
-  CERTIFICATE_OF_COMPLETION: {
-    label: "Certificate of Completion",
-    purpose: "Official program completion certificate",
-    src: "/images/certificates/certificate-of-completion.jpg",
-    alt: "Elevate for Humanity certificate of completion"
-  },
-  HERO_HOME_TOP: {
-    label: "Top Homepage Hero Banner",
-    purpose: "Main homepage hero section with gradient background",
-    src: "/images/homepage/hero-top-gradient.jpg",
-    alt: "Elevate for Humanity hero banner with logo and slogan"
-  },
-  HERO_HOME_SECOND: {
-    label: "2nd Homepage Hero Banner",
-    purpose: "Second hero section showcasing program categories",
-    src: "/images/homepage/hero-middle-programs.jpg",
-    alt: "Elevate for Humanity program tiles for training and apprenticeships"
-  },
-  FOUNDER_BIO_SIDE: {
-    label: "Founder Bio Side Image",
-    purpose: "Photo of Founder at desk shown on bio page sidebar",
-    src: "/images/founder/founder-elizabeth-greene-desk.jpg",
-    alt: "Elizabeth Greene sitting at executive desk with computer"
-  }
-} as const;
+# NOTE:
+# 1. Upload your 5 images into the Gitpod workspace (for example into /workspace/fix2/_incoming/)
+# 2. Rename them to match the LEFT side of each cp line below
+# 3. Then run:  bash scripts/setup-efh-images.sh
 
-export type EFHImageKey = keyof typeof EFH_IMAGES;
-CONF
+cp _incoming/certificate-of-completion.jpg        public/images/efh/certificate-of-completion.jpg
+cp _incoming/home-hero-top-gradient.jpg           public/images/efh/home-hero-top-gradient.jpg
+cp _incoming/home-hero-second-programs.jpg        public/images/efh/home-hero-second-programs.jpg
+cp _incoming/founder-bio-desk-side.jpg            public/images/efh/founder-bio-desk-side.jpg
+cp _incoming/founder-home-fullbody.jpg            public/images/efh/founder-home-fullbody.jpg
 
-echo ">>> Image config created at src/config/homepage-images.ts"
-echo ">>> NOW ADD THE REAL IMAGE FILES WITH THESE EXACT PATHS:"
-echo "  public/images/certificates/certificate-of-completion.jpg"
-echo "  public/images/homepage/hero-top-gradient.jpg"
-echo "  public/images/homepage/hero-middle-programs.jpg"
-echo "  public/images/founder/founder-elizabeth-greene-desk.jpg"
-echo ">>> After uploading, rebuild the app."
+echo "✅ EFH images copied into public/images/efh"
