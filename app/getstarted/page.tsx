@@ -22,7 +22,6 @@ export default function Page() {
             quality={90} 
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
         </div>
         
         <div className="relative container mx-auto px-4 py-20">

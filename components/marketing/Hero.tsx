@@ -76,7 +76,6 @@ export function Hero() {
                 priority
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent" />
               {/* Play overlay */}
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
                 <button className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-950 shadow-lg backdrop-blur transition hover:bg-white">

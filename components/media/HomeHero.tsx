@@ -37,7 +37,6 @@ export function HomeHero({ images }: HomeHeroProps) {
                 className="object-contain"
                 priority
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent" />
             </div>
           </div>
         </div>
@@ -90,7 +89,6 @@ export function HomeHero({ images }: HomeHeroProps) {
                   className="object-contain"
                   priority
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent" />
               </div>
             </div>
           </div>

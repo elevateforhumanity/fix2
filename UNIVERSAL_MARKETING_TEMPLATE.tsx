@@ -38,7 +38,6 @@ export default function Page() {
             quality={85} 
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
         </div>
         
         <div className="relative container mx-auto px-4 py-20">
@@ -149,7 +148,6 @@ export default function Page() {
             quality={85}
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-red-600/95 to-red-700/95" />
         </div>
         
         <div className="relative container mx-auto px-4">

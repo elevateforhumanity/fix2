@@ -152,17 +152,14 @@ export default function HeroSlideshow() {
           }`}
         >
           {slide.image ? (
-            <>
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                className="object-cover"
-                priority={index === 0}
-                quality={100}
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 via-slate-900/20 to-transparent" />
-            </>
+            <Image
+              src={slide.image}
+              alt={slide.title}
+              fill
+              className="object-cover"
+              priority={index === 0}
+              quality={100}
+            />
           ) : (
             <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-blue-600" />
           )}

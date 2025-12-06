@@ -82,7 +82,6 @@ export default function RotatingHeroBanner() {
               priority={index === 0}
               quality={90}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/50" />
           </div>
         ))}
       </div>

@@ -28,7 +28,6 @@ export default function FooterPageTemplate({
             quality={90}
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
         </div>
         
         <div className="relative container mx-auto px-4 py-16">

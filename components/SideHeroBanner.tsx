@@ -45,15 +45,6 @@ export default function SideHeroBanner() {
               className="object-cover"
               quality={100}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
-            <div className="absolute bottom-6 left-6 right-6 text-white drop-shadow-lg">
-              <p className="text-sm font-semibold uppercase tracking-wide mb-2">
-                Indianapolis, IN
-              </p>
-              <p className="text-2xl font-bold">
-                8888 Keystone Crossing Suite 1300
-              </p>
-            </div>
           </div>
         </div>
       </div>

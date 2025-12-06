@@ -62,9 +62,6 @@ export default function ThreeBlockHero() {
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
               
-              {/* Gradient Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-t ${block.color} opacity-80 group-hover:opacity-90 transition-opacity`}></div>
-              
               {/* Content */}
               <div className="relative h-full flex flex-col justify-between p-6 text-white">
                 {/* Badge */}

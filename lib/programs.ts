@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+import { createStaticClient } from '@/lib/supabase/static';
 
 export type Program = {
   id: string;
@@ -19,6 +20,29 @@ export type Program = {
   image_url?: string;
 };
 
+/**
+ * Get all programs - for build-time use (generateStaticParams)
+ */
+export async function getAllProgramsStatic(): Promise<Program[]> {
+  const supabase = createStaticClient();
+  
+  const { data: programs, error } = await supabase
+    .from('programs')
+    .select('*')
+    .eq('is_active', true)
+    .order('title');
+
+  if (error) {
+    console.error('Error fetching programs:', error);
+    return [];
+  }
+
+  return programs || [];
+}
+
+/**
+ * Get all programs - for runtime use
+ */
 export async function getAllPrograms(): Promise<Program[]> {
   const supabase = await createClient();
   

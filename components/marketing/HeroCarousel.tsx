@@ -191,7 +191,6 @@ export function HeroCarousel() {
                   />
                 </motion.div>
               </AnimatePresence>
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/10 to-transparent" />
             </div>
 
             {/* Floating "live feel" strip */}

@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
-import { getAllPrograms, getProgramBySlug } from "@/lib/programs";
+import { getAllProgramsStatic, getProgramBySlug } from "@/lib/programs";
 import { ProgramHero } from "@/components/programs/ProgramHero";
 import { ProgramDetails } from "@/components/programs/ProgramDetails";
 
 type Params = { slug: string };
 
 export async function generateStaticParams() {
-  const programs = await getAllPrograms();
+  const programs = await getAllProgramsStatic();
   return programs.map((p) => ({ slug: p.slug }));
 }
 
