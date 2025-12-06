@@ -190,7 +190,7 @@ export default async function ProgramsPage() {
           <div className="space-y-16">
             {/* Healthcare Programs */}
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/facilities-new/facility-2.jpg"
                   alt="Healthcare Training Programs"
@@ -276,7 +276,7 @@ export default async function ProgramsPage() {
                   </Link>
                 </div>
               </div>
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
+              <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
                 <Image
                   src="/images/facilities-new/facility-8.jpg"
                   alt="Barber Training Programs"
@@ -288,7 +288,7 @@ export default async function ProgramsPage() {
 
             {/* Skilled Trades Programs */}
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/facilities-new/facility-11.jpg"
                   alt="Skilled Trades Training"
@@ -374,7 +374,7 @@ export default async function ProgramsPage() {
                   </Link>
                 </div>
               </div>
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
+              <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
                 <Image
                   src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1000&fit=crop&q=85"
                   alt="Business Training Programs"

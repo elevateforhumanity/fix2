@@ -58,7 +58,7 @@ export default function Home() {
             {/* Barber Program */}
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src="/images/facilities-new/facility-7.jpg"
                     alt="Barber Apprenticeship"
@@ -81,7 +81,7 @@ export default function Home() {
             {/* Healthcare Program */}
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src="/images/facilities-new/facility-1.jpg"
                     alt="Healthcare Training"
@@ -104,7 +104,7 @@ export default function Home() {
             {/* Skilled Trades */}
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src="/images/facilities-new/facility-10.jpg"
                     alt="Skilled Trades"
@@ -127,7 +127,7 @@ export default function Home() {
             {/* Beauty & Esthetics */}
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src="/images/efh/programs/beauty.jpg"
                     alt="Beauty & Esthetics"
@@ -150,7 +150,7 @@ export default function Home() {
             {/* Support Services */}
             <Link href="/support" className="group">
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src="/images/efh/sections/coaching.jpg"
                     alt="Support Services"
@@ -173,7 +173,7 @@ export default function Home() {
             {/* Classroom Training */}
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-80 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src="/images/efh/sections/classroom.jpg"
                     alt="Classroom Training"
