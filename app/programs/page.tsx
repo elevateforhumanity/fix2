@@ -278,7 +278,7 @@ export default async function ProgramsPage() {
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
                 <Image
-                  src="/images/programs/efh-barber-hero.jpg"
+                  src="/images/beauty/hero-program-barber.jpg"
                   alt="Barber Training Programs"
                   fill
                   className="object-cover"

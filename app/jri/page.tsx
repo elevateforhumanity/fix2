@@ -172,7 +172,7 @@ export default function JRIPage() {
               <div className="bg-slate-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition">
                 <div className="relative h-48">
                   <Image
-                    src="/images/programs/efh-barber-hero.jpg"
+                    src="/images/beauty/hero-program-barber.jpg"
                     alt="Barber Apprenticeship"
                     fill
                     className="object-cover"

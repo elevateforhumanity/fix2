@@ -20,13 +20,13 @@ export default function BarberApprenticeshipPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-8 h-full flex items-center">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-orange-600 mb-3">
-              DOL Registered Apprenticeship
+              Your Path to Success
             </p>
             <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
-              Barber Apprenticeship
+              Become a Barber
             </h1>
             <p className="text-xl md:text-2xl text-slate-700 mb-6">
-              Earn while you learn. 2,000 hours. 100% funded.
+              Get paid to learn your craft. No tuition. Real barbershops. Real future.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/apply" className="bg-orange-500 text-white px-8 py-3 rounded-md font-semibold hover:bg-orange-600 transition-all">
@@ -40,51 +40,52 @@ export default function BarberApprenticeshipPage() {
       <div className="max-w-5xl mx-auto px-6 py-16">
         {/* Program Overview */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Program Overview</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">Here's How It Works</h2>
           <p className="text-lg text-slate-700 mb-6">
-            Complete your 2,000-hour DOL Registered Apprenticeship in real barbershops. 
-            Earn wages and tips while training with licensed professionals. Graduate ready 
-            to take the Indiana State Board exam and start your career.
+            You'll train in real barbershops alongside experienced barbers who remember what it's like 
+            to start out. You'll earn money from day one—wages plus tips—while learning everything 
+            from classic cuts to modern styles. After 2,000 hours, you'll be ready to take your 
+            state exam and start your own career.
           </p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-8">
             <div className="bg-slate-50 p-6 rounded-lg">
               <div className="text-3xl font-bold text-orange-600 mb-2">2,000</div>
-              <div className="text-sm text-slate-600">Training Hours</div>
+              <div className="text-sm text-slate-600">Hours of hands-on training</div>
             </div>
             <div className="bg-slate-50 p-6 rounded-lg">
               <div className="text-3xl font-bold text-orange-600 mb-2">$0</div>
-              <div className="text-sm text-slate-600">With WIOA/WRG Funding</div>
+              <div className="text-sm text-slate-600">You pay nothing</div>
             </div>
             <div className="bg-slate-50 p-6 rounded-lg">
-              <div className="text-3xl font-bold text-orange-600 mb-2">100%</div>
-              <div className="text-sm text-slate-600">Job Placement Rate</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">Day 1</div>
+              <div className="text-sm text-slate-600">Start earning immediately</div>
             </div>
           </div>
         </section>
 
         {/* What You'll Learn */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">What You'll Learn</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">What You'll Master</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-slate-900 mb-3">Core Skills</h3>
+              <h3 className="font-semibold text-slate-900 mb-3">The Craft</h3>
               <ul className="space-y-2 text-slate-700">
-                <li>• Hair cutting and styling techniques</li>
-                <li>• Beard trimming and shaving</li>
-                <li>• Hair coloring and chemical treatments</li>
-                <li>• Sanitation and safety protocols</li>
-                <li>• Client consultation and communication</li>
+                <li>• Every cut from classic to modern</li>
+                <li>• Beard shaping and straight razor shaves</li>
+                <li>• Color, highlights, and chemical treatments</li>
+                <li>• How to keep your clients safe and comfortable</li>
+                <li>• Reading what your client really wants</li>
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-slate-900 mb-3">Business Skills</h3>
+              <h3 className="font-semibold text-slate-900 mb-3">The Business</h3>
               <ul className="space-y-2 text-slate-700">
-                <li>• Shop operations and management</li>
-                <li>• Customer service excellence</li>
-                <li>• Retail product knowledge</li>
-                <li>• Appointment scheduling</li>
-                <li>• Building your client base</li>
+                <li>• Running your own chair or shop</li>
+                <li>• Building relationships that bring clients back</li>
+                <li>• Products that work (and how to recommend them)</li>
+                <li>• Managing your schedule and income</li>
+                <li>• Growing from zero clients to fully booked</li>
               </ul>
             </div>
           </div>
@@ -92,37 +93,38 @@ export default function BarberApprenticeshipPage() {
 
         {/* Funding Options */}
         <section className="mb-16 bg-blue-50 p-8 rounded-lg">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">100% Funded Training</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">Yes, It's Really Free</h2>
           <p className="text-lg text-slate-700 mb-4">
-            This program is fully covered by government workforce funding:
+            We know "free training" sounds too good to be true. But this is real. 
+            Government workforce programs pay for everything because they want you to succeed:
           </p>
           <ul className="space-y-2 text-slate-700">
-            <li>• <strong>WIOA</strong> - Workforce Innovation and Opportunity Act</li>
-            <li>• <strong>WRG</strong> - Workforce Ready Grant</li>
-            <li>• <strong>JRI</strong> - Justice Reinvestment Initiative</li>
+            <li>• <strong>WIOA</strong> - for anyone looking to start a new career</li>
+            <li>• <strong>Workforce Ready Grant</strong> - Indiana residents</li>
+            <li>• <strong>JRI</strong> - second chance opportunities</li>
           </ul>
           <p className="text-sm text-slate-600 mt-4">
-            Our team will help you determine eligibility and complete all paperwork.
+            Don't worry about the paperwork—we'll walk you through every step and help you qualify.
           </p>
         </section>
 
         {/* Career Outcomes */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Career Outcomes</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">What Happens After You Graduate</h2>
           <div className="bg-slate-50 p-8 rounded-lg">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="font-semibold text-slate-900 mb-3">Average Earnings</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">Your First Year</h3>
                 <p className="text-2xl font-bold text-orange-600 mb-2">$35,000 - $55,000</p>
-                <p className="text-sm text-slate-600">First year, including tips</p>
+                <p className="text-sm text-slate-600">That's your base pay plus tips. Many of our grads do even better.</p>
               </div>
               <div>
-                <h3 className="font-semibold text-slate-900 mb-3">Career Paths</h3>
+                <h3 className="font-semibold text-slate-900 mb-3">Where You Can Go</h3>
                 <ul className="text-slate-700 space-y-1">
-                  <li>• Licensed Barber</li>
-                  <li>• Shop Owner</li>
-                  <li>• Master Barber</li>
-                  <li>• Barber Instructor</li>
+                  <li>• Work in any barbershop you choose</li>
+                  <li>• Open your own shop</li>
+                  <li>• Become a master barber</li>
+                  <li>• Teach the next generation</li>
                 </ul>
               </div>
             </div>
@@ -131,16 +133,19 @@ export default function BarberApprenticeshipPage() {
 
         {/* How to Apply */}
         <section className="bg-orange-50 p-8 rounded-lg text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">Ready to Start?</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-4">Let's Get You Started</h2>
           <p className="text-lg text-slate-700 mb-6">
-            Apply today and begin your journey to becoming a licensed barber.
+            No experience needed. No money down. Just bring yourself and we'll handle the rest.
           </p>
           <Link 
             href="/apply" 
             className="inline-block bg-orange-500 text-white px-10 py-4 rounded-md font-semibold hover:bg-orange-600 transition-all text-lg"
           >
-            Apply Now
+            Start Your Application
           </Link>
+          <p className="text-sm text-slate-600 mt-4">
+            Questions? Call us at (317) 123-4567 or stop by—we'd love to meet you.
+          </p>
         </section>
       </div>
     </main>

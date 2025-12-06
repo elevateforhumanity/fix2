@@ -1,4 +1,5 @@
 // app/team/page.tsx
+import Image from "next/image";
 
 type TeamMember = {
   name: string;
@@ -79,21 +80,36 @@ const team: TeamMember[] = [
 
 export default function TeamPage() {
   return (
-    <main className="min-h-screen bg-slate-50 py-12">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <header className="mb-8 text-center">
-          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
-            Our Team
-          </p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
-            Meet the people behind Elevate for Humanity.
-          </h1>
-          <p className="mt-3 text-sm text-slate-700 max-w-2xl mx-auto">
-            Our team brings together lived experience, professional expertise,
-            and a shared commitment to removing barriers and building real
-            career pathways for our community.
-          </p>
-        </header>
+    <main className="min-h-screen bg-white">
+      {/* Hero Banner */}
+      <section className="relative h-[400px] w-full overflow-hidden bg-white">
+        <Image
+          src="/images/efh/sections/coaching.jpg"
+          alt="Our Team"
+          fill
+          className="object-cover brightness-105"
+          priority
+          quality={90}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/75 via-white/50 to-transparent" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-8 h-full flex items-center">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-wide text-orange-600 mb-3">
+              Our Team
+            </p>
+            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
+              Meet Our Team
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-700">
+              Real people who care about your success.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
 
         <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
