@@ -8,40 +8,13 @@ export default function Home() {
       {/* HERO BANNER - Full Width, Clean */}
       <section className="relative h-[600px] overflow-hidden bg-white">
         <Image
-          src="/images/general/hero-banner-latest.png"
+          src="/images/efh/hero/hero-main.jpg"
           alt="Elevate for Humanity - Career Training Programs"
           fill
           className="object-cover"
           priority
-          quality={90}
+          quality={95}
         />
-        
-        <div className="relative h-full flex items-center justify-start text-left">
-          <div className="max-w-7xl px-8 md:px-12">
-            <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tight max-w-4xl drop-shadow-2xl">
-              Career training that works.
-            </h1>
-            <p className="text-2xl md:text-3xl text-white font-normal mb-12 max-w-2xl drop-shadow-lg">
-              WIOA-approved programs. Real careers.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/programs"
-                className="px-12 py-5 bg-orange-500 text-white font-semibold rounded-md hover:bg-orange-600 transition-all text-lg"
-              >
-                View Programs
-              </Link>
-              <Link
-                href="https://www.indianacareerconnect.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-12 py-5 bg-white text-slate-900 font-semibold rounded-md border-2 border-slate-300 hover:border-slate-400 transition-all text-lg"
-              >
-                Apply Now
-              </Link>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* FEATURED PROGRAMS - Large Product-Style Cards */}
@@ -60,10 +33,11 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/images/gallery/image2.jpg"
+                    src="/images/gallery/image8.jpg"
                     alt="Barber Apprenticeship"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    quality={95}
                   />
                 </div>
                 <div className="p-6">
@@ -83,10 +57,11 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/images/location-4.jpg"
+                    src="/images/gallery/image3.jpg"
                     alt="Healthcare Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    quality={95}
                   />
                 </div>
                 <div className="p-6">
@@ -106,10 +81,11 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/images/location-5.jpg"
+                    src="/images/gallery/image10.jpg"
                     alt="Skilled Trades"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    quality={95}
                   />
                 </div>
                 <div className="p-6">
@@ -129,10 +105,11 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/images/efh/programs/beauty.jpg"
+                    src="/images/gallery/image5.jpg"
                     alt="Beauty & Esthetics"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    quality={95}
                   />
                 </div>
                 <div className="p-6">
@@ -152,10 +129,11 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/images/efh/sections/coaching.jpg"
+                    src="/images/gallery/image6.jpg"
                     alt="Support Services"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    quality={95}
                   />
                 </div>
                 <div className="p-6">
@@ -175,10 +153,11 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/images/efh/sections/classroom.jpg"
+                    src="/images/gallery/image11.jpg"
                     alt="Classroom Training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    quality={95}
                   />
                 </div>
                 <div className="p-6">
