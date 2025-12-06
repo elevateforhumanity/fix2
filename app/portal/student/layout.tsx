@@ -27,19 +27,17 @@ export default async function StudentLayout({ children }: { children: React.Reac
     redirect('/login?redirect=/student/dashboard');
   }
 
-  // Check if user is enrolled student or staff
+  // Check if user has profile (all authenticated users should have access)
   const { data: profile } = await supabase
     .from('profiles')
-    .select('role, enrollment_status')
+    .select('role')
     .eq('id', session.user.id)
     .single();
 
-  const allowedRoles = ['student', 'instructor', 'admin', 'staff'];
-  const isEnrolled = profile?.enrollment_status === 'active' || profile?.enrollment_status === 'enrolled';
-  const isStaff = allowedRoles.includes(profile?.role);
-
-  if (!isEnrolled && !isStaff) {
-    redirect('/apply?message=You must be enrolled in a program to access student portal');
+  // Allow all authenticated users with profiles to access student portal
+  // They can browse programs and enroll from within the portal
+  if (!profile) {
+    redirect('/login?message=Profile not found. Please contact support.');
   }
 
   return (
