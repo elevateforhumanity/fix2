@@ -11,26 +11,27 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner with Image */}
-      <section className="relative min-h-[500px] flex items-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/beauty/hero-barber-training.jpg"
-            alt="Barber Training Program"
-            fill
-            className="object-cover"
-            priority quality={85} sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
-        </div>
-        <div className="relative container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">Barber Training Program</h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">100% free training. Learn cutting, styling, and business skills. Get licensed and start your career.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-700 text-lg shadow-2xl">
-                Apply Now - Free Training
+      <section className="relative h-[500px] w-full overflow-hidden bg-white">
+        <Image
+          src="/images/programs/efh-barber-hero.jpg"
+          alt="Barber Training Program"
+          fill
+          className="object-cover brightness-110"
+          priority
+          quality={95}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 h-full flex items-center">
+          <div className="max-w-4xl">
+            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight">Barber Training</h1>
+            <p className="text-2xl md:text-3xl text-slate-700 mb-8 leading-relaxed">100% free training. Get licensed and start your career.</p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/apply" className="bg-orange-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-orange-600 text-lg transition-all">
+                Apply Now
               </Link>
-              <Link href="/contact" className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl">
+              <Link href="/contact" className="bg-white text-slate-900 px-8 py-4 rounded-md font-semibold hover:bg-slate-50 border-2 border-slate-300 text-lg transition-all">
                 Learn More
               </Link>
             </div>

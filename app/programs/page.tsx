@@ -87,23 +87,20 @@ export default async function ProgramsPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* HERO BANNER */}
-      <section className="relative h-[500px] w-full overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=85"
-            alt="Students learning together"
-            fill
-            className="object-cover"
-            priority
-            unoptimized quality={85} sizes="100vw"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/75" />
-        </div>
+      <section className="relative h-[500px] w-full overflow-hidden bg-white">
+        <Image
+          src="/media/homepage-hero.jpg"
+          alt="Students learning together"
+          fill
+          className="object-cover brightness-110"
+          priority
+          quality={95}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
 
         {/* Content */}
-        <div className="relative h-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center">
+        <div className="relative h-full mx-auto max-w-7xl px-8 md:px-12 flex items-center">
           <div className="max-w-4xl space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-full text-sm font-semibold">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -112,49 +109,49 @@ export default async function ProgramsPage() {
               Career Training Programs
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
               Transform Your Future with Free Career Training
             </h1>
 
-            <p className="text-xl sm:text-2xl text-slate-200 leading-relaxed">
+            <p className="text-xl sm:text-2xl text-slate-700 leading-relaxed">
               Choose from {programs.length} workforce development programs. 100% funded through WIOA, grants, and employer partnerships.
             </p>
 
-            <div className="flex flex-wrap gap-6 text-white pt-4">
+            <div className="flex flex-wrap gap-6 text-slate-900 pt-4">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
                     <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                   </svg>
                 </div>
                 <div>
                   <div className="text-2xl font-bold">{programs.length}</div>
-                  <div className="text-sm text-slate-300">Programs</div>
+                  <div className="text-sm text-slate-600">Programs</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                   </svg>
                 </div>
                 <div>
                   <div className="text-2xl font-bold">100%</div>
-                  <div className="text-sm text-slate-300">Free Training</div>
+                  <div className="text-sm text-slate-600">Free Training</div>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
                   </svg>
                 </div>
                 <div>
                   <div className="text-2xl font-bold">10k+</div>
-                  <div className="text-sm text-slate-300">Students Trained</div>
+                  <div className="text-sm text-slate-600">Students Trained</div>
                 </div>
               </div>
             </div>

@@ -1,25 +1,41 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Contact | Elevate For Humanity',
-  description: 'Learn more about Contact inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Get in touch with Elevate For Humanity. Questions about programs, enrollment, or partnerships? We\'re here to help.',
 };
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Contact | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Contact inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
+      <section className="relative h-[500px] w-full overflow-hidden bg-white">
+        <Image
+          src="/images/efh/hero/hero-main.jpg"
+          alt="Contact Elevate For Humanity"
+          fill
+          className="object-cover brightness-110"
+          priority
+          quality={95}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 h-full flex items-center">
+          <div className="max-w-4xl">
+            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight">
+              Contact Us
+            </h1>
+            <p className="text-2xl md:text-3xl text-slate-700 leading-relaxed mb-8">
+              Questions about programs, enrollment, or partnerships? We're here to help.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link href="/apply" className="bg-orange-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-orange-600 text-lg transition-all">
                 Get Started
               </Link>
-              <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
+              <Link href="/programs" className="bg-white text-slate-900 px-8 py-4 rounded-md font-semibold hover:bg-slate-50 border-2 border-slate-300 text-lg transition-all">
                 View Programs
               </Link>
             </div>

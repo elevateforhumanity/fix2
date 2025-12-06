@@ -77,21 +77,19 @@ export default async function ProgramPage({ params }: { params: { slug: string }
       {/* HERO BANNER WITH FULL IMAGE */}
       <section className="relative h-[500px] w-full overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src={imageUrl}
-            alt={displayName}
-            fill
-            className="object-cover"
-            priority
-            unoptimized quality={85} sizes="100vw"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/50" />
-        </div>
+        <Image
+          src={imageUrl}
+          alt={displayName}
+          fill
+          className="object-cover brightness-110"
+          priority
+          quality={95}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
 
         {/* Content */}
-        <div className="relative h-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center">
+        <div className="relative h-full mx-auto max-w-7xl px-8 md:px-12 flex items-center">
           <div className="max-w-3xl space-y-6">
             {/* Category Badge */}
             {program.category && (
@@ -104,17 +102,17 @@ export default async function ProgramPage({ params }: { params: { slug: string }
             )}
 
             {/* Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
               {displayName}
             </h1>
 
             {/* Description */}
-            <p className="text-lg sm:text-xl text-slate-200 leading-relaxed">
+            <p className="text-lg sm:text-xl text-slate-700 leading-relaxed">
               {program.full_description || program.description}
             </p>
 
             {/* Stats Row */}
-            <div className="flex flex-wrap gap-6 text-white">
+            <div className="flex flex-wrap gap-6 text-slate-900">
               {program.duration_weeks && (
                 <div className="flex items-center gap-2">
                   <svg className="w-6 h-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
@@ -147,7 +145,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
             <div className="flex flex-wrap gap-4 pt-4">
               <Link
                 href={`/contact?program=${program.slug}`}
-                className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white text-lg font-semibold rounded-full hover:bg-orange-700 transition-colors shadow-xl"
+                className="inline-flex items-center justify-center px-8 py-4 bg-orange-500 text-white text-lg font-semibold rounded-md hover:bg-orange-600 transition-colors"
               >
                 Enroll Now - 100% Free
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,7 +154,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
               </Link>
               <Link
                 href={`/contact?program=${program.slug}`}
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white text-lg font-semibold rounded-full hover:bg-white/20 transition-colors border-2 border-white/30"
+                className="inline-flex items-center justify-center px-8 py-4 bg-white text-slate-900 text-lg font-semibold rounded-md hover:bg-slate-50 transition-colors border-2 border-slate-300"
               >
                 Talk to an Advisor
               </Link>

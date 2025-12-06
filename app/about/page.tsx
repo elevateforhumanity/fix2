@@ -12,25 +12,25 @@ export default function Page() {
   return (
     <main className="bg-white">
       {/* Hero Section with Background Image */}
-      <section className="relative h-[500px] w-full overflow-hidden">
+      <section className="relative h-[500px] w-full overflow-hidden bg-white">
         <Image
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1000&fit=crop&q=85"
+          src="/images/efh/hero/hero-main.jpg"
           alt="Team collaboration"
           fill
-          className="object-cover"
+          className="object-cover brightness-110"
           priority
-          quality={85}
+          quality={95}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl">
-              About Elevate For Humanity
+        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 h-full flex items-center">
+          <div className="max-w-4xl">
+            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight">
+              About Elevate
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 leading-relaxed drop-shadow-lg">
-              Connecting people to 100% free workforce training that leads to real careers
+            <p className="text-2xl md:text-3xl text-slate-700 leading-relaxed">
+              Connecting people to free workforce training
             </p>
           </div>
         </div>

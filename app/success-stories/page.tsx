@@ -45,29 +45,31 @@ export default function Page() {
   return (
     <main className="bg-white">
       {/* Hero Banner with Background Image */}
-      <section className="relative h-[500px] w-full overflow-hidden">
+      <section className="relative h-[500px] w-full overflow-hidden bg-white">
         <Image
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=85"
+          src="/media/homepage-hero.jpg"
           alt="Success stories - graduates celebrating"
           fill
-          className="object-cover"
-          priority quality={85} sizes="100vw"
+          className="object-cover brightness-110"
+          priority
+          quality={95}
+          sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl">
-              Real People. Real Transformations.
+        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 h-full flex items-center">
+          <div className="max-w-4xl">
+            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight">
+              Success Stories
             </h1>
-            <p className="text-xl md:text-2xl text-slate-200 leading-relaxed drop-shadow-lg mb-8">
-              These are the stories of graduates who transformed their lives through free workforce training.
+            <p className="text-2xl md:text-3xl text-slate-700 leading-relaxed mb-8">
+              Real people. Real transformations.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-700 text-lg shadow-2xl transition-all">
+            <div className="flex flex-wrap gap-4">
+              <Link href="/apply" className="bg-orange-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-orange-600 text-lg transition-all">
                 Start Your Story
               </Link>
-              <Link href="/programs" className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 border-2 border-white text-lg shadow-2xl transition-all">
+              <Link href="/programs" className="bg-white text-slate-900 px-8 py-4 rounded-md font-semibold hover:bg-slate-50 border-2 border-slate-300 text-lg transition-all">
                 View Programs
               </Link>
             </div>

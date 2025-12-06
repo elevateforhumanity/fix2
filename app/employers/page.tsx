@@ -17,29 +17,31 @@ export default async function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner with Background Image */}
-      <section className="relative h-[500px] w-full overflow-hidden">
+      <section className="relative h-[500px] w-full overflow-hidden bg-white">
         <Image
-          src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=1000&fit=crop&q=85"
+          src="/media/employers-hero.jpg"
           alt="Business team collaboration"
           fill
-          className="object-cover"
-          priority quality={85} sizes="100vw"
+          className="object-cover brightness-110"
+          priority
+          quality={95}
+          sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
         
-        <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-2xl">
-              Partner With Elevate For Humanity
+        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 h-full flex items-center">
+          <div className="max-w-4xl">
+            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight">
+              Partner With Us
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100 drop-shadow-lg">
-              Build your workforce with job-ready talent trained in high-demand skills
+            <p className="text-2xl md:text-3xl text-slate-700 mb-8 leading-relaxed">
+              Build your workforce with job-ready talent
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/employer/jobs/new" className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-700 text-lg shadow-2xl transition-all">
+            <div className="flex flex-wrap gap-4">
+              <Link href="/employer/jobs/new" className="bg-orange-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-orange-600 text-lg transition-all">
                 Post a Job
               </Link>
-              <Link href="/employer/candidates" className="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-bold hover:bg-white/20 border-2 border-white text-lg shadow-2xl transition-all">
+              <Link href="/employer/candidates" className="bg-white text-slate-900 px-8 py-4 rounded-md font-semibold hover:bg-slate-50 border-2 border-slate-300 text-lg transition-all">
                 Find Candidates
               </Link>
             </div>
