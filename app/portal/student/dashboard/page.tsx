@@ -28,7 +28,7 @@ export default async function StudentDashboard() {
     .from('enrollments')
     .select(`
       *,
-      programs (name, code)
+      programs (id, title, name, training_hours, category)
     `)
     .eq('user_id', user.id)
     .order('created_at', { ascending: false });
@@ -146,8 +146,8 @@ export default async function StudentDashboard() {
                     <div key={enrollment.id} className="border border-slate-200 rounded-lg p-4 hover:border-blue-300 transition">
                       <div className="flex items-center justify-between">
                         <div>
-                          <h3 className="font-semibold text-slate-900">{enrollment.programs?.name}</h3>
-                          <p className="text-sm text-slate-600">{enrollment.programs?.code}</p>
+                          <h3 className="font-semibold text-slate-900">{enrollment.programs?.title || enrollment.programs?.name}</h3>
+                          <p className="text-sm text-slate-600">{enrollment.programs?.category} • {enrollment.programs?.training_hours} hours</p>
                         </div>
                         <Link
                           href={`/portal/student/courses/${enrollment.id}`}

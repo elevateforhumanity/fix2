@@ -5,13 +5,13 @@ import { ProgramDetails } from "@/components/programs/ProgramDetails";
 
 type Params = { slug: string };
 
-export function generateStaticParams() {
-  const programs = getAllPrograms();
+export async function generateStaticParams() {
+  const programs = await getAllPrograms();
   return programs.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
-  const program = getProgramBySlug(params.slug);
+  const program = await getProgramBySlug(params.slug);
   
   if (!program) {
     return {
@@ -20,13 +20,13 @@ export async function generateMetadata({ params }: { params: Params }) {
   }
 
   return {
-    title: `${program.name} | Elevate for Humanity`,
-    description: program.shortTagline
+    title: `${program.title || program.name} | Elevate for Humanity`,
+    description: program.description
   };
 }
 
-export default function ProgramDetailPage({ params }: { params: Params }) {
-  const program = getProgramBySlug(params.slug);
+export default async function ProgramDetailPage({ params }: { params: Params }) {
+  const program = await getProgramBySlug(params.slug);
 
   if (!program) {
     return notFound();
