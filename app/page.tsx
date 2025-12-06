@@ -65,7 +65,7 @@ export default function Home() {
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src="/images/programs/efh-cna-hero.jpg"
+                  src="/images/healthcare/video-thumbnail-cna-training.jpg"
                   alt="100% Fundable Programs"
                   fill
                   className="object-cover"
@@ -82,7 +82,7 @@ export default function Home() {
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src="/images/programs/barber-hero.jpg"
+                  src="/images/beauty/program-barber-overview.jpg"
                   alt="DOL Registered Apprenticeships"
                   fill
                   className="object-cover"
@@ -121,7 +121,7 @@ export default function Home() {
         <div className="grid md:grid-cols-2">
           <div className="relative h-[500px] overflow-hidden group">
             <Image
-              src="/images/efh/hero/hero-barber.jpg"
+              src="/images/artlist/hero-training-6.jpg"
               alt="Hands-On Training"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -142,7 +142,7 @@ export default function Home() {
 
           <div className="relative h-[500px] overflow-hidden group">
             <Image
-              src="/images/efh/hero/hero-support.jpg"
+              src="/images/artlist/hero-training-8.jpg"
               alt="Career Services"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
