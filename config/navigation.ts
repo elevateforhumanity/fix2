@@ -133,13 +133,21 @@ export const headerNav: NavSection[] = [
     ],
   },
   {
+    label: "RISE Foundation",
+    href: "/rise-foundation",
+    items: [
+      { label: "About RISE", href: "/rise-foundation/about" },
+      { label: "Our Programs", href: "/rise-foundation/programs" },
+      { label: "Get Involved", href: "/rise-foundation/get-involved" },
+    ],
+  },
+  {
     label: "Supersonic Fast Cash",
     href: "/supersonic-fast-cash",
     items: [
-      { label: "Fast Tax Refunds", href: "/supersonic-fast-cash" },
-      { label: "Upload Documents", href: "/supersonic-fast-cash/upload" },
-      { label: "Book Appointment", href: "https://calendly.com/supersonicfastcash/tax-appointment" },
-      { label: "Facebook Page", href: "https://www.facebook.com/share/14NGKwHMrdq/" },
+      { label: "How It Works", href: "/supersonic-fast-cash/how-it-works" },
+      { label: "Our Services", href: "/supersonic-fast-cash/services" },
+      { label: "Apply Now", href: "/supersonic-fast-cash/apply" },
     ],
   },
 ];
