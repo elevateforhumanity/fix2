@@ -1,0 +1,13 @@
+{
+  "approvedBuilds": [
+    "esbuild",
+    "sharp",
+    "workerd",
+    "@swc/core",
+    "core-js",
+    "core-js-pure",
+    "protobufjs",
+    "@sentry/cli",
+    "puppeteer"
+  ]
+}
