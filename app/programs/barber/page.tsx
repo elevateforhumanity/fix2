@@ -13,7 +13,7 @@ export default function Page() {
       {/* Hero Banner with Image */}
       <section className="relative h-[500px] w-full overflow-hidden bg-white">
         <Image
-          src="/images/beauty/hero-program-barber.jpg"
+          src="/images/facilities-new/facility-8.jpg"
           alt="Barber Training Program"
           fill
           className="object-cover brightness-110"
