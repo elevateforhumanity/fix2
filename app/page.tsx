@@ -6,13 +6,13 @@ import { EFH_IMAGES } from "@/src/config/efhImages";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* TOP HERO – NAIL CLASS / BEAUTY */}
+      {/* TOP HERO – YOUR MAIN GRADIENT BANNER */}
       <section className="relative w-full overflow-hidden">
         <Image
-          src="/images/hero/hero-beauty-wellness.jpg"
-          alt="Elevate for Humanity - Nail Class Training"
+          src="/images/hero/home-hero-top-gradient.jpg"
+          alt="Elevate for Humanity - Empowering Futures"
           width={1920}
-          height={800}
+          height={1080}
           className="w-full h-auto object-cover"
           priority
           quality={100}
@@ -187,35 +187,6 @@ export default function Home() {
                 </div>
               </div>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ELIZABETH GREENE - FOUNDER SPOTLIGHT */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center">
-              <Image
-                src="/images/team/founder/elizabeth-greene-founder-hero-01.jpg"
-                alt="Elizabeth L. Greene, Founder of Elevate for Humanity"
-                width={900}
-                height={1200}
-                className="w-full h-auto max-w-md rounded-2xl shadow-xl object-cover"
-                quality={100}
-              />
-            </div>
-            <div className="space-y-6">
-              <h2 className="text-4xl font-bold text-slate-900">Meet Our Founder</h2>
-              <p className="text-lg text-slate-700 leading-relaxed">
-                Elizabeth L. Greene is the visionary behind Elevate for Humanity, 
-                leading innovation in hybrid apprenticeships, workforce training, 
-                and technical education to empower individuals and transform communities.
-              </p>
-              <Link href="/founder" className="inline-block bg-orange-500 text-white px-8 py-3 rounded-md hover:bg-orange-600 transition-all font-semibold">
-                Learn More About Elizabeth
-              </Link>
-            </div>
           </div>
         </div>
       </section>
