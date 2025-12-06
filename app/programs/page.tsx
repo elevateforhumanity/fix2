@@ -86,8 +86,8 @@ export default async function ProgramsPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* HERO BANNER */}
-      <section className="relative h-[500px] w-full overflow-hidden bg-white">
+      {/* HERO BANNER - Mobile Optimized */}
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden bg-white">
         <Image
           src="/media/homepage-hero.jpg"
           alt="Students learning together"
@@ -99,21 +99,21 @@ export default async function ProgramsPage() {
         />
         
 
-        {/* Content */}
-        <div className="relative h-full mx-auto max-w-7xl px-8 md:px-12 flex items-center">
-          <div className="max-w-4xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-full text-sm font-semibold">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        {/* Content - Mobile Optimized */}
+        <div className="relative h-full mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 flex items-center">
+          <div className="max-w-4xl space-y-4 sm:space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-orange-600 text-white rounded-full text-xs sm:text-sm font-semibold">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
               </svg>
               Career Training Programs
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
               Transform Your Future with Free Career Training
             </h1>
 
-            <p className="text-xl sm:text-2xl text-slate-700 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-slate-700 leading-relaxed">
               Choose from {programs.length} workforce development programs. 100% funded through WIOA, grants, and employer partnerships.
             </p>
 

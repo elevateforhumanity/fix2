@@ -6,8 +6,8 @@ import { EFH_IMAGES } from "@/src/config/efhImages";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* TOP HERO – WITH MOVEMENT */}
-      <section className="relative w-full h-[600px] overflow-hidden group">
+      {/* TOP HERO – WITH MOVEMENT - Mobile Optimized */}
+      <section className="relative w-full h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden group">
         <div className="absolute inset-0 transition-transform duration-[20000ms] ease-in-out group-hover:scale-110">
           <Image
             src="/images/hero/home-hero-top-gradient.jpg"
@@ -16,29 +16,30 @@ export default function Home() {
             className="object-cover"
             priority
             quality={100}
+            sizes="100vw"
           />
         </div>
         
         {/* Overlay Content with Animation */}
         <div className="relative z-10 h-full flex items-center bg-black/20">
-          <div className="max-w-7xl mx-auto px-6 w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-3xl opacity-0 translate-y-8 animate-[fadeInUp_1s_ease-out_forwards]">
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 drop-shadow-2xl leading-tight">
                 Transform Your Future
               </h1>
-              <p className="text-xl md:text-2xl text-white mb-8 drop-shadow-lg">
+              <p className="text-lg sm:text-xl md:text-2xl text-white mb-6 sm:mb-8 drop-shadow-lg">
                 Free career training. Real opportunities. Life-changing results.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                 <Link
                   href="/programs"
-                  className="px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 shadow-2xl"
+                  className="px-6 sm:px-8 py-3 sm:py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 shadow-2xl text-center min-h-[48px] flex items-center justify-center"
                 >
                   Explore Programs
                 </Link>
                 <Link
                   href="/apply"
-                  className="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-all transform hover:scale-105 shadow-2xl"
+                  className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-all transform hover:scale-105 shadow-2xl text-center min-h-[48px] flex items-center justify-center"
                 >
                   Apply Now
                 </Link>
@@ -48,8 +49,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FACILITY IMAGE - HOMEPAGE WITH PARALLAX */}
-      <section className="relative w-full h-[500px] overflow-hidden">
+      {/* FACILITY IMAGE - HOMEPAGE WITH PARALLAX - Mobile Optimized */}
+      <section className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/location-1.jpg"
@@ -57,21 +58,22 @@ export default function Home() {
             fill
             className="object-cover hover:scale-105 transition-transform duration-700"
             quality={100}
+            sizes="100vw"
           />
         </div>
       </section>
 
-      {/* FEATURED PROGRAMS - Large Product-Style Cards */}
-      <section className="py-20 px-6 bg-white">
+      {/* FEATURED PROGRAMS - Large Product-Style Cards - Mobile Optimized */}
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light text-slate-900 mb-4">Featured Programs</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-slate-900 mb-3 sm:mb-4">Featured Programs</h2>
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto px-4">
               DOL Registered Apprenticeships and State-Approved Training
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Barber Program */}
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
