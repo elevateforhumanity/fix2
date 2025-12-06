@@ -250,7 +250,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/facilities-new/facility-5.jpg"
+                src="/images/gallery/image6.jpg"
                 alt="Training facility and classrooms"
                 fill
                 className="object-cover" quality={85} sizes="100vw"

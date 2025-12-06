@@ -221,7 +221,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/facilities-new/facility-1.jpg"
+                src="/images/gallery/image3.jpg"
                 alt="Elevate for Humanity training facility"
                 fill
                 className="object-cover"
@@ -787,7 +787,7 @@ const whyChooseUs = [
   {
     title: "Industry-Focused Curriculum",
     description: "Programs designed with employer input to teach the exact skills needed in today's job market",
-    image: "/images/artlist/hero-training-5.jpg",
+    image: "/images/gallery/image8.jpg",
   },
   {
     title: "Expert Instructors",
@@ -862,11 +862,11 @@ const partners = [
 ];
 
 const facilities = [
-  { name: "Healthcare Training Lab", image: "/images/facilities-new/facility-1.jpg" },
-  { name: "HVAC Workshop", image: "/images/facilities-new/facility-2.jpg" },
-  { name: "Computer Lab", image: "/images/facilities-new/facility-3.jpg" },
+  { name: "Healthcare Training Lab", image: "/images/gallery/image3.jpg" },
+  { name: "HVAC Workshop", image: "/images/gallery/image4.jpg" },
+  { name: "Computer Lab", image: "/images/gallery/image5.jpg" },
   { name: "Barber Training Studio", image: "/images/facilities-new/facility-4.jpg" },
-  { name: "Welding Workshop", image: "/images/facilities-new/facility-5.jpg" },
+  { name: "Welding Workshop", image: "/images/gallery/image6.jpg" },
   { name: "Classroom Facilities", image: "/images/facilities-new/facility-6.jpg" },
 ];
 

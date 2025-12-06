@@ -54,7 +54,7 @@ export default function Page() {
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/facilities-new/facility-1.jpg"
+                src="/images/gallery/image3.jpg"
                 alt="Elevate for Humanity training facility"
                 fill
                 className="object-cover"

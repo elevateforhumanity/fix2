@@ -14,7 +14,7 @@ export default function JRIPage() {
       <section className="relative min-h-[600px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/artlist/hero-training-5.jpg"
+            src="/images/gallery/image8.jpg"
             alt="Job Ready Indy Programs"
             fill
             className="object-cover"
@@ -79,7 +79,7 @@ export default function JRIPage() {
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/facilities-new/facility-1.jpg"
+                  src="/images/gallery/image3.jpg"
                   alt="JRI Training Programs"
                   fill
                   className="object-cover"

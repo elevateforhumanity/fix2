@@ -84,7 +84,7 @@ export default function TeamPage() {
       {/* Hero Banner */}
       <section className="relative h-[400px] w-full overflow-hidden bg-white">
         <Image
-          src="/images/efh/sections/coaching.jpg"
+          src="/images/gallery/image6.jpg"
           alt="Our Team"
           fill
           className="object-cover brightness-105"

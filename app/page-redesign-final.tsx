@@ -341,7 +341,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/facilities-new/facility-5.jpg"
+                src="/images/gallery/image6.jpg"
                 alt="Training facility"
                 fill
                 className="object-cover" quality={85} sizes="100vw"

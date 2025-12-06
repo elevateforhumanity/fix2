@@ -11,7 +11,7 @@ interface FooterPageTemplateProps {
 export default function FooterPageTemplate({
   title,
   description,
-  heroImage = "/images/artlist/hero-training-5.jpg",
+  heroImage = "/images/gallery/image8.jpg",
   children,
 }: FooterPageTemplateProps) {
   return (
@@ -64,7 +64,7 @@ export default function FooterPageTemplate({
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/facilities-new/facility-1.jpg"
+                  src="/images/gallery/image3.jpg"
                   alt="Elevate For Humanity Training"
                   fill
                   className="object-cover"

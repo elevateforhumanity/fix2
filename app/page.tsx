@@ -386,7 +386,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
             <div className="relative h-64 overflow-hidden rounded-lg group">
               <Image
-                src="/images/facilities-new/facility-1.jpg"
+                src="/images/gallery/image3.jpg"
                 alt="Training Facility"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -394,7 +394,7 @@ export default function Home() {
             </div>
             <div className="relative h-64 overflow-hidden rounded-lg group">
               <Image
-                src="/images/facilities-new/facility-2.jpg"
+                src="/images/gallery/image4.jpg"
                 alt="Training Facility"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -402,7 +402,7 @@ export default function Home() {
             </div>
             <div className="relative h-64 overflow-hidden rounded-lg group">
               <Image
-                src="/images/facilities-new/facility-3.jpg"
+                src="/images/gallery/image5.jpg"
                 alt="Training Facility"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -418,7 +418,7 @@ export default function Home() {
             </div>
             <div className="relative h-64 overflow-hidden rounded-lg group">
               <Image
-                src="/images/facilities-new/facility-5.jpg"
+                src="/images/gallery/image6.jpg"
                 alt="Training Facility"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -434,7 +434,7 @@ export default function Home() {
             </div>
             <div className="relative h-64 overflow-hidden rounded-lg group">
               <Image
-                src="/images/facilities-new/facility-7.jpg"
+                src="/images/gallery/image8.jpg"
                 alt="Training Facility"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"

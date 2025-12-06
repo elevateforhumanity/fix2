@@ -15,7 +15,7 @@ const slides = [
     cta2: "Check Your Funding",
   },
   {
-    image: "/images/facilities-new/facility-5.jpg",
+    image: "/images/gallery/image6.jpg",
     title: "$0 Out of Pocket. Real Jobs. Real Credentials.",
     subtitle: "Government Pays 100% - You Pay Nothing",
     description: "WIOA • WRG • JRI • Apprenticeships • OJT Programs",

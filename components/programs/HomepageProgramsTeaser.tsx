@@ -6,19 +6,19 @@ export function HomepageProgramsTeaser() {
     {
       title: "Healthcare",
       description: "CNA, Medical Assistant, Pharmacy Tech, and more",
-      image: "/images/facilities-new/facility-1.jpg",
+      image: "/images/gallery/image3.jpg",
       href: "/programs/cna",
     },
     {
       title: "Barber & Beauty",
       description: "DOL Registered Apprenticeships",
-      image: "/images/facilities-new/facility-7.jpg",
+      image: "/images/gallery/image8.jpg",
       href: "/programs/barber-apprenticeship",
     },
     {
       title: "Skilled Trades",
       description: "HVAC, Building Maintenance, CDL",
-      image: "/images/facilities-new/facility-10.jpg",
+      image: "/images/gallery/image10.jpg",
       href: "/programs/hvac-technician",
     },
   ];
