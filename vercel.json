@@ -16,6 +16,19 @@
   },
   "headers": [
     {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "X-Deployment-Date",
+          "value": "2025-12-06T20:50:00Z"
+        }
+      ]
+    },
+    {
       "source": "/admin/:path*",
       "headers": [
         {
