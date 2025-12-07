@@ -1,33 +1,13 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/directory",
-  },
-  title: 'Directory | Elevate For Humanity',
-  description: 'Discover more about Directory inside the Elevate For Humanity workforce ecosystem.',
+export const metadata = {
+  title: 'Redirecting to Admin Dashboard...',
 };
 
-export default function Page() {
-  return (
-    <div className="min-h-screen bg-white">
-      <section className="bg-blue-700 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Directory | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Discover more about Directory inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
-                Get Started
-              </Link>
-              <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
-                View Programs
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+export default function DirectoryPage() {
+  // Redirect to admin dashboard
+  redirect('/admin');
+}
 
       {/* Image Section */}
       <section className="py-16">

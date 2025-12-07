@@ -29,6 +29,28 @@
       "schedule": "*/5 * * * *"
     }
   ],
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "elevateconnectsdirectory.org"
+        }
+      ],
+      "destination": "/admin/:path*"
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.elevateconnectsdirectory.org"
+        }
+      ],
+      "destination": "/admin/:path*"
+    }
+  ],
   "headers": [
     {
       "source": "/admin/:path*",
