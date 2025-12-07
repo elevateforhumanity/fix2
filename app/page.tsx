@@ -24,7 +24,7 @@ export default function Home() {
             src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=2400&h=1600&fit=crop&q=95"
             alt="Professional career training at Elevate for Humanity"
             fill
-            className="object-cover opacity-40"
+            className="object-cover"
             priority
             quality={95}
             sizes="100vw"
