@@ -15,19 +15,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TOP HERO - Clean, No Overlay */}
-      <section className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=2400&h=1350&fit=crop&q=95"
-          alt="Professional training and career development"
-          fill
-          className="object-cover"
-          priority
-          quality={95}
-          sizes="100vw"
-        />
-      </section>
-
       {/* FEATURED PROGRAMS - Top of Page */}
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
@@ -137,36 +124,20 @@ export default function Home() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
             Launch Your Career in Weeks, Not Years
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 mb-8 sm:mb-10 leading-relaxed max-w-3xl mx-auto">
             Earn while you train for high-demand careers. Zero tuition. Zero debt. Government-funded training that leads directly to employment.
           </p>
-          
-          {/* Humanized Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto mb-8 sm:mb-10">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">1,000+</div>
-              <div className="text-sm sm:text-base text-slate-600">graduates now earning $35K-65K annually</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">95%</div>
-              <div className="text-sm sm:text-base text-slate-600">job placement rate within 6 months of graduation</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">$0</div>
-              <div className="text-sm sm:text-base text-slate-600">tuition—100% funded by federal and state programs</div>
-            </div>
-          </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/programs"
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-orange-500 text-white font-bold text-center rounded-full hover:bg-orange-600 transition-all shadow-xl text-base sm:text-lg"
+              className="w-full sm:w-auto px-8 py-4 bg-orange-600 text-white font-bold text-center rounded-full hover:bg-orange-700 transition-all shadow-xl text-lg"
             >
               See Programs & Salaries
             </Link>
             <Link
               href="/apply"
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 text-white font-bold text-center rounded-full hover:bg-slate-800 transition-all shadow-xl text-base sm:text-lg"
+              className="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 font-bold text-center rounded-full hover:bg-gray-100 transition-all shadow-xl text-lg border-2 border-slate-200"
             >
               Apply Now - Class Starts Jan 15
             </Link>
@@ -190,7 +161,7 @@ export default function Home() {
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
               <div className="relative h-40 sm:h-48 overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop&q=85"
+                  src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1200&h=800&fit=crop&q=95"
                   alt="100% Fundable Programs"
                   fill
                   className="object-cover"
@@ -517,7 +488,7 @@ export default function Home() {
             </div>
             <div className="relative h-[400px] sm:h-[500px]">
               <Image
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=1000&fit=crop&q=90"
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=1500&fit=crop&q=95"
                 alt="Mobile app on smartphone"
                 fill
                 className="object-contain"
@@ -528,7 +499,7 @@ export default function Home() {
       </section>
 
       {/* CTA SECTION - Bold and Clean */}
-      <section className="py-24 px-6 bg-orange-500 text-white">
+      <section className="py-24 px-6 bg-orange-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Your Career Starts Now
