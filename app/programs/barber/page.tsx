@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner with Image */}
-      <section className="relative h-[500px] w-full overflow-hidden bg-white">
+      <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden bg-white">
         <Image
           src="/images/programs/barber-hero.jpg"
           alt="Barber Training Program"

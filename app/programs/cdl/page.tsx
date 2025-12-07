@@ -11,7 +11,7 @@ export default function CDLProgramPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Banner */}
-      <section className="relative h-[500px] w-full overflow-hidden">
+      <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden">
         <Image
           src="/images/programs/cdl-hero.jpg"
           alt="CDL Training Program"
