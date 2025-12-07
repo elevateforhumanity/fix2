@@ -14,11 +14,24 @@ import {
   Building2,
   ClipboardList,
   BarChart3,
-  Settings
+  Settings,
+  Mail,
+  Share2,
+  Sparkles
 } from 'lucide-react';
 
 const navigation = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+  {
+    name: 'Marketing',
+    icon: Sparkles,
+    children: [
+      { name: 'Elevate AI Marketing', href: '/admin/elevate-ai' },
+      { name: 'Email Marketing', href: '/admin/email-marketing' },
+      { name: 'Social Media', href: '/admin/social-media' },
+      { name: 'Automation', href: '/admin/email-marketing/automation' },
+    ]
+  },
   { 
     name: 'HR & Payroll',
     icon: DollarSign,

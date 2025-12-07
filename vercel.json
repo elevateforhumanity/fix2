@@ -18,6 +18,10 @@
     {
       "path": "/api/email/scheduler",
       "schedule": "*/5 * * * *"
+    },
+    {
+      "path": "/api/social-media/scheduler",
+      "schedule": "0 9,13,17 * * *"
     }
   ],
   "headers": [
