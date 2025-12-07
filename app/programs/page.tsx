@@ -24,33 +24,33 @@ async function getPrograms() {
 function getProgramImage(slug: string, category: string): string {
   // High-quality program-specific images (600x400 aspect ratio)
   const customImages: Record<string, string> = {
-    "medical-assistant": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1920&h=1000&fit=crop&q=85",
-    "phlebotomy-technician": "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1920&h=1000&fit=crop&q=85",
-    "pharmacy-technician": "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=1920&h=1000&fit=crop&q=85",
-    "dental-assistant": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1920&h=1000&fit=crop&q=85",
-    "it-support-specialist": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1920&h=1000&fit=crop&q=85",
-    "cybersecurity-analyst": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1920&h=1000&fit=crop&q=85",
-    "web-development": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920&h=1000&fit=crop&q=85",
-    "data-analytics": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1000&fit=crop&q=85",
-    "customer-service-representative": "https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&h=1000&fit=crop&q=85",
-    "administrative-assistant": "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1920&h=1000&fit=crop&q=85",
-    "bookkeeping": "https://images.unsplash.com/photo-1554224311-beee4ece3c5d?w=1920&h=1000&fit=crop&q=85",
-    "real-estate-agent": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1920&h=1000&fit=crop&q=85",
-    "insurance-agent": "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=1920&h=1000&fit=crop&q=85",
-    "solar-panel-installation": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1920&h=1000&fit=crop&q=85",
-    "automotive-technician": "https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=1920&h=1000&fit=crop&q=85",
-    "diesel-mechanic": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1920&h=1000&fit=crop&q=85",
-    "forklift-operator": "https://images.unsplash.com/photo-1553413077-190dd305871c?w=1920&h=1000&fit=crop&q=85",
-    "manufacturing-technician": "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1920&h=1000&fit=crop&q=85",
-    "entrepreneurship-small-business": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1000&fit=crop&q=85",
+    "medical-assistant": "/media-backup-20251128-043832/programs/medical-hd.jpg",
+    "phlebotomy-technician": "/media-backup-20251128-043832/programs/healthcare-professional-1-hd.jpg",
+    "pharmacy-technician": "/media-backup-20251128-043832/programs/healthcare-professional-2-hd.jpg",
+    "dental-assistant": "/media-backup-20251128-043832/programs/healthcare-hd.jpg",
+    "it-support-specialist": "/media-backup-20251128-043832/programs/it-hd.jpg",
+    "cybersecurity-analyst": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "web-development": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "data-analytics": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "customer-service-representative": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "administrative-assistant": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "bookkeeping": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "real-estate-agent": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "insurance-agent": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "solar-panel-installation": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "automotive-technician": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "diesel-mechanic": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "forklift-operator": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "manufacturing-technician": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "entrepreneurship-small-business": "/media-backup-20251128-043832/programs/multi-training-programs.png",
     // Additional programs
-    "cna": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1920&h=1000&fit=crop&q=85",
-    "certified-nursing-assistant": "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1920&h=1000&fit=crop&q=85",
-    "hvac-technician": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&h=1000&fit=crop&q=85",
-    "cdl": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&h=1000&fit=crop&q=85",
-    "commercial-truck-driving": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&h=1000&fit=crop&q=85",
-    "barber-apprenticeship": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&h=1000&fit=crop&q=85",
-    "building-maintenance-technician": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&h=1000&fit=crop&q=85",
+    "cna": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "certified-nursing-assistant": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "hvac-technician": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "cdl": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
+    "commercial-truck-driving": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
+    "barber-apprenticeship": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "building-maintenance-technician": "/media-backup-20251128-043832/programs/welding-hd.jpg",
   };
 
   if (customImages[slug]) {
@@ -59,20 +59,20 @@ function getProgramImage(slug: string, category: string): string {
 
   // High-quality category fallback images
   const categoryImages: Record<string, string> = {
-    "Healthcare": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1920&h=1000&fit=crop&q=85",
-    "Technology": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920&h=1000&fit=crop&q=85",
-    "Business": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1920&h=1000&fit=crop&q=85",
-    "Sales": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&h=1000&fit=crop&q=85",
-    "Skilled Trades": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&h=1000&fit=crop&q=85",
-    "Transportation": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&h=1000&fit=crop&q=85",
-    "trades": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&h=1000&fit=crop&q=85",
-    "healthcare": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=1920&h=1000&fit=crop&q=85",
-    "transportation": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&h=1000&fit=crop&q=85",
-    "barber_beauty": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&h=1000&fit=crop&q=85",
-    "professional": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1920&h=1000&fit=crop&q=85",
+    "Healthcare": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "Technology": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "Business": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "Sales": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "Skilled Trades": "/media-backup-20251128-043832/programs/welding-hd.jpg",
+    "Transportation": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
+    "trades": "/media-backup-20251128-043832/programs/welding-hd.jpg",
+    "healthcare": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "transportation": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
+    "barber_beauty": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "professional": "/media-backup-20251128-043832/programs/multi-training-programs.png",
   };
 
-  return categoryImages[category] || "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=85";
+  return categoryImages[category] || "/media-backup-20251128-043832/programs/multi-training-programs.png";
 }
 
 export const metadata = {
@@ -92,7 +92,7 @@ export default async function ProgramsPage() {
       {/* HERO BANNER - Mobile Optimized */}
       <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden bg-white">
         <Image
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1080&fit=crop&q=90"
+          src="/media-backup-20251128-043832/programs/multi-training-programs.png"
           alt="Students learning and training together"
           fill
           className="object-cover"
@@ -377,7 +377,7 @@ export default async function ProgramsPage() {
               </div>
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
                 <Image
-                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1000&fit=crop&q=85"
+                  src="/media-backup-20251128-043832/programs/multi-training-programs.png"
                   alt="Business Training Programs"
                   fill
                   className="object-cover"

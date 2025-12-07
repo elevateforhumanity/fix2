@@ -21,7 +21,7 @@ export default async function Page() {
     <div className="min-h-screen bg-white">
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=85"
+          src="/media-backup-20251128-043832/students-hero.jpg"
           alt="Students learning together"
           fill
           className="object-cover"
@@ -88,7 +88,7 @@ export default async function Page() {
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1554224311-beee4ece3c5d?w=1920&h=1000&fit=crop&q=85" alt="100% Free Training" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/students-hero.jpg" alt="100% Free Training" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">100% Free Training</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -98,7 +98,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1000&fit=crop&q=85" alt="Indusstart Certifications" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/students-hero.jpg" alt="Indusstart Certifications" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Indusstart Certifications</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -108,7 +108,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1920&h=1000&fit=crop&q=85" alt="Housing Assistance" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/students-hero.jpg" alt="Housing Assistance" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Housing Assistance</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -118,7 +118,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&h=1000&fit=crop&q=85" alt="Mental Health Support" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/students-hero.jpg" alt="Mental Health Support" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Mental Health Support</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -128,7 +128,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1000&fit=crop&q=85" alt="Life Coaching" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/students-hero.jpg" alt="Life Coaching" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Life Coaching</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -138,7 +138,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=1000&fit=crop&q=85" alt="Direct Employer Connections" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/students-hero.jpg" alt="Direct Employer Connections" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Direct Employer Connections</h3>
               <p className="text-slate-700 leading-relaxed">

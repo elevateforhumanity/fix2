@@ -149,7 +149,7 @@ export default async function Page() {
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1000&fit=crop&q=85" alt="Pre-Screened Candidates" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Pre-Screened Candidates" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Pre-Screened, Job-Ready Talent</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -159,7 +159,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&h=1000&fit=crop&q=85" alt="Zero Recruitment Costs" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Zero Recruitment Costs" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Zero Recruitment Costs</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -169,7 +169,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=1000&fit=crop&q=85" alt="Indusstart-Specific Training" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Indusstart-Specific Training" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Indusstart-Specific Training</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -179,7 +179,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&h=1000&fit=crop&q=85" alt="Wage Reimbursement Programs" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Wage Reimbursement Programs" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Wage Reimbursement Programs</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -189,7 +189,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1920&h=1000&fit=crop&q=85" alt="Ongoing Support" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Ongoing Support" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Ongoing Support</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -199,7 +199,7 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1920&h=1000&fit=crop&q=85" alt="Diverse Talent Pool" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Diverse Talent Pool" fill className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Diverse Talent Pool</h3>
               <p className="text-slate-700 leading-relaxed">

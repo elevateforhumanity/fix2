@@ -1,0 +1,496 @@
+{
+  "mission": "Implement Industrious Office-level animations with ZERO external dependencies",
+  "approach": "Pure CSS + Vanilla JavaScript + React hooks only",
+  "no_dependencies": [
+    "framer-motion",
+    "swiper",
+    "react-intersection-observer",
+    "any other animation libraries"
+  ],
+  "implementation_strategy": "Use native browser APIs and CSS animations",
+  "total_autopilots": 40,
+  "teams": {
+    "team_1_scroll_animations": {
+      "name": "Scroll-Triggered Animations (Pure JS)",
+      "autopilots": ["autopilot-01", "autopilot-02", "autopilot-03", "autopilot-04"],
+      "priority": "CRITICAL",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "SCROLL-001",
+          "autopilot": "autopilot-01",
+          "task": "Create ScrollReveal Component (Zero Dependencies)",
+          "file": "components/animations/ScrollReveal.tsx",
+          "implementation": "Use native IntersectionObserver API",
+          "code_template": "Pure React + TypeScript, no external libs"
+        },
+        {
+          "id": "SCROLL-002",
+          "autopilot": "autopilot-02",
+          "task": "Create Staggered Animation System",
+          "file": "components/animations/StaggeredReveal.tsx",
+          "implementation": "CSS animation delays + IntersectionObserver",
+          "code_template": "Pure CSS keyframes + React"
+        },
+        {
+          "id": "SCROLL-003",
+          "autopilot": "autopilot-03",
+          "task": "Create Parallax Effect (Pure CSS)",
+          "file": "components/animations/Parallax.tsx",
+          "implementation": "CSS transform + scroll event listener",
+          "code_template": "requestAnimationFrame for smooth scrolling"
+        },
+        {
+          "id": "SCROLL-004",
+          "autopilot": "autopilot-04",
+          "task": "Add Scroll Animations to Homepage",
+          "file": "app/page.tsx",
+          "implementation": "Wrap sections with ScrollReveal components",
+          "code_template": "Replace static sections with animated ones"
+        }
+      ]
+    },
+    "team_2_counter_animations": {
+      "name": "Counter Animations (Pure JS)",
+      "autopilots": ["autopilot-05", "autopilot-06"],
+      "priority": "CRITICAL",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "COUNTER-001",
+          "autopilot": "autopilot-05",
+          "task": "Create CountUp Component (Zero Dependencies)",
+          "file": "components/animations/CountUp.tsx",
+          "implementation": "Pure JavaScript with requestAnimationFrame",
+          "code_template": "Easing function + IntersectionObserver trigger"
+        },
+        {
+          "id": "COUNTER-002",
+          "autopilot": "autopilot-06",
+          "task": "Add CountUp to Stats Section",
+          "file": "app/page.tsx",
+          "implementation": "Replace static numbers with CountUp components",
+          "code_template": "33 programs, $0 tuition, 100% funded"
+        }
+      ]
+    },
+    "team_3_card_effects": {
+      "name": "Enhanced Card Hover Effects (Pure CSS)",
+      "autopilots": ["autopilot-07", "autopilot-08", "autopilot-09"],
+      "priority": "HIGH",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "CARD-001",
+          "autopilot": "autopilot-07",
+          "task": "Create Premium Card CSS",
+          "file": "app/animations.css",
+          "implementation": "Pure CSS hover effects with transforms",
+          "code_template": "translateY, scale, box-shadow transitions"
+        },
+        {
+          "id": "CARD-002",
+          "autopilot": "autopilot-08",
+          "task": "Add Border Glow Effect (Pure CSS)",
+          "file": "app/animations.css",
+          "implementation": "CSS pseudo-elements with gradient borders",
+          "code_template": "::before pseudo-element with mask"
+        },
+        {
+          "id": "CARD-003",
+          "autopilot": "autopilot-09",
+          "task": "Add Image Zoom on Hover (Pure CSS)",
+          "file": "app/animations.css",
+          "implementation": "CSS transform scale on nested image",
+          "code_template": "overflow: hidden + transform: scale(1.1)"
+        }
+      ]
+    },
+    "team_4_navbar": {
+      "name": "Dynamic Navbar (Pure JS)",
+      "autopilots": ["autopilot-10", "autopilot-11"],
+      "priority": "HIGH",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "NAV-001",
+          "autopilot": "autopilot-10",
+          "task": "Create Scroll-Aware Navbar Component",
+          "file": "components/Navbar.tsx",
+          "implementation": "window.addEventListener('scroll') + useState",
+          "code_template": "Pure React hooks, no dependencies"
+        },
+        {
+          "id": "NAV-002",
+          "autopilot": "autopilot-11",
+          "task": "Add Navbar to Layout",
+          "file": "app/layout.tsx",
+          "implementation": "Replace existing nav with dynamic version",
+          "code_template": "Transparent → solid white on scroll"
+        }
+      ]
+    },
+    "team_5_carousel": {
+      "name": "Testimonial Carousel (Pure JS)",
+      "autopilots": ["autopilot-12", "autopilot-13", "autopilot-14"],
+      "priority": "HIGH",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "CAROUSEL-001",
+          "autopilot": "autopilot-12",
+          "task": "Create Carousel Component (Zero Dependencies)",
+          "file": "components/animations/Carousel.tsx",
+          "implementation": "Pure CSS transforms + useState for index",
+          "code_template": "translateX for sliding, setInterval for auto-play"
+        },
+        {
+          "id": "CAROUSEL-002",
+          "autopilot": "autopilot-13",
+          "task": "Add Touch Gestures (Pure JS)",
+          "file": "components/animations/Carousel.tsx",
+          "implementation": "touchstart/touchmove/touchend event listeners",
+          "code_template": "Calculate swipe distance and direction"
+        },
+        {
+          "id": "CAROUSEL-003",
+          "autopilot": "autopilot-14",
+          "task": "Add Testimonial Carousel to Homepage",
+          "file": "app/page.tsx",
+          "implementation": "Create testimonials section with carousel",
+          "code_template": "Auto-play, pause on hover, dot indicators"
+        }
+      ]
+    },
+    "team_6_button_effects": {
+      "name": "Button Ripple Effects (Pure CSS/JS)",
+      "autopilots": ["autopilot-15", "autopilot-16"],
+      "priority": "MEDIUM",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "BTN-001",
+          "autopilot": "autopilot-15",
+          "task": "Create Ripple Effect (Pure JS)",
+          "file": "components/animations/RippleButton.tsx",
+          "implementation": "onClick create span element with animation",
+          "code_template": "Pure DOM manipulation + CSS animation"
+        },
+        {
+          "id": "BTN-002",
+          "autopilot": "autopilot-16",
+          "task": "Add Ripple to All CTA Buttons",
+          "file": "app/page.tsx",
+          "implementation": "Replace Link with RippleButton wrapper",
+          "code_template": "Wrap existing buttons"
+        }
+      ]
+    },
+    "team_7_loading_states": {
+      "name": "Loading Skeletons (Pure CSS)",
+      "autopilots": ["autopilot-17", "autopilot-18"],
+      "priority": "MEDIUM",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "LOAD-001",
+          "autopilot": "autopilot-17",
+          "task": "Create Skeleton Component (Pure CSS)",
+          "file": "components/animations/Skeleton.tsx",
+          "implementation": "CSS gradient animation with keyframes",
+          "code_template": "background-position animation"
+        },
+        {
+          "id": "LOAD-002",
+          "autopilot": "autopilot-18",
+          "task": "Add Loading States to Pages",
+          "file": "app/*/loading.tsx",
+          "implementation": "Create loading.tsx for each route",
+          "code_template": "Skeleton placeholders for content"
+        }
+      ]
+    },
+    "team_8_gradient_animations": {
+      "name": "Gradient Animations (Pure CSS)",
+      "autopilots": ["autopilot-19", "autopilot-20"],
+      "priority": "MEDIUM",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "GRAD-001",
+          "autopilot": "autopilot-19",
+          "task": "Create Animated Gradient CSS",
+          "file": "app/animations.css",
+          "implementation": "CSS keyframes with background-position",
+          "code_template": "Linear gradient with 400% size"
+        },
+        {
+          "id": "GRAD-002",
+          "autopilot": "autopilot-20",
+          "task": "Add Gradient Text Effect",
+          "file": "app/animations.css",
+          "implementation": "background-clip: text with gradient",
+          "code_template": "-webkit-background-clip + transparent fill"
+        }
+      ]
+    },
+    "team_9_page_transitions": {
+      "name": "Page Transitions (Pure CSS)",
+      "autopilots": ["autopilot-21", "autopilot-22"],
+      "priority": "MEDIUM",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "PAGE-001",
+          "autopilot": "autopilot-21",
+          "task": "Create Page Transition Wrapper",
+          "file": "components/animations/PageTransition.tsx",
+          "implementation": "CSS transitions + usePathname hook",
+          "code_template": "Fade in/out on route change"
+        },
+        {
+          "id": "PAGE-002",
+          "autopilot": "autopilot-22",
+          "task": "Add Transitions to Layout",
+          "file": "app/layout.tsx",
+          "implementation": "Wrap children with PageTransition",
+          "code_template": "Smooth fade between pages"
+        }
+      ]
+    },
+    "team_10_accessibility": {
+      "name": "Accessibility & Performance",
+      "autopilots": ["autopilot-23", "autopilot-24"],
+      "priority": "HIGH",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "A11Y-001",
+          "autopilot": "autopilot-23",
+          "task": "Add Reduced Motion Support",
+          "file": "app/globals.css",
+          "implementation": "@media (prefers-reduced-motion: reduce)",
+          "code_template": "Disable animations for accessibility"
+        },
+        {
+          "id": "A11Y-002",
+          "autopilot": "autopilot-24",
+          "task": "Add GPU Acceleration",
+          "file": "app/animations.css",
+          "implementation": "transform: translateZ(0) + will-change",
+          "code_template": "Optimize animation performance"
+        }
+      ]
+    },
+    "team_11_hero_enhancements": {
+      "name": "Hero Section Enhancements",
+      "autopilots": ["autopilot-25", "autopilot-26", "autopilot-27"],
+      "priority": "CRITICAL",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "HERO-001",
+          "autopilot": "autopilot-25",
+          "task": "Add Floating Animation to Hero Elements",
+          "file": "app/animations.css",
+          "implementation": "CSS keyframes with translateY",
+          "code_template": "Subtle up/down movement"
+        },
+        {
+          "id": "HERO-002",
+          "autopilot": "autopilot-26",
+          "task": "Add Breathing Animation to Stats",
+          "file": "app/animations.css",
+          "implementation": "CSS keyframes with scale",
+          "code_template": "Subtle scale pulse effect"
+        },
+        {
+          "id": "HERO-003",
+          "autopilot": "autopilot-27",
+          "task": "Update Hero with New Animations",
+          "file": "app/page.tsx",
+          "implementation": "Add animation classes to hero elements",
+          "code_template": "Apply float and breathe classes"
+        }
+      ]
+    },
+    "team_12_program_cards": {
+      "name": "Program Cards Enhancement",
+      "autopilots": ["autopilot-28", "autopilot-29", "autopilot-30"],
+      "priority": "HIGH",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "PROG-001",
+          "autopilot": "autopilot-28",
+          "task": "Add Staggered Reveal to Program Cards",
+          "file": "app/page.tsx",
+          "implementation": "Wrap cards with StaggeredReveal",
+          "code_template": "Delay each card by 100ms"
+        },
+        {
+          "id": "PROG-002",
+          "autopilot": "autopilot-29",
+          "task": "Add Premium Hover to Program Cards",
+          "file": "app/page.tsx",
+          "implementation": "Add card-premium class to cards",
+          "code_template": "Lift + glow + image zoom"
+        },
+        {
+          "id": "PROG-003",
+          "autopilot": "autopilot-30",
+          "task": "Add Loading Skeletons to Programs",
+          "file": "app/programs/loading.tsx",
+          "implementation": "Create skeleton grid for programs",
+          "code_template": "Match program card layout"
+        }
+      ]
+    },
+    "team_13_testimonials": {
+      "name": "Testimonials Section",
+      "autopilots": ["autopilot-31", "autopilot-32"],
+      "priority": "HIGH",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "TEST-001",
+          "autopilot": "autopilot-31",
+          "task": "Create Testimonials Data",
+          "file": "data/testimonials.ts",
+          "implementation": "Array of testimonial objects",
+          "code_template": "Name, quote, role, avatar"
+        },
+        {
+          "id": "TEST-002",
+          "autopilot": "autopilot-32",
+          "task": "Add Testimonials Section to Homepage",
+          "file": "app/page.tsx",
+          "implementation": "Add section with carousel",
+          "code_template": "After programs section"
+        }
+      ]
+    },
+    "team_14_stats_section": {
+      "name": "Stats Section Enhancement",
+      "autopilots": ["autopilot-33", "autopilot-34"],
+      "priority": "CRITICAL",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "STAT-001",
+          "autopilot": "autopilot-33",
+          "task": "Replace Static Stats with CountUp",
+          "file": "app/page.tsx",
+          "implementation": "Wrap numbers with CountUp component",
+          "code_template": "33, 0, 100 with suffixes"
+        },
+        {
+          "id": "STAT-002",
+          "autopilot": "autopilot-34",
+          "task": "Add Hover Effects to Stats",
+          "file": "app/page.tsx",
+          "implementation": "Add hover:scale-110 and breathe animation",
+          "code_template": "Interactive stat cards"
+        }
+      ]
+    },
+    "team_15_cta_buttons": {
+      "name": "CTA Button Enhancement",
+      "autopilots": ["autopilot-35", "autopilot-36"],
+      "priority": "HIGH",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "CTA-001",
+          "autopilot": "autopilot-35",
+          "task": "Add Ripple Effect to Hero CTAs",
+          "file": "app/page.tsx",
+          "implementation": "Wrap CTAs with RippleButton",
+          "code_template": "View Programs + Apply Now buttons"
+        },
+        {
+          "id": "CTA-002",
+          "autopilot": "autopilot-36",
+          "task": "Add Pulse Animation to Primary CTA",
+          "file": "app/animations.css",
+          "implementation": "CSS keyframes with box-shadow pulse",
+          "code_template": "Orange glow pulse effect"
+        }
+      ]
+    },
+    "team_16_mobile_optimization": {
+      "name": "Mobile Animation Optimization",
+      "autopilots": ["autopilot-37", "autopilot-38"],
+      "priority": "HIGH",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "MOB-001",
+          "autopilot": "autopilot-37",
+          "task": "Optimize Animations for Mobile",
+          "file": "app/animations.css",
+          "implementation": "@media queries to reduce animations",
+          "code_template": "Simpler animations on small screens"
+        },
+        {
+          "id": "MOB-002",
+          "autopilot": "autopilot-38",
+          "task": "Add Touch-Friendly Interactions",
+          "file": "components/animations/Carousel.tsx",
+          "implementation": "Increase touch target sizes",
+          "code_template": "44px minimum touch targets"
+        }
+      ]
+    },
+    "team_17_final_polish": {
+      "name": "Final Polish & Testing",
+      "autopilots": ["autopilot-39", "autopilot-40"],
+      "priority": "CRITICAL",
+      "timeline": "Immediate",
+      "assignments": [
+        {
+          "id": "FINAL-001",
+          "autopilot": "autopilot-39",
+          "task": "Test All Animations",
+          "file": "ANIMATION_TEST_CHECKLIST.md",
+          "implementation": "Manual testing checklist",
+          "code_template": "Test each animation on all browsers"
+        },
+        {
+          "id": "FINAL-002",
+          "autopilot": "autopilot-40",
+          "task": "Performance Audit",
+          "file": "ANIMATION_PERFORMANCE_REPORT.md",
+          "implementation": "Lighthouse audit + FPS monitoring",
+          "code_template": "Ensure 60fps on all animations"
+        }
+      ]
+    }
+  },
+  "execution_order": [
+    "team_1_scroll_animations",
+    "team_2_counter_animations",
+    "team_3_card_effects",
+    "team_4_navbar",
+    "team_11_hero_enhancements",
+    "team_14_stats_section",
+    "team_12_program_cards",
+    "team_5_carousel",
+    "team_13_testimonials",
+    "team_6_button_effects",
+    "team_15_cta_buttons",
+    "team_7_loading_states",
+    "team_8_gradient_animations",
+    "team_9_page_transitions",
+    "team_10_accessibility",
+    "team_16_mobile_optimization",
+    "team_17_final_polish"
+  ],
+  "success_criteria": {
+    "zero_dependencies": "No npm packages installed",
+    "performance": "60fps on all animations",
+    "accessibility": "Respects prefers-reduced-motion",
+    "mobile": "Smooth on mobile devices",
+    "browser_support": "Works on Chrome, Firefox, Safari, Edge"
+  }
+}

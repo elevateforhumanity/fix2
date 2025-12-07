@@ -300,7 +300,7 @@ export default function NailSkillsTrackingPage() {
                     <div key={log.id} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
                       <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                         <Image
-                          src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=100&h=100&fit=crop&q=80"
+                          src="/media-backup-20251128-043832/programs/beauty-hd.jpg"
                           alt="Completed"
                           fill
                           className="object-cover"
@@ -345,7 +345,7 @@ export default function NailSkillsTrackingPage() {
                   <div className="flex items-center gap-3">
                     <div className="relative w-16 h-16 rounded-lg overflow-hidden">
                       <Image
-                        src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=200&h=200&fit=crop&q=80"
+                        src="/media-backup-20251128-043832/programs/beauty-hd.jpg"
                         alt="Skills progress"
                         fill
                         className="object-cover"
@@ -360,7 +360,7 @@ export default function NailSkillsTrackingPage() {
                   <div className="flex items-center gap-3">
                     <div className="relative w-16 h-16 rounded-lg overflow-hidden">
                       <Image
-                        src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=200&h=200&fit=crop&q=80"
+                        src="/media-backup-20251128-043832/programs/beauty-hd.jpg"
                         alt="Unique skills"
                         fill
                         className="object-cover"
@@ -375,7 +375,7 @@ export default function NailSkillsTrackingPage() {
                   <div className="flex items-center gap-3">
                     <div className="relative w-16 h-16 rounded-lg overflow-hidden">
                       <Image
-                        src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=200&h=200&fit=crop&q=80"
+                        src="/media-backup-20251128-043832/programs/beauty-hd.jpg"
                         alt="Quality rating"
                         fill
                         className="object-cover"

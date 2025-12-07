@@ -77,7 +77,7 @@ export default async function Page() {
     <main className="bg-white">
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1920&h=1000&fit=crop&q=85"
+          src="/media-backup-20251128-043832/hero/hero-blog-post-7.jpg"
           alt="Blog and news"
           fill
           className="object-cover"

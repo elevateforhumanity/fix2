@@ -19,7 +19,7 @@ export default function CNAProgramPage() {
     <main className="min-h-screen bg-white">
       <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=2400&h=1350&fit=crop&q=95"
+          src="/media-backup-20251128-043832/programs/cna-hd.jpg"
           alt="CNA Training Program"
           fill
           className="object-cover"
