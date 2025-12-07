@@ -1,32 +1,27 @@
 # Branch Protection Rules
 
-## Current Setup
-- **Only `main` branch exists**
-- All development happens directly on `main`
-- No feature branches
+## Main Branch Protection
 
-## To Prevent Auto-Branch Creation
+To prevent extra branches and keep everything on main:
 
-### In GitHub:
-1. Go to repository Settings
+1. Go to GitHub repository settings
 2. Click "Branches" in left sidebar
-3. Under "Branch protection rules", click "Add rule"
-4. Branch name pattern: `*` (all branches except main)
-5. Enable: "Require pull request reviews before merging"
-6. This prevents accidental branch creation
+3. Click "Add rule" for branch protection
+4. Branch name pattern: `main`
+5. Enable these rules:
+   - ✅ Require pull request reviews before merging
+   - ✅ Require status checks to pass
+   - ✅ Require branches to be up to date
+   - ✅ Include administrators
+   - ✅ Restrict who can push to matching branches
 
-### In Vercel:
-1. Go to Project Settings
-2. Click "Git" 
-3. Set Production Branch to: `main`
-4. Disable "Automatic deployments" for other branches
-5. Only deploy from `main`
+This ensures:
+- All changes go through main branch
+- No random branches created
+- Everything stays integrated
+- Single source of truth
 
-## Working on Main Branch
-All changes should be:
-1. Made directly on `main`
-2. Committed with clear messages
-3. Pushed immediately to `origin/main`
-4. Deployed automatically to Vercel
-
-No feature branches needed for this project.
+## Current Status
+- All code on main branch ✅
+- No duplicate branches ✅
+- Everything integrated ✅
