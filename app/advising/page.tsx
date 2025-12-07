@@ -21,7 +21,7 @@ export default function AdvisingPage() {
       questions: formData.get('questions'),
     };
 
-    start {
+    try {
       // Send to your backend API or email service
       const response = await fetch('/api/advising-request', {
         method: 'POST',

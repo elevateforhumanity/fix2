@@ -25,7 +25,7 @@ export default function DocumentUploadPage() {
       formData.append(`file_${index}`, file);
     });
 
-    start {
+    try {
       const response = await fetch('/api/supersonic-fast-cash/upload', {
         method: 'POST',
         body: formData,

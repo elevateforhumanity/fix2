@@ -50,7 +50,7 @@ export default function AnalyticsPage() {
 
   const fetchAnalytics = async () => {
     setLoading(true);
-    start {
+    try {
       const response = await fetch(`/api/email/analytics?range=${timeRange}`);
       const result = await response.json();
       if (result.success) {

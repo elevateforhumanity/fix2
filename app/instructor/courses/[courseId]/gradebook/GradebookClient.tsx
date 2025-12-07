@@ -73,7 +73,7 @@ export default function GradebookClient({ initialData }: Props) {
     if (points === null) return; // Don't save empty grades
 
     setSaving(true);
-    start {
+    try {
       await fetch("/api/grade/upsert", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

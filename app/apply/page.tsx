@@ -24,7 +24,7 @@ export default function ApplyPage() {
       contactPreference: formData.getAll('contactPreference'),
     };
 
-    start {
+    try {
       const response = await fetch('/api/application', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

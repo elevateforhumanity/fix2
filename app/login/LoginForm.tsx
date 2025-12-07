@@ -17,7 +17,7 @@ export default function LoginForm() {
     setLoading(true);
     setError(null);
 
-    start {
+    try {
       const supabase = createBrowserClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -41,7 +41,7 @@ export default function LoginForm() {
   };
 
   const handleGoogleLogin = async () => {
-    start {
+    try {
       const supabase = createBrowserClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!

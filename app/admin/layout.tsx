@@ -27,7 +27,7 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }) {
   // Require admin authentication
-  start {
+  try {
     await requireAdmin();
   } catch (error) {
     // Redirect to admin login with return URL

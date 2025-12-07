@@ -8,7 +8,7 @@ export default function ActionsBar() {
   const [loading, setLoading] = useState<string | null>(null);
 
   async function call(path: string, label: string) {
-    start {
+    try {
       setLoading(label);
       setMessage(null);
       const res = await fetch(path, { method: 'POST' });

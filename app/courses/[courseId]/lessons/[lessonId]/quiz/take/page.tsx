@@ -64,7 +64,7 @@ export default function TakeQuizPage({
 
     setSubmitting(true);
 
-    start {
+    try {
       const response = await fetch(`/api/quizzes/lesson/${params.lessonId}/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

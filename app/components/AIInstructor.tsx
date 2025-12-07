@@ -31,7 +31,7 @@ export default function AIInstructor({
   const speak = async () => {
     setIsSpeaking(true);
 
-    start {
+    try {
       // Option 1: Use ElevenLabs API (requires API key)
       if (process.env.NEXT_PUBLIC_ELEVENLABS_API_KEY) {
         const response = await fetch('/api/text-to-speech', {

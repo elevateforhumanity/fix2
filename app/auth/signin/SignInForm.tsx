@@ -18,7 +18,7 @@ export default function SignInForm() {
     setError('');
     setLoading(true);
 
-    start {
+    try {
       const supabase = createClient();
       const { data, error: signInError } = await supabase.auth.signInWithPassword({
         email,
@@ -43,7 +43,7 @@ export default function SignInForm() {
   };
 
   const handleOAuthSignIn = async (provider: 'google' | 'azure') => {
-    start {
+    try {
       const supabase = createClient();
       const { error } = await supabase.auth.signInWithOAuth({
         provider,

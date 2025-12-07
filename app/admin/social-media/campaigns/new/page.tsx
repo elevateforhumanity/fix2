@@ -30,7 +30,7 @@ export default function NewSocialCampaignPage() {
 
   const generatePosts = async () => {
     setGenerating(true);
-    start {
+    try {
       const response = await fetch('/api/social-media/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

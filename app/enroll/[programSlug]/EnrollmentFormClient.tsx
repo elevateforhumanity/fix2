@@ -21,7 +21,7 @@ export function EnrollmentFormClient({ programId, programTitle }: EnrollmentForm
 
     const formData = new FormData(e.currentTarget);
     
-    start {
+    try {
       const supabase = createClient();
       const { data: { user } } = await supabase.auth.getUser();
       

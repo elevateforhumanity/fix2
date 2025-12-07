@@ -61,7 +61,7 @@ export default function SignUpForm() {
 
     setLoading(true);
 
-    start {
+    try {
       const supabase = createClient();
       const { data, error: signUpError } = await supabase.auth.signUp({
         email: formData.email,
@@ -103,7 +103,7 @@ export default function SignUpForm() {
   };
 
   const handleOAuthSignUp = async (provider: 'google' | 'azure') => {
-    start {
+    try {
       const supabase = createClient();
       const { error } = await supabase.auth.signInWithOAuth({
         provider,

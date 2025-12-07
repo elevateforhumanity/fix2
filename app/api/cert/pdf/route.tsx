@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
 
   // Fetch user and course details
   let u;
-  start {
+  try {
     u = await getUserById(cert.user_id);
   } catch (error) {
     console.error('Error fetching user:', error);
