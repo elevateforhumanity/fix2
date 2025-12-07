@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Star, TrendingUp, Award, Clock, CheckCircle } from 'lucide-react';
+import Image from 'next/image';
+import { Star } from 'lucide-react';
 
 interface Skill {
   id: string;
@@ -309,7 +310,14 @@ export default function EstheticianSkillsTrackingPage() {
                 <div className="space-y-3">
                   {skillLogs.slice(0, 10).map((log) => (
                     <div key={log.id} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5" />
+                      <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                        <Image
+                          src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=100&h=100&fit=crop&q=80"
+                          alt="Completed"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
                           <span className="font-medium text-gray-900">{log.skillName}</span>
@@ -347,8 +355,13 @@ export default function EstheticianSkillsTrackingPage() {
                 <h2 className="text-xl font-semibold mb-4">Progress Overview</h2>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-3 bg-blue-100 rounded-lg">
-                      <TrendingUp className="w-6 h-6 text-blue-600" />
+                    <div className="relative w-16 h-16 rounded-lg overflow-hidden">
+                      <Image
+                        src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=200&h=200&fit=crop&q=80"
+                        alt="Skills progress"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-gray-900">{progress.totalSkills}</p>
@@ -357,8 +370,13 @@ export default function EstheticianSkillsTrackingPage() {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="p-3 bg-green-100 rounded-lg">
-                      <Award className="w-6 h-6 text-green-600" />
+                    <div className="relative w-16 h-16 rounded-lg overflow-hidden">
+                      <Image
+                        src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=200&h=200&fit=crop&q=80"
+                        alt="Unique skills"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-gray-900">{progress.uniqueSkills}</p>
@@ -367,8 +385,13 @@ export default function EstheticianSkillsTrackingPage() {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="p-3 bg-yellow-100 rounded-lg">
-                      <Star className="w-6 h-6 text-yellow-600" />
+                    <div className="relative w-16 h-16 rounded-lg overflow-hidden">
+                      <Image
+                        src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=200&h=200&fit=crop&q=80"
+                        alt="Quality rating"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-gray-900">{progress.avgRating}</p>
