@@ -19,33 +19,7 @@ export default function Home() {
         />
       </section>
 
-      {/* Hero Content - Below Image */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
-            Transform Your Future
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
-            Free career training. Real opportunities. Life-changing results.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Link
-              href="/programs"
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-orange-500 text-white font-bold text-center rounded-full hover:bg-orange-600 transition-all shadow-xl text-base sm:text-lg"
-            >
-              Explore Programs
-            </Link>
-            <Link
-              href="/apply"
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 text-white font-bold text-center rounded-full hover:bg-slate-800 transition-all shadow-xl text-base sm:text-lg"
-            >
-              Apply Now
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURED PROGRAMS - Mobile Optimized */}
+      {/* FEATURED PROGRAMS - Top of Page */}
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
@@ -128,82 +102,36 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Beauty & Esthetics */}
-            <Link href="/programs/professional-esthetician" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=600&fit=crop&q=85"
-                    alt="Professional esthetics and beauty training"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900 mb-2 sm:mb-3">Beauty & Esthetics</h3>
-                  <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 leading-relaxed">
-                    Nails, esthetics, and cosmetology with experienced instructors and modern facilities.
-                  </p>
-                  <span className="text-sm sm:text-base text-orange-600 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
 
-            {/* Support Services */}
-            <Link href="/support" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=600&fit=crop&q=85"
-                    alt="Professional counseling and support services"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900 mb-2 sm:mb-3">Support Services</h3>
-                  <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 leading-relaxed">
-                    Life coaching, mental health support, and wraparound services to help you succeed.
-                  </p>
-                  <span className="text-sm sm:text-base text-orange-600 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Classroom Training */}
-            <Link href="/programs" className="group">
-              <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=600&fit=crop&q=85"
-                    alt="Modern classroom training and education"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900 mb-2 sm:mb-3">Classroom Training</h3>
-                  <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 leading-relaxed">
-                    Modern facilities with hands-on instruction and real-world skill development.
-                  </p>
-                  <span className="text-sm sm:text-base text-orange-600 font-semibold group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </Link>
           </div>
         </div>
       </section>
 
-
+      {/* Hero Content - After Featured Programs */}
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
+            Transform Your Future
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
+            Free career training. Real opportunities. Life-changing results.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link
+              href="/programs"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-orange-500 text-white font-bold text-center rounded-full hover:bg-orange-600 transition-all shadow-xl text-base sm:text-lg"
+            >
+              Explore Programs
+            </Link>
+            <Link
+              href="/apply"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 text-white font-bold text-center rounded-full hover:bg-slate-800 transition-all shadow-xl text-base sm:text-lg"
+            >
+              Apply Now
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* WHY CHOOSE US - Mobile Optimized */}
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-slate-50">
