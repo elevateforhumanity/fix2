@@ -9,33 +9,35 @@ export const metadata: Metadata = {
 export default function CNAProgramPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Banner */}
-      <section className="relative h-[500px] w-full overflow-hidden">
+      {/* Hero Banner - Clean, No Overlay */}
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden">
         <Image
-          src="/images/programs/cna-hero.jpg"
+          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=2400&h=1350&fit=crop&q=95"
           alt="CNA Training Program"
           fill
-          className="object-cover brightness-105"
+          className="object-cover"
           priority
-          quality={100}
+          quality={95}
+          sizes="100vw"
         />
-        
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 h-full flex items-center">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
-              Start Your Healthcare Career
-            </p>
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
-              Become a CNA
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-6">
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/apply" className="bg-blue-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-700 transition-all">
-                Start Your Application
-              </Link>
-            </div>
+      </section>
+
+      {/* Hero Content - Below Image */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
+            Start Your Healthcare Career
+          </p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 mb-6 leading-tight">
+            Become a CNA
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 mb-6 sm:mb-8 max-w-3xl mx-auto">
+            Start your healthcare career in just 4-6 weeks. State-certified training with clinical placement.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link href="/apply" className="bg-blue-600 text-white px-6 sm:px-8 py-3 rounded-full font-bold hover:bg-blue-700 transition-all shadow-xl">
+              Start Your Application
+            </Link>
           </div>
         </div>
       </section>

@@ -5,36 +5,35 @@ import Image from "next/image";
 export default function BarberApprenticeshipPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Banner */}
+      {/* Hero Banner - Clean, No Overlay */}
       <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden">
         <Image
-          src="/images/programs/barber-hero.jpg"
+          src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=2400&h=1350&fit=crop&q=95"
           alt="Professional barber training and apprenticeship"
           fill
           className="object-cover"
           priority
-          quality={90}
+          quality={95}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/50 to-slate-900/30" />
-        
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-full flex items-center">
-          <div className="max-w-3xl">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-orange-500 mb-2 sm:mb-3">
-              Your Path to Success
-            </p>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-              Become a Barber
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-4 sm:mb-6">
-              Get paid to learn your craft. No tuition. Real barbershops. Real future.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link href="/apply" className="bg-orange-500 text-white px-6 sm:px-8 py-3 rounded-md font-semibold hover:bg-orange-600 transition-all text-center">
-                Apply Now
-              </Link>
-            </div>
+      </section>
+
+      {/* Hero Content - Below Image */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-orange-500 mb-2 sm:mb-3">
+            Your Path to Success
+          </p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
+            Become a Barber
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 mb-6 sm:mb-8 max-w-3xl mx-auto">
+            Get paid to learn your craft. No tuition. Real barbershops. Real future.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link href="/apply" className="bg-orange-500 text-white px-6 sm:px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition-all text-center shadow-xl">
+              Apply Now
+            </Link>
           </div>
         </div>
       </section>

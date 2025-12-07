@@ -6,48 +6,41 @@ import { EFH_IMAGES } from "@/src/config/efhImages";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      {/* TOP HERO - High Quality, Mobile Optimized */}
+      {/* TOP HERO - Clean, No Overlay */}
       <section className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
-        {/* High quality hero image from Unsplash */}
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=1080&fit=crop&q=90"
-            alt="Students collaborating and learning together"
-            fill
-            className="object-cover"
-            priority
-            quality={90}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
-          />
-          {/* Gradient overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/70 to-blue-900/60" />
-        </div>
-        
-        {/* Hero Content - Mobile Optimized */}
-        <div className="relative z-10 h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="max-w-3xl">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                Transform Your Future
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-6 sm:mb-8 leading-relaxed">
-                Free career training. Real opportunities. Life-changing results.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Link
-                  href="/programs"
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-orange-500 text-white font-bold text-center rounded-full hover:bg-orange-600 transition-all shadow-xl text-base sm:text-lg"
-                >
-                  Explore Programs
-                </Link>
-                <Link
-                  href="/apply"
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-slate-900 font-bold text-center rounded-full hover:bg-slate-100 transition-all shadow-xl text-base sm:text-lg"
-                >
-                  Apply Now
-                </Link>
-              </div>
-            </div>
+        <Image
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=2400&h=1350&fit=crop&q=95"
+          alt="Students collaborating and learning together"
+          fill
+          className="object-cover"
+          priority
+          quality={95}
+          sizes="100vw"
+        />
+      </section>
+
+      {/* Hero Content - Below Image */}
+      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
+            Transform Your Future
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
+            Free career training. Real opportunities. Life-changing results.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link
+              href="/programs"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-orange-500 text-white font-bold text-center rounded-full hover:bg-orange-600 transition-all shadow-xl text-base sm:text-lg"
+            >
+              Explore Programs
+            </Link>
+            <Link
+              href="/apply"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 text-white font-bold text-center rounded-full hover:bg-slate-800 transition-all shadow-xl text-base sm:text-lg"
+            >
+              Apply Now
+            </Link>
           </div>
         </div>
       </section>
