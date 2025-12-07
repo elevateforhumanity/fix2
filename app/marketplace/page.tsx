@@ -17,7 +17,7 @@ const products = [
     name: 'Barber Tool Kit - Professional',
     category: 'Tools & Equipment',
     price: 299.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg
+    image: '/media-backup-20251128-043832/homepage-hero.jpg',
     description: 'Complete professional barber tool kit with clippers, scissors, combs, and case',
     inStock: true,
     program: 'Barber'
