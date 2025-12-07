@@ -1,3 +1,4 @@
+import EnrollmentProcess from '@/components/EnrollmentProcess';
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
@@ -264,6 +265,8 @@ export default async function Page() {
           </div>
         </div>
       </section>
+      
+      <EnrollmentProcess />
     </div>
   );
 }

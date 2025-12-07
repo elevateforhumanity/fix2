@@ -1,3 +1,4 @@
+import EnrollmentProcess from '@/components/EnrollmentProcess';
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -100,7 +101,6 @@ export default function Page() {
               <div className="bg-white rounded-xl p-6 shadow-md">
                 <h4 className="text-xl font-bold mb-3 text-blue-900">Proven Track Record</h4>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  With a 95% job placement rate and over 2,500 graduates placed in careers, we've proven that our model works. Our students don't just get jobs—they build careers with growth potential, benefits, and living wages averaging $35,000-$65,000 annually.
                 </p>
                 <p className="text-slate-700 leading-relaxed">
                   Every number represents a real person who transformed their life: single parents achieving financial stability, returning citizens rebuilding their lives, and career changers finding their true calling.
@@ -230,7 +230,6 @@ export default function Page() {
                     Through Selfish Inc, the 501(c)(3) nonprofit parent organization, Elizabeth has created a sustainable model that serves students, employers, and the community simultaneously. The organization is a registered federal contractor (SAM.gov UEI: VX2GK5S8SZH8), ByBlack certified Black-owned business, Certiport Authorized Testing Center, and Milady RISE Partner School.
                   </p>
                   <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                    Today, with over 2,500 graduates placed in careers and a 95% job placement rate, Elizabeth's vision has proven that workforce development can be both comprehensive and effective. Her model is now being studied by other workforce organizations across the counstart.
                   </p>
                   
                   <div className="bg-white rounded-lg p-6 border-l-4 border-blue-600 shadow-md">
@@ -434,6 +433,8 @@ export default function Page() {
         </div>
       </section>
 
+    
+      <EnrollmentProcess />
     </main>
   );
 }

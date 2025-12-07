@@ -1,6 +1,7 @@
 // app/apply/page.tsx
 'use client';
 
+import EnrollmentProcess from '@/components/EnrollmentProcess';
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -338,6 +339,8 @@ export default function ApplyPage() {
         )}
         </div>
       </section>
+    
+      <EnrollmentProcess />
     </main>
   );
 }

@@ -1,4 +1,5 @@
 // app/page.tsx - Avon-Inspired Modern Homepage
+import EnrollmentProcess from '@/components/EnrollmentProcess';
 import Link from "next/link";
 import Image from "next/image";
 import { EFH_IMAGES } from "@/src/config/efhImages";
@@ -532,6 +533,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+    
+      <EnrollmentProcess />
     </main>
   );
 }

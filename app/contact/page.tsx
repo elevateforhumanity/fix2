@@ -1,3 +1,4 @@
+import EnrollmentProcess from '@/components/EnrollmentProcess';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -156,7 +157,8 @@ export default function Page() {
           </p>
         </div>
       </section>
-
+      
+      <EnrollmentProcess />
     </div>
   );
 }
