@@ -1,0 +1,48 @@
+// app/api/cash-advances/applications/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+import { createServerClient } from '@/lib/supabase-server';
+
+export async function GET(request: NextRequest) {
+  try {
+    const supabase = createServerClient();
+    const searchParams = request.nextUrl.searchParams;
+    
+    // Get query parameters
+    const status = searchParams.get('status');
+    const limit = parseInt(searchParams.get('limit') || '100');
+    const offset = parseInt(searchParams.get('offset') || '0');
+
+    // Build query
+    let query = supabase
+      .from('cash_advance_applications')
+      .select('*', { count: 'exact' })
+      .order('created_at', { ascending: false })
+      .range(offset, offset + limit - 1);
+
+    // Filter by status if provided
+    if (status) {
+      query = query.eq('status', status);
+    }
+
+    const { data, error, count } = await query;
+
+    if (error) {
+      return NextResponse.json(
+        { error: error.message },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({
+      applications: data,
+      total: count,
+      limit,
+      offset,
+    });
+  } catch (error: any) {
+    return NextResponse.json(
+      { error: error.message },
+      { status: 500 }
+    );
+  }
+}
