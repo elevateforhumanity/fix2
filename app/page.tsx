@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       {/* TOP HERO - Clean, No Overlay */}
-      <section className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
+      <section className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=2400&h=1350&fit=crop&q=95"
           alt="Students collaborating and learning together"
@@ -35,11 +35,12 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&h=600&fit=crop&q=85"
+                    src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&h=600&fit=crop&q=95"
                     alt="Professional barber training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    quality={95}
                   />
                 </div>
                 <div className="p-4 sm:p-6">

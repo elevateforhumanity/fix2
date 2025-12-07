@@ -10,7 +10,7 @@ export default function CNAProgramPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Banner - Clean, No Overlay */}
-      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden">
+      <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=2400&h=1350&fit=crop&q=95"
           alt="CNA Training Program"

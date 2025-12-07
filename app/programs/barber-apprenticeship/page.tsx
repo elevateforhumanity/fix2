@@ -6,7 +6,7 @@ export default function BarberApprenticeshipPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Banner - Clean, No Overlay */}
-      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden">
+      <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=2400&h=1350&fit=crop&q=95"
           alt="Professional barber training and apprenticeship"
