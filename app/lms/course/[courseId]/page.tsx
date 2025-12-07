@@ -62,7 +62,7 @@ export default async function Page({ params }: Props) {
             sizes="100vw"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-700/80" />
+        
         
         <div className="relative z-10 container mx-auto px-4 sm:px-6 h-full flex items-center">
           <div className="max-w-4xl w-full">

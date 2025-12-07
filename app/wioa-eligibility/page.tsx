@@ -20,7 +20,7 @@ export default function WIOAEligibilityPage() {
           priority
           quality={95}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/70" />
+        
         <div className="absolute inset-0 flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">

@@ -19,7 +19,7 @@ export default function HomePage() {
           className="object-cover"
           priority quality={100} sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/85 to-slate-900/40"></div>
+        
         <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
           <div className="max-w-2xl text-white">
             <h1 className="text-5xl md:text-6xl font-light mb-6 leading-tight">

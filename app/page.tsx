@@ -30,7 +30,6 @@ export default function Home() {
             sizes="100vw"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-900/80" />
         
         {/* Content */}
         <div className="absolute inset-0 flex items-center justify-center">

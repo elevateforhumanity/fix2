@@ -19,7 +19,7 @@ export default function ApprovalsPage() {
           className="object-cover"
           priority quality={100} sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-slate-900/85" />
+        
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center">

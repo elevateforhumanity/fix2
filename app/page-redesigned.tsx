@@ -62,7 +62,7 @@ export default function HomePage() {
                 quality={100}
                 sizes="100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+              
             </div>
 
             {/* Content */}
@@ -176,7 +176,7 @@ export default function HomePage() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   quality={100}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                
                 <div className="absolute bottom-4 left-4 right-4">
                   <h3 className="text-2xl font-bold text-white mb-2">Healthcare</h3>
                   <p className="text-white/90 text-sm">Medical Assistant • CNA • Pharmacy Tech</p>
@@ -220,7 +220,7 @@ export default function HomePage() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   quality={100}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                
                 <div className="absolute bottom-4 left-4 right-4">
                   <h3 className="text-2xl font-bold text-white mb-2">Skilled Trades</h3>
                   <p className="text-white/90 text-sm">HVAC • Electrical • Plumbing • Welding</p>
@@ -264,7 +264,7 @@ export default function HomePage() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                   quality={100}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                
                 <div className="absolute bottom-4 left-4 right-4">
                   <h3 className="text-2xl font-bold text-white mb-2">Business & Tech</h3>
                   <p className="text-white/90 text-sm">IT Support • Medical Billing • Tax Prep</p>
