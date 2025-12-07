@@ -9,9 +9,11 @@ interface EmailOptions {
   subject: string;
   html: string;
   from?: string;
+  replyTo?: string;
 }
 
 const FROM_EMAIL = process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org';
+const REPLY_TO_EMAIL = process.env.REPLY_TO_EMAIL || 'elevate4humanityedu@gmail.com';
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
 export async function sendEmail({
@@ -19,6 +21,7 @@ export async function sendEmail({
   subject,
   html,
   from = FROM_EMAIL,
+  replyTo = REPLY_TO_EMAIL,
 }: EmailOptions) {
   // If no API key, log (development mode)
   if (!RESEND_API_KEY) {
@@ -38,6 +41,7 @@ export async function sendEmail({
         to,
         subject,
         html,
+        reply_to: replyTo,
       }),
     });
 
