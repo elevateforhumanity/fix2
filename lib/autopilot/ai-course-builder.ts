@@ -1,7 +1,5 @@
 import OpenAI from "openai";
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-
 function slugify(text: string): string {
   return text
     .toLowerCase()
@@ -9,7 +7,16 @@ function slugify(text: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
+function getOpenAIClient() {
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error('OPENAI_API_KEY is not set');
+  }
+  return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+}
+
 export async function buildCourse({ title, objectives }: { title: string; objectives: string[] }) {
+  const client = getOpenAIClient();
+  
   const prompt = `
 Create a full course with modules and lessons.
 

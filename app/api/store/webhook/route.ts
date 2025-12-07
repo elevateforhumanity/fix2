@@ -1,0 +1,85 @@
+import { verifyWebhookSignature } from '@/lib/store/stripe';
+import { generateLicenseKey, hashLicenseKey } from '@/lib/store/license';
+import { createClient } from '@/lib/supabase/server';
+
+export async function POST(req: Request) {
+  try {
+    const body = await req.text();
+    const signature = req.headers.get('stripe-signature');
+
+    if (!signature) {
+      return Response.json({ error: 'No signature' }, { status: 400 });
+    }
+
+    const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+    if (!webhookSecret) {
+      return Response.json({ error: 'Webhook secret not configured' }, { status: 500 });
+    }
+
+    // Verify webhook signature
+    const event = verifyWebhookSignature(body, signature, webhookSecret);
+
+    // Handle checkout.session.completed event
+    if (event.type === 'checkout.session.completed') {
+      const session = event.data.object as any;
+      const productId = session.metadata?.productId;
+      const email = session.customer_email;
+
+      if (!productId || !email) {
+        console.error('Missing productId or email in webhook');
+        return Response.json({ error: 'Invalid webhook data' }, { status: 400 });
+      }
+
+      const supabase = await createClient();
+
+      // Get product details
+      const { data: product } = await supabase
+        .from('products')
+        .select('*')
+        .eq('id', productId)
+        .single();
+
+      if (!product) {
+        console.error('Product not found:', productId);
+        return Response.json({ error: 'Product not found' }, { status: 404 });
+      }
+
+      // Generate license key
+      const licenseKey = generateLicenseKey();
+      const licenseHash = hashLicenseKey(licenseKey);
+
+      // Store purchase
+      const { error: purchaseError } = await supabase.from('purchases').insert({
+        email,
+        product_id: productId,
+        repo: product.repo,
+      });
+
+      if (purchaseError) {
+        console.error('Failed to store purchase:', purchaseError);
+      }
+
+      // Store license
+      const { error: licenseError } = await supabase.from('licenses').insert({
+        email,
+        product_id: productId,
+        license_key: licenseHash,
+      });
+
+      if (licenseError) {
+        console.error('Failed to store license:', licenseError);
+      }
+
+      // TODO: Send email with license key
+      console.log('License key generated:', licenseKey);
+      console.log('Email:', email);
+
+      return Response.json({ received: true });
+    }
+
+    return Response.json({ received: true });
+  } catch (error: any) {
+    console.error('Webhook error:', error);
+    return Response.json({ error: error.message }, { status: 500 });
+  }
+}
