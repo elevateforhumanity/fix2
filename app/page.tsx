@@ -6,6 +6,15 @@ import { EFH_IMAGES } from "@/src/config/efhImages";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
+      {/* Urgent Banner - Attention Grabber */}
+      <section className="bg-orange-600 text-white py-3 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-sm sm:text-base font-semibold">
+            🔥 Next class starts January 15, 2025 - Apply by December 20 for priority placement
+          </p>
+        </div>
+      </section>
+
       {/* TOP HERO - Clean, No Overlay */}
       <section className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] overflow-hidden">
         <Image
@@ -23,9 +32,9 @@ export default function Home() {
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-slate-900 mb-3 sm:mb-4">Featured Programs</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-slate-900 mb-3 sm:mb-4">Choose Your Career Path</h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto px-4">
-              DOL Registered Apprenticeships and State-Approved Training
+              Start earning $15-20/hour while training. Graduate making $35K-65K/year.
             </p>
           </div>
 
@@ -45,8 +54,12 @@ export default function Home() {
                 </div>
                 <div className="p-4 sm:p-6">
                   <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900 mb-2 sm:mb-3">Barber Apprenticeship</h3>
+                  <div className="mb-3">
+                    <div className="text-2xl font-bold text-orange-600">$35K-55K</div>
+                    <div className="text-xs text-slate-500">Average graduate salary</div>
+                  </div>
                   <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 leading-relaxed">
-                    2,000-hour DOL Registered Apprenticeship. Earn while you learn with WIOA, WRG, and JRI funding.
+                    Earn $15-18/hour while training. 2,000 hours. State licensed. 100% free.
                   </p>
                   <span className="text-sm sm:text-base text-orange-600 font-semibold group-hover:underline">
                     Learn More →
@@ -69,8 +82,12 @@ export default function Home() {
                 </div>
                 <div className="p-4 sm:p-6">
                   <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900 mb-2 sm:mb-3">Healthcare Training</h3>
+                  <div className="mb-3">
+                    <div className="text-2xl font-bold text-blue-600">$30K-45K</div>
+                    <div className="text-xs text-slate-500">CNA starting salary</div>
+                  </div>
                   <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 leading-relaxed">
-                    CNA certification through Choice Medical Institute. State-approved with clinical placement.
+                    4-6 weeks to certification. State-approved. Clinical placement included. 100% free.
                   </p>
                   <span className="text-sm sm:text-base text-orange-600 font-semibold group-hover:underline">
                     Learn More →
@@ -93,8 +110,12 @@ export default function Home() {
                 </div>
                 <div className="p-4 sm:p-6">
                   <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900 mb-2 sm:mb-3">Skilled Trades</h3>
+                  <div className="mb-3">
+                    <div className="text-2xl font-bold text-green-600">$45K-65K</div>
+                    <div className="text-xs text-slate-500">HVAC technician salary</div>
+                  </div>
                   <p className="text-sm sm:text-base text-slate-600 mb-3 sm:mb-4 leading-relaxed">
-                    HVAC, electrical, and plumbing training. Hands-on learning for high-wage careers.
+                    6-12 months training. EPA certified. High demand. 100% free.
                   </p>
                   <span className="text-sm sm:text-base text-orange-600 font-semibold group-hover:underline">
                     Learn More →
@@ -112,25 +133,46 @@ export default function Home() {
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
-            Transform Your Future
+            Start Your Career in Weeks, Not Years
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
-            Free career training. Real opportunities. Life-changing results.
+            Get paid while you train for high-demand careers. No tuition. No debt. Just real skills that lead to real jobs.
           </p>
+          
+          {/* Humanized Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto mb-8 sm:mb-10">
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">Over 1,000</div>
+              <div className="text-sm sm:text-base text-slate-600">people have changed their lives through our programs</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">9 out of 10</div>
+              <div className="text-sm sm:text-base text-slate-600">graduates find jobs in their field within 6 months</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">Zero dollars</div>
+              <div className="text-sm sm:text-base text-slate-600">you pay for training—it's 100% covered by government funding</div>
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link
               href="/programs"
               className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-orange-500 text-white font-bold text-center rounded-full hover:bg-orange-600 transition-all shadow-xl text-base sm:text-lg"
             >
-              Explore Programs
+              See Programs & Salaries
             </Link>
             <Link
               href="/apply"
               className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-slate-900 text-white font-bold text-center rounded-full hover:bg-slate-800 transition-all shadow-xl text-base sm:text-lg"
             >
-              Apply Now
+              Apply Now - Class Starts Jan 15
             </Link>
           </div>
+          
+          <p className="text-sm text-slate-500 mt-6">
+            ⏰ Limited spots available - Priority given to applications received by December 20
+          </p>
         </div>
       </section>
 
@@ -395,6 +437,34 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Partner Logos */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-8 text-center">Trusted Partners & Certifications</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+              <div className="text-4xl font-bold text-blue-600 mb-2">WIOA</div>
+              <p className="text-xs text-slate-600">Workforce Innovation & Opportunity Act</p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+              <div className="text-4xl font-bold text-red-600 mb-2">DOL</div>
+              <p className="text-xs text-slate-600">U.S. Department of Labor Registered</p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+              <div className="text-4xl font-bold text-green-600 mb-2">WRG</div>
+              <p className="text-xs text-slate-600">Workforce Ready Grant Approved</p>
+            </div>
+            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+              <div className="text-4xl font-bold text-purple-600 mb-2">JRI</div>
+              <p className="text-xs text-slate-600">Justice Reinvestment Initiative</p>
+            </div>
+          </div>
+          <p className="text-center text-sm text-slate-600 mt-8">
+            All programs are state-approved and meet federal standards for workforce development
+          </p>
         </div>
       </section>
 
