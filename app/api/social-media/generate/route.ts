@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
 
 const PROGRAM_INFO = {
   barber: "DOL Registered Apprenticeship. 1500 hours. Earn $15-18/hour while learning. State-licensed. 100% free (WIOA-funded).",
@@ -17,6 +17,13 @@ const PROGRAM_INFO = {
 
 export async function POST(req: Request) {
   try {
+    if (!openai) {
+      return NextResponse.json(
+        { success: false, error: 'AI service not configured' },
+        { status: 503 }
+      );
+    }
+    
     const { program, count, contentSource } = await req.json();
 
     if (contentSource === 'blog') {
