@@ -3,7 +3,7 @@ import { createClient } from '@/utils/supabase/server';
 
 /**
  * Social Media Scheduler - Posts to social platforms 3x daily
- * Run via cron: 0 9,13,17 * * * (9 AM, 1 PM, 5 PM EST)
+ * Run via cron at 9 AM, 1 PM, and 5 PM EST
  */
 export async function GET(req: Request) {
   try {

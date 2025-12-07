@@ -2,14 +2,21 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 /**
  * Workflow Processor - Processes triggered workflows and sends drip emails
- * Run via cron: */5 * * * * (every 5 minutes)
+ * Run via cron every 5 minutes
  */
 export async function GET(req: Request) {
   try {
+    if (!resend) {
+      return NextResponse.json(
+        { success: false, error: 'Email service not configured' },
+        { status: 503 }
+      );
+    }
+    
     const supabase = await createClient();
     const now = new Date();
 
