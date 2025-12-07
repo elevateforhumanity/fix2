@@ -1,120 +1,160 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Wioa Eligibility | Elevate For Humanity',
-  description: 'Discover more about Wioa Eligibility inside the Elevate For Humanity workforce ecosystem.',
+  title: 'WIOA Eligibility Requirements | Elevate For Humanity',
+  description: 'Check if you qualify for 100% free career training through WIOA funding. Learn about eligibility requirements and how to apply.',
 };
 
-export default function Page() {
+export default function WIOAEligibilityPage() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="bg-blue-700 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Wioa Eligibility | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Discover more about Wioa Eligibility inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
-                Get Started
-              </Link>
-              <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
-                View Programs
-              </Link>
-            </div>
+      {/* Hero Banner */}
+      <section className="relative h-[400px] sm:h-[500px] w-full overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=2400&h=1200&fit=crop&q=95"
+          alt="WIOA Eligibility"
+          fill
+          className="object-cover"
+          priority
+          quality={95}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/70" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+              WIOA Eligibility Requirements
+            </h1>
+            <p className="text-xl sm:text-2xl text-white max-w-3xl">
+              Find out if you qualify for 100% free career training
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Image Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Transform Your Future</h2>
-                <p className="text-gray-700 mb-6">Join thousands who have launched successful careers through our programs.</p>
-                <ul className="space-y-3">
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>100% government-funded training</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>No cost to you - completely free</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Flexible scheduling options</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Career support from start to finish</span>
-                  </li>
-                  
-                </ul>
-              </div>
-              <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg flex items-center justify-center">
-                  <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-              </div>
+      {/* Main Content */}
+      <section className="py-16 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-green-50 border-l-4 border-green-600 p-6 mb-12 rounded-r-lg">
+            <h2 className="text-2xl font-bold text-green-900 mb-2">Good News!</h2>
+            <p className="text-lg text-green-800">
+              Most people qualify for WIOA funding. If you're looking to start a new career or upgrade your skills, you likely qualify.
+            </p>
+          </div>
+
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">Who Qualifies for WIOA?</h2>
+          
+          <div className="space-y-6 mb-12">
+            <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-orange-500 transition-colors">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">✓ Adults (18+)</h3>
+              <p className="text-slate-700">
+                You must be 18 years or older and legally authorized to work in the United States.
+              </p>
+            </div>
+
+            <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-orange-500 transition-colors">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">✓ Indiana Residents</h3>
+              <p className="text-slate-700">
+                You must be a resident of Indiana. Proof of residency required (utility bill, lease agreement, etc.).
+              </p>
+            </div>
+
+            <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-orange-500 transition-colors">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">✓ Employment Status</h3>
+              <p className="text-slate-700 mb-3">
+                You qualify if you are:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-slate-700">
+                <li>Unemployed</li>
+                <li>Underemployed (working part-time but want full-time)</li>
+                <li>Low-income and seeking better employment</li>
+                <li>Receiving public assistance (SNAP, TANF, etc.)</li>
+                <li>Dislocated worker (laid off, plant closure, etc.)</li>
+              </ul>
+            </div>
+
+            <div className="bg-white border-2 border-slate-200 rounded-lg p-6 hover:border-orange-500 transition-colors">
+              <h3 className="text-xl font-bold text-slate-900 mb-3">✓ Education Level</h3>
+              <p className="text-slate-700">
+                High school diploma or GED preferred, but not always required. Some programs accept students working toward their GED.
+              </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Feature Cards */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">100% Funded</h3>
-                <p className="text-gray-600">All programs completely free through government funding</p>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Job Placement</h3>
-                <p className="text-gray-600">We help you find employment after training</p>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from indusstart professionals</p>
-              </div>
-              
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">Priority Groups</h2>
+          <p className="text-lg text-slate-700 mb-6">
+            WIOA gives priority to individuals who are:
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-4 mb-12">
+            <div className="bg-orange-50 p-4 rounded-lg">
+              <p className="font-semibold text-slate-900">• Veterans</p>
+            </div>
+            <div className="bg-orange-50 p-4 rounded-lg">
+              <p className="font-semibold text-slate-900">• Low-income individuals</p>
+            </div>
+            <div className="bg-orange-50 p-4 rounded-lg">
+              <p className="font-semibold text-slate-900">• Public assistance recipients</p>
+            </div>
+            <div className="bg-orange-50 p-4 rounded-lg">
+              <p className="font-semibold text-slate-900">• Individuals with disabilities</p>
+            </div>
+            <div className="bg-orange-50 p-4 rounded-lg">
+              <p className="font-semibold text-slate-900">• Ex-offenders</p>
+            </div>
+            <div className="bg-orange-50 p-4 rounded-lg">
+              <p className="font-semibold text-slate-900">• Homeless individuals</p>
+            </div>
+          </div>
+
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">What You'll Need to Apply</h2>
+          
+          <div className="bg-blue-50 p-6 rounded-lg mb-12">
+            <ul className="space-y-3 text-slate-800">
+              <li className="flex items-start">
+                <span className="text-2xl mr-3">📋</span>
+                <span><strong>Social Security Card</strong> or proof of SSN</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-2xl mr-3">🏠</span>
+                <span><strong>Proof of Residency</strong> (utility bill, lease, mortgage statement)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-2xl mr-3">🎓</span>
+                <span><strong>High School Diploma or GED</strong> (if applicable)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-2xl mr-3">💰</span>
+                <span><strong>Income Documentation</strong> (pay stubs, tax returns, or proof of public assistance)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-2xl mr-3">🪪</span>
+                <span><strong>Valid ID</strong> (driver's license or state ID)</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-slate-900 text-white p-8 rounded-lg text-center">
+            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl mb-6">
+              Visit Indiana Career Connect to check your eligibility and apply
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://www.indianacareerconnect.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all shadow-xl"
+              >
+                Check Eligibility Now
+              </a>
+              <Link
+                href="/contact"
+                className="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-gray-100 transition-all shadow-xl"
+              >
+                Contact Us for Help
+              </Link>
             </div>
           </div>
         </div>
