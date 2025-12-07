@@ -1,0 +1,508 @@
+'use client';
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { ArrowLeft, Send, Save, Eye, Users, Calendar, Mail } from 'lucide-react';
+import { emailTemplates, type EmailTemplateKey } from '@/lib/email-templates';
+
+export default function NewCampaignPage() {
+  const router = useRouter();
+  const [step, setStep] = useState<'details' | 'content' | 'recipients' | 'schedule'>('details');
+  
+  const [campaign, setCampaign] = useState({
+    name: '',
+    subject: '',
+    fromName: 'Elevate for Humanity',
+    fromEmail: 'noreply@elevateforhumanity.org',
+    replyTo: 'elevateforhumanity.edu@gmail.com',
+    template: '' as EmailTemplateKey | '',
+    customHtml: '',
+    recipientList: 'all-students',
+    scheduleType: 'now' as 'now' | 'scheduled',
+    scheduleDate: '',
+    scheduleTime: '',
+  });
+
+  const [preview, setPreview] = useState(false);
+
+  const handleTemplateSelect = (templateKey: EmailTemplateKey) => {
+    const template = emailTemplates[templateKey];
+    setCampaign({
+      ...campaign,
+      template: templateKey,
+      subject: template.subject,
+      customHtml: template.html,
+    });
+  };
+
+  const handleSaveDraft = async () => {
+    // Save campaign as draft
+    const response = await fetch('/api/email/campaigns', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...campaign, status: 'draft' }),
+    });
+    
+    if (response.ok) {
+      alert('Campaign saved as draft!');
+      router.push('/admin/email-marketing');
+    }
+  };
+
+  const handleSendNow = async () => {
+    if (!confirm('Send this campaign now?')) return;
+    
+    const response = await fetch('/api/email/campaigns/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(campaign),
+    });
+    
+    if (response.ok) {
+      alert('Campaign sent successfully!');
+      router.push('/admin/email-marketing');
+    }
+  };
+
+  const handleSchedule = async () => {
+    const response = await fetch('/api/email/campaigns', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        ...campaign, 
+        status: 'scheduled',
+        scheduledFor: `${campaign.scheduleDate}T${campaign.scheduleTime}:00`,
+      }),
+    });
+    
+    if (response.ok) {
+      alert('Campaign scheduled successfully!');
+      router.push('/admin/email-marketing');
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <button
+                onClick={() => router.push('/admin/email-marketing')}
+                className="p-2 hover:bg-gray-100 rounded-lg"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">Create Campaign</h1>
+                <p className="text-sm text-gray-500">Design and send email campaigns</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={() => setPreview(!preview)}
+                className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+              >
+                <Eye className="w-4 h-4" />
+                <span>Preview</span>
+              </button>
+              <button
+                onClick={handleSaveDraft}
+                className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+              >
+                <Save className="w-4 h-4" />
+                <span>Save Draft</span>
+              </button>
+              {campaign.scheduleType === 'now' ? (
+                <button
+                  onClick={handleSendNow}
+                  className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Send Now</span>
+                </button>
+              ) : (
+                <button
+                  onClick={handleSchedule}
+                  className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                >
+                  <Calendar className="w-4 h-4" />
+                  <span>Schedule</span>
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Progress Steps */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex space-x-8">
+            {[
+              { key: 'details', label: 'Campaign Details', icon: Mail },
+              { key: 'content', label: 'Email Content', icon: Mail },
+              { key: 'recipients', label: 'Recipients', icon: Users },
+              { key: 'schedule', label: 'Schedule', icon: Calendar },
+            ].map((s) => (
+              <button
+                key={s.key}
+                onClick={() => setStep(s.key as any)}
+                className={`flex items-center space-x-2 py-4 border-b-2 transition-colors ${
+                  step === s.key
+                    ? 'border-blue-600 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700'
+                }`}
+              >
+                <s.icon className="w-4 h-4" />
+                <span className="font-medium">{s.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Form */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-lg shadow p-6">
+              {step === 'details' && (
+                <div className="space-y-6">
+                  <h2 className="text-xl font-semibold">Campaign Details</h2>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Campaign Name
+                    </label>
+                    <input
+                      type="text"
+                      value={campaign.name}
+                      onChange={(e) => setCampaign({ ...campaign, name: e.target.value })}
+                      placeholder="e.g., Welcome Series - January 2025"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Subject Line
+                    </label>
+                    <input
+                      type="text"
+                      value={campaign.subject}
+                      onChange={(e) => setCampaign({ ...campaign, subject: e.target.value })}
+                      placeholder="e.g., Welcome to Elevate for Humanity!"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                    <p className="mt-1 text-sm text-gray-500">
+                      Use variables like {'{{firstName}}'} for personalization
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        From Name
+                      </label>
+                      <input
+                        type="text"
+                        value={campaign.fromName}
+                        onChange={(e) => setCampaign({ ...campaign, fromName: e.target.value })}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        From Email
+                      </label>
+                      <input
+                        type="email"
+                        value={campaign.fromEmail}
+                        onChange={(e) => setCampaign({ ...campaign, fromEmail: e.target.value })}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Reply-To Email
+                    </label>
+                    <input
+                      type="email"
+                      value={campaign.replyTo}
+                      onChange={(e) => setCampaign({ ...campaign, replyTo: e.target.value })}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
+                  </div>
+
+                  <button
+                    onClick={() => setStep('content')}
+                    className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                  >
+                    Continue to Content
+                  </button>
+                </div>
+              )}
+
+              {step === 'content' && (
+                <div className="space-y-6">
+                  <h2 className="text-xl font-semibold">Email Content</h2>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Choose Template
+                    </label>
+                    <div className="grid grid-cols-2 gap-3">
+                      {Object.entries(emailTemplates).map(([key, template]) => (
+                        <button
+                          key={key}
+                          onClick={() => handleTemplateSelect(key as EmailTemplateKey)}
+                          className={`p-4 border-2 rounded-lg text-left transition-colors ${
+                            campaign.template === key
+                              ? 'border-blue-600 bg-blue-50'
+                              : 'border-gray-200 hover:border-gray-300'
+                          }`}
+                        >
+                          <div className="font-medium text-gray-900">{template.name}</div>
+                          <div className="text-sm text-gray-500 mt-1">{template.subject}</div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Custom HTML (Optional)
+                    </label>
+                    <textarea
+                      value={campaign.customHtml}
+                      onChange={(e) => setCampaign({ ...campaign, customHtml: e.target.value })}
+                      rows={12}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Edit HTML or use template..."
+                    />
+                  </div>
+
+                  <div className="flex space-x-3">
+                    <button
+                      onClick={() => setStep('details')}
+                      className="flex-1 border border-gray-300 py-2 rounded-lg hover:bg-gray-50"
+                    >
+                      Back
+                    </button>
+                    <button
+                      onClick={() => setStep('recipients')}
+                      className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                    >
+                      Continue to Recipients
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {step === 'recipients' && (
+                <div className="space-y-6">
+                  <h2 className="text-xl font-semibold">Select Recipients</h2>
+                  
+                  <div className="space-y-3">
+                    {[
+                      { value: 'all-students', label: 'All Students', count: 1234 },
+                      { value: 'active-students', label: 'Active Students', count: 856 },
+                      { value: 'new-applicants', label: 'New Applicants', count: 142 },
+                      { value: 'program-completers', label: 'Program Completers', count: 89 },
+                      { value: 'employers', label: 'Employer Partners', count: 67 },
+                      { value: 'workone', label: 'WorkOne Contacts', count: 23 },
+                    ].map((list) => (
+                      <label
+                        key={list.value}
+                        className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${
+                          campaign.recipientList === list.value
+                            ? 'border-blue-600 bg-blue-50'
+                            : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <input
+                            type="radio"
+                            name="recipientList"
+                            value={list.value}
+                            checked={campaign.recipientList === list.value}
+                            onChange={(e) => setCampaign({ ...campaign, recipientList: e.target.value })}
+                            className="w-4 h-4 text-blue-600"
+                          />
+                          <div>
+                            <div className="font-medium text-gray-900">{list.label}</div>
+                            <div className="text-sm text-gray-500">{list.count} contacts</div>
+                          </div>
+                        </div>
+                        <Users className="w-5 h-5 text-gray-400" />
+                      </label>
+                    ))}
+                  </div>
+
+                  <div className="flex space-x-3">
+                    <button
+                      onClick={() => setStep('content')}
+                      className="flex-1 border border-gray-300 py-2 rounded-lg hover:bg-gray-50"
+                    >
+                      Back
+                    </button>
+                    <button
+                      onClick={() => setStep('schedule')}
+                      className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                    >
+                      Continue to Schedule
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {step === 'schedule' && (
+                <div className="space-y-6">
+                  <h2 className="text-xl font-semibold">Schedule Campaign</h2>
+                  
+                  <div className="space-y-3">
+                    <label className="flex items-center p-4 border-2 rounded-lg cursor-pointer">
+                      <input
+                        type="radio"
+                        name="scheduleType"
+                        value="now"
+                        checked={campaign.scheduleType === 'now'}
+                        onChange={(e) => setCampaign({ ...campaign, scheduleType: 'now' })}
+                        className="w-4 h-4 text-blue-600"
+                      />
+                      <div className="ml-3">
+                        <div className="font-medium text-gray-900">Send Now</div>
+                        <div className="text-sm text-gray-500">Campaign will be sent immediately</div>
+                      </div>
+                    </label>
+
+                    <label className="flex items-start p-4 border-2 rounded-lg cursor-pointer">
+                      <input
+                        type="radio"
+                        name="scheduleType"
+                        value="scheduled"
+                        checked={campaign.scheduleType === 'scheduled'}
+                        onChange={(e) => setCampaign({ ...campaign, scheduleType: 'scheduled' })}
+                        className="w-4 h-4 text-blue-600 mt-1"
+                      />
+                      <div className="ml-3 flex-1">
+                        <div className="font-medium text-gray-900 mb-3">Schedule for Later</div>
+                        {campaign.scheduleType === 'scheduled' && (
+                          <div className="grid grid-cols-2 gap-3">
+                            <div>
+                              <label className="block text-sm text-gray-600 mb-1">Date</label>
+                              <input
+                                type="date"
+                                value={campaign.scheduleDate}
+                                onChange={(e) => setCampaign({ ...campaign, scheduleDate: e.target.value })}
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-sm text-gray-600 mb-1">Time</label>
+                              <input
+                                type="time"
+                                value={campaign.scheduleTime}
+                                onChange={(e) => setCampaign({ ...campaign, scheduleTime: e.target.value })}
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                              />
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </label>
+                  </div>
+
+                  <div className="flex space-x-3">
+                    <button
+                      onClick={() => setStep('recipients')}
+                      className="flex-1 border border-gray-300 py-2 rounded-lg hover:bg-gray-50"
+                    >
+                      Back
+                    </button>
+                    {campaign.scheduleType === 'now' ? (
+                      <button
+                        onClick={handleSendNow}
+                        className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                      >
+                        Send Campaign Now
+                      </button>
+                    ) : (
+                      <button
+                        onClick={handleSchedule}
+                        className="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                      >
+                        Schedule Campaign
+                      </button>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Preview Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-lg shadow p-6 sticky top-8">
+              <h3 className="font-semibold text-gray-900 mb-4">Preview</h3>
+              
+              <div className="space-y-4">
+                <div>
+                  <div className="text-xs text-gray-500 mb-1">Subject</div>
+                  <div className="text-sm font-medium text-gray-900">
+                    {campaign.subject || 'No subject'}
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-xs text-gray-500 mb-1">From</div>
+                  <div className="text-sm text-gray-900">
+                    {campaign.fromName} &lt;{campaign.fromEmail}&gt;
+                  </div>
+                </div>
+
+                <div>
+                  <div className="text-xs text-gray-500 mb-1">Recipients</div>
+                  <div className="text-sm text-gray-900">
+                    {campaign.recipientList.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                  </div>
+                </div>
+
+                {campaign.scheduleType === 'scheduled' && campaign.scheduleDate && (
+                  <div>
+                    <div className="text-xs text-gray-500 mb-1">Scheduled For</div>
+                    <div className="text-sm text-gray-900">
+                      {campaign.scheduleDate} at {campaign.scheduleTime}
+                    </div>
+                  </div>
+                )}
+
+                <div className="border-t pt-4">
+                  <div className="text-xs text-gray-500 mb-2">Email Preview</div>
+                  <div className="border rounded-lg p-3 bg-gray-50 max-h-96 overflow-auto">
+                    {campaign.customHtml ? (
+                      <div 
+                        className="text-xs"
+                        dangerouslySetInnerHTML={{ __html: campaign.customHtml }}
+                      />
+                    ) : (
+                      <div className="text-xs text-gray-400 italic">
+                        Select a template to preview
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
