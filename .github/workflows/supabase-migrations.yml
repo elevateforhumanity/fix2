@@ -1,0 +1,36 @@
+name: Supabase Migrations
+
+on:
+  push:
+    paths:
+      - "supabase/migrations/**"
+      - "supabase/seed.sql"
+    branches:
+      - main
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install -D tsx pg
+
+      - name: Run migrations
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: npm run db:setup
+
+      - name: Notify success
+        if: success()
+        run: echo "✅ Database migrations completed successfully"
+
+      - name: Notify failure
+        if: failure()
+        run: echo "❌ Database migrations failed"
