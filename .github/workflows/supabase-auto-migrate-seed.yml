@@ -1,15 +1,15 @@
-name: Supabase Migrations Autopilot
+name: Supabase Auto Migrate + Seed
 
 on:
   push:
-    paths:
-      - "supabase/migrations/**"
-      - "supabase/seeds/**"
     branches:
       - main
+    paths:
+      - 'supabase/migrations/**'
+      - 'supabase/seeds/**'
 
 jobs:
-  supabase-migrations:
+  supabase-db:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,27 +21,31 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install -D tsx pg
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 10
 
-      - name: Run Supabase Autopilot
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run migrations + seed
+        run: pnpm db:setup
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+      - name: Check database health
+        run: pnpm db:check
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-          SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
-          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
-          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
-          SUPABASE_SEED_FILE: WORKING_SEED.sql
-        run: |
-          chmod +x scripts/supabase-auto-setup.sh
-          scripts/supabase-auto-setup.sh
-
-      - name: Test connection
-        env:
-          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-        run: npm run supabase:test
 
       - name: Notify success
         if: success()
