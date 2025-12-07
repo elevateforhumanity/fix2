@@ -4,7 +4,7 @@ import { createClient } from '@/utils/supabase/server';
 /**
  * Email Scheduler - Processes scheduled campaigns
  * Run this endpoint via cron job every 5 minutes
- * Example: */5 * * * * curl https://yoursite.com/api/email/scheduler
+ * Example cron: every 5 minutes - curl https://yoursite.com/api/email/scheduler
  */
 export async function GET(req: Request) {
   try {

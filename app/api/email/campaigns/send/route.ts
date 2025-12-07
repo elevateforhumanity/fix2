@@ -3,10 +3,17 @@ import { createClient } from '@/utils/supabase/server';
 import { Resend } from 'resend';
 import { renderTemplate, type EmailTemplateKey } from '@/lib/email-templates';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(req: Request) {
   try {
+    if (!resend) {
+      return NextResponse.json(
+        { success: false, error: 'Email service not configured' },
+        { status: 503 }
+      );
+    }
+    
     const supabase = await createClient();
     const body = await req.json();
 
