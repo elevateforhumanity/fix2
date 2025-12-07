@@ -1,13 +1,14 @@
 // app/api/grants/draft/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
-import OpenAI from 'openai';
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || 'placeholder-key',
-});
 
 export async function POST(req: NextRequest) {
+  if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'placeholder-key') {
+    return NextResponse.json(
+      { error: 'AI features not configured' },
+      { status: 503 }
+    );
+  }
   try {
     const body = await req.json();
     const { grantId, entityId } = body as { grantId: string; entityId: string };
