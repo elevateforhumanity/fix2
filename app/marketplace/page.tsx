@@ -1,14 +1,108 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Marketplace | Elevate For Humanity',
-  description: 'Discover more about Marketplace inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Student Store | Elevate For Humanity',
+  description: 'Shop for course materials, uniforms, tools, and certification prep materials.',
 };
+
+// Product data
+const products = [
+  {
+    id: 1,
+    name: 'Barber Tool Kit - Professional',
+    category: 'Tools & Equipment',
+    price: 299.99,
+    image: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=400&h=400&fit=crop&q=85',
+    description: 'Complete professional barber tool kit with clippers, scissors, combs, and case',
+    inStock: true,
+    program: 'Barber'
+  },
+  {
+    id: 2,
+    name: 'CNA Scrubs Set - Navy Blue',
+    category: 'Uniforms & Apparel',
+    price: 45.99,
+    image: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=400&h=400&fit=crop&q=85',
+    description: 'Professional scrubs set including top and pants, sizes S-3XL',
+    inStock: true,
+    program: 'Healthcare'
+  },
+  {
+    id: 3,
+    name: 'HVAC Tool Set - Starter Kit',
+    category: 'Tools & Equipment',
+    price: 449.99,
+    image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=400&h=400&fit=crop&q=85',
+    description: 'Essential HVAC tools including gauges, vacuum pump, and carrying case',
+    inStock: true,
+    program: 'HVAC'
+  },
+  {
+    id: 4,
+    name: 'CNA Certification Exam Prep',
+    category: 'Certification Prep',
+    price: 79.99,
+    image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=400&fit=crop&q=85',
+    description: 'Complete exam prep course with practice tests and study materials',
+    inStock: true,
+    program: 'Healthcare'
+  },
+  {
+    id: 5,
+    name: 'Safety Glasses & Gloves Set',
+    category: 'Safety Equipment',
+    price: 24.99,
+    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=400&fit=crop&q=85',
+    description: 'OSHA-compliant safety glasses and work gloves',
+    inStock: true,
+    program: 'All Programs'
+  },
+  {
+    id: 6,
+    name: 'Medical Assistant Textbook Bundle',
+    category: 'Course Materials',
+    price: 129.99,
+    image: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&h=400&fit=crop&q=85',
+    description: 'Complete textbook set for Medical Assistant program',
+    inStock: true,
+    program: 'Healthcare'
+  },
+  {
+    id: 7,
+    name: 'Barber Smock - Professional',
+    category: 'Uniforms & Apparel',
+    price: 34.99,
+    image: 'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=400&h=400&fit=crop&q=85',
+    description: 'Water-resistant professional barber smock, multiple colors',
+    inStock: true,
+    program: 'Barber'
+  },
+  {
+    id: 8,
+    name: 'HVAC Certification Study Guide',
+    category: 'Certification Prep',
+    price: 59.99,
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=400&fit=crop&q=85',
+    description: 'EPA 608 certification study guide with practice exams',
+    inStock: true,
+    program: 'HVAC'
+  },
+];
+
+const categories = [
+  { name: 'All Products', slug: 'all', count: products.length },
+  { name: 'Tools & Equipment', slug: 'tools', count: 3 },
+  { name: 'Uniforms & Apparel', slug: 'uniforms', count: 2 },
+  { name: 'Course Materials', slug: 'materials', count: 1 },
+  { name: 'Certification Prep', slug: 'certification', count: 2 },
+  { name: 'Safety Equipment', slug: 'safety', count: 1 },
+];
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Banner */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-4">
