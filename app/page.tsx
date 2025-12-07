@@ -16,11 +16,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURED PROGRAMS - Top of Page */}
+      {/* STRONG HERO BANNER */}
+      <section className="relative h-[600px] sm:h-[700px] md:h-[800px] w-full overflow-hidden bg-slate-900">
+        <Image
+          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=2400&h=1600&fit=crop&q=95"
+          alt="Professional career training at Elevate for Humanity"
+          fill
+          className="object-cover opacity-40"
+          priority
+          quality={95}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-900/80" />
+        
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+            <div className="mb-6">
+              <span className="inline-block px-6 py-3 bg-orange-600 text-white font-bold text-sm sm:text-base rounded-full mb-6">
+                🎓 Next Class Starts January 15, 2025
+              </span>
+            </div>
+            
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 sm:mb-8 leading-none tracking-tight">
+              Launch Your<br/>
+              <span className="text-orange-500">Career Today</span>
+            </h1>
+            
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-bold mb-4 leading-tight">
+              100% FREE Training
+            </p>
+            
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed">
+              No Tuition • No Debt • Earn While You Learn<br/>
+              Government-Funded Programs • Job Placement Support
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+              <Link
+                href="/programs"
+                className="w-full sm:w-auto px-10 py-5 bg-orange-600 text-white font-black text-xl rounded-full hover:bg-orange-700 transition-all shadow-2xl hover:scale-105 transform text-center"
+              >
+                View Programs →
+              </Link>
+              <Link
+                href="/apply"
+                className="w-full sm:w-auto px-10 py-5 bg-white text-slate-900 font-black text-xl rounded-full hover:bg-gray-100 transition-all shadow-2xl hover:scale-105 transform text-center"
+              >
+                Apply Free Now
+              </Link>
+            </div>
+            
+            <div className="mt-12 flex flex-wrap justify-center gap-8 text-white">
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl font-black text-orange-500">33</div>
+                <div className="text-sm sm:text-base text-gray-300 font-semibold">Career Programs</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl font-black text-orange-500">$0</div>
+                <div className="text-sm sm:text-base text-gray-300 font-semibold">Tuition Cost</div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl sm:text-5xl font-black text-orange-500">100%</div>
+                <div className="text-sm sm:text-base text-gray-300 font-semibold">Funded Training</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FEATURED PROGRAMS */}
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-slate-900 mb-3 sm:mb-4">Choose Your Career Path</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">Choose Your Career Path</h2>
             <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto px-4">
               Start earning $15-20/hour while training. Graduate making $35K-65K/year.
             </p>
