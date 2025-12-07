@@ -25,7 +25,7 @@ export default async function Page() {
           className="object-cover"
           priority quality={100} sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-800/85 to-slate-900/90" />
+        
         
         <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center text-white">

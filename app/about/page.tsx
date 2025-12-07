@@ -12,27 +12,27 @@ export default function Page() {
   return (
     <main className="bg-white">
       {/* Hero Section with Background Image */}
-      <section className="relative h-[500px] w-full overflow-hidden bg-white">
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden bg-white">
         <Image
           src="/images/efh/hero/hero-main.jpg"
           alt="Team collaboration"
           fill
-          className="object-cover brightness-110"
+          className="object-cover"
           priority
-          quality={100}
+          quality={95}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/60 to-transparent" />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 h-full flex items-center">
-          <div className="max-w-4xl">
-            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight">
-              About Elevate
-            </h1>
-            <p className="text-2xl md:text-3xl text-slate-700 leading-relaxed">
-              Connecting people to free workforce training
-            </p>
-          </div>
+      </section>
+
+      {/* Title Section - Below Hero */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 mb-4">
+            About Elevate
+          </h1>
+          <p className="text-xl sm:text-2xl text-slate-700">
+            Connecting people to free workforce training
+          </p>
         </div>
       </section>
 

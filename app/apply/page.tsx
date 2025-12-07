@@ -2,6 +2,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function ApplyPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,27 +45,42 @@ export default function ApplyPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 py-12">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <header className="mb-8">
-          <p className="text-xs font-semibold uppercase tracking-wide text-red-600">
-            Application
-          </p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
-            Apply to Elevate for Humanity
-          </h1>
-          <p className="mt-3 text-sm text-slate-700">
-            This form helps us learn who you are, what you&apos;re interested in,
-            and what kinds of support you may need. After you submit, an advisor
-            will follow up to talk about programs and funding options.
-          </p>
-          <p className="mt-4 text-sm text-slate-900">
-            <strong>Questions?</strong> Call us at{' '}
-            <a href="tel:3173143757" className="text-red-600 font-semibold hover:underline">
-              317-314-3757
-            </a>
-          </p>
-        </header>
+    <main className="min-h-screen bg-white">
+      {/* Hero Banner */}
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=2400&h=1350&fit=crop&q=95"
+          alt="Apply for training programs"
+          fill
+          className="object-cover"
+          priority
+          quality={95}
+          sizes="100vw"
+        />
+      </section>
+
+      {/* Application Form Section */}
+      <section className="bg-slate-50 py-12">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <header className="mb-8">
+            <p className="text-xs font-semibold uppercase tracking-wide text-orange-600">
+              Application
+            </p>
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
+              Apply to Elevate for Humanity
+            </h1>
+            <p className="mt-3 text-sm text-slate-700">
+              This form helps us learn who you are, what you&apos;re interested in,
+              and what kinds of support you may need. After you submit, an advisor
+              will follow up to talk about programs and funding options.
+            </p>
+            <p className="mt-4 text-sm text-slate-900">
+              <strong>Questions?</strong> Call us at{' '}
+              <a href="tel:3173143757" className="text-orange-600 font-semibold hover:underline">
+                317-314-3757
+              </a>
+            </p>
+          </header>
 
         {isSubmitted ? (
           <section className="rounded-2xl bg-green-50 p-8 shadow-sm ring-1 ring-green-200 text-center">
@@ -321,7 +337,8 @@ export default function ApplyPage() {
           </form>
         </section>
         )}
-      </div>
+        </div>
+      </section>
     </main>
   );
 }
