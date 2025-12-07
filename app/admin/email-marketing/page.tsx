@@ -82,12 +82,8 @@ export default function EmailMarketingPage() {
               Templates
             </button>
             <button
-              onClick={() => setActiveTab("analytics")}
-              className={`pb-3 px-1 text-sm font-semibold border-b-2 transition ${
-                activeTab === "analytics"
-                  ? "border-orange-600 text-orange-600"
-                  : "border-transparent text-slate-600 hover:text-slate-900"
-              }`}
+              onClick={() => router.push('/admin/email-marketing/analytics')}
+              className="pb-3 px-1 text-sm font-semibold border-b-2 border-transparent text-slate-600 hover:text-slate-900 transition"
             >
               Analytics
             </button>
