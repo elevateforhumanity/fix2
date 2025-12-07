@@ -499,6 +499,16 @@ export default async function ProgramPage({ params }: { params: { slug: string }
           </div>
         </div>
       </section>
+
+      
+      {/* Indiana Career Connect Enrollment Process */}
+      <EnrollmentProcess />
+      
+      {/* Program Highlights */}
+      <ProgramHighlights />
+      
+      {/* Call to Action */}
+      <ProgramCTA programName="this program" />
     </div>
   );
 }
