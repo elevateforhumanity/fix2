@@ -25,7 +25,7 @@ export default function VideoSection({ videoUrl, lessonId, courseId }: VideoSect
   };
 
   const saveProgress = async (currentTime: number) => {
-    try {
+    start {
       await fetch(`/api/courses/${courseId}/lessons/${lessonId}/progress`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

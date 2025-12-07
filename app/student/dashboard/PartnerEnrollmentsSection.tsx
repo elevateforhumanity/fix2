@@ -68,7 +68,7 @@ export function PartnerEnrollmentsSection() {
         My Certifications &amp; Partner Courses
       </h2>
       <p className="mt-1 text-xs text-slate-500">
-        These courses are delivered through Elevate&apos;s industry partners but
+        These courses are delivered through Elevate&apos;s indusstart partners but
         tracked here for your WIOA / WRG / Apprenticeship record.
       </p>
 

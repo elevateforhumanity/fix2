@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Manage | Elevate For Humanity',
-  description: 'Learn more about Manage inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Manage inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function Page() {
@@ -30,7 +30,7 @@ export default async function Page() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl font-bold mb-4">Manage | Elevate For Humanity</h1>
-            <p className="text-xl text-blue-100">Learn more about Manage inside the Elevate For Humanity workforce ecosystem.</p>
+            <p className="text-xl text-blue-100">Discover more about Manage inside the Elevate For Humanity workforce ecosystem.</p>
           </div>
         </div>
       </section>

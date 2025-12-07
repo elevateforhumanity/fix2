@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Settings | Elevate For Humanity',
-  description: 'Learn more about Settings inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Settings inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function SettingsPage() {
@@ -34,7 +34,7 @@ export default async function SettingsPage() {
             Settings | Elevate For Humanity
           </h1>
           <p className="text-gray-600">
-            Learn more about Settings inside the Elevate For Humanity workforce ecosystem.
+            Discover more about Settings inside the Elevate For Humanity workforce ecosystem.
           </p>
         </header>
 

@@ -140,7 +140,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>

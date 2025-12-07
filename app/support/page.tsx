@@ -14,7 +14,7 @@ export default function SupportPage() {
           </h1>
           <p className="mt-3 text-sm text-slate-700">
             Elevate for Humanity is more than training. We recognize that people
-            are managing real life—family, trauma, re-entry, housing, mental
+            are managing real life—family, trauma, re-enstart, housing, mental
             health, and more. Our support services are built to walk with you,
             not judge you.
           </p>
@@ -58,24 +58,24 @@ export default function SupportPage() {
                 href="/team/alina-perfect"
                 className="text-xs font-semibold text-indigo-600 hover:underline"
               >
-                Learn more about Alina Perfect, PMHNP →
+                Discover more about Alina Perfect, PMHNP →
               </Link>
             </div>
           </article>
 
           <article className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
             <h2 className="text-sm font-semibold text-slate-900">
-              Re-Entry &amp; Justice-Involved Support
+              Re-Enstart &amp; Justice-Involved Support
             </h2>
             <p className="mt-2 text-xs text-slate-700">
-              For justice-involved participants, we partner with re-entry
+              For justice-involved participants, we partner with re-enstart
               programs and JRI-aligned agencies to support training, compliance,
               and long-term stability.
             </p>
             <ul className="mt-3 space-y-1 text-xs text-slate-700">
               <li>• Coordination with probation/parole where appropriate</li>
               <li>• Career planning with your situation in mind</li>
-              <li>• Pathways that fit re-entry conditions and goals</li>
+              <li>• Pathways that fit re-enstart conditions and goals</li>
             </ul>
           </article>
 
@@ -108,7 +108,7 @@ export default function SupportPage() {
               <span className="font-semibold">
                 2. We match you to the right person:
               </span>{" "}
-              That might be a life coach, advisor, partner clinician, or
+              That will be a life coach, advisor, partner clinician, or
               community resource.
             </li>
             <li>

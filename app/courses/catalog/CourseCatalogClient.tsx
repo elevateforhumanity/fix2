@@ -47,7 +47,7 @@ export default function CourseCatalogClient({ courses }: Props) {
               Explore Our Course Catalog
             </h1>
             <p className="text-xl text-white/90 mb-8">
-              Industry-leading courses in healthcare, skilled trades, and technology. All fully funded through WIOA, WRG, and JRI programs.
+              Indusstart-leading courses in healthcare, skilled trades, and technology. All fully funded through WIOA, WRG, and JRI programs.
             </p>
             
             {/* Search Bar */}
@@ -252,7 +252,7 @@ export default function CourseCatalogClient({ courses }: Props) {
                   <Search size={32} className="text-slate-400" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">No courses found</h3>
-                <p className="text-slate-600 mb-6">Try adjusting your filters or search query</p>
+                <p className="text-slate-600 mb-6">Start adjusting your filters or search query</p>
                 <button
                   onClick={() => {
                     setSearchQuery('');

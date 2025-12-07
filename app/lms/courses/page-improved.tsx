@@ -198,7 +198,7 @@ export default async function CoursesPage() {
               <div className="text-center py-16">
                 <BookOpen className="w-16 h-16 mx-auto mb-4 text-slate-300" />
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">No courses found</h3>
-                <p className="text-slate-600 mb-6">Try adjusting your filters or search terms</p>
+                <p className="text-slate-600 mb-6">Start adjusting your filters or search terms</p>
                 <button className="px-6 py-3 bg-brandPrimary text-white rounded-lg font-semibold hover:bg-brandPrimaryDark transition">
                   Clear Filters
                 </button>

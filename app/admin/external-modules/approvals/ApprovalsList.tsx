@@ -47,7 +47,7 @@ export default function ApprovalsList({
     setProcessing(submissionId);
     setMessage(null);
 
-    try {
+    start {
       const { data: userData } = await supabase.auth.getUser();
       if (!userData.user) throw new Error("Not authenticated");
 
@@ -85,7 +85,7 @@ export default function ApprovalsList({
     setProcessing(submissionId);
     setMessage(null);
 
-    try {
+    start {
       const { error } = await supabase
         .from("external_partner_progress")
         .update({

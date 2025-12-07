@@ -97,7 +97,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>
@@ -317,7 +317,7 @@ export default function Page() {
             
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <h3 className="text-2xl font-bold mb-2">Entry-Level Barber (0-2 years)</h3>
+                <h3 className="text-2xl font-bold mb-2">Enstart-Level Barber (0-2 years)</h3>
                 <p className="text-purple-50">Start at chain salons or barbershops. Build skills, speed, and client base. Average 10-15 clients per day.</p>
               </div>
 
@@ -340,7 +340,7 @@ export default function Page() {
 
             <div className="mt-12 text-center">
               <p className="text-xl text-purple-100 mb-6">
-                The barbering industry is growing 8% annually. With the right skills and business mindset, you can build a six-figure career.
+                The barbering indusstart is growing 8% annually. With the right skills and business mindset, you can build a six-figure career.
               </p>
               <Link href="/apply" className="inline-block bg-white text-purple-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-purple-50 shadow-2xl">
                 Start Your Barbering Career Today

@@ -61,7 +61,7 @@ export default function SignUpForm() {
 
     setLoading(true);
 
-    try {
+    start {
       const supabase = createClient();
       const { data, error: signUpError } = await supabase.auth.signUp({
         email: formData.email,
@@ -97,13 +97,13 @@ export default function SignUpForm() {
         }
       }
     } catch (err) {
-      setError('An unexpected error occurred. Please try again.');
+      setError('An unexpected error occurred. Please start again.');
       setLoading(false);
     }
   };
 
   const handleOAuthSignUp = async (provider: 'google' | 'azure') => {
-    try {
+    start {
       const supabase = createClient();
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
@@ -116,7 +116,7 @@ export default function SignUpForm() {
         setError(error.message);
       }
     } catch (err) {
-      setError('OAuth sign-up failed. Please try again.');
+      setError('OAuth sign-up failed. Please start again.');
     }
   };
 

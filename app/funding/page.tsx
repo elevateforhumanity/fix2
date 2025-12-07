@@ -13,7 +13,7 @@ export default function FundingPage() {
             Funding your training shouldn&apos;t be a barrier.
           </h1>
           <p className="mt-3 text-sm text-slate-700">
-            Elevate for Humanity works with workforce boards, re-entry partners,
+            Elevate for Humanity works with workforce boards, re-enstart partners,
             and employers to help eligible students access free or low-cost
             training. Many of our learners qualify for funding that covers most
             or all tuition.
@@ -56,7 +56,7 @@ export default function FundingPage() {
 
           <article className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
             <h2 className="text-sm font-semibold text-slate-900">
-              Jobs for Re-Entry (JRI)
+              Jobs for Re-Enstart (JRI)
             </h2>
             <p className="mt-2 text-xs text-slate-700">
               JRI funding supports justice-involved individuals who are ready to
@@ -65,7 +65,7 @@ export default function FundingPage() {
             </p>
             <ul className="mt-3 space-y-1 text-xs text-slate-700">
               <li>• Recent or past justice involvement</li>
-              <li>• Willingness to follow re-entry program requirements</li>
+              <li>• Willingness to follow re-enstart program requirements</li>
               <li>• Strong interest in a clear career pathway</li>
             </ul>
           </article>
@@ -156,7 +156,7 @@ export default function FundingPage() {
               <p className="mt-1 text-xs text-slate-700">
                 Yes. Many of our pathways are intentionally designed for
                 justice-involved learners, especially through JRI and
-                re-entry-focused partnerships.
+                re-enstart-focused partnerships.
               </p>
             </div>
           </div>

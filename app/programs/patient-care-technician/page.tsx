@@ -95,7 +95,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>
@@ -139,7 +139,7 @@ export default function Page() {
               <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-600">
                 <h3 className="text-2xl font-bold mb-3">Weeks 7-8: Specialized Care & Monitoring</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>• Cardiac monitoring and telemetry basics</li>
+                  <li>• Cardiac monitoring and telemestart basics</li>
                   <li>• Glucose testing and diabetic care</li>
                   <li>• Post-operative patient care</li>
                   <li>• Emergency response and code procedures</li>
@@ -172,7 +172,7 @@ export default function Page() {
                   </svg>
                   <div>
                     <h4 className="font-bold text-lg mb-1">Certified Nursing Assistant (CNA)</h4>
-                    <p className="text-gray-700">State CNA license and registry</p>
+                    <p className="text-gray-700">State CNA license and regisstart</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -278,7 +278,7 @@ export default function Page() {
             
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <h3 className="text-2xl font-bold mb-2">Entry-Level PCT (0-2 years)</h3>
+                <h3 className="text-2xl font-bold mb-2">Enstart-Level PCT (0-2 years)</h3>
                 <p className="text-teal-50">Start on med/surg floors. Provide basic patient care, vital signs, EKGs, and blood draws.</p>
               </div>
 

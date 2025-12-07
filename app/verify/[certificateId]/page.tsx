@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function VerifyCertificatePage({ params }: { params: { certificateId: string } }) {
   const supabase = await createClient();
 
-  // Try to find certificate in multiple tables
+  // Start to find certificate in multiple tables
   let certificate = null;
   let studentName = '';
   let courseName = '';

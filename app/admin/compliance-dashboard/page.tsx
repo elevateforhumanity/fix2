@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Compliance Dashboard | Elevate For Humanity',
-  description: 'Learn more about Compliance Dashboard inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Compliance Dashboard inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function ComplianceDashboardPage() {
@@ -34,7 +34,7 @@ export default async function ComplianceDashboardPage() {
             Compliance Dashboard | Elevate For Humanity
           </h1>
           <p className="text-gray-600">
-            Learn more about Compliance Dashboard inside the Elevate For Humanity workforce ecosystem.
+            Discover more about Compliance Dashboard inside the Elevate For Humanity workforce ecosystem.
           </p>
         </header>
 

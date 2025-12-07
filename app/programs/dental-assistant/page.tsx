@@ -95,7 +95,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>
@@ -125,7 +125,7 @@ export default function Page() {
               <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-green-600">
                 <h3 className="text-2xl font-bold mb-3">Weeks 4-6: Chairside Assisting & Procedures</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>• Four-handed dentistry techniques</li>
+                  <li>• Four-handed dentisstart techniques</li>
                   <li>• Instrument identification and tray setups</li>
                   <li>• Dental materials: amalgam, composite, cement</li>
                   <li>• Impressions and bite registrations</li>
@@ -151,7 +151,7 @@ export default function Page() {
                 <h3 className="text-2xl font-bold mb-3">Weeks 10-12: Advanced Skills & Certification</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li>• Orthodontic assisting and bracket placement</li>
-                  <li>• Pediatric dentistry techniques</li>
+                  <li>• Pediatric dentisstart techniques</li>
                   <li>• Coronal polishing and fluoride application</li>
                   <li>• Dental laboratory procedures</li>
                   <li>• 120+ hours clinical externship</li>
@@ -237,7 +237,7 @@ export default function Page() {
 
               <div className="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-600">
                 <h3 className="text-xl font-bold mb-2">Private Dental Practices</h3>
-                <p className="text-gray-700 mb-2">General & Specialty Dentistry</p>
+                <p className="text-gray-700 mb-2">General & Specialty Dentisstart</p>
                 <p className="text-green-600 font-bold text-lg">$16-$24/hour</p>
                 <p className="text-sm text-gray-600 mt-2">Smaller teams • Variety of procedures • Personal relationships</p>
               </div>
@@ -279,8 +279,8 @@ export default function Page() {
             
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <h3 className="text-2xl font-bold mb-2">Entry-Level Dental Assistant (0-2 years)</h3>
-                <p className="text-blue-50">Start in general dentistry. Learn chairside assisting, X-rays, and office procedures.</p>
+                <h3 className="text-2xl font-bold mb-2">Enstart-Level Dental Assistant (0-2 years)</h3>
+                <p className="text-blue-50">Start in general dentisstart. Learn chairside assisting, X-rays, and office procedures.</p>
               </div>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">

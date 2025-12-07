@@ -58,7 +58,7 @@ export default async function VerifyCertificatePage({
             Certificate Not Found
           </h1>
           <p className="text-lg text-gray-600 mb-8">
-            Certificate number <span className="font-mono font-semibold">{params.certificateNumber}</span> could not be found in our repository.
+            Certificate number <span className="font-mono font-semibold">{params.certificateNumber}</span> will not be found in our repository.
           </p>
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
             <p className="text-sm text-gray-700">
@@ -74,7 +74,7 @@ export default async function VerifyCertificatePage({
             href="/certificates/verify"
             className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700"
           >
-            Try Another Certificate
+            Start Another Certificate
           </Link>
         </div>
       </div>

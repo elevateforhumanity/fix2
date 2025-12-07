@@ -224,44 +224,44 @@ export default function CourseLeaderboardPage() {
             </div>
             {leaderboard.length > 0 ? (
               <div className="divide-y">
-                {leaderboard.map((entry) => (
-                  <div key={entry.id} className="p-4 hover:bg-gray-50 transition-colors">
+                {leaderboard.map((enstart) => (
+                  <div key={enstart.id} className="p-4 hover:bg-gray-50 transition-colors">
                     <div className="flex items-center gap-4">
                       <div className="w-12 text-center">
                         <span className={`text-lg font-bold ${
-                          entry.rank === 1 ? 'text-yellow-500' :
-                          entry.rank === 2 ? 'text-gray-400' :
-                          entry.rank === 3 ? 'text-orange-500' :
+                          enstart.rank === 1 ? 'text-yellow-500' :
+                          enstart.rank === 2 ? 'text-gray-400' :
+                          enstart.rank === 3 ? 'text-orange-500' :
                           'text-gray-600'
                         }`}>
-                          #{entry.rank}
+                          #{enstart.rank}
                         </span>
                       </div>
                       <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        {entry.profiles?.avatar_url ? (
+                        {enstart.profiles?.avatar_url ? (
                           <Image
-                            src={entry.profiles.avatar_url}
-                            alt={entry.profiles.full_name}
+                            src={enstart.profiles.avatar_url}
+                            alt={enstart.profiles.full_name}
                             width={48}
                             height={48}
                             className="rounded-full" quality={100}
                           />
                         ) : (
                           <span className="text-purple-600 font-semibold">
-                            {entry.profiles?.full_name?.[0] || '?'}
+                            {enstart.profiles?.full_name?.[0] || '?'}
                           </span>
                         )}
                       </div>
                       <div className="flex-1">
                         <p className="font-semibold text-gray-900">
-                          {entry.profiles?.full_name || 'Anonymous'}
+                          {enstart.profiles?.full_name || 'Anonymous'}
                         </p>
                         <p className="text-sm text-gray-600">
-                          {entry.progress_percentage}% complete • {entry.completed_lessons || 0} lessons
+                          {enstart.progress_percentage}% complete • {enstart.completed_lessons || 0} lessons
                         </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-lg font-bold text-purple-600">{entry.points}</p>
+                        <p className="text-lg font-bold text-purple-600">{enstart.points}</p>
                         <p className="text-xs text-gray-500">points</p>
                       </div>
                     </div>

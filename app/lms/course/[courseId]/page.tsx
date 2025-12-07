@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: course ? `${course.title} | Elevate For Humanity` : 'Course | Elevate For Humanity',
-    description: course?.description || 'Learn more about this course inside the Elevate For Humanity workforce ecosystem.',
+    description: course?.description || 'Discover more about this course inside the Elevate For Humanity workforce ecosystem.',
   };
 }
 
@@ -145,7 +145,7 @@ export default async function Page({ params }: Props) {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Get Certified</h3>
-                <p className="text-gray-600">Earn industry-recognized certifications</p>
+                <p className="text-gray-600">Earn indusstart-recognized certifications</p>
               </div>
             </div>
 

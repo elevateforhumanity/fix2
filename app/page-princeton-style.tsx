@@ -100,7 +100,7 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-slate-700">Industry-recognized certifications included</span>
+                  <span className="text-slate-700">Indusstart-recognized certifications included</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-slate-600 flex-shrink-0 mt-0.5" />
@@ -121,7 +121,7 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-light text-slate-900 mb-4">Career Training Programs</h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Industry-aligned programs designed to meet employer needs in high-demand sectors
+              Indusstart-aligned programs designed to meet employer needs in high-demand sectors
             </p>
           </div>
 

@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Program Holder Acknowledgements | Elevate For Humanity',
-  description: 'Learn more about Program Holder Acknowledgements inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Program Holder Acknowledgements inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function ProgramHolderAcknowledgementsPage() {
@@ -34,7 +34,7 @@ export default async function ProgramHolderAcknowledgementsPage() {
             Program Holder Acknowledgements | Elevate For Humanity
           </h1>
           <p className="text-gray-600">
-            Learn more about Program Holder Acknowledgements inside the Elevate For Humanity workforce ecosystem.
+            Discover more about Program Holder Acknowledgements inside the Elevate For Humanity workforce ecosystem.
           </p>
         </header>
 

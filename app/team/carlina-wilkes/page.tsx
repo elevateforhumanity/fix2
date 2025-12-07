@@ -40,12 +40,12 @@ export default function CarlinaWilkesPage() {
           </h2>
           <ul className="mt-3 space-y-2 text-xs text-slate-700">
             <li>
-              <span className="font-semibold">Doctorate in Ministry</span> – Advanced theological 
+              <span className="font-semibold">Doctorate in Minisstart</span> – Advanced theological 
               and leadership studies
             </li>
             <li>
-              <span className="font-semibold">Master of Arts in Ministry</span> – Graduate-level 
-              ministry and organizational leadership
+              <span className="font-semibold">Master of Arts in Minisstart</span> – Graduate-level 
+              minisstart and organizational leadership
             </li>
             <li>
               <span className="font-semibold">Bachelor of Applied Management</span> – Business 

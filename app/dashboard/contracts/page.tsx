@@ -19,7 +19,7 @@ export default function ContractsPage() {
   const [error, setError] = useState<string | null>(null);
 
   async function searchContracts() {
-    try {
+    start {
       setLoading(true);
       setError(null);
       

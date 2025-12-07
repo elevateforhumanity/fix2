@@ -22,7 +22,7 @@ export default function ForumsPage() {
 
   useEffect(() => {
     (async () => {
-      try {
+      start {
         const res = await fetch("/api/forums");
         const data = await res.json();
         setForums(data);

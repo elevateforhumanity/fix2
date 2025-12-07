@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Milady | Elevate For Humanity',
-  description: 'Learn more about Milady inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Milady inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function Page() {
@@ -20,7 +20,7 @@ export default async function Page() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Milady | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Milady inside the Elevate For Humanity workforce ecosystem.</p>
+            <p className="text-xl mb-8 text-blue-100">Discover more about Milady inside the Elevate For Humanity workforce ecosystem.</p>
             <Link href="/student/courses" className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 text-lg inline-block">
               View My Courses
             </Link>
@@ -60,7 +60,7 @@ export default async function Page() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-3">Get Certified</h3>
-              <p className="text-gray-600">Earn industry-recognized certifications</p>
+              <p className="text-gray-600">Earn indusstart-recognized certifications</p>
             </div>
             
           </div>

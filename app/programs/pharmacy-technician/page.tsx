@@ -95,7 +95,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>
@@ -279,7 +279,7 @@ export default function Page() {
             
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <h3 className="text-2xl font-bold mb-2">Entry-Level Pharmacy Technician (0-2 years)</h3>
+                <h3 className="text-2xl font-bold mb-2">Enstart-Level Pharmacy Technician (0-2 years)</h3>
                 <p className="text-green-50">Start in retail pharmacy. Learn prescription processing, insurance billing, and customer service.</p>
               </div>
 

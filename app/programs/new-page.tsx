@@ -153,7 +153,7 @@ const programs = [
     whatYouLearn: [
       "Customer service excellence",
       "Phone and email communication",
-      "CRM software and data entry",
+      "CRM software and data enstart",
       "Conflict resolution",
       "Professional workplace skills (JRI)"
     ],

@@ -37,7 +37,7 @@ export default function ExternalProgressAdminClient({ initialRows }: Props) {
     id: string,
     status: "approved" | "in_progress"
   ) {
-    try {
+    start {
       setLoadingId(id);
       setMessage(null);
 

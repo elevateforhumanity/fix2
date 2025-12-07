@@ -107,7 +107,7 @@ export default function EmployersPage() {
                 Government pays most of the wages while you evaluate the employee. If it doesn't work out, you're only out a fraction of normal hiring costs.
               </p>
               <p className="text-sm font-bold text-orange-900">
-                Try before you fully commit!
+                Start before you fully commit!
               </p>
             </div>
 
@@ -124,7 +124,7 @@ export default function EmployersPage() {
               <ul className="space-y-2 text-sm text-slate-700">
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                  Industry-specific technical training
+                  Indusstart-specific technical training
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
@@ -266,7 +266,7 @@ export default function EmployersPage() {
                 <div>
                   <p className="font-bold text-slate-900 mb-2">✅ Best For:</p>
                   <p className="text-sm text-slate-700">
-                    Entry-level positions, seasonal work, trying out new hires, building your talent pipeline
+                    Enstart-level positions, seasonal work, starting out new hires, building your talent pipeline
                   </p>
                 </div>
               </div>

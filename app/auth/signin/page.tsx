@@ -44,7 +44,7 @@ export default function SignInPage() {
                   </svg>
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">Earn Certificates</h3>
-                <p className="text-sm text-slate-600">Complete programs and download industry-recognized certificates</p>
+                <p className="text-sm text-slate-600">Complete programs and download indusstart-recognized certificates</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">

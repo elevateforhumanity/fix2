@@ -110,7 +110,7 @@ export default async function CareerCounselingPage() {
               <div className="text-center py-12">
                 <BookOpen className="mx-auto text-gray-400 mb-4" size={64} />
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">No items yet</h3>
-                <p className="text-gray-600 mb-4">Get started by creating your first item</p>
+                <p className="text-gray-600 mb-4">Start now by creating your first item</p>
                 <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
                   Create New
                 </button>

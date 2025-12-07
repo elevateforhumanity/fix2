@@ -59,7 +59,7 @@ export default async function QuizResultsPage({
 
           {/* Title */}
           <h1 className="text-3xl font-bold text-slate-900 mb-2">
-            {passed ? 'Congratulations!' : 'Keep Trying!'}
+            {passed ? 'Congratulations!' : 'Keep Starting!'}
           </h1>
           <p className="text-slate-600 mb-8">
             {passed
@@ -128,7 +128,7 @@ export default async function QuizResultsPage({
           <p className={`text-sm ${passed ? 'text-green-800' : 'text-blue-800'}`}>
             {passed
               ? 'You\'ve demonstrated mastery of this material. Continue to the next lesson to keep building your skills.'
-              : 'Review the lesson material and try again. Focus on the areas where you missed questions.'}
+              : 'Review the lesson material and start again. Focus on the areas where you missed questions.'}
           </p>
         </div>
       </div>

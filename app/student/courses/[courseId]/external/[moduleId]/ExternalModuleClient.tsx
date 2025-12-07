@@ -75,7 +75,7 @@ export default function ExternalModuleClient({
   }
 
   async function handleLaunch() {
-    try {
+    start {
       setMessage(null);
       await ensureRow("in_progress");
       window.open(module.launch_url, "_blank", "noopener,noreferrer");
@@ -91,7 +91,7 @@ export default function ExternalModuleClient({
     setUploading(true);
     setMessage(null);
 
-    try {
+    start {
       // Create storage path: moduleId/userId/filename
       const path = `${module.id}/${userId}/${file.name}`;
       const { error: uploadError } = await supabase.storage

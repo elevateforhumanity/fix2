@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Students | Elevate For Humanity',
-  description: 'Learn more about Students inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Students inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function Page() {
@@ -96,9 +96,9 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1000&fit=crop&q=85" alt="Industry Certifications" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=1000&fit=crop&q=85" alt="Indusstart Certifications" fill className="object-cover" sizes="80px" quality={100} />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">Industry Certifications</h3>
+              <h3 className="text-2xl font-bold mb-4 text-center">Indusstart Certifications</h3>
               <p className="text-slate-700 leading-relaxed">
                 Earn nationally recognized certifications that employers actually want. From healthcare licenses to IT certifications to trade credentials—we help you get certified.
               </p>
@@ -187,7 +187,7 @@ export default async function Page() {
               <div>
                 <h3 className="text-2xl font-bold mb-3">Get Certified</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Earn industry-recognized certifications and licenses. We cover exam fees and provide test prep. You'll graduate with credentials that employers recognize and value.
+                  Earn indusstart-recognized certifications and licenses. We cover exam fees and provide test prep. You'll graduate with credentials that employers recognize and value.
                 </p>
               </div>
             </div>

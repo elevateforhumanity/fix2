@@ -33,7 +33,7 @@ export default function CourseProgressTracker({
     const newCompleted = lessonIndex + 1;
     const newProgress = Math.round((newCompleted / totalLessons) * 100);
 
-    try {
+    start {
       const supabase = createBrowserClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!

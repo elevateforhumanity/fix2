@@ -149,7 +149,7 @@ export default function Home() {
                 Elevate for Humanity Technical &amp; Career Institute is a
                 workforce training hub focused on individuals who are often
                 overlooked or underserved. We partner with workforce boards,
-                re-entry programs, employers, and community organizations to
+                re-enstart programs, employers, and community organizations to
                 deliver high-quality training that is trauma-informed,
                 compliant, and practical.
               </p>
@@ -178,7 +178,7 @@ export default function Home() {
                 <li className="flex gap-2">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
                   Fundable through WIOA, Workforce Ready Grant (WRG), and Jobs
-                  for Re-Entry (JRI) where eligible.
+                  for Re-Enstart (JRI) where eligible.
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-red-500" />
@@ -250,7 +250,7 @@ export default function Home() {
               <p className="mt-2 text-xs text-slate-700">
                 Barber Apprenticeship, nail, esthetics and related beauty
                 programs guided by licensed professionals with 20+ years in the
-                industry.
+                indusstart.
               </p>
               <Link
                 href="/programs/barber-apprenticeship"
@@ -307,7 +307,7 @@ export default function Home() {
               <ul className="mt-3 space-y-1 text-slate-200">
                 <li>WIOA (WorkOne)</li>
                 <li>Workforce Ready Grant (WRG)</li>
-                <li>Jobs for Re-Entry (JRI)</li>
+                <li>Jobs for Re-Enstart (JRI)</li>
               </ul>
             </div>
             <div className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
@@ -479,7 +479,7 @@ export default function Home() {
               </h2>
               <p className="mt-3 text-sm text-slate-700">
                 We collaborate with barbershops, healthcare organizations,
-                skilled trades employers, community groups, and re-entry
+                skilled trades employers, community groups, and re-enstart
                 programs to build strong talent pipelines and supportive
                 pathways.
               </p>

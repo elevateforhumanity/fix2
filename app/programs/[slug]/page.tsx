@@ -428,7 +428,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
       )}
 
       {/* INDUSTRY DEMAND */}
-      {program.industry_demand && (
+      {program.indusstart_demand && (
         <section className="py-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 lg:p-12 border-2 border-green-200">
@@ -438,11 +438,11 @@ export default async function ProgramPage({ params }: { params: { slug: string }
                     <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd"/>
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900">Industry Demand & Job Outlook</h3>
+                <h3 className="text-2xl font-bold text-slate-900">Indusstart Demand & Job Outlook</h3>
               </div>
               <div className="prose prose-lg max-w-none">
                 <p className="text-slate-700 leading-relaxed whitespace-pre-line">
-                  {program.industry_demand}
+                  {program.indusstart_demand}
                 </p>
               </div>
             </div>

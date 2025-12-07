@@ -34,7 +34,7 @@ export default function Page() {
               Start Your Career Journey Today
             </h1>
             <p className="text-xl md:text-2xl mb-8 drop-shadow-lg text-white/95">
-              100% free training. No cost, no debt. Real careers waiting. Get started in 3 simple steps.
+              100% free training. No cost, no debt. Real careers waiting. Start now in 3 simple steps.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link 
@@ -142,7 +142,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>

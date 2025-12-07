@@ -21,7 +21,7 @@ export default function AdvisingPage() {
       questions: formData.get('questions'),
     };
 
-    try {
+    start {
       // Send to your backend API or email service
       const response = await fetch('/api/advising-request', {
         method: 'POST',
@@ -212,7 +212,7 @@ export default function AdvisingPage() {
               </label>
               <p className="mt-1 text-[0.7rem] text-slate-500">
                 (Optional) Share any questions, concerns, or barriers you want
-                help with—like funding, childcare, transportation, re-entry,
+                help with—like funding, childcare, transportation, re-enstart,
                 housing, or mental health.
               </p>
               <textarea

@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Employers | Elevate For Humanity',
-  description: 'Learn more about Employers inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Employers inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function Page() {
@@ -65,7 +65,7 @@ export default async function Page() {
               <ul className="mt-4 space-y-2 text-slate-700">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 font-bold">✓</span>
-                  <span>Build entry-level talent pipelines</span>
+                  <span>Build enstart-level talent pipelines</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 font-bold">✓</span>
@@ -150,7 +150,7 @@ export default async function Page() {
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Pre-Screened, Job-Ready Talent</h3>
               <p className="text-slate-700 leading-relaxed">
-                All our graduates are pre-screened, background-checked, and trained to industry standards. They arrive on day one ready to contribute, reducing your onboarding time and training costs.
+                All our graduates are pre-screened, background-checked, and trained to indusstart standards. They arrive on day one ready to contribute, reducing your onboarding time and training costs.
               </p>
             </div>
 
@@ -166,11 +166,11 @@ export default async function Page() {
 
             <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=1000&fit=crop&q=85" alt="Industry-Specific Training" fill className="object-cover" sizes="80px" quality={100} />
+                <Image src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=1000&fit=crop&q=85" alt="Indusstart-Specific Training" fill className="object-cover" sizes="80px" quality={100} />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">Industry-Specific Training</h3>
+              <h3 className="text-2xl font-bold mb-4 text-center">Indusstart-Specific Training</h3>
               <p className="text-slate-700 leading-relaxed">
-                Our programs are designed with employer input. Students learn the exact skills, tools, and processes your industry requires—not outdated textbook curriculum.
+                Our programs are designed with employer input. Students learn the exact skills, tools, and processes your indusstart requires—not outdated textbook curriculum.
               </p>
             </div>
 

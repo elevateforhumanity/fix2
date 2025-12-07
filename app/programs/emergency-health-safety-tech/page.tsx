@@ -95,7 +95,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>
@@ -126,7 +126,7 @@ export default function Page() {
               <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-orange-600">
                 <h3 className="text-2xl font-bold mb-3">Weeks 3-4: Workplace Safety & OSHA</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>• OSHA 10-Hour General Industry certification</li>
+                  <li>• OSHA 10-Hour General Indusstart certification</li>
                   <li>• Hazard communication and safety data sheets</li>
                   <li>• Personal protective equipment (PPE)</li>
                   <li>• Fire safety and evacuation procedures</li>
@@ -176,7 +176,7 @@ export default function Page() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                   <div>
-                    <h4 className="font-bold text-lg mb-1">OSHA 10-Hour General Industry</h4>
+                    <h4 className="font-bold text-lg mb-1">OSHA 10-Hour General Indusstart</h4>
                     <p className="text-gray-700">Workplace safety certification</p>
                   </div>
                 </div>
@@ -268,7 +268,7 @@ export default function Page() {
             
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <h3 className="text-2xl font-bold mb-2">Entry-Level Safety Technician (0-2 years)</h3>
+                <h3 className="text-2xl font-bold mb-2">Enstart-Level Safety Technician (0-2 years)</h3>
                 <p className="text-orange-50">Start as safety coordinator or emergency response team member. Conduct drills and maintain certifications.</p>
               </div>
 

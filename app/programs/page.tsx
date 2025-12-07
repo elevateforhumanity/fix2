@@ -301,7 +301,7 @@ export default async function ProgramsPage() {
                 </div>
                 <h3 className="text-3xl font-bold text-slate-900 mb-4">Skilled Trades Training</h3>
                 <p className="text-lg text-slate-600 mb-6">
-                  Build a high-paying career in HVAC, building maintenance, and construction trades. Hands-on training with industry certifications and job placement support.
+                  Build a high-paying career in HVAC, building maintenance, and construction trades. Hands-on training with indusstart certifications and job placement support.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-3">
@@ -314,7 +314,7 @@ export default async function ProgramsPage() {
                     <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-slate-700"><strong>Industry Certs:</strong> EPA, OSHA, and trade certifications</span>
+                    <span className="text-slate-700"><strong>Indusstart Certs:</strong> EPA, OSHA, and trade certifications</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

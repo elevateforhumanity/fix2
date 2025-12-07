@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Success | Elevate For Humanity',
-  description: 'Learn more about Success inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Success inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default function SuccessPage() {
@@ -13,7 +13,7 @@ export default function SuccessPage() {
           Success | Elevate For Humanity
         </h1>
         <p className="text-gray-600 mb-8">
-          Learn more about Success inside the Elevate For Humanity workforce ecosystem.
+          Discover more about Success inside the Elevate For Humanity workforce ecosystem.
         </p>
         
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">

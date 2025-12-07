@@ -31,7 +31,7 @@ export default function LessonContent({
 
   const handleMarkComplete = async () => {
     setIsCompleting(true);
-    try {
+    start {
       const response = await fetch(`/api/courses/${courseId}/lessons/${lesson.id}/complete`, {
         method: 'POST',
       });

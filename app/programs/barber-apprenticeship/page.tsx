@@ -8,7 +8,7 @@ export default function BarberApprenticeshipPage() {
       {/* Hero Banner - Clean, No Overlay */}
       <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=2400&h=1350&fit=crop&q=95"
+          src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=2400&h=1350&fit=crop&q=95"
           alt="Professional barber training and apprenticeship"
           fill
           className="object-cover"
@@ -25,16 +25,22 @@ export default function BarberApprenticeshipPage() {
             Your Path to Success
           </p>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
-            Become a Barber
+            Become a Licensed Barber
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 mb-6 sm:mb-8 max-w-3xl mx-auto">
-            Get paid to learn your craft. No tuition. Real barbershops. Real future.
+            Earn $15-18/hour while training. Graduate making $35K-55K annually. State-licensed. Zero tuition.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link href="/apply" className="bg-orange-500 text-white px-6 sm:px-8 py-3 rounded-full font-bold hover:bg-orange-600 transition-all text-center shadow-xl">
-              Apply Now
+              Start Your Application Today
+            </Link>
+            <Link href="#timeline" className="bg-white text-slate-900 border-2 border-slate-900 px-6 sm:px-8 py-3 rounded-full font-bold hover:bg-slate-50 transition-all text-center shadow-xl">
+              See Your Path to Success
             </Link>
           </div>
+          <p className="text-sm text-slate-600 mt-4 text-center">
+            Next class starts January 15, 2025 • Apply by December 20 for priority placement
+          </p>
         </div>
       </section>
 
@@ -117,12 +123,11 @@ export default function BarberApprenticeshipPage() {
 
         {/* Program Overview */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Here's How It Works</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">The Program That Pays You to Learn</h2>
           <p className="text-lg text-slate-700 mb-6">
-            You'll train in real barbershops alongside experienced barbers who remember what it's like 
-            to start out. You'll earn money from day one—wages plus tips—while learning everything 
-            from classic cuts to modern styles. After 2,000 hours (about 12-18 months working full-time), 
-            you'll be ready to take your state exam and start your own career.
+            Train in real barbershops with experienced professionals. Earn wages plus tips from day one 
+            while mastering everything from classic cuts to modern styles. Complete 2,000 hours over 
+            12-18 months, pass your state exam, and launch your career earning $35K-55K annually.
           </p>
           
           <div className="grid md:grid-cols-4 gap-6 mt-8">
@@ -147,7 +152,7 @@ export default function BarberApprenticeshipPage() {
 
         {/* What You'll Learn */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">What You'll Master</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">Master These High-Value Skills</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h3 className="font-semibold text-slate-900 mb-3">The Craft</h3>
@@ -176,7 +181,7 @@ export default function BarberApprenticeshipPage() {
         <section className="mb-16 bg-blue-50 p-8 rounded-lg">
           <h2 className="text-3xl font-bold text-slate-900 mb-6">Yes, It's Really Free</h2>
           <p className="text-lg text-slate-700 mb-4">
-            We know "free training" sounds too good to be true. But this is real. 
+            We understand "free training" is fully funded. But this is real. 
             Government workforce programs pay for everything because they want you to succeed:
           </p>
           <ul className="space-y-2 text-slate-700">

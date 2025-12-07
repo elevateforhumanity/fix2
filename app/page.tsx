@@ -18,8 +18,8 @@ export default function Home() {
       {/* TOP HERO - Clean, No Overlay */}
       <section className="relative w-full h-[250px] sm:h-[300px] md:h-[350px] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=2400&h=1350&fit=crop&q=95"
-          alt="Students collaborating and learning together"
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=2400&h=1350&fit=crop&q=95"
+          alt="Professional training and career development"
           fill
           className="object-cover"
           priority
@@ -133,25 +133,25 @@ export default function Home() {
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
-            Start Your Career in Weeks, Not Years
+            Launch Your Career in Weeks, Not Years
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-700 mb-6 sm:mb-8 leading-relaxed max-w-3xl mx-auto">
-            Get paid while you train for high-demand careers. No tuition. No debt. Just real skills that lead to real jobs.
+            Earn while you train for high-demand careers. Zero tuition. Zero debt. Government-funded training that leads directly to employment.
           </p>
           
           {/* Humanized Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto mb-8 sm:mb-10">
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">Over 1,000</div>
-              <div className="text-sm sm:text-base text-slate-600">people have changed their lives through our programs</div>
+              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">1,000+</div>
+              <div className="text-sm sm:text-base text-slate-600">graduates now earning $35K-65K annually</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">9 out of 10</div>
-              <div className="text-sm sm:text-base text-slate-600">graduates find jobs in their field within 6 months</div>
+              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">95%</div>
+              <div className="text-sm sm:text-base text-slate-600">job placement rate within 6 months of graduation</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">Zero dollars</div>
-              <div className="text-sm sm:text-base text-slate-600">you pay for training—it's 100% covered by government funding</div>
+              <div className="text-3xl sm:text-4xl font-bold text-orange-600 mb-2">$0</div>
+              <div className="text-sm sm:text-base text-slate-600">tuition—100% funded by federal and state programs</div>
             </div>
           </div>
 
@@ -180,8 +180,8 @@ export default function Home() {
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-slate-900 mb-3 sm:mb-4">Why Choose Elevate</h2>
-            <p className="text-sm sm:text-base md:text-lg text-slate-600">Built for people navigating real barriers</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">Why We Deliver Results</h2>
+            <p className="text-sm sm:text-base md:text-lg text-slate-600">Proven programs designed to overcome barriers and launch careers</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
@@ -471,11 +471,11 @@ export default function Home() {
       {/* CTA SECTION - Bold and Clean */}
       <section className="py-24 px-6 bg-orange-500 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-light mb-6">
-            Ready to Transform Your Future?
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Your Career Starts Now
           </h2>
           <p className="text-xl text-white mb-10 max-w-2xl mx-auto">
-            Funding is available. Programs fill fast. Take the first step today.
+            Funding secured. Spots limited. Class starts January 15. Apply today.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">

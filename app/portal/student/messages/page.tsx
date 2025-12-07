@@ -119,7 +119,7 @@ export default async function MessagesPage() {
                   <div className="p-8 text-center">
                     <MessageSquare className="mx-auto text-gray-400 mb-3" size={48} />
                     <p className="text-gray-600">No conversations yet</p>
-                    <p className="text-sm text-gray-500 mt-1">Start a new conversation to get started</p>
+                    <p className="text-sm text-gray-500 mt-1">Start a new conversation to start now</p>
                   </div>
                 )}
               </div>

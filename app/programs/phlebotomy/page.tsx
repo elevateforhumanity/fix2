@@ -95,7 +95,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>
@@ -278,7 +278,7 @@ export default function Page() {
             
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <h3 className="text-2xl font-bold mb-2">Entry-Level Phlebotomist (0-2 years)</h3>
+                <h3 className="text-2xl font-bold mb-2">Enstart-Level Phlebotomist (0-2 years)</h3>
                 <p className="text-red-50">Start in labs, hospitals, or blood donation centers. Build speed and accuracy with blood draws.</p>
               </div>
 

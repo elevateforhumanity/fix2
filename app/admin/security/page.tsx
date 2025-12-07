@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Security | Elevate For Humanity',
-  description: 'Learn more about Security inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Security inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function SecurityPage() {
@@ -34,7 +34,7 @@ export default async function SecurityPage() {
             Security | Elevate For Humanity
           </h1>
           <p className="text-gray-600">
-            Learn more about Security inside the Elevate For Humanity workforce ecosystem.
+            Discover more about Security inside the Elevate For Humanity workforce ecosystem.
           </p>
         </header>
 

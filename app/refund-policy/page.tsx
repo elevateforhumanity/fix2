@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Refund Policy | Elevate For Humanity',
-  description: 'Learn more about Refund Policy inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Refund Policy inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default function Page() {
@@ -14,7 +14,7 @@ export default function Page() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Refund Policy | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Refund Policy inside the Elevate For Humanity workforce ecosystem.</p>
+            <p className="text-xl mb-8 text-blue-100">Discover more about Refund Policy inside the Elevate For Humanity workforce ecosystem.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
                 Get Started
@@ -113,7 +113,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>

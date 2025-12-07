@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Resources | Elevate For Humanity',
-  description: 'Learn more about Resources inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Resources inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function ResourcesPage() {
@@ -24,7 +24,7 @@ export default async function ResourcesPage() {
             Resources | Elevate For Humanity
           </h1>
           <p className="text-gray-600">
-            Learn more about Resources inside the Elevate For Humanity workforce ecosystem.
+            Discover more about Resources inside the Elevate For Humanity workforce ecosystem.
           </p>
         </header>
 

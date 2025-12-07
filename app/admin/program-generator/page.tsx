@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Program Generator | Elevate For Humanity',
-  description: 'Learn more about Program Generator inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Program Generator inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function ProgramGeneratorPage() {
@@ -34,7 +34,7 @@ export default async function ProgramGeneratorPage() {
             Program Generator | Elevate For Humanity
           </h1>
           <p className="text-gray-600">
-            Learn more about Program Generator inside the Elevate For Humanity workforce ecosystem.
+            Discover more about Program Generator inside the Elevate For Humanity workforce ecosystem.
           </p>
         </header>
 

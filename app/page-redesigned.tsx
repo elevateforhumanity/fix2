@@ -13,16 +13,16 @@ export default function HomePage() {
     { 
       title: "No-Cost Career Training for Eligible Participants", 
       subtitle: "State-Approved ETPL Provider • DOL Registered Apprenticeship Sponsor",
-      description: "Workforce Innovation and Opportunity Act (WIOA) funded training programs leading to industry-recognized credentials and employment opportunities.",
+      description: "Workforce Innovation and Opportunity Act (WIOA) funded training programs leading to indusstart-recognized credentials and employment opportunities.",
       image: "/images/efh/hero/hero-health.jpg",
       badge: "ETPL Approved Provider"
     },
     { 
-      title: "Industry-Aligned Training Programs", 
+      title: "Indusstart-Aligned Training Programs", 
       subtitle: "Healthcare • Skilled Trades • Information Technology • Business Services",
       description: "Competency-based training delivered by qualified instructors in accordance with state and federal workforce development standards.",
       image: "/media-backup-20251128-043832/state-funding-hero.jpg",
-      badge: "Industry-Recognized Credentials"
+      badge: "Indusstart-Recognized Credentials"
     },
     { 
       title: "Comprehensive Support Services", 
@@ -161,7 +161,7 @@ export default function HomePage() {
               Choose Your Career Path
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore high-demand careers with free training, industry certifications, and job placement support.
+              Explore high-demand careers with free training, indusstart certifications, and job placement support.
             </p>
           </div>
 
@@ -274,7 +274,7 @@ export default function HomePage() {
               <div className="p-6">
                 <div className="flex items-center gap-2 text-green-600 mb-4">
                   <Award className="w-5 h-5" />
-                  <span className="font-semibold">Industry Certified</span>
+                  <span className="font-semibold">Indusstart Certified</span>
                 </div>
                 <p className="text-gray-600 mb-6">
                   Get certified in high-demand business and technology skills. Work remotely or in-office.
@@ -332,7 +332,7 @@ export default function HomePage() {
               {
                 step: "3",
                 title: "Train",
-                description: "Learn from experts with hands-on training and industry certifications.",
+                description: "Learn from experts with hands-on training and indusstart certifications.",
                 icon: "🎓",
                 image: "/images/general/training-process.jpg"
               },

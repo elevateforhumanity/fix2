@@ -31,7 +31,7 @@ export default function AlinaPerfectPage() {
           <p className="mt-3 text-sm text-slate-700 leading-relaxed">
             Her approach blends evidence-based clinical care with a human-centered
             understanding of the real challenges people face — including stress,
-            anxiety, depression, life instability, re-entry challenges, and
+            anxiety, depression, life instability, re-enstart challenges, and
             generational trauma. Alina partners closely with Elevate&apos;s coaches,
             advisors, and case support to ensure students receive the holistic
             support they need to succeed academically, professionally, and

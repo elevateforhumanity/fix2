@@ -37,7 +37,7 @@ export default function SignupForm() {
       return;
     }
 
-    try {
+    start {
       const supabase = createBrowserClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -75,7 +75,7 @@ export default function SignupForm() {
   };
 
   const handleGoogleSignup = async () => {
-    try {
+    start {
       const supabase = createBrowserClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!

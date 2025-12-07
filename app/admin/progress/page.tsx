@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Progress | Elevate For Humanity',
-  description: 'Learn more about Progress inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Progress inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function ProgressPage() {
@@ -34,7 +34,7 @@ export default async function ProgressPage() {
             Progress | Elevate For Humanity
           </h1>
           <p className="text-gray-600">
-            Learn more about Progress inside the Elevate For Humanity workforce ecosystem.
+            Discover more about Progress inside the Elevate For Humanity workforce ecosystem.
           </p>
         </header>
 

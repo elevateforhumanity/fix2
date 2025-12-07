@@ -61,7 +61,7 @@ export default function CourseCompletionClient({
   const completed = enrollment?.status === "completed";
 
   async function handleCheckCompletion() {
-    try {
+    start {
       setChecking(true);
       setMessage(null);
 

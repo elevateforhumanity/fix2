@@ -167,7 +167,7 @@ export default function Page() {
               </div>
               <div className="bg-white rounded-xl p-6">
                 <p className="text-xl font-semibold mb-2">Career Growth Path:</p>
-                <p className="text-lg text-gray-700">Entry Level ($45K) → Journeyman ($55K-$65K in 2-3 years) → Master Tech ($70K-$85K in 5 years) → Service Manager ($80K-$100K+)</p>
+                <p className="text-lg text-gray-700">Enstart Level ($45K) → Journeyman ($55K-$65K in 2-3 years) → Master Tech ($70K-$85K in 5 years) → Service Manager ($80K-$100K+)</p>
               </div>
             </div>
 

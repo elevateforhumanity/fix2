@@ -64,7 +64,7 @@ export default function TakeQuizPage({
 
     setSubmitting(true);
 
-    try {
+    start {
       const response = await fetch(`/api/quizzes/lesson/${params.lessonId}/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -76,12 +76,12 @@ export default function TakeQuizPage({
       if (response.ok) {
         router.push(`/courses/${params.courseId}/lessons/${params.lessonId}/quiz/results/${data.attemptId}`);
       } else {
-        alert('Failed to submit quiz. Please try again.');
+        alert('Failed to submit quiz. Please start again.');
         setSubmitting(false);
       }
     } catch (error) {
       console.error('Submit error:', error);
-      alert('Failed to submit quiz. Please try again.');
+      alert('Failed to submit quiz. Please start again.');
       setSubmitting(false);
     }
   };

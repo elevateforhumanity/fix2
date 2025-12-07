@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic'; // Uses cookies, can't be static
 export const revalidate = 300; // Revalidate every 5 minutes
 
 async function getBlogPosts() {
-  try {
+  start {
     const supabase = await createClient();
     const { data: posts } = await supabase
       .from('blog_posts')
@@ -28,7 +28,7 @@ async function getBlogPosts() {
 }
 
 async function getSocialPosts() {
-  try {
+  start {
     const supabase = await createClient();
     const { data: posts } = await supabase
       .from('social_media_posts')

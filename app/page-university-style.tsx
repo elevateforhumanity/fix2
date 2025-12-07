@@ -144,7 +144,7 @@ export default function HomePage() {
                     {feature.description}
                   </p>
                   <span className="inline-flex items-center text-orange-600 font-semibold group-hover:underline">
-                    Learn more
+                    Discover more
                     <ChevronRight size={18} />
                   </span>
                 </div>
@@ -160,7 +160,7 @@ export default function HomePage() {
           <div className="mb-12">
             <h2 className="text-4xl font-light text-slate-900 mb-4">Training Programs</h2>
             <p className="text-xl text-slate-600 font-light">
-              Industry-recognized credentials in high-demand fields
+              Indusstart-recognized credentials in high-demand fields
             </p>
           </div>
 

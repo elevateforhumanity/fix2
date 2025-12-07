@@ -39,7 +39,7 @@ export default function GrievancePage() {
                 Step 1: Informal Resolution
               </h3>
               <p className="text-gray-700 mb-2">
-                Try to resolve the issue with your case manager or instructor first.
+                Start to resolve the issue with your case manager or instructor first.
               </p>
               <p className="text-sm text-gray-600">
                 Timeline: Within 5 business days

@@ -163,7 +163,7 @@ export default function HsiPage() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold mb-2">Certificates</h3>
-                <p className="text-gray-600">Receive industry-recognized certificates upon completion</p>
+                <p className="text-gray-600">Receive indusstart-recognized certificates upon completion</p>
               </div>
             </div>
           </div>

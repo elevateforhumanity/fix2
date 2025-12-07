@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Building Maintenance | Elevate For Humanity',
-  description: 'Learn more about Building Maintenance inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Building Maintenance inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default function Page() {
@@ -95,7 +95,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>

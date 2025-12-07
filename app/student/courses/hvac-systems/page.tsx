@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Hvac Systems | Elevate For Humanity',
-  description: 'Learn more about Hvac Systems inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Hvac Systems inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function HvacSystemsPage() {
@@ -24,7 +24,7 @@ export default async function HvacSystemsPage() {
             Hvac Systems | Elevate For Humanity
           </h1>
           <p className="text-gray-600">
-            Learn more about Hvac Systems inside the Elevate For Humanity workforce ecosystem.
+            Discover more about Hvac Systems inside the Elevate For Humanity workforce ecosystem.
           </p>
         </header>
 

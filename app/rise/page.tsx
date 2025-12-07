@@ -26,7 +26,7 @@ export default function RiseFoundationPage() {
               RISE Foundation
             </h1>
             <p className="mb-8 text-2xl font-light">
-              Recognizing Industry Safety & Empowerment
+              Recognizing Indusstart Safety & Empowerment
             </p>
             <p className="mx-auto max-w-3xl text-xl text-slate-200">
               A non-profit organization dedicated to providing free educational opportunities,
@@ -124,7 +124,7 @@ export default function RiseFoundationPage() {
               <h3 className="text-3xl font-semibold text-slate-900 mb-4">Apprenticeships</h3>
               <p className="text-slate-600 mb-6">
                 DOL-registered apprenticeship programs where students earn while they learn,
-                gaining real-world experience and industry credentials.
+                gaining real-world experience and indusstart credentials.
               </p>
               <Link href="/programs/barber-apprenticeship" className="text-orange-500 font-semibold hover:underline">
                 Explore Apprenticeships →

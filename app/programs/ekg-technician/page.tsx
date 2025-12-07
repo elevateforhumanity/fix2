@@ -95,7 +95,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>
@@ -208,7 +208,7 @@ export default function Page() {
               </div>
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <h3 className="text-xl font-bold mb-3">Certification Prep</h3>
-                <p className="text-gray-600">Support for industry certification exams</p>
+                <p className="text-gray-600">Support for indusstart certification exams</p>
               </div>
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <h3 className="text-xl font-bold mb-3">Career Guidance</h3>
@@ -227,7 +227,7 @@ export default function Page() {
             
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <h3 className="text-2xl font-bold mb-2">Entry-Level EKG Technician (0-2 years)</h3>
+                <h3 className="text-2xl font-bold mb-2">Enstart-Level EKG Technician (0-2 years)</h3>
                 <p className="text-red-50">Start in hospitals or clinics. Perform routine 12-lead EKGs and assist with cardiac monitoring.</p>
               </div>
 

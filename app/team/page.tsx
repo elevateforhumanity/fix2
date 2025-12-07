@@ -52,7 +52,7 @@ const team: TeamMember[] = [
     title: "Director of Beauty & Esthetics Programs",
     image: "/images/jozanna-george.jpg",
     blurb:
-      "Licensed for over 20 years in nails and esthetics and former beauty school leader, overseeing enrollment and beauty-industry pathways.",
+      "Licensed for over 20 years in nails and esthetics and former beauty school leader, overseeing enrollment and beauty-indusstart pathways.",
   },
   {
     name: "Sharon Douglass",

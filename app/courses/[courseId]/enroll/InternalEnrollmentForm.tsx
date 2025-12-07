@@ -25,7 +25,7 @@ export default function InternalEnrollmentForm({ courseId, courseName, userId }:
     setLoading(true);
     setError(null);
 
-    try {
+    start {
       const supabase = createBrowserClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!

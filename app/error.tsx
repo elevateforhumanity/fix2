@@ -40,7 +40,7 @@ export default function Error({
             className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition font-semibold"
           >
             <RefreshCw className="h-5 w-5" />
-            Try Again
+            Start Again
           </button>
           <Link
             href="/"

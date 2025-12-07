@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Post Job | Elevate For Humanity',
-  description: 'Learn more about Post Job inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Post Job inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function Page() {
@@ -20,7 +20,7 @@ export default async function Page() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Post Job | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Learn more about Post Job inside the Elevate For Humanity workforce ecosystem.</p>
+            <p className="text-xl mb-8 text-blue-100">Discover more about Post Job inside the Elevate For Humanity workforce ecosystem.</p>
             <div className="flex gap-4 justify-center">
               <Link href="/employer/jobs/new" className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-orange-50 text-lg">
                 Post a Job

@@ -95,7 +95,7 @@ export default function Page() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry professionals</p>
+                <p className="text-gray-600">Learn from indusstart professionals</p>
               </div>
               
             </div>
@@ -126,7 +126,7 @@ export default function Page() {
               <div className="bg-white rounded-lg shadow-lg p-8 border-l-4 border-blue-600">
                 <h3 className="text-2xl font-bold mb-3">Weeks 4-6: Maintenance & Repair Skills</h3>
                 <ul className="space-y-2 text-gray-700">
-                  <li>• Carpentry: drywall repair, door/window maintenance</li>
+                  <li>• Carpenstart: drywall repair, door/window maintenance</li>
                   <li>• Painting and surface preparation</li>
                   <li>• Flooring maintenance and repair</li>
                   <li>• Lock and key systems</li>
@@ -172,7 +172,7 @@ export default function Page() {
                   </svg>
                   <div>
                     <h4 className="font-bold text-lg mb-1">OSHA 10-Hour Safety</h4>
-                    <p className="text-gray-700">Construction and general industry safety certification</p>
+                    <p className="text-gray-700">Construction and general indusstart safety certification</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -281,7 +281,7 @@ export default function Page() {
             
             <div className="space-y-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                <h3 className="text-2xl font-bold mb-2">Entry-Level Maintenance Technician (0-2 years)</h3>
+                <h3 className="text-2xl font-bold mb-2">Enstart-Level Maintenance Technician (0-2 years)</h3>
                 <p className="text-orange-50">Start in apartments, schools, or commercial buildings. Learn systems and build skills.</p>
               </div>
 

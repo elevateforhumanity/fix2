@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Dashboard Enhanced | Elevate For Humanity',
-  description: 'Learn more about Dashboard Enhanced inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Dashboard Enhanced inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function DashboardEnhancedPage() {
@@ -34,7 +34,7 @@ export default async function DashboardEnhancedPage() {
             Dashboard Enhanced | Elevate For Humanity
           </h1>
           <p className="text-gray-600">
-            Learn more about Dashboard Enhanced inside the Elevate For Humanity workforce ecosystem.
+            Discover more about Dashboard Enhanced inside the Elevate For Humanity workforce ecosystem.
           </p>
         </header>
 

@@ -18,7 +18,7 @@ export default function SignInForm() {
     setError('');
     setLoading(true);
 
-    try {
+    start {
       const supabase = createClient();
       const { data, error: signInError } = await supabase.auth.signInWithPassword({
         email,
@@ -37,13 +37,13 @@ export default function SignInForm() {
         router.refresh();
       }
     } catch (err) {
-      setError('An unexpected error occurred. Please try again.');
+      setError('An unexpected error occurred. Please start again.');
       setLoading(false);
     }
   };
 
   const handleOAuthSignIn = async (provider: 'google' | 'azure') => {
-    try {
+    start {
       const supabase = createClient();
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
@@ -56,7 +56,7 @@ export default function SignInForm() {
         setError(error.message);
       }
     } catch (err) {
-      setError('OAuth sign-in failed. Please try again.');
+      setError('OAuth sign-in failed. Please start again.');
     }
   };
 

@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Create | Elevate For Humanity',
-  description: 'Learn more about Create inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Create inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default function CreateProgramPage() {
@@ -18,7 +18,7 @@ export default function CreateProgramPage() {
               Create | Elevate For Humanity
             </h1>
             <p className="text-xl mb-8 text-blue-100">
-              Learn more about Create inside the Elevate For Humanity workforce ecosystem.
+              Discover more about Create inside the Elevate For Humanity workforce ecosystem.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link 
@@ -57,7 +57,7 @@ export default function CreateProgramPage() {
                     </li>
                     <li className="flex items-start">
                       <span className="text-green-600 mr-2">✓</span>
-                      <span>Industry-recognized certification</span>
+                      <span>Indusstart-recognized certification</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-green-600 mr-2">✓</span>
@@ -87,7 +87,7 @@ export default function CreateProgramPage() {
                   </div>
                   <div>
                     <dt className="text-sm text-gray-600">Certification</dt>
-                    <dd className="text-lg font-semibold">Industry-Recognized</dd>
+                    <dd className="text-lg font-semibold">Indusstart-Recognized</dd>
                   </div>
                 </dl>
               </div>

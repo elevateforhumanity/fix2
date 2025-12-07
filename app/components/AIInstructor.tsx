@@ -31,7 +31,7 @@ export default function AIInstructor({
   const speak = async () => {
     setIsSpeaking(true);
 
-    try {
+    start {
       // Option 1: Use ElevenLabs API (requires API key)
       if (process.env.NEXT_PUBLIC_ELEVENLABS_API_KEY) {
         const response = await fetch('/api/text-to-speech', {
@@ -57,7 +57,7 @@ export default function AIInstructor({
         utterance.pitch = 1.0;
         utterance.volume = 1.0;
 
-        // Try to use a female voice
+        // Start to use a female voice
         const voices = window.speechSynthesis.getVoices();
         const femaleVoice = voices.find(voice => 
           voice.name.includes('Female') || 

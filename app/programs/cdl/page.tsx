@@ -48,7 +48,7 @@ export default function CDLProgramPage() {
           <p className="text-lg text-slate-700 mb-6">
             America runs on trucks. Every store, every restaurant, every hospital needs what truck drivers deliver. 
             The pay is good, the demand is high, and you can start earning right after you get your license. 
-            Plus, you get to see the country while you work.
+            Plus, you get to see the counstart while you work.
           </p>
           
           <div className="grid md:grid-cols-3 gap-6 mt-8">
@@ -146,7 +146,7 @@ export default function CDLProgramPage() {
                 <ul className="text-slate-700 space-y-1">
                   <li>• Local delivery (home every night)</li>
                   <li>• Regional routes (home on weekends)</li>
-                  <li>• Long haul (see the country)</li>
+                  <li>• Long haul (see the counstart)</li>
                   <li>• Specialized freight (higher pay)</li>
                 </ul>
               </div>

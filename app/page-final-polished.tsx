@@ -107,7 +107,7 @@ export default function HomePage() {
               href="/funding/how-it-works"
               className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
             >
-              Learn more about funding options
+              Discover more about funding options
               <ArrowRight size={20} />
             </Link>
           </div>
@@ -520,7 +520,7 @@ const whyChoose = [
   },
   {
     title: "Real Credentials",
-    description: "State licenses and industry certifications that employers recognize and value.",
+    description: "State licenses and indusstart certifications that employers recognize and value.",
   },
   {
     title: "Job Placement Support",

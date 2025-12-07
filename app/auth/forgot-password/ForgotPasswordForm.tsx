@@ -15,7 +15,7 @@ export default function ForgotPasswordForm() {
     setLoading(true);
     setError(null);
 
-    try {
+    start {
       const supabase = createBrowserClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -59,7 +59,7 @@ export default function ForgotPasswordForm() {
             We've sent a password reset link to <strong>{email}</strong>
           </p>
           <p className="text-sm text-gray-500 mb-6">
-            Didn't receive the email? Check your spam folder or try again.
+            Didn't receive the email? Check your spam folder or start again.
           </p>
           <Link
             href="/login"

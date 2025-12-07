@@ -24,7 +24,7 @@ export default function SupersonicFastCashPage() {
 
           <Link href="/supersonic-fast-cash/apply" className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
             <h2 className="text-2xl font-bold mb-4 text-green-800">Apply Now</h2>
-            <p className="text-gray-600">Get started with your application and receive funds in as little as 24 hours.</p>
+            <p className="text-gray-600">Start now with your application and receive funds in as little as 24 hours.</p>
           </Link>
         </div>
 

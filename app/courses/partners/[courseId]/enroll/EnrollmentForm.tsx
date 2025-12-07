@@ -25,7 +25,7 @@ export default function EnrollmentForm({ courseId, courseName, userId }: Enrollm
     setLoading(true);
     setError(null);
 
-    try {
+    start {
       const supabase = createBrowserClient(
         process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!

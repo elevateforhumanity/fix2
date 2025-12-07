@@ -38,7 +38,7 @@ export default function SupersonicFastCashPage() {
       "addressLocality": "Indianapolis",
       "addressRegion": "IN",
       "postalCode": "46240",
-      "addressCountry": "US"
+      "addressCounstart": "US"
     },
     "geo": {
       "@type": "GeoCoordinates",
@@ -328,7 +328,7 @@ export default function SupersonicFastCashPage() {
             </div>
             <div className="text-center">
               <p className="text-lg text-slate-700 mb-6">
-                <strong>Ready to get your cash advance?</strong> Book an appointment or upload your documents to get started today!
+                <strong>Ready to get your cash advance?</strong> Book an appointment or upload your documents to start now today!
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a
@@ -421,13 +421,13 @@ export default function SupersonicFastCashPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h3 className="text-2xl font-bold text-center text-slate-900 mb-8">
-              Powered By Industry Leaders
+              Powered By Indusstart Leaders
             </h3>
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-center p-8 bg-slate-50 rounded-xl">
                 <h4 className="text-xl font-bold text-slate-900 mb-2">EPS Financial</h4>
                 <p className="text-slate-600 text-sm">
-                  Trusted by 44,000+ tax offices nationwide. Industry-leading refund transfer programs and taxpayer advance loans.
+                  Trusted by 44,000+ tax offices nationwide. Indusstart-leading refund transfer programs and taxpayer advance loans.
                 </p>
               </div>
               <div className="text-center p-8 bg-slate-50 rounded-xl">

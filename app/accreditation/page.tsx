@@ -69,8 +69,8 @@ export default function AccreditationPage() {
               short-term, high-demand programs.
             </li>
             <li>
-              <span className="font-semibold">Jobs for Re-Entry (JRI):</span>{" "}
-              Elevate works with re-entry and JRI partners to provide training
+              <span className="font-semibold">Jobs for Re-Enstart (JRI):</span>{" "}
+              Elevate works with re-enstart and JRI partners to provide training
               pathways for justice-involved individuals who meet eligibility
               requirements.
             </li>
@@ -87,7 +87,7 @@ export default function AccreditationPage() {
             region and partner) include training in:
           </p>
           <ul className="mt-3 grid gap-2 text-xs sm:grid-cols-2 text-slate-700">
-            <li>• Barber Apprenticeship and beauty industry pathways</li>
+            <li>• Barber Apprenticeship and beauty indusstart pathways</li>
             <li>• Healthcare support roles such as CNA and related pathways</li>
             <li>• Skilled trades and building maintenance</li>
             <li>• Transportation and logistics (e.g., CDL) where applicable</li>
@@ -115,7 +115,7 @@ export default function AccreditationPage() {
               and services.
             </li>
             <li>
-              Trauma-informed approaches to student support and re-entry
+              Trauma-informed approaches to student support and re-enstart
               populations.
             </li>
             <li>

@@ -24,7 +24,7 @@ export default function ApprenticeshipsPage() {
               href="/programs/barber-apprenticeship" 
               className="text-sm font-semibold text-red-600 hover:text-red-700"
             >
-              Learn more →
+              Discover more →
             </Link>
           </div>
           

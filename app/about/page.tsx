@@ -5,7 +5,7 @@ import { Award, Users, Target, Heart } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About | Elevate For Humanity",
-  description: "Learn more about Elevate For Humanity and our mission to connect individuals with life-changing career opportunities through free workforce training.",
+  description: "Discover more about Elevate For Humanity and our mission to connect individuals with life-changing career opportunities through free workforce training.",
 };
 
 export default function Page() {
@@ -89,7 +89,7 @@ export default function Page() {
                 </p>
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <h4 className="text-xl font-bold mb-3 text-blue-900">Industry Partnerships</h4>
+                <h4 className="text-xl font-bold mb-3 text-blue-900">Indusstart Partnerships</h4>
                 <p className="text-slate-700 leading-relaxed mb-4">
                   We partner with over 100 leading employers in healthcare, skilled trades, technology, beauty, and transportation. Our programs are designed with direct input from hiring managers to ensure you learn exactly what the job market demands—not outdated curriculum from textbooks.
                 </p>
@@ -146,7 +146,7 @@ export default function Page() {
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Quality</h3>
               <p className="text-slate-600 text-center leading-relaxed">
-                State-approved, federally recognized programs that meet industry standards. Our certifications are recognized by employers nationwide.
+                State-approved, federally recognized programs that meet indusstart standards. Our certifications are recognized by employers nationwide.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
@@ -230,7 +230,7 @@ export default function Page() {
                     Through Selfish Inc, the 501(c)(3) nonprofit parent organization, Elizabeth has created a sustainable model that serves students, employers, and the community simultaneously. The organization is a registered federal contractor (SAM.gov UEI: VX2GK5S8SZH8), ByBlack certified Black-owned business, Certiport Authorized Testing Center, and Milady RISE Partner School.
                   </p>
                   <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                    Today, with over 2,500 graduates placed in careers and a 95% job placement rate, Elizabeth's vision has proven that workforce development can be both comprehensive and effective. Her model is now being studied by other workforce organizations across the country.
+                    Today, with over 2,500 graduates placed in careers and a 95% job placement rate, Elizabeth's vision has proven that workforce development can be both comprehensive and effective. Her model is now being studied by other workforce organizations across the counstart.
                   </p>
                   
                   <div className="bg-white rounded-lg p-6 border-l-4 border-blue-600 shadow-md">
@@ -262,7 +262,7 @@ export default function Page() {
                 We set out to bridge that gap. By becoming approved for every major workforce funding stream—WIOA, WRG, INTraining, JRI, and DOL Apprenticeships—we made it possible for students to access training at zero cost. By partnering directly with employers, we ensured our programs taught exactly what the job market needed.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                But we quickly learned that skills training alone wasn't enough. Students faced barriers like unstable housing, mental health challenges, lack of transportation, and no professional network. So we built a team that could address all of these issues—housing specialists, mental health professionals, life coaches, and employer relations staff.
+                But we quickly learned that skills training alone wasn't enough. Students faced barriers like unstable housing, mental health challenges, lack of transportation, and no professional network. So we built a team that will address all of these issues—housing specialists, mental health professionals, life coaches, and employer relations staff.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed">
                 Today, Elevate For Humanity is more than a training provider. We're a comprehensive workforce ecosystem that takes people from unemployment to career success, providing every support they need along the way.

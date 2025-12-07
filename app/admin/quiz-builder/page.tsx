@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Quiz Builder | Elevate For Humanity',
-  description: 'Learn more about Quiz Builder inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Discover more about Quiz Builder inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function QuizBuilderPage() {
@@ -34,7 +34,7 @@ export default async function QuizBuilderPage() {
             Quiz Builder | Elevate For Humanity
           </h1>
           <p className="text-gray-600">
-            Learn more about Quiz Builder inside the Elevate For Humanity workforce ecosystem.
+            Discover more about Quiz Builder inside the Elevate For Humanity workforce ecosystem.
           </p>
         </header>
 
