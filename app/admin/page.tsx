@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin",
+  },
   title: 'Admin Command Center | Elevate For Humanity',
   description: 'Complete platform oversight and management',
 };

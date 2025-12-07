@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/ai-course-builder",
+  },
   title: 'Ai Course Builder | Elevate For Humanity',
   description: 'Discover more about Ai Course Builder inside the Elevate For Humanity workforce ecosystem.',
 };

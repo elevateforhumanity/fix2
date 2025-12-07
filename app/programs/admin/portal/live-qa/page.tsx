@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/admin/portal/live-qa",
+  },
   title: 'Live Qa | Elevate For Humanity',
   description: 'Discover more about Live Qa inside the Elevate For Humanity workforce ecosystem.',
 };

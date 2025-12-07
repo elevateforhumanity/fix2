@@ -5,6 +5,9 @@ import Link from 'next/link';
 import AIInstructor from '@/app/components/AIInstructor';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/student/ai-tutor",
+  },
   title: 'AI Tutor | Student Portal',
   description: 'Get personalized help from your AI instructor',
 };

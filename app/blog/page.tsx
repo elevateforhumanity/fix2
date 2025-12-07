@@ -5,6 +5,9 @@ import { createClient } from '@/lib/supabase/server';
 import { fetchDurableBlogPosts, getDurableBlogPostUrl } from '@/lib/durable-blog';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/blog",
+  },
   title: 'Blog | Elevate For Humanity',
   description: 'Latest news, success stories, and workforce development insights from Elevate For Humanity.',
 };

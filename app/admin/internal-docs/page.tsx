@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/internal-docs",
+  },
   title: 'Internal Docs | Elevate For Humanity',
   description: 'Discover more about Internal Docs inside the Elevate For Humanity workforce ecosystem.',
 };

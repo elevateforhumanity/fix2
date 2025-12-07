@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/building-maintenance",
+  },
   title: 'Building Maintenance | Elevate For Humanity',
   description: 'Discover more about Building Maintenance inside the Elevate For Humanity workforce ecosystem.',
 };

@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/peer-recovery-coach",
+  },
   title: 'Peer Recovery Coach Training | Elevate For Humanity',
   description: '100% free Peer Recovery Coach training. Learn addiction recovery support, counseling skills, and community resources. Get certified.',
 };

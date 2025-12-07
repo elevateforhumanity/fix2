@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/selfish-inc",
+  },
   title: 'Selfish Inc | Elevate For Humanity',
   description: 'Discover more about Selfish Inc inside the Elevate For Humanity workforce ecosystem.',
 };

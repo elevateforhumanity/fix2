@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/lms/forums/[forumId]",
+  },
   title: '[forumId] | Elevate For Humanity',
   description: 'Discover more about [forumId] inside the Elevate For Humanity workforce ecosystem.',
 };

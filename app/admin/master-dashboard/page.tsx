@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/master-dashboard",
+  },
   title: 'Master Dashboard | Elevate For Humanity',
   description: 'Discover more about Master Dashboard inside the Elevate For Humanity workforce ecosystem.',
 };

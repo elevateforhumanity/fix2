@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/courses/partners",
+  },
   title: 'Partner Course Catalog | Elevate For Humanity',
   description: '1200+ professional courses from indusstart-leading partners',
 };

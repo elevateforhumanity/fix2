@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/sterile-processing",
+  },
   title: 'Sterile Processing Training | Elevate For Humanity',
   description: '100% free Sterile Processing training. Learn medical equipment sterilization, infection control, and safety protocols. Get certified.',
 };

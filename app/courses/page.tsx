@@ -4,6 +4,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/courses",
+  },
   title: 'Course Catalog | Elevate For Humanity',
   description: 'Browse our complete catalog of workforce development courses. 100% free training programs funded by WIOA.',
 };

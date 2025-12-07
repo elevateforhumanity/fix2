@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/site-health",
+  },
   title: 'Site Health | Elevate For Humanity',
   description: 'Discover more about Site Health inside the Elevate For Humanity workforce ecosystem.',
 };

@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/courses-v2/[courseId]",
+  },
   title: '[courseId] | Elevate For Humanity',
   description: 'Discover more about [courseId] inside the Elevate For Humanity workforce ecosystem.',
 };

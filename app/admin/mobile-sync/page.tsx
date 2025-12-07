@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/mobile-sync",
+  },
   title: 'Mobile Sync | Elevate For Humanity',
   description: 'Discover more about Mobile Sync inside the Elevate For Humanity workforce ecosystem.',
 };

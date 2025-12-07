@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/getstarted",
+  },
   title: 'Get Started | Elevate For Humanity',
   description: 'Start your free career training today. Apply for WIOA, WRG, or apprenticeship programs.',
 };

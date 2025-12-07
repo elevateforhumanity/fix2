@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.orglicants",
+  },
   title: 'Applicants | Elevate For Humanity',
   description: 'Discover more about Applicants inside the Elevate For Humanity workforce ecosystem.',
 };

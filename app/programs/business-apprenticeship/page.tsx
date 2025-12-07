@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/business-apprenticeship",
+  },
   title: 'Business Apprenticeship | Elevate For Humanity',
   description: 'Discover more about Business Apprenticeship inside the Elevate For Humanity workforce ecosystem.',
 };

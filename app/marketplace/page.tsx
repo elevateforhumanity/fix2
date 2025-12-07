@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/marketplace",
+  },
   title: 'Student Store | Elevate For Humanity',
   description: 'Shop for course materials, uniforms, tools, and certification prep materials.',
 };

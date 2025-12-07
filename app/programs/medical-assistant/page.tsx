@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/medical-assistant",
+  },
   title: 'Medical Assistant Training | Elevate For Humanity',
   description: 'Become a Medical Assistant. Free training. Work in doctors offices and clinics.',
 };

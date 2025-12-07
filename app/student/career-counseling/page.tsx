@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/student/career-counseling",
+  },
   title: 'Career Counseling | Elevate For Humanity',
   description: 'Discover more about Career Counseling inside the Elevate For Humanity workforce ecosystem.',
 };

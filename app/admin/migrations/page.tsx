@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/migrations",
+  },
   title: 'Migrations | Elevate For Humanity',
   description: 'Discover more about Migrations inside the Elevate For Humanity workforce ecosystem.',
 };

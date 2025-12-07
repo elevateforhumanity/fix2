@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { FileText, Clock, CheckCircle, AlertCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/assignments",
+  },
   title: 'Assignments | Student Portal',
   description: 'View and submit your assignments',
 };

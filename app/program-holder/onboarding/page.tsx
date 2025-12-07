@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { BookOpen, Users, BarChart, MessageSquare, CheckCircle, Video, FileText, HelpCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/program-holder/onboarding",
+  },
   title: 'Program Holder Onboarding | Elevate For Humanity',
   description: 'Complete training and orientation for program holders to manage students and access the platform.',
 };

@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/copilot",
+  },
   title: 'Copilot | Elevate For Humanity',
   description: 'Discover more about Copilot inside the Elevate For Humanity workforce ecosystem.',
 };

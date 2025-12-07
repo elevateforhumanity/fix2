@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { Users, GraduationCap, Building2, FileCheck, TrendingUp, AlertCircle, CheckCircle, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/dashboard",
+  },
   title: 'Admin Dashboard | Elevate For Humanity',
   description: 'Manage students, program holders, enrollments, and platform operations.',
 };

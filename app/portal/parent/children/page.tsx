@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/parent/children",
+  },
   title: 'My Children | Elevate For Humanity',
   description: 'Manage your children\'s learning accounts',
 };

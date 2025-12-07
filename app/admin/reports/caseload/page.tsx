@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/reports/caseload",
+  },
   title: 'Caseload | Elevate For Humanity',
   description: 'Discover more about Caseload inside the Elevate For Humanity workforce ecosystem.',
 };

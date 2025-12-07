@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/integrations/google-classroom",
+  },
   title: 'Google Classroom | Elevate For Humanity',
   description: 'Discover more about Google Classroom inside the Elevate For Humanity workforce ecosystem.',
 };

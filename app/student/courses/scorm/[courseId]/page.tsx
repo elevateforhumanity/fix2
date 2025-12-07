@@ -6,6 +6,9 @@ import { SCORMPlayer } from './SCORMPlayer';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/student/courses/scorm/[courseId]",
+  },
   title: 'Course Player | Elevate For Humanity',
 };
 

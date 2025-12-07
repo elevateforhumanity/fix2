@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/tax-filing",
+  },
   title: 'File Your Taxes for $100 | Drake Tax Software | Elevate for Humanity',
   description: 'Professional tax filing powered by Drake Software. File federal and state taxes for just $100. Maximum refund guaranteed. Expert support included.',
   keywords: 'tax filing, Drake software, tax preparation, file taxes online, tax refund, federal taxes, state taxes, tax return, TurboTax alternative',

@@ -4,6 +4,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/auth/signin",
+  },
   title: 'Sign In | Elevate For Humanity',
   description: 'Sign in to access your courses, track progress, and continue your workforce training journey.',
 };

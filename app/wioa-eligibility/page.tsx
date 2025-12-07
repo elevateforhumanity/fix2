@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/wioa-eligibility",
+  },
   title: 'WIOA Eligibility Requirements | Elevate For Humanity',
   description: 'Check if you qualify for 100% free career training through WIOA funding. Learn about eligibility requirements and how to apply.',
 };

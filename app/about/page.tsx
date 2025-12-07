@@ -5,6 +5,9 @@ import Image from "next/image";
 import { Award, Users, Target, Heart } from "lucide-react";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/about",
+  },
   title: "About | Elevate For Humanity",
   description: "Discover more about Elevate For Humanity and our mission to connect individuals with life-changing career opportunities through free workforce training.",
 };

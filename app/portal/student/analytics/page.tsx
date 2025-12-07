@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import { BarChart3, TrendingUp, Award, Users, BookOpen, Target } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/analytics",
+  },
   title: 'Analytics | Student Portal',
   description: 'Manage your analytics',
 };

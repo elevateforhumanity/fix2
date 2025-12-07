@@ -6,6 +6,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/employers",
+  },
   title: 'Employers | Elevate For Humanity',
   description: 'Discover more about Employers inside the Elevate For Humanity workforce ecosystem.',
 };

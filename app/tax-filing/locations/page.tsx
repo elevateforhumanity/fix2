@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/tax-filing/locations",
+  },
   title: 'Tax Filing Locations | Find Tax Preparers in All 50 States | Elevate for Humanity',
   description: 'Find professional tax preparers near you. Drake Software certified. $100 flat fee. Available in all 50 states. Local tax experts in your area.',
   keywords: 'tax preparer near me, tax filing locations, local tax service, tax preparation by state, Drake software tax preparer',

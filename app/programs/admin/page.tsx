@@ -7,6 +7,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/admin",
+  },
   title: 'Program Holder | Elevate For Humanity',
   description: 'Discover more about Program Holder inside the Elevate For Humanity workforce ecosystem.',
 };

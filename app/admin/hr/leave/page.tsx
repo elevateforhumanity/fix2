@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/hr/leave",
+  },
   title: 'Leave | Elevate For Humanity',
   description: 'Discover more about Leave inside the Elevate For Humanity workforce ecosystem.',
 };

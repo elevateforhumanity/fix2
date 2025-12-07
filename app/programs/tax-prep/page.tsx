@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/tax-prep",
+  },
   title: 'Tax Preparation Training | Elevate For Humanity',
   description: '100% free Tax Preparation training. Learn tax law, filing procedures, and client service. Get certified and start your business.',
 };

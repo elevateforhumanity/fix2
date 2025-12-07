@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import { User, Lock, Bell, Eye, Globe, Shield, Download, Trash2 } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/settings",
+  },
   title: 'Settings | Student Portal',
 };
 

@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/program-holders/[id]/countersign-mou",
+  },
   title: 'Countersign Mou | Elevate For Humanity',
   description: 'Discover more about Countersign Mou inside the Elevate For Humanity workforce ecosystem.',
 };

@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/grievance",
+  },
   title: 'Grievance Procedure | Elevate For Humanity',
   description: 'File a grievance if you believe you were denied services, experienced discrimination, or were treated unfairly in our WIOA programs.',
 };

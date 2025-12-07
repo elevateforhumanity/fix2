@@ -4,6 +4,9 @@ import Image from 'next/image';
 import { Quote } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/success-stories",
+  },
   title: 'Success Stories | Elevate For Humanity',
   description: 'Real stories from real graduates who transformed their lives through our workforce training programs.',
 };

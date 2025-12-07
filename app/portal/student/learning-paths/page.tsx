@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import { BarChart3, TrendingUp, Award, Users, BookOpen, Target } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/learning-paths",
+  },
   title: 'Learning-paths | Student Portal',
   description: 'Manage your learning-paths',
 };

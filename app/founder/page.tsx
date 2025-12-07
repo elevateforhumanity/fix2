@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/founder",
+  },
   title: 'Elizabeth L. Greene - Founder | Elevate For Humanity',
   description: 'Meet Elizabeth L. Greene, founder and CEO of Elevate For Humanity.',
 };

@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/patient-care-technician",
+  },
   title: 'Patient Care Technician Training | Elevate For Humanity',
   description: '100% free Patient Care Technician training. Learn patient care, vital signs, and clinical support. Get certified.',
 };

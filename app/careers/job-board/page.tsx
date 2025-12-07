@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/careers/job-board",
+  },
   title: 'Job Board | Elevate For Humanity',
   description: 'Discover more about Job Board inside the Elevate For Humanity workforce ecosystem.',
 };

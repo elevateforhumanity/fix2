@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.orgrenticeship/hours",
+  },
   title: 'Hours | Elevate For Humanity',
   description: 'Discover more about Hours inside the Elevate For Humanity workforce ecosystem.',
 };

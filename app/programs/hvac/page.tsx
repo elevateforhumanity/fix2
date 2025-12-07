@@ -8,6 +8,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/hvac",
+  },
   title: "HVAC Technician Training | Elevate For Humanity",
   description: "100% free HVAC training program. Learn heating, ventilation, and air conditioning systems. Get certified and start your career.",
 };

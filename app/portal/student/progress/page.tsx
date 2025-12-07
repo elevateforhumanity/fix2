@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import { TrendingUp, Clock, Target, Award } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/progress",
+  },
   title: 'Progress | Student Portal',
   description: 'Track your learning progress',
 };

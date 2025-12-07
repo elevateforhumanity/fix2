@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/supersonic-cash",
+  },
   title: 'Supersonic Cash Advance | Elevate for Humanity',
   description: 'Fast cash advance up to $3,500. Get approved in minutes.',
 };

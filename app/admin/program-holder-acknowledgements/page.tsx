@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/program-holder-acknowledgements",
+  },
   title: 'Program Holder Acknowledgements | Elevate For Humanity',
   description: 'Discover more about Program Holder Acknowledgements inside the Elevate For Humanity workforce ecosystem.',
 };

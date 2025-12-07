@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/equal-opportunity",
+  },
   title: 'Equal Opportunity Statement | Elevate For Humanity',
   description: 'Equal opportunity employer and program provider. We do not discriminate on the basis of race, color, religion, sex, national origin, age, disability, or political affiliation.',
 };

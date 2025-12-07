@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/ekg-technician",
+  },
   title: 'EKG Technician Training | Elevate For Humanity',
   description: '100% free EKG Technician training. Learn electrocardiography, heart monitoring, and patient care. Get certified.',
 };

@@ -4,6 +4,9 @@ import { allProducts } from '@/lib/store/products';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/store",
+  },
   title: 'Training Resources Store | Elevate For Humanity',
   description: 'Professional training materials, workbooks, and resources to support your career development.',
 };

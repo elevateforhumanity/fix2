@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/call-now",
+  },
   title: 'Call Now | Elevate For Humanity',
   description: 'Discover more about Call Now inside the Elevate For Humanity workforce ecosystem.',
 };

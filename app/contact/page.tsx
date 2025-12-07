@@ -4,6 +4,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/contact",
+  },
   title: 'Contact | Elevate For Humanity',
   description: 'Get in touch with Elevate For Humanity. Questions about programs, enrollment, or partnerships? We\'re here to help.',
 };

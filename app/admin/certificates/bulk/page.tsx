@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/certificates/bulk",
+  },
   title: 'Bulk | Elevate For Humanity',
   description: 'Discover more about Bulk inside the Elevate For Humanity workforce ecosystem.',
 };

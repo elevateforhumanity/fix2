@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/cdl",
+  },
   title: 'CDL Training Program | Elevate For Humanity',
   description: 'Get your Commercial Driver License. Free training. Start earning $50K+ your first year.',
 };

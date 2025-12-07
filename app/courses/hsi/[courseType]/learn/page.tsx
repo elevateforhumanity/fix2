@@ -6,6 +6,9 @@ import { HSICoursePlayer } from './HSICoursePlayer';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/courses/hsi/[courseType]/learn",
+  },
   title: 'HSI Course | Elevate For Humanity',
 };
 

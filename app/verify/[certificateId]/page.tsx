@@ -4,6 +4,9 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/verify/[certificateId]",
+  },
   title: 'Verify Certificate | Elevate For Humanity',
   description: 'Verify the authenticity of a certificate issued by Elevate For Humanity',
 };

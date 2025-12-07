@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import LoginForm from './LoginForm';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/login",
+  },
   title: 'Login | Elevate For Humanity',
   description: 'Sign in to access your courses and training programs',
 };

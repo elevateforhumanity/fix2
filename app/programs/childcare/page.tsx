@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/childcare",
+  },
   title: 'Childcare Training | Elevate For Humanity',
   description: '100% free Childcare training. Learn early childhood education, child development, and classroom management. Get certified.',
 };

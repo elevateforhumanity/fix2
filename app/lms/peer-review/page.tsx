@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/lms/peer-review",
+  },
   title: 'Peer Review | Elevate For Humanity',
   description: 'Discover more about Peer Review inside the Elevate For Humanity workforce ecosystem.',
 };

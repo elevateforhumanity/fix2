@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/sign/[documentId]",
+  },
   title: '[documentId] | Elevate For Humanity',
   description: 'Discover more about [documentId] inside the Elevate For Humanity workforce ecosystem.',
 };

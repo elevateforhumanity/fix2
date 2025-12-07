@@ -7,6 +7,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/peer-support-professional",
+  },
   title: 'Peer Support Professional | Elevate For Humanity',
   description: 'Discover more about Peer Support Professional inside the Elevate For Humanity workforce ecosystem.',
 };

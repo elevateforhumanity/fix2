@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/partners/reentry",
+  },
   title: 'Reenstart | Elevate For Humanity',
   description: 'Discover more about Reenstart inside the Elevate For Humanity workforce ecosystem.',
 };

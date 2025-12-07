@@ -3,6 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/jri",
+  },
   title: 'Job Ready Indy (JRI) Programs | Elevate For Humanity',
   description: 'Second-chance career training through Job Ready Indy. 100% funded programs for justice-involved individuals ready to rebuild their lives.',
 };

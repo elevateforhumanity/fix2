@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/videos/employer-pipeline",
+  },
   title: 'Employer Pipeline | Elevate For Humanity',
   description: 'Discover more about Employer Pipeline inside the Elevate For Humanity workforce ecosystem.',
 };

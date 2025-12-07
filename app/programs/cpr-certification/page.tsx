@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/cpr-certification",
+  },
   title: 'CPR & First Aid Certification | Elevate For Humanity',
   description: '100% free CPR and First Aid certification. Learn life-saving skills, AED use, and emergency response. Get certified.',
 };

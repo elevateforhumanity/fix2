@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import { BarChart3, TrendingUp, Award, Users, BookOpen, Target } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/peer-review",
+  },
   title: 'Peer-review | Student Portal',
   description: 'Manage your peer-review',
 };

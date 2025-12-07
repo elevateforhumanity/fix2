@@ -9,6 +9,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/control-center",
+  },
   title: 'Admin Control Center | Elevate For Humanity',
   description: 'Complete admin control with AI autopilot - build courses, manage content, and automate everything',
 };

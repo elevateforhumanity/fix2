@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import CertificateVerificationForm from './CertificateVerificationForm';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/certificates/verify",
+  },
   title: 'Verify Certificate | Elevate For Humanity',
   description: 'Verify the authenticity of certificates issued by Elevate For Humanity',
 };

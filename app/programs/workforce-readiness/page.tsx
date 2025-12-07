@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/workforce-readiness",
+  },
   title: 'Workforce Readiness Training | Elevate For Humanity',
   description: '100% free Workforce Readiness training. Learn job skills, resume building, interview prep, and workplace success strategies.',
 };

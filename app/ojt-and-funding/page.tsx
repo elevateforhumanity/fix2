@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/ojt-and-funding",
+  },
   title: 'Ojt And Funding | Elevate For Humanity',
   description: 'Discover more about Ojt And Funding inside the Elevate For Humanity workforce ecosystem.',
 };

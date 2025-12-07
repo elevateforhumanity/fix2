@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/videos/barber-spotlight",
+  },
   title: 'Barber Spotlight | Elevate For Humanity',
   description: 'Discover more about Barber Spotlight inside the Elevate For Humanity workforce ecosystem.',
 };

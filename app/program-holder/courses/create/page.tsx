@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/program-holder/courses/create",
+  },
   title: 'Create | Elevate For Humanity',
   description: 'Discover more about Create inside the Elevate For Humanity workforce ecosystem.',
 };

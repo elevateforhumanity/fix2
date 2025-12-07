@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/pharmacy-technician",
+  },
   title: 'Pharmacy Technician Training | Elevate For Humanity',
   description: '100% free Pharmacy Technician training. Learn medication dispensing, inventory management, and patient service. Get certified.',
 };

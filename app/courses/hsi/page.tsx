@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/courses/hsi",
+  },
   title: 'HSI Safety Training Courses | Elevate For Humanity',
   description: 'Access 1,200+ OSHA-compliant safety training courses through our HSI partnership. 100% free for eligible students.',
 };

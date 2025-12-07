@@ -6,6 +6,9 @@ import Image from 'next/image';
 import { Users, Building2, GraduationCap, CheckCircle, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/onboarding",
+  },
   title: 'Welcome & Onboarding | Elevate For Humanity',
   description: 'Get started with your training journey.',
 };

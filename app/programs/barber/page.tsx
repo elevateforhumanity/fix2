@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/barber",
+  },
   title: 'Barber Training Program | Elevate For Humanity',
   description: '100% free barber training program. Learn cutting, styling, and business skills. Get licensed and start your career.',
 };

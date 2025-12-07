@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import { User, Mail, Phone, MapPin, Briefcase, GraduationCap } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/profile",
+  },
   title: 'Profile | Student Portal',
   description: 'Manage your profile',
 };

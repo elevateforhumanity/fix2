@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/beauty-career-educator",
+  },
   title: 'Beauty Career Educator | Elevate For Humanity',
   description: 'Discover more about Beauty Career Educator inside the Elevate For Humanity workforce ecosystem.',
 };

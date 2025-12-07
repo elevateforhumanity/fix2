@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/parent/dashboard",
+  },
   title: 'Parent Dashboard | Elevate For Humanity',
   description: 'Monitor your children\'s learning progress',
 };

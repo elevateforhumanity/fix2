@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { MessageSquare, Send, Search, Paperclip, MoreVertical, User } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/messages",
+  },
   title: 'Messages | Student Portal',
   description: 'Send and receive messages',
 };

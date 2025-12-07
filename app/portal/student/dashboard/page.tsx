@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { BookOpen, Award, Clock, TrendingUp, CheckCircle, Calendar, Target, Bell } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/dashboard",
+  },
   title: 'Student Dashboard | Elevate For Humanity',
   description: 'Your personalized learning dashboard',
 };

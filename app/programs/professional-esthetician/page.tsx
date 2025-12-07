@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/professional-esthetician",
+  },
   title: 'Professional Esthetician Training | Elevate For Humanity',
   description: '100% free Esthetician training. Learn skincare, facials, and spa treatments. Get licensed and start your career.',
 };

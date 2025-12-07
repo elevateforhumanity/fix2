@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/google-classroom",
+  },
   title: 'Google Classroom | Elevate For Humanity',
   description: 'Discover more about Google Classroom inside the Elevate For Humanity workforce ecosystem.',
 };

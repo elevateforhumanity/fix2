@@ -3,6 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/about/team",
+  },
   title: 'Our Team | Elevate For Humanity',
   description: 'Meet the dedicated professionals leading Elevate For Humanity\'s mission to transform lives through education and career training.',
 };

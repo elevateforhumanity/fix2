@@ -7,6 +7,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/healthcare-administration",
+  },
   title: 'Healthcare Administration | Elevate For Humanity',
   description: 'Discover more about Healthcare Administration inside the Elevate For Humanity workforce ecosystem.',
 };

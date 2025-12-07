@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/certificates/generate",
+  },
   title: 'Generate | Elevate For Humanity',
   description: 'Discover more about Generate inside the Elevate For Humanity workforce ecosystem.',
 };

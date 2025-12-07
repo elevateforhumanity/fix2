@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/courses/[id]/quizzes/[quizId]/questions",
+  },
   title: 'Questions | Elevate For Humanity',
   description: 'Discover more about Questions inside the Elevate For Humanity workforce ecosystem.',
 };

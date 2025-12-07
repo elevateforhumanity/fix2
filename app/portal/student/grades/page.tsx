@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import { TrendingUp, Award, FileText } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/grades",
+  },
   title: 'Grades | Student Portal',
   description: 'View your grades and academic performance',
 };

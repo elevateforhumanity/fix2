@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/emergency-health-safety-tech",
+  },
   title: 'Emergency Health & Safety Training | Elevate For Humanity',
   description: '100% free Emergency Health & Safety training. Learn CPR, First Aid, AED, and emergency response. Get certified.',
 };

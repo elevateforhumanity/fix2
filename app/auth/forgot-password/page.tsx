@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import ForgotPasswordForm from './ForgotPasswordForm';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/auth/forgot-password",
+  },
   title: 'Reset Password | Elevate For Humanity',
   description: 'Reset your password to regain access to your account',
 };

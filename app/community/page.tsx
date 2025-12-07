@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { AutoPolishedPage } from "@/components/layouts/AutoPolishedPage";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/community",
+  },
   title: "Community | Elevate For Humanity",
   description: "Discover more about Community inside the Elevate For Humanity workforce ecosystem.",
 };

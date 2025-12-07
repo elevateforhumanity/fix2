@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/phlebotomy",
+  },
   title: 'Phlebotomy Training | Elevate For Humanity',
   description: '100% free Phlebotomy training. Learn blood collection, lab procedures, and patient care. Get certified and start your career.',
 };

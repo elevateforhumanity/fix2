@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/rise",
+  },
   title: 'RISE Foundation | Empowering Communities Through Education',
   description: 'RISE Foundation is a non-profit organization dedicated to providing educational opportunities and workforce development programs.',
 };

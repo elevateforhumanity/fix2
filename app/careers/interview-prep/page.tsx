@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/careers/interview-prep",
+  },
   title: 'Interview Prep | Elevate For Humanity',
   description: 'Discover more about Interview Prep inside the Elevate For Humanity workforce ecosystem.',
 };

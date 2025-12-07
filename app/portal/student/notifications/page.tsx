@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import { Bell, CheckCheck, Trash2, Settings, BookOpen, Award, MessageSquare, Calendar, AlertCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/notifications",
+  },
   title: 'Notifications | Student Portal',
   description: 'View and manage your notifications',
 };

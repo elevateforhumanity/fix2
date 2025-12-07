@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/courses/hsi/success",
+  },
   title: 'Success | Elevate For Humanity',
   description: 'Discover more about Success inside the Elevate For Humanity workforce ecosystem.',
 };

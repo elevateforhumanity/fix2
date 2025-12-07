@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import EnrollmentForm from './EnrollmentForm';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/courses/partners/[courseId]/enroll",
+  },
   title: 'Enroll in Course | Elevate For Humanity',
   description: 'Complete your enrollment in this partner course',
 };

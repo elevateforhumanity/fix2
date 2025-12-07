@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/pwa-test",
+  },
   title: 'Pwa Test | Elevate For Humanity',
   description: 'Discover more about Pwa Test inside the Elevate For Humanity workforce ecosystem.',
 };

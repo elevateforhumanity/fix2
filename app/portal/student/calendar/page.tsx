@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import { ChevronLeft, ChevronRight, Plus, Calendar as CalendarIcon, Clock, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/student/calendar",
+  },
   title: 'Calendar | Student Portal',
 };
 

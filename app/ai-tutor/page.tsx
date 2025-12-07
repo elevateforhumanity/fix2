@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/ai-tutor",
+  },
   title: 'Ai Tutor | Elevate For Humanity',
   description: 'Discover more about Ai Tutor inside the Elevate For Humanity workforce ecosystem.',
 };

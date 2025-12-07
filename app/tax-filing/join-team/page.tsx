@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/tax-filing/join-team",
+  },
   title: 'Become a Tax Preparer | Join Our Team | Earn $50K-$100K+ | Elevate for Humanity',
   description: 'Start your own tax preparation business. Free training with Drake Software. Earn $50K-$100K+ per season. Work from home. No experience required.',
   keywords: 'tax preparer jobs, tax preparation training, Drake software training, become tax preparer, tax business opportunity, work from home, tax franchise',

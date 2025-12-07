@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import { BarChart3, TrendingUp, Award, Users, BookOpen, Target } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.orgrenticeship-hours",
+  },
   title: 'Apprenticeship-hours | Student Portal',
   description: 'Manage your apprenticeship-hours',
 };

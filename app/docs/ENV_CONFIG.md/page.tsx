@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/docs/ENV_CONFIG.md",
+  },
   title: 'ENV_CONFIG.md | Elevate For Humanity',
   description: 'Discover more about ENV_CONFIG.md inside the Elevate For Humanity workforce ecosystem.',
 };

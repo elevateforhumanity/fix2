@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/dental-assistant",
+  },
   title: 'Dental Assistant Training | Elevate For Humanity',
   description: '100% free Dental Assistant training. Learn chairside assisting, X-rays, and patient care. Get certified and start your career.',
 };

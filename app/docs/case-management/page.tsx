@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/docs/case-management",
+  },
   title: 'Case Management | Elevate For Humanity',
   description: 'Discover more about Case Management inside the Elevate For Humanity workforce ecosystem.',
 };

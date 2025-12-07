@@ -8,6 +8,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/building-tech",
+  },
   title: 'Building Technology Training | Elevate For Humanity',
   description: '100% free Building Technology training. Learn construction, maintenance, and building systems. Get certified and start your career.',
 };

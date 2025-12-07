@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/checkout/prog-tax-vita",
+  },
   title: 'Prog Tax Vita | Elevate For Humanity',
   description: 'Discover more about Prog Tax Vita inside the Elevate For Humanity workforce ecosystem.',
 };

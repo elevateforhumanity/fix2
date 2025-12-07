@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/student/courses",
+  },
   title: 'My Courses | Student Portal',
   description: 'View and manage your enrolled courses',
 };

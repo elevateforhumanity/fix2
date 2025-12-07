@@ -7,6 +7,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs/tax-prep-financial-services",
+  },
   title: 'Tax Prep Financial Services | Elevate For Humanity',
   description: 'Discover more about Tax Prep Financial Services inside the Elevate For Humanity workforce ecosystem.',
 };

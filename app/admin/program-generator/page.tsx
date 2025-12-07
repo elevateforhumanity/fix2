@@ -3,6 +3,9 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/program-generator",
+  },
   title: 'Program Generator | Elevate For Humanity',
   description: 'Discover more about Program Generator inside the Elevate For Humanity workforce ecosystem.',
 };
