@@ -1,0 +1,25 @@
+{
+  "autopilot_id": "database-autopilot",
+  "priority": "CRITICAL",
+  "deadline": "TODAY",
+  "assignments": [
+    {
+      "task": "Run all 4 SQL migrations",
+      "files": [
+        "supabase/migrations/20241207_program_holders.sql",
+        "supabase/migrations/20241207_complete_hr_documents.sql",
+        "supabase/migrations/20241207_complete_course_security.sql",
+        "supabase/migrations/20241207_program_holder_flexible_permissions.sql"
+      ],
+      "verify": "Check all tables created with RLS enabled"
+    },
+    {
+      "task": "Verify all database tables exist",
+      "check": "conversations, messages, program_holder_emails, hr_documents"
+    },
+    {
+      "task": "Create missing indexes for performance",
+      "optimize": true
+    }
+  ]
+}

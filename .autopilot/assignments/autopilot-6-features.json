@@ -1,0 +1,37 @@
+{
+  "autopilot_id": "feature-activator-autopilot",
+  "priority": "CRITICAL",
+  "deadline": "TODAY",
+  "assignments": [
+    {
+      "task": "Activate AI Course Builder",
+      "file": "app/admin/ai-course-builder/page.tsx",
+      "connect_to": "OpenAI API",
+      "status": "PLACEHOLDER - ACTIVATE NOW"
+    },
+    {
+      "task": "Activate Quiz Builder",
+      "file": "app/admin/quiz-builder/page.tsx",
+      "features": ["create quiz", "question types", "auto-grade"],
+      "status": "PLACEHOLDER - ACTIVATE NOW"
+    },
+    {
+      "task": "Activate Course Builder",
+      "file": "app/admin/course-builder/page.tsx",
+      "features": ["drag-drop", "add lessons", "rich editor"],
+      "status": "PLACEHOLDER - ACTIVATE NOW"
+    },
+    {
+      "task": "Connect Email System to Program Holders",
+      "existing": "app/admin/email-marketing/",
+      "create": "app/program-holder/messages/",
+      "integrate": "Resend API"
+    },
+    {
+      "task": "Activate Video Manager",
+      "file": "app/admin/videos/page.tsx",
+      "features": ["upload", "library", "embed"],
+      "status": "CREATE NOW"
+    }
+  ]
+}

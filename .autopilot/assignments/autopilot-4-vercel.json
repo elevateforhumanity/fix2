@@ -1,0 +1,19 @@
+{
+  "autopilot_id": "vercel-autopilot",
+  "priority": "MEDIUM",
+  "deadline": "TODAY",
+  "assignments": [
+    {
+      "task": "Configure environment variables",
+      "verify": "All env vars set in Vercel"
+    },
+    {
+      "task": "Set up preview deployments",
+      "enable": "Automatic preview for all branches"
+    },
+    {
+      "task": "Configure custom domain",
+      "domain": "elevateforhumanity.org"
+    }
+  ]
+}

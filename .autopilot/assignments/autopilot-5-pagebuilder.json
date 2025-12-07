@@ -1,0 +1,56 @@
+{
+  "autopilot_id": "page-builder-autopilot",
+  "priority": "CRITICAL",
+  "deadline": "TODAY",
+  "assignments": [
+    {
+      "task": "Build Students Management Page",
+      "file": "app/admin/students/page.tsx",
+      "features": ["list", "search", "filter", "edit", "export"],
+      "status": "PLACEHOLDER - REPLACE NOW"
+    },
+    {
+      "task": "Build Enrollments Management Page",
+      "file": "app/admin/enrollments/page.tsx",
+      "features": ["list", "filter", "status", "export"],
+      "status": "PLACEHOLDER - REPLACE NOW"
+    },
+    {
+      "task": "Build Programs Management Page",
+      "file": "app/admin/programs/page.tsx",
+      "features": ["list", "create", "edit", "activate"],
+      "status": "PLACEHOLDER - REPLACE NOW"
+    },
+    {
+      "task": "Build Program Holder Messages Page",
+      "file": "app/program-holder/messages/page.tsx",
+      "copy_from": "app/portal/student/messages/page.tsx",
+      "modify": "Add permission checks and filter for their students",
+      "status": "MISSING - CREATE NOW"
+    },
+    {
+      "task": "Build Program Holder Reports Page",
+      "file": "app/program-holder/reports/page.tsx",
+      "features": ["generate", "export", "filter"],
+      "status": "MISSING - CREATE NOW"
+    },
+    {
+      "task": "Build Program Holder Enroll Page",
+      "file": "app/program-holder/enroll/page.tsx",
+      "features": ["form", "select program", "submit"],
+      "status": "MISSING - CREATE NOW"
+    },
+    {
+      "task": "Build Digital Binders Hub",
+      "file": "app/admin/digital-binders/page.tsx",
+      "features": ["list all binders", "search", "link to courses"],
+      "status": "MISSING - CREATE NOW"
+    },
+    {
+      "task": "Build Gradebook Page",
+      "file": "app/admin/gradebook/page.tsx",
+      "features": ["view grades", "grade by course", "export"],
+      "status": "MISSING - CREATE NOW"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "autopilot_id": "deployment-autopilot",
+  "priority": "HIGH",
+  "deadline": "TODAY",
+  "assignments": [
+    {
+      "task": "Build and test all pages",
+      "command": "npm run build",
+      "verify": "No build errors"
+    },
+    {
+      "task": "Deploy to Vercel",
+      "when": "After all features complete",
+      "verify": "Deployment successful"
+    },
+    {
+      "task": "Verify all routes accessible",
+      "test": "Check 200 status on critical pages"
+    }
+  ]
+}

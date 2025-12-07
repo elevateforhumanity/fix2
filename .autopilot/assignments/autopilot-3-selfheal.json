@@ -1,0 +1,28 @@
+{
+  "autopilot_id": "self-healing-autopilot",
+  "priority": "CRITICAL",
+  "deadline": "TODAY",
+  "assignments": [
+    {
+      "task": "Replace ALL placeholder pages with functional pages",
+      "target": "112 placeholder pages",
+      "method": "Generate functional pages from templates"
+    },
+    {
+      "task": "Fix all broken links in dashboards",
+      "scan": ["app/admin/dashboard", "app/program-holder/dashboard"],
+      "action": "Remove or fix broken links"
+    },
+    {
+      "task": "Remove ALL gradients site-wide",
+      "find": "bg-gradient",
+      "replace": "solid colors or images",
+      "count": "413 instances"
+    },
+    {
+      "task": "Fix hero banners - remove text overlays",
+      "target": "24 program pages",
+      "action": "Move text below hero image"
+    }
+  ]
+}

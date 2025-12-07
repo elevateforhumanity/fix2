@@ -1,0 +1,33 @@
+{
+  "autopilot_id": "qa-autopilot",
+  "priority": "HIGH",
+  "deadline": "TODAY",
+  "assignments": [
+    {
+      "task": "Test all admin features",
+      "verify": "All links work, no 404s"
+    },
+    {
+      "task": "Test program holder features",
+      "verify": "Can view students, send emails, generate reports"
+    },
+    {
+      "task": "Test student features",
+      "verify": "Can only access enrolled courses"
+    },
+    {
+      "task": "Test course security",
+      "verify": "RLS policies block unauthorized access"
+    },
+    {
+      "task": "Run accessibility audit",
+      "tool": "axe DevTools",
+      "target": "WCAG 2.1 AA"
+    },
+    {
+      "task": "Performance test",
+      "tool": "Lighthouse",
+      "target": "> 90 score"
+    }
+  ]
+}

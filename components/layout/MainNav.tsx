@@ -44,8 +44,9 @@ const fundingLinks = [
 const mainLinks = [
   { href: "/students", label: "For Students" },
   { href: "/employers", label: "For Employers" },
+  { href: "/store", label: "Store" },
+  { href: "/demos", label: "Demos" },
   { href: "https://elevateforhumanityeducation.com", label: "LMS", external: true },
-  { href: "/admin", label: "Admin" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/blog", label: "Blog" },

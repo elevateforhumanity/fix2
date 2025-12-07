@@ -16,66 +16,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STRONG HERO BANNER WITH ANIMATIONS */}
+      {/* STRONG HERO BANNER WITH PROFESSIONAL ANIMATIONS */}
       <section className="relative h-[600px] sm:h-[700px] md:h-[800px] w-full overflow-hidden bg-slate-900">
-        <Image
-          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=2400&h=1600&fit=crop&q=95"
-          alt="Professional career training at Elevate for Humanity"
-          fill
-          className="object-cover opacity-40 animate-[zoom_20s_ease-in-out_infinite]"
-          priority
-          quality={95}
-          sizes="100vw"
-        />
+        {/* Animated Background */}
+        <div className="absolute inset-0 animate-[heroZoom_20s_ease-in-out_infinite]">
+          <Image
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=2400&h=1600&fit=crop&q=95"
+            alt="Professional career training at Elevate for Humanity"
+            fill
+            className="object-cover opacity-40"
+            priority
+            quality={95}
+            sizes="100vw"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-900/80" />
         
+        {/* Content */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-            <div className="mb-6 animate-[fadeInDown_0.8s_ease-out]">
-              <span className="inline-block px-6 py-3 bg-orange-600 text-white font-bold text-sm sm:text-base rounded-full mb-6 animate-pulse">
+            {/* Top Badge - Slide in from top */}
+            <div className="mb-6 opacity-0 animate-[fadeInDown_0.8s_ease-out_forwards]">
+              <span className="inline-block px-6 py-3 bg-orange-600 text-white font-bold text-sm sm:text-base rounded-full mb-6 shadow-lg hover:shadow-orange-500/50 transition-shadow duration-300">
                 🎓 Next Class Starts January 15, 2025
               </span>
             </div>
             
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 sm:mb-8 leading-none tracking-tight animate-[fadeInUp_1s_ease-out]">
+            {/* Main Heading - Slide in from bottom */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 sm:mb-8 leading-none tracking-tight opacity-0 animate-[fadeInUp_1s_ease-out_0.2s_forwards]">
               Launch Your<br/>
-              <span className="text-orange-500 animate-[glow_2s_ease-in-out_infinite]">Career Today</span>
+              <span className="text-orange-500 inline-block animate-[glow_2s_ease-in-out_infinite]">Career Today</span>
             </h1>
             
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-bold mb-4 leading-tight animate-[fadeIn_1.2s_ease-out]">
+            {/* Subheading - Fade in */}
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-bold mb-4 leading-tight opacity-0 animate-[zoomIn_0.8s_ease-out_0.6s_forwards]">
               100% FREE Training
             </p>
             
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed animate-[fadeIn_1.4s_ease-out]">
+            {/* Description - Fade in */}
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.9s_forwards]">
               No Tuition • No Debt • Earn While You Learn<br/>
               Government-Funded Programs • Job Placement Support
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center animate-[fadeInUp_1.6s_ease-out]">
+            {/* CTA Buttons - Slide in from sides */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
               <Link
                 href="/programs"
-                className="w-full sm:w-auto px-10 py-5 bg-orange-600 text-white font-black text-xl rounded-full hover:bg-orange-700 transition-all duration-300 shadow-2xl hover:scale-110 hover:shadow-orange-500/50 transform text-center"
+                className="w-full sm:w-auto px-10 py-5 bg-orange-600 text-white font-black text-xl rounded-full hover:bg-orange-700 transition-all duration-300 shadow-2xl hover:scale-110 hover:shadow-orange-500/50 transform text-center opacity-0 animate-[slideInLeft_0.8s_ease-out_1.2s_forwards]"
               >
                 View Programs →
               </Link>
               <Link
                 href="/apply"
-                className="w-full sm:w-auto px-10 py-5 bg-white text-slate-900 font-black text-xl rounded-full hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:scale-110 transform text-center"
+                className="w-full sm:w-auto px-10 py-5 bg-white text-slate-900 font-black text-xl rounded-full hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:scale-110 transform text-center opacity-0 animate-[slideInRight_0.8s_ease-out_1.2s_forwards]"
               >
                 Apply Free Now
               </Link>
             </div>
             
-            <div className="mt-12 flex flex-wrap justify-center gap-8 text-white animate-[fadeIn_1.8s_ease-out]">
-              <div className="text-center transform hover:scale-110 transition-transform duration-300">
-                <div className="text-4xl sm:text-5xl font-black text-orange-500 animate-[countUp_2s_ease-out]">33</div>
+            {/* Stats - Float in from bottom */}
+            <div className="mt-12 flex flex-wrap justify-center gap-8 text-white opacity-0 animate-[fadeInUp_0.8s_ease-out_1.5s_forwards]">
+              <div className="text-center transform hover:scale-110 transition-all duration-300 hover:animate-[float_2s_ease-in-out_infinite]">
+                <div className="text-4xl sm:text-5xl font-black text-orange-500">33</div>
                 <div className="text-sm sm:text-base text-gray-300 font-semibold">Career Programs</div>
               </div>
-              <div className="text-center transform hover:scale-110 transition-transform duration-300">
+              <div className="text-center transform hover:scale-110 transition-all duration-300 hover:animate-[float_2s_ease-in-out_infinite]">
                 <div className="text-4xl sm:text-5xl font-black text-orange-500">$0</div>
                 <div className="text-sm sm:text-base text-gray-300 font-semibold">Tuition Cost</div>
               </div>
-              <div className="text-center transform hover:scale-110 transition-transform duration-300">
+              <div className="text-center transform hover:scale-110 transition-all duration-300 hover:animate-[float_2s_ease-in-out_infinite]">
                 <div className="text-4xl sm:text-5xl font-black text-orange-500">100%</div>
                 <div className="text-sm sm:text-base text-gray-300 font-semibold">Funded Training</div>
               </div>
