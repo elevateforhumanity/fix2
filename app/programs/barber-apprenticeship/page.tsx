@@ -8,7 +8,7 @@ export default function BarberApprenticeshipPage() {
       {/* Hero Banner */}
       <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&h=1080&fit=crop&q=90"
+          src="/images/programs/barber-hero.jpg"
           alt="Professional barber training and apprenticeship"
           fill
           className="object-cover"
