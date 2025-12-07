@@ -79,6 +79,9 @@ export const metadata = {
   title: "Programs | Elevate For Humanity",
   description:
     "Explore free career training programs in healthcare, trades, transportation, and workforce readiness funded through WIOA, WRG, and partner programs.",
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/programs",
+  },
 };
 
 export default async function ProgramsPage() {
