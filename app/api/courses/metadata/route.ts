@@ -1,0 +1,56 @@
+import { NextRequest, NextResponse } from "next/server";
+import { gh, parseRepo } from "@/lib/github";
+
+export async function GET(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const course = searchParams.get("course");
+    const repo = searchParams.get("repo") || "elevateforhumanity/fix2";
+    const branch = searchParams.get("branch") || "main";
+
+    if (!course) {
+      return NextResponse.json(
+        { error: "Missing course parameter" },
+        { status: 400 }
+      );
+    }
+
+    const client = gh();
+    const { owner, name } = parseRepo(repo);
+    const path = `courses/${course}/metadata.json`;
+
+    const response = await client.repos.getContent({
+      owner,
+      repo: name,
+      path,
+      ref: branch,
+    });
+
+    // Handle array response (directory)
+    if (Array.isArray(response.data)) {
+      return NextResponse.json(
+        { error: "Path is a directory, not a file" },
+        { status: 400 }
+      );
+    }
+
+    const raw = Buffer.from(response.data.content || "", "base64").toString("utf8");
+    const metadata = JSON.parse(raw);
+
+    return NextResponse.json(metadata);
+  } catch (error: any) {
+    console.error("Get metadata error:", error);
+    
+    if (error.status === 404) {
+      return NextResponse.json(
+        { error: "Metadata file not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(
+      { error: "Failed to fetch metadata", message: error.message },
+      { status: 500 }
+    );
+  }
+}

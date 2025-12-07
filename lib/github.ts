@@ -55,3 +55,16 @@ export function isCourseFile(path: string): boolean {
 export function filterCourseFiles(files: string[]): string[] {
   return files.filter(isCourseFile);
 }
+
+// Helper to create Octokit instance with token from env
+export function gh() {
+  return new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+  });
+}
+
+// Helper to parse repo string into owner and name
+export function parseRepo(repo: string) {
+  const [owner, name] = repo.split("/");
+  return { owner, name };
+}

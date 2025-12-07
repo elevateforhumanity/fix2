@@ -1,34 +1,50 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getUserOctokit } from "@/lib/github";
+import { getUserOctokit, gh } from "@/lib/github";
 
 export async function GET(req: NextRequest) {
-  const token = req.headers.get("x-gh-token");
+  // Support both user token (x-gh-token header) and server token (env)
+  const userToken = req.headers.get("x-gh-token");
   
-  if (!token) {
-    return NextResponse.json({ error: "Missing GitHub token" }, { status: 401 });
-  }
-
   try {
-    const gh = getUserOctokit(token);
-    const { data } = await gh.repos.listForAuthenticatedUser({ 
+    const client = userToken ? getUserOctokit(userToken) : gh();
+    
+    const { data } = await client.repos.listForAuthenticatedUser({ 
       per_page: 100, 
-      sort: "updated" 
+      sort: "updated",
+      visibility: "all",
+      affiliation: "owner,collaborator,organization_member"
     });
     
     const repos = data.map(r => ({ 
+      id: r.id,
       name: r.name, 
       full_name: r.full_name, 
       private: r.private, 
       default_branch: r.default_branch,
       description: r.description,
-      updated_at: r.updated_at
+      updated_at: r.updated_at,
+      language: r.language,
+      stargazers_count: r.stargazers_count,
+      forks_count: r.forks_count,
+      open_issues_count: r.open_issues_count,
+      html_url: r.html_url,
+      clone_url: r.clone_url,
+      ssh_url: r.ssh_url,
+      size: r.size,
+      archived: r.archived,
+      disabled: r.disabled,
+      topics: r.topics,
+      visibility: r.visibility,
+      permissions: r.permissions
     }));
     
     return NextResponse.json(repos);
   } catch (error: any) {
+    console.error("GitHub repos error:", error);
     return NextResponse.json({ 
       error: "Failed to fetch repos", 
-      message: error.message 
-    }, { status: 500 });
+      message: error.message,
+      status: error.status
+    }, { status: error.status || 500 });
   }
 }

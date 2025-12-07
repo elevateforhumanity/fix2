@@ -1,0 +1,41 @@
+import { NextRequest, NextResponse } from "next/server";
+import { gh, parseRepo, getUserOctokit } from "@/lib/github";
+
+export async function GET(req: NextRequest) {
+  const repo = req.nextUrl.searchParams.get("repo");
+  const userToken = req.headers.get("x-gh-token");
+  
+  if (!repo) {
+    return NextResponse.json({ error: "Missing repo parameter" }, { status: 400 });
+  }
+
+  try {
+    const { owner, name } = parseRepo(repo);
+    const client = userToken ? getUserOctokit(userToken) : gh();
+    
+    const { data } = await client.repos.listBranches({ 
+      owner, 
+      repo: name,
+      per_page: 100
+    });
+    
+    // Get detailed branch info including protection status
+    const branches = data.map(branch => ({
+      name: branch.name,
+      commit: {
+        sha: branch.commit.sha,
+        url: branch.commit.url
+      },
+      protected: branch.protected
+    }));
+    
+    return NextResponse.json(branches);
+  } catch (error: any) {
+    console.error("GitHub branches error:", error);
+    return NextResponse.json({ 
+      error: "Failed to fetch branches",
+      message: error.message,
+      status: error.status
+    }, { status: error.status || 500 });
+  }
+}
