@@ -325,36 +325,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-blue-700">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-extrabold text-white text-center mb-16">Our Impact By The Numbers</h2>
-          <div className="grid md:grid-cols-4 gap-8 mb-12">
-            <div className="text-center">
-              <div className="text-5xl font-extrabold text-white mb-2">2500+</div>
-              <p className="text-xl text-blue-100">Graduates Placed</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-extrabold text-white mb-2">95%</div>
-              <p className="text-xl text-blue-100">Job Placement Rate</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-extrabold text-white mb-2">28+</div>
-              <p className="text-xl text-blue-100">Career Programs</p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-extrabold text-white mb-2">100+</div>
-              <p className="text-xl text-blue-100">Employer Partners</p>
-            </div>
-          </div>
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xl text-blue-100 leading-relaxed">
-              Every number represents a real person who transformed their life through career training. From single parents to returning citizens, from high school graduates to career changers—we serve everyone who's ready to work.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Community Impact */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
