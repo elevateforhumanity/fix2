@@ -22,6 +22,10 @@
     {
       "path": "/api/social-media/scheduler",
       "schedule": "0 9,13,17 * * *"
+    },
+    {
+      "path": "/api/email/workflows/processor",
+      "schedule": "*/5 * * * *"
     }
   ],
   "headers": [

@@ -1,0 +1,52 @@
+import { NextResponse } from 'next/server';
+import { createClient } from '@/utils/supabase/server';
+
+export async function GET(req: Request) {
+  try {
+    const supabase = await createClient();
+    
+    const { data: workflows, error } = await supabase
+      .from('email_workflows')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+
+    return NextResponse.json({ success: true, workflows });
+  } catch (error: any) {
+    console.error('Error fetching workflows:', error);
+    return NextResponse.json(
+      { success: false, error: error.message },
+      { status: 500 }
+    );
+  }
+}
+
+export async function POST(req: Request) {
+  try {
+    const supabase = await createClient();
+    const body = await req.json();
+
+    const { data: workflow, error } = await supabase
+      .from('email_workflows')
+      .insert({
+        name: body.name,
+        trigger_event: body.trigger,
+        target_audience: body.targetAudience,
+        steps: body.steps,
+        status: body.status || 'draft',
+      })
+      .select()
+      .single();
+
+    if (error) throw error;
+
+    return NextResponse.json({ success: true, workflow });
+  } catch (error: any) {
+    console.error('Error creating workflow:', error);
+    return NextResponse.json(
+      { success: false, error: error.message },
+      { status: 500 }
+    );
+  }
+}
