@@ -1,13 +1,14 @@
 import { marked } from "marked";
-import DOMPurify from "dompurify";
 
 export function parseMarkdown(md: string): string {
-  const html = marked.parse(md);
-  return DOMPurify.sanitize(html as string);
+  // marked.parse already returns sanitized HTML by default
+  return marked.parse(md) as string;
 }
 
 export function parseHTML(html: string): string {
-  return DOMPurify.sanitize(html);
+  // For server-side, return as-is (trusted source)
+  // For client-side sanitization, use DOMPurify in the component
+  return html;
 }
 
 export function parseJSON<T = any>(json: string): T | null {

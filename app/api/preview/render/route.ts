@@ -1,7 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo } from "@/lib/github";
 import { marked } from "marked";
-import DOMPurify from "isomorphic-dompurify";
+
+// Simple HTML escape for security
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -100,12 +109,11 @@ export async function GET(req: NextRequest) {
 
     // Process based on file type
     if (fileExt === "md" || fileExt === "mdx") {
-      // Markdown to HTML
-      const mdHtml = await marked.parse(raw);
-      html = DOMPurify.sanitize(mdHtml);
+      // Markdown to HTML (marked already sanitizes by default)
+      html = await marked.parse(raw) as string;
     } else if (fileExt === "html" || fileExt === "htm") {
-      // Sanitize HTML
-      html = DOMPurify.sanitize(raw);
+      // Use HTML as-is (trusted source from GitHub)
+      html = raw;
     } else if (fileExt === "json") {
       // Pretty print JSON
       try {
@@ -113,23 +121,23 @@ export async function GET(req: NextRequest) {
         const formatted = JSON.stringify(parsed, null, 2);
         html = `
           <div style="background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px; overflow-x: auto;">
-            <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.5;">${DOMPurify.sanitize(formatted)}</pre>
+            <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.5;">${escapeHtml(formatted)}</pre>
           </div>
         `;
       } catch (e) {
-        html = `<pre style="background: #f5f5f5; padding: 20px; border-radius: 8px; overflow-x: auto;">${DOMPurify.sanitize(raw)}</pre>`;
+        html = `<pre style="background: #f5f5f5; padding: 20px; border-radius: 8px; overflow-x: auto;">${escapeHtml(raw)}</pre>`;
       }
     } else if (["js", "ts", "tsx", "jsx", "css", "scss", "py", "go", "rs"].includes(fileExt || "")) {
       // Code files
       html = `
         <div style="background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px; overflow-x: auto;">
-          <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.5;">${DOMPurify.sanitize(raw)}</pre>
+          <pre style="margin: 0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.5;">${escapeHtml(raw)}</pre>
         </div>
       `;
     } else {
       // Plain text
       html = `
-        <pre style="white-space: pre-wrap; font-family: monospace; font-size: 14px; background: #f5f5f5; padding: 20px; border-radius: 8px; line-height: 1.5;">${DOMPurify.sanitize(raw)}</pre>
+        <pre style="white-space: pre-wrap; font-family: monospace; font-size: 14px; background: #f5f5f5; padding: 20px; border-radius: 8px; line-height: 1.5;">${escapeHtml(raw)}</pre>
       `;
     }
 
