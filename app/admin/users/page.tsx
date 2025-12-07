@@ -37,7 +37,6 @@ export default async function Page() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Banner */}
       <section className="bg-blue-700 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">

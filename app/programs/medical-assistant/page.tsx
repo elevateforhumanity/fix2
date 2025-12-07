@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 export default function MedicalAssistantPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Banner */}
       <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden">
         <Image
           src="/images/gallery/image3.jpg"

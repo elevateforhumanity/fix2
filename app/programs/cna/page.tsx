@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export default function CNAProgramPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Banner - Clean, No Overlay */}
       <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=2400&h=1350&fit=crop&q=95"

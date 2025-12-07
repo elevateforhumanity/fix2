@@ -31,7 +31,6 @@ export default async function EnrollmentSuccessPage({ params }: { params: { cour
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Banner */}
       <section className="bg-gradient-to-r from-green-600 to-green-800 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">

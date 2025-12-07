@@ -69,7 +69,6 @@ export default function SupersonicFastCashPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      {/* Hero Banner */}
       <section className="relative min-h-[700px] flex items-center bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('/images/pattern-dots.svg')] bg-repeat"></div>

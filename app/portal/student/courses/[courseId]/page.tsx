@@ -58,7 +58,6 @@ export default async function StudentCourseDetailPage({ params }: { params: { co
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Banner */}
       <section className="bg-blue-700 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">

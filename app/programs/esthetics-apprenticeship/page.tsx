@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
       <section className="relative min-h-[250px] sm:h-[300px] md:h-[350px] flex items-center">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">

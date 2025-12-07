@@ -7,7 +7,6 @@ import Image from "next/image";
 export default function BarberApprenticeshipPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Banner - Clean, No Overlay */}
       <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=2400&h=1350&fit=crop&q=95"

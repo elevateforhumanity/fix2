@@ -44,7 +44,6 @@ const successStories = [
 export default function Page() {
   return (
     <main className="bg-white">
-      {/* Hero Banner with Background Image */}
       <section className="relative h-[500px] w-full overflow-hidden bg-white">
         <Image
           src="/media/homepage-hero.jpg"

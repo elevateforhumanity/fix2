@@ -81,7 +81,6 @@ const team: TeamMember[] = [
 export default function TeamPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Banner */}
       <section className="relative h-[400px] w-full overflow-hidden bg-white">
         <Image
           src="/images/gallery/image6.jpg"

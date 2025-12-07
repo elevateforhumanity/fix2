@@ -16,7 +16,6 @@ export default async function Page() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner with Background Image */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&h=1000&fit=crop&q=85"

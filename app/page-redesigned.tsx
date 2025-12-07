@@ -43,7 +43,6 @@ export default function HomePage() {
 
   return (
     <main className="bg-white">
-      {/* Hero Banner - Rotating Slides */}
       <section className="relative h-[600px] overflow-hidden">
         {banners.map((banner, index) => (
           <div

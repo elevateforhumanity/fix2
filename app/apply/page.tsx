@@ -46,7 +46,6 @@ export default function ApplyPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Banner */}
       <section className="relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=2400&h=1350&fit=crop&q=95"

@@ -51,7 +51,6 @@ export default async function Page({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner - Mobile Optimized */}
       <section className="relative h-[350px] sm:h-[400px] md:h-[450px] w-full overflow-hidden">
         {course.thumbnail_url && (
           <Image

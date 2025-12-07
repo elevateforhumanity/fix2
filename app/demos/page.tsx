@@ -45,7 +45,6 @@ const demos = [
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
       <section className="relative h-[500px] w-full overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('/images/pattern.svg')] bg-repeat" />

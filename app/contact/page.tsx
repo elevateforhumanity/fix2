@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner */}
       <section className="relative h-[500px] w-full overflow-hidden bg-white">
         <Image
           src="/images/efh/hero/hero-main.jpg"
