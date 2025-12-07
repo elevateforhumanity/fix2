@@ -144,7 +144,7 @@ export default async function Page() {
             <Link href="/apply" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">Apply Now - It's Free</Link>
             <Link href="/programs" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">View Programs</Link>
           </div>
-          <p className="text-white/80 mt-8 text-sm">Questions? Call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> or email <a href="mailto:elevateforhumanity.edu@gmail.com" className="underline font-semibold">elevateforhumanity.edu@gmail.com</a></p>
+          <p className="text-white/80 mt-8 text-sm">Questions? Call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> or email <a href="mailto:elevate4humanityedu@gmail.com" className="underline font-semibold">elevate4humanityedu@gmail.com</a></p>
         </div>
       </section>
     </main>

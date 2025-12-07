@@ -511,7 +511,7 @@ export default function Home() {
               <p className="mt-3 text-xs text-slate-700">
                 Phone: <a href="tel:317-314-3757" className="text-red-600 hover:underline">317-314-3757</a>
                 <br />
-                Email: <a href="mailto:elevateforhumanity.edu@gmail.com" className="text-red-600 hover:underline">elevateforhumanity.edu@gmail.com</a>
+                Email: <a href="mailto:elevate4humanityedu@gmail.com" className="text-red-600 hover:underline">elevate4humanityedu@gmail.com</a>
               </p>
               <p className="mt-4 text-[0.7rem] text-slate-600">
                 Elevate for Humanity is an equal opportunity training provider.

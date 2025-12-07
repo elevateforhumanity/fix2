@@ -122,7 +122,7 @@ export default async function Page() {
             <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-2xl p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Interested in WEX or OJT?</h3>
               <p className="text-lg mb-6">
-                Email us at <a href="mailto:elevateforhumanity.edu@gmail.com" className="underline font-semibold">elevateforhumanity.edu@gmail.com</a> or call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> and ask for our Employer Workforce Partnership Packet.
+                Email us at <a href="mailto:elevate4humanityedu@gmail.com" className="underline font-semibold">elevate4humanityedu@gmail.com</a> or call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> and ask for our Employer Workforce Partnership Packet.
               </p>
               <Link 
                 href="/contact" 

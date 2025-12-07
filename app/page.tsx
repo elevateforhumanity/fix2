@@ -505,7 +505,7 @@ export default function Home() {
             <p className="mb-2">Questions? We're here to help.</p>
             <p>
               Call <a href="tel:317-314-3757" className="underline font-semibold hover:text-white">317-314-3757</a> or 
-              email <a href="mailto:elevateforhumanity.edu@gmail.com" className="underline font-semibold hover:text-white">elevateforhumanity.edu@gmail.com</a>
+              email <a href="mailto:elevate4humanityedu@gmail.com" className="underline font-semibold hover:text-white">elevate4humanityedu@gmail.com</a>
             </p>
           </div>
         </div>

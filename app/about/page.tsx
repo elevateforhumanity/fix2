@@ -429,7 +429,7 @@ export default function Page() {
             </Link>
           </div>
           <p className="text-white/80 mt-8 text-sm">
-            Questions? Call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> or email <a href="mailto:elevateforhumanity.edu@gmail.com" className="underline font-semibold">elevateforhumanity.edu@gmail.com</a>
+            Questions? Call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> or email <a href="mailto:elevate4humanityedu@gmail.com" className="underline font-semibold">elevate4humanityedu@gmail.com</a>
           </p>
         </div>
       </section>
