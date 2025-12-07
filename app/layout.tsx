@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://www.elevateforhumanity.org/og-image.png',
+        url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=630&fit=crop&q=95',
         width: 1200,
         height: 630,
         alt: 'Elevate for Humanity - 100% Free Career Training',

@@ -97,11 +97,11 @@ export default async function ProgramsPage() {
           quality={90}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/50" />
-        
+      </section>
 
-        {/* Content - Mobile Optimized */}
-        <div className="relative h-full mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-12 flex items-center">
+      {/* Content Section - Below Hero */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl space-y-4 sm:space-y-6">
             <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-orange-600 text-white rounded-full text-xs sm:text-sm font-semibold">
               <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -111,11 +111,11 @@ export default async function ProgramsPage() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
-              Transform Your Future with Free Career Training
+              Choose Your Career Path
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl text-slate-700 leading-relaxed">
-              Choose from {programs.length} workforce development programs. 100% funded through WIOA, grants, and employer partnerships.
+              {programs.length} workforce development programs. 100% funded through WIOA, grants, and employer partnerships.
             </p>
 
             <div className="flex flex-wrap gap-6 text-slate-900 pt-4">
