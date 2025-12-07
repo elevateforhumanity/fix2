@@ -17,7 +17,9 @@ import {
   Settings,
   Mail,
   Share2,
-  Sparkles
+  Sparkles,
+  Bell,
+  MessageCircle
 } from 'lucide-react';
 
 const navigation = [
@@ -30,6 +32,14 @@ const navigation = [
       { name: 'Email Marketing', href: '/admin/email-marketing' },
       { name: 'Social Media', href: '/admin/social-media' },
       { name: 'Automation', href: '/admin/email-marketing/automation' },
+    ]
+  },
+  {
+    name: 'Communications',
+    icon: MessageCircle,
+    children: [
+      { name: 'Push Notifications', href: '/admin/notifications' },
+      { name: 'Live Chat', href: '/admin/live-chat' },
     ]
   },
   { 
