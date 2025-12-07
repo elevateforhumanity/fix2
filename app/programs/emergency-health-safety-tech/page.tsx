@@ -1,3 +1,8 @@
+
+import EnrollmentProcess from '@/components/EnrollmentProcess';
+import ProgramCTA from '@/components/ProgramCTA';
+import ProgramHighlights from '@/components/ProgramHighlights';
+
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';

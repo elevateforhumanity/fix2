@@ -1,5 +1,10 @@
 'use client';
 
+import EnrollmentProcess from '@/components/EnrollmentProcess';
+import ProgramCTA from '@/components/ProgramCTA';
+import ProgramHighlights from '@/components/ProgramHighlights';
+
+
 // app/programs/barber-apprenticeship/page.tsx
 import Link from "next/link";
 import Image from "next/image";
@@ -815,6 +820,17 @@ export default function BarberApprenticeshipPage() {
           </p>
         </section>
       </div>
+    
+      
+      {/* Indiana Career Connect Enrollment Process */}
+      <EnrollmentProcess />
+      
+      {/* Program Highlights */}
+      <ProgramHighlights />
+      
+      {/* Call to Action */}
+      <ProgramCTA programName="this program" />
+
     </main>
   );
 }

@@ -1,3 +1,8 @@
+
+import EnrollmentProcess from '@/components/EnrollmentProcess';
+import ProgramCTA from '@/components/ProgramCTA';
+import ProgramHighlights from '@/components/ProgramHighlights';
+
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -172,6 +177,17 @@ export default function CNAProgramPage() {
           </p>
         </section>
       </div>
+    
+      
+      {/* Indiana Career Connect Enrollment Process */}
+      <EnrollmentProcess />
+      
+      {/* Program Highlights */}
+      <ProgramHighlights />
+      
+      {/* Call to Action */}
+      <ProgramCTA programName="this program" />
+
     </main>
   );
 }

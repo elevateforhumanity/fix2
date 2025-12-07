@@ -1,3 +1,8 @@
+
+import EnrollmentProcess from '@/components/EnrollmentProcess';
+import ProgramCTA from '@/components/ProgramCTA';
+import ProgramHighlights from '@/components/ProgramHighlights';
+
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
