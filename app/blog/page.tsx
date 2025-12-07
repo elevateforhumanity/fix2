@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
+import { fetchDurableBlogPosts, getDurableBlogPostUrl } from '@/lib/durable-blog';
 
 export const metadata: Metadata = {
   title: 'Blog | Elevate For Humanity',
@@ -11,16 +12,39 @@ export const metadata: Metadata = {
 export const dynamic = 'force-dynamic'; // Uses cookies, can't be static
 export const revalidate = 300; // Revalidate every 5 minutes
 
+async function getDurableBlogPosts() {
+  try {
+    // Fetch from Durable blog via RSS feed or API
+    return await fetchDurableBlogPosts();
+  } catch (error) {
+    console.error('Error fetching Durable blog posts:', error);
+    return [];
+  }
+}
+
 async function getBlogPosts() {
   try {
     const supabase = await createClient();
-    const { data: posts } = await supabase
+    const { data: supabasePosts } = await supabase
       .from('blog_posts')
       .select('*')
       .eq('published', true)
       .order('published_at', { ascending: false })
       .limit(12);
-    return posts || [];
+    
+    // Fetch from Durable blog
+    const durablePosts = await getDurableBlogPosts();
+    
+    // Combine both sources
+    const allPosts = [
+      ...(supabasePosts || []),
+      ...durablePosts
+    ];
+    
+    // Sort by date
+    return allPosts.sort((a, b) => 
+      new Date(b.published_at || b.date).getTime() - new Date(a.published_at || a.date).getTime()
+    );
   } catch (error) {
     console.error('Error fetching blog posts:', error);
     return [];
@@ -79,28 +103,58 @@ export default async function Page() {
           <h2 className="text-4xl font-extrabold mb-12 text-center">Latest Articles</h2>
           {blogPosts.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post: any) => (
-                <Link key={post.id} href={`/blog/${post.slug}`} className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all overflow-hidden">
-                  {post.featured_image && (
-                    <div className="relative h-48 overflow-hidden">
-                      <Image src={post.featured_image} alt={post.title} fill className="object-cover group-hover:scale-110 transition-transform duration-300" quality={100} sizes="(max-width: 768px) 100vw, 33vw" />
+              {blogPosts.map((post: any) => {
+                // Determine if post is from Durable or Supabase
+                const isDurable = post.source === 'durable';
+                const postUrl = isDurable ? getDurableBlogPostUrl(post.slug) : `/blog/${post.slug}`;
+                const LinkComponent = isDurable ? 'a' : Link;
+                const linkProps = isDurable ? { 
+                  href: postUrl, 
+                  target: '_blank', 
+                  rel: 'noopener noreferrer' 
+                } : { 
+                  href: postUrl 
+                };
+
+                return (
+                  <LinkComponent key={post.id} {...linkProps} className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all overflow-hidden">
+                    {post.featured_image && (
+                      <div className="relative h-48 overflow-hidden">
+                        <Image src={post.featured_image} alt={post.title} fill className="object-cover group-hover:scale-110 transition-transform duration-300" quality={100} sizes="(max-width: 768px) 100vw, 33vw" />
+                      </div>
+                    )}
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        {post.category && <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-sm font-semibold rounded-full">{post.category}</span>}
+                        {isDurable && <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-full">External</span>}
+                      </div>
+                      <h3 className="text-xl font-bold mb-3 group-hover:text-orange-600 transition-colors">{post.title}</h3>
+                      {post.excerpt && <p className="text-slate-600 mb-4 line-clamp-3">{post.excerpt}</p>}
                     </div>
-                  )}
-                  <div className="p-6">
-                    {post.category && <span className="inline-block px-3 py-1 bg-orange-100 text-orange-700 text-sm font-semibold rounded-full mb-3">{post.category}</span>}
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-orange-600 transition-colors">{post.title}</h3>
-                    {post.excerpt && <p className="text-slate-600 mb-4 line-clamp-3">{post.excerpt}</p>}
-                  </div>
-                </Link>
-              ))}
+                  </LinkComponent>
+                );
+              })}
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-xl text-slate-600 mb-8">Follow us on social media for the latest updates and success stories!</p>
-              <div className="flex gap-4 justify-center">
-                <Link href="/success-stories" className="inline-block px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all shadow-lg">Read Success Stories</Link>
-                <a href="https://www.instagram.com/elevateforhumanity" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all shadow-lg">Follow on Instagram</a>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">More Content Available</h3>
+              <p className="text-xl text-slate-600 mb-8">Read the latest workforce development insights, success stories, and career tips.</p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="https://elevateforhumanity.durable.co/blog" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-block px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all shadow-lg"
+                >
+                  Visit Our Blog →
+                </a>
+                <Link href="/success-stories" className="inline-block px-8 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-800 transition-all shadow-lg">
+                  Success Stories
+                </Link>
               </div>
+              <p className="text-sm text-slate-500 mt-6">
+                Blog posts from both our platform and Durable will appear here
+              </p>
             </div>
           )}
         </div>

@@ -127,6 +127,17 @@ const nextConfig = {
         destination: 'https://www.elevateforhumanity.org/:path*',
         permanent: true,
       },
+      // Blog redirect to Durable (uncomment and update URL when ready)
+      // {
+      //   source: '/blog',
+      //   destination: 'https://your-durable-blog-url.durable.co/blog',
+      //   permanent: false,
+      // },
+      // {
+      //   source: '/blog/:path*',
+      //   destination: 'https://your-durable-blog-url.durable.co/blog/:path*',
+      //   permanent: false,
+      // },
     ];
   },
 };
