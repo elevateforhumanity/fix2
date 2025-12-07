@@ -66,7 +66,7 @@ export default async function AdminDashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+      <section className="bg-blue-700 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center justify-between">

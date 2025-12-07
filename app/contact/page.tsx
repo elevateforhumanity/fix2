@@ -138,7 +138,7 @@ export default function Page() {
       </section>
     
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+      <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Get Started?</h2>
           <p className="text-xl text-white/90 mb-8">

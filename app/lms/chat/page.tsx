@@ -16,7 +16,7 @@ export default async function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-blue-700 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Chat | Elevate For Humanity</h1>

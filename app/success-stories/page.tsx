@@ -118,7 +118,7 @@ export default function Page() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+      <section className="py-20 bg-orange-600">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Success Stories | Elevate For Humanity</h1>
@@ -230,7 +230,7 @@ export default function Page() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+      <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Start Your Success Story?</h2>
           <p className="text-xl text-white/90 mb-8">Join thousands who transformed their lives through free training.</p>

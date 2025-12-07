@@ -47,7 +47,7 @@ export default function StudentDemoPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Demo Banner */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3">
+      <div className="bg-blue-700 text-white py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">

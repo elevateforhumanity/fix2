@@ -64,7 +64,7 @@ export default function TeamPage() {
   return (
     <main className="bg-white">
       {/* Hero Section */}
-      <section className="relative h-[400px] bg-gradient-to-r from-blue-600 to-blue-800">
+      <section className="relative h-[400px] bg-blue-700">
         <div className="absolute inset-0 bg-black/20" />
         <div className="relative h-full flex items-center">
           <div className="container mx-auto px-4">

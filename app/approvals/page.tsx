@@ -275,7 +275,7 @@ export default function ApprovalsPage() {
       </section>
 
       {/* Why This Matters */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800">
+      <section className="py-20 bg-blue-700">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <FileCheck className="w-12 h-12 text-white" />

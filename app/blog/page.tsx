@@ -96,8 +96,11 @@ export default async function Page() {
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-xl text-slate-600 mb-8">Blog posts coming soon! Check back for workforce development insights.</p>
-              <Link href="/success-stories" className="inline-block px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all shadow-lg">Read Success Stories</Link>
+              <p className="text-xl text-slate-600 mb-8">Follow us on social media for the latest updates and success stories!</p>
+              <div className="flex gap-4 justify-center">
+                <Link href="/success-stories" className="inline-block px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all shadow-lg">Read Success Stories</Link>
+                <a href="https://www.instagram.com/elevateforhumanity" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all shadow-lg">Follow on Instagram</a>
+              </div>
             </div>
           )}
         </div>
@@ -136,7 +139,7 @@ export default async function Page() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+      <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Start Your Success Story?</h2>
           <p className="text-xl text-white/90 mb-8">Join thousands who transformed their lives through free workforce training.</p>

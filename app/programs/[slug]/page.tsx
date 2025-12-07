@@ -372,7 +372,7 @@ export default async function ProgramPage({ params }: { params: { slug: string }
 
       {/* FUNDING OPTIONS */}
       {program.funding_pathways && program.funding_pathways.length > 0 && (
-        <section className="py-20 bg-gradient-to-br from-orange-50 via-white to-blue-50">
+        <section className="py-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-slate-900 mb-4">100% Free Training Available</h2>

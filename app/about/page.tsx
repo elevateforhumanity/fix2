@@ -327,7 +327,7 @@ export default function Page() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800">
+      <section className="py-20 bg-blue-700">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl font-extrabold text-white text-center mb-16">Our Impact By The Numbers</h2>
           <div className="grid md:grid-cols-4 gap-8 mb-12">
@@ -414,7 +414,7 @@ export default function Page() {
       </section>
     
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+      <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Get Started?</h2>
           <p className="text-xl text-white/90 mb-8">

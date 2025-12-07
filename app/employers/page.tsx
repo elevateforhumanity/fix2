@@ -119,7 +119,7 @@ export default async function Page() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-2xl p-8 text-center">
+            <div className="bg-orange-600 text-white rounded-2xl p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Interested in WEX or OJT?</h3>
               <p className="text-lg mb-6">
                 Email us at <a href="mailto:info@elevateforhumanity.org" className="underline font-semibold">info@elevateforhumanity.org</a> or call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> and ask for our Employer Workforce Partnership Packet.
@@ -249,7 +249,7 @@ export default async function Page() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800">
+      <section className="py-20 bg-blue-700">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Build Your Workforce?</h2>
           <p className="text-xl text-white/90 mb-8">

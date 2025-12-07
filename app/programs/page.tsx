@@ -437,7 +437,7 @@ export default async function ProgramsPage() {
       {/* CTA SECTION */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border-2 border-orange-200 bg-gradient-to-br from-orange-50 via-white to-blue-50 p-8 lg:p-12 shadow-lg">
+          <div className="rounded-2xl border-2 border-orange-200 bg-white p-8 lg:p-12 shadow-lg">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold text-slate-900 mb-4">
                 Unsure Which Program Fits You Best?
