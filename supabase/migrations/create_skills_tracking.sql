@@ -1,11 +1,12 @@
--- Skills Tracking System for Barber Program
--- Tracks specific cuts, fades, and techniques performed by students
+-- Skills Tracking System for Multiple Programs
+-- Tracks specific skills performed by students across Barber, Nail Tech, and Esthetician programs
 
 -- Create skill_logs table
 CREATE TABLE IF NOT EXISTS skill_logs (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   student_id UUID NOT NULL REFERENCES profiles(id) ON DELETE CASCADE,
   instructor_id UUID REFERENCES profiles(id) ON DELETE SET NULL,
+  program_type TEXT NOT NULL DEFAULT 'barber',
   skill_id TEXT NOT NULL,
   skill_name TEXT NOT NULL,
   category TEXT NOT NULL,
@@ -22,6 +23,7 @@ CREATE INDEX IF NOT EXISTS idx_skill_logs_student ON skill_logs(student_id);
 CREATE INDEX IF NOT EXISTS idx_skill_logs_skill ON skill_logs(skill_id);
 CREATE INDEX IF NOT EXISTS idx_skill_logs_date ON skill_logs(date);
 CREATE INDEX IF NOT EXISTS idx_skill_logs_instructor ON skill_logs(instructor_id);
+CREATE INDEX IF NOT EXISTS idx_skill_logs_program ON skill_logs(program_type);
 
 -- Create updated_at trigger
 CREATE OR REPLACE FUNCTION update_skill_logs_updated_at()
@@ -119,8 +121,9 @@ CREATE POLICY "Admins can delete skill logs"
     )
   );
 
--- Insert sample skill categories (for reference)
-COMMENT ON TABLE skill_logs IS 'Tracks specific barber skills performed by students including cuts, fades, and techniques';
-COMMENT ON COLUMN skill_logs.skill_id IS 'Unique identifier for the skill (e.g., low-fade, high-fade)';
+-- Table and column comments
+COMMENT ON TABLE skill_logs IS 'Tracks specific skills performed by students across multiple programs (barber, nail tech, esthetician)';
+COMMENT ON COLUMN skill_logs.program_type IS 'Program type: barber, nail-tech, esthetician';
+COMMENT ON COLUMN skill_logs.skill_id IS 'Unique identifier for the skill (e.g., low-fade, acrylic-application, chemical-peel)';
 COMMENT ON COLUMN skill_logs.quality_rating IS 'Rating from 1-5: 1=Needs Work, 3=Proficient, 5=Master Level';
-COMMENT ON COLUMN skill_logs.category IS 'Skill category: Fundamentals, Fades, Classic Cuts, Modern Styles, Facial Hair, Finishing';
+COMMENT ON COLUMN skill_logs.category IS 'Skill category varies by program. Barber: Fundamentals, Fades, Classic Cuts, Modern Styles, Facial Hair, Finishing. Nail Tech: Manicure, Pedicure, Enhancements, Art, Health, Sanitation. Esthetician: Facial Treatments, Advanced Treatments, Hair Removal, Lash & Brow, Body Treatments, Makeup, Consultation';
