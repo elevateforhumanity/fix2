@@ -22,12 +22,10 @@ export async function POST(request: Request) {
         last_name: lastName,
         phone,
         email,
-        city,
-        state,
-        program_interest: program,
-        background_notes: background,
-        contact_preferences: contactPreference,
-        created_at: new Date().toISOString(),
+        program: program,
+        notes: `Location: ${city || 'N/A'}, ${state || 'N/A'}\nBackground: ${background || 'N/A'}\nContact Preference: ${Array.isArray(contactPreference) ? contactPreference.join(', ') : 'N/A'}`,
+        source: 'marketing_site',
+        status: 'submitted',
       });
 
     if (dbError) {
