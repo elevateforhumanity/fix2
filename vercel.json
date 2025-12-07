@@ -14,6 +14,12 @@
       "NODE_OPTIONS": "--max-old-space-size=4096"
     }
   },
+  "crons": [
+    {
+      "path": "/api/email/scheduler",
+      "schedule": "*/5 * * * *"
+    }
+  ],
   "headers": [
     {
       "source": "/admin/:path*",
