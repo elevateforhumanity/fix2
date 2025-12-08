@@ -31,48 +31,89 @@ export async function POST(request: Request) {
 
     console.log('Inserting application:', applicationData);
 
-    const { data: insertedData, error: dbError } = await supabase
-      .from('applications')
-      .insert(applicationData)
-      .select();
-
-    if (dbError) {
-      console.error('Database error:', dbError);
-      // Continue anyway - we'll still send the email
-    } else {
-      console.log('Application saved successfully:', insertedData);
-    }
-
-    // Send email notification
+    // Try to save to database with timeout
+    let dbSuccess = false;
     try {
-      await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
-        },
-        body: JSON.stringify({
-          from: 'Elevate For Humanity <noreply@elevateforhumanity.org>',
-          to: 'elevate4humanityedu@gmail.com',
-          subject: `New Application from ${firstName} ${lastName}`,
-          html: `
-            <h2>New Application Received</h2>
-            <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>Email:</strong> ${email || 'Not provided'}</p>
-            <p><strong>Location:</strong> ${city || ''}, ${state || ''}</p>
-            <p><strong>Program Interest:</strong> ${program}</p>
-            <p><strong>Preferred Contact:</strong> ${Array.isArray(contactPreference) ? contactPreference.join(', ') : 'Not specified'}</p>
-            <p><strong>Background/Notes:</strong></p>
-            <p>${background || 'None provided'}</p>
-          `,
-        }),
-      });
-    } catch (emailError) {
-      console.error('Email error:', emailError);
+      const dbPromise = supabase
+        .from('applications')
+        .insert(applicationData)
+        .select();
+
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Database timeout')), 5000)
+      );
+
+      const { data: insertedData, error: dbError } = await Promise.race([
+        dbPromise,
+        timeoutPromise
+      ]) as any;
+
+      if (dbError) {
+        console.error('Database error:', dbError);
+      } else {
+        console.log('Application saved successfully:', insertedData);
+        dbSuccess = true;
+      }
+    } catch (dbError: any) {
+      console.error('Database operation failed:', dbError.message);
+      // Continue anyway - we'll still send the email
     }
 
-    return NextResponse.json({ success: true });
+    // Send email notification (non-blocking with timeout)
+    const sendEmail = async () => {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
+        const emailResponse = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+          },
+          body: JSON.stringify({
+            from: 'Elevate For Humanity <noreply@elevateforhumanity.org>',
+            to: 'elevate4humanityedu@gmail.com',
+            subject: `New Application from ${firstName} ${lastName}`,
+            html: `
+              <h2>New Application Received</h2>
+              <p><strong>Name:</strong> ${firstName} ${lastName}</p>
+              <p><strong>Phone:</strong> ${phone}</p>
+              <p><strong>Email:</strong> ${email || 'Not provided'}</p>
+              <p><strong>Location:</strong> ${city || ''}, ${state || ''}</p>
+              <p><strong>Program Interest:</strong> ${program}</p>
+              <p><strong>Preferred Contact:</strong> ${Array.isArray(contactPreference) ? contactPreference.join(', ') : 'Not specified'}</p>
+              <p><strong>Background/Notes:</strong></p>
+              <p>${background || 'None provided'}</p>
+            `,
+          }),
+          signal: controller.signal,
+        });
+
+        clearTimeout(timeoutId);
+        
+        if (!emailResponse.ok) {
+          console.error('Email API error:', await emailResponse.text());
+        } else {
+          console.log('Email sent successfully');
+        }
+      } catch (emailError: any) {
+        if (emailError.name === 'AbortError') {
+          console.error('Email timeout - continuing anyway');
+        } else {
+          console.error('Email error:', emailError);
+        }
+      }
+    };
+
+    // Send email in background, don't wait for it
+    sendEmail().catch(console.error);
+
+    // Return success immediately
+    return NextResponse.json({ 
+      success: true,
+      message: 'Application received! We will contact you within 24 hours.'
+    });
   } catch (error) {
     console.error('Error processing application:', error);
     return NextResponse.json(
