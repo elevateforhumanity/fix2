@@ -68,7 +68,7 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-3">Get Certified</h3>
-              <p className="text-gray-600">Earn indusstart-recognized certifications</p>
+              <p className="text-gray-600">Earn industry-standard-recognized certifications</p>
             </div>
             
           </div>

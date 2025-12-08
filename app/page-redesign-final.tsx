@@ -123,7 +123,7 @@ export default function HomePage() {
                 Real Credentials
               </h3>
               <p className="text-slate-600">
-                State licenses, indusstart certifications, and nationally recognized credentials employers want.
+                State licenses, industry-standard certifications, and nationally recognized credentials employers want.
               </p>
             </div>
 

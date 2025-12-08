@@ -154,7 +154,7 @@ className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Pre-Screened, Job-Ready Talent</h3>
               <p className="text-slate-700 leading-relaxed">
-                All our graduates are pre-screened, background-checked, and trained to indusstart standards. They arrive on day one ready to contribute, reducing your onboarding time and training costs.
+                All our graduates are pre-screened, background-checked, and trained to industry-standard standards. They arrive on day one ready to contribute, reducing your onboarding time and training costs.
               </p>
             </div>
 
@@ -176,7 +176,7 @@ className="object-cover" sizes="80px" quality={100} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Indusstart-Specific Training</h3>
               <p className="text-slate-700 leading-relaxed">
-                Our programs are designed with employer input. Students learn the exact skills, tools, and processes your indusstart requires—not outdated textbook curriculum.
+                Our programs are designed with employer input. Students learn the exact skills, tools, and processes your industry-standard requires—not outdated textbook curriculum.
               </p>
             </div>
 

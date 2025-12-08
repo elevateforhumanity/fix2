@@ -520,7 +520,7 @@ const whyChoose = [
   },
   {
     title: "Real Credentials",
-    description: "State licenses and indusstart certifications that employers recognize and value.",
+    description: "State licenses and industry-standard certifications that employers recognize and value.",
   },
   {
     title: "Job Placement Support",

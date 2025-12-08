@@ -195,7 +195,7 @@ className="object-cover" sizes="80px" quality={100} />
               <div>
                 <h3 className="text-2xl font-bold mb-3">Get Certified</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Earn indusstart-recognized certifications and licenses. We cover exam fees and provide test prep. You'll graduate with credentials that employers recognize and value.
+                  Earn industry-standard-recognized certifications and licenses. We cover exam fees and provide test prep. You'll graduate with credentials that employers recognize and value.
                 </p>
               </div>
             </div>

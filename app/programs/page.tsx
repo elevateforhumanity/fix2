@@ -349,7 +349,7 @@ d="M5 13l4 4L19 7" />
                 </div>
                 <h3 className="text-3xl font-bold text-slate-900 mb-4">Skilled Trades Training</h3>
                 <p className="text-lg text-slate-600 mb-6">
-                  Build a high-paying career in HVAC, building maintenance, and construction trades. Hands-on training with indusstart certifications and job placement support.
+                  Build a high-paying career in HVAC, building maintenance, and construction trades. Hands-on training with industry-standard certifications and job placement support.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-3">

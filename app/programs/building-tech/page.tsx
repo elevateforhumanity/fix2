@@ -108,7 +108,7 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from indusstart professionals</p>
+                <p className="text-gray-600">Learn from industry-standard professionals</p>
               </div>
               
             </div>
@@ -187,7 +187,7 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
                   </svg>
                   <div>
                     <h4 className="font-bold text-lg mb-1">OSHA 10-Hour Safety</h4>
-                    <p className="text-gray-700">Construction and general indusstart safety certification</p>
+                    <p className="text-gray-700">Construction and general industry-standard safety certification</p>
                   </div>
                 </div>
                 <div className="flex items-start">

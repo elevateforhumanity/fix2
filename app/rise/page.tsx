@@ -133,7 +133,7 @@ d="M13 10V3L4 14h7v7l9-11h-7z" />
               <h3 className="text-3xl font-semibold text-slate-900 mb-4">Apprenticeships</h3>
               <p className="text-slate-600 mb-6">
                 DOL-registered apprenticeship programs where students earn while they learn,
-                gaining real-world experience and indusstart credentials.
+                gaining real-world experience and industry-standard credentials.
               </p>
               <Link href="/programs/barber-apprenticeship" className="text-orange-500 font-semibold hover:underline">
                 Explore Apprenticeships →

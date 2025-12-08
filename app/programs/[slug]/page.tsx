@@ -437,7 +437,7 @@ d="M13 7l5 5m0 0l-5 5m5-5H6" />
       )}
 
       {/* INDUSTRY DEMAND */}
-      {program.indusstart_demand && (
+      {program.industry-standard_demand && (
         <section className="py-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-8 lg:p-12 border-2 border-green-200">
@@ -451,7 +451,7 @@ d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </div>
               <div className="prose prose-lg max-w-none">
                 <p className="text-slate-700 leading-relaxed whitespace-pre-line">
-                  {program.indusstart_demand}
+                  {program.industry-standard_demand}
                 </p>
               </div>
             </div>

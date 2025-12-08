@@ -148,7 +148,7 @@ export default function Page() {
               </div>
               <h3 className="text-xl font-bold mb-3 text-center">Quality</h3>
               <p className="text-slate-600 text-center leading-relaxed">
-                State-approved, federally recognized programs that meet indusstart standards. Our certifications are recognized by employers nationwide.
+                State-approved, federally recognized programs that meet industry-standard standards. Our certifications are recognized by employers nationwide.
               </p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">

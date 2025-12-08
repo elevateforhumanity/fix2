@@ -172,7 +172,7 @@ d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold mb-2">Certificates</h3>
-                <p className="text-gray-600">Receive indusstart-recognized certificates upon completion</p>
+                <p className="text-gray-600">Receive industry-standard-recognized certificates upon completion</p>
               </div>
             </div>
           </div>

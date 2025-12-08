@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     canonical: "https://www.elevateforhumanity.org/courses/partners",
   },
   title: 'Partner Course Catalog | Elevate For Humanity',
-  description: '1200+ professional courses from indusstart-leading partners',
+  description: '1200+ professional courses from industry-standard-leading partners',
 };
 
 export default async function PartnerCoursesPage() {
@@ -44,7 +44,7 @@ export default async function PartnerCoursesPage() {
           <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Partner Course Catalog</h1>
             <p className="text-xl mb-8 text-blue-100">
-              Access 1200+ professional courses from indusstart-leading partners
+              Access 1200+ professional courses from industry-standard-leading partners
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <div className="bg-blue-700 px-6 py-3 rounded-lg">

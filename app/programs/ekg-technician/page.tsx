@@ -108,7 +108,7 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from indusstart professionals</p>
+                <p className="text-gray-600">Learn from industry-standard professionals</p>
               </div>
               
             </div>
@@ -229,7 +229,7 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
               </div>
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <h3 className="text-xl font-bold mb-3">Certification Prep</h3>
-                <p className="text-gray-600">Support for indusstart certification exams</p>
+                <p className="text-gray-600">Support for industry-standard certification exams</p>
               </div>
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <h3 className="text-xl font-bold mb-3">Career Guidance</h3>

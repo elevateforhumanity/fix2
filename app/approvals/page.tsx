@@ -30,7 +30,7 @@ export default function ApprovalsPage() {
               Approvals, Credentials & Partnerships
             </h1>
             <p className="text-xl md:text-2xl text-slate-200 leading-relaxed drop-shadow-lg">
-              Elevate For Humanity operates under Selfish Inc, a 501(c)(3) nonprofit and registered federal contractor. Together, our entities form a multi-indusstart workforce ecosystem that is approved by state and federal agencies to deliver training, apprenticeships, and workforce services.
+              Elevate For Humanity operates under Selfish Inc, a 501(c)(3) nonprofit and registered federal contractor. Together, our entities form a multi-industry-standard workforce ecosystem that is approved by state and federal agencies to deliver training, apprenticeships, and workforce services.
             </p>
           </div>
         </div>
@@ -169,7 +169,7 @@ export default function ApprovalsPage() {
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Certiport Authorized Testing Center</h3>
-                  <p className="text-lg text-slate-700 mb-4">Authorized to administer indusstart-recognized certification exams for:</p>
+                  <p className="text-lg text-slate-700 mb-4">Authorized to administer industry-standard-recognized certification exams for:</p>
                   <ul className="grid md:grid-cols-2 gap-3">
                     <li className="flex items-center gap-2 text-slate-700">
                       <span className="text-green-600">✓</span> Microsoft Office Specialist (MOS)
@@ -296,7 +296,7 @@ export default function ApprovalsPage() {
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
               <h3 className="text-2xl font-bold text-white mb-4">For Employers</h3>
               <p className="text-white/90 text-lg leading-relaxed">
-                Our employers can trust that our programs are standards-aligned and reportable. Graduates meet indusstart requirements and are job-ready from day one.
+                Our employers can trust that our programs are standards-aligned and reportable. Graduates meet industry-standard requirements and are job-ready from day one.
               </p>
             </div>
 

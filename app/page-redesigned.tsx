@@ -13,7 +13,7 @@ export default function HomePage() {
     { 
       title: "No-Cost Career Training for Eligible Participants", 
       subtitle: "State-Approved ETPL Provider • DOL Registered Apprenticeship Sponsor",
-      description: "Workforce Innovation and Opportunity Act (WIOA) funded training programs leading to indusstart-recognized credentials and employment opportunities.",
+      description: "Workforce Innovation and Opportunity Act (WIOA) funded training programs leading to industry-standard-recognized credentials and employment opportunities.",
       image: "/images/efh/hero/hero-health.jpg",
       badge: "ETPL Approved Provider"
     },
@@ -160,7 +160,7 @@ export default function HomePage() {
               Choose Your Career Path
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore high-demand careers with free training, indusstart certifications, and job placement support.
+              Explore high-demand careers with free training, industry-standard certifications, and job placement support.
             </p>
           </div>
 
@@ -331,7 +331,7 @@ export default function HomePage() {
               {
                 step: "3",
                 title: "Train",
-                description: "Learn from experts with hands-on training and indusstart certifications.",
+                description: "Learn from experts with hands-on training and industry-standard certifications.",
                 icon: "🎓",
                 image: "/images/general/training-process.jpg"
               },

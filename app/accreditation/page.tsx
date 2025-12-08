@@ -87,7 +87,7 @@ export default function AccreditationPage() {
             region and partner) include training in:
           </p>
           <ul className="mt-3 grid gap-2 text-xs sm:grid-cols-2 text-slate-700">
-            <li>• Barber Apprenticeship and beauty indusstart pathways</li>
+            <li>• Barber Apprenticeship and beauty industry-standard pathways</li>
             <li>• Healthcare support roles such as CNA and related pathways</li>
             <li>• Skilled trades and building maintenance</li>
             <li>• Transportation and logistics (e.g., CDL) where applicable</li>

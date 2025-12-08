@@ -250,7 +250,7 @@ export default function Home() {
               <p className="mt-2 text-xs text-slate-700">
                 Barber Apprenticeship, nail, esthetics and related beauty
                 programs guided by licensed professionals with 20+ years in the
-                indusstart.
+                industry-standard.
               </p>
               <Link
                 href="/programs/barber-apprenticeship"
