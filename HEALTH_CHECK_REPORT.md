@@ -1,21 +1,21 @@
 # LMS Health Check Report
 
-Generated: 2025-12-01T21:03:49.864Z
+Generated: 2025-12-08T21:05:47.117Z
 
 ## Summary
 
 - **Total Checks:** 50
-- **Passed:** 22 ✅
-- **Failed:** 19 ❌
+- **Passed:** 23 ✅
+- **Failed:** 18 ❌
 - **Warnings:** 9 ⚠️
-- **Health Score:** 44%
+- **Health Score:** 46%
 - **Overall Status:** ❌ CRITICAL
 
 ## Detailed Results
 
 ### ✅ Database Migrations
 - **Status:** pass
-- **Message:** 79 migration files found
+- **Message:** 118 migration files found
 - **Severity:** info
 
 
@@ -69,7 +69,7 @@ Generated: 2025-12-01T21:03:49.864Z
 
 ### ✅ Database Tables
 - **Status:** pass
-- **Message:** 287 tables defined
+- **Message:** 352 tables defined
 - **Severity:** info
 
 
@@ -123,13 +123,13 @@ Generated: 2025-12-01T21:03:49.864Z
 
 ### ✅ Dependency: react
 - **Status:** pass
-- **Message:** Frontend framework (19.2.0)
+- **Message:** Frontend framework (19.2.1)
 - **Severity:** info
 
 
 ### ✅ Dependency: react-dom
 - **Status:** pass
-- **Message:** React DOM (19.2.0)
+- **Message:** React DOM (19.2.1)
 - **Severity:** info
 
 
@@ -163,10 +163,10 @@ Generated: 2025-12-01T21:03:49.864Z
 - **Severity:** info
 
 
-### ❌ Directory: src
-- **Status:** fail
-- **Message:** Missing
-- **Severity:** critical
+### ✅ Directory: src
+- **Status:** pass
+- **Message:** Exists
+- **Severity:** info
 
 
 ### ❌ Directory: src/pages
@@ -255,7 +255,7 @@ Generated: 2025-12-01T21:03:49.864Z
 
 ### ✅ Last Commit
 - **Status:** pass
-- **Message:** 94a21d24 Remove holistic support and three-block sections, enhance staff photos, update testimonial images
+- **Message:** e72c64ba2 Replace video slideshow with static hero image and shorten text
 - **Severity:** info
 
 
@@ -324,7 +324,6 @@ Generated: 2025-12-01T21:03:49.864Z
 - **Migration: 20251015_live_classes.sql:** Missing
 - **Migration: 20251015_notification_center.sql:** Missing
 - **Frontend Check:** ENOENT: no such file or directory, scandir '/workspaces/fix2/src/pages'
-- **Directory: src:** Missing
 - **Directory: src/pages:** Missing
 - **Directory: src/components:** Missing
 - **Directory: src/layouts:** Missing

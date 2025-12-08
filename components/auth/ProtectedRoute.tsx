@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
-import { getCurrentUser, type User } from '../../services/auth';
+import { redirect } from 'next/navigation';
+import { createBrowserClient } from '@supabase/ssr';
+
+type User = {
+  id: string;
+  email: string;
+  role?: string;
+};
 
 type Props = {
   children: React.ReactNode;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card } from './ui/card';
-import { cn } from '../lib/utils';
+import { Card } from './ui/Card';
+import { cn } from '@/lib/utils';
 
 export function AnimatedCard({ children, className, delay = 0, ...props }) {
   return (

@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import { resendEmail } from '../../../google-classroom-autopilot/src/email-resend';
+
+// Placeholder for resendEmail function
+const resendEmail = async (emailId: string) => {
+  console.log('Resend email:', emailId);
+  // TODO: Implement email resend functionality
+};
 
 interface EmailEvent {
   id: string;

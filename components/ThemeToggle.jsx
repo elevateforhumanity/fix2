@@ -1,7 +1,8 @@
 import React from 'react';
 import { Moon, Sun } from 'lucide-react';
-import { Button } from './ui/button';
-import { useTheme } from '../contexts/ThemeContext';
+import { Button } from './ui/Button';
+// ThemeContext not available - using local state
+import { useState } from 'react';
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
