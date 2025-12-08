@@ -29,6 +29,11 @@ ports:
     description: Node.js debugging port
 
 tasks:
+  - name: What We Actually Have
+    init: |
+      chmod +x scripts/what-we-actually-have.sh || true
+      scripts/what-we-actually-have.sh
+    command: pnpm dev || npm run dev || yarn dev
   - name: Setup
     init: pnpm install || true
     command: |
