@@ -4,6 +4,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Zap, DollarSign, Clock, TrendingUp } from 'lucide-react';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/demo/supersonic",
+  },
+  title: 'Supersonic | Elevate For Humanity',
+  description: 'Explore Supersonic and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 export default function SupersonicDemoPage() {
   return (
     <div className="min-h-screen bg-gray-50">

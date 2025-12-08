@@ -6,6 +6,15 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { BotProtection } from '@/components/security';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/apply",
+  },
+  title: 'Apply | Elevate For Humanity',
+  description: 'Explore Apply and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 export default function ApplyPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);

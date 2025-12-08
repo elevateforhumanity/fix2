@@ -21,6 +21,8 @@ export default function Page() {
           className="object-cover brightness-105"
           priority
           quality={100}
+        
+          sizes="100vw"
         />
         
         <div className="relative z-10 max-w-7xl mx-auto px-8 h-full flex items-center">

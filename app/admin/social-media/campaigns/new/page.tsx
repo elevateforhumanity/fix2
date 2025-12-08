@@ -7,6 +7,15 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Save, Play, Facebook, Twitter, Linkedin, Instagram, Sparkles } from 'lucide-react';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/social-media/campaigns/new",
+  },
+  title: 'New | Elevate For Humanity',
+  description: 'Explore New and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 export default function NewSocialCampaignPage() {
   const router = useRouter();
 

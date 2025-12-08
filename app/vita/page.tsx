@@ -24,7 +24,13 @@ export default function VITAPage() {
             alt="VITA Program - Free Tax Preparation"
             fill
             className="object-cover opacity-20"
-          />
+          
+          quality={100}
+        /
+          quality={100}
+        
+          sizes="100vw"
+        >
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-center">
           <div className="text-white max-w-3xl">

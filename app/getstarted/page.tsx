@@ -130,7 +130,9 @@ d="M5 13l4 4L19 7" />
                   fill
                   className="object-cover"
                   quality={100}
-                />
+                
+          sizes="100vw"
+        />
               </div>
             </div>
           </div>

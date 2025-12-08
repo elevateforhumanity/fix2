@@ -4,6 +4,15 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Image from 'next/image';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/student/portfolio",
+  },
+  title: 'Portfolio | Elevate For Humanity',
+  description: 'Explore Portfolio and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 export default function StudentPortfolio() {
   const supabase = createClient();
   const [user, setUser] = useState<any>(null);
@@ -284,7 +293,11 @@ d="M12 4v16m8-8H4" />
                     alt={item.title}
                     fill
                     className="object-cover"
-                  />
+                  
+          sizes="100vw"
+        /
+          quality={100}
+        >
                 ) : (
                   <div className="flex items-center justify-center h-full">
                     <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor"

@@ -46,6 +46,22 @@ export default async function GrantWorkflowPage() {
     .eq('id', user.id)
     .single();
 
+  const { data: items } = await supabase
+    .from('items')
+    .select('*')
+    .limit(10);
+
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) redirect('/login');
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
   await requireAdmin();
 
   const { grants, entities, applications } = await getWorkflowData();
@@ -176,6 +192,15 @@ export default async function GrantWorkflowPage() {
               {grants.length === 0 && (
                 <p className="text-sm text-slate-500 text-center py-8">
                   No new opportunities. Run sync to import grants.
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/grants/workflow",
+  },
+  title: 'Workflow | Elevate For Humanity',
+  description: 'Explore Workflow and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
                 </p>
               )}
             </div>

@@ -31,11 +31,30 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/master-control",
+  },
   title: 'Master Control Center | Admin',
   description: 'Access all platform features and user portals',
 };
 
 export default async function MasterControlPage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) redirect('/login');
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  const { data: items } = await supabase
+    .from('items')
+    .select('*')
+    .limit(10);
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');

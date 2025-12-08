@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/dmca",
+  },
   title: 'DMCA Policy & Copyright Protection | Elevate For Humanity',
   description: 'Our Digital Millennium Copyright Act (DMCA) policy and procedures for reporting copyright infringement.',
   robots: 'noindex, nofollow', // Don't index legal pages

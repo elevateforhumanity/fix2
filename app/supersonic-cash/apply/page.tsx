@@ -3,6 +3,15 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { 
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/supersonic-cash/apply",
+  },
+  title: 'Apply | Elevate For Humanity',
+  description: 'Explore Apply and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
   ArrowLeft, ArrowRight, CheckCircle, AlertCircle, 
   User, DollarSign, CreditCard, FileText, Shield
 } from 'lucide-react';

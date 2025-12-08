@@ -134,7 +134,9 @@ export default function HvacTechnicianPage() {
                 fill
                 className="object-cover"
                 quality={100}
-              />
+              
+          sizes="100vw"
+        />
             </div>
           </div>
         </div>
@@ -245,6 +247,8 @@ export default function HvacTechnicianPage() {
           fill
           className="object-cover"
           quality={100}
+        
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">

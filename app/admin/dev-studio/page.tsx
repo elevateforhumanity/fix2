@@ -11,6 +11,15 @@ import Terminal from '@/components/dev-studio/Terminal';
 import PreviewPanel from '@/components/dev-studio/PreviewPanel';
 import { Save, Play, GitBranch, Settings } from 'lucide-react';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/dev-studio",
+  },
+  title: 'Dev Studio | Elevate For Humanity',
+  description: 'Explore Dev Studio and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 // Lazy load Monaco to avoid SSR issues
 const CodeEditor = dynamic(() => import('@/components/dev-studio/CodeEditor'), {
   ssr: false,

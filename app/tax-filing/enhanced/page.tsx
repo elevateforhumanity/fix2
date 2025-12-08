@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/tax-filing/enhanced",
+  },
   title: 'Professional Tax Filing $100 | Drake Software | EPS Financial',
   description: 'File your taxes with certified preparers. Drake Software powered. EPS Financial refund advances. Maximum refund guaranteed.',
 };

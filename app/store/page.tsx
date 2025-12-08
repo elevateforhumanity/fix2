@@ -49,7 +49,13 @@ export default function StorePage() {
               <div key={product.id} className="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <Image src={product.image} alt={product.name} fill
-className="object-cover group-hover:scale-105 transition-transform duration-300" />
+className="object-cover group-hover:scale-105 transition-transform duration-300" 
+          quality={100}
+        /
+          quality={100}
+        
+          sizes="100vw"
+        >
                   {product.featured && <span className="absolute top-4 right-4 bg-blue-700 text-white px-3 py-1 rounded-md text-sm font-bold">Featured</span>}
                 </div>
                 <div className="p-6">

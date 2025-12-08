@@ -5,6 +5,15 @@ import { useRouter } from 'next/navigation';
 
 import { useState } from 'react';
 import { 
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/autopilots",
+  },
+  title: 'Autopilots | Elevate For Humanity',
+  description: 'Explore Autopilots and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
   Zap, 
   Image as ImageIcon, 
   Database, 

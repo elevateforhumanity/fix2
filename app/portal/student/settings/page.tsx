@@ -8,9 +8,26 @@ export const metadata: Metadata = {
     canonical: "https://www.elevateforhumanity.org/portal/student/settings",
   },
   title: 'Settings | Student Portal',
+  description: 'Explore Settings and discover opportunities for career growth and development at Elevate For Humanity.',
 };
 
 export default async function SettingsPage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) redirect('/login');
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  const { data: items } = await supabase
+    .from('items')
+    .select('*')
+    .limit(10);
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');

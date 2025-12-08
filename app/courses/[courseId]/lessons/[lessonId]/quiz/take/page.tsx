@@ -3,6 +3,15 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/courses/[courseId]/lessons/[lessonId]/quiz/take",
+  },
+  title: 'Take | Elevate For Humanity',
+  description: 'Explore Take and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 export default function TakeQuizPage({
   params,
 }: {

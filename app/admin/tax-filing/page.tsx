@@ -7,11 +7,30 @@ import { redirect } from 'next/navigation';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/tax-filing",
+  },
   title: 'Tax Filing Management | Admin',
   description: 'Manage tax filing applications and preparers',
 };
 
 export default async function TaxFilingAdminPage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) redirect('/login');
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  const { data: items } = await supabase
+    .from('items')
+    .select('*')
+    .limit(10);
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   

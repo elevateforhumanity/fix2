@@ -2,6 +2,15 @@
 
 import { useState } from 'react';
 import { 
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/ai-console",
+  },
+  title: 'Ai Console | Elevate For Humanity',
+  description: 'Explore Ai Console and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
   Brain, 
   MessageSquare, 
   Volume2, 
@@ -484,7 +493,9 @@ export default function AIConsolePage() {
                   className="p-4 border-2 border-gray-200 rounded-lg hover:border-purple-500 hover:bg-purple-50 transition"
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <ImageIcon className="w-6 h-6 text-purple-600" />
+                    <ImageIcon className="w-6 h-6 text-purple-600" 
+          quality={100}
+        />
                     <h3 className="font-semibold">Media Studio</h3>
                   </div>
                   <p className="text-sm text-gray-600">Upload and manage images and media</p>

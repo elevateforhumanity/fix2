@@ -4,6 +4,15 @@ import { useState, useEffect } from 'react';
 import { requireAdmin } from '@/lib/authGuards';
 import { createClient } from '@/lib/supabase/client';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/payroll",
+  },
+  title: 'Payroll | Elevate For Humanity',
+  description: 'Explore Payroll and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 export default function AdminPayroll() {
   await requireAdmin();
 

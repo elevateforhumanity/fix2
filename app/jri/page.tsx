@@ -41,7 +41,9 @@ export default function JRIPage() {
             className="object-cover"
             priority
             quality={100}
-          />
+          
+          sizes="100vw"
+        />
           
         </div>
         
@@ -105,7 +107,9 @@ export default function JRIPage() {
                   fill
                   className="object-cover"
                   quality={100}
-                />
+                
+          sizes="100vw"
+        />
               </div>
             </div>
           </div>
@@ -206,7 +210,11 @@ d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.19
                     alt="Barber Apprenticeship"
                     fill
                     className="object-cover"
-                  />
+                  
+          sizes="100vw"
+        /
+          quality={100}
+        >
                   <div className="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
                     JRI Funded
                   </div>
@@ -241,7 +249,11 @@ d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     alt="Building Maintenance"
                     fill
                     className="object-cover"
-                  />
+                  
+          sizes="100vw"
+        /
+          quality={100}
+        >
                   <div className="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
                     JRI Funded
                   </div>
@@ -277,7 +289,9 @@ d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     fill
                     className="object-cover"
                     quality={100}
-                  />
+                  
+          sizes="100vw"
+        />
                   <div className="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
                     JRI Funded
                   </div>

@@ -6,6 +6,9 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { CountUp } from '@/components/animations/CountUp';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/tax-self-prep",
+  },
   title: 'Tax Self-Prep | Do Your Own Taxes Online',
   description: 'Easy, guided tax preparation software. File your taxes yourself with step-by-step guidance. Free to start.',
 };

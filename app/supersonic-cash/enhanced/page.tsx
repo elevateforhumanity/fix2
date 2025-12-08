@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/supersonic-cash/enhanced",
+  },
   title: 'Supersonic Cash Advance - Get Up to $3,500 Fast | EPS Financial',
   description: 'Quick cash advances powered by EPS Financial. Get approved in minutes, funded same day. No hidden fees.',
 };

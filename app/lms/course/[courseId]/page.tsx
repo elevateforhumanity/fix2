@@ -4,6 +4,15 @@ import { redirect, notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/lms/course/[courseId]",
+  },
+  title: '[courseId] | Elevate For Humanity',
+  description: 'Explore [courseId] and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 type Props = {
   params: Promise<{ courseId: string }>;
 };
@@ -83,7 +92,11 @@ export default async function Page({ params }: Props) {
             className="object-cover brightness-90"
             priority
             sizes="100vw"
-          />
+          
+          quality={100}
+        /
+          quality={100}
+        >
         )}
         
         
@@ -222,6 +235,33 @@ d="M5 13l4 4L19 7" />
           </div>
         </div>
       </section>
-    </div>
+    
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+            <p className="text-xl mb-8 text-blue-100">
+              Take the first step toward a better career today.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg"
+              >
+                Apply Now
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg"
+              >
+                View Programs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  </div>
   );
 }

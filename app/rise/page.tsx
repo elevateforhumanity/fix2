@@ -22,6 +22,8 @@ export default function RiseFoundationPage() {
           className="object-cover opacity-40"
           priority
           quality={100}
+        
+          sizes="100vw"
         />
         <div className="relative z-10 flex h-full items-center">
       {/* Hero Section */}

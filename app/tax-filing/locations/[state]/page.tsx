@@ -3,6 +3,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/tax-filing/locations/[state]",
+  },
+  title: '[state] | Elevate For Humanity',
+  description: 'Explore [state] and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 const stateData: Record<string, any> = {
   'indiana': {
     name: 'Indiana',

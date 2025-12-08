@@ -316,7 +316,11 @@ export default function CompareProgramsPage() {
                 alt="Program comparison video"
                 fill
                 className="object-cover opacity-50"
-              />
+              
+          sizes="100vw"
+        /
+          quality={100}
+        >
             </div>
           </div>
         </div>
@@ -340,7 +344,11 @@ export default function CompareProgramsPage() {
                     alt={program.name}
                     fill
                     className="object-cover"
-                  />
+                  
+          sizes="100vw"
+        /
+          quality={100}
+        >
                   <div className="absolute top-4 right-4 bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-bold">
                     {program.category}
                   </div>
@@ -399,7 +407,11 @@ export default function CompareProgramsPage() {
                             alt={program.name}
                             fill
                             className="object-cover"
-                          />
+                          
+          sizes="100vw"
+        /
+          quality={100}
+        >
                         </div>
                         <div>
                           <div className="font-bold">{program.name}</div>

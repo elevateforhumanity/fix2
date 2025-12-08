@@ -10,6 +10,15 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/grants/submissions",
+  },
+  title: 'Submissions | Elevate For Humanity',
+  description: 'Explore Submissions and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 async function getSubmissionsData() {
   const { data: submissions } = await supabaseAdmin
     .from('grant_submissions')
@@ -59,6 +68,22 @@ function getMethodBadge(method: string) {
 }
 
 export default async function GrantSubmissionsPage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) redirect('/login');
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  const { data: items } = await supabase
+    .from('items')
+    .select('*')
+    .limit(10);
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   

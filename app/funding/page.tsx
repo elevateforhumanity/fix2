@@ -1,6 +1,15 @@
 // app/funding/page.tsx
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/funding",
+  },
+  title: 'Funding | Elevate For Humanity',
+  description: 'Explore Funding and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 export default function FundingPage() {
   return (
     <main className="min-h-screen bg-slate-50 py-12">

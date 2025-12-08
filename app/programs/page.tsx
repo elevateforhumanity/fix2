@@ -234,7 +234,13 @@ d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   alt="Healthcare Training Programs"
                   fill
                   className="object-cover"
-                />
+                
+          quality={100}
+        /
+          quality={100}
+        
+          sizes="100vw"
+        >
               </div>
               <div>
                 <div className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
@@ -329,7 +335,13 @@ d="M5 13l4 4L19 7" />
                   alt="Barber Training Programs"
                   fill
                   className="object-cover"
-                />
+                
+          quality={100}
+        /
+          quality={100}
+        
+          sizes="100vw"
+        >
               </div>
             </div>
 
@@ -341,7 +353,13 @@ d="M5 13l4 4L19 7" />
                   alt="Skilled Trades Training"
                   fill
                   className="object-cover"
-                />
+                
+          quality={100}
+        /
+          quality={100}
+        
+          sizes="100vw"
+        >
               </div>
               <div>
                 <div className="inline-block px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-4">
@@ -439,7 +457,13 @@ d="M5 13l4 4L19 7" />
                   fill
                   className="object-cover"
                   unoptimized
-                />
+                
+          quality={100}
+        /
+          quality={100}
+        
+          sizes="100vw"
+        >
               </div>
             </div>
           </div>

@@ -18,6 +18,15 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/media-studio",
+  },
+  title: 'Media Studio | Elevate For Humanity',
+  description: 'Explore Media Studio and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 interface MediaFile {
   name: string;
   url: string;
@@ -294,10 +303,16 @@ export default function MediaStudioPage() {
                       alt={file.name}
                       fill
                       className="object-cover"
-                    />
+                    
+          sizes="100vw"
+        
+          quality={100}
+        />
                   ) : (
                     <div className="flex items-center justify-center h-full">
-                      <ImageIcon className="w-12 h-12 text-gray-400" />
+                      <ImageIcon className="w-12 h-12 text-gray-400" 
+          quality={100}
+        />
                     </div>
                   )}
                 </div>

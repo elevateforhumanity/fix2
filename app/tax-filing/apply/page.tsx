@@ -4,6 +4,15 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/tax-filing/apply",
+  },
+  title: 'Apply | Elevate For Humanity',
+  description: 'Explore Apply and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 export default function TaxFilingApplicationPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);

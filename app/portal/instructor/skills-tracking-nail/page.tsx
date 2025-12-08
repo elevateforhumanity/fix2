@@ -4,6 +4,15 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Star } from 'lucide-react';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/portal/instructor/skills-tracking-nail",
+  },
+  title: 'Skills Tracking Nail | Elevate For Humanity',
+  description: 'Explore Skills Tracking Nail and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 interface Skill {
   id: string;
   name: string;
@@ -340,7 +349,11 @@ export default function NailSkillsTrackingPage() {
                           alt="Completed"
                           fill
                           className="object-cover"
-                        />
+                        
+          sizes="100vw"
+        /
+          quality={100}
+        >
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
@@ -385,7 +398,11 @@ export default function NailSkillsTrackingPage() {
                         alt="Skills progress"
                         fill
                         className="object-cover"
-                      />
+                      
+          sizes="100vw"
+        /
+          quality={100}
+        >
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-gray-900">{progress.totalSkills}</p>
@@ -400,7 +417,11 @@ export default function NailSkillsTrackingPage() {
                         alt="Unique skills"
                         fill
                         className="object-cover"
-                      />
+                      
+          sizes="100vw"
+        /
+          quality={100}
+        >
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-gray-900">{progress.uniqueSkills}</p>
@@ -415,7 +436,11 @@ export default function NailSkillsTrackingPage() {
                         alt="Quality rating"
                         fill
                         className="object-cover"
-                      />
+                      
+          sizes="100vw"
+        /
+          quality={100}
+        >
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-gray-900">{progress.avgRating}</p>

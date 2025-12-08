@@ -1,6 +1,15 @@
 // app/team/page.tsx
 import Image from "next/image";
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/team",
+  },
+  title: 'Team | Elevate For Humanity',
+  description: 'Explore Team and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 type TeamMember = {
   name: string;
   title: string;

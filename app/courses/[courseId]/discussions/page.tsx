@@ -6,6 +6,15 @@ import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/courses/[courseId]/discussions",
+  },
+  title: 'Discussions | Elevate For Humanity',
+  description: 'Explore Discussions and discover opportunities for career growth and development at Elevate For Humanity.',
+};
+
+
 export default function CourseDiscussionsPage() {
   const params = useParams();
   const router = useRouter();
