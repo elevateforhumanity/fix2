@@ -57,15 +57,18 @@ export default function BarberApprenticeshipPage() {
                   href="/apply"
                   className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
                 >
-                  Apply Now - It's Free
+                  Apply for Free Training
                 </Link>
                 <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
+                  href="/checkout/prog-barber-apprentice"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all hover:scale-105 shadow-2xl"
                 >
-                  Questions? Contact Us
+                  Pay with Affirm - $4,890
                 </Link>
               </div>
+              <p className="text-sm text-white/90 mt-4 drop-shadow">
+                Choose free government-funded training OR pay $4,890 with flexible payment plans through Affirm
+              </p>
             </div>
           </div>
         </div>
