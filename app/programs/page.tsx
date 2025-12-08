@@ -24,33 +24,65 @@ async function getPrograms() {
 function getProgramImage(slug: string, category: string): string {
   // High-quality program-specific images (600x400 aspect ratio)
   const customImages: Record<string, string> = {
+    // Healthcare Programs
     "medical-assistant": "/media-backup-20251128-043832/programs/medical-hd.jpg",
     "phlebotomy-technician": "/media-backup-20251128-043832/programs/healthcare-professional-1-hd.jpg",
     "pharmacy-technician": "/media-backup-20251128-043832/programs/healthcare-professional-2-hd.jpg",
     "dental-assistant": "/media-backup-20251128-043832/programs/healthcare-hd.jpg",
+    "cna": "/media-backup-20251128-043832/programs/cna-hd.jpg",
+    "certified-nursing-assistant": "/media-backup-20251128-043832/programs/cna-hd.jpg",
+    "medical-esthetics": "/media-backup-20251128-043832/programs/medical-esthetics-training-hd.jpg",
+    "cpr-certification": "/media-backup-20251128-043832/programs/cpr-training-hd.jpg",
+    
+    // Technology Programs
     "it-support-specialist": "/media-backup-20251128-043832/programs/it-hd.jpg",
-    "cybersecurity-analyst": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "web-development": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "data-analytics": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "customer-service-representative": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "administrative-assistant": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "bookkeeping": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "real-estate-agent": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "insurance-agent": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "solar-panel-installation": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "automotive-technician": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "diesel-mechanic": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "forklift-operator": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "manufacturing-technician": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "entrepreneurship-small-business": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    // Additional programs
-    "cna": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "certified-nursing-assistant": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "hvac-technician": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "cybersecurity-analyst": "/media-backup-20251128-043832/programs/it-hd.jpg",
+    "web-development": "/media-backup-20251128-043832/programs/it-hd.jpg",
+    "data-analytics": "/media-backup-20251128-043832/programs/it-hd.jpg",
+    
+    // Business & Professional
+    "customer-service-representative": "/media-backup-20251128-043832/programs/counseling-training-hd.jpg",
+    "administrative-assistant": "/media-backup-20251128-043832/programs/counseling-training-hd.jpg",
+    "bookkeeping": "/media-backup-20251128-043832/programs/tax-prep-hd.jpg",
+    "tax-preparation": "/media-backup-20251128-043832/programs/tax-prep-hd.jpg",
+    "real-estate-agent": "/media-backup-20251128-043832/programs/building-hd.jpg",
+    "insurance-agent": "/media-backup-20251128-043832/programs/counseling-training-hd.jpg",
+    "entrepreneurship-small-business": "/media-backup-20251128-043832/programs/counseling-training-hd.jpg",
+    
+    // Skilled Trades
+    "hvac-technician": "/media-backup-20251128-043832/programs/hvac-hd.jpg",
+    "welding": "/media-backup-20251128-043832/programs/welding-hd.jpg",
+    "electrical": "/media-backup-20251128-043832/programs/electrical-hd.jpg",
+    "electrician": "/media-backup-20251128-043832/programs/electrical-hd.jpg",
+    "plumbing": "/media-backup-20251128-043832/programs/plumbing-hd.jpg",
+    "plumber": "/media-backup-20251128-043832/programs/plumbing-hd.jpg",
+    "solar-panel-installation": "/media-backup-20251128-043832/programs/electrical-hd.jpg",
+    "building-maintenance-technician": "/media-backup-20251128-043832/programs/building-tech-hd.jpg",
+    "construction": "/media-backup-20251128-043832/programs/building-hd.jpg",
+    
+    // Transportation
     "cdl": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
+    "truck-driving": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
     "commercial-truck-driving": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
-    "barber-apprenticeship": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "building-maintenance-technician": "/media-backup-20251128-043832/programs/welding-hd.jpg",
+    
+    // Automotive
+    "automotive-technician": "/media-backup-20251128-043832/programs/building-tech-hd.jpg",
+    "diesel-mechanic": "/media-backup-20251128-043832/programs/building-tech-hd.jpg",
+    
+    // Manufacturing & Warehouse
+    "forklift-operator": "/media-backup-20251128-043832/programs/building-tech-hd.jpg",
+    "manufacturing-technician": "/media-backup-20251128-043832/programs/building-tech-hd.jpg",
+    
+    // Beauty & Barber
+    "barber-apprenticeship": "/media-backup-20251128-043832/programs/barber-hd.jpg",
+    "barbering": "/media-backup-20251128-043832/programs/barber-hd.jpg",
+    "cosmetology": "/media-backup-20251128-043832/programs/beauty-hd.jpg",
+    "esthetics": "/media-backup-20251128-043832/programs/beauty-hd.jpg",
+    "nail-technician": "/media-backup-20251128-043832/programs/beauty-hd.jpg",
+    
+    // Culinary
+    "culinary-arts": "/media-backup-20251128-043832/programs/culinary-hd.jpg",
+    "food-service": "/media-backup-20251128-043832/programs/culinary-hd.jpg",
   };
 
   if (customImages[slug]) {
