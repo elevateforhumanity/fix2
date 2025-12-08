@@ -351,7 +351,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SUCCESS STORIES WITH PHOTOS */}
+      {/* SUCCESS STORIES WITH REAL PHOTOS */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
@@ -364,12 +364,12 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Success Story 1 */}
+            {/* Success Story 1 - REAL PHOTO */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-64">
                 <Image
-                  src="/images/students-new/student-1.jpg"
-                  alt="Sarah M. - CNA Graduate"
+                  src="/media/testimonials/student1.jpg"
+                  alt="Sarah M. - CNA Graduate - Real student testimonial"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -384,12 +384,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Success Story 2 */}
+            {/* Success Story 2 - REAL PHOTO */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-64">
                 <Image
-                  src="/images/students-new/student-2.jpg"
-                  alt="Marcus J. - HVAC Graduate"
+                  src="/media/testimonials/student2.jpg"
+                  alt="Marcus J. - HVAC Graduate - Real student testimonial"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -404,12 +404,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Success Story 3 */}
+            {/* Success Story 3 - REAL PHOTO */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-64">
                 <Image
-                  src="/images/students-new/student-3.jpg"
-                  alt="David R. - CDL Graduate"
+                  src="/media/testimonials/student3.jpg"
+                  alt="David R. - CDL Graduate - Real student testimonial"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 33vw"
@@ -427,23 +427,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FACILITY PHOTOS */}
+      {/* REAL TRAINING PHOTOS */}
       <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Our Training Facilities
+              Hands-On Training
             </h2>
             <p className="text-xl text-slate-600">
-              Modern classrooms and hands-on training labs
+              Real students learning real skills
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/students-new/student-5.jpg"
-                alt="Healthcare training lab"
+                src="/media/programs/cpr-group-training-hd.jpg"
+                alt="CPR training - Real students learning life-saving skills"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 50vw, 25vw"
@@ -451,8 +451,8 @@ export default function HomePage() {
             </div>
             <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/students-new/student-8.jpg"
-                alt="Skilled trades workshop"
+                src="/media/programs/cna-training-video-thumbnail.jpg"
+                alt="CNA training - Real healthcare students"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 50vw, 25vw"
@@ -460,8 +460,8 @@ export default function HomePage() {
             </div>
             <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/students-new/student-9.jpg"
-                alt="Computer lab"
+                src="/media/programs/medical-esthetics-training-hd.jpg"
+                alt="Medical esthetics training - Real beauty students"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 50vw, 25vw"
@@ -469,8 +469,8 @@ export default function HomePage() {
             </div>
             <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/students-new/student-13.jpg"
-                alt="Classroom training"
+                src="/media/programs/cpr-certification-group-hd.jpg"
+                alt="CPR certification - Real students getting certified"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 50vw, 25vw"
@@ -480,30 +480,109 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MORE STUDENT PHOTOS */}
+      {/* MORE REAL TRAINING PHOTOS - NO DUPLICATES */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Students in Action
+              More Success Stories
             </h2>
             <p className="text-xl text-slate-600">
-              See our students learning and growing
+              Real graduates, real transformations
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {[15, 16, 17, 18, 19, 21, 22, 23, 24, 25].map((num) => (
-              <div key={num} className="relative h-48 rounded-lg overflow-hidden shadow-md">
-                <Image
-                  src={`/images/students-new/student-${num}.jpg`}
-                  alt={`Student training photo ${num}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 20vw"
-                />
-              </div>
-            ))}
+            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/media/testimonials/testimonial-success-2-original-optimized.jpg"
+                alt="Graduate success story - Real student"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/media/testimonials/testimonial-success-3-original-optimized.jpg"
+                alt="Graduate success story - Real student"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/media/testimonials/testimonial-success-4-original-optimized.jpg"
+                alt="Graduate success story - Real student"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/media/testimonials/testimonial-success-5-original-optimized.jpg"
+                alt="Graduate success story - Real student"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/media/testimonials/testimonial-medical-assistant-original-optimized.jpg"
+                alt="Medical Assistant graduate - Real student"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/media/programs/barber-hd.jpg"
+                alt="Barber training - Real student"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/media/programs/beauty-hd.jpg"
+                alt="Beauty training - Real student"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/media/programs/cdl-hd.jpg"
+                alt="CDL training - Real student"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/media/programs/cna-hd.jpg"
+                alt="CNA training - Real student"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            <div className="relative h-48 rounded-lg overflow-hidden shadow-md">
+              <Image
+                src="/media/testimonials/student-testimonial-graduate-hd.jpg"
+                alt="Graduate celebration - Real student"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
           </div>
         </div>
       </section>
