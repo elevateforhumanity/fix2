@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'Demos | Elevate For Humanity',
+  description: 'Explore our training programs and opportunities'
+};
 
 export default function DemosPage() {
 

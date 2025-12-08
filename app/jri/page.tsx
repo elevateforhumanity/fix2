@@ -3,6 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
+  title: 'Elevate For Humanity',
+  description: 'Career training and development programs'
+};
 
 export default function JRIPage() {
 

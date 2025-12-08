@@ -6,6 +6,9 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { CountUp } from '@/components/animations/CountUp';
 
 export const metadata: Metadata = {
+  title: 'Elevate For Humanity',
+  description: 'Career training and development programs'
+};
 
 export default function SupersonicFastCashPage() {
 

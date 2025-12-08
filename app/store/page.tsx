@@ -4,6 +4,9 @@ import { allProducts } from '@/lib/store/products';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'Elevate For Humanity',
+  description: 'Career training and development programs'
+};
 
 export default function StorePage() {
 

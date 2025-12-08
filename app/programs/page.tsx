@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { createClient } from '@/lib/supabase/server';
 import Image from "next/image";
-import { createClient } from "@/lib/supabase/server";
 export const metadata = {
+  title: 'Elevate For Humanity',
+  description: 'Career training and development programs'
+};
 
 export default async function ProgramsPage() {
 
