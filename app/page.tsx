@@ -147,8 +147,8 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/facility-1.jpg"
                 alt="Elevate For Humanity training facility"
@@ -158,7 +158,7 @@ export default function HomePage() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/facility-2.jpg"
                 alt="Professional training environment"
