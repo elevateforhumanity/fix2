@@ -27,7 +27,7 @@ const products = [
     name: 'CNA Scrubs Set - Navy Blue',
     category: 'Uniforms & Apparel',
     price: 45.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg
+    image: '/media-backup-20251128-043832/homepage-hero.jpg',
     description: 'Professional scrubs set including top and pants, sizes S-3XL',
     inStock: true,
     program: 'Healthcare'

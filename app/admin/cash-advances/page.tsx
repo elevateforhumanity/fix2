@@ -1,6 +1,6 @@
 // app/admin/cash-advances/page.tsx
 import { Metadata } from 'next';
-import { createServerClient } from '@/lib/supabase-server';
+import { supabaseServer } from '@/lib/supabase-server';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default async function CashAdvancesAdminPage() {
-  const supabase = createServerClient();
+  const supabase = supabaseServer();
 
   // Fetch applications
   const { data: applications, error } = await supabase

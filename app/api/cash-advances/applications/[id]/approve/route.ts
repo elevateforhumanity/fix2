@@ -1,13 +1,13 @@
 // app/api/cash-advances/applications/[id]/approve/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase-server';
+import { supabaseServer } from '@/lib/supabase-server';
 
 export async function POST(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const supabase = createServerClient();
+    const supabase = supabaseServer();
     const body = await request.json();
     const { approved_amount, notes } = body;
 

@@ -290,29 +290,29 @@ export default function VITAPage() {
 
         {/* CTA */}
         <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-700 text-white px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl mb-8">
-            Whether you need tax help or want to volunteer, we're here for you.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/vita/get-help"
-              className="px-10 py-5 bg-white text-blue-900 font-bold text-xl rounded-lg hover:bg-gray-100 transition"
-            >
-              Get Free Tax Help
-            </Link>
-            <Link
-              href="/vita/volunteer"
-              className="px-10 py-5 bg-orange-600 text-white font-bold text-xl rounded-lg hover:bg-orange-700 transition"
-            >
-              Volunteer with VITA
-            </Link>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6">
+              Ready to Get Started?
+            </h2>
+            <p className="text-xl mb-8">
+              Whether you need tax help or want to volunteer, we're here for you.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/vita/get-help"
+                className="px-10 py-5 bg-white text-blue-900 font-bold text-xl rounded-lg hover:bg-gray-100 transition"
+              >
+                Get Free Tax Help
+              </Link>
+              <Link
+                href="/vita/volunteer"
+                className="px-10 py-5 bg-orange-600 text-white font-bold text-xl rounded-lg hover:bg-orange-700 transition"
+              >
+                Volunteer with VITA
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
     </main>
   );
 }
