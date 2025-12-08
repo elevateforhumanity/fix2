@@ -49,7 +49,7 @@ export default function Page() {
     <main className="bg-white">
       <section className="relative h-[500px] w-full overflow-hidden bg-white">
         <Image
-          src="/media/homepage-hero.jpg"
+          src="/media/testimonials/student-testimonial-graduate-hd.jpg"
           alt="Success stories - graduates celebrating"
           fill
           className="object-cover brightness-110"

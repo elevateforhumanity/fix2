@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/media-backup-20251128-043832/homepage-hero.jpg',
+        url: '/media/hero-elevate-learners.jpg',
         width: 1200,
         height: 630,
         alt: 'Elevate for Humanity - 100% Free Career Training',
