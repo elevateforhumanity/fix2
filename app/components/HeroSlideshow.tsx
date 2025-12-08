@@ -5,14 +5,19 @@ import { Volume2, VolumeX } from 'lucide-react';
 
 export default function HeroSlideshow() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
 
   useEffect(() => {
-    // Auto-play video muted (like Industrious)
+    // Try to auto-play video with sound
     if (videoRef.current) {
-      videoRef.current.muted = true;
+      videoRef.current.muted = false;
       videoRef.current.play().catch(() => {
-        console.log('Autoplay prevented');
+        // If autoplay with sound fails, try muted
+        if (videoRef.current) {
+          videoRef.current.muted = true;
+          setIsMuted(true);
+          videoRef.current.play();
+        }
       });
     }
   }, []);
@@ -31,7 +36,6 @@ export default function HeroSlideshow() {
         autoPlay
         loop
         playsInline
-        muted
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ 
