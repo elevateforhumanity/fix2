@@ -4,10 +4,26 @@ import Link from "next/link";
 import Image from "next/image";
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { CountUp } from '@/components/animations/CountUp';
+import { generateOrganizationStructuredData } from '@/lib/seo/metadata';
+
+export const metadata = {
+  title: 'Free Career Training Programs | Elevate For Humanity',
+  description: '100% free workforce training in healthcare, skilled trades, and more. WIOA-funded programs in Indianapolis. No tuition, no debt. Start your career today.',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org',
+  },
+};
 
 export default function Home() {
+  const structuredData = generateOrganizationStructuredData();
+
   return (
     <main className="min-h-screen bg-white">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* Top Banner - Urgent Message */}
       <section className="bg-orange-600 text-white py-2 px-4">
         <div className="max-w-7xl mx-auto text-center">
