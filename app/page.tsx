@@ -8,19 +8,17 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       {/* TOP HERO - High Quality, Mobile Optimized */}
       <section className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
-        {/* High quality hero image */}
+        {/* High quality hero image - 8888 Keystone Crossing facility */}
         <div className="absolute inset-0">
           <Image
-            src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
-            alt="Students collaborating and learning together"
+            src="/images/location-1.jpg"
+            alt="Elevate For Humanity - 8888 Keystone Crossing, Indianapolis"
             fill
             className="object-cover"
             priority
-            quality={90}
+            quality={95}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
           />
-          {/* Gradient overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/70 to-blue-900/60" />
         </div>
         
         {/* Hero Content - Mobile Optimized */}
