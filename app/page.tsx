@@ -31,8 +31,8 @@ export default function HomePage() {
 
             {/* Main Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Get Job-Ready in<br />
-              <span className="text-orange-400">4-12 Weeks</span>
+              Start Your<br />
+              <span className="text-orange-400">New Career</span>
             </h1>
 
             {/* Subheadline */}
@@ -42,18 +42,14 @@ export default function HomePage() {
             </p>
 
             {/* Key Stats */}
-            <div className="grid grid-cols-3 gap-6 mb-10 max-w-2xl">
+            <div className="grid grid-cols-2 gap-6 mb-10 max-w-xl">
               <div>
                 <div className="text-3xl font-bold text-orange-400">$0</div>
                 <div className="text-sm text-slate-300">Out of Pocket</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-orange-400">500+</div>
-                <div className="text-sm text-slate-300">Graduates</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-orange-400">85%</div>
-                <div className="text-sm text-slate-300">Job Placement</div>
+                <div className="text-3xl font-bold text-orange-400">100%</div>
+                <div className="text-sm text-slate-300">Free Training</div>
               </div>
             </div>
 
@@ -147,45 +143,26 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/images/facility-1.jpg"
                 alt="Elevate For Humanity training facility"
                 fill
                 className="object-cover"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={90}
+                sizes="(max-width: 768px) 100vw, 40vw"
               />
             </div>
-            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/images/facility-2.jpg"
                 alt="Professional training environment"
                 fill
                 className="object-cover"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={90}
+                sizes="(max-width: 768px) 100vw, 40vw"
               />
-            </div>
-          </div>
-
-          <div className="mt-12 grid md:grid-cols-4 gap-6 text-center">
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="text-3xl font-bold text-orange-500 mb-2">10,000+</div>
-              <div className="text-sm text-slate-600">Square Feet</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="text-3xl font-bold text-blue-600 mb-2">Modern</div>
-              <div className="text-sm text-slate-600">Equipment</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="text-3xl font-bold text-green-600 mb-2">Safe</div>
-              <div className="text-sm text-slate-600">Environment</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="text-3xl font-bold text-purple-600 mb-2">Accessible</div>
-              <div className="text-sm text-slate-600">Location</div>
             </div>
           </div>
         </div>
