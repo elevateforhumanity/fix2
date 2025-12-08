@@ -7,6 +7,26 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const program = await getProgram(params.slug);
+  
+  if (!program) {
+    return {
+      title: 'Program Not Found | Elevate For Humanity',
+      description: 'The requested program could not be found.',
+    };
+  }
+
+  return {
+    title: `${program.name} | Elevate For Humanity`,
+    description: program.description || `Learn about ${program.name} training program at Elevate For Humanity.`,
+    alternates: {
+      canonical: `https://www.elevateforhumanity.org/programs/${params.slug}`,
+    },
+  };
+}
 
 export async function generateStaticParams() {
   // Return empty array to enable dynamic rendering
