@@ -14,18 +14,21 @@ export const metadata: Metadata = {
 export default function BusinessApprenticeshipPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Hero Section - Video Background */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
-        <Image
-          src="/images/gallery/image6.jpg"
-          alt="Business Apprenticeship Training"
-          fill
-          className="object-cover"
-          priority
-          quality={100}
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/40" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/business-hero.mp4" type="video/mp4" />
+        </video>
+        <audio autoPlay loop>
+          <source src="/videos/voiceover.mp3" type="audio/mpeg" />
+        </audio>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-purple-900/40" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
@@ -37,16 +40,16 @@ export default function BusinessApprenticeshipPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/apply"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
+                  href="/apply?program=business-apprenticeship"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-blue-700 bg-white rounded-lg hover:bg-blue-50 transition-all hover:shadow-2xl shadow-xl"
                 >
-                  Apply Now - It's Free
+                  Apply Now - It's 100% Free
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-all hover:shadow-2xl shadow-xl border-2 border-white"
                 >
-                  Questions? Contact Us
+                  Questions? Call 317-314-3757
                 </Link>
               </div>
             </div>
