@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: { params: { state: string } }
   const state = stateData[params.state];
   
   if (!state) {
+  const params = await props.params;
     return {
       title: 'State Not Found'
     };
