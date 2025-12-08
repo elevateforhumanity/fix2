@@ -17,7 +17,7 @@ const products = [
     name: 'Barber Tool Kit - Professional',
     category: 'Tools & Equipment',
     price: 299.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg',
+    image: '/media/hero-slide-barber.jpg',
     description: 'Complete professional barber tool kit with clippers, scissors, combs, and case',
     inStock: true,
     program: 'Barber'
@@ -27,7 +27,7 @@ const products = [
     name: 'CNA Scrubs Set - Navy Blue',
     category: 'Uniforms & Apparel',
     price: 45.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg',
+    image: '/media/hero-slide-healthcare.jpg',
     description: 'Professional scrubs set including top and pants, sizes S-3XL',
     inStock: true,
     program: 'Healthcare'
@@ -37,7 +37,7 @@ const products = [
     name: 'HVAC Tool Set - Starter Kit',
     category: 'Tools & Equipment',
     price: 449.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg',
+    image: '/media/construction-training.png',
     description: 'Essential HVAC tools including gauges, vacuum pump, and carrying case',
     inStock: true,
     program: 'HVAC'
@@ -47,7 +47,7 @@ const products = [
     name: 'CNA Certification Exam Prep',
     category: 'Certification Prep',
     price: 79.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg',
+    image: '/media/programs/cpr-training-hd.jpg',
     description: 'Complete exam prep course with practice tests and study materials',
     inStock: true,
     program: 'Healthcare'
@@ -57,7 +57,7 @@ const products = [
     name: 'Safety Glasses & Gloves Set',
     category: 'Safety Equipment',
     price: 24.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg',
+    image: '/media/programs/cpr-group-training-hd.jpg',
     description: 'OSHA-compliant safety glasses and work gloves',
     inStock: true,
     program: 'All Programs'
@@ -67,7 +67,7 @@ const products = [
     name: 'Medical Assistant Textbook Bundle',
     category: 'Course Materials',
     price: 129.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg',
+    image: '/media/programs/medical-esthetics-training-hd.jpg',
     description: 'Complete textbook set for Medical Assistant program',
     inStock: true,
     program: 'Healthcare'
@@ -77,7 +77,7 @@ const products = [
     name: 'Barber Smock - Professional',
     category: 'Uniforms & Apparel',
     price: 34.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg',
+    image: '/media/barber-highlight.png',
     description: 'Water-resistant professional barber smock, multiple colors',
     inStock: true,
     program: 'Barber'
@@ -87,7 +87,7 @@ const products = [
     name: 'HVAC Certification Study Guide',
     category: 'Certification Prep',
     price: 59.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg',
+    image: '/media/program-hvac.jpg',
     description: 'EPA 608 certification study guide with practice exams',
     inStock: true,
     program: 'HVAC'

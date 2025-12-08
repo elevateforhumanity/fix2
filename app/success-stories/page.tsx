@@ -15,7 +15,7 @@ const successStories = [
   {
     name: "Marcus Johnson",
     program: "HVAC Technician",
-    image: "/media-backup-20251128-043832/hero/hero-testimonial-2.jpg",
+    image: "/media/testimonials/student1.jpg",
     beforeJob: "Unemployed for 18 months",
     afterJob: "HVAC Technician at Carrier",
     salary: "$52,000/year",
@@ -25,7 +25,7 @@ const successStories = [
   {
     name: "Jasmine Williams",
     program: "Medical Assistant",
-    image: "/media-backup-20251128-043832/hero/hero-testimonial-2.jpg",
+    image: "/media/testimonials/student2.jpg",
     beforeJob: "Retail worker, $12/hour",
     afterJob: "Medical Assistant at IU Health",
     salary: "$42,000/year",
@@ -35,7 +35,7 @@ const successStories = [
   {
     name: "David Thompson",
     program: "CDL Driver",
-    image: "/media-backup-20251128-043832/hero/hero-testimonial-2.jpg",
+    image: "/media/testimonials/student3.jpg",
     beforeJob: "Returning citizen, no job prospects",
     afterJob: "CDL Driver at Schneider National",
     salary: "$58,000/year",

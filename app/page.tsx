@@ -18,16 +18,17 @@ export default function Home() {
       </section>
 
       {/* HERO - Clean, Minimal, Industrious Style */}
-      <section className="relative h-[600px] sm:h-[700px] w-full overflow-hidden bg-white">
+      <section className="relative h-[600px] sm:h-[700px] w-full overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800">
         <div className="absolute inset-0">
           <Image
-            src="/media/hero-elevate-learners.jpg"
+            src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
             alt="Career training that changes lives"
             fill
             className="object-cover brightness-105"
             priority
             quality={95}
             sizes="100vw"
+            unoptimized
           />
         </div>
         {/* Minimal overlay for text readability */}
@@ -58,21 +59,15 @@ export default function Home() {
             {/* Clean stats */}
             <div className="flex flex-wrap justify-center gap-12 text-white">
               <div className="text-center">
-                <div className="text-5xl font-bold mb-1">
-                  <CountUp end={33} />
-                </div>
+                <div className="text-5xl font-bold mb-1">33</div>
                 <div className="text-sm font-light">Career Programs</div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold mb-1">
-                  $<CountUp end={0} />
-                </div>
+                <div className="text-5xl font-bold mb-1">$0</div>
                 <div className="text-sm font-light">Tuition Cost</div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold mb-1">
-                  $<CountUp end={15} />-<CountUp end={20} />/hr
-                </div>
+                <div className="text-5xl font-bold mb-1">$15-20/hr</div>
                 <div className="text-sm font-light">While Training</div>
               </div>
             </div>
@@ -82,7 +77,7 @@ export default function Home() {
 
       {/* WHAT WE DO - Simple Explanation */}
       <ScrollReveal>
-        <section className="py-24 px-4 bg-white">
+        <section className="py-16 px-4 bg-white">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               Government-funded career training for everyone
@@ -97,7 +92,7 @@ export default function Home() {
 
       {/* PROGRAMS - Clean Grid, Industrious Style */}
       <ScrollReveal>
-        <section className="py-24 px-4 bg-slate-50">
+        <section className="py-16 px-4 bg-slate-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -262,7 +257,7 @@ export default function Home() {
 
       {/* VALUE PROPS - Clean, Minimal */}
       <ScrollReveal>
-        <section className="py-24 px-4 bg-white">
+        <section className="py-16 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-3 gap-16">
               {/* Prop 1 */}
