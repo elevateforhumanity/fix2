@@ -37,7 +37,6 @@ export default function TaxSelfPrepPage() {
         </div>
       </section>
 
-
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Do your taxes with confidence

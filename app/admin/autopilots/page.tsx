@@ -3,10 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { useState } from 'react';
-import { 
-
-  Zap, 
+import {
+    Zap, 
   Image as ImageIcon, 
   Database, 
   Trash2, 
@@ -132,8 +130,7 @@ export default function AutopilotsPage() {
       return next;
     });
     setFailedTasks(prev => {
-      const next = new Set(prev);
-      next.delete(task.id);
+            next.delete(task.id);
       return next;
     });
     setSelectedTask(task.id);
@@ -165,8 +162,7 @@ export default function AutopilotsPage() {
       setFailedTasks(prev => new Set(prev).add(task.id));
     } finally {
       setRunningTasks(prev => {
-        const next = new Set(prev);
-        next.delete(task.id);
+                next.delete(task.id);
         return next;
       });
     }
@@ -205,7 +201,6 @@ export default function AutopilotsPage() {
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
-
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}

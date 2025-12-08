@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/courses",
+    canonical: "https://www.elevateforhumanity.org/admin/courses"
   },
   title: 'Course Management | Admin',
-  description: 'Manage all courses and curriculum',
+  description: 'Manage all courses and curriculum'
 };
 
 export default async function AdminCoursesPage() {

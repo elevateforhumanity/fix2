@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { requireAdmin } from '@/lib/authGuards';
 import { Save, Eye, DollarSign, Package, Sparkles } from 'lucide-react';
 
-
 export default function StoreBuilderPage() {
   await requireAdmin();
 

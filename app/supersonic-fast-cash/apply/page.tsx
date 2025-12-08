@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 
-
 export default function ApplyPage() {
   const [formData, setFormData] = useState({
     firstName: '',

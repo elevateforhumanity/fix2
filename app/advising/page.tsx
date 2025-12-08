@@ -3,7 +3,6 @@
 
 import { useState } from 'react';
 
-
 export default function AdvisingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -62,7 +61,6 @@ export default function AdvisingPage() {
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
-
 
         <header className="mb-8">
           <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">

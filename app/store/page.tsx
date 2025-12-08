@@ -5,10 +5,10 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/store",
+    canonical: "https://www.elevateforhumanity.org/store"
   },
   title: 'Training Resources Store | Elevate For Humanity',
-  description: 'Professional training materials, workbooks, and resources to support your career development.',
+  description: 'Professional training materials, workbooks, and resources to support your career development.'
 };
 
 export default function StorePage() {

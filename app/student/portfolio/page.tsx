@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Image from 'next/image';
 
-
 export default function StudentPortfolio() {
   const supabase = createClient();
   const [user, setUser] = useState<any>(null);

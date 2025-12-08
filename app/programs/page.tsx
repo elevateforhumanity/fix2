@@ -83,7 +83,7 @@ function getProgramImage(slug: string, category: string): string {
     
     // Culinary
     "culinary-arts": "/media-backup-20251128-043832/programs/culinary-hd.jpg",
-    "food-service": "/media-backup-20251128-043832/programs/culinary-hd.jpg",
+    "food-service": "/media-backup-20251128-043832/programs/culinary-hd.jpg"
   };
 
   if (customImages[slug]) {
@@ -102,7 +102,7 @@ function getProgramImage(slug: string, category: string): string {
     "healthcare": "/media-backup-20251128-043832/programs/multi-training-programs.png",
     "transportation": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
     "barber_beauty": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "professional": "/media-backup-20251128-043832/programs/multi-training-programs.png",
+    "professional": "/media-backup-20251128-043832/programs/multi-training-programs.png"
   };
 
   return categoryImages[category] || "/media-backup-20251128-043832/programs/multi-training-programs.png";
@@ -113,8 +113,8 @@ export const metadata = {
   description:
     "Explore free career training programs in healthcare, trades, transportation, and workforce readiness funded through WIOA, WRG, and partner programs.",
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/programs",
-  },
+    canonical: "https://www.elevateforhumanity.org/programs"
+  }
 };
 
 export default async function ProgramsPage() {

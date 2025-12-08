@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { useState, useEffect } from 'react';
 import { 
   Upload, 
   Trash2, 
@@ -17,7 +16,6 @@ import {
   Sparkles
 } from 'lucide-react';
 import Image from 'next/image';
-
 
 interface MediaFile {
   name: string;
@@ -78,10 +76,8 @@ export default function MediaStudioPage() {
   const loadFiles = async (bucket: string) => {
     setLoading(true);
     try {
-      const res = await fetch(`/api/media/files?bucket=${bucket}`);
-      if (res.ok) {
-        const data = await res.json();
-        setFiles(data.files);
+            if (res.ok) {
+                setFiles(data.files);
       }
     } catch (error) {
       console.error('Failed to load files:', error);
@@ -96,11 +92,7 @@ export default function MediaStudioPage() {
     formData.append('bucket', selectedBucket);
 
     try {
-      const res = await fetch('/api/media/upload', {
-        method: 'POST',
-        body: formData
-      });
-
+      
       if (res.ok) {
         loadFiles(selectedBucket);
       }
@@ -113,12 +105,7 @@ export default function MediaStudioPage() {
     if (!confirm(`Delete ${fileName}?`)) return;
 
     try {
-      const res = await fetch('/api/media/delete', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ bucket: selectedBucket, fileName })
-      });
-
+      
       if (res.ok) {
         loadFiles(selectedBucket);
       }
@@ -129,15 +116,7 @@ export default function MediaStudioPage() {
 
   const optimizeImages = async () => {
     try {
-      const res = await fetch('/api/media/optimize', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          bucket: selectedBucket,
-          files: Array.from(selectedFiles)
-        })
-      });
-
+      
       if (res.ok) {
         alert('Images optimized successfully!');
         loadFiles(selectedBucket);

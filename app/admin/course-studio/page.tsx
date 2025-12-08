@@ -3,10 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Save, Play, Sparkles, Eye, Plus } from 'lucide-react';
-
 
 const CodeEditor = dynamic(() => import('@/components/dev-studio/CodeEditor'), {
   ssr: false,
@@ -67,15 +65,7 @@ export default function CourseStudioPage() {
     if (!selectedCourse) return;
 
     try {
-      const res = await fetch(`/api/courses/${selectedCourse.id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...selectedCourse,
-          content: courseContent
-        })
-      });
-
+      
       if (res.ok) {
         setHasChanges(false);
         alert('Course saved successfully!');
@@ -90,19 +80,9 @@ export default function CourseStudioPage() {
     if (!selectedCourse) return;
 
     try {
-      const res = await fetch('/api/ai/generate-course', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          courseId: selectedCourse.id,
-          title: selectedCourse.title,
-          description: selectedCourse.description
-        })
-      });
-
+      
       if (res.ok) {
-        const data = await res.json();
-        setCourseContent(data.content);
+                setCourseContent(data.content);
         setHasChanges(true);
       }
     } catch (error) {
@@ -129,7 +109,6 @@ export default function CourseStudioPage() {
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
-
 
       {/* Header */}
       <div className="bg-white border-b px-6 py-4">

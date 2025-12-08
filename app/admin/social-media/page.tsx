@@ -3,11 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { 
-
-  Plus, Calendar, TrendingUp, Users, Share2, 
+import {
+    Plus, Calendar, TrendingUp, Users, Share2, 
   Facebook, Twitter, Linkedin, Instagram, Clock,
   Play, Pause, Edit, Trash2, BarChart3
 } from 'lucide-react';
@@ -38,8 +35,7 @@ export default function SocialMediaPage() {
       .catch(() => router.push('/login'));
   }, [router]);
 
-  const router = useRouter();
-  const [campaigns, setCampaigns] = useState<Campaign[]>([
+    const [campaigns, setCampaigns] = useState<Campaign[]>([
     {
       id: '1',
       name: 'Barber Program Promotion',
@@ -48,7 +44,7 @@ export default function SocialMediaPage() {
       platforms: ['facebook', 'twitter', 'linkedin'],
       postsScheduled: 90,
       lastPost: '2025-12-07T10:00:00Z',
-      nextPost: '2025-12-07T14:00:00Z',
+      nextPost: '2025-12-07T14:00:00Z'
     },
     {
       id: '2',
@@ -58,7 +54,7 @@ export default function SocialMediaPage() {
       platforms: ['facebook', 'instagram', 'linkedin'],
       postsScheduled: 60,
       lastPost: '2025-12-07T09:30:00Z',
-      nextPost: '2025-12-07T13:30:00Z',
+      nextPost: '2025-12-07T13:30:00Z'
     },
     {
       id: '3',
@@ -68,7 +64,7 @@ export default function SocialMediaPage() {
       platforms: ['facebook', 'twitter'],
       postsScheduled: 30,
       lastPost: '2025-12-06T12:00:00Z',
-      nextPost: null,
+      nextPost: null
     },
   ]);
 
@@ -455,7 +451,7 @@ function ScheduleSlot({ time, status, campaign }: ScheduleSlotProps) {
   const statusColors = {
     completed: 'bg-green-100 text-green-800',
     upcoming: 'bg-blue-100 text-blue-800',
-    scheduled: 'bg-gray-100 text-gray-800',
+    scheduled: 'bg-gray-100 text-gray-800'
   };
 
   return (

@@ -3,10 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Plus, Play, Pause, Trash2, Edit, Users, Mail, Clock, Zap } from 'lucide-react';
-
 
 interface Workflow {
   id: string;
@@ -33,8 +30,7 @@ export default function AutomationPage() {
       .catch(() => router.push('/login'));
   }, [router]);
 
-  const router = useRouter();
-  const [workflows, setWorkflows] = useState<Workflow[]>([
+    const [workflows, setWorkflows] = useState<Workflow[]>([
     {
       id: '1',
       name: 'Welcome Series',
@@ -42,7 +38,7 @@ export default function AutomationPage() {
       status: 'active',
       emails: 3,
       recipients: 142,
-      lastRun: '2025-12-07T10:30:00Z',
+      lastRun: '2025-12-07T10:30:00Z'
     },
     {
       id: '2',
@@ -51,7 +47,7 @@ export default function AutomationPage() {
       status: 'active',
       emails: 2,
       recipients: 67,
-      lastRun: '2025-12-06T15:45:00Z',
+      lastRun: '2025-12-06T15:45:00Z'
     },
     {
       id: '3',
@@ -60,7 +56,7 @@ export default function AutomationPage() {
       status: 'paused',
       emails: 4,
       recipients: 0,
-      lastRun: null,
+      lastRun: null
     },
   ]);
 
@@ -379,7 +375,7 @@ function WorkflowTemplate({ title, description, icon: Icon, color, onClick }: Wo
   const colorClasses = {
     blue: 'bg-blue-50 text-blue-600 hover:bg-blue-100',
     orange: 'bg-orange-50 text-orange-600 hover:bg-orange-100',
-    purple: 'bg-purple-50 text-purple-600 hover:bg-purple-100',
+    purple: 'bg-purple-50 text-purple-600 hover:bg-purple-100'
   };
 
   return (

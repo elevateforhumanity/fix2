@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/delegate/dashboard",
+    canonical: "https://www.elevateforhumanity.org/delegate/dashboard"
   },
   title: 'Delegate Dashboard',
-  description: 'Manage delegated students and programs',
+  description: 'Manage delegated students and programs'
 };
 
 export default async function DelegateDashboardPage() {

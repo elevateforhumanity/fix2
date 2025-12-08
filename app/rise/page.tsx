@@ -44,7 +44,6 @@ export default function RiseFoundationPage() {
         </div>
       </section>
 
-
           <div className="mx-auto max-w-7xl px-12 text-center text-white">
             <h1 className="mb-6 text-6xl font-light md:text-8xl">
               RISE Foundation

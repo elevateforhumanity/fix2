@@ -5,7 +5,6 @@ import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 import Image from 'next/image';
 
-
 export default function AdminApprenticeships() {
   const supabase = createClient();
   const [apprenticeships, setApprenticeships] = useState<any[]>([]);

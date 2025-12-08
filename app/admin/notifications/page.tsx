@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { requireAdmin } from '@/lib/authGuards';
 import { Bell, Send, Users, CheckCircle, AlertCircle } from 'lucide-react';
 
-
 export default function NotificationsPage() {
   await requireAdmin();
 
@@ -13,7 +12,7 @@ export default function NotificationsPage() {
     body: '',
     targetAudience: 'all-students',
     url: '/',
-    icon: '/icon-192x192.png',
+    icon: '/icon-192x192.png'
   });
 
   const [sending, setSending] = useState(false);
@@ -27,7 +26,7 @@ export default function NotificationsPage() {
       const response = await fetch('/api/notifications/broadcast', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(notification),
+        body: JSON.stringify(notification)
       });
 
       const data = await response.json();
@@ -210,7 +209,7 @@ export default function NotificationsPage() {
                     ...notification,
                     title: 'Class Reminder',
                     body: 'Your class starts in 30 minutes',
-                    url: '/student/courses',
+                    url: '/student/courses'
                   })}
                 />
                 <QuickTemplate
@@ -220,7 +219,7 @@ export default function NotificationsPage() {
                     ...notification,
                     title: 'Assignment Due',
                     body: 'Assignment due tomorrow at 11:59 PM',
-                    url: '/student/assignments',
+                    url: '/student/assignments'
                   })}
                 />
                 <QuickTemplate
@@ -230,7 +229,7 @@ export default function NotificationsPage() {
                     ...notification,
                     title: 'New Message',
                     body: 'You have a new message from your instructor',
-                    url: '/student/messages',
+                    url: '/student/messages'
                   })}
                 />
                 <QuickTemplate
@@ -240,7 +239,7 @@ export default function NotificationsPage() {
                     ...notification,
                     title: 'Certificate Ready',
                     body: 'Your certificate is ready to download!',
-                    url: '/student/certificates',
+                    url: '/student/certificates'
                   })}
                 />
               </div>

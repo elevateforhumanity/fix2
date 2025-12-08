@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Building2, CheckCircle, AlertCircle } from 'lucide-react';
 
-
 export default function ProgramHolderApplicationPage() {
   const [formData, setFormData] = useState({
     organizationName: '',

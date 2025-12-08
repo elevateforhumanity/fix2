@@ -4,7 +4,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-
 export default function TaxFilingApplicationPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);

@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/users",
+    canonical: "https://www.elevateforhumanity.org/admin/users"
   },
   title: 'User Management | Admin',
-  description: 'Manage all users in the platform',
+  description: 'Manage all users in the platform'
 };
 
 export default async function Page() {

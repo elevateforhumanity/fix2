@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   description: 'Explore Submissions and discover opportunities for career growth and development at Elevate For Humanity.',
 };
 
-
 async function getSubmissionsData() {
   const { data: submissions } = await supabaseAdmin
     .from('grant_submissions')
@@ -111,7 +110,6 @@ export default async function GrantSubmissionsPage() {
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
-
 
         {/* Header */}
         <div className="mb-8">

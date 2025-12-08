@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/workforce-board/dashboard",
+    canonical: "https://www.elevateforhumanity.org/workforce-board/dashboard"
   },
   title: 'Workforce Board Dashboard',
-  description: 'Monitor workforce development programs and outcomes',
+  description: 'Monitor workforce development programs and outcomes'
 };
 
 export default async function WorkforceBoardDashboardPage() {

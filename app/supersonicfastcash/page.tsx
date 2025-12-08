@@ -7,10 +7,10 @@ import { CountUp } from '@/components/animations/CountUp';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/supersonicfastcash",
+    canonical: "https://www.elevateforhumanity.org/supersonicfastcash"
   },
   title: 'SupersonicFastCash | Professional Tax Preparation',
-  description: 'Get your taxes done by certified tax professionals. Maximum refund guaranteed. Fast, accurate, affordable.',
+  description: 'Get your taxes done by certified tax professionals. Maximum refund guaranteed. Fast, accurate, affordable.'
 };
 
 export default function SupersonicFastCashPage() {
@@ -36,7 +36,6 @@ export default function SupersonicFastCashPage() {
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
-
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>

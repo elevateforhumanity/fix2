@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   description: 'Explore [attemptId] and discover opportunities for career growth and development at Elevate For Humanity.',
 };
 
-
 export default async function QuizReviewPage({
   params,
 }: {

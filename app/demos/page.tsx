@@ -4,10 +4,10 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/demos",
+    canonical: "https://www.elevateforhumanity.org/demos"
   },
   title: 'Try Our Platform | Elevate For Humanity',
-  description: 'Experience our training platform with interactive demos. See how our programs work before you apply.',
+  description: 'Experience our training platform with interactive demos. See how our programs work before you apply.'
 };
 
 export default function DemosPage() {

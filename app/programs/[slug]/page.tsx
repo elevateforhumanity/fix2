@@ -12,12 +12,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/programs/[slug]",
+    canonical: "https://www.elevateforhumanity.org/programs/[slug]"
   },
   title: '[slug] | Elevate For Humanity',
-  description: 'Explore [slug] and discover opportunities for career growth and development at Elevate For Humanity.',
+  description: 'Explore [slug] and discover opportunities for career growth and development at Elevate For Humanity.'
 };
-
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const program = await getProgram(params.slug);
@@ -25,7 +24,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!program) {
     return {
       title: 'Program Not Found | Elevate For Humanity',
-      description: 'The requested program could not be found.',
+      description: 'The requested program could not be found.'
     };
   }
 
@@ -33,8 +32,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: `${program.name} | Elevate For Humanity`,
     description: program.description || `Learn about ${program.name} training program at Elevate For Humanity.`,
     alternates: {
-      canonical: `https://www.elevateforhumanity.org/programs/${params.slug}`,
-    },
+      canonical: `https://www.elevateforhumanity.org/programs/${params.slug}`
+    }
   };
 }
 
@@ -80,7 +79,7 @@ function getProgramImage(slug: string, category: string): string {
     "diesel-mechanic": "/media-backup-20251128-043832/programs/healthcare-hd.jpg",
     "forklift-operator": "/media-backup-20251128-043832/programs/healthcare-hd.jpg",
     "manufacturing-technician": "/media-backup-20251128-043832/programs/healthcare-hd.jpg",
-    "entrepreneurship-small-business": "/media-backup-20251128-043832/programs/healthcare-hd.jpg",
+    "entrepreneurship-small-business": "/media-backup-20251128-043832/programs/healthcare-hd.jpg"
   };
 
   if (customImages[slug]) {
@@ -92,15 +91,14 @@ function getProgramImage(slug: string, category: string): string {
     "Technology": "/media-backup-20251128-043832/programs/healthcare-hd.jpg",
     "Business": "/media-backup-20251128-043832/programs/healthcare-hd.jpg",
     "Sales": "/media-backup-20251128-043832/programs/healthcare-hd.jpg",
-    "Skilled Trades": "/media-backup-20251128-043832/programs/healthcare-hd.jpg",
+    "Skilled Trades": "/media-backup-20251128-043832/programs/healthcare-hd.jpg"
   };
 
   return categoryImages[category] || "/media-backup-20251128-043832/programs/healthcare-hd.jpg";
 }
 
 export default async function ProgramPage({ params }: { params: { slug: string } }) {
-  const program = await getProgram(params.slug);
-
+  
   if (!program) return notFound();
   
   const imageUrl = getProgramImage(program.slug, program.category || "Business");

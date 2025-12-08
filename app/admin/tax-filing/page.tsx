@@ -8,10 +8,10 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/tax-filing",
+    canonical: "https://www.elevateforhumanity.org/admin/tax-filing"
   },
   title: 'Tax Filing Management | Admin',
-  description: 'Manage tax filing applications and preparers',
+  description: 'Manage tax filing applications and preparers'
 };
 
 export default async function TaxFilingAdminPage() {
@@ -45,8 +45,7 @@ export default async function TaxFilingAdminPage() {
 
   
 
-  const supabase = supabaseServer();
-
+  
   // Fetch applications
   const { data: applications, error } = await supabase
     .from('tax_filing_applications')
@@ -70,7 +69,7 @@ export default async function TaxFilingAdminPage() {
     totalPreparers: preparers?.length || 0,
     activePreparers: preparers?.filter(p => p.status === 'active').length || 0,
     totalRevenue: applications?.filter(a => a.status === 'completed')
-      .reduce((sum, a) => sum + (a.fee_amount || 0), 0) || 0,
+      .reduce((sum, a) => sum + (a.fee_amount || 0), 0) || 0
   };
 
   return (

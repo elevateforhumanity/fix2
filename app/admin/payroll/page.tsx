@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { requireAdmin } from '@/lib/authGuards';
 import { createClient } from '@/lib/supabase/client';
 
-
 export default function AdminPayroll() {
   await requireAdmin();
 

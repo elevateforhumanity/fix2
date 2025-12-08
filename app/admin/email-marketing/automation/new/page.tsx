@@ -3,11 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { ArrowLeft, Plus, Trash2, Mail, Clock, Users, Save, Play } from 'lucide-react';
 import { emailTemplates, type EmailTemplateKey } from '@/lib/email-templates';
-
 
 interface EmailStep {
   id: string;
@@ -33,11 +30,10 @@ export default function NewWorkflowPage() {
       .catch(() => router.push('/login'));
   }, [router]);
 
-  const router = useRouter();
-  const [workflow, setWorkflow] = useState({
+    const [workflow, setWorkflow] = useState({
     name: '',
     trigger: 'enrollment' as 'enrollment' | 'application' | 'completion' | 'abandoned',
-    targetAudience: 'all-students',
+    targetAudience: 'all-students'
   });
 
   const [steps, setSteps] = useState<EmailStep[]>([
@@ -47,7 +43,7 @@ export default function NewWorkflowPage() {
       delayUnit: 'minutes',
       template: '',
       subject: '',
-      customHtml: '',
+      customHtml: ''
     },
   ]);
 
@@ -58,7 +54,7 @@ export default function NewWorkflowPage() {
       delayUnit: 'days',
       template: '',
       subject: '',
-      customHtml: '',
+      customHtml: ''
     };
     setSteps([...steps, newStep]);
   };
@@ -77,7 +73,7 @@ export default function NewWorkflowPage() {
     updateStep(stepId, {
       template: templateKey,
       subject: template.subject,
-      customHtml: template.html,
+      customHtml: template.html
     });
   };
 
@@ -88,8 +84,8 @@ export default function NewWorkflowPage() {
       body: JSON.stringify({
         ...workflow,
         steps,
-        status,
-      }),
+        status
+      })
     });
 
     if (response.ok) {

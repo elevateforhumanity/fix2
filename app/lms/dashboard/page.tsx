@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/lms/dashboard",
+    canonical: "https://www.elevateforhumanity.org/lms/dashboard"
   },
   title: 'Learning Dashboard',
-  description: 'Your learning management system hub',
+  description: 'Your learning management system hub'
 };
 
 export default async function StudentDashboardPage() {

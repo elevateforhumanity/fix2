@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-
 export default function TakeQuizPage({
   params,
 }: {

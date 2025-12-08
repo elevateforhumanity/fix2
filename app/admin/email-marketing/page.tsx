@@ -6,12 +6,11 @@ import { Mail, Send, Users, BarChart3, Calendar, Plus, Eye } from "lucide-react"
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/email-marketing",
+    canonical: "https://www.elevateforhumanity.org/admin/email-marketing"
   },
   title: 'Email Marketing | Elevate For Humanity',
-  description: 'Explore Email Marketing and discover opportunities for career growth and development at Elevate For Humanity.',
+  description: 'Explore Email Marketing and discover opportunities for career growth and development at Elevate For Humanity.'
 };
-
 
 export default function EmailMarketingPage() {
   const router = useRouter();
@@ -28,8 +27,7 @@ export default function EmailMarketingPage() {
       .catch(() => router.push('/login'));
   }, [router]);
 
-  const router = useRouter();
-  const [activeTab, setActiveTab] = useState<"campaigns" | "templates" | "analytics">("campaigns");
+    const [activeTab, setActiveTab] = useState<"campaigns" | "templates" | "analytics">("campaigns");
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -172,7 +170,7 @@ export default function EmailMarketingPage() {
                   sent: "Dec 5, 2025",
                   recipients: 456,
                   opens: "45.2%",
-                  clicks: "12.3%",
+                  clicks: "12.3%"
                 },
                 {
                   name: "Barber Apprenticeship Enrollment",
@@ -180,7 +178,7 @@ export default function EmailMarketingPage() {
                   sent: "Dec 10, 2025",
                   recipients: 234,
                   opens: "-",
-                  clicks: "-",
+                  clicks: "-"
                 },
                 {
                   name: "HVAC Program Update",
@@ -188,7 +186,7 @@ export default function EmailMarketingPage() {
                   sent: "-",
                   recipients: 0,
                   opens: "-",
-                  clicks: "-",
+                  clicks: "-"
                 },
               ].map((campaign, idx) => (
                 <div

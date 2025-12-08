@@ -3,11 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { ArrowLeft, Send, Save, Eye, Users, Calendar, Mail } from 'lucide-react';
 import { emailTemplates, type EmailTemplateKey } from '@/lib/email-templates';
-
 
 export default function NewCampaignPage() {
   const router = useRouter();
@@ -24,8 +21,7 @@ export default function NewCampaignPage() {
       .catch(() => router.push('/login'));
   }, [router]);
 
-  const router = useRouter();
-  const [step, setStep] = useState<'details' | 'content' | 'recipients' | 'schedule'>('details');
+    const [step, setStep] = useState<'details' | 'content' | 'recipients' | 'schedule'>('details');
   
   const [campaign, setCampaign] = useState({
     name: '',
@@ -38,7 +34,7 @@ export default function NewCampaignPage() {
     recipientList: 'all-students',
     scheduleType: 'now' as 'now' | 'scheduled',
     scheduleDate: '',
-    scheduleTime: '',
+    scheduleTime: ''
   });
 
   const [preview, setPreview] = useState(false);
@@ -49,7 +45,7 @@ export default function NewCampaignPage() {
       ...campaign,
       template: templateKey,
       subject: template.subject,
-      customHtml: template.html,
+      customHtml: template.html
     });
   };
 
@@ -58,7 +54,7 @@ export default function NewCampaignPage() {
     const response = await fetch('/api/email/campaigns', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...campaign, status: 'draft' }),
+      body: JSON.stringify({ ...campaign, status: 'draft' })
     });
     
     if (response.ok) {
@@ -70,12 +66,7 @@ export default function NewCampaignPage() {
   const handleSendNow = async () => {
     if (!confirm('Send this campaign now?')) return;
     
-    const response = await fetch('/api/email/campaigns/send', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(campaign),
-    });
-    
+        
     if (response.ok) {
       alert('Campaign sent successfully!');
       router.push('/admin/email-marketing');
@@ -83,16 +74,7 @@ export default function NewCampaignPage() {
   };
 
   const handleSchedule = async () => {
-    const response = await fetch('/api/email/campaigns', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        ...campaign, 
-        status: 'scheduled',
-        scheduledFor: `${campaign.scheduleDate}T${campaign.scheduleTime}:00`,
-      }),
-    });
-    
+        
     if (response.ok) {
       alert('Campaign scheduled successfully!');
       router.push('/admin/email-marketing');

@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { 
-
-  ArrowLeft, ArrowRight, CheckCircle, AlertCircle, 
+import {
+    ArrowLeft, ArrowRight, CheckCircle, AlertCircle, 
   User, DollarSign, CreditCard, FileText, Shield
 } from 'lucide-react';
 

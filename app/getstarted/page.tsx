@@ -31,7 +31,6 @@ export default function Page() {
         </div>
       </section>
 
-
       <section className="relative min-h-[600px] flex items-center">
         <div className="absolute inset-0">
           <Image

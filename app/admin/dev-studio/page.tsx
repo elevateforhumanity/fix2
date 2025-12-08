@@ -2,15 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import FileTree from '@/components/dev-studio/FileTree';
 import Terminal from '@/components/dev-studio/Terminal';
 import PreviewPanel from '@/components/dev-studio/PreviewPanel';
 import { Save, Play, GitBranch, Settings } from 'lucide-react';
-
 
 // Lazy load Monaco to avoid SSR issues
 const CodeEditor = dynamic(() => import('@/components/dev-studio/CodeEditor'), {
@@ -40,8 +36,7 @@ export default function DevStudioPage() {
       .catch(() => router.push('/login'));
   }, [router]);
 
-  const router = useRouter();
-  
+    
   // GitHub state
   const [token, setToken] = useState<string>('');
   const [repos, setRepos] = useState<any[]>([]);
@@ -129,13 +124,9 @@ export default function DevStudioPage() {
       url.searchParams.set('repo', selectedRepo);
       url.searchParams.set('ref', branch);
       
-      const res = await fetch(url, {
-        headers: { 'x-gh-token': token }
-      });
-      
+            
       if (res.ok) {
-        const data = await res.json();
-        const filePaths = data.files.map((f: any) => f.path);
+                const filePaths = data.files.map((f: any) => f.path);
         setFiles(filePaths);
         addTerminalOutput(`✅ Loaded ${filePaths.length} files`);
       } else {
@@ -155,18 +146,13 @@ export default function DevStudioPage() {
     addTerminalOutput(`📄 Opening ${path}...`);
     
     try {
-      const url = new URL('/api/github/file', window.location.origin);
-      url.searchParams.set('repo', selectedRepo);
+            url.searchParams.set('repo', selectedRepo);
       url.searchParams.set('path', path);
       url.searchParams.set('ref', branch);
       
-      const res = await fetch(url, {
-        headers: { 'x-gh-token': token }
-      });
-      
+            
       if (res.ok) {
-        const data = await res.json();
-        setSelectedFile(path);
+                setSelectedFile(path);
         setFileContent(data.content);
         setFileSha(data.sha);
         setHasChanges(false);
@@ -188,25 +174,9 @@ export default function DevStudioPage() {
     addTerminalOutput(`💾 Saving ${selectedFile}...`);
     
     try {
-      const res = await fetch('/api/github/file', {
-        method: 'PUT',
-        headers: {
-          'content-type': 'application/json',
-          'x-gh-token': token
-        },
-        body: JSON.stringify({
-          repo: selectedRepo,
-          path: selectedFile,
-          content: fileContent,
-          sha: fileSha,
-          message: `chore: update ${selectedFile} via Dev Studio`,
-          branch
-        })
-      });
-      
+            
       if (res.ok) {
-        const data = await res.json();
-        setFileSha(data.content.sha);
+                setFileSha(data.content.sha);
         setHasChanges(false);
         addTerminalOutput(`✅ Saved ${selectedFile}`);
         addTerminalOutput(`   Commit: ${data.commit.substring(0, 7)}`);
@@ -245,7 +215,6 @@ export default function DevStudioPage() {
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
-
 
       {/* Header */}
       <div className="bg-slate-800 text-white px-4 py-3 flex items-center justify-between border-b border-slate-700">

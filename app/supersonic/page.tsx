@@ -89,7 +89,6 @@ export default function SupersonicFastCashPage() {
         </div>
       </section>
 
-
           <div className="absolute inset-0 bg-[url('/images/pattern-dots.svg')] bg-repeat" />
         </div>
         

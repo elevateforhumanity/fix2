@@ -9,10 +9,10 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/cash-advances",
+    canonical: "https://www.elevateforhumanity.org/admin/cash-advances"
   },
   title: 'Cash Advance Management | Admin',
-  description: 'Manage cash advance applications and approvals',
+  description: 'Manage cash advance applications and approvals'
 };
 
 export default async function CashAdvancesAdminPage() {
@@ -48,8 +48,7 @@ export default async function CashAdvancesAdminPage() {
 
   await requireAdmin();
 
-  const supabase = supabaseServer();
-
+  
   // Fetch applications
   const { data: applications, error } = await supabase
     .from('cash_advance_applications')
@@ -66,7 +65,7 @@ export default async function CashAdvancesAdminPage() {
     denied: applications?.filter(a => a.status === 'denied').length || 0,
     totalAmount: applications?.reduce((sum, a) => sum + (a.requested_amount || 0), 0) || 0,
     approvedAmount: applications?.filter(a => a.status === 'approved' || a.status === 'funded')
-      .reduce((sum, a) => sum + (a.approved_amount || 0), 0) || 0,
+      .reduce((sum, a) => sum + (a.approved_amount || 0), 0) || 0
   };
 
   return (

@@ -5,12 +5,11 @@ import { notFound } from 'next/navigation';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/tax-filing/locations/[state]",
+    canonical: "https://www.elevateforhumanity.org/tax-filing/locations/[state]"
   },
   title: '[state] | Elevate For Humanity',
-  description: 'Explore [state] and discover opportunities for career growth and development at Elevate For Humanity.',
+  description: 'Explore [state] and discover opportunities for career growth and development at Elevate For Humanity.'
 };
-
 
 const stateData: Record<string, any> = {
   'indiana': {
@@ -31,8 +30,8 @@ const stateData: Record<string, any> = {
       stateTaxRate: '3.23%',
       filingDeadline: 'April 15',
       standardDeduction: '$1,000 - $2,000',
-      specialCredits: ['Renter\'s Deduction', 'Unified Tax Credit', 'College Choice 529 Credit'],
-    },
+      specialCredits: ['Renter\'s Deduction', 'Unified Tax Credit', 'College Choice 529 Credit']
+    }
   },
   // Add more states as needed
 };
@@ -42,7 +41,7 @@ export async function generateMetadata({ params }: { params: { state: string } }
   
   if (!state) {
     return {
-      title: 'State Not Found',
+      title: 'State Not Found'
     };
   }
 
@@ -54,17 +53,16 @@ export async function generateMetadata({ params }: { params: { state: string } }
       title: `Tax Filing in ${state.name} - $100 Flat Fee`,
       description: `${state.preparers}+ certified tax preparers across ${state.name}`,
       url: `https://elevateforhumanity.org/tax-filing/locations/${params.state}`,
-      type: 'website',
+      type: 'website'
     },
     alternates: {
-      canonical: `https://elevateforhumanity.org/tax-filing/locations/${params.state}`,
-    },
+      canonical: `https://elevateforhumanity.org/tax-filing/locations/${params.state}`
+    }
   };
 }
 
 export default function StatePage({ params }: { params: { state: string } }) {
-  const state = stateData[params.state];
-
+  
   if (!state) {
     notFound();
   }

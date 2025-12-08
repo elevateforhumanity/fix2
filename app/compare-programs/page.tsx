@@ -17,22 +17,22 @@ export const metadata: Metadata = {
         url: 'https://www.elevateforhumanity.org/og-compare-programs.jpg',
         width: 1200,
         height: 630,
-        alt: 'Compare Career Training Programs',
+        alt: 'Compare Career Training Programs'
       },
     ],
     locale: 'en_US',
-    type: 'website',
+    type: 'website'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Compare Career Training Programs - Find Your Best Fit',
     description: 'Side-by-side comparison of 28+ free training programs. See salaries, duration, and outcomes.',
     images: ['https://www.elevateforhumanity.org/og-compare-programs.jpg'],
-    creator: '@elevate4humanity',
+    creator: '@elevate4humanity'
   },
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/compare-programs',
-  },
+    canonical: 'https://www.elevateforhumanity.org/compare-programs'
+  }
 };
 
 // Program comparison data
@@ -54,7 +54,7 @@ const programs = [
     difficulty: 'Beginner',
     physicalDemand: 'High',
     image: '/media-backup-20251128-043832/programs/cna-hd.jpg',
-    videoUrl: 'https://www.youtube.com/embed/cna-program-overview',
+    videoUrl: 'https://www.youtube.com/embed/cna-program-overview'
   },
   {
     id: 'medical-assistant',
@@ -73,7 +73,7 @@ const programs = [
     difficulty: 'Intermediate',
     physicalDemand: 'Medium',
     image: '/media-backup-20251128-043832/programs/medical-hd.jpg',
-    videoUrl: 'https://www.youtube.com/embed/medical-assistant-overview',
+    videoUrl: 'https://www.youtube.com/embed/medical-assistant-overview'
   },
   {
     id: 'welding',
@@ -92,7 +92,7 @@ const programs = [
     difficulty: 'Intermediate',
     physicalDemand: 'High',
     image: '/media-backup-20251128-043832/programs/welding-hd.jpg',
-    videoUrl: 'https://www.youtube.com/embed/welding-program-overview',
+    videoUrl: 'https://www.youtube.com/embed/welding-program-overview'
   },
   {
     id: 'hvac',
@@ -111,7 +111,7 @@ const programs = [
     difficulty: 'Intermediate',
     physicalDemand: 'High',
     image: '/media-backup-20251128-043832/programs/hvac-hd.jpg',
-    videoUrl: 'https://www.youtube.com/embed/hvac-program-overview',
+    videoUrl: 'https://www.youtube.com/embed/hvac-program-overview'
   },
   {
     id: 'barber',
@@ -130,7 +130,7 @@ const programs = [
     difficulty: 'Intermediate',
     physicalDemand: 'Low',
     image: '/media-backup-20251128-043832/programs/barber-hd.jpg',
-    videoUrl: 'https://www.youtube.com/embed/barber-program-overview',
+    videoUrl: 'https://www.youtube.com/embed/barber-program-overview'
   },
   {
     id: 'cdl',
@@ -149,7 +149,7 @@ const programs = [
     difficulty: 'Beginner',
     physicalDemand: 'Medium',
     image: '/media-backup-20251128-043832/programs/cdl-hd.jpg',
-    videoUrl: 'https://www.youtube.com/embed/cdl-program-overview',
+    videoUrl: 'https://www.youtube.com/embed/cdl-program-overview'
   },
 ];
 
@@ -162,7 +162,7 @@ const successStories = [
     quote: 'I was unemployed for 8 months. WIOA paid for my CNA training, and I earned $18/hour during my apprenticeship. Now I\'m making $42,000 a year with full benefits at IU Health.',
     outcome: 'Employed in 2 weeks',
     salary: '$42,000/year',
-    employer: 'IU Health',
+    employer: 'IU Health'
   },
   {
     name: 'Marcus Johnson',
@@ -171,7 +171,7 @@ const successStories = [
     quote: 'The welding program changed my life. I went from minimum wage to $28/hour. The instructors were amazing and the hands-on training was exactly what I needed.',
     outcome: 'Employed before graduation',
     salary: '$58,000/year',
-    employer: 'Cummins',
+    employer: 'Cummins'
   },
   {
     name: 'Jennifer Williams',
@@ -180,7 +180,7 @@ const successStories = [
     quote: 'As a single mom, I couldn\'t afford college. This program gave me a career path and I earned while I learned. Now I support my family comfortably.',
     outcome: 'Employed in 1 week',
     salary: '$44,000/year',
-    employer: 'Community Health Network',
+    employer: 'Community Health Network'
   },
 ];
 
@@ -238,9 +238,9 @@ export default function CompareProgramsPage() {
               itemListElement: [
                 { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.elevateforhumanity.org' },
                 { '@type': 'ListItem', position: 2, name: 'Compare Programs', item: 'https://www.elevateforhumanity.org/compare-programs' },
-              ],
-            },
-          }),
+              ]
+            }
+          })
         }}
       />
 

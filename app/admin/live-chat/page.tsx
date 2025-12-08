@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 
 import { MessageCircle, Users, Clock, CheckCircle, TrendingUp, ExternalLink } from 'lucide-react';
 
-
 export default function LiveChatPage() {
   const router = useRouter();
 

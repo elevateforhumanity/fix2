@@ -30,7 +30,7 @@ async function getWorkflowData() {
   return {
     grants: grants || [],
     entities: entities || [],
-    applications: applications || [],
+    applications: applications || []
   };
 }
 
@@ -55,7 +55,7 @@ export default async function GrantWorkflowPage() {
     draft: applications.filter((a: any) => a.status === 'draft').length,
     review: applications.filter((a: any) => a.status === 'review').length,
     ready: applications.filter((a: any) => a.status === 'ready').length,
-    submitted: applications.filter((a: any) => a.status === 'submitted').length,
+    submitted: applications.filter((a: any) => a.status === 'submitted').length
   };
 
   return (
@@ -78,7 +78,6 @@ export default async function GrantWorkflowPage() {
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
-
 
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-slate-900 mb-2">
@@ -179,10 +178,10 @@ export default async function GrantWorkflowPage() {
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/grants/workflow",
+    canonical: "https://www.elevateforhumanity.org/admin/grants/workflow"
   },
   title: 'Workflow | Elevate For Humanity',
-  description: 'Explore Workflow and discover opportunities for career growth and development at Elevate For Humanity.',
+  description: 'Explore Workflow and discover opportunities for career growth and development at Elevate For Humanity.'
 };
 
                 </p>

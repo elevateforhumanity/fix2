@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   description: 'Explore Funding and discover opportunities for career growth and development at Elevate For Humanity.',
 };
 
-
 export default function FundingPage() {
   return (
     <main className="min-h-screen bg-slate-50 py-12">
@@ -31,7 +30,6 @@ export default function FundingPage() {
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
-
 
         <header className="mb-8">
           <p className="text-xs font-semibold uppercase tracking-wide text-red-600">

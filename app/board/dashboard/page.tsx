@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/board/dashboard",
+    canonical: "https://www.elevateforhumanity.org/board/dashboard"
   },
   title: 'Board Member Dashboard',
-  description: 'View organizational metrics and strategic insights',
+  description: 'View organizational metrics and strategic insights'
 };
 
 export default async function BoardMemberDashboardPage() {

@@ -5,7 +5,6 @@ import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 import Image from 'next/image';
 
-
 // Barber-specific skills to track
 const BARBER_SKILLS = [
   { id: 'basic-clipper', name: 'Basic Clipper Techniques', category: 'Fundamentals' },

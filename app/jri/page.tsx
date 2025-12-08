@@ -4,10 +4,10 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/jri",
+    canonical: "https://www.elevateforhumanity.org/jri"
   },
   title: 'Job Ready Indy (JRI) Programs | Elevate For Humanity',
-  description: 'Second-chance career training through Job Ready Indy. 100% funded programs for justice-involved individuals ready to rebuild their lives.',
+  description: 'Second-chance career training through Job Ready Indy. 100% funded programs for justice-involved individuals ready to rebuild their lives.'
 };
 
 export default function JRIPage() {
@@ -32,7 +32,6 @@ export default function JRIPage() {
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
-
 
           <Image
             src="/images/gallery/image8.jpg"

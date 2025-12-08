@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/partner/dashboard",
+    canonical: "https://www.elevateforhumanity.org/partner/dashboard"
   },
   title: 'Partner Dashboard',
-  description: 'Manage partnership programs and student referrals',
+  description: 'Manage partnership programs and student referrals'
 };
 
 export default async function PartnerDashboardPage() {

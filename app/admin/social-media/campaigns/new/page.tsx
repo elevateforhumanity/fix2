@@ -3,10 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { ArrowLeft, Save, Play, Facebook, Twitter, Linkedin, Instagram, Sparkles } from 'lucide-react';
-
 
 export default function NewSocialCampaignPage() {
   const router = useRouter();
@@ -23,15 +20,14 @@ export default function NewSocialCampaignPage() {
       .catch(() => router.push('/login'));
   }, [router]);
 
-  const router = useRouter();
-  const [campaign, setCampaign] = useState({
+    const [campaign, setCampaign] = useState({
     name: '',
     contentSource: 'blog' as 'blog' | 'ai' | 'manual',
     platforms: [] as string[],
     frequency: '3x-daily' as '3x-daily' | 'daily' | 'weekly',
     times: ['09:00', '13:00', '17:00'],
     program: 'all',
-    duration: '30',
+    duration: '30'
   });
 
   const [generatedPosts, setGeneratedPosts] = useState<string[]>([]);
@@ -42,7 +38,7 @@ export default function NewSocialCampaignPage() {
       ...campaign,
       platforms: campaign.platforms.includes(platform)
         ? campaign.platforms.filter(p => p !== platform)
-        : [...campaign.platforms, platform],
+        : [...campaign.platforms, platform]
     });
   };
 
@@ -55,8 +51,8 @@ export default function NewSocialCampaignPage() {
         body: JSON.stringify({
           program: campaign.program,
           count: parseInt(campaign.duration) * (campaign.frequency === '3x-daily' ? 3 : 1),
-          contentSource: campaign.contentSource,
-        }),
+          contentSource: campaign.contentSource
+        })
       });
 
       const result = await response.json();
@@ -71,16 +67,7 @@ export default function NewSocialCampaignPage() {
   };
 
   const saveCampaign = async () => {
-    const response = await fetch('/api/social-media/campaigns', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        ...campaign,
-        posts: generatedPosts,
-        status: 'draft',
-      }),
-    });
-
+    
     if (response.ok) {
       alert('Campaign saved as draft!');
       router.push('/admin/social-media');
@@ -90,16 +77,7 @@ export default function NewSocialCampaignPage() {
   const activateCampaign = async () => {
     if (!confirm('Activate this campaign? Posts will start going out immediately.')) return;
 
-    const response = await fetch('/api/social-media/campaigns', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        ...campaign,
-        posts: generatedPosts,
-        status: 'active',
-      }),
-    });
-
+    
     if (response.ok) {
       alert('Campaign activated! Posts will go out 3x daily.');
       router.push('/admin/social-media');

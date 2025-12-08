@@ -3,12 +3,10 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { useState } from 'react';
 import Split from 'react-split';
 import FileTree from '@/components/editor/FileTree';
 import CodeEditor from '@/components/editor/CodeEditor';
 import Terminal from '@/components/editor/Terminal';
-
 
 // Mock file structure
 const mockFiles = [
@@ -19,7 +17,7 @@ const mockFiles = [
     children: [
       { name: 'page.tsx', path: '/app/page.tsx', type: 'file' as const },
       { name: 'layout.tsx', path: '/app/layout.tsx', type: 'file' as const },
-    ],
+    ]
   },
   {
     name: 'components',
@@ -28,7 +26,7 @@ const mockFiles = [
     children: [
       { name: 'Header.tsx', path: '/components/Header.tsx', type: 'file' as const },
       { name: 'Footer.tsx', path: '/components/Footer.tsx', type: 'file' as const },
-    ],
+    ]
   },
   {
     name: 'lib',
@@ -36,7 +34,7 @@ const mockFiles = [
     type: 'directory' as const,
     children: [
       { name: 'utils.ts', path: '/lib/utils.ts', type: 'file' as const },
-    ],
+    ]
   },
   { name: 'package.json', path: '/package.json', type: 'file' as const },
   { name: 'README.md', path: '/README.md', type: 'file' as const },
@@ -79,7 +77,6 @@ const mockFileContents: Record<string, string> = {
         </div>
       </section>
 
-
       <h1>Welcome to EFH</h1>
       <p>Edit this file to see changes</p>
     </div>
@@ -119,7 +116,7 @@ This is your cloned codebase from Elevate For Humanity.
 npm install
 npm run dev
 \`\`\`
-`,
+`
 };
 
 export default function EditorPage() {

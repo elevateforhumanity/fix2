@@ -3,10 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { useState, useEffect } from 'react';
-import { 
-
-  Mail, TrendingUp, TrendingDown, Users, MousePointerClick, 
+import {
+    Mail, TrendingUp, TrendingDown, Users, MousePointerClick, 
   Eye, Send, AlertCircle, Calendar, Download 
 } from 'lucide-react';
 
@@ -438,7 +436,7 @@ function StatCard({ title, value, icon: Icon, color, trend }: StatCardProps) {
     blue: 'text-blue-600 bg-blue-50',
     green: 'text-green-600 bg-green-50',
     purple: 'text-purple-600 bg-purple-50',
-    red: 'text-red-600 bg-red-50',
+    red: 'text-red-600 bg-red-50'
   };
 
   return (

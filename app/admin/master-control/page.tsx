@@ -32,10 +32,10 @@ import {
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/master-control",
+    canonical: "https://www.elevateforhumanity.org/admin/master-control"
   },
   title: 'Master Control Center | Admin',
-  description: 'Access all platform features and user portals',
+  description: 'Access all platform features and user portals'
 };
 
 export default async function MasterControlPage() {

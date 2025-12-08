@@ -6,7 +6,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { BotProtection } from '@/components/security';
 
-
 export default function ApplyPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
