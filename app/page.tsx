@@ -17,58 +17,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HERO - Clean, Minimal, Industrious Style */}
-      <section className="relative h-[600px] sm:h-[700px] w-full overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800">
+      {/* HERO - Professional, Enterprise-Ready */}
+      <section className="relative h-[600px] sm:h-[700px] lg:h-[800px] w-full overflow-hidden bg-gradient-to-br from-blue-900 to-blue-700">
+        {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
-            alt="Career training that changes lives"
+            src="/media/hero-elevate-learners.jpg"
+            alt="Students learning career skills at Elevate for Humanity"
             fill
-            className="object-cover brightness-105"
+            className="object-cover object-center"
             priority
-            quality={95}
+            quality={100}
             sizes="100vw"
-            unoptimized
           />
         </div>
-        {/* Minimal overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/20"></div>
         
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-            {/* Simple, powerful headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-              The <em className="italic">best</em> career training, period.
-            </h1>
-            
-            {/* Clear value proposition */}
-            <p className="text-xl sm:text-2xl text-white mb-10 font-light max-w-3xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-              100% government-funded training. Earn while you learn. No tuition, no debt.
-            </p>
-            
-            {/* Single, clear CTA */}
-            <div className="mb-16">
-              <Link
-                href="/apply"
-                className="inline-block px-12 py-5 bg-orange-600 text-white font-bold text-xl rounded-full hover:bg-orange-700 transition-all shadow-[0_8px_30px_rgba(234,88,12,0.5)] hover:shadow-[0_8px_40px_rgba(234,88,12,0.7)] hover:scale-105 border-2 border-orange-500"
-              >
-                Check Your Eligibility →
-              </Link>
-            </div>
+        {/* Professional Overlay - Stronger for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-900/70 to-blue-900/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40"></div>
+        
+        {/* Content */}
+        <div className="relative h-full flex items-center">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl">
+              {/* Headline */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                The <em className="italic not-italic md:italic">best</em> career training, period.
+              </h1>
+              
+              {/* Subheadline */}
+              <p className="text-lg sm:text-xl md:text-2xl text-white/95 mb-8 max-w-2xl leading-relaxed font-light">
+                100% government-funded training. Earn $15-20/hour while you learn. No tuition, no debt.
+              </p>
+              
+              {/* CTA Button */}
+              <div className="mb-12">
+                <Link
+                  href="/apply"
+                  className="inline-block px-8 sm:px-12 py-4 sm:py-5 bg-orange-600 text-white font-bold text-lg sm:text-xl rounded-full hover:bg-orange-700 transition-all duration-300 shadow-[0_8px_30px_rgba(234,88,12,0.6)] hover:shadow-[0_12px_40px_rgba(234,88,12,0.8)] hover:scale-105 border-2 border-orange-500"
+                >
+                  Check Your Eligibility →
+                </Link>
+              </div>
 
-            {/* Clean stats */}
-            <div className="flex flex-wrap justify-center gap-12 text-white">
-              <div className="text-center">
-                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">33</div>
-                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Career Programs</div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">$0</div>
-                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Tuition Cost</div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">$15-20/hr</div>
-                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">While Training</div>
+              {/* Stats - Mobile Optimized */}
+              <div className="grid grid-cols-3 gap-4 sm:gap-8 md:gap-12 max-w-2xl">
+                <div className="text-center">
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1">33</div>
+                  <div className="text-xs sm:text-sm text-white/90 font-light">Career Programs</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1">$0</div>
+                  <div className="text-xs sm:text-sm text-white/90 font-light">Tuition Cost</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-1">$15-20</div>
+                  <div className="text-xs sm:text-sm text-white/90 font-light">Per Hour</div>
+                </div>
               </div>
             </div>
           </div>
@@ -105,13 +110,14 @@ export default function Home() {
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* Healthcare */}
-              <Link href="/programs?category=healthcare" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all">
+              <Link href="/programs?category=healthcare" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                 <div className="relative h-64">
                   <Image
-                    src="/media-backup-20251128-043832/programs/healthcare-hd.jpg"
-                    alt="Healthcare careers"
+                    src="/media/hero-slide-healthcare.jpg"
+                    alt="Healthcare training - CNA, Medical Assistant, Phlebotomy programs"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 <div className="p-8">
@@ -146,13 +152,14 @@ export default function Home() {
               </Link>
 
               {/* Skilled Trades */}
-              <Link href="/programs?category=trades" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all">
+              <Link href="/programs?category=trades" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                 <div className="relative h-64">
                   <Image
-                    src="/media-backup-20251128-043832/programs/welding-hd.jpg"
-                    alt="Skilled trades careers"
+                    src="/media/construction-training.png"
+                    alt="Skilled trades training - Welding, HVAC, Electrical, Plumbing programs"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
                 <div className="p-8">
@@ -187,12 +194,13 @@ export default function Home() {
               </Link>
 
               {/* Beauty & Barber */}
-              <Link href="/programs?category=beauty" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all">
+              <Link href="/programs?category=beauty" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
                 <div className="relative h-64">
                   <Image
-                    src="/media-backup-20251128-043832/programs/barber.jpg"
-                    alt="Beauty and barber careers"
+                    src="/media/hero-slide-barber.jpg"
+                    alt="Beauty and barber training - Cosmetology, Barbering, Esthetics programs"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -262,12 +270,13 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-16">
               {/* Prop 1 */}
               <div>
-                <div className="relative h-64 mb-6 rounded-lg overflow-hidden">
+                <div className="relative h-64 mb-6 rounded-lg overflow-hidden shadow-md">
                   <Image
-                    src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
-                    alt="Success is the training you receive"
+                    src="/media/programs/cpr-group-training-hd.jpg"
+                    alt="Professional training programs at Elevate for Humanity"
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Success is the training you receive</h3>
@@ -275,19 +284,20 @@ export default function Home() {
                   Thoroughly professional and thoughtfully designed, our training programs support learners of all backgrounds — 
                   from career changers to first-time job seekers. And thanks to government funding, it's 100% free.
                 </p>
-                <Link href="/programs" className="text-orange-600 font-bold hover:underline">
+                <Link href="/programs" className="text-orange-600 font-bold hover:underline inline-flex items-center gap-2">
                   See Programs →
                 </Link>
               </div>
 
               {/* Prop 2 */}
               <div>
-                <div className="relative h-64 mb-6 rounded-lg overflow-hidden">
+                <div className="relative h-64 mb-6 rounded-lg overflow-hidden shadow-md">
                   <Image
-                    src="/media-backup-20251128-043832/students-hero.jpg"
-                    alt="Earn while you learn"
+                    src="/media/hero-slide-employers.jpg"
+                    alt="Earn while you learn through apprenticeships"
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Earn while you learn</h3>
@@ -302,12 +312,13 @@ export default function Home() {
 
               {/* Prop 3 */}
               <div>
-                <div className="relative h-64 mb-6 rounded-lg overflow-hidden">
+                <div className="relative h-64 mb-6 rounded-lg overflow-hidden shadow-md">
                   <Image
-                    src="/media-backup-20251128-043832/homepage-hero.jpg"
-                    alt="Training that works from anywhere"
+                    src="/media/workforce-development-hd.jpg"
+                    alt="Flexible training locations across multiple states"
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Training that works from anywhere</h3>
@@ -315,7 +326,7 @@ export default function Home() {
                   Whether you're in the city or suburbs, we have training locations near you. 
                   Our programs are available across multiple states with flexible schedules.
                 </p>
-                <Link href="/locations" className="text-orange-600 font-bold hover:underline">
+                <Link href="/locations" className="text-orange-600 font-bold hover:underline inline-flex items-center gap-2">
                   View Locations →
                 </Link>
               </div>
