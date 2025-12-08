@@ -1,195 +1,278 @@
-
-import EnrollmentProcess from '@/components/EnrollmentProcess';
-import ProgramCTA from '@/components/ProgramCTA';
-import ProgramHighlights from '@/components/ProgramHighlights';
-
 import { Metadata } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { CheckCircle, Clock, DollarSign, TrendingUp, Zap, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/programs/medical-assistant",
-  },
   title: 'Medical Assistant Training | Elevate For Humanity',
-  description: 'Become a Medical Assistant. Free training. Work in doctors offices and clinics.',
+  description: 'Start your medical assistant career with free training. AI-powered learning, hands-on practice, and job placement support.',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/medical-assistant',
+  },
 };
 
 export default function MedicalAssistantPage() {
   return (
     <main className="min-h-screen bg-white">
-      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
         <Image
-          src="/media/hero-slide-healthcare.jpg"
+          src="/images/gallery/image6.jpg"
           alt="Medical Assistant Training"
           fill
-          className="object-cover brightness-100"
+          className="object-cover"
           priority
           quality={100}
+          sizes="100vw"
         />
-        
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 h-full flex items-center">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-purple-600 mb-3">
-              Healthcare Career
-            </p>
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
-              Medical Assistant
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-6">
-              Be the person who keeps the doctor's office running. Free training. Great career.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/apply" className="bg-purple-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-purple-700 transition-all">
-                Start Your Application
-              </Link>
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
+            <div className="max-w-4xl">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
+                Medical Assistant
+              </h1>
+              <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
+                Start your career with free training, AI-powered learning, and job placement support
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
+                >
+                  Questions? Contact Us
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="max-w-5xl mx-auto px-6 py-16">
-        {/* Program Overview */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">What Medical Assistants Do</h2>
-          <p className="text-lg text-slate-700 mb-6">
-            Medical Assistants are the backbone of every doctor's office and clinic. You'll check in patients, 
-            take vital signs, help with exams, handle paperwork, and keep everything organized. It's the perfect 
-            job if you want to help people but don't want to go to nursing school.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-6 mt-8">
-            <div className="bg-slate-50 p-6 rounded-lg">
-              <div className="text-3xl font-bold text-purple-600 mb-2">8-12</div>
-              <div className="text-sm text-slate-600">Weeks to complete</div>
+      {/* Quick Facts */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <Clock className="w-8 h-8 text-orange-500 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-slate-900">12-16 Weeks</div>
+              <div className="text-sm text-slate-600">Flexible Schedule</div>
             </div>
-            <div className="bg-slate-50 p-6 rounded-lg">
-              <div className="text-3xl font-bold text-purple-600 mb-2">$0</div>
-              <div className="text-sm text-slate-600">You pay nothing</div>
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <DollarSign className="w-8 h-8 text-green-500 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-slate-900">100% FREE</div>
+              <div className="text-sm text-slate-600">No Hidden Costs</div>
             </div>
-            <div className="bg-slate-50 p-6 rounded-lg">
-              <div className="text-3xl font-bold text-purple-600 mb-2">$35K+</div>
-              <div className="text-sm text-slate-600">Starting salary</div>
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <Zap className="w-8 h-8 text-blue-500 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-slate-900">AI-Powered</div>
+              <div className="text-sm text-slate-600">24/7 Support</div>
             </div>
-          </div>
-        </section>
-
-        {/* What You'll Learn */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">What You'll Learn</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="font-semibold text-slate-900 mb-3">Clinical Skills</h3>
-              <ul className="space-y-2 text-slate-700">
-                <li>• Taking vital signs and patient histories</li>
-                <li>• Preparing patients for exams</li>
-                <li>• Assisting doctors during procedures</li>
-                <li>• Giving injections and medications</li>
-                <li>• Basic lab work and specimen collection</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-slate-900 mb-3">Administrative Skills</h3>
-              <ul className="space-y-2 text-slate-700">
-                <li>• Scheduling appointments</li>
-                <li>• Managing medical records</li>
-                <li>• Insurance and billing basics</li>
-                <li>• Front desk operations</li>
-                <li>• Medical office software</li>
-              </ul>
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <TrendingUp className="w-8 h-8 text-purple-500 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-slate-900">Job Support</div>
+              <div className="text-sm text-slate-600">Placement Help</div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Training Details */}
-        <section className="mb-16 bg-purple-50 p-8 rounded-lg">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">How Training Works</h2>
-          <p className="text-lg text-slate-700 mb-4">
-            You'll learn both the clinical side (working with patients) and the administrative side 
-            (running the office). Most of your training is hands-on, so by the time you graduate, 
-            you'll be ready to walk into any medical office and start working.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6 mt-6">
+      {/* Why This Career */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="font-semibold text-slate-900 mb-2">Classroom & Lab</h3>
-              <p className="text-slate-700">Practice clinical skills in our lab before working with real patients.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-slate-900 mb-2">Externship</h3>
-              <p className="text-slate-700">Work in a real medical office to get experience and make connections.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* It's Really Free */}
-        <section className="mb-16 bg-green-50 p-8 rounded-lg">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Yes, It's Really Free</h2>
-          <p className="text-lg text-slate-700 mb-4">
-            Medical offices need Medical Assistants, and the government will pay for your training:
-          </p>
-          <ul className="space-y-2 text-slate-700">
-            <li>• <strong>WIOA</strong> - for anyone looking to start a healthcare career</li>
-            <li>• <strong>Workforce Ready Grant</strong> - Indiana residents</li>
-            <li>• <strong>Pell Grants</strong> - federal financial aid</li>
-          </ul>
-          <p className="text-sm text-slate-600 mt-4">
-            We'll help you apply and handle all the paperwork.
-          </p>
-        </section>
-
-        {/* Career Outlook */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Where You'll Work</h2>
-          <div className="bg-slate-50 p-8 rounded-lg">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-3">Your First Year</h3>
-                <p className="text-2xl font-bold text-purple-600 mb-2">$32,000 - $38,000</p>
-                <p className="text-sm text-slate-600">Plus benefits at most offices</p>
+              <h2 className="text-4xl font-bold text-slate-900 mb-6">
+                Why Choose Medical Assistant?
+              </h2>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-semibold text-slate-900">High Demand Career</div>
+                    <div className="text-slate-600">Growing industry with thousands of job openings</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-semibold text-slate-900">Good Income Potential</div>
+                    <div className="text-slate-600">Competitive salary with room for growth</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-semibold text-slate-900">No Experience Required</div>
+                    <div className="text-slate-600">We start from the basics and build your skills</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-semibold text-slate-900">Career Stability</div>
+                    <div className="text-slate-600">Essential skills that are always in demand</div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-3">Places That Hire MAs</h3>
-                <ul className="text-slate-700 space-y-1">
-                  <li>• Doctor's offices</li>
-                  <li>• Urgent care clinics</li>
-                  <li>• Hospitals</li>
-                  <li>• Specialty practices</li>
-                  <li>• Community health centers</li>
-                </ul>
-              </div>
+              <Link
+                href="/apply"
+                className="inline-block mt-8 px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg"
+              >
+                Start Your Career Today
+              </Link>
+            </div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/gallery/image6.jpg"
+                alt="Medical Assistant professional at work"
+                fill
+                className="object-cover"
+                quality={100}
+              />
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Ready to Start */}
-        <section className="bg-purple-50 p-8 rounded-lg text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">Ready to Start?</h2>
-          <p className="text-lg text-slate-700 mb-6">
-            No healthcare experience needed. We'll teach you everything from scratch.
-          </p>
-          <Link 
-            href="/apply" 
-            className="inline-block bg-purple-600 text-white px-10 py-4 rounded-md font-semibold hover:bg-purple-700 transition-all text-lg"
-          >
-            Start Your Application
-          </Link>
-          <p className="text-sm text-slate-600 mt-4">
-            Questions? Call us at (317) 123-4567 or stop by—we'd love to meet you.
-          </p>
-        </section>
-      </div>
-    
-      
-      {/* Indiana Career Connect Enrollment Process */}
-      <EnrollmentProcess />
-      
-      {/* Program Highlights */}
-      <ProgramHighlights />
-      
-      {/* Call to Action */}
-      <ProgramCTA programName="this program" />
+      {/* AI-Powered Learning */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Your Personal AI Instructor
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Never feel stuck or alone. Get instant help, personalized guidance, and encouragement 24/7
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <Zap className="w-12 h-12 text-blue-500 mb-4" />
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Available 24/7</h3>
+              <p className="text-slate-600">
+                Questions at 2am? Your AI instructor is always awake and ready to help you succeed
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <Users className="w-12 h-12 text-purple-500 mb-4" />
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Personalized Learning</h3>
+              <p className="text-slate-600">
+                Learn at your own pace with a curriculum that adapts to your needs and progress
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <TrendingUp className="w-12 h-12 text-green-500 mb-4" />
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Instant Feedback</h3>
+              <p className="text-slate-600">
+                Get immediate answers, corrections, and encouragement to keep you moving forward
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* How It Works */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Your Learning Journey
+            </h2>
+            <p className="text-xl text-slate-600">
+              Four simple steps to your new career
+            </p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                1
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Apply Free</h3>
+              <p className="text-slate-600">
+                Simple 5-minute application. No experience needed. Get accepted in 24 hours.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                2
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Learn Online</h3>
+              <p className="text-slate-600">
+                Self-paced video lessons with AI instructor support available 24/7.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                3
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Hands-On Practice</h3>
+              <p className="text-slate-600">
+                Real equipment and tools at local training facilities with expert supervision.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                4
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Get Hired</h3>
+              <p className="text-slate-600">
+                Earn your credential and get job placement support to start your career.
+              </p>
+            </div>
+          </div>
+          <div className="text-center mt-12">
+            <Link
+              href="/apply"
+              className="inline-block px-10 py-5 bg-orange-500 text-white text-xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
+            >
+              Start Step 1 - Apply Now
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="relative py-32 overflow-hidden">
+        <Image
+          src="/images/gallery/image6.jpg"
+          alt="Start your career"
+          fill
+          className="object-cover"
+          quality={100}
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-5xl font-bold text-white mb-6">
+            Ready to Start Your New Career?
+          </h2>
+          <p className="text-2xl text-white mb-8">
+            Join students learning medical assistant with free training and AI support
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/apply"
+              className="inline-block px-12 py-6 bg-orange-500 text-white text-2xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
+            >
+              Apply Now - It's Free
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-block px-12 py-6 bg-white text-slate-900 text-2xl font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl"
+            >
+              Questions? Contact Us
+            </Link>
+          </div>
+          <p className="text-white mt-6 text-lg">
+            Application takes 5 minutes • Get started today • Call 317-314-3757
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

@@ -1,24 +1,46 @@
-import { Metadata } from 'next';
+#!/usr/bin/env node
+/**
+ * Create realistic, humanized program pages for a NEW program
+ * NO fake testimonials, NO instructor photos, NO before/after
+ * Focus on: Career opportunity, AI learning, Free training, Real outcomes
+ */
+
+import { readFileSync, writeFileSync } from 'fs';
+import { readdirSync } from 'fs';
+
+const programsDir = 'app/programs';
+const programs = readdirSync(programsDir).filter(f => 
+  !f.includes('.') && 
+  f !== 'admin' && 
+  f !== '[slug]'
+);
+
+console.log(`🎨 Redesigning ${programs.length} program pages...\n`);
+
+const createHumanizedProgramPage = (programName) => {
+  const title = programName.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  
+  return `import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle, Clock, DollarSign, TrendingUp, Zap, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Truck Driving Training | Elevate For Humanity',
-  description: 'Start your truck driving career with free training. AI-powered learning, hands-on practice, and job placement support.',
+  title: '${title} Training | Elevate For Humanity',
+  description: 'Start your ${title.toLowerCase()} career with free training. AI-powered learning, hands-on practice, and job placement support.',
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/programs/truck-driving',
+    canonical: 'https://www.elevateforhumanity.org/programs/${programName}',
   },
 };
 
-export default function TruckDrivingPage() {
+export default function ${programName.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('')}Page() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
         <Image
           src="/images/gallery/image6.jpg"
-          alt="Truck Driving Training"
+          alt="${title} Training"
           fill
           className="object-cover"
           priority
@@ -30,7 +52,7 @@ export default function TruckDrivingPage() {
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-                Truck Driving
+                ${title}
               </h1>
               <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
                 Start your career with free training, AI-powered learning, and job placement support
@@ -88,7 +110,7 @@ export default function TruckDrivingPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-slate-900 mb-6">
-                Why Choose Truck Driving?
+                Why Choose ${title}?
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -130,7 +152,7 @@ export default function TruckDrivingPage() {
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/gallery/image6.jpg"
-                alt="Truck Driving professional at work"
+                alt="${title} professional at work"
                 fill
                 className="object-cover"
                 quality={100}
@@ -252,7 +274,7 @@ export default function TruckDrivingPage() {
             Ready to Start Your New Career?
           </h2>
           <p className="text-2xl text-white mb-8">
-            Join students learning truck driving with free training and AI support
+            Join students learning ${title.toLowerCase()} with free training and AI support
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -276,3 +298,28 @@ export default function TruckDrivingPage() {
     </main>
   );
 }
+`;
+};
+
+let count = 0;
+for (const program of programs) { // Start with first 5 as test
+  const filePath = `${programsDir}/${program}/page.tsx`;
+  try {
+    const newContent = createHumanizedProgramPage(program);
+    writeFileSync(filePath, newContent);
+    console.log(`✅ Redesigned: ${program}`);
+    count++;
+  } catch (error) {
+    console.log(`❌ Error with ${program}: ${error.message}`);
+  }
+}
+
+console.log(`\n✅ Redesigned ${count} program pages!`);
+console.log('\nFeatures added:');
+console.log('  ✅ Humanized, emotional copy');
+console.log('  ✅ Multiple CTAs throughout');
+console.log('  ✅ AI instructor highlight');
+console.log('  ✅ Clear career benefits');
+console.log('  ✅ No fake testimonials');
+console.log('  ✅ Honest about being new');
+console.log('  ✅ Focus on opportunity');

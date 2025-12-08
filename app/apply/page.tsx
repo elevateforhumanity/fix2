@@ -72,7 +72,6 @@ export default function ApplyPage() {
           quality={95}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-900/60 to-blue-900/40" />
       </section>
 
       {/* Application Form Section */}

@@ -68,7 +68,6 @@ export default function TeamPage() {
     <main className="bg-white">
       {/* Hero Section */}
       <section className="relative h-[400px] bg-blue-700">
-        <div className="absolute inset-0 bg-black/20" />
         <div className="relative h-full flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl">
@@ -97,7 +96,6 @@ export default function TeamPage() {
                 {/* Photo */}
                 <div className="lg:w-1/3">
                   <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                       <div className="text-white text-8xl font-bold">
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </div>

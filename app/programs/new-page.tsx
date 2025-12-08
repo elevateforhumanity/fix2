@@ -273,7 +273,6 @@ export default async function ProgramsPage() {
             {featuredPrograms.map((program) => (
               <div key={program.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all hover:scale-[1.02]">
                 <div className="relative h-64 bg-slate-200">
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-blue-500/20 flex items-center justify-center">
                     <p className="text-6xl">
                       {program.category === "Healthcare" && "🏥"}
                       {program.category === "Skilled Trades" && "🔧"}

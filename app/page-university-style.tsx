@@ -284,7 +284,6 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="relative h-[400px] rounded overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white">
                 <div className="text-center">
                   <div className="text-8xl font-bold mb-4">ELG</div>
                   <p className="text-xl">Elizabeth L. Greene</p>

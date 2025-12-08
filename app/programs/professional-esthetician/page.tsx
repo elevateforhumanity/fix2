@@ -1,130 +1,278 @@
-
-import EnrollmentProcess from '@/components/EnrollmentProcess';
-import ProgramCTA from '@/components/ProgramCTA';
-import ProgramHighlights from '@/components/ProgramHighlights';
-
 import { Metadata } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { CheckCircle, Clock, DollarSign, TrendingUp, Zap, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/programs/professional-esthetician",
-  },
   title: 'Professional Esthetician Training | Elevate For Humanity',
-  description: '100% free Esthetician training. Learn skincare, facials, and spa treatments. Get licensed and start your career.',
+  description: 'Start your professional esthetician career with free training. AI-powered learning, hands-on practice, and job placement support.',
+  alternates: {
+    canonical: 'https://www.elevateforhumanity.org/programs/professional-esthetician',
+  },
 };
 
-export default function Page() {
+export default function ProfessionalEstheticianPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <section className="relative min-h-[400px] sm:h-[500px] md:h-[600px] flex items-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero/hero-beauty-wellness.jpg"
-            alt="Professional Esthetician Training"
-            fill
-            className="object-cover"
-            priority quality={100} sizes="100vw"
-          />
-        </div>
-        <div className="relative container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">Professional Esthetician Training</h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">100% free training. Learn skincare, facials, and spa treatments. Get licensed and start your career.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-red-600 text-white px-8 py-4 rounded-full font-bold hover:bg-red-700 text-lg shadow-2xl">
-                Apply Now - Free Training
-              </Link>
-              <Link href="/contact" className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl">
-                Learn More
-              </Link>
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
+        <Image
+          src="/images/gallery/image6.jpg"
+          alt="Professional Esthetician Training"
+          fill
+          className="object-cover"
+          priority
+          quality={100}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
+            <div className="max-w-4xl">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
+                Professional Esthetician
+              </h1>
+              <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
+                Start your career with free training, AI-powered learning, and job placement support
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
+                >
+                  Apply Now - It's Free
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
+                >
+                  Questions? Contact Us
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Quick Facts */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
-              <div className="text-3xl font-bold text-purple-600 mb-2">4-12 Weeks</div>
-              <div className="text-gray-600">Program Duration</div>
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <Clock className="w-8 h-8 text-orange-500 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-slate-900">12-16 Weeks</div>
+              <div className="text-sm text-slate-600">Flexible Schedule</div>
             </div>
-            <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
-              <div className="text-3xl font-bold text-green-600 mb-2">$0</div>
-              <div className="text-gray-600">100% Funded</div>
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <DollarSign className="w-8 h-8 text-green-500 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-slate-900">100% FREE</div>
+              <div className="text-sm text-slate-600">No Hidden Costs</div>
             </div>
-            <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
-              <div className="text-3xl font-bold text-blue-600 mb-2">85%+</div>
-              <div className="text-gray-600">Job Placement</div>
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <Zap className="w-8 h-8 text-blue-500 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-slate-900">AI-Powered</div>
+              <div className="text-sm text-slate-600">24/7 Support</div>
             </div>
-            <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
-              <div className="text-3xl font-bold text-orange-600 mb-2">$35K+</div>
-              <div className="text-gray-600">Starting Salary</div>
+            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+              <TrendingUp className="w-8 h-8 text-purple-500 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-slate-900">Job Support</div>
+              <div className="text-sm text-slate-600">Placement Help</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
+      {/* Why This Career */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Program Highlights</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-slate-900 mb-6">
+                Why Choose Professional Esthetician?
+              </h2>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-semibold text-slate-900">High Demand Career</div>
+                    <div className="text-slate-600">Growing industry with thousands of job openings</div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">100% Funded</h3>
-                <p className="text-gray-600">All programs completely free through government funding</p>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-semibold text-slate-900">Good Income Potential</div>
+                    <div className="text-slate-600">Competitive salary with room for growth</div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Job Placement</h3>
-                <p className="text-gray-600">We help you find employment after training</p>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-semibold text-slate-900">No Experience Required</div>
+                    <div className="text-slate-600">We start from the basics and build your skills</div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry-standard professionals</p>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                  <div>
+                    <div className="font-semibold text-slate-900">Career Stability</div>
+                    <div className="text-slate-600">Essential skills that are always in demand</div>
+                  </div>
+                </div>
               </div>
-              
+              <Link
+                href="/apply"
+                className="inline-block mt-8 px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg"
+              >
+                Start Your Career Today
+              </Link>
+            </div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/gallery/image6.jpg"
+                alt="Professional Esthetician professional at work"
+                fill
+                className="object-cover"
+                quality={100}
+              />
             </div>
           </div>
         </div>
       </section>
 
-      
-      {/* Indiana Career Connect Enrollment Process */}
-      <EnrollmentProcess />
-      
-      {/* Program Highlights */}
-      <ProgramHighlights />
-      
-      {/* Call to Action */}
-      <ProgramCTA programName="this program" />
-    </div>
+      {/* AI-Powered Learning */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Your Personal AI Instructor
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Never feel stuck or alone. Get instant help, personalized guidance, and encouragement 24/7
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <Zap className="w-12 h-12 text-blue-500 mb-4" />
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Available 24/7</h3>
+              <p className="text-slate-600">
+                Questions at 2am? Your AI instructor is always awake and ready to help you succeed
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <Users className="w-12 h-12 text-purple-500 mb-4" />
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Personalized Learning</h3>
+              <p className="text-slate-600">
+                Learn at your own pace with a curriculum that adapts to your needs and progress
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <TrendingUp className="w-12 h-12 text-green-500 mb-4" />
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Instant Feedback</h3>
+              <p className="text-slate-600">
+                Get immediate answers, corrections, and encouragement to keep you moving forward
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Your Learning Journey
+            </h2>
+            <p className="text-xl text-slate-600">
+              Four simple steps to your new career
+            </p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                1
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Apply Free</h3>
+              <p className="text-slate-600">
+                Simple 5-minute application. No experience needed. Get accepted in 24 hours.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                2
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Learn Online</h3>
+              <p className="text-slate-600">
+                Self-paced video lessons with AI instructor support available 24/7.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                3
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Hands-On Practice</h3>
+              <p className="text-slate-600">
+                Real equipment and tools at local training facilities with expert supervision.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                4
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Get Hired</h3>
+              <p className="text-slate-600">
+                Earn your credential and get job placement support to start your career.
+              </p>
+            </div>
+          </div>
+          <div className="text-center mt-12">
+            <Link
+              href="/apply"
+              className="inline-block px-10 py-5 bg-orange-500 text-white text-xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
+            >
+              Start Step 1 - Apply Now
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="relative py-32 overflow-hidden">
+        <Image
+          src="/images/gallery/image6.jpg"
+          alt="Start your career"
+          fill
+          className="object-cover"
+          quality={100}
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-5xl font-bold text-white mb-6">
+            Ready to Start Your New Career?
+          </h2>
+          <p className="text-2xl text-white mb-8">
+            Join students learning professional esthetician with free training and AI support
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/apply"
+              className="inline-block px-12 py-6 bg-orange-500 text-white text-2xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
+            >
+              Apply Now - It's Free
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-block px-12 py-6 bg-white text-slate-900 text-2xl font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl"
+            >
+              Questions? Contact Us
+            </Link>
+          </div>
+          <p className="text-white mt-6 text-lg">
+            Application takes 5 minutes • Get started today • Call 317-314-3757
+          </p>
+        </div>
+      </section>
+    </main>
   );
 }

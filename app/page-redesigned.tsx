@@ -345,7 +345,6 @@ export default function HomePage() {
             ].map((item, index) => (
               <div key={index} className="text-center">
                 <div className="relative h-48 mb-6 rounded-xl overflow-hidden shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                     <span className="text-6xl">{item.icon}</span>
                   </div>
                   <div className="absolute top-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center font-bold text-2xl text-blue-600">
@@ -398,7 +397,6 @@ export default function HomePage() {
             ].map((story, index) => (
               <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-xl">
                 <div className="relative h-64">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                     <Users className="w-24 h-24 text-white opacity-50" />
                   </div>
                 </div>
