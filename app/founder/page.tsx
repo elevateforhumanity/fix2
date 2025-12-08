@@ -13,109 +13,117 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative h-[500px] w-full overflow-hidden">
-        <Image
-          src="/images/team/founder/elizabeth-greene-founder-hero-01.jpg"
-          alt="Elizabeth L. Greene - Founder"
-          fill
-          className="object-cover brightness-105"
-          priority
-          quality={100}
+      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ 
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+              filter: 'contrast(1.05) saturate(1.1) brightness(0.95)',
+              imageRendering: 'high-quality'
+            }}
+          >
+            <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-c913a513-dde0-4ac7-ae3c-53a453b8b83d.mp4?Expires=2080579938&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=bci4L0nUlydNRWrQZU2TXiuNiaTOtWFSTcwDsFXVD1wtGnIjTpHNtF4xoUqNXpgtu3-WdWous6RTH8nkZl4RVvTmNjsWfY--5~x3WnC4QuYxep5iI0eEKuN8WOTXJ5cWryEb7RMnGAIMb5~ir3RcAb7Iaztw9nSl5grVDQSq4WGT1VM~rOpGGxtGlGdy~lraTjHJIEe3BkmkV8Or6RWKUerH4pJ0YFqjtEcIXiBc3SI3Z8s00fo0T9SKd61VrbxkB2v8BVZaOSsNwB4Dp9hBoHHT74FCn5uAMl0-Cpy4Tr8iUH01Cp1Lc2dNKwtzUTy7tfw9V4IS94CtAiHPeMHzcw__" type="video/mp4" />
+          </video>
+        </div>
         
-          sizes="100vw"
-        />
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 h-full flex items-center">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-blue-600 mb-3">
-              Our Founder
-            </p>
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
-              Elizabeth L. Greene
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-6">
-              Building pathways from poverty to prosperity through workforce training.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
-                Get Started
-              </Link>
-              <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
-                View Programs
-              </Link>
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-wide text-white mb-3">
+                Our Founder
+              </p>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
+                Elizabeth L. Greene
+              </h1>
+              <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
+                Building pathways from poverty to prosperity through workforce training.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/apply" className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl">
+                  Get Started
+                </Link>
+                <Link href="/programs" className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl">
+                  View Programs
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Image Section - Elizabeth Full Body */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="flex justify-center">
-                <Image
-                  src="/images/team/founder/elizabeth-greene-founder-hero-01.jpg"
-                  alt="Elizabeth L. Greene - Full Body"
-                  width={600}
-                  height={900}
-                  className="w-full h-auto max-w-md rounded-2xl shadow-xl object-cover"
-                  quality={100}
-                />
-              </div>
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Transform Your Future</h2>
-                <p className="text-gray-700 mb-6">Join thousands who have launched successful careers through our programs.</p>
-                <ul className="space-y-3">
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+      {/* Bio Section with Desk Image */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/images/bio/elizabeth-greene-desk.jpg"
+                alt="Elizabeth L. Greene at her desk"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div>
+              <h2 className="text-4xl font-bold text-slate-900 mb-6">Visionary Leader & Community Builder</h2>
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                Elizabeth Greene is a visionary leader, workforce innovator, and community builder dedicated to transforming lives through education, opportunity, and equitable access. As the Chief Executive Officer of Elevate for Humanity Technical & Career Institute, she drives the organization's mission to uplift individuals, strengthen families, and create sustainable career pathways across Indiana and beyond.
+              </p>
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                With a unique blend of business leadership, technical expertise, and human-centered strategy, Elizabeth has built a powerful, fully integrated ecosystem that includes state-approved workforce programs, federal apprenticeship pathways, community empowerment services, and trauma-informed support.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>100% government-funded training</span>
+                    <span>Registered Apprenticeship Sponsor</span>
                   </li>
-                  
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>No cost to you - completely free</span>
+                    <span>RAPIDS-Approved Provider</span>
                   </li>
-                  
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Flexible scheduling options</span>
+                    <span>ETPL Approved - WIOA, WRG, JRI Eligible</span>
                   </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Career support from start to finish</span>
-                  </li>
-                  
                 </ul>
-              </div>
-              <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg flex items-center justify-center">
-                  <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
+              <Link href="/apply" className="inline-block px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg">
+                Start Your Journey Today
+              </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Full Bio Section */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-slate-900 mb-8">Leadership Philosophy</h2>
+          <div className="space-y-6 text-lg text-slate-700 leading-relaxed">
+            <p>
+              Elizabeth is known for her ability to envision what a community needs before it exists, and then build it with precision, compliance, and compassion. Her leadership philosophy centers on removing barriers, opening doors, and creating real opportunities for individuals who are often overlooked or underserved.
+            </p>
+            <p>
+              She believes deeply in meeting people where they are, educating them, and empowering them to rise—professionally, personally, and financially. Under her leadership, Elevate for Humanity has become a federally aligned Registered Apprenticeship sponsor, a RAPIDS-approved provider, and a fully fundable ETPL program—eligible for WIOA, WRG, and JRI initiatives.
+            </p>
+            <p>
+              Driven by purpose and grounded in integrity, Elizabeth's work continues to impact hundreds of lives through education, training, mentorship, and strategic community partnerships. Her commitment is simple: create pathways, eliminate barriers, and elevate humanity—one person at a time.
+            </p>
           </div>
         </div>
       </section>

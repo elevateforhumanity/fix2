@@ -77,13 +77,13 @@ export default function BarberApprenticeshipPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-sm text-center">
               <Clock className="w-8 h-8 text-orange-500 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-slate-900">12-16 Weeks</div>
-              <div className="text-sm text-slate-600">Flexible Schedule</div>
+              <div className="text-2xl font-bold text-slate-900">2000 Hours</div>
+              <div className="text-sm text-slate-600">12-18 Months</div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm text-center">
               <DollarSign className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-slate-900">100% FREE</div>
-              <div className="text-sm text-slate-600">No Hidden Costs</div>
+              <div className="text-2xl font-bold text-slate-900">Earn While Learning</div>
+              <div className="text-sm text-slate-600">Paid Training</div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm text-center">
               <Zap className="w-8 h-8 text-blue-500 mx-auto mb-3" />
