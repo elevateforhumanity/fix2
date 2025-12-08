@@ -3,10 +3,11 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: Request) {
   try {
+    console.log('=== APPLICATION API CALLED ===');
     const body = await request.json();
     const { firstName, lastName, phone, email, city, state, program, background, contactPreference } = body;
 
-    console.log('Application received:', { firstName, lastName, program });
+    console.log('Application received:', { firstName, lastName, program, email, phone });
 
     if (!firstName || !lastName || !phone || !program) {
       console.error('Missing required fields:', { firstName: !!firstName, lastName: !!lastName, phone: !!phone, program: !!program });

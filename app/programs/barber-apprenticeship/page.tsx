@@ -40,9 +40,6 @@ export default function BarberApprenticeshipPage() {
           <audio autoPlay loop>
             <source src="/videos/barber-spotlight-with-narration.mp4" type="audio/mp4" />
           </audio>
-          
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
         </div>
         
         {/* Content */}
