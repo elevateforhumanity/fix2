@@ -28,14 +28,13 @@ export default function BarberPage() {
         <audio autoPlay loop>
           <source src="/videos/voiceover.mp3" type="audio/mpeg" />
         </audio>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-purple-900/40" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)' }}>
                 Barber Training Program
               </h1>
-              <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-md">
+              <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.6)' }}>
                 Start your career with 100% free training, AI-powered learning, and guaranteed job placement support
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
