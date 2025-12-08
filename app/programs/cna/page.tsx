@@ -24,7 +24,7 @@ export default function CNAProgramPage() {
           fill
           className="object-cover"
           priority
-          quality={95}
+          quality={100}
           sizes="100vw"
         />
       </section>

@@ -23,7 +23,7 @@ export default function CDLProgramPage() {
           src="/images/programs/cdl-hero.jpg"
           alt="CDL Training Program"
           fill
-          className="object-cover brightness-105"
+          className="object-cover brightness-100"
           priority
           quality={100}
         />

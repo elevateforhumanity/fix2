@@ -23,7 +23,7 @@ export default function MedicalAssistantPage() {
           src="/media/hero-slide-healthcare.jpg"
           alt="Medical Assistant Training"
           fill
-          className="object-cover brightness-105"
+          className="object-cover brightness-100"
           priority
           quality={100}
         />
