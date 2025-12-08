@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
-
-
+import { createClient } from '@/lib/supabase/server';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -9,10 +8,25 @@ export const metadata: Metadata = {
     canonical: "https://www.elevateforhumanity.org/resources",
   },
   title: 'Resources | Elevate For Humanity',
-  description: 'Explore Resources and discover opportunities for career growth and development.',
+  description: 'Access free learning resources, guides, and tools to support your career training journey.',
 };
 
 export default async function ResourcesPage() {
+  const supabase = await createClient();
+  
+  // Fetch available resources
+  const { data: resources } = await supabase
+    .from('resources')
+    .select('*')
+    .eq('is_public', true)
+    .order('created_at', { ascending: false })
+    .limit(20);
+  
+  // Fetch resource categories
+  const { data: categories } = await supabase
+    .from('resource_categories')
+    .select('*')
+    .order('name');
   
 
   return (

@@ -95,11 +95,23 @@ export default function TeamPage() {
               >
                 {/* Photo */}
                 <div className="lg:w-1/3">
-                  <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                      <div className="text-white text-8xl font-bold">
-                        {member.name.split(' ').map(n => n[0]).join('')}
+                  <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-600 to-purple-600">
+                    {member.image ? (
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        quality={100}
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-white text-8xl font-bold">
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                   
                   {/* Contact Info */}
