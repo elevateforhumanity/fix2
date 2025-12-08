@@ -213,23 +213,35 @@ export default async function TaxFilingAdminPage() {
         )}
       </div>
 
-      {/* Drake Integration Status */}
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-        <h3 className="text-lg font-semibold text-yellow-900 mb-2">
-          ⚠️ Drake Software Integration
+      {/* IRS e-File Integration Status */}
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+        <h3 className="text-lg font-semibold text-blue-900 mb-2">
+          📋 Custom Tax Filing System
         </h3>
-        <p className="text-yellow-800 mb-4">
-          Drake Software API integration is not configured. Tax returns are being tracked but not synced with Drake.
+        <p className="text-blue-800 mb-4">
+          Built-in tax form system with direct IRS e-file integration. No third-party software required.
         </p>
-        <p className="text-sm text-yellow-700">
-          To enable Drake integration, add the following environment variables:
-        </p>
-        <ul className="list-disc list-inside text-sm text-yellow-700 mt-2">
-          <li>DRAKE_API_KEY</li>
-          <li>DRAKE_API_URL</li>
-          <li>DRAKE_OFFICE_ID</li>
-          <li>DRAKE_PREPARER_ID</li>
-        </ul>
+        <div className="grid md:grid-cols-2 gap-4 mt-4">
+          <div>
+            <h4 className="font-semibold text-blue-900 mb-2">Features:</h4>
+            <ul className="list-disc list-inside text-sm text-blue-700">
+              <li>Custom form builder</li>
+              <li>IRS Form 1040 support</li>
+              <li>W-2, 1099 import</li>
+              <li>Direct IRS e-file</li>
+              <li>PDF generation</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-blue-900 mb-2">Setup Required:</h4>
+            <ul className="list-disc list-inside text-sm text-blue-700">
+              <li>IRS EFIN (E-File ID Number)</li>
+              <li>IRS ETIN (Transmitter ID)</li>
+              <li>IRS CAF Number</li>
+              <li>IRS Modernized e-File API access</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
