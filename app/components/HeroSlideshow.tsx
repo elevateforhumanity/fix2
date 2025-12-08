@@ -6,11 +6,19 @@ import { Volume2, VolumeX } from 'lucide-react';
 export default function HeroSlideshow() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(false);
+  const [hasEnded, setHasEnded] = useState(false);
 
   useEffect(() => {
-    // Try to auto-play video with sound
+    // Try to auto-play video with sound - NO LOOP, stops when done
     if (videoRef.current) {
       videoRef.current.muted = false;
+      videoRef.current.loop = false; // NO LOOPING
+      
+      // Stop when video ends
+      videoRef.current.addEventListener('ended', () => {
+        setHasEnded(true);
+      });
+      
       videoRef.current.play().catch(() => {
         // If autoplay with sound fails, try muted
         if (videoRef.current) {
@@ -40,14 +48,15 @@ export default function HeroSlideshow() {
         style={{ 
           objectFit: 'cover',
           width: '100%',
-          height: '100%'
+          height: '100%',
+          filter: 'brightness(1.15) contrast(1.08) saturate(1.12)'
         }}
       >
         <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2080573361&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=rI5UHv2UMlBfkBpaDuFVenGCGZbCO1Zv7QRUZimnYwDokGC798BlmiMVc1UB8TGa4XS1eR0gOwVCWZ9~BC-it~Guvkj2PXZWKaSOWjtn30JLTKegCoF5hI3Pw1aNVmrYTygFnkCKSfbKWIMklY6-xgaH6r6YWeFGECxocy2csm8~wVW2xre-OWDasUP9tvJ-Uecc5vV9qtQVSgxaqQ604KJZnTOq6Wgh~jgCl8nl2EqXn0ZbMfwuyzZS1-ytRtgVz2qPWSNjtPiqrsvesfBIvqqFv4wot5gpv4FH1uIEv-noKxQ~tSDqd9f3M~nH4o0tDzD4~~q1tO6b3einm1xbzw__" type="video/mp4" />
       </video>
 
-      {/* Subtle dark overlay like Industrious */}
-      <div className="absolute inset-0 bg-black/30" />
+      {/* Lighter overlay for bright, inspirational feel */}
+      <div className="absolute inset-0 bg-black/15" />
 
       {/* Audio control button */}
       <button

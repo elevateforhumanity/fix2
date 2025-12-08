@@ -37,8 +37,8 @@ export default function HomePage() {
 
             {/* Subheadline */}
             <p className="text-2xl md:text-3xl text-slate-200 mb-8 font-light">
-              Free career training in healthcare, trades, and tech.<br />
-              No tuition. Real credentials. Guaranteed job connections.
+              Free training for those who qualify through government funding.<br />
+              No tuition. Real credentials. Job placement support.
             </p>
 
             {/* Key Stats */}
@@ -168,8 +168,96 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CREDENTIALED PROGRAMS - HYBRID - SHORT TERM */}
+      {/* 3 FEATURED PROGRAMS WITH PICTURES */}
       <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Popular Programs
+            </h2>
+            <p className="text-xl text-slate-600">
+              Free training for those who qualify • Start your new career today
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Program 1 - Barber */}
+            <Link href="/programs/barber" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                <div className="relative h-64">
+                  <Image
+                    src="/images/barber-highlight-1.jpg"
+                    alt="Barber Training Program"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Barber Training</h3>
+                  <p className="text-slate-600 mb-4">
+                    Learn professional barbering skills. Earn your state license in 12-16 weeks. Start earning $35K-$50K+.
+                  </p>
+                  <div className="flex items-center text-orange-600 font-semibold">
+                    Learn More <ArrowRight className="ml-2 w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Program 2 - Medical Assistant */}
+            <Link href="/programs/medical-assistant" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                <div className="relative h-64">
+                  <Image
+                    src="/images/medical-assistant-1.jpg"
+                    alt="Medical Assistant Training Program"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Medical Assistant</h3>
+                  <p className="text-slate-600 mb-4">
+                    Healthcare career training. Get certified in 8-12 weeks. Work in clinics, hospitals. Earn $32K-$42K+.
+                  </p>
+                  <div className="flex items-center text-orange-600 font-semibold">
+                    Learn More <ArrowRight className="ml-2 w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            {/* Program 3 - Tax Services */}
+            <Link href="/tax-services" className="group">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+                <div className="relative h-64">
+                  <Image
+                    src="/images/tax-office-1.jpg"
+                    alt="Tax Preparation Services"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Tax Services</h3>
+                  <p className="text-slate-600 mb-4">
+                    Professional tax preparation and refund advances. Get your taxes done right. Fast refunds up to $6,000.
+                  </p>
+                  <div className="flex items-center text-orange-600 font-semibold">
+                    Learn More <ArrowRight className="ml-2 w-5 h-5" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CREDENTIALED PROGRAMS - HYBRID - SHORT TERM */}
+      <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
