@@ -264,7 +264,7 @@ export default function Home() {
               <div>
                 <div className="relative h-64 mb-6 rounded-lg overflow-hidden">
                   <Image
-                    src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
+                    src="/media/programs/cpr-group-training-hd.jpg"
                     alt="Success is the training you receive"
                     fill
                     className="object-cover"
@@ -284,7 +284,7 @@ export default function Home() {
               <div>
                 <div className="relative h-64 mb-6 rounded-lg overflow-hidden">
                   <Image
-                    src="/media-backup-20251128-043832/students-hero.jpg"
+                    src="/media/hero-slide-employers.jpg"
                     alt="Earn while you learn"
                     fill
                     className="object-cover"
@@ -304,7 +304,7 @@ export default function Home() {
               <div>
                 <div className="relative h-64 mb-6 rounded-lg overflow-hidden">
                   <Image
-                    src="/media-backup-20251128-043832/homepage-hero.jpg"
+                    src="/media/workforce-development-hd.jpg"
                     alt="Training that works from anywhere"
                     fill
                     className="object-cover"

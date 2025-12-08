@@ -18,7 +18,7 @@ export default function Page() {
       {/* Hero Section with Background Image */}
       <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden bg-white">
         <Image
-          src="/images/efh/hero/hero-main.jpg"
+          src="/media/about-what-we-do.jpg"
           alt="Team collaboration"
           fill
           className="object-cover"
@@ -58,7 +58,7 @@ export default function Page() {
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/gallery/image3.jpg"
+                src="/media/team-collaboration.png"
                 alt="Elevate for Humanity training facility"
                 fill
                 className="object-cover"
