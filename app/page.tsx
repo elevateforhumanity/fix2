@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       {/* HERO - CLEAN & POWERFUL */}
-      <section className="relative bg-slate-900 text-white overflow-hidden h-[500px] sm:h-[600px] md:h-[700px]">
+      <section className="relative text-white overflow-hidden h-[500px] sm:h-[600px] md:h-[700px]">
         {/* Background Slideshow */}
         <HeroSlideshow />
 

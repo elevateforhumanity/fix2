@@ -45,7 +45,6 @@ export default function HeroSlideshow() {
       <video
         autoPlay
         loop
-        muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover brightness-90"
       >
