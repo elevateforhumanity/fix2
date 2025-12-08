@@ -20,7 +20,7 @@ export default function MedicalAssistantPage() {
     <main className="min-h-screen bg-white">
       <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden">
         <Image
-          src="/images/gallery/image3.jpg"
+          src="/media/hero-slide-healthcare.jpg"
           alt="Medical Assistant Training"
           fill
           className="object-cover brightness-105"

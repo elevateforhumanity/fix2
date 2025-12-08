@@ -22,7 +22,7 @@ export default function Page() {
       <section className="relative min-h-[250px] sm:h-[300px] md:h-[350px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/programs/hvac-hero.jpg"
+            src="/media/construction-training.png"
             alt="HVAC Technician Training"
             fill
             className="object-cover"

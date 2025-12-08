@@ -18,16 +18,17 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative min-h-[250px] sm:h-[300px] md:h-[350px] flex items-center">
+      <section className="relative min-h-[400px] sm:h-[500px] md:h-[600px] flex items-center bg-gradient-to-br from-blue-900 to-blue-700">
         <div className="absolute inset-0">
           <Image
-            src="/images/gallery/image8.jpg"
-            alt="Dental Assistant Training"
+            src="/media/hero-slide-healthcare.jpg"
+            alt="Dental Assistant Training - Professional healthcare career program"
             fill
             className="object-cover"
             priority quality={100} sizes="100vw"
           />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-900/60 to-blue-900/40"></div>
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center text-white">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">Dental Assistant Training</h1>

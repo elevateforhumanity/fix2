@@ -20,7 +20,7 @@ export default function Page() {
     <div className="min-h-screen bg-white">
       <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden bg-white">
         <Image
-          src="/images/programs/barber-hero.jpg"
+          src="/media/hero-slide-barber.jpg"
           alt="Barber Training Program"
           fill
           className="object-cover brightness-110"
