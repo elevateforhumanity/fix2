@@ -1,61 +1,17 @@
 'use client';
 
-import Image from 'next/image';
-
-const mediaItems = [
-  {
-    type: 'image',
-    src: '/images/students-new/student-11.jpg',
-    alt: 'Career training students'
-  },
-  {
-    type: 'video',
-    src: 'https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/video-a4182256-dd84-450e-8c4d-de7b8b0fb949.mp4?Expires=2080573529&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=lkxJ9hWZ9M1zjea0hNnwr73vSnncdQu7-dlD1MpCh2xlhtymVr917riHsZRiO3Zk5Vg2iYUG6dwPeFisVcWapA-aM5F3Wd~6W8ApbMx3kxF-cpxTqgO-GxUMmPLlq8BAW1ArQ7R7Ru1KTm~Et5Uf4lCshLB~7QjHZFtVR4pzGSLBcdJG1M~3ge0eBCEaD6d4GlJ5xntHkE9ZDFS-modw2wbgLRaKGd3Fn5Rh2y32NlixNapRD-p13fGIAr2sNxrectg0UxkKczYK3ILjP8uiOZp0cYwaELx8RCsks0PVnPnbzYPonjnN4~rvA5yK5XQ3J~k-r3d-dwEAh4nLO0XV9g__',
-    alt: 'Barber training'
-  },
-  {
-    type: 'image',
-    src: '/images/students-new/student-1.jpg',
-    alt: 'Healthcare training'
-  },
-  {
-    type: 'image',
-    src: '/images/students-new/student-5.jpg',
-    alt: 'Technical training'
-  }
-];
-
 export default function HeroSlideshow() {
   return (
-    <div className="absolute inset-0 grid grid-cols-2 grid-rows-2">
-      {mediaItems.map((item, index) => (
-        <div
-          key={index}
-          className="relative overflow-hidden"
-        >
-          {item.type === 'video' ? (
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover brightness-90"
-            >
-              <source src={item.src} type="video/mp4" />
-            </video>
-          ) : (
-            <Image
-              src={item.src}
-              alt={item.alt}
-              fill
-              className="object-cover brightness-90"
-              priority={index === 0}
-              quality={100}
-              sizes="50vw"
-            />
-          )}
-        </div>
-      ))}
+    <div className="absolute inset-0">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover brightness-90"
+      >
+        <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2080573361&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=rI5UHv2UMlBfkBpaDuFVenGCGZbCO1Zv7QRUZimnYwDokGC798BlmiMVc1UB8TGa4XS1eR0gOwVCWZ9~BC-it~Guvkj2PXZWKaSOWjtn30JLTKegCoF5hI3Pw1aNVmrYTygFnkCKSfbKWIMklY6-xgaH6r6YWeFGECxocy2csm8~wVW2xre-OWDasUP9tvJ-Uecc5vV9qtQVSgxaqQ604KJZnTOq6Wgh~jgCl8nl2EqXn0ZbMfwuyzZS1-ytRtgVz2qPWSNjtPiqrsvesfBIvqqFv4wot5gpv4FH1uIEv-noKxQ~tSDqd9f3M~nH4o0tDzD4~~q1tO6b3einm1xbzw__" type="video/mp4" />
+      </video>
     </div>
   );
 }
