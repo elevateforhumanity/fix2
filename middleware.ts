@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+// Middleware must use Edge Runtime
+export const runtime = 'edge';
+
 // AI scrapers and bots to block
 const BLOCKED_USER_AGENTS = [
   'GPTBot', 'ChatGPT-User', 'CCBot', 'anthropic-ai', 'Claude-Web',
@@ -33,7 +36,7 @@ const SUSPICIOUS_PATTERNS = [
   /headless/i,
 ];
 
-export default function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || '';
   const userAgent = request.headers.get('user-agent') || '';
   const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
