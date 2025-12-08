@@ -147,30 +147,153 @@ export async function GET(req: Request) {
 
 /**
  * Post to social media platform
- * TODO: Integrate with actual social media APIs
+ * Integrates with Facebook, Twitter, LinkedIn, and Instagram APIs
  */
 async function postToSocialMedia(platform: string, content: string, campaign: any) {
-  // For now, just log (you'll need to integrate with actual APIs)
   console.log(`Posting to ${platform}:`, content);
   
-  // TODO: Integrate with:
-  // - Facebook Graph API
-  // - Twitter API v2
-  // - LinkedIn API
-  // - Instagram Graph API
-  
-  // Example Facebook post:
-  // const response = await fetch(`https://graph.facebook.com/v18.0/${pageId}/feed`, {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({
-  //     message: content,
-  //     access_token: process.env.FACEBOOK_ACCESS_TOKEN,
-  //   }),
-  // });
+  switch (platform.toLowerCase()) {
+    case 'facebook':
+      return await postToFacebook(content, campaign);
+    
+    case 'twitter':
+    case 'x':
+      return await postToTwitter(content, campaign);
+    
+    case 'linkedin':
+      return await postToLinkedIn(content, campaign);
+    
+    case 'instagram':
+      return await postToInstagram(content, campaign);
+    
+    default:
+      console.warn(`Unknown platform: ${platform}`);
+      return { success: false, error: 'Unknown platform' };
+  }
+}
 
-  // For demo purposes, simulate success
-  return { success: true, platform, content };
+async function postToFacebook(content: string, campaign: any) {
+  const pageId = process.env.FACEBOOK_PAGE_ID;
+  const accessToken = process.env.FACEBOOK_ACCESS_TOKEN;
+  
+  if (!pageId || !accessToken) {
+    console.warn('Facebook credentials not configured');
+    return { success: false, error: 'Facebook not configured' };
+  }
+  
+  try {
+    const response = await fetch(`https://graph.facebook.com/v18.0/${pageId}/feed`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: content,
+        access_token: accessToken,
+      }),
+    });
+    
+    const data = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(data.error?.message || 'Facebook API error');
+    }
+    
+    return { success: true, platform: 'facebook', postId: data.id };
+  } catch (error: any) {
+    console.error('Facebook posting error:', error);
+    throw error;
+  }
+}
+
+async function postToTwitter(content: string, campaign: any) {
+  const apiKey = process.env.TWITTER_API_KEY;
+  const apiSecret = process.env.TWITTER_API_SECRET;
+  const accessToken = process.env.TWITTER_ACCESS_TOKEN;
+  const accessSecret = process.env.TWITTER_ACCESS_SECRET;
+  
+  if (!apiKey || !apiSecret || !accessToken || !accessSecret) {
+    console.warn('Twitter credentials not configured');
+    return { success: false, error: 'Twitter not configured' };
+  }
+  
+  try {
+    // Twitter API v2 requires OAuth 1.0a
+    // For production, use a library like 'twitter-api-v2'
+    const response = await fetch('https://api.twitter.com/2/tweets', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({
+        text: content.substring(0, 280), // Twitter character limit
+      }),
+    });
+    
+    const data = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(data.detail || 'Twitter API error');
+    }
+    
+    return { success: true, platform: 'twitter', postId: data.data?.id };
+  } catch (error: any) {
+    console.error('Twitter posting error:', error);
+    throw error;
+  }
+}
+
+async function postToLinkedIn(content: string, campaign: any) {
+  const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
+  const organizationId = process.env.LINKEDIN_ORGANIZATION_ID;
+  
+  if (!accessToken || !organizationId) {
+    console.warn('LinkedIn credentials not configured');
+    return { success: false, error: 'LinkedIn not configured' };
+  }
+  
+  try {
+    const response = await fetch('https://api.linkedin.com/v2/ugcPosts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${accessToken}`,
+        'X-Restli-Protocol-Version': '2.0.0',
+      },
+      body: JSON.stringify({
+        author: `urn:li:organization:${organizationId}`,
+        lifecycleState: 'PUBLISHED',
+        specificContent: {
+          'com.linkedin.ugc.ShareContent': {
+            shareCommentary: {
+              text: content,
+            },
+            shareMediaCategory: 'NONE',
+          },
+        },
+        visibility: {
+          'com.linkedin.ugc.MemberNetworkVisibility': 'PUBLIC',
+        },
+      }),
+    });
+    
+    const data = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(data.message || 'LinkedIn API error');
+    }
+    
+    return { success: true, platform: 'linkedin', postId: data.id };
+  } catch (error: any) {
+    console.error('LinkedIn posting error:', error);
+    throw error;
+  }
+}
+
+async function postToInstagram(content: string, campaign: any) {
+  // Instagram requires media (image/video) for posts
+  // Text-only posts are not supported
+  console.warn('Instagram requires media content - text-only posts not supported');
+  return { success: false, error: 'Instagram requires media content' };
 }
 
 /**

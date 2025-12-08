@@ -27,10 +27,37 @@ export async function POST(req: Request) {
     const { program, count, contentSource } = await req.json();
 
     if (contentSource === 'blog') {
-      // TODO: Fetch from blog posts
+      // Fetch from blog posts
+      try {
+        const { createClient } = await import('@/lib/supabase/server');
+        const supabase = await createClient();
+        
+        const { data: blogPosts } = await supabase
+          .from('blog_posts')
+          .select('title, excerpt, slug')
+          .eq('published', true)
+          .order('published_at', { ascending: false })
+          .limit(count);
+
+        if (blogPosts && blogPosts.length > 0) {
+          const posts = blogPosts.map(post => {
+            const url = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${post.slug}`;
+            return `${post.title}\n\n${post.excerpt}\n\nRead more: ${url}\n\n#WorkforceDevelopment #CareerTraining`;
+          });
+          
+          return NextResponse.json({
+            success: true,
+            posts: posts,
+          });
+        }
+      } catch (error) {
+        console.error('Failed to fetch blog posts:', error);
+      }
+      
+      // Fallback if no blog posts found
       return NextResponse.json({
         success: true,
-        posts: Array(count).fill('Blog post content will be pulled from your blog system'),
+        posts: Array(count).fill('No blog posts available. Create blog content first.'),
       });
     }
 
