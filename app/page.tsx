@@ -351,6 +351,163 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SUCCESS STORIES WITH PHOTOS */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Real Students, Real Success
+            </h2>
+            <p className="text-xl text-slate-600">
+              See how our graduates transformed their lives
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Success Story 1 */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-64">
+                <Image
+                  src="/images/students-new/student-1.jpg"
+                  alt="Sarah M. - CNA Graduate"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Sarah M.</h3>
+                <p className="text-orange-600 font-semibold mb-3">CNA Graduate</p>
+                <p className="text-slate-600">
+                  "Went from unemployed to making $42K/year with full benefits in just 6 weeks!"
+                </p>
+              </div>
+            </div>
+
+            {/* Success Story 2 */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-64">
+                <Image
+                  src="/images/students-new/student-2.jpg"
+                  alt="Marcus J. - HVAC Graduate"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Marcus J.</h3>
+                <p className="text-orange-600 font-semibold mb-3">HVAC Graduate</p>
+                <p className="text-slate-600">
+                  "Now earning $55K/year as an HVAC technician. Changed my family's life!"
+                </p>
+              </div>
+            </div>
+
+            {/* Success Story 3 */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-64">
+                <Image
+                  src="/images/students-new/student-3.jpg"
+                  alt="David R. - CDL Graduate"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">David R.</h3>
+                <p className="text-orange-600 font-semibold mb-3">CDL Graduate</p>
+                <p className="text-slate-600">
+                  "Got my CDL in 4 weeks. Now making $60K/year driving for a great company!"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FACILITY PHOTOS */}
+      <section className="py-20 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Our Training Facilities
+            </h2>
+            <p className="text-xl text-slate-600">
+              Modern classrooms and hands-on training labs
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/students-new/student-5.jpg"
+                alt="Healthcare training lab"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/students-new/student-8.jpg"
+                alt="Skilled trades workshop"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/students-new/student-9.jpg"
+                alt="Computer lab"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/students-new/student-13.jpg"
+                alt="Classroom training"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MORE STUDENT PHOTOS */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Students in Action
+            </h2>
+            <p className="text-xl text-slate-600">
+              See our students learning and growing
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[15, 16, 17, 18, 19, 21, 22, 23, 24, 25].map((num) => (
+              <div key={num} className="relative h-48 rounded-lg overflow-hidden shadow-md">
+                <Image
+                  src={`/images/students-new/student-${num}.jpg`}
+                  alt={`Student training photo ${num}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 20vw"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA - BIG & BOLD */}
       <section className="py-24 bg-gradient-to-br from-orange-500 to-orange-600 text-white">
         <div className="mx-auto max-w-4xl px-6 text-center">
