@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { CountUp } from '@/components/animations/CountUp';
 import { StaggeredReveal } from '@/components/animations/StaggeredReveal';
-import { TestimonialCarousel } from '@/components/TestimonialCarousel';
 import { TrustBadges } from '@/components/TrustBadges';
 
 export default function Home() {
