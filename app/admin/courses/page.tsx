@@ -45,14 +45,7 @@ export default async function AdminCoursesPage() {
     .select('*', { count: 'exact', head: true })
     .eq('is_active', true);
 
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.id)
-    .single();
+  
 
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');

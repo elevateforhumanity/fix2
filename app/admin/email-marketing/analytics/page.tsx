@@ -6,14 +6,6 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { 
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/email-marketing/analytics",
-  },
-  title: 'Analytics | Elevate For Humanity',
-  description: 'Explore Analytics and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
   Mail, TrendingUp, TrendingDown, Users, MousePointerClick, 
   Eye, Send, AlertCircle, Calendar, Download 
 } from 'lucide-react';

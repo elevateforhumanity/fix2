@@ -5,14 +5,6 @@ import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/portal/instructor/skills-tracking",
-  },
-  title: 'Skills Tracking | Elevate For Humanity',
-  description: 'Explore Skills Tracking and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 // Barber-specific skills to track
 const BARBER_SKILLS = [

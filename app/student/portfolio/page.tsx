@@ -4,14 +4,6 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Image from 'next/image';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/student/portfolio",
-  },
-  title: 'Portfolio | Elevate For Humanity',
-  description: 'Explore Portfolio and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 export default function StudentPortfolio() {
   const supabase = createClient();

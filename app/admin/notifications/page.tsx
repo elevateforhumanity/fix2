@@ -4,14 +4,6 @@ import { useState } from 'react';
 import { requireAdmin } from '@/lib/authGuards';
 import { Bell, Send, Users, CheckCircle, AlertCircle } from 'lucide-react';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/notifications",
-  },
-  title: 'Notifications | Elevate For Humanity',
-  description: 'Explore Notifications and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 export default function NotificationsPage() {
   await requireAdmin();

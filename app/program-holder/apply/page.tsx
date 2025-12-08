@@ -6,14 +6,6 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Building2, CheckCircle, AlertCircle } from 'lucide-react';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/program-holder/apply",
-  },
-  title: 'Apply | Elevate For Humanity',
-  description: 'Explore Apply and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 export default function ProgramHolderApplicationPage() {
   const [formData, setFormData] = useState({

@@ -4,14 +4,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Star } from 'lucide-react';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/portal/instructor/skills-tracking-nail",
-  },
-  title: 'Skills Tracking Nail | Elevate For Humanity',
-  description: 'Explore Skills Tracking Nail and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 interface Skill {
   id: string;

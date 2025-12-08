@@ -2,14 +2,6 @@
 
 import { useState } from 'react';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/supersonic-fast-cash/apply",
-  },
-  title: 'Apply | Elevate For Humanity',
-  description: 'Explore Apply and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 export default function ApplyPage() {
   const [formData, setFormData] = useState({

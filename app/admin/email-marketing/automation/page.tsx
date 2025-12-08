@@ -7,14 +7,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Plus, Play, Pause, Trash2, Edit, Users, Mail, Clock, Zap } from 'lucide-react';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/email-marketing/automation",
-  },
-  title: 'Automation | Elevate For Humanity',
-  description: 'Explore Automation and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 interface Workflow {
   id: string;

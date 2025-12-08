@@ -6,14 +6,6 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/courses/[courseId]/leaderboard",
-  },
-  title: 'Leaderboard | Elevate For Humanity',
-  description: 'Explore Leaderboard and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 export default function CourseLeaderboardPage() {
   const params = useParams();

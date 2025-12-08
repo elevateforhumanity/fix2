@@ -36,17 +36,7 @@ export default async function ReportsPage() {
     .order('created_at', { ascending: false })
     .limit(50);
 
-  const { data: { user } } = await supabase.auth.getUser();
   
-  if (!user) {
-    redirect('/login');
-  }
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
   
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');

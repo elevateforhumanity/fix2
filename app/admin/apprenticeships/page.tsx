@@ -5,14 +5,6 @@ import { createClient } from '@/lib/supabase/client';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/apprenticeships",
-  },
-  title: 'Apprenticeships | Elevate For Humanity',
-  description: 'Explore Apprenticeships and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 export default function AdminApprenticeships() {
   const supabase = createClient();

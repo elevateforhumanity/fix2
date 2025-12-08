@@ -8,14 +8,6 @@ import { useRouter } from 'next/navigation';
 import { ArrowLeft, Send, Save, Eye, Users, Calendar, Mail } from 'lucide-react';
 import { emailTemplates, type EmailTemplateKey } from '@/lib/email-templates';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/email-marketing/campaigns/new",
-  },
-  title: 'New | Elevate For Humanity',
-  description: 'Explore New and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 export default function NewCampaignPage() {
   const router = useRouter();

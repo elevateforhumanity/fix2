@@ -8,14 +8,6 @@ import { useRouter } from 'next/navigation';
 import { ArrowLeft, Plus, Trash2, Mail, Clock, Users, Save, Play } from 'lucide-react';
 import { emailTemplates, type EmailTemplateKey } from '@/lib/email-templates';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/email-marketing/automation/new",
-  },
-  title: 'New | Elevate For Humanity',
-  description: 'Explore New and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 interface EmailStep {
   id: string;

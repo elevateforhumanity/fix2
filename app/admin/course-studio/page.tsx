@@ -7,14 +7,6 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Save, Play, Sparkles, Eye, Plus } from 'lucide-react';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/course-studio",
-  },
-  title: 'Course Studio | Elevate For Humanity',
-  description: 'Explore Course Studio and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 const CodeEditor = dynamic(() => import('@/components/dev-studio/CodeEditor'), {
   ssr: false,

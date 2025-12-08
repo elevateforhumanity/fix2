@@ -4,14 +4,6 @@ import { useState } from 'react';
 import { requireAdmin } from '@/lib/authGuards';
 import { Save, Eye, DollarSign, Package, Sparkles } from 'lucide-react';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/store/clones",
-  },
-  title: 'Clones | Elevate For Humanity',
-  description: 'Explore Clones and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 export default function StoreBuilderPage() {
   await requireAdmin();

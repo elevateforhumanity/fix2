@@ -7,14 +7,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { 
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/social-media",
-  },
-  title: 'Social Media | Elevate For Humanity',
-  description: 'Explore Social Media and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
   Plus, Calendar, TrendingUp, Users, Share2, 
   Facebook, Twitter, Linkedin, Instagram, Clock,
   Play, Pause, Edit, Trash2, BarChart3

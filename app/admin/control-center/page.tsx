@@ -46,14 +46,7 @@ export default async function AdminControlCenter() {
     .select('*', { count: 'exact', head: true })
     .eq('status', 'active');
 
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.id)
-    .single();
+  
 
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');

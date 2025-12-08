@@ -9,14 +9,6 @@ import FileTree from '@/components/editor/FileTree';
 import CodeEditor from '@/components/editor/CodeEditor';
 import Terminal from '@/components/editor/Terminal';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/editor",
-  },
-  title: 'Editor | Elevate For Humanity',
-  description: 'Explore Editor and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 // Mock file structure
 const mockFiles = [

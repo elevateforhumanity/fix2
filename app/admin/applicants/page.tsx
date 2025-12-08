@@ -56,17 +56,7 @@ export default async function ApplicantsPage() {
     .select('*', { count: 'exact', head: true })
     .gte('created_at', weekAgo.toISOString());
 
-  const { data: { user } } = await supabase.auth.getUser();
   
-  if (!user) {
-    redirect('/login');
-  }
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
   
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');

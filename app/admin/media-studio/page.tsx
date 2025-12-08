@@ -18,14 +18,6 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/media-studio",
-  },
-  title: 'Media Studio | Elevate For Humanity',
-  description: 'Explore Media Studio and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 interface MediaFile {
   name: string;

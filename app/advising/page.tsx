@@ -3,14 +3,6 @@
 
 import { useState } from 'react';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/advising",
-  },
-  title: 'Advising | Elevate For Humanity',
-  description: 'Explore Advising and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 export default function AdvisingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);

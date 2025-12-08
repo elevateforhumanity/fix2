@@ -41,28 +41,13 @@ export default async function PayrollCardsPage() {
     .select('*', { count: 'exact', head: true })
     .eq('status', 'active');
 
-  const { data: { user } } = await supabase.auth.getUser();
   
-  if (!user) {
-    redirect('/login');
-  }
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
   
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
   
-  // Fetch relevant data
-  const { data: items, count } = await supabase
-    .from('profiles')
-    .select('*', { count: 'exact' })
-    .order('created_at', { ascending: false })
-    .limit(20);
+  
   
 
   return (

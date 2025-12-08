@@ -5,14 +5,6 @@ import { useRouter } from 'next/navigation';
 
 import { MessageCircle, Users, Clock, CheckCircle, TrendingUp, ExternalLink } from 'lucide-react';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/live-chat",
-  },
-  title: 'Live Chat | Elevate For Humanity',
-  description: 'Explore Live Chat and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
 
 export default function LiveChatPage() {
   const router = useRouter();
