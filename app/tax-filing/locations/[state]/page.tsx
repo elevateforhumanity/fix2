@@ -3,14 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/tax-filing/locations/[state]"
-  },
-  title: '[state] | Elevate For Humanity',
-  description: 'Explore [state] and discover opportunities for career growth and development at Elevate For Humanity.'
-};
-
 const stateData: Record<string, any> = {
   'indiana': {
     name: 'Indiana',
@@ -37,22 +29,20 @@ const stateData: Record<string, any> = {
 };
 
 export async function generateMetadata({ params }: { params: { state: string } }): Promise<Metadata> {
-  const state = stateData[params.state];
+  const stateInfo = stateData[params.state];
   
-  if (!state) {
-  const params = await props.params;
+  if (!stateInfo) {
     return {
       title: 'State Not Found'
     };
   }
 
   return {
-    title: `Tax Filing in ${state.name} | ${state.preparers} Local Tax Preparers | $100 Flat Fee`,
-    description: `Find professional tax preparers in ${state.name}. Drake Software certified. ${state.preparers}+ locations across ${state.name}. File federal + state taxes for $100.`,
-    keywords: `tax preparer ${state.name}, tax filing ${state.name}, ${state.name} tax service, Drake software ${state.name}, tax preparation ${state.capital}`,
+    title: `Tax Filing in ${stateInfo.name} | ${stateInfo.preparers} Local Tax Preparers | $100 Flat Fee`,
+    description: `Find professional tax preparers in ${stateInfo.name}. Drake Software certified. ${stateInfo.preparers}+ locations across ${stateInfo.name}. File federal + state taxes for $100.`,
     openGraph: {
-      title: `Tax Filing in ${state.name} - $100 Flat Fee`,
-      description: `${state.preparers}+ certified tax preparers across ${state.name}`,
+      title: `Tax Filing in ${stateInfo.name} - $100 Flat Fee`,
+      description: `${stateInfo.preparers}+ certified tax preparers across ${stateInfo.name}`,
       url: `https://elevateforhumanity.org/tax-filing/locations/${params.state}`,
       type: 'website'
     },

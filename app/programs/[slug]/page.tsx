@@ -1,28 +1,32 @@
-
 import EnrollmentProcess from '@/components/EnrollmentProcess';
 import { createClient } from '@/lib/supabase/server';
 import ProgramCTA from '@/components/ProgramCTA';
 import ProgramHighlights from '@/components/ProgramHighlights';
-
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/programs/[slug]"
-  },
-  title: '[slug] | Elevate For Humanity',
-  description: 'Explore [slug] and discover opportunities for career growth and development at Elevate For Humanity.'
-};
+async function getProgram(slug: string) {
+  const supabase = await createClient();
+  const { data: program, error } = await supabase
+    .from("programs")
+    .select("*")
+    .eq("slug", slug)
+    .eq("is_active", true)
+    .single();
+
+  if (error || !program) {
+    return null;
+  }
+
+  return program;
+}
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const program = await getProgram(params.slug);
   
   if (!program) {
-  const params = await props.params;
     return {
       title: 'Program Not Found | Elevate For Humanity',
       description: 'The requested program could not be found.'
@@ -44,10 +48,16 @@ export async function generateStaticParams() {
   return [];
 }
 
-async function getProgram(slug: string) {
+export default async function ProgramPage({ params }: { params: { slug: string } }) {
+  const program = await getProgram(params.slug);
+
+  if (!program) {
+    notFound();
+  }
+
   const supabase = await createClient();
-  const { data: program, error } = await supabase
-    .from("programs")
+  const { data: courses } = await supabase
+    .from("courses")
     .select("*")
     .eq("slug", slug)
     .eq("is_active", true)

@@ -6,12 +6,6 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { CountUp } from '@/components/animations/CountUp';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/supersonicfastcash"
-  },
-  title: 'SupersonicFastCash | Professional Tax Preparation',
-  description: 'Get your taxes done by certified tax professionals. Maximum refund guaranteed. Fast, accurate, affordable.'
-};
 
 export default function SupersonicFastCashPage() {
 

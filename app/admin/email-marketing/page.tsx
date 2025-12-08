@@ -4,14 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Mail, Send, Users, BarChart3, Calendar, Plus, Eye } from "lucide-react";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/email-marketing"
-  },
-  title: 'Email Marketing | Elevate For Humanity',
-  description: 'Explore Email Marketing and discover opportunities for career growth and development at Elevate For Humanity.'
-};
-
 export default function EmailMarketingPage() {
 
   const router = useRouter();

@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
+
 export const metadata: Metadata = {
   title: 'Admin | Elevate For Humanity',
   description: 'Admin dashboard',

@@ -6,12 +6,6 @@ import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { CountUp } from '@/components/animations/CountUp';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/vita"
-  },
-  title: 'Free Tax Prep VITA Center | IRS Volunteer Income Tax Assistance | Elevate For Humanity',
-  description: 'Free IRS-certified tax preparation for individuals earning $64,000 or less. Become a VITA volunteer or get your taxes done free. IRS VITA program site.'
-};
 
 export default function VITAPage() {
 

@@ -6,12 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/lms/course/[courseId]"
-  },
-  title: '[courseId] | Elevate For Humanity',
-  description: 'Explore [courseId] and discover opportunities for career growth and development at Elevate For Humanity.'
-};
 
 type Props = {
   params: Promise<{ courseId: string }>;

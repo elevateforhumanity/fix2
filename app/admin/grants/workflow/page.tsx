@@ -152,12 +152,6 @@ export default async function GrantWorkflowPage() {
               {grants.length === 0 && (
                 <p className="text-sm text-slate-500 text-center py-8">
                   No new opportunities. Run sync to import grants.
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/grants/workflow"
-  },
-  title: 'Workflow | Elevate For Humanity',
-  description: 'Explore Workflow and discover opportunities for career growth and development at Elevate For Humanity.'
-};
 
                 </p>
               )

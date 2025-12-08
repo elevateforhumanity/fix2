@@ -5,16 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import CourseProgressTracker from './CourseProgressTracker';
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/student/courses/[courseId]"
-  },
-  title: '[courseId] | Elevate For Humanity',
-  description: 'Explore [courseId] and discover opportunities for career growth and development at Elevate For Humanity.'
-};
-
 export async function generateMetadata({ params }: { params: { courseId: string } }): Promise<Metadata> {
-  
+  const supabase = await createClient();
   const { data: course } = await supabase
     .from('courses')
     .select('title')

@@ -27,28 +27,15 @@ export default async function Page() {
     redirect('/unauthorized');
   }
   
-  const { data: users, count: totalUsers } = await supabase
+  const { data: users, count } = await supabase
     .from('profiles')
     .select('*', { count: 'exact' })
-    .order('created_at', { ascending: false })
-    .limit(50);
+    .order('created_at', { ascending: false });
 
   const { count: activeUsers } = await supabase
     .from('profiles')
     .select('*', { count: 'exact', head: true })
     .eq('is_active', true);
-
-  
-
-  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
-    redirect('/unauthorized');
-  }
-
-  // Fetch all users from profiles table
-  const { data: users, count } = await supabase
-    .from('profiles')
-    .select('*', { count: 'exact' })
-    .order('created_at', { ascending: false });
 
   // Calculate stats by role
   const adminCount = users?.filter(u => u.role === 'admin' || u.role === 'super_admin').length || 0;

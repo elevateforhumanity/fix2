@@ -27,32 +27,19 @@ export default async function AdminCoursesPage() {
     redirect('/unauthorized');
   }
   
-  const { data: courses, count: totalCourses } = await supabase
+  const { data: courses, count } = await supabase
     .from('courses')
     .select(`
       *,
       program:programs(name, slug),
       modules:modules(count)
     `, { count: 'exact' })
-    .order('created_at', { ascending: false })
-    .limit(50);
+    .order('created_at', { ascending: false });
 
   const { count: activeCourses } = await supabase
     .from('courses')
     .select('*', { count: 'exact', head: true })
     .eq('is_active', true);
-
-  
-
-  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
-    redirect('/unauthorized');
-  }
-
-  // Fetch all courses
-  const { data: courses, count } = await supabase
-    .from('courses')
-    .select('*', { count: 'exact' })
-    .order('created_at', { ascending: false });
 
   // Calculate stats
   const publishedCount = courses?.filter(c => c.is_published).length || 0;
