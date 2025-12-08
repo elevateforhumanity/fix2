@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function BarberPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section - Video Background */}
+      {/* Hero Section - Video Background with Voiceover */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
         <video
           autoPlay
@@ -25,6 +25,9 @@ export default function BarberPage() {
         >
           <source src="/videos/barber-hero.mp4" type="video/mp4" />
         </video>
+        <audio autoPlay loop>
+          <source src="/videos/voiceover.mp3" type="audio/mpeg" />
+        </audio>
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-purple-900/40" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
