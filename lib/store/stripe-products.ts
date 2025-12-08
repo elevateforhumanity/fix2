@@ -1,9 +1,24 @@
 import Stripe from "stripe";
 import { gh, parseRepo } from "../github";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+let stripeInstance: Stripe | null = null;
+
+function getStripe(): Stripe {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not set');
+  }
+  
+  if (!stripeInstance) {
+    stripeInstance = new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2024-12-18.acacia',
+    });
+  }
+  
+  return stripeInstance;
+}
 
 export async function createProduct(title: string, price: number) {
+  const stripe = getStripe();
   const product = await stripe.products.create({ name: title });
 
   const priceObj = await stripe.prices.create({
@@ -21,6 +36,7 @@ export async function createStoreProduct(
   repo: string,
   description?: string
 ) {
+  const stripe = getStripe();
   const product = await stripe.products.create({
     name: title,
     description,

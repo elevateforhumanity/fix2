@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CheckCircle, ArrowRight, Users, Award, DollarSign, Clock, TrendingUp, Briefcase } from "lucide-react";
+import { ArrowRight, Award, Clock } from "lucide-react";
 import HeroSlideshow from "./components/HeroSlideshow";
 
 export const metadata = {
@@ -91,39 +91,30 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Prop 1 */}
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-orange-100 flex items-center justify-center mx-auto mb-4">
-                <DollarSign size={32} className="text-orange-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
                 100% Free Training
               </h3>
-              <p className="text-slate-600">
+              <p className="text-slate-600 text-lg">
                 Government pays for tuition, books, supplies, and support services. You pay nothing.
               </p>
             </div>
 
             {/* Prop 2 */}
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                <Award size={32} className="text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
                 Real Credentials
               </h3>
-              <p className="text-slate-600">
+              <p className="text-slate-600 text-lg">
                 State licenses, industry-standard certifications, and nationally recognized credentials employers want.
               </p>
             </div>
 
             {/* Prop 3 */}
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                <Briefcase size={32} className="text-green-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
+              <h3 className="text-2xl font-bold text-slate-900 mb-3">
                 Job Connections
               </h3>
-              <p className="text-slate-600">
+              <p className="text-slate-600 text-lg">
                 Direct connections to 100+ hiring employers. We help you get interviews and land the job.
               </p>
             </div>
@@ -357,13 +348,11 @@ export default function HomePage() {
                   <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-500 transition-colors">
                     {program.title}
                   </h3>
-                  <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Clock size={18} className="text-blue-600" />
+                  <div className="mb-4 space-y-2">
+                    <div className="text-sm">
                       <span className="text-slate-700 font-semibold">{program.duration}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <DollarSign size={18} className="text-green-600" />
+                    <div className="text-sm">
                       <span className="text-slate-700 font-semibold">{program.salary}</span>
                     </div>
                   </div>
@@ -436,9 +425,7 @@ export default function HomePage() {
               <ul className="space-y-4 mb-8">
                 {qualifications.map((qual, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-1">
-                      <CheckCircle size={20} className="text-green-600" />
-                    </div>
+                    <div className="w-2 h-2 rounded-full bg-green-600 flex-shrink-0 mt-2"></div>
                     <div>
                       <p className="font-bold text-slate-900">{qual.title}</p>
                       <p className="text-slate-600">{qual.description}</p>

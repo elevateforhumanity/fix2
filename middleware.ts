@@ -1,9 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-// Middleware must use Edge Runtime
-export const runtime = 'edge';
-
 // AI scrapers and bots to block
 const BLOCKED_USER_AGENTS = [
   'GPTBot', 'ChatGPT-User', 'CCBot', 'anthropic-ai', 'Claude-Web',
