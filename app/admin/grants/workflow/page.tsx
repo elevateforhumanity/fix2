@@ -4,6 +4,7 @@
  */
 
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
+import { requireAdmin } from '@/lib/authGuards';
 import Link from 'next/link';
 
 async function getWorkflowData() {
@@ -31,6 +32,8 @@ async function getWorkflowData() {
 }
 
 export default async function GrantWorkflowPage() {
+  await requireAdmin();
+
   const { grants, entities, applications } = await getWorkflowData();
 
   const statusCounts = {

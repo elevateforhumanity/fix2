@@ -6,6 +6,20 @@ import { Mail, Send, Users, BarChart3, Calendar, Plus, Eye } from "lucide-react"
 
 export default function EmailMarketingPage() {
   const router = useRouter();
+
+  useEffect(() => {
+    // Check admin auth
+    fetch('/api/auth/check-admin')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.isAdmin) {
+          router.push('/login?redirect=/admin');
+        }
+      })
+      .catch(() => router.push('/login'));
+  }, [router]);
+
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState<"campaigns" | "templates" | "analytics">("campaigns");
 
   return (

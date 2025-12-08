@@ -1,5 +1,8 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 import { useState } from 'react';
 import Split from 'react-split';
 import FileTree from '@/components/editor/FileTree';
@@ -41,6 +44,20 @@ const mockFiles = [
 // Mock file contents
 const mockFileContents: Record<string, string> = {
   '/app/page.tsx': `export default function HomePage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check admin auth
+    fetch('/api/auth/check-admin')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.isAdmin) {
+          router.push('/login?redirect=/admin');
+        }
+      })
+      .catch(() => router.push('/login'));
+  }, [router]);
+
   return (
     <div>
       <h1>Welcome to EFH</h1>

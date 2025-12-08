@@ -1,8 +1,11 @@
 import { getLicense } from "@/lib/license";
+import { requireAdmin } from '@/lib/authGuards';
 
 export const dynamic = "force-dynamic";
 
 export default function LicensePage() {
+  await requireAdmin();
+
   const license = getLicense();
 
   const statusColor = {

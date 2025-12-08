@@ -2,9 +2,12 @@
 // Admin interface to review and approve external module submissions
 
 import { getSupabaseServerClient } from "@/lib/supabaseServer";
+import { requireAdmin } from '@/lib/authGuards';
 import ApprovalsList from "./ApprovalsList";
 
 export default async function ExternalModuleApprovalsPage() {
+  await requireAdmin();
+
   const supabase = getSupabaseServerClient();
 
   // Fetch all pending submissions

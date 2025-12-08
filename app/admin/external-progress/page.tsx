@@ -1,5 +1,6 @@
 // app/admin/external-progress/page.tsx
 import { supabaseAdmin } from "@/lib/supabase-admin";
+import { requireAdmin } from '@/lib/authGuards';
 import ExternalProgressAdminClient from "./ExternalProgressAdminClient";
 
 type AdminExternalProgressRow = {
@@ -61,6 +62,8 @@ async function getExternalProgress(): Promise<AdminExternalProgressRow[]> {
 }
 
 export default async function ExternalProgressAdminPage() {
+  await requireAdmin();
+
   const rows = await getExternalProgress();
 
   return (

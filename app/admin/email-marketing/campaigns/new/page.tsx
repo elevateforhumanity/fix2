@@ -1,11 +1,28 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, Send, Save, Eye, Users, Calendar, Mail } from 'lucide-react';
 import { emailTemplates, type EmailTemplateKey } from '@/lib/email-templates';
 
 export default function NewCampaignPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check admin auth
+    fetch('/api/auth/check-admin')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.isAdmin) {
+          router.push('/login?redirect=/admin');
+        }
+      })
+      .catch(() => router.push('/login'));
+  }, [router]);
+
   const router = useRouter();
   const [step, setStep] = useState<'details' | 'content' | 'recipients' | 'schedule'>('details');
   

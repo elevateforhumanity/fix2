@@ -1,5 +1,8 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
@@ -22,6 +25,20 @@ const CodeEditor = dynamic(() => import('@/components/dev-studio/CodeEditor'), {
 });
 
 export default function DevStudioPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check admin auth
+    fetch('/api/auth/check-admin')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.isAdmin) {
+          router.push('/login?redirect=/admin');
+        }
+      })
+      .catch(() => router.push('/login'));
+  }, [router]);
+
   const router = useRouter();
   
   // GitHub state

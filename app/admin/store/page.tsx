@@ -1,7 +1,10 @@
 import ProductEditor from "./ProductEditor";
+import { requireAdmin } from '@/lib/authGuards';
 import ProductCard from "./ProductCard";
 
 export default function StorePage() {
+  await requireAdmin();
+
   return (
     <div className="space-y-8 p-6">
       <div>

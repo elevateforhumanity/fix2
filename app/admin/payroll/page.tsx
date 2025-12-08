@@ -1,9 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { requireAdmin } from '@/lib/authGuards';
 import { createClient } from '@/lib/supabase/client';
 
 export default function AdminPayroll() {
+  await requireAdmin();
+
   const supabase = createClient();
   const [apprenticeships, setApprenticeships] = useState<any[]>([]);
   const [payrolls, setPayrolls] = useState<any[]>([]);

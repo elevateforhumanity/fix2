@@ -1,5 +1,8 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 import { useState, useEffect } from 'react';
 import { 
   Upload, 
@@ -24,6 +27,20 @@ interface MediaFile {
 }
 
 export default function MediaStudioPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check admin auth
+    fetch('/api/auth/check-admin')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.isAdmin) {
+          router.push('/login?redirect=/admin');
+        }
+      })
+      .catch(() => router.push('/login'));
+  }, [router]);
+
   const [buckets, setBuckets] = useState<string[]>([]);
   const [selectedBucket, setSelectedBucket] = useState<string>('');
   const [files, setFiles] = useState<MediaFile[]>([]);

@@ -1,5 +1,8 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Save, Play, Sparkles, Eye, Plus } from 'lucide-react';
@@ -17,6 +20,20 @@ interface Course {
 }
 
 export default function CourseStudioPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check admin auth
+    fetch('/api/auth/check-admin')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.isAdmin) {
+          router.push('/login?redirect=/admin');
+        }
+      })
+      .catch(() => router.push('/login'));
+  }, [router]);
+
   const [courses, setCourses] = useState<Course[]>([]);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [courseContent, setCourseContent] = useState('');

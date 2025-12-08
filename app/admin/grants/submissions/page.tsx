@@ -4,6 +4,7 @@
  */
 
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
+import { requireAdmin } from '@/lib/authGuards';
 import Link from 'next/link';
 
 async function getSubmissionsData() {
@@ -55,6 +56,8 @@ function getMethodBadge(method: string) {
 }
 
 export default async function GrantSubmissionsPage() {
+  await requireAdmin();
+
   const { submissions } = await getSubmissionsData();
 
   const stats = {

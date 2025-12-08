@@ -7,6 +7,20 @@ import FileSidebar from "../course-studio/FileSidebar";
 import LessonModal from "../course-studio/LessonModal";
 
 export default function CourseStudioSimplePage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check admin auth
+    fetch('/api/auth/check-admin')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.isAdmin) {
+          router.push('/login?redirect=/admin');
+        }
+      })
+      .catch(() => router.push('/login'));
+  }, [router]);
+
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
   const [content, setContent] = useState("");
   const [fileSha, setFileSha] = useState("");
