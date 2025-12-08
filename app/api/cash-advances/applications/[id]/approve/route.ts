@@ -31,8 +31,30 @@ export async function POST(
       );
     }
 
-    // TODO: Send approval email to applicant
-    // TODO: Initiate fund transfer via EOS Financial
+    // Send approval email to applicant
+    if (data.email) {
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/send`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            to: data.email,
+            subject: 'Cash Advance Application Approved',
+            template: 'cash-advance-approval',
+            data: {
+              name: data.full_name,
+              amount: approved_amount,
+              notes: notes,
+            },
+          }),
+        });
+      } catch (emailError) {
+        console.error('Failed to send approval email:', emailError);
+      }
+    }
+
+    // Note: EOS Financial integration requires API credentials
+    // Fund transfer will be initiated manually until API is configured
 
     return NextResponse.json({
       success: true,

@@ -70,9 +70,28 @@ export async function POST(req: Request) {
         console.error('Failed to store license:', licenseError);
       }
 
-      // TODO: Send email with license key
-      console.log('License key generated:', licenseKey);
-      console.log('Email:', email);
+      // Send email with license key
+      try {
+        await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/send`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            to: email,
+            subject: `Your ${product.title} License Key`,
+            template: 'license-delivery',
+            data: {
+              productName: product.title,
+              licenseKey: licenseKey,
+              repo: product.repo,
+              downloadUrl: product.download_url || `${process.env.NEXT_PUBLIC_SITE_URL}/downloads/${productId}`,
+            },
+          }),
+        });
+        console.log('License email sent to:', email);
+      } catch (emailError) {
+        console.error('Failed to send license email:', emailError);
+        // Still return success - license is stored in database
+      }
 
       return Response.json({ received: true });
     }

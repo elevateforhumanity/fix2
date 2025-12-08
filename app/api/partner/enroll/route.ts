@@ -49,8 +49,48 @@ export async function POST(request: Request) {
     let externalEnrollmentId = `ext_${Date.now()}_${user.id.slice(0, 8)}`;
     let externalAccountId = user.email;
 
-    // TODO: Integrate with actual partner LMS APIs
-    // For now, create a placeholder enrollment
+    // Integrate with partner LMS APIs based on provider
+    const provider = partnerCourse.provider;
+    
+    if (provider?.api_endpoint && provider?.api_key) {
+      try {
+        // Get user profile for enrollment
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', user.id)
+          .single();
+
+        // Call partner API to create enrollment
+        const enrollmentResponse = await fetch(`${provider.api_endpoint}/enrollments`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${provider.api_key}`,
+          },
+          body: JSON.stringify({
+            course_id: partnerCourse.external_course_id,
+            student: {
+              email: user.email,
+              first_name: profile?.first_name,
+              last_name: profile?.last_name,
+              external_id: user.id,
+            },
+          }),
+        });
+
+        if (enrollmentResponse.ok) {
+          const enrollmentData = await enrollmentResponse.json();
+          externalEnrollmentId = enrollmentData.enrollment_id || externalEnrollmentId;
+          externalAccountId = enrollmentData.account_id || externalAccountId;
+        } else {
+          console.warn('Partner API enrollment failed, using local enrollment only');
+        }
+      } catch (apiError) {
+        console.error('Partner API error:', apiError);
+        // Continue with local enrollment even if API fails
+      }
+    }
     
     // Create partner enrollment record
     const { data: enrollment, error: enrollmentError } = await supabase
