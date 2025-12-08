@@ -168,6 +168,42 @@ export default function TaxServicesPage() {
         </div>
       </section>
 
+      {/* Tax Office Highlights */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Our Tax Services Office
+            </h2>
+            <p className="text-xl text-slate-600">
+              Professional environment for all your tax preparation needs
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/tax-office-1.jpg"
+                alt="Tax services office"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/tax-office-2.jpg"
+                alt="Professional tax preparation area"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Directory */}
       <section className="py-16">
         <div className="container mx-auto px-4">

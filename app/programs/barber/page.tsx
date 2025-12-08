@@ -470,6 +470,42 @@ export default function BarberPage() {
         </div>
       </section>
 
+      {/* Facility Highlights */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Our Barber Training Facility
+            </h2>
+            <p className="text-xl text-slate-600">
+              Professional equipment and modern training environment
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/barber-highlight-1.jpg"
+                alt="Barber training facility"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/barber-highlight-2.jpg"
+                alt="Professional barber equipment"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* How It Works */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
