@@ -33,7 +33,7 @@ const SUSPICIOUS_PATTERNS = [
   /headless/i,
 ];
 
-export function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const hostname = request.headers.get('host') || '';
   const userAgent = request.headers.get('user-agent') || '';
   const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
