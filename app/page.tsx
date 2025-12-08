@@ -84,12 +84,13 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Prop 1 - Free Training */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-48">
+              <div className="relative h-64">
                 <Image
                   src="/images/facility-1.jpg"
                   alt="Free Training Facility"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
+                  quality={100}
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
@@ -105,12 +106,13 @@ export default function HomePage() {
 
             {/* Prop 2 - Real Credentials */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-48">
+              <div className="relative h-64">
                 <Image
                   src="/images/medical-assistant-1.jpg"
                   alt="Real Credentials"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
+                  quality={100}
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
@@ -126,12 +128,13 @@ export default function HomePage() {
 
             {/* Prop 3 - Job Connections */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-48">
+              <div className="relative h-64">
                 <Image
                   src="/images/barber-highlight-1.jpg"
                   alt="Job Connections"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
+                  quality={100}
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
@@ -223,12 +226,13 @@ export default function HomePage() {
 
             {/* Short-Term */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-48">
+              <div className="relative h-64">
                 <Image
                   src="/images/barber-highlight-2.jpg"
                   alt="Short-Term Training"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
+                  quality={100}
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
@@ -441,10 +445,11 @@ export default function HomePage() {
             </div>
             <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/media/programs/cna-training-video-thumbnail.jpg"
+                src="/media/programs/cna-hd.jpg"
                 alt="CNA training - Real healthcare students"
                 fill
                 className="object-cover"
+                quality={100}
                 sizes="(max-width: 768px) 50vw, 25vw"
               />
             </div>
