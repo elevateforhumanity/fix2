@@ -6,30 +6,41 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { firstName, lastName, phone, email, city, state, program, background, contactPreference } = body;
 
+    console.log('Application received:', { firstName, lastName, program });
+
     if (!firstName || !lastName || !phone || !program) {
+      console.error('Missing required fields:', { firstName: !!firstName, lastName: !!lastName, phone: !!phone, program: !!program });
       return NextResponse.json(
-        { error: 'Required fields missing' },
+        { error: 'Required fields missing', details: { firstName: !!firstName, lastName: !!lastName, phone: !!phone, program: !!program } },
         { status: 400 }
       );
     }
 
     const supabase = await createClient();
 
-    const { error: dbError } = await supabase
+    const applicationData = {
+      first_name: firstName,
+      last_name: lastName,
+      phone,
+      email: email || null,
+      program: program,
+      notes: `Location: ${city || 'N/A'}, ${state || 'N/A'}\nBackground: ${background || 'N/A'}\nContact Preference: ${Array.isArray(contactPreference) ? contactPreference.join(', ') : 'N/A'}`,
+      source: 'marketing_site',
+      status: 'submitted',
+    };
+
+    console.log('Inserting application:', applicationData);
+
+    const { data: insertedData, error: dbError } = await supabase
       .from('applications')
-      .insert({
-        first_name: firstName,
-        last_name: lastName,
-        phone,
-        email,
-        program: program,
-        notes: `Location: ${city || 'N/A'}, ${state || 'N/A'}\nBackground: ${background || 'N/A'}\nContact Preference: ${Array.isArray(contactPreference) ? contactPreference.join(', ') : 'N/A'}`,
-        source: 'marketing_site',
-        status: 'submitted',
-      });
+      .insert(applicationData)
+      .select();
 
     if (dbError) {
       console.error('Database error:', dbError);
+      // Continue anyway - we'll still send the email
+    } else {
+      console.log('Application saved successfully:', insertedData);
     }
 
     // Send email notification

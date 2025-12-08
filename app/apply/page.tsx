@@ -2,15 +2,26 @@
 'use client';
 
 import EnrollmentProcess from '@/components/EnrollmentProcess';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { BotProtection } from '@/components/security';
 
 export default function ApplyPage() {
+  const searchParams = useSearchParams();
+  const programParam = searchParams?.get('program');
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [honeypot, setHoneypot] = useState('');
+  const [selectedProgram, setSelectedProgram] = useState(programParam || '');
+
+  useEffect(() => {
+    if (programParam) {
+      setSelectedProgram(programParam);
+    }
+  }, [programParam]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -227,8 +238,9 @@ d="M5 13l4 4L19 7" />
               <select
                 id="program"
                 name="program"
-                className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
-                defaultValue=""
+                value={selectedProgram}
+                onChange={(e) => setSelectedProgram(e.target.value)}
+                className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 required
               >
                 <option value="" disabled>

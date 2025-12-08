@@ -14,39 +14,39 @@ export const metadata: Metadata = {
 export default function BarberPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Hero Section - Lighter Overlay */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
         <Image
           src="/images/gallery/image6.jpg"
           alt="Barber Training"
           fill
-          className="object-cover"
+          className="object-cover brightness-110"
           priority
           quality={100}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/70 to-purple-600/70" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-                Barber
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
+                Barber Training Program
               </h1>
-              <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
-                Start your career with free training, AI-powered learning, and job placement support
+              <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-md">
+                Start your career with 100% free training, AI-powered learning, and guaranteed job placement support
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/apply"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
+                  href="/apply?program=barber"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-blue-700 bg-white rounded-lg hover:bg-blue-50 transition-all hover:shadow-2xl shadow-xl"
                 >
-                  Apply Now - It's Free
+                  Apply Now - It's 100% Free
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-all hover:shadow-2xl shadow-xl border-2 border-white"
                 >
-                  Questions? Contact Us
+                  Questions? Call 317-314-3757
                 </Link>
               </div>
             </div>
@@ -121,7 +121,7 @@ export default function BarberPage() {
                 </div>
               </div>
               <Link
-                href="/apply"
+                href="/apply?program=barber"
                 className="inline-block mt-8 px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg"
               >
                 Start Your Career Today
@@ -230,7 +230,7 @@ export default function BarberPage() {
           </div>
           <div className="text-center mt-12">
             <Link
-              href="/apply"
+              href="/apply?program=barber"
               className="inline-block px-10 py-5 bg-orange-500 text-white text-xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
             >
               Start Step 1 - Apply Now
@@ -260,7 +260,7 @@ export default function BarberPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/apply"
+              href="/apply?program=barber"
               className="inline-block px-12 py-6 bg-orange-500 text-white text-2xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
             >
               Apply Now - It's Free

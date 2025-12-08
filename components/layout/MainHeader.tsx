@@ -17,12 +17,12 @@ export default function MainHeader() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   return (
-    <header className="bg-white/95 backdrop-blur z-50 sticky top-0 shadow-sm">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <header className="bg-white z-50 sticky top-0 shadow-md border-b border-slate-200">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-3">
+          {/* Logo Only */}
+          <div className="flex items-center">
+            <Link href="/" className="flex items-center">
               <Image
                 src="/logo.png"
                 alt="Elevate For Humanity"
@@ -31,14 +31,6 @@ export default function MainHeader() {
                 className="h-12 w-12"
                 priority
               />
-              <div className="leading-tight">
-                <div className="font-semibold text-slate-900 text-sm sm:text-base">
-                  Elevate For Humanity
-                </div>
-                <div className="text-[11px] text-slate-500 hidden sm:block">
-                  Career & Technical Institute
-                </div>
-              </div>
             </Link>
           </div>
 
@@ -54,8 +46,8 @@ export default function MainHeader() {
                     key={section.label}
                     href={section.href || "/"}
                     className={classNames(
-                      "text-sm font-medium hover:text-orange-600 transition-colors",
-                      isActive && "text-orange-600"
+                      "text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors",
+                      isActive && "text-blue-600"
                     )}
                   >
                     {section.label}
@@ -75,8 +67,8 @@ export default function MainHeader() {
                   <button
                     type="button"
                     className={classNames(
-                      "inline-flex items-center gap-1 text-sm font-medium hover:text-orange-600 transition-colors",
-                      isActive && "text-orange-600"
+                      "inline-flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors",
+                      isActive && "text-blue-600"
                     )}
                   >
                     {section.label}
@@ -119,14 +111,14 @@ export default function MainHeader() {
           {/* Right side CTAs */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              href="/student/dashboard"
-              className="text-xs font-medium text-slate-700 hover:text-orange-600"
+              href="/dashboards"
+              className="text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
             >
-              Student Portal
+              Dashboards
             </Link>
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center rounded-full bg-orange-600 px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-orange-700 transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-blue-700 transition-all hover:shadow-md"
             >
               Apply Now – It's Free
             </Link>
