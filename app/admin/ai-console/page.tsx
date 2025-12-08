@@ -2,15 +2,6 @@
 
 import { useState } from 'react';
 import { 
-
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/ai-console",
-  },
-  title: 'Ai Console | Elevate For Humanity',
-  description: 'Explore Ai Console and discover opportunities for career growth and development at Elevate For Humanity.',
-};
-
   Brain, 
   MessageSquare, 
   Volume2, 
@@ -514,58 +505,6 @@ export default function AIConsolePage() {
               </div>
             </div>
           )}
-        </div>
-      </div>
-    </div>
-  );
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Details</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {items.map((item) => (
-                      <tr key={item.id} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 text-sm text-gray-900">{item.id.slice(0, 8)}...</td>
-                        <td className="px-6 py-4 text-sm text-gray-900">
-                          {item.title || item.name || item.email || 'N/A'}
-                        </td>
-                        <td className="px-6 py-4 text-sm">
-                          <span className={`px-2 py-1 rounded-full text-xs ${
-                            item.status === 'active' ? 'bg-green-100 text-green-800' :
-                            item.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-gray-100 text-gray-800'
-                          }`}>
-                            {item.status || 'N/A'}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-500">
-                          {new Date(item.created_at).toLocaleDateString()}
-                        </td>
-                        <td className="px-6 py-4 text-sm">
-                          <Link 
-                            href={`/admin/ai-console/${item.id}`}
-                            className="text-blue-600 hover:text-blue-800"
-                          >
-                            View
-                          </Link>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              ) : (
-                <div className="p-12 text-center text-gray-500">
-                  <p className="text-lg mb-2">No items found</p>
-                  <p className="text-sm">Items will appear here once they are created</p>
-                </div>
-              )}
-            </div>
-          </div>
         </div>
       </div>
     </div>

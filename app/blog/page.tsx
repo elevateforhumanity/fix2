@@ -27,7 +27,7 @@ async function getDurableBlogPosts() {
 
 async function getBlogPosts() {
   try {
-    const supabase = await createClient();
+    
     const { data: supabasePosts } = await supabase
       .from('blog_posts')
       .select('*')

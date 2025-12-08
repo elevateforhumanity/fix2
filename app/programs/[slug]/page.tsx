@@ -1,5 +1,6 @@
 
 import EnrollmentProcess from '@/components/EnrollmentProcess';
+import { createClient } from '@/lib/supabase/server';
 import ProgramCTA from '@/components/ProgramCTA';
 import ProgramHighlights from '@/components/ProgramHighlights';
 

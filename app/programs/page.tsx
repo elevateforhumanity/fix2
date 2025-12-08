@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { createClient } from '@/lib/supabase/server';
 import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 

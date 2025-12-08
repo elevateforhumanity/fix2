@@ -9,27 +9,38 @@ export const metadata: Metadata = {
     canonical: "https://www.elevateforhumanity.org/admin/partners",
   },
   title: 'Partners | Elevate For Humanity',
-  description: 'Explore Partners and discover opportunities for career growth and development.',
+  description: 'Manage training provider partnerships',
 };
 
 export default async function PartnersPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
-  if (!user) redirect('/login');
+  if (!user) {
+    redirect('/login');
+  }
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('*')
+    .select('role')
     .eq('id', user.id)
     .single();
+  
+  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
+    redirect('/unauthorized');
+  }
+  
+  const { data: partners, count: totalPartners } = await supabase
+    .from('training_providers')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .limit(50);
 
-  const { data: items } = await supabase
-    .from('items')
-    .select('*')
-    .limit(10);
+  const { count: activePartners } = await supabase
+    .from('training_providers')
+    .select('*', { count: 'exact', head: true })
+    .eq('is_active', true);
 
-  const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
   if (!user) {
@@ -48,7 +59,7 @@ export default async function PartnersPage() {
   
   // Fetch relevant data
   const { data: items, count } = await supabase
-    .from('items')
+    .from('profiles')
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
     .limit(20);
@@ -97,18 +108,18 @@ export default async function PartnersPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
-                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
+                <p className="text-3xl font-bold text-blue-600">{totalPartners || 0}</p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
                 <p className="text-3xl font-bold text-green-600">
-                  {items?.filter(i => i.status === 'active').length || 0}
+                  {profile?.filter(i => i.status === 'active').length || 0}
                 </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
                 <p className="text-3xl font-bold text-purple-600">
-                  {items?.filter(i => {
+                  {profile?.filter(i => {
                     const created = new Date(i.created_at);
                     const weekAgo = new Date();
                     weekAgo.setDate(weekAgo.getDate() - 7);
@@ -121,9 +132,9 @@ export default async function PartnersPage() {
             {/* Data Display */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h2 className="text-2xl font-bold mb-4">Items</h2>
-              {items && items.length > 0 ? (
+              {partners && partners.length > 0 ? (
                 <div className="space-y-4">
-                  {items.map((item) => (
+                  {partners.map((item) => (
                     <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
                       <p className="font-semibold">{item.title || item.name || item.id}</p>
                       <p className="text-sm text-gray-600">

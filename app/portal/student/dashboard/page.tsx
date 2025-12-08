@@ -16,22 +16,6 @@ export const metadata: Metadata = {
 export default async function StudentDashboard() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  
-  if (!user) redirect('/login');
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
-
-  const { data: items } = await supabase
-    .from('items')
-    .select('*')
-    .limit(10);
-
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');
 
   // Fetch user data

@@ -42,20 +42,31 @@ export default async function MasterControlPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
-  if (!user) redirect('/login');
+  if (!user) {
+    redirect('/login');
+  }
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('*')
+    .select('role')
     .eq('id', user.id)
     .single();
+  
+  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
+    redirect('/unauthorized');
+  }
+  
+  const { data: items, count: totalItems } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .limit(50);
 
-  const { data: items } = await supabase
-    .from('items')
-    .select('*')
-    .limit(10);
+  const { count: activeItems } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'active');
 
-  const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');
 

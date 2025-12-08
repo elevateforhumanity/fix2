@@ -9,27 +9,46 @@ export const metadata: Metadata = {
     canonical: "https://www.elevateforhumanity.org/admin/programs",
   },
   title: 'Programs | Elevate For Humanity',
-  description: 'Explore Programs and discover opportunities for career growth and development.',
+  description: 'Manage training programs, courses, and curriculum',
 };
 
 export default async function ProgramsPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
-  if (!user) redirect('/login');
+  if (!user) {
+    redirect('/login');
+  }
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('*')
+    .select('role')
     .eq('id', user.id)
     .single();
+  
+  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
+    redirect('/unauthorized');
+  }
+  
+  const { data: programs, count: totalPrograms } = await supabase
+    .from('programs')
+    .select(`
+      *,
+      enrollments:enrollments(count)
+    `, { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .limit(50);
 
-  const { data: items } = await supabase
-    .from('items')
-    .select('*')
-    .limit(10);
+  const { count: activePrograms } = await supabase
+    .from('programs')
+    .select('*', { count: 'exact', head: true })
+    .eq('is_active', true);
 
-  const supabase = await createClient();
+  const { count: featuredPrograms } = await supabase
+    .from('programs')
+    .select('*', { count: 'exact', head: true })
+    .eq('featured', true);
+
   const { data: { user } } = await supabase.auth.getUser();
   
   if (!user) {
@@ -97,7 +116,7 @@ export default async function ProgramsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
-                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
+                <p className="text-3xl font-bold text-blue-600">{totalPrograms || 0}</p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
@@ -121,9 +140,9 @@ export default async function ProgramsPage() {
             {/* Data Display */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h2 className="text-2xl font-bold mb-4">Items</h2>
-              {items && items.length > 0 ? (
+              {programs && programs.length > 0 ? (
                 <div className="space-y-4">
-                  {items.map((item) => (
+                  {programs.map((item) => (
                     <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
                       <p className="font-semibold">{item.title || item.name || item.id}</p>
                       <p className="text-sm text-gray-600">

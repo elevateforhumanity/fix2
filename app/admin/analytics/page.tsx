@@ -9,27 +9,38 @@ export const metadata: Metadata = {
     canonical: "https://www.elevateforhumanity.org/admin/analytics",
   },
   title: 'Analytics | Elevate For Humanity',
-  description: 'Explore Analytics and discover opportunities for career growth and development.',
+  description: 'View analytics and usage statistics',
 };
 
 export default async function AnalyticsPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
-  if (!user) redirect('/login');
+  if (!user) {
+    redirect('/login');
+  }
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('*')
+    .select('role')
     .eq('id', user.id)
     .single();
+  
+  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
+    redirect('/unauthorized');
+  }
+  
+  const { data: events, count: totalEvents } = await supabase
+    .from('analytics_events')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .limit(100);
 
-  const { data: items } = await supabase
-    .from('items')
-    .select('*')
-    .limit(10);
+  const { count: todayEvents } = await supabase
+    .from('analytics_events')
+    .select('*', { count: 'exact', head: true })
+    .gte('created_at', new Date().toISOString().split('T')[0]);
 
-  const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
   if (!user) {
@@ -48,7 +59,7 @@ export default async function AnalyticsPage() {
   
   // Fetch relevant data
   const { data: items, count } = await supabase
-    .from('items')
+    .from('profiles')
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
     .limit(20);
@@ -97,18 +108,18 @@ export default async function AnalyticsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
-                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
+                <p className="text-3xl font-bold text-blue-600">{totalEvents || 0}</p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
                 <p className="text-3xl font-bold text-green-600">
-                  {items?.filter(i => i.status === 'active').length || 0}
+                  {profile?.filter(i => i.status === 'active').length || 0}
                 </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
                 <p className="text-3xl font-bold text-purple-600">
-                  {items?.filter(i => {
+                  {profile?.filter(i => {
                     const created = new Date(i.created_at);
                     const weekAgo = new Date();
                     weekAgo.setDate(weekAgo.getDate() - 7);
@@ -121,9 +132,9 @@ export default async function AnalyticsPage() {
             {/* Data Display */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h2 className="text-2xl font-bold mb-4">Items</h2>
-              {items && items.length > 0 ? (
+              {events && events.length > 0 ? (
                 <div className="space-y-4">
-                  {items.map((item) => (
+                  {events.map((item) => (
                     <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
                       <p className="font-semibold">{item.title || item.name || item.id}</p>
                       <p className="text-sm text-gray-600">

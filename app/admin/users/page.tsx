@@ -16,20 +16,31 @@ export default async function Page() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
-  if (!user) redirect('/login');
+  if (!user) {
+    redirect('/login');
+  }
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('*')
+    .select('role')
     .eq('id', user.id)
     .single();
+  
+  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
+    redirect('/unauthorized');
+  }
+  
+  const { data: users, count: totalUsers } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .limit(50);
 
-  const { data: items } = await supabase
-    .from('items')
-    .select('*')
-    .limit(10);
+  const { count: activeUsers } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact', head: true })
+    .eq('is_active', true);
 
-  const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect('/login');
 
@@ -115,7 +126,7 @@ viewBox="0 0 24 24">
 d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>
-              <p className="text-3xl font-bold text-gray-900">{count || 0}</p>
+              <p className="text-3xl font-bold text-gray-900">{totalUsers || 0}</p>
             </div>
 
             <div className="bg-white rounded-lg shadow-sm border p-6">
@@ -233,7 +244,7 @@ d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.19
             {users && users.length > 0 && (
               <div className="px-6 py-4 border-t bg-gray-50 flex items-center justify-between">
                 <p className="text-sm text-gray-600">
-                  Showing {users.length} of {count || 0} users
+                  Showing {users.length} of {totalUsers || 0} users
                 </p>
                 <div className="flex gap-2">
                   <button className="px-3 py-1 border rounded text-sm hover:bg-white" disabled>

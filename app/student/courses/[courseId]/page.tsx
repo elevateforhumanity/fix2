@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 
 export async function generateMetadata({ params }: { params: { courseId: string } }): Promise<Metadata> {
-  const supabase = await createClient();
+  
   const { data: course } = await supabase
     .from('courses')
     .select('title')

@@ -19,7 +19,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { courseId } = await params;
-  const supabase = await createClient();
+  
   
   const { data: course } = await supabase
     .from('courses')

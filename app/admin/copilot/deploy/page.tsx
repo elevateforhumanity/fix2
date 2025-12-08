@@ -16,22 +16,6 @@ export default async function DeployPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
-  if (!user) redirect('/login');
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
-
-  const { data: items } = await supabase
-    .from('items')
-    .select('*')
-    .limit(10);
-
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
   if (!user) {
     redirect('/login');
   }
@@ -48,7 +32,7 @@ export default async function DeployPage() {
   
   // Fetch relevant data
   const { data: items, count } = await supabase
-    .from('items')
+    .from('profiles')
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
     .limit(20);
@@ -102,13 +86,13 @@ export default async function DeployPage() {
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
                 <p className="text-3xl font-bold text-green-600">
-                  {items?.filter(i => i.status === 'active').length || 0}
+                  {profile?.filter(i => i.status === 'active').length || 0}
                 </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
                 <p className="text-3xl font-bold text-purple-600">
-                  {items?.filter(i => {
+                  {profile?.filter(i => {
                     const created = new Date(i.created_at);
                     const weekAgo = new Date();
                     weekAgo.setDate(weekAgo.getDate() - 7);
@@ -121,9 +105,9 @@ export default async function DeployPage() {
             {/* Data Display */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h2 className="text-2xl font-bold mb-4">Items</h2>
-              {items && items.length > 0 ? (
+              {profile && profile.length > 0 ? (
                 <div className="space-y-4">
-                  {items.map((item) => (
+                  {profile.map((item) => (
                     <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
                       <p className="font-semibold">{item.title || item.name || item.id}</p>
                       <p className="text-sm text-gray-600">
