@@ -31,14 +31,14 @@ export default async function SupersonicFastCashPage() {
               objectFit: 'cover',
               width: '100%',
               height: '100%',
-              filter: 'contrast(1.05) saturate(1.1)',
+              filter: 'brightness(1.2) contrast(1.1) saturate(1.15)',
               imageRendering: 'high-quality'
             }}
           >
             <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-c913a513-dde0-4ac7-ae3c-53a453b8b83d.mp4?Expires=2080579938&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=bci4L0nUlydNRWrQZU2TXiuNiaTOtWFSTcwDsFXVD1wtGnIjTpHNtF4xoUqNXpgtu3-WdWous6RTH8nkZl4RVvTmNjsWfY--5~x3WnC4QuYxep5iI0eEKuN8WOTXJ5cWryEb7RMnGAIMb5~ir3RcAb7Iaztw9nSl5grVDQSq4WGT1VM~rOpGGxtGlGdy~lraTjHJIEe3BkmkV8Or6RWKUerH4pJ0YFqjtEcIXiBc3SI3Z8s00fo0T9SKd61VrbxkB2v8BVZaOSsNwB4Dp9hBoHHT74FCn5uAMl0-Cpy4Tr8iUH01Cp1Lc2dNKwtzUTy7tfw9V4IS94CtAiHPeMHzcw__" type="video/mp4" />
           </video>
-          {/* Subtle gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+          {/* Lighter overlay for brighter video */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/15 to-black/30" />
         </div>
         
         {/* Content */}
