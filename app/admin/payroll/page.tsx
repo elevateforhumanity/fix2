@@ -6,16 +6,16 @@ import { createClient } from '@/lib/supabase/client';
 
 export default function AdminPayroll() {
 
-  await requireAdmin();
+  await requireAdmin(  );
 
-  const supabase = createClient();
-  const [apprenticeships, setApprenticeships] = useState<any[]>([]);
-  const [payrolls, setPayrolls] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [generating, setGenerating] = useState(false);
+  const supabase = createClient(  );
+  const [apprenticeships, setApprenticeships] = useState<any[]>([]  );
+  const [payrolls, setPayrolls] = useState<any[]>([]  );
+  const [loading, setLoading] = useState(true  );
+  const [generating, setGenerating] = useState(false  );
   useEffect(() => {
-    loadData();
-  }, []);
+    loadData(  );
+  }, []  );
 
   async function loadData() {
     const { data: apprenticeshipData } = await supabase
@@ -25,9 +25,9 @@ export default function AdminPayroll() {
         student:profiles!apprenticeship_enrollments_student_id_fkey(full_name, email)
       `)
       .eq('status', 'active')
-      .order('created_at', { ascending: false });
+      .order('created_at', { ascending: false }  );
 
-    setApprenticeships(apprenticeshipData || []);
+    setApprenticeships(apprenticeshipData || []  );
 
     const { data: payrollData } = await supabase
       .from('apprentice_payroll')
@@ -37,27 +37,27 @@ export default function AdminPayroll() {
         apprenticeship:apprenticeship_enrollments(employer_name)
       `)
       .order('pay_period_end', { ascending: false })
-      .limit(50);
+      .limit(50  );
 
-    setPayrolls(payrollData || []);
-    setLoading(false);
+    setPayrolls(payrollData || []  );
+    setLoading(false  );
   }
 
   async function generatePayroll(apprenticeshipId: string) {
-    setGenerating(true);
+    setGenerating(true  );
 
     // Calculate for last week
-    const endDate = new Date();
-    const startDate = new Date();
-    startDate.setDate(startDate.getDate() - 7);
+    const endDate = new Date(  );
+    const startDate = new Date(  );
+    startDate.setDate(startDate.getDate() - 7  );
     const { data, error } = await supabase.rpc('calculate_payroll', {
       p_apprenticeship_id: apprenticeshipId,
       p_period_start: startDate.toISOString().split('T')[0],
       p_period_end: endDate.toISOString().split('T')[0]
-    });
+    }  );
 
     if (!error) {
-      await loadData();
+      await loadData(  );
       
       // Send notification
       await fetch('/api/apprentice/email-alerts', {
@@ -73,10 +73,10 @@ export default function AdminPayroll() {
             grossPay: 0
           }
         })
-      });
+      }  );
     }
 
-    setGenerating(false);
+    setGenerating(false  );
   }
 
   async function markPaid(payrollId: string) {
@@ -86,9 +86,9 @@ export default function AdminPayroll() {
         status: 'paid',
         paid_at: new Date().toISOString()
       })
-      .eq('id', payrollId);
+      .eq('id', payrollId  );
 
-    await loadData();
+    await loadData(  );
   }
 
   if (loading) {
@@ -259,6 +259,7 @@ export default function AdminPayroll() {
 
       </div>
     </div>
-  );
+    );
 
 }
+

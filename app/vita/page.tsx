@@ -14,18 +14,8 @@ export default function VITAPage() {
       {/* Hero */}
       <section className="relative h-[500px] bg-gradient-to-r from-blue-900 to-blue-700">
         <div className="absolute inset-0">
-          <Image
-            src="/media-backup-20251128-043832/programs/tax-prep-hd.jpg"
-            alt="VITA Program - Free Tax Preparation"
-            fill
-            className="object-cover opacity-20"
-          
-          quality={100}
-        /
-          quality={100}
-        
-          sizes="100vw"
-        >
+          <Image src="/media-backup-20251128-043832/programs/tax-prep-hd.jpg"
+            alt="VITA Program - Free Tax Preparation" fill className="object-cover opacity-20" quality={100} sizes="100vw" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-center">
           <div className="text-white max-w-3xl">

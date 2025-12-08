@@ -542,4 +542,5 @@ export default function CompareProgramsPage() {
     </div>
   );
 
+  );
 }

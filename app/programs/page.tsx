@@ -117,18 +117,8 @@ d="M13 7l5 5m0 0l-5 5m5-5H6" />
             {/* Healthcare Programs */}
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/gallery/image4.jpg"
-                  alt="Healthcare Training Programs"
-                  fill
-                  className="object-cover"
-                
-          quality={100}
-        /
-          quality={100}
-        
-          sizes="100vw"
-        >
+                <Image src="/images/gallery/image4.jpg"
+                  alt="Healthcare Training Programs" fill className="object-cover" quality={100} sizes="100vw" />
               </div>
               <div>
                 <div className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
@@ -218,36 +208,16 @@ d="M5 13l4 4L19 7" />
                 </div>
               </div>
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
-                <Image
-                  src="/images/location-1.jpg"
-                  alt="Barber Training Programs"
-                  fill
-                  className="object-cover"
-                
-          quality={100}
-        /
-          quality={100}
-        
-          sizes="100vw"
-        >
+                <Image src="/images/location-1.jpg"
+                  alt="Barber Training Programs" fill className="object-cover" quality={100} sizes="100vw" />
               </div>
             </div>
 
             {/* Skilled Trades Programs */}
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/gallery/image11.jpg"
-                  alt="Skilled Trades Training"
-                  fill
-                  className="object-cover"
-                
-          quality={100}
-        /
-          quality={100}
-        
-          sizes="100vw"
-        >
+                <Image src="/images/gallery/image11.jpg"
+                  alt="Skilled Trades Training" fill className="object-cover" quality={100} sizes="100vw" />
               </div>
               <div>
                 <div className="inline-block px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-4">
@@ -339,19 +309,11 @@ d="M5 13l4 4L19 7" />
                 </div>
               </div>
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
-                <Image
-                  src="/media-backup-20251128-043832/programs/multi-training-programs.png"
+                <Image src="/media-backup-20251128-043832/programs/multi-training-programs.png"
                   alt="Business Training Programs"
                   fill
                   className="object-cover"
-                  unoptimized
-                
-          quality={100}
-        /
-          quality={100}
-        
-          sizes="100vw"
-        >
+                  unoptimized quality={100} sizes="100vw" />
               </div>
             </div>
           </div>

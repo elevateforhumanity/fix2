@@ -52,14 +52,7 @@ export default function DemosPage() {
             <Link href="/lms" className="group block">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden bg-blue-50">
-                  <Image src="/images/gallery/image3.jpg" alt="Learning Management System" fill
-className="object-cover group-hover:scale-105 transition-transform duration-500" 
-          quality={100}
-        /
-          quality={100}
-        
-          sizes="100vw"
-        >
+                  <Image src="/images/gallery/image3.jpg" alt="Learning Management System" fill className="object-cover group-hover:scale-105 transition-transform duration-500" quality={100} sizes="100vw" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-bold mb-2">LMS Platform</h3>
@@ -72,14 +65,7 @@ className="object-cover group-hover:scale-105 transition-transform duration-500"
             <Link href="/programs" className="group block">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden bg-blue-50">
-                  <Image src="/images/gallery/image6.jpg" alt="Training Programs" fill
-className="object-cover group-hover:scale-105 transition-transform duration-500" 
-          quality={100}
-        /
-          quality={100}
-        
-          sizes="100vw"
-        >
+                  <Image src="/images/gallery/image6.jpg" alt="Training Programs" fill className="object-cover group-hover:scale-105 transition-transform duration-500" quality={100} sizes="100vw" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-bold mb-2">Course Preview</h3>
@@ -92,14 +78,7 @@ className="object-cover group-hover:scale-105 transition-transform duration-500"
             <Link href="/apply" className="group block">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden bg-blue-50">
-                  <Image src="/images/gallery/image5.jpg" alt="Application Process" fill
-className="object-cover group-hover:scale-105 transition-transform duration-500" 
-          quality={100}
-        /
-          quality={100}
-        
-          sizes="100vw"
-        >
+                  <Image src="/images/gallery/image5.jpg" alt="Application Process" fill className="object-cover group-hover:scale-105 transition-transform duration-500" quality={100} sizes="100vw" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-bold mb-2">Application Process</h3>

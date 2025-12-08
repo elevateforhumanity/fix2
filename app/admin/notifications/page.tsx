@@ -6,35 +6,35 @@ import { Bell, Send, Users, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function NotificationsPage() {
 
-  await requireAdmin();
+  await requireAdmin(  );
   const [notification, setNotification] = useState({
     title: '',
     body: '',
     targetAudience: 'all-students',
     url: '/',
     icon: '/icon-192x192.png'
-  });
+  }  );
 
-  const [sending, setSending] = useState(false);
-  const [result, setResult] = useState<any>(null);
+  const [sending, setSending] = useState(false  );
+  const [result, setResult] = useState<any>(null  );
 
   const sendNotification = async () => {
-    setSending(true);
-    setResult(null);
+    setSending(true  );
+    setResult(null  );
     try {
       const response = await fetch('/api/notifications/broadcast', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(notification)
-      });
+      }  );
 
-      const data = await response.json();
-      setResult(data);
+      const data = await response.json(  );
+      setResult(data  );
     } catch (error) {
-      console.error('Error sending notification:', error);
-      setResult({ success: false, error: 'Failed to send notification' });
+      console.error('Error sending notification:', error  );
+      setResult({ success: false, error: 'Failed to send notification' }  );
     } finally {
-      setSending(false);
+      setSending(false  );
     }
   };
 
@@ -342,6 +342,7 @@ export default function NotificationsPage() {
 
       </div>
     </div>
-  );
+    );
 
 }
+

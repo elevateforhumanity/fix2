@@ -6,7 +6,7 @@ import { Save, Eye, DollarSign, Package, Sparkles } from 'lucide-react';
 
 export default function StoreBuilderPage() {
 
-  await requireAdmin();
+  await requireAdmin(  );
   const [product, setProduct] = useState({
     title: 'Elevate LMS + Workforce Suite - Complete Codebase',
     description: 'Full-featured LMS platform with admin suite, dev studio, and automation',
@@ -32,42 +32,42 @@ export default function StoreBuilderPage() {
       enabled: true,
       url: '/demo/dev-studio'
     }
-  });
+  }  );
 
-  const [publishing, setPublishing] = useState(false);
+  const [publishing, setPublishing] = useState(false  );
 
   const updateFeature = (index: number, value: string) => {
     const newFeatures = [...product.features];
     newFeatures[index] = value;
-    setProduct({ ...product, features: newFeatures });
+    setProduct({ ...product, features: newFeatures }  );
   };
 
   const addFeature = () => {
-    setProduct({ ...product, features: [...product.features, ''] });
+    setProduct({ ...product, features: [...product.features, ''] }  );
   };
 
   const removeFeature = (index: number) => {
-    setProduct({ ...product, features: product.features.filter((_, i) => i !== index) });
+    setProduct({ ...product, features: product.features.filter((_, i) => i !== index) }  );
   };
 
   const publishProduct = async () => {
-    setPublishing(true);
+    setPublishing(true  );
     try {
       const res = await fetch('/api/store/publish', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(product)
-      });
+      }  );
 
       if (res.ok) {
-        const data = await res.json();
-        alert(`Product published! View at: ${data.url}`);
+        const data = await res.json(  );
+        alert(`Product published! View at: ${data.url}`  );
       }
     } catch (error) {
-      console.error('Failed to publish:', error);
-      alert('Failed to publish product');
+      console.error('Failed to publish:', error  );
+      alert('Failed to publish product'  );
     } finally {
-      setPublishing(false);
+      setPublishing(false  );
     }
   };
 
@@ -443,6 +443,7 @@ export default function StoreBuilderPage() {
 
       </div>
     </div>
-  );
+    );
 
 }
+

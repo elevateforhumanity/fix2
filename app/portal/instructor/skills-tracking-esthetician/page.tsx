@@ -610,4 +610,5 @@ export default function EstheticianSkillsTrackingPage() {
     </div>
   );
 
+  );
 }

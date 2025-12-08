@@ -10,52 +10,52 @@ export const metadata: Metadata = {
 
 export default async function PartnerDashboardPage() {
 
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const supabase = await createClient(  );
+  const { data: { user } } = await supabase.auth.getUser(  );
 
   if (!user) {
-    redirect('/login');
+    redirect('/login'  );
   }
 
   const { data: profile } = await supabase
     .from('profiles')
     .select('*')
     .eq('id', user.id)
-    .single();
+    .single(  );
 
   if (!profile) {
-    redirect('/login');
+    redirect('/login'  );
   }
 
   // Fetch dashboard data
   const { count: totalStudents } = await supabase
     .from('profiles')
     .select('*', { count: 'exact', head: true })
-    .eq('role', 'student');
+    .eq('role', 'student'  );
 
   const { count: totalEnrollments } = await supabase
     .from('enrollments')
-    .select('*', { count: 'exact', head: true });
+    .select('*', { count: 'exact', head: true }  );
 
   const { count: activeEnrollments } = await supabase
     .from('enrollments')
     .select('*', { count: 'exact', head: true })
-    .eq('status', 'active');
+    .eq('status', 'active'  );
 
   const { count: completedEnrollments } = await supabase
     .from('enrollments')
     .select('*', { count: 'exact', head: true })
-    .eq('status', 'completed');
+    .eq('status', 'completed'  );
 
   const { count: totalPrograms } = await supabase
     .from('programs')
     .select('*', { count: 'exact', head: true })
-    .eq('is_active', true);
+    .eq('is_active', true  );
 
   const { count: totalCourses } = await supabase
     .from('courses')
     .select('*', { count: 'exact', head: true })
-    .eq('is_published', true);
+    .eq('is_published', true  );
 
   const completionRate = totalEnrollments && totalEnrollments > 0
     ? Math.round(((completedEnrollments || 0) / totalEnrollments) * 100)
@@ -72,7 +72,7 @@ export default async function PartnerDashboardPage() {
       courses (title)
     `)
     .order('created_at', { ascending: false })
-    .limit(10);
+    .limit(10  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -258,6 +258,7 @@ export default async function PartnerDashboardPage() {
       </section>
 
     </div>
-  );
+    );
 
 }
+
