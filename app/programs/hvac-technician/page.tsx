@@ -136,67 +136,58 @@ export default function HvacTechnicianPage() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6">
-                What You'll Do as an HVAC Technician
-              </h2>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-slate-900">Install & Repair Systems</div>
-                    <div className="text-slate-600">Install, maintain, and repair heating, ventilation, and air conditioning systems in homes and businesses</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-slate-900">Diagnose Problems</div>
-                    <div className="text-slate-600">Use diagnostic tools to identify issues with HVAC equipment and recommend solutions</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-slate-900">Preventive Maintenance</div>
-                    <div className="text-slate-600">Perform routine maintenance to keep systems running efficiently and prevent breakdowns</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-slate-900">Customer Service</div>
-                    <div className="text-slate-600">Work directly with customers to explain repairs, provide estimates, and ensure satisfaction</div>
-                  </div>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold text-slate-900 mb-6 text-center">
+              What You'll Do as an HVAC Technician
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                <div>
+                  <div className="font-semibold text-slate-900">Install & Repair Systems</div>
+                  <div className="text-slate-600">Install, maintain, and repair heating, ventilation, and air conditioning systems in homes and businesses</div>
                 </div>
               </div>
-              
-              <div className="bg-blue-50 p-6 rounded-lg mb-8">
-                <h3 className="font-bold text-slate-900 mb-3">Career Opportunities:</h3>
-                <ul className="space-y-2 text-slate-700">
-                  <li>• <strong>Residential HVAC Technician</strong> - Service homes and apartments ($45K-$55K)</li>
-                  <li>• <strong>Commercial HVAC Technician</strong> - Work on large buildings ($50K-$65K)</li>
-                  <li>• <strong>HVAC Installer</strong> - Install new systems in construction ($48K-$60K)</li>
-                  <li>• <strong>Service Manager</strong> - Lead teams and manage operations ($60K-$80K)</li>
-                </ul>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                <div>
+                  <div className="font-semibold text-slate-900">Diagnose Problems</div>
+                  <div className="text-slate-600">Use diagnostic tools to identify issues with HVAC equipment and recommend solutions</div>
+                </div>
               </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                <div>
+                  <div className="font-semibold text-slate-900">Preventive Maintenance</div>
+                  <div className="text-slate-600">Perform routine maintenance to keep systems running efficiently and prevent breakdowns</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
+                <div>
+                  <div className="font-semibold text-slate-900">Customer Service</div>
+                  <div className="text-slate-600">Work directly with customers to explain repairs, provide estimates, and ensure satisfaction</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-blue-50 p-8 rounded-lg mb-8">
+              <h3 className="font-bold text-slate-900 mb-4 text-xl">Career Opportunities:</h3>
+              <ul className="space-y-3 text-slate-700">
+                <li>• <strong>Residential HVAC Technician</strong> - Service homes and apartments ($45K-$55K)</li>
+                <li>• <strong>Commercial HVAC Technician</strong> - Work on large buildings ($50K-$65K)</li>
+                <li>• <strong>HVAC Installer</strong> - Install new systems in construction ($48K-$60K)</li>
+                <li>• <strong>Service Manager</strong> - Lead teams and manage operations ($60K-$80K)</li>
+              </ul>
+            </div>
+            
+            <div className="text-center">
               <Link
                 href="/apply"
-                className="inline-block mt-8 px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg"
+                className="inline-block px-10 py-5 text-xl bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg"
               >
                 Start Your Career Today
               </Link>
-            </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/media/programs/hvac-highlight-1.jpg"
-                alt="HVAC Technician professional at work"
-                fill
-                className="object-cover"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
             </div>
           </div>
         </div>
