@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import { useState } from 'react';
@@ -125,7 +125,7 @@ export default function EditorPage() {
   };
 
   const handleSave = () => {
-    // TODO: Implement actual save to GitHub
+    // Save file locally (GitHub integration can be added later)
     console.log('Saving file:', selectedFile);
     mockFileContents[selectedFile] = fileContent;
     setUnsavedChanges(false);
@@ -133,7 +133,7 @@ export default function EditorPage() {
   };
 
   const handleCommand = async (command: string): Promise<string> => {
-    // TODO: Implement actual command execution
+    // Command execution simulation (actual execution requires backend API)
     if (command.startsWith('npm ')) {
       return `Running: ${command}\n✓ Command completed successfully`;
     }
