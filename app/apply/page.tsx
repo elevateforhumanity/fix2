@@ -33,7 +33,9 @@ export default function ApplyPage() {
     }
     
     if (!isVerified) {
-      alert('Please complete the verification to submit your application.');
+      alert('⚠️ Please complete the math verification above the submit button to prove you\'re human.');
+      // Scroll to verification
+      document.querySelector('[class*="SimpleCaptcha"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
     
@@ -52,6 +54,12 @@ export default function ApplyPage() {
       contactPreference: formData.getAll('contactPreference'),
     };
 
+    console.log('Submitting application:', { 
+      firstName: data.firstName, 
+      lastName: data.lastName, 
+      program: data.program 
+    });
+
     try {
       const response = await fetch('/api/application', {
         method: 'POST',
@@ -59,13 +67,20 @@ export default function ApplyPage() {
         body: JSON.stringify(data),
       });
 
+      const result = await response.json();
+      console.log('API Response:', result);
+
       if (response.ok) {
         setIsSubmitted(true);
+        // Scroll to success message
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        alert('There was an error submitting your application. Please call us at 317-314-3757.');
+        console.error('Application error:', result);
+        alert(`❌ Application Error: ${result.error || 'Unknown error'}\n\nPlease call us at 317-314-3757 for immediate assistance.`);
       }
     } catch (error) {
-      alert('There was an error submitting your application. Please call us at 317-314-3757.');
+      console.error('Network error:', error);
+      alert('❌ Network Error: Unable to submit application.\n\nPlease check your internet connection or call us at 317-314-3757.');
     } finally {
       setIsSubmitting(false);
     }
@@ -361,14 +376,34 @@ d="M5 13l4 4L19 7" />
               your credit score.
             </p>
 
-            <div className="pt-2">
+            <div className="pt-2 space-y-2">
+              {!isVerified && (
+                <p className="text-sm text-amber-600 font-medium">
+                  ⚠️ Please complete the math verification above before submitting
+                </p>
+              )}
               <button
                 type="submit"
                 disabled={isSubmitting || !isVerified}
-                className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-2 text-xs font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
-                {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Submitting Application...
+                  </>
+                ) : isVerified ? (
+                  '✓ Submit Application - It\'s 100% Free'
+                ) : (
+                  '🔒 Complete Verification to Submit'
+                )}
               </button>
+              <p className="text-xs text-center text-slate-500">
+                Questions? Call us at <a href="tel:317-314-3757" className="text-blue-600 font-semibold hover:underline">317-314-3757</a>
+              </p>
             </div>
           </form>
         </section>
