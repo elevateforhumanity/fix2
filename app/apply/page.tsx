@@ -9,19 +9,19 @@ import { BotProtection } from '@/components/security';
 
 function ApplyForm() {
   const searchParams = useSearchParams();
-  const programParam = searchParams?.get('program');
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
   const [honeypot, setHoneypot] = useState('');
-  const [selectedProgram, setSelectedProgram] = useState(programParam || '');
+  const [selectedProgram, setSelectedProgram] = useState('');
 
   useEffect(() => {
+    const programParam = searchParams?.get('program');
     if (programParam) {
       setSelectedProgram(programParam);
     }
-  }, [programParam]);
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
