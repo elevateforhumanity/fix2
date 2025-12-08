@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { requireAdmin } from '@/lib/authGuards';
 import { Bell, Send, Users, CheckCircle, AlertCircle } from 'lucide-react';
 
-export default function NotificationsPage() {
+export default async function NotificationsPage() {
 
   await requireAdmin(  );
   const [notification, setNotification] = useState({
