@@ -16,7 +16,13 @@ export async function POST(request: Request) {
       );
     }
 
-    const supabase = await createClient();
+    let supabase;
+    try {
+      supabase = await createClient();
+    } catch (supabaseError) {
+      console.error('Supabase client creation failed:', supabaseError);
+      // Continue without database - we'll still send email
+    }
 
     const applicationData = {
       first_name: firstName,
@@ -33,30 +39,34 @@ export async function POST(request: Request) {
 
     // Try to save to database with timeout
     let dbSuccess = false;
-    try {
-      const dbPromise = supabase
-        .from('applications')
-        .insert(applicationData)
-        .select();
+    if (supabase) {
+      try {
+        const dbPromise = supabase
+          .from('applications')
+          .insert(applicationData)
+          .select();
 
-      const timeoutPromise = new Promise((_, reject) => 
-        setTimeout(() => reject(new Error('Database timeout')), 5000)
-      );
+        const timeoutPromise = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Database timeout')), 5000)
+        );
 
-      const { data: insertedData, error: dbError } = await Promise.race([
-        dbPromise,
-        timeoutPromise
-      ]) as any;
+        const { data: insertedData, error: dbError } = await Promise.race([
+          dbPromise,
+          timeoutPromise
+        ]) as any;
 
-      if (dbError) {
-        console.error('Database error:', dbError);
-      } else {
-        console.log('Application saved successfully:', insertedData);
-        dbSuccess = true;
+        if (dbError) {
+          console.error('Database error:', dbError);
+        } else {
+          console.log('Application saved successfully:', insertedData);
+          dbSuccess = true;
+        }
+      } catch (dbError: any) {
+        console.error('Database operation failed:', dbError.message);
+        // Continue anyway - we'll still send the email
       }
-    } catch (dbError: any) {
-      console.error('Database operation failed:', dbError.message);
-      // Continue anyway - we'll still send the email
+    } else {
+      console.log('Skipping database save - Supabase not available');
     }
 
     // Send email notification (non-blocking with timeout)
