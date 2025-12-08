@@ -14,20 +14,16 @@ export const metadata: Metadata = {
 export default function BusinessApprenticeshipPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section - Video Background */}
+      {/* Hero Section - Video Background with Natural Voice */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
         <video
           autoPlay
           loop
-          muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/videos/business-hero.mp4" type="video/mp4" />
+          <source src="/videos/hero-video-with-audio.mp4" type="video/mp4" />
         </video>
-        <audio autoPlay loop>
-          <source src="/videos/voiceover.mp3" type="audio/mpeg" />
-        </audio>
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
