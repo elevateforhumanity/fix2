@@ -30,7 +30,7 @@ export default function Home() {
             sizes="100vw"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/30" />
         
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
@@ -491,7 +491,7 @@ export default function Home() {
                   Now I'm a full-time nurse assistant making $42,000 a year with benefits."
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 bg-orange-500 rounded-full"></div>
+                  <div className="w-16 h-16 bg-orange-500 rounded-full" />
                   <div>
                     <div className="font-bold">Sarah M.</div>
                     <div className="text-sm text-slate-600">CNA Graduate, 2024</div>
@@ -505,7 +505,7 @@ export default function Home() {
                   and now I own my own shop. Best decision I ever made."
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 bg-orange-500 rounded-full"></div>
+                  <div className="w-16 h-16 bg-orange-500 rounded-full" />
                   <div>
                     <div className="font-bold">Marcus J.</div>
                     <div className="text-sm text-slate-600">Barber Graduate, 2023</div>
@@ -519,7 +519,7 @@ export default function Home() {
                   Now I make $55,000 a year and have a career I'm proud of."
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 bg-orange-500 rounded-full"></div>
+                  <div className="w-16 h-16 bg-orange-500 rounded-full" />
                   <div>
                     <div className="font-bold">David R.</div>
                     <div className="text-sm text-slate-600">Welding Graduate, 2024</div>

@@ -101,7 +101,9 @@ export default function ProgramHolderApplicationPage() {
     return (
       <div className="min-h-screen bg-white">
         <section className="relative h-[400px] sm:h-[500px] w-full overflow-hidden bg-white">
-          <Image src="/images/efh/hero/hero-main.jpg" alt="Application submitted" fill className="object-cover" priority quality={95} sizes="100vw" />
+          <Image src="/images/efh/hero/hero-main.jpg" alt="Application submitted" fill
+className="object-cover" priority quality={95}
+sizes="100vw" />
         </section>
         <section className="py-16">
           <div className="max-w-2xl mx-auto px-6 text-center">
@@ -120,7 +122,9 @@ export default function ProgramHolderApplicationPage() {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative h-[400px] sm:h-[500px] w-full overflow-hidden bg-white">
-        <Image src="/images/efh/hero/hero-main.jpg" alt="Become a program holder" fill className="object-cover" priority quality={95} sizes="100vw" />
+        <Image src="/images/efh/hero/hero-main.jpg" alt="Become a program holder" fill
+className="object-cover" priority quality={95}
+sizes="100vw" />
       </section>
       <section className="py-12 sm:py-16 bg-white border-b">
         <div className="max-w-4xl mx-auto px-6">
@@ -145,27 +149,34 @@ export default function ProgramHolderApplicationPage() {
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Organization Name *</label>
-                  <input type="text" name="organizationName" value={formData.organizationName} onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
+                  <input type="text" name="organizationName" value={formData.organizationName}
+onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Organization Type *</label>
-                  <select name="organizationType" value={formData.organizationType} onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                  <select name="organizationType" value={formData.organizationType} onChange={handleChange}
+required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500">
                     {organizationTypes.map(type => <option key={type.value} value={type.value}>{type.label}</option>)}
                   </select>
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div><label className="block text-sm font-semibold text-slate-700 mb-2">City *</label><input type="text" name="city" value={formData.city} onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
-                  <div><label className="block text-sm font-semibold text-slate-700 mb-2">State *</label><input type="text" name="state" value={formData.state} onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
+                  <div><label className="block text-sm font-semibold text-slate-700 mb-2">City *</label><input type="text" name="city" value={formData.city}
+onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
+                  <div><label className="block text-sm font-semibold text-slate-700 mb-2">State *</label><input type="text" name="state" value={formData.state}
+onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
                 </div>
               </div>
             </div>
             <div className="bg-white rounded-lg shadow-sm border p-8">
               <h2 className="text-2xl font-bold text-slate-900 mb-6">Contact Information</h2>
               <div className="space-y-4">
-                <div><label className="block text-sm font-semibold text-slate-700 mb-2">Contact Name *</label><input type="text" name="contactName" value={formData.contactName} onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
+                <div><label className="block text-sm font-semibold text-slate-700 mb-2">Contact Name *</label><input type="text" name="contactName" value={formData.contactName}
+onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div><label className="block text-sm font-semibold text-slate-700 mb-2">Email *</label><input type="email" name="contactEmail" value={formData.contactEmail} onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
-                  <div><label className="block text-sm font-semibold text-slate-700 mb-2">Phone *</label><input type="tel" name="contactPhone" value={formData.contactPhone} onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
+                  <div><label className="block text-sm font-semibold text-slate-700 mb-2">Email *</label><input type="email" name="contactEmail" value={formData.contactEmail}
+onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
+                  <div><label className="block text-sm font-semibold text-slate-700 mb-2">Phone *</label><input type="tel" name="contactPhone" value={formData.contactPhone}
+onChange={handleChange} required className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
                 </div>
               </div>
             </div>
@@ -177,14 +188,17 @@ export default function ProgramHolderApplicationPage() {
                   <div className="grid md:grid-cols-2 gap-3">
                     {programOptions.map(program => (
                       <label key={program} className="flex items-center gap-3 p-3 border border-slate-200 rounded-lg hover:bg-slate-50 cursor-pointer">
-                        <input type="checkbox" checked={formData.programsInterested.includes(program)} onChange={() => handleProgramToggle(program)} className="w-5 h-5 text-blue-700 border-slate-300 rounded" />
+                        <input type="checkbox" checked={formData.programsInterested.includes(program)} onChange={() => handleProgramToggle(program)}
+className="w-5 h-5 text-blue-700 border-slate-300 rounded" />
                         <span className="text-slate-700">{program}</span>
                       </label>
                     ))}
                   </div>
                 </div>
-                <div><label className="block text-sm font-semibold text-slate-700 mb-2">Estimated Students Per Year</label><input type="number" name="estimatedStudents" value={formData.estimatedStudents} onChange={handleChange} className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
-                <div><label className="block text-sm font-semibold text-slate-700 mb-2">Additional Information</label><textarea name="additionalInfo" value={formData.additionalInfo} onChange={handleChange} rows={4} className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
+                <div><label className="block text-sm font-semibold text-slate-700 mb-2">Estimated Students Per Year</label><input type="number" name="estimatedStudents" value={formData.estimatedStudents}
+onChange={handleChange} className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
+                <div><label className="block text-sm font-semibold text-slate-700 mb-2">Additional Information</label><textarea name="additionalInfo" value={formData.additionalInfo} onChange={handleChange}
+rows={4} className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" /></div>
               </div>
             </div>
             <div className="flex gap-4">

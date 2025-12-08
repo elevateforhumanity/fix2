@@ -138,7 +138,7 @@ export function PartnerEnrollmentsSection() {
 
                 {isCompleted && (
                   <a
-                    href={`/student/certificates`}
+                    href="/student/certificates"
                     className="text-[11px] text-slate-500 underline"
                   >
                     View certificate

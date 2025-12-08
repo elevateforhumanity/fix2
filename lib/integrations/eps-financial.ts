@@ -328,7 +328,7 @@ export class EPSFinancialIntegration {
 
     // Reference: Implement signature verification based on EPS documentation
     // This is a placeholder - replace with actual EPS signature verification
-    const crypto = require('crypto');
+    const crypto = await import('crypto');
     const expectedSignature = crypto
       .createHmac('sha256', this.config.webhookSecret)
       .update(payload)

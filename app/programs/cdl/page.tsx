@@ -37,8 +37,7 @@ export default function CDLProgramPage() {
             <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
               Become a Truck Driver
             </h1>
-            <p className="text-xl md:text-2xl text-slate-700 mb-6">
-            </p>
+            <p className="text-xl md:text-2xl text-slate-700 mb-6" />
             <div className="flex flex-wrap gap-4">
               <Link href="/apply" className="bg-orange-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-orange-700 transition-all">
                 Start Your Application

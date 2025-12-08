@@ -95,7 +95,7 @@ function calculateFederalTax(taxable_income: number, filing_status: string): num
   
   const brackets = getTaxBrackets(filing_status);
   let tax = 0;
-  let previous_max = 0;
+  const previous_max = 0;
   
   for (const bracket of brackets) {
     if (taxable_income <= bracket.min) break;

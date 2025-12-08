@@ -29,7 +29,9 @@ export default async function OnboardingPage() {
   return (
     <div className="min-h-screen bg-white">
       <section className="relative h-[400px] sm:h-[500px] w-full overflow-hidden bg-white">
-        <Image src="/images/efh/hero/hero-main.jpg" alt="Welcome" fill className="object-cover" priority quality={95} sizes="100vw" />
+        <Image src="/images/efh/hero/hero-main.jpg" alt="Welcome" fill
+className="object-cover" priority quality={95}
+sizes="100vw" />
       </section>
       <section className="py-12 sm:py-16 bg-white border-b">
         <div className="max-w-7xl mx-auto px-6">

@@ -85,7 +85,8 @@ export default function EqualOpportunityPage() {
               <p className="font-semibold text-gray-900">Indiana Civil Rights Commission</p>
               <p className="text-gray-700">
                 Phone: (317) 232-2600<br />
-                Website: <a href="https://www.in.gov/icrc" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">www.in.gov/icrc</a>
+                Website: <a href="https://www.in.gov/icrc" target="_blank" rel="noopener noreferrer"
+className="text-blue-600 hover:underline">www.in.gov/icrc</a>
               </p>
             </div>
             <div>
@@ -93,7 +94,8 @@ export default function EqualOpportunityPage() {
               <p className="text-gray-700">
                 Civil Rights Center<br />
                 Phone: 1-877-889-5627<br />
-                Website: <a href="https://www.dol.gov/crc" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">www.dol.gov/crc</a>
+                Website: <a href="https://www.dol.gov/crc" target="_blank" rel="noopener noreferrer"
+className="text-blue-600 hover:underline">www.dol.gov/crc</a>
               </p>
             </div>
           </div>

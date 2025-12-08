@@ -119,7 +119,7 @@ function routeFromFile(filePath) {
   // e.g. app/page.tsx -> /
   // e.g. app/about/page.tsx -> /about
   // e.g. app/(site)/programs/cna/page.tsx -> /programs/cna
-  let rel = path.relative(APP_DIR, filePath).replace(/\\/g, "/");
+  const rel = path.relative(APP_DIR, filePath).replace(/\\/g, "/");
   const parts = rel.split("/");
 
   // remove last segment "page.tsx"

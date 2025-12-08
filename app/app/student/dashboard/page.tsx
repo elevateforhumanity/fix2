@@ -32,7 +32,7 @@ export default async function StudentDashboard() {
             <h3 className="font-semibold mb-1">Barber Apprenticeship - Module 3</h3>
             <p className="text-sm text-slate-600 mb-2">Advanced cutting techniques</p>
             <div className="w-full bg-slate-200 rounded-full h-2">
-              <div className="bg-indigo-600 h-2 rounded-full" style={{ width: '65%' }}></div>
+              <div className="bg-indigo-600 h-2 rounded-full" style={{ width: '65%' }} />
             </div>
             <p className="text-xs text-slate-500 mt-1">65% complete</p>
           </div>

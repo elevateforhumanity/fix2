@@ -50,7 +50,7 @@ export default async function ProgressPage() {
             <div 
               className="bg-gradient-to-r from-blue-600 to-purple-600 h-4 rounded-full transition-all"
               style={{ width: `${overallProgress}%` }}
-            ></div>
+             />
           </div>
         </div>
 
@@ -113,7 +113,7 @@ export default async function ProgressPage() {
                       <div 
                         className="bg-blue-600 h-2 rounded-full"
                         style={{ width: enrollment.status === 'completed' ? '100%' : '0%' }}
-                      ></div>
+                       />
                     </div>
                   </div>
                 </div>

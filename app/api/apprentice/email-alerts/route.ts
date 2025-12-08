@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Apprenticeship not found' }, { status: 404 });
   }
 
-  let notifications = [];
+  const notifications = [];
 
   switch (type) {
     case 'checkin_reminder':

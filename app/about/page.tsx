@@ -103,8 +103,7 @@ export default function Page() {
               </div>
               <div className="bg-white rounded-xl p-6 shadow-md">
                 <h4 className="text-xl font-bold mb-3 text-blue-900">Proven Track Record</h4>
-                <p className="text-slate-700 leading-relaxed mb-4">
-                </p>
+                <p className="text-slate-700 leading-relaxed mb-4" />
                 <p className="text-slate-700 leading-relaxed">
                   Every number represents a real person who transformed their life: single parents achieving financial stability, returning citizens rebuilding their lives, and career changers finding their true calling.
                 </p>
@@ -232,8 +231,7 @@ export default function Page() {
                   <p className="text-lg text-slate-700 leading-relaxed mb-6">
                     Through Selfish Inc, the 501(c)(3) nonprofit parent organization, Elizabeth has created a sustainable model that serves students, employers, and the community simultaneously. The organization is a registered federal contractor (SAM.gov UEI: VX2GK5S8SZH8), ByBlack certified Black-owned business, Certiport Authorized Testing Center, and Milady RISE Partner School.
                   </p>
-                  <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                  </p>
+                  <p className="text-lg text-slate-700 leading-relaxed mb-6" />
                   
                   <div className="bg-white rounded-lg p-6 border-l-4 border-blue-600 shadow-md">
                     <p className="text-slate-700 italic text-lg mb-4">

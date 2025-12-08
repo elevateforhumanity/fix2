@@ -173,7 +173,7 @@ export default async function AdminDashboard() {
               </div>
             </div>
             <div className="w-full bg-slate-200 rounded-full h-2">
-              <div className="bg-green-600 h-2 rounded-full" style={{ width: `${completionRate}%` }}></div>
+              <div className="bg-green-600 h-2 rounded-full" style={{ width: `${completionRate}%` }} />
             </div>
             <p className="text-xs text-slate-600 mt-2">{completionRate}% completion rate</p>
           </div>
@@ -189,7 +189,7 @@ export default async function AdminDashboard() {
               </div>
             </div>
             <div className="w-full bg-slate-200 rounded-full h-2">
-              <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${totalEnrollments ? (activeEnrollments || 0) / totalEnrollments * 100 : 0}%` }}></div>
+              <div className="bg-blue-600 h-2 rounded-full" style={{ width: `${totalEnrollments ? (activeEnrollments || 0) / totalEnrollments * 100 : 0}%` }} />
             </div>
             <p className="text-xs text-slate-600 mt-2">Currently active</p>
           </div>

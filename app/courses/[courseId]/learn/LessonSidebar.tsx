@@ -53,8 +53,10 @@ export default function LessonSidebar({
               onClick={onToggle}
               className="lg:hidden p-2 hover:bg-slate-100 rounded-lg transition"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg className="w-5 h-5" fill="none" stroke="currentColor"
+viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
@@ -98,8 +100,10 @@ export default function LessonSidebar({
                     <div className="flex-shrink-0 mt-0.5">
                       {isCompleted ? (
                         <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor"
+viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
                       ) : (

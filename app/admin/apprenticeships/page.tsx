@@ -199,7 +199,7 @@ export default function AdminApprenticeships() {
                           <div 
                             className="bg-blue-600 h-2 rounded-full" 
                             style={{ width: `${Math.min(progress, 100)}%` }}
-                          ></div>
+                           />
                         </div>
                         <p className="text-xs text-gray-600 mt-1">{progress.toFixed(0)}%</p>
                       </td>

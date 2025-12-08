@@ -137,7 +137,7 @@ export default function StudentPortfolio() {
                                skill.proficiency_level === 'advanced' ? '75%' :
                                skill.proficiency_level === 'intermediate' ? '50%' : '25%'
                       }}
-                    ></div>
+                     />
                   </div>
                   <span className="text-xs text-gray-600 capitalize">{skill.proficiency_level}</span>
                 </div>
@@ -164,8 +164,10 @@ export default function StudentPortfolio() {
                 <p className="text-gray-600">Uploading...</p>
               ) : (
                 <>
-                  <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                  <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor"
+viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+d="M12 4v16m8-8H4" />
                   </svg>
                   <p className="mt-2 text-sm text-gray-600">Click to upload photos or documents</p>
                   <p className="text-xs text-gray-500 mt-1">Photos of your work, certificates, etc.</p>
@@ -192,8 +194,10 @@ export default function StudentPortfolio() {
                   />
                 ) : (
                   <div className="flex items-center justify-center h-full">
-                    <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor"
+viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                   </div>
                 )}

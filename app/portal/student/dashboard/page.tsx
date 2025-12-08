@@ -163,7 +163,7 @@ export default async function StudentDashboard() {
                           <span className="font-medium text-slate-900">0%</span>
                         </div>
                         <div className="w-full bg-slate-200 rounded-full h-2">
-                          <div className="bg-blue-600 h-2 rounded-full" style={{ width: '0%' }}></div>
+                          <div className="bg-blue-600 h-2 rounded-full" style={{ width: '0%' }} />
                         </div>
                       </div>
                     </div>

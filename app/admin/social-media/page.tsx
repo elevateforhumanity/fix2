@@ -132,28 +132,28 @@ export default function SocialMediaPage() {
               name="Facebook"
               icon={Facebook}
               color="blue"
-              connected={true}
+              connected
               followers="2,847"
             />
             <PlatformCard
               name="Twitter"
               icon={Twitter}
               color="sky"
-              connected={true}
+              connected
               followers="1,234"
             />
             <PlatformCard
               name="LinkedIn"
               icon={Linkedin}
               color="blue"
-              connected={true}
+              connected
               followers="856"
             />
             <PlatformCard
               name="Instagram"
               icon={Instagram}
               color="pink"
-              connected={true}
+              connected
               followers="3,421"
             />
           </div>

@@ -122,7 +122,8 @@ export default async function Page() {
                   <LinkComponent key={post.id} {...linkProps} className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all overflow-hidden">
                     {post.featured_image && (
                       <div className="relative h-48 overflow-hidden">
-                        <Image src={post.featured_image} alt={post.title} fill className="object-cover group-hover:scale-110 transition-transform duration-300" quality={100} sizes="(max-width: 768px) 100vw, 33vw" />
+                        <Image src={post.featured_image} alt={post.title} fill
+className="object-cover group-hover:scale-110 transition-transform duration-300" quality={100} sizes="(max-width: 768px) 100vw, 33vw" />
                       </div>
                     )}
                     <div className="p-6">
@@ -170,12 +171,14 @@ export default async function Page() {
           {socialPosts.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {socialPosts.map((post: any) => (
-                <a key={post.id} href={post.post_url || '#'} target="_blank" rel="noopener noreferrer" className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all">
+                <a key={post.id} href={post.post_url || '#'} target="_blank"
+rel="noopener noreferrer" className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold">{post.platform.charAt(0).toUpperCase()}</div>
                     <div><div className="font-semibold capitalize">{post.platform}</div><div className="text-sm text-slate-500">{new Date(post.posted_at).toLocaleDateString()}</div></div>
                   </div>
-                  {post.image_url && <div className="relative h-48 rounded-lg overflow-hidden mb-4"><Image src={post.image_url} alt="Social post" fill className="object-cover" quality={100} sizes="(max-width: 768px) 100vw, 33vw" /></div>}
+                  {post.image_url && <div className="relative h-48 rounded-lg overflow-hidden mb-4"><Image src={post.image_url} alt="Social post" fill
+className="object-cover" quality={100} sizes="(max-width: 768px) 100vw, 33vw" /></div>}
                   <p className="text-slate-700 mb-4 line-clamp-4">{post.content}</p>
                   <div className="flex items-center gap-4 text-sm text-slate-500"><span>❤️ {post.likes}</span><span>💬 {post.comments}</span></div>
                 </a>
@@ -185,9 +188,12 @@ export default async function Page() {
             <div className="text-center py-12">
               <p className="text-lg text-slate-600 mb-6">Connect with us on social media!</p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <a href="https://www.facebook.com/elevateforhumanity" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all">Facebook</a>
-                <a href="https://www.instagram.com/elevateforhumanity" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all">Instagram</a>
-                <a href="https://www.linkedin.com/company/elevate-for-humanity" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full hover:bg-blue-800 transition-all">LinkedIn</a>
+                <a href="https://www.facebook.com/elevateforhumanity" target="_blank" rel="noopener noreferrer"
+className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all">Facebook</a>
+                <a href="https://www.instagram.com/elevateforhumanity" target="_blank" rel="noopener noreferrer"
+className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all">Instagram</a>
+                <a href="https://www.linkedin.com/company/elevate-for-humanity" target="_blank" rel="noopener noreferrer"
+className="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full hover:bg-blue-800 transition-all">LinkedIn</a>
               </div>
             </div>
           )}

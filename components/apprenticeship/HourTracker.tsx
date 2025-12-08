@@ -127,7 +127,7 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
           {isClockedIn ? (
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 Currently Clocked In
               </div>
               <div className="text-5xl font-bold text-slate-900 font-mono">
@@ -170,7 +170,7 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
             <div
               className="bg-gradient-to-r from-purple-500 to-purple-600 h-full transition-all duration-500 rounded-full"
               style={{ width: `${progressPercentage}%` }}
-            ></div>
+             />
           </div>
           <div className="flex items-center justify-between mt-2 text-xs text-slate-600">
             <span>{progressPercentage.toFixed(1)}% Complete</span>
@@ -212,7 +212,7 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
                   className="flex items-center justify-between bg-slate-50 rounded-lg p-3 text-sm"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <div className="w-2 h-2 bg-purple-500 rounded-full" />
                     <div>
                       <div className="font-semibold text-slate-900">{session.activity}</div>
                       <div className="text-xs text-slate-600">{session.date}</div>

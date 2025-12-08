@@ -247,19 +247,19 @@ export default async function CashAdvancesAdminPage() {
           <h4 className="font-semibold mb-3">Setup Requirements:</h4>
           <div className="grid md:grid-cols-2 gap-3">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-green-400 rounded-full" />
               <span className="text-sm">EPS Financial API Credentials</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-green-400 rounded-full" />
               <span className="text-sm">EPS Merchant/Office ID</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-green-400 rounded-full" />
               <span className="text-sm">Pathward Bank Integration</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <div className="w-2 h-2 bg-green-400 rounded-full" />
               <span className="text-sm">FasterMoney® Visa® Card Setup</span>
             </div>
           </div>

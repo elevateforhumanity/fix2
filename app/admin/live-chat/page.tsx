@@ -67,7 +67,8 @@ export default function LiveChatPage() {
             <div>
               <h3 className="font-medium text-gray-900 mb-2">1. Create Tawk.to Account (FREE)</h3>
               <p className="text-gray-600 mb-2">
-                Sign up at <a href="https://www.tawk.to" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">tawk.to</a> - completely free, no credit card required.
+                Sign up at <a href="https://www.tawk.to" target="_blank" rel="noopener noreferrer"
+className="text-blue-600 hover:underline">tawk.to</a> - completely free, no credit card required.
               </p>
             </div>
 

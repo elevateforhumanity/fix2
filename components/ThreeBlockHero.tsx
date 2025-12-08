@@ -63,7 +63,7 @@ export default function ThreeBlockHero() {
               />
               
               {/* Gradient Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-t ${block.color} opacity-80 group-hover:opacity-90 transition-opacity`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-t ${block.color} opacity-80 group-hover:opacity-90 transition-opacity`} />
               
               {/* Content */}
               <div className="relative h-full flex flex-col justify-between p-6 text-white">

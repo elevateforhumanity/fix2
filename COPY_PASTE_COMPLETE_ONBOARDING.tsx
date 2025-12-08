@@ -165,7 +165,7 @@ export default function CompleteOnboardingPage() {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-700 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-700 mx-auto mb-4" />
           <p className="text-slate-600">Loading onboarding...</p>
         </div>
       </div>
@@ -231,7 +231,7 @@ export default function CompleteOnboardingPage() {
             <div 
               className="bg-blue-700 h-3 rounded-full transition-all duration-500"
               style={{ width: `${completionPercentage}%` }}
-            ></div>
+             />
           </div>
           <p className="text-xs text-slate-600 mt-2">
             {documents.filter(doc => isDocumentSigned(doc.id)).length} of {documents.length} documents completed
