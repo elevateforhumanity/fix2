@@ -5,6 +5,7 @@ import { requireAdmin } from '@/lib/authGuards';
 import { createClient } from '@/lib/supabase/client';
 
 export default function AdminPayroll() {
+
   await requireAdmin();
 
   const supabase = createClient();
@@ -12,7 +13,6 @@ export default function AdminPayroll() {
   const [payrolls, setPayrolls] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
-
   useEffect(() => {
     loadData();
   }, []);
@@ -50,7 +50,6 @@ export default function AdminPayroll() {
     const endDate = new Date();
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - 7);
-
     const { data, error } = await supabase.rpc('calculate_payroll', {
       p_apprenticeship_id: apprenticeshipId,
       p_period_start: startDate.toISOString().split('T')[0],
@@ -261,4 +260,5 @@ export default function AdminPayroll() {
       </div>
     </div>
   );
+
 }

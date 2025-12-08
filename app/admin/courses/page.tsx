@@ -3,16 +3,12 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+export const metadata: Metadata = {;
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/courses"
-  },
-  title: 'Course Management | Admin',
-  description: 'Manage all courses and curriculum'
-};
+
 
 export default async function AdminCoursesPage() {
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
@@ -349,4 +345,5 @@ d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.
       </div>
     </div>
   );
+
 }

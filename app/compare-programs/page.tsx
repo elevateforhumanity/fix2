@@ -185,6 +185,7 @@ const successStories = [
 ];
 
 export default function CompareProgramsPage() {
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -540,4 +541,5 @@ export default function CompareProgramsPage() {
       </section>
     </div>
   );
+
 }

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function StorePage() {
+
   const featuredProducts = allProducts.filter(p => p.featured);
   
   return (
@@ -74,4 +75,5 @@ className="object-cover group-hover:scale-105 transition-transform duration-300"
       </section>
     </main>
   );
+
 }

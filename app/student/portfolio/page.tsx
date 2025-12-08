@@ -5,6 +5,7 @@ import { createClient } from '@/lib/supabase/client';
 import Image from 'next/image';
 
 export default function StudentPortfolio() {
+
   const supabase = createClient();
   const [user, setUser] = useState<any>(null);
   const [apprenticeship, setApprenticeship] = useState<any>(null);
@@ -12,7 +13,6 @@ export default function StudentPortfolio() {
   const [skills, setSkills] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
-
   useEffect(() => {
     loadData();
   }, []);
@@ -31,7 +31,6 @@ export default function StudentPortfolio() {
 
     if (apprenticeshipData) {
       setApprenticeship(apprenticeshipData);
-
       const { data: portfolioData } = await supabase
         .from('apprenticeship_portfolio')
         .select('*')
@@ -57,7 +56,6 @@ export default function StudentPortfolio() {
     if (!file || !apprenticeship) return;
 
     setUploading(true);
-
     const fileExt = file.name.split('.').pop();
     const fileName = `${user.id}/${Date.now()}.${fileExt}`;
 
@@ -318,4 +316,5 @@ d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 
       </div>
     </div>
   );
+
 }

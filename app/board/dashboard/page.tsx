@@ -3,16 +3,12 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+export const metadata: Metadata = {;
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/board/dashboard"
-  },
-  title: 'Board Member Dashboard',
-  description: 'View organizational metrics and strategic insights'
-};
+
 
 export default async function BoardMemberDashboardPage() {
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -262,4 +258,5 @@ export default async function BoardMemberDashboardPage() {
 
     </div>
   );
+
 }

@@ -1,4 +1,3 @@
-// app/admin/cash-advances/page.tsx
 import { Metadata } from 'next';
 import { requireAdmin } from '@/lib/authGuards';
 import { supabaseServer } from '@/lib/supabase-server';
@@ -6,16 +5,13 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
+export const metadata: Metadata = {;
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/cash-advances"
-  },
-  title: 'Cash Advance Management | Admin',
-  description: 'Manage cash advance applications and approvals'
-};
+
 
 export default async function CashAdvancesAdminPage() {
+
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
@@ -407,4 +403,6 @@ export default async function CashAdvancesAdminPage() {
 
     </div>
   );
+
+
 }

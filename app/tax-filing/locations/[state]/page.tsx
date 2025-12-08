@@ -62,7 +62,8 @@ export async function generateMetadata({ params }: { params: { state: string } }
   };
 }
 
-export default function StatePage({ params }: { params: { state: string } }) {
+export default function StatePage() {
+
   
   if (!state) {
     notFound();
@@ -400,4 +401,5 @@ export default function StatePage({ params }: { params: { state: string } }) {
       </div>
     </>
   );
+
 }

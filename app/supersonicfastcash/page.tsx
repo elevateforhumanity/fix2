@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function SupersonicFastCashPage() {
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero - H&R Block Style */}
@@ -381,4 +382,5 @@ d="M13 10V3L4 14h7v7l9-11h-7z" />
       </section>
     </main>
   );
+
 }

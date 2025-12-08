@@ -5,8 +5,8 @@ import { requireAdmin } from '@/lib/authGuards';
 import { Bell, Send, Users, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function NotificationsPage() {
-  await requireAdmin();
 
+  await requireAdmin();
   const [notification, setNotification] = useState({
     title: '',
     body: '',
@@ -21,7 +21,6 @@ export default function NotificationsPage() {
   const sendNotification = async () => {
     setSending(true);
     setResult(null);
-
     try {
       const response = await fetch('/api/notifications/broadcast', {
         method: 'POST',
@@ -344,22 +343,5 @@ export default function NotificationsPage() {
       </div>
     </div>
   );
-}
 
-interface QuickTemplateProps {
-  title: string;
-  body: string;
-  onClick: () => void;
-}
-
-function QuickTemplate({ title, body, onClick }: QuickTemplateProps) {
-  return (
-    <button
-      onClick={onClick}
-      className="p-4 border-2 border-gray-200 rounded-lg text-left hover:border-blue-500 hover:bg-blue-50 transition-colors"
-    >
-      <div className="font-medium text-gray-900 mb-1">{title}</div>
-      <div className="text-sm text-gray-600">{body}</div>
-    </button>
-  );
 }

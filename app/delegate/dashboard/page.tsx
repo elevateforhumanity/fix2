@@ -3,16 +3,12 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+export const metadata: Metadata = {;
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/delegate/dashboard"
-  },
-  title: 'Delegate Dashboard',
-  description: 'Manage delegated students and programs'
-};
+
 
 export default async function DelegateDashboardPage() {
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -262,4 +258,5 @@ export default async function DelegateDashboardPage() {
 
     </div>
   );
+
 }

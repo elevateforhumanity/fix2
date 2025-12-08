@@ -2,124 +2,11 @@ import Link from "next/link";
 import { createClient } from '@/lib/supabase/server';
 import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
-
-async function getPrograms() {
-  const supabase = await createClient();
-  
-  const { data: programs, error } = await supabase
-    .from("programs")
-    .select("slug, name, title, description, category, duration_weeks, salary_min, salary_max, image_url, featured")
-    .eq("is_active", true)
-    .order("featured", { ascending: false })
-    .order("name", { ascending: true });
-
-  if (error) {
-    console.error("Error fetching programs:", error);
-    return [];
-  }
-
-  return programs || [];
-}
-
-// Map program categories to high-quality, properly sized images
-function getProgramImage(slug: string, category: string): string {
-  // High-quality program-specific images (600x400 aspect ratio)
-  const customImages: Record<string, string> = {
-    // Healthcare Programs
-    "medical-assistant": "/media-backup-20251128-043832/programs/medical-hd.jpg",
-    "phlebotomy-technician": "/media-backup-20251128-043832/programs/healthcare-professional-1-hd.jpg",
-    "pharmacy-technician": "/media-backup-20251128-043832/programs/healthcare-professional-2-hd.jpg",
-    "dental-assistant": "/media-backup-20251128-043832/programs/healthcare-hd.jpg",
-    "cna": "/media-backup-20251128-043832/programs/cna-hd.jpg",
-    "certified-nursing-assistant": "/media-backup-20251128-043832/programs/cna-hd.jpg",
-    "medical-esthetics": "/media-backup-20251128-043832/programs/medical-esthetics-training-hd.jpg",
-    "cpr-certification": "/media-backup-20251128-043832/programs/cpr-training-hd.jpg",
-    
-    // Technology Programs
-    "it-support-specialist": "/media-backup-20251128-043832/programs/it-hd.jpg",
-    "cybersecurity-analyst": "/media-backup-20251128-043832/programs/it-hd.jpg",
-    "web-development": "/media-backup-20251128-043832/programs/it-hd.jpg",
-    "data-analytics": "/media-backup-20251128-043832/programs/it-hd.jpg",
-    
-    // Business & Professional
-    "customer-service-representative": "/media-backup-20251128-043832/programs/counseling-training-hd.jpg",
-    "administrative-assistant": "/media-backup-20251128-043832/programs/counseling-training-hd.jpg",
-    "bookkeeping": "/media-backup-20251128-043832/programs/tax-prep-hd.jpg",
-    "tax-preparation": "/media-backup-20251128-043832/programs/tax-prep-hd.jpg",
-    "real-estate-agent": "/media-backup-20251128-043832/programs/building-hd.jpg",
-    "insurance-agent": "/media-backup-20251128-043832/programs/counseling-training-hd.jpg",
-    "entrepreneurship-small-business": "/media-backup-20251128-043832/programs/counseling-training-hd.jpg",
-    
-    // Skilled Trades
-    "hvac-technician": "/media-backup-20251128-043832/programs/hvac-hd.jpg",
-    "welding": "/media-backup-20251128-043832/programs/welding-hd.jpg",
-    "electrical": "/media-backup-20251128-043832/programs/electrical-hd.jpg",
-    "electrician": "/media-backup-20251128-043832/programs/electrical-hd.jpg",
-    "plumbing": "/media-backup-20251128-043832/programs/plumbing-hd.jpg",
-    "plumber": "/media-backup-20251128-043832/programs/plumbing-hd.jpg",
-    "solar-panel-installation": "/media-backup-20251128-043832/programs/electrical-hd.jpg",
-    "building-maintenance-technician": "/media-backup-20251128-043832/programs/building-tech-hd.jpg",
-    "construction": "/media-backup-20251128-043832/programs/building-hd.jpg",
-    
-    // Transportation
-    "cdl": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
-    "truck-driving": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
-    "commercial-truck-driving": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
-    
-    // Automotive
-    "automotive-technician": "/media-backup-20251128-043832/programs/building-tech-hd.jpg",
-    "diesel-mechanic": "/media-backup-20251128-043832/programs/building-tech-hd.jpg",
-    
-    // Manufacturing & Warehouse
-    "forklift-operator": "/media-backup-20251128-043832/programs/building-tech-hd.jpg",
-    "manufacturing-technician": "/media-backup-20251128-043832/programs/building-tech-hd.jpg",
-    
-    // Beauty & Barber
-    "barber-apprenticeship": "/media-backup-20251128-043832/programs/barber-hd.jpg",
-    "barbering": "/media-backup-20251128-043832/programs/barber-hd.jpg",
-    "cosmetology": "/media-backup-20251128-043832/programs/beauty-hd.jpg",
-    "esthetics": "/media-backup-20251128-043832/programs/beauty-hd.jpg",
-    "nail-technician": "/media-backup-20251128-043832/programs/beauty-hd.jpg",
-    
-    // Culinary
-    "culinary-arts": "/media-backup-20251128-043832/programs/culinary-hd.jpg",
-    "food-service": "/media-backup-20251128-043832/programs/culinary-hd.jpg"
-  };
-
-  if (customImages[slug]) {
-    return customImages[slug];
-  }
-
-  // High-quality category fallback images
-  const categoryImages: Record<string, string> = {
-    "Healthcare": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "Technology": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "Business": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "Sales": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "Skilled Trades": "/media-backup-20251128-043832/programs/welding-hd.jpg",
-    "Transportation": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
-    "trades": "/media-backup-20251128-043832/programs/welding-hd.jpg",
-    "healthcare": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "transportation": "/media-backup-20251128-043832/programs/cdl-hd.jpg",
-    "barber_beauty": "/media-backup-20251128-043832/programs/multi-training-programs.png",
-    "professional": "/media-backup-20251128-043832/programs/multi-training-programs.png"
-  };
-
-  return categoryImages[category] || "/media-backup-20251128-043832/programs/multi-training-programs.png";
-}
-
 export const metadata = {
-  title: "Programs | Elevate For Humanity",
-  description:
-    "Explore free career training programs in healthcare, trades, transportation, and workforce readiness funded through WIOA, WRG, and partner programs.",
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/programs"
-  }
-};
 
 export default async function ProgramsPage() {
-  const programs = await getPrograms();
 
+  const programs = await getPrograms();
   return (
     <main className="min-h-screen bg-white">
       {/* HERO BANNER - Mobile Optimized */}
@@ -579,4 +466,5 @@ d="M13 7l5 5m0 0l-5 5m5-5H6" />
 
     </main>
   );
+
 }

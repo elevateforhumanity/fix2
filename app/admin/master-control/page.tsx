@@ -4,41 +4,12 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
-  Users, 
-  GraduationCap, 
-  Building2, 
-  Briefcase,
-  UserCheck,
-  Brain,
-  Zap,
-  Settings,
-  FileText,
-  Image,
-  Video,
-  Mail,
-  BarChart,
-  Shield,
-  Database,
-  Code,
-  BookOpen,
-  Award,
-  DollarSign,
-  Calendar,
-  MessageSquare,
-  Bell,
-  Globe,
-  Smartphone
-} from 'lucide-react';
+export const metadata: Metadata = {;
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/master-control"
-  },
-  title: 'Master Control Center | Admin',
-  description: 'Access all platform features and user portals'
-};
+
 
 export default async function MasterControlPage() {
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
@@ -457,4 +428,5 @@ export default async function MasterControlPage() {
       </div>
     </div>
   );
+
 }

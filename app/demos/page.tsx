@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function DemosPage() {
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section - Clean Image Only */}
@@ -118,4 +119,5 @@ className="object-cover group-hover:scale-105 transition-transform duration-500"
       </section>
     </main>
   );
+
 }

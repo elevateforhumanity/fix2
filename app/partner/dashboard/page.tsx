@@ -3,16 +3,12 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+export const metadata: Metadata = {;
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/partner/dashboard"
-  },
-  title: 'Partner Dashboard',
-  description: 'Manage partnership programs and student referrals'
-};
+
 
 export default async function PartnerDashboardPage() {
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -262,4 +258,5 @@ export default async function PartnerDashboardPage() {
 
     </div>
   );
+
 }

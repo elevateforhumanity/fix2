@@ -91,13 +91,13 @@ const skillCategories: SkillCategory[] = [
 ];
 
 export default function NailSkillsTrackingPage() {
+
   const [selectedStudent, setSelectedStudent] = useState('');
   const [selectedSkill, setSelectedSkill] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [rating, setRating] = useState(0);
   const [notes, setNotes] = useState('');
   const [skillLogs, setSkillLogs] = useState<SkillLog[]>([]);
-
   const students = [
     { id: '1', name: 'Sarah Johnson' },
     { id: '2', name: 'Maria Garcia' },
@@ -143,7 +143,6 @@ export default function NailSkillsTrackingPage() {
     const avgRating = totalSkills > 0
       ? studentLogs.reduce((sum, log) => sum + log.rating, 0) / totalSkills
       : 0;
-
     const skillsByCategory = skillCategories.map(category => ({
       name: category.name,
       count: studentLogs.filter(log => log.category === category.name).length
@@ -598,4 +597,5 @@ export default function NailSkillsTrackingPage() {
       </div>
     </div>
   );
+
 }

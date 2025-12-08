@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function JRIPage() {
+
   return (
     <main className="min-h-screen bg-white">
       <section className="relative min-h-[600px] flex items-center">
@@ -481,4 +482,5 @@ className="text-green-600 font-bold hover:underline">IndianaConnectNow.com</a> t
       </section>
     </main>
   );
+
 }

@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default function EmailMarketingPage() {
-  const router = useRouter();
 
+  const router = useRouter();
   useEffect(() => {
     // Check admin auth
     fetch('/api/auth/check-admin')
@@ -247,7 +247,6 @@ export default function EmailMarketingPage() {
                 New Template
               </button>
             </div>
-
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 "Program Enrollment",
@@ -296,7 +295,6 @@ export default function EmailMarketingPage() {
                 </div>
               </div>
             </div>
-
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-xl bg-white p-6 shadow-sm border border-slate-200">
                 <h3 className="font-semibold text-slate-900 mb-4">Top Performing Campaigns</h3>
@@ -392,4 +390,5 @@ export default function EmailMarketingPage() {
       </div>
     </div>
   );
+
 }

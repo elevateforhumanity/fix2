@@ -3,16 +3,12 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+export const metadata: Metadata = {;
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin/users"
-  },
-  title: 'User Management | Admin',
-  description: 'Manage all users in the platform'
-};
+
 
 export default async function Page() {
+
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   
@@ -340,4 +336,5 @@ d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.19
       </div>
     </div>
   );
+
 }

@@ -3,16 +3,12 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+export const metadata: Metadata = {;
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/lms/dashboard"
-  },
-  title: 'Learning Dashboard',
-  description: 'Your learning management system hub'
-};
+
 
 export default async function StudentDashboardPage() {
+
   
   const { data: { user } } = await supabase.auth.getUser();
   
@@ -312,4 +308,5 @@ export default async function StudentDashboardPage() {
 
     </div>
   );
+
 }
