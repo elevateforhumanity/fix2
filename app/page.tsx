@@ -135,6 +135,62 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* FACILITY SHOWCASE */}
+      <section className="py-20 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              Modern Training Facilities
+            </h2>
+            <p className="text-xl text-slate-600">
+              Professional environment designed for hands-on learning and career success
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/facility-1.jpg"
+                alt="Elevate For Humanity training facility"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/facility-2.jpg"
+                alt="Professional training environment"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-4 gap-6 text-center">
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="text-3xl font-bold text-orange-500 mb-2">10,000+</div>
+              <div className="text-sm text-slate-600">Square Feet</div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="text-3xl font-bold text-blue-600 mb-2">Modern</div>
+              <div className="text-sm text-slate-600">Equipment</div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="text-3xl font-bold text-green-600 mb-2">Safe</div>
+              <div className="text-sm text-slate-600">Environment</div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm">
+              <div className="text-3xl font-bold text-purple-600 mb-2">Accessible</div>
+              <div className="text-sm text-slate-600">Location</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* HOW IT WORKS - SIMPLE 3 STEPS */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6">
