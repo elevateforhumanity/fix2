@@ -8,10 +8,10 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       {/* TOP HERO - High Quality, Mobile Optimized */}
       <section className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
-        {/* High quality hero image from Unsplash */}
+        {/* High quality hero image */}
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&h=1080&fit=crop&q=90"
+            src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
             alt="Students collaborating and learning together"
             fill
             className="object-cover"
@@ -68,7 +68,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&h=600&fit=crop&q=85"
+                    src="/media-backup-20251128-043832/programs/barber-hd.jpg"
                     alt="Professional barber training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -92,7 +92,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop&q=85"
+                    src="/media-backup-20251128-043832/programs/cna-hd.jpg"
                     alt="Healthcare training and nursing"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -116,7 +116,7 @@ export default function Home() {
               <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&h=600&fit=crop&q=85"
+                    src="/media-backup-20251128-043832/programs/welding-hd.jpg"
                     alt="HVAC and skilled trades training"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -224,7 +224,7 @@ export default function Home() {
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
               <div className="relative h-40 sm:h-48 overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop&q=85"
+                  src="/media-backup-20251128-043832/hero-slide-healthcare.jpg"
                   alt="100% Fundable Programs"
                   fill
                   className="object-cover"
