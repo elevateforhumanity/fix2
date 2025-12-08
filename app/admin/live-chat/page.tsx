@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { MessageCircle, Users, Clock, CheckCircle, TrendingUp, ExternalLink } from 'lucide-react';

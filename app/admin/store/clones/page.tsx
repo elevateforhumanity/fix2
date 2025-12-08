@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Save, Eye, DollarSign, Package, Sparkles } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
