@@ -6,6 +6,16 @@ export const metadata = {
   description: 'Career training and development programs'
 };
 
+async function getPrograms() {
+  const supabase = await createClient();
+  const { data: programs } = await supabase
+    .from('programs')
+    .select('*')
+    .eq('is_active', true)
+    .order('name');
+  return programs || [];
+}
+
 export default async function ProgramsPage() {
 
   const programs = await getPrograms();
