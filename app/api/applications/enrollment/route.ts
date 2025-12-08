@@ -1,7 +1,5 @@
 // app/api/applications/enrollment/route.ts
 import { NextRequest, NextResponse } from "next/server";
-
-export const dynamic = 'force-dynamic';
 import { createClient } from "@/lib/supabase/server";
 
 export const dynamic = 'force-dynamic';

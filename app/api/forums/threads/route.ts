@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-export const dynamic = 'force-dynamic';
 import { createServerSupabaseClient } from '@/lib/auth';
 
 export const dynamic = 'force-dynamic';
