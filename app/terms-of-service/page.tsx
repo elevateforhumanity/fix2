@@ -1,197 +1,182 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/terms-of-service",
   },
   title: 'Terms of Service | Elevate For Humanity',
-  description: 'Terms of Service and intellectual property rights for Elevate For Humanity Career & Technical Institute.',
+  description: 'Terms of Service and user agreement for Elevate For Humanity.',
 };
 
 export default function TermsOfServicePage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="Terms Of Service"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
-            Terms Of Service
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Clean, No Gradient, No Image, No CTAs */}
+      <section className="bg-slate-900 text-white py-16">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Terms of Service
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
-            Transform your career with free training and industry certifications
+          <p className="text-xl text-slate-300">
+            Last Updated: December 8, 2024
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/apply"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
-            >
-              Get Started Free
-            </Link>
-            <Link
-              href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
-            >
-              View Programs
-            </Link>
-          </div>
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Terms of Service</h1>
-            <p className="text-lg text-slate-300">
-              Last Updated: December 8, 2024
-            </p>
-          </div>
-        </div>
-      </section>
-
+      {/* Content */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto prose prose-slate prose-lg">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="prose prose-lg max-w-none">
             
-            <h2>1. Acceptance of Terms</h2>
-            <p>
-              By accessing or using the Elevate For Humanity Career & Technical Institute website 
-              (www.elevateforhumanity.org), you agree to be bound by these Terms of Service and all 
-              applicable laws and regulations.
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">1. Acceptance of Terms</h2>
+            <p className="text-slate-700 mb-6">
+              By accessing or using the Elevate For Humanity website and services, you agree to be bound by these Terms of Service. 
+              If you do not agree to these terms, please do not use our website or services.
             </p>
 
-            <h2>2. Intellectual Property Rights</h2>
-            <p>
-              <strong>All content on this website is protected by U.S. Copyright Law.</strong>
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">2. Services Provided</h2>
+            <p className="text-slate-700 mb-4">
+              Elevate For Humanity provides:
             </p>
-            <ul>
-              <li>
-                <strong>Copyright Ownership:</strong> All content, including but not limited to text, 
-                graphics, logos, images, audio clips, video clips, digital downloads, data compilations, 
-                software, curriculum materials, course descriptions, and program information is the 
-                property of Elevate For Humanity Career & Technical Institute or its content suppliers 
-                and is protected by United States and international copyright laws.
-              </li>
-              <li>
-                <strong>Trademark Rights:</strong> "Elevate For Humanity," the Elevate For Humanity logo, 
-                and all related names, logos, product and service names, designs, and slogans are 
-                trademarks of Elevate For Humanity Career & Technical Institute.
-              </li>
-              <li>
-                <strong>Platform Technology:</strong> The website platform, including its design, 
-                architecture, user interface, and underlying code, is proprietary and protected by 
-                copyright and trade secret laws.
-              </li>
+            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
+              <li>Free workforce training programs funded by government grants</li>
+              <li>Professional tax preparation services</li>
+              <li>Career counseling and job placement assistance</li>
+              <li>Educational resources and support services</li>
             </ul>
 
-            <h2>3. Prohibited Uses</h2>
-            <p>You may not:</p>
-            <ul>
-              <li>Copy, reproduce, distribute, or create derivative works from any content on this website without express written permission</li>
-              <li>Use automated systems (bots, scrapers, crawlers) to access or collect data from this website</li>
-              <li>Reverse engineer, decompile, or disassemble any software or technology used on this website</li>
-              <li>Remove, alter, or obscure any copyright, trademark, or other proprietary notices</li>
-              <li>Use content for AI training, machine learning, or large language model development</li>
-              <li>Frame or mirror any part of this website without prior written authorization</li>
-              <li>Use this website to compete with Elevate For Humanity or create a similar service</li>
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">3. Eligibility</h2>
+            <p className="text-slate-700 mb-4">
+              To participate in our programs, you must:
+            </p>
+            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
+              <li>Be at least 18 years old or have parental consent</li>
+              <li>Meet program-specific eligibility requirements</li>
+              <li>Provide accurate and complete information during enrollment</li>
+              <li>Comply with all program rules and requirements</li>
             </ul>
 
-            <h2>4. AI and Machine Learning Restrictions</h2>
-            <p>
-              <strong>Explicit Prohibition:</strong> The use of any content from this website for training 
-              artificial intelligence systems, machine learning models, large language models (LLMs), or 
-              any automated content generation systems is strictly prohibited without express written 
-              permission from Elevate For Humanity.
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">4. User Responsibilities</h2>
+            <p className="text-slate-700 mb-4">
+              As a user of our services, you agree to:
             </p>
-
-            <h2>5. User Accounts and Access</h2>
-            <ul>
-              <li>You are responsible for maintaining the confidentiality of your account credentials</li>
-              <li>You must provide accurate and complete information when creating an account</li>
-              <li>You may not share your account with others or allow unauthorized access</li>
-              <li>We reserve the right to suspend or terminate accounts that violate these terms</li>
+            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
+              <li>Provide accurate and truthful information</li>
+              <li>Maintain the confidentiality of your account credentials</li>
+              <li>Attend classes and complete assignments as required</li>
+              <li>Treat staff, instructors, and other students with respect</li>
+              <li>Follow all facility rules and safety guidelines</li>
+              <li>Not engage in any illegal or prohibited activities</li>
             </ul>
 
-            <h2>6. Student Data and Privacy</h2>
-            <p>
-              We comply with FERPA (Family Educational Rights and Privacy Act) and other applicable 
-              privacy laws. See our <Link href="/privacy-policy" className="text-orange-600 hover:text-orange-700">Privacy Policy</Link> for details.
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">5. Intellectual Property</h2>
+            <p className="text-slate-700 mb-4">
+              All content on this website is protected by copyright law:
+            </p>
+            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
+              <li>Course materials, videos, and documents are for personal educational use only</li>
+              <li>You may not reproduce, distribute, or sell our materials without permission</li>
+              <li>Our logo, trademarks, and branding are protected</li>
+              <li>User-generated content remains your property but grants us a license to use it</li>
+            </ul>
+
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">6. Privacy and Data</h2>
+            <p className="text-slate-700 mb-6">
+              We collect and use your personal information as described in our Privacy Policy. 
+              By using our services, you consent to our data practices.
             </p>
 
-            <h2>7. DMCA Compliance</h2>
-            <p>
-              We respect intellectual property rights and expect users to do the same. If you believe 
-              your copyrighted work has been infringed, please see our{' '}
-              <Link href="/dmca" className="text-orange-600 hover:text-orange-700">DMCA Policy</Link>.
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">7. Program Withdrawal</h2>
+            <p className="text-slate-700 mb-4">
+              You may withdraw from a program at any time by:
+            </p>
+            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
+              <li>Notifying your instructor or program coordinator</li>
+              <li>Completing required withdrawal paperwork</li>
+              <li>Returning any borrowed equipment or materials</li>
+            </ul>
+
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">8. Termination</h2>
+            <p className="text-slate-700 mb-4">
+              We reserve the right to terminate your access to our services if you:
+            </p>
+            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
+              <li>Violate these Terms of Service</li>
+              <li>Engage in disruptive or inappropriate behavior</li>
+              <li>Provide false or misleading information</li>
+              <li>Fail to meet program attendance or performance requirements</li>
+            </ul>
+
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">9. Disclaimer of Warranties</h2>
+            <p className="text-slate-700 mb-6">
+              Our services are provided "as is" without warranties of any kind. While we strive to provide quality education and services, 
+              we do not guarantee specific outcomes, job placement, or certification results.
             </p>
 
-            <h2>8. Limitation of Liability</h2>
-            <p>
-              Elevate For Humanity Career & Technical Institute shall not be liable for any indirect, 
-              incidental, special, consequential, or punitive damages resulting from your use of or 
-              inability to use the website or services.
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">10. Limitation of Liability</h2>
+            <p className="text-slate-700 mb-6">
+              Elevate For Humanity shall not be liable for any indirect, incidental, special, or consequential damages arising from 
+              your use of our services or inability to use our services.
             </p>
 
-            <h2>9. Indemnification</h2>
-            <p>
-              You agree to indemnify and hold harmless Elevate For Humanity, its officers, directors, 
-              employees, and agents from any claims, damages, losses, liabilities, and expenses 
-              (including legal fees) arising from your violation of these Terms of Service.
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">11. Third-Party Links</h2>
+            <p className="text-slate-700 mb-6">
+              Our website may contain links to third-party websites. We are not responsible for the content, privacy practices, 
+              or terms of service of external sites.
             </p>
 
-            <h2>10. Modifications to Terms</h2>
-            <p>
-              We reserve the right to modify these Terms of Service at any time. Changes will be 
-              effective immediately upon posting. Your continued use of the website constitutes 
-              acceptance of modified terms.
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">12. Changes to Terms</h2>
+            <p className="text-slate-700 mb-6">
+              We reserve the right to modify these Terms of Service at any time. Changes will be posted on this page with an updated date. 
+              Your continued use of our services after changes are posted constitutes acceptance of the modified terms.
             </p>
 
-            <h2>11. Governing Law</h2>
-            <p>
-              These Terms of Service are governed by the laws of the State of Indiana, United States, 
-              without regard to its conflict of law provisions.
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">13. Governing Law</h2>
+            <p className="text-slate-700 mb-6">
+              These Terms of Service are governed by the laws of the State of Indiana, United States, without regard to conflict of law principles.
             </p>
 
-            <h2>12. Contact Information</h2>
-            <p>
-              For questions about these Terms of Service, contact us at:
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">14. Contact Information</h2>
+            <p className="text-slate-700 mb-4">
+              For questions about these Terms of Service:
             </p>
-            <div className="bg-slate-50 p-6 rounded-lg border border-slate-200 not-prose">
-              <p className="font-semibold mb-2">Elevate For Humanity Career & Technical Institute</p>
-              <p>8888 Keystone Crossing Suite 1300</p>
-              <p>Indianapolis, IN 46240</p>
-              <p className="mt-2">Email: <a href="mailto:legal@elevateforhumanity.org" className="text-orange-600 hover:text-orange-700">legal@elevateforhumanity.org</a></p>
-              <p>Phone: <a href="tel:+13173143757" className="text-orange-600 hover:text-orange-700">(317) 314-3757</a></p>
-            </div>
-
-            <div className="mt-12 p-6 bg-orange-50 border-l-4 border-orange-600 rounded">
-              <p className="font-semibold text-orange-900 mb-2">Copyright Notice</p>
-              <p className="text-sm text-orange-800">
-                © {new Date().getFullYear()} Elevate For Humanity Career & Technical Institute. 
-                All rights reserved. Unauthorized reproduction, modification, distribution, or use 
-                of any content from this website is strictly prohibited and may result in civil and 
-                criminal penalties.
+            <div className="bg-slate-50 p-6 rounded-lg mb-8">
+              <p className="text-slate-700 mb-2">
+                <strong>Elevate For Humanity</strong>
+              </p>
+              <p className="text-slate-700 mb-2">
+                Phone: <a href="tel:317-314-3757" className="text-blue-600 hover:underline">317-314-3757</a>
+              </p>
+              <p className="text-slate-700">
+                Email: <a href="mailto:legal@elevateforhumanity.org" className="text-blue-600 hover:underline">legal@elevateforhumanity.org</a>
               </p>
             </div>
 
-            <div className="mt-8 text-center">
-              <Link 
-                href="/" 
-                className="inline-block px-8 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition"
-              >
-                Return to Homepage
-              </Link>
+            <div className="mt-12 pt-8 border-t border-slate-200">
+              <p className="text-slate-700 mb-4">
+                <strong>Related Policies:</strong>
+              </p>
+              <div className="space-y-2">
+                <Link
+                  href="/privacy"
+                  className="block text-blue-600 hover:underline font-semibold"
+                >
+                  Privacy Policy →
+                </Link>
+                <Link
+                  href="/refund-policy"
+                  className="block text-blue-600 hover:underline font-semibold"
+                >
+                  Refund Policy →
+                </Link>
+                <Link
+                  href="/dmca"
+                  className="block text-blue-600 hover:underline font-semibold"
+                >
+                  DMCA Policy →
+                </Link>
+              </div>
             </div>
           </div>
         </div>
