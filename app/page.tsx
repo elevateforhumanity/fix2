@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Award, Clock } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Elevate for Humanity | Free Career Training Indianapolis",
@@ -14,19 +14,28 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-white">
-      {/* HERO - CLEAN & POWERFUL */}
+      {/* HERO - VIDEO BANNER */}
       <section className="relative text-white overflow-hidden h-[500px] sm:h-[600px] md:h-[700px]">
-        {/* Background Image */}
+        {/* Background Video */}
         <div className="absolute inset-0 w-full h-full">
-          <Image
-            src="/images/hero-training.jpg"
-            alt="Career training at Elevate for Humanity"
-            fill
-            className="object-cover"
-            priority
-            quality={90}
-          />
-          <div className="absolute inset-0 bg-black/40" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ 
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+              filter: 'brightness(1.1) contrast(1.05) saturate(1.1)'
+            }}
+          >
+            <source src="/videos/barber-hero.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="absolute inset-0 bg-black/30" />
         </div>
 
         {/* Content */}
@@ -69,38 +78,71 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* VALUE PROPOSITIONS - ABOVE THE FOLD */}
+      {/* VALUE PROPOSITIONS - WITH IMAGES */}
       <section className="py-16 bg-slate-50 border-y border-slate-200">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Prop 1 */}
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                100% Free Training
-              </h3>
-              <p className="text-slate-600 text-lg">
-                Government pays for tuition, books, supplies, and support services. You pay nothing.
-              </p>
+            {/* Prop 1 - Free Training */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-48">
+                <Image
+                  src="/images/facility-1.jpg"
+                  alt="Free Training Facility"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  100% Free Training
+                </h3>
+                <p className="text-slate-600">
+                  Government pays for tuition, books, supplies, and support services. You pay nothing.
+                </p>
+              </div>
             </div>
 
-            {/* Prop 2 */}
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                Real Credentials
-              </h3>
-              <p className="text-slate-600 text-lg">
-                State licenses, industry-standard certifications, and nationally recognized credentials employers want.
-              </p>
+            {/* Prop 2 - Real Credentials */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-48">
+                <Image
+                  src="/images/medical-assistant-1.jpg"
+                  alt="Real Credentials"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  Real Credentials
+                </h3>
+                <p className="text-slate-600">
+                  State licenses, industry-standard certifications, and nationally recognized credentials employers want.
+                </p>
+              </div>
             </div>
 
-            {/* Prop 3 */}
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                Job Connections
-              </h3>
-              <p className="text-slate-600 text-lg">
-                Direct connections to 100+ hiring employers. We help you get interviews and land the job.
-              </p>
+            {/* Prop 3 - Job Connections */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-48">
+                <Image
+                  src="/images/barber-highlight-1.jpg"
+                  alt="Job Connections"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                  Job Connections
+                </h3>
+                <p className="text-slate-600">
+                  Direct connections to 100+ hiring employers. We help you get interviews and land the job.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -143,93 +185,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3 FEATURED PROGRAMS WITH PICTURES */}
-      <section className="py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Popular Programs
-            </h2>
-            <p className="text-xl text-slate-600">
-              Free training for those who qualify • Start your new career today
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Program 1 - Barber */}
-            <Link href="/programs/barber" className="group">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                <div className="relative h-64">
-                  <Image
-                    src="/images/barber-highlight-1.jpg"
-                    alt="Barber Training Program"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Barber Training</h3>
-                  <p className="text-slate-600 mb-4">
-                    Learn professional barbering skills. Earn your state license in 12-16 weeks. Start earning $35K-$50K+.
-                  </p>
-                  <div className="flex items-center text-orange-600 font-semibold">
-                    Learn More <ArrowRight className="ml-2 w-5 h-5" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Program 2 - Medical Assistant */}
-            <Link href="/programs/medical-assistant" className="group">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                <div className="relative h-64">
-                  <Image
-                    src="/images/medical-assistant-1.jpg"
-                    alt="Medical Assistant Training Program"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Medical Assistant</h3>
-                  <p className="text-slate-600 mb-4">
-                    Healthcare career training. Get certified in 8-12 weeks. Work in clinics, hospitals. Earn $32K-$42K+.
-                  </p>
-                  <div className="flex items-center text-orange-600 font-semibold">
-                    Learn More <ArrowRight className="ml-2 w-5 h-5" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Program 3 - Tax Services */}
-            <Link href="/tax-services" className="group">
-              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-                <div className="relative h-64">
-                  <Image
-                    src="/images/tax-office-1.jpg"
-                    alt="Tax Preparation Services"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Tax Services</h3>
-                  <p className="text-slate-600 mb-4">
-                    Professional tax preparation and refund advances. Get your taxes done right. Fast refunds up to $6,000.
-                  </p>
-                  <div className="flex items-center text-orange-600 font-semibold">
-                    Learn More <ArrowRight className="ml-2 w-5 h-5" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* CREDENTIALED PROGRAMS - HYBRID - SHORT TERM */}
       <section className="py-20 bg-slate-50">
@@ -245,44 +201,66 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Hybrid Learning */}
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-48">
+                <Image
+                  src="/images/facility-2.jpg"
+                  alt="Hybrid Learning Format"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
-                Hybrid Format
-              </h3>
-              <p className="text-slate-700 text-center">
-                Learn online at your own pace, then practice hands-on skills at our modern training facility with expert instructors.
-              </p>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
+                  Hybrid Format
+                </h3>
+                <p className="text-slate-700 text-center">
+                  Learn online at your own pace, then practice hands-on skills at our modern training facility with expert instructors.
+                </p>
+              </div>
             </div>
 
             {/* Short-Term */}
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl">
-              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-white" />
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-48">
+                <Image
+                  src="/images/barber-highlight-2.jpg"
+                  alt="Short-Term Training"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
-                Short-Term Training
-              </h3>
-              <p className="text-slate-700 text-center">
-                Complete programs in weeks, not years. Get job-ready fast with focused, intensive training designed for quick career entry.
-              </p>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
+                  Short-Term Training
+                </h3>
+                <p className="text-slate-700 text-center">
+                  Complete programs in weeks, not years. Get job-ready fast with focused, intensive training designed for quick career entry.
+                </p>
+              </div>
             </div>
 
             {/* Credentialed */}
-            <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl">
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-white" />
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-48">
+                <Image
+                  src="/images/medical-assistant-2.jpg"
+                  alt="Industry Credentials"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
-                Industry Credentials
-              </h3>
-              <p className="text-slate-700 text-center">
-                Earn state licenses, national certifications, and industry-recognized credentials that employers value and trust.
-              </p>
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
+                  Industry Credentials
+                </h3>
+                <p className="text-slate-700 text-center">
+                  Earn state licenses, national certifications, and industry-recognized credentials that employers value and trust.
+                </p>
+              </div>
             </div>
           </div>
 
