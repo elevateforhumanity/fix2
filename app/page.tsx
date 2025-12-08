@@ -21,7 +21,7 @@ export default function Home() {
       <section className="relative h-[600px] sm:h-[700px] w-full overflow-hidden bg-white">
         <div className="absolute inset-0">
           <Image
-            src="/media-backup-20251128-043832/homepage-hero.jpg"
+            src="/media/hero-elevate-learners.jpg"
             alt="Career training that changes lives"
             fill
             className="object-cover brightness-105"
