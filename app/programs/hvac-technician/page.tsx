@@ -14,26 +14,35 @@ export const metadata: Metadata = {
 export default function HvacTechnicianPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Hero Section with Video */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
-        <Image
-          src="/images/gallery/image6.jpg"
-          alt="Hvac Technician Training"
-          fill
-          className="object-cover"
-          priority
-          quality={100}
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ 
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+              filter: 'contrast(1.05) saturate(1.1) brightness(0.95)',
+              imageRendering: 'high-quality'
+            }}
+          >
+            <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-c913a513-dde0-4ac7-ae3c-53a453b8b83d.mp4?Expires=2080579938&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=bci4L0nUlydNRWrQZU2TXiuNiaTOtWFSTcwDsFXVD1wtGnIjTpHNtF4xoUqNXpgtu3-WdWous6RTH8nkZl4RVvTmNjsWfY--5~x3WnC4QuYxep5iI0eEKuN8WOTXJ5cWryEb7RMnGAIMb5~ir3RcAb7Iaztw9nSl5grVDQSq4WGT1VM~rOpGGxtGlGdy~lraTjHJIEe3BkmkV8Or6RWKUerH4pJ0YFqjtEcIXiBc3SI3Z8s00fo0T9SKd61VrbxkB2v8BVZaOSsNwB4Dp9hBoHHT74FCn5uAMl0-Cpy4Tr8iUH01Cp1Lc2dNKwtzUTy7tfw9V4IS94CtAiHPeMHzcw__" type="video/mp4" />
+          </video>
+        </div>
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-                Hvac Technician
+                HVAC Technician Training
               </h1>
               <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
-                Start your career with free training, AI-powered learning, and job placement support
+                Earn $45K-$65K installing and repairing heating, cooling, and ventilation systems. Complete training in 8-12 weeks.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -60,23 +69,23 @@ export default function HvacTechnicianPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-sm text-center">
               <Clock className="w-8 h-8 text-orange-500 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-slate-900">12-16 Weeks</div>
-              <div className="text-sm text-slate-600">Flexible Schedule</div>
+              <div className="text-2xl font-bold text-slate-900">8-12 Weeks</div>
+              <div className="text-sm text-slate-600">Complete Training</div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm text-center">
               <DollarSign className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-slate-900">100% FREE</div>
-              <div className="text-sm text-slate-600">No Hidden Costs</div>
+              <div className="text-2xl font-bold text-slate-900">$45K-$65K</div>
+              <div className="text-sm text-slate-600">Starting Salary</div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm text-center">
-              <Zap className="w-8 h-8 text-blue-500 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-slate-900">AI-Powered</div>
-              <div className="text-sm text-slate-600">24/7 Support</div>
+              <Users className="w-8 h-8 text-blue-500 mx-auto mb-3" />
+              <div className="text-2xl font-bold text-slate-900">High Demand</div>
+              <div className="text-sm text-slate-600">1000+ Jobs</div>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-sm text-center">
               <TrendingUp className="w-8 h-8 text-purple-500 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-slate-900">Job Support</div>
-              <div className="text-sm text-slate-600">Placement Help</div>
+              <div className="text-2xl font-bold text-slate-900">100% FREE</div>
+              <div className="text-sm text-slate-600">Government Funded</div>
             </div>
           </div>
         </div>
@@ -130,37 +139,47 @@ export default function HvacTechnicianPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-slate-900 mb-6">
-                Why Choose HVAC Technician?
+                What You'll Do as an HVAC Technician
               </h2>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-slate-900">High Demand Career</div>
-                    <div className="text-slate-600">Growing industry with thousands of job openings</div>
+                    <div className="font-semibold text-slate-900">Install & Repair Systems</div>
+                    <div className="text-slate-600">Install, maintain, and repair heating, ventilation, and air conditioning systems in homes and businesses</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-slate-900">Good Income Potential</div>
-                    <div className="text-slate-600">Competitive salary with room for growth</div>
+                    <div className="font-semibold text-slate-900">Diagnose Problems</div>
+                    <div className="text-slate-600">Use diagnostic tools to identify issues with HVAC equipment and recommend solutions</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-slate-900">No Experience Required</div>
-                    <div className="text-slate-600">We start from the basics and build your skills</div>
+                    <div className="font-semibold text-slate-900">Preventive Maintenance</div>
+                    <div className="text-slate-600">Perform routine maintenance to keep systems running efficiently and prevent breakdowns</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-slate-900">Career Stability</div>
-                    <div className="text-slate-600">Essential skills that are always in demand</div>
+                    <div className="font-semibold text-slate-900">Customer Service</div>
+                    <div className="text-slate-600">Work directly with customers to explain repairs, provide estimates, and ensure satisfaction</div>
                   </div>
                 </div>
+              </div>
+              
+              <div className="bg-blue-50 p-6 rounded-lg mb-8">
+                <h3 className="font-bold text-slate-900 mb-3">Career Opportunities:</h3>
+                <ul className="space-y-2 text-slate-700">
+                  <li>• <strong>Residential HVAC Technician</strong> - Service homes and apartments ($45K-$55K)</li>
+                  <li>• <strong>Commercial HVAC Technician</strong> - Work on large buildings ($50K-$65K)</li>
+                  <li>• <strong>HVAC Installer</strong> - Install new systems in construction ($48K-$60K)</li>
+                  <li>• <strong>Service Manager</strong> - Lead teams and manage operations ($60K-$80K)</li>
+                </ul>
               </div>
               <Link
                 href="/apply"
@@ -184,7 +203,7 @@ export default function HvacTechnicianPage() {
       </section>
 
       {/* AI-Powered Learning */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-20 bg-blue-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
