@@ -37,20 +37,20 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
             {/* Simple, powerful headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               The <em className="italic">best</em> career training, period.
             </h1>
             
             {/* Clear value proposition */}
-            <p className="text-xl sm:text-2xl text-white mb-8 font-light max-w-3xl mx-auto">
+            <p className="text-xl sm:text-2xl text-white mb-10 font-light max-w-3xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               100% government-funded training. Earn while you learn. No tuition, no debt.
             </p>
             
             {/* Single, clear CTA */}
-            <div className="mb-12">
+            <div className="mb-16">
               <Link
                 href="/apply"
-                className="inline-block px-12 py-5 bg-orange-600 text-white font-bold text-xl rounded-full hover:bg-orange-700 transition-all shadow-2xl hover:scale-105"
+                className="inline-block px-12 py-5 bg-orange-600 text-white font-bold text-xl rounded-full hover:bg-orange-700 transition-all shadow-[0_8px_30px_rgba(234,88,12,0.5)] hover:shadow-[0_8px_40px_rgba(234,88,12,0.7)] hover:scale-105 border-2 border-orange-500"
               >
                 Check Your Eligibility →
               </Link>
@@ -59,16 +59,16 @@ export default function Home() {
             {/* Clean stats */}
             <div className="flex flex-wrap justify-center gap-12 text-white">
               <div className="text-center">
-                <div className="text-5xl font-bold mb-1">33</div>
-                <div className="text-sm font-light">Career Programs</div>
+                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">33</div>
+                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Career Programs</div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold mb-1">$0</div>
-                <div className="text-sm font-light">Tuition Cost</div>
+                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">$0</div>
+                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Tuition Cost</div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold mb-1">$15-20/hr</div>
-                <div className="text-sm font-light">While Training</div>
+                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">$15-20/hr</div>
+                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">While Training</div>
               </div>
             </div>
           </div>
