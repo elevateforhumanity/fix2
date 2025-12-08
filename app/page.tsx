@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CheckCircle, ArrowRight, Users, Award, DollarSign, Clock, TrendingUp, Briefcase } from "lucide-react";
+import HeroSlideshow from "./components/HeroSlideshow";
 
 export const metadata = {
   title: "Elevate for Humanity | Free Career Training Indianapolis",
@@ -16,17 +17,8 @@ export default function HomePage() {
     <main className="bg-white">
       {/* HERO - CLEAN & POWERFUL */}
       <section className="relative bg-slate-900 text-white overflow-hidden h-[500px] sm:h-[600px] md:h-[700px]">
-        {/* Background Image - NO OVERLAY */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/students-new/student-11.jpg"
-            alt="Elevate for Humanity students in career training programs"
-            fill
-            className="object-cover brightness-90"
-            priority
-            quality={100} sizes="100vw"
-          />
-        </div>
+        {/* Background Slideshow */}
+        <HeroSlideshow />
 
         {/* Content */}
         <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-32">
