@@ -2,12 +2,12 @@
 'use client';
 
 import EnrollmentProcess from '@/components/EnrollmentProcess';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { BotProtection } from '@/components/security';
 
-export default function ApplyPage() {
+function ApplyForm() {
   const searchParams = useSearchParams();
   const programParam = searchParams?.get('program');
   
@@ -413,5 +413,20 @@ d="M5 13l4 4L19 7" />
     
       <EnrollmentProcess />
     </main>
+  );
+}
+
+export default function ApplyPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-slate-600">Loading application form...</p>
+        </div>
+      </div>
+    }>
+      <ApplyForm />
+    </Suspense>
   );
 }

@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Users, GraduationCap, Building2, FileCheck, TrendingUp, AlertCircle, CheckCircle, Clock } from 'lucide-react';
+import { Users, GraduationCap, Building2, FileCheck, TrendingUp, AlertCircle, CheckCircle, Clock, Video } from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
