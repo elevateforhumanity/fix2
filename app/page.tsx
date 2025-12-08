@@ -358,7 +358,22 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-center mb-16">See what our graduates are saying</h2>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-8 rounded-lg">
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src="/media/testimonials/student1.jpg"
+                      alt="Sarah M. - CNA Graduate"
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-bold">Sarah M.</div>
+                    <div className="text-sm text-slate-500">CNA Graduate, 2024</div>
+                  </div>
+                </div>
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
@@ -366,15 +381,28 @@ export default function Home() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-slate-700 mb-6 leading-relaxed">
+                <p className="text-slate-700 leading-relaxed">
                   "I was unemployed for 8 months. WIOA paid for my CNA training, and I earned $18/hour during my apprenticeship. 
                   Now I'm making $42,000 a year with full benefits."
                 </p>
-                <div className="font-bold">Sarah M.</div>
-                <div className="text-sm text-slate-500">CNA Graduate, 2024</div>
               </div>
 
-              <div className="bg-white p-8 rounded-lg">
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src="/media/testimonials/student2.jpg"
+                      alt="Marcus J. - Barber Graduate"
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-bold">Marcus J.</div>
+                    <div className="text-sm text-slate-500">Barber Graduate, 2023</div>
+                  </div>
+                </div>
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
@@ -382,15 +410,28 @@ export default function Home() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-slate-700 mb-6 leading-relaxed">
+                <p className="text-slate-700 leading-relaxed">
                   "The barber apprenticeship changed my life. I earned while I learned, graduated debt-free, 
                   and now I own my own shop. Best decision I ever made."
                 </p>
-                <div className="font-bold">Marcus J.</div>
-                <div className="text-sm text-slate-500">Barber Graduate, 2023</div>
               </div>
 
-              <div className="bg-white p-8 rounded-lg">
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src="/media/testimonials/student3.jpg"
+                      alt="David R. - Welding Graduate"
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
+                  </div>
+                  <div>
+                    <div className="font-bold">David R.</div>
+                    <div className="text-sm text-slate-500">Welding Graduate, 2024</div>
+                  </div>
+                </div>
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg key={i} className="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
@@ -398,12 +439,10 @@ export default function Home() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-slate-700 mb-6 leading-relaxed">
+                <p className="text-slate-700 leading-relaxed">
                   "I was working minimum wage with no future. WRG funded my welding training. 
                   Now I make $55,000 a year and have a career I'm proud of."
                 </p>
-                <div className="font-bold">David R.</div>
-                <div className="text-sm text-slate-500">Welding Graduate, 2024</div>
               </div>
             </div>
           </div>
