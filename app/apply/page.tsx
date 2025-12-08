@@ -62,16 +62,17 @@ export default function ApplyPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden">
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden bg-gradient-to-br from-blue-900 to-blue-700">
         <Image
-          src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
-          alt="Apply for training programs"
+          src="/media/students-hero.jpg"
+          alt="Start your career training journey - Apply for free programs"
           fill
           className="object-cover"
           priority
           quality={95}
           sizes="100vw"
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-900/60 to-blue-900/40"></div>
       </section>
 
       {/* Application Form Section */}
