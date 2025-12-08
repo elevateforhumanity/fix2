@@ -1,159 +1,127 @@
 import { Metadata } from 'next';
-
 import Link from 'next/link';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/cookies",
   },
-  title: 'Cookies | Elevate For Humanity',
-  description: 'Explore Cookies and discover opportunities for career growth and development.',
+  title: 'Cookie Policy | Elevate For Humanity',
+  description: 'Learn about how Elevate For Humanity uses cookies and similar technologies on our website.',
 };
 
-export default async function CookiesPage() {
-  
-
+export default function CookiesPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="Cookies"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Cookies
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - No Gradient */}
+      <section className="bg-slate-900 text-white py-16">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Cookie Policy
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Explore Cookies and discover opportunities for career growth and development.
+          <p className="text-xl text-slate-300">
+            Last Updated: December 8, 2024
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/apply"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              View Programs
-            </Link>
-            
-            
-          </div>
         </div>
       </section>
 
-      {/* Content Section */}
+      {/* Content */}
       <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            
-            {/* Feature Grid */}
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Cookies</h2>
-                <p className="text-gray-700 mb-6">Explore Cookies and discover opportunities for career growth and development.</p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>100% free training programs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Industry-standard certifications</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Career support and job placement</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/gallery/image3.jpg"
-                  alt="Cookies"
-                  fill
-                  className="object-cover"
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-
-            {/* Feature Cards */}
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Learn</h3>
-                <p className="text-gray-600">Access quality training programs</p>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Certify</h3>
-                <p className="text-gray-600">Earn industry certifications</p>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Work</h3>
-                <p className="text-gray-600">Get hired in your field</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Join thousands who have launched successful careers through our programs.
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="prose prose-lg max-w-none">
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">What Are Cookies?</h2>
+            <p className="text-slate-700 mb-6">
+              Cookies are small text files that are placed on your computer or mobile device when you visit our website. 
+              They help us provide you with a better experience by remembering your preferences and understanding how you use our site.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">How We Use Cookies</h2>
+            <p className="text-slate-700 mb-4">
+              Elevate For Humanity uses cookies for the following purposes:
+            </p>
+            
+            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Essential Cookies</h3>
+            <p className="text-slate-700 mb-4">
+              These cookies are necessary for the website to function properly. They enable basic functions like:
+            </p>
+            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
+              <li>Page navigation</li>
+              <li>Access to secure areas</li>
+              <li>Form submissions</li>
+              <li>User authentication</li>
+            </ul>
+
+            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Analytics Cookies</h3>
+            <p className="text-slate-700 mb-4">
+              We use analytics cookies to understand how visitors interact with our website. This helps us improve our services. These cookies collect information such as:
+            </p>
+            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
+              <li>Number of visitors</li>
+              <li>Pages visited</li>
+              <li>Time spent on pages</li>
+              <li>Traffic sources</li>
+            </ul>
+
+            <h3 className="text-2xl font-bold text-slate-900 mb-4 mt-8">Functionality Cookies</h3>
+            <p className="text-slate-700 mb-6">
+              These cookies allow our website to remember choices you make (such as your language preference) and provide enhanced, personalized features.
+            </p>
+
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Third-Party Cookies</h2>
+            <p className="text-slate-700 mb-4">
+              We may use third-party services that set cookies on our website, including:
+            </p>
+            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
+              <li><strong>Google Analytics:</strong> To analyze website traffic and usage</li>
+              <li><strong>Social Media Platforms:</strong> To enable social sharing features</li>
+              <li><strong>Video Platforms:</strong> To embed video content</li>
+            </ul>
+
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Managing Cookies</h2>
+            <p className="text-slate-700 mb-4">
+              You can control and manage cookies in several ways:
+            </p>
+            <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
+              <li><strong>Browser Settings:</strong> Most browsers allow you to refuse or accept cookies through their settings</li>
+              <li><strong>Delete Cookies:</strong> You can delete cookies that have already been set</li>
+              <li><strong>Opt-Out Tools:</strong> Use browser extensions or opt-out tools provided by third parties</li>
+            </ul>
+            <p className="text-slate-700 mb-6">
+              Please note that blocking or deleting cookies may impact your experience on our website and limit certain features.
+            </p>
+
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Your Consent</h2>
+            <p className="text-slate-700 mb-6">
+              By using our website, you consent to our use of cookies as described in this policy. If you do not agree with our use of cookies, 
+              you should adjust your browser settings accordingly or refrain from using our website.
+            </p>
+
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Changes to This Policy</h2>
+            <p className="text-slate-700 mb-6">
+              We may update this Cookie Policy from time to time. Any changes will be posted on this page with an updated revision date.
+            </p>
+
+            <h2 className="text-3xl font-bold text-slate-900 mb-6 mt-12">Contact Us</h2>
+            <p className="text-slate-700 mb-4">
+              If you have questions about our use of cookies, please contact us:
+            </p>
+            <div className="bg-slate-50 p-6 rounded-lg mb-8">
+              <p className="text-slate-700 mb-2">
+                <strong>Elevate For Humanity</strong>
+              </p>
+              <p className="text-slate-700 mb-2">
+                Phone: <a href="tel:317-314-3757" className="text-blue-600 hover:underline">317-314-3757</a>
+              </p>
+              <p className="text-slate-700">
+                Email: <a href="mailto:info@elevateforhumanity.org" className="text-blue-600 hover:underline">info@elevateforhumanity.org</a>
+              </p>
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-slate-200">
               <Link
-                href="/apply"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
+                href="/privacy"
+                className="text-blue-600 hover:underline font-semibold"
               >
-                Apply Now
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
-              >
-                Browse Programs
+                View our Privacy Policy →
               </Link>
             </div>
           </div>
