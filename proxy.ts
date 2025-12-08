@@ -72,6 +72,17 @@ export default function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Handle subdomain routing FIRST (before authentication checks)
+  // elevateconnectsdirectory.org -> /admin
+  if (hostname.includes('elevateconnectsdirectory.org') && !path.startsWith('/admin')) {
+    return NextResponse.rewrite(new URL(`/admin${path}`, request.url));
+  }
+  
+  // directory.elevateforhumanity.org -> /admin
+  if (hostname.startsWith('directory.') && !path.startsWith('/admin')) {
+    return NextResponse.rewrite(new URL(`/admin${path}`, request.url));
+  }
+
   // Back office domain - require authentication for everything
   if (hostname.includes('elevateconnectsdirectory.org')) {
     // Allow login pages
