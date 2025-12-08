@@ -4,9 +4,10 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
-export const metadata: Metadata = {;
-
-
+export const metadata: Metadata = {
+  title: 'Admin | Elevate For Humanity',
+  description: 'Admin dashboard',
+};
 
 export default async function GrantWorkflowPage() {
 

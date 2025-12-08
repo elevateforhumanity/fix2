@@ -4,9 +4,10 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
-export const metadata: Metadata = {;
-
-
+export const metadata: Metadata = {
+  title: 'Admin | Elevate For Humanity',
+  description: 'Admin dashboard',
+};
 
 export default async function MasterControlPage() {
 
