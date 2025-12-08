@@ -2,6 +2,7 @@
 import { Metadata } from 'next';
 import { supabaseServer } from '@/lib/supabase-server';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Tax Filing Management | Admin',
@@ -245,6 +246,92 @@ export default async function TaxFilingAdminPage() {
             </ul>
           </div>
         </div>
+      
+      {/* Storytelling Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+                  Your Journey Starts Here
+                </h2>
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  Every great career begins with a single step. Whether you're looking to change careers, 
+                  upgrade your skills, or enter the workforce for the first time, we're here to help you succeed. 
+                  Our programs are 100% free, government-funded, and designed to get you hired fast.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-700">100% free training - no tuition, no hidden costs</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-700">Industry-recognized certifications that employers value</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-700">Job placement assistance and career support</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-700">Flexible scheduling for working adults</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/gallery/image3.jpg"
+                  alt="Students learning"
+                  fill
+                  className="object-cover"
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Transform Your Career?
+            </h2>
+            <p className="text-xl mb-8 text-blue-100">
+              Join thousands who have launched successful careers through our free training programs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+              >
+                Apply Now - It's Free
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+              >
+                Browse All Programs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       </div>
     </div>
   );

@@ -21,7 +21,43 @@ export const metadata: Metadata = {
 
 export default function JoinTeamPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/gallery/image8.jpg"
+          alt="Join Team"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
+            Join Team
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+            Transform your career with free training and industry certifications
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/apply"
+              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+            >
+              Get Started Free
+            </Link>
+            <Link
+              href="/programs"
+              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+            >
+              View Programs
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Hero */}
       <section className="relative bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

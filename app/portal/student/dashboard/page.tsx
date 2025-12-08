@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BookOpen, Award, Clock, TrendingUp, CheckCircle, Calendar, Target, Bell } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -57,7 +58,43 @@ export default async function StudentDashboard() {
   const completionRate = totalCourses > 0 ? Math.round((completedCourses / totalCourses) * 100) : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/gallery/image8.jpg"
+          alt="Dashboard"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
+            Dashboard
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+            Transform your career with free training and industry certifications
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/apply"
+              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+            >
+              Get Started Free
+            </Link>
+            <Link
+              href="/programs"
+              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+            >
+              View Programs
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Header */}
       <div className="bg-white border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-6">
@@ -247,6 +284,35 @@ export default async function StudentDashboard() {
             </div>
           </div>
         </div>
+      
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Transform Your Career?
+            </h2>
+            <p className="text-xl mb-8 text-blue-100">
+              Join thousands who have launched successful careers through our free training programs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg shadow-2xl transition-all"
+              >
+                Apply Now - It's Free
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg shadow-2xl transition-all"
+              >
+                Browse All Programs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       </div>
     </div>
   );

@@ -6,6 +6,7 @@
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
 import { requireAdmin } from '@/lib/authGuards';
 import Link from 'next/link';
+import Image from 'next/image';
 
 async function getSubmissionsData() {
   const { data: submissions } = await supabaseAdmin

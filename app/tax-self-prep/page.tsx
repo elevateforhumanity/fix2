@@ -1,6 +1,7 @@
 // app/tax-self-prep/page.tsx - Self-Preparation Tax Software (TurboTax Style)
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { CountUp } from '@/components/animations/CountUp';
 
