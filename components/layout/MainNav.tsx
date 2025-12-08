@@ -53,9 +53,9 @@ const mainLinks = [
 ];
 
 const portalLinks = [
-  { href: "/portal/student/dashboard", label: "Student Portal" },
-  { href: "/lms/dashboard", label: "LMS" },
-  { href: "/admin/dashboard", label: "Admin" },
+  { href: "/student/dashboard", label: "Student Portal" },
+  { href: "/admin", label: "Admin Dashboard" },
+  { href: "https://elevateforhumanityeducation.com", label: "LMS", external: true },
 ];
 
 export function MainNav() {
