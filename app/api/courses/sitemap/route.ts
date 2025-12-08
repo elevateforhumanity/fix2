@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo } from "@/lib/github";
 
+// Mark as dynamic route
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: NextRequest) {
   try {
-    const { searchParams } = new URL(req.url);
-    const repo = searchParams.get("repo") || "elevateforhumanity/fix2";
-    const branch = searchParams.get("branch") || "main";
+    const repo = req.nextUrl.searchParams.get("repo") || "elevateforhumanity/fix2";
+    const branch = req.nextUrl.searchParams.get("branch") || "main";
 
     const client = gh();
     const { owner, name } = parseRepo(repo);

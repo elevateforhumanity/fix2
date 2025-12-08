@@ -1,5 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(req: Request) {
   const path = new URL(req.url).searchParams.get("path");
   
