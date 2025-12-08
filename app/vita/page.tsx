@@ -1,4 +1,4 @@
-// app/vita/page.tsx - VITA Program (RISE Forward Foundation)
+// app/vita/page.tsx - Free Tax Prep VITA Center
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/vita",
   },
-  title: 'VITA Program | RISE Forward Foundation | Elevate For Humanity',
-  description: 'Free tax preparation through the IRS VITA program. Volunteer or get your taxes done for free. RISE Forward Foundation partnership.',
+  title: 'Free Tax Prep VITA Center | IRS Volunteer Income Tax Assistance | Elevate For Humanity',
+  description: 'Free IRS-certified tax preparation for individuals earning $64,000 or less. Become a VITA volunteer or get your taxes done free. IRS VITA program site.',
 };
 
 export default function VITAPage() {
@@ -30,14 +30,14 @@ export default function VITAPage() {
           <div className="text-white max-w-3xl">
             <div className="mb-4">
               <span className="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
-                RISE Forward Foundation Partnership
+                IRS Certified VITA Site
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              VITA Program
+              Free Tax Prep VITA Center
             </h1>
             <p className="text-2xl mb-8 font-light">
-              Free tax preparation for individuals earning $67,000 or less
+              IRS Volunteer Income Tax Assistance - Free tax preparation for individuals earning $64,000 or less
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -62,21 +62,20 @@ export default function VITAPage() {
         <section className="py-20 px-4 bg-white">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-8">
-              What is the VITA Program?
+              What is the IRS VITA Program?
             </h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-slate-700 mb-6">
-                The <strong>IRS Volunteer Income Tax Assistance (VITA) program</strong> offers free basic tax return 
-                preparation to qualified individuals who generally make $67,000 or less, persons with disabilities, 
-                and limited English-speaking taxpayers.
+                The <strong>IRS Volunteer Income Tax Assistance (VITA) program</strong> offers free tax help to people who generally make $64,000 or less, persons with disabilities, the elderly, and limited English-speaking taxpayers who need assistance in preparing their own tax returns.
               </p>
               <p className="text-lg text-slate-700 mb-6">
-                Through our partnership with the <strong>RISE Forward Foundation</strong>, we provide IRS-certified 
-                volunteers who prepare tax returns at no cost to eligible taxpayers.
+                <strong>IRS-certified volunteers</strong> provide free basic income tax return preparation with electronic filing to qualified individuals. VITA sites are generally located at community and neighborhood centers, libraries, schools, shopping malls, and other convenient locations.
+              </p>
+              <p className="text-lg text-slate-700 mb-6">
+                <strong>Elevate for Humanity Technical & Career Institute</strong> operates as an official IRS VITA site, providing free tax preparation services to our community. Our volunteers complete IRS training and certification to ensure accurate, professional tax preparation.
               </p>
               <p className="text-lg text-slate-700">
-                VITA has operated for over 50 years, with IRS-certified volunteers preparing millions of tax returns 
-                annually at thousands of sites nationwide.
+                VITA has operated for over 50 years, with IRS-certified volunteers preparing millions of tax returns annually at thousands of sites nationwide. All VITA services are <strong>100% free</strong> - no fees, no charges, no hidden costs.
               </p>
             </div>
           </div>
