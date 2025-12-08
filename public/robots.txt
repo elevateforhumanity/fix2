@@ -1,59 +1,153 @@
 # Robots.txt for https://www.elevateforhumanity.org
+# © 2024 Elevate for Humanity. All Rights Reserved.
+# This content is protected by U.S. Copyright Law
 
-# Block AI scrapers and crawlers
+# ============================================
+# BLOCK ALL AI SCRAPERS AND TRAINING BOTS
+# ============================================
+
+# OpenAI
 User-agent: GPTBot
 Disallow: /
 
 User-agent: ChatGPT-User
 Disallow: /
 
-User-agent: CCBot
-Disallow: /
-
+# Anthropic
 User-agent: anthropic-ai
 Disallow: /
 
 User-agent: Claude-Web
 Disallow: /
 
+# Common Crawl (used for AI training)
+User-agent: CCBot
+Disallow: /
+
+# Google Extended (AI training)
 User-agent: Google-Extended
 Disallow: /
 
+# Perplexity AI
 User-agent: PerplexityBot
 Disallow: /
 
+# Omgili
 User-agent: Omgilibot
 Disallow: /
 
+# Meta/Facebook
 User-agent: FacebookBot
 Disallow: /
 
-# Allow legitimate search engines (Google, Bing, etc.)
+User-agent: meta-externalagent
+Disallow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Disallow: /
+
+# Bytedance/TikTok
+User-agent: Bytespider
+Disallow: /
+
+# Amazon
+User-agent: Amazonbot
+Disallow: /
+
+# Apple Extended
+User-agent: Applebot-Extended
+Disallow: /
+
+# Generic AI crawlers
+User-agent: AI2Bot
+Disallow: /
+
+User-agent: Ai2Bot-Dolma
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: python-requests
+Disallow: /
+
+# ============================================
+# ALLOW LEGITIMATE SEARCH ENGINES
+# ============================================
+
 User-agent: Googlebot
 Allow: /
-Disallow: /api/
 Disallow: /admin/
+Disallow: /api/
+Disallow: /portal/
+Disallow: /student/
+Disallow: /instructor/
 Disallow: /_next/
 Disallow: /private/
 Disallow: /checkout/
 
 User-agent: Bingbot
 Allow: /
-Disallow: /api/
 Disallow: /admin/
+Disallow: /api/
+Disallow: /portal/
+Disallow: /student/
+Disallow: /instructor/
 Disallow: /_next/
 Disallow: /private/
 Disallow: /checkout/
 
-# Block all other bots from sensitive areas
-User-agent: *
-Disallow: /api/
+User-agent: Slurp
+Allow: /
 Disallow: /admin/
+Disallow: /api/
+Disallow: /portal/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /portal/
+
+# ============================================
+# DEFAULT RULES FOR ALL OTHER BOTS
+# ============================================
+
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /portal/
+Disallow: /student/
+Disallow: /instructor/
 Disallow: /_next/
 Disallow: /private/
 Disallow: /checkout/
 Disallow: /apply
 Disallow: /employers/intake
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*?*
 
-# Sitemap
+# ============================================
+# CRAWL DELAY (PREVENT AGGRESSIVE SCRAPING)
+# ============================================
+
+Crawl-delay: 10
+
+# ============================================
+# SITEMAPS
+# ============================================
+
 Sitemap: https://www.elevateforhumanity.org/sitemap.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap-programs.xml
+Sitemap: https://www.elevateforhumanity.org/sitemap-blog.xml
+
+# ============================================
+# COPYRIGHT NOTICE
+# ============================================
+# All content on this website is protected by U.S. Copyright Law.
+# © 2024 Elevate for Humanity Career & Technical Institute
+# Unauthorized reproduction, modification, or distribution is prohibited.
+# Violators will be prosecuted to the fullest extent of the law.
+# For licensing inquiries: legal@elevateforhumanity.org

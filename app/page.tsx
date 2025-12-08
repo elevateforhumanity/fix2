@@ -4,6 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { CountUp } from '@/components/animations/CountUp';
+import { StaggeredReveal } from '@/components/animations/StaggeredReveal';
+import { TestimonialCarousel } from '@/components/TestimonialCarousel';
+import { TrustBadges } from '@/components/TrustBadges';
 
 export default function Home() {
   return (
@@ -18,81 +21,133 @@ export default function Home() {
       </section>
 
       {/* HERO - Clean, Minimal, Industrious Style */}
-      <section className="relative h-[600px] sm:h-[700px] w-full overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800">
+      <section className="relative h-[600px] sm:h-[700px] w-full overflow-hidden bg-white">
         <div className="absolute inset-0">
           <Image
             src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
-            alt="Career training that changes lives"
+            alt="Elevate for Humanity - Real Students in Training"
             fill
-            className="object-cover brightness-105"
+            className="object-cover brightness-110"
             priority
-            quality={95}
+            quality={90}
             sizes="100vw"
-            unoptimized
           />
         </div>
-        {/* Minimal overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/20"></div>
+        {/* Light overlay for text readability - Industrious style */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/10"></div>
         
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
             {/* Simple, powerful headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
               The <em className="italic">best</em> career training, period.
             </h1>
             
             {/* Clear value proposition */}
-            <p className="text-xl sm:text-2xl text-white mb-10 font-light max-w-3xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <p className="text-xl sm:text-2xl text-white mb-8 font-light max-w-3xl mx-auto">
               100% government-funded training. Earn while you learn. No tuition, no debt.
             </p>
             
             {/* Single, clear CTA */}
-            <div className="mb-16">
+            <div className="mb-12">
               <Link
                 href="/apply"
-                className="inline-block px-12 py-5 bg-orange-600 text-white font-bold text-xl rounded-full hover:bg-orange-700 transition-all shadow-[0_8px_30px_rgba(234,88,12,0.5)] hover:shadow-[0_8px_40px_rgba(234,88,12,0.7)] hover:scale-105 border-2 border-orange-500"
+                className="inline-block px-12 py-5 bg-orange-600 text-white font-bold text-xl rounded-full button-scale shadow-2xl"
               >
                 Check Your Eligibility →
               </Link>
             </div>
 
-            {/* Clean stats */}
+            {/* Clean stats with icons */}
             <div className="flex flex-wrap justify-center gap-12 text-white">
-              <div className="text-center">
-                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">33</div>
-                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Career Programs</div>
+              <div className="text-center group">
+                <div className="w-16 h-16 mx-auto mb-3 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <div className="text-5xl font-bold mb-1">
+                  <CountUp end={33} />
+                </div>
+                <div className="text-sm font-light">Career Programs</div>
               </div>
-              <div className="text-center">
-                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">$0</div>
-                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Tuition Cost</div>
+              <div className="text-center group">
+                <div className="w-16 h-16 mx-auto mb-3 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div className="text-5xl font-bold mb-1">
+                  $<CountUp end={0} />
+                </div>
+                <div className="text-sm font-light">Tuition Cost</div>
               </div>
-              <div className="text-center">
-                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">$15-20/hr</div>
-                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">While Training</div>
+              <div className="text-center group">
+                <div className="w-16 h-16 mx-auto mb-3 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <div className="text-5xl font-bold mb-1">
+                  $<CountUp end={15} />-<CountUp end={20} />/hr
+                </div>
+                <div className="text-sm font-light">While Training</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Trust Badges - Enterprise Credibility */}
+      <TrustBadges />
+
       {/* WHAT WE DO - Simple Explanation */}
       <ScrollReveal>
-        <section className="py-16 px-4 bg-white">
+        <section className="py-24 px-4 bg-white">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
               Government-funded career training for everyone
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-12">
               Through WIOA (Workforce Innovation and Opportunity Act) and WRG (Workforce Readiness Grant), 
               we connect you with 100% free training in high-demand careers. Most people qualify.
             </p>
+            
+            {/* Government Partner Logos */}
+            <div className="mt-16">
+              <p className="text-sm text-slate-500 mb-8 uppercase tracking-wider font-semibold">
+                Approved and Funded By
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-16 w-32 bg-slate-100 rounded-lg flex items-center justify-center p-4">
+                    <span className="text-xs font-bold text-slate-700 text-center">U.S. Department of Labor</span>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-16 w-32 bg-slate-100 rounded-lg flex items-center justify-center p-4">
+                    <span className="text-xs font-bold text-slate-700 text-center">WIOA</span>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-16 w-32 bg-slate-100 rounded-lg flex items-center justify-center p-4">
+                    <span className="text-xs font-bold text-slate-700 text-center">Indiana DWD</span>
+                  </div>
+                </div>
+                <div className="flex flex-col items-center gap-2">
+                  <div className="h-16 w-32 bg-slate-100 rounded-lg flex items-center justify-center p-4">
+                    <span className="text-xs font-bold text-slate-700 text-center">EmployIndy</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </ScrollReveal>
 
       {/* PROGRAMS - Clean Grid, Industrious Style */}
       <ScrollReveal>
-        <section className="py-16 px-4 bg-slate-50">
+        <section className="py-24 px-4 bg-slate-50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -103,15 +158,18 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Healthcare */}
-              <Link href="/programs?category=healthcare" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all">
-                <div className="relative h-64">
+            <StaggeredReveal>
+              <div className="grid md:grid-cols-3 gap-8">
+                {/* Healthcare */}
+                <Link href="/programs?category=healthcare" className="group bg-white rounded-lg overflow-hidden shadow-sm card-hover">
+                <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/media-backup-20251128-043832/programs/healthcare-hd.jpg"
-                    alt="Healthcare careers"
+                    src="/media-backup-20251128-043832/programs/cna-hd.jpg"
+                    alt="Healthcare Training - Real CNA Students"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    quality={85}
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <div className="p-8">
@@ -146,13 +204,15 @@ export default function Home() {
               </Link>
 
               {/* Skilled Trades */}
-              <Link href="/programs?category=trades" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all">
-                <div className="relative h-64">
+              <Link href="/programs?category=trades" className="group bg-white rounded-lg overflow-hidden shadow-sm card-hover">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src="/media-backup-20251128-043832/programs/welding-hd.jpg"
-                    alt="Skilled trades careers"
+                    alt="Skilled Trades Training - Real Welding Students"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    quality={85}
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <div className="p-8">
@@ -187,13 +247,15 @@ export default function Home() {
               </Link>
 
               {/* Beauty & Barber */}
-              <Link href="/programs?category=beauty" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all">
-                <div className="relative h-64">
+              <Link href="/programs?category=beauty" className="group bg-white rounded-lg overflow-hidden shadow-sm card-hover">
+                <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/media-backup-20251128-043832/programs/barber.jpg"
-                    alt="Beauty and barber careers"
+                    src="/media-backup-20251128-043832/programs/barber-hd.jpg"
+                    alt="Beauty & Barber Training - Real Students"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    quality={85}
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <div className="p-8">
@@ -235,7 +297,8 @@ export default function Home() {
               >
                 Explore All 33 Programs
               </Link>
-            </div>
+              </div>
+            </StaggeredReveal>
           </div>
         </section>
       </ScrollReveal>
@@ -257,14 +320,14 @@ export default function Home() {
 
       {/* VALUE PROPS - Clean, Minimal */}
       <ScrollReveal>
-        <section className="py-16 px-4 bg-white">
+        <section className="py-24 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-3 gap-16">
               {/* Prop 1 */}
               <div>
                 <div className="relative h-64 mb-6 rounded-lg overflow-hidden">
                   <Image
-                    src="/media/programs/cpr-group-training-hd.jpg"
+                    src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
                     alt="Success is the training you receive"
                     fill
                     className="object-cover"
@@ -284,7 +347,7 @@ export default function Home() {
               <div>
                 <div className="relative h-64 mb-6 rounded-lg overflow-hidden">
                   <Image
-                    src="/media/hero-slide-employers.jpg"
+                    src="/media-backup-20251128-043832/students-hero.jpg"
                     alt="Earn while you learn"
                     fill
                     className="object-cover"
@@ -304,7 +367,7 @@ export default function Home() {
               <div>
                 <div className="relative h-64 mb-6 rounded-lg overflow-hidden">
                   <Image
-                    src="/media/workforce-development-hd.jpg"
+                    src="/media-backup-20251128-043832/homepage-hero.jpg"
                     alt="Training that works from anywhere"
                     fill
                     className="object-cover"
@@ -406,6 +469,36 @@ export default function Home() {
 
       {/* Enrollment Process */}
       <EnrollmentProcess />
+
+      {/* Unique Branding Footer - Copyright Protection */}
+      <section className="py-8 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Image
+              src="/logo.png"
+              alt="Elevate For Humanity"
+              width={48}
+              height={48}
+              className="h-12 w-12"
+            />
+            <div className="text-left">
+              <div className="text-lg font-bold text-slate-900">
+                Elevate For Humanity
+              </div>
+              <div className="text-xs text-slate-600">
+                Career & Technical Institute
+              </div>
+            </div>
+          </div>
+          <p className="text-sm text-slate-600 max-w-2xl mx-auto">
+            © {new Date().getFullYear()} Elevate For Humanity Career & Technical Institute. All rights reserved.
+            <br />
+            <span className="text-xs">
+              Original platform developed by Elizabeth L. Greene. All content, curriculum, and materials are protected by U.S. Copyright Law.
+            </span>
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

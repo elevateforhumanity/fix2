@@ -4,13 +4,28 @@
 import EnrollmentProcess from '@/components/EnrollmentProcess';
 import { useState } from 'react';
 import Image from 'next/image';
+import { BotProtection } from '@/components/security';
 
 export default function ApplyPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Bot detection checks
+    if (honeypot !== '') {
+      console.log('Bot detected: honeypot filled');
+      return;
+    }
+    
+    if (!isVerified) {
+      alert('Please complete the verification to submit your application.');
+      return;
+    }
+    
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
@@ -317,6 +332,13 @@ export default function ApplyPage() {
               </div>
             </div>
 
+            {/* Bot Protection */}
+            <BotProtection
+              onVerify={setIsVerified}
+              honeypotValue={honeypot}
+              onHoneypotChange={setHoneypot}
+            />
+
             {/* Submit note */}
             <p className="text-[0.7rem] text-slate-500">
               By submitting this form, you are giving Elevate for Humanity
@@ -328,7 +350,7 @@ export default function ApplyPage() {
             <div className="pt-2">
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={isSubmitting || !isVerified}
                 className="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-2 text-xs font-semibold text-white shadow-sm hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Submitting...' : 'Submit Application'}

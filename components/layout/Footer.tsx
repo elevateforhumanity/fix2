@@ -220,6 +220,11 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link href="/dmca" className="text-slate-700 hover:text-orange-600 transition text-sm font-medium">
+                  DMCA Policy
+                </Link>
+              </li>
+              <li>
                 <Link href="/refund-policy" className="text-slate-700 hover:text-orange-600 transition text-sm font-medium">
                   Refund Policy
                 </Link>
@@ -314,9 +319,14 @@ export function SiteFooter() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-slate-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-            <p className="text-slate-700">
-              © {currentYear} Elevate For Humanity. All rights reserved.
-            </p>
+            <div className="text-center md:text-left">
+              <p className="text-slate-700 font-semibold">
+                © {currentYear} Elevate For Humanity Career & Technical Institute. All rights reserved.
+              </p>
+              <p className="text-xs text-slate-600 mt-1">
+                All content, logos, and materials are protected by U.S. Copyright Law. Unauthorized reproduction prohibited.
+              </p>
+            </div>
             <p className="text-center md:text-right text-slate-600">
               Empowering communities through workforce development
             </p>
