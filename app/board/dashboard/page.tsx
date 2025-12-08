@@ -256,9 +256,8 @@ export default async function BoardMemberDashboardPage() {
           </div>
         </div>
       </section>
-
     </div>
-    );
-
+    </div>
+  );
 }
 

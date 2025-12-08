@@ -1,12 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { requireAdmin } from '@/lib/authGuards';
 import { Save, Eye, DollarSign, Package, Sparkles } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
-export default async function StoreBuilderPage() {
-
-  await requireAdmin(  );
+export default function StoreBuilderPage() {
+  const router = useRouter();
   const [product, setProduct] = useState({
     title: 'Elevate LMS + Workforce Suite - Complete Codebase',
     description: 'Full-featured LMS platform with admin suite, dev studio, and automation',

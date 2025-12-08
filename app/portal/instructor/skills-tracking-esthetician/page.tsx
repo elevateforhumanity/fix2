@@ -351,11 +351,9 @@ export default function EstheticianSkillsTrackingPage() {
                           alt="Completed"
                           fill
                           className="object-cover"
-                        
-          sizes="100vw"
-        /
-          quality={100}
-        >
+                          sizes="100vw"
+                          quality={100}
+                        />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
@@ -400,11 +398,9 @@ export default function EstheticianSkillsTrackingPage() {
                         alt="Skills progress"
                         fill
                         className="object-cover"
-                      
-          sizes="100vw"
-        /
-          quality={100}
-        >
+                          sizes="100vw"
+                          quality={100}
+                        />
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-gray-900">{progress.totalSkills}</p>
@@ -419,11 +415,9 @@ export default function EstheticianSkillsTrackingPage() {
                         alt="Unique skills"
                         fill
                         className="object-cover"
-                      
-          sizes="100vw"
-        /
-          quality={100}
-        >
+                          sizes="100vw"
+                          quality={100}
+                        />
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-gray-900">{progress.uniqueSkills}</p>
@@ -438,11 +432,9 @@ export default function EstheticianSkillsTrackingPage() {
                         alt="Quality rating"
                         fill
                         className="object-cover"
-                      
-          sizes="100vw"
-        /
-          quality={100}
-        >
+                          sizes="100vw"
+                          quality={100}
+                        />
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-gray-900">{progress.avgRating}</p>
@@ -608,7 +600,5 @@ export default function EstheticianSkillsTrackingPage() {
 
       </div>
     </div>
-  );
-
   );
 }

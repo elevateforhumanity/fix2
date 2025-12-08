@@ -1,11 +1,8 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
-import { redirect, notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-
-export const metadata: Metadata = {
 
 type Props = {
   params: Promise<{ courseId: string }>;
@@ -13,7 +10,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { courseId } = await params;
-  
+  const supabase = await createClient();
   
   const { data: course } = await supabase
     .from('courses')
@@ -27,4 +24,4 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Page({ params }
+export default async function Page({ params }: Props)

@@ -1,12 +1,11 @@
 'use client';
 
-import { useState } from 'react';
-import { requireAdmin } from '@/lib/authGuards';
+import { useState, useEffect } from 'react';
 import { Bell, Send, Users, CheckCircle, AlertCircle } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
-export default async function NotificationsPage() {
-
-  await requireAdmin(  );
+export default function NotificationsPage() {
+  const router = useRouter();
   const [notification, setNotification] = useState({
     title: '',
     body: '',

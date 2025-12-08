@@ -256,9 +256,8 @@ export default async function DelegateDashboardPage() {
           </div>
         </div>
       </section>
-
     </div>
-    );
-
+    </div>
+  );
 }
 

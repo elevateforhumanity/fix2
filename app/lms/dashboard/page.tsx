@@ -9,19 +9,18 @@ export const metadata: Metadata = {
 };
 
 export default async function StudentDashboardPage() {
-
-  
-  const { data: { user } } = await supabase.auth.getUser(  );
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
   
   if (!user) {
-    redirect('/login'  );
+    redirect('/login');
   }
 
   const { data: profile } = await supabase
     .from('profiles')
     .select('*')
     .eq('id', user.id)
-    .single(  );
+    .single();
 
   // Fetch student's courses
   const { data: enrollments } = await supabase
@@ -36,19 +35,19 @@ export default async function StudentDashboardPage() {
       )
     `)
     .eq('user_id', user.id)
-    .order('created_at', { ascending: false }  );
+    .order('created_at', { ascending: false });
 
   const { count: activeCourses } = await supabase
     .from('enrollments')
     .select('*', { count: 'exact', head: true })
     .eq('user_id', user.id)
-    .eq('status', 'active'  );
+    .eq('status', 'active');
 
   const { count: completedCourses } = await supabase
     .from('enrollments')
     .select('*', { count: 'exact', head: true })
     .eq('user_id', user.id)
-    .eq('status', 'completed'  );
+    .eq('status', 'completed');
 
   const { data: recentProgress } = await supabase
     .from('student_progress')
@@ -58,24 +57,7 @@ export default async function StudentDashboardPage() {
     `)
     .eq('student_id', user.id)
     .order('updated_at', { ascending: false })
-    .limit(5  );
-
-  const supabase = await createClient(  );
-  const { data: { user } } = await supabase.auth.getUser(  );
-
-  if (!user) {
-    redirect('/login'  );
-  }
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single(  );
-
-  if (!profile) {
-    redirect('/login'  );
-  }
+    .limit(5);
 
   // Fetch dashboard data
   const { count: totalStudents } = await supabase
@@ -306,9 +288,8 @@ export default async function StudentDashboardPage() {
           </div>
         </div>
       </section>
-
     </div>
-    );
-
+    </div>
+  );
 }
 

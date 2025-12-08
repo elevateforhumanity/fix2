@@ -78,11 +78,9 @@ export default function SupersonicFastCashPage() {
                 alt="Professional tax preparation"
                 fill
                 className="object-cover rounded-lg shadow-2xl"
-              
-          sizes="100vw"
-        /
-          quality={100}
-        >
+                sizes="100vw"
+                quality={100}
+              />
             </div>
           </div>
         </div>
@@ -378,7 +376,5 @@ d="M13 10V3L4 14h7v7l9-11h-7z" />
         </div>
       </section>
     </main>
-  );
-
   );
 }

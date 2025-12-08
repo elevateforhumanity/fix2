@@ -108,4 +108,4 @@ function getProgramImage(slug: string, category: string): string {
   return categoryImages[category] || "/media-backup-20251128-043832/programs/healthcare-hd.jpg";
 }
 
-export default async function ProgramPage(props: { params: Promise<{ [key: string]: string }> }
+export default async function ProgramPage(props: { params: Promise<{ [key: string]: string }> })

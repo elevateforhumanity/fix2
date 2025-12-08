@@ -256,9 +256,8 @@ export default async function PartnerDashboardPage() {
           </div>
         </div>
       </section>
-
     </div>
-    );
-
+    </div>
+  );
 }
 

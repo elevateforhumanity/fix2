@@ -1,12 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { requireAdmin } from '@/lib/authGuards';
 import { createClient } from '@/lib/supabase/client';
+import { useRouter } from 'next/navigation';
 
-export default async function AdminPayroll() {
-
-  await requireAdmin(  );
+export default function AdminPayroll() {
+  const router = useRouter();
 
   const supabase = createClient(  );
   const [apprenticeships, setApprenticeships] = useState<any[]>([]  );

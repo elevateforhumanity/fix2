@@ -5,14 +5,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import CourseProgressTracker from './CourseProgressTracker';
 
-export const metadata: Metadata = {
+type Props = {
+  params: Promise<{ courseId: string }>;
+};
 
-export async function generateMetadata({ params }: { params: { courseId: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { courseId } = await params;
+  const supabase = await createClient();
   
   const { data: course } = await supabase
     .from('courses')
     .select('title')
-    .eq('id', params.courseId)
+    .eq('id', courseId)
     .single();
 
   return {
@@ -21,4 +25,4 @@ export async function generateMetadata({ params }: { params: { courseId: string 
   };
 }
 
-export default async function StudentCourseDetailPage(props: { params: Promise<{ [key: string]: string }> }
+export default async function StudentCourseDetailPage(props: Props)

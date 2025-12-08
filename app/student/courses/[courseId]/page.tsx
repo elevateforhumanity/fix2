@@ -19,4 +19,4 @@ export async function generateMetadata({ params }: { params: { courseId: string 
   };
 }
 
-export default async function StudentCourseDetailPage(props: { params: Promise<{ [key: string]: string }> }
+export default async function StudentCourseDetailPage(props: { params: Promise<{ [key: string]: string }> })

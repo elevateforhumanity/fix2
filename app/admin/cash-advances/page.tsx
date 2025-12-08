@@ -318,6 +318,7 @@ export default async function CashAdvancesAdminPage() {
             Contact Support: 888-782-0850
           </a>
         </div>
+      </div>
       
       {/* Storytelling Section */}
       <section className="py-16 bg-white">
@@ -401,7 +402,6 @@ export default async function CashAdvancesAdminPage() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }
