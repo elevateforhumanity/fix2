@@ -51,7 +51,30 @@ export default async function Page({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative h-[350px] sm:h-[400px] md:h-[450px] w-full overflow-hidden">
+      
+      {/* Stats Section */}
+      <section className="py-8 bg-white border-b">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center p-6">
+                <p className="text-4xl font-bold text-blue-600 mb-2">{activeCourses || 0}</p>
+                <p className="text-gray-600">Active Courses</p>
+              </div>
+              <div className="text-center p-6">
+                <p className="text-4xl font-bold text-green-600 mb-2">{completedCourses || 0}</p>
+                <p className="text-gray-600">Completed</p>
+              </div>
+              <div className="text-center p-6">
+                <p className="text-4xl font-bold text-purple-600 mb-2">{recentProgress?.length || 0}</p>
+                <p className="text-gray-600">Recent Activity</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<section className="relative h-[350px] sm:h-[400px] md:h-[450px] w-full overflow-hidden">
         {course.thumbnail_url && (
           <Image
             src={course.thumbnail_url}

@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 
 
 import Link from 'next/link';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -13,6 +15,56 @@ export const metadata: Metadata = {
 };
 
 export default async function ProfilePage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    redirect('/login');
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  // Fetch student's courses
+  const { data: enrollments } = await supabase
+    .from('enrollments')
+    .select(`
+      *,
+      courses (
+        id,
+        title,
+        description,
+        thumbnail_url
+      )
+    `)
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: false });
+
+  const { count: activeCourses } = await supabase
+    .from('enrollments')
+    .select('*', { count: 'exact', head: true })
+    .eq('user_id', user.id)
+    .eq('status', 'active');
+
+  const { count: completedCourses } = await supabase
+    .from('enrollments')
+    .select('*', { count: 'exact', head: true })
+    .eq('user_id', user.id)
+    .eq('status', 'completed');
+
+  const { data: recentProgress } = await supabase
+    .from('student_progress')
+    .select(`
+      *,
+      courses (title)
+    `)
+    .eq('student_id', user.id)
+    .order('updated_at', { ascending: false })
+    .limit(5);
+
   
 
   return (
