@@ -213,32 +213,35 @@ export default async function TaxFilingAdminPage() {
         )}
       </div>
 
-      {/* IRS e-File Integration Status */}
+      {/* Drake Software Integration Status */}
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
         <h3 className="text-lg font-semibold text-blue-900 mb-2">
-          📋 Custom Tax Filing System
+          📋 Drake Software Integration
         </h3>
         <p className="text-blue-800 mb-4">
-          Built-in tax form system with direct IRS e-file integration. No third-party software required.
+          Professional tax preparation powered by Drake Software. Industry-leading tax software with IRS e-file integration.
         </p>
         <div className="grid md:grid-cols-2 gap-4 mt-4">
           <div>
             <h4 className="font-semibold text-blue-900 mb-2">Features:</h4>
             <ul className="list-disc list-inside text-sm text-blue-700">
-              <li>Custom form builder</li>
-              <li>IRS Form 1040 support</li>
-              <li>W-2, 1099 import</li>
+              <li>Drake Tax Software integration</li>
+              <li>All IRS forms supported</li>
+              <li>Automatic calculations</li>
               <li>Direct IRS e-file</li>
-              <li>PDF generation</li>
+              <li>Error checking</li>
+              <li>State returns</li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold text-blue-900 mb-2">Setup Required:</h4>
             <ul className="list-disc list-inside text-sm text-blue-700">
+              <li>Drake Software license</li>
+              <li>Drake API credentials</li>
               <li>IRS EFIN (E-File ID Number)</li>
               <li>IRS ETIN (Transmitter ID)</li>
-              <li>IRS CAF Number</li>
-              <li>IRS Modernized e-File API access</li>
+              <li>Drake Office ID</li>
+              <li>Drake Preparer ID</li>
             </ul>
           </div>
         </div>

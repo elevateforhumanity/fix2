@@ -202,22 +202,87 @@ export default async function CashAdvancesAdminPage() {
         )}
       </div>
 
-      {/* EOS Integration Status */}
-      <div className="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
-        <h3 className="text-lg font-semibold text-yellow-900 mb-2">
-          ⚠️ EOS Financial Integration
-        </h3>
-        <p className="text-yellow-800 mb-4">
-          EOS Financial API integration is not configured. Applications are being stored but not sent for underwriting.
-        </p>
-        <p className="text-sm text-yellow-700">
-          To enable automated underwriting, add the following environment variables:
-        </p>
-        <ul className="list-disc list-inside text-sm text-yellow-700 mt-2">
-          <li>EOS_FINANCIAL_API_KEY</li>
-          <li>EOS_FINANCIAL_API_URL</li>
-          <li>EOS_FINANCIAL_MERCHANT_ID</li>
-        </ul>
+      {/* EPS Financial Partnership Status */}
+      <div className="mt-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg p-6">
+        <div className="flex items-start justify-between mb-4">
+          <div>
+            <h3 className="text-xl font-bold mb-2">
+              🏦 EPS Financial Partnership
+            </h3>
+            <p className="text-blue-100 mb-1">
+              Powered by Pathward®, N.A. | www.epstax.net
+            </p>
+            <p className="text-sm text-blue-200">
+              Industry-leading refund advances and cash advance solutions
+            </p>
+          </div>
+          <div className="text-right">
+            <div className="text-2xl font-bold">44,000+</div>
+            <div className="text-sm text-blue-200">Tax Offices Enrolled</div>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-4 mt-6">
+          <div className="bg-white/10 backdrop-blur rounded-lg p-4">
+            <h4 className="font-semibold mb-2">💰 E-Advance</h4>
+            <p className="text-sm text-blue-100">
+              No cost taxpayer advance loan program with no in-season marketing fees
+            </p>
+          </div>
+          <div className="bg-white/10 backdrop-blur rounded-lg p-4">
+            <h4 className="font-semibold mb-2">📊 E-Collect</h4>
+            <p className="text-sm text-blue-100">
+              Simple, low-cost ($20) refund transfer program
+            </p>
+          </div>
+          <div className="bg-white/10 backdrop-blur rounded-lg p-4">
+            <h4 className="font-semibold mb-2">🎁 E-Bonus</h4>
+            <p className="text-sm text-blue-100">
+              High incentive refund transfer - earn up to $20 more per return
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 pt-6 border-t border-white/20">
+          <h4 className="font-semibold mb-3">Setup Requirements:</h4>
+          <div className="grid md:grid-cols-2 gap-3">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <span className="text-sm">EPS Financial API Credentials</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <span className="text-sm">EPS Merchant/Office ID</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <span className="text-sm">Pathward Bank Integration</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+              <span className="text-sm">FasterMoney® Visa® Card Setup</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 flex gap-3">
+          <a
+            href="https://www.epstax.net/getstarted/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-white text-blue-600 rounded-lg hover:bg-blue-50 transition font-semibold"
+          >
+            Enroll with EPS
+          </a>
+          <a
+            href="https://www.epstax.net/contact/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-white/10 backdrop-blur border border-white/30 rounded-lg hover:bg-white/20 transition"
+          >
+            Contact Support: 888-782-0850
+          </a>
+        </div>
       </div>
     </div>
   );
