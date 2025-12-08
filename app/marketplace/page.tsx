@@ -37,7 +37,7 @@ const products = [
     name: 'HVAC Tool Set - Starter Kit',
     category: 'Tools & Equipment',
     price: 449.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg
+    image: '/media-backup-20251128-043832/homepage-hero.jpg',
     description: 'Essential HVAC tools including gauges, vacuum pump, and carrying case',
     inStock: true,
     program: 'HVAC'
@@ -47,7 +47,7 @@ const products = [
     name: 'CNA Certification Exam Prep',
     category: 'Certification Prep',
     price: 79.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg
+    image: '/media-backup-20251128-043832/homepage-hero.jpg',
     description: 'Complete exam prep course with practice tests and study materials',
     inStock: true,
     program: 'Healthcare'
@@ -57,7 +57,7 @@ const products = [
     name: 'Safety Glasses & Gloves Set',
     category: 'Safety Equipment',
     price: 24.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg
+    image: '/media-backup-20251128-043832/homepage-hero.jpg',
     description: 'OSHA-compliant safety glasses and work gloves',
     inStock: true,
     program: 'All Programs'
@@ -67,7 +67,7 @@ const products = [
     name: 'Medical Assistant Textbook Bundle',
     category: 'Course Materials',
     price: 129.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg
+    image: '/media-backup-20251128-043832/homepage-hero.jpg',
     description: 'Complete textbook set for Medical Assistant program',
     inStock: true,
     program: 'Healthcare'
@@ -77,7 +77,7 @@ const products = [
     name: 'Barber Smock - Professional',
     category: 'Uniforms & Apparel',
     price: 34.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg
+    image: '/media-backup-20251128-043832/homepage-hero.jpg',
     description: 'Water-resistant professional barber smock, multiple colors',
     inStock: true,
     program: 'Barber'
@@ -87,7 +87,7 @@ const products = [
     name: 'HVAC Certification Study Guide',
     category: 'Certification Prep',
     price: 59.99,
-    image: '/media-backup-20251128-043832/homepage-hero.jpg
+    image: '/media-backup-20251128-043832/homepage-hero.jpg',
     description: 'EPA 608 certification study guide with practice exams',
     inStock: true,
     program: 'HVAC'

@@ -286,7 +286,8 @@ export default function VITAPage() {
               </span>
             </a>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* CTA */}
         <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-700 text-white px-4">
