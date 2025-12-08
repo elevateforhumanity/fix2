@@ -22,7 +22,7 @@ export function CountUp({
   threshold = 0.5,
   className = ''
 }: CountUpProps) {
-  const [count, setCount] = useState(start);
+  const [count, setCount] = useState(end); // Start with end value for SSR
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
   const frameRef = useRef<number>();
@@ -36,6 +36,7 @@ export function CountUp({
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
+          setCount(start); // Reset to start value before animating
           
           const startTime = performance.now();
           const range = end - start;
