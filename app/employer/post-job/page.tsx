@@ -2,80 +2,149 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/employer/post-job",
   },
   title: 'Post Job | Elevate For Humanity',
-  description: 'Discover more about Post Job inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Explore Post Job and discover opportunities for career growth and development.',
 };
 
-export default async function Page() {
+export default async function PostJobPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
+  
+  if (!user) {
+    redirect('/login');
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+  
+  
+  
+  // Fetch relevant data
+  const { data: items, count } = await supabase
+    .from('items')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .limit(20);
+  
 
   return (
-    <div className="min-h-screen bg-white">
-      <section className="bg-blue-700 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Post Job | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Discover more about Post Job inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex gap-4 justify-center">
-              <Link href="/employer/jobs/new" className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-orange-50 text-lg">
-                Post a Job
-              </Link>
-              <Link href="/employer/candidates" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
-                Find Candidates
-              </Link>
-            </div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/hero/portal-hero.jpg"
+          alt="Post Job"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Post Job
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+            Explore Post Job and discover opportunities for career growth and development.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            
+            <Link
+              href="/student/dashboard"
+              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Back to Dashboard
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Features */}
+      {/* Content Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+          <div className="max-w-7xl mx-auto">
             
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
+                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Post Jobs</h3>
-              <p className="text-gray-600">Create and manage job postings</p>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
+                <p className="text-3xl font-bold text-green-600">
+                  {items?.filter(i => i.status === 'active').length || 0}
+                </p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
+                <p className="text-3xl font-bold text-purple-600">
+                  {items?.filter(i => {
+                    const created = new Date(i.created_at);
+                    const weekAgo = new Date();
+                    weekAgo.setDate(weekAgo.getDate() - 7);
+                    return created > weekAgo;
+                  }).length || 0}
+                </p>
+              </div>
+            </div>
+
+            {/* Data Display */}
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <h2 className="text-2xl font-bold mb-4">Items</h2>
+              {items && items.length > 0 ? (
+                <div className="space-y-4">
+                  {items.map((item) => (
+                    <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
+                      <p className="font-semibold">{item.title || item.name || item.id}</p>
+                      <p className="text-sm text-gray-600">
+                        {new Date(item.created_at).toLocaleDateString()}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500 text-center py-8">No items found</p>
+              )}
             </div>
             
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Find Talent</h3>
-              <p className="text-gray-600">Access qualified candidates</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Join thousands who have launched successful careers through our programs.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
+              >
+                Apply Now
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+              >
+                Browse Programs
+              </Link>
             </div>
-            
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Hire Fast</h3>
-              <p className="text-gray-600">Streamlined hiring process</p>
-            </div>
-            
           </div>
         </div>
       </section>

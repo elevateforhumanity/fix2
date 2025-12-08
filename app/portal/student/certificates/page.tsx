@@ -1,127 +1,153 @@
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
-import { BarChart3, TrendingUp, Award, Users, BookOpen, Target } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/portal/student/certificates",
   },
-  title: 'Certificates | Student Portal',
-  description: 'Manage your certificates',
+  title: 'Certificates | Elevate For Humanity',
+  description: 'Explore Certificates and discover opportunities for career growth and development.',
 };
 
 export default async function CertificatesPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
+  
+  if (!user) {
+    redirect('/login');
+  }
 
-  // Fetch relevant data
-  const { data: items } = await supabase
-    .from('certificates')
+  const { data: profile } = await supabase
+    .from('profiles')
     .select('*')
-    .eq('user_id', user.id)
+    .eq('id', user.id)
+    .single();
+  
+  
+  
+  // Fetch relevant data
+  const { data: items, count } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
     .limit(20);
+  
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h1 className="text-3xl font-bold capitalize">certificates</h1>
-            <p className="text-gray-600 mt-1">Manage and track your certificates</p>
-          </div>
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-            New Item
-          </button>
-        </div>
-
-        {/* Stats Grid */}
-        <div className="grid md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-lg shadow">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <BarChart3 className="text-blue-600" size={24} />
-              </div>
-              <div>
-                <p className="text-2xl font-bold">{items?.length || 0}</p>
-                <p className="text-sm text-gray-600">Total Items</p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <TrendingUp className="text-green-600" size={24} />
-              </div>
-              <div>
-                <p className="text-2xl font-bold">0</p>
-                <p className="text-sm text-gray-600">Active</p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                <Award className="text-purple-600" size={24} />
-              </div>
-              <div>
-                <p className="text-2xl font-bold">0</p>
-                <p className="text-sm text-gray-600">Completed</p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                <Target className="text-orange-600" size={24} />
-              </div>
-              <div>
-                <p className="text-2xl font-bold">0%</p>
-                <p className="text-sm text-gray-600">Progress</p>
-              </div>
-            </div>
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/hero/portal-hero.jpg"
+          alt="Certificates"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Certificates
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+            Explore Certificates and discover opportunities for career growth and development.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            
+            <Link
+              href="/student/dashboard"
+              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Back to Dashboard
+            </Link>
           </div>
         </div>
+      </section>
 
-        {/* Main Content */}
-        <div className="bg-white rounded-lg shadow">
-          <div className="p-6 border-b">
-            <h2 className="text-xl font-semibold">Recent Activity</h2>
-          </div>
-          <div className="p-6">
-            {items && items.length > 0 ? (
-              <div className="space-y-4">
-                {items.map((item: any) => (
-                  <div key={item.id} className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="font-semibold">{item.title || item.name || 'Item'}</h3>
-                        <p className="text-sm text-gray-600 mt-1">
-                          {new Date(item.created_at).toLocaleDateString()}
-                        </p>
-                      </div>
-                      <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                        View Details
-                      </button>
+      {/* Content Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
+                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
+                <p className="text-3xl font-bold text-green-600">
+                  {items?.filter(i => i.status === 'active').length || 0}
+                </p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
+                <p className="text-3xl font-bold text-purple-600">
+                  {items?.filter(i => {
+                    const created = new Date(i.created_at);
+                    const weekAgo = new Date();
+                    weekAgo.setDate(weekAgo.getDate() - 7);
+                    return created > weekAgo;
+                  }).length || 0}
+                </p>
+              </div>
+            </div>
+
+            {/* Data Display */}
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <h2 className="text-2xl font-bold mb-4">Items</h2>
+              {items && items.length > 0 ? (
+                <div className="space-y-4">
+                  {items.map((item) => (
+                    <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
+                      <p className="font-semibold">{item.title || item.name || item.id}</p>
+                      <p className="text-sm text-gray-600">
+                        {new Date(item.created_at).toLocaleDateString()}
+                      </p>
                     </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-12">
-                <BookOpen className="mx-auto text-gray-400 mb-4" size={64} />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">No items yet</h3>
-                <p className="text-gray-600 mb-4">Start now by creating your first item</p>
-                <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                  Create New
-                </button>
-              </div>
-            )}
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500 text-center py-8">No items found</p>
+              )}
+            </div>
+            
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Join thousands who have launched successful careers through our programs.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
+              >
+                Apply Now
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+              >
+                Browse Programs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

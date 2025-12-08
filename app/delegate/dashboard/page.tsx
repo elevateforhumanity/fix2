@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
@@ -78,6 +79,28 @@ export default async function DelegateDashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/gallery/image8.jpg"
+          alt="Hero"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Welcome
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+            Transform your career with free training
+          </p>
+        </div>
+      </section>
+
       {/* Header */}
       <section className="bg-blue-700 text-white py-12">
         <div className="container mx-auto px-4">

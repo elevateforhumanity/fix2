@@ -1,125 +1,155 @@
-import { getLicense } from "@/lib/license";
-import { requireAdmin } from '@/lib/authGuards';
+import { Metadata } from 'next';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
 
-export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/admin/license",
+  },
+  title: 'License | Elevate For Humanity',
+  description: 'Explore License and discover opportunities for career growth and development.',
+};
 
-export default function LicensePage() {
-  await requireAdmin();
+export default async function LicensePage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    redirect('/login');
+  }
 
-  const license = getLicense();
-
-  const statusColor = {
-    active: "bg-green-50 text-green-700 ring-green-600/20",
-    suspended: "bg-red-50 text-red-700 ring-red-600/20",
-    expired: "bg-orange-50 text-orange-700 ring-orange-600/20",
-  }[license.status] || "bg-slate-50 text-slate-700 ring-slate-600/20";
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+  
+  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
+    redirect('/unauthorized');
+  }
+  
+  // Fetch relevant data
+  const { data: items, count } = await supabase
+    .from('items')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .limit(20);
+  
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-4xl px-4 py-8">
-          <h1 className="text-2xl font-bold text-slate-900">License Information</h1>
-          <p className="mt-2 text-sm text-slate-700">
-            This installation includes a unique Elevate For Humanity license.
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/hero/admin-hero.jpg"
+          alt="License"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            License
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+            Explore License and discover opportunities for career growth and development.
           </p>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-4xl px-4 py-8">
-        <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-          <div className="space-y-4">
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                License Holder
-              </label>
-              <p className="mt-1 text-lg font-semibold text-slate-900">
-                {license.licenseHolder}
-              </p>
-            </div>
-
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                License ID
-              </label>
-              <p className="mt-1 font-mono text-sm text-slate-900">
-                {license.licenseId}
-              </p>
-            </div>
-
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                License Type
-              </label>
-              <p className="mt-1 text-sm capitalize text-slate-900">
-                {license.licenseType.replace("-", " ")}
-              </p>
-            </div>
-
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Issued Date
-              </label>
-              <p className="mt-1 text-sm text-slate-900">{license.issuedAt}</p>
-            </div>
-
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Status
-              </label>
-              <div className="mt-1">
-                <span
-                  className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1 ${statusColor}`}
-                >
-                  {license.status.toUpperCase()}
-                </span>
-              </div>
-            </div>
-
-            <div>
-              <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Authorized Domains
-              </label>
-              <div className="mt-1 space-y-1">
-                {license.validDomains.map((domain) => (
-                  <p key={domain} className="font-mono text-xs text-slate-700">
-                    {domain}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            {license.notes && (
-              <div>
-                <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Notes
-                </label>
-                <p className="mt-1 text-sm text-slate-700">{license.notes}</p>
-              </div>
-            )}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            <Link
+              href="/admin/dashboard"
+              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Back to Dashboard
+            </Link>
+            
           </div>
         </div>
+      </section>
 
-        <div className="mt-6 rounded-xl bg-slate-100 p-4">
-          <p className="text-xs text-slate-600">
-            <strong>License Protection:</strong> This installation of the Elevate Workforce
-            Platform includes a unique license fingerprint. Unauthorized redistribution,
-            resale, or use outside the licensed scope is prohibited and may result in
-            license termination.
-          </p>
-        </div>
+      {/* Content Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
+                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
+                <p className="text-3xl font-bold text-green-600">
+                  {items?.filter(i => i.status === 'active').length || 0}
+                </p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
+                <p className="text-3xl font-bold text-purple-600">
+                  {items?.filter(i => {
+                    const created = new Date(i.created_at);
+                    const weekAgo = new Date();
+                    weekAgo.setDate(weekAgo.getDate() - 7);
+                    return created > weekAgo;
+                  }).length || 0}
+                </p>
+              </div>
+            </div>
 
-        <div className="mt-4 text-center">
-          <p className="text-xs text-slate-500">
-            Questions about your license?{" "}
-            <a
-              href="mailto:licensing@elevateforhumanity.org"
-              className="font-semibold text-orange-600 hover:text-orange-700"
-            >
-              Contact EFH Licensing
-            </a>
-          </p>
+            {/* Data Display */}
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <h2 className="text-2xl font-bold mb-4">Items</h2>
+              {items && items.length > 0 ? (
+                <div className="space-y-4">
+                  {items.map((item) => (
+                    <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
+                      <p className="font-semibold">{item.title || item.name || item.id}</p>
+                      <p className="text-sm text-gray-600">
+                        {new Date(item.created_at).toLocaleDateString()}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500 text-center py-8">No items found</p>
+              )}
+            </div>
+            
+          </div>
         </div>
       </section>
-    </main>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Join thousands who have launched successful careers through our programs.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
+              >
+                Apply Now
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+              >
+                Browse Programs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

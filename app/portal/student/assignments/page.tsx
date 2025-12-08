@@ -2,125 +2,152 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { FileText, Clock, CheckCircle, AlertCircle } from 'lucide-react';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/portal/student/assignments",
   },
-  title: 'Assignments | Student Portal',
-  description: 'View and submit your assignments',
+  title: 'Assignments | Elevate For Humanity',
+  description: 'Explore Assignments and discover opportunities for career growth and development.',
 };
 
 export default async function AssignmentsPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
+  
+  if (!user) {
+    redirect('/login');
+  }
 
-  // Fetch assignments
-  const { data: assignments } = await supabase
-    .from('assignments')
-    .select(`
-      *,
-      courses (name)
-    `)
-    .order('due_date', { ascending: true });
-
-  const pending = assignments?.filter(a => !a.submitted_at) || [];
-  const submitted = assignments?.filter(a => a.submitted_at && !a.graded_at) || [];
-  const graded = assignments?.filter(a => a.graded_at) || [];
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+  
+  
+  
+  // Fetch relevant data
+  const { data: items, count } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .limit(20);
+  
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Assignments</h1>
-
-        {/* Stats */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-lg shadow">
-            <div className="flex items-center gap-3">
-              <AlertCircle className="text-orange-600" size={32} />
-              <div>
-                <p className="text-2xl font-bold">{pending.length}</p>
-                <p className="text-gray-600">Pending</p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <div className="flex items-center gap-3">
-              <Clock className="text-blue-600" size={32} />
-              <div>
-                <p className="text-2xl font-bold">{submitted.length}</p>
-                <p className="text-gray-600">Submitted</p>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <div className="flex items-center gap-3">
-              <CheckCircle className="text-green-600" size={32} />
-              <div>
-                <p className="text-2xl font-bold">{graded.length}</p>
-                <p className="text-gray-600">Graded</p>
-              </div>
-            </div>
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/hero/portal-hero.jpg"
+          alt="Assignments"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Assignments
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+            Explore Assignments and discover opportunities for career growth and development.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            
+            <Link
+              href="/student/dashboard"
+              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Back to Dashboard
+            </Link>
           </div>
         </div>
+      </section>
 
-        {/* Assignments List */}
-        <div className="bg-white rounded-lg shadow">
-          <div className="p-6 border-b">
-            <h2 className="text-xl font-semibold">All Assignments</h2>
-          </div>
-          <div className="divide-y">
-            {assignments && assignments.length > 0 ? (
-              assignments.map((assignment: any) => (
-                <div key={assignment.id} className="p-6 hover:bg-gray-50 transition">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-lg">{assignment.title}</h3>
-                      <p className="text-gray-600 mt-1">{assignment.courses?.name}</p>
-                      <div className="flex items-center gap-4 mt-2 text-sm">
-                        <span className="text-gray-500">
-                          Due: {new Date(assignment.due_date).toLocaleDateString()}
-                        </span>
-                        {assignment.points && (
-                          <span className="text-gray-500">{assignment.points} points</span>
-                        )}
-                      </div>
+      {/* Content Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
+                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
+                <p className="text-3xl font-bold text-green-600">
+                  {items?.filter(i => i.status === 'active').length || 0}
+                </p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
+                <p className="text-3xl font-bold text-purple-600">
+                  {items?.filter(i => {
+                    const created = new Date(i.created_at);
+                    const weekAgo = new Date();
+                    weekAgo.setDate(weekAgo.getDate() - 7);
+                    return created > weekAgo;
+                  }).length || 0}
+                </p>
+              </div>
+            </div>
+
+            {/* Data Display */}
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <h2 className="text-2xl font-bold mb-4">Items</h2>
+              {items && items.length > 0 ? (
+                <div className="space-y-4">
+                  {items.map((item) => (
+                    <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
+                      <p className="font-semibold">{item.title || item.name || item.id}</p>
+                      <p className="text-sm text-gray-600">
+                        {new Date(item.created_at).toLocaleDateString()}
+                      </p>
                     </div>
-                    <div className="flex items-center gap-3">
-                      {assignment.graded_at ? (
-                        <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
-                          Graded: {assignment.grade}%
-                        </span>
-                      ) : assignment.submitted_at ? (
-                        <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-                          Submitted
-                        </span>
-                      ) : (
-                        <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">
-                          Pending
-                        </span>
-                      )}
-                      <Link
-                        href={`/portal/student/assignments/${assignment.id}`}
-                        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-                      >
-                        View
-                      </Link>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              ))
-            ) : (
-              <div className="p-12 text-center">
-                <FileText className="mx-auto text-gray-400 mb-4" size={48} />
-                <p className="text-gray-600">No assignments yet</p>
-              </div>
-            )}
+              ) : (
+                <p className="text-gray-500 text-center py-8">No items found</p>
+              )}
+            </div>
+            
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Join thousands who have launched successful careers through our programs.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
+              >
+                Apply Now
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+              >
+                Browse Programs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

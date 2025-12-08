@@ -2,16 +2,20 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Program Holder Portal',
-  description: 'Manage your students, attendance, and reports',
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/program-holder/portal",
+  },
+  title: 'Portal | Elevate For Humanity',
+  description: 'Explore Portal and discover opportunities for career growth and development.',
 };
 
-export default async function ProgramHolderDashboardPage() {
+export default async function PortalPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-
+  
   if (!user) {
     redirect('/login');
   }
@@ -21,109 +25,129 @@ export default async function ProgramHolderDashboardPage() {
     .select('*')
     .eq('id', user.id)
     .single();
-
-  if (!profile || profile.role !== 'program_holder') {
-    redirect('/unauthorized');
-  }
-
   
-
   
-  // Fetch program holder data
-  const { data: students } = await supabase
-    .from('enrollments')
-    .select(`
-      *,
-      profiles (
-        id,
-        full_name,
-        email
-      ),
-      courses (
-        title
-      )
-    `)
-    .eq('program_holder_id', user.id);
-
-  const { data: programs } = await supabase
+  
+  // Fetch relevant data
+  const { data: items, count } = await supabase
     .from('programs')
-    .select('*')
-    .eq('program_holder_id', user.id);
-
-  const totalStudents = new Set(students?.map(s => s.student_id)).size || 0;
-  const activeEnrollments = students?.filter(s => s.status === 'active').length || 0;
-  const completions = students?.filter(s => s.status === 'completed').length || 0;
-  
-
-  
-
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .limit(20);
   
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <section className="bg-blue-700 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <h1 className="text-4xl font-bold mb-2">Program Holder Portal</h1>
-            <p className="text-xl text-blue-100">Welcome back, {profile.full_name || profile.email}</p>
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/hero/portal-hero.jpg"
+          alt="Portal"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Portal
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+            Explore Portal and discover opportunities for career growth and development.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            
+            <Link
+              href="/student/dashboard"
+              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Back to Dashboard
+            </Link>
           </div>
         </div>
       </section>
 
-      <div className="container mx-auto py-8 px-4">
-        <div className="max-w-7xl mx-auto">
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      {/* Content Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
             
-            
-            
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Total Students</h3>
-              <p className="text-3xl font-bold text-blue-600">{totalStudents}</p>
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
+                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
+                <p className="text-3xl font-bold text-green-600">
+                  {items?.filter(i => i.status === 'active').length || 0}
+                </p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
+                <p className="text-3xl font-bold text-purple-600">
+                  {items?.filter(i => {
+                    const created = new Date(i.created_at);
+                    const weekAgo = new Date();
+                    weekAgo.setDate(weekAgo.getDate() - 7);
+                    return created > weekAgo;
+                  }).length || 0}
+                </p>
+              </div>
             </div>
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Active Enrollments</h3>
-              <p className="text-3xl font-bold text-green-600">{activeEnrollments}</p>
-            </div>
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Completions</h3>
-              <p className="text-3xl font-bold text-purple-600">{completions}</p>
-            </div>
-            
 
-            
-
+            {/* Data Display */}
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <h2 className="text-2xl font-bold mb-4">Items</h2>
+              {items && items.length > 0 ? (
+                <div className="space-y-4">
+                  {items.map((item) => (
+                    <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
+                      <p className="font-semibold">{item.title || item.name || item.id}</p>
+                      <p className="text-sm text-gray-600">
+                        {new Date(item.created_at).toLocaleDateString()}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500 text-center py-8">No items found</p>
+              )}
+            </div>
             
           </div>
+        </div>
+      </section>
 
-          {/* Quick Actions */}
-          <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
-            <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              
-
-              
-              <Link href="/program-holder/portal/students" className="p-4 border rounded-lg hover:bg-gray-50">
-                <h3 className="font-semibold mb-1">Manage Students</h3>
-                <p className="text-sm text-gray-600">View and manage your students</p>
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Join thousands who have launched successful careers through our programs.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
+              >
+                Apply Now
               </Link>
-              <Link href="/program-holder/portal/attendance" className="p-4 border rounded-lg hover:bg-gray-50">
-                <h3 className="font-semibold mb-1">Track Attendance</h3>
-                <p className="text-sm text-gray-600">Record student attendance</p>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+              >
+                Browse Programs
               </Link>
-              <Link href="/program-holder/portal/reports" className="p-4 border rounded-lg hover:bg-gray-50">
-                <h3 className="font-semibold mb-1">View Reports</h3>
-                <p className="text-sm text-gray-600">Access analytics and reports</p>
-              </Link>
-              
-
-              
-
-              
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

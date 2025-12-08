@@ -1,131 +1,165 @@
-// app/team/carlina-wilkes/page.tsx
+import { Metadata } from 'next';
 
-export default function CarlinaWilkesPage() {
+
+import Link from 'next/link';
+import Image from 'next/image';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.elevateforhumanity.org/team/carlina-wilkes",
+  },
+  title: 'Carlina Wilkes | Elevate For Humanity',
+  description: 'Explore Carlina Wilkes and discover opportunities for career growth and development.',
+};
+
+export default async function CarlinaWilkesPage() {
+  
+
   return (
-    <main className="min-h-screen bg-slate-50 py-12">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-
-        <header className="mb-8">
-          <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
-            Leadership Team
-          </p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
-            Dr. Carlina Annette Wilkes
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/gallery/image8.jpg"
+          alt="Carlina Wilkes"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Carlina Wilkes
           </h1>
-
-          <p className="mt-2 text-sm font-semibold text-indigo-600">
-            Executive Director of Financial Operations & Organizational Compliance
+          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+            Explore Carlina Wilkes and discover opportunities for career growth and development.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/apply"
+              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Get Started
+            </Link>
+            <Link
+              href="/programs"
+              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              View Programs
+            </Link>
+            
+            
+          </div>
+        </div>
+      </section>
 
-          <p className="mt-4 text-sm text-slate-700 leading-relaxed">
-            Dr. Carlina Annette Wilkes is a highly accomplished executive and retired federal 
-            professional with more than 24 years of distinguished service within the Defense 
-            Finance and Accounting Service (DFAS). She brings deep expertise in financial 
-            management, organizational compliance, workforce development, and strategic program 
-            oversight to Elevate for Humanity Technical & Career Institute.
-          </p>
-
-          <p className="mt-3 text-sm text-slate-700 leading-relaxed">
-            As Executive Director of Financial Operations & Organizational Compliance, Dr. Wilkes 
-            ensures that Elevate operates with integrity, accountability, and alignment to both 
-            federal and state regulations. Her leadership is essential to maintaining the 
-            organization&apos;s status as a DOL Registered Apprenticeship Sponsor, ETPL-approved 
-            provider, and fundable partner for WIOA, WRG, and JRI programs.
-          </p>
-        </header>
-
-        <section className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 mb-8">
-          <h2 className="text-sm font-semibold text-slate-900">
-            Education & Credentials
-          </h2>
-          <ul className="mt-3 space-y-2 text-xs text-slate-700">
-            <li>
-              <span className="font-semibold">Doctorate in Minisstart</span> – Advanced theological 
-              and leadership studies
-            </li>
-            <li>
-              <span className="font-semibold">Master of Arts in Minisstart</span> – Graduate-level 
-              minisstart and organizational leadership
-            </li>
-            <li>
-              <span className="font-semibold">Bachelor of Applied Management</span> – Business 
-              administration and management
-            </li>
-            <li>
-              <span className="font-semibold">Accounting Credential</span> – Specialized training 
-              in financial accounting
-            </li>
-            <li>
-              <span className="font-semibold">Paralegal Studies Credential</span> – Legal compliance 
-              and regulatory frameworks
-            </li>
-            <li>
-              <span className="font-semibold">Department of Defense Financial Management 
-              Certification, Level II</span> – Federal financial management and accountability
-            </li>
-          </ul>
-        </section>
-
-        <section className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 mb-8">
-          <h2 className="text-sm font-semibold text-slate-900">
-            Professional Experience
-          </h2>
-          <div className="mt-3 space-y-3 text-xs text-slate-700">
-            <div>
-              <p className="font-semibold">Defense Finance and Accounting Service (DFAS)</p>
-              <p className="mt-1">
-                24+ years of federal service managing financial operations, compliance frameworks, 
-                and workforce development initiatives within one of the Department of Defense&apos;s 
-                most critical agencies.
-              </p>
+      {/* Content Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            
+            {/* Feature Grid */}
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Carlina Wilkes</h2>
+                <p className="text-gray-700 mb-6">Explore Carlina Wilkes and discover opportunities for career growth and development.</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>100% free training programs</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Industry-standard certifications</span>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Career support and job placement</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/gallery/image3.jpg"
+                  alt="Carlina Wilkes"
+                  fill
+                  className="object-cover"
+                  quality={100}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
             </div>
-            <div>
-              <p className="font-semibold">Financial Management & Compliance Leadership</p>
-              <p className="mt-1">
-                Extensive experience overseeing budgets, audits, regulatory compliance, and 
-                organizational accountability in high-stakes federal environments.
-              </p>
+
+            {/* Feature Cards */}
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Learn</h3>
+                <p className="text-gray-600">Access quality training programs</p>
+              </div>
+              
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Certify</h3>
+                <p className="text-gray-600">Earn industry certifications</p>
+              </div>
+              
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold mb-3">Work</h3>
+                <p className="text-gray-600">Get hired in your field</p>
+              </div>
             </div>
-            <div>
-              <p className="font-semibold">Workforce Development & Strategic Planning</p>
-              <p className="mt-1">
-                Proven track record of building systems, training teams, and ensuring operational 
-                excellence across complex organizations.
-              </p>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Join thousands who have launched successful careers through our programs.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
+              >
+                Apply Now
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+              >
+                Browse Programs
+              </Link>
             </div>
           </div>
-        </section>
-
-        <section className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 mb-8">
-          <h2 className="text-sm font-semibold text-slate-900">
-            Role at Elevate for Humanity
-          </h2>
-          <p className="mt-3 text-xs text-slate-700 leading-relaxed">
-            Dr. Wilkes oversees all financial operations, organizational compliance, and regulatory 
-            alignment for Elevate for Humanity. Her responsibilities include:
-          </p>
-          <ul className="mt-3 space-y-1 text-xs text-slate-700">
-            <li>• Financial planning, budgeting, and accountability</li>
-            <li>• Compliance with DOL, ETPL, WIOA, WRG, and JRI requirements</li>
-            <li>• Grant management and funding coordination</li>
-            <li>• Organizational policy development and implementation</li>
-            <li>• Audit preparation and regulatory reporting</li>
-            <li>• Strategic planning and operational oversight</li>
-          </ul>
-        </section>
-
-        <section className="rounded-2xl bg-slate-900 p-5 text-white">
-          <h2 className="text-sm font-semibold">Leadership Philosophy</h2>
-          <p className="mt-3 text-xs text-slate-100 leading-relaxed">
-            Dr. Wilkes believes that strong financial stewardship and organizational integrity 
-            are the foundation of mission-driven work. Her approach combines federal-level 
-            discipline with a deep commitment to serving communities, ensuring that every dollar, 
-            every policy, and every decision supports Elevate&apos;s mission to transform lives 
-            through education and opportunity.
-          </p>
-        </section>
-
-      </div>
-    </main>
+        </div>
+      </section>
+    </div>
   );
 }

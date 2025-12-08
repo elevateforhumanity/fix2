@@ -2,132 +2,154 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/admin/internal-docs",
   },
-  title: 'Internal Docs | Admin',
-  description: 'Manage internal-docs',
+  title: 'Internal Docs | Elevate For Humanity',
+  description: 'Explore Internal Docs and discover opportunities for career growth and development.',
 };
 
 export default async function InternalDocsPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-
+  
   if (!user) {
     redirect('/login');
   }
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('role')
+    .select('*')
     .eq('id', user.id)
     .single();
-
+  
   if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
     redirect('/unauthorized');
   }
-
-  // Fetch data from database
+  
+  // Fetch relevant data
   const { data: items, count } = await supabase
-    .from('internal-docs')
+    .from('items')
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
-    .limit(50);
+    .limit(20);
+  
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <section className="bg-blue-700 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <h1 className="text-4xl font-bold mb-4">Internal Docs</h1>
-            <p className="text-xl text-blue-100">Manage internal-docs</p>
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/hero/admin-hero.jpg"
+          alt="Internal Docs"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Internal Docs
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+            Explore Internal Docs and discover opportunities for career growth and development.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            <Link
+              href="/admin/dashboard"
+              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Back to Dashboard
+            </Link>
+            
           </div>
         </div>
       </section>
 
-      <div className="container mx-auto py-8 px-4">
-        <div className="max-w-7xl mx-auto">
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
-              <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
+      {/* Content Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto">
+            
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
+                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
+                <p className="text-3xl font-bold text-green-600">
+                  {items?.filter(i => i.status === 'active').length || 0}
+                </p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
+                <p className="text-3xl font-bold text-purple-600">
+                  {items?.filter(i => {
+                    const created = new Date(i.created_at);
+                    const weekAgo = new Date();
+                    weekAgo.setDate(weekAgo.getDate() - 7);
+                    return created > weekAgo;
+                  }).length || 0}
+                </p>
+              </div>
             </div>
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
-              <p className="text-3xl font-bold text-green-600">{items?.filter(i => i.status === 'active').length || 0}</p>
-            </div>
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
-              <p className="text-3xl font-bold text-purple-600">{items?.filter(i => {
-                const created = new Date(i.created_at);
-                const weekAgo = new Date();
-                weekAgo.setDate(weekAgo.getDate() - 7);
-                return created > weekAgo;
-              }).length || 0}</p>
-            </div>
-          </div>
 
-          {/* Data Table */}
-          <div className="bg-white rounded-lg shadow-sm border">
-            <div className="p-6 border-b">
-              <h2 className="text-xl font-semibold">All Items</h2>
-            </div>
-            <div className="overflow-x-auto">
+            {/* Data Display */}
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <h2 className="text-2xl font-bold mb-4">Items</h2>
               {items && items.length > 0 ? (
-                <table className="w-full">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Details</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Created</th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200">
-                    {items.map((item) => (
-                      <tr key={item.id} className="hover:bg-gray-50">
-                        <td className="px-6 py-4 text-sm text-gray-900">{item.id.slice(0, 8)}...</td>
-                        <td className="px-6 py-4 text-sm text-gray-900">
-                          {item.title || item.name || item.email || 'N/A'}
-                        </td>
-                        <td className="px-6 py-4 text-sm">
-                          <span className={`px-2 py-1 rounded-full text-xs ${
-                            item.status === 'active' ? 'bg-green-100 text-green-800' :
-                            item.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-gray-100 text-gray-800'
-                          }`}>
-                            {item.status || 'N/A'}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 text-sm text-gray-500">
-                          {new Date(item.created_at).toLocaleDateString()}
-                        </td>
-                        <td className="px-6 py-4 text-sm">
-                          <Link 
-                            href={`/admin/internal-docs/${item.id}`}
-                            className="text-blue-600 hover:text-blue-800"
-                          >
-                            View
-                          </Link>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              ) : (
-                <div className="p-12 text-center text-gray-500">
-                  <p className="text-lg mb-2">No items found</p>
-                  <p className="text-sm">Items will appear here once they are created</p>
+                <div className="space-y-4">
+                  {items.map((item) => (
+                    <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
+                      <p className="font-semibold">{item.title || item.name || item.id}</p>
+                      <p className="text-sm text-gray-600">
+                        {new Date(item.created_at).toLocaleDateString()}
+                      </p>
+                    </div>
+                  ))}
                 </div>
+              ) : (
+                <p className="text-gray-500 text-center py-8">No items found</p>
               )}
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Join thousands who have launched successful careers through our programs.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
+              >
+                Apply Now
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+              >
+                Browse Programs
+              </Link>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

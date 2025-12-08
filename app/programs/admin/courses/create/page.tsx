@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -7,106 +9,142 @@ export const metadata: Metadata = {
     canonical: "https://www.elevateforhumanity.org/programs/admin/courses/create",
   },
   title: 'Create | Elevate For Humanity',
-  description: 'Discover more about Create inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Explore Create and discover opportunities for career growth and development.',
 };
 
-export default function CreateProgramPage() {
+export default async function CreatePage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    redirect('/login');
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+  
+  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
+    redirect('/unauthorized');
+  }
+  
+  // Fetch relevant data
+  const { data: items, count } = await supabase
+    .from('courses')
+    .select('*', { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .limit(20);
+  
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Create | Elevate For Humanity
-            </h1>
-            <p className="text-xl mb-8 text-blue-100">
-              Discover more about Create inside the Elevate For Humanity workforce ecosystem.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link 
-                href="/apply" 
-                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
-              >
-                Apply Now
-              </Link>
-              <Link 
-                href="/contact" 
-                className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition border-2 border-white"
-              >
-                Learn More
-              </Link>
-            </div>
+      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/hero/admin-hero.jpg"
+          alt="Create"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Create
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-gray-100">
+            Explore Create and discover opportunities for career growth and development.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            <Link
+              href="/admin/dashboard"
+              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Back to Dashboard
+            </Link>
+            
           </div>
         </div>
       </section>
 
-      {/* Program Details */}
+      {/* Content Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Program Overview</h2>
-                <div className="space-y-4 text-gray-700">
-                  <p>
-                    Our create program provides hands-on training and certification 
-                    to prepare you for a successful career.
-                  </p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">✓</span>
-                      <span>100% government-funded training</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">✓</span>
-                      <span>Indusstart-recognized certification</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">✓</span>
-                      <span>Job placement assistance</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-green-600 mr-2">✓</span>
-                      <span>Flexible scheduling options</span>
-                    </li>
-                  </ul>
-                </div>
+          <div className="max-w-7xl mx-auto">
+            
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
+                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
               </div>
-
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <h3 className="text-2xl font-bold mb-4">Quick Facts</h3>
-                <dl className="space-y-4">
-                  <div>
-                    <dt className="text-sm text-gray-600">Duration</dt>
-                  </div>
-                  <div>
-                    <dt className="text-sm text-gray-600">Cost</dt>
-                    <dd className="text-lg font-semibold text-green-600">$0 (Fully Funded)</dd>
-                  </div>
-                  <div>
-                    <dt className="text-sm text-gray-600">Format</dt>
-                    <dd className="text-lg font-semibold">In-person & Online</dd>
-                  </div>
-                  <div>
-                    <dt className="text-sm text-gray-600">Certification</dt>
-                    <dd className="text-lg font-semibold">Indusstart-Recognized</dd>
-                  </div>
-                </dl>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
+                <p className="text-3xl font-bold text-green-600">
+                  {items?.filter(i => i.status === 'active').length || 0}
+                </p>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border p-6">
+                <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
+                <p className="text-3xl font-bold text-purple-600">
+                  {items?.filter(i => {
+                    const created = new Date(i.created_at);
+                    const weekAgo = new Date();
+                    weekAgo.setDate(weekAgo.getDate() - 7);
+                    return created > weekAgo;
+                  }).length || 0}
+                </p>
               </div>
             </div>
 
-            {/* CTA Section */}
-            <div className="bg-blue-50 rounded-lg p-8 text-center">
-              <h2 className="text-2xl font-bold mb-4">Ready to Start Your Career?</h2>
-              <p className="text-gray-700 mb-6">
-                Join thousands of students who have transformed their lives through our programs.
-              </p>
-              <Link 
-                href="/apply" 
-                className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+            {/* Data Display */}
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <h2 className="text-2xl font-bold mb-4">Items</h2>
+              {items && items.length > 0 ? (
+                <div className="space-y-4">
+                  {items.map((item) => (
+                    <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
+                      <p className="font-semibold">{item.title || item.name || item.id}</p>
+                      <p className="text-sm text-gray-600">
+                        {new Date(item.created_at).toLocaleDateString()}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500 text-center py-8">No items found</p>
+              )}
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Join thousands who have launched successful careers through our programs.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
               >
-                Apply Today
+                Apply Now
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+              >
+                Browse Programs
               </Link>
             </div>
           </div>
