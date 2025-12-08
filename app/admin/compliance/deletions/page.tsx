@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/admin/compliance/deletions",
   },
-  title: 'Deletions | Elevate For Humanity',
-  description: 'Explore Deletions and discover opportunities for career growth and development.',
+  title: 'Data Deletion Requests | Admin Compliance | Elevate For Humanity',
+  description: 'Manage GDPR and CCPA data deletion requests. Review, approve, and process user data removal requests in compliance with privacy regulations.',
 };
 
 export default async function DeletionsPage() {
@@ -54,10 +54,10 @@ export default async function DeletionsPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Deletions
+            Data Deletion Requests
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Explore Deletions and discover opportunities for career growth and development.
+            Manage user data deletion requests in compliance with GDPR and CCPA regulations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             

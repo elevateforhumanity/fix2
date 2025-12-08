@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/programs/admin",
   },
-  title: 'Admin | Elevate For Humanity',
-  description: 'Explore Admin and discover opportunities for career growth and development.',
+  title: 'Program Holder Admin Portal | Elevate For Humanity',
+  description: 'Manage your training programs, track student progress, and access program holder resources.',
 };
 
 export default async function AdminPage() {
@@ -32,21 +32,21 @@ export default async function AdminPage() {
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/gallery/image8.jpg"
-          alt="Admin"
+          src="/images/hero/admin-hero.jpg"
+          alt="Program Holder Admin Portal"
           fill
           className="object-cover"
           quality={100}
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Admin
+            Program Holder Portal
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Explore Admin and discover opportunities for career growth and development.
+            Manage programs, track student progress, and access training resources.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

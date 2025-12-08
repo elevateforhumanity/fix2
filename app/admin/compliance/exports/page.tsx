@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/admin/compliance/exports",
   },
-  title: 'Exports | Elevate For Humanity',
-  description: 'Explore Exports and discover opportunities for career growth and development.',
+  title: 'Data Export Requests | Admin Compliance | Elevate For Humanity',
+  description: 'Process user data export requests. Generate and deliver personal data packages in compliance with GDPR right to data portability.',
 };
 
 export default async function ExportsPage() {
@@ -54,10 +54,10 @@ export default async function ExportsPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Exports
+            Data Export Requests
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Explore Exports and discover opportunities for career growth and development.
+            Process and deliver user data export requests in compliance with privacy regulations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             

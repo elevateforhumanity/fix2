@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/admin/compliance",
   },
-  title: 'Compliance | Elevate For Humanity',
-  description: 'Manage system data and configurations',
+  title: 'Compliance Dashboard | Admin | Elevate For Humanity',
+  description: 'Monitor and manage GDPR, CCPA, and regulatory compliance. Track data requests, audit logs, and privacy compliance metrics.',
 };
 
 export default async function CompliancePage() {
@@ -66,10 +66,10 @@ export default async function CompliancePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Compliance
+            Compliance Dashboard
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Explore Compliance and discover opportunities for career growth and development.
+            Monitor regulatory compliance, data requests, and privacy metrics.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             
