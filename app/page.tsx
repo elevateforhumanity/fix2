@@ -168,55 +168,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* HOW IT WORKS - SIMPLE 3 STEPS */}
+      {/* CREDENTIALED PROGRAMS - HYBRID - SHORT TERM */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              How It Works
+              Credentialed Programs
             </h2>
             <p className="text-xl text-slate-600">
-              From application to employment in 3 simple steps
+              Hybrid learning • Short-term training • Industry-recognized credentials
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-            {/* Step 1 */}
-            <div className="text-center">
-              <div className="w-20 h-20 rounded-full bg-orange-500 text-white flex items-center justify-center text-4xl font-bold mx-auto mb-6">
-                1
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Hybrid Learning */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                Apply
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
+                Hybrid Format
               </h3>
-              <p className="text-slate-600">
-                Fill out our 5-minute application. We check your funding eligibility and call you within 48 hours.
+              <p className="text-slate-700 text-center">
+                Learn online at your own pace, then practice hands-on skills at our modern training facility with expert instructors.
               </p>
             </div>
 
-            {/* Step 2 */}
-            <div className="text-center">
-              <div className="w-20 h-20 rounded-full bg-blue-600 text-white flex items-center justify-center text-4xl font-bold mx-auto mb-6">
-                2
+            {/* Short-Term */}
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl">
+              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                Train
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
+                Short-Term Training
               </h3>
-              <p className="text-slate-600">
-                Complete your 4-12 week program. Attend classes, pass exams, earn your credential.
+              <p className="text-slate-700 text-center">
+                Complete programs in weeks, not years. Get job-ready fast with focused, intensive training designed for quick career entry.
               </p>
             </div>
 
-            {/* Step 3 */}
-            <div className="text-center">
-              <div className="w-20 h-20 rounded-full bg-green-600 text-white flex items-center justify-center text-4xl font-bold mx-auto mb-6">
-                3
+            {/* Credentialed */}
+            <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl">
+              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                Get Hired
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
+                Industry Credentials
               </h3>
-              <p className="text-slate-600">
-                We connect you with employers, help with interviews, and support you until you're hired.
+              <p className="text-slate-700 text-center">
+                Earn state licenses, national certifications, and industry-recognized credentials that employers value and trust.
               </p>
             </div>
           </div>
@@ -226,7 +228,7 @@ export default function HomePage() {
               href="/apply"
               className="inline-flex items-center gap-2 px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
             >
-              Start Your Application
+              Explore Programs
               <ArrowRight size={24} />
             </Link>
           </div>
