@@ -1,17 +1,54 @@
-import { Metadata } from 'next';
+#!/usr/bin/env node
+
+import { writeFileSync } from 'fs';
+
+const dashboards = [
+  {
+    path: 'app/workforce-board/dashboard/page.tsx',
+    role: 'workforce_board',
+    title: 'Workforce Board Dashboard',
+    description: 'Monitor workforce development programs and outcomes'
+  },
+  {
+    path: 'app/partner/dashboard/page.tsx',
+    role: 'partner',
+    title: 'Partner Dashboard',
+    description: 'Manage partnership programs and student referrals'
+  },
+  {
+    path: 'app/board/dashboard/page.tsx',
+    role: 'board_member',
+    title: 'Board Member Dashboard',
+    description: 'View organizational metrics and strategic insights'
+  },
+  {
+    path: 'app/delegate/dashboard/page.tsx',
+    role: 'delegate',
+    title: 'Delegate Dashboard',
+    description: 'Manage delegated students and programs'
+  },
+  {
+    path: 'app/lms/dashboard/page.tsx',
+    role: 'student',
+    title: 'Learning Dashboard',
+    description: 'Your learning management system hub'
+  }
+];
+
+const template = (config) => `import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/lms/dashboard",
+    canonical: "https://www.elevateforhumanity.org/${config.path.replace('app/', '').replace('/page.tsx', '')}",
   },
-  title: 'Learning Dashboard',
-  description: 'Your learning management system hub',
+  title: '${config.title}',
+  description: '${config.description}',
 };
 
-export default async function StudentDashboardPage() {
+export default async function ${config.role.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('')}DashboardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
@@ -66,13 +103,13 @@ export default async function StudentDashboardPage() {
   // Recent activity
   const { data: recentEnrollments } = await supabase
     .from('enrollments')
-    .select(`
+    .select(\`
       id,
       created_at,
       status,
       profiles!enrollments_user_id_fkey (full_name, email),
       courses (title)
-    `)
+    \`)
     .order('created_at', { ascending: false })
     .limit(10);
 
@@ -82,7 +119,7 @@ export default async function StudentDashboardPage() {
       <section className="bg-blue-700 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <h1 className="text-4xl font-bold mb-2">Learning Dashboard</h1>
+            <h1 className="text-4xl font-bold mb-2">${config.title}</h1>
             <p className="text-xl text-blue-100">Welcome back, {profile.full_name || profile.email}</p>
           </div>
         </div>
@@ -187,11 +224,11 @@ export default async function StudentDashboardPage() {
                           {enrollment.courses?.title || 'N/A'}
                         </td>
                         <td className="px-6 py-4 text-sm">
-                          <span className={`px-2 py-1 rounded-full text-xs ${
+                          <span className={\`px-2 py-1 rounded-full text-xs \${
                             enrollment.status === 'completed' ? 'bg-green-100 text-green-800' :
                             enrollment.status === 'active' ? 'bg-blue-100 text-blue-800' :
                             'bg-gray-100 text-gray-800'
-                          }`}>
+                          }\`}>
                             {enrollment.status}
                           </span>
                         </td>
@@ -214,3 +251,20 @@ export default async function StudentDashboardPage() {
     </div>
   );
 }
+`;
+
+console.log('🔧 Fixing remaining dashboards...\n');
+
+let fixed = 0;
+for (const config of dashboards) {
+  try {
+    const content = template(config);
+    writeFileSync(config.path, content, 'utf-8');
+    console.log(`✅ Fixed: ${config.path}`);
+    fixed++;
+  } catch (error) {
+    console.log(`❌ Error: ${config.path} - ${error.message}`);
+  }
+}
+
+console.log(`\n✅ Fixed ${fixed} remaining dashboards!`);

@@ -4,76 +4,130 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/portal/student",
-  },
-  title: 'Student | Elevate For Humanity',
-  description: 'Discover more about Student inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Student Portal',
+  description: 'Access your courses and track your progress',
 };
 
-export default async function Page() {
+export default async function StudentDashboardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
+
+  if (!user) {
+    redirect('/login');
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  if (!profile || profile.role !== 'student') {
+    redirect('/unauthorized');
+  }
+
+  
+  // Fetch student data
+  const { data: enrollments } = await supabase
+    .from('enrollments')
+    .select(`
+      *,
+      courses (
+        id,
+        title,
+        description,
+        thumbnail_url
+      )
+    `)
+    .eq('student_id', user.id)
+    .order('created_at', { ascending: false });
+
+  const { data: progress } = await supabase
+    .from('student_progress')
+    .select('*')
+    .eq('student_id', user.id);
+
+  const { data: certificates } = await supabase
+    .from('certificates')
+    .select('*')
+    .eq('student_id', user.id);
+
+  const completedCourses = enrollments?.filter(e => e.status === 'completed').length || 0;
+  const inProgressCourses = enrollments?.filter(e => e.status === 'active').length || 0;
+  const totalCertificates = certificates?.length || 0;
+  
+
+  
+
+  
+
+  
 
   return (
-    <div className="min-h-screen bg-white">
-      <section className="bg-blue-700 text-white py-20">
+    <div className="min-h-screen bg-gray-50">
+      <section className="bg-blue-700 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Student | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Discover more about Student inside the Elevate For Humanity workforce ecosystem.</p>
-            <Link href="/student/courses" className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 text-lg inline-block">
-              View My Courses
-            </Link>
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-4xl font-bold mb-2">Student Portal</h1>
+            <p className="text-xl text-blue-100">Welcome back, {profile.full_name || profile.email}</p>
           </div>
         </div>
       </section>
 
-      {/* Feature Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <div className="container mx-auto py-8 px-4">
+        <div className="max-w-7xl mx-auto">
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             
             <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Learn Anywhere</h3>
-              <p className="text-gray-600">Access courses on any device</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-2">Active Courses</h3>
+              <p className="text-3xl font-bold text-blue-600">{inProgressCourses}</p>
+            </div>
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <h3 className="text-sm font-medium text-gray-600 mb-2">Completed</h3>
+              <p className="text-3xl font-bold text-green-600">{completedCourses}</p>
+            </div>
+            <div className="bg-white rounded-lg shadow-sm border p-6">
+              <h3 className="text-sm font-medium text-gray-600 mb-2">Certificates</h3>
+              <p className="text-3xl font-bold text-purple-600">{totalCertificates}</p>
             </div>
             
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Track Progress</h3>
-              <p className="text-gray-600">Monitor your learning journey</p>
-            </div>
             
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Get Certified</h3>
-              <p className="text-gray-600">Earn industry-standard-recognized certifications</p>
-            </div>
+            
+
+            
+
             
           </div>
+
+          {/* Quick Actions */}
+          <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
+            <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              
+              <Link href="/student/courses" className="p-4 border rounded-lg hover:bg-gray-50">
+                <h3 className="font-semibold mb-1">My Courses</h3>
+                <p className="text-sm text-gray-600">View and access your courses</p>
+              </Link>
+              <Link href="/student/progress" className="p-4 border rounded-lg hover:bg-gray-50">
+                <h3 className="font-semibold mb-1">Track Progress</h3>
+                <p className="text-sm text-gray-600">See your learning progress</p>
+              </Link>
+              <Link href="/student/certificates" className="p-4 border rounded-lg hover:bg-gray-50">
+                <h3 className="font-semibold mb-1">Certificates</h3>
+                <p className="text-sm text-gray-600">View your achievements</p>
+              </Link>
+              
+
+              
+
+              
+
+              
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

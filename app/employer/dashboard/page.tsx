@@ -4,81 +4,103 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/employer/dashboard",
-  },
-  title: 'Dashboard | Elevate For Humanity',
-  description: 'Discover more about Dashboard inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Employer Dashboard',
+  description: 'Dashboard for employer',
 };
 
-export default async function Page() {
+export default async function DashboardPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
+
+  if (!user) {
+    redirect('/login');
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
+  if (!profile) {
+    redirect('/login');
+  }
+
+  
+  // Fetch employer data
+  const { data: jobPostings, count: totalJobs } = await supabase
+    .from('job_postings')
+    .select('*', { count: 'exact' })
+    .eq('employer_id', user.id)
+    .order('created_at', { ascending: false });
+
+  const { count: activeJobs } = await supabase
+    .from('job_postings')
+    .select('*', { count: 'exact', head: true })
+    .eq('employer_id', user.id)
+    .eq('status', 'active');
+
+  const { count: totalApplications } = await supabase
+    .from('job_applications')
+    .select('*', { count: 'exact', head: true })
+    .in('job_posting_id', jobPostings?.map(j => j.id) || []);
+
+  const { count: newApplications } = await supabase
+    .from('job_applications')
+    .select('*', { count: 'exact', head: true })
+    .in('job_posting_id', jobPostings?.map(j => j.id) || [])
+    .eq('status', 'pending');
+
+  const { data: recentApplications } = await supabase
+    .from('job_applications')
+    .select(`
+      *,
+      profiles (full_name, email),
+      job_postings (title)
+    `)
+    .in('job_posting_id', jobPostings?.map(j => j.id) || [])
+    .order('created_at', { ascending: false })
+    .limit(10);
+
 
   return (
-    <div className="min-h-screen bg-white">
-      <section className="bg-blue-700 text-white py-20">
+    <div className="min-h-screen bg-gray-50">
+      <section className="bg-blue-700 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Dashboard | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Discover more about Dashboard inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex gap-4 justify-center">
-              <Link href="/employer/jobs/new" className="bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-orange-50 text-lg">
-                Post a Job
-              </Link>
-              <Link href="/employer/candidates" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
-                Find Candidates
-              </Link>
-            </div>
+          <div className="max-w-7xl mx-auto">
+            <h1 className="text-4xl font-bold mb-2">Employer Dashboard</h1>
+            <p className="text-xl text-blue-100">Welcome back, {profile.full_name || profile.email}</p>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <div className="container mx-auto py-8 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             
             <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Post Jobs</h3>
-              <p className="text-gray-600">Create and manage job postings</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-2">Active Jobs</h3>
+              <p className="text-3xl font-bold text-blue-600">{activeJobs || 0}</p>
             </div>
-            
             <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Find Talent</h3>
-              <p className="text-gray-600">Access qualified candidates</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-2">Applications</h3>
+              <p className="text-3xl font-bold text-green-600">{totalApplications || 0}</p>
             </div>
-            
             <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Hire Fast</h3>
-              <p className="text-gray-600">Streamlined hiring process</p>
+              <h3 className="text-sm font-medium text-gray-600 mb-2">New</h3>
+              <p className="text-3xl font-bold text-orange-600">{newApplications || 0}</p>
             </div>
-            
+
+          </div>
+
+          <div className="bg-white rounded-lg shadow-sm border p-6">
+            <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
+            <div className="space-y-2">
+              <p className="text-gray-600">Activity feed will appear here</p>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
