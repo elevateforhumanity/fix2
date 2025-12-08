@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import { requireAdmin } from '@/lib/authGuards';
 import { supabaseServer } from '@/lib/supabase-server';
 import Link from 'next/link';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
@@ -11,6 +13,17 @@ export const metadata: Metadata = {
 };
 
 export default async function CashAdvancesAdminPage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) redirect('/login');
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single();
+
   await requireAdmin();
 
   const supabase = supabaseServer();
@@ -344,7 +357,33 @@ export default async function CashAdvancesAdminPage() {
         </div>
       </section>
 
-      </div>
+      
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+            <p className="text-xl mb-8 text-blue-100">
+              Take the first step toward a better career today.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg"
+              >
+                Apply Now
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg"
+              >
+                View Programs
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

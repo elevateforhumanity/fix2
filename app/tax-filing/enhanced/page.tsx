@@ -15,6 +15,25 @@ export default function TaxFilingEnhancedPage() {
       <section className="relative h-[700px] bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/gallery/image8.jpg"
+          alt="Hero"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
+          <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
+        </div>
+      </section>
+
+
           <div className="absolute inset-0" style={{
             backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
           }} />

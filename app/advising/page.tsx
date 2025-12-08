@@ -44,6 +44,25 @@ export default function AdvisingPage() {
   return (
     <main className="min-h-screen bg-slate-50 py-12">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
+        <Image
+          src="/images/gallery/image8.jpg"
+          alt="Hero"
+          fill
+          className="object-cover"
+          quality={100}
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
+          <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
+        </div>
+      </section>
+
+
         <header className="mb-8">
           <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">
             Student Advising
