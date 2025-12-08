@@ -3,7 +3,6 @@ import EnrollmentProcess from '@/components/EnrollmentProcess';
 import Link from "next/link";
 import Image from "next/image";
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
-import { CountUp } from '@/components/animations/CountUp';
 import { StaggeredReveal } from '@/components/animations/StaggeredReveal';
 import { TrustBadges } from '@/components/TrustBadges';
 
@@ -20,77 +19,56 @@ export default function Home() {
       </section>
 
       {/* HERO - Clean, Minimal, Industrious Style */}
-      <section className="relative h-[600px] sm:h-[700px] w-full overflow-hidden bg-white">
+      <section className="relative h-[600px] sm:h-[700px] w-full overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800">
         <div className="absolute inset-0">
           <Image
             src="/media-backup-20251128-043832/hero-elevate-learners.jpg"
-            alt="Elevate for Humanity - Real Students in Training"
+            alt="Career training that changes lives"
             fill
-            className="object-cover brightness-110"
+            className="object-cover brightness-105"
             priority
-            quality={90}
+            quality={95}
             sizes="100vw"
           />
         </div>
-        {/* Light overlay for text readability - Industrious style */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/10"></div>
+        {/* Minimal overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-transparent to-black/20"></div>
         
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
             {/* Simple, powerful headline */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               The <em className="italic">best</em> career training, period.
             </h1>
             
             {/* Clear value proposition */}
-            <p className="text-xl sm:text-2xl text-white mb-8 font-light max-w-3xl mx-auto">
+            <p className="text-xl sm:text-2xl text-white mb-10 font-light max-w-3xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               100% government-funded training. Earn while you learn. No tuition, no debt.
             </p>
             
             {/* Single, clear CTA */}
-            <div className="mb-12">
+            <div className="mb-16">
               <Link
                 href="/apply"
-                className="inline-block px-12 py-5 bg-orange-600 text-white font-bold text-xl rounded-full button-scale shadow-2xl"
+                className="inline-block px-12 py-5 bg-orange-600 text-white font-bold text-xl rounded-full hover:bg-orange-700 transition-all shadow-[0_8px_30px_rgba(234,88,12,0.5)] hover:shadow-[0_8px_40px_rgba(234,88,12,0.7)] hover:scale-105 border-2 border-orange-500"
               >
                 Check Your Eligibility →
               </Link>
             </div>
 
-            {/* Clean stats with icons */}
+            {/* Clean stats */}
             <div className="flex flex-wrap justify-center gap-12 text-white">
-              <div className="text-center group">
-                <div className="w-16 h-16 mx-auto mb-3 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
-                <div className="text-5xl font-bold mb-1">
-                  <CountUp end={33} />
-                </div>
-                <div className="text-sm font-light">Career Programs</div>
+              <div className="text-center">
+                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">33</div>
+                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Career Programs</div>
               </div>
-              <div className="text-center group">
-                <div className="w-16 h-16 mx-auto mb-3 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div className="text-5xl font-bold mb-1">
-                  $<CountUp end={0} />
-                </div>
-                <div className="text-sm font-light">Tuition Cost</div>
+              <div className="text-center">
+                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">$0</div>
+                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Tuition Cost</div>
               </div>
-              <div className="text-center group">
-                <div className="w-16 h-16 mx-auto mb-3 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <div className="text-5xl font-bold mb-1">
-                  $<CountUp end={15} />-<CountUp end={20} />/hr
-                </div>
-                <div className="text-sm font-light">While Training</div>
+              <div className="text-center">
+                <div className="text-5xl font-bold mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">$15-20/hr</div>
+                <div className="text-sm font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">While Training</div>
               </div>
             </div>
           </div>
