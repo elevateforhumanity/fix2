@@ -82,41 +82,93 @@ export default function TaxPrepPage() {
         </div>
       </section>
 
-      {/* Why This Career */}
-      <section className="py-20">
+      {/* Program Highlights - 4 Images */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Tax Preparation Training Highlights
+            </h2>
+            <p className="text-xl text-slate-600">
+              IRS-certified training with real-world tax scenarios
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/tax-highlight-1.jpg"
+                alt="Tax preparation training - Professional workspace"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/tax-highlight-2.jpg"
+                alt="Tax preparation training - Client consultation"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/tax-highlight-3.jpg"
+                alt="Tax preparation training - Tax software"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/tax-highlight-4.jpg"
+                alt="Tax preparation training - Professional development"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 50vw, 25vw"
+              />
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-slate-900 mb-6">
-                Why Choose Tax Prep?
+                Why Choose Tax Preparation?
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-slate-900">High Demand Career</div>
-                    <div className="text-slate-600">Growing industry with thousands of job openings</div>
+                    <div className="font-semibold text-slate-900">Seasonal High Income</div>
+                    <div className="text-slate-600">Earn $35K-$60K during tax season</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-slate-900">Good Income Potential</div>
-                    <div className="text-slate-600">Competitive salary with room for growth</div>
+                    <div className="font-semibold text-slate-900">IRS Certification</div>
+                    <div className="text-slate-600">Become an IRS-certified tax preparer</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-slate-900">No Experience Required</div>
-                    <div className="text-slate-600">We start from the basics and build your skills</div>
+                    <div className="font-semibold text-slate-900">Flexible Schedule</div>
+                    <div className="text-slate-600">Work during tax season, free time rest of year</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                   <div>
-                    <div className="font-semibold text-slate-900">Career Stability</div>
-                    <div className="text-slate-600">Essential skills that are always in demand</div>
+                    <div className="font-semibold text-slate-900">Start Your Own Business</div>
+                    <div className="text-slate-600">Build your own tax preparation practice</div>
                   </div>
                 </div>
               </div>
@@ -127,16 +179,15 @@ export default function TaxPrepPage() {
                 Start Your Career Today
               </Link>
             </div>
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/gallery/image6.jpg"
+                src="/media/programs/tax-highlight-1.jpg"
                 alt="Tax Prep professional at work"
                 fill
                 className="object-cover"
                 quality={100}
-              
-          sizes="100vw"
-        />
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>

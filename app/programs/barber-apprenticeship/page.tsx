@@ -14,18 +14,38 @@ export const metadata: Metadata = {
 export default function BarberApprenticeshipPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Hero Section with Full Video Backdrop */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
-        <Image
-          src="/images/gallery/image6.jpg"
-          alt="Barber Apprenticeship Training"
-          fill
-          className="object-cover"
-          priority
-          quality={100}
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/40" />
+        {/* Full Video Background - Maximum Quality */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            style={{ 
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+              filter: 'contrast(1.05) saturate(1.1) brightness(0.95)',
+              imageRendering: 'high-quality'
+            }}
+          >
+            <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-c913a513-dde0-4ac7-ae3c-53a453b8b83d.mp4?Expires=2080579938&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=bci4L0nUlydNRWrQZU2TXiuNiaTOtWFSTcwDsFXVD1wtGnIjTpHNtF4xoUqNXpgtu3-WdWous6RTH8nkZl4RVvTmNjsWfY--5~x3WnC4QuYxep5iI0eEKuN8WOTXJ5cWryEb7RMnGAIMb5~ir3RcAb7Iaztw9nSl5grVDQSq4WGT1VM~rOpGGxtGlGdy~lraTjHJIEe3BkmkV8Or6RWKUerH4pJ0YFqjtEcIXiBc3SI3Z8s00fo0T9SKd61VrbxkB2v8BVZaOSsNwB4Dp9hBoHHT74FCn5uAMl0-Cpy4Tr8iUH01Cp1Lc2dNKwtzUTy7tfw9V4IS94CtAiHPeMHzcw__" type="video/mp4" />
+          </video>
+          
+          {/* Voiceover Audio */}
+          <audio autoPlay loop>
+            <source src="/videos/barber-spotlight-with-narration.mp4" type="audio/mp4" />
+          </audio>
+          
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+        </div>
+        
+        {/* Content */}
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
@@ -33,7 +53,7 @@ export default function BarberApprenticeshipPage() {
                 Barber Apprenticeship
               </h1>
               <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
-                Start your career with free training, AI-powered learning, and job placement support
+                Earn while you learn. Master your craft. Build your future.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link

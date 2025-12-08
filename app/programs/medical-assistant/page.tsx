@@ -82,9 +82,51 @@ export default function MedicalAssistantPage() {
         </div>
       </section>
 
-      {/* Why This Career */}
-      <section className="py-20">
+      {/* Program Highlights - 3 Images */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Medical Assistant Training Highlights
+            </h2>
+            <p className="text-xl text-slate-600">
+              Hands-on clinical training in real healthcare settings
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/medical-assistant-highlight-1.jpg"
+                alt="Medical Assistant training - Clinical skills"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/medical-assistant-highlight-2.jpg"
+                alt="Medical Assistant training - Patient care"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/medical-assistant-highlight-3.jpg"
+                alt="Medical Assistant training - Medical procedures"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-slate-900 mb-6">
@@ -127,16 +169,15 @@ export default function MedicalAssistantPage() {
                 Start Your Career Today
               </Link>
             </div>
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/gallery/image6.jpg"
+                src="/media/programs/medical-assistant-highlight-1.jpg"
                 alt="Medical Assistant professional at work"
                 fill
                 className="object-cover"
                 quality={100}
-              
-          sizes="100vw"
-        />
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>

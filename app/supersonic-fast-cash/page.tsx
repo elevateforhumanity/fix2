@@ -16,46 +16,49 @@ export default async function SupersonicFastCashPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section - Video Background */}
+      {/* Hero Section - Full Video Background (Industrious Style) */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] flex items-center justify-center text-white overflow-hidden">
-        {/* Video Background - Replace VIDEO_URL_HERE with your invideo.io download link */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="VIDEO_URL_HERE" type="video/mp4" />
-          {/* Fallback image if video doesn't load */}
-          <Image
-            src="/images/gallery/image8.jpg"
-            alt="Supersonic Fast Cash"
-            fill
-            className="object-cover"
-            quality={100}
-            priority
-            sizes="100vw"
-          />
-        </video>
-        <div className="absolute inset-0 bg-black/30" />
+        {/* Full Video Background - Maximum Quality */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ 
+              objectFit: 'cover',
+              width: '100%',
+              height: '100%',
+              filter: 'contrast(1.05) saturate(1.1)',
+              imageRendering: 'high-quality'
+            }}
+          >
+            <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-c913a513-dde0-4ac7-ae3c-53a453b8b83d.mp4?Expires=2080579938&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=bci4L0nUlydNRWrQZU2TXiuNiaTOtWFSTcwDsFXVD1wtGnIjTpHNtF4xoUqNXpgtu3-WdWous6RTH8nkZl4RVvTmNjsWfY--5~x3WnC4QuYxep5iI0eEKuN8WOTXJ5cWryEb7RMnGAIMb5~ir3RcAb7Iaztw9nSl5grVDQSq4WGT1VM~rOpGGxtGlGdy~lraTjHJIEe3BkmkV8Or6RWKUerH4pJ0YFqjtEcIXiBc3SI3Z8s00fo0T9SKd61VrbxkB2v8BVZaOSsNwB4Dp9hBoHHT74FCn5uAMl0-Cpy4Tr8iUH01Cp1Lc2dNKwtzUTy7tfw9V4IS94CtAiHPeMHzcw__" type="video/mp4" />
+          </video>
+          {/* Subtle gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+        </div>
+        
+        {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 text-center">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6" style={{ textShadow: '0 4px 12px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)' }}>
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 drop-shadow-2xl">
             Supersonic Fast Cash
           </h1>
-          <p className="text-xl sm:text-2xl md:text-3xl mb-8" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.6)' }}>
+          <p className="text-xl sm:text-2xl md:text-3xl mb-8 drop-shadow-lg">
             Get your tax refund advance fast - up to $6,000 in minutes
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/supersonic-fast-cash/apply"
-              className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-all hover:shadow-2xl shadow-xl"
+              className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
             >
               Apply Now
             </Link>
             <Link
               href="/supersonic-fast-cash/how-it-works"
-              className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-orange-600 bg-white rounded-lg hover:bg-gray-100 transition-all hover:shadow-2xl shadow-xl"
+              className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
             >
               How It Works
             </Link>
