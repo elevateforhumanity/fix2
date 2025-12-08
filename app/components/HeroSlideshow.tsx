@@ -9,9 +9,10 @@ export default function HeroSlideshow() {
   const [hasEnded, setHasEnded] = useState(false);
 
   useEffect(() => {
-    // Try to auto-play video with sound - NO LOOP, stops when done
+    // Start muted for autoplay to work, user can unmute
     if (videoRef.current) {
-      videoRef.current.muted = false;
+      videoRef.current.muted = true;
+      setIsMuted(true);
       videoRef.current.loop = false; // NO LOOPING
       
       // Stop when video ends
@@ -19,13 +20,8 @@ export default function HeroSlideshow() {
         setHasEnded(true);
       });
       
-      videoRef.current.play().catch(() => {
-        // If autoplay with sound fails, try muted
-        if (videoRef.current) {
-          videoRef.current.muted = true;
-          setIsMuted(true);
-          videoRef.current.play();
-        }
+      videoRef.current.play().catch((error) => {
+        console.error('Video autoplay failed:', error);
       });
     }
   }, []);

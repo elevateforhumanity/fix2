@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Award, Clock } from "lucide-react";
-import HeroSlideshow from "./components/HeroSlideshow";
 
 export const metadata = {
   title: "Elevate for Humanity | Free Career Training Indianapolis",
@@ -17,8 +16,18 @@ export default function HomePage() {
     <main className="bg-white">
       {/* HERO - CLEAN & POWERFUL */}
       <section className="relative text-white overflow-hidden h-[500px] sm:h-[600px] md:h-[700px]">
-        {/* Background Slideshow */}
-        <HeroSlideshow />
+        {/* Background Image */}
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src="/images/hero-training.jpg"
+            alt="Career training at Elevate for Humanity"
+            fill
+            className="object-cover"
+            priority
+            quality={90}
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
 
         {/* Content */}
         <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-32">
@@ -35,23 +44,10 @@ export default function HomePage() {
               <span className="text-orange-400">New Career</span>
             </h1>
 
-            {/* Subheadline */}
+            {/* Subheadline - SHORTENED */}
             <p className="text-2xl md:text-3xl text-slate-200 mb-8 font-light">
-              Free training for those who qualify through government funding.<br />
-              No tuition. Real credentials. Job placement support.
+              Free training. Real credentials.
             </p>
-
-            {/* Key Stats */}
-            <div className="grid grid-cols-2 gap-6 mb-10 max-w-xl">
-              <div>
-                <div className="text-3xl font-bold text-orange-400">$0</div>
-                <div className="text-sm text-slate-300">Out of Pocket</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-orange-400">100%</div>
-                <div className="text-sm text-slate-300">Free Training</div>
-              </div>
-            </div>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
@@ -69,18 +65,6 @@ export default function HomePage() {
                 Check Your Funding
               </Link>
             </div>
-
-            {/* Trust Line */}
-            <p className="mt-8 text-sm text-slate-400">
-              Trusted by <strong className="text-white">EmployIndy</strong>, <strong className="text-white">WorkOne</strong>, <strong className="text-white">Indiana DWD</strong>, and <strong className="text-white">US Dept of Labor</strong>
-            </p>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-end justify-center pb-2">
-            <div className="w-1 h-2 bg-white/70 rounded-full" />
           </div>
         </div>
       </section>
