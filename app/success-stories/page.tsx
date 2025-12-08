@@ -52,7 +52,7 @@ export default function Page() {
           src="/media/testimonials/student-testimonial-graduate-hd.jpg"
           alt="Success stories - graduates celebrating"
           fill
-          className="object-cover brightness-110"
+          className="object-cover brightness-100"
           priority
           quality={100}
           sizes="100vw"

@@ -24,45 +24,56 @@ export default function ProgramHero({
 }: ProgramHeroProps) {
   return (
     <>
-      {/* Simple Hero - No Gradient, No Stretch */}
-      <section className="bg-white py-16 border-b">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">{title}</h1>
-            <p className="text-lg md:text-xl mb-8 text-gray-700">{description}</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link 
-                href="/apply" 
-                className="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition"
-              >
-                Apply Now - Free Training
-              </Link>
-              <Link 
-                href="/contact" 
-                className="bg-gray-100 text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-200 transition border-2 border-gray-300"
-              >
-                Learn More
-              </Link>
+      {/* High-Quality Hero Banner */}
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden">
+        {/* Hero Image - Maximum Quality */}
+        <div className="absolute inset-0">
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            fill
+            className="object-cover"
+            priority
+            quality={100}
+            sizes="100vw"
+          />
+          {/* Subtle overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
+            <div className="max-w-4xl">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 md:mb-8 tracking-tight drop-shadow-2xl">
+                {title}
+              </h1>
+              <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 md:mb-10 leading-relaxed drop-shadow-lg max-w-3xl">
+                {description}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 text-lg md:text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
+                >
+                  Apply Now - Free Training
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-8 py-4 md:px-10 md:py-5 text-lg md:text-xl font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
+                >
+                  Learn More
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Program Image & Quick Facts */}
+      {/* Quick Facts */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            {/* Image */}
-            <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                width={1200}
-                height={600}
-                className="w-full h-auto object-cover"
-                priority
-              />
-            </div>
 
             {/* Quick Facts */}
             <div className="grid md:grid-cols-4 gap-6">

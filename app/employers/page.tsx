@@ -25,7 +25,7 @@ export default async function Page() {
           src="/media/employers-hero.jpg"
           alt="Business team collaboration"
           fill
-          className="object-cover brightness-110"
+          className="object-cover brightness-100"
           priority
           quality={100}
           sizes="100vw"

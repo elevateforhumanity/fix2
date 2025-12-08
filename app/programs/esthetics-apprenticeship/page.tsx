@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative min-h-[250px] sm:h-[300px] md:h-[350px] flex items-center">
+      <section className="relative min-h-[400px] sm:h-[500px] md:h-[600px] flex items-center">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Esthetics Apprenticeship | Elevate For Humanity</h1>

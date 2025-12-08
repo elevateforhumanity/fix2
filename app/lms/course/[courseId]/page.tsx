@@ -57,7 +57,7 @@ export default async function Page({ params }: Props) {
             src={course.thumbnail_url}
             alt={course.title}
             fill
-            className="object-cover brightness-75"
+            className="object-cover brightness-90"
             priority
             sizes="100vw"
           />

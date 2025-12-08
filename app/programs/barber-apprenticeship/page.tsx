@@ -12,7 +12,7 @@ import Image from "next/image";
 export default function BarberApprenticeshipPage() {
   return (
     <main className="min-h-screen bg-white">
-      <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden">
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden">
         <Image
           src="/media-backup-20251128-043832/programs/barber.jpg"
           alt="Professional barber training and apprenticeship"

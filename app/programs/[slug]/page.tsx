@@ -80,13 +80,13 @@ export default async function ProgramPage({ params }: { params: { slug: string }
     <div className="min-h-screen bg-white text-slate-900">
 
       {/* HERO BANNER WITH FULL IMAGE */}
-      <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden">
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden">
         {/* Background Image */}
         <Image
           src={imageUrl}
           alt={displayName}
           fill
-          className="object-cover brightness-110"
+          className="object-cover brightness-100"
           priority
           quality={100}
           sizes="100vw"

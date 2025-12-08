@@ -18,12 +18,12 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full overflow-hidden bg-white">
+      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden bg-white">
         <Image
           src="/media/hero-slide-barber.jpg"
           alt="Barber Training Program"
           fill
-          className="object-cover brightness-110"
+          className="object-cover brightness-100"
           priority
           quality={100}
           sizes="100vw"

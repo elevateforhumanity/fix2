@@ -19,7 +19,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Image */}
-      <section className="relative min-h-[250px] sm:h-[300px] md:h-[350px] flex items-center">
+      <section className="relative min-h-[400px] sm:h-[500px] md:h-[600px] flex items-center">
         <div className="absolute inset-0">
           <Image
             src="/media/construction-training.png"

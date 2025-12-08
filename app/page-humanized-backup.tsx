@@ -24,7 +24,7 @@ export default function Home() {
             src="/media-backup-20251128-043832/homepage-hero.jpg"
             alt="Real people building real careers through government-funded training"
             fill
-            className="object-cover brightness-110"
+            className="object-cover brightness-100"
             priority
             quality={95}
             sizes="100vw"

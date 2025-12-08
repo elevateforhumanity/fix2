@@ -19,7 +19,7 @@ export default function Page() {
           src="/images/efh/hero/hero-main.jpg"
           alt="Contact Elevate For Humanity"
           fill
-          className="object-cover brightness-110"
+          className="object-cover brightness-100"
           priority
           quality={100}
           sizes="100vw"

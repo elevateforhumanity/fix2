@@ -15,14 +15,14 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       {/* HERO - CLEAN & POWERFUL */}
-      <section className="relative bg-slate-900 text-white overflow-hidden">
+      <section className="relative bg-slate-900 text-white overflow-hidden h-[500px] sm:h-[600px] md:h-[700px]">
         {/* Background Image - NO OVERLAY */}
         <div className="absolute inset-0">
           <Image
             src="/images/students-new/student-11.jpg"
             alt="Elevate for Humanity students in career training programs"
             fill
-            className="object-cover brightness-75"
+            className="object-cover brightness-90"
             priority
             quality={100} sizes="100vw"
           />
