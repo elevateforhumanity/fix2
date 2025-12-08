@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { CheckCircle, Clock, DollarSign, TrendingUp, Zap, Users } from 'lucide-react';
+import { CheckCircle, Clock, DollarSign, TrendingUp, Zap, Users, BookOpen, Award, Shield, Star, Quote } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Barber Training | Elevate For Humanity',
@@ -14,15 +14,16 @@ export const metadata: Metadata = {
 export default function BarberPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section - Video Background with Natural Voice */}
+      {/* Hero Section - Video Background */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
         <video
           autoPlay
           loop
+          muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/videos/hero-video-with-audio.mp4" type="video/mp4" />
+          <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/video-a4182256-dd84-450e-8c4d-de7b8b0fb949.mp4?Expires=2080573529&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=lkxJ9hWZ9M1zjea0hNnwr73vSnncdQu7-dlD1MpCh2xlhtymVr917riHsZRiO3Zk5Vg2iYUG6dwPeFisVcWapA-aM5F3Wd~6W8ApbMx3kxF-cpxTqgO-GxUMmPLlq8BAW1ArQ7R7Ru1KTm~Et5Uf4lCshLB~7QjHZFtVR4pzGSLBcdJG1M~3ge0eBCEaD6d4GlJ5xntHkE9ZDFS-modw2wbgLRaKGd3Fn5Rh2y32NlixNapRD-p13fGIAr2sNxrectg0UxkKczYK3ILjP8uiOZp0cYwaELx8RCsks0PVnPnbzYPonjnN4~rvA5yK5XQ3J~k-r3d-dwEAh4nLO0XV9g__" type="video/mp4" />
         </video>
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
@@ -177,8 +178,301 @@ export default function BarberPage() {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* Curriculum Breakdown */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Complete Curriculum
+            </h2>
+            <p className="text-xl text-slate-600">
+              Everything you need to become a licensed barber
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <BookOpen className="w-6 h-6 text-orange-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">Module 1: Fundamentals</h3>
+                  <ul className="text-sm text-slate-600 space-y-1">
+                    <li>• Safety and sanitation</li>
+                    <li>• Tools and equipment</li>
+                    <li>• Client consultation</li>
+                    <li>• Professional standards</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <BookOpen className="w-6 h-6 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">Module 2: Hair Cutting</h3>
+                  <ul className="text-sm text-slate-600 space-y-1">
+                    <li>• Basic cutting techniques</li>
+                    <li>• Clipper work and fades</li>
+                    <li>• Scissor techniques</li>
+                    <li>• Style finishing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <BookOpen className="w-6 h-6 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">Module 3: Shaving</h3>
+                  <ul className="text-sm text-slate-600 space-y-1">
+                    <li>• Straight razor techniques</li>
+                    <li>• Beard trimming and shaping</li>
+                    <li>• Hot towel treatments</li>
+                    <li>• Facial grooming</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <BookOpen className="w-6 h-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">Module 4: Hair Styling</h3>
+                  <ul className="text-sm text-slate-600 space-y-1">
+                    <li>• Product knowledge</li>
+                    <li>• Styling techniques</li>
+                    <li>• Texture and wave patterns</li>
+                    <li>• Modern trends</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <BookOpen className="w-6 h-6 text-red-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">Module 5: Business Skills</h3>
+                  <ul className="text-sm text-slate-600 space-y-1">
+                    <li>• Customer service</li>
+                    <li>• Appointment management</li>
+                    <li>• Marketing yourself</li>
+                    <li>• Building clientele</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Award className="w-6 h-6 text-yellow-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">Module 6: Certification</h3>
+                  <ul className="text-sm text-slate-600 space-y-1">
+                    <li>• State board preparation</li>
+                    <li>• Practice exams</li>
+                    <li>• Licensing requirements</li>
+                    <li>• Career placement</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Instructor Profile */}
       <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Learn From Industry Experts
+            </h2>
+            <p className="text-xl text-slate-600">
+              Experienced instructors with decades of combined experience
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
+              <div className="w-24 h-24 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Users className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Master Barbers</h3>
+              <p className="text-slate-600 mb-4">
+                Learn from licensed professionals with 15+ years of experience in top barbershops
+              </p>
+              <div className="flex items-center justify-center gap-1 text-yellow-500">
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+              </div>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
+              <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Award className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">State Licensed</h3>
+              <p className="text-slate-600 mb-4">
+                All instructors are state-certified and meet the highest professional standards
+              </p>
+              <div className="flex items-center justify-center gap-1 text-yellow-500">
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+              </div>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
+              <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <TrendingUp className="w-12 h-12 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Career Mentors</h3>
+              <p className="text-slate-600 mb-4">
+                Get guidance on building your career, finding jobs, and growing your business
+              </p>
+              <div className="flex items-center justify-center gap-1 text-yellow-500">
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+                <Star className="w-5 h-5 fill-current" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Success Stories
+            </h2>
+            <p className="text-xl text-slate-600">
+              Hear from graduates who transformed their lives
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <Quote className="w-10 h-10 text-orange-500 mb-4" />
+              <p className="text-slate-700 mb-6 italic">
+                "This program changed my life. I went from unemployed to running my own chair in just 4 months. The AI support helped me learn at my own pace."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-white font-bold">
+                  MJ
+                </div>
+                <div>
+                  <div className="font-bold text-slate-900">Marcus Johnson</div>
+                  <div className="text-sm text-slate-600">Graduate, Class of 2024</div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <Quote className="w-10 h-10 text-blue-500 mb-4" />
+              <p className="text-slate-700 mb-6 italic">
+                "I was nervous about going back to school, but the instructors made it easy. Now I'm making more money than I ever thought possible."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+                  DW
+                </div>
+                <div>
+                  <div className="font-bold text-slate-900">David Williams</div>
+                  <div className="text-sm text-slate-600">Graduate, Class of 2024</div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white p-8 rounded-2xl shadow-lg">
+              <Quote className="w-10 h-10 text-purple-500 mb-4" />
+              <p className="text-slate-700 mb-6 italic">
+                "Best decision I ever made. The free training removed all barriers, and the job placement support got me hired immediately after graduation."
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                  TR
+                </div>
+                <div>
+                  <div className="font-bold text-slate-900">Tyrone Roberts</div>
+                  <div className="text-sm text-slate-600">Graduate, Class of 2023</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Badges and Guarantees */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+              Your Success is Guaranteed
+            </h2>
+            <p className="text-xl text-slate-600">
+              We're committed to your success every step of the way
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl text-center">
+              <Shield className="w-12 h-12 text-green-600 mx-auto mb-3" />
+              <h3 className="font-bold text-slate-900 mb-2">100% Free Training</h3>
+              <p className="text-sm text-slate-700">
+                No tuition, no hidden fees, no debt. Completely free education.
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center">
+              <Award className="w-12 h-12 text-blue-600 mx-auto mb-3" />
+              <h3 className="font-bold text-slate-900 mb-2">State Accredited</h3>
+              <p className="text-sm text-slate-700">
+                Fully accredited program meets all state licensing requirements.
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl text-center">
+              <Users className="w-12 h-12 text-purple-600 mx-auto mb-3" />
+              <h3 className="font-bold text-slate-900 mb-2">Job Placement</h3>
+              <p className="text-sm text-slate-700">
+                Dedicated support to help you find employment after graduation.
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl text-center">
+              <Zap className="w-12 h-12 text-orange-600 mx-auto mb-3" />
+              <h3 className="font-bold text-slate-900 mb-2">24/7 AI Support</h3>
+              <p className="text-sm text-slate-700">
+                Never feel stuck with round-the-clock AI instructor assistance.
+              </p>
+            </div>
+          </div>
+          <div className="mt-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-center text-white">
+            <h3 className="text-2xl font-bold mb-4">Our Promise to You</h3>
+            <p className="text-lg mb-6 max-w-3xl mx-auto">
+              If you complete the program and don't pass your state licensing exam on the first try, we'll provide additional training and support at no cost until you succeed.
+            </p>
+            <Link
+              href="/apply?program=barber"
+              className="inline-block px-10 py-4 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-xl"
+            >
+              Start Your Journey Today
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">
