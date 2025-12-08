@@ -23,7 +23,7 @@ import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
 import { InvisibleWatermark, DMCATrackingPixel } from '@/components/InvisibleWatermark';
 import { ScraperDetection } from '@/components/ScraperDetection';
-import CopyrightProtection from '@/components/CopyrightProtection';
+import { CopyrightProtection } from '@/components/CopyrightProtection';
 
 const inter = Inter({
   subsets: ['latin'],
