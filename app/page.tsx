@@ -259,7 +259,7 @@ export default function HomePage() {
           </div>
           
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-lg">
+            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl shadow-lg">
               <Image
                 src="/images/gallery/image3.jpg"
                 alt="Elevate For Humanity training facility"
@@ -269,7 +269,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-lg">
+            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl shadow-lg">
               <Image
                 src="/images/gallery/image4.jpg"
                 alt="Professional training environment"
