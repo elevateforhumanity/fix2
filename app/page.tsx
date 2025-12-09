@@ -30,12 +30,6 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 md:py-24">
           <div className="max-w-3xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-green-500 px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-bold mb-4 sm:mb-6 animate-pulse">
-              <span className="text-base sm:text-lg">✓</span>
-              <span>100% FREE CAREER TRAINING</span>
-            </div>
-
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
               Start Your<br />
