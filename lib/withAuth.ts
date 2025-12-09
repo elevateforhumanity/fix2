@@ -1,7 +1,7 @@
 // lib/withAuth.ts - Centralized authentication wrapper
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/lib/supabase/server';
 import type { Database } from '@/types/database';
 
 type Role = 'student' | 'staff' | 'admin' | 'super_admin' | 'partner';
@@ -21,7 +21,7 @@ type Handler = (req: NextRequest, ctx: AuthedContext) =>
 
 export function withAuth(handler: Handler, options?: { roles?: Role[] }) {
   return async (req: NextRequest, context: { params?: any }) => {
-    const supabase = createRouteHandlerClient<Database>({ cookies });
+    const supabase = await createClient();
 
     const {
       data: { session },

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth';
-import {
 import { logger } from '@/lib/logger';
+import {
   startOnboarding,
   completeOnboarding,
   skipOnboarding,

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { apiAuthGuard } from '@/lib/authGuards';
-import {
 import { logger } from '@/lib/logger';
+import {
   createCoursePaymentIntent,
   createSubscriptionPaymentIntent,
   confirmPayment,
