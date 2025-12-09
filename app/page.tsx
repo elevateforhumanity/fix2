@@ -87,46 +87,92 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* OUR STORY - WHO WE ARE */}
-      <section className="py-20 bg-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+      {/* OUR STORY - WHO WE ARE - WITH IMAGES */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 sm:mb-6">
               Breaking Barriers, Building Futures
             </h2>
-            <div className="w-24 h-1 bg-orange-500 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-orange-500 mx-auto mb-6 sm:mb-8"></div>
           </div>
           
-          <div className="prose prose-lg max-w-none text-slate-700 space-y-6">
-            <p className="text-xl leading-relaxed">
-              <strong>We see you.</strong> Not your mistakes. Not your struggles. Not your zip code or your past. 
-              We see your potential, your determination, and your right to a better future.
-            </p>
+          {/* First Section - Text + Image */}
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
+            <div className="space-y-4 sm:space-y-6">
+              <p className="text-lg sm:text-xl leading-relaxed text-slate-700">
+                <strong>We see you.</strong> Not your mistakes. Not your struggles. Not your zip code or your past. 
+                We see your potential, your determination, and your right to a better future.
+              </p>
+              
+              <p className="text-base sm:text-lg leading-relaxed text-slate-700">
+                Elevate For Humanity was born from a simple truth: everyone deserves a chance to earn a living wage, 
+                support their family, and build a life they're proud of.
+              </p>
+            </div>
             
-            <p className="text-lg leading-relaxed">
-              Elevate For Humanity was born from a simple truth: everyone deserves a chance to earn a living wage, 
-              support their family, and build a life they're proud of. But for too many people in Indianapolis, 
-              the system has failed them. Traditional education is too expensive. Job training programs have waiting lists. 
-              Employers won't hire without experience. It's a cycle that keeps people trapped.
-            </p>
+            <div className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/cna-hd.jpg"
+                alt="Healthcare training student"
+                fill
+                className="object-cover"
+                quality={75}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+
+          {/* Second Section - Image + Text */}
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
+            <div className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-xl md:order-first">
+              <Image
+                src="/media/programs/barber-hd.jpg"
+                alt="Barber training in action"
+                fill
+                className="object-cover"
+                quality={75}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
             
-            <p className="text-lg leading-relaxed">
-              <strong>We're breaking that cycle.</strong> Through partnerships with workforce boards, justice programs, 
-              and employers who believe in second chances, we've created a pathway that actually works. Free training 
-              in high-demand careers. Real credentials that employers respect. Job placement support that doesn't stop 
-              until you're hired.
-            </p>
+            <div className="space-y-4 sm:space-y-6">
+              <p className="text-base sm:text-lg leading-relaxed text-slate-700">
+                <strong>We're breaking that cycle.</strong> Through partnerships with workforce boards, justice programs, 
+                and employers who believe in second chances, we've created a pathway that actually works.
+              </p>
+              
+              <p className="text-base sm:text-lg leading-relaxed text-slate-700">
+                Free training in high-demand careers. Real credentials that employers respect. Job placement support 
+                that doesn't stop until you're hired.
+              </p>
+            </div>
+          </div>
+
+          {/* Third Section - Text + Image */}
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12">
+            <div className="space-y-4 sm:space-y-6">
+              <p className="text-base sm:text-lg leading-relaxed text-slate-700">
+                Whether you're coming home from incarceration, working two jobs but still can't pay rent, or just need 
+                someone to believe in you—<strong>we're that someone.</strong>
+              </p>
+              
+              <p className="text-lg sm:text-xl font-semibold text-slate-900 leading-relaxed">
+                This isn't charity. This is justice. This is what happens when a community decides that everyone—
+                regardless of their past—deserves a shot at a better future.
+              </p>
+            </div>
             
-            <p className="text-lg leading-relaxed">
-              Whether you're coming home from incarceration, working two jobs but still can't pay rent, or just need 
-              someone to believe in you—<strong>we're that someone.</strong> We'll help you navigate the paperwork, 
-              cover your training costs, teach you the skills, and connect you with employers ready to hire.
-            </p>
-            
-            <p className="text-xl font-semibold text-slate-900 leading-relaxed">
-              This isn't charity. This is justice. This is what happens when a community decides that everyone—
-              regardless of their past—deserves a shot at a better future.
-            </p>
+            <div className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/cdl-hd.jpg"
+                alt="CDL training success"
+                fill
+                className="object-cover"
+                quality={75}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -263,7 +309,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
             <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/media/programs/culinary-arts-hd.jpg"
+                src="/images/pathways/trades-hero.jpg"
                 alt="Elevate For Humanity training facility"
                 fill
                 className="object-cover object-center"
@@ -273,7 +319,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/media/programs/counseling-training-hd.jpg"
+                src="/images/pathways/business-hero.jpg"
                 alt="Professional training environment"
                 fill
                 className="object-cover object-center"
