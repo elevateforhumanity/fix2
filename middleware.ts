@@ -22,15 +22,12 @@ const HIGH_RISK_COUNTRIES = [
   'IN', // India - scraping farms (but allow for legitimate users)
 ];
 
-// Suspicious patterns in requests
+// Suspicious patterns in requests (RELAXED - removed legitimate testing tools)
 const SUSPICIOUS_PATTERNS = [
   /wget/i,
-  /curl/i,
   /scrapy/i,
-  /selenium/i,
-  /puppeteer/i,
-  /playwright/i,
-  /headless/i,
+  // Removed: /curl/i, /selenium/i, /puppeteer/i, /playwright/i, /headless/i
+  // These are legitimate testing and monitoring tools
 ];
 
 export function middleware(request: NextRequest) {
@@ -39,7 +36,21 @@ export function middleware(request: NextRequest) {
   const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
   const country = request.geo?.country || 'unknown';
   
-  // Check for suspicious patterns in user agent
+  // EXEMPT CRITICAL ENDPOINTS FROM ALL RESTRICTIONS
+  const pathname = request.nextUrl.pathname;
+  if (
+    pathname.startsWith('/api/applications') ||
+    pathname.startsWith('/api/enroll') ||
+    pathname.startsWith('/apply') ||
+    pathname.startsWith('/api/auth') ||
+    pathname === '/' ||
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/favicon')
+  ) {
+    return NextResponse.next();
+  }
+  
+  // Check for suspicious patterns in user agent (RELAXED - removed testing tools)
   const hasSuspiciousPattern = SUSPICIOUS_PATTERNS.some(pattern => 
     pattern.test(userAgent)
   );
@@ -58,7 +69,7 @@ export function middleware(request: NextRequest) {
   // Geo-fencing: Extra scrutiny for high-risk regions
   // Note: We don't block entirely, just apply stricter rate limits
   const isHighRisk = HIGH_RISK_COUNTRIES.includes(country);
-  const rateLimit = isHighRisk ? 50 : 100; // Stricter limit for high-risk regions
+  const rateLimit = isHighRisk ? 200 : 500; // INCREASED from 50/100 to 200/500
   
   // Block AI scrapers
   for (const blockedAgent of BLOCKED_USER_AGENTS) {
@@ -82,7 +93,7 @@ export function middleware(request: NextRequest) {
     if (now < rateLimitEntry.resetTime) {
       if (rateLimitEntry.count >= rateLimit) {
         console.log(`Rate limit exceeded for ${ip} (${country}): ${rateLimitEntry.count} requests`);
-        return new NextResponse('Rate Limit Exceeded', { 
+        return new NextResponse('Rate Limit Exceeded - Please try again in a few minutes. If you need immediate assistance, call 317-314-3757', { 
           status: 429,
           headers: {
             'Retry-After': String(Math.ceil((rateLimitEntry.resetTime - now) / 1000)),
@@ -94,10 +105,10 @@ export function middleware(request: NextRequest) {
       }
       rateLimitEntry.count++;
     } else {
-      rateLimitMap.set(ip, { count: 1, resetTime: now + 15 * 60 * 1000 });
+      rateLimitMap.set(ip, { count: 1, resetTime: now + 60 * 60 * 1000 }); // INCREASED to 1 hour
     }
   } else {
-    rateLimitMap.set(ip, { count: 1, resetTime: now + 15 * 60 * 1000 });
+    rateLimitMap.set(ip, { count: 1, resetTime: now + 60 * 60 * 1000 }); // INCREASED to 1 hour
   }
   
   // Handle elevateconnectsdirectory.org subdomain

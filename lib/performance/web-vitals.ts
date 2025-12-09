@@ -1,5 +1,5 @@
 // Web Vitals monitoring and reporting
-import { getCLS, getFID, getFCP, getLCP, getTTFB, Metric } from 'web-vitals';
+import { onCLS, onFCP, onLCP, onTTFB, onINP, type Metric } from 'web-vitals';
 
 export interface WebVitalsReport {
   name: string;
@@ -67,11 +67,11 @@ function sendToAnalytics(metric: Metric) {
 export function reportWebVitals() {
   if (typeof window === 'undefined') return;
 
-  getCLS(sendToAnalytics);
-  getFID(sendToAnalytics);
-  getFCP(sendToAnalytics);
-  getLCP(sendToAnalytics);
-  getTTFB(sendToAnalytics);
+  onCLS(sendToAnalytics);
+  onINP(sendToAnalytics); // INP replaced FID in web-vitals v3+
+  onFCP(sendToAnalytics);
+  onLCP(sendToAnalytics);
+  onTTFB(sendToAnalytics);
 }
 
 // Performance observer for custom metrics

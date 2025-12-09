@@ -65,10 +65,29 @@ export interface PartnerAPIConfig {
 export abstract class BasePartnerAPI {
   protected config: PartnerAPIConfig;
   protected partner: PartnerType;
+  protected httpClient: any; // HTTP client for API calls
 
   constructor(partner: PartnerType, config: PartnerAPIConfig = {}) {
     this.partner = partner;
     this.config = config;
+    this.httpClient = null; // Initialize as needed in subclasses
+  }
+
+  /**
+   * Logging helper
+   */
+  protected log(message: string, data?: any): void {
+    console.log(`[${this.partner.toUpperCase()}] ${message}`, data || '');
+  }
+
+  /**
+   * Get default headers for API requests
+   */
+  protected getDefaultHeaders(): Record<string, string> {
+    return {
+      'Content-Type': 'application/json',
+      'User-Agent': 'ElevateForHumanity/1.0',
+    };
   }
 
   abstract createAccount(student: StudentData): Promise<PartnerAccount>;
