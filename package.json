@@ -170,7 +170,7 @@
     "postcss": "8.4.49",
     "prettier": "3.6.2",
     "puppeteer": "24.30.0",
-    "rimraf": "5.0.10",
+    "rimraf": "6.1.2",
     "schema-dts": "1.1.5",
     "serve": "14.2.5",
     "sort-package-json": "3.4.0",
