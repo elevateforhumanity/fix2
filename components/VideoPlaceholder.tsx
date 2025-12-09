@@ -33,7 +33,6 @@ export function VideoPlaceholder({
           </p>
         </div>
       </div>
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-slate-100/40 via-transparent to-slate-200/60" />
     </div>
   );
 }

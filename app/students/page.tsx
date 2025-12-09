@@ -4,12 +4,11 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/students",
-  },
   title: 'Students | Elevate For Humanity',
-  description: 'Discover more about Students inside the Elevate For Humanity workforce ecosystem.',
+  description: 'Learn more about Students inside the Elevate For Humanity workforce ecosystem.',
 };
 
 export default async function Page() {
@@ -19,15 +18,15 @@ export default async function Page() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative h-[500px] w-full overflow-hidden">
+      {/* Hero Banner with Background Image */}
+      <section className="relative h-[400px] w-full overflow-hidden">
         <Image
-          src="/media/students-hero.jpg"
+          src="/images/programs/efh-cna-hero.jpg"
           alt="Students learning together"
           fill
           className="object-cover"
-          priority quality={100} sizes="100vw"
+          priority quality={85} sizes="100vw"
         />
-        
         
         <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center text-white">
@@ -88,8 +87,7 @@ export default async function Page() {
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media/federal-funding-hero.jpg" alt="100% Free Training" fill
-className="object-cover" sizes="80px" quality={100} />
+                <Image src="/images/programs/efh-cna-hero.jpg" alt="100% Free Training" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">100% Free Training</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -99,8 +97,7 @@ className="object-cover" sizes="80px" quality={100} />
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media/program-cna.jpg" alt="Industry Certifications" fill
-className="object-cover" sizes="80px" quality={100} />
+                <Image src="/images/programs/efh-cna-hero.jpg" alt="Industry Certifications" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Industry Certifications</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -110,8 +107,7 @@ className="object-cover" sizes="80px" quality={100} />
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media/support-services.jpg" alt="Housing Assistance" fill
-className="object-cover" sizes="80px" quality={100} />
+                <Image src="/images/programs/efh-cna-hero.jpg" alt="Housing Assistance" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Housing Assistance</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -121,8 +117,7 @@ className="object-cover" sizes="80px" quality={100} />
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media/efh-about.jpg" alt="Mental Health Support" fill
-className="object-cover" sizes="80px" quality={100} />
+                <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Mental Health Support" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Mental Health Support</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -132,8 +127,7 @@ className="object-cover" sizes="80px" quality={100} />
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media-backup-20251128-043832/students-hero.jpg" alt="Life Coaching" fill
-className="object-cover" sizes="80px" quality={100} />
+                <Image src="/images/programs/efh-cna-hero.jpg" alt="Life Coaching" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Life Coaching</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -143,8 +137,7 @@ className="object-cover" sizes="80px" quality={100} />
 
             <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media-backup-20251128-043832/students-hero.jpg" alt="Direct Employer Connections" fill
-className="object-cover" sizes="80px" quality={100} />
+                <Image src="/images/programs/efh-cna-hero.jpg" alt="Direct Employer Connections" fill className="object-cover" sizes="80px" quality={85} />
               </div>
               <h3 className="text-2xl font-bold mb-4 text-center">Direct Employer Connections</h3>
               <p className="text-slate-700 leading-relaxed">
@@ -195,7 +188,7 @@ className="object-cover" sizes="80px" quality={100} />
               <div>
                 <h3 className="text-2xl font-bold mb-3">Get Certified</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Earn industry-standard-recognized certifications and licenses. We cover exam fees and provide test prep. You'll graduate with credentials that employers recognize and value.
+                  Earn industry-recognized certifications and licenses. We cover exam fees and provide test prep. You'll graduate with credentials that employers recognize and value.
                 </p>
               </div>
             </div>

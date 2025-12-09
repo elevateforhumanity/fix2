@@ -1,30 +1,79 @@
-import programsData from "../config/programs.json";
+import { createClient } from '@/lib/supabase/server';
+import { createStaticClient } from '@/lib/supabase/static';
 
 export type Program = {
+  id: string;
   slug: string;
   name: string;
-  shortTagline: string;
-  heroImage: string;
-  heroImageAlt: string;
-  level: string;
-  duration: string;
-  format: string;
-  schedule: string;
-  tuitionNotes: string;
-  fundingOptions: string[];
-  whoItIsFor: string[];
-  outcomes: string[];
-  highlights: string[];
-  ctaPrimary: { label: string; href: string };
-  ctaSecondary?: { label: string; href: string };
+  title: string;
+  category: string;
+  description: string;
+  full_description?: string;
+  what_you_learn?: string[];
+  funding_tags?: string[];
+  funding_pathways?: string[];
+  estimated_hours?: number;
+  training_hours?: number;
+  is_active: boolean;
+  wioa_approved?: boolean;
+  hero_image_url?: string;
+  image_url?: string;
 };
 
-const programs = programsData as Program[];
+/**
+ * Get all programs - for build-time use (generateStaticParams)
+ */
+export async function getAllProgramsStatic(): Promise<Program[]> {
+  const supabase = createStaticClient();
+  
+  const { data: programs, error } = await supabase
+    .from('programs')
+    .select('*')
+    .eq('is_active', true)
+    .order('title');
 
-export function getAllPrograms(): Program[] {
-  return programs;
+  if (error) {
+    console.error('Error fetching programs:', error);
+    return [];
+  }
+
+  return programs || [];
 }
 
-export function getProgramBySlug(slug: string): Program | undefined {
-  return programs.find((p) => p.slug === slug);
+/**
+ * Get all programs - for runtime use
+ */
+export async function getAllPrograms(): Promise<Program[]> {
+  const supabase = await createClient();
+  
+  const { data: programs, error } = await supabase
+    .from('programs')
+    .select('*')
+    .eq('is_active', true)
+    .order('title');
+
+  if (error) {
+    console.error('Error fetching programs:', error);
+    return [];
+  }
+
+  return programs || [];
+}
+
+export async function getProgramBySlug(slug: string): Promise<Program | null> {
+  const supabase = await createClient();
+  
+  const { data: program, error } = await supabase
+    .from('programs')
+    .select('*')
+    .eq('slug', slug)
+    .eq('is_active', true)
+    .single();
+
+  if (error) {
+    console.error('Error fetching program:', error);
+    return null;
+  }
+
+  return program;
 }

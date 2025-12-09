@@ -42,10 +42,7 @@ export function VideoBackground({
       >
         <source src={videoUrl} type="video/mp4" />
       </video>
-      {/* Overlay */}
-      {overlay && (
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
-      )}
+
       {/* Content */}
       <div className="relative z-10">{children}</div>
     </div>

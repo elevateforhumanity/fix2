@@ -1,57 +1,61 @@
 import { Metadata } from 'next';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SignMOUForm } from './SignMOUForm';
+import { FileText, Shield, CheckCircle } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Get Started | Elevate For Humanity',
-  description: 'Start your free career training today. Apply for WIOA, WRG, or apprenticeship programs.',
+  title: 'Sign MOU | Elevate For Humanity',
+  description: 'Review and digitally sign your Program Partner Memorandum of Understanding.',
 };
 
-export default function Page() {
+export default async function SignMOUPage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    redirect('/login');
+  }
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Banner with Image */}
-      <section className="relative min-h-[400px] flex items-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/programs/building-maintenance-hero.jpg"
-            alt="Get Started with Free Training"
-            fill
-            className="object-cover"
-            priority 
-            quality={90} 
-            sizes="100vw"
-          />
-        </div>
-        
-        <div className="relative container mx-auto px-4 py-20">
-          <div className="max-w-4xl text-white">
-            <p className="text-sm font-bold uppercase tracking-wide text-orange-400 mb-4">
-              Begin Your Journey
-            </p>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-2xl">
-              Start Your Career Journey Today
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 drop-shadow-lg text-white/95">
-              100% free training. No cost, no debt. Real careers waiting. Get started in 3 simple steps.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link 
-                href="/apply" 
-                className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-700 text-lg shadow-2xl transition-all"
-              >
-                Apply Now - It's Free
-              </Link>
-              <Link 
-                href="/programs" 
-                className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-100 text-lg shadow-2xl transition-all border-2 border-white"
-              >
-                View Programs
-              </Link>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Header */}
+      <div className="bg-white border-b border-slate-200">
+        <div className="mx-auto max-w-4xl px-6 py-6">
+          <div className="flex items-center gap-3">
+            <FileText className="text-blue-600" size={32} />
+            <div>
+              <h1 className="text-3xl font-bold text-slate-900">
+                Sign Program Partner MOU
+              </h1>
+              <p className="text-slate-600 mt-1">Memorandum of Understanding</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div className="mx-auto max-w-4xl px-6 py-8">
+        {/* Info Cards */}
+        <div className="grid md:grid-cols-3 gap-4 mb-8">
+          <div className="bg-white rounded-lg p-4 border border-slate-200">
+            <Shield className="text-blue-600 mb-2" size={24} />
+            <h3 className="font-semibold text-slate-900 text-sm">Legally Binding</h3>
+            <p className="text-xs text-slate-600 mt-1">Digital signatures have the same legal effect as handwritten signatures</p>
+          </div>
+          <div className="bg-white rounded-lg p-4 border border-slate-200">
+            <CheckCircle className="text-green-600 mb-2" size={24} />
+            <h3 className="font-semibold text-slate-900 text-sm">Secure Process</h3>
+            <p className="text-xs text-slate-600 mt-1">Your signature is encrypted and stored securely</p>
+          </div>
+          <div className="bg-white rounded-lg p-4 border border-slate-200">
+            <FileText className="text-purple-600 mb-2" size={24} />
+            <h3 className="font-semibold text-slate-900 text-sm">Instant Processing</h3>
+            <p className="text-xs text-slate-600 mt-1">Receive confirmation immediately upon signing</p>
+          </div>
+        </div>
 
       {/* Image Section */}
       <section className="py-16">
@@ -93,14 +97,12 @@ export default function Page() {
                   
                 </ul>
               </div>
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/facilities-new/facility-1.jpg"
-                  alt="Training Facility"
-                  fill
-                  className="object-cover"
-                  quality={90}
-                />
+              <div className="relative">
+                <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg flex items-center justify-center">
+                  <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>

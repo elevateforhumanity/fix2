@@ -36,21 +36,18 @@ export function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Image */}
       {image && (
-        <>
-          <div className="absolute inset-0 opacity-30">
-            <Image
-              src={image}
-              alt={imageAlt}
-              fill
-              className="object-cover"
-              priority
-              quality={100}
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/40 to-transparent" />
-        </>
+        <div className="absolute inset-0 opacity-30">
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill
+            className="object-cover"
+            priority
+            quality={100}
+          />
+        </div>
       )}
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-16 md:py-24">

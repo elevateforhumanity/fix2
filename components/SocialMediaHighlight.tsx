@@ -6,7 +6,7 @@ export default function SocialMediaHighlight() {
     <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }} />
+        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6">
@@ -36,7 +36,6 @@ export default function SocialMediaHighlight() {
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-600/90 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="flex items-center gap-3 text-white">
                   <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center shadow-lg">
@@ -74,7 +73,6 @@ export default function SocialMediaHighlight() {
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-700/90 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="flex items-center gap-3 text-white">
                   <div className="w-12 h-12 rounded-full bg-blue-700 flex items-center justify-center shadow-lg">
@@ -112,7 +110,6 @@ export default function SocialMediaHighlight() {
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-pink-600/90 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="flex items-center gap-3 text-white">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center shadow-lg">

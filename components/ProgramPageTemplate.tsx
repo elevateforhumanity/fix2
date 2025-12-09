@@ -70,7 +70,6 @@ export default function ProgramPageTemplate({
             priority
             quality={90}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
         </div>
         
         <div className="relative container mx-auto px-4 py-20">
