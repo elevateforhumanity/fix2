@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 // import { resend } from '@/lib/resend'; // your Resend client - add later
 
 export async function POST(
@@ -74,7 +75,7 @@ export async function POST(
       count: sendRows.length,
     });
   } catch (err: any) {
-    console.error('POST /marketing/campaigns/[id]/send error', err);
+    logger.error('POST /marketing/campaigns/[id]/send error', err);
     return NextResponse.json(
       { error: err.message || 'Failed to queue campaign' },
       { status: 500 }

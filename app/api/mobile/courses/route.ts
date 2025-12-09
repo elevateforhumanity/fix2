@@ -1,6 +1,7 @@
 // app/api/mobile/courses/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function GET(request: NextRequest) {
   try {
@@ -43,7 +44,7 @@ export async function GET(request: NextRequest) {
       .order("started_at", { ascending: false });
 
     if (enrollError) {
-      console.error("[Mobile Courses Error]:", enrollError);
+      logger.error("[Mobile Courses Error]:", enrollError);
       return NextResponse.json(
         { error: "Failed to fetch courses" },
         { status: 500 }
@@ -113,7 +114,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(validCourses);
   } catch (error) {
-    console.error("[Mobile Courses Error]:", error);
+    logger.error("[Mobile Courses Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

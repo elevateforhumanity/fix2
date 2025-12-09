@@ -3,6 +3,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAuth } from '@/lib/with-auth';
 import { getServerSupabase } from '@/lib/supabaseClients';
+import { logger } from '@/lib/logger';
 
 export const GET = withAuth(
   async (req: NextRequest, { params }: { params: Promise<{ id: string }> }, user) => {
@@ -24,7 +25,7 @@ export const GET = withAuth(
         .maybeSingle();
 
       if (error) {
-        console.error('Error fetching application:', error);
+        logger.error('Error fetching application:', error);
         return NextResponse.json(
           { error: 'Failed to fetch application' },
           { status: 500 }
@@ -40,7 +41,7 @@ export const GET = withAuth(
 
       return NextResponse.json({ application });
     } catch (err) {
-      console.error('Unexpected error:', err);
+      logger.error('Unexpected error:', err);
       return NextResponse.json(
         { error: 'Unexpected error' },
         { status: 500 }

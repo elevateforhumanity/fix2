@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { deleteUserData } from '@/lib/gdpr';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -34,7 +35,7 @@ export async function POST(request: NextRequest) {
       message: 'Your data has been deleted',
     });
   } catch (error) {
-    console.error('Error deleting user data:', error);
+    logger.error('Error deleting user data:', error);
     return NextResponse.json(
       { error: 'Failed to delete data' },
       { status: 500 }

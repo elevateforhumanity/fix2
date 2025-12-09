@@ -1,6 +1,7 @@
 // app/api/grants/match/route.ts
 import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
+import { logger } from '@/lib/logger';
 
 function computeMatchScore(
   entityNaics: string[],
@@ -48,7 +49,7 @@ export async function POST() {
       .select('*');
 
     if (entitiesError || !entities) {
-      console.error(entitiesError);
+      logger.error(entitiesError);
       return NextResponse.json(
         { error: 'Failed to fetch entities' },
         { status: 500 }
@@ -61,7 +62,7 @@ export async function POST() {
       .gte('due_date', new Date().toISOString().slice(0, 10));
 
     if (grantsError || !grants) {
-      console.error(grantsError);
+      logger.error(grantsError);
       return NextResponse.json(
         { error: 'Failed to fetch grants' },
         { status: 500 }
@@ -94,7 +95,7 @@ export async function POST() {
         );
 
         if (error) {
-          console.error(
+          logger.error(
             'Error upserting grant_match',
             grant.id,
             entity.id,
@@ -106,7 +107,7 @@ export async function POST() {
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error(err);
+    logger.error(err);
     return NextResponse.json(
       { error: 'Unexpected error during grant matching' },
       { status: 500 }

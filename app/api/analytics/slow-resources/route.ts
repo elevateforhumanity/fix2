@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
     
     // Log slow resource loading
-    console.warn('[Slow Resources]', data);
+    logger.warn('[Slow Resources]', data);
     
     // Send to monitoring service for analysis
     if (process.env.SENTRY_DSN) {
@@ -20,7 +21,7 @@ export async function POST(request: Request) {
           },
         });
       } catch (sentryError) {
-        console.error('Failed to send to Sentry:', sentryError);
+        logger.error('Failed to send to Sentry:', sentryError);
       }
     }
     
@@ -36,12 +37,12 @@ export async function POST(request: Request) {
         }),
       });
     } catch (logError) {
-      console.error('Failed to log to database:', logError);
+      logger.error('Failed to log to database:', logError);
     }
     
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('[Slow Resources] Error:', error);
+    logger.error('[Slow Resources] Error:', error);
     return NextResponse.json({ error: 'Failed to log resources' }, { status: 500 });
   }
 }

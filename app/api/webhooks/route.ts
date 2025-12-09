@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { apiRequireAdmin } from '@/lib/authGuards';
 import {
+import { logger } from '@/lib/logger';
   createWebhook,
   getWebhooks,
   getWebhook,
@@ -64,7 +65,7 @@ export async function GET(request: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Webhooks GET error:', error);
+    logger.error('Webhooks GET error:', error);
     return NextResponse.json(
       { error: 'Failed to fetch webhook data' },
       { status: 500 }
@@ -161,7 +162,7 @@ export async function POST(request: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Webhooks POST error:', error);
+    logger.error('Webhooks POST error:', error);
     return NextResponse.json(
       { error: 'Failed to process webhook action' },
       { status: 500 }

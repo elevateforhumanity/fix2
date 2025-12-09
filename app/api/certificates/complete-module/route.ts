@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { onModuleComplete } from '@/lib/certificates/certificate-delivery';
 import { createClient } from '@supabase/supabase-js';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -55,7 +56,7 @@ export async function POST(request: NextRequest) {
       message: 'Module completed and certificate issued'
     });
   } catch (error) {
-    console.error('Error completing module:', error);
+    logger.error('Error completing module:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to complete module' },
       { status: 500 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function GET(request: NextRequest) {
   try {
@@ -36,7 +37,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ notes });
   } catch (error) {
-    console.error('Error fetching notes:', error);
+    logger.error('Error fetching notes:', error);
     return NextResponse.json(
       { error: 'Failed to fetch notes' },
       { status: 500 }
@@ -82,7 +83,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ note });
   } catch (error) {
-    console.error('Error creating note:', error);
+    logger.error('Error creating note:', error);
     return NextResponse.json(
       { error: 'Failed to create note' },
       { status: 500 }

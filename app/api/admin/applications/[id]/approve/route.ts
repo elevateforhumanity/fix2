@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 export async function POST(
   req: NextRequest,
@@ -35,7 +36,7 @@ export async function POST(
       .maybeSingle();
 
     if (appError || !app) {
-      console.error("Application not found:", appError);
+      logger.error("Application not found:", appError);
       return NextResponse.json(
         { error: "Application not found" },
         { status: 404 }
@@ -59,7 +60,7 @@ export async function POST(
       });
 
     if (listError) {
-      console.error("List users error:", listError);
+      logger.error("List users error:", listError);
     }
 
     let user = listUsers?.users?.find(
@@ -87,7 +88,7 @@ export async function POST(
         });
 
       if (createError || !newUser.user) {
-        console.error("Create user error:", createError);
+        logger.error("Create user error:", createError);
         return NextResponse.json(
           { error: "Failed to create user" },
           { status: 500 }
@@ -109,7 +110,7 @@ export async function POST(
         });
 
       if (profileError) {
-        console.error("Profile creation error:", profileError);
+        logger.error("Profile creation error:", profileError);
         // Don't fail the whole operation for this
       }
 
@@ -134,7 +135,7 @@ export async function POST(
         .maybeSingle();
 
     if (enrollError || !enrollment) {
-      console.error("Enrollment error:", enrollError);
+      logger.error("Enrollment error:", enrollError);
       return NextResponse.json(
         { error: "Failed to create enrollment" },
         { status: 500 }
@@ -151,7 +152,7 @@ export async function POST(
       .eq("id", applicationId);
 
     if (updateError) {
-      console.error("Update application status error:", updateError);
+      logger.error("Update application status error:", updateError);
       // Don't fail the whole thing just for this, but log it
     }
 
@@ -161,7 +162,7 @@ export async function POST(
       enrollment_id: enrollment.id,
     });
   } catch (err) {
-    console.error("Approve application error:", err);
+    logger.error("Approve application error:", err);
     return NextResponse.json(
       { error: "Unexpected error" },
       { status: 500 }

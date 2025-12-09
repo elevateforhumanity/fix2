@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
@@ -84,10 +85,10 @@ export async function POST(request: Request) {
           externalEnrollmentId = enrollmentData.enrollment_id || externalEnrollmentId;
           externalAccountId = enrollmentData.account_id || externalAccountId;
         } else {
-          console.warn('Partner API enrollment failed, using local enrollment only');
+          logger.warn('Partner API enrollment failed, using local enrollment only');
         }
       } catch (apiError) {
-        console.error('Partner API error:', apiError);
+        logger.error('Partner API error:', apiError);
         // Continue with local enrollment even if API fails
       }
     }
@@ -109,7 +110,7 @@ export async function POST(request: Request) {
       .single();
 
     if (enrollmentError) {
-      console.error('Error creating partner enrollment:', enrollmentError);
+      logger.error('Error creating partner enrollment:', enrollmentError);
       return NextResponse.json({ error: 'Failed to create enrollment' }, { status: 500 });
     }
 
@@ -159,7 +160,7 @@ export async function POST(request: Request) {
       scormPackage: mapping?.scorm_package,
     });
   } catch (error) {
-    console.error('Partner enrollment error:', error);
+    logger.error('Partner enrollment error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -189,13 +190,13 @@ export async function GET(request: Request) {
       .order('enrolled_at', { ascending: false });
 
     if (error) {
-      console.error('Error fetching partner enrollments:', error);
+      logger.error('Error fetching partner enrollments:', error);
       return NextResponse.json({ error: 'Failed to fetch enrollments' }, { status: 500 });
     }
 
     return NextResponse.json({ enrollments });
   } catch (error) {
-    console.error('Partner enrollment GET error:', error);
+    logger.error('Partner enrollment GET error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

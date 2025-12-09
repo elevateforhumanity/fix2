@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 // Zoom integration helper
 async function createZoomMeeting(topic: string, start: string) {
@@ -106,7 +107,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, meeting });
   } catch (error: any) {
-    console.error("Meeting creation error:", error);
+    logger.error("Meeting creation error:", error);
     return NextResponse.json(
       { error: error.message || "Failed to create meeting" },
       { status: 500 }

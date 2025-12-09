@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function GET(req: Request) {
   try {
@@ -14,7 +15,7 @@ export async function GET(req: Request) {
 
     return NextResponse.json({ success: true, workflows });
   } catch (error: any) {
-    console.error('Error fetching workflows:', error);
+    logger.error('Error fetching workflows:', error);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }
@@ -43,7 +44,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, workflow });
   } catch (error: any) {
-    console.error('Error creating workflow:', error);
+    logger.error('Error creating workflow:', error);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }

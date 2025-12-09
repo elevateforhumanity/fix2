@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 // GET /api/hr/departments - List all departments
 export async function GET(request: NextRequest) {
@@ -23,7 +24,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ departments });
   } catch (error: any) {
-    console.error('Error fetching departments:', error);
+    logger.error('Error fetching departments:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch departments' },
       { status: 500 }
@@ -78,7 +79,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ department }, { status: 201 });
   } catch (error: any) {
-    console.error('Error creating department:', error);
+    logger.error('Error creating department:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create department' },
       { status: 500 }

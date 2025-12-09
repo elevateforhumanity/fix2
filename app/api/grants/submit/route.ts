@@ -5,6 +5,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import {
+import { logger } from '@/lib/logger';
   recordEmailSubmission,
   recordPortalSubmission,
   updateSubmissionStatus,
@@ -86,7 +87,7 @@ export async function POST(req: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Submission tracking error:', error);
+    logger.error('Submission tracking error:', error);
     return NextResponse.json(
       { error: (error as Error).message },
       { status: 500 }
@@ -117,7 +118,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ submission });
   } catch (error) {
-    console.error('Error fetching submission:', error);
+    logger.error('Error fetching submission:', error);
     return NextResponse.json(
       { error: (error as Error).message },
       { status: 500 }

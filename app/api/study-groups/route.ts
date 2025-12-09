@@ -1,6 +1,7 @@
 // app/api/study-groups/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function GET(request: NextRequest) {
   try {
@@ -34,7 +35,7 @@ export async function GET(request: NextRequest) {
       .order("created_at", { ascending: false });
 
     if (groupsError) {
-      console.error("[Study Groups API Error]:", groupsError);
+      logger.error("[Study Groups API Error]:", groupsError);
       return NextResponse.json(
         { error: "Failed to fetch study groups" },
         { status: 500 }
@@ -76,7 +77,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(groupsWithMembership);
   } catch (error) {
-    console.error("[Study Groups API Error]:", error);
+    logger.error("[Study Groups API Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

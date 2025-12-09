@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { COMPLETE_PROGRAMS } from '@/lib/programs-data-complete';
+import { logger } from '@/lib/logger';
 
 export const dynamic = 'force-dynamic';
 
@@ -36,7 +37,7 @@ export async function GET(request: Request) {
       programs: filteredPrograms,
     });
   } catch (error) {
-    console.error('Error fetching programs:', error);
+    logger.error('Error fetching programs:', error);
     return NextResponse.json(
       { status: 'error', error: 'Failed to fetch programs' },
       { status: 500 }

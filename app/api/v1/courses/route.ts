@@ -7,6 +7,7 @@ import {
   logAPIRequest,
 } from '@/lib/api/rest-api';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 // GET /api/v1/courses - List all courses
 export async function GET(request: NextRequest) {
@@ -109,7 +110,7 @@ export async function GET(request: NextRequest) {
   } catch (err: any) {
     error = err.message;
     statusCode = 500;
-    console.error('API Error:', err);
+    logger.error('API Error:', err);
     return NextResponse.json(apiResponse(false, null, error), { status: 500 });
   }
 }
@@ -177,7 +178,7 @@ export async function POST(request: NextRequest) {
   } catch (err: any) {
     error = err.message;
     statusCode = 500;
-    console.error('API Error:', err);
+    logger.error('API Error:', err);
     return NextResponse.json(apiResponse(false, null, error), { status: 500 });
   }
 }

@@ -5,6 +5,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import {
+import { logger } from '@/lib/logger';
   buildGrantPackage,
   generateNarrativeDocx,
   generateNarrativePdf,
@@ -101,7 +102,7 @@ export async function POST(req: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Package builder error:', error);
+    logger.error('Package builder error:', error);
     return NextResponse.json(
       { error: (error as Error).message },
       { status: 500 }

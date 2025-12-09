@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
+import { logger } from '@/lib/logger';
 
 /**
  * Email Scheduler - Processes scheduled campaigns
@@ -82,7 +83,7 @@ export async function GET(req: Request) {
           });
         }
       } catch (error: any) {
-        console.error(`Error processing campaign ${campaign.id}:`, error);
+        logger.error(`Error processing campaign ${campaign.id}:`, error);
         
         // Mark as failed
         await supabase
@@ -109,7 +110,7 @@ export async function GET(req: Request) {
       results,
     });
   } catch (error: any) {
-    console.error('Scheduler error:', error);
+    logger.error('Scheduler error:', error);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }

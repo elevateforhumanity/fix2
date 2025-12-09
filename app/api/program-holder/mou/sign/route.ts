@@ -2,6 +2,7 @@ import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { createClient } from '@supabase/supabase-js';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
@@ -54,7 +55,7 @@ export async function POST(req: NextRequest) {
     .upload(path, buffer, { contentType: 'image/png', upsert: true });
 
   if (uploadError) {
-    console.error('Upload error:', uploadError);
+    logger.error('Upload error:', uploadError);
     return new Response(uploadError.message, { status: 500 });
   }
 
@@ -76,7 +77,7 @@ export async function POST(req: NextRequest) {
     .single();
 
   if (error) {
-    console.error('Update error:', error);
+    logger.error('Update error:', error);
     return new Response(error.message, { status: 500 });
   }
 

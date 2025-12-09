@@ -3,6 +3,7 @@ import { createRouteHandlerClient } from '@/lib/auth';
 import { generateMOUPDF } from '@/lib/mou-pdf-generator';
 import { PDFDocument } from 'pdf-lib';
 import {
+import { logger } from '@/lib/logger';
   sendMOUSignedConfirmation,
   sendMOUSignedAdminNotification,
 } from '@/lib/email-mou-notifications';
@@ -136,7 +137,7 @@ export async function POST(req: Request) {
       });
 
     if (uploadError) {
-      console.error('Upload error:', uploadError);
+      logger.error('Upload error:', uploadError);
       return Response.json(
         { error: 'Failed to upload signed MOU' },
         { status: 500 }
@@ -155,7 +156,7 @@ export async function POST(req: Request) {
       .eq('id', holder.id);
 
     if (updateError) {
-      console.error('Update error:', updateError);
+      logger.error('Update error:', updateError);
       return Response.json(
         { error: 'Failed to update MOU status' },
         { status: 500 }
@@ -181,7 +182,7 @@ export async function POST(req: Request) {
       message: 'MOU signed successfully',
     });
   } catch (error) {
-    console.error('Error signing MOU:', error);
+    logger.error('Error signing MOU:', error);
     return Response.json(
       { error: 'Failed to process signature' },
       { status: 500 }

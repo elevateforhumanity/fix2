@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { issueModuleCertificate } from '@/lib/certificates/certificate-generator';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,7 +27,7 @@ export async function POST(request: NextRequest) {
       certificateNumber
     });
   } catch (error) {
-    console.error('Error issuing module certificate:', error);
+    logger.error('Error issuing module certificate:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to issue certificate' },
       { status: 500 }

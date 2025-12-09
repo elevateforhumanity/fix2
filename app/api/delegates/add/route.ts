@@ -2,6 +2,7 @@ import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { getUserByEmail } from '@/lib/supabase-admin';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
@@ -59,7 +60,7 @@ export async function POST(req: NextRequest) {
 
     return Response.json({ ok: true });
   } catch (error) {
-    console.error('Error adding delegate:', error);
+    logger.error('Error adding delegate:', error);
     return new Response('Failed to add delegate', { status: 500 });
   }
 }

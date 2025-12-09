@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSupabaseServerClient } from "../../../../lib/supabaseServer";
 import { programSeeds } from "../../../../lms-data/courseSeed";
+import { logger } from '@/lib/logger';
 
 export const runtime = "nodejs";
 
@@ -111,7 +112,7 @@ export async function POST() {
 
       results.push({ programCode: seed.code, programId });
     } catch (err: any) {
-      console.error("Seed error for program", seed.code, err?.message ?? err);
+      logger.error("Seed error for program", seed.code, err?.message ?? err);
       results.push({
         programCode: seed.code,
         error: err?.message ?? "Unknown error",

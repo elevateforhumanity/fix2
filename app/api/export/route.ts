@@ -13,6 +13,7 @@ import {
   type ExportOptions,
 } from '@/lib/dataExport';
 import { logAuditEvent } from '@/lib/auditLog';
+import { logger } from '@/lib/logger';
 
 export async function GET(request: NextRequest) {
   try {
@@ -140,7 +141,7 @@ export async function GET(request: NextRequest) {
       );
     }
   } catch (error) {
-    console.error('Export error:', error);
+    logger.error('Export error:', error);
     return NextResponse.json(
       { error: 'Failed to export data' },
       { status: 500 }
@@ -223,7 +224,7 @@ export async function POST(request: NextRequest) {
       }, {} as Record<string, number>),
     });
   } catch (error) {
-    console.error('Batch export error:', error);
+    logger.error('Batch export error:', error);
     return NextResponse.json(
       { error: 'Failed to perform batch export' },
       { status: 500 }

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
@@ -16,7 +17,7 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json().catch((err) => {
-      console.error('Failed to parse request body:', err);
+      logger.error('Failed to parse request body:', err);
       return {};
     });
     const {
@@ -61,7 +62,7 @@ export async function POST(request: Request) {
       .single();
 
     if (enrollmentError || !enrollment) {
-      console.error('Enrollment error:', enrollmentError);
+      logger.error('Enrollment error:', enrollmentError);
       return NextResponse.json(
         { error: 'Enrollment not found' },
         { status: 404 }
@@ -103,7 +104,7 @@ export async function POST(request: Request) {
       .maybeSingle();
 
     if (completionError) {
-      console.error('Error reading course_completion_status:', completionError);
+      logger.error('Error reading course_completion_status:', completionError);
     }
 
     const isCompletedByLessons = completionRow?.is_course_completed ?? false;
@@ -167,7 +168,7 @@ export async function POST(request: Request) {
       .single();
 
     if (certError || !cert) {
-      console.error('Error inserting certificate:', certError);
+      logger.error('Error inserting certificate:', certError);
       return NextResponse.json(
         { error: 'Failed to create certificate' },
         { status: 500 }
@@ -189,7 +190,7 @@ export async function POST(request: Request) {
       message: 'Certificate generated successfully',
     });
   } catch (error) {
-    console.error('Error in /api/certificates/generate:', error);
+    logger.error('Error in /api/certificates/generate:', error);
     return NextResponse.json({ error: 'Internal error' }, { status: 500 });
   }
 }

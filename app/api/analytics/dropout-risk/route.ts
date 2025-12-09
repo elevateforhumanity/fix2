@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getOpenAIClient, isOpenAIConfigured } from "@/lib/openai-client";
+import { logger } from '@/lib/logger';
 
 export async function GET(request: Request) {
   if (!isOpenAIConfigured()) {
@@ -116,7 +117,7 @@ ${JSON.stringify(features, null, 2)}
 
     return NextResponse.json({ scores: parsed });
   } catch (error: any) {
-    console.error("Dropout risk prediction error:", error);
+    logger.error("Dropout risk prediction error:", error);
     return NextResponse.json(
       { error: error.message || "Failed to predict dropout risk" },
       { status: 500 }

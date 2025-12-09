@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   const openaiKey = process.env.OPENAI_API_KEY;
@@ -106,7 +107,7 @@ export async function POST(request: NextRequest) {
       );
     }
   } catch (error: any) {
-    console.error('AI Asset Generator error:', error);
+    logger.error('AI Asset Generator error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to generate asset' },
       { status: 500 }

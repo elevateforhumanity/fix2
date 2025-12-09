@@ -2,6 +2,7 @@
 import { NextResponse } from 'next/server';
 import { stripe } from '@/lib/billing/stripe';
 import { createSupabaseClient } from "@/lib/supabase-api";
+import { logger } from '@/lib/logger';
 
 
 export async function POST(request: Request) {
@@ -53,7 +54,7 @@ export async function POST(request: Request) {
           .eq('id', u.id)
       );
     } catch (err) {
-      console.error('Failed to report usage for tenant', u.tenant_id, err);
+      logger.error('Failed to report usage for tenant', u.tenant_id, err);
     }
   }
 

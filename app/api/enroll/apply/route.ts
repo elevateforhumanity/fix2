@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   try {
@@ -23,7 +24,7 @@ export async function POST(req: Request) {
     // - Send an email to your team
     // - Push into a CRM or Airtable, etc.
 
-    console.log("[New Elevate Application]", {
+    logger.info("[New Elevate Application]", {
       firstName: body.firstName,
       lastName: body.lastName,
       email: body.email,
@@ -40,7 +41,7 @@ export async function POST(req: Request) {
       { status: 200 }
     );
   } catch (err: any) {
-    console.error("[Enroll Apply] Error:", err);
+    logger.error("[Enroll Apply] Error:", err);
     return NextResponse.json(
       { message: "Something went wrong submitting your application." },
       { status: 500 }

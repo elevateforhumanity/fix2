@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 /**
  * DMCA Tracking Endpoint
@@ -50,12 +51,12 @@ export async function POST(request: NextRequest) {
     
     if (isUnauthorized) {
       // ALERT! Someone copied your site
-      console.error('🚨 UNAUTHORIZED SITE COPY DETECTED!');
-      console.error('Domain:', domain);
-      console.error('URL:', url);
-      console.error('Referrer:', referrer);
-      console.error('User Agent:', userAgent);
-      console.error('Timestamp:', timestamp);
+      logger.error('🚨 UNAUTHORIZED SITE COPY DETECTED!');
+      logger.error('Domain:', domain);
+      logger.error('URL:', url);
+      logger.error('Referrer:', referrer);
+      logger.error('User Agent:', userAgent);
+      logger.error('Timestamp:', timestamp);
       
       // Send alert email (implement this)
       await sendAlertEmail({
@@ -85,7 +86,7 @@ export async function POST(request: NextRequest) {
     }
     
     // Authorized access - just log it
-    console.log('[Tracking] Authorized access:', domain);
+    logger.info('[Tracking] Authorized access:', domain);
     
     return NextResponse.json({
       status: 'ok',
@@ -93,7 +94,7 @@ export async function POST(request: NextRequest) {
     });
     
   } catch (error) {
-    console.error('Tracking error:', error);
+    logger.error('Tracking error:', error);
     return NextResponse.json(
       { error: 'Tracking failed' },
       { status: 500 }
@@ -140,7 +141,7 @@ async function sendAlertEmail(data: {
     - DMCA Agent: legal@elevateforhumanity.org
   `;
   
-  console.log('[ALERT EMAIL]', emailContent);
+  logger.info('[ALERT EMAIL]', emailContent);
   
   // Uncomment when you have email service configured:
   /*
@@ -171,7 +172,7 @@ async function logUnauthorizedAccess(data: {
   // Database logging for legal evidence
   // Logs to console and can be extended to database when needed
   
-  console.log('[EVIDENCE LOG]', {
+  logger.info('[EVIDENCE LOG]', {
     type: 'UNAUTHORIZED_COPY',
     ...data,
     logged_at: new Date().toISOString()

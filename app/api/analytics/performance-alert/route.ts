@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
     
     // Log performance alert
-    console.warn('[Performance Alert]', data);
+    logger.warn('[Performance Alert]', data);
     
     // Send to monitoring service if configured
     if (process.env.SENTRY_DSN) {
@@ -17,7 +18,7 @@ export async function POST(request: Request) {
           extra: data,
         });
       } catch (sentryError) {
-        console.error('Failed to send to Sentry:', sentryError);
+        logger.error('Failed to send to Sentry:', sentryError);
       }
     }
     
@@ -33,12 +34,12 @@ export async function POST(request: Request) {
         }),
       });
     } catch (logError) {
-      console.error('Failed to log to database:', logError);
+      logger.error('Failed to log to database:', logError);
     }
     
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('[Performance Alert] Error:', error);
+    logger.error('[Performance Alert] Error:', error);
     return NextResponse.json({ error: 'Failed to log alert' }, { status: 500 });
   }
 }

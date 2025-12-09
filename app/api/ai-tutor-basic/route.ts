@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { aiInstructors } from "@/lms-data/aiInstructors";
+import { logger } from '@/lib/logger';
 
 export const runtime = "nodejs";
 
@@ -66,7 +67,7 @@ export async function POST(req: NextRequest) {
 
     if (!openAiResponse.ok) {
       const text = await openAiResponse.text();
-      console.error("OpenAI error:", text);
+      logger.error("OpenAI error:", text);
       return NextResponse.json(
         { error: "AI service error", details: text },
         { status: 502 },
@@ -85,7 +86,7 @@ export async function POST(req: NextRequest) {
       answer,
     });
   } catch (err) {
-    console.error("AI tutor route error:", err);
+    logger.error("AI tutor route error:", err);
     return NextResponse.json(
       { error: "Unexpected server error" },
       { status: 500 },

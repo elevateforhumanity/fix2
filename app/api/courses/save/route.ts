@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   try {
@@ -28,13 +29,13 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (error) {
-      console.error("Supabase error:", error);
+      logger.error("Supabase error:", error);
       return NextResponse.json({ error: error.message }, { status: 400 });
     }
 
     return NextResponse.json({ ok: true, course: data });
   } catch (error: any) {
-    console.error("Save course error:", error);
+    logger.error("Save course error:", error);
     return NextResponse.json(
       { error: "Failed to save course", message: error.message },
       { status: 500 }

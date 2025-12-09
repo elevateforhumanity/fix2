@@ -1,4 +1,5 @@
 import { gh, parseRepo } from "@/lib/github";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   try {
@@ -38,7 +39,7 @@ export async function POST(req: Request) {
     } catch (templateError) {
       // If template method fails, return the empty repo
       // In production, you'd implement a full clone via git commands
-      console.warn("Template clone failed, returning empty repo:", templateError);
+      logger.warn("Template clone failed, returning empty repo:", templateError);
     }
 
     return Response.json({

@@ -1,5 +1,6 @@
 import { cloneRepoForCustomer } from '@/lib/store/github-clone';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   try {
@@ -53,7 +54,7 @@ export async function POST(req: Request) {
       cloneUrl: result.cloneUrl,
     });
   } catch (error: any) {
-    console.error('Clone error:', error);
+    logger.error('Clone error:', error);
     return Response.json({ error: error.message }, { status: 500 });
   }
 }

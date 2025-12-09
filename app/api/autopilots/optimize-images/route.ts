@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo } from "@/lib/github";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   try {
@@ -29,7 +30,7 @@ export async function POST(req: NextRequest) {
     // 3. Upload optimized version
     // 4. Update references in content files
 
-    console.log(`Autopilot: Found ${imageFiles.length} images to optimize`);
+    logger.info(`Autopilot: Found ${imageFiles.length} images to optimize`);
 
     // Simulate optimization
     const optimized = imageFiles.map(file => ({
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest) {
     });
 
   } catch (error: any) {
-    console.error("Optimize images error:", error);
+    logger.error("Optimize images error:", error);
     return NextResponse.json(
       {
         error: "Failed to optimize images",

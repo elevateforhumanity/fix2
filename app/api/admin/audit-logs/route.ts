@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getAuditLogs, getAuditLogStats, exportAuditLogs } from '@/lib/auditLog';
 import { requireAdmin } from '@/lib/authGuards';
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 export const GET = withAuth(
   async (request: NextRequest, user) => {
@@ -56,7 +57,7 @@ export const GET = withAuth(
       stats,
     });
   } catch (error) {
-    console.error('Error fetching audit logs:', error);
+    logger.error('Error fetching audit logs:', error);
     return NextResponse.json(
       { error: 'Failed to fetch audit logs' },
       { status: 500 }

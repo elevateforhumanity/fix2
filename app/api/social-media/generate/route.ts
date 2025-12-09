@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
+import { logger } from '@/lib/logger';
 
 const openai = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
 
@@ -51,7 +52,7 @@ export async function POST(req: Request) {
           });
         }
       } catch (error) {
-        console.error('Failed to fetch blog posts:', error);
+        logger.error('Failed to fetch blog posts:', error);
       }
       
       // Fallback if no blog posts found
@@ -123,7 +124,7 @@ Return ONLY a JSON array of ${count} posts, no other text.`;
 
     return NextResponse.json({ success: true, posts });
   } catch (error: any) {
-    console.error('Social media generation error:', error);
+    logger.error('Social media generation error:', error);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }

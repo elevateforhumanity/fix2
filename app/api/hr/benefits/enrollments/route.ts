@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 // GET /api/hr/benefits/enrollments?employee_id=
 export async function GET(request: NextRequest) {
@@ -30,7 +31,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ enrollments: data });
   } catch (error: any) {
-    console.error('Error fetching benefits enrollments:', error);
+    logger.error('Error fetching benefits enrollments:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch enrollments' },
       { status: 500 }
@@ -73,7 +74,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ enrollment: data }, { status: 201 });
   } catch (error: any) {
-    console.error('Error creating benefits enrollment:', error);
+    logger.error('Error creating benefits enrollment:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create enrollment' },
       { status: 500 }

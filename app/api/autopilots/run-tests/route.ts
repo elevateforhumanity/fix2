@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo } from "@/lib/github";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   try {
@@ -74,7 +75,7 @@ export async function POST(req: NextRequest) {
     });
 
   } catch (error: any) {
-    console.error("Run tests error:", error);
+    logger.error("Run tests error:", error);
     return NextResponse.json(
       {
         error: "Failed to run tests",

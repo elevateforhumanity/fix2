@@ -1,6 +1,7 @@
 // app/api/grants/draft/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'placeholder-key') {
@@ -27,7 +28,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (grantError || !grant) {
-      console.error(grantError);
+      logger.error(grantError);
       return NextResponse.json(
         { error: 'Grant not found' },
         { status: 404 }
@@ -41,7 +42,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (entityError || !entity) {
-      console.error(entityError);
+      logger.error(entityError);
       return NextResponse.json(
         { error: 'Entity not found' },
         { status: 404 }
@@ -115,7 +116,7 @@ Focus on workforce, community impact, and elevation if applicable.
       .single();
 
     if (appError || !app) {
-      console.error(appError);
+      logger.error(appError);
       return NextResponse.json(
         { error: 'Failed to save grant application' },
         { status: 500 }
@@ -128,7 +129,7 @@ Focus on workforce, community impact, and elevation if applicable.
       draft_narrative: app.draft_narrative,
     });
   } catch (err) {
-    console.error(err);
+    logger.error(err);
     return NextResponse.json(
       { error: 'Unexpected error while drafting grant' },
       { status: 500 }

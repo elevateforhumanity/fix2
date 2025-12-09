@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,12 +21,12 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) {
-      console.error('Error storing web vitals:', error);
+      logger.error('Error storing web vitals:', error);
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Web vitals API error:', error);
+    logger.error('Web vitals API error:', error);
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }

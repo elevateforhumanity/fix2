@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { randomBytes } from 'crypto';
 import { getUserById } from '@/lib/supabase-admin';
+import { logger } from '@/lib/logger';
 
 function makeSerial() {
   return `EFH-${randomBytes(4).toString('hex').toUpperCase()}`;
@@ -49,7 +50,7 @@ export async function POST(req: NextRequest) {
   try {
     learner = await getUserById(user_id);
   } catch (error) {
-    console.error('Error fetching user:', error);
+    logger.error('Error fetching user:', error);
     return new Response('Failed to fetch user', { status: 500 });
   }
 

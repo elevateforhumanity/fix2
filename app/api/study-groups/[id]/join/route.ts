@@ -1,6 +1,7 @@
 // app/api/study-groups/[id]/join/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function POST(
   request: NextRequest,
@@ -76,7 +77,7 @@ export async function POST(
       });
 
     if (insertError) {
-      console.error("[Join Study Group Error]:", insertError);
+      logger.error("[Join Study Group Error]:", insertError);
       return NextResponse.json(
         { error: "Failed to join study group" },
         { status: 500 }
@@ -85,7 +86,7 @@ export async function POST(
 
     return NextResponse.json({ message: "Successfully joined study group" });
   } catch (error) {
-    console.error("[Join Study Group Error]:", error);
+    logger.error("[Join Study Group Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

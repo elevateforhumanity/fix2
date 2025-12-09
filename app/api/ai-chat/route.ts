@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { logger } from '@/lib/logger';
 
 const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
 
@@ -62,10 +63,10 @@ If user asks anything unsafe, redirect them to safe, legal, positive options.
 
     if (!res.ok) {
       const err = await res.json().catch((parseErr) => {
-        console.error('Failed to parse error response:', parseErr);
+        logger.error('Failed to parse error response:', parseErr);
         return {};
       });
-      console.error("OpenAI error:", err);
+      logger.error("OpenAI error:", err);
       return NextResponse.json(
         { error: "OpenAI request failed", details: err },
         { status: 500 }
@@ -79,7 +80,7 @@ If user asks anything unsafe, redirect them to safe, legal, positive options.
 
     return NextResponse.json({ reply });
   } catch (error) {
-    console.error("Chat API error:", error);
+    logger.error("Chat API error:", error);
     return NextResponse.json(
       { error: "Unexpected server error" },
       { status: 500 }

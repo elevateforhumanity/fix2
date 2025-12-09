@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getUserIdFromRequest } from "@/lib/getUserIdFromRequest";
+import { logger } from '@/lib/logger';
 
 type Params = { params: Promise<{ forumId: string; threadId: string }> };
 
@@ -27,7 +28,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
       .single();
 
     if (threadError || !thread) {
-      console.error("[thread detail] error:", threadError);
+      logger.error("[thread detail] error:", threadError);
       return NextResponse.json(
         { error: "Thread not found" },
         { status: 404 }
@@ -62,7 +63,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
       .order("created_at", { ascending: true });
 
     if (postsError) {
-      console.error("[thread posts] error:", postsError);
+      logger.error("[thread posts] error:", postsError);
       return NextResponse.json(
         { error: "Failed to load posts" },
         { status: 500 }
@@ -104,7 +105,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
 
     return NextResponse.json(response);
   } catch (error) {
-    console.error("[thread detail] error:", error);
+    logger.error("[thread detail] error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -158,7 +159,7 @@ export async function POST(req: NextRequest, { params }: Params) {
       });
 
     if (postError) {
-      console.error("[thread reply] post error:", postError);
+      logger.error("[thread reply] post error:", postError);
       return NextResponse.json(
         { error: "Failed to add reply" },
         { status: 500 }
@@ -172,12 +173,12 @@ export async function POST(req: NextRequest, { params }: Params) {
       .eq("id", threadId);
 
     if (updateError) {
-      console.error("[thread reply] update last_post_at error:", updateError);
+      logger.error("[thread reply] update last_post_at error:", updateError);
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("[thread reply] error:", error);
+    logger.error("[thread reply] error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

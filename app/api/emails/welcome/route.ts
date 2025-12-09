@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 import { sendEmail, emailTemplates } from '@/lib/email';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
@@ -70,7 +71,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error sending welcome email:', error);
+    logger.error('Error sending welcome email:', error);
     return NextResponse.json(
       { error: 'Failed to send email' },
       { status: 500 }

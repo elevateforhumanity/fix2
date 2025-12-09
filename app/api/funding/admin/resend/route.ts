@@ -2,10 +2,11 @@ import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { getUserById } from '@/lib/supabase-admin';
+import { logger } from '@/lib/logger';
 
 // Simple email function (replace with Resend in production)
 async function sendEmail(to: string, subject: string, text: string) {
-  // console.log('[EMAIL]', { to, subject, text });
+  // logger.info('[EMAIL]', { to, subject, text });
   // Note: Replace with actual email service (Resend, Postmark, etc.)
   return true;
 }
@@ -96,7 +97,7 @@ Welcome to Elevate for Humanity!`
 
     return Response.json({ ok: true });
   } catch (error) {
-    console.error('Error resending welcome email:', error);
+    logger.error('Error resending welcome email:', error);
     return new Response('Failed to resend email', { status: 500 });
   }
 }

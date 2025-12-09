@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
 import { getAuthUser } from "@/lib/auth";
+import { logger } from '@/lib/logger';
 
 export async function GET(
   req: NextRequest,
@@ -156,7 +157,7 @@ export async function GET(
       },
     });
   } catch (err) {
-    console.error("Get learner error:", err);
+    logger.error("Get learner error:", err);
     return NextResponse.json(
       { error: "Failed to load learner" },
       { status: 500 }

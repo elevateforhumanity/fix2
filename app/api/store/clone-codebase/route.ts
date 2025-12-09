@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cloneRepository } from "@/lib/store/stripe-products";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   try {
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest) {
     });
 
   } catch (error: any) {
-    console.error("Clone codebase error:", error);
+    logger.error("Clone codebase error:", error);
     return NextResponse.json(
       {
         error: "Failed to clone repository",

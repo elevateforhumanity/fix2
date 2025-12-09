@@ -1,5 +1,6 @@
 import { hashLicenseKey, isValidLicenseKeyFormat } from '@/lib/store/license';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   try {
@@ -43,7 +44,7 @@ export async function POST(req: Request) {
       },
     });
   } catch (error: any) {
-    console.error('License validation error:', error);
+    logger.error('License validation error:', error);
     return Response.json({ error: error.message }, { status: 500 });
   }
 }

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   try {
@@ -31,7 +32,7 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      console.error('Discussion thread error:', error);
+      logger.error('Discussion thread error:', error);
       return NextResponse.json({ error: 'Failed to create thread' }, { status: 500 });
     }
 
@@ -54,7 +55,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ thread });
   } catch (error) {
-    console.error('Discussion API error:', error);
+    logger.error('Discussion API error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

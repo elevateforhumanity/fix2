@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   try {
@@ -137,7 +138,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error('Email delivery error:', error);
+    logger.error('Email delivery error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to send email' },
       { status: 500 }

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   const supabase = await createClient();
@@ -44,7 +45,7 @@ export async function POST(req: Request) {
             break;
 
           default:
-            console.warn(`Unknown action type: ${action.type}`);
+            logger.warn(`Unknown action type: ${action.type}`);
         }
       }
     }
@@ -54,7 +55,7 @@ export async function POST(req: Request) {
       synced: pendingActions?.length || 0,
     });
   } catch (error: any) {
-    console.error("Sync error:", error);
+    logger.error("Sync error:", error);
     return NextResponse.json(
       { error: error.message || "Sync failed" },
       { status: 500 }

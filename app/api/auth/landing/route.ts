@@ -2,6 +2,7 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
+import { logger } from '@/lib/logger';
 
 export async function GET() {
   const cookieStore = await cookies();
@@ -19,7 +20,7 @@ export async function GET() {
             cookieStore.set({ name, value, ...options });
           } catch (error) {
             // Handle cookie setting errors
-            console.error('Error setting cookie:', error);
+            logger.error('Error setting cookie:', error);
           }
         },
         remove(name: string, options: CookieOptions) {
@@ -27,7 +28,7 @@ export async function GET() {
             cookieStore.set({ name, value: '', ...options });
           } catch (error) {
             // Handle cookie removal errors
-            console.error('Error removing cookie:', error);
+            logger.error('Error removing cookie:', error);
           }
         },
       },
@@ -50,7 +51,7 @@ export async function GET() {
       .single();
 
     if (error || !profile) {
-      console.error('Error fetching profile:', error);
+      logger.error('Error fetching profile:', error);
       return NextResponse.json({ redirectTo: '/auth/login' });
     }
 
@@ -85,7 +86,7 @@ export async function GET() {
 
     return NextResponse.json({ redirectTo });
   } catch (error) {
-    console.error('Auth landing error:', error);
+    logger.error('Auth landing error:', error);
     return NextResponse.json(
       { error: 'Authentication error' },
       { status: 500 }

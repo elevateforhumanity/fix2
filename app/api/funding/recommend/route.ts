@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { matchFundingPrograms } from "@/lib/funding/match";
 import { createClient } from "@/lib/supabase/server";
 import { getOpenAIClient, isOpenAIConfigured } from "@/lib/openai-client";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   if (!isOpenAIConfigured()) {
@@ -94,7 +95,7 @@ Be specific and actionable. Focus on practical next steps.
 
       narrative = completion.choices[0].message.content || "";
     } catch (error) {
-      console.error("Failed to generate funding narrative:", error);
+      logger.error("Failed to generate funding narrative:", error);
       narrative =
         "Unable to generate detailed recommendations at this time. Please review the matching programs above.";
     }

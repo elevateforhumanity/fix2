@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -18,12 +19,12 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) {
-      console.error('Error storing slow resource data:', error);
+      logger.error('Error storing slow resource data:', error);
     }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error('Slow resources API error:', error);
+    logger.error('Slow resources API error:', error);
     return NextResponse.json(
       { success: false, error: error.message || 'Internal server error' },
       { status: 500 }

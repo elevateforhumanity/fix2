@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 // GET /api/hr/employees/[id] - Get single employee
 export async function GET(
@@ -53,7 +54,7 @@ export async function GET(
 
     return NextResponse.json({ employee });
   } catch (error: any) {
-    console.error('Error fetching employee:', error);
+    logger.error('Error fetching employee:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch employee' },
       { status: 500 }
@@ -98,7 +99,7 @@ export async function PATCH(
 
     return NextResponse.json({ employee });
   } catch (error: any) {
-    console.error('Error updating employee:', error);
+    logger.error('Error updating employee:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to update employee' },
       { status: 500 }
@@ -147,7 +148,7 @@ export async function DELETE(
       employee,
     });
   } catch (error: any) {
-    console.error('Error terminating employee:', error);
+    logger.error('Error terminating employee:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to terminate employee' },
       { status: 500 }

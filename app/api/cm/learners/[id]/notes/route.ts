@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
 import { getAuthUser } from "@/lib/auth";
+import { logger } from '@/lib/logger';
 
 export async function POST(
   req: NextRequest,
@@ -69,7 +70,7 @@ export async function POST(
       .maybeSingle();
 
     if (insertError) {
-      console.error("Insert note error:", insertError);
+      logger.error("Insert note error:", insertError);
       throw insertError;
     }
 
@@ -78,7 +79,7 @@ export async function POST(
       note: newNote,
     });
   } catch (err) {
-    console.error("Add note error:", err);
+    logger.error("Add note error:", err);
     return NextResponse.json(
       { error: "Failed to add note" },
       { status: 500 }

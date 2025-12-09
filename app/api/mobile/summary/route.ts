@@ -1,6 +1,7 @@
 // app/api/mobile/summary/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function GET(req: NextRequest) {
   try {
@@ -75,7 +76,7 @@ export async function GET(req: NextRequest) {
       recentActivity: recentActivityCount || 0,
     });
   } catch (error) {
-    console.error("[Mobile Summary Error]:", error);
+    logger.error("[Mobile Summary Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 // GET /api/messages - Fetch user's messages
 export async function GET(request: Request) {
@@ -50,7 +51,7 @@ export async function GET(request: Request) {
     const { data: messages, error } = await query;
 
     if (error) {
-      console.error('Error fetching messages:', error);
+      logger.error('Error fetching messages:', error);
       return NextResponse.json(
         { error: 'Failed to fetch messages' },
         { status: 500 }
@@ -59,7 +60,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json({ messages });
   } catch (error) {
-    console.error('Error in GET /api/messages:', error);
+    logger.error('Error in GET /api/messages:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -99,7 +100,7 @@ export async function POST(request: Request) {
       .single();
 
     if (error) {
-      console.error('Error sending message:', error);
+      logger.error('Error sending message:', error);
       return NextResponse.json(
         { error: 'Failed to send message' },
         { status: 500 }
@@ -108,7 +109,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ message }, { status: 201 });
   } catch (error) {
-    console.error('Error in POST /api/messages:', error);
+    logger.error('Error in POST /api/messages:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

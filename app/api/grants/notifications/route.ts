@@ -12,6 +12,7 @@ import {
   notifyDeadlineApproaching,
 } from '@/lib/grants/notification-system';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   try {
@@ -74,7 +75,7 @@ export async function POST(req: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Notification error:', error);
+    logger.error('Notification error:', error);
     return NextResponse.json(
       { error: (error as Error).message },
       { status: 500 }
@@ -105,7 +106,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ notifications });
   } catch (error) {
-    console.error('Error fetching notifications:', error);
+    logger.error('Error fetching notifications:', error);
     return NextResponse.json(
       { error: (error as Error).message },
       { status: 500 }
@@ -136,7 +137,7 @@ export async function PATCH(req: NextRequest) {
 
     return NextResponse.json({ success: true, message: 'Notification updated' });
   } catch (error) {
-    console.error('Error updating notification:', error);
+    logger.error('Error updating notification:', error);
     return NextResponse.json(
       { error: (error as Error).message },
       { status: 500 }

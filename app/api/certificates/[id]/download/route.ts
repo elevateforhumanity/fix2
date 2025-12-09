@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+import { logger } from '@/lib/logger';
 
 export async function GET(
   request: NextRequest,
@@ -193,7 +194,7 @@ export async function GET(
       },
     });
   } catch (error) {
-    console.error('Error generating certificate:', error);
+    logger.error('Error generating certificate:', error);
     return NextResponse.json(
       { error: 'Failed to generate certificate' },
       { status: 500 }

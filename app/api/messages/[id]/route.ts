@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 // PATCH /api/messages/[id] - Mark message as read
 export async function PATCH(
@@ -25,7 +26,7 @@ export async function PATCH(
       .single();
 
     if (error) {
-      console.error('Error updating message:', error);
+      logger.error('Error updating message:', error);
       return NextResponse.json(
         { error: 'Failed to update message' },
         { status: 500 }
@@ -38,7 +39,7 @@ export async function PATCH(
 
     return NextResponse.json({ message });
   } catch (error) {
-    console.error('Error in PATCH /api/messages/[id]:', error);
+    logger.error('Error in PATCH /api/messages/[id]:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -68,7 +69,7 @@ export async function DELETE(
       .or(`sender_id.eq.${user.id},recipient_id.eq.${user.id}`);
 
     if (error) {
-      console.error('Error deleting message:', error);
+      logger.error('Error deleting message:', error);
       return NextResponse.json(
         { error: 'Failed to delete message' },
         { status: 500 }
@@ -77,7 +78,7 @@ export async function DELETE(
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error in DELETE /api/messages/[id]:', error);
+    logger.error('Error in DELETE /api/messages/[id]:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

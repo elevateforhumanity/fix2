@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
@@ -43,7 +44,7 @@ export async function POST(request: Request) {
       .single();
 
     if (enrollmentError) {
-      console.error('Error updating SCORM enrollment:', enrollmentError);
+      logger.error('Error updating SCORM enrollment:', enrollmentError);
       return NextResponse.json({ error: 'Failed to update enrollment' }, { status: 500 });
     }
 
@@ -76,7 +77,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, enrollment });
   } catch (error) {
-    console.error('SCORM tracking error:', error);
+    logger.error('SCORM tracking error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
@@ -106,13 +107,13 @@ export async function GET(request: Request) {
       .single();
 
     if (error && error.code !== 'PGRST116') {
-      console.error('Error fetching SCORM enrollment:', error);
+      logger.error('Error fetching SCORM enrollment:', error);
       return NextResponse.json({ error: 'Failed to fetch enrollment' }, { status: 500 });
     }
 
     return NextResponse.json(enrollment || {});
   } catch (error) {
-    console.error('SCORM tracking GET error:', error);
+    logger.error('SCORM tracking GET error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

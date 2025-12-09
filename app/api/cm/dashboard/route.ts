@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
 import { getAuthUser } from "@/lib/auth";
+import { logger } from '@/lib/logger';
 
 export async function GET(req: NextRequest) {
   if (!supabaseAdmin) {
@@ -119,7 +120,7 @@ export async function GET(req: NextRequest) {
       learners,
     });
   } catch (err) {
-    console.error("Case manager dashboard error:", err);
+    logger.error("Case manager dashboard error:", err);
     return NextResponse.json(
       { error: "Failed to load dashboard" },
       { status: 500 }

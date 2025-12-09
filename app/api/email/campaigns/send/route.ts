@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import { Resend } from 'resend';
 import { renderTemplate, type EmailTemplateKey } from '@/lib/email-templates';
+import { logger } from '@/lib/logger';
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
@@ -72,7 +73,7 @@ export async function POST(req: Request) {
           sent_at: new Date().toISOString(),
         });
       } catch (error: any) {
-        console.error(`Error sending to ${recipient.email}:`, error);
+        logger.error(`Error sending to ${recipient.email}:`, error);
         results.push({ email: recipient.email, success: false, error: error.message });
         
         // Log failure
@@ -109,7 +110,7 @@ export async function POST(req: Request) {
       },
     });
   } catch (error: any) {
-    console.error('Error sending campaign:', error);
+    logger.error('Error sending campaign:', error);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }
@@ -174,7 +175,7 @@ async function getRecipients(supabase: any, listType: string) {
   const { data, error } = await query;
   
   if (error) {
-    console.error('Error fetching recipients:', error);
+    logger.error('Error fetching recipients:', error);
     return [];
   }
 

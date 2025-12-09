@@ -1,6 +1,7 @@
 import { verifyWebhookSignature } from '@/lib/store/stripe';
 import { generateLicenseKey, hashLicenseKey } from '@/lib/store/license';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   try {
@@ -26,7 +27,7 @@ export async function POST(req: Request) {
       const email = session.customer_email;
 
       if (!productId || !email) {
-        console.error('Missing productId or email in webhook');
+        logger.error('Missing productId or email in webhook');
         return Response.json({ error: 'Invalid webhook data' }, { status: 400 });
       }
 
@@ -40,7 +41,7 @@ export async function POST(req: Request) {
         .single();
 
       if (!product) {
-        console.error('Product not found:', productId);
+        logger.error('Product not found:', productId);
         return Response.json({ error: 'Product not found' }, { status: 404 });
       }
 
@@ -56,7 +57,7 @@ export async function POST(req: Request) {
       });
 
       if (purchaseError) {
-        console.error('Failed to store purchase:', purchaseError);
+        logger.error('Failed to store purchase:', purchaseError);
       }
 
       // Store license
@@ -67,7 +68,7 @@ export async function POST(req: Request) {
       });
 
       if (licenseError) {
-        console.error('Failed to store license:', licenseError);
+        logger.error('Failed to store license:', licenseError);
       }
 
       // Send email with license key
@@ -87,9 +88,9 @@ export async function POST(req: Request) {
             },
           }),
         });
-        console.log('License email sent to:', email);
+        logger.info('License email sent to:', email);
       } catch (emailError) {
-        console.error('Failed to send license email:', emailError);
+        logger.error('Failed to send license email:', emailError);
         // Still return success - license is stored in database
       }
 
@@ -98,7 +99,7 @@ export async function POST(req: Request) {
 
     return Response.json({ received: true });
   } catch (error: any) {
-    console.error('Webhook error:', error);
+    logger.error('Webhook error:', error);
     return Response.json({ error: error.message }, { status: 500 });
   }
 }

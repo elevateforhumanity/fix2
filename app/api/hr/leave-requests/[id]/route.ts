@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function PATCH(
   request: NextRequest,
@@ -62,13 +63,13 @@ export async function PATCH(
         }
       );
       if (balanceError) {
-        console.error('Error updating leave balance:', balanceError);
+        logger.error('Error updating leave balance:', balanceError);
       }
     }
 
     return NextResponse.json({ leaveRequest: updated });
   } catch (error: any) {
-    console.error('Error updating leave request:', error);
+    logger.error('Error updating leave request:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to update leave request' },
       { status: 500 }

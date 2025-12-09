@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { apiRequireAdmin } from '@/lib/authGuards';
 import {
+import { logger } from '@/lib/logger';
   reportContent,
   getPendingReports,
   getContentReports,
@@ -72,7 +73,7 @@ export async function GET(request: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Moderation GET error:', error);
+    logger.error('Moderation GET error:', error);
     return NextResponse.json(
       { error: 'Failed to fetch moderation data' },
       { status: 500 }
@@ -153,7 +154,7 @@ export async function POST(request: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Moderation POST error:', error);
+    logger.error('Moderation POST error:', error);
     return NextResponse.json(
       { error: 'Failed to process moderation action' },
       { status: 500 }

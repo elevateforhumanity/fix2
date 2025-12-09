@@ -1,6 +1,7 @@
 // app/api/videos/[videoId]/meta/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 type Params = { params: Promise<{ videoId: string }> };
 
@@ -17,7 +18,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
       .order("start_time", { ascending: true });
 
     if (chaptersError) {
-      console.error("Error fetching chapters:", chaptersError);
+      logger.error("Error fetching chapters:", chaptersError);
     }
 
     // Get video transcript
@@ -28,7 +29,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
       .single();
 
     if (transcriptError && transcriptError.code !== "PGRST116") {
-      console.error("Error fetching transcript:", transcriptError);
+      logger.error("Error fetching transcript:", transcriptError);
     }
 
     return NextResponse.json({
@@ -36,7 +37,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
       transcript: transcript || null,
     });
   } catch (error) {
-    console.error("[Video Meta Error]:", error);
+    logger.error("[Video Meta Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -90,7 +91,7 @@ export async function POST(req: NextRequest, { params }: Params) {
           );
 
         if (chaptersError) {
-          console.error("Error inserting chapters:", chaptersError);
+          logger.error("Error inserting chapters:", chaptersError);
           return NextResponse.json(
             { error: "Failed to save chapters" },
             { status: 500 }
@@ -119,7 +120,7 @@ export async function POST(req: NextRequest, { params }: Params) {
           .eq("video_id", videoId);
 
         if (transcriptError) {
-          console.error("Error updating transcript:", transcriptError);
+          logger.error("Error updating transcript:", transcriptError);
           return NextResponse.json(
             { error: "Failed to update transcript" },
             { status: 500 }
@@ -136,7 +137,7 @@ export async function POST(req: NextRequest, { params }: Params) {
           });
 
         if (transcriptError) {
-          console.error("Error inserting transcript:", transcriptError);
+          logger.error("Error inserting transcript:", transcriptError);
           return NextResponse.json(
             { error: "Failed to save transcript" },
             { status: 500 }
@@ -147,7 +148,7 @@ export async function POST(req: NextRequest, { params }: Params) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("[Video Meta Update Error]:", error);
+    logger.error("[Video Meta Update Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

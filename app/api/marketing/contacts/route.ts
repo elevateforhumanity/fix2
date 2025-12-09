@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 // GET /api/marketing/contacts
 export async function GET(req: NextRequest) {
@@ -41,7 +42,7 @@ export async function GET(req: NextRequest) {
       },
     });
   } catch (err: any) {
-    console.error('GET /marketing/contacts error', err);
+    logger.error('GET /marketing/contacts error', err);
     return NextResponse.json(
       { error: err.message || 'Failed to fetch contacts' },
       { status: 500 }
@@ -86,7 +87,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ contact: data }, { status: 201 });
   } catch (err: any) {
-    console.error('POST /marketing/contacts error', err);
+    logger.error('POST /marketing/contacts error', err);
     return NextResponse.json(
       { error: err.message || 'Failed to create contact' },
       { status: 500 }

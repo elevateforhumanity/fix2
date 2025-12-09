@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/auth';
 import {
+import { logger } from '@/lib/logger';
   startOnboarding,
   completeOnboarding,
   skipOnboarding,
@@ -35,7 +36,7 @@ export async function GET(request: NextRequest) {
       { status: 400 }
     );
   } catch (error) {
-    console.error('Onboarding GET error:', error);
+    logger.error('Onboarding GET error:', error);
     return NextResponse.json(
       { error: 'Failed to fetch onboarding data' },
       { status: 500 }
@@ -80,7 +81,7 @@ export async function POST(request: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Onboarding POST error:', error);
+    logger.error('Onboarding POST error:', error);
     return NextResponse.json(
       { error: 'Failed to update onboarding' },
       { status: 500 }

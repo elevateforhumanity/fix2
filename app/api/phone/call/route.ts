@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 /**
  * Direct Phone Integration API
@@ -46,7 +47,7 @@ export async function POST(req: Request) {
         );
     }
   } catch (error: any) {
-    console.error("Phone API error:", error);
+    logger.error("Phone API error:", error);
     return NextResponse.json(
       { error: "Phone system error" },
       { status: 500 }

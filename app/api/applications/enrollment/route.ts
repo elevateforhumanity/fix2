@@ -1,6 +1,7 @@
 // app/api/applications/enrollment/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export const dynamic = 'force-dynamic';
 
@@ -56,7 +57,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (appError) {
-      console.error("Error creating application:", appError);
+      logger.error("Error creating application:", appError);
       return NextResponse.json(
         { error: "Failed to create application" },
         { status: 500 }
@@ -73,7 +74,7 @@ export async function POST(req: NextRequest) {
     });
 
     if (enrollError) {
-      console.error("Error creating enrollment:", enrollError);
+      logger.error("Error creating enrollment:", enrollError);
       // Don't fail the whole request, application is still created
     }
 
@@ -92,7 +93,7 @@ export async function POST(req: NextRequest) {
       status: "pending",
     });
   } catch (error) {
-    console.error("[Enrollment Application Error]:", error);
+    logger.error("[Enrollment Application Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -133,7 +134,7 @@ export async function GET(req: NextRequest) {
     const { data: applications, error } = await query;
 
     if (error) {
-      console.error("Error fetching applications:", error);
+      logger.error("Error fetching applications:", error);
       return NextResponse.json(
         { error: "Failed to fetch applications" },
         { status: 500 }
@@ -142,7 +143,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ applications: applications || [] });
   } catch (error) {
-    console.error("[Get Applications Error]:", error);
+    logger.error("[Get Applications Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

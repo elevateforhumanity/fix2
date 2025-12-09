@@ -1,6 +1,7 @@
 // app/api/forums/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function GET(request: NextRequest) {
   try {
@@ -31,7 +32,7 @@ export async function GET(request: NextRequest) {
       .order("created_at", { ascending: false });
 
     if (forumsError) {
-      console.error("[Forums API Error]:", forumsError);
+      logger.error("[Forums API Error]:", forumsError);
       return NextResponse.json(
         { error: "Failed to fetch forums" },
         { status: 500 }
@@ -88,7 +89,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(forumsWithStats);
   } catch (error) {
-    console.error("[Forums API Error]:", error);
+    logger.error("[Forums API Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

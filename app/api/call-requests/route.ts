@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   try {
@@ -26,7 +27,7 @@ export async function POST(req: Request) {
       .single();
 
     if (error) {
-      console.error("Database error:", error);
+      logger.error("Database error:", error);
       return NextResponse.json(
         { error: "Failed to save request" },
         { status: 500 }
@@ -35,7 +36,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, id: data.id });
   } catch (error) {
-    console.error("API error:", error);
+    logger.error("API error:", error);
     return NextResponse.json(
       { error: "Server error" },
       { status: 500 }
@@ -61,7 +62,7 @@ export async function GET() {
 
     return NextResponse.json({ requests: data || [] });
   } catch (error) {
-    console.error("API error:", error);
+    logger.error("API error:", error);
     return NextResponse.json(
       { error: "Server error" },
       { status: 500 }

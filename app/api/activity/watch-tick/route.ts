@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/auth";
+import { logger } from '@/lib/logger';
 
 async function awardAchievement(
   supabase: any,
@@ -21,7 +22,7 @@ async function awardAchievement(
   );
 
   if (error) {
-    console.error("awardAchievement error", code, error);
+    logger.error("awardAchievement error", code, error);
   }
 }
 
@@ -61,7 +62,7 @@ export async function POST(req: NextRequest) {
     );
 
   if (activityError) {
-    console.error("learning_activity upsert error", activityError);
+    logger.error("learning_activity upsert error", activityError);
     return NextResponse.json({ error: "DB error" }, { status: 500 });
   }
 
@@ -74,7 +75,7 @@ export async function POST(req: NextRequest) {
     .maybeSingle();
 
   if (activityTodayError) {
-    console.error("learning_activity fetch error", activityTodayError);
+    logger.error("learning_activity fetch error", activityTodayError);
     return NextResponse.json({ error: "DB error" }, { status: 500 });
   }
 
@@ -122,7 +123,7 @@ export async function POST(req: NextRequest) {
     });
 
     if (insertError) {
-      console.error("daily_streaks insert error", insertError);
+      logger.error("daily_streaks insert error", insertError);
     }
   } else {
     currentStreak = streakRow.current_streak;
@@ -156,7 +157,7 @@ export async function POST(req: NextRequest) {
         .eq("user_id", user.id);
 
       if (updateError) {
-        console.error("daily_streaks update error", updateError);
+        logger.error("daily_streaks update error", updateError);
       }
     }
   }

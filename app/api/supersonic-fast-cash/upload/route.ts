@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
@@ -35,7 +36,7 @@ export async function POST(request: Request) {
       });
 
     if (dbError) {
-      console.error('Database error:', dbError);
+      logger.error('Database error:', dbError);
     }
 
     // Send email notification
@@ -64,12 +65,12 @@ export async function POST(request: Request) {
         }),
       });
     } catch (emailError) {
-      console.error('Email error:', emailError);
+      logger.error('Email error:', emailError);
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error processing upload:', error);
+    logger.error('Error processing upload:', error);
     return NextResponse.json(
       { error: 'Failed to process upload' },
       { status: 500 }

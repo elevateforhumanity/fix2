@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { createServerClient } from '@supabase/ssr';
 import { z } from 'zod';
 import { checkRateLimit } from '@/lib/rate-limit';
+import { logger } from '@/lib/logger';
 
 const applicationSchema = z.object({
   firstName: z.string().min(1).max(50),
@@ -91,7 +92,7 @@ export async function POST(req: NextRequest) {
       });
 
     if (insertError) {
-      console.error('Application insert error', insertError);
+      logger.error('Application insert error', insertError);
       return NextResponse.json(
         { error: 'Could not submit application. Please try again.' },
         { status: 500 }
@@ -100,7 +101,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true }, { status: 201 });
   } catch (err) {
-    console.error('Application POST error', err);
+    logger.error('Application POST error', err);
     return NextResponse.json(
       { error: 'Unexpected error. Please try again.' },
       { status: 500 }

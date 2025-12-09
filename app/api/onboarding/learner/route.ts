@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -52,7 +53,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error: any) {
-    console.error('Learner onboarding error:', error);
+    logger.error('Learner onboarding error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to submit onboarding' },
       { status: 500 }

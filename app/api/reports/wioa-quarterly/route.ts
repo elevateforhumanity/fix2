@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 /**
  * WIOA Quarterly Performance Report API
@@ -64,7 +65,7 @@ export async function GET(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('WIOA report generation error:', error);
+    logger.error('WIOA report generation error:', error);
     return NextResponse.json(
       { error: 'Failed to generate report' },
       { status: 500 }
@@ -98,7 +99,7 @@ async function generateQuarterlyReport(
   const { data: enrollments, error: enrollError } = await enrollmentQuery;
   
   if (enrollError) {
-    console.error('Enrollment query error:', enrollError);
+    logger.error('Enrollment query error:', enrollError);
   }
 
   const totalEnrolled = enrollments?.length || 0;
@@ -282,7 +283,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (error) {
-      console.error('Error saving report:', error);
+      logger.error('Error saving report:', error);
       return NextResponse.json({ error: 'Failed to save report' }, { status: 500 });
     }
 
@@ -293,7 +294,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Error saving report:', error);
+    logger.error('Error saving report:', error);
     return NextResponse.json({ error: 'Internal error' }, { status: 500 });
   }
 }

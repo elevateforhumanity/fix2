@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import webpush from 'web-push';
+import { logger } from '@/lib/logger';
 
 // Configure web-push with VAPID keys
 // In production, these should be in environment variables
@@ -31,7 +32,7 @@ export async function POST(request: NextRequest) {
       message: 'Notification sent',
     });
   } catch (error) {
-    console.error('[Notifications] Send error:', error);
+    logger.error('[Notifications] Send error:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to send notification' },
       { status: 500 }

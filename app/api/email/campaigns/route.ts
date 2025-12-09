@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function GET(req: Request) {
   try {
@@ -14,7 +15,7 @@ export async function GET(req: Request) {
 
     return NextResponse.json({ success: true, campaigns });
   } catch (error: any) {
-    console.error('Error fetching campaigns:', error);
+    logger.error('Error fetching campaigns:', error);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }
@@ -48,7 +49,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, campaign });
   } catch (error: any) {
-    console.error('Error creating campaign:', error);
+    logger.error('Error creating campaign:', error);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }

@@ -1,6 +1,7 @@
 // app/api/courses/[courseId]/check-completion/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabaseServer";
+import { logger } from '@/lib/logger';
 
 type Params = { params: Promise<{ courseId: string }> };
 
@@ -26,7 +27,7 @@ export async function POST(req: NextRequest, { params }: Params) {
     .single();
 
   if (enrollError || !enrollment) {
-    console.error(enrollError);
+    logger.error(enrollError);
     return NextResponse.json(
       { error: "Enrollment not found for this course" },
       { status: 404 }
@@ -55,7 +56,7 @@ export async function POST(req: NextRequest, { params }: Params) {
   );
 
   if (extError) {
-    console.error(extError);
+    logger.error(extError);
     return NextResponse.json(
       { error: "Error checking external modules" },
       { status: 500 }
@@ -94,7 +95,7 @@ export async function POST(req: NextRequest, { params }: Params) {
     .eq("id", enrollment.id);
 
   if (updateError) {
-    console.error(updateError);
+    logger.error(updateError);
     return NextResponse.json(
       { error: "Failed to set course as completed" },
       { status: 500 }
@@ -130,7 +131,7 @@ export async function GET(req: NextRequest, { params }: Params) {
   );
 
   if (error) {
-    console.error(error);
+    logger.error(error);
     return NextResponse.json(
       { error: "Error checking completion status" },
       { status: 500 }

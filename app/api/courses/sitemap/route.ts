@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo } from "@/lib/github";
+import { logger } from '@/lib/logger';
 
 // Mark as dynamic route
 export const dynamic = 'force-dynamic';
@@ -72,7 +73,7 @@ export async function GET(req: NextRequest) {
       totalFiles: courseFiles.length,
     });
   } catch (error: any) {
-    console.error("Generate sitemap error:", error);
+    logger.error("Generate sitemap error:", error);
     return NextResponse.json(
       { error: "Failed to generate sitemap", message: error.message },
       { status: 500 }

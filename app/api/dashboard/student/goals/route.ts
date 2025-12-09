@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/auth";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   const supabase = await createClient();
@@ -33,7 +34,7 @@ export async function POST(req: NextRequest) {
     .single();
 
   if (error) {
-    console.error("learning_goals upsert error", error);
+    logger.error("learning_goals upsert error", error);
     return NextResponse.json({ error: "DB error" }, { status: 500 });
   }
 

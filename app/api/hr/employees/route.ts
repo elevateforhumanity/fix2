@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 // GET /api/hr/employees - List all employees
 export async function GET(request: NextRequest) {
@@ -59,7 +60,7 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch (error: any) {
-    console.error('Error fetching employees:', error);
+    logger.error('Error fetching employees:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch employees' },
       { status: 500 }
@@ -167,7 +168,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ employee }, { status: 201 });
   } catch (error: any) {
-    console.error('Error creating employee:', error);
+    logger.error('Error creating employee:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create employee' },
       { status: 500 }

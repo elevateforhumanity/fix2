@@ -5,6 +5,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import {
+import { logger } from '@/lib/logger';
   checkEntityEligibility,
   checkGrantEligibility,
   batchCheckEligibility,
@@ -47,7 +48,7 @@ export async function POST(req: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Eligibility check error:', error);
+    logger.error('Eligibility check error:', error);
     return NextResponse.json(
       { error: (error as Error).message },
       { status: 500 }

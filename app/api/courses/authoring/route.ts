@@ -1,6 +1,7 @@
 // app/api/courses/authoring/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function GET(req: NextRequest) {
   try {
@@ -38,7 +39,7 @@ export async function GET(req: NextRequest) {
     const { data: courses, error } = await query;
 
     if (error) {
-      console.error("Error fetching courses:", error);
+      logger.error("Error fetching courses:", error);
       return NextResponse.json(
         { error: "Failed to fetch courses" },
         { status: 500 }
@@ -47,7 +48,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ courses: courses || [] });
   } catch (error) {
-    console.error("[Course Authoring Error]:", error);
+    logger.error("[Course Authoring Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -106,7 +107,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (courseError) {
-      console.error("Error creating course:", courseError);
+      logger.error("Error creating course:", courseError);
       return NextResponse.json(
         { error: "Failed to create course" },
         { status: 500 }
@@ -127,7 +128,7 @@ export async function POST(req: NextRequest) {
         .insert(moduleInserts);
 
       if (modulesError) {
-        console.error("Error creating modules:", modulesError);
+        logger.error("Error creating modules:", modulesError);
         // Don't fail the whole request, course is still created
       }
     }
@@ -138,7 +139,7 @@ export async function POST(req: NextRequest) {
       course,
     });
   } catch (error) {
-    console.error("[Course Creation Error]:", error);
+    logger.error("[Course Creation Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

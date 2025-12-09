@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function GET() {
   try {
@@ -66,7 +67,7 @@ export async function GET() {
     
     return NextResponse.json(activities.slice(0, 20));
   } catch (error) {
-    console.error('Error fetching recent activity:', error);
+    logger.error('Error fetching recent activity:', error);
     return NextResponse.json(
       { error: 'Failed to fetch recent activity' },
       { status: 500 }

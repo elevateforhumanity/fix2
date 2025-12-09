@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 // Utility: simple tax calc (you can later replace with real tax engine)
 function calculateTaxes(grossPay: number) {
@@ -59,7 +60,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ payrollRuns });
   } catch (error: any) {
-    console.error('Error fetching payroll runs:', error);
+    logger.error('Error fetching payroll runs:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch payroll runs' },
       { status: 500 }
@@ -283,7 +284,7 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error: any) {
-    console.error('Error creating payroll run:', error);
+    logger.error('Error creating payroll run:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create payroll run' },
       { status: 500 }

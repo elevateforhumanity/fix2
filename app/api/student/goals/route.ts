@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/auth";
+import { logger } from '@/lib/logger';
 
 export async function GET(_req: NextRequest) {
   const supabase = await createClient();
@@ -17,7 +18,7 @@ export async function GET(_req: NextRequest) {
     .maybeSingle();
 
   if (error) {
-    console.error("learning_goals GET error", error);
+    logger.error("learning_goals GET error", error);
     return NextResponse.json({ error: "DB error" }, { status: 500 });
   }
 
@@ -52,7 +53,7 @@ export async function POST(req: NextRequest) {
     );
 
   if (error) {
-    console.error("learning_goals POST error", error);
+    logger.error("learning_goals POST error", error);
     return NextResponse.json({ error: "DB error" }, { status: 500 });
   }
 

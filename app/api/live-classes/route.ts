@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 export async function GET(req: NextRequest) {
   try {
@@ -33,7 +34,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ classes: data });
   } catch (error) {
-    console.error('Error fetching live classes:', error);
+    logger.error('Error fetching live classes:', error);
     return NextResponse.json(
       { error: 'Failed to fetch live classes' },
       { status: 500 }
@@ -100,7 +101,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ class: data }, { status: 201 });
   } catch (error) {
-    console.error('Error creating live class:', error);
+    logger.error('Error creating live class:', error);
     return NextResponse.json(
       { error: 'Failed to create live class' },
       { status: 500 }

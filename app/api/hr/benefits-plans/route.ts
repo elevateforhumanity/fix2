@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function GET(_request: NextRequest) {
   try {
@@ -14,7 +15,7 @@ export async function GET(_request: NextRequest) {
 
     return NextResponse.json({ plans: data });
   } catch (error: any) {
-    console.error('Error fetching benefits plans:', error);
+    logger.error('Error fetching benefits plans:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch benefits plans' },
       { status: 500 }
@@ -52,7 +53,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ plan: data }, { status: 201 });
   } catch (error: any) {
-    console.error('Error creating benefits plan:', error);
+    logger.error('Error creating benefits plan:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create benefits plan' },
       { status: 500 }

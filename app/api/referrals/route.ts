@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { apiAuthGuard } from '@/lib/authGuards';
 import {
+import { logger } from '@/lib/logger';
   createReferralCode,
   getReferralCodeByCode,
   getUserReferralCodes,
@@ -80,7 +81,7 @@ export async function GET(request: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Referrals GET error:', error);
+    logger.error('Referrals GET error:', error);
     return NextResponse.json(
       { error: 'Failed to fetch referral data' },
       { status: 500 }
@@ -162,7 +163,7 @@ export async function POST(request: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Referrals POST error:', error);
+    logger.error('Referrals POST error:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to process referral action' },
       { status: 500 }

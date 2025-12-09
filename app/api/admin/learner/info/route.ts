@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { getUserById } from '@/lib/supabase-admin';
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 async function getHandler(req: any, context: any, user: any) {
   const url = new URL(req.url);
@@ -24,7 +25,7 @@ async function getHandler(req: any, context: any, user: any) {
       email: userData.email,
     });
   } catch (error) {
-    console.error('Error fetching user:', error);
+    logger.error('Error fetching user:', error);
     return new Response('Failed to fetch user', { status: 500 });
   }
 }

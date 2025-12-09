@@ -4,6 +4,7 @@ import { existsSync } from 'fs';
 import path from 'path';
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import { logger } from '@/lib/logger';
 
 const execAsync = promisify(exec);
 
@@ -56,11 +57,11 @@ export async function POST(request: Request) {
       -movflags +faststart \
       "${enhancedPath}"`;
 
-    console.log('Enhancing video with FFmpeg...');
+    logger.info('Enhancing video with FFmpeg...');
     
     try {
       await execAsync(ffmpegCommand);
-      console.log('Video enhanced successfully');
+      logger.info('Video enhanced successfully');
 
       return NextResponse.json({
         success: true,
@@ -69,7 +70,7 @@ export async function POST(request: Request) {
         message: 'Video enhanced successfully! Quality improved, upscaled to 1080p, denoised, and color-corrected.',
       });
     } catch (ffmpegError: any) {
-      console.error('FFmpeg error:', ffmpegError);
+      logger.error('FFmpeg error:', ffmpegError);
       
       // If FFmpeg fails, return the original
       return NextResponse.json({
@@ -82,7 +83,7 @@ export async function POST(request: Request) {
     }
 
   } catch (error: any) {
-    console.error('Video upload error:', error);
+    logger.error('Video upload error:', error);
     return NextResponse.json(
       { error: 'Failed to process video', details: error.message },
       { status: 500 }

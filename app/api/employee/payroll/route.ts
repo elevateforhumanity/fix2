@@ -1,6 +1,7 @@
 // app/api/employee/payroll/route.ts
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function GET() {
   try {
@@ -41,7 +42,7 @@ export async function GET() {
 
     return NextResponse.json({ payrolls });
   } catch (error: any) {
-    console.error('Error fetching payroll:', error);
+    logger.error('Error fetching payroll:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch payroll data' },
       { status: 500 }

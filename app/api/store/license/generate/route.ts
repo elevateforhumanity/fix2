@@ -1,5 +1,6 @@
 import { generateLicenseKey, hashLicenseKey } from '@/lib/store/license';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   try {
@@ -38,7 +39,7 @@ export async function POST(req: Request) {
       .single();
 
     if (licenseError) {
-      console.error('Failed to store license:', licenseError);
+      logger.error('Failed to store license:', licenseError);
       return Response.json({ error: 'Failed to generate license' }, { status: 500 });
     }
 
@@ -48,7 +49,7 @@ export async function POST(req: Request) {
       licenseId: license.id,
     });
   } catch (error: any) {
-    console.error('License generation error:', error);
+    logger.error('License generation error:', error);
     return Response.json({ error: error.message }, { status: 500 });
   }
 }

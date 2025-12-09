@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
 import webpush from 'web-push';
+import { logger } from '@/lib/logger';
 
 // Configure VAPID
 if (process.env.VAPID_PUBLIC_KEY && process.env.VAPID_PRIVATE_KEY) {
@@ -72,7 +73,7 @@ export async function POST(req: Request) {
               sent_at: new Date().toISOString(),
             });
           } catch (error: any) {
-            console.error(`Error sending to subscription ${subscription.id}:`, error);
+            logger.error(`Error sending to subscription ${subscription.id}:`, error);
             failed++;
 
             // If subscription is invalid (410 Gone), mark as inactive
@@ -95,7 +96,7 @@ export async function POST(req: Request) {
           }
         }
       } catch (error: any) {
-        console.error(`Error processing user ${user.id}:`, error);
+        logger.error(`Error processing user ${user.id}:`, error);
         failed++;
       }
     }
@@ -109,7 +110,7 @@ export async function POST(req: Request) {
       },
     });
   } catch (error: any) {
-    console.error('Broadcast notification error:', error);
+    logger.error('Broadcast notification error:', error);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }
@@ -177,7 +178,7 @@ async function getTargetUsers(supabase: any, targetAudience: string) {
   const { data, error } = await query;
   
   if (error) {
-    console.error('Error fetching users:', error);
+    logger.error('Error fetching users:', error);
     return [];
   }
 

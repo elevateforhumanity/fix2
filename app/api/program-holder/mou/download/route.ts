@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 export async function GET() {
   const supabase = await createRouteHandlerClient({ cookies });
@@ -39,7 +40,7 @@ export async function GET() {
     .download(ph.mou_final_pdf_url);
 
   if (error || !data) {
-    console.error('Download error:', error);
+    logger.error('Download error:', error);
     return new Response('File not found', { status: 404 });
   }
 

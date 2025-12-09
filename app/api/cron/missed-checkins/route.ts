@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
@@ -54,7 +55,7 @@ export async function GET(request: NextRequest) {
         .maybeSingle();
 
       if (logError) {
-        console.error('Error checking logs:', logError);
+        logger.error('Error checking logs:', logError);
         continue;
       }
 
@@ -90,7 +91,7 @@ export async function GET(request: NextRequest) {
       results
     });
   } catch (error) {
-    console.error('Missed check-ins cron error:', error);
+    logger.error('Missed check-ins cron error:', error);
     return NextResponse.json(
       { error: 'Failed to check missed check-ins' },
       { status: 500 }

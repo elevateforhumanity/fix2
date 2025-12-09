@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 export const dynamic = 'force-dynamic';
 
@@ -36,7 +37,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ threads: data });
   } catch (error) {
-    console.error('Error fetching threads:', error);
+    logger.error('Error fetching threads:', error);
     return NextResponse.json(
       { error: 'Failed to fetch threads' },
       { status: 500 }
@@ -80,7 +81,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ thread: data }, { status: 201 });
   } catch (error) {
-    console.error('Error creating thread:', error);
+    logger.error('Error creating thread:', error);
     return NextResponse.json(
       { error: 'Failed to create thread' },
       { status: 500 }

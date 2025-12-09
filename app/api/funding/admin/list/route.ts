@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 export async function GET(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
@@ -35,7 +36,7 @@ export async function GET(req: NextRequest) {
   });
 
   if (error) {
-    console.error('Error fetching applications:', error);
+    logger.error('Error fetching applications:', error);
     return new Response(error.message, { status: 500 });
   }
 

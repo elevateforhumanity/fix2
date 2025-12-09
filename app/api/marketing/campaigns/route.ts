@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 // GET /api/marketing/campaigns
 export async function GET(req: NextRequest) {
@@ -32,7 +33,7 @@ export async function GET(req: NextRequest) {
       },
     });
   } catch (err: any) {
-    console.error('GET /marketing/campaigns error', err);
+    logger.error('GET /marketing/campaigns error', err);
     return NextResponse.json(
       { error: err.message || 'Failed to fetch campaigns' },
       { status: 500 }
@@ -88,7 +89,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ campaign: data }, { status: 201 });
   } catch (err: any) {
-    console.error('POST /marketing/campaigns error', err);
+    logger.error('POST /marketing/campaigns error', err);
     return NextResponse.json(
       { error: err.message || 'Failed to create campaign' },
       { status: 500 }

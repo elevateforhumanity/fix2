@@ -1,6 +1,7 @@
 // app/api/xapi/route.ts
 import { NextResponse } from 'next/server';
 import { createSupabaseClient } from "@/lib/supabase-api";
+import { logger } from '@/lib/logger';
 
 
 export async function POST(request: Request) {
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
   const { error } = await supabase.from('xapi_statements').insert(data);
 
   if (error) {
-    console.error('xAPI insert error:', error);
+    logger.error('xAPI insert error:', error);
     return NextResponse.json(
       { error: 'Failed to store statements' },
       { status: 500 }

@@ -11,6 +11,7 @@ import {
   generateOnboardingSummary,
 } from '@/lib/onboarding-complete-digital';
 import { generateNDAText } from '@/lib/onboarding-nda-template';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -120,7 +121,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (onboardingError) {
-      console.error('Error storing onboarding data:', onboardingError);
+      logger.error('Error storing onboarding data:', onboardingError);
       return NextResponse.json(
         { error: 'Failed to store onboarding data', details: onboardingError.message },
         { status: 500 }
@@ -203,7 +204,7 @@ export async function POST(request: NextRequest) {
         : 'Onboarding saved. Please complete remaining items.',
     });
   } catch (error: any) {
-    console.error('Onboarding submission error:', error);
+    logger.error('Onboarding submission error:', error);
     return NextResponse.json(
       { error: 'Failed to process onboarding', details: error.message },
       { status: 500 }
@@ -233,7 +234,7 @@ export async function GET(request: NextRequest) {
 
     if (error && error.code !== 'PGRST116') {
       // PGRST116 = no rows returned
-      console.error('Error fetching onboarding:', error);
+      logger.error('Error fetching onboarding:', error);
       return NextResponse.json({ error: 'Failed to fetch onboarding data' }, { status: 500 });
     }
 
@@ -243,7 +244,7 @@ export async function GET(request: NextRequest) {
       hasOnboarding: !!onboarding,
     });
   } catch (error: any) {
-    console.error('Onboarding fetch error:', error);
+    logger.error('Onboarding fetch error:', error);
     return NextResponse.json(
       { error: 'Failed to fetch onboarding', details: error.message },
       { status: 500 }

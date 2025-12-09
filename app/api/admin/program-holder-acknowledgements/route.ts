@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 export const GET = withAuth(
   async (req, context, user) => {
@@ -20,7 +21,7 @@ export const GET = withAuth(
       .order("created_at", { ascending: false });
 
     if (error) {
-      console.error("Supabase query error:", error);
+      logger.error("Supabase query error:", error);
       return NextResponse.json(
         { error: "Failed to fetch acknowledgements" },
         { status: 500 }
@@ -29,7 +30,7 @@ export const GET = withAuth(
 
     return NextResponse.json({ acknowledgements: data || [] });
   } catch (err: any) {
-    console.error("API error:", err);
+    logger.error("API error:", err);
     return NextResponse.json(
       { error: "Unexpected error" },
       { status: 500 }

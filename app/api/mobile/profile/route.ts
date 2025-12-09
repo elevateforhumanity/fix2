@@ -1,6 +1,7 @@
 // app/api/mobile/profile/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function GET(request: NextRequest) {
   try {
@@ -103,7 +104,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(response);
   } catch (error) {
-    console.error("[Mobile Profile Error]:", error);
+    logger.error("[Mobile Profile Error]:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

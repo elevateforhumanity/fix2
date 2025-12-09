@@ -2,6 +2,7 @@
 // xAPI Learning Record Store (LRS) endpoint
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from "@/lib/supabase-api";
+import { logger } from '@/lib/logger';
 
 
 export const runtime = 'nodejs';
@@ -41,7 +42,7 @@ export async function POST(request: NextRequest) {
       .insert(records);
 
     if (error) {
-      console.error('xAPI storage error:', error);
+      logger.error('xAPI storage error:', error);
       return NextResponse.json(
         { error: 'Failed to store statements' },
         { status: 500 }
@@ -50,7 +51,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ stored: records.length });
   } catch (error) {
-    console.error('xAPI endpoint error:', error);
+    logger.error('xAPI endpoint error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -87,7 +88,7 @@ export async function GET(request: NextRequest) {
     const { data, error } = await query;
 
     if (error) {
-      console.error('xAPI query error:', error);
+      logger.error('xAPI query error:', error);
       return NextResponse.json(
         { error: 'Failed to retrieve statements' },
         { status: 500 }
@@ -96,7 +97,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ statements: data });
   } catch (error) {
-    console.error('xAPI query endpoint error:', error);
+    logger.error('xAPI query endpoint error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

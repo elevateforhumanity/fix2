@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { createClient } from '@supabase/supabase-js';
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 export const POST = withAuth(
   async (req, context) => {
@@ -34,7 +35,7 @@ export const POST = withAuth(
       .upload(path, buffer, { contentType: 'image/png', upsert: true });
 
     if (uploadError) {
-      console.error('Upload error:', uploadError);
+      logger.error('Upload error:', uploadError);
       return new Response(uploadError.message, { status: 500 });
     }
 
@@ -68,7 +69,7 @@ export const POST = withAuth(
       .single();
 
     if (error) {
-      console.error('Update error:', error);
+      logger.error('Update error:', error);
       return new Response(error.message, { status: 500 });
     }
 

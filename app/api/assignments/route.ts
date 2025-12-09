@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 // GET /api/assignments - Fetch assignments for enrolled courses
 export async function GET(request: Request) {
@@ -45,7 +46,7 @@ export async function GET(request: Request) {
     const { data: assignments, error } = await query;
 
     if (error) {
-      console.error('Error fetching assignments:', error);
+      logger.error('Error fetching assignments:', error);
       return NextResponse.json(
         { error: 'Failed to fetch assignments' },
         { status: 500 }
@@ -54,7 +55,7 @@ export async function GET(request: Request) {
 
     return NextResponse.json({ assignments });
   } catch (error) {
-    console.error('Error in GET /api/assignments:', error);
+    logger.error('Error in GET /api/assignments:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -105,7 +106,7 @@ export async function POST(request: Request) {
       .single();
 
     if (error) {
-      console.error('Error creating assignment:', error);
+      logger.error('Error creating assignment:', error);
       return NextResponse.json(
         { error: 'Failed to create assignment' },
         { status: 500 }
@@ -114,7 +115,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ assignment }, { status: 201 });
   } catch (error) {
-    console.error('Error in POST /api/assignments:', error);
+    logger.error('Error in POST /api/assignments:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

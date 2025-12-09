@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { searchWorkforceOpportunities, searchOpportunities } from '@/lib/integrations/sam-gov';
+import { logger } from '@/lib/logger';
 
 export async function GET(req: NextRequest) {
   try {
@@ -29,7 +30,7 @@ export async function GET(req: NextRequest) {
       opportunities,
     });
   } catch (error: any) {
-    console.error('SAM.gov search error:', error);
+    logger.error('SAM.gov search error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to search SAM.gov' },
       { status: 500 }

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerSupabaseClient, getCurrentUser } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 // POST /api/assignments/[id]/submit - Submit assignment
 export async function POST(
@@ -68,7 +69,7 @@ export async function POST(
     }
 
     if (error) {
-      console.error('Error submitting assignment:', error);
+      logger.error('Error submitting assignment:', error);
       return NextResponse.json(
         { error: 'Failed to submit assignment' },
         { status: 500 }
@@ -77,7 +78,7 @@ export async function POST(
 
     return NextResponse.json({ submission }, { status: 201 });
   } catch (error) {
-    console.error('Error in POST /api/assignments/[id]/submit:', error);
+    logger.error('Error in POST /api/assignments/[id]/submit:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

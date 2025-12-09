@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -93,11 +94,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true, message: 'Welcome email sent' });
     } else {
       // Log email for development
-      console.log('=== WELCOME EMAIL ===');
-      console.log('To:', to);
-      console.log('Subject: Welcome! Your LMS Access is Ready');
-      console.log('Content:', emailHTML);
-      console.log('====================');
+      logger.info('=== WELCOME EMAIL ===');
+      logger.info('To:', to);
+      logger.info('Subject: Welcome! Your LMS Access is Ready');
+      logger.info('Content:', emailHTML);
+      logger.info('====================');
 
       return NextResponse.json({ 
         success: true, 
@@ -107,7 +108,7 @@ export async function POST(request: NextRequest) {
     }
 
   } catch (error: any) {
-    console.error('Send welcome email error:', error);
+    logger.error('Send welcome email error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to send email' },
       { status: 500 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 /**
  * Scraper Alert Endpoint
@@ -20,7 +21,7 @@ export async function POST(request: NextRequest) {
     const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown';
     const userAgent = request.headers.get('user-agent') || 'unknown';
     
-    console.error('🚨 SCRAPING ATTEMPT DETECTED:', {
+    logger.error('🚨 SCRAPING ATTEMPT DETECTED:', {
       type,
       url,
       ip,
@@ -41,7 +42,7 @@ export async function POST(request: NextRequest) {
         alert_sent: true
       });
     } catch (dbError) {
-      console.error('Failed to log to database:', dbError);
+      logger.error('Failed to log to database:', dbError);
       // Continue even if database logging fails
     }
     
@@ -71,7 +72,7 @@ export async function POST(request: NextRequest) {
     });
     
   } catch (error) {
-    console.error('Error processing scraper alert:', error);
+    logger.error('Error processing scraper alert:', error);
     return NextResponse.json(
       { error: 'Failed to process alert' },
       { status: 500 }
@@ -113,7 +114,7 @@ View full details: ${process.env.NEXT_PUBLIC_SITE_URL || 'https://elevateforhuma
 This is an automated alert from Elevate for Humanity Security System.
   `;
   
-  console.log('[EMAIL ALERT]', emailContent);
+  logger.info('[EMAIL ALERT]', emailContent);
   
   // Email sending via SendGrid when configured
   // Set SENDGRID_API_KEY and ALERT_EMAIL in environment variables
@@ -131,7 +132,7 @@ This is an automated alert from Elevate for Humanity Security System.
         html: emailContent.replace(/\n/g, '<br>')
       });
     } catch (error) {
-      console.error('Failed to send email:', error);
+      logger.error('Failed to send email:', error);
     }
   }
   */
@@ -180,7 +181,7 @@ async function sendSlackAlert(data: any) {
       })
     });
   } catch (error) {
-    console.error('Failed to send Slack alert:', error);
+    logger.error('Failed to send Slack alert:', error);
   }
 }
 

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -40,7 +41,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (!emailResponse.ok) {
-      console.error('Failed to send welcome email');
+      logger.error('Failed to send welcome email');
     }
 
     return NextResponse.json({ 
@@ -49,7 +50,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error: any) {
-    console.error('Onboarding completion error:', error);
+    logger.error('Onboarding completion error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to complete onboarding' },
       { status: 500 }

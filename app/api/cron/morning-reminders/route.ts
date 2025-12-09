@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
@@ -86,7 +87,7 @@ export async function GET(request: NextRequest) {
       results
     });
   } catch (error) {
-    console.error('Morning reminders cron error:', error);
+    logger.error('Morning reminders cron error:', error);
     return NextResponse.json(
       { error: 'Failed to send morning reminders' },
       { status: 500 }

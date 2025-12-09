@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 export const GET = withAuth(
   async (req: NextRequest, user) => {
@@ -48,7 +49,7 @@ export const GET = withAuth(
     const { data, error } = await query.order("created_at", { ascending: false });
 
     if (error) {
-      console.error("Export enrollments error:", error);
+      logger.error("Export enrollments error:", error);
       throw error;
     }
 
@@ -101,7 +102,7 @@ export const GET = withAuth(
     // Default JSON format
     return NextResponse.json({ enrollments, count: enrollments.length });
   } catch (err) {
-    console.error("Export enrollments error:", err);
+    logger.error("Export enrollments error:", err);
     return NextResponse.json(
       { error: "Failed to export enrollments" },
       { status: 500 }

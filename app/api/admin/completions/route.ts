@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 function getSupabaseServerClient() {
   const cookieStore = cookies();
@@ -53,7 +54,7 @@ export const GET = withAuth(
       .order("issued_date", { ascending: false });
 
     if (error) {
-      console.error("[GET /api/admin/completions] error", error);
+      logger.error("[GET /api/admin/completions] error", error);
       return NextResponse.json({ completions: [], error: error.message }, { status: 200 });
     }
 

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -48,7 +49,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (courseError) {
-      console.error('Course creation error:', courseError);
+      logger.error('Course creation error:', courseError);
       return NextResponse.json({ error: courseError.message }, { status: 400 });
     }
 
@@ -74,7 +75,7 @@ export async function POST(request: NextRequest) {
           });
 
         if (lessonError) {
-          console.error('Lesson creation error:', lessonError);
+          logger.error('Lesson creation error:', lessonError);
         }
       }
     }
@@ -89,7 +90,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error: any) {
-    console.error('Course creation error:', error);
+    logger.error('Course creation error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create course' },
       { status: 500 }

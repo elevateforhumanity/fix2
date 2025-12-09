@@ -4,6 +4,7 @@ import { existsSync } from 'fs';
 import path from 'path';
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import { logger } from '@/lib/logger';
 
 const execAsync = promisify(exec);
 
@@ -62,7 +63,7 @@ export async function POST(request: Request) {
         );
         generatedVoiceover = true;
       } catch (ttsError) {
-        console.error('TTS generation failed:', ttsError);
+        logger.error('TTS generation failed:', ttsError);
         // Continue without voiceover
       }
     }
@@ -146,16 +147,16 @@ export async function POST(request: Request) {
     }
     ffmpegCommand += ` -movflags +faststart -shortest "${enhancedPath}"`;
 
-    console.log('Processing video with full enhancement...');
-    console.log('Command:', ffmpegCommand);
+    logger.info('Processing video with full enhancement...');
+    logger.info('Command:', ffmpegCommand);
 
     try {
       const { stdout, stderr } = await execAsync(ffmpegCommand, {
         maxBuffer: 50 * 1024 * 1024, // 50MB buffer
       });
       
-      console.log('Video processed successfully');
-      console.log('FFmpeg output:', stderr);
+      logger.info('Video processed successfully');
+      logger.info('FFmpeg output:', stderr);
 
       return NextResponse.json({
         success: true,
@@ -174,7 +175,7 @@ export async function POST(request: Request) {
       });
 
     } catch (ffmpegError: any) {
-      console.error('FFmpeg error:', ffmpegError);
+      logger.error('FFmpeg error:', ffmpegError);
       
       return NextResponse.json({
         success: false,
@@ -185,7 +186,7 @@ export async function POST(request: Request) {
     }
 
   } catch (error: any) {
-    console.error('Video processing error:', error);
+    logger.error('Video processing error:', error);
     return NextResponse.json(
       { error: 'Failed to process video', details: error.message },
       { status: 500 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(
   req: NextRequest,
@@ -84,7 +85,7 @@ export async function POST(
       { status: 201 }
     );
   } catch (err: any) {
-    console.error('POST /events/[id]/register error', err);
+    logger.error('POST /events/[id]/register error', err);
     return NextResponse.json(
       { error: err.message || 'Failed to register' },
       { status: 500 }

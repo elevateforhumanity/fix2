@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createStoreProduct } from "@/lib/store/stripe-products";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   try {
@@ -37,7 +38,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (error) {
-      console.error("Supabase error:", error);
+      logger.error("Supabase error:", error);
       return NextResponse.json(
         { error: "Failed to save product", details: error.message },
         { status: 500 }
@@ -51,7 +52,7 @@ export async function POST(req: NextRequest) {
     });
 
   } catch (error: any) {
-    console.error("Create product error:", error);
+    logger.error("Create product error:", error);
     return NextResponse.json(
       {
         error: "Failed to create product",

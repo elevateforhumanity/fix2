@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
+import { logger } from '@/lib/logger';
 
 function getSupabaseServerClient() {
   const cookieStore = cookies();
@@ -47,7 +48,7 @@ export async function GET() {
     .order("enrolled_at", { ascending: false });
 
   if (error) {
-    console.error("[GET /api/student/partner-enrollments] error", error);
+    logger.error("[GET /api/student/partner-enrollments] error", error);
     return NextResponse.json({ enrollments: [] }, { status: 200 });
   }
 

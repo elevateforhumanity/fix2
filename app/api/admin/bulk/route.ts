@@ -10,6 +10,7 @@ import {
 } from '@/lib/bulkOperations';
 import { requireAdmin } from '@/lib/authGuards';
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 export const POST = withAuth(
   async (request: NextRequest, user) => {
@@ -86,7 +87,7 @@ export const POST = withAuth(
 
     return NextResponse.json(result);
   } catch (error) {
-    console.error('Bulk operation error:', error);
+    logger.error('Bulk operation error:', error);
     return NextResponse.json(
       { error: 'Failed to perform bulk operation' },
       { status: 500 }

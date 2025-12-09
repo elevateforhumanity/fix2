@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createBackup, exportBackupToJSON, listBackups } from '@/lib/backup';
 import { requireAdmin } from '@/lib/authGuards';
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 export const POST = withAuth(
   async (request: NextRequest, user) => {
@@ -26,7 +27,7 @@ export const POST = withAuth(
       download: `/api/admin/backup/download?timestamp=${result.timestamp}`,
     });
   } catch (error) {
-    console.error('Backup error:', error);
+    logger.error('Backup error:', error);
     return NextResponse.json(
       { error: 'Failed to create backup' },
       { status: 500 }
@@ -47,7 +48,7 @@ export const GET = withAuth(
 
     return NextResponse.json({ backups });
   } catch (error) {
-    console.error('Error listing backups:', error);
+    logger.error('Error listing backups:', error);
     return NextResponse.json(
       { error: 'Failed to list backups' },
       { status: 500 }

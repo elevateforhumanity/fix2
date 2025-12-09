@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
+import { logger } from '@/lib/logger';
 
 /**
  * Supersonic Cash Advance Application API
@@ -107,7 +108,7 @@ export async function POST(req: Request) {
         : 'Your application is being reviewed. You\'ll hear from us within 1 hour.',
     });
   } catch (error: any) {
-    console.error('Cash advance application error:', error);
+    logger.error('Cash advance application error:', error);
     return NextResponse.json(
       { success: false, error: error.message || 'Application failed' },
       { status: 500 }
@@ -174,7 +175,7 @@ async function sendToEOSFinancial(application: any) {
     const result = await response.json();
     return result;
   } catch (error) {
-    console.error('EOS Financial API error:', error);
+    logger.error('EOS Financial API error:', error);
     // Don't fail the application if EOS is down
     return null;
   }
@@ -205,6 +206,6 @@ async function sendApprovalEmail(email: string, application: any) {
       }),
     });
   } catch (error) {
-    console.error('Email send error:', error);
+    logger.error('Email send error:', error);
   }
 }

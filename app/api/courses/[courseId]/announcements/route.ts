@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/auth";
+import { logger } from '@/lib/logger';
 
 export async function GET(
   _req: NextRequest,
@@ -16,7 +17,7 @@ export async function GET(
     .order("created_at", { ascending: false });
 
   if (error) {
-    console.error("announcements GET error", error);
+    logger.error("announcements GET error", error);
     return NextResponse.json({ error: "DB error" }, { status: 500 });
   }
 
@@ -53,7 +54,7 @@ export async function POST(
     .single();
 
   if (courseError || !course) {
-    console.error(courseError);
+    logger.error(courseError);
     return NextResponse.json({ error: "Course not found" }, { status: 404 });
   }
 
@@ -75,7 +76,7 @@ export async function POST(
     });
 
   if (insertError) {
-    console.error("announcements POST error", insertError);
+    logger.error("announcements POST error", insertError);
     return NextResponse.json({ error: "DB error" }, { status: 500 });
   }
 
@@ -99,7 +100,7 @@ export async function POST(
       .insert(notifications);
 
     if (notifError) {
-      console.error("notifications error", notifError);
+      logger.error("notifications error", notifError);
     }
   }
 

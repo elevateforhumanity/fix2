@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   try {
@@ -74,7 +75,7 @@ export async function POST(req: NextRequest) {
     });
 
   } catch (error: any) {
-    console.error("AI generation error:", error);
+    logger.error("AI generation error:", error);
     
     return NextResponse.json(
       {

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyCertificate } from '@/lib/certificates/certificate-generator';
+import { logger } from '@/lib/logger';
 
 export async function GET(request: NextRequest) {
   try {
@@ -24,7 +25,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(result);
   } catch (error) {
-    console.error('Error verifying certificate:', error);
+    logger.error('Error verifying certificate:', error);
     return NextResponse.json(
       { error: 'Failed to verify certificate' },
       { status: 500 }

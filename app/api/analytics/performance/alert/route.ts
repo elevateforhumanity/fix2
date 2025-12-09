@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,7 +18,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (error) {
-      console.error('Error storing performance alert:', error);
+      logger.error('Error storing performance alert:', error);
     }
 
     // Send Slack alert if configured
@@ -60,13 +61,13 @@ export async function POST(request: NextRequest) {
           }),
         });
       } catch (slackError) {
-        console.error('Slack notification error:', slackError);
+        logger.error('Slack notification error:', slackError);
       }
     }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error('Performance alert API error:', error);
+    logger.error('Performance alert API error:', error);
     return NextResponse.json(
       { success: false, error: error.message || 'Internal server error' },
       { status: 500 }

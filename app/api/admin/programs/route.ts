@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 // Admin auth guard should be implemented via middleware
 // Protected by /admin route middleware in production
@@ -19,7 +20,7 @@ export const GET = withAuth(
     .order("created_at", { ascending: false });
 
   if (error) {
-    console.error("Error loading programs:", error);
+    logger.error("Error loading programs:", error);
     return NextResponse.json({ error: "Failed to load programs" }, { status: 500 });
   }
 
@@ -71,13 +72,13 @@ export const POST = withAuth(
     const { data, error } = result;
 
     if (error || !data) {
-      console.error("Program save error:", error);
+      logger.error("Program save error:", error);
       return NextResponse.json({ error: "Failed to save program" }, { status: 500 });
     }
 
     return NextResponse.json({ program: data });
   } catch (err) {
-    console.error("Program save error:", err);
+    logger.error("Program save error:", err);
     return NextResponse.json({ error: "Unexpected error" }, { status: 500 });
   }
 

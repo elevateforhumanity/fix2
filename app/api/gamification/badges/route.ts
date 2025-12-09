@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 export async function GET(req: NextRequest) {
   try {
@@ -33,7 +34,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ badges: data });
     }
   } catch (error) {
-    console.error('Error fetching badges:', error);
+    logger.error('Error fetching badges:', error);
     return NextResponse.json(
       { error: 'Failed to fetch badges' },
       { status: 500 }
@@ -95,7 +96,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ badge: data }, { status: 201 });
   } catch (error) {
-    console.error('Error awarding badge:', error);
+    logger.error('Error awarding badge:', error);
     return NextResponse.json(
       { error: 'Failed to award badge' },
       { status: 500 }

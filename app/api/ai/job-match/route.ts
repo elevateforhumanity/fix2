@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getOpenAIClient, isOpenAIConfigured } from "@/lib/openai-client";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   if (!isOpenAIConfigured()) {
@@ -71,7 +72,7 @@ Provide specific, actionable recommendations.`,
 
     return NextResponse.json({ matches });
   } catch (error: any) {
-    console.error("Job match error:", error);
+    logger.error("Job match error:", error);
     return NextResponse.json(
       { error: error.message || "Failed to match jobs" },
       { status: 500 }

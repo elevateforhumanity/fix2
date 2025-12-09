@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
@@ -76,7 +77,7 @@ export async function POST(req: NextRequest) {
     });
 
   if (appError) {
-    console.error('Failed to store application details:', appError);
+    logger.error('Failed to store application details:', appError);
   }
 
   // Update user profile with program holder and partner role

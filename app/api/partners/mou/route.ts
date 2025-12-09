@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: Request) {
   try {
@@ -44,7 +45,7 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      console.error("Supabase insert error:", error);
+      logger.error("Supabase insert error:", error);
       return NextResponse.json(
         { error: "Unable to save MOU signature." },
         { status: 500 }
@@ -56,7 +57,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (err: any) {
-    console.error("API error:", err);
+    logger.error("API error:", err);
     return NextResponse.json(
       { error: "Unexpected error." },
       { status: 500 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 interface EnrollRequestBody {
   firstName: string;
@@ -56,7 +57,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (appError) {
-      console.error("Application insert error", appError);
+      logger.error("Application insert error", appError);
       throw appError;
     }
 
@@ -70,7 +71,7 @@ export async function POST(req: NextRequest) {
       { status: 201 },
     );
   } catch (err: any) {
-    console.error("Enrollment API error", err?.message ?? err);
+    logger.error("Enrollment API error", err?.message ?? err);
     return NextResponse.json(
       {
         ok: false,

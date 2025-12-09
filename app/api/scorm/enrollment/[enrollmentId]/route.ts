@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function GET(
   request: Request,
@@ -23,7 +24,7 @@ export async function GET(
       .single();
 
     if (error) {
-      console.error('Error fetching SCORM enrollment:', error);
+      logger.error('Error fetching SCORM enrollment:', error);
       return NextResponse.json({ error: 'Enrollment not found' }, { status: 404 });
     }
 
@@ -42,7 +43,7 @@ export async function GET(
 
     return NextResponse.json(enrollment);
   } catch (error) {
-    console.error('SCORM enrollment GET error:', error);
+    logger.error('SCORM enrollment GET error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

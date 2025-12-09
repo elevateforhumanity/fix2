@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   const supabase = await createClient();
@@ -119,7 +120,7 @@ export async function POST(request: NextRequest) {
       conversationId: newConversationId,
     });
   } catch (error: any) {
-    console.error('AI Tutor error:', error);
+    logger.error('AI Tutor error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to process request' },
       { status: 500 }

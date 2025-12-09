@@ -5,6 +5,7 @@ import { createClient } from '@supabase/supabase-js';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import { Resend } from 'resend';
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 // Use Node.js runtime for PDF generation
 export const runtime = 'nodejs';
@@ -12,7 +13,7 @@ export const runtime = 'nodejs';
 function getResendClient() {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.warn(
+    logger.warn(
       'RESEND_API_KEY not configured - email notifications will be skipped'
     );
     return null;
@@ -358,7 +359,7 @@ export const POST = withAuth(
       });
 
     if (uploadError) {
-      console.error('PDF upload error:', uploadError);
+      logger.error('PDF upload error:', uploadError);
       return new Response(uploadError.message, { status: 500 });
     }
 
@@ -369,7 +370,7 @@ export const POST = withAuth(
       .eq('id', ph.id);
 
     if (updateError) {
-      console.error('Update error:', updateError);
+      logger.error('Update error:', updateError);
       return new Response(updateError.message, { status: 500 });
     }
 
@@ -436,7 +437,7 @@ export const POST = withAuth(
             `,
             });
           } catch (emailError) {
-            console.error('Error sending email:', emailError);
+            logger.error('Error sending email:', emailError);
             // Don't fail the request if email fails
           }
         }
@@ -448,7 +449,7 @@ export const POST = withAuth(
       pdfUrl: pdfPath,
     });
   } catch (error) {
-    console.error('Error generating PDF:', error);
+    logger.error('Error generating PDF:', error);
     return new Response('Failed to generate PDF', { status: 500 });
   }
 

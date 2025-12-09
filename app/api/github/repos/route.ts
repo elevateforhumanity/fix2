@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getUserOctokit, gh } from "@/lib/github";
+import { logger } from '@/lib/logger';
 
 export async function GET(req: NextRequest) {
   // Support both user token (x-gh-token header) and server token (env)
@@ -40,7 +41,7 @@ export async function GET(req: NextRequest) {
     
     return NextResponse.json(repos);
   } catch (error: any) {
-    console.error("GitHub repos error:", error);
+    logger.error("GitHub repos error:", error);
     return NextResponse.json({ 
       error: "Failed to fetch repos", 
       message: error.message,

@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
     const subscription = await request.json();
 
     // Note: Remove subscription from database
-    // console.log('[Notifications] Unsubscribe:', subscription);
+    // logger.info('[Notifications] Unsubscribe:', subscription);
 
     // In production, you would:
     // 1. Extract user ID from session/auth
@@ -17,7 +18,7 @@ export async function POST(request: NextRequest) {
       message: 'Subscription removed',
     });
   } catch (error) {
-    console.error('[Notifications] Unsubscribe error:', error);
+    logger.error('[Notifications] Unsubscribe error:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to remove subscription' },
       { status: 500 }

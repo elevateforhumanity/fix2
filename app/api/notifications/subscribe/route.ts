@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -6,7 +7,7 @@ export async function POST(request: NextRequest) {
 
     // Note: Store subscription in database
     // For now, just log it
-    // console.log('[Notifications] New subscription:', subscription);
+    // logger.info('[Notifications] New subscription:', subscription);
 
     // In production, you would:
     // 1. Extract user ID from session/auth
@@ -18,7 +19,7 @@ export async function POST(request: NextRequest) {
       message: 'Subscription saved',
     });
   } catch (error) {
-    console.error('[Notifications] Subscribe error:', error);
+    logger.error('[Notifications] Subscribe error:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to save subscription' },
       { status: 500 }

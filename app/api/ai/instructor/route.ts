@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getInstructorByProgramId, getInstructorById } from "@/lms-data/instructors";
 import { allPrograms } from "@/lms-data/programs";
+import { logger } from '@/lib/logger';
 
 const apiKey = process.env.OPENAI_API_KEY;
 
@@ -89,14 +90,14 @@ Keep responses concise (2-4 paragraphs max), practical, and encouraging. Focus o
 
       return NextResponse.json({ text: reply });
     } catch (aiError: any) {
-      console.error("OpenAI API error:", aiError);
+      logger.error("OpenAI API error:", aiError);
       return NextResponse.json(
         { message: "AI service temporarily unavailable. Please try again." },
         { status: 503 }
       );
     }
   } catch (error: any) {
-    console.error("AI instructor route error:", error);
+    logger.error("AI instructor route error:", error);
     return NextResponse.json(
       { message: "Internal server error." },
       { status: 500 }

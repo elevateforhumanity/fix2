@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from "@/lib/supabase-api";
 import { createZoomMeeting } from '@/lib/integrations/zoom';
 import { logAuditEvent, AuditActions, getRequestMetadata } from '@/lib/audit';
+import { logger } from '@/lib/logger';
 
 
 export async function POST(request: NextRequest) {
@@ -50,7 +51,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (error) {
-      console.error('Database error:', error);
+      logger.error('Database error:', error);
       return NextResponse.json(
         { error: 'Failed to save live session' },
         { status: 500 }
@@ -72,7 +73,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ liveSession, meeting });
   } catch (error) {
-    console.error('Zoom meeting creation error:', error);
+    logger.error('Zoom meeting creation error:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Internal server error' },
       { status: 500 }

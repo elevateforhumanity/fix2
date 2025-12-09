@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
+import { logger } from '@/lib/logger';
 
 const openai = process.env.OPENAI_API_KEY 
   ? new OpenAI({
@@ -53,7 +54,7 @@ export async function POST(req: NextRequest) {
       // audioUrl,
     });
   } catch (error: any) {
-    console.error('AI Instructor error:', error);
+    logger.error('AI Instructor error:', error);
     
     // Fallback messages if API fails
     const fallbackMessages = {

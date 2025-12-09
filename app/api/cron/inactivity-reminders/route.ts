@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createSupabaseClient } from '@/lib/supabase-api';
 import { sendEmail, emailTemplates } from '@/lib/email';
+import { logger } from '@/lib/logger';
 
 // This endpoint should be called by a cron job (e.g., Vercel Cron, GitHub Actions, or external service)
 // Recommended: Run daily at 9 AM
@@ -107,7 +108,7 @@ export async function GET(request: Request) {
             daysSinceLogin,
           });
         } catch (error) {
-          console.error(`Failed to send reminder to ${studentEmail}:`, error);
+          logger.error(`Failed to send reminder to ${studentEmail}:`, error);
         }
       }
     }
@@ -118,7 +119,7 @@ export async function GET(request: Request) {
       reminders,
     });
   } catch (error) {
-    console.error('Error in inactivity reminders cron:', error);
+    logger.error('Error in inactivity reminders cron:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

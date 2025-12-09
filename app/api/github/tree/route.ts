@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getUserOctokit, gh, parseRepo } from "@/lib/github";
+import { logger } from '@/lib/logger';
 
 export async function GET(req: NextRequest) {
   const userToken = req.headers.get("x-gh-token");
@@ -67,7 +68,7 @@ export async function GET(req: NextRequest) {
       truncated: tree.truncated
     });
   } catch (error: any) {
-    console.error("GitHub tree error:", error);
+    logger.error("GitHub tree error:", error);
     return NextResponse.json({ 
       error: "Failed to fetch file tree", 
       message: error.message,

@@ -3,6 +3,7 @@ import Stripe from "stripe";
 import { supabase } from "@/lib/supabaseClient";
 import { programToCourseSlugs } from "@/lms-data/enrollmentMappings";
 import { autoEnrollPartnerCourse } from "@/lib/automation/partnerEnrollment";
+import { logger } from '@/lib/logger';
 
 export const runtime = "nodejs";
 
@@ -18,7 +19,7 @@ const stripe =
 
 export async function POST(req: NextRequest) {
   if (!stripe || !stripeWebhookSecret) {
-    console.error(
+    logger.error(
       "[StripeWebhook] Missing STRIPE_SECRET_KEY or STRIPE_WEBHOOK_SECRET."
     );
     return NextResponse.json(
@@ -28,7 +29,7 @@ export async function POST(req: NextRequest) {
   }
 
   if (!supabase) {
-    console.error("[StripeWebhook] Supabase client not configured.");
+    logger.error("[StripeWebhook] Supabase client not configured.");
     return NextResponse.json(
       { received: true, error: "Supabase not configured" },
       { status: 200 }
@@ -37,7 +38,7 @@ export async function POST(req: NextRequest) {
 
   const sig = req.headers.get("stripe-signature");
   if (!sig) {
-    console.error("[StripeWebhook] Missing stripe-signature header.");
+    logger.error("[StripeWebhook] Missing stripe-signature header.");
     return NextResponse.json(
       { error: "Missing stripe-signature" },
       { status: 400 }
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest) {
   try {
     event = stripe.webhooks.constructEvent(rawBody, sig, stripeWebhookSecret);
   } catch (err: any) {
-    console.error("[StripeWebhook] Signature verification failed:", err?.message);
+    logger.error("[StripeWebhook] Signature verification failed:", err?.message);
     return NextResponse.json(
       { error: "Signature verification failed" },
       { status: 400 }
@@ -79,7 +80,7 @@ export async function POST(req: NextRequest) {
       (session.customer as string | undefined) || null;
 
     if (!email || !programId) {
-      console.warn(
+      logger.warn(
         "[StripeWebhook] checkout.session.completed missing email or programId. " +
           "Make sure your Payment Links or Checkout Sessions set metadata.programId and collect email."
       );
@@ -99,7 +100,7 @@ export async function POST(req: NextRequest) {
         .limit(1);
 
       if (appsError) {
-        console.error("[StripeWebhook] Error querying applications:", appsError);
+        logger.error("[StripeWebhook] Error querying applications:", appsError);
       } else if (apps && apps.length > 0) {
         matchedApplicationId = apps[0].id;
       }
@@ -122,7 +123,7 @@ export async function POST(req: NextRequest) {
       .limit(1);
 
     if (enrollError) {
-      console.error("[StripeWebhook] Error inserting enrollment:", enrollError);
+      logger.error("[StripeWebhook] Error inserting enrollment:", enrollError);
     }
 
     const enrollmentId = enrollmentRows?.[0]?.id || null;
@@ -135,7 +136,7 @@ export async function POST(req: NextRequest) {
         .eq("id", matchedApplicationId);
 
       if (updateError) {
-        console.error(
+        logger.error(
           "[StripeWebhook] Error updating application payment_status:",
           updateError
         );
@@ -160,19 +161,19 @@ export async function POST(req: NextRequest) {
         });
 
       if (scError) {
-        console.error(
+        logger.error(
           "[StripeWebhook] Error inserting student_courses:",
           scError
         );
       } else {
-        console.log(
+        logger.info(
           `[StripeWebhook] Auto-assigned courses ${courseSlugs.join(
             ", "
           )} for email=${email}, program=${programId}`
         );
       }
     } else {
-      console.log(
+      logger.info(
         `[StripeWebhook] No course mapping found for program=${programId}; skipping student_courses insert.`
       );
     }
@@ -183,7 +184,7 @@ export async function POST(req: NextRequest) {
     const studentId = session.metadata?.studentId;
 
     if (studentId && partnerId && courseId) {
-      console.log(
+      logger.info(
         `[StripeWebhook] Auto-enrolling student ${studentId} in partner course ${courseId}`
       );
       
@@ -196,27 +197,27 @@ export async function POST(req: NextRequest) {
         });
 
         if (result.success) {
-          console.log(
+          logger.info(
             `[StripeWebhook] Partner enrollment successful: ${result.enrollmentId}`
           );
         } else {
-          console.error(
+          logger.error(
             `[StripeWebhook] Partner enrollment failed: ${result.error}`
           );
         }
       } catch (err: any) {
-        console.error(
+        logger.error(
           `[StripeWebhook] Partner enrollment exception: ${err.message}`
         );
       }
     }
 
-    console.log(
+    logger.info(
       `[StripeWebhook] Enrollment recorded for email=${email}, program=${programId}, appId=${matchedApplicationId}, enrollmentId=${enrollmentId}`
     );
   } else {
     // For now, just acknowledge other events
-    console.log("[StripeWebhook] Received event type:", event.type);
+    logger.info("[StripeWebhook] Received event type:", event.type);
   }
 
   return NextResponse.json({ received: true }, { status: 200 });

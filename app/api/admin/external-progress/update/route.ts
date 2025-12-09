@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 export const POST = withAuth(
   async (req: NextRequest, user) => {
@@ -33,7 +34,7 @@ export const POST = withAuth(
         .eq("id", id);
 
       if (error) {
-        console.error("Error updating external progress", error);
+        logger.error("Error updating external progress", error);
         return NextResponse.json(
           { error: "Failed to update status" },
           { status: 500 }
@@ -52,7 +53,7 @@ export const POST = withAuth(
         .eq("id", id);
 
       if (error) {
-        console.error("Error updating external progress", error);
+        logger.error("Error updating external progress", error);
         return NextResponse.json(
           { error: "Failed to update status" },
           { status: 500 }
@@ -62,7 +63,7 @@ export const POST = withAuth(
 
     return NextResponse.json({ success: true });
   } catch (err: any) {
-    console.error(err);
+    logger.error(err);
     return NextResponse.json(
       { error: err?.message ?? "Unexpected error" },
       { status: 500 }

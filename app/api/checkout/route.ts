@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { billingConfigs } from "../../../lms-data/billingConfig";
+import { logger } from '@/lib/logger';
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
 if (!stripeSecretKey) {
-  console.warn(
+  logger.warn(
     "[Elevate] STRIPE_SECRET_KEY is not set. /api/checkout will return 500 until configured.",
   );
 }
@@ -95,7 +96,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ url: session.url }, { status: 200 });
   } catch (err: any) {
-    console.error("[Elevate] Error in /api/checkout:", err);
+    logger.error("[Elevate] Error in /api/checkout:", err);
     return NextResponse.json(
       { error: "Unable to create checkout session." },
       { status: 500 },

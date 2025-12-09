@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   try {
@@ -67,7 +68,7 @@ export async function POST(req: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error('Error uploading SCORM package:', error);
+    logger.error('Error uploading SCORM package:', error);
     return NextResponse.json(
       { error: 'Failed to upload SCORM package' },
       { status: 500 }

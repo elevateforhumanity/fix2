@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo } from "@/lib/github";
 import { marked } from "marked";
+import { logger } from '@/lib/logger';
 
 // Simple HTML escape for security
 function escapeHtml(text: string): string {
@@ -256,7 +257,7 @@ export async function GET(req: NextRequest) {
     });
 
   } catch (error: any) {
-    console.error("Preview render error:", error);
+    logger.error("Preview render error:", error);
     
     const errorHtml = `
       <html>

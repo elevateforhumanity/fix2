@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/rbac";
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 export const POST = withAuth(
   async (req: NextRequest, user) => {
@@ -44,7 +45,7 @@ export const POST = withAuth(
 
     if (!response.ok) {
       const error = await response.text();
-      console.error("Vercel deployment error:", error);
+      logger.error("Vercel deployment error:", error);
       return NextResponse.json(
         { error: "Failed to trigger deployment" },
         { status: 500 }
@@ -60,7 +61,7 @@ export const POST = withAuth(
       message: "New deployment triggered successfully",
     });
   } catch (err: any) {
-    console.error("Hard refresh error:", err);
+    logger.error("Hard refresh error:", err);
     return NextResponse.json(
       { error: err.message || "Failed to trigger hard refresh" },
       { status: 500 }

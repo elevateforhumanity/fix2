@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: Request) {
   try {
@@ -30,7 +31,7 @@ export async function POST(request: Request) {
       });
 
     if (dbError) {
-      console.error('Database error:', dbError);
+      logger.error('Database error:', dbError);
       // Continue even if database insert fails - we'll still send the email
     }
 
@@ -60,13 +61,13 @@ export async function POST(request: Request) {
         }),
       });
     } catch (emailError) {
-      console.error('Email error:', emailError);
+      logger.error('Email error:', emailError);
       // Don't fail the request if email fails
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Error processing advising request:', error);
+    logger.error('Error processing advising request:', error);
     return NextResponse.json(
       { error: 'Failed to process request' },
       { status: 500 }

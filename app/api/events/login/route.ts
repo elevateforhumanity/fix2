@@ -1,6 +1,7 @@
 import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   const supabase = await createRouteHandlerClient({ cookies });
@@ -10,7 +11,7 @@ export async function POST(req: NextRequest) {
   if (!user) return new Response('Unauthorized', { status: 401 });
 
   const body = await req.json().catch((err) => {
-    console.error('Failed to parse request body:', err);
+    logger.error('Failed to parse request body:', err);
     return {};
   });
   const source = body.source || 'LMS_DASHBOARD';

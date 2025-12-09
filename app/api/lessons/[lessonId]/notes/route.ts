@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getCurrentUser } from "@/lib/auth";
+import { logger } from '@/lib/logger';
 
 export async function GET(
   _req: NextRequest,
@@ -23,7 +24,7 @@ export async function GET(
     .order("created_at", { ascending: false });
 
   if (error) {
-    console.error("notes GET error", error);
+    logger.error("notes GET error", error);
     return NextResponse.json({ error: "DB error" }, { status: 500 });
   }
 
@@ -60,7 +61,7 @@ export async function POST(
   });
 
   if (error) {
-    console.error("notes POST error", error);
+    logger.error("notes POST error", error);
     return NextResponse.json({ error: "DB error" }, { status: 500 });
   }
 

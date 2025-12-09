@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 export const POST = withAuth(
   async (req: NextRequest, user) => {
@@ -9,7 +10,7 @@ export const POST = withAuth(
     const supabase = await createClient();
 
     // Step 1: Create the table
-    // console.log("Creating marketing_contacts table...");
+    // logger.info("Creating marketing_contacts table...");
     
     const createTableSQL = `
       CREATE TABLE IF NOT EXISTS public.marketing_contacts (
@@ -70,12 +71,12 @@ export const POST = withAuth(
     const { error: tableError } = await supabase.rpc('exec_sql', { sql: createTableSQL });
     
     if (tableError && !tableError.message?.includes('already exists')) {
-      console.error("Table creation error:", tableError);
+      logger.error("Table creation error:", tableError);
       // Continue anyway - table might already exist
     }
 
     // Step 2: Insert contacts
-    // console.log("Inserting contacts...");
+    // logger.info("Inserting contacts...");
     
     const contacts = [
       {
@@ -211,7 +212,7 @@ export const POST = withAuth(
         if (error.code === "23505" || error.message?.includes("duplicate")) {
           skipped++;
         } else {
-          console.error(`Error inserting ${contact.email}:`, error);
+          logger.error(`Error inserting ${contact.email}:`, error);
         }
       } else {
         inserted++;
@@ -234,7 +235,7 @@ export const POST = withAuth(
     });
 
   } catch (err: any) {
-    console.error("Setup error:", err);
+    logger.error("Setup error:", err);
     return NextResponse.json(
       { 
         error: err.message || "Setup failed",

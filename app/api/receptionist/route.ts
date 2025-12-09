@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getOpenAIClient } from "@/lib/openai-client";
+import { logger } from '@/lib/logger';
 
 // System prompt for the AI receptionist
 const RECEPTIONIST_PROMPT = `You are the AI receptionist for Elevate for Humanity, a workforce development organization in Indiana.
@@ -74,7 +75,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ response });
   } catch (error: any) {
-    console.error("Receptionist API error:", error);
+    logger.error("Receptionist API error:", error);
     
     // Return helpful fallback
     return NextResponse.json({

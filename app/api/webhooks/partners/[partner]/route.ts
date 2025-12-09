@@ -4,6 +4,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { getPartnerClient, PartnerType, WebhookPayload } from "@/lib/partners";
+import { logger } from '@/lib/logger';
 
 function getSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -41,7 +42,7 @@ export async function POST(
     );
 
     if (!isValid) {
-      console.error(`[Webhook] Invalid signature for ${partner}`);
+      logger.error(`[Webhook] Invalid signature for ${partner}`);
       return NextResponse.json(
         { error: "Invalid signature" },
         { status: 401 }
@@ -51,7 +52,7 @@ export async function POST(
     // Parse webhook payload
     const payload: WebhookPayload = JSON.parse(rawBody);
 
-    console.log({
+    logger.info({
       event: payload.event,
       timestamp: payload.timestamp,
     });
@@ -75,7 +76,7 @@ export async function POST(
         break;
 
       default:
-        console.warn(`[Webhook] Unknown event type: ${payload.event}`);
+        logger.warn(`[Webhook] Unknown event type: ${payload.event}`);
     }
 
     // Process webhook through partner-specific handler
@@ -83,7 +84,7 @@ export async function POST(
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error(`[Webhook] Error processing ${partner} webhook:`, error);
+    logger.error(`[Webhook] Error processing ${partner} webhook:`, error);
     return NextResponse.json(
       { error: error.message || "Internal server error" },
       { status: 500 }
@@ -109,7 +110,7 @@ async function handleEnrollmentCreated(
     .eq("external_enrollment_id", data.enrollmentId);
 
   if (error) {
-    console.error("[Webhook] Failed to update enrollment:", error);
+    logger.error("[Webhook] Failed to update enrollment:", error);
   }
 }
 
@@ -132,7 +133,7 @@ async function handleProgressUpdated(
     .eq("external_enrollment_id", data.enrollmentId);
 
   if (error) {
-    console.error("[Webhook] Failed to update progress:", error);
+    logger.error("[Webhook] Failed to update progress:", error);
   }
 }
 
@@ -155,7 +156,7 @@ async function handleCourseCompleted(
     .eq("external_enrollment_id", data.enrollmentId);
 
   if (error) {
-    console.error("[Webhook] Failed to update completion:", error);
+    logger.error("[Webhook] Failed to update completion:", error);
     return;
   }
 
@@ -187,6 +188,6 @@ async function handleCertificateIssued(
     .eq("external_enrollment_id", data.enrollmentId);
 
   if (error) {
-    console.error("[Webhook] Failed to update certificate:", error);
+    logger.error("[Webhook] Failed to update certificate:", error);
   }
 }

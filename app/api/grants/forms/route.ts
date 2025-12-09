@@ -5,6 +5,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import {
+import { logger } from '@/lib/logger';
   generateAllFederalForms,
   generateSF424,
   generateSF424A,
@@ -77,7 +78,7 @@ export async function POST(req: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Federal forms error:', error);
+    logger.error('Federal forms error:', error);
     return NextResponse.json(
       { error: (error as Error).message },
       { status: 500 }

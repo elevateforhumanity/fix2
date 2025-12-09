@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { gh, parseRepo } from "@/lib/github";
+import { logger } from '@/lib/logger';
 
 export async function GET(req: NextRequest) {
   try {
@@ -39,7 +40,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(metadata);
   } catch (error: any) {
-    console.error("Get metadata error:", error);
+    logger.error("Get metadata error:", error);
     
     if (error.status === 404) {
       return NextResponse.json(

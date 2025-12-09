@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { getCurrentUser } from '@/lib/auth';
+import { logger } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
@@ -54,7 +55,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (error) {
-      console.error('Enrollment error:', error);
+      logger.error('Enrollment error:', error);
       return NextResponse.json(
         { error: 'Failed to create enrollment' },
         { status: 500 }
@@ -67,7 +68,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Enrollment API error:', error);
+    logger.error('Enrollment API error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

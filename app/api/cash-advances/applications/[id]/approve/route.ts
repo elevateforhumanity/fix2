@@ -1,6 +1,7 @@
 // app/api/cash-advances/applications/[id]/approve/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseServer } from '@/lib/supabase-server';
+import { logger } from '@/lib/logger';
 
 export async function POST(
   request: NextRequest,
@@ -49,7 +50,7 @@ export async function POST(
           }),
         });
       } catch (emailError) {
-        console.error('Failed to send approval email:', emailError);
+        logger.error('Failed to send approval email:', emailError);
       }
     }
 

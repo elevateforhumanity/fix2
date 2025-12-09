@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function GET(req: NextRequest) {
   try {
@@ -11,7 +12,7 @@ export async function GET(req: NextRequest) {
       .order("created_at", { ascending: false });
 
     if (error) {
-      console.error("Supabase error:", error);
+      logger.error("Supabase error:", error);
       return NextResponse.json(
         { error: "Failed to fetch products", details: error.message },
         { status: 500 }
@@ -21,7 +22,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json(data || []);
 
   } catch (error: any) {
-    console.error("Get products error:", error);
+    logger.error("Get products error:", error);
     return NextResponse.json(
       {
         error: "Failed to fetch products",

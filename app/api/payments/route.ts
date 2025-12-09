@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { apiAuthGuard } from '@/lib/authGuards';
 import {
+import { logger } from '@/lib/logger';
   createCoursePaymentIntent,
   createSubscriptionPaymentIntent,
   confirmPayment,
@@ -54,7 +55,7 @@ export async function GET(request: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Payments GET error:', error);
+    logger.error('Payments GET error:', error);
     return NextResponse.json(
       { error: 'Failed to fetch payment data' },
       { status: 500 }
@@ -217,7 +218,7 @@ export async function POST(request: NextRequest) {
         );
     }
   } catch (error) {
-    console.error('Payments POST error:', error);
+    logger.error('Payments POST error:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to process payment' },
       { status: 500 }

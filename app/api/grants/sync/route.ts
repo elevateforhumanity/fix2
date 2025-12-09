@@ -1,6 +1,7 @@
 // app/api/grants/sync/route.ts
 import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabaseAdmin';
+import { logger } from '@/lib/logger';
 
 type RawGrant = {
   externalId: string;
@@ -66,7 +67,7 @@ export async function POST() {
       .single();
 
     if (sourceError || !source) {
-      console.error(sourceError);
+      logger.error(sourceError);
       return NextResponse.json(
         { error: 'Failed to ensure grant source' },
         { status: 500 }
@@ -97,13 +98,13 @@ export async function POST() {
         );
 
       if (error) {
-        console.error('Error upserting grant', g.externalId, error);
+        logger.error('Error upserting grant', g.externalId, error);
       }
     }
 
     return NextResponse.json({ ok: true, imported: rawGrants.length });
   } catch (err) {
-    console.error(err);
+    logger.error(err);
     return NextResponse.json(
       { error: 'Unexpected error during grant sync' },
       { status: 500 }

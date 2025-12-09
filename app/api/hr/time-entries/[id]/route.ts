@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
 
 export async function PATCH(
   request: NextRequest,
@@ -47,7 +48,7 @@ export async function PATCH(
 
     return NextResponse.json({ timeEntry: data });
   } catch (error: any) {
-    console.error('Error updating time entry:', error);
+    logger.error('Error updating time entry:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to update time entry' },
       { status: 500 }
@@ -71,7 +72,7 @@ export async function DELETE(
 
     return NextResponse.json({ message: 'Time entry deleted' });
   } catch (error: any) {
-    console.error('Error deleting time entry:', error);
+    logger.error('Error deleting time entry:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to delete time entry' },
       { status: 500 }

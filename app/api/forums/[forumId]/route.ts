@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { getUserIdFromRequest } from "@/lib/getUserIdFromRequest";
+import { logger } from '@/lib/logger';
 
 type Params = { params: Promise<{ forumId: string }> };
 
@@ -29,7 +30,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
       .order("last_post_at", { ascending: false, nullsFirst: false });
 
     if (threadsError) {
-      console.error("[threads list] error:", threadsError);
+      logger.error("[threads list] error:", threadsError);
       return NextResponse.json(
         { error: "Failed to load threads" },
         { status: 500 }
@@ -74,7 +75,7 @@ export async function GET(_req: NextRequest, { params }: Params) {
 
     return NextResponse.json(result);
   } catch (error) {
-    console.error("[threads list] error:", error);
+    logger.error("[threads list] error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -117,7 +118,7 @@ export async function POST(req: NextRequest, { params }: Params) {
       .single();
 
     if (threadError || !thread) {
-      console.error("[threads create] thread error:", threadError);
+      logger.error("[threads create] thread error:", threadError);
       return NextResponse.json(
         { error: "Failed to create thread" },
         { status: 500 }
@@ -135,7 +136,7 @@ export async function POST(req: NextRequest, { params }: Params) {
       });
 
     if (postError) {
-      console.error("[threads create] post error:", postError);
+      logger.error("[threads create] post error:", postError);
       return NextResponse.json(
         { error: "Failed to create initial post" },
         { status: 500 }
@@ -144,7 +145,7 @@ export async function POST(req: NextRequest, { params }: Params) {
 
     return NextResponse.json({ success: true, threadId: thread.id });
   } catch (error) {
-    console.error("[threads create] error:", error);
+    logger.error("[threads create] error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

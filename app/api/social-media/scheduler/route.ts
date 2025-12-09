@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
+import { logger } from '@/lib/logger';
 
 /**
  * Social Media Scheduler - Posts to social platforms 3x daily
@@ -90,7 +91,7 @@ export async function GET(req: Request) {
               success: true,
             });
           } catch (error: any) {
-            console.error(`Error posting to ${platform}:`, error);
+            logger.error(`Error posting to ${platform}:`, error);
             
             // Log failure
             await supabase.from('social_media_posts').insert({
@@ -120,7 +121,7 @@ export async function GET(req: Request) {
           .eq('id', campaign.id);
 
       } catch (error: any) {
-        console.error(`Error processing campaign ${campaign.id}:`, error);
+        logger.error(`Error processing campaign ${campaign.id}:`, error);
         results.push({
           campaignId: campaign.id,
           name: campaign.name,
@@ -137,7 +138,7 @@ export async function GET(req: Request) {
       results,
     });
   } catch (error: any) {
-    console.error('Scheduler error:', error);
+    logger.error('Scheduler error:', error);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }
@@ -150,7 +151,7 @@ export async function GET(req: Request) {
  * Integrates with Facebook, Twitter, LinkedIn, and Instagram APIs
  */
 async function postToSocialMedia(platform: string, content: string, campaign: any) {
-  console.log(`Posting to ${platform}:`, content);
+  logger.info(`Posting to ${platform}:`, content);
   
   switch (platform.toLowerCase()) {
     case 'facebook':
@@ -167,7 +168,7 @@ async function postToSocialMedia(platform: string, content: string, campaign: an
       return await postToInstagram(content, campaign);
     
     default:
-      console.warn(`Unknown platform: ${platform}`);
+      logger.warn(`Unknown platform: ${platform}`);
       return { success: false, error: 'Unknown platform' };
   }
 }
@@ -177,7 +178,7 @@ async function postToFacebook(content: string, campaign: any) {
   const accessToken = process.env.FACEBOOK_ACCESS_TOKEN;
   
   if (!pageId || !accessToken) {
-    console.warn('Facebook credentials not configured');
+    logger.warn('Facebook credentials not configured');
     return { success: false, error: 'Facebook not configured' };
   }
   
@@ -199,7 +200,7 @@ async function postToFacebook(content: string, campaign: any) {
     
     return { success: true, platform: 'facebook', postId: data.id };
   } catch (error: any) {
-    console.error('Facebook posting error:', error);
+    logger.error('Facebook posting error:', error);
     throw error;
   }
 }
@@ -211,7 +212,7 @@ async function postToTwitter(content: string, campaign: any) {
   const accessSecret = process.env.TWITTER_ACCESS_SECRET;
   
   if (!apiKey || !apiSecret || !accessToken || !accessSecret) {
-    console.warn('Twitter credentials not configured');
+    logger.warn('Twitter credentials not configured');
     return { success: false, error: 'Twitter not configured' };
   }
   
@@ -237,7 +238,7 @@ async function postToTwitter(content: string, campaign: any) {
     
     return { success: true, platform: 'twitter', postId: data.data?.id };
   } catch (error: any) {
-    console.error('Twitter posting error:', error);
+    logger.error('Twitter posting error:', error);
     throw error;
   }
 }
@@ -247,7 +248,7 @@ async function postToLinkedIn(content: string, campaign: any) {
   const organizationId = process.env.LINKEDIN_ORGANIZATION_ID;
   
   if (!accessToken || !organizationId) {
-    console.warn('LinkedIn credentials not configured');
+    logger.warn('LinkedIn credentials not configured');
     return { success: false, error: 'LinkedIn not configured' };
   }
   
@@ -284,7 +285,7 @@ async function postToLinkedIn(content: string, campaign: any) {
     
     return { success: true, platform: 'linkedin', postId: data.id };
   } catch (error: any) {
-    console.error('LinkedIn posting error:', error);
+    logger.error('LinkedIn posting error:', error);
     throw error;
   }
 }
@@ -292,7 +293,7 @@ async function postToLinkedIn(content: string, campaign: any) {
 async function postToInstagram(content: string, campaign: any) {
   // Instagram requires media (image/video) for posts
   // Text-only posts are not supported
-  console.warn('Instagram requires media content - text-only posts not supported');
+  logger.warn('Instagram requires media content - text-only posts not supported');
   return { success: false, error: 'Instagram requires media content' };
 }
 

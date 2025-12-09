@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { supabaseServer } from '@/lib/supabase-server';
 import { withAuth } from '@/lib/with-auth';
+import { logger } from '@/lib/logger';
 
 export const POST = withAuth(
   async (request: Request, user) => {
@@ -22,7 +23,7 @@ export const POST = withAuth(
       .single();
 
     if (courseError) {
-      console.error('Error creating course:', courseError);
+      logger.error('Error creating course:', courseError);
       return NextResponse.json({ error: courseError.message }, { status: 500 });
     }
 
@@ -40,7 +41,7 @@ export const POST = withAuth(
         .single();
 
       if (moduleError) {
-        console.error('Error creating module:', moduleError);
+        logger.error('Error creating module:', moduleError);
         continue;
       }
 
@@ -57,7 +58,7 @@ export const POST = withAuth(
           });
 
         if (lessonError) {
-          console.error('Error creating lesson:', lessonError);
+          logger.error('Error creating lesson:', lessonError);
         }
       }
     }
@@ -67,7 +68,7 @@ export const POST = withAuth(
       course: courseData,
     });
   } catch (error: any) {
-    console.error('Error in course creation:', error);
+    logger.error('Error in course creation:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create course' },
       { status: 500 }

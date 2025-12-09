@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { logger } from '@/lib/logger';
 
 export async function POST(req: NextRequest) {
   try {
@@ -37,7 +38,7 @@ export async function POST(req: NextRequest) {
       });
 
     if (error) {
-      console.error("Upload error:", error);
+      logger.error("Upload error:", error);
       return NextResponse.json(
         { error: error.message },
         { status: 500 }
@@ -58,7 +59,7 @@ export async function POST(req: NextRequest) {
       type: file.type,
     });
   } catch (error: any) {
-    console.error("Upload error:", error);
+    logger.error("Upload error:", error);
     return NextResponse.json(
       { error: "Failed to upload file", message: error.message },
       { status: 500 }
