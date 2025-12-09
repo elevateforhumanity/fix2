@@ -14,21 +14,34 @@ export const metadata: Metadata = {
 export default function BarberPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Simple Hero - No Image */}
-      <section className="relative bg-gradient-to-br from-orange-500 to-orange-600 text-white py-20">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Become a Professional Barber
-          </h1>
-          <p className="text-2xl mb-8">
-            Free training. Real skills. Start your career in 12-16 weeks.
-          </p>
-          <Link
-            href="/apply?program=barber"
-            className="inline-block px-10 py-5 text-xl font-bold text-orange-600 bg-white rounded-lg hover:bg-gray-100 transition-all shadow-xl"
-          >
-            Apply Now - It's Free
-          </Link>
+      {/* Video Hero with Narration */}
+      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden bg-slate-900">
+        <video
+          autoPlay
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+        >
+          <source src="/videos/barber-spotlight-with-narration.mp4" type="video/mp4" />
+        </video>
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
+            <div className="max-w-4xl">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
+                Become a Professional Barber
+              </h1>
+              <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
+                Free training. Real skills. Start your career in 12-16 weeks.
+              </p>
+              <Link
+                href="/apply?program=barber"
+                className="inline-block px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all shadow-2xl"
+              >
+                Apply Now - It's Free
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -134,6 +147,37 @@ export default function BarberPage() {
                 <h3 className="text-xl font-bold text-slate-900 mb-2">Get Licensed & Hired</h3>
                 <p className="text-slate-600">Earn your state license and start your career with job placement support.</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Training Facility Images - NO GRADIENTS */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center text-slate-900 mb-12">
+            Professional Training Environment
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/images/barber-highlight-1.jpg"
+                alt="Professional barber training facility with modern equipment"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+                quality={95}
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-xl">
+              <Image
+                src="/images/barber-highlight-2.jpg"
+                alt="Hands-on barber training with expert instructors"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+                quality={95}
+              />
             </div>
           </div>
         </div>
