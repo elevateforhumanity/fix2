@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { WelcomeAudio } from "@/components/WelcomeAudio";
-import { HeroVideo } from "@/components/HeroVideo";
 
 export const metadata = {
   title: "Elevate for Humanity | Free Career Training Indianapolis",
@@ -18,48 +17,16 @@ export default function HomePage() {
     <main className="bg-white">
       {/* Welcome Audio - Plays once on page load */}
       <WelcomeAudio />
-      {/* HERO - VIDEO BANNER */}
-      <section className="relative text-white overflow-hidden h-[400px] sm:h-[500px] md:h-[600px]">
-        {/* Background Video - Lazy loaded */}
-        <div className="absolute inset-0 w-full h-full">
-          <HeroVideo />
-        </div>
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
-
-        {/* Content */}
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 md:py-24">
-          <div className="max-w-3xl">
-            {/* Main Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-              Start Your<br />
-              <span className="text-orange-400">Career Today</span>
-            </h1>
-
-            {/* Subheadline */}
-            <p className="text-base sm:text-lg md:text-xl text-slate-100 mb-6 sm:mb-8 font-light leading-relaxed">
-              Free workforce training in healthcare, skilled trades, and technology. 
-              Get certified, get hired, get started.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link
-                href="/apply"
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
-              >
-                Apply Now - It's Free
-                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
-              </Link>
-              <Link
-                href="/funding"
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl font-bold text-white bg-blue-600 rounded-full hover:bg-blue-500 transition-all hover:scale-105 border-2 border-white/20"
-              >
-                Check Your Funding
-              </Link>
-            </div>
-          </div>
-        </div>
+      {/* HERO - IMAGE BANNER (Fast loading) */}
+      <section className="relative overflow-hidden h-[400px] sm:h-[500px] md:h-[600px]">
+        <Image
+          src="/images/team/instructors/instructor-barber.jpg"
+          alt="Career Training"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
       </section>
 
       {/* OUR STORY - WHO WE ARE - WITH IMAGES */}

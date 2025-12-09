@@ -12,8 +12,7 @@ export function HeroVideo() {
       style={{ 
         objectFit: 'cover',
         width: '100%',
-        height: '100%',
-        filter: 'brightness(0.7) contrast(1.05)'
+        height: '100%'
       }}
       onLoadedMetadata={(e) => {
         // Auto-play only after video is ready
