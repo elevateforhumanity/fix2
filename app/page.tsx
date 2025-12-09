@@ -17,11 +17,11 @@ export default function HomePage() {
     <main className="bg-white">
       {/* Welcome Audio - Plays once on page load */}
       <WelcomeAudio />
-      {/* HERO - IMAGE BANNER (Fast loading) */}
+      {/* HERO - IMAGE BANNER (Fast loading, no overlay, no text) */}
       <section className="relative overflow-hidden h-[400px] sm:h-[500px] md:h-[600px]">
         <Image
-          src="/images/team/instructors/instructor-barber.jpg"
-          alt="Career Training"
+          src="/images/hero-banner.jpg"
+          alt="Elevate for Humanity"
           fill
           priority
           className="object-cover"
