@@ -13,51 +13,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
-        <div className="absolute inset-0 w-full h-full">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ 
-              objectFit: 'cover',
-              width: '100%',
-              height: '100%',
-              filter: 'contrast(1.05) saturate(1.1) brightness(0.95)',
-              imageRendering: 'high-quality'
-            }}
-          >
-            <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-c913a513-dde0-4ac7-ae3c-53a453b8b83d.mp4?Expires=2080579938&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=bci4L0nUlydNRWrQZU2TXiuNiaTOtWFSTcwDsFXVD1wtGnIjTpHNtF4xoUqNXpgtu3-WdWous6RTH8nkZl4RVvTmNjsWfY--5~x3WnC4QuYxep5iI0eEKuN8WOTXJ5cWryEb7RMnGAIMb5~ir3RcAb7Iaztw9nSl5grVDQSq4WGT1VM~rOpGGxtGlGdy~lraTjHJIEe3BkmkV8Or6RWKUerH4pJ0YFqjtEcIXiBc3SI3Z8s00fo0T9SKd61VrbxkB2v8BVZaOSsNwB4Dp9hBoHHT74FCn5uAMl0-Cpy4Tr8iUH01Cp1Lc2dNKwtzUTy7tfw9V4IS94CtAiHPeMHzcw__" type="video/mp4" />
-          </video>
-        </div>
-        
-        <div className="relative z-10 h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
-            <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-wide text-white mb-3">
-                Our Founder
-              </p>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-                Elizabeth L. Greene
-              </h1>
-              <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
-                Building pathways from poverty to prosperity through workforce training.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/apply" className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl">
-                  Get Started
-                </Link>
-                <Link href="/programs" className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl">
-                  View Programs
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Bio Section with Both Images */}
       <section className="py-20 bg-white">
@@ -80,6 +35,9 @@ export default function Page() {
               </p>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 With a unique blend of business leadership, technical expertise, and human-centered strategy, Elizabeth has built a powerful, fully integrated ecosystem that includes state-approved workforce programs, federal apprenticeship pathways, community empowerment services, and trauma-informed support.
+              </p>
+              <p className="text-lg text-slate-700 leading-relaxed mb-6">
+                Elizabeth is known for her ability to envision what a community needs before it exists, and then build it with precision, compliance, and compassion. Her leadership philosophy centers on removing barriers, opening doors, and creating real opportunities for individuals who are often overlooked or underserved.
               </p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
@@ -109,34 +67,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Desk Image Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">Leadership Philosophy</h2>
-              <div className="space-y-4 text-lg text-slate-700 leading-relaxed">
-                <p>
-                  Elizabeth is known for her ability to envision what a community needs before it exists, and then build it with precision, compliance, and compassion. Her leadership philosophy centers on removing barriers, opening doors, and creating real opportunities for individuals who are often overlooked or underserved.
-                </p>
-                <p>
-                  She believes deeply in meeting people where they are, educating them, and empowering them to rise—professionally, personally, and financially.
-                </p>
-              </div>
-            </div>
-            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/images/bio/elizabeth-greene-desk.jpg"
-                alt="Elizabeth L. Greene at work"
-                fill
-                className="object-cover"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Impact Section */}
       <section className="py-20 bg-white">

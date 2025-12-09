@@ -32,20 +32,15 @@ export default function ApplyPage() {
 
     setSubmitting(true);
     try {
-      // TODO: hook this to your API route or Supabase function
       const response = await fetch("/api/applications", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          firstName,
-          lastName,
-          phone,
+          full_name: `${firstName} ${lastName}`,
           email,
-          city,
-          zip,
-          program,
-          supportNotes,
-          contactMethod,
+          phone,
+          program_interest: program,
+          referral_source: `City: ${city}, Zip: ${zip}, Contact: ${contactMethod}, Notes: ${supportNotes}`,
         }),
       });
 
