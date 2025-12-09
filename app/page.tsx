@@ -18,11 +18,12 @@ export default function HomePage() {
       {/* Welcome Audio - Plays once on page load */}
       <WelcomeAudio />
       {/* HERO - VIDEO BANNER */}
-      <section className="relative text-white overflow-hidden h-[500px] sm:h-[600px] md:h-[700px]">
+      <section className="relative text-white overflow-hidden h-[400px] sm:h-[500px] md:h-[600px]">
         {/* Background Video */}
         <div className="absolute inset-0 w-full h-full">
           <video
             autoPlay
+            muted
             loop
             playsInline
             preload="auto"
@@ -31,51 +32,53 @@ export default function HomePage() {
               objectFit: 'cover',
               width: '100%',
               height: '100%',
-              filter: 'brightness(1.1) contrast(1.05) saturate(1.1)'
+              filter: 'brightness(0.7) contrast(1.05)'
             }}
           >
             <source src="/videos/barber-hero.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Content */}
-        <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-32">
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 md:py-24">
           <div className="max-w-3xl">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-green-500 px-6 py-3 text-sm font-bold mb-6 animate-pulse">
-              <span className="text-lg">✓</span>
+            <div className="inline-flex items-center gap-2 rounded-full bg-green-500 px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-bold mb-4 sm:mb-6 animate-pulse">
+              <span className="text-base sm:text-lg">✓</span>
               <span>100% FREE - GOVERNMENT FUNDED</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
               We Believe in<br />
               <span className="text-orange-400">Second Chances</span>
             </h1>
 
             {/* Subheadline - STORY */}
-            <p className="text-xl md:text-2xl text-slate-200 mb-4 font-light leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-slate-100 mb-3 sm:mb-4 font-light leading-relaxed">
               Your past doesn't define your future. Whether you're returning from incarceration, 
               struggling to make ends meet, or just need a fresh start—we're here to help you 
               build the career and life you deserve.
             </p>
-            <p className="text-lg md:text-xl text-slate-300 mb-8 font-light">
+            <p className="text-sm sm:text-base md:text-lg text-slate-200 mb-6 sm:mb-8 font-light">
               100% free training. Real jobs waiting. No barriers, just opportunity.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
               >
                 Apply Now - It's Free
-                <ArrowRight size={24} />
+                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
               </Link>
               <Link
                 href="/funding"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 text-xl font-bold text-white bg-blue-600 rounded-full hover:bg-blue-500 transition-all hover:scale-105 border-2 border-white/20"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl font-bold text-white bg-blue-600 rounded-full hover:bg-blue-500 transition-all hover:scale-105 border-2 border-white/20"
               >
                 Check Your Funding
               </Link>
@@ -129,75 +132,72 @@ export default function HomePage() {
       </section>
 
       {/* VALUE PROPOSITIONS - WITH IMAGES */}
-      <section className="py-16 bg-slate-50 border-y border-slate-200">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="py-12 sm:py-16 bg-slate-50 border-y border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Prop 1 - Free Training */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-64">
+              <div className="relative h-48 sm:h-56">
                 <Image
                   src="/images/location-1.jpg"
                   alt="Free Training Facility"
                   fill
                   className="object-cover object-center"
-                  quality={90}
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  quality={75}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+              <div className="p-4 sm:p-6 text-center">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">
                   No Cost. No Debt. No Excuses.
                 </h3>
-                <p className="text-slate-700 leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
                   Through WIOA, WRG, JRI, and employer partnerships, we cover everything—tuition, books, 
-                  supplies, even transportation and childcare support. Your only job is to show up and learn.
+                  supplies, even transportation and childcare support.
                 </p>
               </div>
             </div>
 
             {/* Prop 2 - Real Credentials */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-64">
+              <div className="relative h-48 sm:h-56">
                 <Image
                   src="/images/medical-assistant-1.jpg"
                   alt="Real Credentials"
                   fill
                   className="object-cover object-center"
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  quality={75}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+              <div className="p-4 sm:p-6 text-center">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">
                   Credentials That Open Doors
                 </h3>
-                <p className="text-slate-700 leading-relaxed">
-                  State licenses. Industry certifications. Credentials that employers actually respect and hire for. 
-                  Not just a certificate—a ticket to a real career with real earning potential.
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                  State licenses. Industry certifications. Credentials that employers actually respect and hire for.
                 </p>
               </div>
             </div>
 
             {/* Prop 3 - Job Connections */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-64">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg sm:col-span-2 lg:col-span-1">
+              <div className="relative h-48 sm:h-56">
                 <Image
                   src="/images/ameco-martin.jpg"
                   alt="Job Connections"
                   fill
                   className="object-cover object-center"
-                  quality={90}
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  quality={75}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-              <div className="p-6 text-center">
-                <h3 className="text-2xl font-bold text-slate-900 mb-3">
+              <div className="p-4 sm:p-6 text-center">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">
                   We Don't Stop at Training
                 </h3>
-                <p className="text-slate-700 leading-relaxed">
-                  Our job is to get you hired. We connect you with employers who are actively hiring, 
-                  help you prepare for interviews, and support you through your first 90 days on the job. 
-                  Your success is our success.
+                <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                  We connect you with employers who are actively hiring and support you through your first 90 days.
                 </p>
               </div>
             </div>
@@ -206,28 +206,28 @@ export default function HomePage() {
       </section>
 
       {/* REAL IMPACT - TESTIMONIAL WITH IMAGE */}
-      <section className="py-20 bg-blue-600 text-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+      <section className="py-12 sm:py-16 md:py-20 bg-blue-600 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
+            <div className="relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/barber-hd.jpg"
                 alt="Success Story"
                 fill
                 className="object-cover"
-                quality={100}
+                quality={75}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
             <div>
-              <div className="text-5xl mb-6">"</div>
-              <blockquote className="text-xl md:text-2xl font-light leading-relaxed mb-6">
+              <div className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6">"</div>
+              <blockquote className="text-base sm:text-lg md:text-xl font-light leading-relaxed mb-4 sm:mb-6">
                 I was unemployed for 18 months after getting out. Nobody would hire me. 
                 Elevate didn't just train me—they believed in me. Now I'm a licensed barber 
                 making $50,000 a year, and I can finally support my family.
               </blockquote>
-              <div className="text-lg font-semibold">— Marcus, Barber Apprenticeship Graduate</div>
-              <div className="text-blue-200 text-sm mt-2">From unemployed to employed in 12 weeks</div>
+              <div className="text-base sm:text-lg font-semibold">— Marcus, Barber Apprenticeship Graduate</div>
+              <div className="text-blue-200 text-xs sm:text-sm mt-2">From unemployed to employed in 12 weeks</div>
             </div>
           </div>
           
@@ -249,36 +249,36 @@ export default function HomePage() {
       </section>
 
       {/* FACILITY SHOWCASE */}
-      <section className="py-20 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
               Modern Training Facilities
             </h2>
-            <p className="text-xl text-slate-600">
-              Professional environment designed for hands-on learning and career success
+            <p className="text-base sm:text-lg md:text-xl text-slate-600">
+              Professional environment designed for hands-on learning
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="relative h-[300px] rounded-xl overflow-hidden shadow-lg">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/images/location-2.jpg"
                 alt="Elevate For Humanity training facility"
                 fill
                 className="object-cover object-center"
-                quality={90}
-                sizes="(max-width: 768px) 100vw, 40vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
-            <div className="relative h-[300px] rounded-xl overflow-hidden shadow-lg">
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/images/location-3.jpg"
                 alt="Professional training environment"
                 fill
                 className="object-cover object-center"
-                quality={90}
-                sizes="(max-width: 768px) 100vw, 40vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
           </div>
@@ -289,149 +289,149 @@ export default function HomePage() {
 
       {/* CREDENTIALED PROGRAMS - HYBRID - SHORT TERM */}
       {/* SUCCESS IMAGES - LARGE GALLERY */}
-      <section className="py-20 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
               Your Future Starts Here
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+            <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/testimonials/testimonial-success-2-original-optimized.jpg"
                 alt="Success Story"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/testimonials/testimonial-success-3-original-optimized.jpg"
                 alt="Graduate Success"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+            <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/testimonials/testimonial-success-4-original-optimized.jpg"
                 alt="Career Success"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/cdl-hd.jpg"
                 alt="CDL Training Success"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <Link
               href="/apply"
-              className="inline-flex items-center gap-2 px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
             >
               Start Your Journey
-              <ArrowRight size={24} />
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* IMAGE GALLERY - TRAINING IN ACTION */}
-      <section className="py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
               Training That Works
             </h2>
-            <p className="text-xl text-slate-600 mb-8">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-6 sm:mb-8">
               Real students. Real skills. Real careers.
             </p>
             <Link
               href="/programs"
-              className="inline-flex items-center gap-2 px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
+              className="inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
             >
               View All Programs →
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/cna-hd.jpg"
                 alt="Healthcare Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 33vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/barber-hd.jpg"
                 alt="Barber Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 33vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/hvac-highlight-1.jpg"
                 alt="HVAC Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 33vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/medical-assistant-highlight-1.jpg"
                 alt="Medical Assistant Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 33vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/tax-highlight-1.jpg"
                 alt="Tax Preparation Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 33vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/testimonials/student-testimonial-graduate-hd.jpg"
                 alt="Graduate Success"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={100}
-                sizes="(max-width: 768px) 100vw, 33vw"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
           </div>
