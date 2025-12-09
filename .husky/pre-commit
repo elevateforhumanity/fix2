@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Prevent committing .env files
+if git diff --cached --name-only | grep -E "^\.env$|^\.env\.local$"; then
+  echo "❌ Error: Attempting to commit .env file!"
+  echo "Environment files should never be committed."
+  exit 1
+fi
+
+# Run linter on staged files
+npm run lint-staged
+
+# Type check
+npm run type-check

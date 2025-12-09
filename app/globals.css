@@ -4,6 +4,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================================
+   EFH AI DASHBOARD THEME - High-Tech / Futuristic LMS
+   ============================================================================ */
+
+:root {
+  /* EFH Brand Colors */
+  --efh-primary: #2cc1ff;
+  --efh-secondary: #0d0f14;
+  --efh-accent: #48f7d6;
+  --efh-glow: rgba(76, 201, 240, 0.55);
+  --efh-glow-green: rgba(72, 247, 214, 0.45);
+  
+  /* Backgrounds */
+  --bg-light: #f8fafc;
+  --bg-dark: #0d0f14;
+  --bg-card: rgba(13, 15, 20, 0.8);
+  
+  /* Text */
+  --text-primary: #0d0f14;
+  --text-light: #e2e8f0;
+  --text-muted: #94a3b8;
+}
+
 /* ============================================
    ADVANCED HOVER EFFECTS - INDUSTRIOUS STYLE
    ============================================ */

@@ -1,0 +1,209 @@
+{
+  "program": {
+    "id": "33333333-3333-3333-3333-333333333333",
+    "slug": "barber-apprenticeship-in",
+    "name": "Barber Apprenticeship (Indiana)",
+    "category": "Beauty & Barbering",
+    "delivery_mode": "hybrid",
+    "location_state": "IN",
+    "description": "State of Indiana barber apprenticeship program delivered in partnership with Milady and approved barbershop owners for hands-on training, practical cuts, and client services. Complete 2,000 hours (400 theory + 1,600 practical) to qualify for Indiana State Board examination."
+  },
+  "ai_instructors": [
+    {
+      "id": "11111111-1111-1111-1111-111111111111",
+      "name": "Elizabeth L. Greene (AI)",
+      "title": "Founder & Lead Barber Apprenticeship Instructor",
+      "avatar_image_url": "/images/instructors/elizabeth-barber.jpg",
+      "cloned_from_user": "Elizabeth L. Greene",
+      "bio": "AI-guided version of Elizabeth to coach barber students through theory, Milady modules, and Indiana state requirements."
+    },
+    {
+      "id": "22222222-2222-2222-2222-222222222222",
+      "name": "Barber Mentor (AI)",
+      "title": "Shop-Based Instructor & Practical Skills Coach",
+      "avatar_image_url": "/images/instructors/barber-mentor.jpg",
+      "cloned_from_user": "EFH Barber Mentor",
+      "bio": "AI coach representing licensed barbershop instructors guiding students through practical cuts and state required shop hours."
+    }
+  ],
+  "modules": [
+    {
+      "id": "44444444-4444-4444-4444-444444444444",
+      "short_code": "BARB-ORIENT",
+      "title": "Program Orientation & Policies (EFH + Indiana Requirements)",
+      "type": "internal",
+      "order_index": 1,
+      "required_hours": 4,
+      "ai_instructor_id": "11111111-1111-1111-1111-111111111111",
+      "requires_proof": false,
+      "implementation_notes": "Covers Elevate For Humanity policies, Indiana state barber licensing overview, attendance expectations, shop conduct, safety, and how hybrid (online + shop) works."
+    },
+    {
+      "id": "55555555-5555-5555-5555-555555555555",
+      "short_code": "BARB-MILADY-RISE",
+      "title": "Milady RISE: Infection Control & Professional Standards",
+      "type": "external_partner",
+      "partner_name": "Milady",
+      "external_url": "https://miladypro.com/rise",
+      "order_index": 2,
+      "required_hours": 8,
+      "ai_instructor_id": "11111111-1111-1111-1111-111111111111",
+      "requires_proof": true,
+      "implementation_notes": "Student completes Milady RISE/infection control certification on Milady platform. They must upload certificate in EFH portal before unlocking next modules."
+    },
+    {
+      "id": "66666666-6666-6666-6666-666666666666",
+      "short_code": "BARB-MILADY-THEORY-1",
+      "title": "Milady Barber Theory: Foundations (Modules 1-5)",
+      "type": "external_partner",
+      "partner_name": "Milady",
+      "external_url": "https://miladypro.com/barber-theory",
+      "order_index": 3,
+      "required_hours": 120,
+      "ai_instructor_id": "11111111-1111-1111-1111-111111111111",
+      "requires_proof": true,
+      "implementation_notes": "Student studies barbering basics, sciences, anatomy, hair structure, and sanitation using Milady online content. Covers first 120 hours of required 400-hour theory component."
+    },
+    {
+      "id": "77777777-7777-7777-7777-777777777777",
+      "short_code": "BARB-MILADY-THEORY-2",
+      "title": "Milady Barber Theory: Hair Services & Techniques (Modules 6-10)",
+      "type": "external_partner",
+      "partner_name": "Milady",
+      "external_url": "https://miladypro.com/barber-theory",
+      "order_index": 4,
+      "required_hours": 140,
+      "ai_instructor_id": "11111111-1111-1111-1111-111111111111",
+      "requires_proof": true,
+      "implementation_notes": "Student studies haircutting techniques, clipper work, fading, scissor techniques, razor work, and styling. Covers next 140 hours of theory."
+    },
+    {
+      "id": "88888888-8888-8888-8888-888888888888",
+      "short_code": "BARB-MILADY-THEORY-3",
+      "title": "Milady Barber Theory: Shaving, Facial Services & Business (Modules 11-15)",
+      "type": "external_partner",
+      "partner_name": "Milady",
+      "external_url": "https://miladypro.com/barber-theory",
+      "order_index": 5,
+      "required_hours": 128,
+      "ai_instructor_id": "11111111-1111-1111-1111-111111111111",
+      "requires_proof": true,
+      "implementation_notes": "Student completes beard trimming, straight razor shaving, facial treatments, customer service, business operations, and state laws. Final 128 hours of 400-hour theory requirement."
+    },
+    {
+      "id": "99999999-9999-9999-9999-999999999999",
+      "short_code": "BARB-EFH-THEORY-CHECKPOINT",
+      "title": "EFH Barber Theory Checkpoint & State Exam Prep",
+      "type": "internal",
+      "order_index": 6,
+      "required_hours": 12,
+      "ai_instructor_id": "11111111-1111-1111-1111-111111111111",
+      "requires_proof": false,
+      "implementation_notes": "AI instructor (Elizabeth) delivers quizzes, practice exams, and coaching around Indiana state board expectations. EFH issues internal pass/fail and targeted remediation."
+    },
+    {
+      "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "short_code": "BARB-SHOP-FOUNDATIONS",
+      "title": "Foundations in the Barbershop (Shadowing & Basic Services)",
+      "type": "external_partner",
+      "partner_name": "Barbershop Owner / Sponsor Shop",
+      "external_url": "https://portal.elevateforhumanity.org/shop-owner-guide",
+      "order_index": 7,
+      "required_hours": 400,
+      "ai_instructor_id": "22222222-2222-2222-2222-222222222222",
+      "requires_proof": true,
+      "implementation_notes": "In-shop hours with sponsor shop in Indiana. Shop owner responsibilities: (1) student daily clock-in/clock-out, (2) logging client services and practical cuts, (3) verifying safety and sanitation tasks. Student completes: 50 basic haircuts, 40 clipper cuts, 30 fades/tapers, 25 beard trims, 100 client consultations."
+    },
+    {
+      "id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+      "short_code": "BARB-SHOP-INTERMEDIATE",
+      "title": "Intermediate Shop Practice (Building Skills & Speed)",
+      "type": "external_partner",
+      "partner_name": "Barbershop Owner / Sponsor Shop",
+      "external_url": "https://portal.elevateforhumanity.org/shop-owner-guide",
+      "order_index": 8,
+      "required_hours": 600,
+      "ai_instructor_id": "22222222-2222-2222-2222-222222222222",
+      "requires_proof": true,
+      "implementation_notes": "Continued in-shop practice focusing on speed, consistency, and client satisfaction. Student completes: 75 additional haircuts, 60 clipper cuts, 70 fades/tapers, 50 scissor cuts, 30 children's cuts, 35 beard trims, 15 straight razor shaves, 25 facial treatments."
+    },
+    {
+      "id": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+      "short_code": "BARB-SHOP-ADVANCED",
+      "title": "Advanced Shop Practice & State Board Practical Prep",
+      "type": "external_partner",
+      "partner_name": "Barbershop Owner / Sponsor Shop",
+      "external_url": "https://portal.elevateforhumanity.org/shop-owner-guide",
+      "order_index": 9,
+      "required_hours": 600,
+      "ai_instructor_id": "22222222-2222-2222-2222-222222222222",
+      "requires_proof": true,
+      "implementation_notes": "Final intensive practical work on real clients under shop owner supervision, focused on the skills needed for Indiana state board practical. Shop owner ensures practical cuts match state requirements. Student completes all remaining service minimums: final haircuts, fades, shaves, styling, retail sales, appointment scheduling."
+    },
+    {
+      "id": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+      "short_code": "BARB-CAPSTONE",
+      "title": "Capstone: Mock State Board Exam & EFH Completion",
+      "type": "internal",
+      "order_index": 10,
+      "required_hours": 16,
+      "ai_instructor_id": "11111111-1111-1111-1111-111111111111",
+      "requires_proof": false,
+      "is_capstone": true,
+      "implementation_notes": "Student completes a mock state board exam (theory + practical checklist review). EFH issues an Elevate For Humanity Certificate of Completion once all required modules and proofs are verified. Student is now eligible to apply for Indiana State Board examination."
+    }
+  ],
+  "metadata": {
+    "total_hours": 2000,
+    "total_theory_hours": 412,
+    "total_practical_hours": 1600
+  },
+  "service_requirements": {
+    "haircutting": {
+      "basic_haircuts": 125,
+      "clipper_cuts": 100,
+      "fades_and_tapers": 100,
+      "scissor_cuts": 75,
+      "childrens_cuts": 30
+    },
+    "shaving_and_facial": {
+      "beard_trims": 60,
+      "straight_razor_shaves": 30,
+      "facial_treatments": 15,
+      "mustache_sideburn_design": 30
+    },
+    "styling": {
+      "blow_dry_styling": 50,
+      "product_application": 60,
+      "special_occasion_styling": 15
+    },
+    "business_operations": {
+      "client_consultations": 125,
+      "retail_sales": 30,
+      "appointment_scheduling": 60
+    }
+  },
+  "wage_progression": {
+    "months_1_6": "50% of journeyman wage",
+    "months_7_12": "60% of journeyman wage",
+    "months_13_18": "75% of journeyman wage",
+    "months_19_24": "90% of journeyman wage",
+    "upon_licensure": "100% of journeyman wage"
+  },
+  "state_board_requirements": {
+    "written_exam": {
+      "questions": 100,
+      "passing_score": "75%",
+      "time_limit": "2 hours"
+    },
+    "practical_exam": {
+      "components": [
+        "Demonstrate haircutting skills",
+        "Demonstrate shaving techniques",
+        "Demonstrate sanitation procedures"
+      ],
+      "passing_score": "75%"
+    },
+    "exam_fee": "$100-150"
+  }
+}
