@@ -297,8 +297,8 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/testimonials/testimonial-success-2-original-optimized.jpg"
                 alt="Success Story"
@@ -308,10 +308,33 @@ export default function HomePage() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/testimonials/testimonial-success-3-original-optimized.jpg"
                 alt="Graduate Success"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/testimonials/testimonial-success-4-original-optimized.jpg"
+                alt="Career Success"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/cdl-hd.jpg"
+                alt="CDL Training Success"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
                 quality={100}
@@ -350,8 +373,8 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mt-12">
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/cna-hd.jpg"
                 alt="Healthcare Training"
@@ -361,7 +384,7 @@ export default function HomePage() {
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/barber-hd.jpg"
                 alt="Barber Training"
@@ -371,10 +394,40 @@ export default function HomePage() {
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/hvac-highlight-1.jpg"
                 alt="HVAC Training"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/medical-assistant-highlight-1.jpg"
+                alt="Medical Assistant Training"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/tax-highlight-1.jpg"
+                alt="Tax Preparation Training"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/testimonials/student-testimonial-graduate-hd.jpg"
+                alt="Graduate Success"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
                 quality={100}
