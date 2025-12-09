@@ -61,34 +61,30 @@ export default function HomePage() {
             </div>
             
             <div className="relative w-full max-w-xl mx-auto">
-              <div className="relative w-full aspect-[4/3] max-h-[360px] rounded-xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/gallery/image1.jpg"
-                  alt="Career training programs"
-                  fill
-                  className="object-cover"
-                  quality={75}
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, 600px"
-                />
-              </div>
+              <Image
+                src="/images/gallery/image1.jpg"
+                alt="Career training programs"
+                width={600}
+                height={450}
+                className="w-full h-auto rounded-xl shadow-xl"
+                quality={75}
+                loading="lazy"
+              />
             </div>
           </div>
 
           {/* Second Section - Image + Text */}
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
             <div className="relative w-full max-w-xl mx-auto md:order-first">
-              <div className="relative w-full aspect-[4/3] max-h-[360px] rounded-xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/gallery/image2.jpg"
-                  alt="Professional training environment"
-                  fill
-                  className="object-cover"
-                  quality={75}
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, 600px"
-                />
-              </div>
+              <Image
+                src="/images/gallery/image2.jpg"
+                alt="Professional training environment"
+                width={600}
+                height={450}
+                className="w-full h-auto rounded-xl shadow-xl"
+                quality={75}
+                loading="lazy"
+              />
             </div>
             
             <div className="space-y-4 sm:space-y-6">
@@ -118,57 +114,17 @@ export default function HomePage() {
               </p>
             </div>
             
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-xl">
+            <div className="relative w-full max-w-xl mx-auto">
               <Image
                 src="/images/gallery/image7.jpg"
                 alt="CDL training success"
-                fill
-                className="object-cover"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-xl shadow-xl"
                 quality={75}
                 loading="lazy"
-                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CALL TO ACTION BANNER */}
-      <section className="relative py-16 sm:py-20 md:py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-banner.jpg"
-            alt="Start your career journey"
-            fill
-            className="object-cover"
-            quality={85}
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/80"></div>
-        </div>
-        <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Change Your Life?
-          </h2>
-          <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join thousands who have transformed their careers through our free training programs.
-            No cost. No barriers. Just opportunity.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/apply"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
-            >
-              Apply Now - It's Free
-              <ArrowRight size={20} />
-            </Link>
-            <Link
-              href="/programs"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-blue-900 bg-white rounded-full hover:bg-gray-100 transition-all hover:scale-105 shadow-2xl"
-            >
-              View All Programs
-            </Link>
           </div>
         </div>
       </section>
