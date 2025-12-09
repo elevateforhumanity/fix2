@@ -1,55 +1,141 @@
-"use server";
+'use server';
 
-import { revalidatePath } from "next/cache";
-import { getSupabaseServerClient } from "@/lib/supabaseServer";
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 
-function requireAdminKey(searchParams?: Record<string, string | string[] | undefined>) {
-  const expected = process.env.ADMIN_DASHBOARD_PASSWORD;
-  const keyParam = searchParams?.key;
-  const key = Array.isArray(keyParam) ? keyParam[0] : keyParam;
-  if (expected && key !== expected) {
-    throw new Error("Unauthorized: invalid admin key");
-  }
-  return key || "";
-}
-
-export async function updateProgramAction(
-  formData: FormData,
-  searchParams?: Record<string, string | string[] | undefined>
-) {
-  // simple gate
-  const adminKey = requireAdminKey(searchParams);
-
-  const slug = String(formData.get("slug") || "").trim();
-  const name = String(formData.get("name") || "").trim();
-  const short_description = String(formData.get("short_description") || "").trim();
-  const long_description = String(formData.get("long_description") || "").trim();
-
-  if (!slug || !name || !short_description || !long_description) {
-    return { ok: false, error: "All fields are required." };
+export async function createProgram(formData: FormData) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    redirect('/login');
   }
 
-  const supabase = getSupabaseServerClient();
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
+    .single();
+  
+  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
+    redirect('/unauthorized');
+  }
+
+  const name = formData.get('name') as string;
+  const slug = formData.get('slug') as string;
+  const description = formData.get('description') as string;
+  const category = formData.get('category') as string;
+  const duration_hours = formData.get('duration_hours') as string;
+  const price = formData.get('price') as string;
+  const requirements = formData.get('requirements') as string;
+  const outcomes = formData.get('outcomes') as string;
+  const is_active = formData.get('is_active') === 'on';
+  const featured = formData.get('featured') === 'on';
+
   const { error } = await supabase
-    .from("programs")
-    .update({
+    .from('programs')
+    .insert({
       name,
-      short_description,
-      long_description,
-      updated_at: new Date().toISOString(),
-    })
-    .eq("slug", slug);
+      slug,
+      description,
+      category,
+      duration_hours: duration_hours ? parseInt(duration_hours) : null,
+      price: price ? parseFloat(price) : null,
+      requirements,
+      outcomes,
+      is_active,
+      featured,
+    });
 
   if (error) {
-    console.error("updateProgramAction error:", error);
-    return { ok: false, error: error.message };
+    throw new Error(error.message);
   }
 
-  // Revalidate public pages
-  revalidatePath("/programs");
-  revalidatePath(`/programs/${slug}`);
-  revalidatePath("/admin/programs");
-  revalidatePath(`/admin/programs/${slug}`);
+  revalidatePath('/admin/programs');
+  redirect('/admin/programs');
+}
 
-  return { ok: true, redirectTo: `/admin/programs?key=${encodeURIComponent(adminKey)}&saved=${encodeURIComponent(slug)}` };
+export async function updateProgram(id: string, formData: FormData) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    redirect('/login');
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
+    .single();
+  
+  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
+    redirect('/unauthorized');
+  }
+
+  const name = formData.get('name') as string;
+  const slug = formData.get('slug') as string;
+  const description = formData.get('description') as string;
+  const category = formData.get('category') as string;
+  const duration_hours = formData.get('duration_hours') as string;
+  const price = formData.get('price') as string;
+  const requirements = formData.get('requirements') as string;
+  const outcomes = formData.get('outcomes') as string;
+  const is_active = formData.get('is_active') === 'on';
+  const featured = formData.get('featured') === 'on';
+
+  const { error } = await supabase
+    .from('programs')
+    .update({
+      name,
+      slug,
+      description,
+      category,
+      duration_hours: duration_hours ? parseInt(duration_hours) : null,
+      price: price ? parseFloat(price) : null,
+      requirements,
+      outcomes,
+      is_active,
+      featured,
+      updated_at: new Date().toISOString(),
+    })
+    .eq('id', id);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  revalidatePath('/admin/programs');
+  redirect('/admin/programs');
+}
+
+export async function deleteProgram(id: string) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  if (!user) {
+    throw new Error('Unauthorized');
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
+    .single();
+  
+  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
+    throw new Error('Unauthorized');
+  }
+
+  const { error } = await supabase
+    .from('programs')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  revalidatePath('/admin/programs');
 }
