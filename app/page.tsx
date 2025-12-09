@@ -139,7 +139,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-48 sm:h-56">
                 <Image
-                  src="/images/location-1.jpg"
+                  src="/media/programs/cpr-group-training-hd.jpg"
                   alt="Free Training Facility"
                   fill
                   className="object-cover object-center"
@@ -162,7 +162,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-48 sm:h-56">
                 <Image
-                  src="/images/medical-assistant-1.jpg"
+                  src="/media/programs/healthcare-professional-1-hd.jpg"
                   alt="Real Credentials"
                   fill
                   className="object-cover object-center"
@@ -184,7 +184,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg sm:col-span-2 lg:col-span-1">
               <div className="relative h-48 sm:h-56">
                 <Image
-                  src="/images/ameco-martin.jpg"
+                  src="/media/programs/welding-hd.jpg"
                   alt="Job Connections"
                   fill
                   className="object-cover object-center"
@@ -263,7 +263,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
             <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/location-2.jpg"
+                src="/media/programs/culinary-arts-hd.jpg"
                 alt="Elevate For Humanity training facility"
                 fill
                 className="object-cover object-center"
@@ -273,7 +273,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/location-3.jpg"
+                src="/media/programs/counseling-training-hd.jpg"
                 alt="Professional training environment"
                 fill
                 className="object-cover object-center"
@@ -300,7 +300,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
             <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/media/testimonials/testimonial-success-2-original-optimized.jpg"
+                src="/media/programs/healthcare-professional-2-hd.jpg"
                 alt="Success Story"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
@@ -310,7 +310,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/media/testimonials/testimonial-success-3-original-optimized.jpg"
+                src="/media/programs/it-hd.jpg"
                 alt="Graduate Success"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
@@ -323,7 +323,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/media/testimonials/testimonial-success-4-original-optimized.jpg"
+                src="/media/programs/plumbing.jpg"
                 alt="Career Success"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
@@ -333,7 +333,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/media/programs/cdl-hd.jpg"
+                src="/media/programs/culinary-hd.jpg"
                 alt="CDL Training Success"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
@@ -376,47 +376,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
             <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/media/programs/cna-hd.jpg"
-                alt="Healthcare Training"
-                fill
-                className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={75}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/media/programs/barber-hd.jpg"
-                alt="Barber Training"
-                fill
-                className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={75}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/media/programs/hvac-highlight-1.jpg"
-                alt="HVAC Training"
-                fill
-                className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={75}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/media/programs/medical-assistant-highlight-1.jpg"
-                alt="Medical Assistant Training"
-                fill
-                className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={75}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/media/programs/tax-highlight-1.jpg"
+                src="/media/programs/tax-prep-hd.jpg"
                 alt="Tax Preparation Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
@@ -426,8 +386,48 @@ export default function HomePage() {
             </div>
             <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/media/testimonials/student-testimonial-graduate-hd.jpg"
-                alt="Graduate Success"
+                src="/media/programs/hvac-highlight-2.jpg"
+                alt="HVAC Training"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/medical-assistant-highlight-2.jpg"
+                alt="Medical Assistant Training"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/beauty.jpg"
+                alt="Beauty Training"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/hvac-highlight-3.jpg"
+                alt="HVAC Technician"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/cpr-individual-practice-hd.jpg"
+                alt="CPR Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
                 quality={75}
