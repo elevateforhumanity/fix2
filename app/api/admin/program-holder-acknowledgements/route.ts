@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { withAuth } from '@/lib/withAuth';
 
-export async function GET() {
+export const GET = withAuth(
+  async (, user) => {
+
   try {
     const supabase = await createClient();
 
@@ -32,4 +35,7 @@ export async function GET() {
       { status: 500 }
     );
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

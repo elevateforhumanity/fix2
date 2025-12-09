@@ -1,7 +1,10 @@
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
+import { withAuth } from '@/lib/withAuth';
 
-export async function GET() {
+export const GET = withAuth(
+  async (, user) => {
+
   const supabase = await createRouteHandlerClient({ cookies });
   const {
     data: { user },
@@ -67,4 +70,7 @@ export async function GET() {
   }));
 
   return Response.json(mapped);
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

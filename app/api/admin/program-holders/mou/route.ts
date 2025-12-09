@@ -2,8 +2,11 @@ import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { generateMOUText } from '@/lib/mou-template';
+import { withAuth } from '@/lib/withAuth';
 
-export async function GET(req: NextRequest) {
+export const GET = withAuth(
+  async (req: NextRequest, user) => {
+
   const supabase = await createRouteHandlerClient({ cookies });
   const {
     data: { user },
@@ -81,4 +84,7 @@ export async function GET(req: NextRequest) {
       'Content-Disposition': `attachment; filename="${filename}"`,
     },
   });
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

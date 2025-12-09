@@ -1,11 +1,14 @@
 // app/api/admin/programs/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
+import { withAuth } from '@/lib/withAuth';
 
 // Admin auth guard should be implemented via middleware
 // Protected by /admin route middleware in production
 
-export async function GET() {
+export const GET = withAuth(
+  async (, user) => {
+
   if (!supabaseAdmin) {
     return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
   }
@@ -21,9 +24,14 @@ export async function GET() {
   }
 
   return NextResponse.json({ programs: data ?? [] });
-}
 
-export async function POST(req: NextRequest) {
+  },
+  { roles: ['admin', 'super_admin'] }
+);
+
+export const POST = withAuth(
+  async (req: NextRequest, user) => {
+
   if (!supabaseAdmin) {
     return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
   }
@@ -72,4 +80,7 @@ export async function POST(req: NextRequest) {
     console.error("Program save error:", err);
     return NextResponse.json({ error: "Unexpected error" }, { status: 500 });
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

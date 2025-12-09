@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
+import { withAuth } from '@/lib/withAuth';
 
 export async function GET(
   req: Request,

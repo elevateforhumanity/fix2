@@ -1,7 +1,10 @@
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
+import { withAuth } from '@/lib/withAuth';
 
-export async function GET(req: Request) {
+export const GET = withAuth(
+  async (req: Request, user) => {
+
   const supabase = await createRouteHandlerClient({ cookies });
   const {
     data: { user },
@@ -47,4 +50,7 @@ export async function GET(req: Request) {
       'Content-Type': 'image/png',
     },
   });
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

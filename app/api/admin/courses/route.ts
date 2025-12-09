@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
 import { supabaseServer } from '@/lib/supabase-server';
+import { withAuth } from '@/lib/withAuth';
 
-export async function POST(request: Request) {
+export const POST = withAuth(
+  async (request: Request, user) => {
+
   try {
     const course = await request.json();
     const supabase = supabaseServer();
@@ -70,9 +73,14 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
-}
 
-export async function GET(request: Request) {
+  },
+  { roles: ['admin', 'super_admin'] }
+);
+
+export const GET = withAuth(
+  async (request: Request, user) => {
+
   try {
     const supabase = supabaseServer();
 
@@ -98,4 +106,7 @@ export async function GET(request: Request) {
       { status: 500 }
     );
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

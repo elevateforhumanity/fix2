@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAuditLogs, getAuditLogStats, exportAuditLogs } from '@/lib/auditLog';
 import { requireAdmin } from '@/lib/authGuards';
+import { withAuth } from '@/lib/withAuth';
 
-export async function GET(request: NextRequest) {
+export const GET = withAuth(
+  async (request: NextRequest, user) => {
+
   try {
     await requireAdmin();
 
@@ -59,4 +62,7 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

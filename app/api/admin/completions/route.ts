@@ -2,6 +2,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
+import { withAuth } from '@/lib/withAuth';
 
 function getSupabaseServerClient() {
   const cookieStore = cookies();
@@ -24,7 +25,9 @@ function getSupabaseServerClient() {
  *
  * Returns partner certificate completions in the last X days (default 7)
  */
-export async function GET(req: Request) {
+export const GET = withAuth(
+  async (req: Request, user) => {
+
   const url = new URL(req.url);
   const daysParam = url.searchParams.get("days");
   const format = url.searchParams.get("format") || "json";
@@ -141,4 +144,7 @@ export async function GET(req: Request) {
   }
 
   return NextResponse.json({ completions });
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

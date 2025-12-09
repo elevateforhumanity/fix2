@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/rbac";
+import { withAuth } from '@/lib/withAuth';
 
-export async function POST(req: NextRequest) {
+export const POST = withAuth(
+  async (req: NextRequest, user) => {
+
   // Check if user is admin
   const session = await requireAdmin();
   
@@ -63,4 +66,7 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

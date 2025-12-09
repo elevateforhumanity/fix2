@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { withAuth } from '@/lib/withAuth';
 
-export async function POST(req: NextRequest) {
+export const POST = withAuth(
+  async (req: NextRequest, user) => {
+
   try {
     const supabase = await createClient();
 
@@ -240,4 +243,7 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

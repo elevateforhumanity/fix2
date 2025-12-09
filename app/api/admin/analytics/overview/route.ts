@@ -2,9 +2,12 @@
 // Real-time analytics overview
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from "@/lib/supabase-api";
+import { withAuth } from '@/lib/withAuth';
 
 
-export async function GET(req: NextRequest) {
+export const GET = withAuth(
+  async (req: NextRequest, user) => {
+
   const supabase = createSupabaseClient();
   const tenantId = req.headers.get('x-tenant-id');
   
@@ -53,4 +56,7 @@ export async function GET(req: NextRequest) {
     enrollmentsToday: enrollmentsToday || 0,
     timestamp: new Date().toISOString()
   });
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

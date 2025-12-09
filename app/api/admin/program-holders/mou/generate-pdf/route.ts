@@ -4,6 +4,7 @@ import { createRouteHandlerClient } from '@/lib/auth';
 import { createClient } from '@supabase/supabase-js';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import { Resend } from 'resend';
+import { withAuth } from '@/lib/withAuth';
 
 // Use Node.js runtime for PDF generation
 export const runtime = 'nodejs';
@@ -19,7 +20,9 @@ function getResendClient() {
   return new Resend(apiKey);
 }
 
-export async function POST(req: NextRequest) {
+export const POST = withAuth(
+  async (req: NextRequest, user) => {
+
   const supabase = await createRouteHandlerClient({ cookies });
   const {
     data: { user },
@@ -467,4 +470,7 @@ export async function POST(req: NextRequest) {
     console.error('Error generating PDF:', error);
     return new Response('Failed to generate PDF', { status: 500 });
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

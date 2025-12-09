@@ -1,8 +1,11 @@
 // app/api/admin/export/enrollments/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
+import { withAuth } from '@/lib/withAuth';
 
-export async function GET(req: NextRequest) {
+export const GET = withAuth(
+  async (req: NextRequest, user) => {
+
   if (!supabaseAdmin) {
     return NextResponse.json(
       { error: "Database not configured" },
@@ -104,7 +107,10 @@ export async function GET(req: NextRequest) {
       { status: 500 }
     );
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);
 
 function escapeCsvField(field: any): string {
   if (field == null) return "";

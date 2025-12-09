@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createBackup, exportBackupToJSON, listBackups } from '@/lib/backup';
 import { requireAdmin } from '@/lib/authGuards';
+import { withAuth } from '@/lib/withAuth';
 
-export async function POST(request: NextRequest) {
+export const POST = withAuth(
+  async (request: NextRequest, user) => {
+
   try {
     await requireAdmin();
 
@@ -29,9 +32,14 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
 
-export async function GET(request: NextRequest) {
+  },
+  { roles: ['admin', 'super_admin'] }
+);
+
+export const GET = withAuth(
+  async (request: NextRequest, user) => {
+
   try {
     await requireAdmin();
 
@@ -45,4 +53,7 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

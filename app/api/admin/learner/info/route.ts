@@ -2,8 +2,11 @@ import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { getUserById } from '@/lib/supabase-admin';
+import { withAuth } from '@/lib/withAuth';
 
-export async function GET(req: NextRequest) {
+export const GET = withAuth(
+  async (req: NextRequest, user) => {
+
   const supabase = await createRouteHandlerClient({ cookies });
   const {
     data: { user },
@@ -43,4 +46,7 @@ export async function GET(req: NextRequest) {
     console.error('Error fetching user:', error);
     return new Response('Failed to fetch user', { status: 500 });
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

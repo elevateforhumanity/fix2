@@ -2,8 +2,11 @@ import { NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
 import fs from 'fs';
 import path from 'path';
+import { withAuth } from '@/lib/withAuth';
 
-export async function POST(request: Request) {
+export const POST = withAuth(
+  async (request: Request, user) => {
+
   try {
     const supabase = await createServerSupabaseClient();
 
@@ -49,4 +52,7 @@ export async function POST(request: Request) {
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

@@ -1,8 +1,11 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { notifySendgrid } from '@/lib/notify';
+import { withAuth } from '@/lib/withAuth';
 
-export async function POST(req: Request) {
+export const POST = withAuth(
+  async (req: Request, user) => {
+
   const auth = req.headers.get('authorization') || '';
   const token = auth.replace('Bearer ', '');
   if (token !== process.env.REPORT_CRON_TOKEN) {
@@ -48,4 +51,7 @@ export async function POST(req: Request) {
     console.error('Daily report error:', error);
     return NextResponse.json({ error: 'Report generation failed' }, { status: 500 });
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

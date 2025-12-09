@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { requireRole, handleRBACError } from '@/lib/rbac';
+import { withAuth } from '@/lib/withAuth';
 
 // GET /api/admin/sso - List SSO connections
-export async function GET() {
+export const GET = withAuth(
+  async (, user) => {
+
   try {
     await requireRole(['admin']);
     const supabase = await createClient();
@@ -20,10 +23,15 @@ export async function GET() {
     const { error, status } = handleRBACError(err);
     return NextResponse.json({ error }, { status });
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);
 
 // POST /api/admin/sso - Create SSO connection
-export async function POST(req: NextRequest) {
+export const POST = withAuth(
+  async (req: NextRequest, user) => {
+
   try {
     await requireRole(['admin']);
     const supabase = await createClient();
@@ -87,4 +95,7 @@ export async function POST(req: NextRequest) {
     const { error, status } = handleRBACError(err);
     return NextResponse.json({ error }, { status });
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

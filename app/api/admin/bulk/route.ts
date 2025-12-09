@@ -9,8 +9,11 @@ import {
   bulkExportData,
 } from '@/lib/bulkOperations';
 import { requireAdmin } from '@/lib/authGuards';
+import { withAuth } from '@/lib/withAuth';
 
-export async function POST(request: NextRequest) {
+export const POST = withAuth(
+  async (request: NextRequest, user) => {
+
   try {
     const user = await requireAdmin();
     const { operation, ...params } = await request.json();
@@ -89,4 +92,7 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);

@@ -2,8 +2,11 @@ import { NextRequest } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { createClient } from '@supabase/supabase-js';
+import { withAuth } from '@/lib/withAuth';
 
-export async function POST(req: NextRequest) {
+export const POST = withAuth(
+  async (req: NextRequest, user) => {
+
   const supabase = await createRouteHandlerClient({ cookies });
   const {
     data: { user },
@@ -91,4 +94,7 @@ export async function POST(req: NextRequest) {
   }
 
   return Response.json(updated);
-}
+
+  },
+  { roles: ['admin', 'super_admin'] }
+);
