@@ -31,12 +31,14 @@ export default function HomePage() {
               objectFit: 'cover',
               width: '100%',
               height: '100%',
-              filter: 'brightness(1.1) contrast(1.05) saturate(1.1)'
+              filter: 'brightness(0.7) contrast(1.05) saturate(1.1)'
             }}
           >
             <source src="/videos/barber-hero.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
         {/* Content */}
