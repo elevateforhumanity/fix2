@@ -31,14 +31,12 @@ export default function HomePage() {
               objectFit: 'cover',
               width: '100%',
               height: '100%',
-              filter: 'brightness(0.7) contrast(1.05) saturate(1.1)'
+              filter: 'brightness(1.1) contrast(1.05) saturate(1.1)'
             }}
           >
             <source src="/videos/barber-hero.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/40" />
         </div>
 
         {/* Content */}
@@ -207,21 +205,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* REAL IMPACT - TESTIMONIAL */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
-        <div className="mx-auto max-w-4xl px-6">
-          <div className="text-center mb-12">
-            <div className="text-6xl mb-6">"</div>
-            <blockquote className="text-2xl md:text-3xl font-light leading-relaxed mb-8">
-              I was unemployed for 18 months after getting out. Nobody would hire me. 
-              Elevate didn't just train me—they believed in me. Now I'm a licensed barber 
-              making $50,000 a year, and I can finally support my family.
-            </blockquote>
-            <div className="text-lg font-semibold">— Marcus, Barber Apprenticeship Graduate</div>
-            <div className="text-blue-200 text-sm mt-2">From unemployed to employed in 12 weeks</div>
+      {/* REAL IMPACT - TESTIMONIAL WITH IMAGE */}
+      <section className="py-20 bg-blue-600 text-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/barber-hd.jpg"
+                alt="Success Story"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div>
+              <div className="text-5xl mb-6">"</div>
+              <blockquote className="text-xl md:text-2xl font-light leading-relaxed mb-6">
+                I was unemployed for 18 months after getting out. Nobody would hire me. 
+                Elevate didn't just train me—they believed in me. Now I'm a licensed barber 
+                making $50,000 a year, and I can finally support my family.
+              </blockquote>
+              <div className="text-lg font-semibold">— Marcus, Barber Apprenticeship Graduate</div>
+              <div className="text-blue-200 text-sm mt-2">From unemployed to employed in 12 weeks</div>
+            </div>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 text-center mt-16">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-5xl font-bold mb-2">85%</div>
               <div className="text-blue-200">Job Placement Rate</div>
