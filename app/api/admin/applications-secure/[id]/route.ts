@@ -1,7 +1,7 @@
 // app/api/admin/applications-secure/[id]/route.ts
 // SECURE VERSION with authentication
 import { NextRequest, NextResponse } from 'next/server';
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 import { getServerSupabase } from '@/lib/supabaseClients';
 
 export const GET = withAuth(

@@ -1,7 +1,7 @@
 // app/api/admin/programs/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 
 // Admin auth guard should be implemented via middleware
 // Protected by /admin route middleware in production

@@ -2,7 +2,7 @@
 // Real-time analytics overview
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseClient } from "@/lib/supabase-api";
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 
 
 export const GET = withAuth(

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { notifySendgrid } from '@/lib/notify';
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 
 export const POST = withAuth(
   async (req: Request, user) => {

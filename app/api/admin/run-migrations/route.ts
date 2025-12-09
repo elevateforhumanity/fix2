@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServerSupabaseClient } from '@/lib/auth';
 import fs from 'fs';
 import path from 'path';
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 
 export const POST = withAuth(
   async (request: Request, user) => {

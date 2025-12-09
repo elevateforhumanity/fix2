@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createBackup, exportBackupToJSON, listBackups } from '@/lib/backup';
 import { requireAdmin } from '@/lib/authGuards';
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 
 export const POST = withAuth(
   async (request: NextRequest, user) => {

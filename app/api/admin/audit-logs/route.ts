@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAuditLogs, getAuditLogStats, exportAuditLogs } from '@/lib/auditLog';
 import { requireAdmin } from '@/lib/authGuards';
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 
 export const GET = withAuth(
   async (request: NextRequest, user) => {

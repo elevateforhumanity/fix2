@@ -4,7 +4,7 @@ import { createRouteHandlerClient } from '@/lib/auth';
 import { createClient } from '@supabase/supabase-js';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import { Resend } from 'resend';
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 
 // Use Node.js runtime for PDF generation
 export const runtime = 'nodejs';

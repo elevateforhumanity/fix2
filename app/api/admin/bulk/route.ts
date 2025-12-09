@@ -9,7 +9,7 @@ import {
   bulkExportData,
 } from '@/lib/bulkOperations';
 import { requireAdmin } from '@/lib/authGuards';
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 
 export const POST = withAuth(
   async (request: NextRequest, user) => {

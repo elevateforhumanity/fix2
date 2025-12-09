@@ -1,7 +1,7 @@
 // app/api/admin/applications/[id]/approve/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 
 export async function POST(
   req: NextRequest,

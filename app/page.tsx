@@ -17,18 +17,22 @@ export default function HomePage() {
     <main className="bg-white">
       {/* Welcome Audio - Plays once on page load */}
       <WelcomeAudio />
-      {/* HERO - VIDEO BANNER (No overlay, no text) */}
-      <section className="relative overflow-hidden h-[400px] sm:h-[500px] md:h-[600px]">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/hero-video.mp4" type="video/mp4" />
-        </video>
+      {/* HERO - VIDEO BANNER */}
+      <section className="relative overflow-hidden">
+        <div className="mx-auto max-w-7xl">
+          <div className="relative w-full aspect-[21/9] max-h-[500px] overflow-hidden">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/videos/hero-video.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
       </section>
 
       {/* OUR STORY - WHO WE ARE - WITH IMAGES */}
@@ -55,31 +59,35 @@ export default function HomePage() {
               </p>
             </div>
             
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-xl">
-              <Image
-                src="/images/hero-banner.jpg"
-                alt="Career training programs"
-                fill
-                className="object-cover"
-                quality={50}
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div className="relative w-full max-w-xl mx-auto">
+              <div className="relative w-full aspect-[4/3] max-h-[360px] rounded-xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/hero-banner.jpg"
+                  alt="Career training programs"
+                  fill
+                  className="object-cover"
+                  quality={75}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 600px"
+                />
+              </div>
             </div>
           </div>
 
           {/* Second Section - Image + Text */}
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-xl md:order-first">
-              <Image
-                src="/images/hero-training.jpg"
-                alt="Professional training environment"
-                fill
-                className="object-cover"
-                quality={50}
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+            <div className="relative w-full max-w-xl mx-auto md:order-first">
+              <div className="relative w-full aspect-[4/3] max-h-[360px] rounded-xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/hero-training.jpg"
+                  alt="Professional training environment"
+                  fill
+                  className="object-cover"
+                  quality={75}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 600px"
+                />
+              </div>
             </div>
             
             <div className="space-y-4 sm:space-y-6">

@@ -1,8 +1,7 @@
-// app/api/admin/completions/route.ts
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 
 function getSupabaseServerClient() {
   const cookieStore = cookies();
@@ -19,15 +18,8 @@ function getSupabaseServerClient() {
   );
 }
 
-/**
- * Admin completions API
- * GET /api/admin/completions?days=7&format=json|csv
- *
- * Returns partner certificate completions in the last X days (default 7)
- */
 export const GET = withAuth(
-  async (req, context) => {
-    const { user } = context;
+  async (req: NextRequest, context, user) => {
     const url = new URL(req.url);
     const daysParam = url.searchParams.get("days");
     const format = url.searchParams.get("format") || "json";
@@ -38,11 +30,9 @@ export const GET = withAuth(
 
     const supabase = getSupabaseServerClient();
 
-    // Pull recent certificates + join related data
     const { data, error } = await supabase
       .from("partner_certificates")
-      .select(
-        `
+      .select(`
         id,
         certificate_number,
         certificate_url,
@@ -58,8 +48,7 @@ export const GET = withAuth(
           partner_courses ( course_name ),
           profiles ( full_name, email )
         )
-      `
-      )
+      `)
       .gte("issued_date", since.toISOString())
       .order("issued_date", { ascending: false });
 
@@ -73,7 +62,6 @@ export const GET = withAuth(
       const student = e.profiles ?? {};
       const provider = e.partner_lms_providers ?? {};
       const course = e.partner_courses ?? {};
-
       const fundingSource = "WIOA/WRG";
 
       return {
@@ -91,7 +79,6 @@ export const GET = withAuth(
       };
     });
 
-    // CSV export
     if (format === "csv") {
       const headers = [
         "Student Name",
@@ -105,7 +92,7 @@ export const GET = withAuth(
         "Verification URL",
       ];
 
-      const rows = completions.map((c) => [
+      const rows = completions.map((c: any) => [
         c.studentName,
         c.studentEmail,
         c.courseName,
@@ -119,8 +106,8 @@ export const GET = withAuth(
 
       const csv = [
         headers.join(","),
-        ...rows.map((row) =>
-          row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(",")
+        ...rows.map((row: any) =>
+          row.map((cell: any) => `"${String(cell).replace(/"/g, '""')}"`).join(",")
         ),
       ].join("\n");
 

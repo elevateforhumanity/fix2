@@ -1,7 +1,7 @@
 // app/api/admin/export/enrollments/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabaseClients";
-import { withAuth } from '@/lib/withAuth';
+import { withAuth } from '@/lib/with-auth';
 
 export const GET = withAuth(
   async (req: NextRequest, user) => {

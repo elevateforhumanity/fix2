@@ -36,11 +36,16 @@ export default function ApplyPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          full_name: `${firstName} ${lastName}`,
+          firstName,
+          lastName,
           email,
           phone,
-          program_interest: program,
-          referral_source: `City: ${city}, Zip: ${zip}, Contact: ${contactMethod}, Notes: ${supportNotes}`,
+          city,
+          zipCode: zip,
+          programInterest: program,
+          notes: supportNotes,
+          contactPreference: contactMethod,
+          captchaAnswer: mathAnswer,
         }),
       });
 
