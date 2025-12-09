@@ -4,7 +4,8 @@ import { createRouteHandlerClient } from '@/lib/auth';
 import { withAuth } from '@/lib/withAuth';
 
 export const GET = withAuth(
-  async (req, { user }) => {
+  async (req, context) => {
+    const { user } = context;
     const supabase = await createRouteHandlerClient({ cookies });
     const url = new URL(req.url);
     const learner_id = url.searchParams.get('user_id');

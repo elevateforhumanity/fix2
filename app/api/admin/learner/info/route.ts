@@ -5,7 +5,8 @@ import { getUserById } from '@/lib/supabase-admin';
 import { withAuth } from '@/lib/withAuth';
 
 export const GET = withAuth(
-  async (req, { user }) => {
+  async (req, context) => {
+    const { user } = context;
     const url = new URL(req.url);
     const user_id = url.searchParams.get('user_id');
 

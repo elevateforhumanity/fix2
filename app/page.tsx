@@ -26,9 +26,8 @@ export default function HomePage() {
           playsInline
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
-          key="hero-video-v2"
         >
-          <source src="/videos/hero-video.mp4?v=2" type="video/mp4" />
+          <source src="/videos/hero-video.mp4" type="video/mp4" />
         </video>
       </section>
 

@@ -21,7 +21,8 @@ function getResendClient() {
 }
 
 export const POST = withAuth(
-  async (req, { user }) => {
+  async (req, context) => {
+    const { user } = context;
     const supabase = await createRouteHandlerClient({ cookies });
     const body = await req.json();
     const { programHolderId } = body || {};

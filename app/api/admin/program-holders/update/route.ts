@@ -4,7 +4,8 @@ import { createRouteHandlerClient } from '@/lib/auth';
 import { withAuth } from '@/lib/withAuth';
 
 export const POST = withAuth(
-  async (req, { user }) => {
+  async (req, context) => {
+    const { user } = context;
     const supabase = await createRouteHandlerClient({ cookies });
       const { id, status, mou_status } = await req.json();
 

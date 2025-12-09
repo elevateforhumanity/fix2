@@ -5,7 +5,8 @@ import { generateMOUText } from '@/lib/mou-template';
 import { withAuth } from '@/lib/withAuth';
 
 export const GET = withAuth(
-  async (req, { user }) => {
+  async (req, context) => {
+    const { user } = context;
     const supabase = await createRouteHandlerClient({ cookies });
       const url = new URL(req.url);
     const id = url.searchParams.get('id');
