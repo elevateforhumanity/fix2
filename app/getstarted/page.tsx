@@ -53,44 +53,111 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Image Section */}
+      {/* Your Journey - 3 Simple Steps */}
+      <section className="py-20 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Your Path to a New Career</h2>
+            <p className="text-xl text-slate-700">Three simple steps. No hidden costs. No complicated process. Just you and your future.</p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            {/* Step 1 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
+              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                1
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Apply Online</h3>
+              <p className="text-slate-700 mb-6 leading-relaxed">
+                Fill out a simple application (takes 5 minutes). Tell us about yourself, what you're interested in, 
+                and what support you might need. No commitment required.
+              </p>
+              <Link href="/apply" className="text-orange-600 font-semibold hover:underline">
+                Start Application →
+              </Link>
+            </div>
+            
+            {/* Step 2 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                2
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Meet Your Advisor</h3>
+              <p className="text-slate-700 mb-6 leading-relaxed">
+                Within 1-2 days, a real person will call you. They'll explain programs, help you check eligibility 
+                for free funding, and answer all your questions. No pressure, just guidance.
+              </p>
+              <p className="text-sm text-slate-600">
+                Call us anytime: <a href="tel:3173143757" className="text-blue-600 font-semibold">317-314-3757</a>
+              </p>
+            </div>
+            
+            {/* Step 3 */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
+              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                3
+              </div>
+              <h3 className="text-2xl font-bold mb-4">Start Training</h3>
+              <p className="text-slate-700 mb-6 leading-relaxed">
+                Once approved, you'll start training—100% free. Learn new skills, earn credentials, and get connected 
+                to employers. We support you every step until you're hired.
+              </p>
+              <Link href="/programs" className="text-green-600 font-semibold hover:underline">
+                View Programs →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why People Choose Us */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Transform Your Future</h2>
-                <p className="text-gray-700 mb-6">Join thousands who have launched successful careers through our programs.</p>
-                <ul className="space-y-3">
-                  
+                <h2 className="text-3xl font-bold mb-6">Why Thousands Choose Elevate</h2>
+                <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                  We're not just a training program—we're a community that believes everyone deserves a shot at a better life, 
+                  regardless of their past or current situation.
+                </p>
+                <ul className="space-y-4">
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>100% government-funded training</span>
+                    <div>
+                      <strong className="text-slate-900">Zero Cost:</strong>
+                      <span className="text-slate-700"> Government pays for everything—tuition, books, supplies, even transportation and childcare support.</span>
+                    </div>
                   </li>
-                  
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>No cost to you - completely free</span>
+                    <div>
+                      <strong className="text-slate-900">Real Credentials:</strong>
+                      <span className="text-slate-700"> State licenses and industry certifications that employers actually hire for.</span>
+                    </div>
                   </li>
-                  
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Flexible scheduling options</span>
+                    <div>
+                      <strong className="text-slate-900">Job Placement:</strong>
+                      <span className="text-slate-700"> We don't stop at training—we connect you with employers and support you through your first 90 days.</span>
+                    </div>
                   </li>
-                  
                   <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Career support from start to finish</span>
+                    <div>
+                      <strong className="text-slate-900">Second Chances Welcome:</strong>
+                      <span className="text-slate-700"> Re-entry? Past struggles? We don't judge—we help you move forward.</span>
+                    </div>
                   </li>
-                  
                 </ul>
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">

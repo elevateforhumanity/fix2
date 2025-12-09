@@ -105,21 +105,26 @@ function ApplyForm() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <header className="mb-8">
             <p className="text-xs font-semibold uppercase tracking-wide text-orange-600">
-              Application
+              Your Journey Starts Here
             </p>
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
-              Apply to Elevate for Humanity
+              Apply for Free Career Training
             </h1>
-            <p className="mt-3 text-sm text-slate-700">
-              This form helps us learn who you are, what you&apos;re interested in,
-              and what kinds of support you may need. After you submit, an advisor
-              will follow up to talk about programs and funding options.
+            <p className="mt-3 text-base text-slate-700 leading-relaxed">
+              You're taking the first step toward a better future. This application helps us understand 
+              your goals, interests, and any support you might need. There's no cost, no commitment—just 
+              an opportunity to explore what's possible.
+            </p>
+            <p className="mt-4 text-sm text-slate-700">
+              After you submit, a real person (not a bot!) will reach out within 1-2 business days to 
+              discuss programs, funding options, and answer your questions.
             </p>
             <p className="mt-4 text-sm text-slate-900">
-              <strong>Questions?</strong> Call us at{' '}
+              <strong>Need help right now?</strong> Call us at{' '}
               <a href="tel:3173143757" className="text-orange-600 font-semibold hover:underline">
                 317-314-3757
               </a>
+              {' '}— we're here to help.
             </p>
           </header>
 
