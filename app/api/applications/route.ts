@@ -43,9 +43,15 @@ export async function POST(req: NextRequest) {
     const parsed = applicationSchema.safeParse(body);
 
     if (!parsed.success) {
+      const fieldErrors = parsed.error.flatten().fieldErrors;
+      const firstError = Object.entries(fieldErrors)[0];
+      const friendlyMessage = firstError 
+        ? `${firstError[0]}: ${firstError[1]?.[0] || 'Invalid value'}`
+        : 'Please check your form and try again';
+      
       return NextResponse.json(
         {
-          error: 'Invalid form data',
+          error: friendlyMessage,
           details: parsed.error.flatten(),
         },
         { status: 400 }
@@ -92,18 +98,45 @@ export async function POST(req: NextRequest) {
       });
 
     if (insertError) {
-      logger.error('Application insert error', insertError);
+      // Specific error messages for common database issues
+      if (insertError.code === '23505') {
+        return NextResponse.json(
+          { error: 'An application with this email already exists. Please contact us at 317-314-3757 to update it.' },
+          { status: 409 }
+        );
+      }
+      
+      if (insertError.code === '23503') {
+        return NextResponse.json(
+          { error: 'Invalid data provided. Please check your information and try again.' },
+          { status: 400 }
+        );
+      }
+      
+      logger.error('Application insert error', insertError, { 
+        code: insertError.code,
+        email: data.email 
+      });
+      
       return NextResponse.json(
-        { error: 'Could not submit application. Please try again.' },
+        { error: 'Could not submit application. Please try again or call 317-314-3757.' },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({ success: true }, { status: 201 });
+    logger.info('Application submitted successfully', { 
+      email: data.email,
+      program: data.programInterest 
+    });
+
+    return NextResponse.json({ 
+      success: true,
+      message: 'Application submitted! We\'ll contact you within 1-2 business days.'
+    }, { status: 201 });
   } catch (err) {
-    logger.error('Application POST error', err);
+    logger.error('Application POST error', err instanceof Error ? err : new Error(String(err)));
     return NextResponse.json(
-      { error: 'Unexpected error. Please try again.' },
+      { error: 'Something went wrong. Please try again or call 317-314-3757.' },
       { status: 500 }
     );
   }

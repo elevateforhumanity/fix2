@@ -2,14 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { createServerClient } from '@supabase/ssr';
-
-export type UserRole = 'student' | 'admin' | 'super_admin' | 'program_holder';
-
-export interface AuthedUser {
-  id: string;
-  email: string | null;
-  role: UserRole | null;
-}
+import type { AuthedUser, UserRole, AuthHandler, WithAuthOptions } from '@/types/auth';
 
 // Get the current user + role from Supabase
 async function getAuthedUser(req: NextRequest): Promise<AuthedUser | null> {
@@ -47,20 +40,16 @@ async function getAuthedUser(req: NextRequest): Promise<AuthedUser | null> {
   };
 }
 
-interface WithAuthOptions {
-  roles?: UserRole[];
-}
-
 /**
  * Wraps a route handler and injects `user`.
  * Usage:
  * export const GET = withAuth(async (req, ctx, user) => { ... }, { roles: ['admin'] });
  */
-export function withAuth<TContext = any>(
-  handler: (req: NextRequest, context: TContext, user: AuthedUser) => Promise<Response> | Response,
+export function withAuth<TParams = Record<string, string>>(
+  handler: AuthHandler<TParams>,
   options: WithAuthOptions = {}
 ) {
-  return async (req: NextRequest, context: TContext) => {
+  return async (req: NextRequest, context: { params: TParams }) => {
     const user = await getAuthedUser(req);
 
     if (!user) {
@@ -73,6 +62,6 @@ export function withAuth<TContext = any>(
       }
     }
 
-    return handler(req, context, user);
+    return handler(req, { ...context, user });
   };
 }
