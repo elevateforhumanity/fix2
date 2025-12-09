@@ -180,7 +180,7 @@ export default function HomePage() {
                   alt="Job Connections"
                   fill
                   className="object-cover object-center"
-                  quality={75}
+                  quality={50}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
@@ -201,13 +201,14 @@ export default function HomePage() {
       <section className="py-12 sm:py-16 md:py-20 bg-blue-600 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
-            <div className="relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/media/programs/barber-hd.jpg"
+                src="/media/programs/healthcare-professional-1-hd.jpg"
                 alt="Success Story"
                 fill
                 className="object-cover"
-                quality={75}
+                quality={50}
+                loading="lazy"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -259,7 +260,7 @@ export default function HomePage() {
                 alt="Elevate For Humanity training facility"
                 fill
                 className="object-cover object-center"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
@@ -269,7 +270,7 @@ export default function HomePage() {
                 alt="Professional training environment"
                 fill
                 className="object-cover object-center"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
@@ -296,7 +297,7 @@ export default function HomePage() {
                 alt="Success Story"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
@@ -306,7 +307,7 @@ export default function HomePage() {
                 alt="Graduate Success"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
@@ -319,7 +320,7 @@ export default function HomePage() {
                 alt="Career Success"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
@@ -329,7 +330,7 @@ export default function HomePage() {
                 alt="CDL Training Success"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
@@ -364,7 +365,7 @@ export default function HomePage() {
                 alt="Tax Preparation Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
@@ -374,7 +375,7 @@ export default function HomePage() {
                 alt="HVAC Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
@@ -384,7 +385,7 @@ export default function HomePage() {
                 alt="Medical Assistant Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
@@ -394,7 +395,7 @@ export default function HomePage() {
                 alt="Beauty Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
@@ -404,7 +405,7 @@ export default function HomePage() {
                 alt="HVAC Technician"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
@@ -414,7 +415,7 @@ export default function HomePage() {
                 alt="CPR Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
-                quality={75}
+                quality={50}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
