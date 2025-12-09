@@ -10,7 +10,7 @@ function getClientIp(req: NextRequest): string {
   );
 }
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Exclude static assets and Next internals

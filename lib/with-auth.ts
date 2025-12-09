@@ -1,7 +1,7 @@
 // lib/with-auth.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { createServerClient } from '@supabase/ssr';
 
 export type UserRole = 'student' | 'admin' | 'super_admin' | 'program_holder';
 
@@ -13,7 +13,18 @@ export interface AuthedUser {
 
 // Get the current user + role from Supabase
 async function getAuthedUser(req: NextRequest): Promise<AuthedUser | null> {
-  const supabase = createRouteHandlerClient({ cookies });
+  const cookieStore = cookies();
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name: string) {
+          return cookieStore.get(name)?.value;
+        },
+      },
+    }
+  );
 
   const {
     data: { user },
