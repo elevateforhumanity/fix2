@@ -15,17 +15,16 @@ export default function MedicalAssistantPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
+      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden bg-slate-900">
         <Image
-          src="/images/gallery/image6.jpg"
-          alt="Medical Assistant Training"
+          src="/images/medical-assistant-1.jpg"
+          alt="Medical Assistant Training - Real students in clinical setting"
           fill
-          className="object-cover"
+          className="object-cover opacity-90"
           priority
-          quality={100}
+          quality={95}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
