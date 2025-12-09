@@ -33,23 +33,19 @@ export default function HomePage() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full bg-green-500 px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-bold mb-4 sm:mb-6 animate-pulse">
               <span className="text-base sm:text-lg">✓</span>
-              <span>100% FREE - GOVERNMENT FUNDED</span>
+              <span>100% FREE CAREER TRAINING</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-              We Believe in<br />
-              <span className="text-orange-400">Second Chances</span>
+              Start Your<br />
+              <span className="text-orange-400">Career Today</span>
             </h1>
 
-            {/* Subheadline - STORY */}
-            <p className="text-base sm:text-lg md:text-xl text-slate-100 mb-3 sm:mb-4 font-light leading-relaxed">
-              Your past doesn't define your future. Whether you're returning from incarceration, 
-              struggling to make ends meet, or just need a fresh start—we're here to help you 
-              build the career and life you deserve.
-            </p>
-            <p className="text-sm sm:text-base md:text-lg text-slate-200 mb-6 sm:mb-8 font-light">
-              100% free training. Real jobs waiting. No barriers, just opportunity.
+            {/* Subheadline */}
+            <p className="text-base sm:text-lg md:text-xl text-slate-100 mb-6 sm:mb-8 font-light leading-relaxed">
+              Free workforce training in healthcare, skilled trades, and technology. 
+              Get certified, get hired, get started.
             </p>
 
             {/* CTAs */}
