@@ -7,7 +7,7 @@ import { withAuth } from '@/lib/withAuth';
 // Protected by /admin route middleware in production
 
 export const GET = withAuth(
-  async (, user) => {
+  async (req, context, user) => {
 
   if (!supabaseAdmin) {
     return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });

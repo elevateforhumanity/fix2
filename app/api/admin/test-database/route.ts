@@ -3,7 +3,7 @@ import { createServerSupabaseClient } from '@/lib/auth';
 import { withAuth } from '@/lib/withAuth';
 
 export const GET = withAuth(
-  async (, user) => {
+  async (req, context, user) => {
 
   try {
     const supabase = await createServerSupabaseClient();

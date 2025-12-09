@@ -5,7 +5,7 @@ import { withAuth } from '@/lib/withAuth';
 
 // GET /api/admin/sso - List SSO connections
 export const GET = withAuth(
-  async (, user) => {
+  async (req, context, user) => {
 
   try {
     await requireRole(['admin']);
