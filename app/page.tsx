@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { WelcomeAudio } from "@/components/WelcomeAudio";
 
 export const metadata = {
   title: "Elevate for Humanity | Free Career Training Indianapolis",
@@ -14,6 +15,8 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-white">
+      {/* Welcome Audio - Plays once on page load */}
+      <WelcomeAudio />
       {/* HERO - VIDEO BANNER */}
       <section className="relative text-white overflow-hidden h-[500px] sm:h-[600px] md:h-[700px]">
         {/* Background Video */}
@@ -85,11 +88,11 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-64">
                 <Image
-                  src="/images/facility-1.jpg"
+                  src="/images/location-9.jpg"
                   alt="Free Training Facility"
                   fill
                   className="object-cover object-center"
-                  quality={100}
+                  quality={90}
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
@@ -165,20 +168,20 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/facility-1.jpg"
+                src="/images/location-4.jpg"
                 alt="Elevate For Humanity training facility"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 quality={90}
                 sizes="(max-width: 768px) 100vw, 40vw"
               />
             </div>
             <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/facility-2.jpg"
+                src="/images/location-5.jpg"
                 alt="Professional training environment"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 quality={90}
                 sizes="(max-width: 768px) 100vw, 40vw"
               />
@@ -206,10 +209,11 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-48">
                 <Image
-                  src="/images/facility-2.jpg"
+                  src="/images/location-7.jpg"
                   alt="Hybrid Learning Format"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
+                  quality={90}
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
