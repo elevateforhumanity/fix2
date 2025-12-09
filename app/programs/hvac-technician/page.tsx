@@ -49,15 +49,18 @@ export default function HvacTechnicianPage() {
                   href="/apply"
                   className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
                 >
-                  Apply Now - It's Free
+                  Apply for Free Training
                 </Link>
                 <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
+                  href="/checkout/prog-hvac-technician"
+                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all hover:scale-105 shadow-2xl"
                 >
-                  Questions? Contact Us
+                  Pay with Affirm - $5,000
                 </Link>
               </div>
+              <p className="text-sm text-white/90 mt-4 drop-shadow">
+                Choose free government-funded training OR pay $5,000 with flexible payment plans
+              </p>
             </div>
           </div>
         </div>
@@ -136,9 +139,73 @@ export default function HvacTechnicianPage() {
             </div>
           </div>
 
+          {/* Credentials Section */}
+          <div className="bg-blue-50 rounded-xl p-8 mb-16">
+            <h3 className="text-2xl font-bold text-slate-900 mb-6 text-center">Industry-Recognized Credentials Included</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <h4 className="font-bold text-slate-900 mb-2">Residential HVAC Certification 1</h4>
+                <p className="text-sm text-slate-600">Industry-Recognized Certification</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <h4 className="font-bold text-slate-900 mb-2">Residential HVAC Certification 2</h4>
+                <p className="text-sm text-slate-600">Refrigeration Diagnostics</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <h4 className="font-bold text-slate-900 mb-2">OSHA 30</h4>
+                <p className="text-sm text-slate-600">Safety Certification</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <h4 className="font-bold text-slate-900 mb-2">CPR Certification</h4>
+                <p className="text-sm text-slate-600">Emergency Response</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <h4 className="font-bold text-slate-900 mb-2">Rise Up Certificate</h4>
+                <p className="text-sm text-slate-600">Career Readiness</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <h4 className="font-bold text-slate-900 mb-2">EPA Certification</h4>
+                <p className="text-sm text-slate-600">Refrigerant Handling (Prep)</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Payment Options */}
+          <div className="bg-slate-900 text-white rounded-xl p-8 mb-16">
+            <h3 className="text-2xl font-bold mb-6 text-center">Two Ways to Enroll</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="border-2 border-green-500 rounded-lg p-6">
+                <h4 className="text-xl font-bold text-green-400 mb-4">Option 1: Free Training</h4>
+                <p className="mb-4">100% government-funded through WIOA, Workforce Ready Grant, or employer sponsorship.</p>
+                <ul className="space-y-2 mb-6 text-sm">
+                  <li>✓ $0 out of pocket</li>
+                  <li>✓ Must qualify for workforce funding</li>
+                  <li>✓ Apply through WorkOne or Indiana Career Connect</li>
+                </ul>
+                <Link href="/apply" className="block text-center px-6 py-3 bg-green-500 text-white font-bold rounded-lg hover:bg-green-600">
+                  Apply for Free Training
+                </Link>
+              </div>
+              <div className="border-2 border-blue-500 rounded-lg p-6">
+                <h4 className="text-xl font-bold text-blue-400 mb-4">Option 2: Pay with Affirm</h4>
+                <p className="mb-4">Start immediately with flexible payment plans. No waiting for funding approval.</p>
+                <div className="text-3xl font-bold mb-2">$5,000</div>
+                <p className="text-sm mb-4">As low as $417/month with Affirm</p>
+                <ul className="space-y-2 mb-6 text-sm">
+                  <li>✓ Flexible 3, 6, or 12-month plans</li>
+                  <li>✓ Start training immediately</li>
+                  <li>✓ Secure checkout with Stripe</li>
+                </ul>
+                <Link href="/checkout/prog-hvac-technician" className="block text-center px-6 py-3 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600">
+                  Enroll Now - $5,000
+                </Link>
+              </div>
+            </div>
+          </div>
+
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold text-slate-900 mb-6 text-center">
-              What You'll Do as an HVAC Technician
+              Professional Responsibilities
             </h2>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="flex items-start gap-3">

@@ -59,14 +59,14 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Bio Section with Desk Image */}
+      {/* Bio Section with Both Images */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/bio/elizabeth-greene-desk.jpg"
-                alt="Elizabeth L. Greene at her desk"
+                src="/images/team/founder/elizabeth-greene-founder-hero-01.jpg"
+                alt="Elizabeth L. Greene - Professional Portrait"
                 fill
                 className="object-cover"
                 quality={100}
@@ -110,16 +110,42 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Full Bio Section */}
+      {/* Desk Image Section */}
       <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">Leadership Philosophy</h2>
+              <div className="space-y-4 text-lg text-slate-700 leading-relaxed">
+                <p>
+                  Elizabeth is known for her ability to envision what a community needs before it exists, and then build it with precision, compliance, and compassion. Her leadership philosophy centers on removing barriers, opening doors, and creating real opportunities for individuals who are often overlooked or underserved.
+                </p>
+                <p>
+                  She believes deeply in meeting people where they are, educating them, and empowering them to rise—professionally, personally, and financially.
+                </p>
+              </div>
+            </div>
+            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/images/bio/elizabeth-greene-desk.jpg"
+                alt="Elizabeth L. Greene at work"
+                fill
+                className="object-cover"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Section */}
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8">Leadership Philosophy</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">Transforming Communities Through Education</h2>
           <div className="space-y-6 text-lg text-slate-700 leading-relaxed">
             <p>
-              Elizabeth is known for her ability to envision what a community needs before it exists, and then build it with precision, compliance, and compassion. Her leadership philosophy centers on removing barriers, opening doors, and creating real opportunities for individuals who are often overlooked or underserved.
-            </p>
-            <p>
-              She believes deeply in meeting people where they are, educating them, and empowering them to rise—professionally, personally, and financially. Under her leadership, Elevate for Humanity has become a federally aligned Registered Apprenticeship sponsor, a RAPIDS-approved provider, and a fully fundable ETPL program—eligible for WIOA, WRG, and JRI initiatives.
+              Under her leadership, Elevate for Humanity has become a federally aligned Registered Apprenticeship sponsor, a RAPIDS-approved provider, and a fully fundable ETPL program—eligible for WIOA, WRG, and JRI initiatives.
             </p>
             <p>
               Driven by purpose and grounded in integrity, Elizabeth's work continues to impact hundreds of lives through education, training, mentorship, and strategic community partnerships. Her commitment is simple: create pathways, eliminate barriers, and elevate humanity—one person at a time.
