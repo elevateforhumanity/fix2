@@ -17,7 +17,7 @@ export default function HomePage() {
     <main className="bg-white">
       {/* Welcome Audio - Plays once on page load */}
       <WelcomeAudio />
-      {/* HERO - VIDEO BANNER (No overlay, no text) */}
+      {/* HERO - VIDEO BANNER (No overlay, no text) - Cache bust: 2025-12-09 */}
       <section className="relative overflow-hidden h-[400px] sm:h-[500px] md:h-[600px]">
         <video
           autoPlay
