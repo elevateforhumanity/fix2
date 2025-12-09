@@ -1,0 +1,37 @@
+// lib/securityLogger.ts - Security event logging
+import { logger } from '@/lib/logger';
+
+export const securityLogger = {
+  logUnauthorizedAccess(userId: string, resource: string, details?: any) {
+    logger.warn('Unauthorized access attempt', {
+      userId,
+      resource,
+      timestamp: new Date().toISOString(),
+      ...details,
+    });
+  },
+
+  logRateLimitExceeded(ip: string, endpoint: string) {
+    logger.warn('Rate limit exceeded', {
+      ip,
+      endpoint,
+      timestamp: new Date().toISOString(),
+    });
+  },
+
+  logSuspiciousActivity(type: string, details: any) {
+    logger.warn('Suspicious activity detected', {
+      type,
+      timestamp: new Date().toISOString(),
+      ...details,
+    });
+  },
+
+  logAuthFailure(email: string, reason: string) {
+    logger.warn('Authentication failure', {
+      email,
+      reason,
+      timestamp: new Date().toISOString(),
+    });
+  },
+};
