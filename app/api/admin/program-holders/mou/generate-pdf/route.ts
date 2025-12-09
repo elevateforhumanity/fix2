@@ -21,7 +21,7 @@ function getResendClient() {
 }
 
 export const POST = withAuth(
-  async (req: NextRequest, user) => {
+  async (req, context, user) => {
 
   const supabase = await createRouteHandlerClient({ cookies });
   const {

@@ -3,7 +3,7 @@ import { createRouteHandlerClient } from '@/lib/auth';
 import { withAuth } from '@/lib/withAuth';
 
 export const GET = withAuth(
-  async (req: Request, user) => {
+  async (req, context, user) => {
 
   const supabase = await createRouteHandlerClient({ cookies });
   const {

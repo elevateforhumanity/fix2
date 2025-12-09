@@ -5,7 +5,7 @@ import { createClient } from '@supabase/supabase-js';
 import { withAuth } from '@/lib/withAuth';
 
 export const POST = withAuth(
-  async (req: NextRequest, user) => {
+  async (req, context, user) => {
 
   const supabase = await createRouteHandlerClient({ cookies });
   const {

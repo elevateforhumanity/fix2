@@ -26,7 +26,7 @@ function getSupabaseServerClient() {
  * Returns partner certificate completions in the last X days (default 7)
  */
 export const GET = withAuth(
-  async (req: Request, user) => {
+  async (req, context, user) => {
 
   const url = new URL(req.url);
   const daysParam = url.searchParams.get("days");
