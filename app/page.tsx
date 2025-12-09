@@ -206,7 +206,7 @@ export default function HomePage() {
       <section className="py-12 sm:py-16 md:py-20 bg-blue-600 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/gallery/image9.jpg"
                 alt="Success Story"
@@ -364,7 +364,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/tax-office-1.jpg"
                 alt="Tax Preparation Training"
@@ -374,7 +374,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/location-6.jpg"
                 alt="HVAC Training"
@@ -384,7 +384,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/medical-assistant-1.jpg"
                 alt="Medical Assistant Training"
@@ -394,7 +394,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/beauty.jpg"
                 alt="Beauty Training"
@@ -404,7 +404,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/hvac-highlight-3.jpg"
                 alt="HVAC Technician"
@@ -414,7 +414,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative h-48 sm:h-56 md:h-64 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/cpr-individual-practice-hd.jpg"
                 alt="CPR Training"
