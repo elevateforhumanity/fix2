@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
+// Note: OG images automatically use edge runtime for optimal performance
 export const alt = 'Elevate for Humanity - Workforce Training & Career Development';
 export const size = {
   width: 1200,
