@@ -137,7 +137,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-64">
                 <Image
-                  src="/images/location-9.jpg"
+                  src="/images/location-8.jpg"
                   alt="Free Training Facility"
                   fill
                   className="object-cover object-center"
@@ -183,11 +183,11 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-64">
                 <Image
-                  src="/images/barber-highlight-1.jpg"
+                  src="/images/ameco-martin.jpg"
                   alt="Job Connections"
                   fill
                   className="object-cover object-center"
-                  quality={100}
+                  quality={90}
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
@@ -249,25 +249,15 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/location-4.jpg"
+                src="/images/location-9.jpg"
                 alt="Elevate For Humanity training facility"
                 fill
                 className="object-cover object-center"
-                quality={90}
-                sizes="(max-width: 768px) 100vw, 40vw"
-              />
-            </div>
-            <div className="relative h-[200px] rounded-xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/location-5.jpg"
-                alt="Professional training environment"
-                fill
-                className="object-cover object-center"
-                quality={90}
-                sizes="(max-width: 768px) 100vw, 40vw"
+                quality={95}
+                sizes="(max-width: 768px) 100vw, 80vw"
               />
             </div>
           </div>
