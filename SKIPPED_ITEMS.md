@@ -18,20 +18,14 @@
 ---
 
 ### 2. Redis Environment Variables
-**Status**: Code ready but variables NOT set in Vercel
+**Status**: ✅ DONE - Variables set in Vercel
 
-**What needs to be done**:
-- Go to Vercel Project Settings → Environment Variables
-- Add:
-  ```
-  REDIS_URL=your-upstash-redis-url
-  REDIS_TOKEN=your-upstash-redis-token
-  ```
-- Get from: https://console.upstash.com
+**Confirmed**:
+- `REDIS_URL` is set
+- `REDIS_TOKEN` is set
+- Rate limiting will work in production
 
-**Why skipped**: Requires Vercel dashboard access
-
-**Impact**: Rate limiting will fall back to "allow all" without Redis
+**Next**: Test rate limiting after deployment
 
 ---
 
