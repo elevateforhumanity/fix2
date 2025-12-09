@@ -2,3 +2,10 @@
 .next/
 .turbo/
 node_modules/.cache/
+
+# Environment files - use Vercel environment variables instead
+.env*
+!.env.example
+!.env.production.example
+!.env.partners.example
+!.env.local.template
