@@ -168,7 +168,7 @@
     "netlify-plugin-submit-sitemap": "0.4.0",
     "pg": "8.16.3",
     "postcss": "8.4.49",
-    "prettier": "3.6.2",
+    "prettier": "3.7.4",
     "puppeteer": "24.30.0",
     "rimraf": "6.1.2",
     "schema-dts": "1.1.5",
