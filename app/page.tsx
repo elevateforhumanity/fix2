@@ -134,7 +134,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Prop 1 - Free Training */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-40 sm:h-48">
+              <div className="relative aspect-[16/9] w-full">
                 <Image
                   src="/images/gallery/image8.jpg"
                   alt="Free Training Facility"
@@ -157,7 +157,7 @@ export default function HomePage() {
 
             {/* Prop 2 - Real Credentials */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-40 sm:h-48">
+              <div className="relative aspect-[16/9] w-full">
                 <Image
                   src="/images/gallery/image9.jpg"
                   alt="Real Credentials"
@@ -179,7 +179,7 @@ export default function HomePage() {
 
             {/* Prop 3 - Job Connections */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg sm:col-span-2 lg:col-span-1">
-              <div className="relative h-48 sm:h-56">
+              <div className="relative aspect-[16/9] w-full">
                 <Image
                   src="/images/gallery/image10.jpg"
                   alt="Job Connections"
@@ -296,7 +296,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-            <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/gallery/image11.jpg"
                 alt="Success Story"
@@ -306,7 +306,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
-            <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/location-1.jpg"
                 alt="Graduate Success"
@@ -319,7 +319,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-            <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/location-2.jpg"
                 alt="Career Success"
@@ -329,7 +329,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
-            <div className="relative h-48 sm:h-64 md:h-80 rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/location-3.jpg"
                 alt="CDL Training Success"
@@ -491,7 +491,7 @@ export default function HomePage() {
                 <ArrowRight size={20} />
               </Link>
             </div>
-            <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/gallery/image5.jpg"
                 alt="Training facility"
@@ -520,7 +520,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/media/programs/cpr-group-training-hd.jpg"
                 alt="CPR training - Real students learning life-saving skills"
@@ -529,7 +529,7 @@ export default function HomePage() {
                 sizes="(max-width: 768px) 50vw, 25vw"
               />
             </div>
-            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/media/programs/cna-hd.jpg"
                 alt="CNA training - Real healthcare students"
@@ -539,7 +539,7 @@ export default function HomePage() {
                 sizes="(max-width: 768px) 50vw, 25vw"
               />
             </div>
-            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/media/programs/medical-esthetics-training-hd.jpg"
                 alt="Medical esthetics training - Real beauty students"
@@ -548,7 +548,7 @@ export default function HomePage() {
                 sizes="(max-width: 768px) 50vw, 25vw"
               />
             </div>
-            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
                 src="/media/programs/cpr-certification-group-hd.jpg"
                 alt="CPR certification - Real students getting certified"
