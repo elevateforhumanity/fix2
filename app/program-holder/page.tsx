@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/program-holder",
   },
-  title: 'Program Holder | Elevate For Humanity',
-  description: 'Explore Program Holder and discover opportunities for career growth and development.',
+  title: 'Program Holder Portal | Elevate For Humanity',
+  description: 'Manage your training programs, track student progress, and access resources as an approved program holder partner.',
 };
 
 export default async function ProgramHolderPage() {
@@ -30,10 +30,10 @@ export default async function ProgramHolderPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Program Holder
+            Program Holder Portal
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Explore Program Holder and discover opportunities for career growth and development.
+            Manage training programs, track student progress, and access partner resources.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -62,8 +62,8 @@ export default async function ProgramHolderPage() {
             {/* Feature Grid */}
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Program Holder</h2>
-                <p className="text-gray-700 mb-6">Explore Program Holder and discover opportunities for career growth and development.</p>
+                <h2 className="text-3xl font-bold mb-6">Partner with Us</h2>
+                <p className="text-gray-700 mb-6">Join our network of approved training providers and help students access free career training through WIOA funding.</p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
