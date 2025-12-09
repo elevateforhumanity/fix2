@@ -288,81 +288,35 @@ export default function HomePage() {
 
 
       {/* CREDENTIALED PROGRAMS - HYBRID - SHORT TERM */}
+      {/* SUCCESS IMAGES - LARGE GALLERY */}
       <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Credentialed Programs
+              Your Future Starts Here
             </h2>
-            <p className="text-xl text-slate-600">
-              Hybrid learning • Short-term training • Industry-recognized credentials
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Hybrid Learning */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-48">
-                <Image
-                  src="/images/location-7.jpg"
-                  alt="Hybrid Learning Format"
-                  fill
-                  className="object-cover object-center"
-                  quality={90}
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
-                  Hybrid Format
-                </h3>
-                <p className="text-slate-700 text-center">
-                  Learn online at your own pace, then practice hands-on skills at our modern training facility with expert instructors.
-                </p>
-              </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/testimonials/testimonial-success-2-original-optimized.jpg"
+                alt="Success Story"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
-
-            {/* Short-Term */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-64">
-                <Image
-                  src="/images/barber-highlight-2.jpg"
-                  alt="Short-Term Training"
-                  fill
-                  className="object-cover object-center"
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
-                  Short-Term Training
-                </h3>
-                <p className="text-slate-700 text-center">
-                  Complete programs in weeks, not years. Get job-ready fast with focused, intensive training designed for quick career entry.
-                </p>
-              </div>
-            </div>
-
-            {/* Credentialed */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-48">
-                <Image
-                  src="/images/medical-assistant-2.jpg"
-                  alt="Industry Credentials"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 text-center">
-                  Industry Credentials
-                </h3>
-                <p className="text-slate-700 text-center">
-                  Earn state licenses, national certifications, and industry-recognized credentials that employers value and trust.
-                </p>
-              </div>
+            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/testimonials/testimonial-success-3-original-optimized.jpg"
+                alt="Graduate Success"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-700"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
 
@@ -371,73 +325,62 @@ export default function HomePage() {
               href="/apply"
               className="inline-flex items-center gap-2 px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
             >
-              Explore Programs
+              Start Your Journey
               <ArrowRight size={24} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* PROGRAMS - CLEAN GRID */}
-      <section className="py-20 bg-slate-50">
+      {/* IMAGE GALLERY - TRAINING IN ACTION */}
+      <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Most Popular Programs
+              Training That Works
             </h2>
-            <p className="text-xl text-slate-600">
-              High-demand careers with great pay
+            <p className="text-xl text-slate-600 mb-8">
+              Real students. Real skills. Real careers.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {programs.map((program, index) => (
-              <Link
-                key={index}
-                href={program.link}
-                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all hover:-translate-y-2"
-              >
-                <div className="relative h-56">
-                  <Image
-                    src={program.image}
-                    alt={program.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500" quality={100} sizes="100vw"
-                  />
-                  <div className="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                    FREE
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-500 transition-colors">
-                    {program.title}
-                  </h3>
-                  <div className="mb-4 space-y-2">
-                    <div className="text-sm">
-                      <span className="text-slate-700 font-semibold">{program.duration}</span>
-                    </div>
-                    <div className="text-sm">
-                      <span className="text-slate-700 font-semibold">{program.salary}</span>
-                    </div>
-                  </div>
-                  <p className="text-slate-600 mb-4">{program.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-orange-500 font-bold group-hover:underline">
-                      Learn More →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
             <Link
               href="/programs"
-              className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold text-slate-700 bg-white rounded-full hover:bg-slate-100 transition-all border-2 border-slate-300 hover:border-orange-500 shadow-md"
+              className="inline-flex items-center gap-2 px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
             >
-              View All Programs
+              View All Programs →
             </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/cna-hd.jpg"
+                alt="Healthcare Training"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/barber-hd.jpg"
+                alt="Barber Training"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/hvac-highlight-1.jpg"
+                alt="HVAC Training"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
           </div>
         </div>
       </section>
