@@ -125,16 +125,15 @@ export default function BusinessApprenticeshipPage() {
                 Start Your Career Today
               </Link>
             </div>
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/gallery/image6.jpg"
                 alt="Business Apprenticeship professional at work"
                 fill
                 className="object-cover"
-                quality={100}
-              
-          sizes="100vw"
-        />
+                quality={85}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
