@@ -309,7 +309,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
             <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/pathways/trades-hero.jpg"
+                src="/images/facilities-new/facility-1.jpg"
                 alt="Elevate For Humanity training facility"
                 fill
                 className="object-cover object-center"
@@ -319,7 +319,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/pathways/business-hero.jpg"
+                src="/images/facilities-new/facility-6.jpg"
                 alt="Professional training environment"
                 fill
                 className="object-cover object-center"
