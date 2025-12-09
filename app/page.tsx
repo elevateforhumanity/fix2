@@ -56,8 +56,8 @@ export default function HomePage() {
             
             <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-xl">
               <Image
-                src="/media/programs/cna-hd.jpg"
-                alt="Healthcare training student"
+                src="/images/hero-banner.jpg"
+                alt="Career training programs"
                 fill
                 className="object-cover"
                 quality={50}
@@ -71,8 +71,8 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
             <div className="relative h-48 sm:h-56 md:h-64 rounded-xl overflow-hidden shadow-xl md:order-first">
               <Image
-                src="/media/programs/barber-hd.jpg"
-                alt="Barber training in action"
+                src="/images/hero-training.jpg"
+                alt="Professional training environment"
                 fill
                 className="object-cover"
                 quality={50}
