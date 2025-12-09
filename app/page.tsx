@@ -17,16 +17,18 @@ export default function HomePage() {
     <main className="bg-white">
       {/* Welcome Audio - Plays once on page load */}
       <WelcomeAudio />
-      {/* HERO - VIDEO BANNER (No overlay, no text) - Cache bust: 2025-12-09 */}
+      {/* HERO - VIDEO BANNER (No overlay, no text) */}
       <section className="relative overflow-hidden h-[400px] sm:h-[500px] md:h-[600px]">
         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
+          key="hero-video-v2"
         >
-          <source src="/videos/hero-video.mp4" type="video/mp4" />
+          <source src="/videos/hero-video.mp4?v=2" type="video/mp4" />
         </video>
       </section>
 
