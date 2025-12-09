@@ -364,7 +364,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
-            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/tax-office-1.jpg"
                 alt="Tax Preparation Training"
@@ -374,7 +374,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/location-6.jpg"
                 alt="HVAC Training"
@@ -384,7 +384,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/medical-assistant-1.jpg"
                 alt="Medical Assistant Training"
@@ -394,7 +394,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/beauty.jpg"
                 alt="Beauty Training"
@@ -404,7 +404,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/hvac-highlight-3.jpg"
                 alt="HVAC Technician"
@@ -414,7 +414,7 @@ export default function HomePage() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/media/programs/cpr-individual-practice-hd.jpg"
                 alt="CPR Training"

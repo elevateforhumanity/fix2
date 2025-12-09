@@ -18,13 +18,13 @@ export default function Page() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <div className="relative h-[500px] rounded-lg overflow-hidden shadow-xl">
+            <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/team/founder/elizabeth-greene-founder-hero-01.jpg"
                 alt="Elizabeth L. Greene - Professional Portrait"
                 fill
                 className="object-cover"
-                quality={100}
+                quality={85}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
