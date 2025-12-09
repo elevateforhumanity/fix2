@@ -19,20 +19,25 @@ export default function HomePage() {
       <WelcomeAudio />
       {/* HERO - VIDEO BANNER */}
       <section className="relative text-white overflow-hidden h-[400px] sm:h-[500px] md:h-[600px]">
-        {/* Background Video */}
+        {/* Background Video - Lazy loaded */}
         <div className="absolute inset-0 w-full h-full">
           <video
-            autoPlay
             muted
             loop
             playsInline
-            preload="auto"
+            preload="none"
+            poster="/images/hero-poster.jpg"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ 
               objectFit: 'cover',
               width: '100%',
               height: '100%',
               filter: 'brightness(0.7) contrast(1.05)'
+            }}
+            onLoadedMetadata={(e) => {
+              // Auto-play only after video is ready
+              const video = e.currentTarget;
+              video.play().catch(() => {});
             }}
           >
             <source src="/videos/barber-hero.mp4" type="video/mp4" />

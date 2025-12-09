@@ -29,7 +29,7 @@ export function WelcomeAudio() {
     <audio
       ref={audioRef}
       src="/videos/voiceover.mp3"
-      preload="auto"
+      preload="none"
       // No loop - plays once
     />
   );
