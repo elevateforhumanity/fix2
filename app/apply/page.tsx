@@ -1,437 +1,531 @@
 // app/apply/page.tsx
-'use client';
+"use client";
 
-import EnrollmentProcess from '@/components/EnrollmentProcess';
-import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import Image from 'next/image';
-import { BotProtection } from '@/components/security';
+import React, { useState } from "react";
 
-function ApplyForm() {
-  const searchParams = useSearchParams();
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isVerified, setIsVerified] = useState(false);
-  const [honeypot, setHoneypot] = useState('');
-  const [selectedProgram, setSelectedProgram] = useState('');
+const PROGRAM_OPTIONS = [
+  "Barber Apprenticeship",
+  "Healthcare (CNA, Medical Assistant, etc.)",
+  "Skilled Trades (HVAC, Building Tech, etc.)",
+  "Beauty & Barbering",
+  "Transportation (CDL, etc.)",
+  "I'm not sure yet – help me decide",
+];
 
-  useEffect(() => {
-    const programParam = searchParams?.get('program');
-    if (programParam) {
-      setSelectedProgram(programParam);
-    }
-  }, [searchParams]);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    // Bot detection checks
-    if (honeypot !== '') {
-      console.log('Bot detected: honeypot filled');
-      return;
-    }
-    
-    if (!isVerified) {
-      alert('⚠️ Please complete the math verification above the submit button to prove you\'re human.');
-      // Scroll to verification
-      document.querySelector('[class*="SimpleCaptcha"]')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      return;
-    }
-    
-    setIsSubmitting(true);
-
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      firstName: formData.get('firstName'),
-      lastName: formData.get('lastName'),
-      phone: formData.get('phone'),
-      email: formData.get('email'),
-      city: formData.get('city'),
-      state: formData.get('state'),
-      program: formData.get('program'),
-      background: formData.get('background'),
-      contactPreference: formData.getAll('contactPreference'),
-    };
-
-    console.log('Submitting application:', { 
-      firstName: data.firstName, 
-      lastName: data.lastName, 
-      program: data.program 
-    });
-
-    try {
-      const response = await fetch('/api/application', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-      console.log('API Response:', result);
-
-      if (response.ok) {
-        setIsSubmitted(true);
-        // Scroll to success message
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        console.error('Application error:', result);
-        alert(`❌ Application Error: ${result.error || 'Unknown error'}\n\nPlease call us at 317-314-3757 for immediate assistance.`);
-      }
-    } catch (error) {
-      console.error('Network error:', error);
-      alert('❌ Network Error: Unable to submit application.\n\nPlease check your internet connection or call us at 317-314-3757.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  return (
-    <main className="min-h-screen bg-white">
-      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] overflow-hidden bg-gradient-to-br from-blue-900 to-blue-700">
-        <Image
-          src="/media/students-hero.jpg"
-          alt="Start your career training journey - Apply for free programs"
-          fill
-          className="object-cover"
-          priority
-          quality={95}
-          sizes="100vw"
-        />
-      </section>
-
-      {/* Application Form Section */}
-      <section className="bg-slate-50 py-12">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <header className="mb-8">
-            <p className="text-xs font-semibold uppercase tracking-wide text-orange-600">
-              Your Journey Starts Here
-            </p>
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
-              Apply for Free Career Training
-            </h1>
-            <p className="mt-3 text-base text-slate-700 leading-relaxed">
-              You're taking the first step toward a better future. This application helps us understand 
-              your goals, interests, and any support you might need. There's no cost, no commitment—just 
-              an opportunity to explore what's possible.
-            </p>
-            <p className="mt-4 text-sm text-slate-700">
-              After you submit, a real person (not a bot!) will reach out within 1-2 business days to 
-              discuss programs, funding options, and answer your questions.
-            </p>
-            <p className="mt-4 text-sm text-slate-900">
-              <strong>Need help right now?</strong> Call us at{' '}
-              <a href="tel:3173143757" className="text-orange-600 font-semibold hover:underline">
-                317-314-3757
-              </a>
-              {' '}— we're here to help.
-            </p>
-          </header>
-
-        {isSubmitted ? (
-          <section className="rounded-2xl bg-green-50 p-8 shadow-sm ring-1 ring-green-200 text-center">
-            <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-2">Application Submitted!</h2>
-            <p className="text-slate-700 mb-4">
-              Thank you for applying. An advisor will contact you within 1-2 business days to discuss your program options and next steps.
-            </p>
-            <p className="text-sm text-slate-600">
-              Need immediate assistance? Call us at{' '}
-              <a href="tel:3173143757" className="text-red-600 font-semibold hover:underline">
-                317-314-3757
-              </a>
-            </p>
-          </section>
-        ) : (
-          <section className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-5 text-sm text-slate-800"
-            >
-            {/* Contact info */}
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="firstName"
-                  className="block text-xs font-semibold text-slate-900"
-                >
-                  First Name
-                </label>
-                <input
-                  id="firstName"
-                  name="firstName"
-                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="lastName"
-                  className="block text-xs font-semibold text-slate-900"
-                >
-                  Last Name
-                </label>
-                <input
-                  id="lastName"
-                  name="lastName"
-                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-xs font-semibold text-slate-900"
-                >
-                  Phone Number
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-xs font-semibold text-slate-900"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
-                />
-              </div>
-            </div>
-
-            {/* Location */}
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label
-                  htmlFor="city"
-                  className="block text-xs font-semibold text-slate-900"
-                >
-                  City
-                </label>
-                <input
-                  id="city"
-                  name="city"
-                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="zip"
-                  className="block text-xs font-semibold text-slate-900"
-                >
-                  ZIP Code
-                </label>
-                <input
-                  id="zip"
-                  name="zip"
-                  className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
-                />
-              </div>
-            </div>
-
-            {/* Program interest */}
-            <div>
-              <label
-                htmlFor="program"
-                className="block text-xs font-semibold text-slate-900"
-              >
-                Program You&apos;re Most Interested In
-              </label>
-              <select
-                id="program"
-                name="program"
-                value={selectedProgram}
-                onChange={(e) => setSelectedProgram(e.target.value)}
-                className="mt-1 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                required
-              >
-                <option value="" disabled>
-                  Select a program
-                </option>
-                <optgroup label="Healthcare">
-                  <option value="medical-assistant">Medical Assistant</option>
-                  <option value="cna">Certified Nursing Assistant (CNA)</option>
-                  <option value="pharmacy-technician">Pharmacy Technician</option>
-                  <option value="dental-assistant">Dental Assistant</option>
-                  <option value="phlebotomy">Phlebotomy Technician</option>
-                  <option value="patient-care-technician">Patient Care Technician</option>
-                  <option value="ekg-technician">EKG Technician</option>
-                  <option value="sterile-processing">Sterile Processing Technician</option>
-                  <option value="peer-recovery-coach">Peer Recovery Coach</option>
-                  <option value="peer-support-professional">Peer Support Professional</option>
-                  <option value="emergency-health-safety-tech">Emergency Health & Safety Tech</option>
-                </optgroup>
-                <optgroup label="Beauty & Barbering">
-                  <option value="barber-apprenticeship">Barber Apprenticeship</option>
-                  <option value="professional-esthetician">Professional Esthetician</option>
-                  <option value="esthetics-apprenticeship">Esthetics Apprenticeship</option>
-                  <option value="beauty-career-educator">Beauty Career Educator</option>
-                </optgroup>
-                <optgroup label="Skilled Trades">
-                  <option value="hvac-technician">HVAC Technician</option>
-                  <option value="building-maintenance">Building Maintenance Technician</option>
-                  <option value="building-tech">Building Technology</option>
-                </optgroup>
-                <optgroup label="Transportation">
-                  <option value="cdl">Commercial Driver's License (CDL)</option>
-                  <option value="truck-driving">Truck Driving</option>
-                </optgroup>
-                <optgroup label="Business & Professional">
-                  <option value="tax-prep-financial-services">Tax Prep & Financial Services</option>
-                  <option value="business-startup-marketing">Business Start-Up & Marketing</option>
-                  <option value="business-apprenticeship">Business Apprenticeship</option>
-                  <option value="workforce-readiness">Workforce Readiness</option>
-                </optgroup>
-                <optgroup label="Other Programs">
-                  <option value="childcare">Childcare & Early Education</option>
-                  <option value="cpr-certification">CPR & First Aid Certification</option>
-                  <option value="rise-up">Rise Up Program</option>
-                  <option value="other">Other / Not sure yet</option>
-                </optgroup>
-              </select>
-            </div>
-
-            {/* Background / barriers */}
-            <div>
-              <label
-                htmlFor="background"
-                className="block text-xs font-semibold text-slate-900"
-              >
-                Anything we should know to better support you?
-              </label>
-              <p className="mt-1 text-[0.7rem] text-slate-500">
-                (Optional) For example: justice involvement, housing needs,
-                childcare, transportation, technology access, or anything else
-                you&apos;re comfortable sharing.
-              </p>
-              <textarea
-                id="background"
-                name="background"
-                rows={4}
-                className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500"
-              />
-            </div>
-
-            {/* Contact preference */}
-            <div>
-              <span className="block text-xs font-semibold text-slate-900">
-                Best way to contact you
-              </span>
-              <div className="mt-2 flex flex-wrap gap-4 text-xs text-slate-700">
-                <label className="inline-flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    name="contactPreference"
-                    value="call"
-                    className="h-3.5 w-3.5 rounded border-slate-300 text-red-600 focus:ring-red-500"
-                  />
-                  Phone Call
-                </label>
-                <label className="inline-flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    name="contactPreference"
-                    value="text"
-                    className="h-3.5 w-3.5 rounded border-slate-300 text-red-600 focus:ring-red-500"
-                  />
-                  Text Message
-                </label>
-                <label className="inline-flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    name="contactPreference"
-                    value="email"
-                    className="h-3.5 w-3.5 rounded border-slate-300 text-red-600 focus:ring-red-500"
-                  />
-                  Email
-                </label>
-              </div>
-            </div>
-
-            {/* Bot Protection */}
-            <BotProtection
-              onVerify={setIsVerified}
-              honeypotValue={honeypot}
-              onHoneypotChange={setHoneypot}
-            />
-
-            {/* Submit note */}
-            <p className="text-[0.7rem] text-slate-500">
-              By submitting this form, you are giving Elevate for Humanity
-              permission to contact you about training, funding, and support
-              services. This is not a credit application and will not impact
-              your credit score.
-            </p>
-
-            <div className="pt-2 space-y-2">
-              {!isVerified && (
-                <p className="text-sm text-amber-600 font-medium">
-                  ⚠️ Please complete the math verification above before submitting
-                </p>
-              )}
-              <button
-                type="submit"
-                disabled={isSubmitting || !isVerified}
-                className="w-full inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-              >
-                {isSubmitting ? (
-                  <>
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Submitting Application...
-                  </>
-                ) : isVerified ? (
-                  '✓ Submit Application - It\'s 100% Free'
-                ) : (
-                  '🔒 Complete Verification to Submit'
-                )}
-              </button>
-              <p className="text-xs text-center text-slate-500">
-                Questions? Call us at <a href="tel:317-314-3757" className="text-blue-600 font-semibold hover:underline">317-314-3757</a>
-              </p>
-            </div>
-          </form>
-        </section>
-        )}
-        </div>
-      </section>
-    
-      <EnrollmentProcess />
-    </main>
-  );
-}
+const CONTACT_PREFERENCES = [
+  { value: "phone", label: "Phone Call" },
+  { value: "text", label: "Text Message" },
+  { value: "email", label: "Email" },
+];
 
 export default function ApplyPage() {
+  const [mathAnswer, setMathAnswer] = useState("");
+  const isVerified = mathAnswer.trim() === "13";
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    if (!isVerified) {
+      e.preventDefault();
+      alert("Please complete the math verification before submitting.");
+      return;
+    }
+
+    // TODO: Replace this with your real submit logic (Supabase, API route, etc.)
+    e.preventDefault();
+    alert("Application submitted! A team member will contact you in 1–2 business days.");
+  }
+
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-slate-600">Loading application form...</p>
+    <main className="min-h-screen bg-slate-50">
+      {/* Page container */}
+      <div className="mx-auto max-w-5xl px-4 py-10 lg:py-14">
+        {/* Hero / Intro */}
+        <section className="mb-10 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 md:p-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-500">
+            Your Journey Starts Here
+          </p>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Apply for <span className="text-orange-500">Free Career Training</span>
+          </h1>
+          <p className="mt-3 max-w-2xl text-sm text-slate-600 sm:text-base">
+            You&apos;re taking the first step toward a better future. This application helps us
+            understand your goals, interests, and any support you might need. There&apos;s no cost,
+            no commitment—just an opportunity to explore what&apos;s possible.
+          </p>
+          <p className="mt-3 max-w-2xl text-sm text-slate-600 sm:text-base">
+            After you submit, a real person (not a bot!) will reach out within{" "}
+            <span className="font-semibold">1–2 business days</span> to discuss programs, funding
+            options, and answer your questions.
+          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-slate-700">
+            <span className="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-700">
+              100% Free Training • No Tuition • No Debt
+            </span>
+            <span className="block">
+              Need help right now?{" "}
+              <a href="tel:13173143757" className="font-semibold text-orange-600 underline-offset-2 hover:underline">
+                Call us at (317) 314-3757
+              </a>{" "}
+              — we&apos;re here to help.
+            </span>
+          </div>
+        </section>
+
+        {/* Application + Steps grid */}
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.3fr)]">
+          {/* Application Form */}
+          <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 md:p-8">
+            <h2 className="text-xl font-semibold text-slate-900">
+              Quick Application
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Tell us a little about yourself and the program you&apos;re interested in. This is{" "}
+              <span className="font-semibold">not</span> a credit application and will{" "}
+              <span className="font-semibold">not</span> impact your credit score.
+            </p>
+
+            <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+              {/* Name */}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="firstName"
+                    className="block text-sm font-medium text-slate-800"
+                  >
+                    First Name
+                  </label>
+                  <input
+                    id="firstName"
+                    name="firstName"
+                    required
+                    className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-100"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="lastName"
+                    className="block text-sm font-medium text-slate-800"
+                  >
+                    Last Name
+                  </label>
+                  <input
+                    id="lastName"
+                    name="lastName"
+                    required
+                    className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-100"
+                  />
+                </div>
+              </div>
+
+              {/* Phone / Email */}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-slate-800"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-100"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-slate-800"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-100"
+                  />
+                </div>
+              </div>
+
+              {/* City / ZIP */}
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="city"
+                    className="block text-sm font-medium text-slate-800"
+                  >
+                    City
+                  </label>
+                  <input
+                    id="city"
+                    name="city"
+                    required
+                    className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-100"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="zip"
+                    className="block text-sm font-medium text-slate-800"
+                  >
+                    ZIP Code
+                  </label>
+                  <input
+                    id="zip"
+                    name="zip"
+                    inputMode="numeric"
+                    required
+                    className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-100"
+                  />
+                </div>
+              </div>
+
+              {/* Program */}
+              <div>
+                <label
+                  htmlFor="program"
+                  className="block text-sm font-medium text-slate-800"
+                >
+                  Program You&apos;re Most Interested In
+                </label>
+                <select
+                  id="program"
+                  name="program"
+                  required
+                  className="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-100"
+                  defaultValue=""
+                >
+                  <option value="" disabled>
+                    Select a program
+                  </option>
+                  {PROGRAM_OPTIONS.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Support / Notes */}
+              <div>
+                <div className="flex items-center justify-between gap-2">
+                  <label
+                    htmlFor="supportNotes"
+                    className="block text-sm font-medium text-slate-800"
+                  >
+                    Anything we should know to better support you?
+                  </label>
+                  <span className="text-xs text-slate-500">(Optional)</span>
+                </div>
+                <p className="mt-1 text-xs text-slate-500">
+                  For example: justice involvement, housing needs, childcare, transportation,
+                  technology access, or anything else you&apos;re comfortable sharing.
+                </p>
+                <textarea
+                  id="supportNotes"
+                  name="supportNotes"
+                  rows={4}
+                  className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition focus:border-orange-500 focus:bg-white focus:ring-2 focus:ring-orange-100"
+                />
+              </div>
+
+              {/* Best way to contact */}
+              <div>
+                <p className="text-sm font-medium text-slate-800">
+                  Best way to contact you
+                </p>
+                <div className="mt-2 grid gap-2 sm:grid-cols-3">
+                  {CONTACT_PREFERENCES.map((pref) => (
+                    <label
+                      key={pref.value}
+                      className="flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-800 shadow-sm transition hover:border-orange-400"
+                    >
+                      <input
+                        type="radio"
+                        name="contactPreference"
+                        value={pref.value}
+                        required
+                        className="h-4 w-4 border-slate-300 text-orange-500 focus:ring-orange-400"
+                      />
+                      <span>{pref.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              {/* Math Verification */}
+              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
+                <p className="text-sm font-medium text-slate-900">
+                  Quick Verification
+                </p>
+                <p className="mt-1 text-xs text-slate-600">
+                  This helps us protect your application from spam. Please answer the simple math
+                  question below.
+                </p>
+                <div className="mt-3 flex flex-wrap items-center gap-3">
+                  <span className="text-sm font-semibold text-slate-900">
+                    6 <span className="mx-1">+</span> 7 <span className="mx-1">=</span>
+                  </span>
+                  <input
+                    type="number"
+                    inputMode="numeric"
+                    name="mathVerification"
+                    value={mathAnswer}
+                    onChange={(e) => setMathAnswer(e.target.value)}
+                    className="w-24 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-900 outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-100"
+                  />
+                  {isVerified ? (
+                    <span className="text-xs font-medium text-green-700">
+                      ✅ Verified
+                    </span>
+                  ) : (
+                    <span className="text-xs text-amber-700">
+                      ⚠️ Please complete the math verification above before submitting.
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Consent + Submit */}
+              <div className="space-y-4 pt-2">
+                <p className="text-xs text-slate-600">
+                  By submitting this form, you are giving Elevate for Humanity permission to contact
+                  you about training, funding, and support services. This is{" "}
+                  <span className="font-semibold">not</span> a credit application and will{" "}
+                  <span className="font-semibold">not</span> impact your credit score.
+                </p>
+
+                <button
+                  type="submit"
+                  disabled={!isVerified}
+                  className={`inline-flex w-full items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 sm:w-auto ${
+                    isVerified
+                      ? "bg-orange-600 text-white hover:bg-orange-700"
+                      : "cursor-not-allowed bg-slate-200 text-slate-500"
+                  }`}
+                >
+                  {isVerified ? "Submit Application" : "🔒 Complete Verification to Submit"}
+                </button>
+
+                <p className="text-xs text-slate-600">
+                  Questions?{" "}
+                  <a
+                    href="tel:13173143757"
+                    className="font-semibold text-orange-600 underline-offset-2 hover:underline"
+                  >
+                    Call us at (317) 314-3757
+                  </a>
+                </p>
+              </div>
+            </form>
+          </section>
+
+          {/* How to Enroll + Resources */}
+          <section className="space-y-6">
+            <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 md:p-7">
+              <h2 className="text-lg font-semibold text-slate-900">
+                How to Enroll – Step by Step
+              </h2>
+              <p className="mt-1 text-sm text-slate-600">
+                Follow these simple steps to start your{" "}
+                <span className="font-semibold">free training</span> through Indiana Career Connect.
+              </p>
+
+              <ol className="mt-4 space-y-4 text-sm text-slate-700">
+                <li className="flex gap-3">
+                  <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">
+                    1
+                  </span>
+                  <div>
+                    <p className="font-semibold text-slate-900">Visit Indiana Career Connect</p>
+                    <p className="mt-1 text-xs text-slate-600">
+                      Go to{" "}
+                      <a
+                        href="https://www.indianacareerconnect.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-semibold text-orange-600 underline-offset-2 hover:underline"
+                      >
+                        www.indianacareerconnect.com
+                      </a>{" "}
+                      and create your free account. This is the official portal for all WIOA-funded
+                      training programs in Indiana.
+                    </p>
+                    <a
+                      href="https://www.indianacareerconnect.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-1 inline-flex text-xs font-semibold text-orange-600 underline-offset-2 hover:underline"
+                    >
+                      Go to Indiana Career Connect →
+                    </a>
+                  </div>
+                </li>
+
+                <li className="flex gap-3">
+                  <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">
+                    2
+                  </span>
+                  <div>
+                    <p className="font-semibold text-slate-900">Complete Your Profile</p>
+                    <p className="mt-1 text-xs text-slate-600">
+                      Fill out your profile with your work history, education, and career goals.
+                      This helps match you with the right training and funding.
+                    </p>
+                    <p className="mt-1 text-xs text-slate-600">
+                      <span className="font-semibold">What you&apos;ll need:</span> Social
+                      Security Number, proof of residency, income documentation (if applicable), and
+                      high school diploma or GED.
+                    </p>
+                  </div>
+                </li>
+
+                <li className="flex gap-3">
+                  <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">
+                    3
+                  </span>
+                  <div>
+                    <p className="font-semibold text-slate-900">Schedule Your Appointment</p>
+                    <p className="mt-1 text-xs text-slate-600">
+                      Book an appointment with a career advisor through the Indiana Career Connect
+                      portal. They&apos;ll review your eligibility for WIOA funding and help you
+                      choose the right program.
+                    </p>
+                    <ul className="mt-1 space-y-1 text-xs text-slate-600">
+                      <li>📍 <span className="font-semibold">In-Person:</span> Visit a WorkOne center near you</li>
+                      <li>💻 <span className="font-semibold">Virtual:</span> Schedule a video call appointment</li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li className="flex gap-3">
+                  <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">
+                    4
+                  </span>
+                  <div>
+                    <p className="font-semibold text-slate-900">Meet with Your Advisor</p>
+                    <p className="mt-1 text-xs text-slate-600">
+                      Your career advisor will verify eligibility, explain funding options, and help
+                      you select <span className="font-semibold">Elevate for Humanity</span> as your
+                      training provider. They can also discuss supportive services like
+                      transportation and childcare.
+                    </p>
+                    <p className="mt-1 text-xs text-slate-600">
+                      <span className="font-semibold">Tip:</span> Mention you want to train with{" "}
+                      <span className="font-semibold">Elevate for Humanity</span>. We&apos;re an
+                      approved WIOA provider in Marion County.
+                    </p>
+                  </div>
+                </li>
+
+                <li className="flex gap-3">
+                  <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-orange-500 text-xs font-bold text-white">
+                    5
+                  </span>
+                  <div>
+                    <p className="font-semibold text-slate-900">Get Approved &amp; Enroll</p>
+                    <p className="mt-1 text-xs text-slate-600">
+                      Once approved for WIOA funding, your advisor will issue a training voucher.
+                      Bring this to Elevate for Humanity to complete your enrollment. We&apos;ll
+                      handle the paperwork and get you started.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+
+              <div className="mt-5 rounded-2xl bg-slate-50 p-4 text-xs text-slate-700">
+                <p className="font-semibold text-slate-900">
+                  Need help with the process?
+                </p>
+                <p className="mt-1">
+                  Our team can guide you through every step of the Indiana Career Connect process.
+                  We&apos;re here to make enrollment as easy as possible.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <a
+                    href="tel:13173143757"
+                    className="inline-flex items-center justify-center rounded-full bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white hover:bg-slate-800"
+                  >
+                    Call (317) 314-3757
+                  </a>
+                  <a
+                    href="mailto:info@elevateforhumanity.org"
+                    className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-3 py-1.5 text-xs font-semibold text-slate-800 hover:border-orange-400"
+                  >
+                    Email Us
+                  </a>
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center justify-center rounded-full border border-orange-300 bg-orange-50 px-3 py-1.5 text-xs font-semibold text-orange-700 hover:border-orange-400"
+                  >
+                    Schedule Advising Call
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick resource cards */}
+            <div className="grid gap-4 md:grid-cols-3">
+              <a
+                href="/funding"
+                className="flex flex-col justify-between rounded-2xl bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100 hover:ring-orange-300"
+              >
+                <div>
+                  <div className="text-lg">📋</div>
+                  <h3 className="mt-2 text-sm font-semibold text-slate-900">
+                    Eligibility Requirements
+                  </h3>
+                  <p className="mt-1 text-xs text-slate-600">
+                    Check if you qualify for WIOA funding and other support.
+                  </p>
+                </div>
+                <span className="mt-3 text-[11px] font-semibold text-orange-600">
+                  Learn More →
+                </span>
+              </a>
+
+              <a
+                href="/contact"
+                className="flex flex-col justify-between rounded-2xl bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100 hover:ring-orange-300"
+              >
+                <div>
+                  <div className="text-lg">🏢</div>
+                  <h3 className="mt-2 text-sm font-semibold text-slate-900">
+                    Find WorkOne Center
+                  </h3>
+                  <p className="mt-1 text-xs text-slate-600">
+                    Locate your nearest WorkOne office in Indiana.
+                  </p>
+                </div>
+                <span className="mt-3 text-[11px] font-semibold text-orange-600">
+                  Find Location →
+                </span>
+              </a>
+
+              <a
+                href="/funding"
+                className="flex flex-col justify-between rounded-2xl bg-white p-4 text-xs shadow-sm ring-1 ring-slate-100 hover:ring-orange-300"
+              >
+                <div>
+                  <div className="text-lg">💰</div>
+                  <h3 className="mt-2 text-sm font-semibold text-slate-900">
+                    Funding Options
+                  </h3>
+                  <p className="mt-1 text-xs text-slate-600">
+                    Learn about WIOA, WRG, and JRI funding available to you.
+                  </p>
+                </div>
+                <span className="mt-3 text-[11px] font-semibold text-orange-600">
+                  View Options →
+                </span>
+              </a>
+            </div>
+          </section>
         </div>
       </div>
-    }>
-      <ApplyForm />
-    </Suspense>
+    </main>
   );
 }
