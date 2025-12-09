@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { validateRequest, applicationSchema } from "@/lib/validateRequest";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
@@ -15,15 +16,17 @@ export async function POST(req: Request) {
       );
     }
 
-    const body = await req.json();
-    const { full_name, email, phone, program_interest, referral_source } = body;
+    // Validate input with Zod schema
+    const { data: validatedData, error: validationError } = await validateRequest(
+      req,
+      applicationSchema
+    );
 
-    if (!full_name || !email) {
-      return NextResponse.json(
-        { error: "Name and email are required." },
-        { status: 400 }
-      );
+    if (validationError) {
+      return validationError;
     }
+
+    const { full_name, email, phone, program_interest, referral_source } = validatedData!;
 
     const { data, error } = await supabase
       .from("applications")

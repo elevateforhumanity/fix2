@@ -1,11 +1,14 @@
 // app/api/admin/applications/[id]/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSupabase } from "@/lib/supabaseClients";
+import { withAuth } from "@/lib/withAuth";
 
-export async function GET(
-  req: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
-) {
+export const GET = withAuth(
+  async (
+    req: NextRequest,
+    { params }: { params: Promise<{ id: string }> },
+    user
+  ) => {
   const { id } = await params;
   const supabase = getServerSupabase();
 
@@ -46,4 +49,6 @@ export async function GET(
       { status: 500 }
     );
   }
-}
+  },
+  { roles: ['admin', 'super_admin'] }
+);
