@@ -3,55 +3,34 @@ import { createRouteHandlerClient } from '@/lib/auth';
 import { withAuth } from '@/lib/withAuth';
 
 export const GET = withAuth(
-  async (req, context, user) => {
+  async (req, { user }) => {
+    const supabase = await createRouteHandlerClient({ cookies });
+      const { searchParams } = new URL(req.url);
+    const filename = searchParams.get('filename');
 
-  const supabase = await createRouteHandlerClient({ cookies });
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    if (!filename) {
+      return new Response('Filename required', { status: 400 });
+    }
 
-  if (!user) {
-    return new Response('Unauthorized', { status: 401 });
-  }
+    // Download from storage
+    const { data, error } = await supabase.storage
+      .from('mous')
+      .download(filename);
 
-  // Check if user is admin
-  const { data: profile } = await supabase
-    .from('user_profiles')
-    .select('role')
-    .eq('user_id', user.id)
-    .single();
+    if (error || !data) {
+      console.error('Download error:', error);
+      return new Response('File not found', { status: 404 });
+    }
 
-  if (!profile || profile.role !== 'admin') {
-    return new Response('Forbidden', { status: 403 });
-  }
+    // Return PDF
+    return new Response(data, {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': `attachment; filename="${filename}"`,
+      },
+    });
 
-  // Get filename from query params
-  const { searchParams } = new URL(req.url);
-  const filename = searchParams.get('filename');
-
-  if (!filename) {
-    return new Response('Filename required', { status: 400 });
-  }
-
-  // Download from storage
-  const { data, error } = await supabase.storage
-    .from('mous')
-    .download(filename);
-
-  if (error || !data) {
-    console.error('Download error:', error);
-    return new Response('File not found', { status: 404 });
-  }
-
-  // Return PDF
-  return new Response(data, {
-    status: 200,
-    headers: {
-      'Content-Type': 'application/pdf',
-      'Content-Disposition': `attachment; filename="${filename}"`,
     },
-  });
-
-  },
-  { roles: ['admin', 'super_admin'] }
+    { roles: ['admin', 'super_admin'] }
 );

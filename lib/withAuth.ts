@@ -8,17 +8,21 @@ type AuthOptions = {
   requireAuth?: boolean;
 };
 
-type AuthHandler = (
-  req: NextRequest,
-  context: any,
-  user: AuthUser
-) => Promise<Response>;
+type AuthedContext<TParams = any> = {
+  params: TParams;
+  user: AuthUser;
+};
 
-export function withAuth(
-  handler: AuthHandler,
+type AuthHandler<TParams = any> = (
+  req: NextRequest,
+  context: AuthedContext<TParams>
+) => Promise<Response> | Response;
+
+export function withAuth<TParams = any>(
+  handler: AuthHandler<TParams>,
   options: AuthOptions = { requireAuth: true }
 ) {
-  return async (req: NextRequest, context: any) => {
+  return async (req: NextRequest, context: { params: TParams }) => {
     // Get authenticated user
     const user = await getAuthUser();
 
@@ -47,7 +51,7 @@ export function withAuth(
       }
     }
 
-    // Call the handler with user context
-    return handler(req, context, user!);
+    // Pass user inside context object
+    return handler(req, { ...context, user: user! });
   };
 }
