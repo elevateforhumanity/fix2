@@ -99,60 +99,7 @@ export default function BarberPage() {
         </div>
       </section>
 
-      {/* Facility CTAs with Images */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* CTA 1 - Training Facility */}
-            <div className="relative group cursor-pointer">
-              <Link href="/apply?program=barber" className="block">
-                <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
-                  <Image
-                    src="/images/barber-highlight-1.jpg"
-                    alt="Professional barber training facility"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    quality={100}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                    <h3 className="text-3xl font-bold mb-3">Modern Training Facility</h3>
-                    <p className="text-lg mb-4">Professional equipment and hands-on learning environment</p>
-                    <div className="inline-block px-6 py-3 bg-orange-500 rounded-lg font-bold group-hover:bg-orange-600 transition-colors">
-                      Start Training →
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
 
-            {/* CTA 2 - Get Started */}
-            <div className="relative group cursor-pointer">
-              <Link href="/apply?program=barber" className="block">
-                <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl">
-                  <Image
-                    src="/images/barber-highlight-2.jpg"
-                    alt="Begin your barber career"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    quality={100}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                    <h3 className="text-3xl font-bold mb-3">Ready to Start?</h3>
-                    <p className="text-lg mb-4">Apply today and begin your journey to becoming a licensed barber</p>
-                    <div className="inline-block px-6 py-3 bg-orange-500 rounded-lg font-bold group-hover:bg-orange-600 transition-colors">
-                      Apply Now →
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Simple Steps */}
       <section className="py-20">
