@@ -24,7 +24,6 @@ export default function HomePage() {
           <video
             autoPlay
             loop
-            muted
             playsInline
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
@@ -137,7 +136,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-64">
                 <Image
-                  src="/images/location-8.jpg"
+                  src="/images/location-1.jpg"
                   alt="Free Training Facility"
                   fill
                   className="object-cover object-center"
@@ -249,15 +248,25 @@ export default function HomePage() {
             </p>
           </div>
           
-          <div className="max-w-4xl mx-auto">
-            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="relative h-[300px] rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/location-9.jpg"
+                src="/images/location-2.jpg"
                 alt="Elevate For Humanity training facility"
                 fill
                 className="object-cover object-center"
-                quality={95}
-                sizes="(max-width: 768px) 100vw, 80vw"
+                quality={90}
+                sizes="(max-width: 768px) 100vw, 40vw"
+              />
+            </div>
+            <div className="relative h-[300px] rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/images/location-3.jpg"
+                alt="Professional training environment"
+                fill
+                className="object-cover object-center"
+                quality={90}
+                sizes="(max-width: 768px) 100vw, 40vw"
               />
             </div>
           </div>
