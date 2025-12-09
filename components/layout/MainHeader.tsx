@@ -140,9 +140,9 @@ export default function MainHeader() {
         </div>
       </div>
 
-      {/* Mobile nav panel */}
+      {/* Mobile nav panel - Scrollable */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white">
+        <div className="lg:hidden border-t border-slate-200 bg-white max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="mx-auto max-w-6xl px-4 py-4 space-y-4">
             {headerNav.map((section) => {
               const hasChildren = section.items && section.items.length > 0;

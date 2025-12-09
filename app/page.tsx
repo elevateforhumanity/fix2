@@ -59,7 +59,8 @@ export default function HomePage() {
                 alt="Healthcare training student"
                 fill
                 className="object-cover"
-                quality={60}
+                quality={50}
+                loading="lazy"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -73,7 +74,8 @@ export default function HomePage() {
                 alt="Barber training in action"
                 fill
                 className="object-cover"
-                quality={60}
+                quality={50}
+                loading="lazy"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -111,7 +113,8 @@ export default function HomePage() {
                 alt="CDL training success"
                 fill
                 className="object-cover"
-                quality={60}
+                quality={40}
+                loading="lazy"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
@@ -331,15 +334,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="text-center mt-8 sm:mt-12">
-            <Link
-              href="/apply"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
-            >
-              Start Your Journey
-              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />
-            </Link>
-          </div>
+
         </div>
       </section>
 
