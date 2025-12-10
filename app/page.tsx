@@ -112,27 +112,66 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+      {/* How We Help You Succeed */}
+      <section className="py-16 bg-slate-900 text-white">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">How We Help You Succeed</h2>
+          <p className="text-xl text-center text-slate-300 mb-12">
+            We offer three pathways to career training - all designed to get you working fast.
+          </p>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
-              <h3 className="text-xl font-bold mb-3">Apply</h3>
-              <p className="text-slate-600">Free application. We check if you qualify for government funding (WIOA, WRG, JRI).</p>
+          <div className="space-y-8">
+            <div className="bg-slate-800 rounded-lg p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">1</div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2 text-green-400">WRG - Workforce Ready Grant</h3>
+                  <p className="text-slate-300 mb-2">
+                    Indiana residents can get 100% FREE training through the state's Workforce Ready Grant. 
+                    No income limits. No age limits. Just free training for in-demand careers.
+                  </p>
+                  <p className="text-sm text-slate-400">Perfect for: Anyone in Indiana looking to start a new career</p>
+                </div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
-              <h3 className="text-xl font-bold mb-3">Train</h3>
-              <p className="text-slate-600">Complete your program. Get real credentials. No tuition, no debt.</p>
+
+            <div className="bg-slate-800 rounded-lg p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">2</div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2 text-blue-400">WIOA - Workforce Innovation</h3>
+                  <p className="text-slate-300 mb-2">
+                    Federal funding for unemployed or underemployed workers. Covers tuition, books, and sometimes 
+                    transportation. We help you apply and navigate the process.
+                  </p>
+                  <p className="text-sm text-slate-400">Perfect for: Those facing barriers to employment</p>
+                </div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
-              <h3 className="text-xl font-bold mb-3">Get Hired</h3>
-              <p className="text-slate-600">We connect you with employers. Job placement support until you're hired.</p>
+
+            <div className="bg-slate-800 rounded-lg p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">3</div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2 text-orange-400">Registered Apprenticeships</h3>
+                  <p className="text-slate-300 mb-2">
+                    Earn while you learn. Work in real jobs, get paid, and complete your training at the same time. 
+                    Graduate with experience AND credentials.
+                  </p>
+                  <p className="text-sm text-slate-400">Perfect for: Those who need income while training</p>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-lg text-slate-300 mb-4">Not sure which path is right for you?</p>
+            <Link
+              href="/contact"
+              className="inline-block px-8 py-4 bg-orange-500 text-white font-bold rounded-lg hover:bg-orange-600 transition-all"
+            >
+              Talk to an Advisor
+            </Link>
           </div>
         </div>
       </section>
