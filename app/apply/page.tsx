@@ -1,52 +1,118 @@
 // app/apply/page.tsx
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+
+const TOTAL_STEPS = 5;
+
+interface FormData {
+  // Step 1: Eligibility
+  age18Plus: boolean;
+  legalToWork: boolean;
+  marionCounty: boolean;
+  employmentStatus: string;
+  
+  // Step 2: Personal Info
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  city: string;
+  zip: string;
+  
+  // Step 3: Program Selection
+  program: string;
+  timeline: string;
+  goals: string;
+  
+  // Step 4: Support Needs
+  transportation: string;
+  childcare: boolean;
+  supportNotes: string;
+  
+  // Step 5: Contact Preferences
+  contactMethod: string;
+  contactTime: string;
+  referralSource: string;
+}
 
 export default function ApplyPage() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [city, setCity] = useState("");
-  const [zip, setZip] = useState("");
-  const [program, setProgram] = useState("Barber Apprenticeship");
-  const [supportNotes, setSupportNotes] = useState("");
-  const [contactMethod, setContactMethod] = useState("phone");
-  const [mathAnswer, setMathAnswer] = useState("");
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formData, setFormData] = useState<FormData>({
+    age18Plus: false,
+    legalToWork: false,
+    marionCounty: false,
+    employmentStatus: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    city: "",
+    zip: "",
+    program: "",
+    timeline: "",
+    goals: "",
+    transportation: "",
+    childcare: false,
+    supportNotes: "",
+    contactMethod: "phone",
+    contactTime: "",
+    referralSource: "",
+  });
+  
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
-  const correctSum = 6 + 7;
+  // Auto-save to localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('applicationDraft');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        setFormData(parsed.formData || formData);
+        setCurrentStep(parsed.currentStep || 1);
+      } catch (e) {
+        console.error('Failed to load saved application');
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('applicationDraft', JSON.stringify({ formData, currentStep }));
+  }, [formData, currentStep]);
+
+  const updateFormData = (field: keyof FormData, value: any) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const nextStep = () => {
+    if (currentStep < TOTAL_STEPS) {
+      setCurrentStep(currentStep + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     setSuccess(false);
-
-    if (parseInt(mathAnswer, 10) !== correctSum) {
-      setError("Please solve the math question correctly to verify you're human.");
-      return;
-    }
-
     setSubmitting(true);
+
     try {
       const response = await fetch("/api/applications", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          phone,
-          city,
-          zipCode: zip,
-          programInterest: program,
-          notes: supportNotes,
-          contactPreference: contactMethod,
-          captchaAnswer: mathAnswer,
-        }),
+        body: JSON.stringify(formData),
       });
 
       if (!response.ok) throw new Error("Submission failed");
