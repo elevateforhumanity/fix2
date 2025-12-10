@@ -37,27 +37,18 @@ export default function BarberApprenticeCheckoutPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative h-[400px]    text-white">
-        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Barber Apprenticeship Program
-            </h1>
-            <p className="text-xl mb-6">
-              2,000 hours of hands-on training. Earn while you learn. Build your future.
-            </p>
-            <div className="flex items-center gap-6 text-lg">
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                <span>12-18 Months</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <DollarSign className="w-5 h-5" />
-                <span>$4,890 Total</span>
-              </div>
-            </div>
-          </div>
+      {/* Compact Hero */}
+      <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-8 md:py-12">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold mb-3">
+            Barber Apprenticeship Program
+          </h1>
+          <p className="text-lg md:text-xl mb-4">
+            2,000 hours • 12-18 Months • $4,890 Total
+          </p>
+          <p className="text-white/90">
+            Earn while you learn. Build your future.
+          </p>
         </div>
       </section>
 
