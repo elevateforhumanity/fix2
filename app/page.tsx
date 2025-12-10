@@ -17,20 +17,49 @@ export default function HomePage() {
     <main className="bg-white">
       {/* Welcome Audio - Plays once on page load */}
       <WelcomeAudio />
-      {/* HERO - VIDEO BANNER (NO OVERLAY, NO TEXT) */}
-      <section className="relative overflow-hidden">
+      {/* HERO - VIDEO BANNER WITH SOUND */}
+      <section className="relative overflow-hidden bg-slate-900">
         <div className="mx-auto max-w-7xl">
-          <div className="relative w-full aspect-[16/9] max-h-[600px] overflow-hidden">
+          <div className="relative w-full aspect-[16/9] max-h-[700px] overflow-hidden">
             <video
               autoPlay
-              muted
               loop
               playsInline
               preload="auto"
+              controls
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source src="/videos/hero-home.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
             </video>
+            {/* Overlay with CTA */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
+              <div className="w-full p-8 sm:p-12 md:p-16">
+                <div className="max-w-4xl">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 drop-shadow-lg">
+                    Transform Your Life Through Free Career Training
+                  </h1>
+                  <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 drop-shadow-lg">
+                    100% funded training in high-demand careers. No cost. Real jobs. Real future.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Link
+                      href="/apply"
+                      className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
+                    >
+                      Apply Now
+                      <ArrowRight size={20} />
+                    </Link>
+                    <Link
+                      href="/programs"
+                      className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all border-2 border-white/50"
+                    >
+                      View Programs
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -386,8 +415,8 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/medical-assistant-1.jpg"
-                alt="Medical Assistant Training"
+                src="/images/transportation/program-cdl-training.jpg"
+                alt="CDL Commercial Driver Training"
                 fill
                 className="object-cover object-center hover:scale-110 transition-transform duration-500"
                 quality={75}
