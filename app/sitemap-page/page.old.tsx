@@ -39,7 +39,7 @@ export default function SiteMapPage() {
               <li><Link href="/" className="text-blue-600 hover:underline">Home</Link></li>
               <li><Link href="/about" className="text-blue-600 hover:underline">About Us</Link></li>
               <li><Link href="/contact" className="text-blue-600 hover:underline">Contact</Link></li>
-              <li><Link href="/contact" className="text-blue-600 hover:underline font-bold">Apply Now</Link></li>
+              <li><Link href="/contact" className="text-blue-600 hover:underline font-bold">Contact Us</Link></li>
               <li><Link href="/faq" className="text-blue-600 hover:underline">FAQ</Link></li>
               <li><Link href="/blog" className="text-blue-600 hover:underline">Blog</Link></li>
               <li><Link href="/success-stories" className="text-blue-600 hover:underline">Success Stories</Link></li>

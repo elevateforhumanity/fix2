@@ -60,7 +60,7 @@ export default function Home() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <PrimaryButton href="/contact">Apply Now</PrimaryButton>
+                <PrimaryButton href="/contact">Contact Us</PrimaryButton>
                 <SecondaryButton href="/programs">
                   Explore Programs
                 </SecondaryButton>
