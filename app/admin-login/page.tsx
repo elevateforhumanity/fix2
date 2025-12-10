@@ -5,6 +5,8 @@ import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export default function AdminLoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,10 +21,11 @@ export default function AdminLoginPage() {
     setLoading(true);
 
     try {
-      const { data, error: signInError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      const { data, error: signInError } =
+        await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
 
       if (signInError) {
         setError(signInError.message);
@@ -42,7 +45,9 @@ export default function AdminLoginPage() {
           router.push('/admin');
           router.refresh();
         } else {
-          setError('You do not have admin access. Contact support to request admin privileges.');
+          setError(
+            'You do not have admin access. Contact support to request admin privileges.'
+          );
           await supabase.auth.signOut();
           setLoading(false);
         }
@@ -74,7 +79,10 @@ export default function AdminLoginPage() {
 
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Email Address
               </label>
               <input
@@ -91,7 +99,10 @@ export default function AdminLoginPage() {
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Password
               </label>
               <input
@@ -118,9 +129,16 @@ export default function AdminLoginPage() {
 
           {/* Help Text */}
           <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-            <p className="text-sm text-blue-800 font-medium mb-2">First time logging in?</p>
+            <p className="text-sm text-blue-800 font-medium mb-2">
+              First time logging in?
+            </p>
             <ol className="text-sm text-blue-700 space-y-1 list-decimal list-inside">
-              <li>Sign up at <Link href="/auth/signup" className="underline">/auth/signup</Link></li>
+              <li>
+                Sign up at{' '}
+                <Link href="/auth/signup" className="underline">
+                  /auth/signup
+                </Link>
+              </li>
               <li>Contact support to request admin access</li>
               <li>Return here to login</li>
             </ol>

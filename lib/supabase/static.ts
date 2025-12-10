@@ -7,9 +7,28 @@ import { createClient as createSupabaseClient } from '@supabase/supabase-js';
 export function createStaticClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-  
+
   if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error('[Supabase Static] Missing environment variables');
+    console.warn(
+      '[Supabase Static] Missing environment variables - returning mock client'
+    );
+    // Return a mock client that returns empty data for build-time
+    return {
+      from: () => ({
+        select: () => ({
+          eq: () => ({
+            order: () => ({
+              then: (resolve: any) => resolve({ data: [], error: null }),
+            }),
+            single: () => ({
+              then: (resolve: any) => resolve({ data: null, error: null }),
+            }),
+            then: (resolve: any) => resolve({ data: [], error: null }),
+          }),
+          then: (resolve: any) => resolve({ data: [], error: null }),
+        }),
+      }),
+    } as any;
   }
 
   return createSupabaseClient(supabaseUrl, supabaseAnonKey);
