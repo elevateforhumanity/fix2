@@ -235,6 +235,8 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
+    "test:smoke": "playwright test tests/smoke.spec.ts",
+    "test:smoke:headed": "playwright test tests/smoke.spec.ts --headed",
     "format": "prettier . --write",
     "format:check": "prettier --check .",
     "lint-staged": "lint-staged",
