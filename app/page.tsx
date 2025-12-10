@@ -29,10 +29,10 @@ export default function HomePage() {
           <div className="relative w-full aspect-[16/9] max-h-[700px] overflow-hidden">
             <video
               autoPlay
+              muted
               loop
               playsInline
               preload="auto"
-              controls
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source src="/videos/hero-home.mp4" type="video/mp4" />
