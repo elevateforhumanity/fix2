@@ -59,7 +59,7 @@ export default function CPRCertificationPage() {
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-lg">
+          <div className="bg-white p-8 rounded-lg mb-6">
             <h3 className="text-2xl font-bold mb-4">What You'll Learn</h3>
             <ul className="space-y-3 text-slate-700">
               <li className="flex items-start gap-2">
@@ -80,23 +80,115 @@ export default function CPRCertificationPage() {
               </li>
             </ul>
           </div>
+
+          <div className="bg-white p-8 rounded-lg">
+            <h3 className="text-2xl font-bold mb-4">Your Certification & Career Paths</h3>
+            
+            <div className="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6">
+              <p className="font-bold text-orange-900 mb-2">📜 Industry-Recognized CPR Certification</p>
+              <p className="text-orange-800 text-sm">
+                Nationally recognized credential accepted by employers across healthcare, education, fitness, and public safety sectors.
+              </p>
+            </div>
+
+            <h4 className="font-bold text-lg mb-3">Jobs That Require or Prefer CPR Certification:</h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <p className="font-semibold text-slate-900 mb-2">Healthcare:</p>
+                <ul className="text-sm text-slate-600 space-y-1">
+                  <li>• Nursing Assistant (CNA)</li>
+                  <li>• Medical Assistant</li>
+                  <li>• Home Health Aide</li>
+                  <li>• Dental Assistant</li>
+                  <li>• Pharmacy Technician</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 mb-2">Other Fields:</p>
+                <ul className="text-sm text-slate-600 space-y-1">
+                  <li>• Childcare Provider</li>
+                  <li>• Personal Trainer</li>
+                  <li>• Lifeguard</li>
+                  <li>• Security Officer</li>
+                  <li>• School Staff</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-6 bg-blue-50 rounded-lg p-4">
+              <p className="text-sm text-blue-900">
+                <strong>💡 Pro Tip:</strong> CPR certification is often the first requirement listed on job applications. 
+                Get certified now, apply for jobs immediately.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-12 bg-orange-500 text-white text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">Ready to Get Certified?</h2>
-          <p className="text-xl mb-8">One day. One certification. Dozens of job opportunities.</p>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-4 bg-white text-orange-600 font-bold rounded-lg hover:bg-gray-100 transition-all text-lg"
-          >
-            Contact Us to Enroll
-          </Link>
-          <p className="mt-6 text-white/90">
-            Questions? Call <a href="tel:3173143757" className="font-bold underline">317-314-3757</a>
-          </p>
+      {/* Two Payment Options */}
+      <section className="py-12 bg-slate-50">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">Choose Your Path</h2>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* FREE Option */}
+            <div className="bg-white border-2 border-green-500 rounded-xl p-8">
+              <div className="text-3xl font-bold text-green-700 mb-4">100% FREE</div>
+              <p className="text-lg mb-4">
+                If you qualify for government funding through:
+              </p>
+              <ul className="space-y-2 mb-6 text-slate-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span><strong>WRG</strong> - Workforce Ready Grant (Indiana residents)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span><strong>WIOA</strong> - Workforce Innovation (unemployed/underemployed)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span><strong>Other grants</strong> - We help you apply</span>
+                </li>
+              </ul>
+              <Link
+                href="/contact"
+                className="block w-full text-center px-6 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-all"
+              >
+                Apply for Free Training
+              </Link>
+            </div>
+
+            {/* PAID Option */}
+            <div className="bg-white border-2 border-blue-500 rounded-xl p-8">
+              <div className="text-3xl font-bold text-blue-700 mb-4">$575</div>
+              <p className="text-lg mb-4">
+                Don't qualify for free training? Pay directly and start immediately.
+              </p>
+              <div className="bg-blue-50 rounded-lg p-4 mb-6">
+                <p className="text-sm font-semibold text-blue-900 mb-2">💳 Flexible Payment Options:</p>
+                <ul className="text-sm text-blue-800 space-y-1">
+                  <li>• Split into payments with Affirm, Klarna, Afterpay</li>
+                  <li>• PayPal, Venmo, Cash App Pay</li>
+                  <li>• Credit/Debit cards</li>
+                  <li>• ACH bank transfer</li>
+                </ul>
+              </div>
+              <Link
+                href="/enroll-simple"
+                className="block w-full text-center px-6 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"
+              >
+                Pay $575 Now
+              </Link>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <p className="text-slate-600 mb-2">Not sure which option is right for you?</p>
+            <p className="text-lg">
+              Call us at <a href="tel:3173143757" className="text-orange-600 font-bold hover:text-orange-700">317-314-3757</a>
+            </p>
+          </div>
         </div>
       </section>
     </main>
