@@ -68,6 +68,7 @@ export default function ApplyPage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [mathAnswer, setMathAnswer] = useState("");
 
   // Auto-save to localStorage (client-side only)
   useEffect(() => {
@@ -129,15 +130,27 @@ export default function ApplyPage() {
       if (!response.ok) throw new Error("Submission failed");
 
       setSuccess(true);
-      setFirstName("");
-      setLastName("");
-      setPhone("");
-      setEmail("");
-      setCity("");
-      setZip("");
-      setProgram("Barber Apprenticeship");
-      setSupportNotes("");
-      setContactMethod("phone");
+      setFormData({
+        age18Plus: false,
+        legalToWork: false,
+        marionCounty: false,
+        employmentStatus: "",
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        city: "",
+        zip: "",
+        program: "",
+        timeline: "",
+        goals: "",
+        transportation: "",
+        childcare: false,
+        supportNotes: "",
+        contactMethod: "phone",
+        contactTime: "",
+        referralSource: "",
+      });
       setMathAnswer("");
     } catch (err) {
       console.error(err);
@@ -196,8 +209,8 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   required
-                  value={firstName}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFirstName(e.target.value)}
+                  value={formData.firstName}
+                  onChange={(e) => updateFormData('firstName', e.target.value)}
                   className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-white"
                 />
               </div>
@@ -208,8 +221,8 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   required
-                  value={lastName}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setLastName(e.target.value)}
+                  value={formData.lastName}
+                  onChange={(e) => updateFormData('lastName', e.target.value)}
                   className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-white"
                 />
               </div>
@@ -223,8 +236,8 @@ export default function ApplyPage() {
                 <input
                   type="tel"
                   required
-                  value={phone}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPhone(e.target.value)}
+                  value={formData.phone}
+                  onChange={(e) => updateFormData('phone', e.target.value)}
                   className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-white"
                 />
               </div>
@@ -235,8 +248,8 @@ export default function ApplyPage() {
                 <input
                   type="email"
                   required
-                  value={email}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setEmail(e.target.value)}
+                  value={formData.email}
+                  onChange={(e) => updateFormData('email', e.target.value)}
                   className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-white"
                 />
               </div>
@@ -250,8 +263,8 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   required
-                  value={city}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCity(e.target.value)}
+                  value={formData.city}
+                  onChange={(e) => updateFormData('city', e.target.value)}
                   className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-white"
                 />
               </div>
@@ -262,8 +275,8 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   required
-                  value={zip}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setZip(e.target.value)}
+                  value={formData.zip}
+                  onChange={(e) => updateFormData('zip', e.target.value)}
                   className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-white"
                 />
               </div>
@@ -274,8 +287,8 @@ export default function ApplyPage() {
                 Program You&apos;re Most Interested In
               </label>
               <select
-                value={program}
-                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setProgram(e.target.value)}
+                value={formData.program}
+                onChange={(e) => updateFormData('program', e.target.value)}
                 className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               >
                 <option value="Barber Apprenticeship">Barber Apprenticeship</option>
@@ -298,8 +311,8 @@ export default function ApplyPage() {
                 technology access, or anything else you&apos;re comfortable sharing.
               </p>
               <textarea
-                value={supportNotes}
-                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSupportNotes(e.target.value)}
+                value={formData.supportNotes}
+                onChange={(e) => updateFormData('supportNotes', e.target.value)}
                 rows={4}
                 className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               />
