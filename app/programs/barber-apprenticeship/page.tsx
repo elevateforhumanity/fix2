@@ -14,6 +14,37 @@ export const metadata: Metadata = {
 };
 
 export default function BarberApprenticeshipPage() {
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const handlePayNow = async () => {
+    setIsProcessing(true);
+
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          programName: 'Barber Apprenticeship Program',
+          programSlug: 'barber-apprentice',
+          price: 4890,
+          paymentType: 'full',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('Error: ' + (data.error || 'Unable to start checkout'));
+        setIsProcessing(false);
+      }
+    } catch (error) {
+      alert('Error connecting to payment system. Call 317-314-3757');
+      setIsProcessing(false);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-white">
       {/* Video Hero */}
@@ -119,12 +150,13 @@ export default function BarberApprenticeshipPage() {
               <p className="text-sm text-slate-600 mb-6">
                 <strong>Includes:</strong> All training materials, certifications, and FREE Milady RISE online course ($295 value).
               </p>
-              <Link
-                href="/enroll-simple"
-                className="block w-full text-center px-6 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"
+              <button
+                onClick={handlePayNow}
+                disabled={isProcessing}
+                className="block w-full text-center px-6 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Enroll Now
-              </Link>
+                {isProcessing ? 'Loading Checkout...' : 'Pay Now'}
+              </button>
             </div>
           </div>
         </div>
@@ -205,12 +237,13 @@ export default function BarberApprenticeshipPage() {
             >
               Apply for Free Training
             </Link>
-            <Link
-              href="/enroll-simple"
-              className="px-8 py-4 bg-orange-700 text-white font-bold rounded-lg hover:bg-orange-800 border-2 border-white transition-all"
+            <button
+              onClick={handlePayNow}
+              disabled={isProcessing}
+              className="px-8 py-4 bg-orange-700 text-white font-bold rounded-lg hover:bg-orange-800 border-2 border-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Enroll Now
-            </Link>
+              {isProcessing ? 'Loading...' : 'Pay Now'}
+            </button>
           </div>
         </div>
       </section>
