@@ -90,12 +90,12 @@ export default function HomePage() {
             
             <div className="relative w-full max-w-xl mx-auto">
               <Image
-                src="/images/healthcare/program-cna-training.jpg"
+                src="/images/programs/cna-hero.jpg"
                 alt="CNA career training program"
                 width={600}
                 height={450}
                 className="w-full h-auto rounded-xl shadow-xl"
-                quality={75}
+                quality={90}
                 loading="lazy"
               />
             </div>
@@ -105,12 +105,12 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
             <div className="relative w-full max-w-xl mx-auto md:order-first">
               <Image
-                src="/images/trades/program-hvac-technician.jpg"
+                src="/images/programs/hvac-hero.jpg"
                 alt="HVAC professional training environment"
                 width={600}
                 height={450}
                 className="w-full h-auto rounded-xl shadow-xl"
-                quality={75}
+                quality={90}
                 loading="lazy"
               />
             </div>
@@ -144,12 +144,12 @@ export default function HomePage() {
             
             <div className="relative w-full max-w-xl mx-auto">
               <Image
-                src="/images/transportation/program-cdl-training.jpg"
+                src="/images/programs/cdl-hero.jpg"
                 alt="CDL commercial driver training success"
                 width={600}
                 height={400}
                 className="w-full h-auto rounded-xl shadow-xl"
-                quality={75}
+                quality={90}
                 loading="lazy"
               />
             </div>
