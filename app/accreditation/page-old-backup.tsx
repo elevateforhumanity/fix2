@@ -5,13 +5,13 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/enroll/[programSlug]",
+    canonical: "https://www.elevateforhumanity.org/accreditation",
   },
-  title: '[programSlug] | Elevate For Humanity',
-  description: 'Explore [programSlug] and discover opportunities for career growth and development.',
+  title: 'Accreditation | Elevate For Humanity',
+  description: 'Explore Accreditation and discover opportunities for career growth and development.',
 };
 
-export default async function programSlugPage() {
+export default async function AccreditationPage() {
   
 
   return (
@@ -20,7 +20,7 @@ export default async function programSlugPage() {
       <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
         <Image
           src="/images/gallery/image8.jpg"
-          alt="[programSlug]"
+          alt="Accreditation"
           fill
           className="object-cover"
           quality={100}
@@ -30,10 +30,10 @@ export default async function programSlugPage() {
         <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            [programSlug]
+            Accreditation
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Explore [programSlug] and discover opportunities for career growth and development.
+            Accreditation & Licensing
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -62,8 +62,56 @@ export default async function programSlugPage() {
             {/* Feature Grid */}
             <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h2 className="text-3xl font-bold mb-6">[programSlug]</h2>
-                <p className="text-gray-700 mb-6">Explore [programSlug] and discover opportunities for career growth and development.</p>
+                <h2 className="text-3xl font-bold mb-6">Accreditation</h2>
+                <p className="text-gray-700 mb-6">Elevate For Humanity is a DOL-registered apprenticeship sponsor and state-approved training provider. All our programs meet federal and state requirements for workforce development and career training.</p>
+                
+                <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8">
+                  <h2 className="text-xl font-bold text-blue-900 mb-3">Our Accreditations & Approvals</h2>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>✅ U.S. Department of Labor Registered Apprenticeship Sponsor</li>
+                    <li>✅ Indiana State Board of Cosmetology Approved School</li>
+                    <li>✅ Indiana State Board of Barber Examiners Approved</li>
+                    <li>✅ WIOA Eligible Training Provider (Indiana ETPL)</li>
+                    <li>✅ Workforce Ready Grant Approved Provider</li>
+                    <li>✅ Justice Reinvestment Initiative Partner</li>
+                  </ul>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div className="bg-white border border-gray-200 rounded-lg p-6">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">Federal Compliance</h3>
+                    <p className="text-gray-700 mb-4">Our programs comply with all federal workforce development regulations including:</p>
+                    <ul className="space-y-1 text-gray-600 text-sm">
+                      <li>• WIOA Title I Adult & Dislocated Worker</li>
+                      <li>• DOL Registered Apprenticeship Standards</li>
+                      <li>• Equal Opportunity Employment</li>
+                      <li>• ADA Accessibility Requirements</li>
+                    </ul>
+                  </div>
+
+                  <div className="bg-white border border-gray-200 rounded-lg p-6">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">State Licensing</h3>
+                    <p className="text-gray-700 mb-4">All instructors hold current state licenses and certifications in their fields:</p>
+                    <ul className="space-y-1 text-gray-600 text-sm">
+                      <li>• Licensed Barber Instructors</li>
+                      <li>• Licensed Esthetician Instructors</li>
+                      <li>• Certified Healthcare Instructors</li>
+                      <li>• Industry-Certified Trade Instructors</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                  <h3 className="text-lg font-bold text-green-900 mb-3">What This Means For You</h3>
+                  <p className="text-gray-700 mb-4">When you train with Elevate For Humanity, you can be confident that:</p>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>✓ Your training meets all industry standards</li>
+                    <li>✓ Your certification is recognized by employers</li>
+                    <li>✓ Your education qualifies for state licensing exams</li>
+                    <li>✓ Your program is eligible for federal funding</li>
+                    <li>✓ Your credentials are transferable across states</li>
+                  </ul>
+                </div>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +136,7 @@ export default async function programSlugPage() {
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/gallery/image3.jpg"
-                  alt="[programSlug]"
+                  alt="Accreditation"
                   fill
                   className="object-cover"
                   quality={100}

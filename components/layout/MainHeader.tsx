@@ -102,16 +102,16 @@ export default function MainHeader() {
           {/* Right side CTAs */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
-              href="/dashboards"
+              href="/login"
               className="text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
             >
-              Dashboards
+              Login
             </Link>
             <Link
-              href="/apply"
-              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-blue-700 transition-all hover:shadow-md"
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-lg bg-orange-600 px-6 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-orange-700 transition-all hover:shadow-md"
             >
-              Apply Now – It's Free
+              Contact Us
             </Link>
           </div>
 

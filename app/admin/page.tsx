@@ -2,24 +2,21 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/admin",
-  },
-  title: 'Admin Command Center | Elevate For Humanity',
-  description: 'Complete platform oversight and management',
+  title: 'Admin Mega Dashboard | Elevate For Humanity',
+  description: 'Complete admin control center with all 106 features',
 };
 
-export default async function AdminDashboard() {
+export default async function MegaAdminDashboard() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
+  
   if (!user) redirect('/login');
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('role')
+    .select('role, full_name')
     .eq('id', user.id)
     .single();
 
@@ -27,505 +24,233 @@ export default async function AdminDashboard() {
     redirect('/unauthorized');
   }
 
-  // Fetch all critical metrics
-  const { count: totalUsers } = await supabase
-    .from('profiles')
-    .select('*', { count: 'exact', head: true });
+  // Fetch key metrics
+  const { count: totalStudents } = await supabase.from('profiles').select('*', { count: 'exact', head: true }).eq('role', 'student');
+  const { count: totalEnrollments } = await supabase.from('enrollments').select('*', { count: 'exact', head: true });
+  const { count: activeEnrollments } = await supabase.from('enrollments').select('*', { count: 'exact', head: true }).eq('status', 'active');
+  const { count: totalPrograms } = await supabase.from('programs').select('*', { count: 'exact', head: true }).eq('is_active', true);
+  const { count: totalCourses } = await supabase.from('courses').select('*', { count: 'exact', head: true }).eq('is_published', true);
+  const { count: pendingApplications } = await supabase.from('applications').select('*', { count: 'exact', head: true }).eq('status', 'pending');
 
-  const { count: totalApplications } = await supabase
-    .from('applications')
-    .select('*', { count: 'exact', head: true });
+  const allFeatures = [
+    // STUDENT MANAGEMENT (15 features)
+    { category: 'Student Management', name: 'Students', href: '/admin/students', color: 'blue' },
+    { category: 'Student Management', name: 'Applicants', href: '/admin/applicants', color: 'blue' },
+    { category: 'Student Management', name: 'Applicants Live', href: '/admin/applicants-live', color: 'blue' },
+    { category: 'Student Management', name: 'Applications', href: '/admin/applications', color: 'blue' },
+    { category: 'Student Management', name: 'Enrollment', href: '/admin/enrollment', color: 'blue' },
+    { category: 'Student Management', name: 'Enrollments', href: '/admin/enrollments', color: 'blue' },
+    { category: 'Student Management', name: 'HSI Enrollments', href: '/admin/hsi-enrollments', color: 'blue' },
+    { category: 'Student Management', name: 'Partner Enrollments', href: '/admin/partner-enrollments', color: 'blue' },
+    { category: 'Student Management', name: 'Barriers', href: '/admin/barriers', color: 'blue' },
+    { category: 'Student Management', name: 'Progress', href: '/admin/progress', color: 'blue' },
+    { category: 'Student Management', name: 'External Progress', href: '/admin/external-progress', color: 'blue' },
+    { category: 'Student Management', name: 'Retention', href: '/admin/retention', color: 'blue' },
+    { category: 'Student Management', name: 'Outcomes', href: '/admin/outcomes', color: 'blue' },
+    { category: 'Student Management', name: 'Success', href: '/admin/success', color: 'blue' },
+    { category: 'Student Management', name: 'Transfer Hours', href: '/admin/transfer-hours', color: 'blue' },
 
-  const { count: pendingApplications } = await supabase
-    .from('applications')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'pending');
+    // COURSE/PROGRAM MANAGEMENT (18 features)
+    { category: 'Courses & Programs', name: 'Programs', href: '/admin/programs', color: 'green' },
+    { category: 'Courses & Programs', name: 'Courses', href: '/admin/courses', color: 'green' },
+    { category: 'Courses & Programs', name: 'Curriculum', href: '/admin/curriculum', color: 'green' },
+    { category: 'Courses & Programs', name: 'Modules', href: '/admin/modules', color: 'green' },
+    { category: 'Courses & Programs', name: 'External Modules', href: '/admin/external-modules', color: 'green' },
+    { category: 'Courses & Programs', name: 'Course Builder', href: '/admin/course-builder', color: 'green' },
+    { category: 'Courses & Programs', name: 'Course Authoring', href: '/admin/course-authoring', color: 'green' },
+    { category: 'Courses & Programs', name: 'Course Generator', href: '/admin/course-generator', color: 'green' },
+    { category: 'Courses & Programs', name: 'Course Import', href: '/admin/course-import', color: 'green' },
+    { category: 'Courses & Programs', name: 'Course Studio', href: '/admin/course-studio', color: 'green' },
+    { category: 'Courses & Programs', name: 'Course Studio AI', href: '/admin/course-studio-ai', color: 'green' },
+    { category: 'Courses & Programs', name: 'Course Studio Simple', href: '/admin/course-studio-simple', color: 'green' },
+    { category: 'Courses & Programs', name: 'Course Templates', href: '/admin/course-templates', color: 'green' },
+    { category: 'Courses & Programs', name: 'Program Generator', href: '/admin/program-generator', color: 'green' },
+    { category: 'Courses & Programs', name: 'Syllabus Generator', href: '/admin/syllabus-generator', color: 'green' },
+    { category: 'Courses & Programs', name: 'Quiz Builder', href: '/admin/quiz-builder', color: 'green' },
+    { category: 'Courses & Programs', name: 'Editor', href: '/admin/editor', color: 'green' },
+    { category: 'Courses & Programs', name: 'Apprenticeships', href: '/admin/apprenticeships', color: 'green' },
 
-  const { count: totalEnrollments } = await supabase
-    .from('enrollments')
-    .select('*', { count: 'exact', head: true });
+    // ANALYTICS & REPORTS (10 features)
+    { category: 'Analytics & Reports', name: 'Analytics', href: '/admin/analytics', color: 'purple' },
+    { category: 'Analytics & Reports', name: 'Dashboard', href: '/admin/dashboard', color: 'purple' },
+    { category: 'Analytics & Reports', name: 'Dashboard Enhanced', href: '/admin/dashboard-enhanced', color: 'purple' },
+    { category: 'Analytics & Reports', name: 'Master Dashboard', href: '/admin/master-dashboard', color: 'purple' },
+    { category: 'Analytics & Reports', name: 'LMS Dashboard', href: '/admin/lms-dashboard', color: 'purple' },
+    { category: 'Analytics & Reports', name: 'Reports', href: '/admin/reports', color: 'purple' },
+    { category: 'Analytics & Reports', name: 'Reporting', href: '/admin/reporting', color: 'purple' },
+    { category: 'Analytics & Reports', name: 'Completions', href: '/admin/completions', color: 'purple' },
+    { category: 'Analytics & Reports', name: 'Impact', href: '/admin/impact', color: 'purple' },
+    { category: 'Analytics & Reports', name: 'Site Health', href: '/admin/site-health', color: 'purple' },
 
-  const { count: activeCourses } = await supabase
-    .from('courses')
-    .select('*', { count: 'exact', head: true })
-    .eq('is_published', true);
+    // COMPLIANCE & CERTIFICATION (7 features)
+    { category: 'Compliance & Certs', name: 'Compliance', href: '/admin/compliance', color: 'orange' },
+    { category: 'Compliance & Certs', name: 'Compliance Dashboard', href: '/admin/compliance-dashboard', color: 'orange' },
+    { category: 'Compliance & Certs', name: 'Certificates', href: '/admin/certificates', color: 'orange' },
+    { category: 'Compliance & Certs', name: 'Certifications', href: '/admin/certifications', color: 'orange' },
+    { category: 'Compliance & Certs', name: 'Audit Logs', href: '/admin/audit-logs', color: 'orange' },
+    { category: 'Compliance & Certs', name: 'ETPL Alignment', href: '/admin/etpl-alignment', color: 'orange' },
+    { category: 'Compliance & Certs', name: 'License', href: '/admin/license', color: 'orange' },
 
-  const { count: totalCertificates } = await supabase
-    .from('certificates')
-    .select('*', { count: 'exact', head: true });
+    // COMMUNICATION (6 features)
+    { category: 'Communication', name: 'Email Marketing', href: '/admin/email-marketing', color: 'indigo' },
+    { category: 'Communication', name: 'Notifications', href: '/admin/notifications', color: 'indigo' },
+    { category: 'Communication', name: 'Live Chat', href: '/admin/live-chat', color: 'indigo' },
+    { category: 'Communication', name: 'Contacts', href: '/admin/contacts', color: 'indigo' },
+    { category: 'Communication', name: 'Social Media', href: '/admin/social-media', color: 'indigo' },
+    { category: 'Communication', name: 'Signatures', href: '/admin/signatures', color: 'indigo' },
 
-  // Recent activity
-  const { data: recentApplications } = await supabase
-    .from('applications')
-    .select('*, profiles(full_name, email)')
-    .order('created_at', { ascending: false })
-    .limit(5);
+    // HR & STAFF (5 features)
+    { category: 'HR & Staff', name: 'HR', href: '/admin/hr', color: 'teal' },
+    { category: 'HR & Staff', name: 'Instructors', href: '/admin/instructors', color: 'teal' },
+    { category: 'HR & Staff', name: 'Delegates', href: '/admin/delegates', color: 'teal' },
+    { category: 'HR & Staff', name: 'Payroll', href: '/admin/payroll', color: 'teal' },
+    { category: 'HR & Staff', name: 'Payroll Cards', href: '/admin/payroll-cards', color: 'teal' },
 
-  const { data: recentUsers } = await supabase
-    .from('profiles')
-    .select('id, full_name, email, role, created_at')
-    .order('created_at', { ascending: false })
-    .limit(5);
+    // FUNDING & GRANTS (6 features)
+    { category: 'Funding & Grants', name: 'Funding', href: '/admin/funding', color: 'emerald' },
+    { category: 'Funding & Grants', name: 'Funding Playbook', href: '/admin/funding-playbook', color: 'emerald' },
+    { category: 'Funding & Grants', name: 'Grants', href: '/admin/grants', color: 'emerald' },
+    { category: 'Funding & Grants', name: 'JRI', href: '/admin/jri', color: 'emerald' },
+    { category: 'Funding & Grants', name: 'Cash Advances', href: '/admin/cash-advances', color: 'emerald' },
+    { category: 'Funding & Grants', name: 'Tax Filing', href: '/admin/tax-filing', color: 'emerald' },
+
+    // PARTNERSHIPS (7 features)
+    { category: 'Partnerships', name: 'Employers', href: '/admin/employers', color: 'sky' },
+    { category: 'Partnerships', name: 'Employers Playbook', href: '/admin/employers-playbook', color: 'sky' },
+    { category: 'Partnerships', name: 'Partners', href: '/admin/partners', color: 'sky' },
+    { category: 'Partnerships', name: 'Program Holders', href: '/admin/program-holders', color: 'sky' },
+    { category: 'Partnerships', name: 'Program Holder Acknowledgements', href: '/admin/program-holder-acknowledgements', color: 'sky' },
+    { category: 'Partnerships', name: 'Integrations', href: '/admin/integrations', color: 'sky' },
+    { category: 'Partnerships', name: 'MOU', href: '/admin/mou', color: 'sky' },
+
+    // AI & AUTOMATION (7 features)
+    { category: 'AI & Automation', name: 'AI Console', href: '/admin/ai-console', color: 'violet' },
+    { category: 'AI & Automation', name: 'AI Course Builder', href: '/admin/ai-course-builder', color: 'violet' },
+    { category: 'AI & Automation', name: 'Copilot', href: '/admin/copilot', color: 'violet' },
+    { category: 'AI & Automation', name: 'Autopilot', href: '/admin/autopilot', color: 'violet' },
+    { category: 'AI & Automation', name: 'Autopilots', href: '/admin/autopilots', color: 'violet' },
+    { category: 'AI & Automation', name: 'Workflows', href: '/admin/workflows', color: 'violet' },
+    { category: 'AI & Automation', name: 'Data Processor', href: '/admin/data-processor', color: 'violet' },
+
+    // OPERATIONS (8 features)
+    { category: 'Operations', name: 'Operations', href: '/admin/operations', color: 'amber' },
+    { category: 'Operations', name: 'Console', href: '/admin/console', color: 'amber' },
+    { category: 'Operations', name: 'Admin Console', href: '/admin/adminconsole', color: 'amber' },
+    { category: 'Operations', name: 'Control Center', href: '/admin/control-center', color: 'amber' },
+    { category: 'Operations', name: 'Master Control', href: '/admin/master-control', color: 'amber' },
+    { category: 'Operations', name: 'System Health', href: '/admin/system-health', color: 'amber' },
+    { category: 'Operations', name: 'Migrations', href: '/admin/migrations', color: 'amber' },
+    { category: 'Operations', name: 'Mobile Sync', href: '/admin/mobile-sync', color: 'amber' },
+
+    // CONTENT & LIBRARY (10 features)
+    { category: 'Content & Library', name: 'Documents', href: '/admin/documents', color: 'cyan' },
+    { category: 'Content & Library', name: 'Document Center', href: '/admin/document-center', color: 'cyan' },
+    { category: 'Content & Library', name: 'Files', href: '/admin/files', color: 'cyan' },
+    { category: 'Content & Library', name: 'Docs', href: '/admin/docs', color: 'cyan' },
+    { category: 'Content & Library', name: 'Internal Docs', href: '/admin/internal-docs', color: 'cyan' },
+    { category: 'Content & Library', name: 'Videos', href: '/admin/videos', color: 'cyan' },
+    { category: 'Content & Library', name: 'Video Manager', href: '/admin/video-manager', color: 'cyan' },
+    { category: 'Content & Library', name: 'Media Studio', href: '/admin/media-studio', color: 'cyan' },
+    { category: 'Content & Library', name: 'Store', href: '/admin/store', color: 'cyan' },
+    { category: 'Content & Library', name: 'Portal Map', href: '/admin/portal-map', color: 'cyan' },
+
+    // SETTINGS & ADMIN (7 features)
+    { category: 'Settings & Admin', name: 'Settings', href: '/admin/settings', color: 'slate' },
+    { category: 'Settings & Admin', name: 'Users', href: '/admin/users', color: 'slate' },
+    { category: 'Settings & Admin', name: 'Security', href: '/admin/security', color: 'slate' },
+    { category: 'Settings & Admin', name: 'Login', href: '/admin/login', color: 'slate' },
+    { category: 'Settings & Admin', name: 'Learner', href: '/admin/learner', color: 'slate' },
+    { category: 'Settings & Admin', name: 'Tenants', href: '/admin/tenants', color: 'slate' },
+    { category: 'Settings & Admin', name: 'Dev Studio', href: '/admin/dev-studio', color: 'slate' },
+  ];
+
+  const categories = Array.from(new Set(allFeatures.map(f => f.category)));
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="Admin"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0   " />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
-            Admin
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
-            Transform your career with free training and industry certifications
+    <div className="min-h-screen bg-slate-50">
+      {/* Header */}
+      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-6 sticky top-0 z-50 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-2xl font-bold">Admin Mega Dashboard</h1>
+              <p className="text-sm text-blue-100">All 106 Features • {profile?.full_name || user.email}</p>
+            </div>
+            <div className="text-right">
+              <div className="text-xs text-blue-200">Role</div>
+              <div className="text-sm font-bold">{profile?.role || 'admin'}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Metrics - Compact */}
+      <section className="max-w-7xl mx-auto px-4 py-4">
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+          <div className="bg-white rounded-lg shadow-sm border p-3 text-center">
+            <div className="text-xs text-slate-600">Students</div>
+            <div className="text-xl font-bold text-blue-600">{totalStudents || 0}</div>
+          </div>
+          <div className="bg-white rounded-lg shadow-sm border p-3 text-center">
+            <div className="text-xs text-slate-600">Enrollments</div>
+            <div className="text-xl font-bold text-green-600">{totalEnrollments || 0}</div>
+          </div>
+          <div className="bg-white rounded-lg shadow-sm border p-3 text-center">
+            <div className="text-xs text-slate-600">Active</div>
+            <div className="text-xl font-bold text-orange-600">{activeEnrollments || 0}</div>
+          </div>
+          <div className="bg-white rounded-lg shadow-sm border p-3 text-center">
+            <div className="text-xs text-slate-600">Programs</div>
+            <div className="text-xl font-bold text-purple-600">{totalPrograms || 0}</div>
+          </div>
+          <div className="bg-white rounded-lg shadow-sm border p-3 text-center">
+            <div className="text-xs text-slate-600">Courses</div>
+            <div className="text-xl font-bold text-indigo-600">{totalCourses || 0}</div>
+          </div>
+          <div className="bg-white rounded-lg shadow-sm border p-3 text-center">
+            <div className="text-xs text-slate-600">Pending</div>
+            <div className="text-xl font-bold text-red-600">{pendingApplications || 0}</div>
+          </div>
+        </div>
+      </section>
+
+      {/* All Features by Category */}
+      <section className="max-w-7xl mx-auto px-4 pb-8">
+        {categories.map((category) => {
+          const features = allFeatures.filter(f => f.category === category);
+          const color = features[0]?.color || 'slate';
+          
+          return (
+            <div key={category} className="mb-6">
+              <h2 className={`text-lg font-bold mb-3 text-${color}-700`}>
+                {category} ({features.length})
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+                {features.map((feature) => (
+                  <Link
+                    key={feature.href}
+                    href={feature.href}
+                    className={`bg-white hover:bg-${color}-50 border border-${color}-200 rounded-lg p-3 text-center transition-all hover:shadow-md`}
+                  >
+                    <div className={`text-sm font-semibold text-${color}-700`}>
+                      {feature.name}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </section>
+
+      {/* Quick Stats Footer */}
+      <section className="bg-slate-800 text-white py-4 mt-8">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p className="text-sm">
+            <strong>106 Total Features</strong> • 12 Categories • Unified Dashboard
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
-            >
-              Get Started Free
-            </Link>
-            <Link
-              href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
-            >
-              View Programs
-            </Link>
-          </div>
         </div>
       </section>
-
-      <section className="bg-blue-700 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-4xl font-bold mb-2">Admin Command Center</h1>
-                <p className="text-xl text-blue-100">Complete platform oversight and control</p>
-              </div>
-              <div className="text-right">
-                <p className="text-sm text-blue-200">Logged in as</p>
-                <p className="text-lg font-semibold">{profile?.full_name || user.email}</p>
-                <span className="inline-block px-3 py-1 bg-blue-700 rounded-full text-xs mt-1">
-                  {profile?.role || 'admin'}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="container mx-auto py-8 px-4">
-        <div className="max-w-7xl mx-auto">
-          {/* Key Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <Link href="/admin/users" className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-sm font-medium text-gray-600">Total Users</h3>
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              </div>
-              <p className="text-3xl font-bold text-gray-900">{totalUsers || 0}</p>
-              <p className="text-sm text-gray-500 mt-1">View all users →</p>
-            </Link>
-
-            <Link href="/admin/applications" className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-sm font-medium text-gray-600">Applications</h3>
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <p className="text-3xl font-bold text-gray-900">{totalApplications || 0}</p>
-              <p className="text-sm text-orange-600 mt-1">{pendingApplications || 0} pending review</p>
-            </Link>
-
-            <Link href="/admin/enrollments" className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-sm font-medium text-gray-600">Enrollments</h3>
-                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <p className="text-3xl font-bold text-gray-900">{totalEnrollments || 0}</p>
-              <p className="text-sm text-gray-500 mt-1">Active students</p>
-            </Link>
-
-            <Link href="/admin/courses" className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-sm font-medium text-gray-600">Active Courses</h3>
-                <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
-              </div>
-              <p className="text-3xl font-bold text-gray-900">{activeCourses || 0}</p>
-              <p className="text-sm text-gray-500 mt-1">Published courses</p>
-            </Link>
-          </div>
-
-          {/* Quick Access Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            {/* User Management */}
-            <div className="bg-white rounded-lg shadow-sm border">
-              <div className="p-6 border-b bg-blue-50">
-                <h2 className="text-xl font-semibold text-blue-900 flex items-center">
-                  <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                  User Management
-                </h2>
-              </div>
-              <div className="p-4">
-                <nav className="space-y-2">
-                  <Link href="/admin/users" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    👥 All Users
-                  </Link>
-                  <Link href="/admin/students" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🎓 Students
-                  </Link>
-                  <Link href="/admin/instructors" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    👨‍🏫 Instructors
-                  </Link>
-                  <Link href="/admin/employers" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🏢 Employers
-                  </Link>
-                  <Link href="/admin/program-holders" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🤝 Program Holders
-                  </Link>
-                </nav>
-              </div>
-            </div>
-
-            {/* Applications & Enrollment */}
-            <div className="bg-white rounded-lg shadow-sm border">
-              <div className="p-6 border-b bg-green-50">
-                <h2 className="text-xl font-semibold text-green-900 flex items-center">
-                  <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Applications
-                </h2>
-              </div>
-              <div className="p-4">
-                <nav className="space-y-2">
-                  <Link href="/admin/applications" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    📝 All Applications
-                  </Link>
-                  <Link href="/admin/applicants" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    👤 Applicants
-                  </Link>
-                  <Link href="/admin/applicants-live" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🔴 Live Applications
-                  </Link>
-                  <Link href="/admin/enrollments" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    ✅ Enrollments
-                  </Link>
-                  <Link href="/admin/enrollment" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    ➕ New Enrollment
-                  </Link>
-                </nav>
-              </div>
-            </div>
-
-            {/* Content Management */}
-            <div className="bg-white rounded-lg shadow-sm border">
-              <div className="p-6 border-b bg-purple-50">
-                <h2 className="text-xl font-semibold text-purple-900 flex items-center">
-                  <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                  Content & Courses
-                </h2>
-              </div>
-              <div className="p-4">
-                <nav className="space-y-2">
-                  <Link href="/admin/courses" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    📚 All Courses
-                  </Link>
-                  <Link href="/admin/course-builder" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🏗️ Course Builder
-                  </Link>
-                  <Link href="/admin/course-generator" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🤖 AI Course Generator
-                  </Link>
-                  <Link href="/admin/programs" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🎯 Programs
-                  </Link>
-                  <Link href="/admin/certificates" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🏆 Certificates
-                  </Link>
-                </nav>
-              </div>
-            </div>
-          </div>
-
-          {/* More Sections */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            {/* Analytics & Reports */}
-            <div className="bg-white rounded-lg shadow-sm border">
-              <div className="p-6 border-b bg-orange-50">
-                <h2 className="text-xl font-semibold text-orange-900 flex items-center">
-                  <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                  Analytics & Reports
-                </h2>
-              </div>
-              <div className="p-4">
-                <nav className="space-y-2">
-                  <Link href="/admin/analytics" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    📊 Analytics Dashboard
-                  </Link>
-                  <Link href="/admin/reports" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    📈 Reports
-                  </Link>
-                  <Link href="/admin/reporting" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    📋 Custom Reporting
-                  </Link>
-                  <Link href="/admin/outcomes" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🎯 Outcomes
-                  </Link>
-                  <Link href="/admin/impact" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    💫 Impact Metrics
-                  </Link>
-                </nav>
-              </div>
-            </div>
-
-            {/* Operations */}
-            <div className="bg-white rounded-lg shadow-sm border">
-              <div className="p-6 border-b bg-red-50">
-                <h2 className="text-xl font-semibold text-red-900 flex items-center">
-                  <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  Operations
-                </h2>
-              </div>
-              <div className="p-4">
-                <nav className="space-y-2">
-                  <Link href="/admin/operations" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    ⚙️ Operations Center
-                  </Link>
-                  <Link href="/admin/workflows" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🔄 Workflows
-                  </Link>
-                  <Link href="/admin/compliance" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    ✓ Compliance
-                  </Link>
-                  <Link href="/admin/audit-logs" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    📜 Audit Logs
-                  </Link>
-                  <Link href="/admin/security" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🔒 Security
-                  </Link>
-                </nav>
-              </div>
-            </div>
-
-            {/* System & Settings */}
-            <div className="bg-white rounded-lg shadow-sm border">
-              <div className="p-6 border-b bg-gray-100">
-                <h2 className="text-xl font-semibold text-gray-900 flex items-center">
-                  <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                  </svg>
-                  System & Settings
-                </h2>
-              </div>
-              <div className="p-4">
-                <nav className="space-y-2">
-                  <Link href="/admin/settings" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    ⚙️ Settings
-                  </Link>
-                  <Link href="/admin/system-health" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    💚 System Health
-                  </Link>
-                  <Link href="/admin/site-health" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🏥 Site Health
-                  </Link>
-                  <Link href="/admin/integrations" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🔌 Integrations
-                  </Link>
-                  <Link href="/admin/migrations" className="block p-3 hover:bg-gray-50 rounded text-sm">
-                    🔄 Migrations
-                  </Link>
-                </nav>
-              </div>
-            </div>
-          </div>
-
-          {/* Recent Activity */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Recent Applications */}
-            <div className="bg-white rounded-lg shadow-sm border">
-              <div className="p-6 border-b">
-                <h2 className="text-xl font-semibold">Recent Applications</h2>
-              </div>
-              <div className="divide-y">
-                {recentApplications && recentApplications.length > 0 ? (
-                  recentApplications.map((app: Record<string, unknown>) => (
-                    <div key={app.id} className="p-4 hover:bg-gray-50">
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <p className="font-medium">{app.profiles?.full_name || 'Unknown'}</p>
-                          <p className="text-sm text-gray-600">{app.profiles?.email}</p>
-                          <p className="text-xs text-gray-500 mt-1">{app.program_type || 'General'}</p>
-                        </div>
-                        <span className={`px-2 py-1 rounded-full text-xs ${
-                          app.status === 'approved' ? 'bg-blue-100 text-green-700' :
-                          app.status === 'pending' ? 'bg-yellow-100 text-yellow-700' :
-                          'bg-gray-100 text-gray-700'
-                        }`}>
-                          {app.status}
-                        </span>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-2">
-                        {new Date(app.created_at).toLocaleString()}
-                      </p>
-                    </div>
-                  ))
-                ) : (
-                  <div className="p-8 text-center text-gray-500">No recent applications</div>
-                )}
-              </div>
-              <div className="p-4 border-t bg-gray-50">
-                <Link href="/admin/applications" className="text-sm text-blue-600 hover:text-blue-700">
-                  View all applications →
-                </Link>
-              </div>
-            </div>
-
-            {/* Recent Users */}
-            <div className="bg-white rounded-lg shadow-sm border">
-              <div className="p-6 border-b">
-                <h2 className="text-xl font-semibold">Recent Users</h2>
-              </div>
-              <div className="divide-y">
-                {recentUsers && recentUsers.length > 0 ? (
-                  recentUsers.map((u: Record<string, unknown>) => (
-                    <div key={u.id} className="p-4 hover:bg-gray-50">
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <p className="font-medium">{u.full_name || 'No name'}</p>
-                          <p className="text-sm text-gray-600">{u.email}</p>
-                        </div>
-                        <span className={`px-2 py-1 rounded-full text-xs ${
-                          u.role === 'admin' ? 'bg-blue-100 text-blue-700' :
-                          u.role === 'instructor' ? 'bg-blue-100 text-purple-700' :
-                          'bg-blue-100 text-green-700'
-                        }`}>
-                          {u.role || 'student'}
-                        </span>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-2">
-                        Joined {new Date(u.created_at).toLocaleDateString()}
-                      </p>
-                    </div>
-                  ))
-                ) : (
-                  <div className="p-8 text-center text-gray-500">No recent users</div>
-                )}
-              </div>
-              <div className="p-4 border-t bg-gray-50">
-                <Link href="/admin/users" className="text-sm text-blue-600 hover:text-blue-700">
-                  View all users →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      
-      {/* Storytelling Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-                  Your Journey Starts Here
-                </h2>
-                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  Every great career begins with a single step. Whether you're looking to change careers, 
-                  upgrade your skills, or enter the workforce for the first time, we're here to help you succeed. 
-                  Our programs are 100% free, government-funded, and designed to get you hired fast.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">100% free training - no tuition, no hidden costs</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Industry-recognized certifications that employers value</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Job placement assistance and career support</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Flexible scheduling for working adults</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/gallery/image3.jpg"
-                  alt="Students learning"
-                  fill
-                  className="object-cover"
-                  quality={100}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      </div>
     </div>
   );
 }

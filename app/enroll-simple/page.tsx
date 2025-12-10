@@ -48,7 +48,7 @@ export default function SimpleEnrollPage() {
               If you qualify for government funding (WIOA, WRG, JRI)
             </p>
             <Link
-              href="/contact-simple"
+              href="/contact"
               className="block w-full text-center px-6 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700"
             >
               Contact Us About Free Training

@@ -64,28 +64,61 @@ export default function BarberApprenticeshipPage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             {/* FREE */}
-            <div className="bg-white border-2 border-green-500 rounded-xl p-6">
-              <div className="text-2xl font-bold text-green-700 mb-3">100% FREE</div>
-              <p className="text-slate-600 mb-4">
-                If you qualify for WIOA, WRG, or JRI funding. No tuition. No debt.
+            <div className="bg-white border-2 border-green-500 rounded-xl p-8">
+              <div className="text-3xl font-bold text-green-700 mb-4">Apply for FREE Training</div>
+              <p className="text-slate-700 mb-4">
+                Most students qualify for 100% free training through government funding programs:
+              </p>
+              <ul className="space-y-2 mb-6 text-slate-600">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>WRG - Workforce Ready Grant</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>WIOA - Workforce Innovation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>JRI - Justice Reinvestment</span>
+                </li>
+              </ul>
+              <p className="text-sm text-slate-600 mb-6">
+                No tuition. No debt. We help you apply and handle all the paperwork.
               </p>
               <Link
                 href="/contact"
-                className="block w-full text-center px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700"
+                className="block w-full text-center px-6 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-all"
               >
-                Contact Us About Free Training
+                Apply for Free Training
               </Link>
             </div>
 
             {/* PAID */}
-            <div className="bg-white border-2 border-blue-500 rounded-xl p-6">
-              <div className="text-2xl font-bold text-blue-700 mb-3">$4,890</div>
-              <p className="text-slate-600 mb-4">
-                Start immediately. 13 payment options. Includes FREE Milady RISE certification.
+            <div className="bg-white border-2 border-blue-500 rounded-xl p-8">
+              <div className="text-3xl font-bold text-blue-700 mb-4">Don't Qualify? Pay Now</div>
+              <div className="text-2xl font-bold text-slate-900 mb-4">$4,890 Total Cost</div>
+              <p className="text-slate-700 mb-4">
+                If you don't qualify for free funding, you can pay directly and start immediately.
+              </p>
+              <div className="bg-blue-50 rounded-lg p-4 mb-6">
+                <p className="text-sm font-semibold text-blue-900 mb-3">💳 Pay Over Time Examples:</p>
+                <ul className="text-sm text-blue-800 space-y-2">
+                  <li>• <strong>$407/month</strong> for 12 months (0% APR with Affirm)</li>
+                  <li>• <strong>$204/month</strong> for 24 months (low interest)</li>
+                  <li>• <strong>4 payments of $1,223</strong> (Afterpay/Klarna)</li>
+                  <li>• Or pay in full: $4,890</li>
+                </ul>
+                <p className="text-xs text-blue-700 mt-3">
+                  Also accepted: PayPal, Venmo, Cash App Pay, credit/debit cards, ACH bank transfer
+                </p>
+              </div>
+              <p className="text-sm text-slate-600 mb-6">
+                <strong>Includes:</strong> All training materials, certifications, and FREE Milady RISE online course ($295 value).
               </p>
               <Link
-                href="/checkout/prog-barber-apprentice"
-                className="block w-full text-center px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700"
+                href="/enroll-simple"
+                className="block w-full text-center px-6 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"
               >
                 Enroll Now
               </Link>
@@ -165,15 +198,15 @@ export default function BarberApprenticeshipPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
-              className="px-8 py-4 bg-white text-orange-600 font-bold rounded-lg hover:bg-gray-100"
+              className="px-8 py-4 bg-white text-orange-600 font-bold rounded-lg hover:bg-gray-100 transition-all"
             >
-              Contact Us About Free Training
+              Apply for Free Training
             </Link>
             <Link
-              href="/checkout/prog-barber-apprentice"
-              className="px-8 py-4 bg-orange-700 text-white font-bold rounded-lg hover:bg-orange-800 border-2 border-white"
+              href="/enroll-simple"
+              className="px-8 py-4 bg-orange-700 text-white font-bold rounded-lg hover:bg-orange-800 border-2 border-white transition-all"
             >
-              Enroll Now - $4,890
+              Enroll Now
             </Link>
           </div>
         </div>

@@ -8,8 +8,17 @@ const stripe = stripeKey ? new Stripe(stripeKey, {
 }) : null;
 
 export async function POST(request: NextRequest) {
+  // Log for debugging (remove in production)
+  console.log('Stripe Key exists:', !!stripeKey);
+  console.log('Stripe Key length:', stripeKey?.length || 0);
+  console.log('Environment:', process.env.NODE_ENV);
+  
   if (!stripe) {
-    return NextResponse.json({ error: 'Payment system not configured' }, { status: 503 });
+    console.error('Stripe not initialized. Check STRIPE_SECRET_KEY environment variable.');
+    return NextResponse.json({ 
+      error: 'Payment system not configured. Please contact support at 317-314-3757',
+      debug: process.env.NODE_ENV === 'development' ? 'STRIPE_SECRET_KEY not set' : undefined
+    }, { status: 503 });
   }
 
   try {
