@@ -581,14 +581,14 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
               href="/apply"
-              className="inline-flex items-center justify-center gap-3 px-12 py-6 text-2xl font-bold text-orange-600 bg-white rounded-full hover:bg-orange-50 transition-all hover:scale-105 shadow-2xl"
+              className="inline-flex items-center justify-center gap-3 px-12 py-6 text-2xl font-bold text-slate-900 bg-white rounded-full hover:bg-gray-100 transition-all hover:scale-105 shadow-2xl border-4 border-white"
             >
               Apply Now
               <ArrowRight size={28} />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-3 px-12 py-6 text-2xl font-bold text-white bg-orange-700 rounded-full hover:bg-orange-800 transition-all hover:scale-105 border-4 border-white/30"
+              className="inline-flex items-center justify-center gap-3 px-12 py-6 text-2xl font-bold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-all hover:scale-105 border-4 border-white shadow-2xl"
             >
               Talk to Advisor
             </Link>
