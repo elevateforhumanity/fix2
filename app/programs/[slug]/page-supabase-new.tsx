@@ -139,7 +139,7 @@ export default async function ProgramPage({ params }: Props) {
                 href={applyHref}
                 className="inline-flex items-center justify-center rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-orange-600 hover:shadow-md"
               >
-                Start Application
+                Contact Us
               </Link>
               <Link
                 href={contactHref}

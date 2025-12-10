@@ -73,7 +73,7 @@ export default function Page() {
                 and what support you might need. No commitment required.
               </p>
               <Link href="/contact" className="text-orange-600 font-semibold hover:underline">
-                Start Application →
+                Contact Us →
               </Link>
             </div>
             

@@ -86,7 +86,7 @@ export default function DemosPage() {
                 <div className="p-6">
                   <h3 className="text-2xl font-bold mb-2">Application Process</h3>
                   <p className="text-slate-600 mb-4">See how easy it is to apply, get approved for funding, and start your training in just days.</p>
-                  <span className="inline-block text-blue-700 font-bold">Start Application →</span>
+                  <span className="inline-block text-blue-700 font-bold">Contact Us →</span>
                 </div>
               </div>
             </Link>
