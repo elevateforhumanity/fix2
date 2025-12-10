@@ -10,18 +10,22 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Compelling script about Elevate for Humanity
-const SCRIPT = `Welcome to Elevate for Humanity.
+// Natural, human script from Elizabeth Greene
+const SCRIPT = `Hey there. I'm Elizabeth Greene, and I started Elevate For Humanity because I believe everyone deserves a real shot at a better life.
 
-We're more than a training provider. We're a community-based workforce philanthropy, transforming lives through education and opportunity.
+Maybe you've been turned down for jobs. Maybe you're working two jobs and still can't pay rent. Maybe you're coming home from incarceration and nobody will give you a chance.
 
-From Marion County to communities across Indiana, we connect people to 100% funded career training. No tuition. No debt. Just real pathways to meaningful careers.
+I see you. Not your mistakes. Not your struggles. Your potential.
 
-Whether you're starting fresh, making a change, or getting a second chance, we're here to elevate your future.
+We offer free career training in barbering, healthcare, HVAC, and more. If you qualify for government funding, it costs you nothing. Zero debt. Real credentials. Real jobs waiting.
 
-Because when you rise, we all rise.
+Don't qualify? No problem. We have payment plans that work.
 
-Elevate for Humanity. Your partner in career transformation.`;
+This isn't charity. This is justice. This is what happens when someone actually believes in you.
+
+Your past doesn't define your future. Let's build it together.
+
+Visit ElevateForHumanity.org or call 317-314-3757.`;
 
 async function main() {
   console.log('🎙️  Generating voiceover for Elevate for Humanity\n');

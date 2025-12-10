@@ -409,20 +409,6 @@ export default async function DashboardPage() {
     </div>
   );
 }
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            
-            
-            <Link
-              href="/student/dashboard"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
-            >
-              Back to Dashboard
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Content Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
