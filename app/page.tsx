@@ -165,7 +165,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative aspect-[16/9] w-full">
                 <Image
-                  src="/images/gallery/image9.jpg"
+                  src="/images/gallery/image5.jpg"
                   alt="Real Credentials"
                   fill
                   className="object-cover object-center"
@@ -499,7 +499,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/gallery/image5.jpg"
+                src="/images/hero-training.jpg"
                 alt="Training facility"
                 fill
                 className="object-cover"
