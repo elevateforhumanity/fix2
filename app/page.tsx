@@ -108,8 +108,8 @@ export default function HomePage() {
               </p>
               
               <p className="text-lg sm:text-xl font-semibold text-slate-900 leading-relaxed">
-                This isn't charity. This is justice. This is what happens when a community decides that everyone—
-                regardless of their past—deserves a shot at a better future.
+                This isn't a handout. It's an investment in people who are ready to work hard and change their lives. 
+                When we give someone the tools and training they need, they don't just get a job—they transform their entire future.
               </p>
             </div>
             
@@ -261,7 +261,7 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
             <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl shadow-lg">
               <Image
-                src="/images/gallery/image3.jpg"
+                src="/images/facilities-new/facility-1.jpg"
                 alt="Elevate For Humanity training facility"
                 fill
                 className="object-cover object-center"
@@ -271,7 +271,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl shadow-lg">
               <Image
-                src="/images/gallery/image4.jpg"
+                src="/images/facilities-new/facility-2.jpg"
                 alt="Professional training environment"
                 fill
                 className="object-cover object-center"
@@ -366,8 +366,8 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
             <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/tax-office-1.jpg"
-                alt="Tax Preparation Training"
+                src="/images/facilities-new/facility-5.jpg"
+                alt="Professional Training Environment"
                 fill
                 className="object-cover object-center hover:scale-110 transition-transform duration-500"
                 quality={75}
@@ -396,7 +396,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/media/programs/beauty.jpg"
+                src="/images/beauty/program-beauty-training.jpg"
                 alt="Beauty Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
@@ -406,7 +406,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/media/programs/hvac-highlight-3.jpg"
+                src="/images/trades/program-hvac-technician.jpg"
                 alt="HVAC Technician"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
@@ -416,7 +416,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/media/programs/cpr-individual-practice-hd.jpg"
+                src="/images/healthcare/cpr-individual-practice.jpg"
                 alt="CPR Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
@@ -493,7 +493,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/gallery/image5.jpg"
+                src="/images/general/federal-funding-hero.jpg"
                 alt="Training facility"
                 fill
                 className="object-cover"
@@ -522,7 +522,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/media/programs/cpr-group-training-hd.jpg"
+                src="/images/healthcare/cpr-group-training-session.jpg"
                 alt="CPR training - Real students learning life-saving skills"
                 fill
                 className="object-cover"
@@ -531,7 +531,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/media/programs/cna-hd.jpg"
+                src="/images/healthcare/program-cna-training.jpg"
                 alt="CNA training - Real healthcare students"
                 fill
                 className="object-cover"
@@ -541,8 +541,8 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/media/programs/medical-esthetics-training-hd.jpg"
-                alt="Medical esthetics training - Real beauty students"
+                src="/images/beauty/program-beauty-training.jpg"
+                alt="Beauty training - Real beauty students"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 50vw, 25vw"
@@ -550,7 +550,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/media/programs/cpr-certification-group-hd.jpg"
+                src="/images/healthcare/cpr-certification-group.jpg"
                 alt="CPR certification - Real students getting certified"
                 fill
                 className="object-cover"
