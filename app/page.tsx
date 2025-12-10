@@ -115,9 +115,12 @@ export default function HomePage() {
       {/* How We Help You Succeed */}
       <section className="py-16 bg-slate-900 text-white">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">How We Help You Succeed</h2>
-          <p className="text-xl text-center text-slate-300 mb-12">
-            We offer three pathways to career training - all designed to get you working fast.
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">Short-Term Training, Real Credentials</h2>
+          <p className="text-xl text-center text-slate-300 mb-4">
+            Our hybrid programs combine online learning with hands-on training. Most programs take 4-12 weeks, not years.
+          </p>
+          <p className="text-lg text-center text-orange-400 mb-12 font-semibold">
+            100% FREE if you qualify for government funding.
           </p>
           
           <div className="space-y-8">
@@ -127,10 +130,10 @@ export default function HomePage() {
                 <div>
                   <h3 className="text-2xl font-bold mb-2 text-green-400">WRG - Workforce Ready Grant</h3>
                   <p className="text-slate-300 mb-2">
-                    Indiana residents can get 100% FREE training through the state's Workforce Ready Grant. 
-                    No income limits. No age limits. Just free training for in-demand careers.
+                    Indiana residents get 100% FREE short-term training (4-12 weeks). Study online at your own pace, 
+                    complete hands-on requirements, earn industry credentials. No income limits. No age limits.
                   </p>
-                  <p className="text-sm text-slate-400">Perfect for: Anyone in Indiana looking to start a new career</p>
+                  <p className="text-sm text-slate-400">Examples: CNA, HVAC, CDL, Medical Assistant</p>
                 </div>
               </div>
             </div>
@@ -141,10 +144,10 @@ export default function HomePage() {
                 <div>
                   <h3 className="text-2xl font-bold mb-2 text-blue-400">WIOA - Workforce Innovation</h3>
                   <p className="text-slate-300 mb-2">
-                    Federal funding for unemployed or underemployed workers. Covers tuition, books, and sometimes 
-                    transportation. We help you apply and navigate the process.
+                    Federal funding for unemployed or underemployed workers. Covers tuition, books, transportation, 
+                    and support services. Hybrid format: online coursework + in-person skills training. Get certified fast.
                   </p>
-                  <p className="text-sm text-slate-400">Perfect for: Those facing barriers to employment</p>
+                  <p className="text-sm text-slate-400">Timeline: 4-16 weeks depending on program</p>
                 </div>
               </div>
             </div>
@@ -155,10 +158,10 @@ export default function HomePage() {
                 <div>
                   <h3 className="text-2xl font-bold mb-2 text-orange-400">Registered Apprenticeships</h3>
                   <p className="text-slate-300 mb-2">
-                    Earn while you learn. Work in real jobs, get paid, and complete your training at the same time. 
-                    Graduate with experience AND credentials.
+                    Longer programs (12-18 months) where you earn while you learn. Work in real jobs, get paid, 
+                    complete online coursework, and graduate with experience + credentials. No student debt.
                   </p>
-                  <p className="text-sm text-slate-400">Perfect for: Those who need income while training</p>
+                  <p className="text-sm text-slate-400">Examples: HVAC Technician, Building Maintenance</p>
                 </div>
               </div>
             </div>
