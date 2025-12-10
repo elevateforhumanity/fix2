@@ -163,7 +163,8 @@ async function processNewTriggers(supabase: any, workflow: any, now: Date) {
 /**
  * Process pending workflow emails
  */
-async function processPendingEmails(supabase: any, // TODO: Type with SupabaseClient workflow: any, now: Date) {
+async function processPendingEmails(supabase: any, workflow: any, now: Date) {
+  // TODO: Type with SupabaseClient
   // Get enrollments with pending emails
   const { data: enrollments, error } = await supabase
     .from('workflow_enrollments')
