@@ -210,7 +210,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg sm:col-span-2 lg:col-span-1">
               <div className="relative aspect-[16/9] w-full">
                 <Image
-                  src="/images/business/program-office-administration.jpg"
+                  src="/images/business/program-tax-preparation.jpg"
                   alt="Job Connections and Career Placement"
                   fill
                   className="object-cover object-center"
@@ -237,7 +237,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/beauty/program-barber-apprenticeship.jpg"
+                src="/images/beauty/program-barber-training.jpg"
                 alt="Success Story - Barber Graduate"
                 fill
                 className="object-cover object-center"
@@ -325,7 +325,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/transportation/hero-program-cdl.jpg"
+                src="/images/trades/hero-program-cdl.jpg"
                 alt="CDL Training Success"
                 fill
                 className="object-cover object-center hover:scale-105 transition-transform duration-700"
@@ -380,7 +380,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/transportation/program-cdl-training.jpg"
+                src="/images/trades/program-cdl-commercial-driving.jpg"
                 alt="CDL Commercial Driver Training"
                 fill
                 className="object-cover object-center hover:scale-110 transition-transform duration-500"
@@ -400,7 +400,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/trades/program-electrical-apprentice.jpg"
+                src="/images/trades/program-electrical-training.jpg"
                 alt="Electrical Apprentice Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
