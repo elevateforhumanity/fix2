@@ -79,7 +79,7 @@ export async function GET(request: NextRequest) {
 }
 
 async function generateEnrollmentReport(
-  supabase: any, // TODO: Type with SupabaseClient
+  supabase: any,
   startDate: string | null,
   endDate: string | null
 ) {
@@ -99,7 +99,7 @@ async function generateEnrollmentReport(
 }
 
 async function generateOutcomesReport(
-  supabase: any, // TODO: Type with SupabaseClient
+  supabase: any,
   startDate: string | null,
   endDate: string | null
 ) {
@@ -127,7 +127,7 @@ async function generateOutcomesReport(
 }
 
 async function generatePerformanceReport(
-  supabase: any, // TODO: Type with SupabaseClient
+  supabase: any,
   startDate: string | null,
   endDate: string | null
 ) {
@@ -148,7 +148,7 @@ async function generatePerformanceReport(
 }
 
 async function generateDemographicsReport(
-  supabase: any, // TODO: Type with SupabaseClient
+  supabase: any,
   startDate: string | null,
   endDate: string | null
 ) {
@@ -172,7 +172,7 @@ async function generateDemographicsReport(
 }
 
 async function generateServicesReport(
-  supabase: any, // TODO: Type with SupabaseClient
+  supabase: any,
   startDate: string | null,
   endDate: string | null
 ) {
