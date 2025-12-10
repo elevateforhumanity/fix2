@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { WelcomeAudio } from "@/components/WelcomeAudio";
 import VideoTestimonials from "@/components/VideoTestimonials";
-import TrustBadges from "@/components/TrustBadges";
+import { TrustBadges } from "@/components/TrustBadges";
 import EmployerPartners from "@/components/EmployerPartners";
 import EnrollmentCounter from "@/components/EnrollmentCounter";
 import ProgramFinder from "@/components/ProgramFinder";
