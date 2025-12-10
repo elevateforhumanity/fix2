@@ -14,19 +14,19 @@ export const metadata: Metadata = {
 export default function BarberApprenticeshipPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section with Image Banner */}
+      {/* Hero Section with Video Banner */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
-        {/* Hero Image Background */}
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-slate-900 to-slate-700">
-          <Image
-            src="/images/barber-highlight-1.jpg"
-            alt="Barber Apprenticeship Training"
-            fill
-            priority
-            className="object-cover opacity-40"
-            sizes="100vw"
-          />
-        </div>
+        {/* Video Background - NO OVERLAY */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/barber-hero.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         
         {/* Content */}
         <div className="relative z-10 h-full flex items-center">

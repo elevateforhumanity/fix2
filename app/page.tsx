@@ -290,8 +290,7 @@ export default function HomePage() {
 
 
 
-      {/* CREDENTIALED PROGRAMS - HYBRID - SHORT TERM */}
-      {/* SUCCESS IMAGES - LARGE GALLERY */}
+      {/* SUCCESS IMAGES - SIMPLIFIED */}
       <section className="py-12 sm:py-16 md:py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-12">
@@ -300,7 +299,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
                 src="/images/highlights/free-training.jpg"
@@ -322,31 +321,6 @@ export default function HomePage() {
               />
             </div>
           </div>
-
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/images/learners/coaching-session.jpg"
-                alt="Career coaching session"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-                quality={75}
-                sizes="(max-width: 640px) 100vw, 50vw"
-              />
-            </div>
-            <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/images/facilities-new/facility-2.jpg"
-                alt="Hands-on training"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-                quality={75}
-                sizes="(max-width: 640px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-
-
         </div>
       </section>
 
@@ -415,7 +389,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/facilities-new/facility-1.jpg"
+                src="/images/gallery/image6.jpg"
                 alt="Training facility and classroom"
                 fill
                 className="object-cover"
