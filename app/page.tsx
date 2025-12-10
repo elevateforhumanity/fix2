@@ -2,6 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { WelcomeAudio } from "@/components/WelcomeAudio";
+import VideoTestimonials from "@/components/VideoTestimonials";
+import TrustBadges from "@/components/TrustBadges";
+import EmployerPartners from "@/components/EmployerPartners";
+import EnrollmentCounter from "@/components/EnrollmentCounter";
+import ProgramFinder from "@/components/ProgramFinder";
+import LiveChat from "@/components/LiveChat";
 
 export const metadata = {
   title: "Elevate for Humanity | Free Career Training Indianapolis",
@@ -586,6 +592,40 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* TRUST BADGES - Show credibility */}
+      <TrustBadges />
+
+      {/* VIDEO TESTIMONIALS - Real student success stories */}
+      <VideoTestimonials />
+
+      {/* ENROLLMENT COUNTER - Live social proof */}
+      <EnrollmentCounter />
+
+      {/* EMPLOYER PARTNERS - Show hiring companies */}
+      <EmployerPartners />
+
+      {/* PROGRAM FINDER - Interactive quiz */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Not Sure Which Program is Right for You?
+          </h2>
+          <p className="text-xl text-gray-600 mb-8">
+            Take our quick 2-minute quiz to find your perfect career path
+          </p>
+          <Link
+            href="/program-finder"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg text-lg"
+          >
+            Find My Program
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+      </section>
+
+      {/* LIVE CHAT WIDGET */}
+      <LiveChat />
     </main>
   );
 }
