@@ -16,6 +16,11 @@ export function measurePageLoad() {
     }
     // Log to console in development
     if (process.env.NODE_ENV === 'development') {
+      console.log('Page Performance:', {
+        pageLoad: `${pageLoadTime}ms`,
+        connect: `${connectTime}ms`,
+        render: `${renderTime}ms`,
+      });
     }
   });
 }
@@ -129,10 +134,12 @@ export function analyzeResourceTiming() {
 // Memory usage (if available)
 export function trackMemoryUsage() {
   if (typeof window === 'undefined') return;
-  const memory = (performance as string).memory;
+  
+  const memory = (performance as any).memory;
   if (memory) {
     const usedMemory = memory.usedJSHeapSize / 1048576; // MB
     const totalMemory = memory.totalJSHeapSize / 1048576; // MB
+    
     if (process.env.NODE_ENV === 'development') {
       console.log('Memory Usage:', {
         used: `${usedMemory.toFixed(2)}MB`,
@@ -140,6 +147,7 @@ export function trackMemoryUsage() {
         percentage: `${((usedMemory / totalMemory) * 100).toFixed(1)}%`,
       });
     }
+    
     if (window.gtag) {
       window.gtag('event', 'memory_usage', {
         event_category: 'Performance',
