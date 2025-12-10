@@ -328,8 +328,8 @@ export default function ApplyPage() {
                     type="radio"
                     name="contactMethod"
                     value="phone"
-                    checked={contactMethod === "phone"}
-                    onChange={() => setContactMethod("phone")}
+                    checked={formData.contactMethod === "phone"}
+                    onChange={() => updateFormData('contactMethod', "phone")}
                   />
                   <span>Phone Call</span>
                 </label>
@@ -338,8 +338,8 @@ export default function ApplyPage() {
                     type="radio"
                     name="contactMethod"
                     value="text"
-                    checked={contactMethod === "text"}
-                    onChange={() => setContactMethod("text")}
+                    checked={formData.contactMethod === "text"}
+                    onChange={() => updateFormData('contactMethod', "text")}
                   />
                   <span>Text Message</span>
                 </label>
@@ -348,8 +348,8 @@ export default function ApplyPage() {
                     type="radio"
                     name="contactMethod"
                     value="email"
-                    checked={contactMethod === "email"}
-                    onChange={() => setContactMethod("email")}
+                    checked={formData.contactMethod === "email"}
+                    onChange={() => updateFormData('contactMethod', "email")}
                   />
                   <span>Email</span>
                 </label>
