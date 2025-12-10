@@ -69,13 +69,7 @@ const team: TeamMember[] = [
     blurb:
       "Respiratory therapist and health informatics professional with 30+ years of experience in patient safety, quality, and clinical operations.",
   },
-  {
-    name: "Ameco Martin",
-    title: "Director of Staffing & Workforce Placement",
-    image: "/images/ameco-martin.jpg",
-    blurb:
-      "Connects students to real jobs, internships, apprenticeships, and employer partners, supporting transitions from training to employment.",
-  },
+
   {
     name: "Alina Perfect, PMHNP",
     title: "Psychiatric Mental Health Partner",
@@ -89,30 +83,14 @@ const team: TeamMember[] = [
 export default function TeamPage() {
   return (
     <main className="min-h-screen bg-white">
-      <section className="relative h-[400px] w-full overflow-hidden bg-white">
-        <Image
-          src="/images/gallery/image6.jpg"
-          alt="Our Team"
-          fill
-          className="object-cover brightness-105"
-          priority
-          quality={100}
-          sizes="100vw"
-        />
-        
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 h-full flex items-center">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-orange-600 mb-3">
-              Our Team
-            </p>
-            <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
-              Meet Our Team
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-700">
-              Real people who care about your success.
-            </p>
-          </div>
+      <section className="py-12 bg-white">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            Meet Our Team
+          </h1>
+          <p className="text-xl text-slate-600">
+            Real people who care about your success.
+          </p>
         </div>
       </section>
 
@@ -124,7 +102,7 @@ export default function TeamPage() {
               key={member.name}
               className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200"
             >
-              <div className="h-52 w-full overflow-hidden bg-slate-100">
+              <div className="h-32 w-full overflow-hidden bg-slate-100">
                 <img
                   src={member.image}
                   alt={member.name}
