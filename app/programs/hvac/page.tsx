@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { CheckCircle, Clock, DollarSign, TrendingUp, Zap, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Hvac Training | Elevate For Humanity',
-  description: 'Start your hvac career with free training. AI-powered learning, hands-on practice, and job placement support.',
+  title: 'HVAC Training | Elevate For Humanity',
+  description: 'Start your HVAC career with free training. AI-powered learning, hands-on practice, and job placement support.',
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/programs/hvac',
   },
@@ -14,23 +14,24 @@ export const metadata: Metadata = {
 export default function HvacPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
-        <Image
-          src="/images/gallery/image6.jpg"
-          alt="Hvac Training"
-          fill
-          className="object-cover"
-          priority
-          quality={100}
-          sizes="100vw"
-        />
+      {/* Hero Section - Video Banner */}
+      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden bg-slate-900">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+        >
+          <source src="/videos/heroes/programs/trades/hero-program-hvac.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-                Hvac
+                HVAC Technician
               </h1>
               <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
                 Start your career with free training, AI-powered learning, and job placement support
