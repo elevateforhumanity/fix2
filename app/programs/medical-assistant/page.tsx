@@ -17,8 +17,8 @@ export default function MedicalAssistantPage() {
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden bg-slate-900">
         <Image
-          src="/images/medical-assistant-1.jpg"
-          alt="Medical Assistant Training - Real students in clinical setting"
+          src="/images/heroes/programs/healthcare/hero-program-medical-assistant.jpg"
+          alt="Medical Assistant Training - Professional healthcare setting"
           fill
           className="object-cover opacity-90"
           priority
