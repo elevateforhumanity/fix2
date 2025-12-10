@@ -74,8 +74,12 @@ export default function ApplyPage() {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        setFormData(parsed.formData || formData);
-        setCurrentStep(parsed.currentStep || 1);
+        if (parsed.formData) {
+          setFormData(parsed.formData);
+        }
+        if (parsed.currentStep) {
+          setCurrentStep(parsed.currentStep);
+        }
       } catch (e) {
         console.error('Failed to load saved application');
       }
