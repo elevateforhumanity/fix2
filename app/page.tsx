@@ -8,6 +8,8 @@ import EmployerPartners from "@/components/EmployerPartners";
 import EnrollmentCounter from "@/components/EnrollmentCounter";
 import LiveChat from "@/components/LiveChat";
 
+// Force cache bust - Updated: 2025-12-10
+
 export const metadata = {
   title: "Elevate for Humanity | Free Career Training Indianapolis",
   description:
