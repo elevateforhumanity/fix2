@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { CheckCircle, Clock, DollarSign, TrendingUp, Zap, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Cna Training | Elevate For Humanity',
-  description: 'Start your cna career with free training. AI-powered learning, hands-on practice, and job placement support.',
+  title: 'CNA Training | Elevate For Humanity',
+  description: 'Start your CNA career with free training. AI-powered learning, hands-on practice, and job placement support.',
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/programs/cna',
   },
@@ -17,8 +17,8 @@ export default function CnaPage() {
       {/* Hero Section */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
         <Image
-          src="/images/gallery/image6.jpg"
-          alt="Cna Training"
+          src="/images/heroes/programs/healthcare/hero-program-cna.jpg"
+          alt="CNA Training - Certified Nursing Assistant Program"
           fill
           className="object-cover"
           priority
@@ -30,7 +30,7 @@ export default function CnaPage() {
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-                Cna
+                Certified Nursing Assistant (CNA)
               </h1>
               <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
                 Start your career with free training, AI-powered learning, and job placement support
