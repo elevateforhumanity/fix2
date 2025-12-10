@@ -64,7 +64,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="text-3xl font-bold text-center mb-12">Our Programs</h2>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {/* Healthcare */}
             <Link href="/programs/cna" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
               <div className="relative h-48">
@@ -97,21 +97,7 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Beauty */}
-            <Link href="/programs/barber-apprenticeship" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
-              <div className="relative h-48">
-                <Image
-                  src="/images/gallery/image7.jpg"
-                  alt="Beauty Training"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Beauty</h3>
-                <p className="text-slate-600 text-sm">Esthetics, Cosmetology</p>
-              </div>
-            </Link>
+
           </div>
 
           <div className="text-center mt-8">
@@ -151,29 +137,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="py-16 bg-slate-50">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">500+</div>
-              <div className="text-slate-600">Students Trained</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">85%</div>
-              <div className="text-slate-600">Job Placement</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">100+</div>
-              <div className="text-slate-600">Hiring Partners</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">$45K</div>
-              <div className="text-slate-600">Avg Starting Salary</div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA */}
       <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-center">
