@@ -214,8 +214,8 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/gallery/image9.jpg"
-                alt="Success Story"
+                src="/images/testimonials/student-marcus.jpg"
+                alt="Marcus - Barber Graduate Success Story"
                 fill
                 className="object-cover"
                 quality={75}
@@ -304,8 +304,8 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/gallery/image11.jpg"
-                alt="Success Story"
+                src="/images/highlights/free-training.jpg"
+                alt="Students in training program"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
                 quality={75}
@@ -314,8 +314,8 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/location-1.jpg"
-                alt="Graduate Success"
+                src="/images/facilities-new/facility-1.jpg"
+                alt="Training facility"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
                 quality={75}
@@ -327,8 +327,8 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/location-2.jpg"
-                alt="Career Success"
+                src="/images/learners/coaching-session.jpg"
+                alt="Career coaching session"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
                 quality={75}
@@ -337,8 +337,8 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/location-3.jpg"
-                alt="CDL Training Success"
+                src="/images/facilities-new/facility-2.jpg"
+                alt="Hands-on training"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
                 quality={75}
