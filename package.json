@@ -287,5 +287,21 @@
   },
   "overrides": {
     "inflight": "npm:lru-cache@^10.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "sharp",
+      "esbuild",
+      "puppeteer",
+      "@sentry/cli",
+      "protobufjs",
+      "canvas",
+      "core-js",
+      "@ffmpeg-installer/linux-x64",
+      "workerd",
+      "vue-demi",
+      "unrs-resolver"
+    ]
   }
 }
