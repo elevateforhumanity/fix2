@@ -23,20 +23,20 @@ interface FormData {
   phone: string;
   email: string;
   city: string;
-  zip: string;
+  zipCode: string;
   
   // Step 3: Program Selection
-  program: string;
+  programInterest: string;
   timeline: string;
   goals: string;
   
   // Step 4: Support Needs
   transportation: string;
   childcare: boolean;
-  supportNotes: string;
+  notes: string;
   
   // Step 5: Contact Preferences
-  contactMethod: string;
+  contactPreference: string;
   contactTime: string;
   referralSource: string;
 }
@@ -53,14 +53,14 @@ export default function ApplyPage() {
     phone: "",
     email: "",
     city: "",
-    zip: "",
-    program: "",
+    zipCode: "",
+    programInterest: "",
     timeline: "",
     goals: "",
     transportation: "",
     childcare: false,
-    supportNotes: "",
-    contactMethod: "phone",
+    notes: "",
+    contactPreference: "phone",
     contactTime: "",
     referralSource: "",
   });
@@ -144,18 +144,17 @@ export default function ApplyPage() {
         phone: "",
         email: "",
         city: "",
-        zip: "",
-        program: "",
+        zipCode: "",
+        programInterest: "",
         timeline: "",
         goals: "",
         transportation: "",
         childcare: false,
-        supportNotes: "",
-        contactMethod: "phone",
+        notes: "",
+        contactPreference: "phone",
         contactTime: "",
         referralSource: "",
       });
-      setMathAnswer("");
     } catch (err) {
       console.error(err);
       setError("Something went wrong submitting your application. Please try again or call 317-314-3757.");
@@ -279,8 +278,8 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   required
-                  value={formData.zip}
-                  onChange={(e) => updateFormData('zip', e.target.value)}
+                  value={formData.zipCode}
+                  onChange={(e) => updateFormData('zipCode', e.target.value)}
                   className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-white"
                 />
               </div>
@@ -291,8 +290,8 @@ export default function ApplyPage() {
                 Program You&apos;re Most Interested In
               </label>
               <select
-                value={formData.program}
-                onChange={(e) => updateFormData('program', e.target.value)}
+                value={formData.programInterest}
+                onChange={(e) => updateFormData('programInterest', e.target.value)}
                 className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               >
                 <option value="Barber Apprenticeship">Barber Apprenticeship</option>
@@ -315,8 +314,8 @@ export default function ApplyPage() {
                 technology access, or anything else you&apos;re comfortable sharing.
               </p>
               <textarea
-                value={formData.supportNotes}
-                onChange={(e) => updateFormData('supportNotes', e.target.value)}
+                value={formData.notes}
+                onChange={(e) => updateFormData('notes', e.target.value)}
                 rows={4}
                 className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
               />
@@ -330,30 +329,30 @@ export default function ApplyPage() {
                 <label className="inline-flex items-center gap-2">
                   <input
                     type="radio"
-                    name="contactMethod"
+                    name="contactPreference"
                     value="phone"
-                    checked={formData.contactMethod === "phone"}
-                    onChange={() => updateFormData('contactMethod', "phone")}
+                    checked={formData.contactPreference === "phone"}
+                    onChange={() => updateFormData('contactPreference', "phone")}
                   />
                   <span>Phone Call</span>
                 </label>
                 <label className="inline-flex items-center gap-2">
                   <input
                     type="radio"
-                    name="contactMethod"
+                    name="contactPreference"
                     value="text"
-                    checked={formData.contactMethod === "text"}
-                    onChange={() => updateFormData('contactMethod', "text")}
+                    checked={formData.contactPreference === "text"}
+                    onChange={() => updateFormData('contactPreference', "text")}
                   />
                   <span>Text Message</span>
                 </label>
                 <label className="inline-flex items-center gap-2">
                   <input
                     type="radio"
-                    name="contactMethod"
+                    name="contactPreference"
                     value="email"
-                    checked={formData.contactMethod === "email"}
-                    onChange={() => updateFormData('contactMethod', "email")}
+                    checked={formData.contactPreference === "email"}
+                    onChange={() => updateFormData('contactPreference', "email")}
                   />
                   <span>Email</span>
                 </label>

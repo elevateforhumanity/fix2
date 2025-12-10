@@ -15,7 +15,6 @@ const applicationSchema = z.object({
   programInterest: z.string().min(1).max(200),
   notes: z.string().max(1000).optional(),
   contactPreference: z.enum(['phone', 'text', 'email']),
-  captchaAnswer: z.string(),
 });
 
 export async function POST(req: NextRequest) {
