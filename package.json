@@ -237,6 +237,7 @@
     "test:e2e": "playwright test",
     "format": "prettier . --write",
     "format:check": "prettier --check .",
+    "lint-staged": "lint-staged",
     "type-check": "NODE_OPTIONS=--max-old-space-size=8192 tsc --noEmit",
     "typecheck": "NODE_OPTIONS=--max-old-space-size=8192 tsc --noEmit",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
