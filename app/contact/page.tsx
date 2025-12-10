@@ -95,13 +95,13 @@ d="M5 13l4 4L19 7" />
                 </ul>
               </div>
               <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg flex items-center justify-center">
-                  <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
+                <Image
+                  src="/images/success-new/success-1.jpg"
+                  alt="Students learning and training"
+                  width={800}
+                  height={450}
+                  className="rounded-lg shadow-lg object-cover w-full h-auto"
+                />
               </div>
             </div>
           </div>
