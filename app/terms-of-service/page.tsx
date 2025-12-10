@@ -51,7 +51,6 @@ export default function TermsOfServicePage() {
               To participate in our programs, you must:
             </p>
             <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
-              <li>Be at least 18 years old or have parental consent</li>
               <li>Meet program-specific eligibility requirements</li>
               <li>Provide accurate and complete information during enrollment</li>
               <li>Comply with all program rules and requirements</li>

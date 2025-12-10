@@ -24,11 +24,11 @@ export default function MainHeader() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="/logo.svg"
+                src="/images/logo.png"
                 alt="Elevate For Humanity"
-                width={48}
+                width={180}
                 height={48}
-                className="h-12 w-12"
+                className="h-12 w-auto"
                 priority
               />
             </Link>
