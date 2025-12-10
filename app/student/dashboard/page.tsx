@@ -409,15 +409,6 @@ export default async function DashboardPage() {
     </div>
   );
 }
-        />
-        <div className="absolute inset-0   " />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Dashboard
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Explore Dashboard and discover opportunities for career growth and development.
-          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             
             
