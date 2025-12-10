@@ -17,7 +17,7 @@ export default function HomePage() {
     <main className="bg-white">
       {/* Welcome Audio - Plays once on page load */}
       <WelcomeAudio />
-      {/* HERO - VIDEO BANNER */}
+      {/* HERO - VIDEO BANNER (NO OVERLAY, NO TEXT) */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl">
           <div className="relative w-full aspect-[16/9] max-h-[600px] overflow-hidden">
