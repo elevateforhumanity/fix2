@@ -1,46 +1,46 @@
 #!/bin/bash
-# Close all autopilot-created GitHub Issues
+# Close all autopilot-related GitHub issues
 
-set -e
-
-echo "🧹 Closing Autopilot-Created Issues"
-echo "===================================="
+echo "🧹 Closing all autopilot issues..."
+echo ""
+echo "This script will close all issues with labels: autopilot, auto-push, auto-heal-failed"
 echo ""
 
-# Check if gh CLI is available
-if ! command -v gh &> /dev/null; then
-    echo "❌ Error: GitHub CLI (gh) is not installed"
-    echo "Install it: https://cli.github.com/"
+# Check if gh CLI is authenticated
+if ! gh auth status &>/dev/null; then
+    echo "❌ GitHub CLI not authenticated"
+    echo "Run: gh auth login"
     exit 1
 fi
 
-# Check if authenticated
-if ! gh auth status &> /dev/null; then
-    echo "🔐 Please login to GitHub CLI..."
-    gh auth login
-fi
+# Get repository info
+REPO="elevateforhumanity/fix2"
 
-echo "📋 Fetching autopilot issues..."
-echo ""
+echo "📊 Fetching autopilot issues..."
 
-# Close all issues created by github-actions with autopilot labels
-gh issue list \
-  --author "app/github-actions" \
-  --label "autopilot" \
-  --state open \
-  --limit 1000 \
-  --json number \
-  --jq '.[].number' | while read -r issue_number; do
-    echo "Closing issue #$issue_number..."
-    gh issue close "$issue_number" --comment "Closing autopilot-generated issue. Autopilot workflows have been disabled to prevent issue spam."
+# Close all autopilot auto-push issues
+echo "Closing auto-push failures..."
+gh issue list --repo "$REPO" --label "auto-push" --state open --json number --jq '.[].number' | while read -r issue; do
+    gh issue close "$issue" --repo "$REPO" --comment "Closing automated issue - autopilot system deprecated. All functionality now handled manually with proper oversight."
+    echo "  ✅ Closed #$issue"
+done
+
+# Close all auto-heal-failed issues
+echo "Closing auto-heal failures..."
+gh issue list --repo "$REPO" --label "auto-heal-failed" --state open --json number --jq '.[].number' | while read -r issue; do
+    gh issue close "$issue" --repo "$REPO" --comment "Closing automated issue - autopilot system deprecated. All functionality now handled manually with proper oversight."
+    echo "  ✅ Closed #$issue"
+done
+
+# Close all autopilot issues
+echo "Closing remaining autopilot issues..."
+gh issue list --repo "$REPO" --label "autopilot" --state open --json number --jq '.[].number' | while read -r issue; do
+    gh issue close "$issue" --repo "$REPO" --comment "Closing automated issue - autopilot system deprecated. All functionality now handled manually with proper oversight."
+    echo "  ✅ Closed #$issue"
 done
 
 echo ""
 echo "✅ All autopilot issues closed!"
 echo ""
 echo "📊 Remaining open issues:"
-gh issue list --state open --limit 5
-
-echo ""
-echo "💡 To close ALL remaining autopilot issues (if any):"
-echo "   gh issue list --author 'app/github-actions' --state open --json number --jq '.[].number' | xargs -I {} gh issue close {}"
+gh issue list --repo "$REPO" --state open --limit 5
