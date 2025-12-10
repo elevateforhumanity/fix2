@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Elevate for Humanity | Free Career Training Indianapolis",
-  description: "100% free workforce training. CNA, HVAC, Barber, CDL and more. Real jobs, real credentials, no tuition.",
+  description: "100% free workforce training. CNA, HVAC, Beauty, CDL and more. Real jobs, real credentials, no tuition.",
   alternates: {
     canonical: "https://www.elevateforhumanity.org",
   },
@@ -97,19 +97,19 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Beauty & Barbering */}
+            {/* Beauty */}
             <Link href="/programs/barber-apprenticeship" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
               <div className="relative h-48">
                 <Image
                   src="/images/gallery/image7.jpg"
-                  alt="Barber Training"
+                  alt="Beauty Training"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Beauty & Barbering</h3>
-                <p className="text-slate-600 text-sm">Barber, Esthetics, Cosmetology</p>
+                <h3 className="text-xl font-bold mb-2">Beauty</h3>
+                <p className="text-slate-600 text-sm">Esthetics, Cosmetology</p>
               </div>
             </Link>
           </div>
