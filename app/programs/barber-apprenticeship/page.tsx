@@ -70,10 +70,10 @@ export default function BarberApprenticeshipPage() {
                 If you qualify for WIOA, WRG, or JRI funding. No tuition. No debt.
               </p>
               <Link
-                href="/apply"
+                href="/contact"
                 className="block w-full text-center px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700"
               >
-                Apply for Free Training
+                Contact Us About Free Training
               </Link>
             </div>
 
@@ -164,10 +164,10 @@ export default function BarberApprenticeshipPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/apply"
+              href="/contact"
               className="px-8 py-4 bg-white text-orange-600 font-bold rounded-lg hover:bg-gray-100"
             >
-              Apply for Free Training
+              Contact Us About Free Training
             </Link>
             <Link
               href="/checkout/prog-barber-apprentice"
