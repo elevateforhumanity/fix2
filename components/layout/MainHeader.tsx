@@ -24,7 +24,7 @@ export default function MainHeader() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="/logo.png"
+                src="/logo.svg"
                 alt="Elevate For Humanity"
                 width={48}
                 height={48}

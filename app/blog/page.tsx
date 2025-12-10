@@ -80,21 +80,41 @@ export default async function Page() {
           src="/media-backup-20251128-043832/hero/hero-blog-post-7.jpg"
           alt="Blog and news"
           fill
-          className="object-cover"
+          className="object-cover brightness-75"
           priority
           quality={100}
           sizes="100vw"
         />
         
+        {/* Dark overlay for text visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50 z-[1]"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl">
               News & Success Stories
             </h1>
-            <p className="text-xl md:text-2xl text-slate-200 leading-relaxed drop-shadow-lg mb-8">
+            <p className="text-xl md:text-2xl text-white leading-relaxed drop-shadow-lg mb-8">
               Stay updated with the latest workforce development news, student success stories, and career insights
             </p>
+            
+            {/* Hero Buttons */}
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link 
+                href="/apply" 
+                className="px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all shadow-2xl text-lg"
+              >
+                Apply Now - It's Free
+              </Link>
+              <a 
+                href="https://elevateforhumanity.durable.co/blog" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg"
+              >
+                Visit Our Blog →
+              </a>
+            </div>
           </div>
         </div>
       </section>
