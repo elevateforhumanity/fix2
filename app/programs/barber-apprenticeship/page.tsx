@@ -37,6 +37,26 @@ export default function BarberApprenticeshipPage() {
         </div>
       </section>
 
+      {/* Your Story */}
+      <section className="py-12 bg-slate-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Your Past Doesn't Define Your Future
+          </h2>
+          <p className="text-xl mb-4 leading-relaxed">
+            Maybe you've been turned down for jobs. Maybe you're working two jobs and still can't pay rent. 
+            Maybe you're coming home from incarceration and nobody will give you a chance.
+          </p>
+          <p className="text-2xl font-bold text-orange-400 mb-4">
+            We see your potential, not your past.
+          </p>
+          <p className="text-lg leading-relaxed text-slate-300">
+            This program was built for people who deserve a second chance. No judgment. No barriers. 
+            Just real training, real skills, and real jobs waiting for you on the other side.
+          </p>
+        </div>
+      </section>
+
       {/* Two Options - Simple */}
       <section className="py-12 bg-slate-50">
         <div className="max-w-5xl mx-auto px-4">

@@ -127,7 +127,11 @@ export default function ApplyPage() {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error("Submission failed");
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Submission failed");
+      }
 
       setSuccess(true);
       setFormData({
