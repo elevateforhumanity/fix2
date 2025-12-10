@@ -14,17 +14,18 @@ export const metadata: Metadata = {
 export default function TaxPrepPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Hero Section - Video Banner */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden bg-slate-900">
-        <Image
-          src="/images/tax-office-1.jpg"
-          alt="Tax Prep Training - Professional tax preparation office"
-          fill
-          className="object-cover opacity-90"
-          priority
-          quality={95}
-          sizes="100vw"
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+        >
+          <source src="/videos/heroes/programs/business/hero-program-business.mp4" type="video/mp4" />
+        </video>
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
