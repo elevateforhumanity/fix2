@@ -110,7 +110,7 @@ export default async function MasterControlPage() {
         { name: 'AI Course Builder', href: '/admin/ai-course-builder' },
         { name: 'Course Generator', href: '/admin/course-generator' },
         { name: 'AI Instructor', href: '/admin/ai-console', description: 'Chat with AI' },
-        { name: 'Text- href: '/admin/ai-console', description: 'Generate audio' },
+        { name: 'Text-to-Speech', href: '/admin/ai-console', description: 'Generate audio' },
       ]
     },
     {

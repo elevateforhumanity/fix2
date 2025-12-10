@@ -22,7 +22,7 @@ const mockPurchases: Purchase[] = [
     id: 'ORD-001',
     date: '2024-01-15',
     productName: 'Barber Apprenticeship Complete Workbook',
-    productImage: 'https://images.unsplash.com/pho
+    productImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
     amount: 49.00,
     status: 'completed',
     downloadUrl: '/downloads/barber-workbook.pdf',
@@ -33,7 +33,7 @@ const mockPurchases: Purchase[] = [
     id: 'ORD-002',
     date: '2024-01-10',
     productName: 'CNA Training Complete Study Guide',
-    productImage: 'https://images.unsplash.com/pho
+    productImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
     amount: 56.00,
     status: 'completed',
     downloadUrl: '/downloads/cna-study-guide.pdf',

@@ -119,21 +119,21 @@ export default function DashboardsPage() {
 
   const colorClasses = {
     blue: {
-      bg: ' 
+      bg: 'bg-blue-100',
       light: 'bg-blue-50',
       border: 'border-blue-200',
       text: 'text-blue-700',
       hover: 'hover:border-blue-500',
     },
     purple: {
-      bg: ' 
+      bg: 'bg-purple-100',
       light: 'bg-purple-50',
       border: 'border-purple-200',
       text: 'text-purple-700',
       hover: 'hover:border-purple-500',
     },
     green: {
-      bg: ' 
+      bg: 'bg-slate-100',
       light: 'bg-green-50',
       border: 'border-green-200',
       text: 'text-green-700',

@@ -51,7 +51,7 @@ export default function BookingPage() {
         id: 'inst-1',
         name: 'Dr. Sarah Johnson',
         title: 'HVAC Master Instructor',
-        avatar: 'https://images.unsplash.com/pho
+        avatar: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
         specialties: ['HVAC', 'EPA 608', 'Refrigeration'],
         rating: 4.9,
         totalSessions: 342,
@@ -61,7 +61,7 @@ export default function BookingPage() {
         id: 'inst-2',
         name: 'Marcus Williams',
         title: 'CDL Training Expert',
-        avatar: 'https://images.unsplash.com/pho
+        avatar: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
         specialties: ['CDL', 'Commercial Driving', 'Safety'],
         rating: 4.8,
         totalSessions: 289,
@@ -71,7 +71,7 @@ export default function BookingPage() {
         id: 'inst-3',
         name: 'Jennifer Lee',
         title: 'Healthcare Instructor',
-        avatar: 'https://images.unsplash.com/pho
+        avatar: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
         specialties: ['CNA', 'Medical Assistant', 'Patient Care'],
         rating: 5.0,
         totalSessions: 456,

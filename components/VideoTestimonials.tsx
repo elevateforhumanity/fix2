@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'Certified Healthcare Assistant at IU Health',
     salary: '$42,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/pho
+    thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
     quote: 'Ona changed my life. I went from struggling to make ends meet to having a stable career in healthcare.',
     duration: '2:34',
     graduationYear: '2023'
@@ -40,7 +40,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'HVAC Technician at Carrier',
     salary: '$55,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/pho
+    thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
     quote: 'The hands-on training prepared me for real-world work. I got hired before I even graduated!',
     duration: '3:12',
     graduationYear: '2023'
@@ -53,7 +53,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'Medical Coder at Community Health Network',
     salary: '$48,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/pho
+    thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
     quote: 'I can work from home now and spend more time with my kids. This program gave me flexibility and financial security.',
     duration: '2:45',
     graduationYear: '2024'
@@ -66,7 +66,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'Commercial Truck Driver at Schneider',
     salary: '$65,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/pho
+    thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
     quote: 'In just 4 weeks, I got my CDL and doubled my income. Best decision I ever made.',
     duration: '2:18',
     graduationYear: '2024'
@@ -79,7 +79,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'Licensed Cosmetologist, Own Salon',
     salary: '$60,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/pho
+    thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
     quote: 'I turned my passion into a career. Now I own my own salon and employ 3 other stylists!',
     duration: '3:45',
     graduationYear: '2023'
@@ -92,7 +92,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'Phlebotomist at Eskenazi Health',
     salary: '$38,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/pho
+    thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
     quote: 'The program was fast-paced but thorough. I felt confident on my first day at work.',
     duration: '2:56',
     graduationYear: '2024'

@@ -44,11 +44,11 @@ export default function AIConsolePage() {
       color: 'green'
     },
     {
-      id: 'text-
+      id: 'text-to-speech',
       name: 'Text to Speech',
       description: 'Convert text to natural voice audio',
       icon: Volume2,
-      endpoint: '/api/text-
+      endpoint: '/api/text-to-speech',
       status: 'active',
       color: 'purple'
     },
@@ -86,7 +86,7 @@ export default function AIConsolePage() {
     
     setTtsLoading(true);
     try {
-      const response = await fetch('/api/text- {
+      const response = await fetch('/api/text-to-speech', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: ttsText })

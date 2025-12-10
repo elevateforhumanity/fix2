@@ -54,7 +54,7 @@ export function StudentPortfolio() {
       title: 'E-Commerce Platform',
       description: 'Full-featured online shopping platform with payment integration, inventory management, and admin dashboard.',
       category: 'Web Development',
-      imageUrl: 'https://images.unsplash.com/pho
+      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Tailwind CSS'],
       completedDate: '2024-01',
       githubUrl: 'https://github.com/example/ecommerce',
@@ -66,7 +66,7 @@ export function StudentPortfolio() {
       title: 'Task Management App',
       description: 'Collaborative project management tool with real-time updates, team chat, and analytics.',
       category: 'Web Development',
-      imageUrl: 'https://images.unsplash.com/pho
+      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
       technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Socket.io', 'Prisma'],
       completedDate: '2023-11',
       githubUrl: 'https://github.com/example/taskmanager',
@@ -78,7 +78,7 @@ export function StudentPortfolio() {
       title: 'Weather Forecast Dashboard',
       description: 'Interactive weather application with 7-day forecasts, maps, and severe weather alerts.',
       category: 'Mobile Development',
-      imageUrl: 'https://images.unsplash.com/pho
+      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
       technologies: ['React Native', 'OpenWeather API', 'Redux', 'Expo'],
       completedDate: '2023-09',
       githubUrl: 'https://github.com/example/weather',
@@ -89,7 +89,7 @@ export function StudentPortfolio() {
       title: 'AI Chatbot Assistant',
       description: 'Intelligent chatbot using natural language processing for customer support automation.',
       category: 'AI/ML',
-      imageUrl: 'https://images.unsplash.com/pho
+      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
       technologies: ['Python', 'TensorFlow', 'Flask', 'OpenAI API', 'Docker'],
       completedDate: '2023-12',
       githubUrl: 'https://github.com/example/chatbot',
@@ -100,7 +100,7 @@ export function StudentPortfolio() {
       title: 'Portfolio Website Builder',
       description: 'Drag-and-drop website builder for creating professional portfolios without coding.',
       category: 'Web Development',
-      imageUrl: 'https://images.unsplash.com/pho
+      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
       technologies: ['Vue.js', 'Firebase', 'Vuetify', 'Netlify'],
       completedDate: '2023-08',
       liveUrl: 'https://portfolio-builder.netlify.app',
@@ -111,7 +111,7 @@ export function StudentPortfolio() {
       title: 'Fitness Tracking App',
       description: 'Mobile app for tracking workouts, nutrition, and health metrics with social features.',
       category: 'Mobile Development',
-      imageUrl: 'https://images.unsplash.com/pho
+      imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800',
       technologies: ['Flutter', 'Dart', 'Firebase', 'HealthKit'],
       completedDate: '2023-10',
       githubUrl: 'https://github.com/example/fitness',
