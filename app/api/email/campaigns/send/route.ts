@@ -118,7 +118,8 @@ export async function POST(req: Request) {
   }
 }
 
-async function getRecipients(supabase: any, // TODO: Type with SupabaseClient listType: string) {
+async function getRecipients(supabase: any, listType: string) {
+  // TODO: Type with SupabaseClient
   let query;
 
   switch (listType) {

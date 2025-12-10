@@ -134,7 +134,8 @@ export function trackMemoryUsage() {
     const usedMemory = memory.usedJSHeapSize / 1048576; // MB
     const totalMemory = memory.totalJSHeapSize / 1048576; // MB
     if (process.env.NODE_ENV === 'development') {
-      }MB`,
+      console.log('Memory Usage:', {
+        used: `${usedMemory.toFixed(2)}MB`,
         total: `${totalMemory.toFixed(2)}MB`,
         percentage: `${((usedMemory / totalMemory) * 100).toFixed(1)}%`,
       });

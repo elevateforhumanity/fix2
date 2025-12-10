@@ -54,7 +54,7 @@ export interface PartnerAPIConfig {
  * Abstract class – each real partner (HSI, Certiport, etc.)
  * will implement these methods using THEIR official API docs.
  */
-export abstract class BasePartnerAPI {
+export class BasePartnerAPI {
   protected config: PartnerAPIConfig;
   protected partner: PartnerType;
   protected httpClient: unknown; // HTTP client for API calls
@@ -78,23 +78,33 @@ export abstract class BasePartnerAPI {
       'User-Agent': 'ElevateForHumanity/1.0',
     };
   }
-  abstract createAccount(student: StudentData): Promise<PartnerAccount>;
-  abstract enrollInCourse(
+  createAccount(student: StudentData): Promise<PartnerAccount> {
+    throw new Error('createAccount must be implemented by subclass');
+  }
+  enrollInCourse(
     accountExternalId: string,
     courseExternalCode: string
-  ): Promise<CourseEnrollment>;
-  abstract getProgress(
+  ): Promise<CourseEnrollment> {
+    throw new Error('enrollInCourse must be implemented by subclass');
+  }
+  getProgress(
     externalEnrollmentId: string
-  ): Promise<ProgressData | null>;
-  abstract getCertificate(
+  ): Promise<ProgressData | null> {
+    throw new Error('getProgress must be implemented by subclass');
+  }
+  getCertificate(
     externalEnrollmentId: string
-  ): Promise<CertificateData | null>;
+  ): Promise<CertificateData | null> {
+    throw new Error('getCertificate must be implemented by subclass');
+  }
   /**
    * Create SSO / deep link so student can jump straight into the course
    */
-  abstract getSsoLaunchUrl(params: {
+  getSsoLaunchUrl(params: {
     accountExternalId: string;
     externalEnrollmentId: string;
     returnTo?: string;
-  }): Promise<string>;
+  }): Promise<string> {
+    throw new Error('getSsoLaunchUrl must be implemented by subclass');
+  }
 }

@@ -101,7 +101,9 @@ export default function ExternalModuleLauncher({
                   last_accessed_at: new Date().toISOString()
                 })
                 .eq('id', progressId)
-                .then(() => );
+                .then(() => {
+                  // Progress updated
+                });
             }
           }}
         >

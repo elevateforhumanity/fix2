@@ -118,7 +118,8 @@ export async function POST(req: Request) {
   }
 }
 
-async function getTargetUsers(supabase: any, // TODO: Type with SupabaseClient targetAudience: string) {
+async function getTargetUsers(supabase: any, targetAudience: string) {
+  // TODO: Type with SupabaseClient
   let query;
 
   switch (targetAudience) {

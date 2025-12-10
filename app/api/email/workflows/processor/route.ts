@@ -79,7 +79,8 @@ export async function GET(req: Request) {
 /**
  * Check for new trigger events and enroll users in workflows
  */
-async function processNewTriggers(supabase: any, // TODO: Type with SupabaseClient workflow: any, now: Date) {
+async function processNewTriggers(supabase: any, workflow: any, now: Date) {
+  // TODO: Type with SupabaseClient
   const trigger = workflow.trigger_event;
   const lookbackMinutes = 5; // Check last 5 minutes
   const lookbackTime = new Date(now.getTime() - lookbackMinutes * 60 * 1000).toISOString();
