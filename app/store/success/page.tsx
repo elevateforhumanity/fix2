@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function SuccessPage() {
+function SuccessContent() {
   const searchParams = useSearchParams();
   const paymentIntentId = searchParams.get('payment_intent');
   const [orderDetails, setOrderDetails] = useState<any>(null);
@@ -130,5 +130,22 @@ export default function SuccessPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-slate-50 py-12">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="bg-white rounded-lg shadow-lg p-12 text-center">
+            <div className="animate-spin w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full mx-auto mb-4"></div>
+            <p className="text-slate-600">Loading...</p>
+          </div>
+        </div>
+      </main>
+    }>
+      <SuccessContent />
+    </Suspense>
   );
 }
