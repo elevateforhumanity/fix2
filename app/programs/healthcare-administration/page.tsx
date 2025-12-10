@@ -37,7 +37,7 @@ export default function HealthcareAdministrationPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/apply"
+                  href="/contact"
                   className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
                 >
                   Apply Now - It's Free
@@ -121,7 +121,7 @@ export default function HealthcareAdministrationPage() {
                 </div>
               </div>
               <Link
-                href="/apply"
+                href="/contact"
                 className="inline-block mt-8 px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg"
               >
                 Start Your Career Today
@@ -230,7 +230,7 @@ export default function HealthcareAdministrationPage() {
           </div>
           <div className="text-center mt-12">
             <Link
-              href="/apply"
+              href="/contact"
               className="inline-block px-10 py-5 bg-orange-500 text-white text-xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
             >
               Start Step 1 - Apply Now
@@ -260,7 +260,7 @@ export default function HealthcareAdministrationPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/apply"
+              href="/contact"
               className="inline-block px-12 py-6 bg-orange-500 text-white text-2xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
             >
               Apply Now - It's Free

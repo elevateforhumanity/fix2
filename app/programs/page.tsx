@@ -167,7 +167,7 @@ d="M5 13l4 4L19 7" />
                   <Link href="/programs/medical-assistant" className="px-6 py-3 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition">
                     View Healthcare Programs
                   </Link>
-                  <Link href="/apply" className="px-6 py-3 border-2 border-blue-600 text-blue-600 font-bold rounded-full hover:bg-blue-50 transition">
+                  <Link href="/contact" className="px-6 py-3 border-2 border-blue-600 text-blue-600 font-bold rounded-full hover:bg-blue-50 transition">
                     Apply Now
                   </Link>
                 </div>
@@ -214,7 +214,7 @@ d="M5 13l4 4L19 7" />
                   <Link href="/programs/barber-apprenticeship" className="px-6 py-3 bg-purple-600 text-white font-bold rounded-full hover:bg-purple-700 transition">
                     View Barber Programs
                   </Link>
-                  <Link href="/apply" className="px-6 py-3 border-2 border-purple-600 text-purple-600 font-bold rounded-full hover:bg-purple-50 transition">
+                  <Link href="/contact" className="px-6 py-3 border-2 border-purple-600 text-purple-600 font-bold rounded-full hover:bg-purple-50 transition">
                     Apply Now
                   </Link>
                 </div>
@@ -269,7 +269,7 @@ d="M5 13l4 4L19 7" />
                   <Link href="/programs/hvac-technician" className="px-6 py-3 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition">
                     View Trades Programs
                   </Link>
-                  <Link href="/apply" className="px-6 py-3 border-2 border-orange-600 text-orange-600 font-bold rounded-full hover:bg-orange-50 transition">
+                  <Link href="/contact" className="px-6 py-3 border-2 border-orange-600 text-orange-600 font-bold rounded-full hover:bg-orange-50 transition">
                     Apply Now
                   </Link>
                 </div>
@@ -315,7 +315,7 @@ d="M5 13l4 4L19 7" />
                   <Link href="/programs/tax-prep" className="px-6 py-3 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition">
                     View Business Programs
                   </Link>
-                  <Link href="/apply" className="px-6 py-3 border-2 border-green-600 text-green-600 font-bold rounded-full hover:bg-green-50 transition">
+                  <Link href="/contact" className="px-6 py-3 border-2 border-green-600 text-green-600 font-bold rounded-full hover:bg-green-50 transition">
                     Apply Now
                   </Link>
                 </div>
@@ -425,7 +425,7 @@ d="M13 7l5 5m0 0l-5 5m5-5H6" />
             100% free training. No tuition, no fees, no debt. Just a direct pathway to your career.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/apply" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
+            <Link href="/contact" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
               Apply Now - It's Free
             </Link>
             <Link href="/contact" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">
