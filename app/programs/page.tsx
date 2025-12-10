@@ -21,33 +21,33 @@ export default async function ProgramsPage() {
   const programs = await getPrograms();
   return (
     <main className="min-h-screen bg-white">
-      {/* HERO BANNER - Mobile Optimized */}
-      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] w-full overflow-hidden bg-white">
-        <Image
-          src="/media-backup-20251128-043832/programs/multi-training-programs.png"
-          alt="Students learning and training together"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-          sizes="100vw"
-        />
-      </section>
-
-      {/* Content Section - Below Hero */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-4xl space-y-4 sm:space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-orange-600 text-white rounded-full text-xs sm:text-sm font-semibold">
-              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/>
-              </svg>
-              Career Training Programs
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
+      {/* HERO BANNER */}
+      <section className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/programs-overview-video.mp4" type="video/mp4" />
+        </video>
+        <div className="relative z-10 h-full flex items-center bg-black/30">
+          <div className="max-w-4xl mx-auto px-4 text-center text-white">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
               Choose Your Career Path
             </h1>
+            <p className="text-xl md:text-2xl">
+              100% free training. Real credentials. Real jobs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <section className="py-12 px-4 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-4xl space-y-4 mb-12">
 
             <p className="text-lg sm:text-xl md:text-2xl text-slate-700 leading-relaxed">
               {programs.length} workforce development programs. 100% funded through WIOA, grants, and employer partnerships.

@@ -15,16 +15,19 @@ export default function BarberApprenticeCheckoutPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          programId: 'barber-apprentice',
           programName: 'Barber Apprenticeship Program',
-          amount: 489000,
+          programSlug: 'barber-apprentice',
+          price: 4890,
+          paymentType: 'full',
         }),
       });
 
-      const session = await response.json();
+      const data = await response.json();
       
-      if (session.url) {
-        window.location.href = session.url;
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('Unable to create checkout session. Please call us at 317-314-3757');
       }
     } catch (error) {
       console.error('Checkout error:', error);
