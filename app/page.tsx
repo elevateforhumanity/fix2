@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { WelcomeAudio } from "@/components/WelcomeAudio";
 import VideoTestimonials from "@/components/VideoTestimonials";
 import { TrustBadges } from "@/components/TrustBadges";
 import EmployerPartners from "@/components/EmployerPartners";
@@ -22,8 +21,6 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-white">
-      {/* Welcome Audio - Plays once on page load */}
-      <WelcomeAudio />
       {/* HERO - VIDEO BANNER */}
       <section className="relative overflow-hidden bg-slate-900">
         <div className="mx-auto max-w-7xl">

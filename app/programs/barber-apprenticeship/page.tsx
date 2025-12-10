@@ -49,11 +49,11 @@ export default function BarberApprenticeshipPage() {
                   href="/checkout/prog-barber-apprentice"
                   className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all hover:scale-105 shadow-2xl"
                 >
-                  Pay with Affirm - $4,890
+                  Enroll Now - $4,890
                 </Link>
               </div>
               <p className="text-sm text-white/90 mt-4 drop-shadow">
-                Choose free government-funded training OR pay $4,890 with flexible payment plans through Affirm
+                Choose free government-funded training OR pay $4,890 (financing options available)
               </p>
             </div>
           </div>

@@ -11,9 +11,6 @@ export default function BarberApprenticeCheckoutPage() {
   const handleCheckout = async () => {
     setIsProcessing(true);
     
-    // Stripe checkout with Affirm
-    const stripe = (window as string).Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
-    
     try {
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
@@ -101,29 +98,36 @@ export default function BarberApprenticeCheckoutPage() {
               </Link>
             </div>
 
-            {/* Option 2: Pay with Affirm */}
+            {/* Option 2: Pay in Full */}
             <div className="bg-blue-50 border-2 border-blue-500 rounded-xl p-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
                   <DollarSign className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900">Option 2: Pay with Affirm</h3>
+                <h3 className="text-2xl font-bold text-slate-900">Option 2: Pay in Full</h3>
               </div>
               <p className="text-lg text-slate-700 mb-6">
-                Flexible payment plans. Start training immediately.
+                Pay $4,890 and start training immediately. Payment plans available at checkout.
               </p>
               <div className="bg-white rounded-lg p-6 mb-6">
                 <div className="text-3xl font-bold text-slate-900 mb-2">$4,890</div>
-                <div className="text-slate-600 mb-4">Total program cost</div>
-                <div className="text-sm text-slate-600">
-                  As low as <strong className="text-lg text-blue-600">$407/month</strong> with Affirm
+                <div className="text-slate-600 mb-4">Complete program - everything included</div>
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
+                  <div className="text-sm font-semibold text-green-800 mb-2">✅ Includes:</div>
+                  <ul className="text-xs text-green-700 space-y-1">
+                    <li>• 2,000-hour apprenticeship program</li>
+                    <li>• Milady CIMA platform access</li>
+                    <li>• RISE certification (FREE with promo code)</li>
+                    <li>• All training materials</li>
+                    <li>• Student dashboard access</li>
+                    <li>• Certificate upon completion</li>
+                  </ul>
+                </div>
+                <div className="text-sm text-slate-600 bg-slate-50 rounded p-3">
+                  💳 <strong>Payment options available:</strong> Pay in full or choose a payment plan through Stripe checkout (Affirm, Klarna, or Afterpay available based on eligibility)
                 </div>
               </div>
               <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
-                  <span>Flexible payment plans (3, 6, or 12 months)</span>
-                </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
                   <span>Start training immediately</span>
@@ -132,17 +136,43 @@ export default function BarberApprenticeCheckoutPage() {
                   <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
                   <span>No waiting for funding approval</span>
                 </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <span>Secure checkout powered by Stripe</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-1" />
+                  <span>Flexible payment plans available at checkout</span>
+                </li>
               </ul>
               <button
                 onClick={handleCheckout}
                 disabled={isProcessing}
-                className="block w-full text-center px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="block w-full text-center px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed text-lg"
               >
-                {isProcessing ? 'Processing...' : 'Pay with Affirm - $4,890'}
+                {isProcessing ? 'Processing...' : 'Proceed to Checkout - $4,890'}
               </button>
               <p className="text-xs text-slate-500 mt-3 text-center">
-                Secure checkout powered by Stripe. Affirm financing subject to credit approval.
+                Secure checkout powered by Stripe. Payment plans subject to approval.
               </p>
+
+              {/* RISE Course Note */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mt-6">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-sm">!</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-orange-900 mb-1">FREE Milady RISE Certification</h4>
+                    <p className="text-sm text-orange-800 mb-2">
+                      After enrollment, you'll receive instructions to access your FREE RISE certification (normally $29.95) using our exclusive promo code.
+                    </p>
+                    <p className="text-xs text-orange-700">
+                      No additional payment required - included with your enrollment!
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

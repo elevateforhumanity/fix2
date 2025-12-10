@@ -15,8 +15,23 @@ export async function POST(request: NextRequest) {
   try {
     const { programName, programSlug, price, paymentType = 'full' } = await request.json();
 
+    // Enable ALL payment methods - let Stripe determine eligibility
+    // Students can combine methods or choose what they qualify for
+    const paymentMethods = [
+      'card',                 // Credit/debit cards
+      'affirm',               // Affirm financing (3, 6, 12 months)
+      'klarna',               // Klarna (4 payments, up to $1,000)
+      'afterpay_clearpay',    // Afterpay (4 payments, up to $1,000)
+      'us_bank_account',      // ACH Direct Debit (lowest fees)
+      'cashapp',              // Cash App Pay (up to $7,500)
+      'link',                 // Stripe Link (one-click)
+      'zip',                  // Zip (4 payments, up to $1,000)
+      'paypal',               // PayPal
+      'venmo',                // Venmo (up to $5,000)
+    ];
+
     let sessionConfig: unknown = {
-      payment_method_types: ['card'],
+      payment_method_types: paymentMethods,
       success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/enroll/success?session_id={CHECKOUT_SESSION_ID}&program=${programSlug}`,
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/micro-classes`,
       metadata: {
