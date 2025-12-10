@@ -14,16 +14,17 @@ export const metadata: Metadata = {
 export default function BarberPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Video Hero with Narration */}
+      {/* Video Hero Banner */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden bg-slate-900">
         <video
           autoPlay
+          muted
           loop
           playsInline
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-90"
         >
-          <source src="/videos/barber-spotlight-with-narration.mp4" type="video/mp4" />
+          <source src="/videos/hero-barber.mp4" type="video/mp4" />
         </video>
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
