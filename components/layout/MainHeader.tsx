@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { headerNav } from "@/config/navigation";
+import { SiteLogo } from "@/components/site/logo";
 
 function classNames(...classes: (string | false | null | undefined)[]) {
   return classes.filter(Boolean).join(" ");
@@ -22,16 +22,7 @@ export default function MainHeader() {
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo Only */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/images/logo.png"
-                alt="Elevate For Humanity"
-                width={180}
-                height={48}
-                className="h-12 w-auto"
-                priority
-              />
-            </Link>
+            <SiteLogo className="h-12 w-auto" />
           </div>
 
           {/* Desktop nav */}

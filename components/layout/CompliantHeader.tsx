@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, Phone, Mail } from "lucide-react";
+import { SiteLogo } from "@/components/site/logo";
 
 export default function CompliantHeader() {
   const pathname = usePathname();
@@ -85,15 +85,8 @@ export default function CompliantHeader() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="/logo.png"
-                alt="Elevate For Humanity Logo"
-                width={60}
-                height={60}
-                className="h-14 w-14"
-                priority
-              />
+            <div className="flex items-center gap-3">
+              <SiteLogo className="h-14 w-auto" />
               <div className="leading-tight">
                 <div className="font-bold text-gray-900 text-lg">
                   Elevate For Humanity

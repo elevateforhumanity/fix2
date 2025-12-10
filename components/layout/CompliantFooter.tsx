@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { SiteLogo } from "@/components/site/logo";
 
 export default function CompliantFooter() {
   const currentYear = new Date().getFullYear();
@@ -13,18 +13,9 @@ export default function CompliantFooter() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* About Column */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <Image
-                src="/logo.png"
-                alt="Elevate For Humanity"
-                width={48}
-                height={48}
-                className="h-12 w-12"
-              />
-              <div className="leading-tight">
-                <div className="font-bold text-lg">Elevate For Humanity</div>
-                <div className="text-xs text-gray-400">Career & Technical Institute</div>
-              </div>
+            <div className="mb-4">
+              <SiteLogo className="h-12 w-auto mb-2" />
+              <div className="text-xs text-gray-400">Career & Technical Institute</div>
             </div>
             <p className="text-sm text-gray-300 mb-4">
               ETPL Approved Provider • DOL Registered Apprenticeship Sponsor • WIOA Funded Programs

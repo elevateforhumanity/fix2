@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { ObfuscatedEmail } from "@/components/ui/ObfuscatedEmail";
+import { SiteLogo } from "@/components/site/logo";
 
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
@@ -23,21 +24,10 @@ export function SiteFooter() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5 text-xs text-slate-900">
           {/* Brand & Contact */}
           <div className="md:col-span-2 lg:col-span-1">
-            <div className="mb-4 flex items-center gap-3">
-              <Image
-                src="/logo.png"
-                alt="Elevate For Humanity"
-                width={48}
-                height={48}
-                className="h-12 w-12"
-              />
-              <div>
-                <div className="text-base font-bold text-slate-900">
-                  Elevate For Humanity
-                </div>
-                <div className="text-xs text-slate-600">
-                  Career & Technical Institute
-                </div>
+            <div className="mb-4">
+              <SiteLogo className="h-12 w-auto mb-2" />
+              <div className="text-xs text-slate-600">
+                Career & Technical Institute
               </div>
             </div>
             <p className="text-sm text-slate-700 max-w-md mb-4 leading-relaxed font-medium">
