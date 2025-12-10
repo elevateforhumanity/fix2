@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
 
         // Save content blocks
         if (lesson.blocks && lesson.blocks.length > 0) {
-          const blocks = lesson.blocks.map((block: any) => ({
+          const blocks = lesson.blocks.map((block: Record<string, unknown>) => ({
             lesson_id: lessonData.id,
             block_type: block.type,
             block_order: block.order,
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
       success: true,
       message: 'Course saved successfully',
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error saving course:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to save course' },

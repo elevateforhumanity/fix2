@@ -183,7 +183,7 @@ export default function MediaStudioPage() {
               {/* Bucket Selector */}
               <select
                 value={selectedBucket}
-                onChange={(e) => setSelectedBucket(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedBucket(e.target.value)}
                 className="px-4 py-2 border rounded-lg"
               >
                 {buckets.map(bucket => (
@@ -198,7 +198,7 @@ export default function MediaStudioPage() {
                   type="text"
                   placeholder="Search files..."
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border rounded-lg"
                 />
               </div>
@@ -246,7 +246,7 @@ export default function MediaStudioPage() {
                   multiple
                   accept="image/*,video/*"
                   className="hidden"
-                  onChange={(e) => {
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                     const files = Array.from(e.target.files || []);
                     files.forEach(uploadFile);
                   }}

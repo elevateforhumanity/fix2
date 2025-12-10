@@ -50,7 +50,7 @@ export async function GET() {
   // Get user IDs for notes lookup
   const key = (u: string, c: string) => `${u}:${c}`;
   const userIds = Array.from(
-    new Set((enrolls || []).map((e: any) => e.user_id))
+    new Set((enrolls || []).map((e: Record<string, unknown>) => e.user_id))
   ).filter(Boolean);
 
   // Get latest notes for these learners
@@ -89,7 +89,7 @@ export async function GET() {
   }
 
   // Build rows
-  const rows = (enrolls || []).map((e: any) => {
+  const rows = (enrolls || []).map((e: Record<string, unknown>) => {
     const k = key(e.user_id, e.course_id);
     const latest = latestMap[k];
 

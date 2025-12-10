@@ -122,7 +122,7 @@ export async function createCertificate(
       success: true,
       certificateId: certificate.id,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Certificate creation error:', error);
     return {
       success: false,
@@ -201,7 +201,7 @@ export async function generateCertificatePDF(
       success: true,
       pdfUrl: data.pdf_url,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('PDF generation error:', error);
     return {
       success: false,
@@ -258,7 +258,7 @@ export async function verifyCertificate(
         expiresAt: certificate.expires_at,
       },
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Certificate verification error:', error);
     return {
       valid: false,
@@ -317,7 +317,7 @@ export async function revokeCertificate(
     }
 
     return { success: true };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Certificate revocation error:', error);
     return {
       success: false,

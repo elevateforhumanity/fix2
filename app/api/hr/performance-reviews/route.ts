@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ reviews: data });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error fetching performance reviews:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch reviews' },
@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ review: data }, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error creating performance review:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create review' },

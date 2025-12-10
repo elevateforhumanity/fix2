@@ -75,7 +75,7 @@ export async function rateLimit(
 
   const ip =
     req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
-    (req as any).ip ||
+    (req as string).ip ||
     'unknown';
 
   const key = `rl:${keyPrefix}:${ip}`;
@@ -203,7 +203,7 @@ export async function cacheDel(key: string): Promise<void> {
  * Cache decorator for functions
  */
 export function cached<T>(
-  keyFn: (...args: any[]) => string,
+  keyFn: (...args: unknown[]) => string,
   ttlSeconds: number = 300
 ) {
   return function (
@@ -213,7 +213,7 @@ export function cached<T>(
   ) {
     const originalMethod = descriptor.value;
 
-    descriptor.value = async function (...args: any[]) {
+    descriptor.value = async function (...args: unknown[]) {
       const cacheKey = keyFn(...args);
       
       // Try to get from cache
@@ -249,7 +249,7 @@ export function rateLimited(
   ) {
     const originalMethod = descriptor.value;
 
-    descriptor.value = async function (req: NextRequest, ...args: any[]) {
+    descriptor.value = async function (req: NextRequest, ...args: unknown[]) {
       const limited = await rateLimit(req, keyPrefix, options);
       if (limited) return limited;
 

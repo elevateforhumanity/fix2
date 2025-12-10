@@ -90,7 +90,7 @@ export async function GET(req: Request) {
               postIndex,
               success: true,
             });
-          } catch (error: any) {
+          } catch (error: unknown) {
             logger.error(`Error posting to ${platform}:`, error);
             
             // Log failure
@@ -120,7 +120,7 @@ export async function GET(req: Request) {
           .update({ last_post_at: now.toISOString() })
           .eq('id', campaign.id);
 
-      } catch (error: any) {
+      } catch (error: unknown) {
         logger.error(`Error processing campaign ${campaign.id}:`, error);
         results.push({
           campaignId: campaign.id,
@@ -137,7 +137,7 @@ export async function GET(req: Request) {
       slot: ['morning', 'afternoon', 'evening'][slot],
       results,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Scheduler error:', error);
     return NextResponse.json(
       { success: false, error: error.message },
@@ -150,7 +150,7 @@ export async function GET(req: Request) {
  * Post to social media platform
  * Integrates with Facebook, Twitter, LinkedIn, and Instagram APIs
  */
-async function postToSocialMedia(platform: string, content: string, campaign: any) {
+async function postToSocialMedia(platform: string, content: string, campaign: Record<string, unknown>) {
   logger.info(`Posting to ${platform}:`, content);
   
   switch (platform.toLowerCase()) {
@@ -173,7 +173,7 @@ async function postToSocialMedia(platform: string, content: string, campaign: an
   }
 }
 
-async function postToFacebook(content: string, campaign: any) {
+async function postToFacebook(content: string, campaign: Record<string, unknown>) {
   const pageId = process.env.FACEBOOK_PAGE_ID;
   const accessToken = process.env.FACEBOOK_ACCESS_TOKEN;
   
@@ -199,13 +199,13 @@ async function postToFacebook(content: string, campaign: any) {
     }
     
     return { success: true, platform: 'facebook', postId: data.id };
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Facebook posting error:', error);
     throw error;
   }
 }
 
-async function postToTwitter(content: string, campaign: any) {
+async function postToTwitter(content: string, campaign: Record<string, unknown>) {
   const apiKey = process.env.TWITTER_API_KEY;
   const apiSecret = process.env.TWITTER_API_SECRET;
   const accessToken = process.env.TWITTER_ACCESS_TOKEN;
@@ -237,13 +237,13 @@ async function postToTwitter(content: string, campaign: any) {
     }
     
     return { success: true, platform: 'twitter', postId: data.data?.id };
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Twitter posting error:', error);
     throw error;
   }
 }
 
-async function postToLinkedIn(content: string, campaign: any) {
+async function postToLinkedIn(content: string, campaign: Record<string, unknown>) {
   const accessToken = process.env.LINKEDIN_ACCESS_TOKEN;
   const organizationId = process.env.LINKEDIN_ORGANIZATION_ID;
   
@@ -284,13 +284,13 @@ async function postToLinkedIn(content: string, campaign: any) {
     }
     
     return { success: true, platform: 'linkedin', postId: data.id };
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('LinkedIn posting error:', error);
     throw error;
   }
 }
 
-async function postToInstagram(content: string, campaign: any) {
+async function postToInstagram(content: string, campaign: Record<string, unknown>) {
   // Instagram requires media (image/video) for posts
   // Text-only posts are not supported
   logger.warn('Instagram requires media content - text-only posts not supported');

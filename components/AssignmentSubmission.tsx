@@ -181,7 +181,7 @@ export function AssignmentSubmission({
             ref={fileInputRef}
             type="file"
             multiple
-            onChange={(e) => handleFileSelect(e.target.files)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => handleFileSelect(e.target.files)}
             className="hidden"
             accept={allowedTypes.map((t) => `.${t}`).join(',')}
           />
@@ -223,7 +223,7 @@ export function AssignmentSubmission({
         <CardContent>
           <textarea
             value={comment}
-            onChange={(e) => setComment(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setComment(e.target.value)}
             placeholder="Add any notes or comments for your instructor..."
             className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500"
             rows={4}

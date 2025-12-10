@@ -97,7 +97,7 @@ export function CourseReviewsPanel({
             <span className="text-slate-600">Your rating:</span>
             <select
               value={rating}
-              onChange={(e) => setRating(Number(e.target.value))}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setRating(Number(e.target.value))}
               className="rounded border px-2 py-1 text-xs"
             >
               {[5, 4, 3, 2, 1].map((r) => (
@@ -109,13 +109,13 @@ export function CourseReviewsPanel({
           </div>
           <input
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setTitle(e.target.value)}
             placeholder="Short headline (optional)"
             className="w-full rounded border px-2 py-1 text-xs"
           />
           <textarea
             value={body}
-            onChange={(e) => setBody(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setBody(e.target.value)}
             placeholder="Share what you liked about this course…"
             className="h-20 w-full resize-none rounded border px-2 py-1 text-xs"
           />

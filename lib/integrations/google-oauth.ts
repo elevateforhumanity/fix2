@@ -43,7 +43,7 @@ export async function verifyGoogleToken(token: string) {
         emailVerified: payload?.email_verified,
       },
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Google token verification error:', error);
     return { success: false, error: error.message };
   }

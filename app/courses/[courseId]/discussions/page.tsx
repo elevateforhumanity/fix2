@@ -249,7 +249,7 @@ export default function CourseDiscussionsPage() {
                   <input
                     type="text"
                     value={newTopic}
-                    onChange={(e) => setNewTopic(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewTopic(e.target.value)}
                     placeholder="What would you like to discuss?"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -260,7 +260,7 @@ export default function CourseDiscussionsPage() {
                   </label>
                   <textarea
                     value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewMessage(e.target.value)}
                     placeholder="Share your thoughts..."
                     rows={4}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"

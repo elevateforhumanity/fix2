@@ -126,7 +126,7 @@ export async function GET(req: Request) {
         topPerformers,
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Analytics error:', error);
     return NextResponse.json(
       { success: false, error: error.message },

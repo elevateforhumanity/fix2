@@ -185,7 +185,7 @@ export async function POST(request: Request) {
       }, { status: 500 });
     }
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Video processing error:', error);
     return NextResponse.json(
       { error: 'Failed to process video', details: error.message },

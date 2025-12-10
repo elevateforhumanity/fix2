@@ -21,8 +21,8 @@ export function VoiceInput({ onCommand, className = '' }: VoiceInputProps) {
     // Check if browser supports speech recognition
     if (typeof window !== 'undefined') {
       const SpeechRecognition =
-        (window as any).SpeechRecognition ||
-        (window as any).webkitSpeechRecognition;
+        (window as string).SpeechRecognition ||
+        (window as string).webkitSpeechRecognition;
 
       if (SpeechRecognition) {
         setIsSupported(true);

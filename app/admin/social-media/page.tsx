@@ -420,7 +420,7 @@ export default function SocialMediaPage() {
 
 interface PlatformCardProps {
   name: string;
-  icon: any;
+  icon: unknown;
   color: string;
   connected: boolean;
   followers: string;

@@ -1,21 +1,16 @@
 // Resend Email Service Integration
 import { Resend } from 'resend';
-
 let resendClient: Resend | null = null;
-
 export function getResendClient(): Resend | null {
   if (!process.env.RESEND_API_KEY) {
     console.warn('RESEND_API_KEY not configured');
     return null;
   }
-
   if (!resendClient) {
     resendClient = new Resend(process.env.RESEND_API_KEY);
   }
-
   return resendClient;
 }
-
 export interface ResendEmailOptions {
   to: string | string[];
   from?: string;
@@ -27,14 +22,11 @@ export interface ResendEmailOptions {
   bcc?: string[];
   tags?: { name: string; value: string }[];
 }
-
 export async function sendResendEmail(options: ResendEmailOptions) {
   const client = getResendClient();
   if (!client) {
-    console.log('Resend not configured, email not sent:', options);
     return { success: false, error: 'Resend not configured' };
   }
-
   try {
     const result = await client.emails.send({
       from: options.from || process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org',
@@ -47,14 +39,12 @@ export async function sendResendEmail(options: ResendEmailOptions) {
       bcc: options.bcc,
       tags: options.tags,
     });
-
     return { success: true, data: result };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Resend error:', error);
     return { success: false, error: error.message };
   }
 }
-
 export async function sendWelcomeEmail(to: string, name: string, loginUrl: string) {
   return sendResendEmail({
     to,

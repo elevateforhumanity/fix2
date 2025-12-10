@@ -52,7 +52,7 @@ export class NrfAPI extends BasePartnerAPI {
         username: response.data.username,
         loginUrl: response.data.platformUrl,
       };
-    } catch (error: any) {
+    } catch (error: unknown) {
       this.log("error", "Failed to create NRF RISE Up account", {
         error: error.message,
       });
@@ -89,7 +89,7 @@ export class NrfAPI extends BasePartnerAPI {
         courseName: response.data.courseName,
         accessUrl: response.data.courseUrl,
       };
-    } catch (error: any) {
+    } catch (error: unknown) {
       this.log("error", "Failed to enroll in NRF RISE Up course", {
         error: error.message,
       });
@@ -128,7 +128,7 @@ export class NrfAPI extends BasePartnerAPI {
         lessonsCompleted: response.data.lessonsCompleted,
         totalLessons: response.data.totalLessons,
       };
-    } catch (error: any) {
+    } catch (error: unknown) {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
@@ -162,7 +162,7 @@ export class NrfAPI extends BasePartnerAPI {
         downloadUrl: response.data.downloadUrl,
         verificationUrl: response.data.verificationUrl,
       };
-    } catch (error: any) {
+    } catch (error: unknown) {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
@@ -191,7 +191,7 @@ export class NrfAPI extends BasePartnerAPI {
       });
 
       return response.data.ssoUrl;
-    } catch (error: any) {
+    } catch (error: unknown) {
       this.log("error", "Failed to generate NRF RISE Up SSO URL", {
         error: error.message,
       });

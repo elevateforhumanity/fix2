@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
       },
       { status: 201 },
     );
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error("Enrollment API error", err?.message ?? err);
     return NextResponse.json(
       {

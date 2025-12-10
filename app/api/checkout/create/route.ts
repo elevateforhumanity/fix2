@@ -121,7 +121,7 @@ export async function POST(request: NextRequest) {
       url: session.url,
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Checkout error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create checkout' },

@@ -95,7 +95,7 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ url: session.url }, { status: 200 });
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error("[Elevate] Error in /api/checkout:", err);
     return NextResponse.json(
       { error: "Unable to create checkout session." },

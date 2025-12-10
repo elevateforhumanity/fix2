@@ -1,7 +1,6 @@
 // lib/notifications/teams.ts
 // Microsoft Teams webhook notifications
 const TEAMS_WEBHOOK_URL = process.env.TEAMS_WEBHOOK_URL;
-
 export async function sendTeamsMessage(
   title: string,
   text: string,
@@ -11,14 +10,12 @@ export async function sendTeamsMessage(
     console.warn('TEAMS_WEBHOOK_URL not set, skipping Teams message');
     return;
   }
-
-  const sections: any[] = [
+  const sections: unknown[] = [
     {
       activityTitle: title,
       text,
     },
   ];
-
   if (context) {
     sections.push({
       facts: Object.entries(context).map(([key, value]) => ({
@@ -27,7 +24,6 @@ export async function sendTeamsMessage(
       })),
     });
   }
-
   try {
     await fetch(TEAMS_WEBHOOK_URL, {
       method: 'POST',
@@ -40,7 +36,7 @@ export async function sendTeamsMessage(
         sections,
       }),
     });
-    // console.log(`Teams message sent: ${title}`);
+    // 
   } catch (error) {
     console.error('Failed to send Teams message:', error);
   }

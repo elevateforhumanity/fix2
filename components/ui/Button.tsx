@@ -55,7 +55,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return React.cloneElement(children, {
         className: combinedClassName,
         ...props,
-      } as any);
+      } as string);
     }
 
     return (

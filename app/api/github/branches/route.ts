@@ -31,7 +31,7 @@ export async function GET(req: NextRequest) {
     }));
     
     return NextResponse.json(branches);
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("GitHub branches error:", error);
     return NextResponse.json({ 
       error: "Failed to fetch branches",

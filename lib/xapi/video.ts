@@ -63,7 +63,7 @@ export async function sendVideoStatement(input: VideoStatementInput) {
               "https://w3id.org/xapi/video/extensions/time": input.currentTime || 0,
               "https://w3id.org/xapi/video/extensions/length": input.duration,
             },
-          } as any)
+          } as string)
         : undefined,
     };
 

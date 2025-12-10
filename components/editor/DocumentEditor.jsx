@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
-
 /**
  * DocumentEditor Component - Google Docs alternative with real-time collaboration
  */
@@ -18,10 +17,8 @@ export function DocumentEditor({
   const [showComments, setShowComments] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [lastSaved, setLastSaved] = useState(null);
-
   useEffect(() => {
     if (!editorRef.current) return;
-
     // Initialize Quill editor
     const quill = new Quill(editorRef.current, {
       theme: 'snow',
@@ -40,33 +37,27 @@ export function DocumentEditor({
           : false,
       },
     });
-
     quillRef.current = quill;
-
     // Load document content
     loadDocument();
-
     // Set up auto-save
     const saveInterval = setInterval(() => {
       saveDocument();
     }, 30000); // Auto-save every 30 seconds
-
     // Track changes
     quill.on('text-change', (delta, oldDelta, source) => {
       if (source === 'user') {
         // Broadcast changes to other users (in production, use WebSocket)
-        // console.log('Content changed:', delta);
+        // 
       }
     });
-
     // Track cursor position
     quill.on('selection-change', (range, oldRange, source) => {
       if (range && source === 'user') {
         // Broadcast cursor position
-        // console.log('Cursor at:', range);
+        // 
       }
     });
-
     return () => {
       clearInterval(saveInterval);
       if (quillRef.current) {
@@ -74,37 +65,29 @@ export function DocumentEditor({
       }
     };
   }, [documentId, canEdit]);
-
   const loadDocument = async () => {
     try {
       const response = await fetch(`/api/documents/${documentId}`);
       const doc = await response.json();
-
       if (quillRef.current && doc.content) {
         quillRef.current.setContents(JSON.parse(doc.content));
       }
-
       setCollaborators(doc.collaborators || []);
       setComments(doc.comments || []);
     } catch (error) {
       console.error('Failed to load document:', error);
     }
   };
-
   const saveDocument = async () => {
     if (!quillRef.current || !canEdit) return;
-
     setIsSaving(true);
-
     try {
       const content = JSON.stringify(quillRef.current.getContents());
-
       await fetch(`/api/documents/${documentId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content }),
       });
-
       setLastSaved(new Date());
     } catch (error) {
       console.error('Failed to save document:', error);
@@ -112,30 +95,24 @@ export function DocumentEditor({
       setIsSaving(false);
     }
   };
-
   const addComment = () => {
     if (!quillRef.current) return;
-
     const range = quillRef.current.getSelection();
     if (!range || range.length === 0) {
       alert('Please select text to comment on');
       return;
     }
-
     const text = prompt('Enter your comment:');
     if (!text) return;
-
     const comment = {
       text,
       selection: range,
       userName,
       createdAt: new Date(),
     };
-
     // In production, save to backend
     setComments([...comments, comment]);
   };
-
   const exportDocument = async (format) => {
     try {
       const response = await fetch(
@@ -151,7 +128,6 @@ export function DocumentEditor({
       console.error('Failed to export:', error);
     }
   };
-
   return (
     <div
       style={{
@@ -373,5 +349,4 @@ export function DocumentEditor({
     </div>
   );
 }
-
 export default DocumentEditor;

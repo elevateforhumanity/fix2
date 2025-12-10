@@ -77,7 +77,7 @@ export function QuizBuilder() {
                   <input
                     type="text"
                     value={quizTitle}
-                    onChange={(e) => setQuizTitle(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setQuizTitle(e.target.value)}
                     placeholder="e.g., JavaScript Fundamentals Quiz"
                     className="w-full px-4 py-2 border rounded-lg"
                   />
@@ -92,7 +92,7 @@ export function QuizBuilder() {
                   <label className="block text-sm font-medium mb-2">Question Type</label>
                   <select
                     value={currentQuestion.type}
-                    onChange={(e) => setCurrentQuestion({ ...currentQuestion, type: e.target.value as Question['type'] })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCurrentQuestion({ ...currentQuestion, type: e.target.value as Question['type'] })}
                     className="w-full px-4 py-2 border rounded-lg"
                   >
                     <option value="multiple-choice">Multiple Choice</option>
@@ -106,7 +106,7 @@ export function QuizBuilder() {
                   <label className="block text-sm font-medium mb-2">Question</label>
                   <textarea
                     value={currentQuestion.question}
-                    onChange={(e) => setCurrentQuestion({ ...currentQuestion, question: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCurrentQuestion({ ...currentQuestion, question: e.target.value })}
                     placeholder="Enter your question..."
                     className="w-full px-4 py-2 border rounded-lg h-24"
                   />
@@ -127,7 +127,7 @@ export function QuizBuilder() {
                           <input
                             type="text"
                             value={option}
-                            onChange={(e) => updateOption(index, e.target.value)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateOption(index, e.target.value)}
                             placeholder={`Option ${index + 1}`}
                             className="flex-1 px-4 py-2 border rounded-lg"
                           />
@@ -168,7 +168,7 @@ export function QuizBuilder() {
                   <input
                     type="number"
                     value={currentQuestion.points}
-                    onChange={(e) => setCurrentQuestion({ ...currentQuestion, points: parseInt(e.target.value) || 1 })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCurrentQuestion({ ...currentQuestion, points: parseInt(e.target.value) || 1 })}
                     min="1"
                     className="w-full px-4 py-2 border rounded-lg"
                   />

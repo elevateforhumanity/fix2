@@ -1,7 +1,5 @@
 'use client';
-
 import { useEffect } from 'react';
-
 /**
  * Copyright Protection Component
  * Adds multiple layers of protection against content theft
@@ -17,51 +15,38 @@ export function CopyrightProtection() {
         return false;
       }
     };
-
     // 2. Detect and prevent text selection copying
     const handleCopy = (e: ClipboardEvent) => {
       const selection = window.getSelection()?.toString();
       if (selection && selection.length > 100) {
         e.preventDefault();
-        
         // Add copyright notice to clipboard
         const copyrightNotice = `\n\n---\n© 2024 Elevate for Humanity. All Rights Reserved.\nSource: ${window.location.href}\nUnauthorized reproduction is prohibited.\n`;
-        
         e.clipboardData?.setData('text/plain', selection + copyrightNotice);
         showCopyrightNotice();
       }
     };
-
     // 3. Detect screenshot attempts (limited browser support)
     const handleKeyDown = (e: KeyboardEvent) => {
       // Print Screen key
       if (e.key === 'PrintScreen') {
         showCopyrightNotice();
       }
-      
       // Ctrl+Shift+S (Firefox screenshot)
       if (e.ctrlKey && e.shiftKey && e.key === 'S') {
         e.preventDefault();
         showCopyrightNotice();
       }
     };
-
     // 4. Detect developer tools opening
     const detectDevTools = () => {
       const threshold = 160;
       const widthThreshold = window.outerWidth - window.innerWidth > threshold;
       const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-      
       if (widthThreshold || heightThreshold) {
         console.clear();
-        console.log('%c⚠️ COPYRIGHT NOTICE', 'color: red; font-size: 24px; font-weight: bold;');
-        console.log('%cThis website and all its content are protected by U.S. Copyright Law.', 'font-size: 14px;');
-        console.log('%c© 2024 Elevate for Humanity. All Rights Reserved.', 'font-size: 14px;');
-        console.log('%cUnauthorized reproduction, modification, or distribution is prohibited.', 'font-size: 14px;');
-        console.log('%cViolators will be prosecuted to the fullest extent of the law.', 'font-size: 14px; font-weight: bold;');
       }
     };
-
     // 5. Add invisible watermark to page
     const addInvisibleWatermark = () => {
       const watermark = document.createElement('div');
@@ -71,7 +56,6 @@ export function CopyrightProtection() {
       watermark.setAttribute('data-page', window.location.pathname);
       document.body.appendChild(watermark);
     };
-
     // 6. Add meta tags to prevent AI scraping
     const addAntiAIMetaTags = () => {
       const metaTags = [
@@ -79,7 +63,6 @@ export function CopyrightProtection() {
         { name: 'googlebot', content: 'noai, noimageai' },
         { property: 'og:restrictions:age', content: '18+' },
       ];
-
       metaTags.forEach(({ name, property, content }) => {
         const existing = document.querySelector(`meta[${name ? 'name' : 'property'}="${name || property}"]`);
         if (!existing) {
@@ -91,18 +74,15 @@ export function CopyrightProtection() {
         }
       });
     };
-
     // Attach event listeners
     document.addEventListener('contextmenu', handleContextMenu);
     document.addEventListener('copy', handleCopy);
     document.addEventListener('keydown', handleKeyDown);
     window.addEventListener('resize', detectDevTools);
-
     // Initialize protections
     addInvisibleWatermark();
     addAntiAIMetaTags();
     detectDevTools();
-
     // Cleanup
     return () => {
       document.removeEventListener('contextmenu', handleContextMenu);
@@ -111,17 +91,14 @@ export function CopyrightProtection() {
       window.removeEventListener('resize', detectDevTools);
     };
   }, []);
-
   return null; // This component doesn't render anything
 }
-
 /**
  * Show copyright notice to user
  */
 function showCopyrightNotice() {
   // Check if notice already exists
   if (document.getElementById('copyright-notice')) return;
-
   const notice = document.createElement('div');
   notice.id = 'copyright-notice';
   notice.style.cssText = `
@@ -138,7 +115,6 @@ function showCopyrightNotice() {
     text-align: center;
     box-shadow: 0 10px 40px rgba(0,0,0,0.5);
   `;
-
   notice.innerHTML = `
     <div style="font-size: 48px; margin-bottom: 20px;">⚠️</div>
     <h2 style="margin: 0 0 15px 0; font-size: 24px;">Copyright Protected Content</h2>
@@ -162,20 +138,16 @@ function showCopyrightNotice() {
       I Understand
     </button>
   `;
-
   document.body.appendChild(notice);
-
   // Close button
   document.getElementById('close-notice')?.addEventListener('click', () => {
     notice.remove();
   });
-
   // Auto-remove after 5 seconds
   setTimeout(() => {
     notice.remove();
   }, 5000);
 }
-
 /**
  * Visible Copyright Footer Component
  */
@@ -205,7 +177,6 @@ export function CopyrightFooter() {
     </div>
   );
 }
-
 /**
  * Unique Content Identifier
  * Adds invisible tracking to content

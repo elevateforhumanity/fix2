@@ -88,7 +88,7 @@ export async function enrollCertiport(request: EnrollmentRequest): Promise<Enrol
       enrollmentId: enrollment.id,
       message: 'Certiport enrollment created. Student should register at certiport.com using provided credentials.',
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error.message,
@@ -148,7 +148,7 @@ export async function enrollHSI(request: EnrollmentRequest): Promise<EnrollmentR
       enrollmentId: enrollment.id,
       message: 'HSI enrollment created. Student will receive access instructions via email.',
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error.message,
@@ -208,7 +208,7 @@ export async function enrollJRI(request: EnrollmentRequest): Promise<EnrollmentR
       enrollmentId: enrollment.id,
       message: 'JRI enrollment created. Student will receive course access details.',
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error.message,
@@ -269,7 +269,7 @@ export async function enrollNRFRiseUp(request: EnrollmentRequest): Promise<Enrol
       enrollmentId: enrollment.id,
       message: 'NRF RISE Up enrollment created. Student will receive platform access.',
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error.message,
@@ -330,7 +330,7 @@ export async function enrollCareerSafe(request: EnrollmentRequest): Promise<Enro
       enrollmentId: enrollment.id,
       message: 'CareerSafe enrollment created. Student will receive OSHA training access.',
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error.message,
@@ -402,7 +402,7 @@ export async function enrollMiladyRISE(request: EnrollmentRequest): Promise<Enro
       enrollmentId: enrollment.id,
       message: `Milady RISE enrollment created. Use promo code: ${provider.promo_code}`,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error.message,
@@ -445,7 +445,7 @@ export async function enrollStudent(request: EnrollmentRequest): Promise<Enrollm
       default:
         throw new Error(`Unsupported provider type: ${provider.provider_type}`);
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       success: false,
       error: error.message,

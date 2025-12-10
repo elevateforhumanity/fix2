@@ -94,7 +94,7 @@ export default function CourseCompletionClient({
             }
           : prev
       );
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setMessage(err?.message ?? "Unexpected error.");
     } finally {

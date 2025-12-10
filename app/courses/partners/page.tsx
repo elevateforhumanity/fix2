@@ -29,7 +29,7 @@ export default async function PartnerCoursesPage() {
     .order('course_name');
 
   // Group courses by partner
-  const coursesByPartner = courses?.reduce((acc: any, course: any) => {
+  const coursesByPartner = courses?.reduce((acc: Record<string, unknown>, course: Record<string, unknown>) => {
     const partnerName = course.partner_lms_providers?.provider_name || 'Other';
     if (!acc[partnerName]) {
       acc[partnerName] = [];
@@ -103,7 +103,7 @@ export default async function PartnerCoursesPage() {
           <div className="mb-12">
             <h2 className="text-3xl font-bold mb-6">Our Partners</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-              {providers?.map((provider: any) => (
+              {providers?.map((provider: Record<string, any>) => (
                 <div key={provider.id} className="bg-white rounded-lg shadow-sm border p-4 text-center hover:shadow-md transition-shadow">
                   <div className="font-semibold text-sm">{provider.provider_name}</div>
                   <div className="text-xs text-gray-600 mt-1">
@@ -123,7 +123,7 @@ export default async function PartnerCoursesPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {partnerCourses.slice(0, 6).map((course: any) => (
+                {partnerCourses.slice(0, 6).map((course: Record<string, any>) => (
                   <div key={course.id} className="bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow">
                     <div className="p-6">
                       <h3 className="text-lg font-semibold mb-2 line-clamp-2">{course.course_name}</h3>

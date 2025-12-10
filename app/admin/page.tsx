@@ -397,7 +397,7 @@ d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 
               </div>
               <div className="divide-y">
                 {recentApplications && recentApplications.length > 0 ? (
-                  recentApplications.map((app: any) => (
+                  recentApplications.map((app: Record<string, unknown>) => (
                     <div key={app.id} className="p-4 hover:bg-gray-50">
                       <div className="flex justify-between items-start">
                         <div>
@@ -436,7 +436,7 @@ d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 
               </div>
               <div className="divide-y">
                 {recentUsers && recentUsers.length > 0 ? (
-                  recentUsers.map((u: any) => (
+                  recentUsers.map((u: Record<string, unknown>) => (
                     <div key={u.id} className="p-4 hover:bg-gray-50">
                       <div className="flex justify-between items-start">
                         <div>

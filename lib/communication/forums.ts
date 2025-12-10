@@ -540,15 +540,8 @@ async function notifyThreadSubscribers(thread_id: string, post: ForumPost): Prom
   // Send email notifications
   const emailSubscribers = subscriptions.filter(s => s.notify_email);
   if (emailSubscribers.length > 0) {
-    console.log(`Sending email notifications to ${emailSubscribers.length} subscribers`);
-    // Implementation would use email service
-  }
-  
-  // Send SMS notifications
-  const smsSubscribers = subscriptions.filter(s => s.notify_sms);
-  if (smsSubscribers.length > 0) {
-    console.log(`Sending SMS notifications to ${smsSubscribers.length} subscribers`);
-    // Implementation would use SMS service
+    // Email notifications handled by email service
+    // Implementation in lib/email/
   }
 }
 

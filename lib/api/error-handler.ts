@@ -72,7 +72,7 @@ export function withErrorHandling(handler: ApiHandler): ApiHandler {
 /**
  * Validates required fields in request body
  */
-export function validateRequired(data: any, fields: string[]): string | null {
+export function validateRequired(data: Record<string, unknown>, fields: string[]): string | null {
   for (const field of fields) {
     if (!data[field]) {
       return `Missing required field: ${field}`;
@@ -84,7 +84,7 @@ export function validateRequired(data: any, fields: string[]): string | null {
 /**
  * Creates a standardized success response
  */
-export function successResponse(data: any, status: number = 200) {
+export function successResponse(data: Record<string, unknown>, status: number = 200) {
   return NextResponse.json(data, { status });
 }
 

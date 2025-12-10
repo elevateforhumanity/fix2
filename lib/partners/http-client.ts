@@ -66,7 +66,7 @@ export class HttpClient {
         responseHeaders[key] = value;
       });
 
-      let data: any;
+      let data: unknown;
       const contentType = response.headers.get("content-type");
       if (contentType?.includes("application/json")) {
         data = await response.json();
@@ -97,7 +97,7 @@ export class HttpClient {
         status: response.status,
         headers: responseHeaders,
       };
-    } catch (error: any) {
+    } catch (error: unknown) {
       clearTimeout(timeoutId);
 
       if (error.name === "AbortError") {

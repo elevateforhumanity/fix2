@@ -1,14 +1,12 @@
 // lib/integrations/eps-financial.ts
 // EPS Financial API Integration
 // Reference implementation - configure with your EPS credentials
-
 interface EPSConfig {
   apiKey: string;
   apiUrl: string;
   merchantId: string;
   webhookSecret: string;
 }
-
 interface CashAdvanceApplication {
   id: string;
   applicant: {
@@ -37,7 +35,6 @@ interface CashAdvanceApplication {
   };
   requestedAmount: number;
 }
-
 interface EPSUnderwritingResult {
   applicationId: string;
   epsApplicationId: string;
@@ -53,7 +50,6 @@ interface EPSUnderwritingResult {
   denialReason?: string;
   riskScore?: number;
 }
-
 interface EPSFundingRequest {
   epsApplicationId: string;
   amount: number;
@@ -62,17 +58,14 @@ interface EPSFundingRequest {
     routingNumber: string;
   };
 }
-
 interface EPSFundingResult {
   transactionId: string;
   status: 'initiated' | 'processing' | 'completed' | 'failed';
   estimatedDelivery: string;
   trackingNumber?: string;
 }
-
 export class EPSFinancialIntegration {
   private config: EPSConfig;
-
   constructor() {
     this.config = {
       apiKey: process.env.EPS_FINANCIAL_API_KEY || '',
@@ -81,7 +74,6 @@ export class EPSFinancialIntegration {
       webhookSecret: process.env.EPS_FINANCIAL_WEBHOOK_SECRET || '',
     };
   }
-
   /**
    * Check if EPS integration is configured
    */
@@ -92,7 +84,6 @@ export class EPSFinancialIntegration {
       this.config.webhookSecret
     );
   }
-
   /**
    * Submit application to EPS for underwriting
    * Reference: Use EPS API to submit application
@@ -101,7 +92,6 @@ export class EPSFinancialIntegration {
     if (!this.isConfigured()) {
       throw new Error('EPS Financial integration not configured');
     }
-
     // Reference implementation - replace with actual EPS API call
     const response = await fetch(`${this.config.apiUrl}/applications`, {
       method: 'POST',
@@ -119,13 +109,10 @@ export class EPSFinancialIntegration {
         applicationId: application.id,
       }),
     });
-
     if (!response.ok) {
       throw new Error(`EPS API error: ${response.statusText}`);
     }
-
     const data = await response.json();
-    
     return {
       applicationId: application.id,
       epsApplicationId: data.applicationId,
@@ -138,7 +125,6 @@ export class EPSFinancialIntegration {
       riskScore: data.riskScore,
     };
   }
-
   /**
    * Get application status from EPS
    */
@@ -146,7 +132,6 @@ export class EPSFinancialIntegration {
     if (!this.isConfigured()) {
       throw new Error('EPS Financial integration not configured');
     }
-
     const response = await fetch(`${this.config.apiUrl}/applications/${epsApplicationId}`, {
       method: 'GET',
       headers: {
@@ -154,14 +139,11 @@ export class EPSFinancialIntegration {
         'X-Merchant-Id': this.config.merchantId,
       },
     });
-
     if (!response.ok) {
       throw new Error(`EPS API error: ${response.statusText}`);
     }
-
     return await response.json();
   }
-
   /**
    * Initiate fund transfer through EPS
    */
@@ -169,7 +151,6 @@ export class EPSFinancialIntegration {
     if (!this.isConfigured()) {
       throw new Error('EPS Financial integration not configured');
     }
-
     const response = await fetch(`${this.config.apiUrl}/funding`, {
       method: 'POST',
       headers: {
@@ -184,13 +165,10 @@ export class EPSFinancialIntegration {
         merchantId: this.config.merchantId,
       }),
     });
-
     if (!response.ok) {
       throw new Error(`EPS API error: ${response.statusText}`);
     }
-
     const data = await response.json();
-    
     return {
       transactionId: data.transactionId,
       status: data.status,
@@ -198,7 +176,6 @@ export class EPSFinancialIntegration {
       trackingNumber: data.trackingNumber,
     };
   }
-
   /**
    * Get funding status
    */
@@ -206,7 +183,6 @@ export class EPSFinancialIntegration {
     if (!this.isConfigured()) {
       throw new Error('EPS Financial integration not configured');
     }
-
     const response = await fetch(`${this.config.apiUrl}/funding/${transactionId}`, {
       method: 'GET',
       headers: {
@@ -214,14 +190,11 @@ export class EPSFinancialIntegration {
         'X-Merchant-Id': this.config.merchantId,
       },
     });
-
     if (!response.ok) {
       throw new Error(`EPS API error: ${response.statusText}`);
     }
-
     return await response.json();
   }
-
   /**
    * Verify bank account through EPS
    */
@@ -233,7 +206,6 @@ export class EPSFinancialIntegration {
     if (!this.isConfigured()) {
       throw new Error('EPS Financial integration not configured');
     }
-
     const response = await fetch(`${this.config.apiUrl}/verify-bank`, {
       method: 'POST',
       headers: {
@@ -246,14 +218,11 @@ export class EPSFinancialIntegration {
         routingNumber,
       }),
     });
-
     if (!response.ok) {
       throw new Error(`EPS API error: ${response.statusText}`);
     }
-
     return await response.json();
   }
-
   /**
    * Get repayment schedule
    */
@@ -270,7 +239,6 @@ export class EPSFinancialIntegration {
     if (!this.isConfigured()) {
       throw new Error('EPS Financial integration not configured');
     }
-
     const response = await fetch(`${this.config.apiUrl}/applications/${epsApplicationId}/schedule`, {
       method: 'GET',
       headers: {
@@ -278,14 +246,11 @@ export class EPSFinancialIntegration {
         'X-Merchant-Id': this.config.merchantId,
       },
     });
-
     if (!response.ok) {
       throw new Error(`EPS API error: ${response.statusText}`);
     }
-
     return await response.json();
   }
-
   /**
    * Process repayment
    */
@@ -297,7 +262,6 @@ export class EPSFinancialIntegration {
     if (!this.isConfigured()) {
       throw new Error('EPS Financial integration not configured');
     }
-
     const response = await fetch(`${this.config.apiUrl}/repayments`, {
       method: 'POST',
       headers: {
@@ -310,14 +274,11 @@ export class EPSFinancialIntegration {
         amount,
       }),
     });
-
     if (!response.ok) {
       throw new Error(`EPS API error: ${response.statusText}`);
     }
-
     return await response.json();
   }
-
   /**
    * Verify webhook signature
    */
@@ -325,7 +286,6 @@ export class EPSFinancialIntegration {
     if (!this.config.webhookSecret) {
       return false;
     }
-
     // Reference: Implement signature verification based on EPS documentation
     // This is a placeholder - replace with actual EPS signature verification
     const crypto = await import('crypto');
@@ -333,17 +293,15 @@ export class EPSFinancialIntegration {
       .createHmac('sha256', this.config.webhookSecret)
       .update(payload)
       .digest('hex');
-    
     return signature === expectedSignature;
   }
-
   /**
    * Handle webhook event
    */
   async handleWebhook(event: {
     type: string;
     applicationId: string;
-    data: any;
+    data: unknown;
   }): Promise<void> {
     // Reference: Handle different webhook event types
     switch (event.type) {
@@ -366,10 +324,8 @@ export class EPSFinancialIntegration {
         // Handle default
         break;
       default:
-        console.log(`Unknown webhook event type: ${event.type}`);
     }
   }
 }
-
 // Export singleton instance
 export const epsFinancialIntegration = new EPSFinancialIntegration();

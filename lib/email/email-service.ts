@@ -1,11 +1,8 @@
 /**
  * Email Service - Real implementation with Resend
  */
-
 import { Resend } from 'resend';
-
 const resend = new Resend(process.env.RESEND_API_KEY);
-
 export interface EmailOptions {
   to: string | string[];
   subject: string;
@@ -14,14 +11,12 @@ export interface EmailOptions {
   from?: string;
   replyTo?: string;
 }
-
 export async function sendEmail(options: EmailOptions): Promise<{ success: boolean; messageId?: string; error?: string }> {
   try {
     if (!process.env.RESEND_API_KEY) {
       console.warn('[Email] RESEND_API_KEY not configured, email not sent');
       return { success: false, error: 'Email service not configured' };
     }
-
     const { data, error } = await resend.emails.send({
       from: options.from || process.env.EMAIL_FROM || 'Elevate For Humanity <noreply@elevateforhumanity.org>',
       to: Array.isArray(options.to) ? options.to : [options.to],
@@ -30,20 +25,16 @@ export async function sendEmail(options: EmailOptions): Promise<{ success: boole
       text: options.text,
       replyTo: options.replyTo,
     });
-
     if (error) {
       console.error('[Email] Send error:', error);
       return { success: false, error: error.message };
     }
-
-    console.log('[Email] Sent successfully:', data?.id);
     return { success: true, messageId: data?.id };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[Email] Exception:', error);
     return { success: false, error: error.message };
   }
 }
-
 // Email templates
 export const emailTemplates = {
   welcome: (name: string) => ({
@@ -59,7 +50,6 @@ export const emailTemplates = {
       </div>
     `,
   }),
-
   enrollmentConfirmation: (name: string, programName: string) => ({
     subject: `Enrollment Confirmed: ${programName}`,
     html: `
@@ -74,7 +64,6 @@ export const emailTemplates = {
       </div>
     `,
   }),
-
   certificateReady: (name: string, courseName: string, certificateUrl: string) => ({
     subject: `Your Certificate is Ready: ${courseName}`,
     html: `
@@ -88,7 +77,6 @@ export const emailTemplates = {
       </div>
     `,
   }),
-
   passwordReset: (name: string, resetUrl: string) => ({
     subject: 'Reset Your Password',
     html: `
@@ -105,7 +93,6 @@ export const emailTemplates = {
       </div>
     `,
   }),
-
   assignmentReminder: (name: string, assignmentName: string, dueDate: string) => ({
     subject: `Reminder: ${assignmentName} Due Soon`,
     html: `

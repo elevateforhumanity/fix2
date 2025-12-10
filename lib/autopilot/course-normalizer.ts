@@ -1,4 +1,4 @@
-export function normalizeCourseMetadata(metadata: any) {
+export function normalizeCourseMetadata(metadata: Record<string, unknown>) {
   const clean = { ...metadata };
 
   // Ensure required fields
@@ -48,7 +48,7 @@ export function normalizeCourseMetadata(metadata: any) {
   return clean;
 }
 
-export function validateCourseMetadata(metadata: any): { valid: boolean; errors: string[] } {
+export function validateCourseMetadata(metadata: Record<string, unknown>): { valid: boolean; errors: string[] } {
   const errors: string[] = [];
 
   if (!metadata.title || metadata.title.trim() === "") {

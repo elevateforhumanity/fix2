@@ -146,7 +146,7 @@ d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-
             <div className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Internal Course Certificates</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {completedEnrollments.map((enrollment: any) => {
+                {completedEnrollments.map((enrollment: Record<string, any>) => {
                   const course = enrollment.courses;
                   return (
                     <div key={enrollment.id} className="bg-white rounded-lg shadow-sm border overflow-hidden">
@@ -256,7 +256,7 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
             <div className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Partner Certifications</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {completedPartnerEnrollments.map((enrollment: any) => {
+                {completedPartnerEnrollments.map((enrollment: Record<string, any>) => {
                   const course = enrollment.partner_courses;
                   return (
                     <div key={enrollment.id} className="bg-white rounded-lg shadow-sm border overflow-hidden">

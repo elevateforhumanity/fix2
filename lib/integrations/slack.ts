@@ -1,7 +1,7 @@
 // Slack Integration
 export interface SlackMessage {
   text: string;
-  blocks?: any[];
+  blocks?: unknown[];
   channel?: string;
   username?: string;
   icon_emoji?: string;
@@ -27,7 +27,7 @@ export async function sendSlackMessage(message: SlackMessage) {
     }
 
     return { success: true };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Slack error:', error);
     return { success: false, error: error.message };
   }

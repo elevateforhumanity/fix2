@@ -47,7 +47,7 @@ export default function EnrollmentForm({ courseId, courseName, userId }: Enrollm
 
       // Redirect to success page
       router.push(`/courses/partners/${courseId}/success`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Enrollment error:', err);
       setError(err.message || 'Failed to enroll in course');
       setLoading(false);
@@ -74,7 +74,7 @@ export default function EnrollmentForm({ courseId, courseName, userId }: Enrollm
             type="text"
             id="programHolder"
             value={formData.programHolder}
-            onChange={(e) => setFormData({ ...formData, programHolder: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, programHolder: e.target.value })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Enter program holder name"
           />
@@ -91,7 +91,7 @@ export default function EnrollmentForm({ courseId, courseName, userId }: Enrollm
           <select
             id="fundingSource"
             value={formData.fundingSource}
-            onChange={(e) => setFormData({ ...formData, fundingSource: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, fundingSource: e.target.value })}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             <option value="self">Self-Funded</option>
@@ -108,7 +108,7 @@ export default function EnrollmentForm({ courseId, courseName, userId }: Enrollm
             type="checkbox"
             id="agreedToTerms"
             checked={formData.agreedToTerms}
-            onChange={(e) => setFormData({ ...formData, agreedToTerms: e.target.checked })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, agreedToTerms: e.target.checked })}
             className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
             required
           />

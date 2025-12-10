@@ -181,7 +181,7 @@ export default function SpeedGrader({ submissions, assignment, onGrade }: SpeedG
                 <input
                   type="number"
                   value={points}
-                  onChange={(e) => setPoints(Number(e.target.value))}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPoints(Number(e.target.value))}
                   max={assignment.points}
                   min={0}
                   step={0.5}
@@ -239,7 +239,7 @@ export default function SpeedGrader({ submissions, assignment, onGrade }: SpeedG
               </label>
               <textarea
                 value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFeedback(e.target.value)}
                 rows={6}
                 placeholder="Provide feedback to the student..."
                 className="w-full px-3 py-2 border border-slate-300 rounded focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm"

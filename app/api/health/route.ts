@@ -47,7 +47,7 @@ export async function GET() {
         error: 'Missing Supabase credentials',
       };
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     checks.checks.database = {
       connected: false,
       status: 'fail',

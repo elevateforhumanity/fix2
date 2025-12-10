@@ -74,7 +74,7 @@ export async function enrollInExternalModule(
 
     // Use link mode
     return await enrollViaLink(module, request);
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("[HybridEnrollment] Error:", error);
     return {
       success: false,
@@ -215,7 +215,7 @@ export async function syncExternalModuleProgress(
   if (!partnerProgress) return;
 
   // Update database
-  const updates: any = {
+  const updates: unknown = {
     progress_percentage: partnerProgress.percentage,
     status: partnerProgress.completed ? "approved" : "in_progress",
   };

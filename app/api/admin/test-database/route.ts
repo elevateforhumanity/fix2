@@ -52,7 +52,7 @@ export const GET = withAuth(
         error: lessonsError?.message,
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 

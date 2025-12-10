@@ -1,17 +1,14 @@
 // xAPI (Experience API / Tin Can API) Client
 // Tracks learning activities and sends statements to Learning Record Store (LRS)
-
 export interface XAPIActor {
   mbox?: string;
   name: string;
   objectType: 'Agent' | 'Group';
 }
-
 export interface XAPIVerb {
   id: string;
   display: { [language: string]: string };
 }
-
 export interface XAPIActivity {
   id: string;
   definition?: {
@@ -21,7 +18,6 @@ export interface XAPIActivity {
   };
   objectType: 'Activity';
 }
-
 export interface XAPIResult {
   score?: {
     scaled?: number; // 0-1
@@ -33,25 +29,21 @@ export interface XAPIResult {
   completion?: boolean;
   duration?: string; // ISO 8601 duration
 }
-
 export interface XAPIStatement {
   actor: XAPIActor;
   verb: XAPIVerb;
   object: XAPIActivity;
   result?: XAPIResult;
   timestamp?: string;
-  context?: any;
+  context?: unknown;
 }
-
 export class XAPIClient {
   private endpoint: string;
   private auth: string;
   private enabled: boolean;
-
   constructor(endpoint?: string, username?: string, password?: string) {
     this.endpoint = endpoint || process.env.NEXT_PUBLIC_XAPI_ENDPOINT || '';
     this.enabled = !!this.endpoint;
-
     if (username && password) {
       this.auth = btoa(`${username}:${password}`);
     } else {
@@ -60,13 +52,11 @@ export class XAPIClient {
       );
     }
   }
-
   async sendStatement(statement: XAPIStatement): Promise<void> {
     if (!this.enabled) {
-      // console.log('[xAPI] Disabled - statement not sent:', statement);
+      // 
       return;
     }
-
     try {
       const response = await fetch(`${this.endpoint}/statements`, {
         method: 'POST',
@@ -80,20 +70,17 @@ export class XAPIClient {
           timestamp: statement.timestamp || new Date().toISOString(),
         }),
       });
-
       if (!response.ok) {
         throw new Error(
           `xAPI error: ${response.status} ${response.statusText}`
         );
       }
-
-      // console.log('[xAPI] Statement sent successfully');
+      // 
     } catch (error) {
       console.error('[xAPI] Failed to send statement:', error);
       // Don't throw - we don't want tracking failures to break the app
     }
   }
-
   // Helper method to create actor from user
   createActor(userId: string, userName: string): XAPIActor {
     return {
@@ -102,7 +89,6 @@ export class XAPIClient {
       objectType: 'Agent',
     };
   }
-
   // Common verbs
   static VERBS = {
     INITIALIZED: {
@@ -134,7 +120,6 @@ export class XAPIClient {
       display: { 'en-US': 'answered' },
     },
   };
-
   // Track course started
   async trackCourseStarted(
     userId: string,
@@ -155,7 +140,6 @@ export class XAPIClient {
       },
     });
   }
-
   // Track lesson completed
   async trackLessonCompleted(
     userId: string,
@@ -168,7 +152,6 @@ export class XAPIClient {
     const result: XAPIResult = {
       completion: true,
     };
-
     if (score !== undefined) {
       result.success = score >= 70;
       result.score = {
@@ -178,11 +161,9 @@ export class XAPIClient {
         max: 100,
       };
     }
-
     if (duration) {
       result.duration = `PT${duration}S`;
     }
-
     await this.sendStatement({
       actor: this.createActor(userId, userName),
       verb: XAPIClient.VERBS.COMPLETED,
@@ -197,7 +178,6 @@ export class XAPIClient {
       result,
     });
   }
-
   // Track quiz attempt
   async trackQuizAttempt(
     userId: string,
@@ -232,7 +212,6 @@ export class XAPIClient {
       },
     });
   }
-
   // Track video watched
   async trackVideoWatched(
     userId: string,
@@ -260,10 +239,8 @@ export class XAPIClient {
     });
   }
 }
-
 // Singleton instance
 let xapiClient: XAPIClient | null = null;
-
 export function getXAPIClient(): XAPIClient {
   if (!xapiClient) {
     xapiClient = new XAPIClient();

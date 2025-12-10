@@ -263,7 +263,7 @@ className="text-blue-600 hover:underline">tawk.to</a> - completely free, no cred
 interface StatCardProps {
   title: string;
   value: string;
-  icon: any;
+  icon: unknown;
   color: 'blue' | 'green' | 'purple' | 'orange';
 }
 

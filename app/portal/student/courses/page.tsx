@@ -145,7 +145,7 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             <div className="mb-12">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">My Enrolled Courses</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {enrollments.map((enrollment: any) => {
+                {enrollments.map((enrollment: Record<string, any>) => {
                   const course = enrollment.courses;
                   const progress = enrollment.progress_percentage || 0;
                   
@@ -286,7 +286,7 @@ d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Available Courses</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {availableCourses.map((course: any) => (
+                {availableCourses.map((course: Record<string, any>) => (
                   <div key={course.id} className="bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow">
                     {course.thumbnail_url ? (
                       <img 

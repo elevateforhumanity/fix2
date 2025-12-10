@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
     // Handle checkout.session.completed event
     if (event.type === 'checkout.session.completed') {
-      const session = event.data.object as any;
+      const session = event.data.object;
       const productId = session.metadata?.productId;
       const email = session.customer_email;
 
@@ -98,7 +98,7 @@ export async function POST(req: Request) {
     }
 
     return Response.json({ received: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Webhook error:', error);
     return Response.json({ error: error.message }, { status: 500 });
   }

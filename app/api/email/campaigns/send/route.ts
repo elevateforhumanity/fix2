@@ -72,7 +72,7 @@ export async function POST(req: Request) {
           status: 'sent',
           sent_at: new Date().toISOString(),
         });
-      } catch (error: any) {
+      } catch (error: unknown) {
         logger.error(`Error sending to ${recipient.email}:`, error);
         results.push({ email: recipient.email, success: false, error: error.message });
         
@@ -109,7 +109,7 @@ export async function POST(req: Request) {
         failed: results.filter(r => !r.success).length,
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error sending campaign:', error);
     return NextResponse.json(
       { success: false, error: error.message },
@@ -118,7 +118,7 @@ export async function POST(req: Request) {
   }
 }
 
-async function getRecipients(supabase: any, listType: string) {
+async function getRecipients(supabase: any, // TODO: Type with SupabaseClient listType: string) {
   let query;
 
   switch (listType) {

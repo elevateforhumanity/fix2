@@ -36,7 +36,7 @@ export default function InstructorPerformanceDashboard() {
           <h2 className="text-2xl font-bold">Overview</h2>
           <select
             value={timeRange}
-            onChange={(e) => setTimeRange(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setTimeRange(e.target.value)}
             className="px-4 py-2 border rounded"
           >
             <option value="7">Last 7 days</option>

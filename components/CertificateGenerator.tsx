@@ -1,16 +1,13 @@
 'use client';
-
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Download, Share2, Award } from 'lucide-react';
-
 interface CertificateGeneratorProps {
   studentName?: string;
   courseName?: string;
   completionDate?: string;
   certificateId?: string;
 }
-
 export default function CertificateGenerator({
   studentName = 'Student Name',
   courseName = 'Course Name',
@@ -19,14 +16,12 @@ export default function CertificateGenerator({
 }: CertificateGeneratorProps = {}) {
   const handleDownload = () => {
     // Generate PDF certificate
-    // console.log('Downloading certificate...');
+    // 
   };
-
   const handleShare = () => {
     // Share to LinkedIn, etc.
-    // console.log('Sharing certificate...');
+    // 
   };
-
   return (
     <div className="space-y-6">
       <Card className="border-4 border-red-600">
@@ -34,27 +29,21 @@ export default function CertificateGenerator({
           <div className="mb-8">
             <Award className="mx-auto text-red-600" size={64} />
           </div>
-          
           <h1 className="text-4xl font-bold mb-4 text-gray-900">
             Certificate of Completion
           </h1>
-          
           <div className="text-lg text-gray-600 mb-8">
             This certifies that
           </div>
-          
           <div className="text-3xl font-bold mb-8 text-red-600">
             {studentName}
           </div>
-          
           <div className="text-lg text-gray-600 mb-4">
             has successfully completed
           </div>
-          
           <div className="text-2xl font-semibold mb-8 text-gray-900">
             {courseName}
           </div>
-          
           <div className="flex items-center justify-center gap-12 text-sm text-gray-600 mb-8">
             <div>
               <div className="font-semibold">Date of Completion</div>
@@ -65,7 +54,6 @@ export default function CertificateGenerator({
               <div>{certificateId}</div>
             </div>
           </div>
-          
           <div className="border-t-2 border-gray-300 pt-8">
             <div className="text-sm text-gray-600">
               Elevate for Humanity
@@ -76,7 +64,6 @@ export default function CertificateGenerator({
           </div>
         </CardContent>
       </Card>
-
       <div className="flex gap-4 justify-center">
         <Button onClick={handleDownload} className="bg-red-600 hover:bg-red-700">
           <Download size={16} className="mr-2" />

@@ -1,9 +1,7 @@
 'use client';
-
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-
 export default function ApplyPage() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -15,20 +13,16 @@ export default function ApplyPage() {
     income: '',
     employmentStatus: ''
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log('Form submitted:', formData);
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -66,7 +60,6 @@ export default function ApplyPage() {
           </div>
         </div>
       </section>
-
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-5xl font-bold text-center mb-8 text-green-900">
           Apply for Fast Cash
@@ -74,7 +67,6 @@ export default function ApplyPage() {
         <p className="text-xl text-center mb-12 text-gray-700 max-w-3xl mx-auto">
           Complete this quick application and get approved in minutes
         </p>
-
         <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
           <form onSubmit={handleSubmit}>
             <div className="mb-6">
@@ -104,7 +96,6 @@ export default function ApplyPage() {
                 </div>
               </div>
             </div>
-
             <div className="mb-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
@@ -131,7 +122,6 @@ export default function ApplyPage() {
                 </div>
               </div>
             </div>
-
             <div className="mb-6">
               <h2 className="text-2xl font-bold mb-4 text-green-800">Loan Details</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -173,7 +163,6 @@ export default function ApplyPage() {
                 </div>
               </div>
             </div>
-
             <div className="mb-6">
               <h2 className="text-2xl font-bold mb-4 text-green-800">Employment Information</h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -212,14 +201,12 @@ export default function ApplyPage() {
                 </div>
               </div>
             </div>
-
             <div className="bg-green-50 p-4 rounded-lg mb-6">
               <p className="text-sm text-gray-700">
                 By submitting this application, you agree to our Terms of Service and Privacy Policy. 
                 We use bank-level encryption to protect your information.
               </p>
             </div>
-
             <button
               type="submit"
               className="w-full bg-green-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-green-700 transition-colors"
@@ -227,14 +214,12 @@ export default function ApplyPage() {
               Submit Application
             </button>
           </form>
-
           <div className="mt-8 text-center">
             <p className="text-gray-600">
               Questions? Call us at <span className="font-bold text-green-600">1-800-FAST-CASH</span>
             </p>
           </div>
         </div>
-      
       {/* Storytelling Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -290,8 +275,6 @@ export default function ApplyPage() {
           </div>
         </div>
       </section>
-
-      
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
         <div className="container mx-auto px-4">
@@ -319,7 +302,6 @@ export default function ApplyPage() {
           </div>
         </div>
       </section>
-
       </div>
     </div>
   );

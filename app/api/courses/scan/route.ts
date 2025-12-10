@@ -41,7 +41,7 @@ export async function GET(req: NextRequest) {
       count: uniqueCourses.length,
       files: metadataFiles.map(f => f.path),
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Scan courses error:", error);
     return NextResponse.json(
       { error: "Failed to scan courses", message: error.message },

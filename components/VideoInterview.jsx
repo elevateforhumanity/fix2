@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-
 /**
  * HireVue-style Video Interview Component
  * Records video responses to pre-set questions
@@ -10,11 +9,9 @@ export default function VideoInterview() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [timeLeft, setTimeLeft] = useState(120); // 2 minutes per question
   const [completed, setCompleted] = useState(false);
-
   const videoRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const chunksRef = useRef([]);
-
   const questions = [
     {
       id: 1,
@@ -37,7 +34,6 @@ export default function VideoInterview() {
       tips: 'Show resilience and problem-solving skills',
     },
   ];
-
   // Timer countdown
   useEffect(() => {
     if (recording && timeLeft > 0) {
@@ -47,38 +43,30 @@ export default function VideoInterview() {
       stopRecording();
     }
   }, [recording, timeLeft]);
-
   const startRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: { width: 1280, height: 720 },
         audio: true,
       });
-
       videoRef.current.srcObject = stream;
-
       const mediaRecorder = new MediaRecorder(stream, {
         mimeType: 'video/webm;codecs=vp9',
       });
-
       mediaRecorderRef.current = mediaRecorder;
       chunksRef.current = [];
-
       mediaRecorder.ondataavailable = (e) => {
         if (e.data.size > 0) {
           chunksRef.current.push(e.data);
         }
       };
-
       mediaRecorder.onstop = () => {
         const blob = new Blob(chunksRef.current, { type: 'video/webm' });
         setVideoBlob(blob);
         uploadVideo(blob);
-
         // Stop all tracks
         stream.getTracks().forEach((track) => track.stop());
       };
-
       mediaRecorder.start();
       setRecording(true);
       setTimeLeft(120);
@@ -87,35 +75,30 @@ export default function VideoInterview() {
       alert('Unable to access camera. Please check permissions.');
     }
   };
-
   const stopRecording = () => {
     if (mediaRecorderRef.current && recording) {
       mediaRecorderRef.current.stop();
       setRecording(false);
     }
   };
-
   const uploadVideo = async (blob) => {
     const formData = new FormData();
     formData.append('video', blob, `interview-q${currentQuestion + 1}.webm`);
     formData.append('questionId', questions[currentQuestion].id);
     formData.append('questionText', questions[currentQuestion].text);
     formData.append('timestamp', new Date().toISOString());
-
     try {
       const response = await fetch('/api/enrollment/video-upload', {
         method: 'POST',
         body: formData,
       });
-
       if (response.ok) {
-        // console.log('Video uploaded successfully');
+        // 
       }
     } catch (error) {
       console.error('Upload error:', error);
     }
   };
-
   const nextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
@@ -125,18 +108,15 @@ export default function VideoInterview() {
       setCompleted(true);
     }
   };
-
   const retakeAnswer = () => {
     setVideoBlob(null);
     setTimeLeft(120);
   };
-
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
-
   if (completed) {
     return (
       <div className="max-w-3xl mx-auto p-6 text-center">
@@ -162,7 +142,6 @@ export default function VideoInterview() {
       </div>
     );
   }
-
   return (
     <div className="max-w-4xl mx-auto p-6">
       {/* Progress Bar */}

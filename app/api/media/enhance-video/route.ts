@@ -82,7 +82,7 @@ export async function POST(request: Request) {
       });
     }
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Video upload error:', error);
     return NextResponse.json(
       { error: 'Failed to process video', details: error.message },

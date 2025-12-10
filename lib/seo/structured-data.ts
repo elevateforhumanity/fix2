@@ -262,7 +262,7 @@ export function getJobPostingSchema(job: {
 /**
  * Helper to inject structured data into page
  */
-export function injectStructuredData(data: any) {
+export function injectStructuredData(data: Record<string, unknown>) {
   return {
     __html: JSON.stringify({
       '@context': 'https://schema.org',

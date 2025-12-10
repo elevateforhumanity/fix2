@@ -40,7 +40,7 @@ export async function POST(req: Request) {
       },
       { status: 200 }
     );
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error("[Enroll Apply] Error:", err);
     return NextResponse.json(
       { message: "Something went wrong submitting your application." },

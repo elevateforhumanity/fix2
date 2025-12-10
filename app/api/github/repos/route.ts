@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
     }));
     
     return NextResponse.json(repos);
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("GitHub repos error:", error);
     return NextResponse.json({ 
       error: "Failed to fetch repos", 

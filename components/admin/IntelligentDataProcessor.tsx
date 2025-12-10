@@ -38,13 +38,13 @@ interface AnalyticsData {
   overallRetention: number;
   overallCompletion: number;
   atRiskCount: number;
-  monthlyTrends: any[];
+  monthlyTrends: unknown[];
 }
 
 interface FlowChartConfig {
   type: string;
   title: string;
-  data: any[];
+  data: unknown[];
   autoUpdate: boolean;
 }
 
@@ -268,7 +268,7 @@ export function IntelligentDataProcessor() {
     });
   };
 
-  const generateMonthlyTrends = (students: StudentRecord[]): any[] => {
+  const generateMonthlyTrends = (students: StudentRecord[]): unknown[] => {
     // Generate sample monthly trend data
     return [
       { month: 'Jan', enrolled: 25, completed: 20, retention: 85 },
@@ -363,7 +363,7 @@ export function IntelligentDataProcessor() {
         </label>
         <textarea
           value={rawInput}
-          onChange={(e) => setRawInput(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setRawInput(e.target.value)}
           placeholder="Paste your data here - any format works!
 
 Examples:

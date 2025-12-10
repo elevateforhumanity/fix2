@@ -4,7 +4,7 @@ import AIPromptModal from "./AIPromptModal";
 import AIGeneratorButton from "./AIGeneratorButton";
 
 interface AIBuilderProps {
-  onGenerate: (data: any) => void;
+  onGenerate: (data: Record<string, unknown>) => void;
 }
 
 export default function AIBuilder({ onGenerate }: AIBuilderProps) {

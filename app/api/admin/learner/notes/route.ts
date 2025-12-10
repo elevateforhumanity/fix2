@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@/lib/auth';
 import { withAuth } from '@/lib/with-auth';
 
-async function getHandler(req: any, context: any, user: any) {
+async function getHandler(req: Request, context: Record<string, unknown>, user: Record<string, unknown>) {
   const supabase = await createRouteHandlerClient({ cookies });
   const url = new URL(req.url);
   const learner_id = url.searchParams.get('user_id');
@@ -33,7 +33,7 @@ async function getHandler(req: any, context: any, user: any) {
 
   if (error) return new Response(error.message, { status: 500 });
 
-  const mapped = (notes || []).map((n: any) => ({
+  const mapped = (notes || []).map((n: Record<string, unknown>) => ({
     user_id: n.user_id,
     course_id: n.course_id,
     course_title: n.course?.title || 'Unknown Course',

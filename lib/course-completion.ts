@@ -104,7 +104,7 @@ async function checkExternalModules(
   complete: boolean;
   total: number;
   completed: number;
-  missingModules: any[];
+  missingModules: unknown[];
 }> {
   // Get all required external modules for this course
   const { data: requiredModules } = await supabase

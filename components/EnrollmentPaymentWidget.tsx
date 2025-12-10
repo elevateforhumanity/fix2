@@ -39,7 +39,7 @@ export function EnrollmentPaymentWidget({
       } else {
         throw new Error("No checkout URL returned");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Checkout error:", err);
       setError(err.message || "Something went wrong");
       setLoading(false);

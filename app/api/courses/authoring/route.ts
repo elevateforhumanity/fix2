@@ -116,7 +116,7 @@ export async function POST(req: NextRequest) {
 
     // Create modules if provided
     if (modules && Array.isArray(modules) && modules.length > 0) {
-      const moduleInserts = modules.map((module: any, index: number) => ({
+      const moduleInserts = modules.map((module: Record<string, unknown>, index: number) => ({
         course_id: course.id,
         title: module.title,
         description: module.description,

@@ -37,7 +37,7 @@ export async function GET(
       quiz,
       questions: finalQuestions,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: error.message || "Failed to load quiz" },
       { status: 500 }
@@ -74,9 +74,9 @@ export async function POST(
 
     // Calculate score
     let correctCount = 0;
-    const feedback: any = {};
+    const feedback: unknown = {};
 
-    questions.forEach((question: any) => {
+    questions.forEach((question: Record<string, unknown>) => {
       const userAnswer = answers[question.id];
       const correctAnswer = question.correct_answer;
       
@@ -91,7 +91,7 @@ export async function POST(
       };
     });
 
-    const totalPoints = questions.reduce((sum: number, q: any) => sum + (q.points || 1), 0);
+    const totalPoints = questions.reduce((sum: number, q: { points?: number }) => sum + (q.points || 1), 0);
     const score = correctCount;
     const percentage = (score / questions.length) * 100;
     const passed = percentage >= quiz.passing_score;
@@ -146,7 +146,7 @@ export async function POST(
       attemptNumber,
       maxAttempts: quiz.max_attempts,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: error.message || "Failed to submit quiz" },
       { status: 500 }

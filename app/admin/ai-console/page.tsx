@@ -363,7 +363,7 @@ export default function AIConsolePage() {
                   </label>
                   <textarea
                     value={chatMessage}
-                    onChange={(e) => setChatMessage(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setChatMessage(e.target.value)}
                     className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     rows={4}
                     placeholder="e.g., Explain how HVAC systems work..."
@@ -411,7 +411,7 @@ export default function AIConsolePage() {
                   </label>
                   <textarea
                     value={ttsText}
-                    onChange={(e) => setTtsText(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setTtsText(e.target.value)}
                     className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                     rows={6}
                     placeholder="Enter the text you want to convert to speech..."

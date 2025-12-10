@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
 
     const supabase = await createClient();
     
-    const updateData: any = {};
+    const updateData: unknown = {};
     if (metadata) updateData.metadata = metadata;
     if (slug) updateData.slug = slug;
     if (title) updateData.title = title;
@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ ok: true, course: data });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Save course error:", error);
     return NextResponse.json(
       { error: "Failed to save course", message: error.message },

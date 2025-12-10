@@ -256,7 +256,7 @@ export async function GET(req: NextRequest) {
       headers: { "content-type": "text/html" },
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Preview render error:", error);
     
     const errorHtml = `

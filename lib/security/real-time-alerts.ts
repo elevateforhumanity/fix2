@@ -2,9 +2,7 @@
  * Real-Time Security Alerts System
  * Monitors security events and sends immediate notifications
  */
-
 import { createClient } from '@/lib/supabase/server';
-
 // Alert severity levels
 export enum AlertSeverity {
   CRITICAL = 'critical',
@@ -13,7 +11,6 @@ export enum AlertSeverity {
   LOW = 'low',
   INFO = 'info',
 }
-
 // Alert types
 export enum AlertType {
   FAILED_LOGIN = 'failed_login',
@@ -27,7 +24,6 @@ export enum AlertType {
   XSS_ATTEMPT = 'xss_attempt',
   RATE_LIMIT_EXCEEDED = 'rate_limit_exceeded',
 }
-
 interface SecurityAlert {
   type: AlertType;
   severity: AlertSeverity;
@@ -38,14 +34,12 @@ interface SecurityAlert {
   metadata?: Record<string, any>;
   timestamp: Date;
 }
-
 interface AlertChannel {
   email?: string[];
   sms?: string[];
   slack?: string;
   webhook?: string;
 }
-
 // Alert thresholds
 const ALERT_THRESHOLDS = {
   failedLogins: 5, // Alert after 5 failed attempts
@@ -53,7 +47,6 @@ const ALERT_THRESHOLDS = {
   suspiciousActivityScore: 75, // 0-100 scale
   rateLimitExceeded: 100, // requests per window
 };
-
 /**
  * Send real-time security alert
  */
@@ -61,10 +54,8 @@ export async function sendSecurityAlert(alert: SecurityAlert): Promise<void> {
   try {
     // Log to database
     await logSecurityAlert(alert);
-
     // Determine notification channels based on severity
     const channels = getAlertChannels(alert.severity);
-
     // Send notifications
     await Promise.all([
       sendEmailAlert(alert, channels.email),
@@ -73,21 +64,17 @@ export async function sendSecurityAlert(alert: SecurityAlert): Promise<void> {
       // SMS for critical alerts only
       alert.severity === AlertSeverity.CRITICAL && sendSMSAlert(alert, channels.sms),
     ]);
-
-    console.log(`Security alert sent: ${alert.type} - ${alert.severity}`);
   } catch (error) {
     console.error('Failed to send security alert:', error);
     // Fallback: Log to console at minimum
     console.error('SECURITY ALERT:', JSON.stringify(alert, null, 2));
   }
 }
-
 /**
  * Log security alert to database
  */
 async function logSecurityAlert(alert: SecurityAlert): Promise<void> {
   const supabase = await createClient();
-
   await supabase.from('security_alerts').insert({
     type: alert.type,
     severity: alert.severity,
@@ -99,7 +86,6 @@ async function logSecurityAlert(alert: SecurityAlert): Promise<void> {
     created_at: alert.timestamp,
   });
 }
-
 /**
  * Get notification channels based on severity
  */
@@ -107,7 +93,6 @@ function getAlertChannels(severity: AlertSeverity): AlertChannel {
   const baseChannels: AlertChannel = {
     email: [process.env.SECURITY_EMAIL || 'security@elevateforhumanity.org'],
   };
-
   switch (severity) {
     case AlertSeverity.CRITICAL:
       return {
@@ -121,34 +106,28 @@ function getAlertChannels(severity: AlertSeverity): AlertChannel {
         slack: process.env.SLACK_SECURITY_WEBHOOK,
         webhook: process.env.SECURITY_WEBHOOK_URL,
       };
-
     case AlertSeverity.HIGH:
       return {
         ...baseChannels,
         email: ['security@elevateforhumanity.org', 'admin@elevateforhumanity.org'],
         slack: process.env.SLACK_SECURITY_WEBHOOK,
       };
-
     case AlertSeverity.MEDIUM:
       return {
         ...baseChannels,
         slack: process.env.SLACK_SECURITY_WEBHOOK,
       };
-
     default:
       return baseChannels;
   }
 }
-
 /**
  * Send email alert
  */
 async function sendEmailAlert(alert: SecurityAlert, emails?: string[]): Promise<void> {
   if (!emails || emails.length === 0) return;
-
   const subject = `[${alert.severity.toUpperCase()}] Security Alert: ${alert.type}`;
   const body = formatEmailBody(alert);
-
   // Using SendGrid or similar
   try {
     const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
@@ -169,7 +148,6 @@ async function sendEmailAlert(alert: SecurityAlert, emails?: string[]): Promise<
         ],
       }),
     });
-
     if (!response.ok) {
       throw new Error(`SendGrid API error: ${response.statusText}`);
     }
@@ -177,16 +155,13 @@ async function sendEmailAlert(alert: SecurityAlert, emails?: string[]): Promise<
     console.error('Failed to send email alert:', error);
   }
 }
-
 /**
  * Send Slack alert
  */
 async function sendSlackAlert(alert: SecurityAlert, webhookUrl?: string): Promise<void> {
   if (!webhookUrl) return;
-
   const color = getSeverityColor(alert.severity);
   const emoji = getSeverityEmoji(alert.severity);
-
   try {
     await fetch(webhookUrl, {
       method: 'POST',
@@ -212,42 +187,19 @@ async function sendSlackAlert(alert: SecurityAlert, webhookUrl?: string): Promis
     console.error('Failed to send Slack alert:', error);
   }
 }
-
 /**
  * Send SMS alert (for critical alerts)
+ * Note: SMS functionality disabled - critical alerts sent via email only
  */
 async function sendSMSAlert(alert: SecurityAlert, phones?: string[]): Promise<void> {
-  if (!phones || phones.length === 0) return;
-
-  const message = `[CRITICAL] ${alert.type}: ${alert.message}`;
-
-  // Using Twilio
-  try {
-    for (const phone of phones) {
-      await fetch('https://api.twilio.com/2010-04-01/Accounts/' + process.env.TWILIO_ACCOUNT_SID + '/Messages.json', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          Authorization: 'Basic ' + Buffer.from(`${process.env.TWILIO_ACCOUNT_SID}:${process.env.TWILIO_AUTH_TOKEN}`).toString('base64'),
-        },
-        body: new URLSearchParams({
-          To: phone,
-          From: process.env.TWILIO_PHONE_NUMBER || '',
-          Body: message,
-        }),
-      });
-    }
-  } catch (error) {
-    console.error('Failed to send SMS alert:', error);
-  }
+  // SMS functionality removed - use email for critical alerts
+  return;
 }
-
 /**
  * Send webhook alert
  */
 async function sendWebhookAlert(alert: SecurityAlert, webhookUrl?: string): Promise<void> {
   if (!webhookUrl) return;
-
   try {
     await fetch(webhookUrl, {
       method: 'POST',
@@ -258,7 +210,6 @@ async function sendWebhookAlert(alert: SecurityAlert, webhookUrl?: string): Prom
     console.error('Failed to send webhook alert:', error);
   }
 }
-
 /**
  * Format email body
  */
@@ -328,7 +279,6 @@ function formatEmailBody(alert: SecurityAlert): string {
     </html>
   `;
 }
-
 /**
  * Get color for severity level
  */
@@ -346,7 +296,6 @@ function getSeverityColor(severity: AlertSeverity): string {
       return '#6b7280'; // gray-500
   }
 }
-
 /**
  * Get emoji for severity level
  */
@@ -364,23 +313,19 @@ function getSeverityEmoji(severity: AlertSeverity): string {
       return '📢';
   }
 }
-
 /**
  * Monitor failed login attempts
  */
 export async function monitorFailedLogins(userId: string, ipAddress: string): Promise<void> {
   const supabase = await createClient();
-
   // Get failed attempts in last 15 minutes
   const fifteenMinutesAgo = new Date(Date.now() - ALERT_THRESHOLDS.bruteForceWindow);
-
   const { data: attempts } = await supabase
     .from('audit_logs')
     .select('*')
     .eq('action', 'failed_login')
     .or(`user_id.eq.${userId},ip_address.eq.${ipAddress}`)
     .gte('created_at', fifteenMinutesAgo.toISOString());
-
   if (attempts && attempts.length >= ALERT_THRESHOLDS.failedLogins) {
     await sendSecurityAlert({
       type: AlertType.BRUTE_FORCE,
@@ -393,7 +338,6 @@ export async function monitorFailedLogins(userId: string, ipAddress: string): Pr
     });
   }
 }
-
 /**
  * Monitor unauthorized access attempts
  */
@@ -412,7 +356,6 @@ export async function monitorUnauthorizedAccess(
     timestamp: new Date(),
   });
 }
-
 /**
  * Monitor suspicious activity
  */
@@ -434,7 +377,6 @@ export async function monitorSuspiciousActivity(
     });
   }
 }
-
 /**
  * Monitor data breach attempts
  */
@@ -454,7 +396,6 @@ export async function monitorDataBreach(
     timestamp: new Date(),
   });
 }
-
 /**
  * Monitor rate limit violations
  */
@@ -474,7 +415,6 @@ export async function monitorRateLimitExceeded(
     });
   }
 }
-
 /**
  * Monitor SQL injection attempts
  */
@@ -493,7 +433,6 @@ export async function monitorSQLInjection(
     timestamp: new Date(),
   });
 }
-
 /**
  * Monitor XSS attempts
  */

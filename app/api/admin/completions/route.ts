@@ -58,7 +58,7 @@ export const GET = withAuth(
       return NextResponse.json({ completions: [], error: error.message }, { status: 200 });
     }
 
-    const completions = (data ?? []).map((row: any) => {
+    const completions = (data ?? []).map((row: Record<string, unknown>) => {
       const e = row.partner_lms_enrollments ?? {};
       const student = e.profiles ?? {};
       const provider = e.partner_lms_providers ?? {};
@@ -93,7 +93,7 @@ export const GET = withAuth(
         "Verification URL",
       ];
 
-      const rows = completions.map((c: any) => [
+      const rows = completions.map((c: Record<string, unknown>) => [
         c.studentName,
         c.studentEmail,
         c.courseName,
@@ -107,8 +107,8 @@ export const GET = withAuth(
 
       const csv = [
         headers.join(","),
-        ...rows.map((row: any) =>
-          row.map((cell: any) => `"${String(cell).replace(/"/g, '""')}"`).join(",")
+        ...rows.map((row: Record<string, unknown>) =>
+          row.map((cell: unknown) => `"${String(cell).replace(/"/g, '""')}"`).join(",")
         ),
       ].join("\n");
 

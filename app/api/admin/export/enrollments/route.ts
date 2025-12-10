@@ -69,7 +69,7 @@ export const GET = withAuth(
         "created_at",
       ];
 
-      const rows = enrollments.map((e: any) => [
+      const rows = enrollments.map((e: Record<string, unknown>) => [
         e.id,
         e.programs?.title || "",
         e.programs?.slug || "",
@@ -113,7 +113,7 @@ export const GET = withAuth(
   { roles: ['admin', 'super_admin'] }
 );
 
-function escapeCsvField(field: any): string {
+function escapeCsvField(field: unknown): string {
   if (field == null) return "";
   const str = String(field);
   if (str.includes(",") || str.includes('"') || str.includes("\n")) {

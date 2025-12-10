@@ -16,7 +16,7 @@ export interface CollaborationConfig {
 export class CollaborationProvider {
   private doc: Y.Doc;
   private provider: WebsocketProvider | null = null;
-  private awareness: any;
+  private awareness: unknown;
 
   constructor(config: CollaborationConfig) {
     this.doc = new Y.Doc();

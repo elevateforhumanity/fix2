@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
       success: true,
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("AI generation error:", error);
     
     return NextResponse.json(

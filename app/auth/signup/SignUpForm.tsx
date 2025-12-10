@@ -273,7 +273,7 @@ d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.
               id="terms"
               type="checkbox"
               checked={agreedToTerms}
-              onChange={(e) => setAgreedToTerms(e.target.checked)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setAgreedToTerms(e.target.checked)}
               className="w-4 h-4 mt-1 text-orange-600 border-slate-300 rounded focus:ring-orange-500"
             />
             <label htmlFor="terms" className="ml-3 text-sm text-slate-600">

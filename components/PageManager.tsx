@@ -77,7 +77,7 @@ export default function PageManager() {
 
   async function updatePageStatus(pageId: string, status: string) {
     try {
-      const updates: any = { status };
+      const updates: unknown = { status };
       if (status === 'published') {
         updates.published_at = new Date().toISOString();
       }
@@ -91,7 +91,7 @@ export default function PageManager() {
 
       alert(`Page ${status} successfully!`);
       loadPages();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to update status:', error);
       alert('Failed to update page status: ' + error.message);
     }
@@ -111,7 +111,7 @@ export default function PageManager() {
       alert('Page deleted successfully!');
       setSelectedPage(null);
       loadPages();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to delete page:', error);
       alert('Failed to delete page: ' + error.message);
     }
@@ -138,7 +138,7 @@ export default function PageManager() {
         .eq('id', selectedPage.id)
         .single();
       if (data) setSelectedPage(data);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to save edits:', error);
       alert('Failed to save changes: ' + error.message);
     }
@@ -164,7 +164,7 @@ export default function PageManager() {
         .eq('id', selectedPage.id)
         .single();
       if (data) setSelectedPage(data);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Failed to rollback:', error);
       alert('Failed to rollback: ' + error.message);
     }
@@ -325,7 +325,7 @@ export default function PageManager() {
                     className="w-full border border-brand-border-dark rounded-lg px-4 py-2 font-mono text-sm"
                     rows={20}
                     value={editedHtml}
-                    onChange={(e) => setEditedHtml(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setEditedHtml(e.target.value)}
                   />
                   <div className="mt-4 flex gap-3">
                     <button

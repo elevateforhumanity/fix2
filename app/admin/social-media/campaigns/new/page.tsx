@@ -178,7 +178,7 @@ export default function NewSocialCampaignPage() {
                   <input
                     type="text"
                     value={campaign.name}
-                    onChange={(e) => setCampaign({ ...campaign, name: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, name: e.target.value })}
                     placeholder="e.g., Barber Program Promotion"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -234,7 +234,7 @@ export default function NewSocialCampaignPage() {
                   </label>
                   <select
                     value={campaign.program}
-                    onChange={(e) => setCampaign({ ...campaign, program: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, program: e.target.value })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="all">All Programs</option>
@@ -294,7 +294,7 @@ export default function NewSocialCampaignPage() {
                   </label>
                   <select
                     value={campaign.frequency}
-                    onChange={(e) => setCampaign({ ...campaign, frequency: e.target.value as any })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, frequency: e.target.value })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="3x-daily">3x Daily (9 AM, 1 PM, 5 PM EST)</option>
@@ -321,7 +321,7 @@ export default function NewSocialCampaignPage() {
                   <input
                     type="number"
                     value={campaign.duration}
-                    onChange={(e) => setCampaign({ ...campaign, duration: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, duration: e.target.value })}
                     min="1"
                     max="365"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -477,7 +477,7 @@ export default function NewSocialCampaignPage() {
 
 interface PlatformButtonProps {
   name: string;
-  icon: any;
+  icon: unknown;
   selected: boolean;
   onClick: () => void;
 }

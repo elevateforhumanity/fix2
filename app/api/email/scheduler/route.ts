@@ -82,7 +82,7 @@ export async function GET(req: Request) {
             error: sendResult.error,
           });
         }
-      } catch (error: any) {
+      } catch (error: unknown) {
         logger.error(`Error processing campaign ${campaign.id}:`, error);
         
         // Mark as failed
@@ -109,7 +109,7 @@ export async function GET(req: Request) {
       processed: campaigns.length,
       results,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Scheduler error:', error);
     return NextResponse.json(
       { success: false, error: error.message },

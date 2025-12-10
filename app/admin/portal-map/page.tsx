@@ -31,7 +31,7 @@ interface AdminRoute {
   name: string;
   href: string;
   description: string;
-  icon?: any;
+  icon?: unknown;
   status: 'active' | 'partial' | 'planned';
   children?: AdminRoute[];
 }
@@ -337,7 +337,7 @@ export default function AdminPortalMapPage() {
               type="text"
               placeholder="Search features, routes, or descriptions..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>

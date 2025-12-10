@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -7,11 +6,9 @@ import {
   Users, TrendingUp, DollarSign, Award, Download, 
   Calendar, Filter, BarChart3, PieChart, LineChart 
 } from 'lucide-react';
-
 export function AdminReportingDashboard() {
   const [dateRange, setDateRange] = useState('30days');
   const [reportType, setReportType] = useState('overview');
-
   const metrics = [
     {
       title: 'Total Students',
@@ -50,7 +47,6 @@ export function AdminReportingDashboard() {
       bgColor: 'bg-red-100',
     },
   ];
-
   const programPerformance = [
     { name: 'CNA Certification', students: 342, completion: 92, revenue: 45600, placement: 94 },
     { name: 'HVAC Technician', students: 256, completion: 88, revenue: 38400, placement: 91 },
@@ -58,7 +54,6 @@ export function AdminReportingDashboard() {
     { name: 'Web Development', students: 167, completion: 85, revenue: 25050, placement: 88 },
     { name: 'Truck Driving CDL', students: 145, completion: 90, revenue: 21750, placement: 93 },
   ];
-
   const recentActivity = [
     { type: 'enrollment', student: 'Sarah Johnson', program: 'CNA', time: '5 min ago' },
     { type: 'completion', student: 'Michael Chen', program: 'HVAC', time: '12 min ago' },
@@ -66,12 +61,10 @@ export function AdminReportingDashboard() {
     { type: 'enrollment', student: 'David Kim', program: 'Web Dev', time: '1 hour ago' },
     { type: 'completion', student: 'Lisa Williams', program: 'Barber', time: '2 hours ago' },
   ];
-
   const exportReport = (format: string) => {
-    // console.log(`Exporting report as ${format}`);
+    // 
     alert(`Report exported as ${format.toUpperCase()}`);
   };
-
   return (
     <div className="space-y-6">
       {/* Header with Controls */}
@@ -80,11 +73,10 @@ export function AdminReportingDashboard() {
           <h1 className="text-3xl font-bold">Reporting Dashboard</h1>
           <p className="text-gray-600">Comprehensive analytics and insights</p>
         </div>
-        
         <div className="flex gap-3">
           <select
             value={dateRange}
-            onChange={(e) => setDateRange(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setDateRange(e.target.value)}
             className="px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500"
           >
             <option value="7days">Last 7 Days</option>
@@ -92,19 +84,16 @@ export function AdminReportingDashboard() {
             <option value="90days">Last 90 Days</option>
             <option value="year">This Year</option>
           </select>
-          
           <Button variant="outline" onClick={() => exportReport('pdf')}>
             <Download size={16} className="mr-2" />
             Export PDF
           </Button>
-          
           <Button variant="outline" onClick={() => exportReport('csv')}>
             <Download size={16} className="mr-2" />
             Export CSV
           </Button>
         </div>
       </div>
-
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {metrics.map((metric, index) => {
@@ -127,7 +116,6 @@ export function AdminReportingDashboard() {
           );
         })}
       </div>
-
       {/* Charts Row */}
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Enrollment Trends */}
@@ -154,7 +142,6 @@ export function AdminReportingDashboard() {
             </div>
           </CardContent>
         </Card>
-
         {/* Revenue by Program */}
         <Card>
           <CardHeader>
@@ -187,7 +174,6 @@ export function AdminReportingDashboard() {
           </CardContent>
         </Card>
       </div>
-
       {/* Program Performance Table */}
       <Card>
         <CardHeader>
@@ -236,7 +222,6 @@ export function AdminReportingDashboard() {
           </div>
         </CardContent>
       </Card>
-
       {/* Recent Activity */}
       <Card>
         <CardHeader>

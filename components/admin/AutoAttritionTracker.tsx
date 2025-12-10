@@ -361,7 +361,7 @@ export function AutoAttritionTracker() {
             <input
               type="checkbox"
               checked={isTracking}
-              onChange={(e) => setIsTracking(e.target.checked)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setIsTracking(e.target.checked)}
               className="mr-2"
             />
             <span className="text-sm text-brand-text">Real-time Tracking</span>

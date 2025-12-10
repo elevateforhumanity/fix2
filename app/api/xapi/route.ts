@@ -11,7 +11,7 @@ export async function POST(request: Request) {
 
   const statements = Array.isArray(body) ? body : [body];
 
-  const data = statements.map((s: any) => ({
+  const data = statements.map((s: Record<string, any>) => ({
     actor: s.actor,
     verb: s.verb,
     object: s.object,

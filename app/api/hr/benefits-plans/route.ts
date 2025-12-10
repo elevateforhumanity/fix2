@@ -14,7 +14,7 @@ export async function GET(_request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ plans: data });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error fetching benefits plans:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch benefits plans' },
@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ plan: data }, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error creating benefits plan:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create benefits plan' },

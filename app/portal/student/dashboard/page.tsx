@@ -180,7 +180,7 @@ export default async function StudentDashboard() {
               </div>
               {enrollments && enrollments.length > 0 ? (
                 <div className="space-y-4">
-                  {enrollments.slice(0, 3).map((enrollment: any) => (
+                  {enrollments.slice(0, 3).map((enrollment: Record<string, any>) => (
                     <div key={enrollment.id} className="border border-slate-200 rounded-lg p-4 hover:border-blue-300 transition">
                       <div className="flex items-center justify-between">
                         <div>

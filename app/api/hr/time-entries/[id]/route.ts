@@ -14,7 +14,7 @@ export async function PATCH(
     const { clock_in, clock_out, break_minutes, lunch_minutes, status, notes } =
       body;
 
-    const update: any = {
+    const update: unknown = {
       clock_in,
       clock_out,
       break_minutes,
@@ -47,7 +47,7 @@ export async function PATCH(
     if (error) throw error;
 
     return NextResponse.json({ timeEntry: data });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error updating time entry:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to update time entry' },
@@ -71,7 +71,7 @@ export async function DELETE(
     if (error) throw error;
 
     return NextResponse.json({ message: 'Time entry deleted' });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error deleting time entry:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to delete time entry' },

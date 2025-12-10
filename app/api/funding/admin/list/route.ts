@@ -41,7 +41,7 @@ export async function GET(req: NextRequest) {
   }
 
   // Filter by search query
-  const filtered = (data || []).filter((row: any) => {
+  const filtered = (data || []).filter((row: Record<string, unknown>) => {
     if (!searchQuery) return true;
     return (
       (row.learner_email || '').toLowerCase().includes(searchQuery) ||

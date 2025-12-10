@@ -101,7 +101,7 @@ export default function SurveyModal({
           <input
             type="text"
             value={answer || ''}
-            onChange={(e) => handleAnswer(currentQuestion.id, e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => handleAnswer(currentQuestion.id, e.target.value)}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Your answer..."
           />
@@ -111,7 +111,7 @@ export default function SurveyModal({
         return (
           <textarea
             value={answer || ''}
-            onChange={(e) => handleAnswer(currentQuestion.id, e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => handleAnswer(currentQuestion.id, e.target.value)}
             rows={4}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Your answer..."
@@ -131,7 +131,7 @@ export default function SurveyModal({
                   name={currentQuestion.id}
                   value={option}
                   checked={answer === option}
-                  onChange={(e) => handleAnswer(currentQuestion.id, e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => handleAnswer(currentQuestion.id, e.target.value)}
                   className="w-5 h-5 text-blue-600 border-gray-300 focus:ring-blue-500"
                 />
                 <span className="text-gray-900">{option}</span>
@@ -152,7 +152,7 @@ export default function SurveyModal({
                   type="checkbox"
                   value={option}
                   checked={(answer || []).includes(option)}
-                  onChange={(e) => {
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                     const currentAnswers = answer || [];
                     const newAnswers = e.target.checked
                       ? [...currentAnswers, option]
@@ -195,7 +195,7 @@ export default function SurveyModal({
               min="0"
               max="10"
               value={answer || 5}
-              onChange={(e) => handleAnswer(currentQuestion.id, parseInt(e.target.value))}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => handleAnswer(currentQuestion.id, parseInt(e.target.value))}
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
             />
             <div className="flex justify-between text-sm text-gray-600">

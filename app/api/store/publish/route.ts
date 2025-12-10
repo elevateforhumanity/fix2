@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
       url: `/store/codebase-clone`,
       productId: data.id
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Failed to publish product:', error);
     return NextResponse.json(
       { error: 'Failed to publish product', message: error.message },
@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-async function createStripeProduct(product: any) {
+async function createStripeProduct(product: Record<string, unknown>) {
   // Create Stripe product with pricing tiers
   const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -63,7 +63,7 @@ async function createStripeProduct(product: any) {
   });
 
   // Create prices for each tier
-  for (const [key, tier] of Object.entries(product.pricing) as any) {
+  for (const [key, tier] of Object.entries(product.pricing) as string) {
     await stripe.prices.create({
       product: stripeProduct.id,
       unit_amount: tier.price * 100, // Convert to cents

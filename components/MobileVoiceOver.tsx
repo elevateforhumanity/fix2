@@ -1,15 +1,12 @@
 "use client";
-
 import { useState, useEffect, useRef } from 'react';
 import { Volume2, VolumeX, X, Play } from 'lucide-react';
-
 export function MobileVoiceOver() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [showPlayer, setShowPlayer] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
-
   useEffect(() => {
     // Only show on mobile devices
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -21,7 +18,6 @@ export function MobileVoiceOver() {
         // Auto-play the audio
         if (audioRef.current) {
           audioRef.current.play().catch(error => {
-            console.log('Auto-play prevented:', error);
             // If auto-play is blocked, show the play button
           });
         }
@@ -29,7 +25,6 @@ export function MobileVoiceOver() {
       return () => clearTimeout(timer);
     }
   }, []);
-
   const handlePlay = () => {
     if (audioRef.current) {
       audioRef.current.play();
@@ -37,28 +32,23 @@ export function MobileVoiceOver() {
       setHasInteracted(true);
     }
   };
-
   const handlePause = () => {
     if (audioRef.current) {
       audioRef.current.pause();
       setIsPlaying(false);
     }
   };
-
   const toggleMute = () => {
     if (audioRef.current) {
       audioRef.current.muted = !isMuted;
       setIsMuted(!isMuted);
     }
   };
-
   const handleClose = () => {
     handlePause();
     setShowPlayer(false);
   };
-
   if (!showPlayer) return null;
-
   return (
     <>
       {/* Floating Audio Player */}
@@ -71,7 +61,6 @@ export function MobileVoiceOver() {
           >
             <X size={14} className="text-slate-700" />
           </button>
-
           {/* Content */}
           <div className="flex items-center gap-3 mb-3">
             <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
@@ -82,7 +71,6 @@ export function MobileVoiceOver() {
               <p className="text-white/90 text-xs">Learn about our programs</p>
             </div>
           </div>
-
           {/* Audio Element */}
           <audio
             ref={audioRef}
@@ -91,7 +79,6 @@ export function MobileVoiceOver() {
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
           />
-
           {/* Controls */}
           <div className="flex items-center gap-2">
             {!isPlaying ? (
@@ -122,7 +109,6 @@ export function MobileVoiceOver() {
               )}
             </button>
           </div>
-
           {/* Info Text */}
           {!hasInteracted && (
             <p className="text-white/80 text-xs mt-2 text-center">
@@ -131,7 +117,6 @@ export function MobileVoiceOver() {
           )}
         </div>
       </div>
-
       {/* Auto-playing notification - No option to skip */}
       {isPlaying && !hasInteracted && (
         <div className="fixed top-20 left-4 right-4 z-40 md:hidden">

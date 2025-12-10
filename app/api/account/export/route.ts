@@ -60,13 +60,13 @@ export async function GET() {
         name: user.name,
         created_at: user.created_at,
       },
-      enrollments: (enrollments || []).map((e: any) => ({
+      enrollments: (enrollments || []).map((e: Record<string, unknown>) => ({
         courseTitle: e.course?.title,
         status: e.status,
         startDate: e.start_date,
         completedAt: e.completed_at,
       })),
-      examAttempts: (examAttempts || []).map((a: any) => ({
+      examAttempts: (examAttempts || []).map((a: Record<string, any>) => ({
         examTitle: a.exam?.title,
         status: a.status,
         score: a.score,

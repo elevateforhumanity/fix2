@@ -123,7 +123,7 @@ Return ONLY a JSON array of ${count} posts, no other text.`;
     posts = posts.slice(0, count);
 
     return NextResponse.json({ success: true, posts });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Social media generation error:', error);
     return NextResponse.json(
       { success: false, error: error.message },

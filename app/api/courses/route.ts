@@ -16,7 +16,7 @@ export async function GET() {
     }
 
     return NextResponse.json({ courses, total: courses?.length || 0 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json(newCourse, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

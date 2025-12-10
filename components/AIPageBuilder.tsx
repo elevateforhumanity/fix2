@@ -16,7 +16,7 @@ interface GeneratedPage {
   summary: string;
   sections: string[];
   pageType: string;
-  theme: any;
+  theme: unknown;
   generatedAt: string;
 }
 
@@ -134,7 +134,7 @@ export default function AIPageBuilder() {
       setPageName('');
       setPageSlug('');
       setDescription('');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Save error:', error);
       alert('Failed to save page: ' + error.message);
     } finally {
@@ -160,7 +160,7 @@ export default function AIPageBuilder() {
       if (error) throw error;
 
       alert('Page published successfully!');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Publish error:', error);
       alert('Failed to publish page: ' + error.message);
     }
@@ -193,7 +193,7 @@ export default function AIPageBuilder() {
               <select
                 className="w-full border border-brand-border-dark rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-focus focus:border-transparent"
                 value={pageType}
-                onChange={(e) => setPageType(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPageType(e.target.value)}
               >
                 {Object.entries(templates).map(([key, template]) => (
                   <option key={key} value={key}>
@@ -217,7 +217,7 @@ export default function AIPageBuilder() {
                 rows={4}
                 placeholder="Describe what the page should highlight..."
                 value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setDescription(e.target.value)}
               />
               {currentTemplate && currentTemplate.examples.length > 0 && (
                 <div className="mt-2">
@@ -302,7 +302,7 @@ export default function AIPageBuilder() {
                   className="w-full border border-brand-border-dark rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-focus focus:border-transparent"
                   placeholder="e.g., Home Page"
                   value={pageName}
-                  onChange={(e) => setPageName(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPageName(e.target.value)}
                 />
               </div>
               <div className="mb-4">

@@ -375,7 +375,7 @@ export function BatchExportDialog({ isOpen, onClose }: BatchExportDialogProps) {
               {['csv', 'pdf', 'json'].map(fmt => (
                 <button
                   key={fmt}
-                  onClick={() => setFormat(fmt as any)}
+                  onClick={() => setFormat(fmt as string)}
                   disabled={isExporting}
                   className={`p-3 border-2 rounded-lg transition-all ${
                     format === fmt

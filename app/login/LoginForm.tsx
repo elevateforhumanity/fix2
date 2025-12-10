@@ -33,7 +33,7 @@ export default function LoginForm() {
       // Redirect to student dashboard
       router.push('/student/dashboard');
       router.refresh();
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Login error:', err);
       setError(err.message || 'Failed to sign in');
       setLoading(false);
@@ -55,7 +55,7 @@ export default function LoginForm() {
       });
 
       if (error) throw error;
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError(err.message || 'Failed to sign in with Google');
     }
   };
@@ -79,7 +79,7 @@ export default function LoginForm() {
             type="email"
             id="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setEmail(e.target.value)}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="you@example.com"
@@ -94,7 +94,7 @@ export default function LoginForm() {
             type="password"
             id="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPassword(e.target.value)}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="••••••••"

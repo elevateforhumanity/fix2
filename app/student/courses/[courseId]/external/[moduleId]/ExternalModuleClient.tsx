@@ -79,7 +79,7 @@ export default function ExternalModuleClient({
       setMessage(null);
       await ensureRow("in_progress");
       window.open(module.launch_url, "_blank", "noopener,noreferrer");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setMessage(err?.message ?? "Error launching external module.");
     }
@@ -121,7 +121,7 @@ export default function ExternalModuleClient({
       if (error) throw error;
       setProgress(data as Progress);
       setMessage("Proof uploaded. Your instructor or admin will review.");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setMessage(err?.message ?? "Error uploading proof.");
     } finally {

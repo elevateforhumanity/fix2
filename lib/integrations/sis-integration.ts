@@ -82,7 +82,7 @@ export class PowerSchoolIntegration {
 
     const data = await response.json();
     
-    return data.students.map((s: any) => ({
+    return data.students.map((s: Record<string, any>) => ({
       sisId: s.id.toString(),
       firstName: s.name.first_name,
       lastName: s.name.last_name,
@@ -109,7 +109,7 @@ export class PowerSchoolIntegration {
 
     const data = await response.json();
     
-    return data.sections.map((s: any) => ({
+    return data.sections.map((s: Record<string, any>) => ({
       sisId: s.id.toString(),
       studentSisId,
       courseSisId: s.course_number,
@@ -161,7 +161,7 @@ export class InfiniteCampusIntegration {
 
     const data = await response.json();
     
-    return data.map((s: any) => ({
+    return data.map((s: Record<string, any>) => ({
       sisId: s.personID.toString(),
       firstName: s.firstName,
       lastName: s.lastName,
@@ -186,7 +186,7 @@ export class InfiniteCampusIntegration {
 
     const data = await response.json();
     
-    return data.map((e: any) => ({
+    return data.map((e: Record<string, unknown>) => ({
       sisId: e.enrollmentID.toString(),
       studentSisId,
       courseSisId: e.courseNumber,

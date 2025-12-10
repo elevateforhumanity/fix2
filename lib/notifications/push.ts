@@ -4,41 +4,34 @@ export interface PushNotification {
   body: string;
   icon?: string;
   badge?: string;
-  data?: any;
+  data?: unknown;
   actions?: Array<{
     action: string;
     title: string;
   }>;
 }
-
 export class PushService {
   private static instance: PushService;
-
   private constructor() {}
-
   static getInstance(): PushService {
     if (!PushService.instance) {
       PushService.instance = new PushService();
     }
     return PushService.instance;
   }
-
   async send(userId: string, notification: PushNotification): Promise<boolean> {
     try {
       // In production, integrate with Firebase Cloud Messaging or similar
-      // console.log('Sending push notification:', notification);
-      
+      // 
       // Check if browser supports notifications
       if (!('Notification' in window)) {
-        // console.log('Browser does not support notifications');
+        // 
         return false;
       }
-
       // Request permission if needed
       if (Notification.permission === 'default') {
         await Notification.requestPermission();
       }
-
       if (Notification.permission === 'granted') {
         new Notification(notification.title, {
           body: notification.body,
@@ -48,14 +41,12 @@ export class PushService {
         });
         return true;
       }
-
       return false;
     } catch (error) {
       console.error('Push notification error:', error);
       return false;
     }
   }
-
   // New message notification
   async sendMessageNotification(
     userId: string,
@@ -73,7 +64,6 @@ export class PushService {
       ],
     });
   }
-
   // Assignment graded
   async sendGradeNotification(
     userId: string,
@@ -88,7 +78,6 @@ export class PushService {
       actions: [{ action: 'view', title: 'View Details' }],
     });
   }
-
   // New course available
   async sendNewCourseNotification(
     userId: string,
@@ -105,7 +94,6 @@ export class PushService {
       ],
     });
   }
-
   // Study reminder
   async sendStudyReminder(userId: string): Promise<boolean> {
     return this.send(userId, {
@@ -116,7 +104,6 @@ export class PushService {
       actions: [{ action: 'study', title: 'Start Studying' }],
     });
   }
-
   // Achievement unlocked
   async sendAchievementNotification(
     userId: string,
@@ -130,7 +117,6 @@ export class PushService {
       actions: [{ action: 'view', title: 'View Achievement' }],
     });
   }
-
   // Live class starting
   async sendLiveClassNotification(
     userId: string,
@@ -146,5 +132,4 @@ export class PushService {
     });
   }
 }
-
 export const pushService = PushService.getInstance();

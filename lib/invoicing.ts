@@ -143,7 +143,7 @@ export async function updateInvoiceStatus(
 ): Promise<void> {
   const supabase = await createClient();
 
-  const updates: any = {
+  const updates: unknown = {
     status,
     updated_at: new Date().toISOString(),
   };
@@ -266,7 +266,7 @@ export async function generateInvoicePDF(
   });
 
   // Totals
-  const finalY = (doc as any).lastAutoTable.finalY + 10;
+  const finalY = (doc as string).lastAutoTable.finalY + 10;
 
   doc.setFont('helvetica', 'bold');
   doc.text('Subtotal:', 140, finalY);
@@ -430,7 +430,7 @@ export async function generateReceipt(
     },
   });
 
-  const finalY = (doc as any).lastAutoTable.finalY + 10;
+  const finalY = (doc as string).lastAutoTable.finalY + 10;
 
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(14);

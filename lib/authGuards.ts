@@ -16,8 +16,8 @@ export interface AuthGuardOptions {
 }
 
 export interface AuthGuardResult {
-  user: any;
-  profile: any;
+  user: unknown;
+  profile: unknown;
   role: UserRole | null;
   isAuthenticated: boolean;
   isAuthorized: boolean;
@@ -374,8 +374,8 @@ export async function requireStudentDataAccess(studentId: string) {
  */
 export async function apiAuthGuard(options: AuthGuardOptions = {}): Promise<{
   authorized: boolean;
-  user: any;
-  profile: any;
+  user: unknown;
+  profile: unknown;
   role: UserRole | null;
   error?: string;
 }> {

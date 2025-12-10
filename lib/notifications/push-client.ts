@@ -2,25 +2,20 @@
  * Push Notification Client
  * Client-side push notification management
  */
-
 export const VAPID_PUBLIC_KEY = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || '';
-
 export interface NotificationPermissionState {
   permission: NotificationPermission;
   isSupported: boolean;
   isSubscribed: boolean;
 }
-
 export class PushNotificationClient {
   private registration: ServiceWorkerRegistration | null = null;
-
   /**
    * Initialize push notifications
    */
   async init(registration: ServiceWorkerRegistration): Promise<void> {
     this.registration = registration;
   }
-
   /**
    * Check if push notifications are supported
    */
@@ -31,7 +26,6 @@ export class PushNotificationClient {
       'PushManager' in window
     );
   }
-
   /**
    * Get current permission state
    */
@@ -43,16 +37,13 @@ export class PushNotificationClient {
         isSubscribed: false,
       };
     }
-
     const subscription = await this.getSubscription();
-
     return {
       permission: Notification.permission,
       isSupported: true,
       isSubscribed: subscription !== null,
     };
   }
-
   /**
    * Request notification permission
    */
@@ -60,11 +51,9 @@ export class PushNotificationClient {
     if (!this.isSupported()) {
       throw new Error('Push notifications not supported');
     }
-
     const permission = await Notification.requestPermission();
     return permission;
   }
-
   /**
    * Subscribe to push notifications
    */
@@ -72,11 +61,9 @@ export class PushNotificationClient {
     if (!this.registration) {
       throw new Error('Service worker not registered');
     }
-
     if (!this.isSupported()) {
       throw new Error('Push notifications not supported');
     }
-
     // Request permission if not granted
     if (Notification.permission !== 'granted') {
       const permission = await this.requestPermission();
@@ -84,24 +71,20 @@ export class PushNotificationClient {
         throw new Error('Notification permission denied');
       }
     }
-
     try {
       // Subscribe to push notifications
       const subscription = await this.registration.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: this.urlBase64ToUint8Array(VAPID_PUBLIC_KEY) as BufferSource,
       });
-
       // Send subscription to server
       await this.saveSubscription(subscription);
-
       return subscription;
     } catch (error) {
       console.error('[Push Client] Subscribe error:', error);
       throw error;
     }
   }
-
   /**
    * Unsubscribe from push notifications
    */
@@ -109,29 +92,23 @@ export class PushNotificationClient {
     if (!this.registration) {
       return false;
     }
-
     try {
       const subscription = await this.registration.pushManager.getSubscription();
-      
       if (!subscription) {
         return true;
       }
-
       // Unsubscribe from push manager
       const success = await subscription.unsubscribe();
-
       if (success) {
         // Remove subscription from server
         await this.removeSubscription(subscription);
       }
-
       return success;
     } catch (error) {
       console.error('[Push Client] Unsubscribe error:', error);
       return false;
     }
   }
-
   /**
    * Get current subscription
    */
@@ -139,7 +116,6 @@ export class PushNotificationClient {
     if (!this.registration) {
       return null;
     }
-
     try {
       return await this.registration.pushManager.getSubscription();
     } catch (error) {
@@ -147,7 +123,6 @@ export class PushNotificationClient {
       return null;
     }
   }
-
   /**
    * Save subscription to server
    */
@@ -160,18 +135,14 @@ export class PushNotificationClient {
         },
         body: JSON.stringify(subscription.toJSON()),
       });
-
       if (!response.ok) {
         throw new Error('Failed to save subscription');
       }
-
-      console.log('[Push Client] Subscription saved');
     } catch (error) {
       console.error('[Push Client] Save subscription error:', error);
       throw error;
     }
   }
-
   /**
    * Remove subscription from server
    */
@@ -184,18 +155,14 @@ export class PushNotificationClient {
         },
         body: JSON.stringify(subscription.toJSON()),
       });
-
       if (!response.ok) {
         throw new Error('Failed to remove subscription');
       }
-
-      console.log('[Push Client] Subscription removed');
     } catch (error) {
       console.error('[Push Client] Remove subscription error:', error);
       throw error;
     }
   }
-
   /**
    * Convert VAPID key to Uint8Array
    */
@@ -204,17 +171,13 @@ export class PushNotificationClient {
     const base64 = (base64String + padding)
       .replace(/-/g, '+')
       .replace(/_/g, '/');
-
     const rawData = window.atob(base64);
     const outputArray = new Uint8Array(rawData.length);
-
     for (let i = 0; i < rawData.length; ++i) {
       outputArray[i] = rawData.charCodeAt(i);
     }
-
     return outputArray as BufferSource;
   }
-
   /**
    * Show local notification (for testing)
    */
@@ -225,11 +188,9 @@ export class PushNotificationClient {
     if (!this.registration) {
       throw new Error('Service worker not registered');
     }
-
     if (Notification.permission !== 'granted') {
       throw new Error('Notification permission not granted');
     }
-
     await this.registration.showNotification(title, {
       icon: '/icon-192x192.png',
       badge: '/icon-72.png',
@@ -237,10 +198,8 @@ export class PushNotificationClient {
     });
   }
 }
-
 // Singleton instance
 let instance: PushNotificationClient | null = null;
-
 /**
  * Get singleton instance of PushNotificationClient
  */

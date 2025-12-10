@@ -1,14 +1,11 @@
 // Stripe Integration for Course Payments and Subscriptions
-
 import Stripe from 'stripe';
-
 // Initialize Stripe (server-side only)
 const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
       apiVersion: '2025-10-29.clover',
     })
   : null;
-
 export interface CheckoutSessionParams {
   courseId: string;
   courseName: string;
@@ -16,22 +13,18 @@ export interface CheckoutSessionParams {
   userId: string;
   userEmail: string;
 }
-
 export interface SubscriptionParams {
   userId: string;
   userEmail: string;
   priceId: string;
   customerId?: string;
 }
-
 // Create a checkout session for one-time course purchase
 export async function createCheckoutSession(params: CheckoutSessionParams) {
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }
-
   const { courseId, courseName, price, userId, userEmail } = params;
-
   const session = await stripe.checkout.sessions.create({
     mode: 'payment',
     payment_method_types: ['card'],
@@ -60,18 +53,14 @@ export async function createCheckoutSession(params: CheckoutSessionParams) {
       userId,
     },
   });
-
   return session;
 }
-
 // Create a subscription for recurring access
 export async function createSubscription(params: SubscriptionParams) {
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }
-
   const { userId, userEmail, priceId, customerId } = params;
-
   // Create or retrieve customer
   let customer = customerId;
   if (!customer) {
@@ -81,7 +70,6 @@ export async function createSubscription(params: SubscriptionParams) {
     });
     customer = newCustomer.id;
   }
-
   // Create subscription
   const subscription = await stripe.subscriptions.create({
     customer,
@@ -90,13 +78,11 @@ export async function createSubscription(params: SubscriptionParams) {
     payment_settings: { save_default_payment_method: 'on_subscription' },
     expand: ['latest_invoice.payment_intent'],
   });
-
   return {
     subscription,
     customerId: customer,
   };
 }
-
 // Cancel a subscription
 export async function cancelSubscription(
   subscriptionId: string,
@@ -105,7 +91,6 @@ export async function cancelSubscription(
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }
-
   if (immediately) {
     return await stripe.subscriptions.cancel(subscriptionId);
   } else {
@@ -114,60 +99,49 @@ export async function cancelSubscription(
     });
   }
 }
-
 // Reactivate a cancelled subscription
 export async function reactivateSubscription(subscriptionId: string) {
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }
-
   return await stripe.subscriptions.update(subscriptionId, {
     cancel_at_period_end: false,
   });
 }
-
 // Create a refund
 export async function createRefund(paymentIntentId: string, amount?: number) {
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }
-
   return await stripe.refunds.create({
     payment_intent: paymentIntentId,
     amount: amount ? Math.round(amount * 100) : undefined,
   });
 }
-
 // Get customer by ID
 export async function getCustomer(customerId: string) {
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }
-
   return await stripe.customers.retrieve(customerId);
 }
-
 // Get subscription by ID
 export async function getSubscription(subscriptionId: string) {
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }
-
   return await stripe.subscriptions.retrieve(subscriptionId);
 }
-
 // List customer subscriptions
 export async function listCustomerSubscriptions(customerId: string) {
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }
-
   return await stripe.subscriptions.list({
     customer: customerId,
     status: 'all',
   });
 }
-
 // Create a coupon
 export async function createCoupon(params: {
   percentOff?: number;
@@ -180,10 +154,8 @@ export async function createCoupon(params: {
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }
-
   return await stripe.coupons.create(params);
 }
-
 // Apply coupon to checkout session
 export async function createCheckoutSessionWithCoupon(
   params: CheckoutSessionParams,
@@ -192,9 +164,7 @@ export async function createCheckoutSessionWithCoupon(
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }
-
   const { courseId, courseName, price, userId, userEmail } = params;
-
   const session = await stripe.checkout.sessions.create({
     mode: 'payment',
     payment_method_types: ['card'],
@@ -228,10 +198,8 @@ export async function createCheckoutSessionWithCoupon(
       userId,
     },
   });
-
   return session;
 }
-
 // Verify webhook signature
 export function verifyWebhookSignature(
   payload: string | Buffer,
@@ -241,58 +209,49 @@ export function verifyWebhookSignature(
   if (!stripe) {
     throw new Error('Stripe is not configured');
   }
-
   return stripe.webhooks.constructEvent(payload, signature, secret);
 }
-
 // Handle webhook events
 export async function handleWebhookEvent(event: Stripe.Event) {
   switch (event.type) {
     case 'checkout.session.completed': {
       const session = event.data.object as Stripe.Checkout.Session;
       // Handle successful payment
-      // console.log('Payment successful:', session.id);
+      // 
       break;
     }
-
     case 'customer.subscription.created': {
       const subscription = event.data.object as Stripe.Subscription;
       // Handle new subscription
-      // console.log('Subscription created:', subscription.id);
+      // 
       break;
     }
-
     case 'customer.subscription.updated': {
       const updatedSubscription = event.data.object as Stripe.Subscription;
       // Handle subscription update
-      // console.log('Subscription updated:', updatedSubscription.id);
+      // 
       break;
     }
-
     case 'customer.subscription.deleted': {
       const deletedSubscription = event.data.object as Stripe.Subscription;
       // Handle subscription cancellation
-      // console.log('Subscription cancelled:', deletedSubscription.id);
+      // 
       break;
     }
-
     case 'invoice.payment_succeeded': {
       const invoice = event.data.object as Stripe.Invoice;
       // Handle successful payment
-      // console.log('Invoice paid:', invoice.id);
+      // 
       break;
     }
-
     case 'invoice.payment_failed': {
       const failedInvoice = event.data.object as Stripe.Invoice;
       // Handle failed payment
-      // console.log('Invoice payment failed:', failedInvoice.id);
+      // 
       break;
     }
-
     default:
-      // console.log(`Unhandled event type: ${event.type}`);
+      // 
   }
 }
-
 export { stripe };

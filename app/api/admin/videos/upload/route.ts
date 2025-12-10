@@ -59,7 +59,7 @@ export const POST = withAuth(
       url: publicUrl,
       video: videoData,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 

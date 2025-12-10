@@ -73,7 +73,7 @@ Apply today and start your journey.`;
       setProgress(100);
       setResult(data);
 
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Processing error:', err);
       setError(err.message || 'Failed to process video');
     } finally {
@@ -101,7 +101,7 @@ Apply today and start your journey.`;
             <input
               type="file"
               accept="video/*"
-              onChange={(e) => setVideoFile(e.target.files?.[0] || null)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setVideoFile(e.target.files?.[0] || null)}
               className="w-full text-sm text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
             />
             {videoFile && (
@@ -150,7 +150,7 @@ Apply today and start your journey.`;
                   </label>
                   <textarea
                     value={voiceoverText}
-                    onChange={(e) => setVoiceoverText(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setVoiceoverText(e.target.value)}
                     placeholder={defaultVoiceoverText}
                     rows={4}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
@@ -171,7 +171,7 @@ Apply today and start your journey.`;
                       max="2"
                       step="0.1"
                       value={voiceoverVolume}
-                      onChange={(e) => setVoiceoverVolume(parseFloat(e.target.value))}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setVoiceoverVolume(parseFloat(e.target.value))}
                       className="flex-1"
                     />
                     <span className="text-sm text-slate-600 w-12">
@@ -184,7 +184,7 @@ Apply today and start your journey.`;
                   <input
                     type="file"
                     accept="audio/*"
-                    onChange={(e) => setVoiceoverFile(e.target.files?.[0] || null)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setVoiceoverFile(e.target.files?.[0] || null)}
                     className="w-full text-sm text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100"
                   />
                   {voiceoverFile && (
@@ -206,7 +206,7 @@ Apply today and start your journey.`;
             <input
               type="file"
               accept="audio/*"
-              onChange={(e) => setMusicFile(e.target.files?.[0] || null)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setMusicFile(e.target.files?.[0] || null)}
               className="w-full text-sm text-slate-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
             />
             {musicFile && (
@@ -224,7 +224,7 @@ Apply today and start your journey.`;
                     max="1"
                     step="0.05"
                     value={musicVolume}
-                    onChange={(e) => setMusicVolume(parseFloat(e.target.value))}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setMusicVolume(parseFloat(e.target.value))}
                     className="flex-1"
                   />
                   <span className="text-sm text-slate-600 w-12">

@@ -113,7 +113,7 @@ export function StudentStreakWidget() {
           <div className="flex items-center gap-1">
             <input
               value={goalInput}
-              onChange={(e) => setGoalInput(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setGoalInput(e.target.value)}
               className="w-14 rounded border px-2 py-1 text-[11px]"
             />
             <span className="text-[11px] text-slate-500">min/day</span>

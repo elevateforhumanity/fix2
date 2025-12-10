@@ -134,7 +134,7 @@ function calculateTrend(grades: Grade[]): 'improving' | 'declining' | 'stable' {
 /**
  * Calculate rubric score
  */
-export function calculateRubricScore(rubricScores: any[], totalPoints: number): number {
+export function calculateRubricScore(rubricScores: unknown[], totalPoints: number): number {
   const earnedPoints = rubricScores.reduce((sum, score) => sum + score.points, 0);
   return (earnedPoints / totalPoints) * 100;
 }

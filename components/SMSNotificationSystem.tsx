@@ -56,7 +56,7 @@ export function SMSNotificationSystem() {
                   <input
                     type="tel"
                     value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPhoneNumber(e.target.value)}
                     placeholder="+1 (555) 123-4567"
                     className="w-full px-4 py-2 border rounded-lg"
                   />
@@ -66,7 +66,7 @@ export function SMSNotificationSystem() {
                   <label className="block text-sm font-medium mb-2">Message</label>
                   <textarea
                     value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setMessage(e.target.value)}
                     placeholder="Type your message..."
                     className="w-full px-4 py-2 border rounded-lg h-32"
                     maxLength={160}

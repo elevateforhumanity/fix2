@@ -42,7 +42,7 @@ export default function ProductEditor() {
         </label>
         <input
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setTitle(e.target.value)}
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Product Title"
         />
@@ -54,7 +54,7 @@ export default function ProductEditor() {
         </label>
         <textarea
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setDescription(e.target.value)}
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Product Description"
           rows={3}
@@ -68,7 +68,7 @@ export default function ProductEditor() {
         <input
           type="number"
           value={price}
-          onChange={(e) => setPrice(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPrice(e.target.value)}
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Price in USD"
         />
@@ -80,7 +80,7 @@ export default function ProductEditor() {
         </label>
         <input
           value={repo}
-          onChange={(e) => setRepo(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setRepo(e.target.value)}
           className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="owner/repository"
         />

@@ -40,7 +40,7 @@ export function ProgramForm({ program }: ProgramFormProps) {
       }
       router.push('/admin/programs');
       router.refresh();
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError(err.message || 'Failed to save program');
       setLoading(false);
     }

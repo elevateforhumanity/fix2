@@ -41,12 +41,12 @@ export async function GET(
 
     // Sort lessons by order_index
     if (course.lessons) {
-      course.lessons.sort((a: any, b: any) => a.order_index - b.order_index);
+      course.lessons.sort((a: { order_index: number }, b: { order_index: number }) => a.order_index - b.order_index);
     }
 
     return NextResponse.json({ course });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Course fetch error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch course' },
@@ -95,7 +95,7 @@ export async function PATCH(
 
     return NextResponse.json({ course });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Course update error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to update course' },
@@ -140,7 +140,7 @@ export async function DELETE(
 
     return NextResponse.json({ success: true });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Course delete error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to delete course' },

@@ -9,16 +9,16 @@ interface Autopilot {
   needs: {
     kvNamespaces?: string[];
     r2Buckets?: string[];
-    workers?: any[];
+    workers?: unknown[];
   };
 }
 
 interface DiagnoseReport {
-  token: any;
+  token: unknown;
   resources: {
-    kv?: any;
-    r2?: any;
-    workers?: any;
+    kv?: unknown;
+    r2?: unknown;
+    workers?: unknown;
   };
   timestamp: string;
 }
@@ -256,7 +256,7 @@ export default function OrchestratorAdmin() {
             <select
               className="w-full border border-brand-border-dark rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-focus focus:border-transparent"
               value={selectedTask}
-              onChange={(e) => setSelectedTask(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedTask(e.target.value)}
             >
               <option value="generate_page">Generate Page</option>
               <option value="deploy_page">Deploy Page</option>

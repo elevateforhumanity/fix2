@@ -77,7 +77,7 @@ export default function TaxFilingApplicationPage() {
 
       const data = await response.json();
       router.push(`/tax-filing/confirmation/${data.id}`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError(err.message);
     } finally {
       setLoading(false);

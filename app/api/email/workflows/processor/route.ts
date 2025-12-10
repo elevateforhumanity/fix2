@@ -52,7 +52,7 @@ export async function GET(req: Request) {
           name: workflow.name,
           processed,
         });
-      } catch (error: any) {
+      } catch (error: unknown) {
         logger.error(`Error processing workflow ${workflow.id}:`, error);
         results.push({
           workflowId: workflow.id,
@@ -67,7 +67,7 @@ export async function GET(req: Request) {
       message: `Processed ${workflows.length} workflows`,
       results,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Workflow processor error:', error);
     return NextResponse.json(
       { success: false, error: error.message },
@@ -79,12 +79,12 @@ export async function GET(req: Request) {
 /**
  * Check for new trigger events and enroll users in workflows
  */
-async function processNewTriggers(supabase: any, workflow: any, now: Date) {
+async function processNewTriggers(supabase: any, // TODO: Type with SupabaseClient workflow: any, now: Date) {
   const trigger = workflow.trigger_event;
   const lookbackMinutes = 5; // Check last 5 minutes
   const lookbackTime = new Date(now.getTime() - lookbackMinutes * 60 * 1000).toISOString();
 
-  let newUsers: any[] = [];
+  let newUsers: unknown[] = [];
 
   switch (trigger) {
     case 'enrollment':
@@ -162,7 +162,7 @@ async function processNewTriggers(supabase: any, workflow: any, now: Date) {
 /**
  * Process pending workflow emails
  */
-async function processPendingEmails(supabase: any, workflow: any, now: Date) {
+async function processPendingEmails(supabase: any, // TODO: Type with SupabaseClient workflow: any, now: Date) {
   // Get enrollments with pending emails
   const { data: enrollments, error } = await supabase
     .from('workflow_enrollments')
@@ -267,7 +267,7 @@ async function processPendingEmails(supabase: any, workflow: any, now: Date) {
       });
 
       processed++;
-    } catch (error: any) {
+    } catch (error: unknown) {
       logger.error(`Error processing enrollment ${enrollment.id}:`, error);
       
       // Log failure

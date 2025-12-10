@@ -187,7 +187,7 @@ export default function NewWorkflowPage() {
                   <input
                     type="text"
                     value={workflow.name}
-                    onChange={(e) => setWorkflow({ ...workflow, name: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setWorkflow({ ...workflow, name: e.target.value })}
                     placeholder="e.g., Welcome Series"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -199,7 +199,7 @@ export default function NewWorkflowPage() {
                   </label>
                   <select
                     value={workflow.trigger}
-                    onChange={(e) => setWorkflow({ ...workflow, trigger: e.target.value as any })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setWorkflow({ ...workflow, trigger: e.target.value })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="enrollment">New Student Enrollment</option>
@@ -215,7 +215,7 @@ export default function NewWorkflowPage() {
                   </label>
                   <select
                     value={workflow.targetAudience}
-                    onChange={(e) => setWorkflow({ ...workflow, targetAudience: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setWorkflow({ ...workflow, targetAudience: e.target.value })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="all-students">All Students</option>
@@ -271,13 +271,13 @@ export default function NewWorkflowPage() {
                         <input
                           type="number"
                           value={step.delay}
-                          onChange={(e) => updateStep(step.id, { delay: parseInt(e.target.value) })}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateStep(step.id, { delay: parseInt(e.target.value) })}
                           min="1"
                           className="w-20 px-3 py-1 border border-gray-300 rounded-lg"
                         />
                         <select
                           value={step.delayUnit}
-                          onChange={(e) => updateStep(step.id, { delayUnit: e.target.value as any })}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateStep(step.id, { delayUnit: e.target.value })}
                           className="px-3 py-1 border border-gray-300 rounded-lg"
                         >
                           <option value="minutes">Minutes</option>
@@ -317,7 +317,7 @@ export default function NewWorkflowPage() {
                         <input
                           type="text"
                           value={step.subject}
-                          onChange={(e) => updateStep(step.id, { subject: e.target.value })}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateStep(step.id, { subject: e.target.value })}
                           placeholder="Email subject"
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         />

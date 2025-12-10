@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
       url: `https://github.com/${clonedRepo}`,
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Clone codebase error:", error);
     return NextResponse.json(
       {

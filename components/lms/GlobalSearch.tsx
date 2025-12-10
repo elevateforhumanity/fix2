@@ -36,7 +36,7 @@ export function GlobalSearch() {
           className="w-full rounded-full border border-slate-200 bg-white pl-12 pr-32 py-4 text-sm md:text-base shadow-card focus:border-accent-500 focus:outline-none focus:ring-4 focus:ring-accent-100 transition-all"
           placeholder="Search programs, courses, or topics…"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setQuery(e.target.value)}
         />
         <button
           type="submit"

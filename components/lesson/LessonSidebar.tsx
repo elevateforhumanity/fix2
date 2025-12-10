@@ -216,7 +216,7 @@ export function LessonSidebar({
         <div className="flex gap-2">
           <input
             value={bookmarkLabel}
-            onChange={(e) => setBookmarkLabel(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setBookmarkLabel(e.target.value)}
             placeholder="Label (optional)"
             className="flex-1 rounded border px-2 py-1 text-[11px]"
           />
@@ -260,7 +260,7 @@ export function LessonSidebar({
         <h3 className="text-xs font-semibold text-slate-800">Notes</h3>
         <textarea
           value={noteBody}
-          onChange={(e) => setNoteBody(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNoteBody(e.target.value)}
           placeholder="Write a note about this lesson…"
           className="h-16 w-full resize-none rounded border px-2 py-1 text-[11px]"
         />
@@ -269,7 +269,7 @@ export function LessonSidebar({
             <input
               type="checkbox"
               checked={attachTime}
-              onChange={(e) => setAttachTime(e.target.checked)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setAttachTime(e.target.checked)}
             />
             Attach current time
           </label>
@@ -352,13 +352,13 @@ export function LessonSidebar({
           <div className="space-y-1.5 rounded-lg bg-slate-50 p-2">
             <input
               value={questionTitle}
-              onChange={(e) => setQuestionTitle(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setQuestionTitle(e.target.value)}
               placeholder="Short question title"
               className="w-full rounded border px-2 py-1 text-[11px]"
             />
             <textarea
               value={questionBody}
-              onChange={(e) => setQuestionBody(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setQuestionBody(e.target.value)}
               placeholder="Describe your question…"
               className="h-16 w-full resize-none rounded border px-2 py-1 text-[11px]"
             />
@@ -419,7 +419,7 @@ export function LessonSidebar({
                     <div className="mt-1 space-y-1">
                       <textarea
                         value={answerBody}
-                        onChange={(e) => setAnswerBody(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setAnswerBody(e.target.value)}
                         placeholder="Type your answer…"
                         className="h-12 w-full resize-none rounded border px-2 py-1 text-[11px]"
                       />

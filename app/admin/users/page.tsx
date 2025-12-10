@@ -161,7 +161,7 @@ d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.19
                   </tr>
                 </thead>
                 <tbody className="divide-y">
-                  {users && users.length > 0 ? users.map((user: any) => (
+                  {users && users.length > 0 ? users.map((user: Record<string, any>) => (
                     <tr key={user.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4">
                         <div className="flex items-center">

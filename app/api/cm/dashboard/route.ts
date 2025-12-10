@@ -106,7 +106,7 @@ export async function GET(req: NextRequest) {
           learner_id: profile.id,
           first_name: profile.first_name,
           last_name: profile.last_name,
-          primary_program: (primaryEnrollment?.programs as any)?.title || null,
+          primary_program: (primaryEnrollment?.programs as string)?.title || null,
           status: primaryEnrollment?.status || "inactive",
           percent_complete: percentComplete,
           last_activity: primaryEnrollment?.started_at || null,

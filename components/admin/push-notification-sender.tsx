@@ -153,7 +153,7 @@ export function PushNotificationSender() {
           <input
             type="text"
             value={form.title}
-            onChange={(e) => setForm({ ...form, title: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, title: e.target.value })}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Notification title"
             required
@@ -166,7 +166,7 @@ export function PushNotificationSender() {
           </label>
           <textarea
             value={form.body}
-            onChange={(e) => setForm({ ...form, body: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, body: e.target.value })}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Notification message"
             rows={3}
@@ -181,7 +181,7 @@ export function PushNotificationSender() {
           <input
             type="text"
             value={form.url}
-            onChange={(e) => setForm({ ...form, url: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, url: e.target.value })}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="/student/courses"
           />
@@ -194,7 +194,7 @@ export function PushNotificationSender() {
           <input
             type="text"
             value={form.icon}
-            onChange={(e) => setForm({ ...form, icon: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, icon: e.target.value })}
             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="/icon-192x192.png"
           />
@@ -242,7 +242,7 @@ export function PushNotificationSender() {
               <input
                 type="text"
                 value={form.userId}
-                onChange={(e) => setForm({ ...form, userId: e.target.value })}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm({ ...form, userId: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 placeholder="Enter user ID"
                 required={!form.broadcast}

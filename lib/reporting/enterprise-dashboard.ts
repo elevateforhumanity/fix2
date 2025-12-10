@@ -582,21 +582,21 @@ function groupBy<T>(array: T[], key: keyof T): Record<string, T[]> {
   }, {} as Record<string, T[]>);
 }
 
-function calculateCompletionRate(participants: any[]): number {
+function calculateCompletionRate(participants: unknown[]): number {
   const completed = participants.filter(p => 
     p.enrollments?.some((e: any) => e.status === 'completed')
   ).length;
   return participants.length > 0 ? (completed / participants.length) * 100 : 0;
 }
 
-function calculatePlacementRate(participants: any[]): number {
+function calculatePlacementRate(participants: unknown[]): number {
   const placed = participants.filter(p =>
     p.employment_outcomes?.some((o: any) => o.employed_at_exit)
   ).length;
   return participants.length > 0 ? (placed / participants.length) * 100 : 0;
 }
 
-function calculateAverageWage(participants: any[]): number {
+function calculateAverageWage(participants: unknown[]): number {
   const wages = participants
     .flatMap(p => p.employment_outcomes || [])
     .map((o: any) => o.hourly_wage)

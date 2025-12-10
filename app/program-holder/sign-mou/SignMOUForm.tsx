@@ -48,7 +48,7 @@ export function SignMOUForm() {
 
       // Success! Redirect to dashboard
       router.push('/program-holder/dashboard?mou=signed');
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError(err.message || 'Failed to sign MOU');
     } finally {
       setIsSubmitting(false);
@@ -68,7 +68,7 @@ export function SignMOUForm() {
             id="signerName"
             required
             value={signerName}
-            onChange={(e) => setSignerName(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSignerName(e.target.value)}
             className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             placeholder="John Doe"
           />
@@ -83,7 +83,7 @@ export function SignMOUForm() {
             id="signerTitle"
             required
             value={signerTitle}
-            onChange={(e) => setSignerTitle(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSignerTitle(e.target.value)}
             className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Owner, Manager, Director, etc."
           />
@@ -107,7 +107,7 @@ export function SignMOUForm() {
           type="checkbox"
           id="agreed"
           checked={agreed}
-          onChange={(e) => setAgreed(e.target.checked)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setAgreed(e.target.checked)}
           className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-slate-300 rounded"
         />
         <label htmlFor="agreed" className="text-sm text-slate-700">

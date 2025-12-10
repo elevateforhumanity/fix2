@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Exam not found' }, { status: 404 });
   }
 
-  const studentId = (session as any).userId;
+  const studentId = (session as string).userId;
 
   // Check attempts
   const { count } = await supabase
@@ -91,7 +91,7 @@ export async function POST(request: Request) {
   const proctoringUrl =
     exam.proctoring_required && exam.proctoring_provider
       ? getProctoringLaunchUrl({
-          provider: exam.proctoring_provider as any,
+          provider: exam.proctoring_provider as string,
           examId: exam.id,
           attemptId: attempt.id,
           studentId,

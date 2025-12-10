@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ leaveRequests: data });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error fetching leave requests:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch leave requests' },
@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ leaveRequest: data }, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error creating leave request:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create leave request' },

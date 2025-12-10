@@ -1,6 +1,5 @@
 // lib/partners/base.ts
 // Shared types + abstract base for all partner LMS APIs
-
 export type PartnerType =
   | "hsi"
   | "certiport"
@@ -9,7 +8,6 @@ export type PartnerType =
   | "jri"
   | "nrf"
   | "nds";
-
 export interface StudentData {
   id: string;
   email: string;
@@ -18,21 +16,18 @@ export interface StudentData {
   phone?: string;
   dateOfBirth?: string;
 }
-
 export interface PartnerAccount {
   externalId: string;
   username: string;
   loginUrl: string;
   passwordPlaintext?: string;
 }
-
 export interface CourseEnrollment {
   externalEnrollmentId: string;
   courseId: string;
   courseName?: string;
   accessUrl?: string;
 }
-
 export interface ProgressData {
   percentage: number;
   completed: boolean;
@@ -41,7 +36,6 @@ export interface ProgressData {
   lessonsCompleted?: number;
   totalLessons?: number;
 }
-
 export interface CertificateData {
   certificateId: string;
   certificateNumber?: string;
@@ -50,14 +44,12 @@ export interface CertificateData {
   downloadUrl: string;
   verificationUrl?: string;
 }
-
 export interface PartnerAPIConfig {
   baseUrl?: string;
   apiKey?: string;
   apiSecret?: string;
   orgId?: string;
 }
-
 /**
  * Abstract class – each real partner (HSI, Certiport, etc.)
  * will implement these methods using THEIR official API docs.
@@ -65,21 +57,18 @@ export interface PartnerAPIConfig {
 export abstract class BasePartnerAPI {
   protected config: PartnerAPIConfig;
   protected partner: PartnerType;
-  protected httpClient: any; // HTTP client for API calls
-
+  protected httpClient: unknown; // HTTP client for API calls
   constructor(partner: PartnerType, config: PartnerAPIConfig = {}) {
     this.partner = partner;
     this.config = config;
     this.httpClient = null; // Initialize as needed in subclasses
   }
-
   /**
    * Logging helper
    */
   protected log(message: string, data?: any): void {
-    console.log(`[${this.partner.toUpperCase()}] ${message}`, data || '');
+    }] ${message}`, data || '');
   }
-
   /**
    * Get default headers for API requests
    */
@@ -89,22 +78,17 @@ export abstract class BasePartnerAPI {
       'User-Agent': 'ElevateForHumanity/1.0',
     };
   }
-
   abstract createAccount(student: StudentData): Promise<PartnerAccount>;
-
   abstract enrollInCourse(
     accountExternalId: string,
     courseExternalCode: string
   ): Promise<CourseEnrollment>;
-
   abstract getProgress(
     externalEnrollmentId: string
   ): Promise<ProgressData | null>;
-
   abstract getCertificate(
     externalEnrollmentId: string
   ): Promise<CertificateData | null>;
-
   /**
    * Create SSO / deep link so student can jump straight into the course
    */

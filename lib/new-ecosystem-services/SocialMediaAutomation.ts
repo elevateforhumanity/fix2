@@ -3,13 +3,11 @@
   Commercial License. No resale, sublicensing, or redistribution allowed.
   See LICENSE file for details.
 */
-
 /**
  * Social Media Automation System
  * Integrates with Facebook, LinkedIn, YouTube, and Zapier
  * Auto-posts content 3x daily with reporting
  */
-
 interface SocialMediaPost {
   id: string;
   platform: 'facebook' | 'linkedin' | 'youtube';
@@ -24,7 +22,6 @@ interface SocialMediaPost {
     views: number;
   };
 }
-
 interface SocialMediaAccount {
   platform: string;
   accountId: string;
@@ -33,7 +30,6 @@ interface SocialMediaAccount {
   active: boolean;
   lastPost?: Date;
 }
-
 interface DailyReport {
   date: Date;
   posts: SocialMediaPost[];
@@ -45,24 +41,20 @@ interface DailyReport {
   };
   topPerforming: SocialMediaPost[];
 }
-
 export class SocialMediaAutomation {
   private static instance: SocialMediaAutomation;
   private accounts: Map<string, SocialMediaAccount> = new Map();
   private scheduledPosts: SocialMediaPost[] = [];
   private reports: DailyReport[] = [];
-
   private constructor() {
     this.initializeAccounts();
   }
-
   static getInstance(): SocialMediaAutomation {
     if (!SocialMediaAutomation.instance) {
       SocialMediaAutomation.instance = new SocialMediaAutomation();
     }
     return SocialMediaAutomation.instance;
   }
-
   private initializeAccounts(): void {
     // Facebook Business Page
     this.accounts.set('facebook-page', {
@@ -71,7 +63,6 @@ export class SocialMediaAutomation {
       accountName: 'Elevate for Humanity',
       active: true,
     });
-
     // Facebook Personal Profile
     this.accounts.set('facebook-personal', {
       platform: 'facebook',
@@ -79,7 +70,6 @@ export class SocialMediaAutomation {
       accountName: 'Elevate for Humanity (Personal)',
       active: true,
     });
-
     // LinkedIn Company Page
     this.accounts.set('linkedin-company', {
       platform: 'linkedin',
@@ -87,7 +77,6 @@ export class SocialMediaAutomation {
       accountName: 'Elevate for Humanity',
       active: true,
     });
-
     // LinkedIn Personal Profile
     this.accounts.set('linkedin-personal', {
       platform: 'linkedin',
@@ -95,7 +84,6 @@ export class SocialMediaAutomation {
       accountName: 'Elevate Founder Profile',
       active: true,
     });
-
     // YouTube Channel
     this.accounts.set('youtube', {
       platform: 'youtube',
@@ -104,7 +92,6 @@ export class SocialMediaAutomation {
       active: true,
     });
   }
-
   /**
    * Schedule posts 3x daily
    */
@@ -115,7 +102,6 @@ export class SocialMediaAutomation {
       new Date(today.getFullYear(), today.getMonth(), today.getDate(), 13, 0, 0, 0), // 1 PM
       new Date(today.getFullYear(), today.getMonth(), today.getDate(), 18, 0, 0, 0), // 6 PM
     ];
-
     postTimes.forEach((time, index) => {
       this.schedulePost({
         id: `post-${Date.now()}-${index}`,
@@ -126,7 +112,6 @@ export class SocialMediaAutomation {
       });
     });
   }
-
   /**
    * Select platform for rotation
    */
@@ -138,7 +123,6 @@ export class SocialMediaAutomation {
     ];
     return platforms[index % platforms.length];
   }
-
   /**
    * Generate content based on time of day
    */
@@ -160,19 +144,16 @@ export class SocialMediaAutomation {
         '💡 End your day with purpose: Learn about our nonprofit mission and community impact. 501(c)(3) serving Indiana communities. #Nonprofit #CommunityImpact',
       ],
     };
-
     const slot =
       timeSlot === 0 ? 'morning' : timeSlot === 1 ? 'afternoon' : 'evening';
     const templates = contentTemplates[slot];
     return templates[Math.floor(Math.random() * templates.length)];
   }
-
   /**
    * Schedule a post
    */
   schedulePost(post: SocialMediaPost): void {
     this.scheduledPosts.push(post);
-
     // Schedule actual posting
     const delay = post.scheduledTime.getTime() - Date.now();
     if (delay > 0) {
@@ -181,14 +162,12 @@ export class SocialMediaAutomation {
       }, delay);
     }
   }
-
   /**
    * Publish post to social media
    */
   async publishPost(post: SocialMediaPost): Promise<void> {
     try {
-      // console.log(`📤 Publishing to ${post.platform}:`, post.content);
-
+      // 
       // Call appropriate API based on platform
       switch (post.platform) {
         case 'facebook':
@@ -201,10 +180,8 @@ export class SocialMediaAutomation {
           await this.postToYouTube(post);
           break;
       }
-
       post.status = 'posted';
-      // console.log(`✅ Posted to ${post.platform}`);
-
+      // 
       // Trigger Zapier webhook
       await this.triggerZapier(post);
     } catch (error) {
@@ -212,14 +189,12 @@ export class SocialMediaAutomation {
       post.status = 'failed';
     }
   }
-
   /**
    * Post to Facebook
    */
   private async postToFacebook(post: SocialMediaPost): Promise<void> {
     const pageAccount = this.accounts.get('facebook-page');
     const personalAccount = this.accounts.get('facebook-personal');
-
     // Post to both page and personal profile
     const endpoints = [
       {
@@ -231,10 +206,8 @@ export class SocialMediaAutomation {
         token: personalAccount?.accessToken,
       },
     ];
-
     for (const endpoint of endpoints) {
       if (!endpoint.token) continue;
-
       await fetch(endpoint.url, {
         method: 'POST',
         headers: {
@@ -248,14 +221,12 @@ export class SocialMediaAutomation {
       });
     }
   }
-
   /**
    * Post to LinkedIn
    */
   private async postToLinkedIn(post: SocialMediaPost): Promise<void> {
     const companyAccount = this.accounts.get('linkedin-company');
     const personalAccount = this.accounts.get('linkedin-personal');
-
     // Post to both company page and personal profile
     const endpoints = [
       {
@@ -269,10 +240,8 @@ export class SocialMediaAutomation {
         token: personalAccount?.accessToken,
       },
     ];
-
     for (const endpoint of endpoints) {
       if (!endpoint.token) continue;
-
       await fetch(endpoint.url, {
         method: 'POST',
         headers: {
@@ -298,14 +267,12 @@ export class SocialMediaAutomation {
       });
     }
   }
-
   /**
    * Post to YouTube (community post)
    */
   private async postToYouTube(post: SocialMediaPost): Promise<void> {
     const account = this.accounts.get('youtube');
     if (!account?.accessToken) return;
-
     // YouTube Community Posts API
     await fetch('https://www.googleapis.com/youtube/v3/communityPosts', {
       method: 'POST',
@@ -322,14 +289,12 @@ export class SocialMediaAutomation {
       }),
     });
   }
-
   /**
    * Trigger Zapier webhook for blog integration
    */
   private async triggerZapier(post: SocialMediaPost): Promise<void> {
     const zapierWebhook =
       'https://hooks.zapier.com/hooks/catch/YOUR_WEBHOOK_ID/';
-
     try {
       await fetch(zapierWebhook, {
         method: 'POST',
@@ -344,31 +309,26 @@ export class SocialMediaAutomation {
           action: 'sync_to_durable_blog',
         }),
       });
-
-      // console.log('✅ Zapier webhook triggered');
+      // 
     } catch (error) {
       console.error('❌ Zapier webhook failed:', error);
     }
   }
-
   /**
    * Generate 3x daily report
    */
   async generateDailyReport(): Promise<DailyReport> {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0, 0);
-
     const todaysPosts = this.scheduledPosts.filter((post) => {
       const postTime = new Date(post.scheduledTime);
       const postDate = new Date(postTime.getFullYear(), postTime.getMonth(), postTime.getDate(), 0, 0, 0, 0);
       return postDate.getTime() === today.getTime();
     });
-
     // Fetch engagement metrics
     for (const post of todaysPosts) {
       post.engagement = await this.fetchEngagement(post);
     }
-
     const totalEngagement = todaysPosts.reduce(
       (acc, post) => ({
         likes: acc.likes + (post.engagement?.likes || 0),
@@ -378,7 +338,6 @@ export class SocialMediaAutomation {
       }),
       { likes: 0, shares: 0, comments: 0, views: 0 }
     );
-
     const topPerforming = todaysPosts
       .sort((a, b) => {
         const aTotal =
@@ -392,18 +351,15 @@ export class SocialMediaAutomation {
         return bTotal - aTotal;
       })
       .slice(0, 3);
-
     const report: DailyReport = {
       date: today,
       posts: todaysPosts,
       totalEngagement,
       topPerforming,
     };
-
     this.reports.push(report);
     return report;
   }
-
   /**
    * Fetch engagement metrics for a post
    */
@@ -417,7 +373,6 @@ export class SocialMediaAutomation {
       views: Math.floor(Math.random() * 1000),
     };
   }
-
   /**
    * Schedule 3x daily reports
    */
@@ -428,7 +383,6 @@ export class SocialMediaAutomation {
       new Date(today.getFullYear(), today.getMonth(), today.getDate(), 15, 0, 0, 0), // 3 PM
       new Date(today.getFullYear(), today.getMonth(), today.getDate(), 20, 0, 0, 0), // 8 PM
     ];
-
     reportTimes.forEach((time) => {
       const delay = time - Date.now();
       if (delay > 0) {
@@ -439,29 +393,26 @@ export class SocialMediaAutomation {
       }
     });
   }
-
   /**
    * Send report via email/notification
    */
   private async sendReport(report: DailyReport): Promise<void> {
-    // console.log('📊 Daily Social Media Report');
-    // console.log('============================');
-    // console.log(`Date: ${report.date.toLocaleDateString()}`);
-    // console.log(`Total Posts: ${report.posts.length}`);
-    // console.log(`Total Engagement:`);
-    // console.log(`  - Likes: ${report.totalEngagement.likes}`);
-    // console.log(`  - Shares: ${report.totalEngagement.shares}`);
-    // console.log(`  - Comments: ${report.totalEngagement.comments}`);
-    // console.log(`  - Views: ${report.totalEngagement.views}`);
-    // console.log('\nTop Performing Posts:');
+    // 
+    // 
+    // }`);
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
+    // 
     report.topPerforming.forEach((post, i) => {
-      // console.log(post, i);
+      // 
     });
-
     // Send via email (implement with your email service)
     // await this.sendEmail(report);
   }
-
   /**
    * Get social media links for website
    */
@@ -486,19 +437,15 @@ export class SocialMediaAutomation {
       },
     };
   }
-
   /**
    * Start automation
    */
   startAutomation(): void {
-    // console.log('🚀 Starting social media automation...');
-
+    // 
     // Schedule daily posts
     this.scheduleDailyPosts();
-
     // Schedule reports
     this.scheduleReports();
-
     // Repeat daily
     setInterval(
       () => {
@@ -506,11 +453,9 @@ export class SocialMediaAutomation {
       },
       24 * 60 * 60 * 1000
     );
-
-    // console.log('✅ Social media automation started');
-    // console.log('📅 Posts scheduled 3x daily: 9 AM, 1 PM, 6 PM');
-    // console.log('📊 Reports scheduled 3x daily: 10 AM, 3 PM, 8 PM');
+    // 
+    // 
+    // 
   }
 }
-
 export default SocialMediaAutomation;

@@ -151,7 +151,7 @@ export async function autoEnrollPartnerCourse(
       externalEnrollmentId: enrollment.externalEnrollmentId,
       launchUrl,
     };
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("[autoEnrollPartnerCourse] Error", err);
 
     const supabase2 = getSupabaseServerClient();

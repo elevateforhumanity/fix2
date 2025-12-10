@@ -187,7 +187,7 @@ export default function ContentLibrary() {
               <input
                 type="file"
                 multiple
-                onChange={(e) => e.target.files && handleUpload(e.target.files)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => e.target.files && handleUpload(e.target.files)}
                 className="hidden"
               />
             </label>
@@ -201,14 +201,14 @@ export default function ContentLibrary() {
             <input
               type="text"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
               placeholder="Search content..."
               className="w-full pl-10 pr-4 py-2 border rounded-lg"
             />
           </div>
           <select
             value={selectedType}
-            onChange={(e) => setSelectedType(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedType(e.target.value)}
             className="px-4 py-2 border rounded-lg"
           >
             <option value="all">All Types</option>
@@ -222,7 +222,7 @@ export default function ContentLibrary() {
           </select>
           <select
             value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedCategory(e.target.value)}
             className="px-4 py-2 border rounded-lg"
           >
             <option value="all">All Categories</option>
@@ -318,7 +318,7 @@ export default function ContentLibrary() {
                     {/* Actions */}
                     <div className="flex gap-2 pt-2 border-t">
                       <button
-                        onClick={(e) => {
+                        onClick={(e: React.MouseEvent<HTMLElement>) => {
                           e.stopPropagation();
                           window.open(item.file_url, '_blank');
                         }}
@@ -328,7 +328,7 @@ export default function ContentLibrary() {
                         Download
                       </button>
                       <button
-                        onClick={(e) => {
+                        onClick={(e: React.MouseEvent<HTMLElement>) => {
                           e.stopPropagation();
                           // Copy to clipboard
                         }}
@@ -337,7 +337,7 @@ export default function ContentLibrary() {
                         <Copy className="w-3 h-3" />
                       </button>
                       <button
-                        onClick={(e) => {
+                        onClick={(e: React.MouseEvent<HTMLElement>) => {
                           e.stopPropagation();
                           handleDelete(item.id);
                         }}

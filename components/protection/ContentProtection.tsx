@@ -57,10 +57,10 @@ export default function ContentProtection({
     );
 
     // Additional bot detection checks
-    const hasWebDriver = "webdriver" in navigator || (navigator as any).webdriver;
-    const hasAutomation = (window as any).__nightmare || (window as any).__selenium;
-    const hasPhantom = (window as any).callPhantom || (window as any)._phantom;
-    const hasPuppeteer = (window as any).__puppeteer || (navigator as any).webdriver;
+    const hasWebDriver = "webdriver" in navigator || (navigator as string).webdriver;
+    const hasAutomation = (window as string).__nightmare || (window as string).__selenium;
+    const hasPhantom = (window as string).callPhantom || (window as string)._phantom;
+    const hasPuppeteer = (window as string).__puppeteer || (navigator as string).webdriver;
 
     if (isBotDetected || hasWebDriver || hasAutomation || hasPhantom || hasPuppeteer) {
       setIsBot(true);

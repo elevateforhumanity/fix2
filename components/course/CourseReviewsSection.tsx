@@ -113,7 +113,7 @@ export function CourseReviewsSection({ courseId }: { courseId: string }) {
           Rating
           <select
             value={rating}
-            onChange={(e) => setRating(Number(e.target.value))}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setRating(Number(e.target.value))}
             className="rounded border px-2 py-1 text-xs"
           >
             {[5, 4, 3, 2, 1].map((r) => (
@@ -128,14 +128,14 @@ export function CourseReviewsSection({ courseId }: { courseId: string }) {
           type="text"
           placeholder="Short title (optional)"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setTitle(e.target.value)}
           className="w-full rounded border px-2 py-1 text-xs"
         />
 
         <textarea
           placeholder="Share details that will help other learners…"
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setText(e.target.value)}
           className="h-20 w-full rounded border px-2 py-1 text-xs"
         />
 

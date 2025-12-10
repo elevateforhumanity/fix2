@@ -137,7 +137,7 @@ export async function POST(req: NextRequest) {
     
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Email delivery error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to send email' },

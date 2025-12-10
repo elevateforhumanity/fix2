@@ -44,7 +44,7 @@ export function parseCSV(csvContent: string): BulkImportUser[] {
   
   for (let i = 1; i < lines.length; i++) {
     const values = lines[i].split(',').map(v => v.trim());
-    const user: any = {};
+    const user: unknown = {};
     
     headers.forEach((header, index) => {
       const value = values[index];
@@ -279,7 +279,7 @@ export async function importUsers(users: BulkImportUser[]): Promise<ImportResult
       createdUsers.push(user.email);
       successCount++;
       
-    } catch (error: any) {
+    } catch (error: unknown) {
       errors.push({
         row,
         email: user.email,

@@ -59,7 +59,7 @@ export async function GET(request: Request) {
 
   // Group by sector manually
   const sectorCounts: Record<string, number> = {};
-  (bySectorData || []).forEach((row: any) => {
+  (bySectorData || []).forEach((row: Record<string, unknown>) => {
     const sector = row.sector || "Unspecified";
     sectorCounts[sector] = (sectorCounts[sector] || 0) + 1;
   });
@@ -77,7 +77,7 @@ export async function GET(request: Request) {
 
   // Group by ZIP manually
   const zipCounts: Record<string, number> = {};
-  (byZipData || []).forEach((row: any) => {
+  (byZipData || []).forEach((row: Record<string, unknown>) => {
     const zip = row.zip_code || "Unknown";
     zipCounts[zip] = (zipCounts[zip] || 0) + 1;
   });

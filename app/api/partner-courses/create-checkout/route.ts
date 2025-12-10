@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json({ sessionId: session.id });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Stripe checkout error:', error);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }

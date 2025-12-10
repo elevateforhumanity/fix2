@@ -4,7 +4,7 @@ import { enhanceImages } from "./media-enhancer";
 import { generateSitemap } from "./sitemap-generator";
 import { prepareDeploy } from "./deploy-prep";
 
-export async function runAutopilot(type: string, payload: any = {}) {
+export async function runAutopilot(type: string, payload: unknown = {}) {
   switch (type) {
     case "course":
       return await buildCourse(payload);

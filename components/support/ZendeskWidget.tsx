@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 declare global {
   interface Window {
-    zE?: any;
+    zE?: unknown;
   }
 }
 

@@ -146,7 +146,7 @@ d="M5 13l4 4L19 7" />
                           name="reason"
                           value={r.value}
                           checked={reason === r.value}
-                          onChange={(e) => setReason(e.target.value)}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setReason(e.target.value)}
                           className="w-4 h-4 text-red-600 border-gray-300 focus:ring-red-500"
                         />
                         <span className="text-sm text-gray-900">{r.label}</span>
@@ -162,7 +162,7 @@ d="M5 13l4 4L19 7" />
                   </label>
                   <textarea
                     value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setDescription(e.target.value)}
                     rows={3}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     placeholder="Provide any additional context..."

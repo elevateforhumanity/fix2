@@ -57,17 +57,17 @@ export default async function EnrollmentDetailPage({ params }: PageProps) {
 
   // Calculate transfer hours summary
   const approvedTransfers = enrollment.transfer_hours?.filter(
-    (t: any) => t.status === 'approved'
+    (t: Record<string, unknown>) => t.status === 'approved'
   ) || [];
 
   const totalTransferred = {
-    theory: approvedTransfers.reduce((sum: number, t: any) => 
+    theory: approvedTransfers.reduce((sum: number, t: Record<string, unknown>) => 
       sum + (t.hours_theory_accepted || 0), 0
     ),
-    practical: approvedTransfers.reduce((sum: number, t: any) => 
+    practical: approvedTransfers.reduce((sum: number, t: Record<string, unknown>) => 
       sum + (t.hours_practical_accepted || 0), 0
     ),
-    other: approvedTransfers.reduce((sum: number, t: any) => 
+    other: approvedTransfers.reduce((sum: number, t: Record<string, unknown>) => 
       sum + (t.hours_other_accepted || 0), 0
     )
   };
@@ -79,17 +79,17 @@ export default async function EnrollmentDetailPage({ params }: PageProps) {
 
   // Calculate earned hours from module progress
   const completedModules = enrollment.module_progress?.filter(
-    (mp: any) => mp.status === 'completed'
+    (mp: Record<string, unknown>) => mp.status === 'completed'
   ) || [];
 
   const totalEarnedHours = completedModules.reduce(
-    (sum: number, mp: any) => sum + (mp.module?.required_hours || 0),
+    (sum: number, mp: { module?: { required_hours?: number } }) => sum + (mp.module?.required_hours || 0),
     0
   );
 
   // Get total required hours from program modules
   const totalRequiredHours = enrollment.module_progress?.reduce(
-    (sum: number, mp: any) => sum + (mp.module?.required_hours || 0),
+    (sum: number, mp: { module?: { required_hours?: number } }) => sum + (mp.module?.required_hours || 0),
     0
   ) || 0;
 
@@ -267,7 +267,7 @@ export default async function EnrollmentDetailPage({ params }: PageProps) {
                   Apprenticeship Details
                 </h2>
 
-                {enrollment.apprenticeship.map((app: any) => (
+                {enrollment.apprenticeship.map((app: Record<string, unknown>) => (
                   <div key={app.id} className="space-y-3 text-sm">
                     {app.rapids_participant_id && (
                       <div className="flex justify-between">

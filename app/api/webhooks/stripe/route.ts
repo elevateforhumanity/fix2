@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
             });
 
           logger.info('✅ Partner course payment logged');
-        } catch (err: any) {
+        } catch (err: unknown) {
           logger.error('Error processing partner course enrollment:', err);
         }
         break;
@@ -172,7 +172,7 @@ export async function POST(request: NextRequest) {
             });
 
           logger.info('✅ HSI payment logged successfully');
-        } catch (err: any) {
+        } catch (err: unknown) {
           logger.error('Error processing HSI enrollment:', err);
         }
         break;

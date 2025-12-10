@@ -60,7 +60,7 @@ export async function GET(request: Request) {
     "PayCode",
   ];
 
-  const rows = (entries || []).map((e: any) => [
+  const rows = (entries || []).map((e: Record<string, unknown>) => [
     e.profiles?.external_payroll_id ?? e.profiles?.id ?? "",
     e.profiles?.full_name ?? e.profiles?.email ?? "",
     new Date(e.worked_at).toISOString().slice(0, 10),

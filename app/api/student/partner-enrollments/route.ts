@@ -52,7 +52,7 @@ export async function GET() {
     return NextResponse.json({ enrollments: [] }, { status: 200 });
   }
 
-  const enrollments = (data ?? []).map((row: any) => ({
+  const enrollments = (data ?? []).map((row: Record<string, unknown>) => ({
     id: row.id,
     status: row.status,
     progress_percentage: row.progress_percentage,

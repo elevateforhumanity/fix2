@@ -94,13 +94,13 @@ export async function GET(
         .from("certificates")
         .select("certificate_url")
         .eq("user_id", learnerId)
-        .eq("program_id", (enrollment.programs as any)?.id)
+        .eq("program_id", (enrollment.programs as string)?.id)
         .maybeSingle();
 
       enrollmentDetails.push({
         id: enrollment.id,
-        program_title: (enrollment.programs as any)?.title || "Unknown Program",
-        program_slug: (enrollment.programs as any)?.slug || "",
+        program_title: (enrollment.programs as string)?.title || "Unknown Program",
+        program_slug: (enrollment.programs as string)?.slug || "",
         status: enrollment.status,
         funding_type: enrollment.funding_type,
         started_at: enrollment.started_at,

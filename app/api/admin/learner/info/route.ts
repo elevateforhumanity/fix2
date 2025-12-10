@@ -5,7 +5,7 @@ import { getUserById } from '@/lib/supabase-admin';
 import { withAuth } from '@/lib/with-auth';
 import { logger } from '@/lib/logger';
 
-async function getHandler(req: any, context: any, user: any) {
+async function getHandler(req: Request, context: Record<string, unknown>, user: Record<string, unknown>) {
   const url = new URL(req.url);
   const user_id = url.searchParams.get('user_id');
 

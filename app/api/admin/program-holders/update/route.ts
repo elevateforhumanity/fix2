@@ -13,7 +13,7 @@ export const POST = withAuth(
       return new Response('Missing id', { status: 400 });
     }
 
-    const updates: any = {};
+    const updates: unknown = {};
 
     if (status) {
       updates.status = status;

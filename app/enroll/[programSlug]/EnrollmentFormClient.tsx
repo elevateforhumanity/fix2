@@ -43,7 +43,7 @@ export function EnrollmentFormClient({ programId, programTitle }: EnrollmentForm
       if (enrollError) throw enrollError;
 
       router.push(`/enroll/success?program=${programTitle}`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError(err.message || 'Enrollment failed');
     } finally {
       setLoading(false);

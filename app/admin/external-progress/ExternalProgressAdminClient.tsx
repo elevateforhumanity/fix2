@@ -67,7 +67,7 @@ export default function ExternalProgressAdminClient({ initialRows }: Props) {
           ? "Module marked as approved."
           : "Module reset back to in progress."
       );
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setMessage(err?.message ?? "Unexpected error");
     } finally {

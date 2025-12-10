@@ -97,7 +97,7 @@ export function ResourceLibrary() {
               type="text"
               placeholder="Search resources..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
               className="flex-1 px-4 py-2 border rounded-lg"
             />
             <Button variant="secondary">Upload Resource</Button>

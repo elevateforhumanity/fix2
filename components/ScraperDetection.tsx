@@ -1,7 +1,5 @@
 'use client';
-
 import { useEffect, useRef } from 'react';
-
 /**
  * Scraper Detection Component
  * Detects suspicious behavior that indicates automated scraping
@@ -12,27 +10,22 @@ export function ScraperDetection() {
   const clickEvents = useRef(0);
   const startTime = useRef(Date.now());
   const alerted = useRef(false);
-  
   useEffect(() => {
     // Track mouse movements
     const handleMouseMove = () => {
       mouseMovements.current++;
     };
-    
     // Track scrolling
     const handleScroll = () => {
       scrollEvents.current++;
     };
-    
     // Track clicks
     const handleClick = () => {
       clickEvents.current++;
     };
-    
     // Track copy events
     const handleCopy = (e: ClipboardEvent) => {
       const selection = window.getSelection()?.toString() || '';
-      
       if (selection.length > 100) {
         sendAlert({
           type: 'LARGE_COPY',
@@ -42,7 +35,6 @@ export function ScraperDetection() {
         });
       }
     };
-    
     // Track right-click (often used before "View Source")
     const handleContextMenu = () => {
       sendAlert({
@@ -51,7 +43,6 @@ export function ScraperDetection() {
         timestamp: new Date().toISOString()
       });
     };
-    
     // Track keyboard shortcuts for DevTools
     const handleKeyDown = (e: KeyboardEvent) => {
       // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
@@ -68,26 +59,21 @@ export function ScraperDetection() {
         });
       }
     };
-    
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('scroll', handleScroll);
     document.addEventListener('click', handleClick);
     document.addEventListener('copy', handleCopy);
     document.addEventListener('contextmenu', handleContextMenu);
     document.addEventListener('keydown', handleKeyDown);
-    
     // Check for bot behavior after 5 seconds
     const checkTimer = setTimeout(() => {
       if (alerted.current) return;
-      
       const timeOnPage = Date.now() - startTime.current;
-      
       // If no mouse movement, scrolling, or clicks = likely bot
       if (mouseMovements.current === 0 && 
           scrollEvents.current === 0 && 
           clickEvents.current === 0 &&
           timeOnPage > 5000) {
-        
         alerted.current = true;
         sendAlert({
           type: 'NO_HUMAN_BEHAVIOR',
@@ -100,13 +86,11 @@ export function ScraperDetection() {
         });
       }
     }, 5000);
-    
     // Check for DevTools opening
     const detectDevTools = () => {
       const threshold = 160;
       const widthThreshold = window.outerWidth - window.innerWidth > threshold;
       const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-      
       if ((widthThreshold || heightThreshold) && !alerted.current) {
         alerted.current = true;
         sendAlert({
@@ -116,9 +100,7 @@ export function ScraperDetection() {
         });
       }
     };
-    
     const devToolsInterval = setInterval(detectDevTools, 1000);
-    
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('scroll', handleScroll);
@@ -130,11 +112,9 @@ export function ScraperDetection() {
       clearInterval(devToolsInterval);
     };
   }, []);
-  
   return null;
 }
-
-function sendAlert(data: any) {
+function sendAlert(data: Record<string, unknown>) {
   // Send alert to backend
   fetch('/api/alert-scraper', {
     method: 'POST',
@@ -142,6 +122,5 @@ function sendAlert(data: any) {
     body: JSON.stringify(data),
     keepalive: true
   }).catch((error) => {
-    console.log('[Scraper Detection] Failed to send alert:', error);
   });
 }

@@ -80,7 +80,7 @@ export function AIInstructorPanel({ instructor, programTitle }: AIInstructorPane
         text: replyText,
       };
       setMessages((prev) => [...prev, instructorMsg]);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       setError(
         err?.message ||
@@ -134,7 +134,7 @@ export function AIInstructorPanel({ instructor, programTitle }: AIInstructorPane
           <input
             type="text"
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setInput(e.target.value)}
             placeholder={`Ask ${instructor.shortName} a question about ${programTitle}...`}
             className="h-8 flex-1 rounded-md border border-slate-700 bg-slate-900 px-2 text-[11px] text-slate-100 placeholder:text-slate-500 focus:outline-none focus:ring-1 focus:ring-red-500"
           />

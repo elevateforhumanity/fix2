@@ -13,7 +13,7 @@ import { ObfuscatedEmail } from "@/components/ui/ObfuscatedEmail";
 
 interface NavSection {
   title: string;
-  icon: any;
+  icon: unknown;
   links: { href: string; label: string; }[];
 }
 

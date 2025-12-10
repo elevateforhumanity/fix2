@@ -15,9 +15,9 @@ export default function BranchSelector({ repo, onSelect }) {
       <label className="text-xs text-slate-400">Branch</label>
       <select
         className="w-full bg-[#111] p-2 rounded"
-        onChange={(e) => onSelect(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => onSelect(e.target.value)}
       >
-        {branches.map((b: any) => (
+        {branches.map((b: Record<string, any>) => (
           <option key={b.name} value={b.name}>{b.name}</option>
         ))}
       </select>

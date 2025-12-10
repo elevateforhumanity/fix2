@@ -91,7 +91,7 @@ export default function ProgramHolderApplicationPage() {
 
       if (insertError) throw insertError;
       setSubmitted(true);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError(err.message);
     } finally {
       setSubmitting(false);

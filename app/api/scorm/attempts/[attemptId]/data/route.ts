@@ -16,7 +16,7 @@ export async function GET(
     .from('scorm_attempts')
     .select('*')
     .eq('id', attemptId)
-    .eq('student_id', (session as any).userId)
+    .eq('student_id', (session as string).userId)
     .single();
 
   if (!attempt) {
@@ -49,7 +49,7 @@ export async function POST(
     .from('scorm_attempts')
     .select('*')
     .eq('id', attemptId)
-    .eq('student_id', (session as any).userId)
+    .eq('student_id', (session as string).userId)
     .single();
 
   if (!attempt) {

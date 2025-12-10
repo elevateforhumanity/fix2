@@ -1,15 +1,11 @@
 'use client';
-
 import { useEffect } from 'react';
-
 export function PerformanceMonitor() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
     // Monitor Core Web Vitals
     const reportWebVitals = (metric: any) => {
-      // console.log(metric);
-      
+      // 
       // Send to analytics
       if (window.gtag) {
         window.gtag('event', metric.name, {
@@ -20,7 +16,6 @@ export function PerformanceMonitor() {
         });
       }
     };
-
     // LCP - Largest Contentful Paint
     if ('PerformanceObserver' in window) {
       try {
@@ -38,7 +33,6 @@ export function PerformanceMonitor() {
         console.error('LCP observer error:', e);
       }
     }
-
     // FID - First Input Delay
     if ('PerformanceObserver' in window) {
       try {
@@ -57,15 +51,14 @@ export function PerformanceMonitor() {
         console.error('FID observer error:', e);
       }
     }
-
     // CLS - Cumulative Layout Shift
     if ('PerformanceObserver' in window) {
       try {
         let clsValue = 0;
         const clsObserver = new PerformanceObserver((list) => {
           for (const entry of list.getEntries()) {
-            if (!(entry as any).hadRecentInput) {
-              clsValue += (entry as any).value;
+            if (!(entry as string).hadRecentInput) {
+              clsValue += (entry as string).value;
               reportWebVitals({
                 name: 'CLS',
                 value: clsValue,
@@ -80,6 +73,5 @@ export function PerformanceMonitor() {
       }
     }
   }, []);
-
   return null;
 }

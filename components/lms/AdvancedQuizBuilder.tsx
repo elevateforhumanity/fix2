@@ -31,7 +31,7 @@ interface Question {
   question: string;
   points: number;
   options?: string[];
-  correctAnswer?: any;
+  correctAnswer?: unknown;
   explanation?: string;
   imageUrl?: string;
   codeLanguage?: string;
@@ -67,7 +67,7 @@ export default function AdvancedQuizBuilder() {
   const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null);
   const [previewMode, setPreviewMode] = useState(false);
 
-  const questionTypes: { type: QuestionType; label: string; icon: any }[] = [
+  const questionTypes: { type: QuestionType; label: string; icon: React.ComponentType<any> | React.ReactElement }[] = [
     { type: 'multiple_choice', label: 'Multiple Choice', icon: CheckCircle },
     { type: 'true_false', label: 'True/False', icon: Circle },
     { type: 'short_answer', label: 'Short Answer', icon: Type },
@@ -151,7 +151,7 @@ export default function AdvancedQuizBuilder() {
             <input
               type="text"
               value={quiz.title}
-              onChange={(e) => setQuiz({ ...quiz, title: e.target.value })}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setQuiz({ ...quiz, title: e.target.value })}
               className="text-2xl font-bold border-none focus:outline-none w-full"
               placeholder="Quiz Title"
             />
@@ -323,7 +323,7 @@ export default function AdvancedQuizBuilder() {
                     </div>
                     <div className="flex gap-1">
                       <button
-                        onClick={(e) => {
+                        onClick={(e: React.MouseEvent<HTMLElement>) => {
                           e.stopPropagation();
                           duplicateQuestion(question.id);
                         }}
@@ -332,7 +332,7 @@ export default function AdvancedQuizBuilder() {
                         <Copy className="w-3 h-3" />
                       </button>
                       <button
-                        onClick={(e) => {
+                        onClick={(e: React.MouseEvent<HTMLElement>) => {
                           e.stopPropagation();
                           deleteQuestion(question.id);
                         }}
@@ -386,7 +386,7 @@ function QuestionEditor({
           <label className="block text-sm font-medium mb-2">Question</label>
           <textarea
             value={question.question}
-            onChange={(e) => onUpdate({ question: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => onUpdate({ question: e.target.value })}
             className="w-full p-3 border rounded-lg resize-none"
             rows={3}
             placeholder="Enter your question here..."
@@ -414,7 +414,7 @@ function QuestionEditor({
             <input
               type="text"
               value={question.imageUrl || ''}
-              onChange={(e) => onUpdate({ imageUrl: e.target.value })}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => onUpdate({ imageUrl: e.target.value })}
               className="w-full p-2 border rounded"
               placeholder="https://..."
             />
@@ -439,7 +439,7 @@ function QuestionEditor({
                   <input
                     type="text"
                     value={option}
-                    onChange={(e) => {
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                       const newOptions = [...(question.options || [])];
                       newOptions[index] = e.target.value;
                       onUpdate({ options: newOptions });
@@ -512,7 +512,7 @@ function QuestionEditor({
             <input
               type="text"
               value={question.correctAnswer || ''}
-              onChange={(e) => onUpdate({ correctAnswer: e.target.value })}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => onUpdate({ correctAnswer: e.target.value })}
               className="w-full p-2 border rounded"
               placeholder="Enter correct answer (case-insensitive)"
             />
@@ -533,7 +533,7 @@ function QuestionEditor({
                   <input
                     type="text"
                     value={pair.left}
-                    onChange={(e) => {
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                       const newPairs = [...(question.matchingPairs || [])];
                       newPairs[index].left = e.target.value;
                       onUpdate({ matchingPairs: newPairs });
@@ -545,7 +545,7 @@ function QuestionEditor({
                   <input
                     type="text"
                     value={pair.right}
-                    onChange={(e) => {
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                       const newPairs = [...(question.matchingPairs || [])];
                       newPairs[index].right = e.target.value;
                       onUpdate({ matchingPairs: newPairs });
@@ -591,7 +591,7 @@ function QuestionEditor({
             </label>
             <select
               value={question.codeLanguage}
-              onChange={(e) => onUpdate({ codeLanguage: e.target.value })}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => onUpdate({ codeLanguage: e.target.value })}
               className="w-full p-2 border rounded mb-3"
             >
               <option value="javascript">JavaScript</option>
@@ -605,7 +605,7 @@ function QuestionEditor({
             </label>
             <textarea
               value={question.correctAnswer || ''}
-              onChange={(e) => onUpdate({ correctAnswer: e.target.value })}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => onUpdate({ correctAnswer: e.target.value })}
               className="w-full p-3 border rounded font-mono text-sm resize-none"
               rows={6}
               placeholder="Enter expected code output or solution..."
@@ -620,7 +620,7 @@ function QuestionEditor({
           </label>
           <textarea
             value={question.explanation || ''}
-            onChange={(e) => onUpdate({ explanation: e.target.value })}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => onUpdate({ explanation: e.target.value })}
             className="w-full p-3 border rounded resize-none"
             rows={3}
             placeholder="Explain why this is the correct answer..."

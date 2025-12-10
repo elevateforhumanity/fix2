@@ -84,7 +84,7 @@ export default async function DevAdmin() {
             </div>
 
             <div className="grid gap-6">
-              {barberCourses.map((course: any) => (
+              {barberCourses.map((course: Record<string, any>) => (
                 <div key={course.id} className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-orange-500">
                   <div className="bg-gradient-to-r from-orange-500 to-red-500 px-6 py-4">
                     <h3 className="text-2xl font-bold text-white">{course.title}</h3>
@@ -175,7 +175,7 @@ export default async function DevAdmin() {
           )}
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {allCourses?.map((course: any) => (
+            {allCourses?.map((course: Record<string, any>) => (
               <div key={course.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
                 <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3">
                   <h3 className="text-lg font-bold text-white truncate">{course.title}</h3>

@@ -6,7 +6,6 @@ export interface PaymentIntent {
   status: 'succeeded' | 'processing' | 'requires_payment_method' | 'canceled';
   clientSecret: string;
 }
-
 export interface Subscription {
   id: string;
   customerId: string;
@@ -15,7 +14,6 @@ export interface Subscription {
   currentPeriodEnd: Date;
   cancelAtPeriodEnd: boolean;
 }
-
 export interface Product {
   id: string;
   name: string;
@@ -24,22 +22,18 @@ export interface Product {
   currency: string;
   interval?: 'month' | 'year';
 }
-
 export class StripeService {
   private static instance: StripeService;
   private apiKey: string;
-
   private constructor() {
     this.apiKey = process.env.STRIPE_SECRET_KEY || '';
   }
-
   static getInstance(): StripeService {
     if (!StripeService.instance) {
       StripeService.instance = new StripeService();
     }
     return StripeService.instance;
   }
-
   // Create payment intent
   async createPaymentIntent(
     amount: number,
@@ -48,8 +42,7 @@ export class StripeService {
   ): Promise<PaymentIntent> {
     try {
       // In production, call Stripe API
-      // console.log('Creating payment intent:', { amount, currency, metadata });
-
+      // 
       // Mock response
       return {
         id: `pi_${Date.now()}`,
@@ -63,12 +56,10 @@ export class StripeService {
       throw error;
     }
   }
-
   // Confirm payment
   async confirmPayment(paymentIntentId: string): Promise<PaymentIntent> {
     try {
-      // console.log('Confirming payment:', paymentIntentId);
-
+      // 
       // Mock response
       return {
         id: paymentIntentId,
@@ -82,12 +73,10 @@ export class StripeService {
       throw error;
     }
   }
-
   // Create customer
   async createCustomer(email: string, name: string): Promise<string> {
     try {
-      // console.log('Creating customer:', { email, name });
-
+      // 
       // Mock response
       return `cus_${Date.now()}`;
     } catch (error) {
@@ -95,15 +84,13 @@ export class StripeService {
       throw error;
     }
   }
-
   // Create subscription
   async createSubscription(
     customerId: string,
     priceId: string
   ): Promise<Subscription> {
     try {
-      // console.log('Creating subscription:', { customerId, priceId });
-
+      // 
       // Mock response
       return {
         id: `sub_${Date.now()}`,
@@ -118,12 +105,10 @@ export class StripeService {
       throw error;
     }
   }
-
   // Cancel subscription
   async cancelSubscription(subscriptionId: string): Promise<Subscription> {
     try {
-      // console.log('Canceling subscription:', subscriptionId);
-
+      // 
       // Mock response
       return {
         id: subscriptionId,
@@ -138,12 +123,10 @@ export class StripeService {
       throw error;
     }
   }
-
   // Get subscription
   async getSubscription(subscriptionId: string): Promise<Subscription | null> {
     try {
-      // console.log('Getting subscription:', subscriptionId);
-
+      // 
       // Mock response
       return {
         id: subscriptionId,
@@ -158,7 +141,6 @@ export class StripeService {
       return null;
     }
   }
-
   // List products
   async listProducts(): Promise<Product[]> {
     // Mock products
@@ -189,45 +171,41 @@ export class StripeService {
       },
     ];
   }
-
   // Process refund
   async createRefund(
     paymentIntentId: string,
     amount?: number
   ): Promise<boolean> {
     try {
-      // console.log('Creating refund:', { paymentIntentId, amount });
+      // 
       return true;
     } catch (error) {
       console.error('Refund creation error:', error);
       return false;
     }
   }
-
   // Webhook handler
   async handleWebhook(payload: string, signature: string): Promise<void> {
     try {
       // Verify webhook signature
-      // console.log('Handling webhook:', { payload, signature });
-
+      // 
       // Process webhook events
       const event = JSON.parse(payload);
-
       switch (event.type) {
         case 'payment_intent.succeeded':
-          // console.log('Payment succeeded:', event.data.object);
+          // 
           break;
         case 'payment_intent.payment_failed':
-          // console.log('Payment failed:', event.data.object);
+          // 
           break;
         case 'customer.subscription.created':
-          // console.log('Subscription created:', event.data.object);
+          // 
           break;
         case 'customer.subscription.deleted':
-          // console.log('Subscription deleted:', event.data.object);
+          // 
           break;
         default:
-          // console.log('Unhandled event type:', event.type);
+          // 
       }
     } catch (error) {
       console.error('Webhook handling error:', error);
@@ -235,5 +213,4 @@ export class StripeService {
     }
   }
 }
-
 export const stripeService = StripeService.getInstance();

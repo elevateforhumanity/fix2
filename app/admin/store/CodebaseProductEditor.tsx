@@ -19,13 +19,13 @@ export default function CodebaseProductEditor() {
       <input
         className="w-full bg-[#222] p-2 rounded text-white"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setTitle(e.target.value)}
       />
 
       <input
         className="w-full bg-[#222] p-2 rounded text-white"
         value={price}
-        onChange={(e) => setPrice(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPrice(e.target.value)}
       />
 
       <button

@@ -61,7 +61,7 @@ export default function VideoUploader({
         onUploadComplete(data.enhancedUrl);
       }
 
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Upload error:', err);
       setError(err.message || 'Failed to upload video');
     } finally {

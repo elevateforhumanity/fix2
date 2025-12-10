@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
       success: true,
       message: "Welcome email sent successfully" 
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error("Error sending welcome email:", err);
     return NextResponse.json(
       { error: err.message || "Failed to send email" },

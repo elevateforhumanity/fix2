@@ -23,7 +23,7 @@ export async function GET(request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ departments });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error fetching departments:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch departments' },
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ department }, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error creating department:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create department' },

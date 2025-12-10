@@ -49,7 +49,7 @@ export default async function TaxPreparersPage() {
             <div className="text-gray-600 text-sm">Total Preparers</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-3xl font-bold text-green-600">{preparers?.filter((p: any) => p.is_active).length || 0}</div>
+            <div className="text-3xl font-bold text-green-600">{preparers?.filter((p: Record<string, unknown>) => p.is_active).length || 0}</div>
             <div className="text-gray-600 text-sm">Active</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
@@ -68,7 +68,7 @@ export default async function TaxPreparersPage() {
           
           {preparers && preparers.length > 0 ? (
             <div className="divide-y divide-gray-200">
-              {preparers.map((preparer: any) => (
+              {preparers.map((preparer: Record<string, unknown>) => (
                 <div key={preparer.id} className="px-6 py-4 hover:bg-gray-50">
                   <div className="flex justify-between items-start">
                     <div>

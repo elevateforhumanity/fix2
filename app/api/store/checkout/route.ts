@@ -34,7 +34,7 @@ export async function POST(req: Request) {
     });
 
     return Response.json({ sessionId: session.id, url: session.url });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Checkout error:', error);
     return Response.json({ error: error.message }, { status: 500 });
   }

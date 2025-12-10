@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
     }
 
     return NextResponse.json(data || []);
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Get courses error:", error);
     return NextResponse.json(
       { error: "Failed to fetch courses", message: error.message },

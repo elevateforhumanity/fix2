@@ -1,33 +1,25 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import { initServiceWorker, setupOfflineSync } from '@/lib/offline/service-worker-manager';
 import toast from 'react-hot-toast';
-
 export function ServiceWorkerInit() {
   const [updateAvailable, setUpdateAvailable] = useState(false);
-
   useEffect(() => {
     // Initialize service worker
     initServiceWorker()
       .then((registration) => {
         if (registration) {
-          console.log('Service Worker initialized successfully');
         }
       })
       .catch((error) => {
         console.error('Service Worker initialization failed:', error);
       });
-
     // Setup offline sync
     setupOfflineSync();
-
     // Listen for service worker updates
     const handleUpdate = (event: Event) => {
       const customEvent = event as CustomEvent;
-      console.log('Service Worker update available', customEvent.detail);
       setUpdateAvailable(true);
-      
       toast(
         (t) => (
           <div className="flex flex-col gap-2">
@@ -52,13 +44,10 @@ export function ServiceWorkerInit() {
         }
       );
     };
-
     window.addEventListener('sw-update', handleUpdate);
-
     return () => {
       window.removeEventListener('sw-update', handleUpdate);
     };
   }, []);
-
   return null;
 }

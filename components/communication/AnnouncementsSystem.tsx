@@ -87,7 +87,7 @@ export function AnnouncementsSystem({
               <input
                 type="text"
                 value={newAnnouncement.title}
-                onChange={(e) => setNewAnnouncement({ ...newAnnouncement, title: e.target.value })}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewAnnouncement({ ...newAnnouncement, title: e.target.value })}
                 className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 placeholder="Announcement title..."
               />
@@ -99,7 +99,7 @@ export function AnnouncementsSystem({
               </label>
               <textarea
                 value={newAnnouncement.content}
-                onChange={(e) => setNewAnnouncement({ ...newAnnouncement, content: e.target.value })}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewAnnouncement({ ...newAnnouncement, content: e.target.value })}
                 rows={6}
                 className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 placeholder="Write your announcement..."
@@ -111,7 +111,7 @@ export function AnnouncementsSystem({
                 <input
                   type="checkbox"
                   checked={newAnnouncement.isPinned}
-                  onChange={(e) => setNewAnnouncement({ ...newAnnouncement, isPinned: e.target.checked })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewAnnouncement({ ...newAnnouncement, isPinned: e.target.checked })}
                   className="rounded border-slate-300 text-red-600 focus:ring-emerald-500"
                 />
                 <Pin className="w-4 h-4 text-slate-600" />
@@ -122,7 +122,7 @@ export function AnnouncementsSystem({
                 <input
                   type="checkbox"
                   checked={newAnnouncement.sendEmail}
-                  onChange={(e) => setNewAnnouncement({ ...newAnnouncement, sendEmail: e.target.checked })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewAnnouncement({ ...newAnnouncement, sendEmail: e.target.checked })}
                   className="rounded border-slate-300 text-red-600 focus:ring-emerald-500"
                 />
                 <Mail className="w-4 h-4 text-slate-600" />
@@ -133,7 +133,7 @@ export function AnnouncementsSystem({
                 <input
                   type="checkbox"
                   checked={newAnnouncement.sendPush}
-                  onChange={(e) => setNewAnnouncement({ ...newAnnouncement, sendPush: e.target.checked })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewAnnouncement({ ...newAnnouncement, sendPush: e.target.checked })}
                   className="rounded border-slate-300 text-red-600 focus:ring-emerald-500"
                 />
                 <Bell className="w-4 h-4 text-slate-600" />
@@ -144,7 +144,7 @@ export function AnnouncementsSystem({
                 <input
                   type="checkbox"
                   checked={newAnnouncement.sendSMS}
-                  onChange={(e) => setNewAnnouncement({ ...newAnnouncement, sendSMS: e.target.checked })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewAnnouncement({ ...newAnnouncement, sendSMS: e.target.checked })}
                   className="rounded border-slate-300 text-red-600 focus:ring-emerald-500"
                 />
                 <span className="text-sm text-slate-700">Send SMS notification (if enabled)</span>

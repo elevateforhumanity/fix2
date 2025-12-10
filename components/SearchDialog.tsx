@@ -80,7 +80,7 @@ export function SearchDialog() {
           <Input
             placeholder="Search programs, pages..."
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setQuery(e.target.value)}
             className="h-12"
             autoFocus
           />

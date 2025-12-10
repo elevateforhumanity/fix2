@@ -29,7 +29,7 @@ export async function notifySlack(
 
   const emoji = emojiMap[severity];
 
-  const blocks: any[] = [
+  const blocks: unknown[] = [
     {
       type: 'section',
       text: {

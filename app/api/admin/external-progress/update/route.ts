@@ -26,7 +26,7 @@ export const POST = withAuth(
     // Build update object based on status
     if (status === "approved") {
       const { error } = await (supabaseAdmin
-        .from("external_partner_progress") as any)
+        .from("external_partner_progress") as string)
         .update({
           status,
           approved_at: new Date().toISOString()
@@ -43,7 +43,7 @@ export const POST = withAuth(
     } else {
       // status === "in_progress"
       const { error } = await (supabaseAdmin
-        .from("external_partner_progress") as any)
+        .from("external_partner_progress") as string)
         .update({
           status,
           proof_file_url: null,
@@ -62,7 +62,7 @@ export const POST = withAuth(
     }
 
     return NextResponse.json({ success: true });
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error(err);
     return NextResponse.json(
       { error: err?.message ?? "Unexpected error" },

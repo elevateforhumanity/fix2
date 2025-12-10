@@ -55,7 +55,7 @@ export function EnrollmentWizard({ programs, students }: EnrollmentWizardProps) 
       await createEnrollment(formDataObj);
       router.push('/admin/enrollments');
       router.refresh();
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError(err.message || 'Failed to create enrollment');
       setLoading(false);
     }
@@ -139,7 +139,7 @@ export function EnrollmentWizard({ programs, students }: EnrollmentWizardProps) 
               </label>
               <select
                 value={formData.student_id}
-                onChange={(e) => setFormData({ ...formData, student_id: e.target.value })}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, student_id: e.target.value })}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               >
@@ -174,7 +174,7 @@ export function EnrollmentWizard({ programs, students }: EnrollmentWizardProps) 
               </label>
               <select
                 value={formData.program_id}
-                onChange={(e) => setFormData({ ...formData, program_id: e.target.value })}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, program_id: e.target.value })}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               >
@@ -218,7 +218,7 @@ export function EnrollmentWizard({ programs, students }: EnrollmentWizardProps) 
                 <input
                   type="date"
                   value={formData.start_date}
-                  onChange={(e) => setFormData({ ...formData, start_date: e.target.value })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, start_date: e.target.value })}
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
@@ -231,7 +231,7 @@ export function EnrollmentWizard({ programs, students }: EnrollmentWizardProps) 
                 <input
                   type="date"
                   value={formData.expected_completion_date}
-                  onChange={(e) => setFormData({ ...formData, expected_completion_date: e.target.value })}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, expected_completion_date: e.target.value })}
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
@@ -247,7 +247,7 @@ export function EnrollmentWizard({ programs, students }: EnrollmentWizardProps) 
                   </label>
                   <select
                     value={formData.funding_source}
-                    onChange={(e) => setFormData({ ...formData, funding_source: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, funding_source: e.target.value })}
                     className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="">-- Select source --</option>
@@ -269,7 +269,7 @@ export function EnrollmentWizard({ programs, students }: EnrollmentWizardProps) 
                     min="0"
                     step="0.01"
                     value={formData.funding_amount}
-                    onChange={(e) => setFormData({ ...formData, funding_amount: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, funding_amount: e.target.value })}
                     className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="0.00"
                   />
@@ -283,7 +283,7 @@ export function EnrollmentWizard({ programs, students }: EnrollmentWizardProps) 
               </label>
               <textarea
                 value={formData.notes}
-                onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, notes: e.target.value })}
                 rows={3}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Additional notes about this enrollment..."

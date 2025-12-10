@@ -60,7 +60,7 @@ export const POST = withAuth(
       deploymentUrl: deployment.url,
       message: "New deployment triggered successfully",
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error("Hard refresh error:", err);
     return NextResponse.json(
       { error: err.message || "Failed to trigger hard refresh" },

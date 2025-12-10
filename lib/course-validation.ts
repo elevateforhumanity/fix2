@@ -3,7 +3,7 @@ export function validateCourse(json: string) {
     const data = JSON.parse(json);
     if (!data.title) throw new Error("Missing course title");
     return { ok: true, data };
-  } catch (err: any) {
+  } catch (err: unknown) {
     return { ok: false, error: err.message };
   }
 }

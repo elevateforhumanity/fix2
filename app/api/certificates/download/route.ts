@@ -21,7 +21,7 @@ export async function GET(request: Request) {
     }
 
     // Fetch enrollment and course details
-    let enrollment: any;
+    let enrollment: unknown;
     let courseName = '';
     let completionDate = '';
 
@@ -56,7 +56,7 @@ export async function GET(request: Request) {
     }
 
     // Get or create certificate record
-    let certificate: any;
+    let certificate: unknown;
     const { data: existingCert } = await supabase
       .from('certificates')
       .select('*')
@@ -252,7 +252,7 @@ export async function GET(request: Request) {
         'Content-Disposition': `attachment; filename="certificate-${certificate.certificate_number}.pdf"`,
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Certificate download error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to generate certificate' },

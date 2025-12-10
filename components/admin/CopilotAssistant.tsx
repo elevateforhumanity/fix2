@@ -181,7 +181,7 @@ export function CopilotAssistant() {
         </label>
         <textarea
           value={pastedData}
-          onChange={(e) => setPastedData(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPastedData(e.target.value)}
           placeholder="Paste your student data here... 
 Example:
 John Smith, Medical Assistant, 2025-01-15, john@email.com

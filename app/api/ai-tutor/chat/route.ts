@@ -119,7 +119,7 @@ export async function POST(request: NextRequest) {
       message: aiMessage.content,
       conversationId: newConversationId,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('AI Tutor error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to process request' },

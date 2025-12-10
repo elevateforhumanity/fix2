@@ -59,7 +59,7 @@ export async function GET(request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ payrollRuns });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error fetching payroll runs:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch payroll runs' },
@@ -140,7 +140,7 @@ export async function POST(request: NextRequest) {
 
     if (timeError) throw timeError;
 
-    const payStubsToInsert: any[] = [];
+    const payStubsToInsert: unknown[] = [];
     let totalGross = 0;
     let totalNet = 0;
     let totalTaxes = 0;
@@ -283,7 +283,7 @@ export async function POST(request: NextRequest) {
       },
       { status: 201 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error creating payroll run:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create payroll run' },

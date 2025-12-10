@@ -123,7 +123,7 @@ export async function createPartnerPaymentSession(
       checkoutUrl: session.url || undefined,
       sessionId: session.id,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Payment session creation error:', error);
     return {
       success: false,
@@ -192,7 +192,7 @@ export async function handlePaymentSuccess(sessionId: string): Promise<void> {
       status: 'completed',
       metadata: session.metadata,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Payment success handler error:', error);
     throw error;
   }
@@ -230,7 +230,7 @@ export async function handlePaymentFailure(sessionId: string): Promise<void> {
       status: 'failed',
       metadata: session.metadata,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Payment failure handler error:', error);
     throw error;
   }

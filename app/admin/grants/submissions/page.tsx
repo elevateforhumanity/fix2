@@ -84,10 +84,10 @@ export default async function GrantSubmissionsPage() {
 
   const stats = {
     total: submissions.length,
-    submitted: submissions.filter((s: any) => s.status === 'submitted').length,
-    underReview: submissions.filter((s: any) => s.status === 'under_review').length,
-    awarded: submissions.filter((s: any) => s.status === 'awarded').length,
-    rejected: submissions.filter((s: any) => s.status === 'rejected').length,
+    submitted: submissions.filter((s: Record<string, any>) => s.status === 'submitted').length,
+    underReview: submissions.filter((s: Record<string, any>) => s.status === 'under_review').length,
+    awarded: submissions.filter((s: Record<string, any>) => s.status === 'awarded').length,
+    rejected: submissions.filter((s: Record<string, any>) => s.status === 'rejected').length,
   };
 
   return (
@@ -185,7 +185,7 @@ export default async function GrantSubmissionsPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
-                {submissions.map((submission: any) => (
+                {submissions.map((submission: Record<string, any>) => (
                   <tr key={submission.id} className="hover:bg-slate-50">
                     <td className="px-6 py-4">
                       <div>

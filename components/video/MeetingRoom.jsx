@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-
 /**
  * MeetingRoom Component - Jitsi Meet Integration
  * Provides video conferencing with screen sharing, recording, and chat
@@ -15,7 +14,6 @@ export function MeetingRoom({
   const [isRecording, setIsRecording] = useState(false);
   const [participants, setParticipants] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     // Load Jitsi Meet API
     const loadJitsiScript = () => {
@@ -23,17 +21,14 @@ export function MeetingRoom({
         initializeJitsi();
         return;
       }
-
       const script = document.createElement('script');
       script.src = 'https://meet.jit.si/external_api.js';
       script.async = true;
       script.onload = () => initializeJitsi();
       document.body.appendChild(script);
     };
-
     const initializeJitsi = () => {
       const domain = process.env.REACT_APP_JITSI_DOMAIN || 'meet.jit.si';
-
       const options = {
         roomName: meetingCode,
         width: '100%',
@@ -93,44 +88,34 @@ export function MeetingRoom({
           MOBILE_APP_PROMO: false,
         },
       };
-
       const jitsiApi = new window.JitsiMeetExternalAPI(domain, options);
-
       // Event listeners
       jitsiApi.addEventListener('videoConferenceJoined', (event) => {
-        // console.log('Joined meeting:', event);
+        // 
         setIsLoading(false);
       });
-
       jitsiApi.addEventListener('participantJoined', (event) => {
-        // console.log('Participant joined:', event);
+        // 
         updateParticipants(jitsiApi);
       });
-
       jitsiApi.addEventListener('participantLeft', (event) => {
-        // console.log('Participant left:', event);
+        // 
         updateParticipants(jitsiApi);
       });
-
       jitsiApi.addEventListener('videoConferenceLeft', () => {
-        // console.log('Left meeting');
+        // 
         if (onLeave) onLeave();
       });
-
       jitsiApi.addEventListener('recordingStatusChanged', (event) => {
         setIsRecording(event.on);
       });
-
       setApi(jitsiApi);
     };
-
     const updateParticipants = async (jitsiApi) => {
       const participantsList = await jitsiApi.getParticipantsInfo();
       setParticipants(participantsList);
     };
-
     loadJitsiScript();
-
     // Cleanup
     return () => {
       if (api) {
@@ -138,7 +123,6 @@ export function MeetingRoom({
       }
     };
   }, [meetingCode, userName, onLeave]);
-
   const handleStartRecording = () => {
     if (api && isModerator) {
       api.executeCommand('startRecording', {
@@ -146,37 +130,31 @@ export function MeetingRoom({
       });
     }
   };
-
   const handleStopRecording = () => {
     if (api && isModerator) {
       api.executeCommand('stopRecording', 'file');
     }
   };
-
   const handleToggleAudio = () => {
     if (api) {
       api.executeCommand('toggleAudio');
     }
   };
-
   const handleToggleVideo = () => {
     if (api) {
       api.executeCommand('toggleVideo');
     }
   };
-
   const handleShareScreen = () => {
     if (api) {
       api.executeCommand('toggleShareScreen');
     }
   };
-
   const handleLeaveMeeting = () => {
     if (api) {
       api.executeCommand('hangup');
     }
   };
-
   return (
     <div
       style={{
@@ -324,5 +302,4 @@ export function MeetingRoom({
     </div>
   );
 }
-
 export default MeetingRoom;

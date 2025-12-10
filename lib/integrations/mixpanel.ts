@@ -11,7 +11,7 @@ interface MixpanelEvent {
   event: string;
   properties: {
     distinct_id: string;
-    [key: string]: any;
+    [key: string]: unknown;
   };
 }
 

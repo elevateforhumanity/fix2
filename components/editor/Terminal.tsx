@@ -53,7 +53,7 @@ export default function Terminal({ onCommand }: TerminalProps) {
       }
 
       setHistory((prev) => [...prev, { type: 'output', text: output }]);
-    } catch (error: any) {
+    } catch (error: unknown) {
       setHistory((prev) => [...prev, { type: 'output', text: `Error: ${error.message}` }]);
     } finally {
       setIsProcessing(false);
@@ -86,7 +86,7 @@ export default function Terminal({ onCommand }: TerminalProps) {
           <input
             type="text"
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setInput(e.target.value)}
             className="flex-1 bg-transparent outline-none text-white"
             placeholder="Type a command..."
             disabled={isProcessing}

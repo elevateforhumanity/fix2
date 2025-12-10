@@ -1,24 +1,18 @@
 // Database backup and recovery utilities
-
 import { createClient } from '@/lib/supabase/server';
-
 export async function createBackup(tables: string[] = ['profiles', 'courses', 'enrollments', 'certificates']) {
   const supabase = await createClient();
   const backup: Record<string, any[]> = {};
   const timestamp = new Date().toISOString();
-
   try {
     for (const table of tables) {
       const { data, error } = await supabase.from(table).select('*');
-      
       if (error) {
         console.error(`Error backing up ${table}:`, error);
         continue;
       }
-      
       backup[table] = data || [];
     }
-
     // Store backup metadata
     await supabase.from('backups').insert({
       timestamp,
@@ -27,7 +21,6 @@ export async function createBackup(tables: string[] = ['profiles', 'courses', 'e
       size_bytes: JSON.stringify(backup).length,
       status: 'completed',
     });
-
     return {
       success: true,
       timestamp,
@@ -42,14 +35,11 @@ export async function createBackup(tables: string[] = ['profiles', 'courses', 'e
     };
   }
 }
-
 export async function exportBackupToJSON(backup: Record<string, any[]>): Promise<string> {
   return JSON.stringify(backup, null, 2);
 }
-
-export async function exportBackupToCSV(tableName: string, data: any[]): Promise<string> {
+export async function exportBackupToCSV(tableName: string, data: unknown[]): Promise<string> {
   if (data.length === 0) return '';
-
   const headers = Object.keys(data[0]);
   const csvRows = [
     headers.join(','),
@@ -61,14 +51,11 @@ export async function exportBackupToCSV(tableName: string, data: any[]): Promise
       }).join(',')
     ),
   ];
-
   return csvRows.join('\n');
 }
-
 export async function scheduleBackup(intervalHours: number = 24) {
   // This would typically be handled by a cron job or scheduled task
   // For demonstration, showing the structure
-  
   const backupConfig = {
     enabled: true,
     interval: intervalHours,
@@ -76,15 +63,11 @@ export async function scheduleBackup(intervalHours: number = 24) {
     retention_days: 30,
     storage_location: 'supabase_storage',
   };
-
-  console.log('Backup scheduled:', backupConfig);
   return backupConfig;
 }
-
 export async function restoreFromBackup(backup: Record<string, any[]>, options: { overwrite?: boolean } = {}) {
   const supabase = await createClient();
   const results: Record<string, { success: boolean; count: number; error?: string }> = {};
-
   try {
     for (const [table, records] of Object.entries(backup)) {
       try {
@@ -92,10 +75,8 @@ export async function restoreFromBackup(backup: Record<string, any[]>, options: 
           // Delete existing records (use with caution!)
           await supabase.from(table).delete().neq('id', '00000000-0000-0000-0000-000000000000');
         }
-
         // Insert backup records
         const { error, count } = await supabase.from(table).insert(records);
-
         results[table] = {
           success: !error,
           count: count || records.length,
@@ -109,7 +90,6 @@ export async function restoreFromBackup(backup: Record<string, any[]>, options: 
         };
       }
     }
-
     return {
       success: true,
       results,
@@ -121,38 +101,30 @@ export async function restoreFromBackup(backup: Record<string, any[]>, options: 
     };
   }
 }
-
 export async function listBackups() {
   const supabase = await createClient();
-  
   const { data, error } = await supabase
     .from('backups')
     .select('*')
     .order('timestamp', { ascending: false })
     .limit(50);
-
   if (error) {
     console.error('Error listing backups:', error);
     return [];
   }
-
   return data || [];
 }
-
 export async function deleteOldBackups(retentionDays: number = 30) {
   const supabase = await createClient();
   const cutoffDate = new Date();
   cutoffDate.setDate(cutoffDate.getDate() - retentionDays);
-
   const { error } = await supabase
     .from('backups')
     .delete()
     .lt('timestamp', cutoffDate.toISOString());
-
   if (error) {
     console.error('Error deleting old backups:', error);
     return { success: false, error: error.message };
   }
-
   return { success: true };
 }

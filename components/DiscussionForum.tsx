@@ -50,7 +50,7 @@ export function DiscussionForum({ courseId, posts = [] }: DiscussionForumProps) 
         <CardContent className="space-y-4">
           <textarea
             value={newPost}
-            onChange={(e) => setNewPost(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewPost(e.target.value)}
             placeholder="Share your thoughts, ask a question, or start a discussion..."
             className="w-full p-4 border rounded-lg min-h-[120px] focus:ring-2 focus:ring-red-500 focus:border-red-500"
           />

@@ -88,7 +88,7 @@ export function ProtectedEmail({ user, domain, className }: ProtectedEmailProps)
     <a 
       href={`mailto:${email}`}
       className={className}
-      onClick={(e) => {
+      onClick={(e: React.MouseEvent<HTMLElement>) => {
         // Additional protection: construct mailto on click
         e.preventDefault();
         window.location.href = `mailto:${email}`;
@@ -125,7 +125,7 @@ export function ProtectedPhone({ number, display, className }: ProtectedPhonePro
     <a 
       href={`tel:${phoneNumber}`}
       className={className}
-      onClick={(e) => {
+      onClick={(e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault();
         window.location.href = `tel:${phoneNumber}`;
       }}

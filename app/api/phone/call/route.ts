@@ -46,7 +46,7 @@ export async function POST(req: Request) {
           { status: 400 }
         );
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Phone API error:", error);
     return NextResponse.json(
       { error: "Phone system error" },
@@ -111,7 +111,7 @@ async function handleVoicemail(phoneNumber: string, message: string) {
 }
 
 // Optional: Notify your team via email/Slack when callback requested
-async function notifyTeam(callbackData: any) {
+async function notifyTeam(callbackData: Record<string, unknown>) {
   // Send email notification
   // await sendEmail({
   //   to: "team@elevateforhumanity.org",

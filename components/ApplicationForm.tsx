@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -7,7 +6,6 @@ import { Input } from '@/components/ui/Input';
 import { Badge } from '@/components/ui/Badge';
 import { Progress } from '@/components/ui/Progress';
 import { CheckCircle } from 'lucide-react';
-
 export function ApplicationForm() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -34,10 +32,8 @@ export function ApplicationForm() {
     hasID: false,
     hasProofOfIncome: false,
   });
-
   const totalSteps = 5;
   const progress = (step / totalSteps) * 100;
-
   const programs = [
     'HVAC Technician',
     'Certified Nursing Assistant (CNA)',
@@ -47,20 +43,16 @@ export function ApplicationForm() {
     'Medical Assistant',
     'Culinary Arts',
   ];
-
   const handleNext = () => {
     if (step < totalSteps) setStep(step + 1);
   };
-
   const handleBack = () => {
     if (step > 1) setStep(step - 1);
   };
-
   const handleSubmit = () => {
-    // console.log('Form submitted:', formData);
+    // 
     setStep(6); // Success screen
   };
-
   if (step === 6) {
     return (
       <Card className="max-w-2xl mx-auto">
@@ -84,7 +76,6 @@ export function ApplicationForm() {
       </Card>
     );
   }
-
   return (
     <Card className="max-w-3xl mx-auto">
       <CardHeader>
@@ -106,7 +97,7 @@ export function ApplicationForm() {
                 </label>
                 <Input
                   value={formData.firstName}
-                  onChange={(e) => setFormData({...formData, firstName: e.target.value})}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, firstName: e.target.value})}
                   placeholder="John"
                 />
               </div>
@@ -116,7 +107,7 @@ export function ApplicationForm() {
                 </label>
                 <Input
                   value={formData.lastName}
-                  onChange={(e) => setFormData({...formData, lastName: e.target.value})}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, lastName: e.target.value})}
                   placeholder="Doe"
                 />
               </div>
@@ -127,7 +118,7 @@ export function ApplicationForm() {
                 <Input
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, email: e.target.value})}
                   placeholder="john.doe@gmail.com"
                 />
               </div>
@@ -138,7 +129,7 @@ export function ApplicationForm() {
                 <Input
                   type="tel"
                   value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, phone: e.target.value})}
                   placeholder="(555) 123-4567"
                 />
               </div>
@@ -149,13 +140,12 @@ export function ApplicationForm() {
                 <Input
                   type="date"
                   value={formData.dateOfBirth}
-                  onChange={(e) => setFormData({...formData, dateOfBirth: e.target.value})}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, dateOfBirth: e.target.value})}
                 />
               </div>
             </div>
           </div>
         )}
-
         {/* Step 2: Address */}
         {step === 2 && (
           <div className="space-y-6">
@@ -167,7 +157,7 @@ export function ApplicationForm() {
                 </label>
                 <Input
                   value={formData.address}
-                  onChange={(e) => setFormData({...formData, address: e.target.value})}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, address: e.target.value})}
                   placeholder="123 Main St"
                 />
               </div>
@@ -178,7 +168,7 @@ export function ApplicationForm() {
                   </label>
                   <Input
                     value={formData.city}
-                    onChange={(e) => setFormData({...formData, city: e.target.value})}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, city: e.target.value})}
                     placeholder="Indianapolis"
                   />
                 </div>
@@ -188,7 +178,7 @@ export function ApplicationForm() {
                   </label>
                   <Input
                     value={formData.state}
-                    onChange={(e) => setFormData({...formData, state: e.target.value})}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, state: e.target.value})}
                     placeholder="WI"
                   />
                 </div>
@@ -198,7 +188,7 @@ export function ApplicationForm() {
                   </label>
                   <Input
                     value={formData.zip}
-                    onChange={(e) => setFormData({...formData, zip: e.target.value})}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, zip: e.target.value})}
                     placeholder="53202"
                   />
                 </div>
@@ -206,7 +196,6 @@ export function ApplicationForm() {
             </div>
           </div>
         )}
-
         {/* Step 3: Program Selection */}
         {step === 3 && (
           <div className="space-y-6">
@@ -218,7 +207,7 @@ export function ApplicationForm() {
               <select
                 className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={formData.program}
-                onChange={(e) => setFormData({...formData, program: e.target.value})}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, program: e.target.value})}
               >
                 <option value="">Select a program...</option>
                 {programs.map((program) => (
@@ -233,12 +222,11 @@ export function ApplicationForm() {
               <Input
                 type="date"
                 value={formData.startDate}
-                onChange={(e) => setFormData({...formData, startDate: e.target.value})}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, startDate: e.target.value})}
               />
             </div>
           </div>
         )}
-
         {/* Step 4: Eligibility */}
         {step === 4 && (
           <div className="space-y-6">
@@ -250,7 +238,7 @@ export function ApplicationForm() {
               <select
                 className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={formData.employmentStatus}
-                onChange={(e) => setFormData({...formData, employmentStatus: e.target.value})}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, employmentStatus: e.target.value})}
               >
                 <option value="">Select...</option>
                 <option value="unemployed">Unemployed</option>
@@ -265,7 +253,7 @@ export function ApplicationForm() {
               <select
                 className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={formData.householdIncome}
-                onChange={(e) => setFormData({...formData, householdIncome: e.target.value})}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, householdIncome: e.target.value})}
               >
                 <option value="">Select...</option>
                 <option value="0-15000">$0 - $15,000</option>
@@ -282,13 +270,12 @@ export function ApplicationForm() {
                 type="number"
                 min="1"
                 value={formData.householdSize}
-                onChange={(e) => setFormData({...formData, householdSize: e.target.value})}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, householdSize: e.target.value})}
                 placeholder="Number of people in household"
               />
             </div>
           </div>
         )}
-
         {/* Step 5: Documents */}
         {step === 5 && (
           <div className="space-y-6">
@@ -301,7 +288,7 @@ export function ApplicationForm() {
                 <input
                   type="checkbox"
                   checked={formData.hasSSN}
-                  onChange={(e) => setFormData({...formData, hasSSN: e.target.checked})}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, hasSSN: e.target.checked})}
                   className="h-5 w-5"
                 />
                 <div>
@@ -313,7 +300,7 @@ export function ApplicationForm() {
                 <input
                   type="checkbox"
                   checked={formData.hasID}
-                  onChange={(e) => setFormData({...formData, hasID: e.target.checked})}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, hasID: e.target.checked})}
                   className="h-5 w-5"
                 />
                 <div>
@@ -325,7 +312,7 @@ export function ApplicationForm() {
                 <input
                   type="checkbox"
                   checked={formData.hasProofOfIncome}
-                  onChange={(e) => setFormData({...formData, hasProofOfIncome: e.target.checked})}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({...formData, hasProofOfIncome: e.target.checked})}
                   className="h-5 w-5"
                 />
                 <div>
@@ -336,7 +323,6 @@ export function ApplicationForm() {
             </div>
           </div>
         )}
-
         {/* Navigation Buttons */}
         <div className="flex justify-between mt-8 pt-6 border-t border-slate-200">
           <Button

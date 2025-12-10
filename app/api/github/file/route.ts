@@ -49,7 +49,7 @@ export async function GET(req: NextRequest) {
       html_url: data.html_url,
       download_url: data.download_url
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("GitHub file read error:", error);
     return NextResponse.json({ 
       error: "Failed to fetch file", 
@@ -79,7 +79,7 @@ export async function PUT(req: NextRequest) {
     const commitMessage = message || `Update ${path} via Dev Studio`;
     
     // Prepare request
-    const requestData: any = {
+    const requestData: unknown = {
       owner, 
       repo: name, 
       path, 
@@ -110,7 +110,7 @@ export async function PUT(req: NextRequest) {
       },
       message: commitMessage
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("GitHub file write error:", error);
     return NextResponse.json({ 
       error: "Failed to save file", 
@@ -152,7 +152,7 @@ export async function DELETE(req: NextRequest) {
       commit: res.data.commit.sha,
       message: commitMessage
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("GitHub file delete error:", error);
     return NextResponse.json({ 
       error: "Failed to delete file", 

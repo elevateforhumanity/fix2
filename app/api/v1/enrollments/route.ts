@@ -86,7 +86,7 @@ export async function GET(request: NextRequest) {
         totalPages: Math.ceil((count || 0) / limit),
       })
     );
-  } catch (err: any) {
+  } catch (err: unknown) {
     statusCode = 500;
     logger.error('API Error:', err);
     return NextResponse.json(apiResponse(false, null, err.message), {
@@ -154,7 +154,7 @@ export async function POST(request: NextRequest) {
     );
 
     return NextResponse.json(apiResponse(true, enrollment), { status: 201 });
-  } catch (err: any) {
+  } catch (err: unknown) {
     statusCode = 500;
     logger.error('API Error:', err);
     return NextResponse.json(apiResponse(false, null, err.message), {

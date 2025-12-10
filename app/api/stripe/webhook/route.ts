@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
 
   try {
     event = stripe.webhooks.constructEvent(rawBody, sig, stripeWebhookSecret);
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error("[StripeWebhook] Signature verification failed:", err?.message);
     return NextResponse.json(
       { error: "Signature verification failed" },
@@ -205,7 +205,7 @@ export async function POST(req: NextRequest) {
             `[StripeWebhook] Partner enrollment failed: ${result.error}`
           );
         }
-      } catch (err: any) {
+      } catch (err: unknown) {
         logger.error(
           `[StripeWebhook] Partner enrollment exception: ${err.message}`
         );

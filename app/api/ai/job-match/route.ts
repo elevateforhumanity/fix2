@@ -71,7 +71,7 @@ Provide specific, actionable recommendations.`,
     });
 
     return NextResponse.json({ matches });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Job match error:", error);
     return NextResponse.json(
       { error: error.message || "Failed to match jobs" },

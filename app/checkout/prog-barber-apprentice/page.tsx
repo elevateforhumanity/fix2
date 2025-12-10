@@ -12,7 +12,7 @@ export default function BarberApprenticeCheckoutPage() {
     setIsProcessing(true);
     
     // Stripe checkout with Affirm
-    const stripe = (window as any).Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+    const stripe = (window as string).Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
     
     try {
       const response = await fetch('/api/create-checkout-session', {

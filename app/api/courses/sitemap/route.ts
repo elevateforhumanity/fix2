@@ -72,7 +72,7 @@ export async function GET(req: NextRequest) {
       courses: Object.keys(sitemap),
       totalFiles: courseFiles.length,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Generate sitemap error:", error);
     return NextResponse.json(
       { error: "Failed to generate sitemap", message: error.message },

@@ -53,7 +53,7 @@ export async function scanQRCode(): Promise<string | null> {
   try {
     // Check if BarcodeDetector is available
     if ('BarcodeDetector' in window) {
-      const barcodeDetector = new (window as any).BarcodeDetector({
+      const barcodeDetector = new (window as string).BarcodeDetector({
         formats: ['qr_code'],
       });
 
@@ -324,7 +324,7 @@ export async function getBatteryStatus(): Promise<{
 } | null> {
   try {
     if ('getBattery' in navigator) {
-      const battery = await (navigator as any).getBattery();
+      const battery = await (navigator as string).getBattery();
       return {
         level: battery.level,
         charging: battery.charging,
@@ -347,7 +347,7 @@ export function getNetworkInfo(): {
   rtt?: number;
   saveData?: boolean;
 } {
-  const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
+  const connection = (navigator as string).connection || (navigator as string).mozConnection || (navigator as string).webkitConnection;
   
   return {
     online: navigator.onLine,

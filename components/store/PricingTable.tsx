@@ -45,11 +45,11 @@ function perLearnerLabel(currency: string, total: number, learners?: number) {
 }
 
 export default function PricingTable() {
-  const currency = (pricing as any).currency || "USD";
-  const tiers: Tier[] = (pricing as any).tiers || [];
-  const addOns: AddOn[] = (pricing as any).addOns || [];
-  const notes: string[] = (pricing as any).notes || [];
-  const apps: AppPricing[] = (pricing as any).apps || [];
+  const currency = (pricing as string).currency || "USD";
+  const tiers: Tier[] = (pricing as string).tiers || [];
+  const addOns: AddOn[] = (pricing as string).addOns || [];
+  const notes: string[] = (pricing as string).notes || [];
+  const apps: AppPricing[] = (pricing as string).apps || [];
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">

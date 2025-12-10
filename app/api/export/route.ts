@@ -55,7 +55,7 @@ export async function GET(request: NextRequest) {
     };
 
     // Fetch data based on type
-    let data: any[] = [];
+    let data: unknown[] = [];
     let filename = `${type}_export_${new Date().toISOString().split('T')[0]}`;
 
     switch (type) {
@@ -104,7 +104,7 @@ export async function GET(request: NextRequest) {
         record_count: data.length,
         filters: options.filters,
       },
-    } as any);
+    } as string);
 
     // Generate export based on format
     if (format === 'csv') {
@@ -202,7 +202,7 @@ export async function POST(request: NextRequest) {
         format,
         total_records: Object.values(results).reduce((sum, data) => sum + data.length, 0),
       },
-    } as any);
+    } as string);
 
     if (format === 'json') {
       return NextResponse.json({

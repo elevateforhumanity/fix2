@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
       { status: 503 }
     );
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Text-to-speech error:', error);
     return NextResponse.json(
       { error: error.message },

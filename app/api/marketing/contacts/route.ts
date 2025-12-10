@@ -41,7 +41,7 @@ export async function GET(req: NextRequest) {
         totalPages: Math.ceil((count || 0) / limit),
       },
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error('GET /marketing/contacts error', err);
     return NextResponse.json(
       { error: err.message || 'Failed to fetch contacts' },
@@ -86,7 +86,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ contact: data }, { status: 201 });
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error('POST /marketing/contacts error', err);
     return NextResponse.json(
       { error: err.message || 'Failed to create contact' },

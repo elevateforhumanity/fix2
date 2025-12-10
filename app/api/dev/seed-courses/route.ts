@@ -111,7 +111,7 @@ export async function POST() {
       }
 
       results.push({ programCode: seed.code, programId });
-    } catch (err: any) {
+    } catch (err: unknown) {
       logger.error("Seed error for program", seed.code, err?.message ?? err);
       results.push({
         programCode: seed.code,

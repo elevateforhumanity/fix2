@@ -83,7 +83,7 @@ export async function POST(
     await client.processWebhook(payload);
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error(`[Webhook] Error processing ${partner} webhook:`, error);
     return NextResponse.json(
       { error: error.message || "Internal server error" },
@@ -94,7 +94,7 @@ export async function POST(
 
 async function handleEnrollmentCreated(
   partner: PartnerType,
-  data: any
+  data: Record<string, unknown>
 ): Promise<void> {
   
   // Update enrollment status in database
@@ -116,7 +116,7 @@ async function handleEnrollmentCreated(
 
 async function handleProgressUpdated(
   partner: PartnerType,
-  data: any
+  data: Record<string, unknown>
 ): Promise<void> {
 
   // Update progress in database
@@ -139,7 +139,7 @@ async function handleProgressUpdated(
 
 async function handleCourseCompleted(
   partner: PartnerType,
-  data: any
+  data: Record<string, unknown>
 ): Promise<void> {
 
   // Update enrollment to completed
@@ -171,7 +171,7 @@ async function handleCourseCompleted(
 
 async function handleCertificateIssued(
   partner: PartnerType,
-  data: any
+  data: Record<string, unknown>
 ): Promise<void> {
 
   // Update enrollment with certificate data

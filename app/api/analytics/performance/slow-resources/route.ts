@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Slow resources API error:', error);
     return NextResponse.json(
       { success: false, error: error.message || 'Internal server error' },

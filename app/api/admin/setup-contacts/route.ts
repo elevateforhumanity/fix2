@@ -234,7 +234,7 @@ export const POST = withAuth(
       }
     });
 
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error("Setup error:", err);
     return NextResponse.json(
       { 

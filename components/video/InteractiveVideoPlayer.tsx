@@ -210,7 +210,7 @@ export default function InteractiveVideoPlayer({
                     min="0"
                     max={duration}
                     value={currentTime}
-                    onChange={(e) => seekTo(parseFloat(e.target.value))}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => seekTo(parseFloat(e.target.value))}
                     className="w-full"
                   />
                   <div className="flex justify-between text-xs text-white mt-1">

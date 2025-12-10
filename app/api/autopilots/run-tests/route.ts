@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Run tests error:", error);
     return NextResponse.json(
       {

@@ -132,7 +132,7 @@ export default function StoreBuilderPage() {
                   <input
                     type="text"
                     value={product.title}
-                    onChange={(e) => setProduct({ ...product, title: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setProduct({ ...product, title: e.target.value })}
                     className="w-full px-4 py-2 border rounded-lg"
                   />
                 </div>
@@ -143,7 +143,7 @@ export default function StoreBuilderPage() {
                   </label>
                   <textarea
                     value={product.description}
-                    onChange={(e) => setProduct({ ...product, description: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setProduct({ ...product, description: e.target.value })}
                     rows={3}
                     className="w-full px-4 py-2 border rounded-lg"
                   />
@@ -169,7 +169,7 @@ export default function StoreBuilderPage() {
                     <input
                       type="text"
                       value={feature}
-                      onChange={(e) => updateFeature(index, e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateFeature(index, e.target.value)}
                       className="flex-1 px-4 py-2 border rounded-lg"
                       placeholder="Feature description"
                     />
@@ -194,7 +194,7 @@ export default function StoreBuilderPage() {
                     <input
                       type="text"
                       value={tier.name}
-                      onChange={(e) => setProduct({
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setProduct({
                         ...product,
                         pricing: {
                           ...product.pricing,
@@ -209,7 +209,7 @@ export default function StoreBuilderPage() {
                       <input
                         type="number"
                         value={tier.price}
-                        onChange={(e) => setProduct({
+                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setProduct({
                           ...product,
                           pricing: {
                             ...product.pricing,
@@ -239,7 +239,7 @@ export default function StoreBuilderPage() {
                   <input
                     type="checkbox"
                     checked={product.demo.enabled}
-                    onChange={(e) => setProduct({
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setProduct({
                       ...product,
                       demo: { ...product.demo, enabled: e.target.checked }
                     })}
@@ -256,7 +256,7 @@ export default function StoreBuilderPage() {
                     <input
                       type="text"
                       value={product.demo.url}
-                      onChange={(e) => setProduct({
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setProduct({
                         ...product,
                         demo: { ...product.demo, url: e.target.value }
                       })}

@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ enrollments: data });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error fetching benefits enrollments:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch enrollments' },
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ enrollment: data }, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error creating benefits enrollment:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create enrollment' },

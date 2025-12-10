@@ -43,7 +43,7 @@ export async function POST(req: Request) {
         createdAt: license.created_at,
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('License validation error:', error);
     return Response.json({ error: error.message }, { status: 500 });
   }

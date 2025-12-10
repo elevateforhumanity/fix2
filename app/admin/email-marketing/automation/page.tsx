@@ -368,7 +368,7 @@ export default function AutomationPage() {
 interface WorkflowTemplateProps {
   title: string;
   description: string;
-  icon: any;
+  icon: unknown;
   color: 'blue' | 'orange' | 'purple';
   onClick: () => void;
 }

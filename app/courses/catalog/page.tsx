@@ -111,7 +111,7 @@ export default async function CompleteCatalogPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {internalCourses.map((course: any) => (
+                {internalCourses.map((course: Record<string, any>) => (
                   <div key={course.id} className="bg-white rounded-lg shadow-sm border overflow-hidden hover:shadow-md transition-shadow">
                     {course.thumbnail_url ? (
                       <img src={course.thumbnail_url} alt={course.title} className="w-full h-48 object-cover" />
@@ -173,7 +173,7 @@ d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {partnerCourses.slice(0, 8).map((course: any) => (
+                {partnerCourses.slice(0, 8).map((course: Record<string, any>) => (
                   <div key={course.id} className="bg-white rounded-lg shadow-sm border p-4 hover:shadow-md transition-shadow">
                     <div className="text-xs text-purple-600 font-semibold mb-2">
                       {course.partner_lms_providers?.provider_name}

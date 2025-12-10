@@ -7,7 +7,7 @@ import { createSupabaseClient } from "@/lib/supabase-api";
 export async function GET(request: Request) {
   const supabase = createSupabaseClient();
   const session = await requireAuth();
-  if (!(session as any).isAdmin) {
+  if (!(session as string).isAdmin) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
@@ -55,7 +55,7 @@ export async function GET(request: Request) {
     'measurable_skill_gain',
   ];
 
-  const rows = records.map((r: any) => [
+  const rows = records.map((r: Record<string, any>) => [
     r.participant_id,
     r.tenant_id,
     r.program_id,

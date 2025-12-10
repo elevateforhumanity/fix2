@@ -121,9 +121,9 @@ export function initializeScormAPI(attemptId: string, version: '1.2' | '2004') {
   const api = new ScormAPI(attemptId, version);
   
   if (version === '1.2') {
-    (window as any).API = api;
+    (window as string).API = api;
   } else {
-    (window as any).API_1484_11 = api;
+    (window as string).API_1484_11 = api;
   }
   
   return api;

@@ -74,7 +74,7 @@ export default function Editor({ filePath, content, sha, onChange }: EditorProps
         <textarea
           className="w-full h-[600px] border p-3 rounded font-mono text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={content}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => onChange(e.target.value)}
           placeholder="Start editing your course content..."
         />
       ) : (

@@ -80,7 +80,7 @@ export function StudentFeedbackRating() {
                   <label className="block text-sm font-medium mb-2">Your Review</label>
                   <textarea
                     value={comment}
-                    onChange={(e) => setComment(e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setComment(e.target.value)}
                     placeholder="Share your experience with this course..."
                     className="w-full px-4 py-2 border rounded-lg h-32"
                   />

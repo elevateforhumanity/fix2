@@ -4,12 +4,9 @@
  * Loads and plays SCORM 1.2 and SCORM 2004 packages
  * Tracks progress and completion
  */
-
 'use client';
-
 import { useState, useEffect, useRef } from 'react';
 import { createClient } from '@/lib/supabase/client';
-
 interface ScormPlayerProps {
   scormPackage: {
     id: string;
@@ -23,7 +20,6 @@ interface ScormPlayerProps {
   enrollmentId: string;
   progressId?: string;
 }
-
 export default function ScormPlayer({ 
   scormPackage, 
   moduleId, 
@@ -35,54 +31,40 @@ export default function ScormPlayer({
   const [scormUrl, setScormUrl] = useState<string | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const supabase = createClient();
-
   useEffect(() => {
     loadScormPackage();
   }, [scormPackage.id]);
-
   async function loadScormPackage() {
     try {
       setLoading(true);
       setError(null);
-
       // In production, you'd get a signed URL from Supabase Storage
       // For now, we'll use the launch_url directly
       const url = scormPackage.launch_url;
-      
       if (!url) {
         throw new Error('SCORM launch URL not configured');
       }
-
       setScormUrl(url);
       setLoading(false);
-
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('[ScormPlayer] Error loading SCORM:', err);
       setError(err.message || 'Failed to load SCORM package');
       setLoading(false);
     }
   }
-
   // SCORM API implementation (simplified)
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
     // Create SCORM API object
     const API = {
       LMSInitialize: function(param: string) {
-        console.log('[SCORM] LMSInitialize called');
         return 'true';
       },
-      
       LMSFinish: function(param: string) {
-        console.log('[SCORM] LMSFinish called');
         handleScormCompletion();
         return 'true';
       },
-      
       LMSGetValue: function(element: string) {
-        console.log('[SCORM] LMSGetValue:', element);
-        
         // Return appropriate values based on element
         switch(element) {
           case 'cmi.core.lesson_status':
@@ -95,55 +77,39 @@ export default function ScormPlayer({
             return '';
         }
       },
-      
       LMSSetValue: function(element: string, value: string) {
-        console.log('[SCORM] LMSSetValue:', element, value);
-        
         // Track important values
         if (element === 'cmi.core.lesson_status' && value === 'completed') {
           handleScormCompletion();
         }
-        
         if (element === 'cmi.core.score.raw') {
           handleScormScore(parseFloat(value));
         }
-        
         return 'true';
       },
-      
       LMSCommit: function(param: string) {
-        console.log('[SCORM] LMSCommit called');
         return 'true';
       },
-      
       LMSGetLastError: function() {
         return '0';
       },
-      
       LMSGetErrorString: function(errorCode: string) {
         return 'No error';
       },
-      
       LMSGetDiagnostic: function(errorCode: string) {
         return 'No error';
       }
     };
-
     // Expose API to iframe
-    (window as any).API = API;
-    (window as any).API_1484_11 = API; // SCORM 2004
-
+    (window as string).API = API;
+    (window as string).API_1484_11 = API; // SCORM 2004
     return () => {
-      delete (window as any).API;
-      delete (window as any).API_1484_11;
+      delete (window as string).API;
+      delete (window as string).API_1484_11;
     };
   }, [enrollmentId]);
-
   async function handleScormCompletion() {
-    console.log('[ScormPlayer] SCORM completed');
-    
     if (!progressId) return;
-
     try {
       // Update module progress to completed
       const { error } = await supabase
@@ -153,11 +119,9 @@ export default function ScormPlayer({
           completed_at: new Date().toISOString()
         })
         .eq('id', progressId);
-
       if (error) {
         console.error('[ScormPlayer] Failed to update progress:', error);
       } else {
-        console.log('[ScormPlayer] Progress updated to completed');
         // Show success message
         alert('Module completed! Great job!');
       }
@@ -165,12 +129,8 @@ export default function ScormPlayer({
       console.error('[ScormPlayer] Error updating progress:', err);
     }
   }
-
   async function handleScormScore(score: number) {
-    console.log('[ScormPlayer] SCORM score:', score);
-    
     if (!progressId) return;
-
     try {
       // Store score in module_progress
       const { error } = await supabase
@@ -179,7 +139,6 @@ export default function ScormPlayer({
           score: score
         })
         .eq('id', progressId);
-
       if (error) {
         console.error('[ScormPlayer] Failed to update score:', error);
       }
@@ -187,7 +146,6 @@ export default function ScormPlayer({
       console.error('[ScormPlayer] Error updating score:', err);
     }
   }
-
   if (loading) {
     return (
       <div className="scorm-container flex items-center justify-center">
@@ -198,7 +156,6 @@ export default function ScormPlayer({
       </div>
     );
   }
-
   if (error) {
     return (
       <div className="scorm-container flex items-center justify-center">
@@ -216,7 +173,6 @@ export default function ScormPlayer({
       </div>
     );
   }
-
   if (!scormUrl) {
     return (
       <div className="scorm-container flex items-center justify-center">
@@ -226,10 +182,8 @@ export default function ScormPlayer({
       </div>
     );
   }
-
   return (
     <div className="space-y-4">
-      
       {/* SCORM Info Bar */}
       <div className="glow-card p-4">
         <div className="flex items-center justify-between">
@@ -247,7 +201,6 @@ export default function ScormPlayer({
           </button>
         </div>
       </div>
-
       {/* SCORM Player */}
       <div className="scorm-container">
         <iframe
@@ -258,7 +211,6 @@ export default function ScormPlayer({
           allow="fullscreen"
         />
       </div>
-
       {/* Help Text */}
       <div className="glow-card p-4">
         <p className="text-slate-400 text-sm">
@@ -266,7 +218,6 @@ export default function ScormPlayer({
           within the course to save your progress.
         </p>
       </div>
-
     </div>
   );
 }

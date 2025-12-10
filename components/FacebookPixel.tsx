@@ -5,8 +5,8 @@ import { usePathname, useSearchParams } from 'next/navigation';
 
 declare global {
   interface Window {
-    fbq?: (...args: any[]) => void;
-    _fbq?: (...args: any[]) => void;
+    fbq?: (...args: unknown[]) => void;
+    _fbq?: (...args: unknown[]) => void;
   }
 }
 
@@ -23,7 +23,7 @@ function FacebookPixelContent() {
       /* eslint-disable @typescript-eslint/no-unused-expressions */
       (function (f: any, b: any, e: any, v: any, n?: any, t?: any, s?: any) {
         if (f.fbq) return;
-        n = f.fbq = function (...args: any[]) {
+        n = f.fbq = function (...args: unknown[]) {
           n.callMethod
             ? n.callMethod(...args)
             : n.queue.push(...args);

@@ -11,7 +11,7 @@ export async function trackScormProgress(data: {
   progress: number;
   score?: number;
   timeSpent: number;
-  cmiData: any;
+  cmiData: unknown;
 }) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();

@@ -8,7 +8,7 @@ interface Achievement {
   id: string;
   title: string;
   description: string;
-  icon: any;
+  icon: unknown;
   earned: boolean;
   progress?: number;
   total?: number;

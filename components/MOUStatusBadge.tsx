@@ -16,7 +16,7 @@ export function MOUStatusBadge({
     {
       label: string;
       color: string;
-      icon: any;
+      icon: unknown;
       bgColor: string;
     }
   > = {

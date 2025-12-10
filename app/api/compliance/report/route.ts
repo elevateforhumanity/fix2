@@ -108,7 +108,7 @@ export async function GET() {
       });
 
       if (evidenceCount > 0) {
-        item.compliance_evidence.forEach((ev: any) => {
+        item.compliance_evidence.forEach((ev: Record<string, unknown>) => {
           doc
             .fontSize(8)
             .fillColor("#0066cc")

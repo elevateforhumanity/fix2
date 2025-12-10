@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
       success: true, 
       certificateNumber 
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Course completion error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to record completion' },

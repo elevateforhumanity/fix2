@@ -89,7 +89,7 @@ export async function POST(req: Request) {
     // Note: Send confirmation email to partner
 
     return NextResponse.json({ ok: true });
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error("API error:", err);
     return NextResponse.json(
       { error: "Unexpected error." },

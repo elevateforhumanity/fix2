@@ -28,7 +28,7 @@ export default function ForgotPasswordForm() {
       if (resetError) throw resetError;
 
       setSuccess(true);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Password reset error:', err);
       setError(err.message || 'Failed to send reset email');
       setLoading(false);
@@ -91,7 +91,7 @@ export default function ForgotPasswordForm() {
             type="email"
             id="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setEmail(e.target.value)}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="you@example.com"

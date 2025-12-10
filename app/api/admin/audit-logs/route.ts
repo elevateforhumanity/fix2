@@ -24,19 +24,19 @@ export const GET = withAuth(
       const result = await exportAuditLogs({ start_date: startDate || undefined, end_date: endDate || undefined });
       
       if (!result.success) {
-        return NextResponse.json({ error: (result as any).error || 'Export failed' }, { status: 500 });
+        return NextResponse.json({ error: (result as string).error || 'Export failed' }, { status: 500 });
       }
 
-      return new NextResponse((result as any).data, {
+      return new NextResponse((result as string).data, {
         headers: {
           'Content-Type': 'text/csv',
-          'Content-Disposition': `attachment; filename="${(result as any).filename}"`,
+          'Content-Disposition': `attachment; filename="${(result as string).filename}"`,
         },
       });
     }
 
     const result = await getAuditLogs({
-      action: action as any,
+      action: action,
       actor_id: actorId || undefined,
       target_type: targetType || undefined,
       target_id: targetId || undefined,

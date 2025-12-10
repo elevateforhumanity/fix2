@@ -14,7 +14,7 @@ export async function GET(req: Request) {
     if (error) throw error;
 
     return NextResponse.json({ success: true, campaigns });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error fetching campaigns:', error);
     return NextResponse.json(
       { success: false, error: error.message },
@@ -48,7 +48,7 @@ export async function POST(req: Request) {
     if (error) throw error;
 
     return NextResponse.json({ success: true, campaign });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error creating campaign:', error);
     return NextResponse.json(
       { success: false, error: error.message },

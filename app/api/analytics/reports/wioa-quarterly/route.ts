@@ -77,7 +77,7 @@ export async function GET(request: NextRequest) {
  * Generate quarterly performance report
  */
 async function generateQuarterlyReport(
-  supabase: any,
+  supabase: any, // TODO: Type with SupabaseClient
   startDate: Date,
   endDate: Date,
   programId: string | null
@@ -170,7 +170,7 @@ async function generateQuarterlyReport(
       .select('id, title');
 
     programBreakdown = await Promise.all(
-      (programs || []).map(async (program: any) => {
+      (programs || []).map(async (program: Record<string, unknown>) => {
         const { data: programEnrollments } = await supabase
           .from('enrollments')
           .select('id, status')
@@ -182,7 +182,7 @@ async function generateQuarterlyReport(
           programId: program.id,
           programName: program.title,
           enrolled: programEnrollments?.length || 0,
-          completed: programEnrollments?.filter((e: any) => e.status === 'completed').length || 0
+          completed: programEnrollments?.filter((e: Record<string, unknown>) => e.status === 'completed').length || 0
         };
       })
     );
@@ -218,7 +218,7 @@ async function generateQuarterlyReport(
 /**
  * Convert report data to CSV format
  */
-function convertToCSV(reportData: any): string {
+function convertToCSV(reportData: Record<string, unknown>): string {
   const { summary, demographics } = reportData;
   
   let csv = 'WIOA Quarterly Performance Report\n\n';

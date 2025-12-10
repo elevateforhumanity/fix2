@@ -49,7 +49,7 @@ interface ContractOpportunity {
   naicsCode: string;
   classificationCode: string;
   active: string;
-  award: any;
+  award: unknown;
   pointOfContact: Array<{
     fax: string;
     type: string;

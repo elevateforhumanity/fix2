@@ -40,7 +40,7 @@ export const POST = withAuth(
           } else {
             results.push({ file, status: 'success' });
           }
-        } catch (err: any) {
+        } catch (err: unknown) {
           results.push({ file, status: 'error', error: err.message });
         }
       } else {
@@ -49,7 +49,7 @@ export const POST = withAuth(
     }
 
     return NextResponse.json({ results });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 

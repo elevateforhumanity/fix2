@@ -24,7 +24,7 @@ interface AutopilotTask {
   id: string;
   name: string;
   description: string;
-  icon: any;
+  icon: unknown;
   script: string;
   category: 'build' | 'fix' | 'optimize' | 'deploy';
 }
@@ -159,7 +159,7 @@ export default function AutopilotsPage() {
         addLog(task.id, `❌ Failed: ${error.message || 'Unknown error'}`);
         setFailedTasks(prev => new Set(prev).add(task.id));
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       addLog(task.id, `❌ Error: ${error.message}`);
       setFailedTasks(prev => new Set(prev).add(task.id));
     } finally {

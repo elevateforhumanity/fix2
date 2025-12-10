@@ -214,7 +214,7 @@ export function JobPlacementTracking() {
               <div className="flex gap-2">
                 <select
                   value={filterStatus}
-                  onChange={(e) => setFilterStatus(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFilterStatus(e.target.value)}
                   className="px-4 py-2 border rounded"
                 >
                   <option value="all">All Status</option>

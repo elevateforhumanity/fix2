@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     .eq("id", gradeItemId)
     .single();
 
-  if (!gradeItem || (gradeItem.courses as any)?.instructor_id !== user.id) {
+  if (!gradeItem || (gradeItem.courses as string)?.instructor_id !== user.id) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 

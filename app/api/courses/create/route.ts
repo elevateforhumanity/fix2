@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
         duration: courseData.duration,
         funding_programs: courseData.fundingPrograms || ['WIOA'],
         status: 'draft',
-        total_lessons: courseData.modules.reduce((acc: number, m: any) => acc + m.lessons.length, 0),
+        total_lessons: courseData.modules.reduce((acc: number, m: { lessons: unknown[] }) => acc + m.lessons.length, 0),
       })
       .select()
       .single();
@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Course creation error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create course' },

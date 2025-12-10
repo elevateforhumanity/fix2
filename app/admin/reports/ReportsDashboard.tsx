@@ -27,7 +27,7 @@ interface Enrollment {
 interface ReportsDashboardProps {
   stats: Stats;
   recentEnrollments: Enrollment[];
-  programStats: any[];
+  programStats: unknown[];
 }
 
 const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'];
@@ -36,7 +36,7 @@ export default function ReportsDashboard({ stats, recentEnrollments, programStat
   const [dateRange, setDateRange] = useState('30');
 
   // Process enrollment trend data
-  const enrollmentTrendData = recentEnrollments.reduce((acc: any[], enrollment) => {
+  const enrollmentTrendData = recentEnrollments.reduce((acc: unknown[], enrollment) => {
     const date = new Date(enrollment.created_at).toLocaleDateString();
     const existing = acc.find(item => item.date === date);
     if (existing) {
@@ -55,7 +55,7 @@ export default function ReportsDashboard({ stats, recentEnrollments, programStat
   ];
 
   // Process program popularity
-  const programPopularity = programStats.reduce((acc: any[], item) => {
+  const programPopularity = programStats.reduce((acc: unknown[], item) => {
     const courseTitle = item.courses?.title || 'Unknown';
     const existing = acc.find(p => p.name === courseTitle);
     if (existing) {

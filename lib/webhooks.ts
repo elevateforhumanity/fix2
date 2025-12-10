@@ -38,7 +38,7 @@ export interface WebhookDelivery {
   id: string;
   webhook_id: string;
   event: WebhookEvent;
-  payload: any;
+  payload: unknown;
   response_status?: number;
   response_body?: string;
   error?: string;
@@ -49,7 +49,7 @@ export interface WebhookDelivery {
 export interface WebhookPayload {
   event: WebhookEvent;
   timestamp: string;
-  data: any;
+  data: unknown;
   signature?: string;
 }
 
@@ -210,7 +210,7 @@ export function verifyWebhookSignature(
  */
 export async function triggerWebhook(
   event: WebhookEvent,
-  data: any
+  data: Record<string, unknown>
 ): Promise<void> {
   const webhooks = await getWebhooks(true);
 
@@ -231,7 +231,7 @@ export async function triggerWebhook(
 async function deliverWebhook(
   webhook: Webhook,
   event: WebhookEvent,
-  data: any
+  data: Record<string, unknown>
 ): Promise<void> {
   const supabase = await createClient();
 

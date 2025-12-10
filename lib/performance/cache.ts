@@ -1,39 +1,31 @@
 // Redis-based caching with fallback to in-memory
 import { Redis } from 'ioredis';
-
 let redis: Redis | null = null;
-const memoryCache = new Map<string, { value: any; expires: number }>();
-
+const memoryCache = new Map<string, { value: unknown; expires: number }>();
 // Initialize Redis if configured
 export function getRedisClient(): Redis | null {
   if (!process.env.REDIS_URL) {
     return null;
   }
-
   if (!redis) {
     try {
       redis = new Redis(process.env.REDIS_URL);
-      console.log('✅ Redis connected');
     } catch (error) {
       console.error('❌ Redis connection failed:', error);
       return null;
     }
   }
-
   return redis;
 }
-
 // Cache interface
 export interface CacheOptions {
   ttl?: number; // Time to live in seconds (default: 300 = 5 minutes)
   prefix?: string;
 }
-
 // Get from cache
 export async function getCache<T>(key: string, options: CacheOptions = {}): Promise<T | null> {
   const fullKey = options.prefix ? `${options.prefix}:${key}` : key;
   const client = getRedisClient();
-
   if (client) {
     try {
       const value = await client.get(fullKey);
@@ -42,16 +34,13 @@ export async function getCache<T>(key: string, options: CacheOptions = {}): Prom
       console.error('Redis get error:', error);
     }
   }
-
   // Fallback to memory cache
   const cached = memoryCache.get(fullKey);
   if (cached && cached.expires > Date.now()) {
     return cached.value;
   }
-
   return null;
 }
-
 // Set cache
 export async function setCache<T>(
   key: string,
@@ -61,7 +50,6 @@ export async function setCache<T>(
   const fullKey = options.prefix ? `${options.prefix}:${key}` : key;
   const ttl = options.ttl || 300; // Default 5 minutes
   const client = getRedisClient();
-
   if (client) {
     try {
       await client.setex(fullKey, ttl, JSON.stringify(value));
@@ -70,19 +58,16 @@ export async function setCache<T>(
       console.error('Redis set error:', error);
     }
   }
-
   // Fallback to memory cache
   memoryCache.set(fullKey, {
     value,
     expires: Date.now() + ttl * 1000,
   });
 }
-
 // Delete from cache
 export async function deleteCache(key: string, options: CacheOptions = {}): Promise<void> {
   const fullKey = options.prefix ? `${options.prefix}:${key}` : key;
   const client = getRedisClient();
-
   if (client) {
     try {
       await client.del(fullKey);
@@ -90,14 +75,11 @@ export async function deleteCache(key: string, options: CacheOptions = {}): Prom
       console.error('Redis delete error:', error);
     }
   }
-
   memoryCache.delete(fullKey);
 }
-
 // Clear all cache with prefix
 export async function clearCacheByPrefix(prefix: string): Promise<void> {
   const client = getRedisClient();
-
   if (client) {
     try {
       const keys = await client.keys(`${prefix}:*`);
@@ -108,7 +90,6 @@ export async function clearCacheByPrefix(prefix: string): Promise<void> {
       console.error('Redis clear error:', error);
     }
   }
-
   // Clear memory cache
   for (const key of memoryCache.keys()) {
     if (key.startsWith(`${prefix}:`)) {
@@ -116,9 +97,8 @@ export async function clearCacheByPrefix(prefix: string): Promise<void> {
     }
   }
 }
-
 // Cache decorator for functions
-export function cached<T extends (...args: any[]) => Promise<any>>(
+export function cached<T extends (...args: unknown[]) => Promise<any>>(
   fn: T,
   options: CacheOptions & { keyGenerator?: (...args: Parameters<T>) => string } = {}
 ): T {
@@ -126,18 +106,15 @@ export function cached<T extends (...args: any[]) => Promise<any>>(
     const key = options.keyGenerator
       ? options.keyGenerator(...args)
       : `${fn.name}:${JSON.stringify(args)}`;
-
     const cached = await getCache(key, options);
     if (cached !== null) {
       return cached;
     }
-
     const result = await fn(...args);
     await setCache(key, result, options);
     return result;
   }) as T;
 }
-
 // Cleanup expired memory cache entries
 setInterval(() => {
   const now = Date.now();

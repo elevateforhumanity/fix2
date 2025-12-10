@@ -7,7 +7,7 @@ import type { Database } from '@/types/database';
 type Role = 'student' | 'staff' | 'admin' | 'super_admin' | 'partner';
 
 interface AuthedContext {
-  params?: any;
+  params?: unknown;
   user: {
     id: string;
     email: string | null;

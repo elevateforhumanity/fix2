@@ -105,7 +105,7 @@ export default function NotificationsPage() {
                   <input
                     type="text"
                     value={notification.title}
-                    onChange={(e) => setNotification({ ...notification, title: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNotification({ ...notification, title: e.target.value })}
                     placeholder="e.g., Class Reminder"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
@@ -117,7 +117,7 @@ export default function NotificationsPage() {
                   </label>
                   <textarea
                     value={notification.body}
-                    onChange={(e) => setNotification({ ...notification, body: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNotification({ ...notification, body: e.target.value })}
                     placeholder="e.g., Your class starts in 30 minutes"
                     rows={4}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -130,7 +130,7 @@ export default function NotificationsPage() {
                   </label>
                   <select
                     value={notification.targetAudience}
-                    onChange={(e) => setNotification({ ...notification, targetAudience: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNotification({ ...notification, targetAudience: e.target.value })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="all-students">All Students</option>
@@ -149,7 +149,7 @@ export default function NotificationsPage() {
                   <input
                     type="text"
                     value={notification.url}
-                    onChange={(e) => setNotification({ ...notification, url: e.target.value })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNotification({ ...notification, url: e.target.value })}
                     placeholder="/student/courses"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />

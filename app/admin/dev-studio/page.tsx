@@ -128,7 +128,7 @@ export default function DevStudioPage() {
       
             
       if (res.ok) {
-                const filePaths = data.files.map((f: any) => f.path);
+                const filePaths = data.files.map((f: Record<string, any>) => f.path);
         setFiles(filePaths);
         addTerminalOutput(`✅ Loaded ${filePaths.length} files`);
       } else {
@@ -227,7 +227,7 @@ export default function DevStudioPage() {
             <div className="flex items-center gap-2">
               <select
                 value={selectedRepo}
-                onChange={(e) => setSelectedRepo(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedRepo(e.target.value)}
                 className="bg-slate-700 text-white px-3 py-1 rounded text-sm"
               >
                 <option value="elevateforhumanity/fix2">elevateforhumanity/fix2</option>
@@ -258,7 +258,7 @@ export default function DevStudioPage() {
             <input
               type="checkbox"
               checked={showCourseFilesOnly}
-              onChange={(e) => setShowCourseFilesOnly(e.target.checked)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setShowCourseFilesOnly(e.target.checked)}
               className="rounded"
             />
             <span>Course Files Only</span>

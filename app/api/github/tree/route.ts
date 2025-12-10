@@ -67,7 +67,7 @@ export async function GET(req: NextRequest) {
       total: files.length,
       truncated: tree.truncated
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("GitHub tree error:", error);
     return NextResponse.json({ 
       error: "Failed to fetch file tree", 

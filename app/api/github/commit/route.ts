@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
       },
       message: commitMessage
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("GitHub commit error:", error);
     return NextResponse.json({ 
       error: "Failed to commit file",

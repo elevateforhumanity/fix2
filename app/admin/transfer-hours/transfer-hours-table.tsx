@@ -106,12 +106,12 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
               type="text"
               placeholder="Search by student or program..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchTerm(e.target.value)}
               className="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <select
               value={filterStatus}
-              onChange={(e) => setFilterStatus(e.target.value as any)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFilterStatus(e.target.value as string)}
               className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="all">All Statuses</option>
@@ -286,7 +286,7 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
                       max={selectedRequest.hours_requested}
                       step="0.5"
                       value={approvalHours}
-                      onChange={(e) => setApprovalHours(e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setApprovalHours(e.target.value)}
                       placeholder={`Max: ${selectedRequest.hours_requested}`}
                       className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
@@ -301,7 +301,7 @@ export function TransferHoursTable({ transferHours }: { transferHours: TransferH
                     </label>
                     <textarea
                       value={approvalNotes}
-                      onChange={(e) => setApprovalNotes(e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setApprovalNotes(e.target.value)}
                       rows={3}
                       className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="Add notes about your decision..."

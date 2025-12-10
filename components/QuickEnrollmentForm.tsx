@@ -78,7 +78,7 @@ export function QuickEnrollmentForm() {
         setPhone("");
         setNotes("");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError("Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
@@ -117,7 +117,7 @@ export function QuickEnrollmentForm() {
           <input
             required
             value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFirstName(e.target.value)}
             className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
           />
         </div>
@@ -128,7 +128,7 @@ export function QuickEnrollmentForm() {
           <input
             required
             value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setLastName(e.target.value)}
             className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
           />
         </div>
@@ -143,7 +143,7 @@ export function QuickEnrollmentForm() {
             required
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setEmail(e.target.value)}
             className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
           />
         </div>
@@ -153,7 +153,7 @@ export function QuickEnrollmentForm() {
           </label>
           <input
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPhone(e.target.value)}
             className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
           />
         </div>
@@ -165,7 +165,7 @@ export function QuickEnrollmentForm() {
         </label>
         <select
           value={programCode}
-          onChange={(e) => setProgramCode(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setProgramCode(e.target.value)}
           className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
         >
           {PROGRAM_OPTIONS.map((opt) => (
@@ -182,7 +182,7 @@ export function QuickEnrollmentForm() {
         </label>
         <select
           value={fundingInterest}
-          onChange={(e) => setFundingInterest(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFundingInterest(e.target.value)}
           className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
         >
           {FUNDING_OPTIONS.map((opt) => (
@@ -199,7 +199,7 @@ export function QuickEnrollmentForm() {
         </label>
         <select
           value={referralSource}
-          onChange={(e) => setReferralSource(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setReferralSource(e.target.value)}
           className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
         >
           {REFERRAL_OPTIONS.map((opt) => (
@@ -216,7 +216,7 @@ export function QuickEnrollmentForm() {
         </label>
         <textarea
           value={notes}
-          onChange={(e) => setNotes(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNotes(e.target.value)}
           rows={3}
           className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
         />

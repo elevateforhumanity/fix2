@@ -168,7 +168,7 @@ export async function updateFeedbackStatus(
 ): Promise<void> {
   const supabase = await createClient();
 
-  const updateData: any = {
+  const updateData: unknown = {
     status,
     updated_at: new Date().toISOString(),
   };
@@ -441,7 +441,7 @@ export async function analyzeSurveyResults(surveyId: string): Promise<{
     questionId: string;
     question: string;
     type: string;
-    responses: any;
+    responses: unknown;
   }>;
 }> {
   const supabase = await createClient();
@@ -463,7 +463,7 @@ export async function analyzeSurveyResults(surveyId: string): Promise<{
     questionAnalysis: survey.questions.map((q: SurveyQuestion) => {
       const questionResponses = responses.map(r => r.answers[q.id]).filter(Boolean);
 
-      let responseData: any = {};
+      let responseData: unknown = {};
 
       switch (q.type) {
         case 'text':

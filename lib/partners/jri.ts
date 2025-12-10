@@ -50,7 +50,7 @@ export class JriAPI extends BasePartnerAPI {
         username: response.data.username,
         loginUrl: response.data.portalUrl,
       };
-    } catch (error: any) {
+    } catch (error: unknown) {
       this.log("error", "Failed to create JRI account", {
         error: error.message,
       });
@@ -87,7 +87,7 @@ export class JriAPI extends BasePartnerAPI {
         courseName: response.data.courseName,
         accessUrl: response.data.accessUrl,
       };
-    } catch (error: any) {
+    } catch (error: unknown) {
       this.log("error", "Failed to enroll in JRI course", {
         error: error.message,
       });
@@ -124,7 +124,7 @@ export class JriAPI extends BasePartnerAPI {
         lessonsCompleted: response.data.modulesCompleted,
         totalLessons: response.data.totalModules,
       };
-    } catch (error: any) {
+    } catch (error: unknown) {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
@@ -156,7 +156,7 @@ export class JriAPI extends BasePartnerAPI {
         downloadUrl: response.data.downloadUrl,
         verificationUrl: response.data.verificationUrl,
       };
-    } catch (error: any) {
+    } catch (error: unknown) {
       if (error instanceof PartnerAPIError && error.statusCode === 404) {
         return null;
       }
@@ -185,7 +185,7 @@ export class JriAPI extends BasePartnerAPI {
       });
 
       return response.data.launchUrl;
-    } catch (error: any) {
+    } catch (error: unknown) {
       this.log("error", "Failed to generate JRI SSO URL", {
         error: error.message,
       });

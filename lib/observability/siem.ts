@@ -1,9 +1,7 @@
 // lib/observability/siem.ts
 const SIEM_ENDPOINT = process.env.SIEM_ENDPOINT; // Datadog/Splunk HTTP collector
 const SIEM_API_KEY = process.env.SIEM_API_KEY;
-
 export type LogLevel = "info" | "warn" | "error" | "debug";
-
 export async function sendSecurityLog(event: {
   level: LogLevel;
   message: string;
@@ -14,10 +12,9 @@ export async function sendSecurityLog(event: {
 }) {
   if (!SIEM_ENDPOINT || !SIEM_API_KEY) {
     // No SIEM configured – fail soft, but still log locally.
-    // console.log("[SIEM]", event);
+    // 
     return;
   }
-
   const body = {
     timestamp: new Date().toISOString(),
     level: event.level,
@@ -29,7 +26,6 @@ export async function sendSecurityLog(event: {
     service: "efh-next-app",
     env: process.env.NODE_ENV || "development",
   };
-
   try {
     await fetch(SIEM_ENDPOINT, {
       method: "POST",
@@ -43,7 +39,6 @@ export async function sendSecurityLog(event: {
     console.error("Failed to send SIEM log:", error);
   }
 }
-
 export async function logAuthAttempt(params: {
   email: string;
   success: boolean;
@@ -61,7 +56,6 @@ export async function logAuthAttempt(params: {
     },
   });
 }
-
 export async function logAdminAction(params: {
   actorId: string;
   actorEmail: string;

@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
 
     // Save questions
     if (quiz.questions && quiz.questions.length > 0) {
-      const questions = quiz.questions.map((q: any, index: number) => ({
+      const questions = quiz.questions.map((q: Record<string, unknown>, index: number) => ({
         quiz_id: quizData.id,
         question_type: q.type,
         question_text: q.question,
@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
       quizId: quizData.id,
       message: 'Quiz saved successfully',
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error saving quiz:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to save quiz' },

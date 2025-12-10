@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
       details: optimized,
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Optimize images error:", error);
     return NextResponse.json(
       {

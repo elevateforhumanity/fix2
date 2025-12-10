@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
       stripeProductId: product.id 
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Create product error:", error);
     return NextResponse.json(
       {

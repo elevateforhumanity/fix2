@@ -79,7 +79,7 @@ export interface OnboardingForm {
   type: 'w4' | 'i9' | 'direct-deposit' | 'emergency-contact' | 'nda' | 'background-check' | 'handbook';
   required: boolean;
   completed: boolean;
-  data?: any;
+  data?: unknown;
   signedAt?: string;
   ipAddress?: string;
 }

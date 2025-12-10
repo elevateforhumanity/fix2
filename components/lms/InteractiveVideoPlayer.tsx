@@ -326,7 +326,7 @@ export default function InteractiveVideoPlayer({
               min="0"
               max={duration}
               value={currentTime}
-              onChange={(e) => handleSeek(parseFloat(e.target.value))}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => handleSeek(parseFloat(e.target.value))}
               className="w-full h-1 bg-gray-600 rounded-lg appearance-none cursor-pointer"
               style={{
                 background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${(currentTime / duration) * 100}%, #4b5563 ${(currentTime / duration) * 100}%, #4b5563 100%)`,
@@ -393,7 +393,7 @@ export default function InteractiveVideoPlayer({
             <div className="flex items-center gap-4">
               <select
                 value={playbackRate}
-                onChange={(e) => changePlaybackRate(parseFloat(e.target.value))}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => changePlaybackRate(parseFloat(e.target.value))}
                 className="bg-transparent border border-gray-600 rounded px-2 py-1 text-sm"
               >
                 <option value="0.5">0.5x</option>
@@ -481,7 +481,7 @@ export default function InteractiveVideoPlayer({
                 <input
                   type="text"
                   value={newNote}
-                  onChange={(e) => setNewNote(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNewNote(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && addNote()}
                   placeholder="Add a note at current timestamp..."
                   className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white"

@@ -73,7 +73,7 @@ SAFETY RULES: ${instructor.safetyNotes}
 
 Keep responses concise (2-4 paragraphs max), practical, and encouraging. Focus on helping the student understand the program content and workplace expectations.`;
 
-      const messages: any[] = [
+      const messages: unknown[] = [
         { role: "system", content: systemPrompt },
         ...(history || []),
         { role: "user", content: latest },
@@ -96,7 +96,7 @@ Keep responses concise (2-4 paragraphs max), practical, and encouraging. Focus o
         { status: 503 }
       );
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("AI instructor route error:", error);
     return NextResponse.json(
       { message: "Internal server error." },

@@ -107,7 +107,7 @@ export default function DeviceCompatibility() {
 
   const detectDevice = () => {
     const ua = navigator.userAgent;
-    const info: any = {
+    const info: unknown = {
       platform: navigator.platform,
       userAgent: ua,
       vendor: navigator.vendor,
@@ -160,7 +160,7 @@ export default function DeviceCompatibility() {
     };
 
     // Network info
-    const connection = (navigator as any).connection;
+    const connection = (navigator as string).connection;
     if (connection) {
       info.network = {
         effectiveType: connection.effectiveType,

@@ -107,7 +107,7 @@ export async function POST(req: Request) {
         ? 'Congratulations! Your application is approved. Funds will be deposited within 24 hours.'
         : 'Your application is being reviewed. You\'ll hear from us within 1 hour.',
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Cash advance application error:', error);
     return NextResponse.json(
       { success: false, error: error.message || 'Application failed' },

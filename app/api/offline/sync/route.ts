@@ -54,7 +54,7 @@ export async function POST(req: Request) {
       ok: true,
       synced: pendingActions?.length || 0,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Sync error:", error);
     return NextResponse.json(
       { error: error.message || "Sync failed" },

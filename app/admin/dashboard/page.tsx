@@ -278,7 +278,7 @@ export default async function AdminDashboard() {
             <div className="p-6">
               {recentEnrollments && recentEnrollments.length > 0 ? (
                 <div className="space-y-4">
-                  {recentEnrollments.map((enrollment: any) => (
+                  {recentEnrollments.map((enrollment: Record<string, any>) => (
                     <div key={enrollment.id} className="flex items-center justify-between py-3 border-b last:border-0">
                       <div>
                         <p className="font-semibold text-slate-900">{enrollment.profiles?.full_name || 'Unknown'}</p>
@@ -318,7 +318,7 @@ export default async function AdminDashboard() {
             <div className="p-6">
               {recentApplications && recentApplications.length > 0 ? (
                 <div className="space-y-4">
-                  {recentApplications.map((app: any) => (
+                  {recentApplications.map((app: Record<string, unknown>) => (
                     <div key={app.id} className="flex items-center justify-between py-3 border-b last:border-0">
                       <div>
                         <p className="font-semibold text-slate-900">{app.full_name}</p>

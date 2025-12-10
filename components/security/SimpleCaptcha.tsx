@@ -116,7 +116,7 @@ export function HoneypotField({ value, onChange }: HoneypotFieldProps) {
         id="website_url"
         name="website_url"
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => onChange(e.target.value)}
         tabIndex={-1}
         autoComplete="off"
       />

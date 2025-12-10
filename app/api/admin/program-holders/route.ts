@@ -35,7 +35,7 @@ export const GET = withAuth(
 
     if (error) return new Response(error.message, { status: 500 });
 
-    const mapped = (holders || []).map((h: any) => ({
+    const mapped = (holders || []).map((h: Record<string, unknown>) => ({
       id: h.id,
       name: h.name,
       owner_email: h.owner?.email || 'Unknown',

@@ -50,7 +50,7 @@ export default async function AdminCoursesPage() {
     .from('enrollments')
     .select('course_id');
 
-  const enrollmentMap = enrollmentCounts?.reduce((acc: any, e) => {
+  const enrollmentMap = enrollmentCounts?.reduce((acc: Record<string, any>, e) => {
     acc[e.course_id] = (acc[e.course_id] || 0) + 1;
     return acc;
   }, {}) || {};
@@ -168,7 +168,7 @@ d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.
                   </tr>
                 </thead>
                 <tbody className="divide-y">
-                  {courses && courses.length > 0 ? courses.map((course: any) => (
+                  {courses && courses.length > 0 ? courses.map((course: Record<string, any>) => (
                     <tr key={course.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4">
                         <div className="flex items-center">

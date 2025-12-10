@@ -41,7 +41,7 @@ export default function InstructorsPage() {
     setLoading(false);
   }
 
-  function calculateAverageRating(ratings: any[]) {
+  function calculateAverageRating(ratings: unknown[]) {
     if (!ratings || ratings.length === 0) return 0;
     const sum = ratings.reduce((acc, r) => acc + (r.rating || 0), 0);
     return (sum / ratings.length).toFixed(1);
@@ -192,7 +192,7 @@ export default function InstructorsPage() {
                         <div className="mt-2">
                           <p className="text-xs text-gray-500 mb-1">Teaching:</p>
                           <div className="flex flex-wrap gap-2">
-                            {instructor.instructor_courses.map((ic: any, idx: number) => (
+                            {instructor.instructor_courses.map((ic: Record<string, unknown>, idx: number) => (
                               <span
                                 key={idx}
                                 className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded"

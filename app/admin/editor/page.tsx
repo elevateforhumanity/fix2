@@ -1,15 +1,12 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-
 import Split from 'react-split';
 import FileTree from '@/components/editor/FileTree';
 import CodeEditor from '@/components/editor/CodeEditor';
 import Terminal from '@/components/editor/Terminal';
-
 // Mock file structure
 const mockFiles = [
   {
@@ -41,12 +38,10 @@ const mockFiles = [
   { name: 'package.json', path: '/package.json', type: 'file' as const },
   { name: 'README.md', path: '/README.md', type: 'file' as const },
 ];
-
 // Mock file contents
 const mockFileContents: Record<string, string> = {
   '/app/page.tsx': `export default function HomePage() {
   const router = useRouter();
-
   useEffect(() => {
     // Check admin auth
     fetch('/api/auth/check-admin')
@@ -58,7 +53,6 @@ const mockFileContents: Record<string, string> = {
       })
       .catch(() => router.push('/login'));
   }, [router]);
-
   return (
     <div>
       {/* Hero Section */}
@@ -78,7 +72,6 @@ const mockFileContents: Record<string, string> = {
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
         </div>
       </section>
-
       <h1>Welcome to EFH</h1>
       <p>Edit this file to see changes</p>
     </div>
@@ -109,57 +102,45 @@ const mockFileContents: Record<string, string> = {
   }
 }`,
   '/README.md': `# EFH Project
-
 This is your cloned codebase from Elevate For Humanity.
-
 ## Getting Started
-
 \`\`\`bash
 npm install
 npm run dev
 \`\`\`
 `
 };
-
 export default function EditorPage() {
   const [selectedFile, setSelectedFile] = useState<string>('/app/page.tsx');
   const [fileContent, setFileContent] = useState<string>(mockFileContents['/app/page.tsx'] || '');
   const [unsavedChanges, setUnsavedChanges] = useState(false);
-
   const handleFileSelect = (path: string) => {
     if (unsavedChanges) {
       if (!confirm('You have unsaved changes. Discard them?')) {
         return;
       }
     }
-    
     setSelectedFile(path);
     setFileContent(mockFileContents[path] || '// File content not available');
     setUnsavedChanges(false);
   };
-
   const handleContentChange = (value: string | undefined) => {
     setFileContent(value || '');
     setUnsavedChanges(true);
   };
-
   const handleSave = () => {
     // Save file locally (GitHub integration can be added later)
-    console.log('Saving file:', selectedFile);
     mockFileContents[selectedFile] = fileContent;
     setUnsavedChanges(false);
     alert('File saved successfully!');
   };
-
   const handleCommand = async (command: string): Promise<string> => {
     // Command execution simulation (actual execution requires backend API)
     if (command.startsWith('npm ')) {
       return `Running: ${command}\n✓ Command completed successfully`;
     }
-    
     return `Command not implemented: ${command}`;
   };
-
   const getLanguage = (path: string): string => {
     if (path.endsWith('.tsx') || path.endsWith('.ts')) return 'typescript';
     if (path.endsWith('.jsx') || path.endsWith('.js')) return 'javascript';
@@ -168,7 +149,6 @@ export default function EditorPage() {
     if (path.endsWith('.css')) return 'css';
     return 'plaintext';
   };
-
   return (
     <div className="h-screen flex flex-col">
       {/* Header */}
@@ -193,7 +173,6 @@ export default function EditorPage() {
           </button>
         </div>
       </div>
-
       {/* Main Editor Area */}
       <div className="flex-1 overflow-hidden">
         <Split
@@ -210,7 +189,6 @@ export default function EditorPage() {
               selectedFile={selectedFile}
             />
           </div>
-
           {/* Editor and Terminal */}
           <div className="h-full">
             <Split
@@ -228,7 +206,6 @@ export default function EditorPage() {
                   language={getLanguage(selectedFile)}
                 />
               </div>
-
               {/* Terminal */}
               <div className="h-full overflow-hidden">
                 <Terminal onCommand={handleCommand} />
@@ -236,7 +213,6 @@ export default function EditorPage() {
             </Split>
           </div>
         </Split>
-      
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
         <div className="container mx-auto px-4">
@@ -264,7 +240,6 @@ export default function EditorPage() {
           </div>
         </div>
       </section>
-
       </div>
     </div>
   );

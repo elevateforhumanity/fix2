@@ -281,7 +281,7 @@ export default function ApplyPage() {
                   <input
                     type="text"
                     value={formData.firstName}
-                    onChange={(e) => updateField('firstName', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('firstName', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="John"
                   />
@@ -294,7 +294,7 @@ export default function ApplyPage() {
                   <input
                     type="text"
                     value={formData.lastName}
-                    onChange={(e) => updateField('lastName', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('lastName', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Doe"
                   />
@@ -307,7 +307,7 @@ export default function ApplyPage() {
                   <input
                     type="email"
                     value={formData.email}
-                    onChange={(e) => updateField('email', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('email', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="john@example.com"
                   />
@@ -320,7 +320,7 @@ export default function ApplyPage() {
                   <input
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) => updateField('phone', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('phone', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="(317) 555-0123"
                   />
@@ -333,7 +333,7 @@ export default function ApplyPage() {
                   <input
                     type="date"
                     value={formData.dateOfBirth}
-                    onChange={(e) => updateField('dateOfBirth', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('dateOfBirth', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
@@ -345,7 +345,7 @@ export default function ApplyPage() {
                   <input
                     type="text"
                     value={formData.ssn}
-                    onChange={(e) => updateField('ssn', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('ssn', e.target.value)}
                     maxLength={4}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="1234"
@@ -368,7 +368,7 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   value={formData.address}
-                  onChange={(e) => updateField('address', e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('address', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="123 Main St"
                 />
@@ -382,7 +382,7 @@ export default function ApplyPage() {
                   <input
                     type="text"
                     value={formData.city}
-                    onChange={(e) => updateField('city', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('city', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="Indianapolis"
                   />
@@ -394,7 +394,7 @@ export default function ApplyPage() {
                   </label>
                   <select
                     value={formData.state}
-                    onChange={(e) => updateField('state', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('state', e.target.value)}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   >
                     <option value="IN">Indiana</option>
@@ -412,7 +412,7 @@ export default function ApplyPage() {
                   <input
                     type="text"
                     value={formData.zipCode}
-                    onChange={(e) => updateField('zipCode', e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('zipCode', e.target.value)}
                     maxLength={5}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     placeholder="46240"
@@ -436,7 +436,7 @@ export default function ApplyPage() {
                 </label>
                 <select
                   value={formData.employmentStatus}
-                  onChange={(e) => updateField('employmentStatus', e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('employmentStatus', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="student">Student (Training Stipend)</option>
@@ -454,7 +454,7 @@ export default function ApplyPage() {
                     <input
                       type="text"
                       value={formData.employer}
-                      onChange={(e) => updateField('employer', e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('employer', e.target.value)}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Company Name"
                     />
@@ -469,7 +469,7 @@ export default function ApplyPage() {
                       <input
                         type="number"
                         value={formData.monthlyIncome}
-                        onChange={(e) => updateField('monthlyIncome', e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('monthlyIncome', e.target.value)}
                         className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         placeholder="2,500"
                       />
@@ -488,7 +488,7 @@ export default function ApplyPage() {
                     <input
                       type="number"
                       value={formData.trainingStipend}
-                      onChange={(e) => updateField('trainingStipend', e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('trainingStipend', e.target.value)}
                       className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="2,400"
                     />
@@ -532,7 +532,7 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   value={formData.bankName}
-                  onChange={(e) => updateField('bankName', e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('bankName', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Chase, Wells Fargo, etc."
                 />
@@ -544,7 +544,7 @@ export default function ApplyPage() {
                 </label>
                 <select
                   value={formData.accountType}
-                  onChange={(e) => updateField('accountType', e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('accountType', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="checking">Checking</option>
@@ -559,7 +559,7 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   value={formData.routingNumber}
-                  onChange={(e) => updateField('routingNumber', e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('routingNumber', e.target.value)}
                   maxLength={9}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="123456789"
@@ -574,7 +574,7 @@ export default function ApplyPage() {
                 <input
                   type="text"
                   value={formData.accountNumber}
-                  onChange={(e) => updateField('accountNumber', e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('accountNumber', e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Account number"
                 />
@@ -599,7 +599,7 @@ export default function ApplyPage() {
                   max="3500"
                   step="50"
                   value={formData.requestedAmount}
-                  onChange={(e) => updateField('requestedAmount', parseInt(e.target.value))}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('requestedAmount', parseInt(e.target.value))}
                   className="w-full h-3 bg-white/20 rounded-lg appearance-none cursor-pointer mb-4"
                 />
                 <div className="flex justify-between text-sm mb-6">
@@ -631,7 +631,7 @@ export default function ApplyPage() {
                 </label>
                 <textarea
                   value={formData.purpose}
-                  onChange={(e) => updateField('purpose', e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('purpose', e.target.value)}
                   rows={3}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Rent, car repair, medical bills, etc."
@@ -646,7 +646,7 @@ export default function ApplyPage() {
                 <input
                   type="date"
                   value={formData.repaymentDate}
-                  onChange={(e) => updateField('repaymentDate', e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => updateField('repaymentDate', e.target.value)}
                   min={new Date().toISOString().split('T')[0]}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />

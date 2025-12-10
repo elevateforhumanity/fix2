@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ events: data });
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error('GET /events error', err);
     return NextResponse.json(
       { error: err.message || 'Failed to fetch events' },
@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ event: data }, { status: 201 });
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error('POST /events error', err);
     return NextResponse.json(
       { error: err.message || 'Failed to create event' },

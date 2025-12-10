@@ -52,7 +52,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ courses });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Courses list error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to fetch courses' },

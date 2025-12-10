@@ -1,23 +1,18 @@
 // Offline video download and playback utilities
-
 import { getDB, OfflineVideo } from '@/lib/offline/db';
-
 export interface DownloadProgress {
   loaded: number;
   total: number;
   percent: number;
 }
-
 export class OfflineVideoManager {
   private static instance: OfflineVideoManager;
-
   static getInstance(): OfflineVideoManager {
     if (!OfflineVideoManager.instance) {
       OfflineVideoManager.instance = new OfflineVideoManager();
     }
     return OfflineVideoManager.instance;
   }
-
   /**
    * Download video for offline playback
    */
@@ -29,30 +24,22 @@ export class OfflineVideoManager {
   ): Promise<boolean> {
     try {
       const response = await fetch(url);
-
       if (!response.ok) {
         throw new Error(`Failed to download video: ${response.statusText}`);
       }
-
       const contentLength = response.headers.get('content-length');
       const total = contentLength ? parseInt(contentLength, 10) : 0;
-
       const reader = response.body?.getReader();
       if (!reader) {
         throw new Error('Failed to get response reader');
       }
-
       const chunks: Uint8Array[] = [];
       let loaded = 0;
-
       while (true) {
         const { done, value } = await reader.read();
-
         if (done) break;
-
         chunks.push(value);
         loaded += value.length;
-
         if (onProgress && total > 0) {
           onProgress({
             loaded,
@@ -61,10 +48,8 @@ export class OfflineVideoManager {
           });
         }
       }
-
       // Combine chunks into blob - convert Uint8Array[] to BlobPart[]
       const blob = new Blob(chunks as BlobPart[], { type: 'video/mp4' });
-
       // Save to IndexedDB
       const db = await getDB();
       await db.saveVideo({
@@ -73,15 +58,13 @@ export class OfflineVideoManager {
         blob,
         cachedAt: Date.now(),
       });
-
-      // console.log(`[OfflineVideo] Downloaded video ${videoId}`);
+      // 
       return true;
     } catch (error) {
       console.error('[OfflineVideo] Download failed:', error);
       return false;
     }
   }
-
   /**
    * Get offline video URL
    */
@@ -89,11 +72,9 @@ export class OfflineVideoManager {
     try {
       const db = await getDB();
       const video = await db.getVideo(videoId);
-
       if (!video) {
         return null;
       }
-
       // Create object URL from blob
       return URL.createObjectURL(video.blob);
     } catch (error) {
@@ -101,7 +82,6 @@ export class OfflineVideoManager {
       return null;
     }
   }
-
   /**
    * Check if video is available offline
    */
@@ -114,7 +94,6 @@ export class OfflineVideoManager {
       return false;
     }
   }
-
   /**
    * Delete offline video
    */
@@ -122,14 +101,13 @@ export class OfflineVideoManager {
     try {
       const db = await getDB();
       await db.deleteVideo(videoId);
-      // console.log(`[OfflineVideo] Deleted video ${videoId}`);
+      // 
       return true;
     } catch (error) {
       console.error('[OfflineVideo] Delete failed:', error);
       return false;
     }
   }
-
   /**
    * Get storage usage for videos
    */
@@ -137,7 +115,6 @@ export class OfflineVideoManager {
     try {
       const db = await getDB();
       const estimate = await db.getStorageEstimate();
-
       // Rough estimate - in production, track actual video sizes
       return {
         count: 0, // Would need to query video count
@@ -148,7 +125,6 @@ export class OfflineVideoManager {
       return { count: 0, sizeMB: 0 };
     }
   }
-
   /**
    * Clear all offline videos
    */
@@ -156,7 +132,7 @@ export class OfflineVideoManager {
     try {
       const db = await getDB();
       // Would need to implement getAllVideos and delete each
-      // console.log('[OfflineVideo] Cleared all videos');
+      // 
       return true;
     } catch (error) {
       console.error('[OfflineVideo] Clear failed:', error);
@@ -164,13 +140,11 @@ export class OfflineVideoManager {
     }
   }
 }
-
 /**
  * Hook for downloading videos
  */
 export function useVideoDownload() {
   const manager = OfflineVideoManager.getInstance();
-
   const downloadVideo = async (
     videoId: string,
     lessonId: string,
@@ -179,20 +153,16 @@ export function useVideoDownload() {
   ) => {
     return manager.downloadVideo(videoId, lessonId, url, onProgress);
   };
-
   const isAvailableOffline = async (videoId: string) => {
     return manager.isVideoAvailableOffline(videoId);
   };
-
   const deleteVideo = async (videoId: string) => {
     return manager.deleteOfflineVideo(videoId);
   };
-
   return {
     downloadVideo,
     isAvailableOffline,
     deleteVideo,
   };
 }
-
 export default OfflineVideoManager;

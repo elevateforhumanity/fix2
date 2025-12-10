@@ -53,7 +53,7 @@ export function FinancialAidCalculator() {
                   type="number"
                   className="w-full px-3 py-2 border rounded"
                   value={income}
-                  onChange={(e) => setIncome(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setIncome(e.target.value)}
                   placeholder="50000"
                 />
               </div>
@@ -64,7 +64,7 @@ export function FinancialAidCalculator() {
                   type="number"
                   className="w-full px-3 py-2 border rounded"
                   value={dependents}
-                  onChange={(e) => setDependents(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setDependents(e.target.value)}
                   placeholder="0"
                 />
               </div>
@@ -75,7 +75,7 @@ export function FinancialAidCalculator() {
                   type="number"
                   className="w-full px-3 py-2 border rounded"
                   value={tuition}
-                  onChange={(e) => setTuition(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setTuition(e.target.value)}
                   placeholder="15000"
                 />
               </div>

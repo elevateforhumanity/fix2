@@ -1,9 +1,7 @@
 'use client';
-
 import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-
 interface Grant {
   id: string;
   name: string;
@@ -12,7 +10,6 @@ interface Grant {
   eligibility: string[];
   status: 'open' | 'closed' | 'upcoming';
 }
-
 export default function GrantScholarshipApplication() {
   const [selectedGrant, setSelectedGrant] = useState<string | null>(null);
   const [formData, setFormData] = useState({
@@ -24,7 +21,6 @@ export default function GrantScholarshipApplication() {
     gpa: '',
     essay: '',
   });
-
   const grants: Grant[] = [
     {
       id: '1',
@@ -43,12 +39,10 @@ export default function GrantScholarshipApplication() {
       status: 'open',
     },
   ];
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // console.log('Application submitted:', formData);
+    // 
   };
-
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
@@ -57,7 +51,6 @@ export default function GrantScholarshipApplication() {
           <p className="text-red-100">Apply for financial assistance</p>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-1">
@@ -83,7 +76,6 @@ export default function GrantScholarshipApplication() {
               ))}
             </div>
           </div>
-
           <div className="lg:col-span-2">
             {selectedGrant ? (
               <Card className="p-6">
@@ -96,7 +88,7 @@ export default function GrantScholarshipApplication() {
                         type="text"
                         className="w-full px-3 py-2 border rounded"
                         value={formData.firstName}
-                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, firstName: e.target.value })}
                         required
                       />
                     </div>
@@ -106,33 +98,30 @@ export default function GrantScholarshipApplication() {
                         type="text"
                         className="w-full px-3 py-2 border rounded"
                         value={formData.lastName}
-                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, lastName: e.target.value })}
                         required
                       />
                     </div>
                   </div>
-
                   <div>
                     <label className="block text-sm font-medium mb-1">Email</label>
                     <input
                       type="email"
                       className="w-full px-3 py-2 border rounded"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, email: e.target.value })}
                       required
                     />
                   </div>
-
                   <div>
                     <label className="block text-sm font-medium mb-1">Essay (500 words)</label>
                     <textarea
                       className="w-full px-3 py-2 border rounded h-32"
                       value={formData.essay}
-                      onChange={(e) => setFormData({ ...formData, essay: e.target.value })}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setFormData({ ...formData, essay: e.target.value })}
                       required
                     />
                   </div>
-
                   <Button type="submit" className="w-full">Submit Application</Button>
                 </form>
               </Card>

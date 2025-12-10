@@ -223,7 +223,7 @@ export default function EstheticianSkillsTrackingPage() {
               <h2 className="text-xl font-semibold mb-4">Select Student</h2>
               <select
                 value={selectedStudent}
-                onChange={(e) => setSelectedStudent(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedStudent(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Choose a student...</option>
@@ -246,7 +246,7 @@ export default function EstheticianSkillsTrackingPage() {
                     </label>
                     <select
                       value={selectedCategory}
-                      onChange={(e) => {
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                         setSelectedCategory(e.target.value);
                         setSelectedSkill('');
                       }}
@@ -269,7 +269,7 @@ export default function EstheticianSkillsTrackingPage() {
                       </label>
                       <select
                         value={selectedSkill}
-                        onChange={(e) => setSelectedSkill(e.target.value)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedSkill(e.target.value)}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       >
                         <option value="">Select skill...</option>
@@ -322,7 +322,7 @@ export default function EstheticianSkillsTrackingPage() {
                     </label>
                     <textarea
                       value={notes}
-                      onChange={(e) => setNotes(e.target.value)}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setNotes(e.target.value)}
                       rows={3}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Add observations, areas for improvement, or positive feedback..."

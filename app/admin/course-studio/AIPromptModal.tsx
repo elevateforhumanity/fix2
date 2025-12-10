@@ -4,7 +4,7 @@ import { useState } from "react";
 interface AIPromptModalProps {
   mode: string;
   onClose: () => void;
-  onGenerate: (data: any) => void;
+  onGenerate: (data: Record<string, unknown>) => void;
 }
 
 export default function AIPromptModal({ mode, onClose, onGenerate }: AIPromptModalProps) {
@@ -34,7 +34,7 @@ export default function AIPromptModal({ mode, onClose, onGenerate }: AIPromptMod
 
       const data = await res.json();
       onGenerate(data);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError(err.message || "Failed to generate content");
       setLoading(false);
     }
@@ -52,7 +52,7 @@ export default function AIPromptModal({ mode, onClose, onGenerate }: AIPromptMod
           className="w-full h-40 border p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder={`Describe what you want the AI to create for this ${mode}...`}
           value={prompt}
-          onChange={(e) => setPrompt(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setPrompt(e.target.value)}
           disabled={loading}
         />
 

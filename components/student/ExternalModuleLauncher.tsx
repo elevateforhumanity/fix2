@@ -4,12 +4,9 @@
  * For modules hosted on partner platforms (Milady, Choice Medical, etc.)
  * Provides launch button and certificate upload
  */
-
 'use client';
-
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
-
 interface ExternalModuleLauncherProps {
   module: {
     id: string;
@@ -22,7 +19,6 @@ interface ExternalModuleLauncherProps {
   enrollmentId: string;
   progressId?: string;
 }
-
 export default function ExternalModuleLauncher({
   module,
   enrollmentId,
@@ -31,31 +27,24 @@ export default function ExternalModuleLauncher({
   const [uploading, setUploading] = useState(false);
   const [uploadSuccess, setUploadSuccess] = useState(false);
   const supabase = createClient();
-
   async function handleCertificateUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file || !progressId) return;
-
     try {
       setUploading(true);
-
       // Upload to Supabase Storage
       const fileExt = file.name.split('.').pop();
       const fileName = `${enrollmentId}/${module.id}/${Date.now()}.${fileExt}`;
-      
       const { data: uploadData, error: uploadError } = await supabase.storage
         .from('module-certificates')
         .upload(fileName, file);
-
       if (uploadError) {
         throw uploadError;
       }
-
       // Get public URL
       const { data: { publicUrl } } = supabase.storage
         .from('module-certificates')
         .getPublicUrl(fileName);
-
       // Update module progress
       const { error: updateError } = await supabase
         .from('enrollment_module_progress')
@@ -64,25 +53,20 @@ export default function ExternalModuleLauncher({
           partner_completion_proof_url: publicUrl
         })
         .eq('id', progressId);
-
       if (updateError) {
         throw updateError;
       }
-
       setUploadSuccess(true);
       alert('Certificate uploaded successfully! Your instructor will review it soon.');
-
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('[ExternalModuleLauncher] Upload error:', err);
       alert(`Upload failed: ${err.message}`);
     } finally {
       setUploading(false);
     }
   }
-
   return (
     <div className="glow-card p-8">
-      
       {/* Module Info */}
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-white mb-4">
@@ -100,7 +84,6 @@ export default function ExternalModuleLauncher({
           </div>
         )}
       </div>
-
       {/* Launch Button */}
       <div className="flex justify-center mb-8">
         <a
@@ -118,14 +101,13 @@ export default function ExternalModuleLauncher({
                   last_accessed_at: new Date().toISOString()
                 })
                 .eq('id', progressId)
-                .then(() => console.log('Status updated to in_progress'));
+                .then(() => );
             }
           }}
         >
           Launch {module.partner_name || 'Partner'} Course →
         </a>
       </div>
-
       {/* Instructions */}
       <div className="bg-slate-800/50 rounded-lg p-6 mb-8">
         <h3 className="text-white font-semibold mb-3">📋 Instructions</h3>
@@ -137,14 +119,12 @@ export default function ExternalModuleLauncher({
           <li>Your instructor will verify and mark the module as complete</li>
         </ol>
       </div>
-
       {/* Certificate Upload */}
       {module.requires_proof && (
         <div className="border-t border-slate-700 pt-8">
           <h3 className="text-white font-semibold mb-4 text-center">
             Upload Completion Certificate
           </h3>
-          
           {uploadSuccess ? (
             <div className="text-center py-8">
               <div className="text-green-500 text-5xl mb-4">✓</div>
@@ -186,7 +166,6 @@ export default function ExternalModuleLauncher({
           )}
         </div>
       )}
-
     </div>
   );
 }

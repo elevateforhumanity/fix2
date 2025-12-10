@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
       count: opportunities.length,
       opportunities,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('SAM.gov search error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to search SAM.gov' },

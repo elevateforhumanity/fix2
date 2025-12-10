@@ -67,7 +67,7 @@ export const POST = withAuth(
       success: true,
       course: courseData,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Error in course creation:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to create course' },
@@ -101,7 +101,7 @@ export const GET = withAuth(
     }
 
     return NextResponse.json({ courses });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json(
       { error: error.message || 'Failed to fetch courses' },
       { status: 500 }

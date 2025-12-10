@@ -167,7 +167,7 @@ export function monitorPartnerCall(
   ) {
     const originalMethod = descriptor.value;
 
-    descriptor.value = async function (...args: any[]) {
+    descriptor.value = async function (...args: unknown[]) {
       const requestId = `${partner}_${operation}_${Date.now()}`;
       partnerMonitoring.startRequest(partner, requestId);
 
@@ -212,7 +212,7 @@ export async function checkPartnerHealth(
       lastChecked: new Date().toISOString(),
       responseTime,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       partner,
       healthy: false,

@@ -223,7 +223,7 @@ export function ProfessionalVideoPlayer({
             Speed
             <select
               value={speed}
-              onChange={(e) => changeSpeed(Number(e.target.value))}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => changeSpeed(Number(e.target.value))}
               className="rounded border px-2 py-1 text-sm"
             >
               <option value={0.5}>0.5x</option>

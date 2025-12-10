@@ -1,9 +1,7 @@
 'use client';
-
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { CheckCircle, ArrowLeft, Play, Pause, RotateCcw, AlertCircle } from 'lucide-react';
-
 interface SCORMPlayerProps {
   scormPackageId: string;
   enrollmentId: string;
@@ -13,7 +11,6 @@ interface SCORMPlayerProps {
   passingScore?: number;
   maxAttempts?: number;
 }
-
 interface SCORMData {
   'cmi.core.lesson_status': string;
   'cmi.core.score.raw': string;
@@ -24,7 +21,6 @@ interface SCORMData {
   'cmi.suspend_data': string;
   [key: string]: string;
 }
-
 export function SCORMPlayer({
   scormPackageId,
   enrollmentId,
@@ -52,37 +48,27 @@ export function SCORMPlayer({
     'cmi.core.total_time': '00:00:00',
     'cmi.suspend_data': '',
   });
-
   // Load existing enrollment data
   useEffect(() => {
     loadEnrollmentData();
   }, [scormPackageId, userId]);
-
   // SCORM API Implementation
   useEffect(() => {
     // Create SCORM API for the iframe
     const API = {
       LMSInitialize: () => {
-        console.log('SCORM: LMSInitialize');
         setIsLoading(false);
         return 'true';
       },
-      
       LMSFinish: () => {
-        console.log('SCORM: LMSFinish');
         saveScormData();
         return 'true';
       },
-      
       LMSGetValue: (element: string) => {
-        console.log('SCORM: LMSGetValue', element);
         return scormData[element] || '';
       },
-      
       LMSSetValue: (element: string, value: string) => {
-        console.log('SCORM: LMSSetValue', element, value);
         setScormData(prev => ({ ...prev, [element]: value }));
-        
         // Update UI based on key values
         if (element === 'cmi.core.lesson_status') {
           setStatus(value);
@@ -90,7 +76,6 @@ export function SCORMPlayer({
             setProgress(100);
           }
         }
-        
         if (element === 'cmi.core.score.raw') {
           const scoreValue = parseFloat(value);
           setScore(scoreValue);
@@ -98,40 +83,31 @@ export function SCORMPlayer({
             setStatus('passed');
           }
         }
-        
         return 'true';
       },
-      
       LMSCommit: () => {
-        console.log('SCORM: LMSCommit');
         saveScormData();
         return 'true';
       },
-      
       LMSGetLastError: () => '0',
       LMSGetErrorString: () => '',
       LMSGetDiagnostic: () => '',
     };
-
     // Expose API to iframe
-    (window as any).API = API;
-    (window as any).API_1484_11 = API; // SCORM 2004
-
+    (window as string).API = API;
+    (window as string).API_1484_11 = API; // SCORM 2004
     return () => {
-      delete (window as any).API;
-      delete (window as any).API_1484_11;
+      delete (window as string).API;
+      delete (window as string).API_1484_11;
     };
   }, [scormData, passingScore]);
-
   // Track time spent
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeSpent(prev => prev + 1);
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
-
   async function loadEnrollmentData() {
     try {
       const response = await fetch(`/api/scorm/enrollment/${enrollmentId}`);
@@ -142,7 +118,6 @@ export function SCORMPlayer({
         setScore(data.score);
         setAttempts(data.attempts || 0);
         setTimeSpent(data.time_spent_seconds || 0);
-        
         if (data.cmi_data) {
           setScormData(prev => ({ ...prev, ...data.cmi_data }));
         }
@@ -152,7 +127,6 @@ export function SCORMPlayer({
       setError('Failed to load course data');
     }
   }
-
   async function saveScormData() {
     try {
       await fetch('/api/scorm/tracking', {
@@ -173,13 +147,11 @@ export function SCORMPlayer({
       console.error('Failed to save SCORM data:', error);
     }
   }
-
   async function handleRestart() {
     if (maxAttempts && attempts >= maxAttempts) {
       setError(`Maximum attempts (${maxAttempts}) reached`);
       return;
     }
-
     setAttempts(prev => prev + 1);
     setStatus('incomplete');
     setProgress(0);
@@ -193,16 +165,13 @@ export function SCORMPlayer({
       'cmi.core.total_time': '00:00:00',
       'cmi.suspend_data': '',
     });
-
     // Reload iframe
     if (iframeRef.current) {
       iframeRef.current.src = launchUrl;
     }
   }
-
   const isPassed = score !== null && score >= passingScore;
   const isCompleted = status === 'completed' || status === 'passed' || isPassed;
-
   return (
     <div className="flex flex-col h-screen bg-gray-50">
       {/* Header */}
@@ -225,7 +194,6 @@ export function SCORMPlayer({
                 </p>
               </div>
             </div>
-            
             <div className="flex items-center gap-4">
               {/* Progress */}
               {progress > 0 && !isCompleted && (
@@ -240,7 +208,6 @@ export function SCORMPlayer({
                   <div className="text-sm font-semibold text-gray-900">{progress}%</div>
                 </div>
               )}
-
               {/* Score */}
               {score !== null && (
                 <div className="flex items-center gap-2">
@@ -250,7 +217,6 @@ export function SCORMPlayer({
                   </span>
                 </div>
               )}
-
               {/* Restart Button */}
               {isCompleted && (!maxAttempts || attempts < maxAttempts) && (
                 <button
@@ -265,7 +231,6 @@ export function SCORMPlayer({
           </div>
         </div>
       </div>
-
       {/* Error Message */}
       {error && (
         <div className="bg-red-50 border-l-4 border-red-500 p-4">
@@ -275,7 +240,6 @@ export function SCORMPlayer({
           </div>
         </div>
       )}
-
       {/* SCORM Content */}
       <div className="flex-1 relative">
         {isLoading && (
@@ -286,7 +250,6 @@ export function SCORMPlayer({
             </div>
           </div>
         )}
-        
         <iframe
           ref={iframeRef}
           src={launchUrl}
@@ -296,7 +259,6 @@ export function SCORMPlayer({
           sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
         />
       </div>
-
       {/* Completion Banner */}
       {isCompleted && (
         <div className={`${isPassed ? 'bg-green-600' : 'bg-yellow-600'} text-white`}>

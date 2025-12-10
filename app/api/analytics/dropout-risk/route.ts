@@ -62,7 +62,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ scores: [] });
   }
 
-  const features = enrollments.map((e: any) => {
+  const features = enrollments.map((e: Record<string, unknown>) => {
     const daysSinceStart = Math.floor(
       (Date.now() - new Date(e.created_at).getTime()) / (1000 * 60 * 60 * 24)
     );
@@ -101,7 +101,7 @@ ${JSON.stringify(features, null, 2)}
     });
 
     const text = completion.choices[0].message.content || "[]";
-    let parsed: any;
+    let parsed: unknown;
 
     try {
       parsed = JSON.parse(text);
@@ -116,7 +116,7 @@ ${JSON.stringify(features, null, 2)}
     }
 
     return NextResponse.json({ scores: parsed });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Dropout risk prediction error:", error);
     return NextResponse.json(
       { error: error.message || "Failed to predict dropout risk" },

@@ -53,7 +53,7 @@ export async function POST(req: Request) {
       repoUrl: result.repoUrl,
       cloneUrl: result.cloneUrl,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Clone error:', error);
     return Response.json({ error: error.message }, { status: 500 });
   }

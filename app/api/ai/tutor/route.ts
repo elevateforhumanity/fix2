@@ -76,7 +76,7 @@ export async function POST(req: Request) {
     return NextResponse.json({
       answer: completion.choices[0].message.content,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("AI tutor error:", error);
     return NextResponse.json(
       { error: error.message || "Failed to get answer" },

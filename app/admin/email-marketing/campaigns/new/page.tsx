@@ -187,7 +187,7 @@ export default function NewCampaignPage() {
             ].map((s) => (
               <button
                 key={s.key}
-                onClick={() => setStep(s.key as any)}
+                onClick={() => setStep(s.key as string)}
                 className={`flex items-center space-x-2 py-4 border-b-2 transition-colors ${
                   step === s.key
                     ? 'border-blue-600 text-blue-600'
@@ -219,7 +219,7 @@ export default function NewCampaignPage() {
                     <input
                       type="text"
                       value={campaign.name}
-                      onChange={(e) => setCampaign({ ...campaign, name: e.target.value })}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, name: e.target.value })}
                       placeholder="e.g., Welcome Series - January 2025"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
@@ -232,7 +232,7 @@ export default function NewCampaignPage() {
                     <input
                       type="text"
                       value={campaign.subject}
-                      onChange={(e) => setCampaign({ ...campaign, subject: e.target.value })}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, subject: e.target.value })}
                       placeholder="e.g., Welcome to Elevate for Humanity!"
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
@@ -249,7 +249,7 @@ export default function NewCampaignPage() {
                       <input
                         type="text"
                         value={campaign.fromName}
-                        onChange={(e) => setCampaign({ ...campaign, fromName: e.target.value })}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, fromName: e.target.value })}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
@@ -260,7 +260,7 @@ export default function NewCampaignPage() {
                       <input
                         type="email"
                         value={campaign.fromEmail}
-                        onChange={(e) => setCampaign({ ...campaign, fromEmail: e.target.value })}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, fromEmail: e.target.value })}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
@@ -273,7 +273,7 @@ export default function NewCampaignPage() {
                     <input
                       type="email"
                       value={campaign.replyTo}
-                      onChange={(e) => setCampaign({ ...campaign, replyTo: e.target.value })}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, replyTo: e.target.value })}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                   </div>
@@ -319,7 +319,7 @@ export default function NewCampaignPage() {
                     </label>
                     <textarea
                       value={campaign.customHtml}
-                      onChange={(e) => setCampaign({ ...campaign, customHtml: e.target.value })}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, customHtml: e.target.value })}
                       rows={12}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Edit HTML or use template..."
@@ -370,7 +370,7 @@ export default function NewCampaignPage() {
                             name="recipientList"
                             value={list.value}
                             checked={campaign.recipientList === list.value}
-                            onChange={(e) => setCampaign({ ...campaign, recipientList: e.target.value })}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, recipientList: e.target.value })}
                             className="w-4 h-4 text-blue-600"
                           />
                           <div>
@@ -411,7 +411,7 @@ export default function NewCampaignPage() {
                         name="scheduleType"
                         value="now"
                         checked={campaign.scheduleType === 'now'}
-                        onChange={(e) => setCampaign({ ...campaign, scheduleType: 'now' })}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, scheduleType: 'now' })}
                         className="w-4 h-4 text-blue-600"
                       />
                       <div className="ml-3">
@@ -426,7 +426,7 @@ export default function NewCampaignPage() {
                         name="scheduleType"
                         value="scheduled"
                         checked={campaign.scheduleType === 'scheduled'}
-                        onChange={(e) => setCampaign({ ...campaign, scheduleType: 'scheduled' })}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, scheduleType: 'scheduled' })}
                         className="w-4 h-4 text-blue-600 mt-1"
                       />
                       <div className="ml-3 flex-1">
@@ -438,7 +438,7 @@ export default function NewCampaignPage() {
                               <input
                                 type="date"
                                 value={campaign.scheduleDate}
-                                onChange={(e) => setCampaign({ ...campaign, scheduleDate: e.target.value })}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, scheduleDate: e.target.value })}
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                               />
                             </div>
@@ -447,7 +447,7 @@ export default function NewCampaignPage() {
                               <input
                                 type="time"
                                 value={campaign.scheduleTime}
-                                onChange={(e) => setCampaign({ ...campaign, scheduleTime: e.target.value })}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCampaign({ ...campaign, scheduleTime: e.target.value })}
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                               />
                             </div>

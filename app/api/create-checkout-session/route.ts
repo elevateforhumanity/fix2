@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
   try {
     const { programName, programSlug, price, paymentType = 'full' } = await request.json();
 
-    let sessionConfig: any = {
+    let sessionConfig: unknown = {
       payment_method_types: ['card'],
       success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/enroll/success?session_id={CHECKOUT_SESSION_ID}&program=${programSlug}`,
       cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/micro-classes`,

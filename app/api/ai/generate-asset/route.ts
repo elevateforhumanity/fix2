@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('AI Asset Generator error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to generate asset' },

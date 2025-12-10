@@ -29,7 +29,7 @@ export async function writeFile(
   const { owner, name } = parseRepo(repo);
   const client = gh();
 
-  const params: any = {
+  const params: unknown = {
     owner,
     repo: name,
     path,

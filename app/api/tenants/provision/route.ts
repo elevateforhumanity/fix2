@@ -8,7 +8,7 @@ import { sendSlackMessage } from '@/lib/notifications/slack';
 export async function POST(request: Request) {
   const supabase = createSupabaseClient();
   const session = await requireAuth();
-  if (!(session as any).isAdmin) {
+  if (!(session as string).isAdmin) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 

@@ -39,7 +39,7 @@ export async function GET(req: NextRequest) {
     const metadata = JSON.parse(raw);
 
     return NextResponse.json(metadata);
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Get metadata error:", error);
     
     if (error.status === 404) {

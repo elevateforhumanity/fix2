@@ -356,7 +356,7 @@ export default function WIOAComplianceDashboard() {
         <div className="flex items-center space-x-4">
           <select
             value={selectedTimeframe}
-            onChange={(e) => setSelectedTimeframe(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedTimeframe(e.target.value)}
             className="border border-brand-border-dark rounded px-3 py-2 text-sm"
           >
             <option value="current_quarter">Current Quarter</option>
@@ -368,7 +368,7 @@ export default function WIOAComplianceDashboard() {
             <input
               type="checkbox"
               checked={autoReporting}
-              onChange={(e) => setAutoReporting(e.target.checked)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setAutoReporting(e.target.checked)}
               className="mr-2"
             />
             <span className="text-sm text-brand-text">Auto Reporting</span>
@@ -377,7 +377,7 @@ export default function WIOAComplianceDashboard() {
             <input
               type="checkbox"
               checked={realTimeMode}
-              onChange={(e) => setRealTimeMode(e.target.checked)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setRealTimeMode(e.target.checked)}
               className="mr-2"
             />
             <span className="text-sm text-brand-text">Real-time Updates</span>

@@ -1,10 +1,8 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
 interface Slide {
   image: string;
   title: string;
@@ -14,7 +12,6 @@ interface Slide {
     href: string;
   };
 }
-
 const slides: Slide[] = [
   {
     image: "/images/hero/hero-main-welcome.jpg",
@@ -107,42 +104,33 @@ const slides: Slide[] = [
     }
   }
 ];
-
 export default function HeroSlideshow() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-
   useEffect(() => {
     if (!isAutoPlaying) return;
-
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
   }, [isAutoPlaying]);
-
   // Auto-play voiceover on mount
   useEffect(() => {
     const audio = new Audio('/videos/voiceover.mp3');
     audio.volume = 0.7;
     audio.play().catch(err => {
       // Autoplay blocked by browser - user needs to interact first
-      console.log('Autoplay prevented:', err);
     });
   }, []);
-
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
-
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
-
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
-
   return (
     <section className="relative h-[700px] overflow-hidden">
       {slides.map((slide, index) => (
@@ -164,7 +152,6 @@ export default function HeroSlideshow() {
           ) : (
             <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-blue-600" />
           )}
-          
           <div className="relative h-full flex items-center">
             <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
               <div className="max-w-3xl">
@@ -195,7 +182,6 @@ export default function HeroSlideshow() {
           </div>
         </div>
       ))}
-
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all z-10"
@@ -203,7 +189,6 @@ export default function HeroSlideshow() {
       >
         <ChevronLeft size={24} />
       </button>
-
       <button
         onClick={nextSlide}
         className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all z-10"

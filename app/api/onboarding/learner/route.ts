@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
       message: 'Learner onboarding submitted successfully'
     });
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Learner onboarding error:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to submit onboarding' },

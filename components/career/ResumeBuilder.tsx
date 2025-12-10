@@ -170,7 +170,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
         <textarea
           placeholder="Write a brief summary of your professional background and career goals..."
           value={resumeData.summary}
-          onChange={(e) => setResumeData({ ...resumeData, summary: e.target.value })}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setResumeData({ ...resumeData, summary: e.target.value })}
           className="w-full bg-slate-900 text-white rounded-lg p-3 min-h-[120px] focus:outline-none focus:ring-2 focus:ring-orange-500"
         />
       </div>
@@ -205,7 +205,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                   type="text"
                   placeholder="Job Title"
                   value={exp.title}
-                  onChange={(e) => {
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                     const updated = [...resumeData.work_experience];
                     updated[index].title = e.target.value;
                     setResumeData({ ...resumeData, work_experience: updated });
@@ -216,7 +216,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                   type="text"
                   placeholder="Company"
                   value={exp.company}
-                  onChange={(e) => {
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                     const updated = [...resumeData.work_experience];
                     updated[index].company = e.target.value;
                     setResumeData({ ...resumeData, work_experience: updated });
@@ -227,7 +227,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                   type="text"
                   placeholder="Location"
                   value={exp.location}
-                  onChange={(e) => {
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                     const updated = [...resumeData.work_experience];
                     updated[index].location = e.target.value;
                     setResumeData({ ...resumeData, work_experience: updated });
@@ -239,7 +239,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                     type="month"
                     placeholder="Start Date"
                     value={exp.start_date}
-                    onChange={(e) => {
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                       const updated = [...resumeData.work_experience];
                       updated[index].start_date = e.target.value;
                       setResumeData({ ...resumeData, work_experience: updated });
@@ -251,7 +251,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                     placeholder="End Date"
                     value={exp.end_date}
                     disabled={exp.current}
-                    onChange={(e) => {
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                       const updated = [...resumeData.work_experience];
                       updated[index].end_date = e.target.value;
                       setResumeData({ ...resumeData, work_experience: updated });
@@ -263,7 +263,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                   <input
                     type="checkbox"
                     checked={exp.current}
-                    onChange={(e) => {
+                    onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                       const updated = [...resumeData.work_experience];
                       updated[index].current = e.target.checked;
                       setResumeData({ ...resumeData, work_experience: updated });
@@ -275,7 +275,7 @@ export function ResumeBuilder({ initialData, onSave }: ResumeBuilderProps) {
                 <textarea
                   placeholder="Describe your responsibilities and achievements..."
                   value={exp.description}
-                  onChange={(e) => {
+                  onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
                     const updated = [...resumeData.work_experience];
                     updated[index].description = e.target.value;
                     setResumeData({ ...resumeData, work_experience: updated });

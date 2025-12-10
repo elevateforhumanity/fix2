@@ -24,7 +24,7 @@ export interface ExportOptions {
 /**
  * Convert data to CSV format
  */
-export function convertToCSV(data: any[], columns?: ExportColumn[]): string {
+export function convertToCSV(data: unknown[], columns?: ExportColumn[]): string {
   if (data.length === 0) return '';
 
   // Determine columns
@@ -37,7 +37,7 @@ export function convertToCSV(data: any[], columns?: ExportColumn[]): string {
   const rows = data.map(row => {
     return cols.map(col => {
       const value = row[col.key];
-      const formatted = (col as any).format ? (col as any).format(value) : value;
+      const formatted = (col as string).format ? (col as string).format(value) : value;
       return escapeCSVValue(formatted);
     }).join(',');
   });
@@ -98,7 +98,7 @@ export interface PDFExportOptions {
  * Export data to PDF
  */
 export function exportToPDF(
-  data: any[],
+  data: unknown[],
   options: PDFExportOptions = {}
 ): jsPDF {
   const {
@@ -152,7 +152,7 @@ export function exportToPDF(
   const rows = data.map(row => 
     cols.map(col => {
       const value = row[col.key];
-      return (col as any).format ? (col as any).format(value) : String(value || '');
+      return (col as string).format ? (col as string).format(value) : String(value || '');
     })
   );
 
@@ -290,9 +290,9 @@ export async function exportCourses(options: ExportOptions = {}): Promise<any[]>
   return (data || []).map(course => ({
     ...course,
     instructor_name: course.instructor 
-      ? `${(course.instructor as any).first_name} ${(course.instructor as any).last_name}`
+      ? `${(course.instructor as string).first_name} ${(course.instructor as string).last_name}`
       : 'N/A',
-    instructor_email: (course.instructor as any)?.email || 'N/A',
+    instructor_email: (course.instructor as string)?.email || 'N/A',
   }));
 }
 
@@ -340,8 +340,8 @@ export async function exportEnrollments(options: ExportOptions = {}): Promise<an
       ? `${enrollment.student?.[0]?.first_name} ${enrollment.student?.[0]?.last_name}`
       : 'N/A',
     student_email: enrollment.student?.email || 'N/A',
-    course_title: (enrollment.course as any)?.[0]?.title || 'N/A',
-    course_category: (enrollment.course as any)?.[0]?.category || 'N/A',
+    course_title: (enrollment.course as string)?.[0]?.title || 'N/A',
+    course_category: (enrollment.course as string)?.[0]?.category || 'N/A',
   }));
 }
 
@@ -383,7 +383,7 @@ export async function exportAssignments(options: ExportOptions = {}): Promise<an
 
   return (data || []).map(assignment => ({
     ...assignment,
-    course_title: (assignment.course as any)?.[0]?.title || 'N/A',
+    course_title: (assignment.course as string)?.[0]?.title || 'N/A',
   }));
 }
 
@@ -428,10 +428,10 @@ export async function exportGrades(options: ExportOptions = {}): Promise<any[]> 
     student_name: submission.student 
       ? `${submission.student?.[0]?.first_name} ${submission.student?.[0]?.last_name}`
       : 'N/A',
-    student_email: (submission.student as any)?.[0]?.email || 'N/A',
-    assignment_title: (submission.assignment as any)?.[0]?.title || 'N/A',
-    assignment_points: (submission.assignment as any)?.points || 0,
-    course_title: (submission.assignment as any)?.course?.[0]?.title || 'N/A',
+    student_email: (submission.student as string)?.[0]?.email || 'N/A',
+    assignment_title: (submission.assignment as string)?.[0]?.title || 'N/A',
+    assignment_points: (submission.assignment as string)?.points || 0,
+    course_title: (submission.assignment as string)?.course?.[0]?.title || 'N/A',
   }));
 }
 

@@ -182,7 +182,7 @@ export default async function StudentsPage() {
                             <div className="mt-3">
                               <p className="text-xs text-gray-500 mb-1">Enrollments:</p>
                               <div className="flex flex-wrap gap-2">
-                                {student.enrollments.map((enrollment: any, idx: number) => (
+                                {student.enrollments.map((enrollment: Record<string, unknown>, idx: number) => (
                                   <span
                                     key={idx}
                                     className={`text-xs px-2 py-1 rounded ${

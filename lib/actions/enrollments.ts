@@ -7,16 +7,12 @@
  * - Applying transfer hours
  * - Updating funding amounts
  */
-
 'use server';
-
 import { supabaseAdmin } from '../supabaseAdmin';
 import { revalidatePath } from 'next/cache';
-
 // ============================================================================
 // TYPES
 // ============================================================================
-
 export interface CreateEnrollmentInput {
   student_id: string;
   program_id: string;
@@ -33,7 +29,6 @@ export interface CreateEnrollmentInput {
   tuition_covered_amount?: number;
   external_case_id?: string;
 }
-
 export interface AddTransferHoursInput {
   enrollment_id: string;
   source_school_name: string;
@@ -45,7 +40,6 @@ export interface AddTransferHoursInput {
   proof_doc_path?: string;
   notes?: string;
 }
-
 export interface ApproveTransferHoursInput {
   transfer_hours_id: string;
   hours_theory_accepted: number;
@@ -54,7 +48,6 @@ export interface ApproveTransferHoursInput {
   effective_date: string;
   notes?: string;
 }
-
 export interface UpdateFundingAmountsInput {
   enrollment_id: string;
   wage_rate_hour?: number;
@@ -62,29 +55,20 @@ export interface UpdateFundingAmountsInput {
   tuition_covered_amount?: number;
   external_case_id?: string;
 }
-
 // ============================================================================
 // CREATE ENROLLMENT
 // ============================================================================
-
 export async function createEnrollment(input: CreateEnrollmentInput) {
   try {
-    console.log('[createEnrollment] Starting enrollment creation', { 
-      student_id: input.student_id, 
-      program_id: input.program_id 
-    });
-
     // 1. Verify student exists
     const { data: student, error: studentError } = await supabaseAdmin
       .from('students')
       .select('id, first_name, last_name, email')
       .eq('id', input.student_id)
       .single();
-
     if (studentError || !student) {
       throw new Error(`Student not found: ${input.student_id}`);
     }
-
     // 2. Verify program exists and is active
     const { data: program, error: programError } = await supabaseAdmin
       .from('programs')
@@ -92,11 +76,9 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
       .eq('id', input.program_id)
       .eq('active', true)
       .single();
-
     if (programError || !program) {
       throw new Error(`Program not found or inactive: ${input.program_id}`);
     }
-
     // 3. Verify funding program is allowed for this program
     const { data: fundingOption, error: fundingError } = await supabaseAdmin
       .from('program_funding_options')
@@ -107,11 +89,9 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
       .eq('program_id', input.program_id)
       .eq('funding_program_id', input.funding_program_id)
       .single();
-
     if (fundingError || !fundingOption) {
       throw new Error(`Funding program not allowed for this program`);
     }
-
     // 4. Check for existing active enrollment
     const { data: existingEnrollment } = await supabaseAdmin
       .from('student_enrollments')
@@ -120,11 +100,9 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
       .eq('program_id', input.program_id)
       .eq('status', 'active')
       .maybeSingle();
-
     if (existingEnrollment) {
       throw new Error(`Student already has an active enrollment in this program`);
     }
-
     // 5. Create enrollment
     const { data: enrollment, error: enrollmentError } = await supabaseAdmin
       .from('student_enrollments')
@@ -147,26 +125,20 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
       })
       .select()
       .single();
-
     if (enrollmentError || !enrollment) {
       console.error('[createEnrollment] Failed to create enrollment', enrollmentError);
       throw new Error(`Failed to create enrollment: ${enrollmentError?.message}`);
     }
-
-    console.log('[createEnrollment] Enrollment created', { enrollment_id: enrollment.id });
-
     // 6. Get all required modules for this program
     const { data: modules, error: modulesError } = await supabaseAdmin
       .from('course_modules')
       .select('id, title, is_required')
       .eq('program_id', input.program_id)
       .order('order_index');
-
     if (modulesError) {
       console.error('[createEnrollment] Failed to fetch modules', modulesError);
       throw new Error(`Failed to fetch modules: ${modulesError.message}`);
     }
-
     // 7. Create module_progress rows for all required modules
     if (modules && modules.length > 0) {
       const moduleProgressRows = modules
@@ -176,21 +148,15 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
           module_id: module.id,
           status: 'not_started'
         }));
-
       const { error: progressError } = await supabaseAdmin
         .from('enrollment_module_progress')
         .insert(moduleProgressRows);
-
       if (progressError) {
         console.error('[createEnrollment] Failed to create module progress', progressError);
         // Don't fail the whole enrollment, but log it
       } else {
-        console.log('[createEnrollment] Created module progress rows', { 
-          count: moduleProgressRows.length 
-        });
       }
     }
-
     // 8. If this is an apprenticeship program, create apprenticeship_enrollments record
     if (program.is_apprenticeship) {
       const { error: apprenticeError } = await supabaseAdmin
@@ -205,27 +171,22 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
           transferred_related_instruction_hours: 0,
           transferred_ojt_hours: 0
         });
-
       if (apprenticeError) {
         console.error('[createEnrollment] Failed to create apprenticeship record', apprenticeError);
         // Don't fail the whole enrollment
       } else {
-        console.log('[createEnrollment] Created apprenticeship record');
       }
     }
-
     // 9. Revalidate relevant paths
     revalidatePath('/admin/enrollments');
     revalidatePath(`/admin/students/${input.student_id}`);
     revalidatePath(`/admin/programs/${program.slug}`);
-
     return {
       success: true,
       enrollment_id: enrollment.id,
       message: `Enrollment created successfully for ${student.first_name} ${student.last_name} in ${program.name}`
     };
-
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[createEnrollment] Error:', error);
     return {
       success: false,
@@ -233,28 +194,20 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
     };
   }
 }
-
 // ============================================================================
 // ADD TRANSFER HOURS
 // ============================================================================
-
 export async function addTransferHours(input: AddTransferHoursInput) {
   try {
-    console.log('[addTransferHours] Adding transfer hours', { 
-      enrollment_id: input.enrollment_id 
-    });
-
     // 1. Verify enrollment exists
     const { data: enrollment, error: enrollmentError } = await supabaseAdmin
       .from('student_enrollments')
       .select('id, student_id, program_id')
       .eq('id', input.enrollment_id)
       .single();
-
     if (enrollmentError || !enrollment) {
       throw new Error(`Enrollment not found: ${input.enrollment_id}`);
     }
-
     // 2. Create transfer hours record
     const { data: transferHours, error: transferError } = await supabaseAdmin
       .from('transfer_hours')
@@ -275,27 +228,19 @@ export async function addTransferHours(input: AddTransferHoursInput) {
       })
       .select()
       .single();
-
     if (transferError || !transferHours) {
       console.error('[addTransferHours] Failed to create transfer hours', transferError);
       throw new Error(`Failed to create transfer hours: ${transferError?.message}`);
     }
-
-    console.log('[addTransferHours] Transfer hours created', { 
-      transfer_hours_id: transferHours.id 
-    });
-
     // 3. Revalidate paths
     revalidatePath(`/admin/enrollments/${input.enrollment_id}`);
     revalidatePath(`/admin/students/${enrollment.student_id}/transfer-hours`);
-
     return {
       success: true,
       transfer_hours_id: transferHours.id,
       message: `Transfer hours from ${input.source_school_name} (${input.source_state}) added successfully. Status: Pending Review`
     };
-
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[addTransferHours] Error:', error);
     return {
       success: false,
@@ -303,17 +248,11 @@ export async function addTransferHours(input: AddTransferHoursInput) {
     };
   }
 }
-
 // ============================================================================
 // APPROVE TRANSFER HOURS
 // ============================================================================
-
 export async function approveTransferHours(input: ApproveTransferHoursInput) {
   try {
-    console.log('[approveTransferHours] Approving transfer hours', { 
-      transfer_hours_id: input.transfer_hours_id 
-    });
-
     // 1. Get transfer hours record
     const { data: transferHours, error: fetchError } = await supabaseAdmin
       .from('transfer_hours')
@@ -328,11 +267,9 @@ export async function approveTransferHours(input: ApproveTransferHoursInput) {
       `)
       .eq('id', input.transfer_hours_id)
       .single();
-
     if (fetchError || !transferHours) {
       throw new Error(`Transfer hours record not found: ${input.transfer_hours_id}`);
     }
-
     // 2. Validate accepted hours don't exceed submitted hours
     if (input.hours_theory_accepted > transferHours.hours_theory_submitted) {
       throw new Error(`Accepted theory hours (${input.hours_theory_accepted}) cannot exceed submitted hours (${transferHours.hours_theory_submitted})`);
@@ -340,7 +277,6 @@ export async function approveTransferHours(input: ApproveTransferHoursInput) {
     if (input.hours_practical_accepted > transferHours.hours_practical_submitted) {
       throw new Error(`Accepted practical hours (${input.hours_practical_accepted}) cannot exceed submitted hours (${transferHours.hours_practical_submitted})`);
     }
-
     // 3. Update transfer hours record
     const { error: updateError } = await supabaseAdmin
       .from('transfer_hours')
@@ -354,12 +290,10 @@ export async function approveTransferHours(input: ApproveTransferHoursInput) {
         updated_at: new Date().toISOString()
       })
       .eq('id', input.transfer_hours_id);
-
     if (updateError) {
       console.error('[approveTransferHours] Failed to update transfer hours', updateError);
       throw new Error(`Failed to approve transfer hours: ${updateError.message}`);
     }
-
     // 4. If this is an apprenticeship, update apprenticeship_enrollments
     if (transferHours.enrollment?.program?.is_apprenticeship) {
       // Calculate total transferred hours for this enrollment
@@ -368,12 +302,10 @@ export async function approveTransferHours(input: ApproveTransferHoursInput) {
         .select('hours_theory_accepted, hours_practical_accepted, hours_other_accepted')
         .eq('enrollment_id', transferHours.enrollment_id)
         .eq('status', 'approved');
-
       if (allTransfers) {
         const totalTheory = allTransfers.reduce((sum, t) => sum + (t.hours_theory_accepted || 0), 0);
         const totalPractical = allTransfers.reduce((sum, t) => sum + (t.hours_practical_accepted || 0), 0);
         const totalOther = allTransfers.reduce((sum, t) => sum + (t.hours_other_accepted || 0), 0);
-
         // Update apprenticeship record
         await supabaseAdmin
           .from('apprenticeship_enrollments')
@@ -383,24 +315,16 @@ export async function approveTransferHours(input: ApproveTransferHoursInput) {
             updated_at: new Date().toISOString()
           })
           .eq('enrollment_id', transferHours.enrollment_id);
-
-        console.log('[approveTransferHours] Updated apprenticeship transferred hours', {
-          theory: totalTheory,
-          practical: totalPractical + totalOther
-        });
       }
     }
-
     // 5. Revalidate paths
     revalidatePath(`/admin/enrollments/${transferHours.enrollment_id}`);
     revalidatePath(`/admin/students/${transferHours.enrollment?.student_id}/transfer-hours`);
-
     return {
       success: true,
       message: `Transfer hours approved: ${input.hours_theory_accepted} theory + ${input.hours_practical_accepted} practical hours`
     };
-
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[approveTransferHours] Error:', error);
     return {
       success: false,
@@ -408,11 +332,9 @@ export async function approveTransferHours(input: ApproveTransferHoursInput) {
     };
   }
 }
-
 // ============================================================================
 // REJECT TRANSFER HOURS
 // ============================================================================
-
 export async function rejectTransferHours(transfer_hours_id: string, reason: string) {
   try {
     const { error } = await supabaseAdmin
@@ -423,17 +345,14 @@ export async function rejectTransferHours(transfer_hours_id: string, reason: str
         updated_at: new Date().toISOString()
       })
       .eq('id', transfer_hours_id);
-
     if (error) {
       throw new Error(`Failed to reject transfer hours: ${error.message}`);
     }
-
     return {
       success: true,
       message: 'Transfer hours rejected'
     };
-
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[rejectTransferHours] Error:', error);
     return {
       success: false,
@@ -441,28 +360,20 @@ export async function rejectTransferHours(transfer_hours_id: string, reason: str
     };
   }
 }
-
 // ============================================================================
 // UPDATE FUNDING AMOUNTS
 // ============================================================================
-
 export async function updateFundingAmounts(input: UpdateFundingAmountsInput) {
   try {
-    console.log('[updateFundingAmounts] Updating funding amounts', { 
-      enrollment_id: input.enrollment_id 
-    });
-
     // 1. Verify enrollment exists
     const { data: enrollment, error: enrollmentError } = await supabaseAdmin
       .from('student_enrollments')
       .select('id, student_id')
       .eq('id', input.enrollment_id)
       .single();
-
     if (enrollmentError || !enrollment) {
       throw new Error(`Enrollment not found: ${input.enrollment_id}`);
     }
-
     // 2. Update funding amounts
     const { error: updateError } = await supabaseAdmin
       .from('student_enrollments')
@@ -474,24 +385,18 @@ export async function updateFundingAmounts(input: UpdateFundingAmountsInput) {
         updated_at: new Date().toISOString()
       })
       .eq('id', input.enrollment_id);
-
     if (updateError) {
       console.error('[updateFundingAmounts] Failed to update funding', updateError);
       throw new Error(`Failed to update funding amounts: ${updateError.message}`);
     }
-
-    console.log('[updateFundingAmounts] Funding amounts updated');
-
     // 3. Revalidate paths
     revalidatePath(`/admin/enrollments/${input.enrollment_id}`);
     revalidatePath(`/admin/students/${enrollment.student_id}`);
-
     return {
       success: true,
       message: 'Funding amounts updated successfully'
     };
-
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[updateFundingAmounts] Error:', error);
     return {
       success: false,
@@ -499,11 +404,9 @@ export async function updateFundingAmounts(input: UpdateFundingAmountsInput) {
     };
   }
 }
-
 // ============================================================================
 // GET ENROLLMENT WITH FULL DETAILS
 // ============================================================================
-
 export async function getEnrollmentDetails(enrollment_id: string) {
   try {
     const { data, error } = await supabaseAdmin
@@ -528,15 +431,12 @@ export async function getEnrollmentDetails(enrollment_id: string) {
       `)
       .eq('id', enrollment_id)
       .single();
-
     if (error) {
       throw new Error(`Failed to fetch enrollment: ${error.message}`);
     }
-
     // Calculate hours summary
     const transferHours = data.transfer_hours || [];
-    const approvedTransfers = transferHours.filter((t: any) => t.status === 'approved');
-    
+    const approvedTransfers = transferHours.filter((t: Record<string, unknown>) => t.status === 'approved');
     const totalTransferredTheory = approvedTransfers.reduce(
       (sum: number, t: any) => sum + (t.hours_theory_accepted || 0), 
       0
@@ -549,7 +449,6 @@ export async function getEnrollmentDetails(enrollment_id: string) {
       (sum: number, t: any) => sum + (t.hours_other_accepted || 0), 
       0
     );
-
     return {
       success: true,
       data: {
@@ -564,8 +463,7 @@ export async function getEnrollmentDetails(enrollment_id: string) {
         }
       }
     };
-
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('[getEnrollmentDetails] Error:', error);
     return {
       success: false,

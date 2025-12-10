@@ -48,7 +48,7 @@ export async function POST(req: Request) {
       licenseKey, // Only return once, should be emailed to customer
       licenseId: license.id,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('License generation error:', error);
     return Response.json({ error: error.message }, { status: 500 });
   }

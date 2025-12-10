@@ -177,7 +177,7 @@ export default function DiscussionsClient({
           type="text"
           placeholder="Search discussions..."
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
           className="w-full mb-4 rounded-lg border border-slate-200 px-4 py-2 text-sm"
         />
 
@@ -192,13 +192,13 @@ export default function DiscussionsClient({
             className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
             placeholder="Short topic title"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setTitle(e.target.value)}
           />
           <textarea
             className="h-24 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm"
             placeholder="Ask a question or start a discussion…"
             value={body}
-            onChange={(e) => setBody(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setBody(e.target.value)}
           />
           <button
             type="submit"

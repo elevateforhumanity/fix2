@@ -1,46 +1,37 @@
 "use client";
-
 import { useState } from "react";
 import { Plus, Video, FileText, HelpCircle, GripVertical, Trash2 } from "lucide-react";
-
 type Lesson = {
   id: string;
   title: string;
   type: "video" | "quiz" | "reading";
 };
-
 type Module = {
   id: string;
   title: string;
   lessons: Lesson[];
 };
-
 export default function CourseAuthoringPage() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [modules, setModules] = useState<Module[]>([]);
-
   function generateId() {
     return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
   }
-
   function addModule() {
     setModules((prev) => [
       ...prev,
       { id: generateId(), title: `Module ${prev.length + 1}`, lessons: [] },
     ]);
   }
-
   function updateModuleTitle(id: string, newTitle: string) {
     setModules((prev) =>
       prev.map((m) => (m.id === id ? { ...m, title: newTitle } : m))
     );
   }
-
   function deleteModule(id: string) {
     setModules((prev) => prev.filter((m) => m.id !== id));
   }
-
   function addLesson(moduleId: string, type: Lesson["type"]) {
     setModules((prev) =>
       prev.map((m) =>
@@ -65,7 +56,6 @@ export default function CourseAuthoringPage() {
       )
     );
   }
-
   function deleteLesson(moduleId: string, lessonId: string) {
     setModules((prev) =>
       prev.map((m) =>
@@ -75,11 +65,8 @@ export default function CourseAuthoringPage() {
       )
     );
   }
-
   async function handleSave() {
     const courseData = { title, description, modules };
-    console.log("Saving course:", courseData);
-    
     // API endpoint for course authoring
     // Implement /api/courses/authoring POST endpoint to persist course data
     // await fetch("/api/courses/authoring", {
@@ -87,10 +74,8 @@ export default function CourseAuthoringPage() {
     //   headers: { "Content-Type": "application/json" },
     //   body: JSON.stringify(courseData),
     // });
-    
     alert("Course structure saved! (Connect to your API to persist)");
   }
-
   return (
     <div className="min-h-screen bg-slate-50 p-6">
       <div className="max-w-5xl mx-auto space-y-6">
@@ -104,7 +89,6 @@ export default function CourseAuthoringPage() {
             directly to the Elevate LMS and your Supabase database.
           </p>
         </header>
-
         {/* Course Info */}
         <div className="bg-white rounded-2xl border-2 border-slate-200 p-6 space-y-4">
           <div>
@@ -113,7 +97,7 @@ export default function CourseAuthoringPage() {
             </label>
             <input
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setTitle(e.target.value)}
               placeholder="e.g., HVAC Technician Career Pathway"
               className="w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-brandPrimary focus:outline-none"
             />
@@ -124,14 +108,13 @@ export default function CourseAuthoringPage() {
             </label>
             <textarea
               value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setDescription(e.target.value)}
               placeholder="Brief description of what students will learn..."
               rows={3}
               className="w-full rounded-xl border-2 border-slate-200 px-4 py-3 text-sm focus:border-brandPrimary focus:outline-none"
             />
           </div>
         </div>
-
         {/* Modules Section */}
         <div className="space-y-4">
           <div className="flex justify-between items-center">
@@ -145,7 +128,6 @@ export default function CourseAuthoringPage() {
               Add Module
             </button>
           </div>
-
           {modules.length === 0 && (
             <div className="bg-white rounded-2xl border-2 border-dashed border-slate-300 p-12 text-center">
               <div className="text-slate-400 mb-3">
@@ -159,7 +141,6 @@ export default function CourseAuthoringPage() {
               </p>
             </div>
           )}
-
           {/* Module Cards */}
           <div className="space-y-4">
             {modules.map((module, moduleIndex) => (
@@ -189,7 +170,6 @@ export default function CourseAuthoringPage() {
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
-
                 {/* Add Lesson Buttons */}
                 <div className="flex gap-2">
                   <MiniButton
@@ -211,7 +191,6 @@ export default function CourseAuthoringPage() {
                     color="purple"
                   />
                 </div>
-
                 {/* Lessons List */}
                 <ul className="space-y-2">
                   {module.lessons.map((lesson, lessonIndex) => (
@@ -256,7 +235,6 @@ export default function CourseAuthoringPage() {
             ))}
           </div>
         </div>
-
         {/* Save Button */}
         <div className="flex justify-end gap-3 pt-6 border-t">
           <button
@@ -281,7 +259,6 @@ export default function CourseAuthoringPage() {
     </div>
   );
 }
-
 function MiniButton({
   onClick,
   icon,
@@ -298,7 +275,6 @@ function MiniButton({
     green: "border-green-200 text-green-700 hover:bg-green-50",
     purple: "border-purple-200 text-purple-700 hover:bg-purple-50",
   };
-
   return (
     <button
       type="button"

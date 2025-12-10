@@ -74,7 +74,7 @@ export async function POST(req: Request) {
       "I apologize, I'm having trouble responding right now. Please call us at (317) 314-3757 or visit our contact page.";
 
     return NextResponse.json({ response });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error("Receptionist API error:", error);
     
     // Return helpful fallback

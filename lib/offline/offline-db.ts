@@ -21,7 +21,7 @@ export interface OfflineAction {
 export interface CachedData {
   id?: number;
   key: string;
-  data: any;
+  data: unknown;
   timestamp: number;
   expiresAt?: number;
 }
@@ -120,7 +120,7 @@ class OfflineDB {
   }
 
   // Cached Data
-  async setCachedData(key: string, data: any, expiresIn?: number): Promise<void> {
+  async setCachedData(key: string, data: Record<string, unknown>, expiresIn?: number): Promise<void> {
     if (!this.db) await this.init();
 
     const cachedData: CachedData = {

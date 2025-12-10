@@ -72,7 +72,7 @@ export async function POST(req: Request) {
               status: 'sent',
               sent_at: new Date().toISOString(),
             });
-          } catch (error: any) {
+          } catch (error: unknown) {
             logger.error(`Error sending to subscription ${subscription.id}:`, error);
             failed++;
 
@@ -95,7 +95,7 @@ export async function POST(req: Request) {
             });
           }
         }
-      } catch (error: any) {
+      } catch (error: unknown) {
         logger.error(`Error processing user ${user.id}:`, error);
         failed++;
       }
@@ -109,7 +109,7 @@ export async function POST(req: Request) {
         failed,
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     logger.error('Broadcast notification error:', error);
     return NextResponse.json(
       { success: false, error: error.message },
@@ -118,7 +118,7 @@ export async function POST(req: Request) {
   }
 }
 
-async function getTargetUsers(supabase: any, targetAudience: string) {
+async function getTargetUsers(supabase: any, // TODO: Type with SupabaseClient targetAudience: string) {
   let query;
 
   switch (targetAudience) {

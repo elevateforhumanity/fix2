@@ -2,20 +2,16 @@
  * Push Notification Service
  * Handles push notification subscriptions and sending
  */
-
 import webpush from 'web-push';
 import { createClient } from '@/lib/supabase/server';
-
 // VAPID configuration
 const VAPID_PUBLIC_KEY = process.env.VAPID_PUBLIC_KEY || '';
 const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY || '';
 const VAPID_SUBJECT = process.env.VAPID_SUBJECT || 'mailto:admin@elevateforhumanity.org';
-
 // Initialize web-push
 if (VAPID_PUBLIC_KEY && VAPID_PRIVATE_KEY) {
   webpush.setVapidDetails(VAPID_SUBJECT, VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY);
 }
-
 export interface PushNotification {
   title: string;
   body: string;
@@ -33,7 +29,6 @@ export interface PushNotification {
   }>;
   data?: Record<string, any>;
 }
-
 export interface PushSubscription {
   endpoint: string;
   keys: {
@@ -41,7 +36,6 @@ export interface PushSubscription {
     auth: string;
   };
 }
-
 export class PushNotificationService {
   /**
    * Send push notification to a single subscription
@@ -54,15 +48,13 @@ export class PushNotificationService {
       console.warn('[Push] VAPID keys not configured');
       return false;
     }
-
     try {
       const payload = JSON.stringify(notification);
       await webpush.sendNotification(subscription, payload);
       return true;
-    } catch (error: any) {
+    } catch (error: unknown) {
       // Handle expired subscriptions
       if (error.statusCode === 410 || error.statusCode === 404) {
-        console.log('[Push] Subscription expired:', subscription.endpoint);
         await this.removeSubscription(subscription.endpoint);
       } else {
         console.error('[Push] Send error:', error);
@@ -70,56 +62,44 @@ export class PushNotificationService {
       return false;
     }
   }
-
   /**
    * Send push notification to a user
    */
   async sendToUser(userId: string, notification: PushNotification): Promise<number> {
     const subscriptions = await this.getUserSubscriptions(userId);
-    
     if (subscriptions.length === 0) {
-      console.log('[Push] No subscriptions found for user:', userId);
       return 0;
     }
-
     let successCount = 0;
     for (const sub of subscriptions) {
       const success = await this.sendToSubscription(sub.subscription, notification);
       if (success) successCount++;
     }
-
     return successCount;
   }
-
   /**
    * Send push notification to multiple users
    */
   async sendToUsers(userIds: string[], notification: PushNotification): Promise<number> {
     let totalSent = 0;
-    
     for (const userId of userIds) {
       const sent = await this.sendToUser(userId, notification);
       totalSent += sent;
     }
-
     return totalSent;
   }
-
   /**
    * Broadcast push notification to all subscribed users
    */
   async broadcast(notification: PushNotification): Promise<number> {
     const subscriptions = await this.getAllSubscriptions();
-    
     let successCount = 0;
     for (const sub of subscriptions) {
       const success = await this.sendToSubscription(sub.subscription, notification);
       if (success) successCount++;
     }
-
     return successCount;
   }
-
   /**
    * Get all subscriptions for a user
    */
@@ -130,19 +110,16 @@ export class PushNotificationService {
         .from('push_subscriptions')
         .select('*')
         .eq('user_id', userId);
-
       if (error) {
         console.error('[Push] Database error:', error);
         return [];
       }
-
       return data || [];
     } catch (error) {
       console.error('[Push] Get subscriptions error:', error);
       return [];
     }
   }
-
   /**
    * Get all subscriptions
    */
@@ -152,19 +129,16 @@ export class PushNotificationService {
       const { data, error } = await supabase
         .from('push_subscriptions')
         .select('*');
-
       if (error) {
         console.error('[Push] Database error:', error);
         return [];
       }
-
       return data || [];
     } catch (error) {
       console.error('[Push] Get all subscriptions error:', error);
       return [];
     }
   }
-
   /**
    * Remove expired subscription
    */
@@ -179,7 +153,6 @@ export class PushNotificationService {
       console.error('[Push] Remove subscription error:', error);
     }
   }
-
   /**
    * Send course enrollment notification
    */
@@ -194,7 +167,6 @@ export class PushNotificationService {
       vibrate: [200, 100, 200],
     });
   }
-
   /**
    * Send course completion notification
    */
@@ -210,7 +182,6 @@ export class PushNotificationService {
       vibrate: [200, 100, 200, 100, 200],
     });
   }
-
   /**
    * Send achievement unlocked notification
    */
@@ -229,7 +200,6 @@ export class PushNotificationService {
       vibrate: [100, 50, 100, 50, 100],
     });
   }
-
   /**
    * Send class reminder notification
    */
@@ -242,7 +212,6 @@ export class PushNotificationService {
       hour: 'numeric',
       minute: '2-digit',
     });
-
     await this.sendToUser(userId, {
       title: 'Class Reminder',
       body: `${className} starts at ${timeStr}`,
@@ -258,7 +227,6 @@ export class PushNotificationService {
       ],
     });
   }
-
   /**
    * Send certificate ready notification
    */
@@ -278,7 +246,6 @@ export class PushNotificationService {
       ],
     });
   }
-
   /**
    * Send payment confirmation notification
    */
@@ -293,7 +260,6 @@ export class PushNotificationService {
       vibrate: [200, 100, 200],
     });
   }
-
   /**
    * Send leaderboard position notification
    */
@@ -303,7 +269,6 @@ export class PushNotificationService {
     change: number
   ): Promise<void> {
     const changeText = change > 0 ? `up ${change}` : `down ${Math.abs(change)}`;
-    
     await this.sendToUser(userId, {
       title: 'Leaderboard Update',
       body: `You're now #${position} (${changeText} positions)`,
@@ -314,7 +279,6 @@ export class PushNotificationService {
       vibrate: [100, 50, 100],
     });
   }
-
   /**
    * Send new message notification
    */
@@ -339,10 +303,8 @@ export class PushNotificationService {
     });
   }
 }
-
 // Singleton instance
 let instance: PushNotificationService | null = null;
-
 /**
  * Get singleton instance of PushNotificationService
  */

@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
 
   // Filter results based on query
   const searchLower = query.toLowerCase();
-  let results: any[] = [];
+  let results: unknown[] = [];
 
   if (type === 'all' || type === 'programs') {
     results = results.concat(

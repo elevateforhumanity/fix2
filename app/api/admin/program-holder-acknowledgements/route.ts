@@ -29,7 +29,7 @@ export const GET = withAuth(
     }
 
     return NextResponse.json({ acknowledgements: data || [] });
-  } catch (err: any) {
+  } catch (err: unknown) {
     logger.error("API error:", err);
     return NextResponse.json(
       { error: "Unexpected error" },

@@ -32,7 +32,7 @@ export async function GET(request: Request) {
     }
 
     return NextResponse.json({ certificates: certificates || [] });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -71,7 +71,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json(certificate, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

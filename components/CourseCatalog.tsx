@@ -151,13 +151,13 @@ export function CourseCatalog() {
                 type="text"
                 placeholder="Search courses..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
                 className="w-full px-4 py-2 border rounded-lg"
               />
             </div>
             <select
               value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedCategory(e.target.value)}
               className="px-4 py-2 border rounded-lg"
             >
               {categories.map(cat => (
@@ -168,7 +168,7 @@ export function CourseCatalog() {
             </select>
             <select
               value={selectedLevel}
-              onChange={(e) => setSelectedLevel(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSelectedLevel(e.target.value)}
               className="px-4 py-2 border rounded-lg"
             >
               {levels.map(level => (
@@ -187,7 +187,7 @@ export function CourseCatalog() {
           </p>
           <select
             value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSortBy(e.target.value)}
             className="px-4 py-2 border rounded-lg"
           >
             <option value="popular">Most Popular</option>

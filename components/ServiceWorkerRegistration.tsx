@@ -1,20 +1,16 @@
 'use client';
-
 import { useEffect } from 'react';
-
 export default function ServiceWorkerRegistration() {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
         .register('/sw.js')
         .then((registration) => {
-          // console.log('Service Worker registered:', registration.scope);
-
+          // 
           // Check for updates periodically
           setInterval(() => {
             registration.update();
           }, 60000); // Check every minute
-
           // Listen for updates
           registration.addEventListener('updatefound', () => {
             const newWorker = registration.installing;
@@ -37,13 +33,11 @@ export default function ServiceWorkerRegistration() {
         .catch((error) => {
           console.error('Service Worker registration failed:', error);
         });
-
       // Handle controller change (new SW activated)
       navigator.serviceWorker.addEventListener('controllerchange', () => {
         window.location.reload();
       });
     }
   }, []);
-
   return null;
 }

@@ -50,11 +50,11 @@ export async function GET(req: NextRequest) {
     learners: rows?.length || 0,
     avgProgress:
       rows && rows.length
-        ? rows.reduce((a: any, b: any) => a + (b.percent || 0), 0) / rows.length
+        ? rows.reduce((a: number, b: { percent?: number }) => a + (b.percent || 0), 0) / rows.length
         : 0,
-    minutes: rows?.reduce((a: any, b: any) => a + (b.minutes || 0), 0) || 0,
+    minutes: rows?.reduce((a: number, b: { minutes?: number }) => a + (b.minutes || 0), 0) || 0,
     completed:
-      rows?.filter((r: any) => (r.status || '').toLowerCase() === 'completed')
+      rows?.filter((r: Record<string, unknown>) => (r.status || '').toLowerCase() === 'completed')
         .length || 0,
   };
 
@@ -63,7 +63,7 @@ export async function GET(req: NextRequest) {
     const header =
       'learner,email,course,start_date,minutes,percent,status,certificate_id\n';
     const lines = (rows || [])
-      .map((r: any) =>
+      .map((r: Record<string, any>) =>
         [
           r.learner,
           r.email,

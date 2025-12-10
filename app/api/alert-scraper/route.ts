@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function sendEmailAlert(data: any) {
+async function sendEmailAlert(data: Record<string, unknown>) {
   const emailContent = `
 🚨 SCRAPING ATTEMPT DETECTED
 
@@ -138,7 +138,7 @@ This is an automated alert from Elevate for Humanity Security System.
   */
 }
 
-async function sendSlackAlert(data: any) {
+async function sendSlackAlert(data: Record<string, unknown>) {
   if (!process.env.SLACK_WEBHOOK_URL) return;
   
   try {

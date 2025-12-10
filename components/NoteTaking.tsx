@@ -100,7 +100,7 @@ export function NoteTaking({ courseId, lessonId, videoTimestamp }: NoteTakingPro
       <div className="mb-4">
         <textarea
           value={currentNote}
-          onChange={(e) => setCurrentNote(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setCurrentNote(e.target.value)}
           placeholder="Take a note..."
           className="w-full h-24 px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm"
         />
@@ -131,7 +131,7 @@ export function NoteTaking({ courseId, lessonId, videoTimestamp }: NoteTakingPro
           type="text"
           placeholder="Search notes..."
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setSearchQuery(e.target.value)}
           className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </div>

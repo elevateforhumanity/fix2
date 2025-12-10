@@ -1,33 +1,23 @@
 import { scanRepository, analyzeRepository } from "./repo-analyzer";
 import { normalizeCourseMetadata, validateCourseMetadata } from "./course-normalizer";
 import { checkBrokenLinks, checkCourseStructure } from "./link-checker";
-
-export async function runAutopilot(name: string, payload: any = {}) {
-  console.log(`AUTOPILOT START: ${name}`);
-  console.log(payload);
-  console.log(`AUTOPILOT END: ${name}`);
+export async function runAutopilot(name: string, payload: unknown = {}) {
   return { ok: true };
 }
-
-export async function runAutopilots(metadata: any, repo = "elevateforhumanity/fix2") {
+export async function runAutopilots(metadata: Record<string, unknown>, repo = "elevateforhumanity/fix2") {
   try {
     // Scan repository
     const tree = await scanRepository(repo);
-
     // Normalize metadata
     const normalized = normalizeCourseMetadata(metadata);
-
     // Validate metadata
     const validation = validateCourseMetadata(normalized);
-
     // Check for broken links
     const linkCheck = checkBrokenLinks(tree, normalized);
-
     // Check course structure
     const structure = normalized.slug 
       ? checkCourseStructure(tree, normalized.slug)
       : null;
-
     return {
       ok: validation.valid,
       normalized,
@@ -36,18 +26,16 @@ export async function runAutopilots(metadata: any, repo = "elevateforhumanity/fi
       structure,
       errors: validation.errors,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       ok: false,
       error: error.message,
     };
   }
 }
-
 export async function runFullAnalysis(repo = "elevateforhumanity/fix2") {
   try {
     const { files, analysis } = await analyzeRepository(repo);
-
     return {
       ok: true,
       files,
@@ -58,7 +46,7 @@ export async function runFullAnalysis(repo = "elevateforhumanity/fix2") {
         codeFiles: analysis.components + analysis.pages + analysis.api,
       },
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     return {
       ok: false,
       error: error.message,

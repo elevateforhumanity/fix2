@@ -25,8 +25,8 @@ export default function Captcha({ onVerify, siteKey }: CaptchaProps) {
   }, [loaded]);
 
   useEffect(() => {
-    if (loaded && captchaRef.current && (window as any).hcaptcha) {
-      (window as any).hcaptcha.render(captchaRef.current, {
+    if (loaded && captchaRef.current && (window as string).hcaptcha) {
+      (window as string).hcaptcha.render(captchaRef.current, {
         sitekey: key,
         callback: onVerify,
       });

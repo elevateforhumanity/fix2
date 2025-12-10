@@ -14,7 +14,7 @@ type RawGrant = {
   locationLimit: string;
   dueDate: string;
   url: string;
-  raw: any;
+  raw: unknown;
 };
 
 async function fetchMockGrants(): Promise<RawGrant[]> {

@@ -18,7 +18,7 @@ export async function GET(request: Request) {
         totalAchievements: 0,
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
       { error: 'Achievement system not yet implemented' },
       { status: 501 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
