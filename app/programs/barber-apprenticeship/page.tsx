@@ -1,6 +1,9 @@
+'use client';
+
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
+import { useState } from 'react';
 
 export const metadata: Metadata = {
   title: 'Barber Apprenticeship Training | Elevate For Humanity',

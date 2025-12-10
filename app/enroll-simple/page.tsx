@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 export default function SimpleEnrollPage() {
   const [isProcessing, setIsProcessing] = useState(false);
@@ -36,9 +37,9 @@ export default function SimpleEnrollPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12">
+    <main className="min-h-screen bg-slate-50 py-12">
       <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-8">Enroll in Barber Program</h1>
+        <h1 className="text-4xl font-bold text-center mb-8">Enroll in Training Program</h1>
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Free Option */}
@@ -60,7 +61,7 @@ export default function SimpleEnrollPage() {
             <div className="text-3xl font-bold text-blue-700 mb-4">$4,890</div>
             <p className="text-lg mb-2">Start immediately</p>
             <p className="text-sm text-slate-600 mb-6">
-              13 payment methods available • Includes FREE Milady RISE certification
+              10 payment methods available • Includes FREE Milady RISE certification
             </p>
             <button
               onClick={handleCheckout}
@@ -79,6 +80,6 @@ export default function SimpleEnrollPage() {
           </a>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
