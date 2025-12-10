@@ -416,7 +416,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
-              href="/apply"
+              href="/contact"
               className="inline-flex items-center justify-center gap-3 px-12 py-6 text-2xl font-bold text-slate-900 bg-white rounded-full hover:bg-gray-100 transition-all hover:scale-105 shadow-2xl border-4 border-white"
             >
               Apply Now

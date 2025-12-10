@@ -82,7 +82,7 @@ export default function BarberApprenticeCheckoutPage() {
                 </li>
               </ul>
               <Link
-                href="/apply"
+                href="/contact"
                 className="block w-full text-center px-8 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-all"
               >
                 Apply for Free Training

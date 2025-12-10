@@ -37,7 +37,7 @@ export default function Page() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/apply"
+                href="/contact"
                 className="bg-orange-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-orange-600 text-lg transition-all"
               >
                 Get Started
@@ -240,7 +240,7 @@ export default function Page() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
-              href="/apply"
+              href="/contact"
               className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg"
             >
               Apply Now - It's Free

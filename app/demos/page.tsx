@@ -34,7 +34,7 @@ export default function DemosPage() {
             Experience our training platform with interactive demos and see how our programs work.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/apply" className="bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 text-lg transition-all">
+            <Link href="/contact" className="bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 text-lg transition-all">
               Apply Now
             </Link>
             <Link href="/programs" className="bg-white text-slate-900 px-8 py-4 rounded-lg font-semibold hover:bg-slate-50 border-2 border-slate-300 text-lg transition-all">
@@ -78,7 +78,7 @@ export default function DemosPage() {
               </div>
             </Link>
 
-            <Link href="/apply" className="group block">
+            <Link href="/contact" className="group block">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden bg-blue-50">
                   <Image src="/images/gallery/image5.jpg" alt="Application Process" fill className="object-cover group-hover:scale-105 transition-transform duration-500" quality={100} sizes="100vw" />

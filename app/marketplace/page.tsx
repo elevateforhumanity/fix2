@@ -134,7 +134,7 @@ export default function Page() {
             <h1 className="text-5xl font-bold mb-6">Marketplace | Elevate For Humanity</h1>
             <p className="text-xl mb-8 text-blue-100">Discover more about Marketplace inside the Elevate For Humanity workforce ecosystem.</p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
+              <Link href="/contact" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
                 Get Started
               </Link>
               <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">

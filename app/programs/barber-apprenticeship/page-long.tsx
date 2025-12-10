@@ -57,7 +57,7 @@ export default function BarberApprenticeshipPage() {
                       If you qualify for government funding (WIOA, WRG, or JRI), your training is completely free. No tuition. No debt. Ever.
                     </p>
                     <Link
-                      href="/apply"
+                      href="/contact"
                       className="inline-flex items-center justify-center w-full px-8 py-4 text-lg font-bold text-white bg-green-600 rounded-full hover:bg-green-700 transition-all hover:scale-105 shadow-lg"
                     >
                       Apply for Free Training →
@@ -212,7 +212,7 @@ export default function BarberApprenticeshipPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/apply"
+                href="/contact"
                 className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-slate-900 bg-white rounded-full hover:bg-gray-100 transition-all hover:scale-105 shadow-2xl"
               >
                 I'm Ready to Start
@@ -286,7 +286,7 @@ export default function BarberApprenticeshipPage() {
               </div>
 
               <Link
-                href="/apply"
+                href="/contact"
                 className="block w-full text-center px-8 py-4 bg-green-600 text-white text-lg font-bold rounded-full hover:bg-green-700 transition-all hover:scale-105 shadow-lg"
               >
                 Apply for Free Training →
@@ -378,7 +378,7 @@ export default function BarberApprenticeshipPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/apply"
+                href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-orange-600 bg-white rounded-full hover:bg-gray-100 transition-all hover:scale-105 shadow-lg"
               >
                 Apply Now
@@ -433,7 +433,7 @@ export default function BarberApprenticeshipPage() {
                 </div>
               </div>
               <Link
-                href="/apply"
+                href="/contact"
                 className="inline-block px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg"
               >
                 Start Your Success Story
@@ -741,7 +741,7 @@ export default function BarberApprenticeshipPage() {
           </div>
           <div className="text-center mt-12">
             <Link
-              href="/apply"
+              href="/contact"
               className="inline-block px-10 py-5 bg-orange-500 text-white text-xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
             >
               Start Step 1 - Apply Now
@@ -771,7 +771,7 @@ export default function BarberApprenticeshipPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/apply"
+              href="/contact"
               className="inline-block px-12 py-6 bg-orange-500 text-white text-2xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
             >
               Apply Now - It's Free

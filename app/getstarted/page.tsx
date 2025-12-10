@@ -37,7 +37,7 @@ export default function Page() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link 
-                href="/apply" 
+                href="/contact" 
                 className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-700 text-lg shadow-2xl transition-all"
               >
                 Apply Now - It's Free
@@ -72,7 +72,7 @@ export default function Page() {
                 Fill out a simple application (takes 5 minutes). Tell us about yourself, what you're interested in, 
                 and what support you might need. No commitment required.
               </p>
-              <Link href="/apply" className="text-orange-600 font-semibold hover:underline">
+              <Link href="/contact" className="text-orange-600 font-semibold hover:underline">
                 Start Application →
               </Link>
             </div>

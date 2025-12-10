@@ -202,7 +202,7 @@ export default function FundingPage() {
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Link
-              href="/apply"
+              href="/contact"
               className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2 text-xs font-semibold text-slate-900 shadow-sm hover:bg-slate-100"
             >
               Start My Application

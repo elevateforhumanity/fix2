@@ -33,7 +33,7 @@ export default function HomePage() {
             </p>
             <div className="flex gap-4">
               <Link
-                href="/apply"
+                href="/contact"
                 className="bg-white text-slate-900 px-8 py-3 rounded font-semibold hover:bg-slate-100 transition"
               >
                 Apply Now
@@ -226,7 +226,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <Link href="/apply" className="inline-block mt-8 bg-slate-900 text-white px-8 py-3 rounded font-semibold hover:bg-slate-800 transition">
+              <Link href="/contact" className="inline-block mt-8 bg-slate-900 text-white px-8 py-3 rounded font-semibold hover:bg-slate-800 transition">
                 Start Application
               </Link>
             </div>
@@ -251,7 +251,7 @@ export default function HomePage() {
           </p>
           <div className="flex gap-4 justify-center">
             <Link
-              href="/apply"
+              href="/contact"
               className="bg-white text-slate-900 px-8 py-3 rounded font-semibold hover:bg-slate-100 transition"
             >
               Apply Now

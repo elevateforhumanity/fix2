@@ -209,7 +209,7 @@ export default function CompareProgramsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/apply"
+              href="/contact"
               className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
@@ -257,7 +257,7 @@ export default function CompareProgramsPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/apply"
+                href="/contact"
                 className="bg-white text-orange-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-orange-50 transition-colors button-scale"
               >
                 Apply Now - It's Free
@@ -526,7 +526,7 @@ export default function CompareProgramsPage() {
             Apply now and get started with 100% free training
           </p>
           <Link
-            href="/apply"
+            href="/contact"
             className="inline-block bg-white text-orange-600 px-12 py-5 rounded-full font-bold text-xl hover:bg-orange-50 transition-colors button-scale shadow-2xl"
           >
             Apply Now - It's Free →

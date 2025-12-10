@@ -60,7 +60,7 @@ export default function Home() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <PrimaryButton href="/apply">Apply Now</PrimaryButton>
+                <PrimaryButton href="/contact">Apply Now</PrimaryButton>
                 <SecondaryButton href="/programs">
                   Explore Programs
                 </SecondaryButton>
@@ -365,7 +365,7 @@ export default function Home() {
                 <PrimaryButton href="/programs/barber-apprenticeship">
                   View Barber Apprenticeship
                 </PrimaryButton>
-                <SecondaryButton href="/apply">
+                <SecondaryButton href="/contact">
                   Apply for Barber Program
                 </SecondaryButton>
               </div>
@@ -461,7 +461,7 @@ export default function Home() {
           </ol>
 
           <div className="mt-8 flex justify-center">
-            <PrimaryButton href="/apply">Start Your Application</PrimaryButton>
+            <PrimaryButton href="/contact">Start Your Application</PrimaryButton>
           </div>
         </div>
       </section>

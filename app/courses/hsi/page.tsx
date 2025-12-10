@@ -73,7 +73,7 @@ export default function HsiPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/apply"
+              href="/contact"
               className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
             >
               Get Started Free
@@ -101,7 +101,7 @@ export default function HsiPage() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link 
-                href="/apply" 
+                href="/contact" 
                 className="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-red-50 transition-colors"
               >
                 Apply for Free Training
@@ -224,7 +224,7 @@ d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 
               Start your safety training today. All courses are 100% free through WIOA funding.
             </p>
             <Link 
-              href="/apply" 
+              href="/contact" 
               className="inline-block bg-white text-red-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors"
             >
               Apply Now - It's Free

@@ -133,7 +133,7 @@ export default async function PrivacyPage() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
-                href="/apply"
+                href="/contact"
                 className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
               >
                 Apply Now

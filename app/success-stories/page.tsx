@@ -68,7 +68,7 @@ export default function Page() {
               Real people. Real transformations.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/apply" className="bg-orange-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-orange-600 text-lg transition-all">
+              <Link href="/contact" className="bg-orange-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-orange-600 text-lg transition-all">
                 Start Your Story
               </Link>
               <Link href="/programs" className="bg-white text-slate-900 px-8 py-4 rounded-md font-semibold hover:bg-slate-50 border-2 border-slate-300 text-lg transition-all">
@@ -127,7 +127,7 @@ className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={100} />
             <h1 className="text-5xl font-bold mb-6">Success Stories | Elevate For Humanity</h1>
             <p className="text-xl mb-8 text-blue-100">Discover more about Success Stories inside the Elevate For Humanity workforce ecosystem.</p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/apply" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
+              <Link href="/contact" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
                 Get Started
               </Link>
               <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
@@ -254,7 +254,7 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
           <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Start Your Success Story?</h2>
           <p className="text-xl text-white/90 mb-8">Join thousands who transformed their lives through free training.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/apply" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
+            <Link href="/contact" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
               Apply Now - It's Free
             </Link>
             <Link href="/programs" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">

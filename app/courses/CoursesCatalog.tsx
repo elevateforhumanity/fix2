@@ -59,7 +59,7 @@ export default function CoursesCatalog({ courses, categories, levels }: CoursesC
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link 
-                href="/apply" 
+                href="/contact" 
                 className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
               >
                 Apply Now
@@ -283,7 +283,7 @@ d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               All courses are 100% free through WIOA funding. No cost to you.
             </p>
             <Link 
-              href="/apply" 
+              href="/contact" 
               className="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               Apply for Free Training

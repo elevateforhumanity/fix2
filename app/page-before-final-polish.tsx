@@ -148,7 +148,7 @@ export default function HomePage() {
 
           <div className="text-center mt-12">
             <Link
-              href="/apply"
+              href="/contact"
               className="inline-flex items-center gap-2 px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
             >
               Start Your Application Now
@@ -339,7 +339,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/apply"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 px-10 py-5 text-xl font-bold text-orange-600 bg-white rounded-full hover:bg-orange-50 transition-all hover:scale-105 shadow-2xl"
             >
               Apply Now - It's Free

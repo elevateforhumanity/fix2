@@ -57,7 +57,7 @@ export default function JRIPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/apply"
+                href="/contact"
                 className="px-8 py-4 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition text-lg shadow-2xl"
               >
                 Apply for JRI Programs
@@ -457,7 +457,7 @@ className="text-green-600 font-bold hover:underline">IndianaConnectNow.com</a> t
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link
-                  href="/apply"
+                  href="/contact"
                   className="px-8 py-4 bg-white text-green-600 font-bold rounded-full hover:bg-slate-100 transition text-lg"
                 >
                   Apply Now

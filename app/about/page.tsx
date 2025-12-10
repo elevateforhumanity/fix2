@@ -362,7 +362,7 @@ export default function Page() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
-              href="/apply"
+              href="/contact"
               className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all shadow-lg"
             >
               Apply Now
@@ -391,7 +391,7 @@ export default function Page() {
             100% free training. No tuition, no fees, no debt. Just a direct pathway to your career.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/apply" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
+            <Link href="/contact" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
               Apply Now - It's Free
             </Link>
             <Link href="/contact" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">

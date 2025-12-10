@@ -141,7 +141,7 @@ export default function EnhancedHomePage() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 mb-8">
               <Link
-                href="/apply"
+                href="/contact"
                 className="group px-10 py-5 bg-orange-500 text-white font-bold text-xl rounded-xl hover:bg-orange-600 transition-all shadow-2xl hover:shadow-orange-500/50 hover:scale-105 flex items-center gap-2"
               >
                 Apply Now - It's Free
@@ -375,7 +375,7 @@ export default function EnhancedHomePage() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/apply"
+              href="/contact"
               className="px-10 py-5 bg-white text-orange-600 font-bold text-xl rounded-xl hover:bg-orange-50 transition-all shadow-2xl hover:scale-105"
             >
               Apply Now - It's Free

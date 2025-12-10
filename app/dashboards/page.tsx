@@ -264,7 +264,7 @@ export default function DashboardsPage() {
             </h3>
             <div className="grid md:grid-cols-3 gap-4">
               <Link
-                href="/apply"
+                href="/contact"
                 className="p-4 bg-white rounded-lg text-center hover:shadow-md transition-shadow"
               >
                 <p className="font-semibold text-slate-900">Apply for Training</p>

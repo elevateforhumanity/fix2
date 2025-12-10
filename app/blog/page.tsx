@@ -101,7 +101,7 @@ export default async function Page() {
             {/* Hero Buttons */}
             <div className="flex flex-wrap gap-4 justify-center">
               <Link 
-                href="/apply" 
+                href="/contact" 
                 className="px-8 py-4 bg-orange-600 text-white font-bold rounded-full hover:bg-orange-700 transition-all shadow-2xl text-lg"
               >
                 Apply Now - It's Free
@@ -226,7 +226,7 @@ className="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full hover:bg-
           <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Start Your Success Story?</h2>
           <p className="text-xl text-white/90 mb-8">Join thousands who transformed their lives through free workforce training.</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/apply" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">Apply Now - It's Free</Link>
+            <Link href="/contact" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">Apply Now - It's Free</Link>
             <Link href="/programs" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">View Programs</Link>
           </div>
           <p className="text-white/80 mt-8 text-sm">Questions? Call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> or email <a href="mailto:info@elevateforhumanity.org" className="underline font-semibold">info@elevateforhumanity.org</a></p>

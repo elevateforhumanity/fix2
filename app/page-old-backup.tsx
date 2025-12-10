@@ -72,7 +72,7 @@ export default function Home() {
                 View Programs →
               </Link>
               <Link
-                href="/apply"
+                href="/contact"
                 className="w-full sm:w-auto px-10 py-5 bg-white text-slate-900 font-black text-xl rounded-full hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:scale-110 transform text-center opacity-0 animate-[slideInRight_0.8s_ease-out_1.2s_forwards]"
               >
                 Apply Free Now
@@ -225,7 +225,7 @@ export default function Home() {
               See Programs & Salaries
             </Link>
             <Link
-              href="/apply"
+              href="/contact"
               className="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 font-bold text-center rounded-full hover:bg-gray-100 transition-all shadow-xl text-lg border-2 border-slate-200"
             >
               Apply Now - Class Starts Jan 15
@@ -599,7 +599,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <Link
-              href="/apply"
+              href="/contact"
               className="px-10 py-4 bg-white text-orange-600 font-semibold rounded-full hover:bg-slate-50 transition-all shadow-lg text-lg"
             >
               Apply Now

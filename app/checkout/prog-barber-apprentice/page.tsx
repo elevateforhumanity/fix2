@@ -61,7 +61,7 @@ export default function BarberApprenticeCheckoutPage() {
               100% government-funded through WIOA, WRG, or JRI.
             </p>
             <Link
-              href="/apply"
+              href="/contact"
               className="block w-full text-center px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-all"
             >
               Apply for Free Training

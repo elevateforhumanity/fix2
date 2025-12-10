@@ -287,7 +287,7 @@ className="object-cover" sizes="80px" quality={100} />
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/apply"
+                href="/contact"
                 className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg"
               >
                 Apply Now

@@ -60,7 +60,7 @@ export default function NotFound() {
             <span>•</span>
             <Link href="/wioa-eligibility" className="hover:text-red-600 transition">WIOA Eligibility</Link>
             <span>•</span>
-            <Link href="/apply" className="hover:text-red-600 transition">Apply Now</Link>
+            <Link href="/contact" className="hover:text-red-600 transition">Apply Now</Link>
           </div>
         </div>
       </div>

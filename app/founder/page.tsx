@@ -59,7 +59,7 @@ export default function Page() {
                     <span>ETPL Approved - WIOA, WRG, JRI Eligible</span>
                   </li>
                 </ul>
-              <Link href="/apply" className="inline-block px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg">
+              <Link href="/contact" className="inline-block px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg">
                 Start Your Journey Today
               </Link>
             </div>
