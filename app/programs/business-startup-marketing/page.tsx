@@ -1,281 +1,269 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
-import { CheckCircle, Clock, DollarSign, TrendingUp, Zap, Users } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Business Startup Marketing Training | Elevate For Humanity',
-  description: 'Start your business startup marketing career with free training. AI-powered learning, hands-on practice, and job placement support.',
+  title: 'Business Startup & Marketing Training | Elevate For Humanity',
+  description:
+    'Turn your idea into a business in 5 weeks. $4,550. Learn digital marketing, business planning, and entrepreneurship.',
   alternates: {
-    canonical: 'https://www.elevateforhumanity.org/programs/business-startup-marketing',
+    canonical:
+      'https://www.elevateforhumanity.org/programs/business-startup-marketing',
   },
 };
 
 export default function BusinessStartupMarketingPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section - Video Banner */}
-      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden bg-slate-900">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-90"
-        >
-          <source src="/videos/heroes/programs/business/hero-program-business.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
-            <div className="max-w-4xl">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-                Business Startup Marketing
-              </h1>
-              <p className="text-xl sm:text-2xl md:text-3xl text-white mb-8 drop-shadow-lg">
-                Start your career with free training, AI-powered learning, and job placement support
+      {/* Header */}
+      <section className="py-12 bg-slate-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Business Startup & Marketing
+          </h1>
+          <p className="text-xl">
+            5 weeks to launch. Turn your idea into income.
+          </p>
+        </div>
+      </section>
+
+      {/* Story */}
+      <section className="py-12">
+        <div className="max-w-3xl mx-auto px-4">
+          <p className="text-xl text-slate-700 mb-6 leading-relaxed">
+            You have an idea. Maybe it's a service you can offer, a product you
+            want to sell, or a skill you want to monetize. But you don't know
+            where to start.
+          </p>
+          <p className="text-lg text-slate-600 mb-6">
+            Most businesses fail not because the idea was bad, but because the
+            founder didn't know how to market it, price it, or reach customers.
+            This program teaches you exactly that—the practical skills to launch
+            and grow a real business.
+          </p>
+          <p className="text-lg text-slate-600">
+            Whether you want to start a side hustle or build a full-time
+            business, you'll learn digital marketing, social media, business
+            planning, and how to get your first customers.
+          </p>
+        </div>
+      </section>
+
+      {/* Program Details */}
+      <section className="py-12 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Program Details
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white p-6 rounded-lg text-center">
+              <div className="text-3xl font-bold text-orange-600 mb-2">
+                5 Weeks
+              </div>
+              <div className="text-slate-600">Part-time flexible</div>
+            </div>
+            <div className="bg-white p-6 rounded-lg text-center">
+              <div className="text-3xl font-bold text-green-600 mb-2">
+                $4,550
+              </div>
+              <div className="text-slate-600">Total cost</div>
+            </div>
+            <div className="bg-white p-6 rounded-lg text-center">
+              <div className="text-3xl font-bold text-blue-600 mb-2">
+                Certified
+              </div>
+              <div className="text-slate-600">Business credential</div>
+            </div>
+          </div>
+
+          <div className="bg-white p-8 rounded-lg mb-6">
+            <h3 className="text-2xl font-bold mb-4">What You'll Learn</h3>
+            <ul className="space-y-3 text-slate-700">
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Business planning and market research</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Legal structure (LLC, sole proprietor, etc.)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Pricing strategies and financial basics</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Digital marketing and social media strategy</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Facebook, Instagram, TikTok, LinkedIn marketing</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Google Ads and SEO fundamentals</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Email marketing and customer retention</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-600 font-bold">✓</span>
+                <span>Building a website and online presence</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-white p-8 rounded-lg">
+            <h3 className="text-2xl font-bold mb-4">
+              Your Certification & Career Paths
+            </h3>
+
+            <div className="space-y-4 mb-6">
+              <div className="bg-purple-50 border-l-4 border-purple-500 p-4">
+                <p className="font-bold text-purple-900 mb-1">
+                  📜 Business Startup & Marketing Certificate
+                </p>
+                <p className="text-purple-800 text-sm">
+                  Industry-recognized credential in entrepreneurship and digital
+                  marketing
+                </p>
+              </div>
+            </div>
+
+            <h4 className="font-bold text-lg mb-3">What You Can Do:</h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <p className="font-semibold text-slate-900 mb-2">
+                  Start Your Own Business:
+                </p>
+                <ul className="text-sm text-slate-600 space-y-1">
+                  <li>• Service business (cleaning, landscaping, etc.)</li>
+                  <li>• E-commerce store</li>
+                  <li>• Consulting or coaching</li>
+                  <li>• Food truck or catering</li>
+                  <li>• Online course or digital products</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-900 mb-2">
+                  Get Hired in Marketing:
+                </p>
+                <ul className="text-sm text-slate-600 space-y-1">
+                  <li>• Social Media Manager ($40K-$60K)</li>
+                  <li>• Digital Marketing Specialist</li>
+                  <li>• Marketing Coordinator</li>
+                  <li>• Content Creator</li>
+                  <li>• SEO Specialist</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-6 bg-blue-50 rounded-lg p-4">
+              <p className="text-sm text-blue-900 mb-2">
+                <strong>💡 Real Business Launch:</strong> You'll create an
+                actual business plan, build a website, and launch your first
+                marketing campaign during the program.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
-                >
-                  Apply Now - It's Free
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all hover:scale-105 border-2 border-white/50 shadow-2xl"
-                >
-                  Questions? Contact Us
-                </Link>
-              </div>
+              <p className="text-sm text-blue-900">
+                <strong>💡 Ongoing Support:</strong> After graduation, you'll
+                have access to mentorship and resources to help your business
+                grow.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Quick Facts */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
-              <Clock className="w-8 h-8 text-orange-500 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-slate-900">12-16 Weeks</div>
-              <div className="text-sm text-slate-600">Flexible Schedule</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
-              <DollarSign className="w-8 h-8 text-green-500 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-slate-900">100% FREE</div>
-              <div className="text-sm text-slate-600">No Hidden Costs</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
-              <Zap className="w-8 h-8 text-blue-500 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-slate-900">AI-Powered</div>
-              <div className="text-sm text-slate-600">24/7 Support</div>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm text-center">
-              <TrendingUp className="w-8 h-8 text-purple-500 mx-auto mb-3" />
-              <div className="text-2xl font-bold text-slate-900">Job Support</div>
-              <div className="text-sm text-slate-600">Placement Help</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Payment Options */}
+      <section className="py-12 bg-slate-50">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">
+            Choose Your Path
+          </h2>
 
-      {/* Why This Career */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6">
-                Why Choose Business Startup Marketing?
-              </h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-slate-900">High Demand Career</div>
-                    <div className="text-slate-600">Growing industry with thousands of job openings</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-slate-900">Good Income Potential</div>
-                    <div className="text-slate-600">Competitive salary with room for growth</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-slate-900">No Experience Required</div>
-                    <div className="text-slate-600">We start from the basics and build your skills</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                  <div>
-                    <div className="font-semibold text-slate-900">Career Stability</div>
-                    <div className="text-slate-600">Essential skills that are always in demand</div>
-                  </div>
-                </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* FREE */}
+            <div className="bg-white border-2 border-green-500 rounded-xl p-8">
+              <div className="text-3xl font-bold text-green-700 mb-4">
+                100% FREE
               </div>
+              <p className="text-lg mb-4">
+                If you qualify for government funding through:
+              </p>
+              <ul className="space-y-2 mb-6 text-slate-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>
+                    <strong>WRG</strong> - Workforce Ready Grant (Indiana
+                    residents)
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>
+                    <strong>WIOA</strong> - Workforce Innovation
+                    (unemployed/underemployed)
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>
+                    <strong>Other grants</strong> - We help you apply
+                  </span>
+                </li>
+              </ul>
               <Link
                 href="/contact"
-                className="inline-block mt-8 px-8 py-4 bg-orange-500 text-white font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-lg"
+                className="block w-full text-center px-6 py-4 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-all"
               >
-                Start Your Career Today
+                Apply for Free Training
               </Link>
             </div>
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/gallery/image6.jpg"
-                alt="Business Startup Marketing professional at work"
-                fill
-                className="object-cover"
-                quality={100}
-              
-          sizes="100vw"
-        />
+
+            {/* PAID */}
+            <div className="bg-white border-2 border-blue-500 rounded-xl p-8">
+              <div className="text-3xl font-bold text-blue-700 mb-4">
+                $4,550
+              </div>
+              <p className="text-lg mb-4">
+                Don't qualify for free training? Pay directly and start
+                immediately.
+              </p>
+              <div className="bg-blue-50 rounded-lg p-4 mb-6">
+                <p className="text-sm font-semibold text-blue-900 mb-2">
+                  💳 Flexible Payment Options:
+                </p>
+                <ul className="text-sm text-blue-800 space-y-1">
+                  <li>• Split into payments with Affirm, Klarna, Afterpay</li>
+                  <li>• PayPal, Venmo, Cash App Pay</li>
+                  <li>• Credit/Debit cards</li>
+                  <li>• ACH bank transfer</li>
+                </ul>
+              </div>
+              <Link
+                href="/enroll-simple"
+                className="block w-full text-center px-6 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"
+              >
+                Pay $4,550 Now
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* AI-Powered Learning */}
-      <section className="py-20   ">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Your Personal AI Instructor
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Never feel stuck or alone. Get instant help, personalized guidance, and encouragement 24/7
+          <div className="text-center mt-8">
+            <p className="text-slate-600 mb-2">
+              Not sure which option is right for you?
+            </p>
+            <p className="text-lg">
+              Call us at{' '}
+              <a
+                href="tel:3173143757"
+                className="text-orange-600 font-bold hover:text-orange-700"
+              >
+                317-314-3757
+              </a>
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <Zap className="w-12 h-12 text-blue-500 mb-4" />
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Available 24/7</h3>
-              <p className="text-slate-600">
-                Questions at 2am? Your AI instructor is always awake and ready to help you succeed
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <Users className="w-12 h-12 text-purple-500 mb-4" />
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Personalized Learning</h3>
-              <p className="text-slate-600">
-                Learn at your own pace with a curriculum that adapts to your needs and progress
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <TrendingUp className="w-12 h-12 text-green-500 mb-4" />
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Instant Feedback</h3>
-              <p className="text-slate-600">
-                Get immediate answers, corrections, and encouragement to keep you moving forward
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
-              Your Learning Journey
-            </h2>
-            <p className="text-xl text-slate-600">
-              Four simple steps to your new career
-            </p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                1
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Apply Free</h3>
-              <p className="text-slate-600">
-                Simple 5-minute application. No experience needed. Get accepted in 24 hours.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                2
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Learn Online</h3>
-              <p className="text-slate-600">
-                Self-paced video lessons with AI instructor support available 24/7.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                3
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Hands-On Practice</h3>
-              <p className="text-slate-600">
-                Real equipment and tools at local training facilities with expert supervision.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                4
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Get Hired</h3>
-              <p className="text-slate-600">
-                Earn your credential and get job placement support to start your career.
-              </p>
-            </div>
-          </div>
-          <div className="text-center mt-12">
-            <Link
-              href="/contact"
-              className="inline-block px-10 py-5 bg-orange-500 text-white text-xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
-            >
-              Start Step 1 - Apply Now
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="relative py-32 overflow-hidden">
-        <Image
-          src="/images/gallery/image6.jpg"
-          alt="Start your career"
-          fill
-          className="object-cover"
-          quality={100}
-        
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">
-            Ready to Start Your New Career?
-          </h2>
-          <p className="text-2xl text-white mb-8">
-            Join students learning business startup marketing with free training and AI support
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-block px-12 py-6 bg-orange-500 text-white text-2xl font-bold rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-2xl"
-            >
-              Apply Now - It's Free
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-block px-12 py-6 bg-white text-slate-900 text-2xl font-bold rounded-full hover:bg-slate-100 transition-all hover:scale-105 shadow-2xl"
-            >
-              Questions? Contact Us
-            </Link>
-          </div>
-          <p className="text-white mt-6 text-lg">
-            Application takes 5 minutes • Get started today • Call 317-314-3757
-          </p>
         </div>
       </section>
     </main>
