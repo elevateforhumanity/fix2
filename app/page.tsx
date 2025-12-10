@@ -46,7 +46,7 @@ export default function HomePage() {
               href="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white bg-orange-500 rounded-lg hover:bg-orange-600 transition-all"
             >
-              Apply Now
+              Contact Us
               <ArrowRight size={20} />
             </Link>
             <Link
@@ -66,10 +66,10 @@ export default function HomePage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             {/* Healthcare */}
-            <Link href="/programs/cna" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
+            <Link href="/programs/medical-assistant" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
               <div className="relative h-48">
                 <Image
-                  src="/images/highlights/free-training.jpg"
+                  src="/images/healthcare/hero-program-medical-assistant.jpg"
                   alt="Healthcare Training"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -77,7 +77,7 @@ export default function HomePage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Healthcare</h3>
-                <p className="text-slate-600 text-sm">CNA, Medical Assistant, Phlebotomy</p>
+                <p className="text-slate-600 text-sm">Medical Assistant, CPR, Emergency Health & Safety</p>
               </div>
             </Link>
 
@@ -85,7 +85,7 @@ export default function HomePage() {
             <Link href="/programs/hvac-technician" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
               <div className="relative h-48">
                 <Image
-                  src="/images/facilities-new/facility-1.jpg"
+                  src="/images/courses/hvac-technician-10002289-cover.jpg"
                   alt="Skilled Trades Training"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -93,7 +93,7 @@ export default function HomePage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Skilled Trades</h3>
-                <p className="text-slate-600 text-sm">HVAC, Building Maintenance, CDL</p>
+                <p className="text-slate-600 text-sm">HVAC Technician</p>
               </div>
             </Link>
 
@@ -185,13 +185,13 @@ export default function HomePage() {
       <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-center">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start?</h2>
-          <p className="text-xl mb-8">Apply now and begin training within 2 weeks</p>
+          <p className="text-xl mb-8">Contact us and begin training within 2 weeks</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-block px-8 py-4 bg-white text-orange-600 font-bold rounded-lg hover:bg-gray-100 transition-all"
             >
-              Apply Now
+              Contact Us
             </Link>
             <Link
               href="/contact"

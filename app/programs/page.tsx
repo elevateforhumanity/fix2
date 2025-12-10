@@ -97,7 +97,7 @@ export default async function ProgramsPage() {
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-orange-600 text-white text-lg font-bold rounded-full hover:bg-orange-700 transition-colors shadow-xl"
               >
-                Get Started Today
+                Contact Us
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -420,16 +420,13 @@ d="M13 7l5 5m0 0l-5 5m5-5H6" />
       {/* CTA Section */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Get Started?</h2>
+          <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Start Your Career?</h2>
           <p className="text-xl text-white/90 mb-8">
             100% free training. No tuition, no fees, no debt. Just a direct pathway to your career.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
-              Apply Now - It's Free
-            </Link>
-            <Link href="/contact" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">
-              Contact Us
+              Contact Us Today
             </Link>
           </div>
           <p className="text-white/80 mt-8 text-sm">
