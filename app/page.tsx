@@ -211,7 +211,7 @@ export default function HomePage() {
                 src="/images/gallery/image9.jpg"
                 alt="Success Story"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 quality={75}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -264,7 +264,7 @@ export default function HomePage() {
                 src="/images/gallery/image3.jpg"
                 alt="Elevate For Humanity training facility"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
@@ -274,7 +274,7 @@ export default function HomePage() {
                 src="/images/gallery/image4.jpg"
                 alt="Professional training environment"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
@@ -301,7 +301,7 @@ export default function HomePage() {
                 src="/images/gallery/image11.jpg"
                 alt="Success Story"
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
+                className="object-cover object-center hover:scale-105 transition-transform duration-700"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
@@ -311,7 +311,7 @@ export default function HomePage() {
                 src="/images/location-1.jpg"
                 alt="Graduate Success"
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
+                className="object-cover object-center hover:scale-105 transition-transform duration-700"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
@@ -324,7 +324,7 @@ export default function HomePage() {
                 src="/images/location-2.jpg"
                 alt="Career Success"
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
+                className="object-cover object-center hover:scale-105 transition-transform duration-700"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
@@ -334,7 +334,7 @@ export default function HomePage() {
                 src="/images/location-3.jpg"
                 alt="CDL Training Success"
                 fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
+                className="object-cover object-center hover:scale-105 transition-transform duration-700"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
@@ -369,7 +369,7 @@ export default function HomePage() {
                 src="/images/tax-office-1.jpg"
                 alt="Tax Preparation Training"
                 fill
-                className="object-cover hover:scale-110 transition-transform duration-500"
+                className="object-cover object-center hover:scale-110 transition-transform duration-500"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
@@ -379,7 +379,7 @@ export default function HomePage() {
                 src="/images/location-6.jpg"
                 alt="HVAC Training"
                 fill
-                className="object-cover hover:scale-110 transition-transform duration-500"
+                className="object-cover object-center hover:scale-110 transition-transform duration-500"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
@@ -389,7 +389,7 @@ export default function HomePage() {
                 src="/images/medical-assistant-1.jpg"
                 alt="Medical Assistant Training"
                 fill
-                className="object-cover hover:scale-110 transition-transform duration-500"
+                className="object-cover object-center hover:scale-110 transition-transform duration-500"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
