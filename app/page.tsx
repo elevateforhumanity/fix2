@@ -37,34 +37,6 @@ export default function HomePage() {
               <source src="/videos/hero-home.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            {/* Overlay with CTA */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end">
-              <div className="w-full p-8 sm:p-12 md:p-16">
-                <div className="max-w-4xl">
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 drop-shadow-lg">
-                    Transform Your Life Through Free Career Training
-                  </h1>
-                  <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 drop-shadow-lg">
-                    100% funded training in high-demand careers. No cost. Real jobs. Real future.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Link
-                      href="/apply"
-                      className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white bg-orange-500 rounded-full hover:bg-orange-600 transition-all hover:scale-105 shadow-xl"
-                    >
-                      Apply Now
-                      <ArrowRight size={20} />
-                    </Link>
-                    <Link
-                      href="/programs"
-                      className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-bold text-white bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-all border-2 border-white/50"
-                    >
-                      View Programs
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -95,12 +67,12 @@ export default function HomePage() {
             
             <div className="relative w-full max-w-xl mx-auto">
               <Image
-                src="/images/programs/cna-hero.jpg"
-                alt="CNA career training program"
+                src="/images/gallery/image1.jpg"
+                alt="Career training programs"
                 width={600}
                 height={450}
                 className="w-full h-auto rounded-xl shadow-xl"
-                quality={90}
+                quality={75}
                 loading="lazy"
               />
             </div>
@@ -110,12 +82,12 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
             <div className="relative w-full max-w-xl mx-auto md:order-first">
               <Image
-                src="/images/programs/hvac-hero.jpg"
-                alt="HVAC professional training environment"
+                src="/images/gallery/image2.jpg"
+                alt="Professional training environment"
                 width={600}
                 height={450}
                 className="w-full h-auto rounded-xl shadow-xl"
-                quality={90}
+                quality={75}
                 loading="lazy"
               />
             </div>
@@ -142,19 +114,19 @@ export default function HomePage() {
               </p>
               
               <p className="text-lg sm:text-xl font-semibold text-slate-900 leading-relaxed">
-                This isn't a handout. It's an investment in people who are ready to work hard and change their lives. 
-                When we give someone the tools and training they need, they don't just get a job—they transform their entire future.
+                This isn't charity. This is justice. This is what happens when a community decides that everyone—
+                regardless of their past—deserves a shot at a better future.
               </p>
             </div>
             
             <div className="relative w-full max-w-xl mx-auto">
               <Image
-                src="/images/programs/cdl-hero.jpg"
-                alt="CDL commercial driver training success"
+                src="/images/gallery/image7.jpg"
+                alt="CDL training success"
                 width={600}
                 height={400}
                 className="w-full h-auto rounded-xl shadow-xl"
-                quality={90}
+                quality={75}
                 loading="lazy"
               />
             </div>
@@ -170,7 +142,7 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative aspect-[16/9] w-full">
                 <Image
-                  src="/images/facilities-new/facility-3.jpg"
+                  src="/images/gallery/image8.jpg"
                   alt="Free Training Facility"
                   fill
                   className="object-cover object-center"
@@ -193,8 +165,8 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <div className="relative aspect-[16/9] w-full">
                 <Image
-                  src="/images/healthcare/cpr-certification-group.jpg"
-                  alt="Real Credentials and Certifications"
+                  src="/images/gallery/image9.jpg"
+                  alt="Real Credentials"
                   fill
                   className="object-cover object-center"
                   quality={75}
@@ -215,8 +187,8 @@ export default function HomePage() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg sm:col-span-2 lg:col-span-1">
               <div className="relative aspect-[16/9] w-full">
                 <Image
-                  src="/images/business/program-tax-preparation.jpg"
-                  alt="Job Connections and Career Placement"
+                  src="/images/gallery/image10.jpg"
+                  alt="Job Connections"
                   fill
                   className="object-cover object-center"
                   quality={75}
@@ -242,10 +214,10 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center mb-8 sm:mb-12 md:mb-16">
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/beauty/program-barber-training.jpg"
-                alt="Success Story - Barber Graduate"
+                src="/images/gallery/image9.jpg"
+                alt="Success Story"
                 fill
-                className="object-cover object-center"
+                className="object-cover"
                 quality={75}
                 loading="lazy"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -280,7 +252,42 @@ export default function HomePage() {
         </div>
       </section>
 
-
+      {/* FACILITY SHOWCASE */}
+      <section className="py-12 sm:py-16 md:py-20 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
+              Modern Training Facilities
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-slate-600">
+              Professional environment designed for hands-on learning
+            </p>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
+            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl shadow-lg">
+              <Image
+                src="/images/gallery/image3.jpg"
+                alt="Elevate For Humanity training facility"
+                fill
+                className="object-cover"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
+            </div>
+            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl shadow-lg">
+              <Image
+                src="/images/gallery/image4.jpg"
+                alt="Professional training environment"
+                fill
+                className="object-cover"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
 
 
@@ -297,20 +304,20 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/healthcare/hero-healthcare-professionals.jpg"
-                alt="Healthcare Training Success"
+                src="/images/gallery/image11.jpg"
+                alt="Success Story"
                 fill
-                className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                className="object-cover hover:scale-105 transition-transform duration-700"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/beauty/hero-barber-training.jpg"
-                alt="Barber Training Success"
+                src="/images/location-1.jpg"
+                alt="Graduate Success"
                 fill
-                className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                className="object-cover hover:scale-105 transition-transform duration-700"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
@@ -320,20 +327,20 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/trades/hero-program-hvac.jpg"
-                alt="HVAC Training Success"
+                src="/images/location-2.jpg"
+                alt="Career Success"
                 fill
-                className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                className="object-cover hover:scale-105 transition-transform duration-700"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
             </div>
             <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/trades/hero-program-cdl.jpg"
+                src="/images/location-3.jpg"
                 alt="CDL Training Success"
                 fill
-                className="object-cover object-center hover:scale-105 transition-transform duration-700"
+                className="object-cover hover:scale-105 transition-transform duration-700"
                 quality={75}
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
@@ -365,38 +372,8 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
             <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/healthcare/program-cna-training.jpg"
-                alt="CNA Healthcare Training"
-                fill
-                className="object-cover object-center hover:scale-110 transition-transform duration-500"
-                quality={75}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/images/trades/program-hvac-technician.jpg"
-                alt="HVAC Technician Training"
-                fill
-                className="object-cover object-center hover:scale-110 transition-transform duration-500"
-                quality={75}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/images/trades/program-cdl-commercial-driving.jpg"
-                alt="CDL Commercial Driver Training"
-                fill
-                className="object-cover object-center hover:scale-110 transition-transform duration-500"
-                quality={75}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-            </div>
-            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/images/beauty/program-beauty-training.jpg"
-                alt="Beauty and Barber Training"
+                src="/images/tax-office-1.jpg"
+                alt="Tax Preparation Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
                 quality={75}
@@ -405,8 +382,8 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/trades/program-electrical-training.jpg"
-                alt="Electrical Apprentice Training"
+                src="/images/location-6.jpg"
+                alt="HVAC Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
                 quality={75}
@@ -415,8 +392,38 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
               <Image
-                src="/images/healthcare/cpr-individual-practice.jpg"
-                alt="CPR and First Aid Training"
+                src="/images/medical-assistant-1.jpg"
+                alt="Medical Assistant Training"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/beauty.jpg"
+                alt="Beauty Training"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/hvac-highlight-3.jpg"
+                alt="HVAC Technician"
+                fill
+                className="object-cover hover:scale-110 transition-transform duration-500"
+                quality={75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+            </div>
+            <div className="relative aspect-square w-full rounded-lg overflow-hidden shadow-xl">
+              <Image
+                src="/media/programs/cpr-individual-practice-hd.jpg"
+                alt="CPR Training"
                 fill
                 className="object-cover hover:scale-110 transition-transform duration-500"
                 quality={75}
@@ -492,8 +499,8 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/general/hero-slide-healthcare.jpg"
-                alt="Professional training programs"
+                src="/images/gallery/image5.jpg"
+                alt="Training facility"
                 fill
                 className="object-cover"
                 quality={75}
@@ -521,7 +528,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/healthcare/cpr-group-training-session.jpg"
+                src="/media/programs/cpr-group-training-hd.jpg"
                 alt="CPR training - Real students learning life-saving skills"
                 fill
                 className="object-cover"
@@ -530,7 +537,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/healthcare/program-cna-training.jpg"
+                src="/media/programs/cna-hd.jpg"
                 alt="CNA training - Real healthcare students"
                 fill
                 className="object-cover"
@@ -540,8 +547,8 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/beauty/program-beauty-training.jpg"
-                alt="Beauty training - Real beauty students"
+                src="/media/programs/medical-esthetics-training-hd.jpg"
+                alt="Medical esthetics training - Real beauty students"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 50vw, 25vw"
@@ -549,7 +556,7 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/images/healthcare/cpr-certification-group.jpg"
+                src="/media/programs/cpr-certification-group-hd.jpg"
                 alt="CPR certification - Real students getting certified"
                 fill
                 className="object-cover"
@@ -591,6 +598,13 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* NEW COMPONENTS - Added at bottom */}
+      <TrustBadges />
+      <VideoTestimonials />
+      <EnrollmentCounter />
+      <EmployerPartners />
+      <LiveChat />
     </main>
   );
 }
