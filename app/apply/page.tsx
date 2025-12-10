@@ -66,8 +66,10 @@ export default function ApplyPage() {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
-  // Auto-save to localStorage
+  // Auto-save to localStorage (client-side only)
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     const saved = localStorage.getItem('applicationDraft');
     if (saved) {
       try {
@@ -81,6 +83,8 @@ export default function ApplyPage() {
   }, []);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     localStorage.setItem('applicationDraft', JSON.stringify({ formData, currentStep }));
   }, [formData, currentStep]);
 
