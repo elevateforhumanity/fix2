@@ -5,9 +5,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
-// Disable static generation for this page since it uses client-side state
-export const dynamic = 'force-dynamic';
-
 const TOTAL_STEPS = 5;
 
 interface FormData {
