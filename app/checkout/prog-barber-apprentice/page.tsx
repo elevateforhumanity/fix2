@@ -41,7 +41,7 @@ export default function BarberApprenticeCheckoutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[400px] bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+      <section className="relative h-[400px]    text-white">
         <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">

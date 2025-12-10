@@ -38,7 +38,7 @@ export default function ProgramHero({
             sizes="100vw"
           />
           {/* Subtle overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+          <div className="absolute inset-0    " />
         </div>
 
         {/* Content */}

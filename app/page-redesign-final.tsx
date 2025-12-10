@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       {/* HERO - CLEAN & POWERFUL */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+      <section className="relative     text-white overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 opacity-30">
           <Image
@@ -275,7 +275,7 @@ export default function HomePage() {
       </section>
 
       {/* SOCIAL PROOF - IMPACT NUMBERS */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
+      <section className="py-20    text-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -352,7 +352,7 @@ export default function HomePage() {
       </section>
 
       {/* FINAL CTA - BIG & BOLD */}
-      <section className="py-24 bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+      <section className="py-24    text-white">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
             Ready to Start?

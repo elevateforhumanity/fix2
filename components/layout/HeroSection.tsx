@@ -35,7 +35,7 @@ export function HeroSection({
   badge,
 }: HeroSectionProps) {
   return (
-    <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+    <section className="relative     text-white overflow-hidden">
       {/* Background Image */}
       {image && (
         <div className="absolute inset-0 opacity-30">

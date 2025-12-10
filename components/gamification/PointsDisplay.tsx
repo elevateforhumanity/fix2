@@ -24,7 +24,7 @@ export function PointsDisplay({
   const progressPercentage = ((totalPoints % 1000) / 1000) * 100;
 
   return (
-    <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg p-6 text-white">
+    <div className="   rounded-lg p-6 text-white">
       <div className="flex items-center justify-between mb-4">
         <div>
           <div className="flex items-center gap-2 mb-1">

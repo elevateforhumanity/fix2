@@ -25,7 +25,7 @@ export default function StudentDashboardSimple() {
 
       <div className="max-w-6xl mx-auto px-6 py-8">
         {/* Progress Card */}
-        <div className="bg-gradient-to-r from-red-600 to-orange-700 rounded-2xl p-8 mb-8 text-white">
+        <div className="   rounded-2xl p-8 mb-8 text-white">
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-2xl font-bold">Your Progress</h2>

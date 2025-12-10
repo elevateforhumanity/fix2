@@ -94,7 +94,7 @@ export default function AICareerCounseling() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">AI Career Counseling</h1>
           <p className="text-red-100">Get personalized career guidance powered by AI</p>
@@ -108,7 +108,7 @@ export default function AICareerCounseling() {
             <Card className="flex flex-col h-[600px]">
               {/* Chat Header */}
               <div className="p-4 border-b flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-orange-500 rounded-full flex items-center justify-center text-2xl">
+                <div className="w-12 h-12    rounded-full flex items-center justify-center text-2xl">
                   🤖
                 </div>
                 <div>
@@ -212,7 +212,7 @@ export default function AICareerCounseling() {
               </div>
             </Card>
 
-            <Card className="p-6 bg-gradient-to-r from-red-50 to-orange-50">
+            <Card className="p-6   ">
               <h3 className="font-bold mb-3">Quick Actions</h3>
               <div className="space-y-2">
                 <Button size="sm" variant="secondary" className="w-full">

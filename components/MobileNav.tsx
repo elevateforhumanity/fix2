@@ -45,7 +45,7 @@ export function MobileNav() {
       >
         <div className="flex items-center justify-between px-4 py-3">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-orange-500 rounded-lg" />
+            <div className="w-8 h-8    rounded-lg" />
             <span className="font-bold text-lg">Elevate</span>
           </Link>
 
@@ -75,7 +75,7 @@ export function MobileNav() {
       >
         <div className="flex flex-col h-full">
           {/* User Profile Section */}
-          <div className="p-6 bg-gradient-to-br from-red-600 to-orange-500 text-white">
+          <div className="p-6    text-white">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
                 <User size={32} />

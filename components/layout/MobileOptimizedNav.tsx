@@ -87,7 +87,7 @@ export function MobileOptimizedNav() {
             <div className="h-16" />
 
             {/* Main CTA Section */}
-            <div className="bg-gradient-to-br from-red-600 to-blue-600 text-white p-6">
+            <div className="   text-white p-6">
               <h2 className="text-2xl font-bold mb-2">Ready to Start?</h2>
               <p className="text-white/90 mb-4 text-sm">
                 100% funded training. No cost to you.

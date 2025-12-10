@@ -195,7 +195,7 @@ export default function DeviceCompatibility() {
       {/* Progress Bar */}
       <div className="bg-gray-200 rounded-full h-3 overflow-hidden">
         <div
-          className="bg-gradient-to-r from-blue-500 to-green-500 h-full transition-all duration-500"
+          className="   h-full transition-all duration-500"
           style={{ width: `${compatibilityPercent}%` }}
         />
       </div>

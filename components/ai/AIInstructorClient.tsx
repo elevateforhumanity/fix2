@@ -102,7 +102,7 @@ export function AIInstructorClient({
       <div className="p-4">
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full    flex items-center justify-center">
               <span className="text-white text-lg">🎓</span>
             </div>
             <div>

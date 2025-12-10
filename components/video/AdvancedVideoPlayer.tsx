@@ -250,7 +250,7 @@ export default function AdvancedVideoPlayer({
 
       {/* Controls Overlay */}
       <div
-        className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 transition-opacity duration-300 ${
+        className={`absolute bottom-0 left-0 right-0    p-4 transition-opacity duration-300 ${
           showControls ? 'opacity-100' : 'opacity-0'
         }`}
       >
@@ -396,7 +396,7 @@ export default function AdvancedVideoPlayer({
 
       {/* Video Title Overlay */}
       <div
-        className={`absolute top-0 left-0 right-0 bg-gradient-to-b from-black/70 to-transparent p-4 transition-opacity duration-300 ${
+        className={`absolute top-0 left-0 right-0    p-4 transition-opacity duration-300 ${
           showControls ? 'opacity-100' : 'opacity-0'
         }`}
       >

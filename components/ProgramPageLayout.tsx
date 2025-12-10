@@ -109,7 +109,7 @@ export default function ProgramPageLayout({
       </section>
 
       {/* Quick Facts - Visual Cards */}
-      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16   ">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
             <div className="bg-white rounded-2xl shadow-lg border-2 border-orange-100 p-8 text-center transform hover:scale-105 transition-all">
@@ -147,7 +147,7 @@ export default function ProgramPageLayout({
                 ))}
               </div>
               
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-3xl p-10 shadow-xl">
+              <div className="   rounded-3xl p-10 shadow-xl">
                 <h3 className="text-3xl font-bold mb-6 text-gray-900">Certifications You'll Earn</h3>
                 <div className="space-y-4">
                   {certifications.map((cert, index) => (
@@ -231,7 +231,7 @@ d="M5 13l4 4L19 7" />
                 <h3 className="text-3xl font-bold mb-6 text-gray-900">Career Opportunities</h3>
                 <div className="grid grid-cols-1 gap-4">
                   {jobTitles.map((job, index) => (
-                    <div key={index} className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-5 shadow-sm border-l-4 border-blue-500">
+                    <div key={index} className="   rounded-xl p-5 shadow-sm border-l-4 border-blue-500">
                       <span className="text-lg font-semibold text-gray-800">{job}</span>
                     </div>
                   ))}
@@ -243,7 +243,7 @@ d="M5 13l4 4L19 7" />
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-red-600 to-orange-600 text-white">
+      <section className="py-20    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-5xl font-black mb-6">{finalCtaTitle}</h2>

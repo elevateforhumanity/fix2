@@ -186,7 +186,7 @@ export default function ExternalModuleClient({
 
       {/* API Mode Progress Display */}
       {(isApiMode || isHybridMode) && progress?.external_enrollment_id && (
-        <div className="rounded-2xl border bg-gradient-to-br from-emerald-50 to-white p-4 shadow-sm">
+        <div className="rounded-2xl border    p-4 shadow-sm">
           <p className="text-xs font-semibold text-slate-700 mb-2">
             API Integration Active
           </p>

@@ -66,7 +66,7 @@ export default async function CertificatesPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Certificates
@@ -260,7 +260,7 @@ d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42
                   const course = enrollment.partner_courses;
                   return (
                     <div key={enrollment.id} className="bg-white rounded-lg shadow-sm border overflow-hidden">
-                      <div className="bg-gradient-to-r from-purple-600 to-purple-800 p-6 text-white">
+                      <div className="   p-6 text-white">
                         <div className="flex items-center justify-between mb-4">
                           <svg className="w-12 h-12" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">

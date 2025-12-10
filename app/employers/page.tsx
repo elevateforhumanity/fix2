@@ -147,7 +147,7 @@ export default async function Page() {
           </p>
           
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Pre-Screened Candidates" fill
 className="object-cover" sizes="80px" quality={100} />
@@ -158,7 +158,7 @@ className="object-cover" sizes="80px" quality={100} />
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Zero Recruitment Costs" fill
 className="object-cover" sizes="80px" quality={100} />
@@ -169,7 +169,7 @@ className="object-cover" sizes="80px" quality={100} />
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Indusstart-Specific Training" fill
 className="object-cover" sizes="80px" quality={100} />
@@ -180,7 +180,7 @@ className="object-cover" sizes="80px" quality={100} />
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Wage Reimbursement Programs" fill
 className="object-cover" sizes="80px" quality={100} />
@@ -191,7 +191,7 @@ className="object-cover" sizes="80px" quality={100} />
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Ongoing Support" fill
 className="object-cover" sizes="80px" quality={100} />
@@ -202,7 +202,7 @@ className="object-cover" sizes="80px" quality={100} />
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Diverse Talent Pool" fill
 className="object-cover" sizes="80px" quality={100} />
@@ -278,7 +278,7 @@ className="object-cover" sizes="80px" quality={100} />
       <EnrollmentProcess />
     
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+      <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>

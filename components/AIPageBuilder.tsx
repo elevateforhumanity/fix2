@@ -82,7 +82,7 @@ export default function AIPageBuilder() {
 
       if (data.success) {
         setGeneratedPage(data.page);
-        // Auto-generate name and slug
+        // Au name and slug
         setPageName(
           `${pageType.charAt(0).toUpperCase() + pageType.slice(1)} Page`
         );
@@ -346,7 +346,7 @@ export default function AIPageBuilder() {
         <div className="space-y-6">
           {generatedPage ? (
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="bg-gradient-to-r from-red-600 to-orange-500 px-6 py-4">
+              <div className="   px-6 py-4">
                 <h2 className="text-2xl font-semibold text-white">Preview</h2>
                 <p className="text-red-100 text-sm">{generatedPage.summary}</p>
               </div>

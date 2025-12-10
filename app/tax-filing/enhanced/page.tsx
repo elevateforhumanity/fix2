@@ -15,7 +15,7 @@ export default function TaxFilingEnhancedPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Banner with Image */}
-      <section className="relative h-[700px] bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 overflow-hidden">
+      <section className="relative h-[700px]     overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
       {/* Hero Section */}
@@ -29,7 +29,7 @@ export default function TaxFilingEnhancedPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
@@ -210,7 +210,7 @@ d="M5 13l4 4L19 7" />
 
                   <Link
                     href="/tax-filing/apply"
-                    className="block w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-xl text-center hover:shadow-lg transition-all"
+                    className="block w-full py-4    text-white font-bold rounded-xl text-center hover:shadow-lg transition-all"
                   >
                     Get Started →
                   </Link>
@@ -238,7 +238,7 @@ className="w-full">
       </section>
 
       {/* EPS Financial Products Highlight */}
-      <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+      <section className="py-20   ">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <div className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
@@ -255,7 +255,7 @@ className="w-full">
           <div className="grid md:grid-cols-3 gap-8">
             {/* E-Advance */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow border-2 border-green-200">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16    rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -298,7 +298,7 @@ d="M5 13l4 4L19 7" />
 
             {/* E-Collect */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow border-2 border-blue-200">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16    rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -341,7 +341,7 @@ d="M5 13l4 4L19 7" />
 
             {/* FasterMoney Card */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow border-2 border-purple-200">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16    rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -386,7 +386,7 @@ d="M5 13l4 4L19 7" />
           <div className="text-center mt-12">
             <Link
               href="/tax-filing/apply"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white font-bold rounded-xl hover:shadow-xl transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4    text-white font-bold rounded-xl hover:shadow-xl transition-all"
             >
               Start Your Tax Return
               <svg className="w-5 h-5" fill="none" stroke="currentColor"

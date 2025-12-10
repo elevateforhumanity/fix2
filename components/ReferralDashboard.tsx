@@ -148,7 +148,7 @@ export default function ReferralDashboard({ userId }: ReferralDashboardProps) {
       </div>
 
       {/* Referral Code Card */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg shadow-lg p-8 text-white">
+      <div className="   rounded-lg shadow-lg p-8 text-white">
         <div className="flex items-start justify-between">
           <div className="flex-1">
             <h2 className="text-2xl font-bold mb-2">Your Referral Code</h2>

@@ -76,7 +76,7 @@ export function StudyGroups() {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {groups.map((group) => (
           <Card key={group.id} className="hover:shadow-lg transition">
-            <div className="relative h-32 bg-gradient-to-br from-red-600 to-orange-500">
+            <div className="relative h-32   ">
               <div className="absolute top-4 right-4">
                 {group.privacy === 'public' ? (
                   <Globe className="text-white" size={20} />

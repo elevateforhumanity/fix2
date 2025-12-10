@@ -211,7 +211,7 @@ rows={4} className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ri
       </section>
     
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+      <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>

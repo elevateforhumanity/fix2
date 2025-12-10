@@ -20,7 +20,7 @@ export function VideoBackground({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Auto-play video when component mounts
+    // Au video when component mounts
     if (videoRef.current) {
       videoRef.current.play().catch(() => {
         // Autoplay blocked, that's okay

@@ -80,7 +80,7 @@ export function JobPlacementTracking() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Job Placement Tracking</h1>
           <p className="text-red-100">Monitor student success and employment outcomes</p>
@@ -149,7 +149,7 @@ export function JobPlacementTracking() {
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div
-                          className="bg-gradient-to-r from-red-600 to-orange-500 h-2 rounded-full"
+                          className="   h-2 rounded-full"
                           style={{ width: `${item.percentage}%` }}
                         />
                       </div>
@@ -181,7 +181,7 @@ export function JobPlacementTracking() {
               </Card>
             </div>
 
-            <Card className="p-6 bg-gradient-to-r from-green-50 to-emerald-50">
+            <Card className="p-6   ">
               <h3 className="text-xl font-bold mb-4">Success Stories</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="p-4 bg-white rounded">

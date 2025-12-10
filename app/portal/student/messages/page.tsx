@@ -92,7 +92,7 @@ export default async function MessagesPage() {
                         className="block p-4 hover:bg-gray-50 transition"
                       >
                         <div className="flex items-start gap-3">
-                          <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                          <div className="w-12 h-12    rounded-full flex items-center justify-center flex-shrink-0">
                             <User size={24} className="text-white" />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -136,7 +136,7 @@ export default async function MessagesPage() {
               {/* Header */}
               <div className="p-4 border-b flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10    rounded-full flex items-center justify-center">
                     <User size={20} className="text-white" />
                   </div>
                   <div>
@@ -242,7 +242,7 @@ export default async function MessagesPage() {
 
       
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+      <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">

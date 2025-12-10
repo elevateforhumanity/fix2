@@ -203,7 +203,7 @@ export default function PageManager() {
         {/* Pages List */}
         <div className="lg:col-span-1">
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="bg-gradient-to-r from-red-600 to-orange-500 px-4 py-3">
+            <div className="   px-4 py-3">
               <h2 className="text-lg font-semibold text-white">
                 All Pages ({pages.length})
               </h2>

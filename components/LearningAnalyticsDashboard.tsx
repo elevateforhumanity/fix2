@@ -66,7 +66,7 @@ export default function LearningAnalyticsDashboard() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Learning Analytics</h1>
           <p className="text-red-100">AI-powered insights into your learning journey</p>
@@ -138,7 +138,7 @@ export default function LearningAnalyticsDashboard() {
                   <div className="flex gap-2">
                     <div className="flex-1 bg-gray-200 rounded-full h-2">
                       <div
-                        className="bg-gradient-to-r from-red-600 to-orange-500 h-2 rounded-full"
+                        className="   h-2 rounded-full"
                         style={{ width: `${(day.hours / maxHours) * 100}%` }}
                       />
                     </div>
@@ -216,7 +216,7 @@ export default function LearningAnalyticsDashboard() {
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-to-r from-red-50 to-orange-50">
+        <Card className="p-6   ">
           <h3 className="text-xl font-bold mb-4">Recommendations</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-4 bg-white rounded">

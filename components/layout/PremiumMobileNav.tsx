@@ -119,7 +119,7 @@ export function PremiumMobileNav() {
       >
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-slate-200 bg-gradient-to-r from-red-600 to-blue-600">
+          <div className="flex items-center justify-between p-4 border-b border-slate-200   ">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center">
                 <span className="text-red-600 font-black text-sm">EFH</span>
@@ -287,7 +287,7 @@ export function PremiumMobileNav() {
               href="https://indianaconnect.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-gradient-to-r from-red-600 to-blue-600 text-white rounded-xl font-bold text-sm hover:shadow-lg transition-all"
+              className="flex items-center justify-center gap-2 w-full px-4 py-3    text-white rounded-xl font-bold text-sm hover:shadow-lg transition-all"
             >
               Schedule Appointment
               <ExternalLink size={16} />

@@ -8,9 +8,9 @@ export const metadata = {
 
 export default function SiteMapPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen   ">
       {/* Hero */}
-      <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
+      <section className="   text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-4">Complete Site Map</h1>
@@ -420,7 +420,7 @@ export default function SiteMapPage() {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 bg-gradient-to-r from-orange-600 to-orange-500 rounded-2xl p-12 text-center text-white">
+        <div className="mt-16    rounded-2xl p-12 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Can't Find What You're Looking For?</h2>
           <p className="text-xl text-orange-100 mb-8">Contact us and we'll help you find the right page or resource</p>
           <div className="flex flex-wrap gap-4 justify-center">

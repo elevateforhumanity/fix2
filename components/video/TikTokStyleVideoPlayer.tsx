@@ -90,7 +90,7 @@ export default function TikTokStyleVideoPlayer({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Auto-hide controls after 3 seconds of inactivity
+  // Au controls after 3 seconds of inactivity
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     if (showControls && isPlaying) {
@@ -311,7 +311,7 @@ label="English" />}
       )}
       {/* Title Overlay */}
       {title && (
-        <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/60 to-transparent">
+        <div className="absolute top-0 left-0 right-0 p-4   ">
           <h3 className="text-white font-semibold text-lg">{title}</h3>
         </div>
       )}
@@ -360,7 +360,7 @@ d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.3
       )}
       {/* Controls Overlay */}
       <div
-        className={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 transition-opacity duration-300 ${
+        className={`absolute bottom-0 left-0 right-0     p-4 transition-opacity duration-300 ${
           showControls ? 'opacity-100' : 'opacity-0'
         }`}
       >

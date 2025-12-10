@@ -69,7 +69,7 @@ export default function SupersonicFastCashPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <section className="relative min-h-[700px] flex items-center bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
+      <section className="relative min-h-[700px] flex items-center    ">
         <div className="absolute inset-0 opacity-10">
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
@@ -82,7 +82,7 @@ export default function SupersonicFastCashPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
@@ -181,7 +181,7 @@ d="M5 13l4 4L19 7" />
 
             <div className="grid md:grid-cols-3 gap-8">
               {/* E-Collect */}
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-xl border-2 border-blue-200">
+              <div className="   rounded-2xl p-8 shadow-xl border-2 border-blue-200">
                 <div className="text-center mb-6">
                   <div className="inline-block px-4 py-2 bg-blue-600 text-white font-bold rounded-full text-sm mb-4">
                     LOW COST
@@ -226,7 +226,7 @@ d="M5 13l4 4L19 7" />
               </div>
 
               {/* E-Advance - CASH ADVANCE */}
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 shadow-xl border-4 border-green-400">
+              <div className="   rounded-2xl p-8 shadow-xl border-4 border-green-400">
                 <div className="text-center mb-6">
                   <div className="inline-block px-4 py-2 bg-green-600 text-white font-bold rounded-full text-sm mb-4">
                     💰 CASH ADVANCE - MOST POPULAR
@@ -279,7 +279,7 @@ d="M5 13l4 4L19 7" />
               </div>
 
               {/* FasterMoney Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 shadow-xl border-2 border-purple-200">
+              <div className="   rounded-2xl p-8 shadow-xl border-2 border-purple-200">
                 <div className="text-center mb-6">
                   <div className="inline-block px-4 py-2 bg-purple-600 text-white font-bold rounded-full text-sm mb-4">
                     FASTEST
@@ -501,7 +501,7 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 to-indigo-900 text-white">
+      <section className="py-20    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-black text-center mb-12">

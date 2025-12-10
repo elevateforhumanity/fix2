@@ -29,7 +29,7 @@ export default function MobileCourseCard({
     >
       {/* Thumbnail */}
       {thumbnail && (
-        <div className="relative h-40 bg-gradient-to-br from-blue-500 to-purple-600">
+        <div className="relative h-40   ">
           <img
             src={thumbnail}
             alt={title}
@@ -57,7 +57,7 @@ export default function MobileCourseCard({
             </div>
             <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300"
+                className="h-full    transition-all duration-300"
                 style={{ width: `${progress}%` }}
               />
             </div>

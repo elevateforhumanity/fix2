@@ -140,7 +140,7 @@ export function ProgressDashboard({ userId }: { userId: string }) {
         </div>
         <div className="h-4 bg-slate-200 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-red-500 to-emerald-600 transition-all duration-500"
+            className="h-full    transition-all duration-500"
             style={{ width: `${data.overall_progress}%` }}
           />
         </div>
@@ -185,7 +185,7 @@ export function ProgressDashboard({ userId }: { userId: string }) {
 
       {/* Learning Streak */}
       {data.streak_days > 0 && (
-        <div className="bg-gradient-to-r from-orange-500 to-red-500 rounded-lg p-6 text-white">
+        <div className="   rounded-lg p-6 text-white">
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
               <span className="text-3xl">🔥</span>

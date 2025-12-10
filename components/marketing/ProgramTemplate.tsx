@@ -31,7 +31,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
   return (
     <main className="min-h-screen bg-white">
       {/* TOP BANNER */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-500 py-3 sticky top-0 z-50 shadow-lg">
+      <section className="   py-3 sticky top-0 z-50 shadow-lg">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-3">
@@ -307,7 +307,7 @@ export function ProgramTemplate({ program }: ProgramTemplateProps) {
 
       {/* CTA Section */}
       {/* CTA WITH IMAGE */}
-      <section className="py-16 bg-gradient-to-r from-orange-600 to-orange-500">
+      <section className="py-16   ">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">

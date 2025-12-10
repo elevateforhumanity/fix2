@@ -90,7 +90,7 @@ export function CoursePlayer() {
             </div>
           </div>
           {/* Video Controls */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+          <div className="absolute bottom-0 left-0 right-0    p-4">
             <div className="flex items-center gap-4">
               <button className="text-white hover:text-red-500 transition-colors">
                 {isPlaying ? (

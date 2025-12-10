@@ -15,7 +15,7 @@ export default function VITAPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="relative h-[500px] bg-gradient-to-r from-blue-900 to-blue-700">
+      <section className="relative h-[500px]   ">
         <div className="absolute inset-0">
           <Image src="/media-backup-20251128-043832/programs/tax-prep-hd.jpg"
             alt="VITA Program - Free Tax Preparation" fill className="object-cover opacity-20" quality={100} sizes="100vw" />
@@ -283,7 +283,7 @@ export default function VITAPage() {
       </section>
 
         {/* CTA */}
-        <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-700 text-white px-4">
+        <section className="py-20    text-white px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-6">
               Ready to Get Started?

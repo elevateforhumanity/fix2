@@ -163,7 +163,7 @@ function getAutoConfig(section: string, label: string, route: string): AutoConfi
         primaryCta: { href: "/employers/hire-graduates", label: "Hire graduates" },
         secondaryCta: { href: "/employers", label: "Employer overview" },
         bullets: [
-          "Reduce time-to-hire with pre-screened, supported candidates",
+          "Reduce time- with pre-screened, supported candidates",
           "Align job descriptions with training and credential pathways",
           "Use data and reports to see the impact of your partnership",
         ],
@@ -450,7 +450,7 @@ export function AutoPolishedPage({ route, label, section }: AutoPolishedPageProp
   return (
     <main className="bg-white">
       {/* TOP BANNER */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-500 py-3 sticky top-0 z-50 shadow-lg">
+      <section className="   py-3 sticky top-0 z-50 shadow-lg">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-3">
@@ -481,7 +481,7 @@ export function AutoPolishedPage({ route, label, section }: AutoPolishedPageProp
           priority
           quality={100}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-transparent" />
+        <div className="absolute inset-0    " />
         
         <div className="relative h-full flex items-center">
           <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">

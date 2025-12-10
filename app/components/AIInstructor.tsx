@@ -34,7 +34,7 @@ export default function AIInstructor({
     try {
       // Option 1: Use ElevenLabs API (requires API key)
       if (process.env.NEXT_PUBLIC_ELEVENLABS_API_KEY) {
-        const response = await fetch('/api/text-to-speech', {
+        const response = await fetch('/api/text- {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text: message }),
@@ -76,7 +76,7 @@ export default function AIInstructor({
         window.speechSynthesis.speak(utterance);
       }
     } catch (error) {
-      console.error('Error with text-to-speech:', error);
+      console.error('Error with text- error);
       setIsSpeaking(false);
     }
   };
@@ -91,7 +91,7 @@ export default function AIInstructor({
   };
 
   return (
-    <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6 shadow-lg border-2 border-blue-200">
+    <div className="   rounded-xl p-6 shadow-lg border-2 border-blue-200">
       <div className="flex items-start gap-4">
         {/* Avatar */}
         <div className="flex-shrink-0">

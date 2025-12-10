@@ -25,7 +25,7 @@ export default function BarberPage() {
           quality={100}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/70 to-purple-600/70" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
             <div className="max-w-4xl">
@@ -143,7 +143,7 @@ export default function BarberPage() {
       </section>
 
       {/* AI-Powered Learning */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-20   ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">

@@ -68,7 +68,7 @@ export default function Page() {
           </div>
 
           {/* What Makes Us Different */}
-          <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-2xl p-8 lg:p-12 shadow-xl">
+          <div className="   rounded-2xl p-8 lg:p-12 shadow-xl">
             <h3 className="text-3xl font-extrabold mb-4 text-center">What Makes Us Different</h3>
             <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
               We're not just a training provider—we're a comprehensive workforce ecosystem that addresses every barrier to employment.
@@ -190,7 +190,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl font-extrabold mb-12 text-center">Meet Our Founder</h2>
-            <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 lg:p-12 border border-slate-200">
+            <div className="   rounded-2xl p-8 lg:p-12 border border-slate-200">
               <div className="grid md:grid-cols-3 gap-8 items-start">
                 <div className="md:col-span-1">
                   <div className="relative w-48 h-48 mx-auto rounded-xl overflow-hidden shadow-lg mb-4">

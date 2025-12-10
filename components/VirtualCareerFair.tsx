@@ -85,7 +85,7 @@ export default function VirtualCareerFair() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Virtual Career Fair 2024</h1>
           <p className="text-red-100">Connect with top employers from anywhere</p>

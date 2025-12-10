@@ -119,21 +119,21 @@ export default function DashboardsPage() {
 
   const colorClasses = {
     blue: {
-      bg: 'from-blue-600 to-blue-700',
+      bg: ' 
       light: 'bg-blue-50',
       border: 'border-blue-200',
       text: 'text-blue-700',
       hover: 'hover:border-blue-500',
     },
     purple: {
-      bg: 'from-purple-600 to-purple-700',
+      bg: ' 
       light: 'bg-purple-50',
       border: 'border-purple-200',
       text: 'text-purple-700',
       hover: 'hover:border-purple-500',
     },
     green: {
-      bg: 'from-green-600 to-green-700',
+      bg: ' 
       light: 'bg-green-50',
       border: 'border-green-200',
       text: 'text-green-700',
@@ -154,7 +154,7 @@ export default function DashboardsPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Access Your Dashboard
@@ -175,7 +175,7 @@ export default function DashboardsPage() {
               return (
                 <div key={section.category}>
                   {/* Section Header */}
-                  <div className={`bg-gradient-to-r ${colors.bg} rounded-2xl p-8 text-white mb-8`}>
+                  <div className={` ${colors.bg} rounded-2xl p-8 text-white mb-8`}>
                     <h2 className="text-3xl font-bold mb-2">{section.category}</h2>
                     <p className="text-lg opacity-90">{section.description}</p>
                   </div>

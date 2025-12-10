@@ -38,7 +38,7 @@ const slides: Slide[] = [
     title: "From incarceration to income.",
     highlight: "Coaching + apprenticeships + employers.",
     body: "Barber, trades, and other pathways built specifically with re-entry in mind — structure, accountability, and real earning potential.",
-    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1200&h=675&fit=crop&q=80",
+    image: "https://images.unsplash.com/pho",
     primaryCtaLabel: "Explore re-entry pathways",
     primaryCtaHref: "/reentry",
     secondaryCtaLabel: "Watch 2-minute story",
@@ -63,7 +63,7 @@ const AUTO_ROTATE_MS = 7000;
 export function HeroCarousel() {
   const [index, setIndex] = useState(0);
 
-  // Auto-rotate
+  // Au
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
@@ -80,7 +80,7 @@ export function HeroCarousel() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-orange-500/25 via-rose-500/20 to-amber-400/15" />
+      <div className="pointer-events-none absolute inset-0    " />
       <div className="relative mx-auto flex min-h-[72vh] max-w-6xl flex-col gap-10 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
         {/* LEFT: text / CTAs with animation */}
         <div className="max-w-xl">

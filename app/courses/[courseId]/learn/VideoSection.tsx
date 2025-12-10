@@ -17,7 +17,7 @@ export default function VideoSection({ videoUrl, lessonId, courseId }: VideoSect
       const percent = (videoRef.current.currentTime / videoRef.current.duration) * 100;
       setProgress(percent);
 
-      // Auto-save progress every 5 seconds
+      // Au progress every 5 seconds
       if (Math.floor(videoRef.current.currentTime) % 5 === 0) {
         saveProgress(videoRef.current.currentTime);
       }

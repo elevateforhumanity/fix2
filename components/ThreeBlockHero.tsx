@@ -10,7 +10,7 @@ const heroBlocks = [
     cta: "Explore Beauty Programs",
     href: "/programs/barber",
     badge: "Licensed Careers",
-    color: "from-pink-600 to-purple-600",
+    color: " ",
   },
   {
     image: "/images/sharon-douglas.jpg",
@@ -19,7 +19,7 @@ const heroBlocks = [
     cta: "View Healthcare Programs",
     href: "/programs/cna",
     badge: "High Demand",
-    color: "from-teal-600 to-blue-600",
+    color: " ",
   },
   {
     image: "/images/ameco-martin.jpg",
@@ -28,7 +28,7 @@ const heroBlocks = [
     cta: "Learn About Job Support",
     href: "/career-services",
     badge: "85% Placement Rate",
-    color: "from-orange-600 to-orange-700",
+    color: " ",
   },
 ];
 

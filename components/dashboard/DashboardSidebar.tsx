@@ -173,7 +173,7 @@ export function DashboardSidebar({
       </div>
 
       {/* Progress Summary */}
-      <div className="bg-gradient-to-br from-red-500 to-emerald-600 rounded-lg p-4 text-white">
+      <div className="   rounded-lg p-4 text-white">
         <h3 className="font-semibold mb-3 flex items-center gap-2">
           <Award className="w-4 h-4" />
           Your Progress

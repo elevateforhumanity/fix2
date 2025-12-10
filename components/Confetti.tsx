@@ -56,7 +56,7 @@ export default function Confetti({
       setPieces(newPieces);
       setIsActive(true);
 
-      // Auto-hide after duration
+      // Au after duration
       const timer = setTimeout(() => {
         setIsActive(false);
       }, duration);

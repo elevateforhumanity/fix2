@@ -25,7 +25,7 @@ export function TranscriptPanel({
   const [isExpanded, setIsExpanded] = useState(true);
   const activeSegmentRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to active segment
+  // Au to active segment
   useEffect(() => {
     if (activeSegmentRef.current) {
       activeSegmentRef.current.scrollIntoView({

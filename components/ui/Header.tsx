@@ -70,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2">
-              <div className="h-10 w-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center">
+              <div className="h-10 w-10    rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">E</span>
               </div>
               <div className="hidden sm:block">
@@ -160,7 +160,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
             {/* Apply Button - Desktop */}
             <Link
               href="/apply"
-              className="hidden lg:inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-red-500 to-orange-500 rounded-lg hover:from-red-600 hover:to-orange-600 transition-all"
+              className="hidden lg:inline-flex items-center px-4 py-2 text-sm font-medium text-white    rounded-lg hover: hover: transition-all"
             >
               Apply Now
             </Link>
@@ -218,7 +218,7 @@ export const Header: React.FC<HeaderProps> = ({ onSearchClick }) => {
               </Link>
               <Link
                 href="/apply"
-                className="block px-3 py-2 text-base font-medium text-white bg-gradient-to-r from-red-500 to-orange-500 rounded-lg hover:from-red-600 hover:to-orange-600 transition-all text-center mt-2"
+                className="block px-3 py-2 text-base font-medium text-white    rounded-lg hover: hover: transition-all text-center mt-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Apply Now

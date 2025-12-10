@@ -104,7 +104,7 @@ export function TutorialSystem({
     <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="flex items-start justify-between p-6 border-b bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="flex items-start justify-between p-6 border-b   ">
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
               <BookOpen className="w-5 h-5 text-blue-600" />

@@ -238,7 +238,7 @@ export default async function CashAdvancesAdminPage() {
       </div>
 
       {/* EPS Financial Partnership Status */}
-      <div className="mt-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg p-6">
+      <div className="mt-8    text-white rounded-lg p-6">
         <div className="flex items-start justify-between mb-4">
           <div>
             <h3 className="text-xl font-bold mb-2">
@@ -378,7 +378,7 @@ export default async function CashAdvancesAdminPage() {
 
       
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+      <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>

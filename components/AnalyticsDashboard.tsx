@@ -148,7 +148,7 @@ export function AnalyticsDashboard({ data, timeframe = 'month' }: AnalyticsDashb
                   </div>
                   <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-red-600 to-orange-500"
+                      className="h-full   "
                       style={{ width: `${course.completion}%` }}
                     />
                   </div>
@@ -190,7 +190,7 @@ export function AnalyticsDashboard({ data, timeframe = 'month' }: AnalyticsDashb
             {[65, 72, 68, 85, 92, 88, 95, 90, 98, 102, 108, 115].map((value, index) => (
               <div key={index} className="flex-1 flex flex-col items-center">
                 <div
-                  className="w-full bg-gradient-to-t from-red-600 to-orange-500 rounded-t"
+                  className="w-full    rounded-t"
                   style={{ height: `${(value / 115) * 100}%` }}
                 />
                 <div className="text-xs text-gray-600 mt-2">

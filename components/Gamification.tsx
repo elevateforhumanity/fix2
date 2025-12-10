@@ -28,7 +28,7 @@ export function Gamification({ points, level, achievements, streak }: Gamificati
   return (
     <div className="space-y-6">
       {/* Points and Level */}
-      <Card className="bg-gradient-to-br from-red-50 to-orange-50">
+      <Card className="  ">
         <CardContent className="p-6">
           <div className="flex items-center justify-between mb-4">
             <div>
@@ -42,7 +42,7 @@ export function Gamification({ points, level, achievements, streak }: Gamificati
           </div>
           <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-red-600 to-orange-500 transition-all"
+              className="h-full    transition-all"
               style={{ width: `${progressToNextLevel}%` }}
             />
           </div>

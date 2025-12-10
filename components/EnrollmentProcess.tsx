@@ -20,7 +20,7 @@ export default function EnrollmentProcess() {
           {/* Step 1 */}
           <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 flex gap-6">
             <div className="flex-shrink-0">
-              <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+              <div className="w-20 h-20    rounded-2xl flex items-center justify-center shadow-lg">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -50,7 +50,7 @@ className="text-orange-600 font-semibold hover:underline">www.indianacareerconne
           {/* Step 2 */}
           <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 flex gap-6">
             <div className="flex-shrink-0">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+              <div className="w-20 h-20    rounded-2xl flex items-center justify-center shadow-lg">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}

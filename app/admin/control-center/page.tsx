@@ -60,7 +60,7 @@ export default async function AdminControlCenter() {
       items: [
         { name: 'AI Course Builder', desc: 'Generate complete courses with AI', link: '/admin/ai-course-builder', icon: Sparkles },
         { name: 'Course Builder', desc: 'Build courses manually', link: '/admin/course-builder', icon: BookOpen },
-        { name: 'Course Generator', desc: 'Auto-generate course content', link: '/admin/course-generator', icon: Cpu },
+        { name: 'Course Generator', desc: 'Au course content', link: '/admin/course-generator', icon: Cpu },
         { name: 'Program Generator', desc: 'Create training programs', link: '/admin/program-generator', icon: Building2 },
         { name: 'Quiz Builder', desc: 'Create assessments', link: '/admin/quiz-builder', icon: FileText },
         { name: 'Syllabus Generator', desc: 'Generate course syllabi', link: '/admin/syllabus-generator', icon: FileText },
@@ -173,7 +173,7 @@ export default async function AdminControlCenter() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Control Center

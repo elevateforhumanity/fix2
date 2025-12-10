@@ -60,7 +60,7 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-slate-50">
+    <section className="py-20   ">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section Header */}
         <div className="text-center mb-16">

@@ -90,10 +90,10 @@ export default async function CashAdvanceSettingsPage() {
               />
             </div>
 
-            {/* Auto-Approval Threshold */}
+            {/* Au Threshold */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Auto-Approval Threshold
+                Au Threshold
               </label>
               <div className="flex items-center gap-2">
                 <span className="text-gray-500">$</span>
@@ -104,7 +104,7 @@ export default async function CashAdvanceSettingsPage() {
                 />
               </div>
               <p className="mt-1 text-sm text-gray-500">
-                Requests below this amount are auto-approved
+                Requests below this amount are au
               </p>
             </div>
 

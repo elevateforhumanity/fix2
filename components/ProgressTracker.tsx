@@ -26,7 +26,7 @@ export function ProgressTracker({ modules, overallProgress }: ProgressTrackerPro
 
   return (
     <div className="space-y-6">
-      <Card className="bg-gradient-to-br from-red-50 to-orange-50">
+      <Card className="  ">
         <CardContent className="p-6">
           <div className="mb-4">
             <div className="flex items-center justify-between mb-2">
@@ -35,7 +35,7 @@ export function ProgressTracker({ modules, overallProgress }: ProgressTrackerPro
             </div>
             <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-red-600 to-orange-500 transition-all"
+                className="h-full    transition-all"
                 style={{ width: `${overallProgress}%` }}
               />
             </div>

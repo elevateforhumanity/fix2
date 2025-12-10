@@ -140,7 +140,7 @@ export default function ApplyNewPage() {
 
   const updateFormData = (field: keyof FormData, value: any) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    // Auto-save to localStorage
+    // Au to localStorage
     localStorage.setItem('applicationDraft', JSON.stringify({ ...formData, [field]: value }));
   };
 
@@ -197,7 +197,7 @@ export default function ApplyNewPage() {
   const progress = (currentStep / TOTAL_STEPS) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen   ">
       {/* Progress Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
         <div className="max-w-7xl mx-auto px-6 py-4">
@@ -209,7 +209,7 @@ export default function ApplyNewPage() {
           </div>
           <div className="relative h-2 bg-slate-200 rounded-full overflow-hidden">
             <motion.div
-              className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-600 to-purple-600"
+              className="absolute top-0 left-0 h-full   "
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
               transition={{ duration: 0.5, ease: 'easeOut' }}

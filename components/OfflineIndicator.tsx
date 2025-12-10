@@ -18,7 +18,7 @@ export default function OfflineIndicator() {
       setIsOnline(true);
       setShowBanner(true);
 
-      // Auto-hide banner after 3 seconds
+      // Au banner after 3 seconds
       setTimeout(() => setShowBanner(false), 3000);
 
       // Trigger sync

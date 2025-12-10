@@ -197,7 +197,7 @@ export default function InteractiveVideoPlayer({
     if (quizAnswer !== null && currentQuiz) {
       setShowQuizResult(true);
 
-      // Auto-continue after showing result
+      // Au after showing result
       setTimeout(() => {
         setShowQuiz(false);
         setShowQuizResult(false);
@@ -318,7 +318,7 @@ export default function InteractiveVideoPlayer({
         )}
 
         {/* Video Controls */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+        <div className="absolute bottom-0 left-0 right-0    p-4">
           {/* Progress Bar */}
           <div className="mb-4">
             <input

@@ -40,7 +40,7 @@ export default function CourseCatalogClient({ courses }: Props) {
   return (
     <main className="min-h-screen bg-slate-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-16">
+      <section className="   text-white py-16">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -164,7 +164,7 @@ export default function CourseCatalogClient({ courses }: Props) {
                   className="group bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all"
                 >
                   {/* Course Thumbnail */}
-                  <div className="relative h-48 bg-gradient-to-br from-red-100 to-blue-100 flex items-center justify-center">
+                  <div className="relative h-48    flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-white/90 flex items-center justify-center">
                         <BookOpen size={32} className="text-red-600" />
@@ -275,7 +275,7 @@ export default function CourseCatalogClient({ courses }: Props) {
           <h2 className="text-3xl font-bold text-slate-900 mb-8">Featured Learning Paths</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {learningPaths.map((path, index) => (
-              <div key={index} className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200">
+              <div key={index} className="   rounded-xl p-6 border border-slate-200">
                 <div className="w-12 h-12 rounded-lg bg-red-100 flex items-center justify-center mb-4">
                   <path.icon size={24} className="text-red-600" />
                 </div>

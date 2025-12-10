@@ -342,7 +342,7 @@ export function AutoAttritionTracker() {
   }
 
   return (
-    <div className="auto-attrition-tracker">
+    <div className="au">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h2 className="text-2xl font-bold text-brand-text">
@@ -350,7 +350,7 @@ export function AutoAttritionTracker() {
           </h2>
           <p className="text-brand-text-muted">
             Real-time monitoring with predictive analytics and
-            auto-interventions
+            au
           </p>
         </div>
         <div className="flex items-center space-x-4">
@@ -625,7 +625,7 @@ export function AutoAttritionTracker() {
               </div>
               <div className="bg-green-50 border border-green-200 rounded p-3">
                 <div className="text-sm font-medium text-brand-success mb-1">
-                  🤖 Auto-Intervention:
+                  🤖 Au
                 </div>
                 <div className="text-sm text-green-700">
                   {factor.autoIntervention}

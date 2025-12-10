@@ -123,7 +123,7 @@ export default function AdminNav() {
     <nav className="w-64 bg-gray-900 text-white min-h-screen p-4 overflow-y-auto">
       <div className="mb-8">
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg   ">
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5}

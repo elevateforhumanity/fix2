@@ -104,7 +104,7 @@ export default function SkillsGapAnalysis() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Skills Gap Analysis</h1>
           <p className="text-red-100">Identify and close skill gaps in your workforce</p>
@@ -112,7 +112,7 @@ export default function SkillsGapAnalysis() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <Card className="p-6 mb-8 bg-gradient-to-r from-yellow-50 to-orange-50">
+        <Card className="p-6 mb-8   ">
           <div className="flex items-start gap-4">
             <div className="text-5xl">📊</div>
             <div>

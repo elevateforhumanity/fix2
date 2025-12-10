@@ -36,7 +36,7 @@ export default function TaxFilingPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Tax Filing
@@ -62,7 +62,7 @@ export default function TaxFilingPage() {
       </section>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-green-600 to-blue-600 text-white py-20">
+      <section className="relative    text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -151,7 +151,7 @@ export default function TaxFilingPage() {
             </div>
 
             {/* Our Service */}
-            <div className="bg-gradient-to-br from-green-600 to-blue-600 rounded-xl shadow-2xl p-8 border-4 border-green-400 transform scale-105">
+            <div className="   rounded-xl shadow-2xl p-8 border-4 border-green-400 transform scale-105">
               <div className="bg-yellow-400 text-green-900 px-3 py-1 rounded-full text-sm font-bold inline-block mb-4">
                 BEST VALUE
               </div>
@@ -297,7 +297,7 @@ export default function TaxFilingPage() {
       {/* Drake Software Info */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white">
+          <div className="   rounded-2xl p-12 text-white">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-3xl font-extrabold mb-4">Powered by Drake Tax Software</h2>
@@ -383,7 +383,7 @@ export default function TaxFilingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600 text-white">
+      <section className="py-20    text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-extrabold mb-6">Ready to File Your Taxes?</h2>
           <p className="text-xl text-green-100 mb-8">

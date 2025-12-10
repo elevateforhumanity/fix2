@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
                 />
                 <button
                   type="submit"
-                  className="mt-3 sm:mt-0 sm:ml-3 w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-red-500 to-orange-500 text-white font-medium rounded-lg hover:from-red-600 hover:to-orange-600 transition-all whitespace-nowrap"
+                  className="mt-3 sm:mt-0 sm:ml-3 w-full sm:w-auto px-6 py-3    text-white font-medium rounded-lg hover: hover: transition-all whitespace-nowrap"
                 >
                   Subscribe
                 </button>
@@ -188,7 +188,7 @@ export const Footer: React.FC = () => {
             {/* Logo & Description */}
             <div className="lg:max-w-md">
               <div className="flex items-center gap-2 mb-3">
-                <div className="h-10 w-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center">
+                <div className="h-10 w-10    rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-xl">E</span>
                 </div>
                 <div>

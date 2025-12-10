@@ -22,15 +22,15 @@ export function BadgeShowcase({ badges }: BadgeShowcaseProps) {
   const getRarityColor = (rarity: string) => {
     switch (rarity) {
       case "common":
-        return "from-slate-600 to-slate-700";
+        return " ";
       case "rare":
-        return "from-blue-600 to-blue-700";
+        return " ";
       case "epic":
-        return "from-purple-600 to-purple-700";
+        return " ";
       case "legendary":
-        return "from-orange-600 to-orange-700";
+        return " ";
       default:
-        return "from-slate-600 to-slate-700";
+        return " ";
     }
   };
 
@@ -50,7 +50,7 @@ export function BadgeShowcase({ badges }: BadgeShowcaseProps) {
             {earnedBadges.map((badge) => (
               <div
                 key={badge.id}
-                className={`bg-gradient-to-br ${getRarityColor(badge.rarity)} rounded-lg p-4 text-center`}
+                className={` ${getRarityColor(badge.rarity)} rounded-lg p-4 text-center`}
               >
                 <div className="w-16 h-16 mx-auto mb-3 bg-white/20 rounded-full flex items-center justify-center">
                   <Award className="w-8 h-8 text-white" />

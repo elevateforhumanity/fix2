@@ -90,7 +90,7 @@ export default function CompliantFooter() {
                 href="https://www.instagram.com/elevateforhumanity" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
+                className="w-10 h-10     rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />

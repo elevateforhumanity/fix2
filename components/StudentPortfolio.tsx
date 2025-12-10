@@ -54,7 +54,7 @@ export function StudentPortfolio() {
       title: 'E-Commerce Platform',
       description: 'Full-featured online shopping platform with payment integration, inventory management, and admin dashboard.',
       category: 'Web Development',
-      imageUrl: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/pho
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Tailwind CSS'],
       completedDate: '2024-01',
       githubUrl: 'https://github.com/example/ecommerce',
@@ -66,7 +66,7 @@ export function StudentPortfolio() {
       title: 'Task Management App',
       description: 'Collaborative project management tool with real-time updates, team chat, and analytics.',
       category: 'Web Development',
-      imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/pho
       technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Socket.io', 'Prisma'],
       completedDate: '2023-11',
       githubUrl: 'https://github.com/example/taskmanager',
@@ -78,7 +78,7 @@ export function StudentPortfolio() {
       title: 'Weather Forecast Dashboard',
       description: 'Interactive weather application with 7-day forecasts, maps, and severe weather alerts.',
       category: 'Mobile Development',
-      imageUrl: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/pho
       technologies: ['React Native', 'OpenWeather API', 'Redux', 'Expo'],
       completedDate: '2023-09',
       githubUrl: 'https://github.com/example/weather',
@@ -89,7 +89,7 @@ export function StudentPortfolio() {
       title: 'AI Chatbot Assistant',
       description: 'Intelligent chatbot using natural language processing for customer support automation.',
       category: 'AI/ML',
-      imageUrl: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/pho
       technologies: ['Python', 'TensorFlow', 'Flask', 'OpenAI API', 'Docker'],
       completedDate: '2023-12',
       githubUrl: 'https://github.com/example/chatbot',
@@ -100,7 +100,7 @@ export function StudentPortfolio() {
       title: 'Portfolio Website Builder',
       description: 'Drag-and-drop website builder for creating professional portfolios without coding.',
       category: 'Web Development',
-      imageUrl: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/pho
       technologies: ['Vue.js', 'Firebase', 'Vuetify', 'Netlify'],
       completedDate: '2023-08',
       liveUrl: 'https://portfolio-builder.netlify.app',
@@ -111,7 +111,7 @@ export function StudentPortfolio() {
       title: 'Fitness Tracking App',
       description: 'Mobile app for tracking workouts, nutrition, and health metrics with social features.',
       category: 'Mobile Development',
-      imageUrl: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&h=600&fit=crop',
+      imageUrl: 'https://images.unsplash.com/pho
       technologies: ['Flutter', 'Dart', 'Firebase', 'HealthKit'],
       completedDate: '2023-10',
       githubUrl: 'https://github.com/example/fitness',
@@ -175,9 +175,9 @@ export function StudentPortfolio() {
   const skillCategories = Array.from(new Set(skills.map(s => s.category)));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen   ">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white">
+      <div className="   text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <img
@@ -366,7 +366,7 @@ className="text-white hover:text-red-100 transition-colors">
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2.5">
                             <div
-                              className="bg-gradient-to-r from-red-600 to-orange-500 h-2.5 rounded-full transition-all duration-500"
+                              className="   h-2.5 rounded-full transition-all duration-500"
                               style={{ width: `${skill.level}%` }}
                             />
                           </div>
@@ -391,7 +391,7 @@ className="text-white hover:text-red-100 transition-colors">
               {certificates.map((cert) => (
                 <Card key={cert.id} className="p-6 hover:shadow-lg transition-shadow">
                   <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-16 h-16    rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-3xl">🏆</span>
                     </div>
                     <div className="flex-1">
@@ -442,7 +442,7 @@ className="text-white hover:text-red-100 transition-colors">
                   </p>
                   <p>
                     When I'm not coding, I enjoy contributing to open-source projects, mentoring junior developers, and staying 
-                    up-to-date with the latest industry trends through conferences and online communities.
+                    up- with the latest industry trends through conferences and online communities.
                   </p>
                 </div>
 
@@ -496,14 +496,14 @@ className="text-white hover:text-red-100 transition-colors">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">Interests</h3>
                   <div className="flex flex-wrap gap-2">
                     {['Web Development', 'Mobile Apps', 'Cloud Computing', 'AI/ML', 'Open Source', 'UI/UX Design', 'DevOps', 'Mentoring'].map((interest) => (
-                      <span key={interest} className="px-3 py-1 bg-gradient-to-r from-red-100 to-orange-100 text-red-700 text-sm rounded-full">
+                      <span key={interest} className="px-3 py-1    text-red-700 text-sm rounded-full">
                         {interest}
                       </span>
                     ))}
                   </div>
                 </Card>
 
-                <Card className="p-6 bg-gradient-to-br from-red-600 to-orange-500 text-white">
+                <Card className="p-6    text-white">
                   <h3 className="text-xl font-bold mb-3">Let's Connect!</h3>
                   <p className="text-red-50 text-sm mb-4">
                     I'm always open to discussing new opportunities, collaborations, or just chatting about tech.

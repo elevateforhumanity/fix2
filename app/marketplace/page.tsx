@@ -117,7 +117,7 @@ export default function Page() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Welcome
@@ -194,7 +194,7 @@ d="M5 13l4 4L19 7" />
                 </ul>
               </div>
               <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg flex items-center justify-center">
+                <div className="aspect-video    rounded-lg shadow-lg flex items-center justify-center">
                   <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}

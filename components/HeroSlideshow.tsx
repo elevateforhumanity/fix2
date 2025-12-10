@@ -114,7 +114,7 @@ export default function HeroSlideshow() {
     }, 5000);
     return () => clearInterval(timer);
   }, [isAutoPlaying]);
-  // Auto-play voiceover on mount
+  // Au voiceover on mount
   useEffect(() => {
     const audio = new Audio('/videos/voiceover.mp3');
     audio.volume = 0.7;
@@ -150,7 +150,7 @@ export default function HeroSlideshow() {
               quality={100}
             />
           ) : (
-            <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-blue-600" />
+            <div className="absolute inset-0   " />
           )}
           <div className="relative h-full flex items-center">
             <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">

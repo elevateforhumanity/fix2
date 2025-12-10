@@ -15,7 +15,7 @@ export default function SupersonicCashEnhancedPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Banner with Image */}
-      <section className="relative h-[700px] bg-gradient-to-br from-green-600 via-emerald-600 to-teal-600 overflow-hidden">
+      <section className="relative h-[700px]     overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0">
       {/* Hero Section */}
@@ -29,7 +29,7 @@ export default function SupersonicCashEnhancedPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
           <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
@@ -206,7 +206,7 @@ d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618
                     </div>
                   </div>
 
-                  <button className="w-full py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-xl hover:shadow-lg transition-all">
+                  <button className="w-full py-4    text-white font-bold rounded-xl hover:shadow-lg transition-all">
                     Get Started →
                   </button>
 
@@ -259,7 +259,7 @@ className="w-full">
           <div className="grid md:grid-cols-3 gap-8">
             {/* Step 1 */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 hover:shadow-xl transition-shadow">
+              <div className="   rounded-2xl p-8 hover:shadow-xl transition-shadow">
                 <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6">
                   <span className="text-3xl font-bold text-white">1</span>
                 </div>
@@ -298,7 +298,7 @@ d="M5 13l4 4L19 7" />
 
             {/* Step 2 */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 hover:shadow-xl transition-shadow">
+              <div className="   rounded-2xl p-8 hover:shadow-xl transition-shadow">
                 <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
                   <span className="text-3xl font-bold text-white">2</span>
                 </div>
@@ -337,7 +337,7 @@ d="M5 13l4 4L19 7" />
 
             {/* Step 3 */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-8 hover:shadow-xl transition-shadow">
+              <div className="   rounded-2xl p-8 hover:shadow-xl transition-shadow">
                 <div className="w-16 h-16 bg-yellow-500 rounded-2xl flex items-center justify-center mb-6">
                   <span className="text-3xl font-bold text-white">3</span>
                 </div>
@@ -379,7 +379,7 @@ d="M5 13l4 4L19 7" />
           <div className="text-center mt-12">
             <Link
               href="/supersonic-cash/apply"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-xl hover:shadow-xl transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4    text-white font-bold rounded-xl hover:shadow-xl transition-all"
             >
               Start Your Application Now
               <svg className="w-5 h-5" fill="none" stroke="currentColor"

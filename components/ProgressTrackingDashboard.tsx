@@ -82,7 +82,7 @@ export function ProgressTrackingDashboard() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Progress Dashboard</h1>
           <p className="text-red-100">Track your learning journey in real-time</p>
@@ -109,7 +109,7 @@ export function ProgressTrackingDashboard() {
             <p className="text-3xl font-bold text-red-600">{overallProgress.completionRate}%</p>
             <div className="w-full bg-gray-200 rounded-full h-2 mt-3">
               <div
-                className="bg-gradient-to-r from-red-600 to-orange-500 h-2 rounded-full"
+                className="   h-2 rounded-full"
                 style={{ width: `${overallProgress.completionRate}%` }}
               />
             </div>
@@ -139,7 +139,7 @@ export function ProgressTrackingDashboard() {
             <p className="text-sm text-green-600 mt-2">Above target</p>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-r from-red-50 to-orange-50">
+          <Card className="p-6   ">
             <h3 className="text-sm text-gray-700 mb-2">Next Goal</h3>
             <p className="text-lg font-bold text-red-700">Complete React Module</p>
             <p className="text-sm text-gray-600 mt-2">3 lessons remaining</p>
@@ -158,7 +158,7 @@ export function ProgressTrackingDashboard() {
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
-                      className="bg-gradient-to-r from-red-600 to-orange-500 h-2 rounded-full"
+                      className="   h-2 rounded-full"
                       style={{ width: `${(day.hours / maxHours) * 100}%` }}
                     />
                   </div>
@@ -217,7 +217,7 @@ export function ProgressTrackingDashboard() {
                 <div className="mb-3">
                   <div className="w-full bg-gray-200 rounded-full h-3">
                     <div
-                      className="bg-gradient-to-r from-red-600 to-orange-500 h-3 rounded-full transition-all"
+                      className="   h-3 rounded-full transition-all"
                       style={{ width: `${course.progress}%` }}
                     />
                   </div>
@@ -235,21 +235,21 @@ export function ProgressTrackingDashboard() {
         </Card>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="p-6 bg-gradient-to-r from-green-50 to-emerald-50">
+          <Card className="p-6   ">
             <h3 className="font-bold mb-2">🎯 On Track</h3>
             <p className="text-sm text-gray-700">
               You're making great progress! Keep up the consistent study schedule.
             </p>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-r from-blue-50 to-cyan-50">
+          <Card className="p-6   ">
             <h3 className="font-bold mb-2">💡 Tip</h3>
             <p className="text-sm text-gray-700">
               Your best learning time is 9-11 AM. Schedule difficult topics during this window.
             </p>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50">
+          <Card className="p-6   ">
             <h3 className="font-bold mb-2">🏆 Achievement</h3>
             <p className="text-sm text-gray-700">
               You've maintained a 7-day streak! Unlock the "Dedicated Learner" badge at 14 days.

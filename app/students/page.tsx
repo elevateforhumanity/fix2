@@ -85,7 +85,7 @@ export default async function Page() {
           </p>
           
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/images/programs/efh-cna-hero.jpg" alt="100% Free Training" fill className="object-cover" sizes="80px" quality={85} />
               </div>
@@ -95,7 +95,7 @@ export default async function Page() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/images/programs/efh-cna-hero.jpg" alt="Industry Certifications" fill className="object-cover" sizes="80px" quality={85} />
               </div>
@@ -105,7 +105,7 @@ export default async function Page() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/images/programs/efh-cna-hero.jpg" alt="Housing Assistance" fill className="object-cover" sizes="80px" quality={85} />
               </div>
@@ -115,7 +115,7 @@ export default async function Page() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/images/healthcare/video-thumbnail-cna-training.jpg" alt="Mental Health Support" fill className="object-cover" sizes="80px" quality={85} />
               </div>
@@ -125,7 +125,7 @@ export default async function Page() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/images/programs/efh-cna-hero.jpg" alt="Life Coaching" fill className="object-cover" sizes="80px" quality={85} />
               </div>
@@ -135,7 +135,7 @@ export default async function Page() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-slate-50 rounded-xl p-8 shadow-lg">
+            <div className="   rounded-xl p-8 shadow-lg">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
                 <Image src="/images/programs/efh-cna-hero.jpg" alt="Direct Employer Connections" fill className="object-cover" sizes="80px" quality={85} />
               </div>
@@ -207,7 +207,7 @@ export default async function Page() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-green-800">
+      <section className="py-20   ">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Start Your Career Journey?</h2>
           <p className="text-xl text-white/90 mb-8">

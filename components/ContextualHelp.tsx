@@ -279,7 +279,7 @@ export function FeatureAnnouncement({
   onDismiss: () => void;
 }) {
   return (
-    <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg shadow-lg p-6 text-white">
+    <div className="   rounded-lg shadow-lg p-6 text-white">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-2">
           <span className="text-2xl">🎉</span>

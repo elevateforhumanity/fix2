@@ -104,7 +104,7 @@ export default function StudentPortfolio() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Portfolio
@@ -196,7 +196,7 @@ export default function StudentPortfolio() {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20">
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
+      <div className="   text-white p-6">
         <h1 className="text-2xl font-bold mb-2">My Portfolio</h1>
         <p className="text-blue-100">Digital binder of your work and skills</p>
       </div>

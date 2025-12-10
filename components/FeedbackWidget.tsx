@@ -95,7 +95,7 @@ export default function FeedbackWidget({ userId }: FeedbackWidgetProps) {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b bg-gradient-to-r from-blue-50 to-indigo-50">
+            <div className="flex items-center justify-between p-6 border-b   ">
               <div>
                 <h3 className="text-xl font-bold text-gray-900">
                   Send Feedback

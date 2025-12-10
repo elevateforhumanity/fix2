@@ -95,7 +95,7 @@ export default function TeamPage() {
               >
                 {/* Photo */}
                 <div className="lg:w-1/3">
-                  <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-600 to-purple-600">
+                  <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl   ">
                     {member.image ? (
                       <Image
                         src={member.image}

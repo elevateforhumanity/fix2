@@ -14,7 +14,7 @@ export default function SupersonicFastCashPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Professional Tax Service Style */}
-      <section className="relative bg-gradient-to-br from-green-700 to-green-900 text-white py-20">
+      <section className="relative    text-white py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>

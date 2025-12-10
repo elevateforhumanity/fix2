@@ -157,7 +157,7 @@ export function VoiceInput({ onCommand, className = '' }: VoiceInputProps) {
         response: 'Opening program holder training',
       },
       'how to use system': {
-        route: '/program-holder/how-to-use',
+        route: '/program-holder/how-
         response: 'Opening system guide',
       },
       'workforce partners': {

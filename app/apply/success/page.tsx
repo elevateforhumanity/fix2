@@ -22,7 +22,7 @@ export default function ApplicationSuccessPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 px-4">
+    <div className="min-h-screen     py-12 px-4">
       {/* Confetti Effect */}
       <ConfettiCannon active={showConfetti} duration={3000} />
 
@@ -39,7 +39,7 @@ export default function ApplicationSuccessPage() {
           }}
           className="flex justify-center mb-8"
         >
-          <div className="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-2xl">
+          <div className="w-32 h-32    rounded-full flex items-center justify-center shadow-2xl">
             <CheckCircle className="w-20 h-20 text-white" />
           </div>
         </motion.div>
@@ -157,7 +157,7 @@ export default function ApplicationSuccessPage() {
           className="grid md:grid-cols-2 gap-6 mb-8"
         >
           {/* Contact Info */}
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6">
+          <div className="   rounded-xl p-6">
             <h3 className="text-xl font-bold text-gray-900 mb-4">
               Need Help?
             </h3>
@@ -187,7 +187,7 @@ export default function ApplicationSuccessPage() {
           </div>
 
           {/* Download Info */}
-          <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6">
+          <div className="   rounded-xl p-6">
             <h3 className="text-xl font-bold text-gray-900 mb-4">
               Prepare for Success
             </h3>
@@ -222,7 +222,7 @@ export default function ApplicationSuccessPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}
-          className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white mb-8"
+          className="   rounded-2xl p-8 text-white mb-8"
         >
           <h3 className="text-2xl font-bold mb-6 text-center">
             You're Joining a Community of Success
@@ -263,7 +263,7 @@ export default function ApplicationSuccessPage() {
           </Link>
           <Link
             href="/programs"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg text-lg"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4    text-white rounded-lg font-semibold hover: hover: transition-all shadow-lg text-lg"
           >
             Explore Programs
             <ArrowRight className="w-5 h-5" />

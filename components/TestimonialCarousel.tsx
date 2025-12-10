@@ -117,7 +117,7 @@ export function TestimonialCarousel() {
 
         {/* Author */}
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+          <div className="w-16 h-16 rounded-full    flex items-center justify-center text-white text-2xl font-bold shadow-lg">
             {currentTestimonial.name.charAt(0)}
           </div>
           <div>
@@ -159,10 +159,10 @@ export function TestimonialCarousel() {
         ))}
       </div>
 
-      {/* Auto-play indicator */}
+      {/* Au indicator */}
       {isAutoPlaying && (
         <div className="text-center mt-4">
-          <span className="text-xs text-slate-500">Auto-playing • Click arrows to pause</span>
+          <span className="text-xs text-slate-500">Au • Click arrows to pause</span>
         </div>
       )}
     </div>

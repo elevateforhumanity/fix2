@@ -21,7 +21,7 @@ export function CourseProgress({ current, total, className = '' }: CourseProgres
       </div>
       <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
         <div 
-          className="bg-gradient-to-r from-red-500 to-emerald-600 h-3 rounded-full transition-all duration-500 ease-out"
+          className="   h-3 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${percentage}%` }}
         />
       </div>

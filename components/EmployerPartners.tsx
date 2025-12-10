@@ -100,7 +100,7 @@ export default function EmployerPartners() {
   const row2 = partners.slice(Math.ceil(partners.length / 2));
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+    <section className="py-20     overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -149,8 +149,8 @@ export default function EmployerPartners() {
 
         {/* Scrolling Logo Row 1 */}
         <div className="mb-8 relative">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-20    z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20    z-10" />
           
           <motion.div
             className="flex gap-6"
@@ -172,7 +172,7 @@ export default function EmployerPartners() {
                 className="flex-shrink-0 w-64 bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow group"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12    rounded-lg flex items-center justify-center">
                     <Building2 className="w-6 h-6 text-white" />
                   </div>
                   <span className={`text-xs px-2 py-1 rounded-full ${industryColors[partner.industry] || 'bg-gray-100 text-gray-700'}`}>
@@ -193,8 +193,8 @@ export default function EmployerPartners() {
 
         {/* Scrolling Logo Row 2 (Reverse Direction) */}
         <div className="mb-16 relative">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-gray-50 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-20    z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20    z-10" />
           
           <motion.div
             className="flex gap-6"
@@ -216,7 +216,7 @@ export default function EmployerPartners() {
                 className="flex-shrink-0 w-64 bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow group"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-teal-400 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12    rounded-lg flex items-center justify-center">
                     <Briefcase className="w-6 h-6 text-white" />
                   </div>
                   <span className={`text-xs px-2 py-1 rounded-full ${industryColors[partner.industry] || 'bg-gray-100 text-gray-700'}`}>
@@ -264,7 +264,7 @@ export default function EmployerPartners() {
           viewport={{ once: true }}
           className="grid md:grid-cols-3 gap-8 mb-16"
         >
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8">
+          <div className="   rounded-xl p-8">
             <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
               <Users className="w-6 h-6 text-white" />
             </div>
@@ -277,7 +277,7 @@ export default function EmployerPartners() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8">
+          <div className="   rounded-xl p-8">
             <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
               <TrendingUp className="w-6 h-6 text-white" />
             </div>
@@ -290,7 +290,7 @@ export default function EmployerPartners() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8">
+          <div className="   rounded-xl p-8">
             <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
               <Briefcase className="w-6 h-6 text-white" />
             </div>
@@ -309,7 +309,7 @@ export default function EmployerPartners() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-center text-white"
+          className="   rounded-2xl p-12 text-center text-white"
         >
           <Building2 className="w-16 h-16 mx-auto mb-6 opacity-90" />
           <h3 className="text-3xl font-bold mb-4">
@@ -349,7 +349,7 @@ export default function EmployerPartners() {
           </p>
           <a
             href="/apply"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl text-lg"
+            className="inline-flex items-center gap-2 px-8 py-4    text-white rounded-lg font-semibold hover: hover: transition-all shadow-lg hover:shadow-xl text-lg"
           >
             Start Your Journey
             <ArrowRight className="w-5 h-5" />

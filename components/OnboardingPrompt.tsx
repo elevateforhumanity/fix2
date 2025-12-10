@@ -55,7 +55,7 @@ export default function OnboardingPrompt({ userId, userRole }: OnboardingPromptP
   }
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg shadow-lg p-6 mb-6">
+    <div className="   rounded-lg shadow-lg p-6 mb-6">
       <div className="flex items-start justify-between">
         <div className="flex items-start gap-4 flex-1">
           <div className="flex-shrink-0 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">

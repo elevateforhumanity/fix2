@@ -131,7 +131,7 @@ export function AdminReportingDashboard() {
               {[65, 72, 68, 85, 92, 88, 95, 90, 98, 102, 108, 115].map((value, index) => (
                 <div key={index} className="flex-1 flex flex-col items-center">
                   <div
-                    className="w-full bg-gradient-to-t from-red-600 to-orange-500 rounded-t transition-all hover:opacity-80"
+                    className="w-full    rounded-t transition-all hover:opacity-80"
                     style={{ height: `${(value / 115) * 100}%` }}
                   />
                   <div className="text-xs text-gray-600 mt-2">

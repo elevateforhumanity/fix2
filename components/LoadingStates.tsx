@@ -71,7 +71,7 @@ export function LoadingSpinner({ text }: { text?: string }) {
 export function ShimmerEffect() {
   return (
     <div className="relative overflow-hidden bg-slate-200 rounded">
-      <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+      <div className="absolute inset-0 -translate-x-full animate-shimmer    " />
     </div>
   );
 }
@@ -81,7 +81,7 @@ export function ProgressBar({ progress }: { progress: number }) {
   return (
     <div className="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
       <div
-        className="h-full bg-gradient-to-r from-orange-500 to-orange-600 transition-all duration-500 ease-out"
+        className="h-full    transition-all duration-500 ease-out"
         style={{ width: `${progress}%` }}
       />
     </div>

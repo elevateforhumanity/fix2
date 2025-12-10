@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'Certified Healthcare Assistant at IU Health',
     salary: '$42,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=800&h=600&fit=crop',
+    thumbnail: 'https://images.unsplash.com/pho
     quote: 'Ona changed my life. I went from struggling to make ends meet to having a stable career in healthcare.',
     duration: '2:34',
     graduationYear: '2023'
@@ -40,7 +40,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'HVAC Technician at Carrier',
     salary: '$55,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&h=600&fit=crop',
+    thumbnail: 'https://images.unsplash.com/pho
     quote: 'The hands-on training prepared me for real-world work. I got hired before I even graduated!',
     duration: '3:12',
     graduationYear: '2023'
@@ -53,7 +53,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'Medical Coder at Community Health Network',
     salary: '$48,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop',
+    thumbnail: 'https://images.unsplash.com/pho
     quote: 'I can work from home now and spend more time with my kids. This program gave me flexibility and financial security.',
     duration: '2:45',
     graduationYear: '2024'
@@ -66,7 +66,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'Commercial Truck Driver at Schneider',
     salary: '$65,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&h=600&fit=crop',
+    thumbnail: 'https://images.unsplash.com/pho
     quote: 'In just 4 weeks, I got my CDL and doubled my income. Best decision I ever made.',
     duration: '2:18',
     graduationYear: '2024'
@@ -79,7 +79,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'Licensed Cosmetologist, Own Salon',
     salary: '$60,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=600&fit=crop',
+    thumbnail: 'https://images.unsplash.com/pho
     quote: 'I turned my passion into a career. Now I own my own salon and employ 3 other stylists!',
     duration: '3:45',
     graduationYear: '2023'
@@ -92,7 +92,7 @@ const testimonials: Testimonial[] = [
     afterJob: 'Phlebotomist at Eskenazi Health',
     salary: '$38,000/year',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumbnail: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&h=600&fit=crop',
+    thumbnail: 'https://images.unsplash.com/pho
     quote: 'The program was fast-paced but thorough. I felt confident on my first day at work.',
     duration: '2:56',
     graduationYear: '2024'
@@ -118,7 +118,7 @@ export default function VideoTestimonials() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+    <section className="py-20    ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -249,7 +249,7 @@ export default function VideoTestimonials() {
                       {/* Watch Button */}
                       <button
                         onClick={() => setSelectedVideo(testimonial)}
-                        className="w-full mt-4 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all flex items-center justify-center gap-2"
+                        className="w-full mt-4 px-4 py-3    text-white rounded-lg font-semibold hover: hover: transition-all flex items-center justify-center gap-2"
                       >
                         <Play className="w-5 h-5" />
                         Watch Full Story
@@ -314,7 +314,7 @@ export default function VideoTestimonials() {
           </p>
           <a
             href="/apply"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl text-lg"
+            className="inline-flex items-center gap-2 px-8 py-4    text-white rounded-lg font-semibold hover: hover: transition-all shadow-lg hover:shadow-xl text-lg"
           >
             Start Your Application
             <ChevronRight className="w-5 h-5" />
@@ -393,7 +393,7 @@ export default function VideoTestimonials() {
                 <div className="mt-6 flex gap-4">
                   <a
                     href="/apply"
-                    className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all text-center"
+                    className="flex-1 px-6 py-3    text-white rounded-lg font-semibold hover: hover: transition-all text-center"
                   >
                     Apply Now
                   </a>

@@ -111,7 +111,7 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
   return (
     <div className="bg-white rounded-2xl border-2 border-slate-200 shadow-lg overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-6 text-white">
+      <div className="   p-6 text-white">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="text-2xl font-bold">Hour Tracker</h3>
@@ -168,7 +168,7 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
           </div>
           <div className="w-full bg-slate-200 rounded-full h-4 overflow-hidden">
             <div
-              className="bg-gradient-to-r from-purple-500 to-purple-600 h-full transition-all duration-500 rounded-full"
+              className="   h-full transition-all duration-500 rounded-full"
               style={{ width: `${progressPercentage}%` }}
              />
           </div>
@@ -227,7 +227,7 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
 
         {/* Completion Badge */}
         {progressPercentage >= 100 && (
-          <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-6 text-center text-white">
+          <div className="   rounded-xl p-6 text-center text-white">
             <Award className="w-12 h-12 mx-auto mb-3" />
             <div className="text-xl font-bold">Congratulations!</div>
             <div className="text-sm text-green-100 mt-1">

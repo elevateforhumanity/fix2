@@ -77,7 +77,7 @@ export default function SpeedGrader({ submissions, assignment, onGrade }: SpeedG
       return [...prev, { criterionId, levelId, points }];
     });
 
-    // Auto-calculate total from rubric
+    // Au total from rubric
     if (assignment.rubric) {
       const total = rubricScores.reduce((sum, s) => sum + s.points, 0) + points;
       setPoints(total);

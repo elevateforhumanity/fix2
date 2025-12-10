@@ -65,7 +65,7 @@ export function AIInstructorWidget({
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50 animate-pulse"
+          className="fixed bottom-6 right-6 w-16 h-16    rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-50 animate-pulse"
           aria-label="Open AI Instructor"
         >
           <MessageCircle className="w-8 h-8 text-white" />
@@ -79,7 +79,7 @@ export function AIInstructorWidget({
       {isOpen && (
         <div className="fixed bottom-6 right-6 w-96 bg-white rounded-2xl shadow-2xl z-50 overflow-hidden border border-gray-200">
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-4 flex items-center justify-between">
+          <div className="   p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">

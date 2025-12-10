@@ -61,7 +61,7 @@ export default async function AITutorPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Ai Tutor
@@ -327,7 +327,7 @@ d="M5 13l4 4L19 7" />
               </div>
 
               {/* Help */}
-              <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg shadow-sm p-6 text-white">
+              <div className="   rounded-lg shadow-sm p-6 text-white">
                 <h3 className="font-semibold mb-2">Need Help?</h3>
                 <p className="text-sm opacity-90 mb-4">
                   Your AI instructor is here to help you succeed in your program.

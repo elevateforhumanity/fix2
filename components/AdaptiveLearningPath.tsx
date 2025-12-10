@@ -102,7 +102,7 @@ export function AdaptiveLearningPath() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Adaptive Learning Paths</h1>
           <p className="text-red-100">AI-recommended courses tailored to your goals and skills</p>
@@ -110,7 +110,7 @@ export function AdaptiveLearningPath() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <Card className="p-6 mb-8 bg-gradient-to-r from-blue-50 to-purple-50">
+        <Card className="p-6 mb-8   ">
           <div className="flex items-start gap-4">
             <div className="text-4xl">🤖</div>
             <div>
@@ -185,7 +185,7 @@ export function AdaptiveLearningPath() {
                     <div className="absolute left-6 -top-4 w-0.5 h-4 bg-gray-300" />
                   )}
                   <div className="flex gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-full flex items-center justify-center font-bold">
+                    <div className="flex-shrink-0 w-12 h-12    text-white rounded-full flex items-center justify-center font-bold">
                       {index + 1}
                     </div>
                     <div className="flex-1 p-4 bg-gray-50 rounded-lg">
@@ -230,7 +230,7 @@ export function AdaptiveLearningPath() {
               ))}
             </div>
 
-            <div className="mt-6 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg">
+            <div className="mt-6 p-4    rounded-lg">
               <h4 className="font-bold mb-2">Why this path?</h4>
               <ul className="space-y-1 text-sm text-gray-700">
                 <li>• Builds on your existing JavaScript knowledge</li>

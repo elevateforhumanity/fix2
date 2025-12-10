@@ -119,7 +119,7 @@ Apply today and start your journey.`;
             </div>
 
             <div className="space-y-4">
-              {/* Toggle between text-to-speech and file upload */}
+              {/* Toggle between text- and file upload */}
               <div className="flex gap-4">
                 <button
                   onClick={() => setUseTextToSpeech(true)}
@@ -129,7 +129,7 @@ Apply today and start your journey.`;
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                   }`}
                 >
-                  AI Text-to-Speech
+                  AI Text-
                 </button>
                 <button
                   onClick={() => setUseTextToSpeech(false)}
@@ -242,7 +242,7 @@ Apply today and start your journey.`;
           <button
             onClick={handleProcess}
             disabled={processing || !videoFile}
-            className="w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg font-bold rounded-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
+            className="w-full py-4 px-6    text-white text-lg font-bold rounded-lg hover: hover: disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
           >
             {processing ? (
               <span className="flex items-center justify-center gap-3">
@@ -259,7 +259,7 @@ Apply today and start your journey.`;
             <div className="space-y-2">
               <div className="w-full bg-slate-200 rounded-full h-3">
                 <div
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 h-3 rounded-full transition-all duration-300"
+                  className="   h-3 rounded-full transition-all duration-300"
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -271,7 +271,7 @@ Apply today and start your journey.`;
 
           {/* Success */}
           {result && !error && (
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-6">
+            <div className="   border-2 border-green-200 rounded-lg p-6">
               <div className="flex items-start gap-4">
                 <CheckCircle className="h-8 w-8 text-green-600 flex-shrink-0 mt-1" />
                 <div className="flex-1">
@@ -379,7 +379,7 @@ Apply today and start your journey.`;
         <div className="bg-green-50 rounded-lg p-6 border-2 border-green-200">
           <h4 className="font-bold text-green-900 mb-3">🎵 Background Music</h4>
           <ul className="text-sm text-green-700 space-y-1">
-            <li>• Auto-loop to video length</li>
+            <li>• Au to video length</li>
             <li>• Volume control</li>
             <li>• Mixed with voiceover</li>
             <li>• Fade in/out</li>

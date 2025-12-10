@@ -88,7 +88,7 @@ export default function VideoManagerPage() {
           )}
 
           {/* Instructions */}
-          <div className="mt-12 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border border-blue-200">
+          <div className="mt-12    rounded-lg p-6 border border-blue-200">
             <h3 className="text-xl font-bold text-slate-900 mb-4">
               📝 How to Use Your Enhanced Video
             </h3>

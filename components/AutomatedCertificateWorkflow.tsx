@@ -47,7 +47,7 @@ export function AutomatedCertificateWorkflow() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Certificate Generation</h1>
           <p className="text-red-100">Automated workflow for issuing certificates</p>
@@ -77,7 +77,7 @@ export function AutomatedCertificateWorkflow() {
               <h2 className="text-2xl font-bold mb-4">Automation Rules</h2>
               <div className="space-y-3">
                 <div className="p-4 bg-green-50 rounded">
-                  <p className="font-semibold text-green-900">✓ Auto-generate on course completion</p>
+                  <p className="font-semibold text-green-900">✓ Au on course completion</p>
                   <p className="text-sm text-green-700">Certificates created automatically when students finish</p>
                 </div>
                 <div className="p-4 bg-blue-50 rounded">

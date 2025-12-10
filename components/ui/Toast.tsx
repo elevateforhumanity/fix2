@@ -41,7 +41,7 @@ export const Toast: React.FC<ToastProps> = ({
 
   return (
     <div
-      className={`flex items-center gap-3 p-4 border rounded-lg shadow-lg ${styles[type]} animate-in slide-in-from-right duration-300`}
+      className={`flex items-center gap-3 p-4 border rounded-lg shadow-lg ${styles[type]} animate-in slide-in- duration-300`}
     >
       {icons[type]}
       <p className="flex-1 text-sm font-medium">{message}</p>

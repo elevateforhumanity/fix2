@@ -35,7 +35,7 @@ export function LmsSidebar() {
     <aside className="w-64 border-r bg-white/80 backdrop-blur-sm h-screen sticky top-0">
       <div className="p-4 border-b">
         <Link href="/lms/dashboard" className="flex items-center gap-2">
-          <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-red-500 to-blue-500 flex items-center justify-center text-white font-bold text-sm">
+          <div className="h-9 w-9 rounded-xl    flex items-center justify-center text-white font-bold text-sm">
             E
           </div>
           <div>

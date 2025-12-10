@@ -60,7 +60,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Step 1 */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 h-full border-2 border-orange-200">
+              <div className="   rounded-2xl p-8 h-full border-2 border-orange-200">
                 <div className="w-16 h-16 rounded-full bg-orange-500 text-white flex items-center justify-center text-3xl font-bold mb-6">
                   1
                 </div>
@@ -89,7 +89,7 @@ export default function HomePage() {
 
             {/* Step 2 */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 h-full border-2 border-blue-200">
+              <div className="   rounded-2xl p-8 h-full border-2 border-blue-200">
                 <div className="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center text-3xl font-bold mb-6">
                   2
                 </div>
@@ -118,7 +118,7 @@ export default function HomePage() {
 
             {/* Step 3 */}
             <div className="relative">
-              <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 h-full border-2 border-green-200">
+              <div className="   rounded-2xl p-8 h-full border-2 border-green-200">
                 <div className="w-16 h-16 rounded-full bg-green-600 text-white flex items-center justify-center text-3xl font-bold mb-6">
                   3
                 </div>
@@ -228,7 +228,7 @@ export default function HomePage() {
       </section>
 
       {/* BY THE NUMBERS */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
+      <section className="py-20    text-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -329,7 +329,7 @@ export default function HomePage() {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-20 bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+      <section className="py-20    text-white">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Change Your Life?

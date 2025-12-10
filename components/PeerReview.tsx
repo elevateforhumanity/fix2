@@ -74,7 +74,7 @@ export function PeerReview({ assignmentId, studentName }: PeerReviewProps) {
   return (
     <div className="space-y-6">
       {/* Summary */}
-      <Card className="bg-gradient-to-br from-red-50 to-orange-50">
+      <Card className="  ">
         <CardContent className="p-6">
           <div className="flex items-center justify-between">
             <div>

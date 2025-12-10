@@ -29,7 +29,7 @@ export default function MobileAchievementCard({
     <div
       className={`relative p-4 rounded-lg border transition-all ${
         unlocked
-          ? 'bg-gradient-to-br from-yellow-50 to-orange-50 border-yellow-200'
+          ? '   border-yellow-200'
           : 'bg-gray-50 border-gray-200'
       }`}
     >
@@ -38,7 +38,7 @@ export default function MobileAchievementCard({
         <div
           className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center ${
             unlocked
-              ? 'bg-gradient-to-br from-yellow-400 to-orange-500'
+              ? '  
               : 'bg-gray-300'
           }`}
         >
@@ -86,7 +86,7 @@ export default function MobileAchievementCard({
           </div>
           <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300"
+              className="h-full    transition-all duration-300"
               style={{ width: `${progressPercent}%` }}
             />
           </div>

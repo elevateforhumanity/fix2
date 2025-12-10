@@ -9,7 +9,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
   return (
     <>
       {/* Main CTA with Image */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-orange-600 to-orange-700">
+      <section className="py-16 sm:py-20   ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-white">
@@ -25,7 +25,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
                 <div className="flex items-start gap-3">
                   <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                     <Image
-                      src="https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?w=200&h=200&fit=crop&q=90"
+                      src="https://images.unsplash.com/pho"
                       alt="Free training"
                       fill
                       className="object-cover"
@@ -40,7 +40,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
                 <div className="flex items-start gap-3">
                   <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                     <Image
-                      src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=200&h=200&fit=crop&q=90"
+                      src="https://images.unsplash.com/pho"
                       alt="Job placement"
                       fill
                       className="object-cover"
@@ -55,7 +55,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
                 <div className="flex items-start gap-3">
                   <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                     <Image
-                      src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&h=200&fit=crop&q=90"
+                      src="https://images.unsplash.com/pho"
                       alt="Hands-on training"
                       fill
                       className="object-cover"
@@ -86,7 +86,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
 
             <div className="relative h-[400px] sm:h-[500px] rounded-lg overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=1500&fit=crop&q=95"
+                src="https://images.unsplash.com/pho"
                 alt="Students in training"
                 fill
                 className="object-cover"
@@ -102,7 +102,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="relative h-[300px] sm:h-[400px] rounded-lg overflow-hidden shadow-2xl order-2 md:order-1">
               <Image
-                src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=1200&fit=crop&q=95"
+                src="https://images.unsplash.com/pho"
                 alt="Indiana Career Connect"
                 fill
                 className="object-cover"
@@ -166,7 +166,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
             <div className="bg-slate-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative h-48">
                 <Image
-                  src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&h=600&fit=crop&q=90"
+                  src="https://images.unsplash.com/pho"
                   alt="Career counseling"
                   fill
                   className="object-cover"
@@ -187,7 +187,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
             <div className="bg-slate-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative h-48">
                 <Image
-                  src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop&q=90"
+                  src="https://images.unsplash.com/pho"
                   alt="Job placement"
                   fill
                   className="object-cover"
@@ -208,7 +208,7 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
             <div className="bg-slate-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="relative h-48">
                 <Image
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=600&fit=crop&q=90"
+                  src="https://images.unsplash.com/pho"
                   alt="Supportive services"
                   fill
                   className="object-cover"

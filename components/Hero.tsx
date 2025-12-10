@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-b from-slate-50 to-white py-20 md:py-28">
+    <section className="relative    py-20 md:py-28">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-2xl">

@@ -16,7 +16,7 @@ export function ProgressBar({ progress, showLabel = true, size = "md" }: Props) 
       )}
       <div className={`w-full rounded-full bg-slate-200 ${heightClass}`}>
         <div
-          className={`${heightClass} rounded-full bg-gradient-to-r from-accent-500 to-accent-600 transition-all duration-500 ease-smooth`}
+          className={`${heightClass} rounded-full    transition-all duration-500 ease-smooth`}
           style={{ width: `${pct}%` }}
         />
       </div>

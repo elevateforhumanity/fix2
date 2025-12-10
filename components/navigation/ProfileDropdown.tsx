@@ -42,7 +42,7 @@ export function ProfileDropdown({
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold hover:shadow-lg transition-shadow"
+        className="w-10 h-10 rounded-full    flex items-center justify-center text-white font-bold hover:shadow-lg transition-shadow"
       >
         {userInitial}
       </button>

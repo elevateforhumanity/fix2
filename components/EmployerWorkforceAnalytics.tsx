@@ -43,7 +43,7 @@ export default function EmployerWorkforceAnalytics() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Workforce Analytics</h1>
           <p className="text-red-100">Data-driven insights for strategic workforce planning</p>
@@ -116,7 +116,7 @@ export default function EmployerWorkforceAnalytics() {
                   <div className="flex gap-2">
                     <div className="flex-1 bg-gray-200 rounded-full h-2">
                       <div
-                        className="bg-gradient-to-r from-red-600 to-orange-500 h-2 rounded-full"
+                        className="   h-2 rounded-full"
                         style={{ width: `${(trend.hires / maxHires) * 100}%` }}
                       />
                     </div>
@@ -199,21 +199,21 @@ export default function EmployerWorkforceAnalytics() {
         </Card>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="p-6 bg-gradient-to-r from-blue-50 to-cyan-50">
+          <Card className="p-6   ">
             <h3 className="font-bold mb-3">💡 Insight</h3>
             <p className="text-sm text-gray-700">
-              Your time-to-hire has improved by 8% this quarter. Consider sharing your recruitment process as a best practice.
+              Your time- has improved by 8% this quarter. Consider sharing your recruitment process as a best practice.
             </p>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-r from-green-50 to-emerald-50">
+          <Card className="p-6   ">
             <h3 className="font-bold mb-3">🎯 Recommendation</h3>
             <p className="text-sm text-gray-700">
               Partner with Elevate for Humanity to address the AWS skills gap. 15 qualified candidates available.
             </p>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-r from-purple-50 to-pink-50">
+          <Card className="p-6   ">
             <h3 className="font-bold mb-3">📈 Trend</h3>
             <p className="text-sm text-gray-700">
               Engineering roles are taking 35% longer to fill. Consider expanding your talent pipeline.

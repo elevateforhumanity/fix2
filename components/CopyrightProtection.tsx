@@ -143,7 +143,7 @@ function showCopyrightNotice() {
   document.getElementById('close-notice')?.addEventListener('click', () => {
     notice.remove();
   });
-  // Auto-remove after 5 seconds
+  // Au after 5 seconds
   setTimeout(() => {
     notice.remove();
   }, 5000);

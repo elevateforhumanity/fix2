@@ -443,7 +443,7 @@ Sarah Johnson IT Support         2025-01-22    sarah@email.com"
                 📊 View Flow Charts
               </div>
               <div className="text-sm text-brand-info mt-1">
-                See auto-generated visualizations
+                See au visualizations
               </div>
             </button>
             <button className="p-4 bg-green-50 border border-green-200 rounded-lg hover:bg-brand-surface text-left">

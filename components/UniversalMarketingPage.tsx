@@ -30,7 +30,7 @@ export default function UniversalMarketingPage({
   return (
     <main className="bg-white">
       {/* TOP BANNER */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-500 py-3 sticky top-0 z-50 shadow-lg">
+      <section className="   py-3 sticky top-0 z-50 shadow-lg">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-3">
@@ -61,7 +61,7 @@ export default function UniversalMarketingPage({
           priority
           quality={100}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-transparent" />
+        <div className="absolute inset-0    " />
         
         <div className="relative h-full flex items-center">
           <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full">
@@ -179,7 +179,7 @@ export default function UniversalMarketingPage({
 
       {/* CTA WITH IMAGE */}
       {cta && (
-        <section className="py-16 bg-gradient-to-r from-orange-600 to-orange-500">
+        <section className="py-16   ">
           <div className="mx-auto max-w-7xl px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">

@@ -173,11 +173,11 @@ export function CopilotDeployment() {
             stepNumber: 5,
             title: 'Review Results',
             description:
-              'Check the processed data and auto-generated analytics',
+              'Check the processed data and au analytics',
             action: 'Review the parsed student records and generated charts',
             tips: [
               'AI automatically creates flow charts and analytics',
-              'Missing emails are auto-generated',
+              'Missing emails are au
               'Invalid dates are automatically corrected',
             ],
           },
@@ -250,7 +250,7 @@ export function CopilotDeployment() {
       },
       {
         id: 'program_creation_guide',
-        title: 'Auto-Generate Training Programs',
+        title: 'Au Training Programs',
         category: 'analytics',
         difficulty: 'intermediate',
         estimatedTime: '10-15 minutes',

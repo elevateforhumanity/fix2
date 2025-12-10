@@ -278,7 +278,7 @@ export function FloatingElement({ children, duration = 3 }: { children: ReactNod
 export function GradientText({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
     <motion.span
-      className={`bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent ${className}`}
+      className={`    bg-clip-text text-transparent ${className}`}
       animate={{
         backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
       }}

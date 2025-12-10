@@ -87,7 +87,7 @@ export default async function Page() {
         />
         
         {/* Dark overlay for text visibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50 z-[1]"></div>
+        <div className="absolute inset-0     z-[1]"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center">
@@ -194,7 +194,7 @@ className="object-cover group-hover:scale-110 transition-transform duration-300"
                 <a key={post.id} href={post.post_url || '#'} target="_blank"
 rel="noopener noreferrer" className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold">{post.platform.charAt(0).toUpperCase()}</div>
+                    <div className="w-10 h-10    rounded-full flex items-center justify-center text-white font-bold">{post.platform.charAt(0).toUpperCase()}</div>
                     <div><div className="font-semibold capitalize">{post.platform}</div><div className="text-sm text-slate-500">{new Date(post.posted_at).toLocaleDateString()}</div></div>
                   </div>
                   {post.image_url && <div className="relative h-48 rounded-lg overflow-hidden mb-4"><Image src={post.image_url} alt="Social post" fill
@@ -211,7 +211,7 @@ className="object-cover" quality={100} sizes="(max-width: 768px) 100vw, 33vw" />
                 <a href="https://www.facebook.com/elevateforhumanity" target="_blank" rel="noopener noreferrer"
 className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all">Facebook</a>
                 <a href="https://www.instagram.com/elevateforhumanity" target="_blank" rel="noopener noreferrer"
-className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-full hover:from-purple-700 hover:to-pink-700 transition-all">Instagram</a>
+className="px-6 py-3    text-white font-semibold rounded-full hover: hover: transition-all">Instagram</a>
                 <a href="https://www.linkedin.com/company/elevate-for-humanity" target="_blank" rel="noopener noreferrer"
 className="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full hover:bg-blue-800 transition-all">LinkedIn</a>
               </div>

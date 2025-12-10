@@ -299,7 +299,7 @@ export default function AssetGenerator() {
         <div className="space-y-6">
           {generatedAsset ? (
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="bg-gradient-to-r from-red-600 to-orange-500 px-6 py-4">
+              <div className="   px-6 py-4">
                 <h2 className="text-2xl font-semibold text-white">Preview</h2>
                 <p className="text-red-100 text-sm">{generatedAsset.summary}</p>
               </div>

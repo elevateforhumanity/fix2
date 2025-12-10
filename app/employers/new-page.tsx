@@ -5,7 +5,7 @@ export default function EmployersPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-700 text-white py-20">
+      <section className="   text-white py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="max-w-4xl">
             <span className="inline-block bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
@@ -179,7 +179,7 @@ export default function EmployersPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* OJT */}
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 border-2 border-orange-300 rounded-xl p-8">
+            <div className="   border-2 border-orange-300 rounded-xl p-8">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">
                 On-the-Job Training (OJT)
               </h3>
@@ -226,7 +226,7 @@ export default function EmployersPage() {
             </div>
 
             {/* WEX */}
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-300 rounded-xl p-8">
+            <div className="   border-2 border-blue-300 rounded-xl p-8">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">
                 Work Experience (WEX)
               </h3>
@@ -273,7 +273,7 @@ export default function EmployersPage() {
             </div>
 
             {/* Apprenticeships */}
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-300 rounded-xl p-8">
+            <div className="   border-2 border-purple-300 rounded-xl p-8">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">
                 DOL Registered Apprenticeships
               </h3>
@@ -320,7 +320,7 @@ export default function EmployersPage() {
             </div>
 
             {/* Next Level Grants */}
-            <div className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-300 rounded-xl p-8">
+            <div className="   border-2 border-green-300 rounded-xl p-8">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">
                 Next Level Grants (Incumbent Worker Training)
               </h3>
@@ -414,7 +414,7 @@ export default function EmployersPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-700 text-white py-20">
+      <section className="   text-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h2 className="text-4xl font-bold mb-4">
             Ready to Save on Hiring Costs?

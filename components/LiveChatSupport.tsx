@@ -52,7 +52,7 @@ export function LiveChatSupport() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center text-2xl z-50"
+        className="fixed bottom-6 right-6 w-16 h-16    text-white rounded-full shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center text-2xl z-50"
       >
         💬
       </button>
@@ -61,7 +61,7 @@ export function LiveChatSupport() {
 
   return (
     <div className="fixed bottom-6 right-6 w-96 h-[500px] bg-white rounded-lg shadow-2xl flex flex-col z-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white p-4 rounded-t-lg flex justify-between items-center">
+      <div className="   text-white p-4 rounded-t-lg flex justify-between items-center">
         <div>
           <h3 className="font-bold">Live Support</h3>
           <p className="text-xs text-red-100">● Online</p>

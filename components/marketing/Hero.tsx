@@ -13,7 +13,7 @@ const paths = ["Healthcare", "Skilled Trades", "CDL", "Barber", "Re-entry"];
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-red-500/15 via-sky-500/10 to-fuchsia-500/10" />
+      <div className="pointer-events-none absolute inset-0    " />
       <div className="relative mx-auto flex min-h-[72vh] max-w-6xl flex-col gap-12 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:gap-16 lg:px-8">
         {/* Left column */}
         <div className="max-w-xl space-y-6">

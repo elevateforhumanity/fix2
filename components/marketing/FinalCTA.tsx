@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function FinalCTA() {
   return (
-    <section className="bg-gradient-to-r from-red-500/15 via-sky-500/10 to-fuchsia-500/15">
+    <section className="   ">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-slate-950/95 px-6 py-10 ring-1 ring-emerald-500/40 sm:px-10">
           <div className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-center">

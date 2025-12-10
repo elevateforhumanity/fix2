@@ -9,7 +9,7 @@ const leaderboardData = [
     points: 2850,
     courses: 3,
     avatar: 'SM',
-    color: 'from-yellow-400 to-orange-500',
+    color: ' 
   },
   {
     rank: 2,
@@ -17,7 +17,7 @@ const leaderboardData = [
     points: 2640,
     courses: 2,
     avatar: 'MJ',
-    color: 'from-gray-300 to-gray-400',
+    color: ' 
   },
   {
     rank: 3,
@@ -25,7 +25,7 @@ const leaderboardData = [
     points: 2420,
     courses: 2,
     avatar: 'DW',
-    color: 'from-orange-400 to-orange-600',
+    color: ' 
   },
   {
     rank: 4,
@@ -33,7 +33,7 @@ const leaderboardData = [
     points: 2180,
     courses: 2,
     avatar: 'J',
-    color: 'from-blue-400 to-blue-600',
+    color: ' 
     isCurrentUser: true,
   },
   {
@@ -42,7 +42,7 @@ const leaderboardData = [
     points: 1950,
     courses: 1,
     avatar: 'LC',
-    color: 'from-purple-400 to-purple-600',
+    color: ' 
   },
 ];
 
@@ -70,7 +70,7 @@ export function Leaderboard() {
             <div className="flex-shrink-0 w-8 text-center">
               {user.rank <= 3 ? (
                 <div
-                  className={`w-8 h-8 rounded-full bg-gradient-to-br ${user.color} flex items-center justify-center text-white font-bold text-sm`}
+                  className={`w-8 h-8 rounded-full  ${user.color} flex items-center justify-center text-white font-bold text-sm`}
                 >
                   {user.rank}
                 </div>
@@ -82,7 +82,7 @@ export function Leaderboard() {
             </div>
             {/* Avatar */}
             <div
-              className={`w-10 h-10 rounded-full bg-gradient-to-br ${user.color} flex items-center justify-center text-white font-bold flex-shrink-0`}
+              className={`w-10 h-10 rounded-full  ${user.color} flex items-center justify-center text-white font-bold flex-shrink-0`}
             >
               {user.avatar}
             </div>

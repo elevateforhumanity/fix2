@@ -22,7 +22,7 @@ export default function NotFound() {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-orange-50">
+    <div className="min-h-screen flex items-center justify-center   ">
       <div className="text-center px-4 max-w-2xl">
         <div className="mb-8">
           <h1 className="text-9xl font-bold text-red-600 mb-4">404</h1>

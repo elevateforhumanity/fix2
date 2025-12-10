@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function SideHeroBanner() {
   return (
-    <section className="py-16 bg-gradient-to-br from-white to-slate-50">
+    <section className="py-16   ">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Side - Content */}

@@ -105,7 +105,7 @@ className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={100} />
                       <div className="font-semibold text-green-900">{story.afterJob}</div>
                     </div>
                   </div>
-                  <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-6 mb-6 border-l-4 border-blue-600">
+                  <div className="   rounded-xl p-6 mb-6 border-l-4 border-blue-600">
                     <Quote className="w-8 h-8 text-blue-600 mb-3" />
                     <p className="text-lg text-slate-700 italic leading-relaxed mb-4">"{story.quote}"</p>
                     <div className="flex items-center justify-between text-sm">
@@ -187,7 +187,7 @@ d="M5 13l4 4L19 7" />
                 </ul>
               </div>
               <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg shadow-lg flex items-center justify-center">
+                <div className="aspect-video    rounded-lg shadow-lg flex items-center justify-center">
                   <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}

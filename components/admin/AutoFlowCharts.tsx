@@ -221,11 +221,11 @@ export function AutoFlowCharts() {
   );
 
   return (
-    <div className="auto-flowcharts">
+    <div className="au">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h2 className="text-2xl font-bold text-brand-text">
-            📊 Auto-Generated Flow Charts
+            📊 Au Flow Charts
           </h2>
           <p className="text-brand-text-muted">
             Real-time visual analytics updated automatically
@@ -282,7 +282,7 @@ export function AutoFlowCharts() {
           ))}
         </div>
       )}
-      {/* Auto-Generated Insights */}
+      {/* Au Insights */}
       <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
         <h3 className="text-lg font-semibold text-blue-900 mb-4">
           🤖 Copilot Insights
@@ -318,7 +318,7 @@ export function AutoFlowCharts() {
               📊 Next Report Due
             </div>
             <div className="text-xs text-brand-text-muted mt-1">
-              Quarterly WIOA report auto-generates in 5 days
+              Quarterly WIOA report au in 5 days
             </div>
           </div>
         </div>

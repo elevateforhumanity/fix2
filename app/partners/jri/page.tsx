@@ -15,7 +15,7 @@ export default function JRIPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-[400px] w-full overflow-hidden bg-gradient-to-br from-blue-600 to-purple-600">
+      <section className="relative h-[400px] w-full overflow-hidden   ">
         <div className="absolute inset-0 bg-black/20" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 w-full">
@@ -221,7 +221,7 @@ export default function JRIPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600">
+      <section className="py-20   ">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Get Started?

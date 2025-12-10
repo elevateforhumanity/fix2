@@ -143,7 +143,7 @@ export default function EstheticsApprenticeshipPage() {
       </section>
 
       {/* AI-Powered Learning */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-20   ">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">

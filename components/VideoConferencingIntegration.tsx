@@ -51,7 +51,7 @@ export function VideoConferencingIntegration() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Video Conferencing</h1>
           <p className="text-red-100">Join live sessions and meetings</p>
@@ -98,7 +98,7 @@ export function VideoConferencingIntegration() {
           ))}
         </div>
 
-        <Card className="p-6 mt-8 bg-gradient-to-r from-blue-50 to-cyan-50">
+        <Card className="p-6 mt-8   ">
           <h3 className="text-xl font-bold mb-4">Quick Start a Meeting</h3>
           <div className="flex gap-4">
             <Button className="flex-1">Start Instant Meeting</Button>

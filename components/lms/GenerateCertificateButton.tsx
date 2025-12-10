@@ -75,7 +75,7 @@ export function GenerateCertificateButton({
           'transition focus:outline-none focus:ring-2 focus:ring-offset-2',
           effectiveDisabled || loading
             ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            : 'bg-gradient-to-r from-orange-500 via-red-500 to-blue-600 text-white shadow-lg hover:brightness-110 hover:shadow-xl',
+            : '    text-white shadow-lg hover:brightness-110 hover:shadow-xl',
         ].join(' ')}
       >
         <Award className="h-5 w-5" />

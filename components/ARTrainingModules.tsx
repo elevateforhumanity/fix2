@@ -122,7 +122,7 @@ export function ARTrainingModules() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">AR Training Modules</h1>
           <p className="text-red-100">Immersive hands-on learning with augmented reality</p>
@@ -130,7 +130,7 @@ export function ARTrainingModules() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <Card className="p-6 mb-8 bg-gradient-to-r from-purple-50 to-pink-50">
+        <Card className="p-6 mb-8   ">
           <div className="flex items-start gap-4">
             <div className="text-5xl">🥽</div>
             <div>
@@ -220,7 +220,7 @@ export function ARTrainingModules() {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div className="lg:col-span-2">
                   <Card className="p-6 mb-6">
-                    <div className="aspect-video bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center text-white mb-4">
+                    <div className="aspect-video    rounded-lg flex items-center justify-center text-white mb-4">
                       <div className="text-center">
                         <div className="text-8xl mb-4">🥽</div>
                         <p className="text-2xl font-bold mb-2">AR Experience Active</p>
@@ -290,7 +290,7 @@ export function ARTrainingModules() {
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2">
                         <div
-                          className="bg-gradient-to-r from-red-600 to-orange-500 h-2 rounded-full"
+                          className="   h-2 rounded-full"
                           style={{ width: `${selectedModuleData.completionRate}%` }}
                         />
                       </div>
@@ -309,7 +309,7 @@ export function ARTrainingModules() {
                     </ul>
                   </Card>
 
-                  <Card className="p-6 bg-gradient-to-r from-red-50 to-orange-50">
+                  <Card className="p-6   ">
                     <h3 className="font-bold mb-2">💡 Pro Tip</h3>
                     <p className="text-sm text-gray-700">
                       Use headphones for the best experience. Audio cues will guide you through each step.

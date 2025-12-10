@@ -199,7 +199,7 @@ export default function CompareProgramsPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Compare Programs
@@ -246,7 +246,7 @@ export default function CompareProgramsPage() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-500 text-white py-20">
+      <section className="   text-white py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -478,7 +478,7 @@ export default function CompareProgramsPage() {
               <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
                 <div className="p-8">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white text-2xl font-bold">
+                    <div className="w-16 h-16 rounded-full    flex items-center justify-center text-white text-2xl font-bold">
                       {story.name.charAt(0)}
                     </div>
                     <div>
@@ -519,7 +519,7 @@ export default function CompareProgramsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-orange-600 to-orange-500 text-white">
+      <section className="py-16    text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Start Your Career?</h2>
           <p className="text-2xl mb-8 text-orange-100">

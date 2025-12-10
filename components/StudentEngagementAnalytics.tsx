@@ -33,7 +33,7 @@ export default function StudentEngagementAnalytics() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Student Engagement Analytics</h1>
           <p className="text-red-100">Monitor and improve student participation</p>
@@ -104,7 +104,7 @@ export default function StudentEngagementAnalytics() {
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
-                      className="bg-gradient-to-r from-red-600 to-orange-500 h-2 rounded-full"
+                      className="   h-2 rounded-full"
                       style={{ width: `${trend.rate}%` }}
                     />
                   </div>
@@ -138,7 +138,7 @@ export default function StudentEngagementAnalytics() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="p-6 bg-gradient-to-r from-red-50 to-orange-50">
+          <Card className="p-6   ">
             <h3 className="font-bold mb-2">⚠️ Alert</h3>
             <p className="text-sm text-gray-700">
               42 students haven't logged in for 7+ days. Consider sending re-engagement emails.
@@ -146,14 +146,14 @@ export default function StudentEngagementAnalytics() {
             <Button size="sm" className="mt-3 w-full">Send Reminders</Button>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-r from-green-50 to-emerald-50">
+          <Card className="p-6   ">
             <h3 className="font-bold mb-2">✓ Success</h3>
             <p className="text-sm text-gray-700">
               Engagement rate increased 3% this month. Video content is driving participation.
             </p>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-r from-blue-50 to-cyan-50">
+          <Card className="p-6   ">
             <h3 className="font-bold mb-2">💡 Insight</h3>
             <p className="text-sm text-gray-700">
               Peak activity hours are 7-9 PM. Schedule live sessions during this window.

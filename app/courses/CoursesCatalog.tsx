@@ -189,7 +189,7 @@ d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     className="bg-white rounded-lg shadow-sm border hover:shadow-lg transition-shadow overflow-hidden group"
                   >
                     {course.thumbnail_url ? (
-                      <div className="relative h-48 bg-gradient-to-br from-blue-500 to-blue-700">
+                      <div className="relative h-48   ">
                         <Image
                           src={course.thumbnail_url}
                           alt={course.title}
@@ -200,7 +200,7 @@ d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         />
                       </div>
                     ) : (
-                      <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                      <div className="h-48    flex items-center justify-center">
                         <svg className="w-16 h-16 text-white opacity-50" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}

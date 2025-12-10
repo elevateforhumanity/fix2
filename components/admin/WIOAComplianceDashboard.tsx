@@ -426,7 +426,7 @@ export default function WIOAComplianceDashboard() {
                   <div className="flex items-center space-x-2">
                     {alert.autoResolution && (
                       <span className="text-xs bg-brand-surface text-brand-info px-2 py-1 rounded">
-                        🤖 Auto-resolving
+                        🤖 Au
                       </span>
                     )}
                     <button className="text-xs bg-white px-3 py-1 rounded border hover:bg-brand-surface">
@@ -597,7 +597,7 @@ export default function WIOAComplianceDashboard() {
                   Status
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase">
-                  Auto-Generated
+                  Au
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-brand-text-light uppercase">
                   Actions

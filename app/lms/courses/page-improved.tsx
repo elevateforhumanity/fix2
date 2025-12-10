@@ -21,7 +21,7 @@ export default async function CoursesPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero Section with Prominent Search */}
-      <div className="bg-gradient-to-r from-red-600 to-purple-600 text-white">
+      <div className="   text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <h1 className="text-4xl font-bold mb-4">Discover Your Next Course</h1>
           <p className="text-blue-50 text-lg mb-8">
@@ -147,7 +147,7 @@ export default async function CoursesPage() {
                   className="bg-white rounded-xl shadow-sm border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-200 overflow-hidden group"
                 >
                   {/* Course Hero Banner */}
-                  <div className="aspect-video bg-gradient-to-br from-red-600 to-indigo-700 relative overflow-hidden">
+                  <div className="aspect-video    relative overflow-hidden">
                     <div className="w-full h-full flex items-center justify-center">
                       <BookOpen className="w-16 h-16 text-white/30 group-hover:scale-110 transition-transform duration-300" />
                     </div>

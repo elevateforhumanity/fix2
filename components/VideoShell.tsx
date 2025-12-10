@@ -77,7 +77,7 @@ export function VideoShell({
       {/* Top overlay with title */}
       {title && (
         <div className="pointer-events-none absolute inset-x-0 top-0 p-4">
-          <div className="rounded-2xl bg-gradient-to-b from-black/80 via-black/40 to-transparent px-4 py-3 max-w-[90%]">
+          <div className="rounded-2xl     px-4 py-3 max-w-[90%]">
             <p className="text-[0.65rem] tracking-[0.2em] text-orange-300 uppercase mb-1">
               Elevate for Humanity
             </p>
@@ -89,7 +89,7 @@ export function VideoShell({
       )}
       {/* Bottom overlay with caption + brand chips + play button */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
-        <div className="rounded-2xl bg-gradient-to-t from-black/85 via-black/50 to-transparent px-4 py-3 flex items-end justify-between gap-3">
+        <div className="rounded-2xl     px-4 py-3 flex items-end justify-between gap-3">
           <div className="flex-1 min-w-0">
             {caption && (
               <p className="text-[0.8rem] sm:text-[0.9rem] leading-snug text-white/95 line-clamp-3">

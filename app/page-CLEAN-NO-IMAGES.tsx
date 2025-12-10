@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-red-900 text-white">
+      <section className="relative overflow-hidden     text-white">
         <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_top,_#dc2626_0,_transparent_45%),radial-gradient(circle_at_bottom,_#22c55e_0,_transparent_45%)]" />
         <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-[1.15fr,0.85fr] items-center">

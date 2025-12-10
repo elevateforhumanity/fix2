@@ -201,7 +201,7 @@ export function LearningBarrierAnalyzer() {
     setBarriers(detectedBarriers);
     setStrugglingStudents(strugglingStudentData);
     setIsAnalyzing(false);
-    // Auto-deploy remediation if enabled
+    // Au remediation if enabled
     if (autoRemediationEnabled) {
       await deployAutoRemediation(detectedBarriers);
     }
@@ -209,7 +209,7 @@ export function LearningBarrierAnalyzer() {
   const deployAutoRemediation = async (barriers: LearningBarrier[]) => {
     for (const barrier of barriers) {
       if (barrier.severity === 'high' || barrier.severity === 'critical') {
-        // Auto-create and deploy remediation content
+        // Au and deploy remediation content
         // 
         // This would integrate with your LMS to create actual content
       }
@@ -265,7 +265,7 @@ export function LearningBarrierAnalyzer() {
               onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setAutoRemediationEnabled(e.target.checked)}
               className="mr-2"
             />
-            <span className="text-sm text-brand-text">Auto-Remediation</span>
+            <span className="text-sm text-brand-text">Au
           </label>
           <button
             onClick={runBarrierAnalysis}
@@ -325,14 +325,14 @@ export function LearningBarrierAnalyzer() {
                   {new Date(barrier.identifiedDate).toLocaleDateString()}
                 </div>
               </div>
-              {/* Auto-Generated Remediation */}
+              {/* Au Remediation */}
               <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                 <div className="flex items-center mb-2">
                   <span className="text-lg mr-2">
                     {getRemediationIcon(barrier.autoRemediation.type)}
                   </span>
                   <h5 className="font-medium text-green-900">
-                    Auto-Generated Solution
+                    Au Solution
                   </h5>
                   <span className="ml-auto text-xs bg-green-200 text-brand-success px-2 py-1 rounded">
                     {barrier.autoRemediation.effectiveness}% effective
@@ -349,7 +349,7 @@ export function LearningBarrierAnalyzer() {
                 </div>
                 <div className="mb-3">
                   <div className="text-xs font-medium text-brand-success mb-1">
-                    📚 Auto-Generated Resources:
+                    📚 Au Resources:
                   </div>
                   <div className="flex flex-wrap gap-1">
                     {barrier.autoRemediation.resources.map(
@@ -489,7 +489,7 @@ export function LearningBarrierAnalyzer() {
             </div>
           </div>
           <div>
-            <div className="font-medium text-brand-info">Auto-Remediation</div>
+            <div className="font-medium text-brand-info">Au
             <div className="text-brand-info">
               Automatically creates and deploys targeted training
             </div>

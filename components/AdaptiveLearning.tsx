@@ -80,7 +80,7 @@ export function AdaptiveLearning({
   return (
     <div className="space-y-6">
       {/* Learning Insights */}
-      <Card className="bg-gradient-to-br from-red-50 to-orange-50">
+      <Card className="  ">
         <CardHeader>
           <div className="flex items-center gap-3">
             <div className="p-2 bg-red-600 rounded-lg">

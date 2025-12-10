@@ -135,7 +135,7 @@ export default function MobileVideoPlayer({
       />
       {/* Controls Overlay */}
       {showControls && (
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 flex flex-col justify-between p-4">
+        <div className="absolute inset-0     flex flex-col justify-between p-4">
           {/* Top Bar */}
           <div className="flex items-center justify-between">
             <h3 className="text-white font-medium text-sm line-clamp-1">

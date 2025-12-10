@@ -58,7 +58,7 @@ export default function StudentDemoPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Student
@@ -252,7 +252,7 @@ export default function StudentDemoPage() {
             </div>
 
             {/* Support */}
-            <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl p-6 text-white">
+            <div className="   rounded-xl p-6 text-white">
               <h3 className="font-bold text-lg mb-2">Need Help?</h3>
               <p className="text-sm text-purple-100 mb-4">Our support team is here 24/7</p>
               <button className="w-full bg-white text-purple-600 py-2 rounded-lg font-semibold hover:bg-purple-50">
@@ -279,7 +279,7 @@ export default function StudentDemoPage() {
         </div>
       
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+      <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">

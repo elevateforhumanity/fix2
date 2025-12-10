@@ -101,7 +101,7 @@ export default function CompetencyTracking() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white py-12">
+      <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Competency Tracking</h1>
           <p className="text-red-100">Monitor your skill development and mastery</p>
@@ -178,7 +178,7 @@ export default function CompetencyTracking() {
               <div className="mb-4">
                 <div className="w-full bg-gray-200 rounded-full h-3">
                   <div
-                    className="bg-gradient-to-r from-red-600 to-orange-500 h-3 rounded-full transition-all"
+                    className="   h-3 rounded-full transition-all"
                     style={{ width: `${competency.progress}%` }}
                   />
                 </div>
@@ -193,7 +193,7 @@ export default function CompetencyTracking() {
           ))}
         </div>
 
-        <Card className="p-6 mt-8 bg-gradient-to-r from-red-50 to-orange-50">
+        <Card className="p-6 mt-8   ">
           <h3 className="text-xl font-bold mb-4">Competency Framework</h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div>

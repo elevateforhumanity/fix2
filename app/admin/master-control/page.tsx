@@ -110,7 +110,7 @@ export default async function MasterControlPage() {
         { name: 'AI Course Builder', href: '/admin/ai-course-builder' },
         { name: 'Course Generator', href: '/admin/course-generator' },
         { name: 'AI Instructor', href: '/admin/ai-console', description: 'Chat with AI' },
-        { name: 'Text-to-Speech', href: '/admin/ai-console', description: 'Generate audio' },
+        { name: 'Text- href: '/admin/ai-console', description: 'Generate audio' },
       ]
     },
     {
@@ -314,7 +314,7 @@ export default async function MasterControlPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Master Control
@@ -339,7 +339,7 @@ export default async function MasterControlPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-blue-700 via-purple-700 to-pink-700 text-white py-12">
+      <section className="    text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center justify-between">

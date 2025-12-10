@@ -41,7 +41,7 @@ export default function GoogleClassroomSync() {
         <h2 className="text-xl font-semibold mb-4">Sync Settings</h2>
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <span>Auto-sync courses</span>
+            <span>Au courses</span>
             <input type="checkbox" className="toggle" />
           </div>
           <div className="flex items-center justify-between">

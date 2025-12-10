@@ -229,7 +229,7 @@ export default function ProgramFinder() {
 
   if (showResults) {
     return (
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <section className="py-20    ">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -262,7 +262,7 @@ export default function ProgramFinder() {
                   <div className="p-8">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <div className="w-16 h-16    rounded-xl flex items-center justify-center flex-shrink-0">
                           <Icon className="w-8 h-8 text-white" />
                         </div>
                         <div>
@@ -316,7 +316,7 @@ export default function ProgramFinder() {
                     <div className="flex gap-4">
                       <a
                         href={program.path}
-                        className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all text-center"
+                        className="flex-1 px-6 py-3    text-white rounded-lg font-semibold hover: hover: transition-all text-center"
                       >
                         Learn More
                       </a>
@@ -353,7 +353,7 @@ export default function ProgramFinder() {
   const question = questions[currentQuestion];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 min-h-screen flex items-center">
+    <section className="py-20     min-h-screen flex items-center">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
         <motion.div
@@ -385,7 +385,7 @@ export default function ProgramFinder() {
           </div>
           <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
             <motion.div
-              className="h-full bg-gradient-to-r from-blue-600 to-purple-600"
+              className="h-full   "
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
               transition={{ duration: 0.5 }}

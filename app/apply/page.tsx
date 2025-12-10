@@ -70,7 +70,7 @@ export default function ApplyPage() {
   const [success, setSuccess] = useState(false);
   const [mathAnswer, setMathAnswer] = useState("");
 
-  // Auto-save to localStorage (client-side only)
+  // Au to localStorage (client-side only)
   useEffect(() => {
     if (typeof window === 'undefined') return;
     

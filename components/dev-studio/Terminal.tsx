@@ -11,7 +11,7 @@ interface TerminalProps {
 export default function Terminal({ output, onClear }: TerminalProps) {
   const terminalRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when new output arrives
+  // Au to bottom when new output arrives
   useEffect(() => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;

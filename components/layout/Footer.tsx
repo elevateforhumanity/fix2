@@ -81,7 +81,7 @@ export function SiteFooter() {
                   href="https://instagram.com/elevateforhumanity" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all hover:scale-105 shadow-lg"
+                  className="flex items-center justify-center w-10 h-10 rounded-lg    hover: hover: text-white transition-all hover:scale-105 shadow-lg"
                   aria-label="Instagram"
                 >
                   <Instagram size={20} strokeWidth={2.5} />

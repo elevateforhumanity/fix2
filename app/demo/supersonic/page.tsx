@@ -18,7 +18,7 @@ export default function SupersonicDemoPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Supersonic
@@ -43,7 +43,7 @@ export default function SupersonicDemoPage() {
         </div>
       </section>
 
-      <div className="bg-gradient-to-r from-pink-500 to-rose-700 text-white py-3">
+      <div className="   text-white py-3">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -160,7 +160,7 @@ export default function SupersonicDemoPage() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-pink-500 to-rose-700 rounded-xl p-8 text-white mb-8">
+        <div className="   rounded-xl p-8 text-white mb-8">
           <h3 className="text-2xl font-bold mb-4">Why Choose Supersonic?</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div>
@@ -276,7 +276,7 @@ export default function SupersonicDemoPage() {
 
       
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+      <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">

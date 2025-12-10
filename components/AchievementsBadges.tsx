@@ -88,7 +88,7 @@ export function AchievementsBadges({ userId }: AchievementsBadgesProps) {
         </div>
         <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-red-500 to-emerald-600 transition-all duration-500"
+            className="h-full    transition-all duration-500"
             style={{ width: `${completionPercentage}%` }}
           />
         </div>
@@ -147,7 +147,7 @@ export function AchievementsBadges({ userId }: AchievementsBadgesProps) {
               <div
                 className={`w-16 h-16 mx-auto mb-3 rounded-full flex items-center justify-center ${
                   isEarned
-                    ? 'bg-gradient-to-br from-red-500 to-emerald-600'
+                    ? '  
                     : 'bg-slate-300'
                 }`}
               >

@@ -91,7 +91,7 @@ export default function EnrollmentCounter() {
   }, [enrollmentData.lastUpdated]);
 
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 relative overflow-hidden">
+    <section className="py-16     relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse" />
@@ -183,7 +183,7 @@ export default function EnrollmentCounter() {
           >
             {isLive && (
               <motion.div
-                className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-blue-400"
+                className="absolute top-0 left-0 right-0 h-1   "
                 animate={{ x: ['-100%', '100%'] }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
               />
@@ -256,7 +256,7 @@ export default function EnrollmentCounter() {
                 className="flex items-center justify-between p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="w-10 h-10    rounded-full flex items-center justify-center text-white font-bold">
                     {enrollment.name.charAt(0)}
                   </div>
                   <div>

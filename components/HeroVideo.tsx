@@ -15,7 +15,7 @@ export function HeroVideo() {
         height: '100%'
       }}
       onLoadedMetadata={(e) => {
-        // Auto-play only after video is ready
+        // Au only after video is ready
         const video = e.currentTarget;
         video.play().catch(() => {});
       }}

@@ -27,7 +27,7 @@ const videos = [
 
 export function VideoStrip() {
   return (
-    <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <section className="   ">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <header className="max-w-2xl">
           <h2 className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-300">

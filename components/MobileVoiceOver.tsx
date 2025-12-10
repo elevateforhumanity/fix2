@@ -11,14 +11,14 @@ export function MobileVoiceOver() {
     // Only show on mobile devices
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (isMobile) {
-      // Show the player and auto-play after a short delay
+      // Show the player and au after a short delay
       const timer = setTimeout(() => {
         setShowPlayer(true);
         setHasInteracted(true);
-        // Auto-play the audio
+        // Au the audio
         if (audioRef.current) {
           audioRef.current.play().catch(error => {
-            // If auto-play is blocked, show the play button
+            // If au is blocked, show the play button
           });
         }
       }, 1500);
@@ -53,7 +53,7 @@ export function MobileVoiceOver() {
     <>
       {/* Floating Audio Player */}
       <div className="fixed bottom-20 right-4 z-50 md:hidden">
-        <div className="bg-gradient-to-br from-red-600 to-blue-600 rounded-2xl shadow-2xl p-4 max-w-xs border-2 border-white">
+        <div className="   rounded-2xl shadow-2xl p-4 max-w-xs border-2 border-white">
           {/* Close Button */}
           <button
             onClick={handleClose}
@@ -117,10 +117,10 @@ export function MobileVoiceOver() {
           )}
         </div>
       </div>
-      {/* Auto-playing notification - No option to skip */}
+      {/* Au notification - No option to skip */}
       {isPlaying && !hasInteracted && (
         <div className="fixed top-20 left-4 right-4 z-40 md:hidden">
-          <div className="bg-gradient-to-r from-red-600 to-blue-600 text-white rounded-xl p-4 shadow-2xl animate-pulse">
+          <div className="   text-white rounded-xl p-4 shadow-2xl animate-pulse">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 animate-bounce">
                 <Volume2 size={20} className="text-white" />

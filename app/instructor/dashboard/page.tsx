@@ -43,7 +43,7 @@ export default async function ProgramHolderDashboard() {
   const completedStudents = students?.filter(e => e.status === 'completed').length || 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen   ">
       {/* Header */}
       <div className="bg-white border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-6 py-6">

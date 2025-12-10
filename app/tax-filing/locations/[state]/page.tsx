@@ -96,7 +96,7 @@ export default function StatePage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             [state]
@@ -122,7 +122,7 @@ export default function StatePage() {
       </section>
 
         {/* Hero */}
-        <section className="bg-gradient-to-r from-blue-600 to-green-600 text-white py-16">
+        <section className="   text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="text-sm mb-4">
               <Link href="/tax-filing/locations" className="text-blue-200 hover:text-white">
@@ -364,7 +364,7 @@ export default function StatePage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600 text-white">
+        <section className="py-20    text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-4xl font-extrabold mb-6">
               Ready to File Your {state.name} Taxes?

@@ -44,11 +44,11 @@ export default function AIConsolePage() {
       color: 'green'
     },
     {
-      id: 'text-to-speech',
+      id: 'text-
       name: 'Text to Speech',
       description: 'Convert text to natural voice audio',
       icon: Volume2,
-      endpoint: '/api/text-to-speech',
+      endpoint: '/api/text-
       status: 'active',
       color: 'purple'
     },
@@ -86,7 +86,7 @@ export default function AIConsolePage() {
     
     setTtsLoading(true);
     try {
-      const response = await fetch('/api/text-to-speech', {
+      const response = await fetch('/api/text- {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: ttsText })
@@ -98,7 +98,7 @@ export default function AIConsolePage() {
         const audio = new Audio(audioUrl);
         audio.play();
       } else {
-        alert('Text-to-speech failed. Check API keys in environment variables.');
+        alert('Text- failed. Check API keys in environment variables.');
       }
     } catch (error) {
       console.error('TTS error:', error);
@@ -146,7 +146,7 @@ export default function AIConsolePage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Ai Console
@@ -171,7 +171,7 @@ export default function AIConsolePage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-blue-700 to-purple-700 text-white py-12">
+      <section className="   text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-4 mb-4">
@@ -218,7 +218,7 @@ export default function AIConsolePage() {
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
-                Text-to-Speech
+                Text-
               </button>
               <button
                 onClick={() => setActiveTab('autopilots')}
@@ -316,7 +316,7 @@ export default function AIConsolePage() {
 
       
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
+      <section className="py-16    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -398,10 +398,10 @@ export default function AIConsolePage() {
             </div>
           )}
 
-          {/* Text-to-Speech Tab */}
+          {/* Text- Tab */}
           {activeTab === 'tts' && (
             <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h2 className="text-2xl font-bold mb-4">Text-to-Speech Generator</h2>
+              <h2 className="text-2xl font-bold mb-4">Text- Generator</h2>
               <p className="text-gray-600 mb-6">Convert any text to natural-sounding speech</p>
               
               <div className="space-y-4">

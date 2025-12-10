@@ -48,7 +48,7 @@ export default async function CompleteCatalogPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90" />
+        <div className="absolute inset-0   " />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
             Catalog
@@ -116,7 +116,7 @@ export default async function CompleteCatalogPage() {
                     {course.thumbnail_url ? (
                       <img src={course.thumbnail_url} alt={course.title} className="w-full h-48 object-cover" />
                     ) : (
-                      <div className="w-full h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                      <div className="w-full h-48    flex items-center justify-center">
                         <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor"
 viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
