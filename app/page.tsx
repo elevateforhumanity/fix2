@@ -418,8 +418,8 @@ export default function HomePage() {
             </div>
             <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/hero-training.jpg"
-                alt="Training facility"
+                src="/images/facilities-new/facility-1.jpg"
+                alt="Training facility and classroom"
                 fill
                 className="object-cover"
                 quality={75}
@@ -431,60 +431,6 @@ export default function HomePage() {
       </section>
 
 
-
-      {/* REAL TRAINING PHOTOS */}
-      <section className="py-20 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Hands-On Training
-            </h2>
-            <p className="text-xl text-slate-600">
-              Real students learning real skills
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
-              <Image
-                src="/media/programs/cpr-group-training-hd.jpg"
-                alt="CPR training - Real students learning life-saving skills"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-            </div>
-            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
-              <Image
-                src="/media/programs/cna-hd.jpg"
-                alt="CNA training - Real healthcare students"
-                fill
-                className="object-cover"
-                quality={75}
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-            </div>
-            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
-              <Image
-                src="/media/programs/medical-esthetics-training-hd.jpg"
-                alt="Medical esthetics training - Real beauty students"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-            </div>
-            <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden shadow-lg">
-              <Image
-                src="/media/programs/cpr-certification-group-hd.jpg"
-                alt="CPR certification - Real students getting certified"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
 
 
 
