@@ -67,7 +67,7 @@ export class BasePartnerAPI {
    * Logging helper
    */
   protected log(message: string, data?: any): void {
-    }] ${message}`, data || '');
+    console.log(`[${this.partner}] ${message}`, data || '');
   }
   /**
    * Get default headers for API requests
