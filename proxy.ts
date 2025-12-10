@@ -1,6 +1,24 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { checkRateLimit } from '@/lib/rate-limit';
+import { createClient } from '@/lib/supabase/server';
+
+// Protected routes that require authentication
+const PROTECTED_ROUTES = [
+  '/student',
+  '/dashboard',
+  '/courses/my',
+  '/admin',
+  '/instructor',
+  '/program-holder',
+  '/delegate',
+];
+
+// Admin-only routes
+const ADMIN_ROUTES = [
+  '/admin',
+  '/dev-admin',
+];
 
 function getClientIp(req: NextRequest): string {
   return (
@@ -22,6 +40,36 @@ export async function proxy(request: NextRequest) {
     pathname.startsWith('/videos')
   ) {
     return NextResponse.next();
+  }
+
+  // === AUTHENTICATION & AUTHORIZATION ===
+  const isProtectedRoute = PROTECTED_ROUTES.some(route => pathname.startsWith(route));
+  const isAdminRoute = ADMIN_ROUTES.some(route => pathname.startsWith(route));
+  
+  if (isProtectedRoute || isAdminRoute) {
+    // Verify authentication
+    const supabase = await createClient();
+    const { data: { user }, error } = await supabase.auth.getUser();
+
+    if (error || !user) {
+      // Redirect to login with return URL
+      const loginUrl = new URL('/login', request.url);
+      loginUrl.searchParams.set('redirect', pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+
+    // For admin routes, verify admin role
+    if (isAdminRoute) {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', user.id)
+        .single();
+
+      if (!profile || profile.role !== 'admin') {
+        return NextResponse.redirect(new URL('/unauthorized', request.url));
+      }
+    }
   }
 
   const ip = getClientIp(request);
@@ -68,7 +116,15 @@ export async function proxy(request: NextRequest) {
     return NextResponse.rewrite(new URL('/admin', request.url));
   }
 
-  return NextResponse.next();
+  // Add security headers to response
+  const response = NextResponse.next();
+  response.headers.set('X-Content-Type-Options', 'nosniff');
+  response.headers.set('X-Frame-Options', 'SAMEORIGIN');
+  response.headers.set('X-XSS-Protection', '1; mode=block');
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+
+  return response;
 }
 
 export const config = {

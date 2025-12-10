@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Facebook, Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
 
 export default function CourseraStyleFooter() {
   return (
@@ -199,13 +198,10 @@ export default function CourseraStyleFooter() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://twitter.com/elevate4humanity"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-600 transition"
-                aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="https://linkedin.com/company/elevate-for-humanity"

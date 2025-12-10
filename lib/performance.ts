@@ -16,7 +16,6 @@ export function measurePageLoad() {
     }
     // Log to console in development
     if (process.env.NODE_ENV === 'development') {
-      console.log('Page Performance:', {
         pageLoad: `${pageLoadTime}ms`,
         connect: `${connectTime}ms`,
         render: `${renderTime}ms`,
@@ -141,7 +140,6 @@ export function trackMemoryUsage() {
     const totalMemory = memory.totalJSHeapSize / 1048576; // MB
     
     if (process.env.NODE_ENV === 'development') {
-      console.log('Memory Usage:', {
         used: `${usedMemory.toFixed(2)}MB`,
         total: `${totalMemory.toFixed(2)}MB`,
         percentage: `${((usedMemory / totalMemory) * 100).toFixed(1)}%`,

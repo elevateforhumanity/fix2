@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Share2, Facebook, Twitter, Linkedin, Link as LinkIcon, Mail, Check } from 'lucide-react';
 
 interface SocialShareProps {
   url: string;
@@ -20,7 +19,6 @@ export function SocialShare({ url, title, description }: SocialShareProps) {
 
   const shareLinks = {
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-    twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
     email: `mailto:?subject=${encodedTitle}&body=${encodedDescription}%0A%0A${encodedUrl}`,
   };
@@ -88,17 +86,13 @@ export function SocialShare({ url, title, description }: SocialShareProps) {
                 <span className="text-sm font-medium text-slate-700">Facebook</span>
               </a>
 
-              {/* Twitter */}
               <a
-                href={shareLinks.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-lg transition"
               >
                 <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center">
-                  <Twitter className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-sm font-medium text-slate-700">Twitter</span>
               </a>
 
               {/* LinkedIn */}

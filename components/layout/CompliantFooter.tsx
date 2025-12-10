@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from "lucide-react";
 
 export default function CompliantFooter() {
   const currentYear = new Date().getFullYear();
@@ -91,13 +90,10 @@ export default function CompliantFooter() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a 
-                href="https://twitter.com/elevate4humanity" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-sky-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 hover:bg-sky-400"
-                aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5" />
               </a>
               <a 
                 href="https://www.instagram.com/elevateforhumanity" 

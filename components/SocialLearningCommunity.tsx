@@ -51,7 +51,6 @@ export function SocialLearningCommunity() {
       id: '3',
       author: 'Emily Rodriguez',
       avatar: '👩‍🔬',
-      content: 'Pro tip: When debugging async code, console.log the promise itself before awaiting. Saved me hours today! 🚀',
       timestamp: '1 day ago',
       likes: 42,
       comments: 6,

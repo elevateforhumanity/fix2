@@ -48,7 +48,7 @@ export function getOrganizationSchema(): Organization {
       'https://www.facebook.com/elevateforhumanity',
       'https://www.linkedin.com/company/elevateforhumanity',
       'https://www.instagram.com/elevateforhumanity',
-      'https://twitter.com/elevate4humanity',
+
     ],
     aggregateRating: {
       '@type': 'AggregateRating',

@@ -1,0 +1,83 @@
+import { createClient } from '@/lib/supabase/server';
+import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '@/lib/logger';
+
+// GET /api/hr/benefits/enrollments?employee_id=
+export async function GET(request: NextRequest) {
+  try {
+    const supabase = await createClient();
+    const params = request.nextUrl.searchParams;
+    const employeeId = params.get('employee_id');
+
+    let query = supabase
+      .from('benefits_enrollments')
+      .select(
+        `
+        *,
+        employee:employees(
+          id,
+          employee_number,
+          profile:profiles(full_name, email)
+        ),
+        plan:benefits_plans(*)
+      `
+      )
+      .order('created_at', { ascending: false });
+
+    if (employeeId) query = query.eq('employee_id', employeeId);
+
+    const { data, error } = await query;
+    if (error) throw error;
+
+    return NextResponse.json({ enrollments: data });
+  } catch (error: unknown) {
+    logger.error('Error fetching benefits enrollments:', error);
+    return NextResponse.json(
+      { error: error.message || 'Failed to fetch enrollments' },
+      { status: 500 }
+    );
+  }
+}
+
+// POST /api/hr/benefits/enrollments
+// Body: { employee_id, plan_id, coverage_level, effective_date, ... }
+export async function POST(request: NextRequest) {
+  try {
+    const supabase = await createClient();
+    const body = await request.json();
+
+    const { employee_id, plan_id, coverage_level, effective_date } = body;
+
+    if (!employee_id || !plan_id || !coverage_level || !effective_date) {
+      return NextResponse.json(
+        {
+          error:
+            'Missing required fields: employee_id, plan_id, coverage_level, effective_date',
+        },
+        { status: 400 }
+      );
+    }
+
+    const { data, error } = await supabase
+      .from('benefits_enrollments')
+      .insert({
+        employee_id,
+        plan_id,
+        coverage_level,
+        effective_date,
+        status: 'active',
+      })
+      .select('*')
+      .single();
+
+    if (error) throw error;
+
+    return NextResponse.json({ enrollment: data }, { status: 201 });
+  } catch (error: unknown) {
+    logger.error('Error creating benefits enrollment:', error);
+    return NextResponse.json(
+      { error: error.message || 'Failed to create enrollment' },
+      { status: 500 }
+    );
+  }
+}

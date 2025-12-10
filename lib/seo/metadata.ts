@@ -60,13 +60,7 @@ export function generateMetadata({
       locale: 'en_US',
       type,
     },
-    twitter: {
-      card: 'summary_large_image',
-      title: fullTitle,
-      description,
-      images: [imageUrl],
-      creator: '@ElevateForHuman',
-    },
+
     robots: {
       index: true,
       follow: true,
