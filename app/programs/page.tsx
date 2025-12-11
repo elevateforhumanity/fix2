@@ -1,97 +1,25 @@
 import Link from "next/link";
 import Image from "next/image";
+import { programs as programsData } from "@/app/data/programs";
 
 export const metadata = {
   title: 'Our Programs | Elevate For Humanity',
-  description: '9 career training programs. 100% free with government funding. Real credentials, real jobs.',
+  description: 'Career training programs. 100% free with government funding. Real credentials, real jobs.',
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/programs',
   },
 };
 
-const programs = [
-  {
-    name: 'Barber Apprenticeship',
-    slug: 'barber-apprenticeship',
-    duration: '12 months',
-    cost: '$4,890',
-    image: '/images/courses/barber-10002288-cover.jpg',
-    description: 'Get paid while you train. Work in a real barbershop, earn money, and become a licensed barber.',
-    credentials: 'Registered Apprenticeship Certificate',
-  },
-  {
-    name: 'Medical Assistant',
-    slug: 'medical-assistant',
-    duration: '21 days',
-    cost: '$4,325',
-    image: '/images/healthcare/hero-program-medical-assistant.jpg',
-    description: 'Healthcare career in 3 weeks. Clinics are hiring now. Start at $40K+ with benefits.',
-    credentials: 'CCHW, CPR, RISE Up Certified',
-  },
-  {
-    name: 'HVAC Technician',
-    slug: 'hvac-technician',
-    duration: '60 days',
-    cost: '$5,000',
-    image: '/images/courses/hvac-technician-10002289-cover.jpg',
-    description: 'Critical shortage nationwide. 6 certifications in 60 days. Start at $45K-$60K with overtime.',
-    credentials: '6 Industry Certifications',
-  },
-  {
-    name: 'CPR Certification',
-    slug: 'cpr-certification',
-    duration: '1 day',
-    cost: '$575',
-    image: '/images/facilities-new/facility-6.jpg',
-    description: 'Required for most healthcare jobs. Get certified in one day.',
-    credentials: 'CPR Certified',
-  },
-  {
-    name: 'Emergency Health & Safety Tech',
-    slug: 'emergency-health-safety-tech',
-    duration: '4 weeks',
-    cost: '$4,950',
-    image: '/images/facilities-new/facility-7.jpg',
-    description: 'EMR certification. Entry point to emergency medical services.',
-    credentials: 'CPR, EMR, OSHA 10',
-  },
-  {
-    name: 'Professional Esthetician',
-    slug: 'professional-esthetician',
-    duration: '5 weeks',
-    cost: '$4,575',
-    image: '/images/facilities-new/facility-9.jpg',
-    description: 'Beauty industry license. Work in spas, salons, or start your own business.',
-    credentials: 'State Esthetician License',
-  },
-  {
-    name: 'Peer Recovery Coach',
-    slug: 'peer-recovery-coach',
-    duration: '45 days',
-    cost: '$4,750',
-    image: '/images/facilities-new/facility-10.jpg',
-    description: 'Turn your recovery story into a career helping others.',
-    credentials: 'State Certified Recovery Coach',
-  },
-  {
-    name: 'Tax Prep & Financial Services',
-    slug: 'tax-prep-financial-services',
-    duration: '10 weeks',
-    cost: '$4,950',
-    image: '/images/facilities-new/facility-11.jpg',
-    description: 'Work from home. Seasonal income plus year-round bookkeeping.',
-    credentials: 'IRS Tax Preparer Certified',
-  },
-  {
-    name: 'Business Startup & Marketing',
-    slug: 'business-startup-marketing',
-    duration: '5 weeks',
-    cost: '$4,550',
-    image: '/images/facilities-new/facility-12.jpg',
-    description: 'Launch your business. Learn digital marketing and entrepreneurship.',
-    credentials: 'Business & Marketing Certificate',
-  },
-];
+// Map programs data to display format
+const programs = programsData.map(p => ({
+  name: p.name,
+  slug: p.slug,
+  duration: p.duration,
+  cost: '$0',
+  image: p.heroImage,
+  description: p.shortDescription,
+  credentials: p.credential,
+}));
 
 export default function ProgramsPage() {
   return (
