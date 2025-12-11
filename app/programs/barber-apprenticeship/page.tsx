@@ -1,17 +1,8 @@
 'use client';
 
-import { Metadata } from 'next';
 import Link from 'next/link';
 import { CheckCircle } from 'lucide-react';
 import { useState } from 'react';
-
-export const metadata: Metadata = {
-  title: 'Barber Apprenticeship Training | Elevate For Humanity',
-  description: '2,000-hour barber apprenticeship. Get paid while you learn. $4,890 or FREE with government funding.',
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/programs/barber-apprenticeship',
-  },
-};
 
 export default function BarberApprenticeshipPage() {
   const [isProcessing, setIsProcessing] = useState(false);
