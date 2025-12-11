@@ -96,17 +96,17 @@ const programs = [
 export default function ProgramsPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Banner */}
+      {/* Video Hero Banner */}
       <section className="relative h-[500px] w-full overflow-hidden">
-        <Image
-          src="/images/heroes/hero-students.jpg"
-          alt="Career Training Programs"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-          sizes="100vw"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/barber-hero.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-slate-900/60" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-4xl mx-auto px-4 text-center text-white">
