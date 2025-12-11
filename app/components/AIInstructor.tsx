@@ -91,7 +91,7 @@ export default function AIInstructor({
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-lg border-2 border-blue-200">
+    <div className="bg-blue-50 rounded-xl p-6 shadow-lg border-2 border-blue-200">
       <div className="flex items-start gap-4">
         {/* Avatar */}
         <div className="flex-shrink-0">

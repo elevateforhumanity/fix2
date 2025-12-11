@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="bg-white">
-      {/* Hero Section */}
-      <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
+      {/* Hero Section - Image Only */}
+      <section className="relative h-[400px] overflow-hidden">
         <Image
           src="/images/heroes/hero-students.jpg"
           alt="Students succeeding"
@@ -24,15 +24,6 @@ export default function AboutPage() {
           quality={95}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-slate-900/50" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Your Past Doesn't Define Your Future
-          </h1>
-          <p className="text-xl">
-            We help people rebuild their lives through free career training.
-          </p>
-        </div>
       </section>
 
       {/* Story Section */}
@@ -164,7 +155,7 @@ export default function AboutPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="relative aspect-square rounded-lg overflow-hidden">
+            <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden">
               <Image
                 src="/images/team/elizabeth-greene.jpg"
                 alt="Elizabeth Greene, CEO"

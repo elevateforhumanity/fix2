@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { programs, Program } from "@/app/data/programs";
 
@@ -68,15 +69,27 @@ export default function ProgramsPage() {
 
   return (
     <main className="bg-slate-50 min-h-screen">
-      {/* Header */}
+      {/* Hero Section - Image Only */}
+      <section className="relative h-[400px] overflow-hidden">
+        <Image
+          src="/images/heroes/programs-hero.jpg"
+          alt="Career Training Programs"
+          fill
+          className="object-cover"
+          priority
+          quality={90}
+        />
+      </section>
+
+      {/* Search & Filter */}
       <section className="border-b border-slate-200 bg-white">
         <div className="max-w-6xl mx-auto px-4 py-10 lg:py-14">
           <p className="text-xs font-semibold tracking-[0.18em] text-emerald-700 uppercase mb-2">
             Explore Programs
           </p>
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
             Programs &amp; Pathways
-          </h1>
+          </h2>
           <p className="text-slate-700 max-w-3xl mb-4">
             Short-term training, real credentials, and pathways that fit real
             life. Most learners qualify for some funding through{" "}
