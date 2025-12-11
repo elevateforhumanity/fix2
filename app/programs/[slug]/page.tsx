@@ -3,7 +3,7 @@ import { programs } from "@/app/data/programs";
 import { ProgramHero } from "@/components/programs/ProgramHero";
 import { ProgramDetails } from "@/components/programs/ProgramDetails";
 
-type Params = { slug: string };
+type Params = Promise<{ slug: string }>;
 
 export async function generateStaticParams() {
   // Use static data directly for build time
@@ -11,7 +11,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
-  const program = programs.find(p => p.slug === params.slug);
+  const { slug } = await params;
+  const program = programs.find(p => p.slug === slug);
   
   if (!program) {
     return {
@@ -25,8 +26,9 @@ export async function generateMetadata({ params }: { params: Params }) {
   };
 }
 
-export default function ProgramDetailPage({ params }: { params: Params }) {
-  const program = programs.find(p => p.slug === params.slug);
+export default async function ProgramDetailPage({ params }: { params: Params }) {
+  const { slug } = await params;
+  const program = programs.find(p => p.slug === slug);
 
   if (!program) {
     return notFound();
