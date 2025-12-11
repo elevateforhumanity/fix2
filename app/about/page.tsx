@@ -38,26 +38,30 @@ export default function AboutPage() {
       {/* Story Section */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Why We Exist</h2>
+          <h2 className="text-3xl font-bold mb-6">Our Story</h2>
           
           <p className="text-xl text-slate-700 mb-6 leading-relaxed">
-            Elizabeth Greene started Elevate For Humanity because she saw a problem: talented, hardworking people were stuck in dead-end jobs—not because they lacked potential, but because they lacked access.
+            Elevate For Humanity started with a simple question: Why are talented, hardworking people stuck in dead-end jobs?
           </p>
           
           <p className="text-lg text-slate-600 mb-6">
-            Access to training. Access to funding. Access to employers who would give them a chance.
+            The answer wasn't lack of potential. It was lack of access—to training, to funding, to employers willing to give them a chance.
           </p>
           
           <p className="text-lg text-slate-600 mb-6">
-            She met single moms working two jobs who couldn't afford childcare to attend training. She met formerly incarcerated people who wanted to work but couldn't get past background checks. She met factory workers laid off after 20 years who had no idea how to start over.
+            We met Maria, a single mom working two jobs who couldn't afford childcare to attend training. We met James, who spent five years incarcerated and wanted to work but couldn't get past background checks. We met Linda, laid off after 20 years at a factory with no idea how to start over.
           </p>
           
           <p className="text-lg text-slate-600 mb-6">
-            So she built a system to help them. Not just training—but wraparound support. Housing assistance. Mental health services. Life coaching. Transportation. Childcare. And most importantly: connections to employers who hire based on skills, not resumes.
+            So we built something different. Not just training, but real support: housing assistance, mental health services, life coaching, transportation, childcare. And most importantly, connections to employers who hire based on skills, not resumes.
+          </p>
+          
+          <p className="text-lg text-slate-600 mb-6">
+            Today, Maria is a licensed CNA earning $45,000 a year with benefits. James owns his own barbershop. Linda runs a successful tax preparation business from home.
           </p>
           
           <p className="text-lg text-slate-600">
-            Today, Elevate For Humanity has helped thousands of people go from unemployment to careers. From minimum wage to $40K-$60K salaries. From hopeless to hopeful.
+            We've helped thousands of people go from unemployment to careers, from minimum wage to $40K-$60K+ salaries, from hopeless to hopeful. And we're just getting started.
           </p>
         </div>
       </section>
