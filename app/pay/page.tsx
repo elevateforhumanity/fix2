@@ -1,19 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Script from 'next/script';
-
-// Declare Stripe Buy Button custom element
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'stripe-buy-button': {
-        'buy-button-id': string;
-        'publishable-key': string;
-      };
-    }
-  }
-}
+import { useState } from 'react';
 
 const PROGRAMS = [
   { 
@@ -83,7 +70,6 @@ const PROGRAMS = [
 
 export default function PayPage() {
   const [selectedProgramId, setSelectedProgramId] = useState(PROGRAMS[0].id);
-  const [showPaymentButton, setShowPaymentButton] = useState(false);
 
   const selectedProgram = PROGRAMS.find((p) => p.id === selectedProgramId) ?? PROGRAMS[0];
 
@@ -99,14 +85,7 @@ export default function PayPage() {
   };
 
   return (
-    <>
-      {/* Load Stripe Buy Button Script */}
-      <Script
-        src="https://js.stripe.com/v3/buy-button.js"
-        strategy="afterInteractive"
-      />
-      
-      <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-slate-50">
       {/* Video Hero */}
       <section className="relative h-[300px] w-full overflow-hidden bg-slate-900">
         <video
