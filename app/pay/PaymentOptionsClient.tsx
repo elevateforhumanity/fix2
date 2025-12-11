@@ -33,7 +33,8 @@ export default function PaymentOptionsClient() {
       const existing = document.querySelector<HTMLScriptElement>(
         'script[src^="https://cdn1.affirm.com/js/v2/affirm.js"]'
       );
-      const publicKey = process.env.NEXT_PUBLIC_AFFIRM_PUBLIC_KEY;
+      // Hardcoded public key (safe to expose - it's public)
+      const publicKey = 'aGax1GLWFexjLyW7PCf23rfznLl6YGyI';
 
       if (existing) {
         window.affirm?.ui?.refresh?.();
@@ -54,14 +55,19 @@ export default function PaymentOptionsClient() {
           }
           window.affirm?.ui?.refresh?.();
           setAffirmLoaded(true);
+          console.log('[Affirm] ✅ Loaded and configured');
         } catch (e) {
-          console.error('Affirm init error:', e);
+          console.error('[Affirm] Init error:', e);
+          setError('Affirm initialization failed.');
         }
       };
-      script.onerror = () => setError('Affirm script failed to load.');
+      script.onerror = () => {
+        console.error('[Affirm] Script failed to load');
+        setError('Affirm script failed to load.');
+      };
       document.body.appendChild(script);
     } catch (e) {
-      console.error('Affirm loader error:', e);
+      console.error('[Affirm] Loader error:', e);
       setError('Problem initializing Affirm.');
     }
   }, []);
@@ -74,16 +80,23 @@ export default function PaymentOptionsClient() {
       );
       if (existing) {
         setStripeLoaded(true);
+        console.log('[Stripe] ✅ Script already loaded');
         return;
       }
       const script = document.createElement('script');
       script.src = 'https://js.stripe.com/v3/buy-button.js';
       script.async = true;
-      script.onload = () => setStripeLoaded(true);
-      script.onerror = () => setError('Stripe script failed to load.');
+      script.onload = () => {
+        setStripeLoaded(true);
+        console.log('[Stripe] ✅ Script loaded successfully');
+      };
+      script.onerror = (e) => {
+        console.error('[Stripe] Script failed to load:', e);
+        setError('Stripe script failed to load.');
+      };
       document.body.appendChild(script);
     } catch (e) {
-      console.error('Stripe loader error:', e);
+      console.error('[Stripe] Loader error:', e);
       setError('Problem initializing Stripe.');
     }
   }, []);
