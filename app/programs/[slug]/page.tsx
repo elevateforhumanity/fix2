@@ -1,17 +1,17 @@
 import { notFound } from "next/navigation";
-import { getProgram, getAllPrograms } from "@/lib/data/programs";
+import { programs } from "@/app/data/programs";
 import { ProgramHero } from "@/components/programs/ProgramHero";
 import { ProgramDetails } from "@/components/programs/ProgramDetails";
 
 type Params = { slug: string };
 
 export async function generateStaticParams() {
-  const programs = await getAllPrograms();
+  // Use static data directly for build time
   return programs.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Params }) {
-  const program = await getProgram(params.slug);
+  const program = programs.find(p => p.slug === params.slug);
   
   if (!program) {
     return {
@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: { params: Params }) {
   };
 }
 
-export default async function ProgramDetailPage({ params }: { params: Params }) {
-  const program = await getProgram(params.slug);
+export default function ProgramDetailPage({ params }: { params: Params }) {
+  const program = programs.find(p => p.slug === params.slug);
 
   if (!program) {
     return notFound();
