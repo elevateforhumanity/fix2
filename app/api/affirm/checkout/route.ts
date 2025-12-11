@@ -8,15 +8,9 @@ const AFFIRM_PRIVATE_KEY = process.env.AFFIRM_PRIVATE_KEY || '';
 
 export async function POST(request: NextRequest) {
   try {
-    const authResult = await apiAuthGuard({ requireAuth: true });
-    if (!authResult.authorized) {
-      return NextResponse.json(
-        { error: authResult.error },
-        { status: 401 }
-      );
-    }
+    const authResult = await apiAuthGuard({ requireAuth: false });
+    const user = authResult.user || { id: 'guest', email: '' };
 
-    const { user } = authResult;
     const body = await request.json();
     
     const {

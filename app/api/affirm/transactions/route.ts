@@ -14,15 +14,8 @@ function getAuthHeader() {
 // Authorize (capture) a transaction
 export async function POST(request: NextRequest) {
   try {
-    const authResult = await apiAuthGuard({ requireAuth: true });
-    if (!authResult.authorized) {
-      return NextResponse.json(
-        { error: authResult.error },
-        { status: 401 }
-      );
-    }
-
-    const { user } = authResult;
+    const authResult = await apiAuthGuard({ requireAuth: false });
+    const user = authResult.user || { id: 'guest', email: '' };
     const body = await request.json();
     const { checkout_token, order_id, action = 'authorize' } = body;
 
@@ -216,13 +209,7 @@ export async function POST(request: NextRequest) {
 // Get transaction details
 export async function GET(request: NextRequest) {
   try {
-    const authResult = await apiAuthGuard({ requireAuth: true });
-    if (!authResult.authorized) {
-      return NextResponse.json(
-        { error: authResult.error },
-        { status: 401 }
-      );
-    }
+    const authResult = await apiAuthGuard({ requireAuth: false });
 
     const { searchParams } = new URL(request.url);
     const transaction_id = searchParams.get('transaction_id');
