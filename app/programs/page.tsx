@@ -1,169 +1,200 @@
-import Link from "next/link";
-import Image from "next/image";
-import { programs as programsData } from "@/app/data/programs";
+"use client";
 
-export const metadata = {
-  title: 'Our Programs | Elevate For Humanity',
-  description: 'Career training programs. 100% free with government funding. Real credentials, real jobs.',
-  alternates: {
-    canonical: 'https://www.elevateforhumanity.org/programs',
-  },
+import Link from "next/link";
+import { useMemo, useState } from "react";
+import { programs, Program } from "@/app/data/programs";
+
+// Map programs to categories
+const getCategoryForProgram = (program: Program): string => {
+  const slug = program.slug;
+  if (slug.includes('cna') || slug.includes('medical') || slug.includes('health')) return 'Healthcare';
+  if (slug.includes('hvac') || slug.includes('building') || slug.includes('cdl')) return 'Skilled Trades';
+  if (slug.includes('barber') || slug.includes('beauty') || slug.includes('esthetician')) return 'Beauty & Wellness';
+  if (slug.includes('tax') || slug.includes('business')) return 'Business & Finance';
+  return 'Other Programs';
 };
 
-// Map programs data to display format
-const programs = programsData.map(p => ({
-  name: p.name,
-  slug: p.slug,
-  duration: p.duration,
-  cost: '$0',
-  image: p.heroImage,
-  description: p.shortDescription,
-  credentials: p.credential,
-}));
+// Map programs to icons
+const getIconForProgram = (program: Program): string => {
+  const slug = program.slug;
+  if (slug.includes('barber')) return '✂️';
+  if (slug.includes('cna') || slug.includes('health')) return '🏥';
+  if (slug.includes('medical')) return '🩺';
+  if (slug.includes('hvac')) return '🛠️';
+  if (slug.includes('cdl')) return '🚚';
+  if (slug.includes('tax') || slug.includes('business')) return '💼';
+  if (slug.includes('beauty') || slug.includes('esthetician')) return '💅';
+  if (slug.includes('building')) return '🏗️';
+  return '📚';
+};
 
 export default function ProgramsPage() {
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState<string | "all">("all");
+
+  // Get all unique categories
+  const allCategories = useMemo(() => {
+    return Array.from(new Set(programs.map(getCategoryForProgram))).sort();
+  }, []);
+
+  // Filter programs
+  const filtered = useMemo(() => {
+    return programs.filter((p) => {
+      const programCategory = getCategoryForProgram(p);
+      const matchesCategory = category === "all" || programCategory === category;
+
+      const term = search.toLowerCase().trim();
+      const matchesSearch =
+        !term ||
+        p.name.toLowerCase().includes(term) ||
+        p.shortDescription.toLowerCase().includes(term) ||
+        p.heroSubtitle.toLowerCase().includes(term);
+
+      return matchesCategory && matchesSearch;
+    });
+  }, [search, category]);
+
+  // Group filtered programs by category
+  const grouped = useMemo(() => {
+    return filtered.reduce<Record<string, Program[]>>((acc, p) => {
+      const key = getCategoryForProgram(p);
+      acc[key] = acc[key] || [];
+      acc[key].push(p);
+      return acc;
+    }, {});
+  }, [filtered]);
+
+  const categories = Object.keys(grouped).sort();
+
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Banner - No overlay, no text */}
-      <section className="relative h-[500px] w-full overflow-hidden">
-        <Image
-          src="/images/heroes/success-story-1.jpg"
-          alt="Career Training Programs"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-          sizes="100vw"
-        />
-      </section>
+    <main className="bg-slate-50 min-h-screen">
+      {/* Header */}
+      <section className="border-b border-slate-200 bg-white">
+        <div className="max-w-6xl mx-auto px-4 py-10 lg:py-14">
+          <p className="text-xs font-semibold tracking-[0.18em] text-emerald-700 uppercase mb-2">
+            Explore Programs
+          </p>
+          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2">
+            Programs &amp; Pathways
+          </h1>
+          <p className="text-slate-700 max-w-3xl mb-4">
+            Short-term training, real credentials, and pathways that fit real
+            life. Most learners qualify for some funding through{" "}
+            <span className="font-semibold">WIOA, WRG, apprenticeships</span>,
+            or partner support. Not sure where to start?{" "}
+            <Link href="/apply" className="text-emerald-700 underline">
+              Submit a Quick Application
+            </Link>{" "}
+            and we&apos;ll help you decide.
+          </p>
 
-      {/* Story Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Your Past Doesn't Define Your Future</h2>
-          
-          <p className="text-xl text-slate-700 mb-6 leading-relaxed">
-            Maria was working at Target for $14/hour. Single mom, two kids, barely making rent. She wanted more but didn't know where to start.
-          </p>
-          <p className="text-lg text-slate-600 mb-6">
-            Then she found us. We told her about free training through WRG. No tuition. No debt. Just 21 days of focused learning. She became a Medical Assistant. Now she makes $42,000/year with benefits. Her kids have stability. Her life changed.
-          </p>
-          <p className="text-lg text-slate-600 mb-6">
-            James worked in a factory for 8 years until it closed. No warning. No severance. At 45, he thought his career was over. We trained him in HVAC repair—completely free through WIOA. 60 days later, he was hired at $55,000/year. "I've never been more financially secure," he says.
-          </p>
-          <p className="text-lg text-slate-600 mb-6">
-            Keisha had a record. Nobody would hire her. We trained her as a Peer Recovery Coach. Now she works at a treatment center helping people like her. She makes $38,000/year and saves lives every day.
-          </p>
-          <p className="text-xl text-slate-700 font-semibold">
-            These aren't special cases. This is what we do. We train people for real jobs. And most of our students pay nothing.
-          </p>
-        </div>
-      </section>
-
-      {/* Programs Grid */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Our 9 Programs</h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {programs.map((program) => (
-              <Link
-                key={program.slug}
-                href={`/programs/${program.slug}`}
-                className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all"
+          {/* Search + Filter */}
+          <div className="mt-4 flex flex-col md:flex-row gap-3 md:items-center">
+            <div className="flex-1">
+              <label className="block text-xs font-medium text-slate-600 mb-1">
+                Search programs
+              </label>
+              <input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Type to search by name or focus…"
+                className="w-full rounded-full border border-slate-300 px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-white"
+              />
+            </div>
+            <div className="w-full md:w-60">
+              <label className="block text-xs font-medium text-slate-600 mb-1">
+                Filter by category
+              </label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="w-full rounded-full border border-slate-300 px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-white"
               >
-                <div className="relative h-48">
-                  <Image
-                    src={program.image}
-                    alt={program.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-orange-600 transition-colors">
-                    {program.name}
-                  </h3>
-                  <p className="text-sm text-slate-600 mb-3">{program.description}</p>
-                  
-                  <div className="flex items-center justify-between text-sm mb-3">
-                    <span className="text-slate-700">
-                      <strong>Duration:</strong> {program.duration}
-                    </span>
-                    <span className="text-green-600 font-bold">
-                      FREE or {program.cost}
-                    </span>
-                  </div>
-                  
-                  <div className="text-xs text-slate-500 mb-4">
-                    📜 {program.credentials}
-                  </div>
-                  
-                  <div className="text-orange-600 font-semibold group-hover:underline">
-                    Learn More →
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">How Free Training Works</h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-green-600">1</span>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Contact Us</h3>
-              <p className="text-slate-600">
-                Tell us which program interests you. We'll check if you qualify for free funding.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">2</span>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Get Approved</h3>
-              <p className="text-slate-600">
-                We help you apply for WRG, WIOA, or other funding. Most students get approved within 1-2 weeks.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-orange-600">3</span>
-              </div>
-              <h3 className="text-xl font-bold mb-2">Start Training</h3>
-              <p className="text-slate-600">
-                Begin your program. Graduate with credentials. Get connected to employers.
-              </p>
+                <option value="all">All pathways</option>
+                {allCategories.map((cat) => (
+                  <option key={cat} value={cat}>
+                    {cat}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your Career?</h2>
-          <p className="text-xl mb-8">Contact us today. We'll help you find free training and a path to employment.</p>
-          <Link
-            href="/contact"
-            className="inline-block px-10 py-5 bg-white text-orange-600 font-bold rounded-lg hover:bg-gray-100 transition-all text-lg shadow-xl"
-          >
-            Contact Us
-          </Link>
-          <p className="mt-6 text-white/90">
-            Call <a href="tel:3173143757" className="font-bold underline">317-314-3757</a>
+      {/* Grid */}
+      <section className="max-w-6xl mx-auto px-4 py-8 lg:py-10 space-y-10">
+        {categories.length === 0 && (
+          <p className="text-sm text-slate-600">
+            No programs match your filters. Try clearing your search.
           </p>
-        </div>
+        )}
+
+        {categories.map((cat) => (
+          <div key={cat} className="space-y-4">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-900">
+              {cat}
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {grouped[cat].map((p) => (
+                <ProgramCard key={p.slug} program={p} />
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
     </main>
+  );
+}
+
+function ProgramCard({ program }: { program: Program }) {
+  const icon = getIconForProgram(program);
+  
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col">
+      {/* Icon + Title */}
+      <div className="flex items-start gap-3 mb-3">
+        <span className="text-2xl flex-shrink-0" aria-hidden="true">
+          {icon}
+        </span>
+        <div className="flex-1">
+          <h3 className="text-lg font-semibold text-slate-900 leading-tight">
+            {program.name}
+          </h3>
+        </div>
+      </div>
+
+      <p className="text-sm text-slate-700 mt-1 line-clamp-3 mb-4">
+        {program.shortDescription}
+      </p>
+
+      <dl className="grid grid-cols-2 gap-3 text-xs text-slate-600 mt-auto mb-4">
+        <div>
+          <dt className="text-slate-500">Length</dt>
+          <dd className="font-semibold text-slate-800">{program.duration}</dd>
+        </div>
+        <div>
+          <dt className="text-slate-500">Format</dt>
+          <dd className="font-semibold text-slate-800">
+            {program.delivery.split(':')[0]}
+          </dd>
+        </div>
+      </dl>
+
+      <div className="flex flex-wrap gap-2">
+        <Link
+          href={`/programs/${program.slug}`}
+          className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white hover:bg-slate-800 transition"
+        >
+          View Program
+        </Link>
+        <Link
+          href={`/apply?program=${program.slug}`}
+          className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 transition"
+        >
+          Apply
+        </Link>
+      </div>
+    </div>
   );
 }
