@@ -18,7 +18,7 @@ export default async function LmsPage() {
   const { data: { user } } = await supabase.auth.getUser();
   
   if (!user) {
-    redirect('/login');
+    redirect('/login?next=/lms');
   }
 
   const { data: profile } = await supabase

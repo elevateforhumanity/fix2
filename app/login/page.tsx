@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -12,6 +12,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const next = searchParams.get('next') || '';
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -132,7 +134,7 @@ export default function LoginPage() {
 
             <div className="mt-6 text-center text-sm text-slate-600">
               Don't have an account?{' '}
-              <Link href="/signup" className="text-blue-600 font-semibold hover:text-blue-700">
+              <Link href={`/signup${next ? `?next=${encodeURIComponent(next)}` : ''}`} className="text-blue-600 font-semibold hover:text-blue-700">
                 Sign up
               </Link>
             </div>

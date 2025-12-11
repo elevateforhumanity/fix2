@@ -62,8 +62,12 @@ export default function SignupForm() {
       
       // If email confirmation is disabled, redirect immediately
       if (data.session) {
+        // Check for next parameter in URL
+        const searchParams = new URLSearchParams(window.location.search);
+        const next = searchParams.get('next') || '/student/dashboard';
+        
         setTimeout(() => {
-          router.push('/student/dashboard');
+          router.push(next);
           router.refresh();
         }, 2000);
       }
