@@ -11,10 +11,10 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner with Image */}
-      <section className="relative min-h-[400px] flex items-center">
+      <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
           <Image
-            src="/images/programs/building-maintenance-hero.jpg"
+            src="/images/heroes/success-story-1.jpg"
             alt="Get Started with Free Training"
             fill
             className="object-cover"
@@ -22,6 +22,7 @@ export default function Page() {
             quality={90} 
             sizes="100vw"
           />
+          <div className="absolute inset-0 bg-slate-900/60" />
         </div>
         
         <div className="relative container mx-auto px-4 py-20">
@@ -40,7 +41,7 @@ export default function Page() {
                 href="/contact" 
                 className="bg-orange-600 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-700 text-lg shadow-2xl transition-all"
               >
-                Apply Now - It's Free
+                Contact Us - It's Free
               </Link>
               <Link 
                 href="/programs" 
