@@ -125,14 +125,11 @@ export default function PaymentOptionsClient() {
       {/* Affirm */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
         <h3 className="text-lg font-semibold text-slate-900 mb-1">
-          Option 1 — Monthly Payments with Affirm
+          Monthly Payments with Affirm
         </h3>
         <p className="text-sm text-slate-700 mb-4">
-          See monthly payment options for tuition around{' '}
-          <span className="font-semibold">
-            ${TUITION_AMOUNT.toLocaleString()}
-          </span>
-          . Checking eligibility won't affect your credit score.
+          Pay over time with flexible monthly payments. See your options for tuition around{' '}
+          <span className="font-semibold">${TUITION_AMOUNT.toLocaleString()}</span>.
         </p>
 
         <div className="my-4">
@@ -148,26 +145,50 @@ export default function PaymentOptionsClient() {
         {!affirmLoaded && (
           <p className="mt-2 text-sm text-slate-500">Loading Affirm options…</p>
         )}
+
+        <button
+          onClick={() => {
+            if (window.affirm) {
+              window.affirm.checkout({
+                merchant: {
+                  user_confirmation_url: `${window.location.origin}/payment/affirm/confirm`,
+                  user_cancel_url: `${window.location.origin}/payment/affirm/cancel`,
+                  user_confirmation_url_action: 'POST',
+                  name: 'Elevate for Humanity',
+                },
+                items: [{
+                  display_name: 'Barber Apprenticeship Tuition',
+                  sku: 'barber-tuition',
+                  unit_price: AMOUNT_CENTS,
+                  qty: 1,
+                }],
+                metadata: {
+                  platform: 'elevate-for-humanity',
+                },
+                order_id: `EFH-${Date.now()}`,
+                shipping_amount: 0,
+                tax_amount: 0,
+                total: AMOUNT_CENTS,
+              });
+              window.affirm.checkout.open();
+            }
+          }}
+          disabled={!affirmLoaded}
+          className="w-full mt-4 inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {affirmLoaded ? 'Continue with Affirm' : 'Loading...'}
+        </button>
+
         <p className="mt-3 text-[11px] text-slate-500">
           Subject to credit check and approval. Down payment may be required.
-          Payment options depend on purchase amount and may vary by lender.
+          Checking eligibility won't affect your credit score.
         </p>
-      </div>
-
-      {/* Divider */}
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-slate-300"></div>
-        </div>
-        <div className="relative flex justify-center text-sm">
-          <span className="bg-slate-50 px-4 text-slate-500">or</span>
-        </div>
       </div>
 
       {/* Stripe */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
         <h3 className="text-lg font-semibold text-slate-900 mb-1">
-          Option 2 — Pay in Full with Card (Stripe)
+          Pay in Full with Card (Stripe)
         </h3>
         <p className="text-sm text-slate-700 mb-4">
           Pay securely with debit or credit. Processed by Stripe.

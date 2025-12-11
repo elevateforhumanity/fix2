@@ -219,16 +219,16 @@ export default function HomePage() {
                 quality={70}
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="text-2xl font-bold mb-2">Tax & Finance</h3>
-                  <p className="text-sm mb-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 flex items-end">
+                <div className="p-8 text-white">
+                  <h3 className="text-3xl font-bold mb-3 drop-shadow-lg">Tax & Finance</h3>
+                  <p className="text-base mb-4 drop-shadow-md leading-relaxed">
                     Launch your own tax prep business. Work from home. Earn $40k-$100k+ per year. 
                     Tax season is busy, but the rest of the year is yours.
                   </p>
                   <Link
                     href="/programs/tax-preparation"
-                    className="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-300"
+                    className="inline-flex items-center gap-2 text-white font-bold text-lg hover:text-orange-300 drop-shadow-lg"
                   >
                     Learn More →
                   </Link>
@@ -244,16 +244,16 @@ export default function HomePage() {
                 quality={70}
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="text-2xl font-bold mb-2">Business Startup</h3>
-                  <p className="text-sm mb-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 flex items-end">
+                <div className="p-8 text-white">
+                  <h3 className="text-3xl font-bold mb-3 drop-shadow-lg">Business Startup</h3>
+                  <p className="text-base mb-4 drop-shadow-md leading-relaxed">
                     Turn your idea into a real business. Learn marketing, branding, finances, 
                     and how to actually make money doing what you love.
                   </p>
                   <Link
                     href="/programs/business-startup"
-                    className="inline-flex items-center gap-2 text-white font-semibold hover:text-orange-300"
+                    className="inline-flex items-center gap-2 text-white font-bold text-lg hover:text-orange-300 drop-shadow-lg"
                   >
                     Learn More →
                   </Link>
