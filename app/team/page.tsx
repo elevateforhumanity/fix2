@@ -32,7 +32,6 @@ const team: TeamMember[] = [
     image: "/images/carlina-wilkes.jpg",
     blurb:
       "Retired DFAS executive with 24+ years of federal service, specializing in financial management, organizational compliance, and strategic oversight.",
-    link: "/team/carlina-wilkes",
   },
   {
     name: "Leslie Wafford",
