@@ -39,66 +39,39 @@ export function ProgramDetails({ program }: { program: Program }) {
           </ul>
         </div>
 
-        <aside className="space-y-6 rounded-2xl bg-slate-50 p-5 text-sm text-slate-800 ring-1 ring-slate-200">
-          <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-              Tuition & Funding
-            </h3>
-            <p className="mt-2 text-sm text-slate-800">Most students qualify for 100% free training</p>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-xs text-slate-700">
-              {program.fundingOptions?.map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
+        <aside className="space-y-4 rounded-lg bg-white p-4 shadow-sm border border-slate-200">
+          {/* Quick Facts */}
+          <div className="space-y-2">
+            <div className="flex justify-between items-center py-2 border-b border-slate-100">
+              <span className="text-xs text-slate-600">Duration</span>
+              <span className="text-sm font-semibold text-slate-900">{program.duration}</span>
+            </div>
+            <div className="flex justify-between items-center py-2 border-b border-slate-100">
+              <span className="text-xs text-slate-600">Cost</span>
+              <span className="text-sm font-bold text-green-600">$0*</span>
+            </div>
+            <div className="flex justify-between items-center py-2 border-b border-slate-100">
+              <span className="text-xs text-slate-600">Format</span>
+              <span className="text-sm font-semibold text-slate-900">{program.delivery.split(' ')[0]}</span>
+            </div>
+            <div className="flex justify-between items-center py-2">
+              <span className="text-xs text-slate-600">Level</span>
+              <span className="text-sm font-semibold text-slate-900">Entry</span>
+            </div>
           </div>
 
+          <p className="text-xs text-slate-500 italic">*100% free for most students</p>
+
           <div className="border-t border-slate-200 pt-4">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-              How to Apply
+            <h4 className="text-xs font-bold text-slate-900 mb-3">
+              Ready to Apply?
             </h4>
-            <ol className="mt-2 space-y-2 text-xs text-slate-700">
-              <li className="flex gap-2">
-                <span className="font-semibold text-orange-600">1.</span>
-                <span>Visit <strong>Indiana Career Connect</strong> to create your profile and browse approved training programs</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="font-semibold text-orange-600">2.</span>
-                <span>Schedule an appointment with your local <strong>WorkOne center</strong> to discuss funding options (WIOA, ETPL, etc.)</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="font-semibold text-orange-600">3.</span>
-                <span>Your WorkOne career coach will help you apply for funding and connect with training providers</span>
-              </li>
-            </ol>
-            <div className="mt-4 space-y-2">
-              <a
-                href={program.ctaPrimary.href}
-                className="inline-flex items-center justify-center rounded-full bg-orange-500 px-4 py-2.5 text-xs font-semibold text-white hover:bg-orange-600 w-full"
-              >
-                {program.ctaPrimary.label} →
-              </a>
-              
-              {isBarberProgram && (
-                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
-                  <div className="flex items-start gap-2">
-                    <svg className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <div>
-                      <p className="text-xs font-semibold text-green-900">
-                        Earn While You Learn
-                      </p>
-                      <p className="text-xs text-green-800 mt-1">
-                        This is a Registered Apprenticeship - you'll work in a real barbershop and get paid while completing your training hours.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-            <p className="mt-3 text-[10px] text-slate-500">
-              💡 Most training is 100% funded through WIOA or workforce grants. Your WorkOne coach will help you navigate the process.
-            </p>
+            <a
+              href={program.ctaPrimary.href}
+              className="block text-center rounded-lg bg-orange-500 px-6 py-3 text-sm font-bold text-white hover:bg-orange-600 transition-colors"
+            >
+              {program.ctaPrimary.label}
+            </a>
           </div>
 
           {isBarberProgram && (
