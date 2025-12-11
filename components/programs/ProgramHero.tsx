@@ -4,6 +4,8 @@ import Image from "next/image";
 import type { Program } from "@/lib/programs";
 
 export function ProgramHero({ program }: { program: Program }) {
+  const isBarberProgram = program.slug === 'barber-apprenticeship';
+  
   return (
     <>
       {/* Clean White Hero - No Gradient, No Stretch */}
@@ -41,20 +43,33 @@ export function ProgramHero({ program }: { program: Program }) {
         </div>
       </section>
 
-      {/* Program Image & Quick Facts */}
+      {/* Program Image/Video & Quick Facts */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            {/* Image - NOT stretched */}
+            {/* Video for Barber, Image for others */}
             <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src={program.heroImage}
-                alt={program.heroImageAlt}
-                width={1200}
-                height={600}
-                className="w-full h-auto object-cover"
-                priority
-              />
+              {isBarberProgram ? (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto"
+                  style={{ maxHeight: '600px' }}
+                >
+                  <source src="/videos/barber-hero.mp4" type="video/mp4" />
+                </video>
+              ) : (
+                <Image
+                  src={program.heroImage}
+                  alt={program.heroImageAlt}
+                  width={1200}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              )}
             </div>
 
             {/* Quick Facts */}

@@ -191,12 +191,12 @@ Career Outcomes:
       "Youth or adults seeking a hands-on trade",
     ],
     ctaPrimary: {
-      label: "Apply for Barber Apprenticeship",
-      href: "/apply?program=barber-apprenticeship",
+      label: "Contact Us",
+      href: "/contact",
     },
     ctaSecondary: {
-      label: "Request Barber Info Session",
-      href: "/contact?topic=barber-apprenticeship",
+      label: "Pay Now",
+      href: "/enroll",
     },
   },
   {
