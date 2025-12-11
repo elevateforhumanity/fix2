@@ -19,7 +19,7 @@ import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
-import PWAInstallPrompt from '@/components/PWAInstallPrompt';
+// import PWAInstallPrompt from '@/components/PWAInstallPrompt'; // Disabled - causing issues
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
 import { InvisibleWatermark, DMCATrackingPixel } from '@/components/InvisibleWatermark';
 import { ScraperDetection } from '@/components/ScraperDetection';
@@ -143,21 +143,19 @@ sizes="192x192" />
         </a>
         <GoogleAnalytics />
         <FacebookPixel />
-        <PerformanceMonitor />
-        <CopyrightProtection />
-        <InvisibleWatermark 
-          owner="Elizabeth L. Greene / Elevate for Humanity"
-          siteId="EFH-ORIGINAL-2024"
-        />
-        <DMCATrackingPixel />
-        <ScraperDetection />
+        {/* Disabled for performance */}
+        {/* <PerformanceMonitor /> */}
+        {/* <CopyrightProtection /> */}
+        {/* <InvisibleWatermark owner="Elizabeth L. Greene / Elevate for Humanity" siteId="EFH-ORIGINAL-2024" /> */}
+        {/* <DMCATrackingPixel /> */}
+        {/* <ScraperDetection /> */}
         <MainHeader />
         <Breadcrumbs />
         <main id="main-content" className="min-h-screen">{children}</main>
         <SiteFooter />
         {/* <ElevateChatWidget /> */}
         <CookieBanner />
-        <PWAInstallPrompt />
+        {/* <PWAInstallPrompt /> */}
         <Toaster
           position="top-right"
           toastOptions={{
