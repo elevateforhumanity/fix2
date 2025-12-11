@@ -16,23 +16,19 @@ const HOMEPAGE_VOICEOVER = "At Elevate for Humanity, we believe education should
 export default function HomePage() {
   return (
     <main className="bg-white">
-      <VoiceoverPlayer text={HOMEPAGE_VOICEOVER} autoPlay={true} />
-      {/* Video Hero - Full screen with audio */}
-      <section className="relative overflow-hidden bg-slate-900">
-        <div className="mx-auto max-w-7xl">
-          <div className="relative w-full aspect-[16/9] min-h-[500px] md:min-h-[700px] overflow-hidden">
-            <video
-              autoPlay
-              loop
-              playsInline
-              preload="auto"
-              controls
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/videos/hero-home.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+      {/* Video Hero - Auto-play on load */}
+      <section className="relative overflow-hidden bg-black">
+        <div className="relative w-full aspect-[16/9] min-h-[400px] md:min-h-[600px] overflow-hidden">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/hero-home.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
 

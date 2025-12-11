@@ -17,10 +17,10 @@ export default function VoiceoverPlayer({ text, autoPlay = true }: VoiceoverPlay
 
   useEffect(() => {
     if (autoPlay && !hasPlayed && text) {
-      // Small delay to ensure page is loaded
+      // Delay to ensure page is fully loaded
       const timer = setTimeout(() => {
         playVoiceover();
-      }, 1000);
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [text, autoPlay, hasPlayed]);
