@@ -10,21 +10,27 @@ export const metadata: Metadata = {
 
 export default async function WorkforceBoardDashboardPage() {
 
-  const supabase = await createClient(  );
-  const { data: { user } } = await supabase.auth.getUser(  );
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect('/login'  );
+    redirect('/login?next=/workforce-board/dashboard');
   }
 
   const { data: profile } = await supabase
     .from('profiles')
     .select('*')
     .eq('id', user.id)
-    .single(  );
+    .single();
 
   if (!profile) {
-    redirect('/login'  );
+    redirect('/login?next=/workforce-board/dashboard');
+  }
+
+  // Check if user has workforce board access
+  const allowedRoles = ['admin', 'super_admin', 'workforce_board', 'staff'];
+  if (!allowedRoles.includes(profile.role)) {
+    redirect('/unauthorized');
   }
 
   // Fetch dashboard data

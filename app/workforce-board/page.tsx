@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Users, TrendingUp, FileText, Calendar, Award, Briefcase } from 'lucide-react';
+import { createClient } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   alternates: {
@@ -10,7 +12,26 @@ export const metadata: Metadata = {
   description: 'Workforce development board access for program oversight, reporting, and compliance.',
 };
 
-export default function WorkforceBoardPage() {
+export default async function WorkforceBoardPage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  
+  // Require authentication
+  if (!user) {
+    redirect('/login?next=/workforce-board');
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user.id)
+    .single();
+
+  // Check if user has workforce board access
+  const allowedRoles = ['admin', 'super_admin', 'workforce_board', 'staff'];
+  if (!profile || !allowedRoles.includes(profile.role)) {
+    redirect('/unauthorized');
+  }
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Clean, No Gradient, No Image */}
