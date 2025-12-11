@@ -31,7 +31,6 @@ export default async function ApplicantsPage() {
   }
   
   const { data: applications, count: totalApplications } = await supabase
-  const activeItems = 0; // Placeholder - no active status tracking for this resource
     .from('applications')
     .select(`
       *,
@@ -39,6 +38,11 @@ export default async function ApplicantsPage() {
     `, { count: 'exact' })
     .order('created_at', { ascending: false })
     .limit(50);
+
+  const { count: activeItems } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'active');
 
   const { count: pendingApplications } = await supabase
     .from('applications')
@@ -69,6 +73,11 @@ export default async function ApplicantsPage() {
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
     .limit(20);
+
+  const { count: activeItems } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'active');
   
 
   return (

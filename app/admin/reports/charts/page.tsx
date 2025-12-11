@@ -36,6 +36,11 @@ export default async function ChartsPage() {
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
     .limit(20);
+
+  const { count: activeItems } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'active');
   
 
   return (

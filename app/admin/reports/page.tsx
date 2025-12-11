@@ -31,11 +31,15 @@ export default async function ReportsPage() {
   }
   
   const { data: reports, count: totalReports } = await supabase
-  const activeItems = 0; // Placeholder - no active status tracking for this resource
     .from('reports')
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
     .limit(50);
+
+  const { count: activeItems } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'active');
 
   
   
@@ -49,6 +53,11 @@ export default async function ReportsPage() {
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
     .limit(20);
+
+  const { count: activeItems } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'active');
   
 
   return (

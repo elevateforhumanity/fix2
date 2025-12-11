@@ -31,7 +31,6 @@ export default async function CertificatesPage() {
   }
   
   const { data: certificates, count: totalCertificates } = await supabase
-  const activeItems = 0; // Placeholder - no active status tracking for this resource
     .from('certificates')
     .select(`
       *,
@@ -40,6 +39,11 @@ export default async function CertificatesPage() {
     `, { count: 'exact' })
     .order('issued_at', { ascending: false })
     .limit(50);
+
+  const { count: activeItems } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'active');
 
   const { count: issuedCertificates } = await supabase
     .from('certificates')
@@ -58,6 +62,11 @@ export default async function CertificatesPage() {
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
     .limit(20);
+
+  const { count: activeItems } = await supabase
+    .from('profiles')
+    .select('*', { count: 'exact', head: true })
+    .eq('status', 'active');
   
 
   return (
