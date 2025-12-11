@@ -86,7 +86,7 @@ export default async function IssuePage() {
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
                 <p className="text-3xl font-bold text-green-600">
-                  {items?.filter(i => i.status === 'active').length || 0}
+                  {activeItems || 0}
                 </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">

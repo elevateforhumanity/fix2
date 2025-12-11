@@ -103,13 +103,13 @@ export default async function AnalyticsPage() {
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
                 <p className="text-3xl font-bold text-green-600">
-                  {profile?.filter(i => i.status === 'active').length || 0}
+                  {activeItems || 0}
                 </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
                 <p className="text-3xl font-bold text-purple-600">
-                  {profile?.filter(i => {
+                  {items?.filter(i => {
                     const created = new Date(i.created_at);
                     const weekAgo = new Date();
                     weekAgo.setDate(weekAgo.getDate() - 7);

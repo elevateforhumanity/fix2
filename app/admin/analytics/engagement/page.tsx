@@ -86,13 +86,13 @@ export default async function EngagementPage() {
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
                 <p className="text-3xl font-bold text-green-600">
-                  {profile?.filter(i => i.status === 'active').length || 0}
+                  {activeItems || 0}
                 </p>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6">
                 <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
                 <p className="text-3xl font-bold text-purple-600">
-                  {profile?.filter(i => {
+                  {items?.filter(i => {
                     const created = new Date(i.created_at);
                     const weekAgo = new Date();
                     weekAgo.setDate(weekAgo.getDate() - 7);
@@ -105,9 +105,9 @@ export default async function EngagementPage() {
             {/* Data Display */}
             <div className="bg-white rounded-lg shadow-sm border p-6">
               <h2 className="text-2xl font-bold mb-4">Items</h2>
-              {profile && profile.length > 0 ? (
+              {items && items.length > 0 ? (
                 <div className="space-y-4">
-                  {profile.map((item) => (
+                  {items.map((item) => (
                     <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
                       <p className="font-semibold">{item.title || item.name || item.id}</p>
                       <p className="text-sm text-gray-600">
