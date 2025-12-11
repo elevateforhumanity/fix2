@@ -65,8 +65,8 @@ export default function TestPaymentPage() {
           <h2 className="font-bold mb-2">Quick Links:</h2>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="/programs/barber-apprenticeship" className="text-blue-600 hover:underline">
-                → Barber Apprenticeship Page
+              <a href="/programs" className="text-blue-600 hover:underline">
+                → All Programs
               </a>
             </li>
             <li>
