@@ -75,7 +75,7 @@ export default function RefundPolicyPage() {
               Refund advances (Supersonic Fast Cash) are loans provided by third-party lenders and are subject to separate terms and conditions:
             </p>
             <ul className="list-disc pl-6 mb-6 text-slate-700 space-y-2">
-              <li>Refund advances are not refundable once disbursed</li>
+              <li>Refund advances are <strong>non-refundable</strong> once disbursed</li>
               <li>Fees are disclosed upfront before you accept the advance</li>
               <li>You may decline the advance before funds are disbursed</li>
               <li>Refer to your loan agreement for complete terms</li>
