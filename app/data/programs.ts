@@ -196,7 +196,7 @@ Career Outcomes:
     },
     ctaSecondary: {
       label: "Pay Now",
-      href: "/enroll",
+      href: "/supersonic-fast-cash/apply?program=Barber%20Apprenticeship&amount=4890",
     },
   },
   {
