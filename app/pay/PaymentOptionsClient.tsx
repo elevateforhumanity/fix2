@@ -31,7 +31,7 @@ export default function PaymentOptionsClient() {
   useEffect(() => {
     // Set config before loading script
     const publicKey = 'aGax1GLWFexjLyW7PCf23rfznLl6YGyI';
-    
+
     (window as any)._affirm_config = {
       public_api_key: publicKey,
       script: 'https://cdn1.affirm.com/js/v2/affirm.js',
@@ -45,9 +45,13 @@ export default function PaymentOptionsClient() {
       );
 
       if (existing) {
-        if (window.affirm?.ui?.refresh) {
-          window.affirm.ui.refresh();
-        }
+        // Wait a bit for DOM to be ready, then refresh
+        setTimeout(() => {
+          if (window.affirm?.ui?.refresh) {
+            window.affirm.ui.refresh();
+            console.log('[Affirm] ✅ Refreshed existing');
+          }
+        }, 100);
         setAffirmLoaded(true);
         console.log('[Affirm] ✅ Already loaded');
         return;
@@ -58,24 +62,41 @@ export default function PaymentOptionsClient() {
       script.async = true;
       script.onload = () => {
         try {
-          if (window.affirm?.ui?.refresh) {
-            window.affirm.ui.refresh();
-          }
+          // Wait for Affirm to fully initialize
+          setTimeout(() => {
+            if (window.affirm?.ui?.refresh) {
+              window.affirm.ui.refresh();
+              console.log('[Affirm] ✅ Loaded and refreshed');
+            }
+          }, 100);
           setAffirmLoaded(true);
-          console.log('[Affirm] ✅ Loaded and configured');
+          console.log('[Affirm] ✅ Script loaded');
         } catch (e) {
           console.error('[Affirm] Init error:', e);
+          setError('Affirm failed to initialize');
         }
       };
       script.onerror = (e) => {
         console.error('[Affirm] Script failed to load:', e);
-        // Don't show error to user - just log it
+        setError('Affirm script failed to load');
       };
       document.body.appendChild(script);
     } catch (e) {
       console.error('[Affirm] Loader error:', e);
+      setError('Problem loading Affirm');
     }
   }, []);
+
+  // Refresh Affirm widget when loaded
+  useEffect(() => {
+    if (affirmLoaded && window.affirm?.ui?.refresh) {
+      // Give DOM time to render the widget div
+      setTimeout(() => {
+        window.affirm.ui.refresh();
+        console.log('[Affirm] ✅ Widget refreshed');
+      }, 200);
+    }
+  }, [affirmLoaded]);
 
   // Load Stripe Buy Button
   useEffect(() => {
@@ -159,23 +180,32 @@ export default function PaymentOptionsClient() {
           Option 2: Monthly Payments with Affirm
         </h3>
         <p className="text-sm text-slate-700 mb-4">
-          Pay over time with flexible monthly payments. See your options for tuition around{' '}
-          <span className="font-semibold">${TUITION_AMOUNT.toLocaleString()}</span>.
+          Pay over time with flexible monthly payments. See your options for
+          tuition around{' '}
+          <span className="font-semibold">
+            ${TUITION_AMOUNT.toLocaleString()}
+          </span>
+          .
         </p>
 
-        <div className="my-4">
-          <div
-            className="affirm-as-low-as"
-            data-page-type="product"
-            data-amount={AMOUNT_CENTS}
-            data-affirm-color="blue"
-            id="affirm-widget-container"
-          ></div>
-        </div>
+        {affirmLoaded && (
+          <div className="my-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="text-sm text-blue-900 font-semibold mb-2">
+              💳 Flexible Monthly Payments Available
+            </p>
+            <p className="text-xs text-blue-700">
+              Starting as low as <span className="font-bold">$200/month</span>{' '}
+              with approved credit. Click below to see your personalized payment
+              options.
+            </p>
+          </div>
+        )}
 
-        {!affirmLoaded && (
+        {!affirmLoaded && !error && (
           <p className="mt-2 text-sm text-slate-500">Loading Affirm options…</p>
         )}
+
+        {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
 
         <button
           onClick={() => {
@@ -188,12 +218,14 @@ export default function PaymentOptionsClient() {
                   user_confirmation_url_action: 'POST',
                   name: 'Elevate for Humanity',
                 },
-                items: [{
-                  display_name: 'Barber Apprenticeship Tuition',
-                  sku: 'barber-tuition',
-                  unit_price: AMOUNT_CENTS,
-                  qty: 1,
-                }],
+                items: [
+                  {
+                    display_name: 'Barber Apprenticeship Tuition',
+                    sku: 'barber-tuition',
+                    unit_price: AMOUNT_CENTS,
+                    qty: 1,
+                  },
+                ],
                 metadata: {
                   platform: 'elevate-for-humanity',
                 },
@@ -243,8 +275,6 @@ export default function PaymentOptionsClient() {
           policy and enrollment terms.
         </p>
       </div>
-
-
     </div>
   );
 }
