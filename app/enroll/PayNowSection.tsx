@@ -1,22 +1,22 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
 
 const PROGRAMS = [
-  { id: 'barber', label: 'Barber Apprenticeship', price: 4890 },
-  { id: 'ma', label: 'Medical Assistant', price: 4325 },
-  { id: 'hvac', label: 'HVAC Technician', price: 5000 },
-  { id: 'cpr', label: 'CPR Certification', price: 575 },
-  { id: 'ehst', label: 'Emergency Health & Safety Tech', price: 4950 },
-  { id: 'esth', label: 'Professional Esthetician', price: 4575 },
-  { id: 'prc', label: 'Peer Recovery Coach', price: 4750 },
-  { id: 'tax', label: 'Tax Prep & Financial Services', price: 4950 },
-  { id: 'biz', label: 'Business Startup & Marketing', price: 4550 },
+  { id: 'barber', label: 'Barber Apprenticeship', slug: 'barber-apprentice', price: 4890 },
+  { id: 'ma', label: 'Medical Assistant', slug: 'medical-assistant', price: 4325 },
+  { id: 'hvac', label: 'HVAC Technician', slug: 'hvac-technician', price: 5000 },
+  { id: 'cpr', label: 'CPR Certification', slug: 'cpr-certification', price: 575 },
+  { id: 'ehst', label: 'Emergency Health & Safety Tech', slug: 'emergency-health-safety', price: 4950 },
+  { id: 'esth', label: 'Professional Esthetician', slug: 'professional-esthetician', price: 4575 },
+  { id: 'prc', label: 'Peer Recovery Coach', slug: 'peer-recovery-coach', price: 4750 },
+  { id: 'tax', label: 'Tax Prep & Financial Services', slug: 'tax-prep-financial', price: 4950 },
+  { id: 'biz', label: 'Business Startup & Marketing', slug: 'business-startup-marketing', price: 4550 },
 ];
 
 export function PayNowSection() {
   const [selectedProgramId, setSelectedProgramId] = useState(PROGRAMS[0].id);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const selectedProgram =
     PROGRAMS.find((p) => p.id === selectedProgramId) ?? PROGRAMS[0];
@@ -26,6 +26,35 @@ export function PayNowSection() {
     currency: 'USD',
     maximumFractionDigits: 0,
   }).format(selectedProgram.price);
+
+  const handlePayNow = async () => {
+    setIsProcessing(true);
+
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          programName: selectedProgram.label,
+          programSlug: selectedProgram.slug,
+          price: selectedProgram.price,
+          paymentType: 'full',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('Error: ' + (data.error || 'Unable to start checkout'));
+        setIsProcessing(false);
+      }
+    } catch (error) {
+      alert('Error connecting to payment system. Call 317-314-3757');
+      setIsProcessing(false);
+    }
+  };
 
   return (
     <section className="rounded-2xl border-2 border-blue-500 bg-white p-8 shadow-sm">
@@ -85,18 +114,13 @@ export function PayNowSection() {
         </p>
       </div>
 
-      <Link
-        href={{
-          pathname: '/supersonic-fast-cash/apply',
-          query: {
-            program: selectedProgram.label,
-            amount: selectedProgram.price.toString(),
-          },
-        }}
-        className="block w-full text-center px-6 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"
+      <button
+        onClick={handlePayNow}
+        disabled={isProcessing}
+        className="block w-full text-center px-6 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Pay Now
-      </Link>
+        {isProcessing ? 'Loading Stripe...' : 'Pay Now'}
+      </button>
     </section>
   );
 }
