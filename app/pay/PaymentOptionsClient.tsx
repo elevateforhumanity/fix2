@@ -29,16 +29,27 @@ export default function PaymentOptionsClient() {
 
   // Load Affirm SDK once and refresh widgets
   useEffect(() => {
+    // Set config before loading script
+    const publicKey = 'aGax1GLWFexjLyW7PCf23rfznLl6YGyI';
+    
+    (window as any)._affirm_config = {
+      public_api_key: publicKey,
+      script: 'https://cdn1.affirm.com/js/v2/affirm.js',
+      locale: 'en_US',
+      country_code: 'USA',
+    };
+
     try {
       const existing = document.querySelector<HTMLScriptElement>(
         'script[src^="https://cdn1.affirm.com/js/v2/affirm.js"]'
       );
-      // Hardcoded public key (safe to expose - it's public)
-      const publicKey = 'aGax1GLWFexjLyW7PCf23rfznLl6YGyI';
 
       if (existing) {
-        window.affirm?.ui?.refresh?.();
+        if (window.affirm?.ui?.refresh) {
+          window.affirm.ui.refresh();
+        }
         setAffirmLoaded(true);
+        console.log('[Affirm] ✅ Already loaded');
         return;
       }
 
@@ -47,28 +58,22 @@ export default function PaymentOptionsClient() {
       script.async = true;
       script.onload = () => {
         try {
-          if (window.affirm && publicKey) {
-            window.affirm.config({
-              public_api_key: publicKey,
-              script: script.src,
-            });
+          if (window.affirm?.ui?.refresh) {
+            window.affirm.ui.refresh();
           }
-          window.affirm?.ui?.refresh?.();
           setAffirmLoaded(true);
           console.log('[Affirm] ✅ Loaded and configured');
         } catch (e) {
           console.error('[Affirm] Init error:', e);
-          setError('Affirm initialization failed.');
         }
       };
-      script.onerror = () => {
-        console.error('[Affirm] Script failed to load');
-        setError('Affirm script failed to load.');
+      script.onerror = (e) => {
+        console.error('[Affirm] Script failed to load:', e);
+        // Don't show error to user - just log it
       };
       document.body.appendChild(script);
     } catch (e) {
       console.error('[Affirm] Loader error:', e);
-      setError('Problem initializing Affirm.');
     }
   }, []);
 
@@ -211,11 +216,7 @@ export default function PaymentOptionsClient() {
         </p>
       </div>
 
-      {error && (
-        <div className="bg-red-50 border border-red-200 text-red-800 rounded-xl px-4 py-3">
-          {error}
-        </div>
-      )}
+
     </div>
   );
 }
