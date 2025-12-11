@@ -3,20 +3,74 @@
 import { useState } from 'react';
 
 const PROGRAMS = [
-  { id: 'barber', label: 'Barber Apprenticeship', slug: 'barber-apprentice', price: 4890 },
-  { id: 'ma', label: 'Medical Assistant', slug: 'medical-assistant', price: 4325 },
-  { id: 'hvac', label: 'HVAC Technician', slug: 'hvac-technician', price: 5000 },
-  { id: 'cpr', label: 'CPR Certification', slug: 'cpr-certification', price: 575 },
-  { id: 'ehst', label: 'Emergency Health & Safety Tech', slug: 'emergency-health-safety', price: 4950 },
-  { id: 'esth', label: 'Professional Esthetician', slug: 'professional-esthetician', price: 4575 },
-  { id: 'prc', label: 'Peer Recovery Coach', slug: 'peer-recovery-coach', price: 4750 },
-  { id: 'tax', label: 'Tax Prep & Financial Services', slug: 'tax-prep-financial', price: 4950 },
-  { id: 'biz', label: 'Business Startup & Marketing', slug: 'business-startup-marketing', price: 4550 },
+  { 
+    id: 'barber', 
+    label: 'Barber Apprenticeship', 
+    slug: 'barber-apprentice', 
+    price: 4890,
+    stripeLink: 'https://buy.stripe.com/test_REPLACE_WITH_YOUR_LINK' // Replace with actual Stripe Payment Link
+  },
+  { 
+    id: 'ma', 
+    label: 'Medical Assistant', 
+    slug: 'medical-assistant', 
+    price: 4325,
+    stripeLink: 'https://buy.stripe.com/test_REPLACE_WITH_YOUR_LINK'
+  },
+  { 
+    id: 'hvac', 
+    label: 'HVAC Technician', 
+    slug: 'hvac-technician', 
+    price: 5000,
+    stripeLink: 'https://buy.stripe.com/test_REPLACE_WITH_YOUR_LINK'
+  },
+  { 
+    id: 'cpr', 
+    label: 'CPR Certification', 
+    slug: 'cpr-certification', 
+    price: 575,
+    stripeLink: 'https://buy.stripe.com/test_REPLACE_WITH_YOUR_LINK'
+  },
+  { 
+    id: 'ehst', 
+    label: 'Emergency Health & Safety Tech', 
+    slug: 'emergency-health-safety', 
+    price: 4950,
+    stripeLink: 'https://buy.stripe.com/test_REPLACE_WITH_YOUR_LINK'
+  },
+  { 
+    id: 'esth', 
+    label: 'Professional Esthetician', 
+    slug: 'professional-esthetician', 
+    price: 4575,
+    stripeLink: 'https://buy.stripe.com/test_REPLACE_WITH_YOUR_LINK'
+  },
+  { 
+    id: 'prc', 
+    label: 'Peer Recovery Coach', 
+    slug: 'peer-recovery-coach', 
+    price: 4750,
+    stripeLink: 'https://buy.stripe.com/test_REPLACE_WITH_YOUR_LINK'
+  },
+  { 
+    id: 'tax', 
+    label: 'Tax Prep & Financial Services', 
+    slug: 'tax-prep-financial', 
+    price: 4950,
+    stripeLink: 'https://buy.stripe.com/test_REPLACE_WITH_YOUR_LINK'
+  },
+  { 
+    id: 'biz', 
+    label: 'Business Startup & Marketing', 
+    slug: 'business-startup-marketing', 
+    price: 4550,
+    stripeLink: 'https://buy.stripe.com/test_REPLACE_WITH_YOUR_LINK'
+  },
 ];
 
 export default function PayPage() {
   const [selectedProgramId, setSelectedProgramId] = useState(PROGRAMS[0].id);
-  const [isProcessing, setIsProcessing] = useState(false);
+  const [showPaymentFrame, setShowPaymentFrame] = useState(false);
 
   const selectedProgram = PROGRAMS.find((p) => p.id === selectedProgramId) ?? PROGRAMS[0];
 
@@ -26,33 +80,8 @@ export default function PayPage() {
     maximumFractionDigits: 0,
   }).format(selectedProgram.price);
 
-  const handlePayNow = async () => {
-    setIsProcessing(true);
-
-    try {
-      const response = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          programName: selectedProgram.label,
-          programSlug: selectedProgram.slug,
-          price: selectedProgram.price,
-          paymentType: 'full',
-        }),
-      });
-
-      const data = await response.json();
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert('Error: ' + (data.error || 'Unable to start checkout'));
-        setIsProcessing(false);
-      }
-    } catch (error) {
-      alert('Error connecting to payment system. Call 317-314-3757');
-      setIsProcessing(false);
-    }
+  const handlePayNow = () => {
+    setShowPaymentFrame(true);
   };
 
   return (
@@ -170,17 +199,42 @@ export default function PayPage() {
                 <span className="text-3xl font-bold text-blue-700">{formattedPrice}</span>
               </div>
 
-              <button
-                onClick={handlePayNow}
-                disabled={isProcessing}
-                className="w-full px-6 py-4 bg-blue-600 text-white text-xl font-bold rounded-lg hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed mb-3"
-              >
-                {isProcessing ? 'Redirecting to Stripe...' : 'Pay Now'}
-              </button>
+              {!showPaymentFrame ? (
+                <>
+                  <button
+                    onClick={handlePayNow}
+                    className="w-full px-6 py-4 bg-blue-600 text-white text-xl font-bold rounded-lg hover:bg-blue-700 transition-all mb-3"
+                  >
+                    Pay Now
+                  </button>
 
-              <p className="text-sm text-slate-500 text-center">
-                🔒 Secure payment powered by Stripe
-              </p>
+                  <p className="text-sm text-slate-500 text-center">
+                    🔒 Secure payment powered by Stripe
+                  </p>
+                </>
+              ) : (
+                <div className="space-y-4">
+                  <button
+                    onClick={() => setShowPaymentFrame(false)}
+                    className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                  >
+                    ← Back to program selection
+                  </button>
+                  
+                  <div className="border-2 border-slate-200 rounded-lg overflow-hidden">
+                    <iframe
+                      src={selectedProgram.stripeLink}
+                      className="w-full"
+                      style={{ height: '800px', border: 'none' }}
+                      title="Stripe Payment Checkout"
+                    />
+                  </div>
+
+                  <p className="text-sm text-slate-500 text-center">
+                    🔒 Complete your payment securely with Stripe
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
