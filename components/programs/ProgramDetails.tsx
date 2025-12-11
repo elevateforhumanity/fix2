@@ -62,21 +62,13 @@ export function ProgramDetails({ program }: { program: Program }) {
                 <span>Your WorkOne career coach will help you apply for funding and connect with training providers</span>
               </li>
             </ol>
-            <div className="mt-4 flex flex-col gap-2">
+            <div className="mt-4">
               <a
                 href={program.ctaPrimary.href}
-                className="inline-flex items-center justify-center rounded-full bg-orange-500 px-4 py-2 text-xs font-semibold text-white hover:bg-orange-600"
+                className="inline-flex items-center justify-center rounded-full bg-orange-500 px-4 py-2 text-xs font-semibold text-white hover:bg-orange-600 w-full"
               >
                 {program.ctaPrimary.label} →
               </a>
-              {program.ctaSecondary ? (
-                <a
-                  href={program.ctaSecondary.href}
-                  className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-100"
-                >
-                  {program.ctaSecondary.label} →
-                </a>
-              ) : null}
             </div>
             <p className="mt-3 text-[10px] text-slate-500">
               💡 Most training is 100% funded through WIOA or workforce grants. Your WorkOne coach will help you navigate the process.
