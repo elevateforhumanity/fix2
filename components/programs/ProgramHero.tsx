@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import type { Program } from "@/app/data/programs";
+import Image from 'next/image';
+import type { Program } from '@/app/data/programs';
 
 export function ProgramHero({ program }: { program: Program }) {
   const isBarberProgram = program.slug === 'barber-apprenticeship';
   const isHVACProgram = program.slug === 'hvac-technician';
   const hasVideo = isBarberProgram || isHVACProgram;
-  
+
   return (
     <>
       {/* Clean White Hero - No Gradient, No Stretch */}
@@ -17,7 +17,9 @@ export function ProgramHero({ program }: { program: Program }) {
             <p className="text-sm uppercase tracking-wide text-orange-600 mb-2">
               Elevate Workforce Pathway
             </p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">{program.name}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+              {program.name}
+            </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-700">
               {program.heroSubtitle}
             </p>
@@ -57,9 +59,13 @@ export function ProgramHero({ program }: { program: Program }) {
                   className="w-full h-auto"
                   style={{ maxHeight: '600px' }}
                 >
-                  <source 
-                    src={isBarberProgram ? "/videos/barber-hero-final.mp4" : "/videos/hvac-hero-final.mp4"} 
-                    type="video/mp4" 
+                  <source
+                    src={
+                      isBarberProgram
+                        ? '/videos/barber-hero-final.mp4'
+                        : '/videos/hvac-hero-final.mp4'
+                    }
+                    type="video/mp4"
                   />
                   Your browser does not support the video tag.
                 </video>
@@ -69,6 +75,7 @@ export function ProgramHero({ program }: { program: Program }) {
                   alt={program.heroImageAlt}
                   width={1200}
                   height={600}
+                  quality={70}
                   className="w-full h-auto object-cover"
                   priority
                 />
@@ -79,7 +86,9 @@ export function ProgramHero({ program }: { program: Program }) {
             <div className="grid md:grid-cols-4 gap-6">
               <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
                 <div className="text-sm text-gray-600 mb-1">Duration</div>
-                <div className="text-2xl font-bold text-purple-600">{program.duration}</div>
+                <div className="text-2xl font-bold text-purple-600">
+                  {program.duration}
+                </div>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
                 <div className="text-sm text-gray-600 mb-1">Cost</div>
@@ -87,16 +96,21 @@ export function ProgramHero({ program }: { program: Program }) {
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
                 <div className="text-sm text-gray-600 mb-1">Format</div>
-                <div className="text-2xl font-bold text-blue-600">{program.format}</div>
+                <div className="text-2xl font-bold text-blue-600">
+                  {program.format}
+                </div>
               </div>
               <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
                 <div className="text-sm text-gray-600 mb-1">Level</div>
-                <div className="text-2xl font-bold text-orange-600">{program.level}</div>
+                <div className="text-2xl font-bold text-orange-600">
+                  {program.level}
+                </div>
               </div>
             </div>
 
             <p className="mt-4 text-xs text-gray-500 text-center">
-              Schedule: {program.schedule} | * Images are illustrative. Actual training locations may vary by partner.
+              Schedule: {program.schedule} | * Images are illustrative. Actual
+              training locations may vary by partner.
             </p>
           </div>
         </div>
