@@ -1,6 +1,21 @@
 import type { Program } from "@/app/data/programs";
+import { PayNowButton } from "./PayNowButton";
 
 export function ProgramDetails({ program }: { program: Program }) {
+  // Program prices
+  const programPrices: Record<string, number> = {
+    'barber-apprenticeship': 4890,
+    'medical-assistant': 4325,
+    'hvac-technician': 5000,
+    'cpr-certification': 575,
+    'emergency-health-safety-tech': 4950,
+    'professional-esthetician': 4575,
+    'peer-recovery-coach': 4750,
+    'tax-prep-financial-services': 4950,
+    'business-startup-marketing': 4550,
+  };
+  
+  const programPrice = programPrices[program.slug] || 0;
   return (
     <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
       <div className="grid gap-10 md:grid-cols-[2fr,1fr]">
@@ -69,7 +84,16 @@ export function ProgramDetails({ program }: { program: Program }) {
               >
                 {program.ctaPrimary.label} →
               </a>
-              {program.ctaSecondary ? (
+              {program.ctaSecondary && program.ctaSecondary.label === 'Pay Now' ? (
+                <PayNowButton
+                  programName={program.name}
+                  programSlug={program.slug}
+                  price={programPrice}
+                  className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-100"
+                >
+                  {program.ctaSecondary.label} →
+                </PayNowButton>
+              ) : program.ctaSecondary ? (
                 <a
                   href={program.ctaSecondary.href}
                   className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-100"

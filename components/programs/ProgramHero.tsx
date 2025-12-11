@@ -2,9 +2,25 @@
 
 import Image from "next/image";
 import type { Program } from "@/app/data/programs";
+import { PayNowButton } from "./PayNowButton";
 
 export function ProgramHero({ program }: { program: Program }) {
   const isBarberProgram = program.slug === 'barber-apprenticeship';
+  
+  // Extract price from program data (you'll need to add this to the Program type)
+  const programPrices: Record<string, number> = {
+    'barber-apprenticeship': 4890,
+    'medical-assistant': 4325,
+    'hvac-technician': 5000,
+    'cpr-certification': 575,
+    'emergency-health-safety-tech': 4950,
+    'professional-esthetician': 4575,
+    'peer-recovery-coach': 4750,
+    'tax-prep-financial-services': 4950,
+    'business-startup-marketing': 4550,
+  };
+  
+  const programPrice = programPrices[program.slug] || 0;
   
   return (
     <>
@@ -26,7 +42,16 @@ export function ProgramHero({ program }: { program: Program }) {
               >
                 {program.ctaPrimary.label}
               </a>
-              {program.ctaSecondary ? (
+              {program.ctaSecondary && program.ctaSecondary.label === 'Pay Now' ? (
+                <PayNowButton
+                  programName={program.name}
+                  programSlug={program.slug}
+                  price={programPrice}
+                  className="bg-gray-100 text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-200 transition border-2 border-gray-300"
+                >
+                  {program.ctaSecondary.label}
+                </PayNowButton>
+              ) : program.ctaSecondary ? (
                 <a
                   href={program.ctaSecondary.href}
                   className="bg-gray-100 text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-200 transition border-2 border-gray-300"
