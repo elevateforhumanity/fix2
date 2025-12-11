@@ -130,18 +130,11 @@ export default function AdminLoginPage() {
           {/* Help Text */}
           <div className="mt-6 p-4 bg-blue-50 rounded-lg">
             <p className="text-sm text-blue-800 font-medium mb-2">
-              First time logging in?
+              🔐 Admin Access Only
             </p>
-            <ol className="text-sm text-blue-700 space-y-1 list-decimal list-inside">
-              <li>
-                Sign up at{' '}
-                <Link href="/auth/signup" className="underline">
-                  /auth/signup
-                </Link>
-              </li>
-              <li>Contact support to request admin access</li>
-              <li>Return here to login</li>
-            </ol>
+            <p className="text-sm text-blue-700">
+              This portal is for authorized administrators only. If you need admin access, contact the system administrator.
+            </p>
           </div>
 
           {/* Links */}
