@@ -98,8 +98,14 @@ export default function HomePage() {
 
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
-                  <span className="text-6xl">🏥</span>
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="/images/healthcare/program-cna-training.jpg"
+                    alt="CNA Healthcare Training"
+                    fill
+                    quality={70}
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
@@ -149,45 +155,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FACILITY SHOWCASE */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-2">
-              Modern Training Facility
-            </h2>
-            <p className="text-lg text-slate-600">
-              Train with real equipment and expert instructors.
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/facility-hero.jpg"
-                alt="Elevate for Humanity Training Facility"
-                fill
-                quality={70}
-                className="object-cover"
-              />
-            </div>
-
-            <div className="bg-blue-50 rounded-2xl p-6 border border-blue-200 flex flex-col justify-center">
-              <h3 className="font-bold text-slate-900 mb-2">Hands-On Labs</h3>
-              <p className="text-sm text-slate-600">
-                Practice with real equipment.
-              </p>
-            </div>
-            
-            <div className="bg-orange-50 rounded-2xl p-6 border border-orange-200 flex flex-col justify-center">
-              <h3 className="font-bold text-slate-900 mb-2">Career Services</h3>
-              <p className="text-sm text-slate-600">
-                Job placement assistance.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* WHO WE SERVE */}
       <section className="py-16 bg-white">
