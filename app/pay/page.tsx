@@ -94,7 +94,8 @@ export default function PayPage() {
   }).format(selectedProgram.price);
 
   const handlePayNow = () => {
-    setShowPaymentButton(true);
+    // Redirect directly to Stripe payment link
+    window.location.href = 'https://buy.stripe.com/bJe7sMbNM02X0CGbWv8EM00';
   };
 
   return (
@@ -219,41 +220,16 @@ export default function PayPage() {
                 <span className="text-3xl font-bold text-blue-700">{formattedPrice}</span>
               </div>
 
-              {!showPaymentButton ? (
-                <>
-                  <button
-                    onClick={handlePayNow}
-                    className="w-full px-6 py-4 bg-blue-600 text-white text-xl font-bold rounded-lg hover:bg-blue-700 transition-all mb-3"
-                  >
-                    Pay Now
-                  </button>
+              <button
+                onClick={handlePayNow}
+                className="w-full px-6 py-4 bg-blue-600 text-white text-xl font-bold rounded-lg hover:bg-blue-700 transition-all mb-3"
+              >
+                Pay Now - $4,890
+              </button>
 
-                  <p className="text-sm text-slate-500 text-center">
-                    🔒 Secure payment powered by Stripe
-                  </p>
-                </>
-              ) : (
-                <div className="space-y-4">
-                  <button
-                    onClick={() => setShowPaymentButton(false)}
-                    className="text-blue-600 hover:text-blue-700 font-semibold text-sm mb-4"
-                  >
-                    ← Back
-                  </button>
-                  
-                  <div className="flex justify-center">
-                    <stripe-buy-button
-                      buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
-                      publishable-key="pk_live_51RvqjzIRNf5vPH3ABuHQofarfuWw0PW5ww9eTwkj21A6VLJaLopuYbPdpAFCTU10O5uLgGHeCTBEcu9xeM8ErbFy004j2KPoSx"
-                    >
-                    </stripe-buy-button>
-                  </div>
-
-                  <p className="text-sm text-slate-500 text-center mt-4">
-                    🔒 Click the button above to complete payment
-                  </p>
-                </div>
-              )}
+              <p className="text-sm text-slate-500 text-center">
+                🔒 You'll be redirected to secure Stripe checkout
+              </p>
             </div>
           </div>
 
