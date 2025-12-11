@@ -72,7 +72,7 @@ export default function HomePage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             {/* Healthcare */}
-            <Link href="/programs/medical-assistant" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
+            <Link href="/programs/cna" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
               <div className="relative h-48">
                 <Image
                   src="/images/healthcare-highlight.png"
@@ -83,7 +83,7 @@ export default function HomePage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">Healthcare</h3>
-                <p className="text-slate-600 text-sm">Medical Assistant, CPR, Emergency Health & Safety</p>
+                <p className="text-slate-600 text-sm">CNA, CPR, Emergency Health & Safety</p>
               </div>
             </Link>
 
