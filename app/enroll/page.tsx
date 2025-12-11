@@ -69,7 +69,8 @@ export default function EnrollPage() {
   const selectedProgramData = programs.find(p => p.slug === selectedProgram);
 
   const handlePayNow = () => {
-    setShowPayment(true);
+    // Redirect to contact page for payment setup
+    window.location.href = '/contact';
   };
 
   return (
@@ -181,7 +182,7 @@ export default function EnrollPage() {
                     onClick={handlePayNow}
                     className="block w-full text-center px-6 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"
                   >
-                    Pay Now
+                    Contact Us to Pay
                   </button>
                 </div>
               </div>
