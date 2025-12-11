@@ -196,7 +196,7 @@ Career Outcomes:
     },
     ctaSecondary: {
       label: "Pay Now",
-      href: "#pay",
+      href: "/pay",
     },
   },
   {

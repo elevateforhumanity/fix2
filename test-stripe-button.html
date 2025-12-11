@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Stripe Buy Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 20px 0;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        #stripe-button-container {
+            margin-top: 20px;
+        }
+        .info {
+            color: #666;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Barber Apprenticeship</h1>
+        <p>Complete your payment to start training</p>
+        
+        <div class="price">$4,890</div>
+        
+        <button id="pay-button" onclick="showStripeButton()">
+            Pay Now
+        </button>
+        
+        <div id="stripe-button-container" style="display: none;">
+            <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+            <stripe-buy-button
+              buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
+              publishable-key="pk_live_51RvqjzIRNf5vPH3ABuHQofarfuWw0PW5ww9eTwkj21A6VLJaLopuYbPdpAFCTU10O5uLgGHeCTBEcu9xeM8ErbFy004j2KPoSx"
+            >
+            </stripe-buy-button>
+        </div>
+        
+        <p class="info">🔒 Secure payment powered by Stripe</p>
+    </div>
+
+    <script>
+        function showStripeButton() {
+            document.getElementById('pay-button').style.display = 'none';
+            document.getElementById('stripe-button-container').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
