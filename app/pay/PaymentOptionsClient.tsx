@@ -135,12 +135,15 @@ export default function PaymentOptionsClient() {
           . Checking eligibility won't affect your credit score.
         </p>
 
-        <div
-          className="affirm-as-low-as"
-          data-page-type="product"
-          data-amount={AMOUNT_CENTS}
-          data-affirm-color="blue"
-        ></div>
+        <div className="my-4">
+          <div
+            className="affirm-as-low-as"
+            data-page-type="product"
+            data-amount={AMOUNT_CENTS}
+            data-affirm-color="blue"
+            id="affirm-widget-container"
+          ></div>
+        </div>
 
         {!affirmLoaded && (
           <p className="mt-2 text-sm text-slate-500">Loading Affirm options…</p>
@@ -149,6 +152,16 @@ export default function PaymentOptionsClient() {
           Subject to credit check and approval. Down payment may be required.
           Payment options depend on purchase amount and may vary by lender.
         </p>
+      </div>
+
+      {/* Divider */}
+      <div className="relative">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-slate-300"></div>
+        </div>
+        <div className="relative flex justify-center text-sm">
+          <span className="bg-slate-50 px-4 text-slate-500">or</span>
+        </div>
       </div>
 
       {/* Stripe */}

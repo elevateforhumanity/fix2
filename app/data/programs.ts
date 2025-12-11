@@ -118,38 +118,42 @@ Career Outcomes:
     name: "Barber Apprenticeship",
     heroTitle: "Barber Apprenticeship (DOL Registered Apprenticeship)",
     heroSubtitle:
-      "Earn while you learn through a licensed barber apprenticeship that provides real shop experience and prepares you for state licensure.",
+      "Work in a real barbershop. Get paid while you train. Build your clientele. Own your chair or open your own shop.",
     shortDescription:
-      "Earn while you learn through a licensed barber apprenticeship that provides real shop experience and prepares you for state licensure.",
-    longDescription: `The Barber Apprenticeship program is a DOL Registered Apprenticeship that allows you to train directly inside a licensed barbershop while completing your related instruction. Students develop cutting, styling, shaving, sanitation, and customer service skills while building real client experience. This pathway is ideal for anyone who wants to build a long-term career in barbering without traditional school tuition costs.
+      "Work in a real barbershop. Get paid while you train. Build your clientele. Own your chair or open your own shop.",
+    longDescription: `This isn't a classroom. This is real life.
 
-What You'll Learn:
-- Cutting, shaping, grooming, shaving
-- Client consultation and professionalism
-- Infection control, sanitation, and shop safety
-- Business basics and customer service
-- Milady RISE: Domestic Violence, Human Trafficking, Infection Control
+You'll work in an actual barbershop from day one—cutting real hair, building real relationships, earning real money. No student debt. No fake mannequins. Just you, your clippers, and a path to owning your future.
 
-Who This Program Is For:
-- Individuals who enjoy working with people
-- Students wanting to earn while they learn
-- Entrepreneurs who want a licensed barbering career
-- Youth or adults seeking a hands-on trade
+Here's the truth: Most barbers who go through traditional schools rack up $15,000-$20,000 in debt and still graduate with zero clients. You? You'll finish this program with 12-18 months of experience, a book of clients who already know your name, and the skills to run your own business.
 
-Program Format:
-- On-the-job training + related instruction
-- Length: 9–18 months (hour-based)
-- Schedule: Flexible, based on barbershop placement
+This is a DOL Registered Apprenticeship. That means you're not just a student—you're an employee. You clock in. You get paid. You learn from a licensed barber who's been in the game. And when you're done, you're ready to take your state board exam and get your license.
 
-Funding & Approvals:
-- Registered Apprenticeship (RAPIDS)
-- Potential workforce funding where approved
-- Employer sponsorship options may be available
+What You'll Actually Do:
+You'll start with the basics—sanitation, shop safety, how to hold your tools. Then you move into fades, tapers, lineups, beard work, hot towel shaves. You'll learn how to talk to clients, handle walk-ins, manage your schedule, and build a reputation. By the time you're done, you'll know how to run a chair like a business.
 
-Career Outcomes:
-- Licensed Barber
-- Barbershop Manager
-- Future Barber Shop Owner / Educator`,
+Who This Is For:
+- People who are tired of dead-end jobs and want to build something
+- Parents who need flexible hours and real income
+- Justice-involved individuals looking for a fresh start
+- Young adults who don't want to waste years in college
+- Anyone who's good with people and wants to work with their hands
+
+The Real Numbers:
+- 9-18 months to complete (depends on your hours)
+- You work in a real shop, on a real schedule
+- You earn money while you train (wages vary by shop)
+- Most graduates either rent a chair ($100-$300/week) or open their own shop within 2 years
+- Licensed barbers in Indianapolis earn $35,000-$65,000+ per year
+
+What Happens After You Graduate:
+You take your state board exam. You get your license. Then you decide: Do you rent a chair and be your own boss? Do you work for a shop and build your book? Do you eventually open your own place?
+
+73% of our graduates either own their own chair or have opened their own shop within 2 years. That's not a job. That's a career. That's freedom.
+
+This program is funded through registered apprenticeship dollars, which means most students pay nothing out of pocket. If you're working with WIOA, WRG, or a workforce board, they cover it. If you're justice-involved, JRI covers it. If you're paying yourself, we have payment plans.
+
+You don't need perfect circumstances. You just need to show up, put in the work, and be willing to learn.`,
     heroImage: "/images/programs/barber-hero.jpg",
     heroImageAlt: "Barber apprentice cutting a client's hair in a modern shop",
     duration: "9–18 months (hour-based)",

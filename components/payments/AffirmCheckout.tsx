@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Script from 'next/script';
 import { toast } from 'react-hot-toast';
 
 interface AffirmCheckoutProps {
@@ -23,6 +22,7 @@ declare global {
       checkout_open: () => void;
       ui: {
         ready: (callback: () => void) => void;
+        refresh: () => void;
       };
     };
     _affirm_config: {
@@ -49,14 +49,41 @@ export default function AffirmCheckout({
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);
 
   useEffect(() => {
-    // Initialize Affirm config with hardcoded key for reliability
+    // Initialize Affirm config BEFORE loading script
     window._affirm_config = {
       public_api_key: 'aGax1GLWFexjLyW7PCf23rfznLl6YGyI',
       script: 'https://cdn1.affirm.com/js/v2/affirm.js',
       locale: 'en_US',
       country_code: 'USA',
     };
-    console.log('Affirm config initialized:', window._affirm_config);
+    console.log('[Affirm] Config initialized:', window._affirm_config);
+
+    // Load Affirm script dynamically to avoid hydration issues
+    const script = document.createElement('script');
+    script.src = 'https://cdn1.affirm.com/js/v2/affirm.js';
+    script.async = true;
+    script.onload = () => {
+      setIsScriptLoaded(true);
+      console.log('[Affirm] ✅ Script loaded successfully');
+      if (window.affirm) {
+        console.log('[Affirm] ✅ Window.affirm available');
+        window.affirm.ui.refresh();
+      } else {
+        console.error('[Affirm] ❌ Window.affirm not found after load');
+      }
+    };
+    script.onerror = (e) => {
+      console.error('[Affirm] ❌ Failed to load script:', e);
+      setIsScriptLoaded(false);
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
   }, []);
 
   const handleAffirmCheckout = async () => {
@@ -89,8 +116,12 @@ export default function AffirmCheckout({
 
       const { checkout_token } = await response.json();
 
+      // Convert amount to cents (Affirm requires cents)
+      const amountInCents = Math.round(amount * 100);
+      console.log('[Affirm] Amount:', { dollars: amount, cents: amountInCents });
+
       // Configure Affirm checkout
-      window.affirm.checkout({
+      const checkoutConfig = {
         merchant: {
           user_confirmation_url: `${window.location.origin}/payment/affirm/confirm`,
           user_cancel_url: `${window.location.origin}/payment/affirm/cancel`,
@@ -101,7 +132,7 @@ export default function AffirmCheckout({
           {
             display_name: courseName,
             sku: courseId,
-            unit_price: Math.round(amount * 100), // Convert to cents
+            unit_price: amountInCents, // Amount in cents
             qty: 1,
             item_image_url: `${window.location.origin}/images/courses/${courseId}-cover.jpg`,
             item_url: `${window.location.origin}/programs/${courseId}`,
@@ -130,8 +161,11 @@ export default function AffirmCheckout({
         order_id: `EFH-${Date.now()}-${courseId}`,
         shipping_amount: 0,
         tax_amount: 0,
-        total: Math.round(amount * 100), // Convert to cents
-      });
+        total: amountInCents, // Total amount in cents
+      };
+
+      console.log('[Affirm] Checkout config:', checkoutConfig);
+      window.affirm.checkout(checkoutConfig);
 
       // Open Affirm checkout modal
       window.affirm.checkout_open();
@@ -153,24 +187,6 @@ export default function AffirmCheckout({
 
   return (
     <>
-      <Script
-        src="https://cdn1.affirm.com/js/v2/affirm.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          setIsScriptLoaded(true);
-          console.log('✅ Affirm SDK loaded successfully');
-          if (window.affirm) {
-            console.log('✅ Affirm object available');
-          } else {
-            console.error('❌ Affirm object not found after script load');
-          }
-        }}
-        onError={(e) => {
-          console.error('❌ Failed to load Affirm SDK from CDN:', e);
-          setIsScriptLoaded(false);
-        }}
-      />
-
       <button
         onClick={handleAffirmCheckout}
         disabled={isLoading || !isScriptLoaded}
