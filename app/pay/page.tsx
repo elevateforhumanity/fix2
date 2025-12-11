@@ -1,6 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Script from 'next/script';
+
+// Declare Stripe Buy Button custom element
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'stripe-buy-button': {
+        'buy-button-id': string;
+        'publishable-key': string;
+      };
+    }
+  }
+}
 
 const PROGRAMS = [
   { 
@@ -8,7 +21,7 @@ const PROGRAMS = [
     label: 'Barber Apprenticeship', 
     slug: 'barber-apprentice', 
     price: 4890,
-    stripeLink: 'https://buy.stripe.com/test_REPLACE_WITH_YOUR_LINK' // Replace with actual Stripe Payment Link
+    stripeLink: 'https://buy.stripe.com/bJe7sMbNM02X0CGbWv8EM00'
   },
   { 
     id: 'ma', 
@@ -70,7 +83,7 @@ const PROGRAMS = [
 
 export default function PayPage() {
   const [selectedProgramId, setSelectedProgramId] = useState(PROGRAMS[0].id);
-  const [showPaymentFrame, setShowPaymentFrame] = useState(false);
+  const [showPaymentButton, setShowPaymentButton] = useState(false);
 
   const selectedProgram = PROGRAMS.find((p) => p.id === selectedProgramId) ?? PROGRAMS[0];
 
@@ -81,11 +94,18 @@ export default function PayPage() {
   }).format(selectedProgram.price);
 
   const handlePayNow = () => {
-    setShowPaymentFrame(true);
+    setShowPaymentButton(true);
   };
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <>
+      {/* Load Stripe Buy Button Script */}
+      <Script
+        src="https://js.stripe.com/v3/buy-button.js"
+        strategy="afterInteractive"
+      />
+      
+      <main className="min-h-screen bg-slate-50">
       {/* Video Hero */}
       <section className="relative h-[300px] w-full overflow-hidden bg-slate-900">
         <video
@@ -199,7 +219,7 @@ export default function PayPage() {
                 <span className="text-3xl font-bold text-blue-700">{formattedPrice}</span>
               </div>
 
-              {!showPaymentFrame ? (
+              {!showPaymentButton ? (
                 <>
                   <button
                     onClick={handlePayNow}
@@ -215,23 +235,22 @@ export default function PayPage() {
               ) : (
                 <div className="space-y-4">
                   <button
-                    onClick={() => setShowPaymentFrame(false)}
-                    className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
+                    onClick={() => setShowPaymentButton(false)}
+                    className="text-blue-600 hover:text-blue-700 font-semibold text-sm mb-4"
                   >
-                    ← Back to program selection
+                    ← Back
                   </button>
                   
-                  <div className="border-2 border-slate-200 rounded-lg overflow-hidden">
-                    <iframe
-                      src={selectedProgram.stripeLink}
-                      className="w-full"
-                      style={{ height: '800px', border: 'none' }}
-                      title="Stripe Payment Checkout"
-                    />
+                  <div className="flex justify-center">
+                    <stripe-buy-button
+                      buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
+                      publishable-key="pk_live_51RvqjzIRNf5vPH3ABuHQofarfuWw0PW5ww9eTwkj21A6VLJaLopuYbPdpAFCTU10O5uLgGHeCTBEcu9xeM8ErbFy004j2KPoSx"
+                    >
+                    </stripe-buy-button>
                   </div>
 
-                  <p className="text-sm text-slate-500 text-center">
-                    🔒 Complete your payment securely with Stripe
+                  <p className="text-sm text-slate-500 text-center mt-4">
+                    🔒 Click the button above to complete payment
                   </p>
                 </div>
               )}
