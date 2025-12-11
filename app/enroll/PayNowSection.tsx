@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useState } from "react";
+import Link from 'next/link';
+import { useState } from 'react';
 
 const PROGRAMS = [
-  { id: "barber", label: "Barber Apprenticeship", price: 4890 },
-  { id: "ma", label: "Medical Assistant", price: 4325 },
-  { id: "hvac", label: "HVAC Technician", price: 5000 },
-  { id: "cpr", label: "CPR Certification", price: 575 },
-  { id: "ehst", label: "Emergency Health & Safety Tech", price: 4950 },
-  { id: "esth", label: "Professional Esthetician", price: 4575 },
-  { id: "prc", label: "Peer Recovery Coach", price: 4750 },
-  { id: "tax", label: "Tax Prep & Financial Services", price: 4950 },
-  { id: "biz", label: "Business Startup & Marketing", price: 4550 },
+  { id: 'barber', label: 'Barber Apprenticeship', price: 4890 },
+  { id: 'ma', label: 'Medical Assistant', price: 4325 },
+  { id: 'hvac', label: 'HVAC Technician', price: 5000 },
+  { id: 'cpr', label: 'CPR Certification', price: 575 },
+  { id: 'ehst', label: 'Emergency Health & Safety Tech', price: 4950 },
+  { id: 'esth', label: 'Professional Esthetician', price: 4575 },
+  { id: 'prc', label: 'Peer Recovery Coach', price: 4750 },
+  { id: 'tax', label: 'Tax Prep & Financial Services', price: 4950 },
+  { id: 'biz', label: 'Business Startup & Marketing', price: 4550 },
 ];
 
 export function PayNowSection() {
@@ -21,9 +21,9 @@ export function PayNowSection() {
   const selectedProgram =
     PROGRAMS.find((p) => p.id === selectedProgramId) ?? PROGRAMS[0];
 
-  const formattedPrice = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
+  const formattedPrice = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
     maximumFractionDigits: 0,
   }).format(selectedProgram.price);
 
@@ -52,10 +52,10 @@ export function PayNowSection() {
         >
           {PROGRAMS.map((program) => (
             <option key={program.id} value={program.id}>
-              {program.label} -{" "}
-              {new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
+              {program.label} -{' '}
+              {new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
                 maximumFractionDigits: 0,
               }).format(program.price)}
             </option>
@@ -65,7 +65,9 @@ export function PayNowSection() {
 
       {/* Payment options copy */}
       <div className="bg-blue-50 rounded-lg p-4 mb-6">
-        <p className="text-sm font-semibold text-blue-900 mb-2">💳 Payment Options:</p>
+        <p className="text-sm font-semibold text-blue-900 mb-2">
+          💳 Payment Options:
+        </p>
         <ul className="text-sm text-blue-800 space-y-1">
           <li>• Pay over time with Affirm, Klarna, Afterpay</li>
           <li>• PayPal, Venmo, Cash App Pay</li>
@@ -85,7 +87,7 @@ export function PayNowSection() {
 
       <Link
         href={{
-          pathname: "/supersonic-fast-cash/apply",
+          pathname: '/supersonic-fast-cash/apply',
           query: {
             program: selectedProgram.label,
             amount: selectedProgram.price.toString(),
@@ -98,3 +100,4 @@ export function PayNowSection() {
     </section>
   );
 }
+// Build timestamp: 1765418737

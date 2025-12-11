@@ -4,29 +4,17 @@ import { PayNowSection } from './PayNowSection';
 export default function EnrollPage() {
   return (
     <main className="min-h-screen bg-slate-50">
-      {/* Video Hero */}
-      <section className="relative h-[300px] w-full overflow-hidden">
+      {/* Video Hero - No poster, just video */}
+      <section className="relative h-[300px] w-full overflow-hidden bg-slate-900">
         <video
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/videos/barber-hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-slate-900/60" />
-        <div className="relative z-10 h-full flex items-center">
-          <div className="max-w-4xl mx-auto px-4 text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Enroll in Training
-            </h1>
-            <p className="text-xl">
-              Choose your program and payment option
-            </p>
-          </div>
-        </div>
       </section>
 
       {/* Enrollment Form */}
