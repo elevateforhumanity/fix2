@@ -105,8 +105,8 @@ Career Outcomes:
       "Students preparing for apprenticeships or OJT",
     ],
     ctaPrimary: {
-      label: "Start HVAC Application",
-      href: "/apply?program=hvac-technician",
+      label: "Contact Us",
+      href: "/contact",
     },
     ctaSecondary: {
       label: "Talk to a Career Coach",
