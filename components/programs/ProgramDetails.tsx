@@ -1,4 +1,4 @@
-import type { Program } from "@/lib/programs";
+import type { Program } from "@/app/data/programs";
 
 export function ProgramDetails({ program }: { program: Program }) {
   return (
@@ -7,7 +7,7 @@ export function ProgramDetails({ program }: { program: Program }) {
         <div>
           <h2 className="text-xl font-bold text-slate-900">What You&apos;ll Learn</h2>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
-            {program.outcomes.map((item, idx) => (
+            {program.whatYouLearn?.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}
           </ul>
@@ -16,7 +16,7 @@ export function ProgramDetails({ program }: { program: Program }) {
             Program Highlights
           </h3>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
-            {program.highlights.map((item, idx) => (
+            {program.highlights?.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}
           </ul>
@@ -25,7 +25,7 @@ export function ProgramDetails({ program }: { program: Program }) {
             Is This Program For You?
           </h3>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
-            {program.whoItIsFor.map((item, idx) => (
+            {program.requirements?.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}
           </ul>
@@ -36,9 +36,9 @@ export function ProgramDetails({ program }: { program: Program }) {
             <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
               Tuition & Funding
             </h3>
-            <p className="mt-2 text-sm text-slate-800">{program.tuitionNotes}</p>
+            <p className="mt-2 text-sm text-slate-800">Most students qualify for 100% free training</p>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-xs text-slate-700">
-              {program.fundingOptions.map((item, idx) => (
+              {program.fundingOptions?.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
             </ul>

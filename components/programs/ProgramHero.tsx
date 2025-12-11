@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import type { Program } from "@/lib/programs";
+import type { Program } from "@/app/data/programs";
 
 export function ProgramHero({ program }: { program: Program }) {
   const isBarberProgram = program.slug === 'barber-apprenticeship';
@@ -17,7 +17,7 @@ export function ProgramHero({ program }: { program: Program }) {
             </p>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">{program.name}</h1>
             <p className="text-lg md:text-xl mb-8 text-gray-700">
-              {program.shortTagline}
+              {program.heroSubtitle}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a
