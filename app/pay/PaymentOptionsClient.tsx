@@ -107,7 +107,7 @@ export default function PaymentOptionsClient() {
   }, []);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {/* Tuition summary */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
         <h2 className="text-lg font-semibold text-slate-900 mb-2">
@@ -127,10 +127,36 @@ export default function PaymentOptionsClient() {
         </p>
       </div>
 
-      {/* Affirm */}
+      {/* Stripe - Option 1 */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
         <h3 className="text-lg font-semibold text-slate-900 mb-1">
-          Monthly Payments with Affirm
+          Option 1: Pay in Full with Card
+        </h3>
+        <p className="text-sm text-slate-700 mb-4">
+          Pay securely with debit or credit. Processed by Stripe.
+        </p>
+
+        {!stripeLoaded && (
+          <p className="mb-3 text-sm text-slate-500">
+            Loading secure payment button…
+          </p>
+        )}
+
+        <stripe-buy-button
+          buy-button-id="buy_btn_1SczpeIRNf5vPH3A0Ae1nnjh"
+          publishable-key="pk_live_51RvqjzIRNf5vPH3ABuHQofarfuWw0PW5ww9eTwkj21A6VLJaLopuYbPdpAFCTU10O5uLgGHeCTBEcu9xeM8ErbFy004j2KPoSx"
+        ></stripe-buy-button>
+
+        <p className="mt-3 text-[11px] text-slate-500">
+          By completing your payment you agree to Elevate for Humanity's refund
+          policy and enrollment terms.
+        </p>
+      </div>
+
+      {/* Affirm - Option 2 */}
+      <div className="bg-white rounded-2xl border border-slate-200 p-6">
+        <h3 className="text-lg font-semibold text-slate-900 mb-1">
+          Option 2: Monthly Payments with Affirm
         </h3>
         <p className="text-sm text-slate-700 mb-4">
           Pay over time with flexible monthly payments. See your options for tuition around{' '}
@@ -153,6 +179,7 @@ export default function PaymentOptionsClient() {
 
         <button
           onClick={() => {
+            console.log('[Affirm Button] Clicked. Affirm loaded:', !!window.affirm);
             if (window.affirm) {
               window.affirm.checkout({
                 merchant: {
@@ -176,12 +203,13 @@ export default function PaymentOptionsClient() {
                 total: AMOUNT_CENTS,
               });
               window.affirm.checkout.open();
+            } else {
+              alert('Affirm is still loading. Please wait a moment and try again.');
             }
           }}
-          disabled={!affirmLoaded}
-          className="w-full mt-4 inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full mt-4 inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition shadow-lg"
         >
-          {affirmLoaded ? 'Continue with Affirm' : 'Loading...'}
+          Continue with Affirm
         </button>
 
         <p className="mt-3 text-[11px] text-slate-500">

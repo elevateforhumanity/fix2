@@ -184,13 +184,13 @@ function ProgramCard({ program }: { program: Program }) {
       <div className="flex flex-wrap gap-2">
         <Link
           href={`/programs/${program.slug}`}
-          className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white hover:bg-slate-800 transition"
+          className="inline-flex items-center justify-center rounded-full bg-orange-500 px-5 py-3 text-sm font-bold text-white hover:bg-orange-600 transition shadow-sm"
         >
           View Program
         </Link>
         <Link
           href={`/apply?program=${program.slug}`}
-          className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-50 transition"
+          className="inline-flex items-center justify-center rounded-full border-2 border-slate-900 bg-white px-5 py-3 text-sm font-bold text-slate-900 hover:bg-slate-50 transition"
         >
           Apply
         </Link>

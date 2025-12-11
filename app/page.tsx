@@ -89,7 +89,9 @@ export default function HomePage() {
                     Work in a real barbershop. Get paid while you train. Build your clientele. 
                     Own your chair or open your own shop. 12-18 months.
                   </p>
-                  <span className="text-orange-500 font-semibold text-sm">Learn More →</span>
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
+                    Learn More →
+                  </span>
                 </div>
               </div>
             </Link>
@@ -113,7 +115,9 @@ export default function HomePage() {
                     Get certified fast. Work in hospitals, nursing homes, or home health. 
                     Stable income, flexible schedules, room to grow. 4-8 weeks.
                   </p>
-                  <span className="text-orange-500 font-semibold text-sm">Learn More →</span>
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
+                    Learn More →
+                  </span>
                 </div>
               </div>
             </Link>
@@ -137,7 +141,9 @@ export default function HomePage() {
                     Learn heating, cooling, and refrigeration. High demand, good pay, job security. 
                     Start your own business or work for a company. 8-12 weeks.
                   </p>
-                  <span className="text-orange-500 font-semibold text-sm">Learn More →</span>
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
+                    Learn More →
+                  </span>
                 </div>
               </div>
             </Link>
@@ -217,16 +223,18 @@ export default function HomePage() {
                 quality={70}
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 flex items-end">
-                <div className="p-8 text-white">
-                  <h3 className="text-3xl font-bold mb-3 drop-shadow-lg">Tax & Finance</h3>
-                  <p className="text-base mb-4 drop-shadow-md leading-relaxed">
+              <div className="absolute inset-0 bg-black/70 flex items-end">
+                <div className="p-8 text-white w-full bg-gradient-to-t from-black via-black/80 to-transparent">
+                  <h3 className="text-4xl font-black mb-4 text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}>
+                    Tax & Finance
+                  </h3>
+                  <p className="text-lg mb-5 font-semibold leading-relaxed" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}>
                     Launch your own tax prep business. Work from home. Earn $40k-$100k+ per year. 
                     Tax season is busy, but the rest of the year is yours.
                   </p>
                   <Link
                     href="/programs/tax-preparation"
-                    className="inline-flex items-center gap-2 text-white font-bold text-lg hover:text-orange-300 drop-shadow-lg"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition"
                   >
                     Learn More →
                   </Link>
@@ -242,16 +250,18 @@ export default function HomePage() {
                 quality={70}
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 flex items-end">
-                <div className="p-8 text-white">
-                  <h3 className="text-3xl font-bold mb-3 drop-shadow-lg">Business Startup</h3>
-                  <p className="text-base mb-4 drop-shadow-md leading-relaxed">
+              <div className="absolute inset-0 bg-black/70 flex items-end">
+                <div className="p-8 text-white w-full bg-gradient-to-t from-black via-black/80 to-transparent">
+                  <h3 className="text-4xl font-black mb-4 text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}>
+                    Business Startup
+                  </h3>
+                  <p className="text-lg mb-5 font-semibold leading-relaxed" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}>
                     Turn your idea into a real business. Learn marketing, branding, finances, 
                     and how to actually make money doing what you love.
                   </p>
                   <Link
                     href="/programs/business-startup"
-                    className="inline-flex items-center gap-2 text-white font-bold text-lg hover:text-orange-300 drop-shadow-lg"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition"
                   >
                     Learn More →
                   </Link>
