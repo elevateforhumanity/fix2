@@ -4,13 +4,14 @@ import { PayNowSection } from './PayNowSection';
 export default function EnrollPage() {
   return (
     <main className="min-h-screen bg-slate-50">
-      {/* Video Hero - No poster, just video */}
+      {/* Video Hero - Preload video before page starts */}
       <section className="relative h-[300px] w-full overflow-hidden bg-slate-900">
         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/videos/barber-hero.mp4" type="video/mp4" />

@@ -13,7 +13,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="bg-white">
-      {/* Video Hero - No poster */}
+      {/* Video Hero - Preload video before page starts */}
       <section className="relative overflow-hidden bg-slate-900">
         <div className="mx-auto max-w-7xl">
           <div className="relative w-full aspect-[16/9] min-h-[500px] md:min-h-[700px] overflow-hidden">
@@ -22,6 +22,7 @@ export default function HomePage() {
               muted
               loop
               playsInline
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source src="/videos/hero-home.mp4" type="video/mp4" />
