@@ -31,6 +31,7 @@ export default async function ApplicantsPage() {
   }
   
   const { data: applications, count: totalApplications } = await supabase
+  const activeItems = 0; // Placeholder - no active status tracking for this resource
     .from('applications')
     .select(`
       *,

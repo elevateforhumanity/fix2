@@ -31,6 +31,7 @@ export default async function EmployersPage() {
   }
   
   const { data: employers, count: totalEmployers } = await supabase
+  const activeItems = 0; // Placeholder - no active status tracking for this resource
     .from('profiles')
     .select('*', { count: 'exact' })
     .eq('role', 'employer')

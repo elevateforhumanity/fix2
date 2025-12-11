@@ -31,6 +31,7 @@ export default async function AnalyticsPage() {
   }
   
   const { data: events, count: totalEvents } = await supabase
+  const activeItems = 0; // Placeholder - no active status tracking for this resource
     .from('analytics_events')
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })

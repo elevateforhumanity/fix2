@@ -31,6 +31,7 @@ export default async function CertificatesPage() {
   }
   
   const { data: certificates, count: totalCertificates } = await supabase
+  const activeItems = 0; // Placeholder - no active status tracking for this resource
     .from('certificates')
     .select(`
       *,
