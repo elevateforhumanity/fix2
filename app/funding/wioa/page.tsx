@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 export default function WioaPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
+      {/* Hero Section - Image Only */}
+      <section className="relative h-[400px] overflow-hidden">
         <Image
           src="/images/heroes/success-story-4.jpg"
           alt="WIOA Success Story"
@@ -24,15 +24,6 @@ export default function WioaPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-slate-900/60" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            WIOA: Free Training for Workers Who Need It Most
-          </h1>
-          <p className="text-xl mb-8">
-            Unemployed? Laid off? Underemployed? WIOA pays for your training, books, and support services.
-          </p>
-        </div>
       </section>
 
       {/* Story Section */}

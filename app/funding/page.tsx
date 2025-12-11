@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 export default function FundingPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
+      {/* Hero Section - Image Only */}
+      <section className="relative h-[400px] overflow-hidden">
         <Image
           src="/images/heroes/success-story-1.jpg"
           alt="Students succeeding with free training"
@@ -24,15 +24,6 @@ export default function FundingPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-slate-900/60" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            "I Thought I Couldn't Afford Training"
-          </h1>
-          <p className="text-xl mb-8">
-            Then I learned about free funding. Now I'm a Medical Assistant making $42,000/year.
-          </p>
-        </div>
       </section>
 
       {/* Story Section */}
