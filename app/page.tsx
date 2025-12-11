@@ -17,17 +17,16 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       <VoiceoverPlayer text={HOMEPAGE_VOICEOVER} autoPlay={true} />
-      {/* Video Hero - Preload video before page starts */}
+      {/* Video Hero - Full screen with audio */}
       <section className="relative overflow-hidden bg-slate-900">
         <div className="mx-auto max-w-7xl">
           <div className="relative w-full aspect-[16/9] min-h-[500px] md:min-h-[700px] overflow-hidden">
             <video
               autoPlay
-              muted
               loop
               playsInline
               preload="auto"
-              poster="/images/hero-poster.jpg"
+              controls
               className="absolute inset-0 w-full h-full object-cover"
             >
               <source src="/videos/hero-home.mp4" type="video/mp4" />
@@ -65,58 +64,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Programs Grid */}
-      <section className="py-16 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Programs</h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Healthcare */}
-            <Link href="/programs/cna" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
-              <div className="relative h-48">
-                <Image
-                  src="/images/healthcare-highlight.png"
-                  alt="Healthcare Training"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Healthcare</h3>
-                <p className="text-slate-600 text-sm">CNA, CPR, Emergency Health & Safety</p>
-              </div>
-            </Link>
 
-            {/* Skilled Trades */}
-            <Link href="/programs/hvac-technician" className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all">
-              <div className="relative h-48">
-                <Image
-                  src="/images/hvac-highlight.png"
-                  alt="Skilled Trades Training"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">Skilled Trades</h3>
-                <p className="text-slate-600 text-sm">HVAC Technician</p>
-              </div>
-            </Link>
-
-
-          </div>
-
-          <div className="text-center mt-8">
-            <Link
-              href="/programs"
-              className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:text-orange-700"
-            >
-              View All Programs
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* Facility Showcase */}
       <section className="py-16 bg-white">

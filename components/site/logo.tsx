@@ -11,9 +11,10 @@ export function SiteLogo({ className }: SiteLogoProps) {
       <Image
         src="/logo.png"
         alt="Elevate for Humanity – Building Success Stories"
-        width={220}
-        height={80}
+        width={120}
+        height={60}
         priority
+        className="h-10 w-auto"
       />
     </Link>
   );
