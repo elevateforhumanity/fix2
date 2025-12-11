@@ -27,7 +27,7 @@ export default async function AdminCoursesPage() {
     redirect('/unauthorized');
   }
   
-  const { data: courses, count } = await supabase
+  const { data: courses, count: totalCourses } = await supabase
     .from('courses')
     .select(`
       *,
