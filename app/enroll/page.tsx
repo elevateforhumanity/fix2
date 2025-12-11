@@ -1,3 +1,5 @@
+// SINGLE ENROLL PAGE - NO DUPLICATES
+// Last updated: Dec 11, 2024
 import Link from 'next/link';
 import { PayNowSection } from './PayNowSection';
 
