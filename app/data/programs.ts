@@ -24,6 +24,7 @@ export type Program = {
   requirements: string[];
   ctaPrimary: { label: string; href: string };
   ctaSecondary?: { label: string; href: string };
+  price?: number; // Optional price for self-pay programs
 };
 
 export const programs: Program[] = [
@@ -198,6 +199,7 @@ Career Outcomes:
       label: "Pay Now",
       href: "/pay",
     },
+    price: 4980, // Self-pay option price
   },
   {
     slug: "cna",

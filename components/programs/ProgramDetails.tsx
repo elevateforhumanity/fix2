@@ -7,7 +7,7 @@ import { useState } from "react";
 export function ProgramDetails({ program }: { program: Program }) {
   const [showAffirmPayment, setShowAffirmPayment] = useState(false);
   const isBarberProgram = program.slug === 'barber-apprenticeship';
-  const programPrice = 2500; // Barber program price
+  const programPrice = program.price || 0; // Use program price from data
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
@@ -102,9 +102,13 @@ export function ProgramDetails({ program }: { program: Program }) {
           </div>
 
           {isBarberProgram && (
-            <div className="border-t border-slate-200 pt-4 mt-4">
-              <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 mb-3">
-                💳 Alternative: Self-Pay with Financing
+            <div className="border-t border-slate-200 pt-6 mt-6">
+              <h4 className="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                  <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd" />
+                </svg>
+                Flexible Payment Option
               </h4>
               
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-3">
@@ -139,7 +143,7 @@ export function ProgramDetails({ program }: { program: Program }) {
                     <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>As low as <strong>$104/month</strong> for 24 months</span>
+                    <span>As low as <strong>$207/month</strong> for 24 months</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -151,16 +155,25 @@ export function ProgramDetails({ program }: { program: Program }) {
               </div>
 
               {!showAffirmPayment ? (
-                <button
-                  onClick={() => setShowAffirmPayment(true)}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-2.5 text-xs font-semibold text-white hover:bg-blue-700 transition-colors"
-                >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
-                    <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd" />
-                  </svg>
-                  Finance with Affirm
-                </button>
+                <div className="space-y-3">
+                  <div className="bg-white border-2 border-blue-600 rounded-lg p-4 text-center">
+                    <div className="text-3xl font-bold text-blue-600 mb-1">${programPrice.toLocaleString()}</div>
+                    <div className="text-sm text-slate-600">Total Program Cost</div>
+                  </div>
+                  <button
+                    onClick={() => setShowAffirmPayment(true)}
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-4 text-base font-bold text-white hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                      <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd" />
+                    </svg>
+                    Pay with Affirm
+                  </button>
+                  <p className="text-xs text-center text-slate-600">
+                    As low as $207/month • 0% APR available
+                  </p>
+                </div>
               ) : (
                 <div className="space-y-3">
                   <div className="bg-white border border-gray-200 rounded-lg p-3">
