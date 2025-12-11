@@ -36,8 +36,10 @@ export default function LoginPage() {
         .eq('id', data.user.id)
         .single();
 
-      // Redirect based on role
-      if (profile?.role === 'admin' || profile?.role === 'super_admin') {
+      // Redirect to next parameter if provided, otherwise based on role
+      if (next) {
+        router.push(next);
+      } else if (profile?.role === 'admin' || profile?.role === 'super_admin') {
         router.push('/admin');
       } else if (profile?.role === 'student') {
         router.push('/lms/dashboard');
