@@ -5,6 +5,8 @@ import type { Program } from "@/app/data/programs";
 
 export function ProgramHero({ program }: { program: Program }) {
   const isBarberProgram = program.slug === 'barber-apprenticeship';
+  const isHVACProgram = program.slug === 'hvac-technician';
+  const hasVideo = isBarberProgram || isHVACProgram;
   
   return (
     <>
@@ -45,16 +47,21 @@ export function ProgramHero({ program }: { program: Program }) {
           <div className="max-w-6xl mx-auto">
             {/* Hero Image/Video */}
             <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
-              {isBarberProgram ? (
+              {hasVideo ? (
                 <video
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="auto"
                   className="w-full h-auto"
                   style={{ maxHeight: '600px' }}
                 >
-                  <source src="/videos/barber-hero.mp4" type="video/mp4" />
+                  <source 
+                    src={isBarberProgram ? "/videos/barber-hero-final.mp4" : "/videos/hvac-hero-final.mp4"} 
+                    type="video/mp4" 
+                  />
+                  Your browser does not support the video tag.
                 </video>
               ) : (
                 <Image
