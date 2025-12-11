@@ -21,30 +21,8 @@ export default async function PartnersPage() {
   }
 
   const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.id)
-    .single();
-  
-  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
-    redirect('/unauthorized');
-  }
-  
-  const { data: partners, count: totalPartners } = await supabase
-    .from('training_providers')
-    .select('*', { count: 'exact' })
-    .order('created_at', { ascending: false })
-    .limit(50);
-
-  const { count: activeItems } = await supabase
-    .from('profiles')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'active');
 
   const { count: activePartners } = await supabase
-    .from('training_providers')
-    .select('*', { count: 'exact', head: true })
-    .eq('is_active', true);
 
   
   
@@ -53,15 +31,7 @@ export default async function PartnersPage() {
   }
   
   // Fetch relevant data
-  const { data: items, count } = await supabase
-    .from('profiles')
-    .select('*', { count: 'exact' })
-    .order('created_at', { ascending: false })
-    .limit(20);
-
-    .from('profiles')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'active');
+  const { data: items, count: totalItems } = await supabase
   
 
   return (

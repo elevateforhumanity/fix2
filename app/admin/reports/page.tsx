@@ -21,25 +21,6 @@ export default async function ReportsPage() {
   }
 
   const { data: profile } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.id)
-    .single();
-  
-  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
-    redirect('/unauthorized');
-  }
-  
-  const { data: reports, count: totalReports } = await supabase
-    .from('reports')
-    .select('*', { count: 'exact' })
-    .order('created_at', { ascending: false })
-    .limit(50);
-
-  const { count: activeItems } = await supabase
-    .from('profiles')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'active');
 
   
   
@@ -48,15 +29,7 @@ export default async function ReportsPage() {
   }
   
   // Fetch relevant data
-  const { data: items, count } = await supabase
-    .from('profiles')
-    .select('*', { count: 'exact' })
-    .order('created_at', { ascending: false })
-    .limit(20);
-
-    .from('profiles')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'active');
+  const { data: items, count: totalItems } = await supabase
   
 
   return (

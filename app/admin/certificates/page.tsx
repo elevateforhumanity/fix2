@@ -57,15 +57,11 @@ export default async function CertificatesPage() {
   }
   
   // Fetch relevant data
-  const { data: items, count } = await supabase
+  const { data: items, count: totalItems } = await supabase
     .from('certificates')
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
     .limit(20);
-
-    .from('profiles')
-    .select('*', { count: 'exact', head: true })
-    .eq('status', 'active');
   
 
   return (
