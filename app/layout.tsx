@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 // Image asset: /images/programs-new/program-11.jpg
-import { Inter } from 'next/font/google';
+import { Libre_Baskerville } from 'next/font/google';
 import './globals.css';
 import './ui-fixes.css';
 import './print.css';
@@ -25,12 +25,12 @@ import { InvisibleWatermark, DMCATrackingPixel } from '@/components/InvisibleWat
 import { ScraperDetection } from '@/components/ScraperDetection';
 import { CopyrightProtection } from '@/components/CopyrightProtection';
 
-const inter = Inter({
+// Professional serif font for government/institutional compliance
+const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
   display: 'swap',
-  preload: true,
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-inter',
+  weight: ['400', '700'],
+  variable: '--font-serif',
 });
 
 // Viewport configuration (separate from metadata in Next.js 14+)
@@ -125,7 +125,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={libreBaskerville.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.png" type="image/png"
@@ -134,7 +134,7 @@ sizes="192x192" />
         <meta name="theme-color" content="#10b981" />
         <StructuredData />
       </head>
-      <body className={`${inter.className} antialiased bg-white`}>
+      <body className={`${libreBaskerville.className} antialiased bg-white`} style={{ fontSize: '16px' }}>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brandPrimary focus:text-white focus:rounded-md focus:shadow-lg"

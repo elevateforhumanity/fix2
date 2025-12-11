@@ -242,7 +242,7 @@ export default function FundingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-center">
+      <section className="py-16 bg-orange-600 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Find Out If You Qualify</h2>
           <p className="text-xl mb-8">Takes 5 minutes. No commitment required.</p>

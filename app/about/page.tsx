@@ -189,7 +189,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-center">
+      <section className="py-16 bg-orange-600 text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Your Career?</h2>
           <p className="text-xl mb-8">Contact us today. We'll help you find free training and a path to employment.</p>

@@ -65,7 +65,7 @@ export default async function DashboardPage() {
   const programProgress = activeEnrollment?.progress_percentage || 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50">
+    <div className="min-h-screen bg-slate-50">
       {/* Header */}
       <div className="bg-white border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-6">
@@ -103,7 +103,7 @@ export default async function DashboardPage() {
           {/* Overall Progress */}
           <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <span className="text-3xl font-bold text-blue-600">{programProgress}%</span>
@@ -111,7 +111,7 @@ export default async function DashboardPage() {
             <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">Overall Progress</h3>
             <div className="mt-3 bg-slate-100 rounded-full h-2 overflow-hidden">
               <div 
-                className="bg-gradient-to-r from-blue-500 to-blue-600 h-full transition-all duration-500"
+                className="bg-blue-600 h-full transition-all duration-500"
                 style={{ width: `${programProgress}%` }}
               />
             </div>
@@ -120,7 +120,7 @@ export default async function DashboardPage() {
           {/* Hours Logged (from Milady) */}
           <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
                 <Clock className="w-6 h-6 text-white" />
               </div>
               <span className="text-3xl font-bold text-green-600">
@@ -136,7 +136,7 @@ export default async function DashboardPage() {
           {/* Last Activity */}
           <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
                 <Calendar className="w-6 h-6 text-white" />
               </div>
               <span className="text-sm font-bold text-purple-600">
@@ -154,7 +154,7 @@ export default async function DashboardPage() {
           {/* Certificates */}
           <div className="bg-white rounded-xl shadow-md p-6 border border-slate-200">
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
                 <Award className="w-6 h-6 text-white" />
               </div>
               <span className="text-3xl font-bold text-orange-600">
@@ -173,7 +173,7 @@ export default async function DashboardPage() {
           <div className="lg:col-span-2 space-y-6">
             {/* My Courses */}
             <div className="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
+              <div className="bg-blue-700 px-6 py-4">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
                   <BookOpen className="w-5 h-5" />
                   My Courses
@@ -222,7 +222,7 @@ export default async function DashboardPage() {
                         </div>
                         <div className="bg-slate-100 rounded-full h-3 overflow-hidden">
                           <div 
-                            className="bg-gradient-to-r from-blue-500 to-blue-600 h-full transition-all duration-500"
+                            className="bg-blue-600 h-full transition-all duration-500"
                             style={{ width: `${enrollment.progress_percentage || 0}%` }}
                           />
                         </div>
@@ -247,7 +247,7 @@ export default async function DashboardPage() {
             {/* RISE Certifications - Milady Integration */}
             {miladyEnrollments && miladyEnrollments.length > 0 && (
               <div className="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
-                <div className="bg-gradient-to-r from-orange-600 to-orange-700 px-6 py-4">
+                <div className="bg-orange-700 px-6 py-4">
                   <h2 className="text-xl font-bold text-white flex items-center gap-2">
                     <Award className="w-5 h-5" />
                     RISE Certifications (Milady)
@@ -293,7 +293,7 @@ export default async function DashboardPage() {
                         </div>
                         <div className="bg-slate-100 rounded-full h-3 overflow-hidden">
                           <div 
-                            className="bg-gradient-to-r from-orange-500 to-orange-600 h-full transition-all duration-500"
+                            className="bg-orange-600 h-full transition-all duration-500"
                             style={{ width: `${enrollment.progress_percentage || 0}%` }}
                           />
                         </div>
@@ -321,7 +321,7 @@ export default async function DashboardPage() {
           {/* Right Sidebar */}
           <div className="space-y-6">
             {/* Launch Milady CIMA */}
-            <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl shadow-lg p-8 text-white">
+            <div className="bg-orange-600 rounded-xl shadow-lg p-8 text-white">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <ExternalLink className="w-8 h-8 text-white" />
@@ -388,7 +388,7 @@ export default async function DashboardPage() {
             </div>
 
             {/* Support */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl shadow-md p-6 text-white">
+            <div className="bg-blue-700 rounded-xl shadow-md p-6 text-white">
               <h3 className="text-lg font-bold mb-2">Need Help?</h3>
               <p className="text-blue-100 text-sm mb-4">
                 Our support team is here to help you succeed

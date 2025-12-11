@@ -169,7 +169,7 @@ export default async function MegaAdminDashboard() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Header */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-6 sticky top-0 z-50 shadow-lg">
+      <section className="bg-blue-600 text-white py-6 sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between">
             <div>

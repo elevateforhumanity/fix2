@@ -224,7 +224,7 @@ export default function HomePage() {
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/70 flex items-end">
-                <div className="p-8 text-white w-full bg-gradient-to-t from-black via-black/80 to-transparent">
+                <div className="p-8 text-white w-full bg-black/80">
                   <h3 className="text-4xl font-black mb-4 text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}>
                     Tax & Finance
                   </h3>
@@ -251,7 +251,7 @@ export default function HomePage() {
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-black/70 flex items-end">
-                <div className="p-8 text-white w-full bg-gradient-to-t from-black via-black/80 to-transparent">
+                <div className="p-8 text-white w-full bg-black/80">
                   <h3 className="text-4xl font-black mb-4 text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}>
                     Business Startup
                   </h3>
@@ -282,12 +282,12 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-orange-500 to-orange-600">
+      <section className="py-16 bg-orange-600">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Start?
           </h2>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-xl text-white/90 mb-8">
             Most students qualify for 100% free training through WIOA, WRG, or apprenticeships.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -304,7 +304,7 @@ export default function HomePage() {
               Talk to an Advisor
             </Link>
           </div>
-          <p className="mt-6 text-sm text-orange-100">
+          <p className="mt-6 text-sm text-white/90">
             📞 Call us at <span className="font-semibold text-white">317-314-3757</span>
           </p>
         </div>
