@@ -17,14 +17,15 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       {/* Video Hero - Auto-play on load */}
-      <section className="relative overflow-hidden bg-black">
-        <div className="relative w-full aspect-[16/9] min-h-[400px] md:min-h-[600px] overflow-hidden">
+      <section className="relative overflow-hidden bg-slate-900">
+        <div className="relative w-full aspect-[16/9] min-h-[400px] md:min-h-[600px] overflow-hidden bg-gradient-to-br from-orange-500 to-blue-600">
           <video
             autoPlay
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
+            poster="/images/hero-poster.jpg"
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/videos/hero-home.mp4" type="video/mp4" />

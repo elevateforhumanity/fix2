@@ -49,13 +49,14 @@ export default function AffirmCheckout({
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);
 
   useEffect(() => {
-    // Initialize Affirm config
+    // Initialize Affirm config with hardcoded key for reliability
     window._affirm_config = {
-      public_api_key: process.env.NEXT_PUBLIC_AFFIRM_PUBLIC_KEY || 'aGax1GLWFexjLyW7PCf23rfznLl6YGyI',
+      public_api_key: 'aGax1GLWFexjLyW7PCf23rfznLl6YGyI',
       script: 'https://cdn1.affirm.com/js/v2/affirm.js',
       locale: 'en_US',
       country_code: 'USA',
     };
+    console.log('Affirm config initialized:', window._affirm_config);
   }, []);
 
   const handleAffirmCheckout = async () => {
@@ -157,11 +158,16 @@ export default function AffirmCheckout({
         strategy="afterInteractive"
         onLoad={() => {
           setIsScriptLoaded(true);
-          console.log('Affirm SDK loaded successfully');
+          console.log('✅ Affirm SDK loaded successfully');
+          if (window.affirm) {
+            console.log('✅ Affirm object available');
+          } else {
+            console.error('❌ Affirm object not found after script load');
+          }
         }}
         onError={(e) => {
-          console.error('Failed to load Affirm SDK:', e);
-          toast.error('Payment system failed to load. Please refresh the page.');
+          console.error('❌ Failed to load Affirm SDK from CDN:', e);
+          setIsScriptLoaded(false);
         }}
       />
 
