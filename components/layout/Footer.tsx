@@ -102,26 +102,6 @@ export function SiteFooter() {
                   View All Programs →
                 </Link>
               </li>
-              <li>
-                <Link href="/programs/cna" className="text-slate-700 hover:text-orange-600 transition text-sm font-medium">
-                  Healthcare
-                </Link>
-              </li>
-              <li>
-                <Link href="/programs/hvac-technician" className="text-slate-700 hover:text-orange-600 transition text-sm font-medium">
-                  Skilled Trades
-                </Link>
-              </li>
-              <li>
-                <Link href="/programs/barber-apprenticeship" className="text-slate-700 hover:text-orange-600 transition text-sm font-medium">
-                  Beauty & Barbering
-                </Link>
-              </li>
-              <li>
-                <Link href="/programs/truck-driving" className="text-slate-700 hover:text-orange-600 transition text-sm font-medium">
-                  Transportation
-                </Link>
-              </li>
             </ul>
           </div>
 
