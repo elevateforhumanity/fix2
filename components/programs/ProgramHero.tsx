@@ -22,8 +22,6 @@ export function ProgramHero({ program }: { program: Program }) {
             <div className="flex flex-wrap gap-4 justify-center">
               <a
                 href={program.ctaPrimary.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition"
               >
                 {program.ctaPrimary.label}
@@ -31,8 +29,6 @@ export function ProgramHero({ program }: { program: Program }) {
               {program.ctaSecondary ? (
                 <a
                   href={program.ctaSecondary.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="bg-gray-100 text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-200 transition border-2 border-gray-300"
                 >
                   {program.ctaSecondary.label}

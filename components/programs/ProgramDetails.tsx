@@ -65,8 +65,6 @@ export function ProgramDetails({ program }: { program: Program }) {
             <div className="mt-4 flex flex-col gap-2">
               <a
                 href={program.ctaPrimary.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-orange-500 px-4 py-2 text-xs font-semibold text-white hover:bg-orange-600"
               >
                 {program.ctaPrimary.label} →
@@ -74,8 +72,6 @@ export function ProgramDetails({ program }: { program: Program }) {
               {program.ctaSecondary ? (
                 <a
                   href={program.ctaSecondary.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-800 hover:bg-slate-100"
                 >
                   {program.ctaSecondary.label} →

@@ -96,7 +96,7 @@ const programs = [
 export default function ProgramsPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Banner */}
+      {/* Hero Banner - No overlay, no text */}
       <section className="relative h-[500px] w-full overflow-hidden">
         <Image
           src="/images/heroes/success-story-1.jpg"
@@ -107,17 +107,6 @@ export default function ProgramsPage() {
           quality={90}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-slate-900/60" />
-        <div className="relative z-10 h-full flex items-center">
-          <div className="max-w-4xl mx-auto px-4 text-center text-white">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Choose Your Career Path
-            </h1>
-            <p className="text-xl md:text-2xl mb-8">
-              9 programs. 100% free training. Real credentials. Real jobs.
-            </p>
-          </div>
-        </div>
       </section>
 
       {/* Story Section */}
