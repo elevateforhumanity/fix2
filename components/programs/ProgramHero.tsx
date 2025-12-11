@@ -43,16 +43,29 @@ export function ProgramHero({ program }: { program: Program }) {
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            {/* Hero Image */}
+            {/* Hero Image/Video */}
             <div className="mb-8 rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src={isBarberProgram ? "/images/courses/barber-10002288-cover.jpg" : program.heroImage}
-                alt={program.heroImageAlt}
-                width={1200}
-                height={600}
-                className="w-full h-auto object-cover"
-                priority
-              />
+              {isBarberProgram ? (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto"
+                  style={{ maxHeight: '600px' }}
+                >
+                  <source src="/videos/barber-hero.mp4" type="video/mp4" />
+                </video>
+              ) : (
+                <Image
+                  src={program.heroImage}
+                  alt={program.heroImageAlt}
+                  width={1200}
+                  height={600}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              )}
             </div>
 
             {/* Quick Facts */}
