@@ -18,7 +18,6 @@ export default function NotFound() {
     }
 
     // Log to console for debugging
-    console.warn(`404 Error: Page not found - ${pathname}`);
   }, [pathname]);
 
   return (

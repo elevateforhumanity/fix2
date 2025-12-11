@@ -29,7 +29,6 @@ export default function ForgotPasswordForm() {
 
       setSuccess(true);
     } catch (err: unknown) {
-      console.error('Password reset error:', err);
       setError(err.message || 'Failed to send reset email');
       setLoading(false);
     }

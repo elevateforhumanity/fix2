@@ -46,7 +46,6 @@ export async function GET() {
       },
     });
   } catch (error) {
-    console.error('RSS feed error:', error);
     return new NextResponse('Error generating RSS feed', { status: 500 });
   }
 }

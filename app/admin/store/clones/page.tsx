@@ -65,7 +65,6 @@ export default function StoreBuilderPage() {
         alert(`Product published! View at: ${data.url}`  );
       }
     } catch (error) {
-      console.error('Failed to publish:', error  );
       alert('Failed to publish product'  );
     } finally {
       setPublishing(false  );

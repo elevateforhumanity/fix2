@@ -26,7 +26,6 @@ async function getAuthorPosts(author: string) {
     
     return posts || [];
   } catch (error) {
-    console.error('Author posts error:', error);
     return [];
   }
 }

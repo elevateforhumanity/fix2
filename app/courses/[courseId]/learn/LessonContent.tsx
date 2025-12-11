@@ -41,7 +41,6 @@ export default function LessonContent({
         window.location.reload();
       }
     } catch (error) {
-      console.error('Failed to mark lesson complete:', error);
     } finally {
       setIsCompleting(false);
     }

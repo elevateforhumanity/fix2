@@ -26,7 +26,6 @@ async function getCategoryPosts(category: string) {
     
     return posts || [];
   } catch (error) {
-    console.error('Category posts error:', error);
     return [];
   }
 }

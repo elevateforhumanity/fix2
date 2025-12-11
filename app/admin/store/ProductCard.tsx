@@ -26,7 +26,6 @@ export default function ProductCard() {
       const data = await res.json();
       setProducts(data || []);
     } catch (error) {
-      console.error("Failed to load products:", error);
     } finally {
       setLoading(false);
     }

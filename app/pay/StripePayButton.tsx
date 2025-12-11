@@ -35,7 +35,6 @@ export default function StripePayButton() {
     script.async = true;
     script.onload = () => setLoaded(true);
     script.onerror = () => {
-      console.error("Stripe Buy Button script failed to load");
     };
 
     document.body.appendChild(script);

@@ -5,10 +5,8 @@ const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!SUPABASE_URL) {
-  console.warn('Missing NEXT_PUBLIC_SUPABASE_URL env var');
 }
 if (!SUPABASE_SERVICE_ROLE_KEY) {
-  console.warn('Missing SUPABASE_SERVICE_ROLE_KEY env var');
 }
 
 export async function POST(req: Request) {
@@ -38,7 +36,6 @@ export async function POST(req: Request) {
     if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
       // Still let the front-end succeed to avoid blocking users,
       // but log for you to fix env vars.
-      console.error('Supabase env vars not set. Application not saved.');
       return NextResponse.json({ ok: true }, { status: 200 });
     }
 
@@ -70,7 +67,6 @@ export async function POST(req: Request) {
 
     if (!res.ok) {
       const errText = await res.text();
-      console.error('Supabase insert error:', errText);
       // Still avoid showing technical trash to the user
       return NextResponse.json(
         { error: 'Failed to save application' },
@@ -80,7 +76,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true }, { status: 200 });
   } catch (err) {
-    console.error('Error in /api/applications:', err);
     return NextResponse.json({ error: 'Unexpected error' }, { status: 500 });
   }
 }

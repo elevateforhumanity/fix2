@@ -45,7 +45,6 @@ export default function PayPageClient() {
         setError("Stripe payment script failed to load. Please try again.");
       document.body.appendChild(script);
     } catch (err) {
-      console.error("Error loading Stripe Buy Button script:", err);
       setError("Something went wrong loading the payment system.");
     }
   }, []);
@@ -68,7 +67,6 @@ export default function PayPageClient() {
       // IMPORTANT: your public API key must be set in NEXT_PUBLIC_AFFIRM_PUBLIC_KEY
       const publicKey = process.env.NEXT_PUBLIC_AFFIRM_PUBLIC_KEY;
       if (!publicKey) {
-        console.warn("Missing NEXT_PUBLIC_AFFIRM_PUBLIC_KEY env var.");
       }
 
       const script = document.createElement("script");
@@ -86,7 +84,6 @@ export default function PayPageClient() {
           }
           setAffirmLoaded(true);
         } catch (err) {
-          console.error("Error initializing Affirm:", err);
         }
       };
       script.onerror = () =>
@@ -94,7 +91,6 @@ export default function PayPageClient() {
 
       document.body.appendChild(script);
     } catch (err) {
-      console.error("Error loading Affirm script:", err);
       setError("Something went wrong loading the financing options.");
     }
   }, []);

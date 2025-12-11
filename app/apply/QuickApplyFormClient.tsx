@@ -99,7 +99,6 @@ export default function QuickApplyFormClient() {
       );
       setForm(initialState);
     } catch (err) {
-      console.error('Error submitting application:', err);
       setErrorMessage(
         'Something went wrong submitting your application. Please try again, or call 317-314-3757.'
       );

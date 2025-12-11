@@ -51,7 +51,6 @@ function AffirmConfirmContent() {
       }, 3000);
 
     } catch (error) {
-      console.error('Transaction authorization error:', error);
       setStatus('error');
       setErrorMessage(error instanceof Error ? error.message : 'Failed to process payment');
     }

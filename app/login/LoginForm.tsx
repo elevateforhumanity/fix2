@@ -34,7 +34,6 @@ export default function LoginForm() {
       router.push('/student/dashboard');
       router.refresh();
     } catch (err: unknown) {
-      console.error('Login error:', err);
       setError(err.message || 'Failed to sign in');
       setLoading(false);
     }

@@ -135,7 +135,6 @@ export default function BookingPage() {
         setNotes('');
       }
     } catch (error) {
-      console.error('Booking failed:', error);
       alert('Failed to create booking. Please try again.');
     } finally {
       setLoading(false);

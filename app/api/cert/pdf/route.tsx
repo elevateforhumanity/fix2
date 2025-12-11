@@ -51,7 +51,6 @@ export async function GET(req: NextRequest) {
   try {
     u = await getUserById(cert.user_id);
   } catch (error) {
-    console.error('Error fetching user:', error);
   }
 
   const { data: c } = await supabase

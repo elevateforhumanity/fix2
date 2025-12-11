@@ -17,7 +17,6 @@ export default function ResourceSection({ lessonId, courseId }: { lessonId: stri
     fetch(`/api/courses/${courseId}/lessons/${lessonId}/resources`)
       .then(res => res.json())
       .then(data => setResources(data.resources || []))
-      .catch(err => console.error('Failed to load resources:', err));
   }, [lessonId, courseId]);
 
   if (resources.length === 0) return null;

@@ -19,7 +19,6 @@ export async function GET() {
       data: enrollmentData
     });
   } catch (error) {
-    console.error('Error fetching enrollment count:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to fetch enrollment data' },
       { status: 500 }
@@ -45,7 +44,6 @@ export async function POST(request: Request) {
       data: enrollmentData
     });
   } catch (error) {
-    console.error('Error updating enrollment count:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to update enrollment data' },
       { status: 500 }

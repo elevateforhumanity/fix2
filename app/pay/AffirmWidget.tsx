@@ -47,11 +47,9 @@ export default function AffirmWidget() {
         }
         setLoaded(true);
       } catch (err) {
-        console.error("Error initializing Affirm:", err);
       }
     };
     script.onerror = () => {
-      console.error("Affirm script failed to load");
     };
 
     document.body.appendChild(script);

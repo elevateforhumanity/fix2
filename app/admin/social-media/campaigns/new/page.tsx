@@ -62,7 +62,6 @@ export default function NewSocialCampaignPage() {
         setGeneratedPosts(result.posts);
       }
     } catch (error) {
-      console.error('Error generating posts:', error);
     } finally {
       setGenerating(false);
     }

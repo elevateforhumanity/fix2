@@ -29,7 +29,6 @@ export default function TakeQuizPage({
         setLoading(false);
       })
       .catch(err => {
-        console.error('Failed to load quiz:', err);
         setLoading(false);
       });
   }, [params.lessonId]);
@@ -82,7 +81,6 @@ export default function TakeQuizPage({
         setSubmitting(false);
       }
     } catch (error) {
-      console.error('Submit error:', error);
       alert('Failed to submit quiz. Please start again.');
       setSubmitting(false);
     }

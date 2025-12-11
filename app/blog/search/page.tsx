@@ -24,7 +24,6 @@ async function searchBlogPosts(query: string) {
     
     return posts || [];
   } catch (error) {
-    console.error('Blog search error:', error);
     return [];
   }
 }

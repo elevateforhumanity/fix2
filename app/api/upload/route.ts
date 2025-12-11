@@ -72,7 +72,6 @@ export async function POST(request: Request) {
       }
     });
   } catch (error) {
-    console.error('Error uploading file:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to upload file' },
       { status: 500 }
@@ -100,7 +99,6 @@ export async function DELETE(request: Request) {
       message: 'File deleted successfully'
     });
   } catch (error) {
-    console.error('Error deleting file:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to delete file' },
       { status: 500 }

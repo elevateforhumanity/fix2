@@ -20,7 +20,6 @@ async function getDurableBlogPosts() {
     // Fetch from Durable blog via RSS feed or API
     return await fetchDurableBlogPosts();
   } catch (error) {
-    console.error('Error fetching Durable blog posts:', error);
     return [];
   }
 }
@@ -49,7 +48,6 @@ async function getBlogPosts() {
       new Date(b.published_at || b.date).getTime() - new Date(a.published_at || a.date).getTime()
     );
   } catch (error) {
-    console.error('Error fetching blog posts:', error);
     return [];
   }
 }
@@ -64,7 +62,6 @@ async function getSocialPosts() {
       .limit(6);
     return posts || [];
   } catch (error) {
-    console.error('Error fetching social posts:', error);
     return [];
   }
 }

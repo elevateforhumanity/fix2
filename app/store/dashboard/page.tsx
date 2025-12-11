@@ -26,7 +26,7 @@ const mockPurchases: Purchase[] = [
     amount: 49.00,
     status: 'completed',
     downloadUrl: '/downloads/barber-workbook.pdf',
-    licenseKey: 'BARB-2024-XXXX-YYYY',
+    licenseKey: 'BARB-2024-A7K9-M3P5',
     digital: true,
   },
   {
@@ -37,7 +37,7 @@ const mockPurchases: Purchase[] = [
     amount: 56.00,
     status: 'completed',
     downloadUrl: '/downloads/cna-study-guide.pdf',
-    licenseKey: 'CNA-2024-XXXX-ZZZZ',
+    licenseKey: 'CNA-2024-B8L2-N6Q4',
     digital: true,
   },
 ];

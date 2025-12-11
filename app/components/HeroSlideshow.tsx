@@ -21,7 +21,6 @@ export default function HeroSlideshow() {
       });
       
       videoRef.current.play().catch((error) => {
-        console.error('Video autoplay failed:', error);
       });
     }
   }, []);

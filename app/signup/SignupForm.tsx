@@ -68,7 +68,6 @@ export default function SignupForm() {
         }, 2000);
       }
     } catch (err: unknown) {
-      console.error('Signup error:', err);
       setError(err.message || 'Failed to create account');
       setLoading(false);
     }

@@ -32,7 +32,6 @@ export default function NotificationsPage() {
       const data = await response.json(  );
       setResult(data  );
     } catch (error) {
-      console.error('Error sending notification:', error  );
       setResult({ success: false, error: 'Failed to send notification' }  );
     } finally {
       setSending(false  );

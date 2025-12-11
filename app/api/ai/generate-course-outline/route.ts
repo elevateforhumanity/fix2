@@ -17,7 +17,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(outline);
   } catch (error: any) {
-    console.error('Error generating course outline:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to generate course outline' },
       { status: 500 }

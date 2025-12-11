@@ -95,7 +95,6 @@ export default function CourseCompletionClient({
           : prev
       );
     } catch (err: unknown) {
-      console.error(err);
       setMessage(err?.message ?? "Unexpected error.");
     } finally {
       setChecking(false);

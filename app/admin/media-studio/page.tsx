@@ -70,7 +70,6 @@ export default function MediaStudioPage() {
         }
       }
     } catch (error) {
-      console.error('Failed to load buckets:', error);
     }
   };
 
@@ -81,7 +80,6 @@ export default function MediaStudioPage() {
                 setFiles(data.files);
       }
     } catch (error) {
-      console.error('Failed to load files:', error);
     } finally {
       setLoading(false);
     }
@@ -98,7 +96,6 @@ export default function MediaStudioPage() {
         loadFiles(selectedBucket);
       }
     } catch (error) {
-      console.error('Failed to upload file:', error);
     }
   };
 
@@ -111,7 +108,6 @@ export default function MediaStudioPage() {
         loadFiles(selectedBucket);
       }
     } catch (error) {
-      console.error('Failed to delete file:', error);
     }
   };
 
@@ -123,7 +119,6 @@ export default function MediaStudioPage() {
         loadFiles(selectedBucket);
       }
     } catch (error) {
-      console.error('Failed to optimize images:', error);
     }
   };
 

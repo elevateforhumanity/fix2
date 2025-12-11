@@ -89,7 +89,6 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Milady SSO error:', error);
     return NextResponse.json(
       { error: 'Failed to generate SSO URL' },
       { status: 500 }

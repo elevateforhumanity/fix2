@@ -49,11 +49,9 @@ export default function PaymentOptionsClient() {
         setTimeout(() => {
           if (window.affirm?.ui?.refresh) {
             window.affirm.ui.refresh();
-            console.log('[Affirm] ✅ Refreshed existing');
           }
         }, 100);
         setAffirmLoaded(true);
-        console.log('[Affirm] ✅ Already loaded');
         return;
       }
 
@@ -66,23 +64,18 @@ export default function PaymentOptionsClient() {
           setTimeout(() => {
             if (window.affirm?.ui?.refresh) {
               window.affirm.ui.refresh();
-              console.log('[Affirm] ✅ Loaded and refreshed');
             }
           }, 100);
           setAffirmLoaded(true);
-          console.log('[Affirm] ✅ Script loaded');
         } catch (e) {
-          console.error('[Affirm] Init error:', e);
           setError('Affirm failed to initialize');
         }
       };
       script.onerror = (e) => {
-        console.error('[Affirm] Script failed to load:', e);
         setError('Affirm script failed to load');
       };
       document.body.appendChild(script);
     } catch (e) {
-      console.error('[Affirm] Loader error:', e);
       setError('Problem loading Affirm');
     }
   }, []);
@@ -93,7 +86,6 @@ export default function PaymentOptionsClient() {
       // Give DOM time to render the widget div
       setTimeout(() => {
         window.affirm.ui.refresh();
-        console.log('[Affirm] ✅ Widget refreshed');
       }, 200);
     }
   }, [affirmLoaded]);
@@ -106,7 +98,6 @@ export default function PaymentOptionsClient() {
       );
       if (existing) {
         setStripeLoaded(true);
-        console.log('[Stripe] ✅ Script already loaded');
         return;
       }
       const script = document.createElement('script');
@@ -114,15 +105,12 @@ export default function PaymentOptionsClient() {
       script.async = true;
       script.onload = () => {
         setStripeLoaded(true);
-        console.log('[Stripe] ✅ Script loaded successfully');
       };
       script.onerror = (e) => {
-        console.error('[Stripe] Script failed to load:', e);
         setError('Stripe script failed to load.');
       };
       document.body.appendChild(script);
     } catch (e) {
-      console.error('[Stripe] Loader error:', e);
       setError('Problem initializing Stripe.');
     }
   }, []);
@@ -209,7 +197,6 @@ export default function PaymentOptionsClient() {
 
         <button
           onClick={() => {
-            console.log('[Affirm Button] Clicked. Affirm loaded:', !!window.affirm);
             if (window.affirm) {
               window.affirm.checkout({
                 merchant: {

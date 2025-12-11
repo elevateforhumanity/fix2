@@ -80,7 +80,6 @@ export default function GradebookClient({ initialData }: Props) {
         body: JSON.stringify({ gradeItemId, enrollmentId, points }),
       });
     } catch (error) {
-      console.error("Failed to save grade:", error);
     } finally {
       setSaving(false);
     }

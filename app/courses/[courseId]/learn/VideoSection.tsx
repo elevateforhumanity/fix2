@@ -32,7 +32,6 @@ export default function VideoSection({ videoUrl, lessonId, courseId }: VideoSect
         body: JSON.stringify({ progress: currentTime }),
       });
     } catch (error) {
-      console.error('Failed to save progress:', error);
     }
   };
 

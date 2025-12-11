@@ -52,7 +52,6 @@ export default function CourseProgressTracker({
       setProgress(newProgress);
       setCompleted(newCompleted);
     } catch (err) {
-      console.error('Failed to update progress:', err);
     } finally {
       setUpdating(false);
     }

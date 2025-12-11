@@ -139,7 +139,6 @@ export async function POST(request: NextRequest) {
           name: `${data.firstName} ${data.lastName}`,
           startDate: data.startDate,
         }),
-      }).catch(console.error);
 
       // Send notification to HR
       await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/email/onboarding-notification`, {
@@ -151,7 +150,6 @@ export async function POST(request: NextRequest) {
           startDate: data.startDate,
           onboardingId: onboardingRecord.id,
         }),
-      }).catch(console.error);
 
       // Send Slack notification if configured
       if (process.env.SLACK_WEBHOOK_URL) {
@@ -191,7 +189,6 @@ export async function POST(request: NextRequest) {
               },
             ],
           }),
-        }).catch(console.error);
       }
     }
 
