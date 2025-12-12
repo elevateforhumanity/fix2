@@ -203,8 +203,7 @@ export default function DashboardGuidePage() {
           </p>
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <p className="text-blue-900">
-              <strong>Pro Tip:</strong> Bookmark your dashboard (
-              {window.location.origin}/student/dashboard) for quick access!
+              <strong>Pro Tip:</strong> Bookmark your dashboard at /student/dashboard for quick access!
             </p>
           </div>
         </div>
