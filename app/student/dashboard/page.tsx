@@ -36,7 +36,7 @@ export default async function DashboardPage() {
     .single();
 
   // Get enrollments with program details
-  const { data: enrollments } = await supabase
+  const { data: enrollments, error: enrollmentsError } = await supabase
     .from('enrollments')
     .select(`
       *,
@@ -45,21 +45,36 @@ export default async function DashboardPage() {
     .eq('student_id', user.id)
     .order('created_at', { ascending: false });
 
-  // Get Milady RISE enrollments
-  const miladyProviderId = (await supabase
-    .from('partner_lms_providers')
-    .select('id')
-    .eq('provider_type', 'milady')
-    .single()).data?.id;
+  if (enrollmentsError) {
+    console.error('Enrollments error:', enrollmentsError);
+  }
 
-  const { data: miladyEnrollments } = miladyProviderId ? await supabase
-    .from('partner_lms_enrollments')
-    .select(`
-      *,
-      course:partner_lms_courses(*)
-    `)
-    .eq('student_id', user.id)
-    .eq('provider_id', miladyProviderId) : { data: null };
+  // Get Milady RISE enrollments (with error handling)
+  let miladyEnrollments = null;
+  try {
+    const { data: providerData } = await supabase
+      .from('partner_lms_providers')
+      .select('id')
+      .eq('provider_type', 'milady')
+      .single();
+    
+    const miladyProviderId = providerData?.id;
+
+    if (miladyProviderId) {
+      const { data } = await supabase
+        .from('partner_lms_enrollments')
+        .select(`
+          *,
+          course:partner_lms_courses(*)
+        `)
+        .eq('student_id', user.id)
+        .eq('provider_id', miladyProviderId);
+      
+      miladyEnrollments = data;
+    }
+  } catch (error) {
+    console.error('Milady enrollments error:', error);
+  }
 
   const activeEnrollment = enrollments?.[0];
   const programProgress = activeEnrollment?.progress_percentage || 0;
