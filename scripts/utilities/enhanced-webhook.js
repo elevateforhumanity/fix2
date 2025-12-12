@@ -132,7 +132,6 @@ async function storeLicense(license) {
     const logEntry = `${new Date().toISOString()},${license.key},${license.customerEmail},${license.productName},${license.price}\n`;
     await fs.appendFile('./licenses/master-log.csv', logEntry);
 
-    console.log('📝 License stored:', license.key);
   } catch (error) {
     console.error('❌ License storage failed:', error);
   }
@@ -151,7 +150,6 @@ async function trackAnalytics(event, data) {
       './analytics/events.jsonl',
       JSON.stringify(analyticsEntry) + '\n'
     );
-    console.log('📊 Analytics tracked:', event);
   } catch (error) {
     console.error('❌ Analytics tracking failed:', error);
   }
@@ -259,7 +257,6 @@ async function sendLicenseEmail(
 
   try {
     await emailTransporter.sendMail(mailOptions);
-    console.log('✅ License email sent to:', customerEmail);
 
     // Track email delivery
     await trackAnalytics('email_sent', {
@@ -293,7 +290,6 @@ app.post(
       const session = event.data.object;
 
       try {
-        console.log('💳 Processing payment for session:', session.id);
 
         // Get line items from the session
         const lineItems = await stripe.checkout.sessions.listLineItems(
@@ -362,7 +358,6 @@ app.post(
           });
         }
 
-        console.log('✅ Payment processed successfully:', session.id);
       } catch (error) {
         console.error('❌ Payment processing failed:', error);
 
@@ -458,12 +453,8 @@ app.get('/health', (req, res) => {
 // 🚀 Start server
 const PORT = process.env.PORT || 4242;
 app.listen(PORT, () => {
-  console.log(`🚀 Enhanced Elevate Webhook server running on port ${PORT}`);
-  console.log(`📊 Analytics: http://localhost:${PORT}/analytics`);
-  console.log(
     `🔍 License validation: http://localhost:${PORT}/validate/LICENSE-KEY`
   );
-  console.log(`🏥 Health check: http://localhost:${PORT}/health`);
 });
 
 // 📁 Create required directories on startup

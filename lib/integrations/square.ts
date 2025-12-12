@@ -176,7 +176,6 @@ export function createSquareClient(): SquareClient | null {
 
   if (!accessToken || !locationId) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Square not configured');
     }
     return null;
   }

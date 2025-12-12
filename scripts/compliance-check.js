@@ -5,7 +5,6 @@
  * Validates project compliance before deployment
  */
 
-console.log('🔍 Running compliance checks...\n');
 
 const checks = [
   {
@@ -26,20 +25,15 @@ let failed = 0;
 checks.forEach(({ name, check }) => {
   try {
     if (check()) {
-      console.log(`✅ ${name}`);
       passed++;
     } else {
-      console.log(`⚠️  ${name}`);
       failed++;
     }
   } catch (error) {
-    console.log(`⚠️  ${name} - ${error.message}`);
     failed++;
   }
 });
 
-console.log(`\n📊 Results: ${passed} passed, ${failed} warnings`);
-console.log('✅ Compliance check complete\n');
 
 // Always exit 0 (warnings don't block deployment)
 process.exit(0);

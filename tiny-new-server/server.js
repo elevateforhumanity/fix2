@@ -440,10 +440,6 @@ app.use(notFoundHandler);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
-  console.log(`📡 API endpoints available at http://localhost:${PORT}/api`);
-  console.log(`🔒 Security: Helmet, CORS, Rate Limiting enabled`);
-  console.log(`🛡️  Environment: ${process.env.NODE_ENV || 'development'}`);
 });
 
 module.exports = app;

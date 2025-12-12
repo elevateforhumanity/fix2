@@ -68,9 +68,6 @@ export async function generateVideo(
   const outputDir = path.join(process.cwd(), 'output');
 
   try {
-    console.log(`Starting video generation job: ${jobId}`);
-    console.log(`Title: ${request.title}`);
-    console.log(`Scenes: ${request.scenes.length}`);
 
     // Create directories
     await fs.mkdir(tempDir, { recursive: true });
@@ -97,7 +94,6 @@ export async function generateVideo(
 
     for (let i = 0; i < request.scenes.length; i++) {
       const scene = request.scenes[i];
-      console.log(
         `Processing scene ${i + 1}/${request.scenes.length}: ${scene.id}`
       );
 
@@ -112,7 +108,6 @@ export async function generateVideo(
         );
         audioPath = path.join(tempDir, `scene-${i + 1}-audio.mp3`);
         await fs.writeFile(audioPath, audioBuffer);
-        console.log(`Generated TTS audio for scene ${i + 1}`);
       }
 
       // Prepare render scene
@@ -135,18 +130,15 @@ export async function generateVideo(
       sceneVideoPaths.push(sceneVideoPath);
       totalDuration += scene.duration;
 
-      console.log(`Scene ${i + 1} rendered successfully`);
     }
 
     // Concatenate all scenes
-    console.log('Concatenating scenes...');
     const concatenatedPath = path.join(tempDir, 'concatenated.mp4');
     await concatenateVideos(sceneVideoPaths, concatenatedPath);
 
     // Add background music if enabled
     let finalVideoPath: string;
     if (request.settings.backgroundMusic && request.settings.musicPath) {
-      console.log('Adding background music...');
       finalVideoPath = path.join(outputDir, `${jobId}.mp4`);
       const musicVolume = request.settings.musicVolume || 0.3;
       await addBackgroundMusic(
@@ -162,10 +154,8 @@ export async function generateVideo(
     }
 
     // Clean up temporary files
-    console.log('Cleaning up temporary files...');
     await cleanupTempFiles(tempDir);
 
-    console.log(`Video generation completed: ${finalVideoPath}`);
 
     return {
       jobId,

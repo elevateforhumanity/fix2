@@ -45,7 +45,6 @@ class TrafficTracker {
     // Log high-value pages
     if (req.url.includes('/pay') || req.url.includes('emergency')) {
       this.salesLeads.push(hit);
-      console.log(`💰 SALES LEAD: ${hit.ip} viewed ${hit.url}`);
 
       // Send SMS alert for payment page visits
       if (req.url.includes('/pay')) {
@@ -66,7 +65,6 @@ class TrafficTracker {
 
   sendSalesAlert(message) {
     // This would integrate with SMS system
-    console.log(`📱 ALERT TO 317-760-7908: ${message}`);
   }
 
   getStats() {

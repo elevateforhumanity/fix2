@@ -4,7 +4,6 @@ let client: OpenAI | null = null;
 
 export function getOpenAIClient(): OpenAI | null {
   if (!process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY === 'sk-placeholder-key') {
-    console.warn('OpenAI API key not configured');
     return null;
   }
   

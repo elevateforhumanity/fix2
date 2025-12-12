@@ -67,22 +67,14 @@ interface ProgramConfig {
 }
 
 async function seedProgram(fileName: string) {
-  console.log('\n🚀 Starting Program Seed Script\n');
-  console.log('📍 Supabase URL:', SUPABASE_URL);
-  console.log('📄 Program File:', fileName);
 
   try {
     // Load program data
     const filePath = join(process.cwd(), 'data/programs', fileName);
     const programData: ProgramConfig = JSON.parse(readFileSync(filePath, 'utf-8'));
 
-    console.log(`\n📦 Loaded: ${programData.program.name}`);
-    console.log(`   Category: ${programData.program.category}`);
-    console.log(`   AI Instructors: ${programData.ai_instructors.length}`);
-    console.log(`   Modules: ${programData.modules.length}`);
 
     // 1. Seed AI Instructors
-    console.log('\n📚 Seeding AI Instructors...');
     for (const instructor of programData.ai_instructors) {
       const { error } = await supabase
         .from('ai_instructors')
@@ -91,12 +83,10 @@ async function seedProgram(fileName: string) {
       if (error) {
         console.error(`   ❌ Failed to seed ${instructor.name}:`, error.message);
       } else {
-        console.log(`   ✅ ${instructor.name}`);
       }
     }
 
     // 2. Seed Program
-    console.log('\n🎓 Seeding Program...');
     const { error: programError } = await supabase
       .from('programs')
       .upsert(programData.program, { onConflict: 'id' });
@@ -105,23 +95,18 @@ async function seedProgram(fileName: string) {
       console.error('   ❌ Failed to seed program:', programError.message);
       throw programError;
     }
-    console.log(`   ✅ ${programData.program.name}`);
 
     // 3. Delete existing modules for clean slate
-    console.log('\n🧹 Cleaning existing modules...');
     const { error: deleteError } = await supabase
       .from('course_modules')
       .delete()
       .eq('program_id', programData.program.id);
 
     if (deleteError) {
-      console.warn('   ⚠️  Could not delete existing modules:', deleteError.message);
     } else {
-      console.log('   ✅ Existing modules cleared');
     }
 
     // 4. Seed Modules
-    console.log('\n📦 Seeding Course Modules...');
     for (const module of programData.modules) {
       const moduleRecord = {
         id: module.id,
@@ -147,12 +132,10 @@ async function seedProgram(fileName: string) {
       if (error) {
         console.error(`   ❌ Failed to seed ${module.short_code}:`, error.message);
       } else {
-        console.log(`   ✅ ${module.short_code}: ${module.title}`);
       }
     }
 
     // 5. Verify Seeding
-    console.log('\n🔍 Verifying Seeded Data...');
 
     const { data: program, error: verifyProgramError } = await supabase
       .from('programs')
@@ -164,7 +147,6 @@ async function seedProgram(fileName: string) {
       console.error('   ❌ Program not found');
       return false;
     }
-    console.log(`   ✅ Program: ${program.name}`);
 
     const { data: modules, error: verifyModulesError } = await supabase
       .from('course_modules')
@@ -176,7 +158,6 @@ async function seedProgram(fileName: string) {
       console.error('   ❌ Modules not found');
       return false;
     }
-    console.log(`   ✅ Modules: ${modules.length} found`);
 
     const { data: instructors, error: verifyInstructorsError } = await supabase
       .from('ai_instructors')
@@ -187,14 +168,7 @@ async function seedProgram(fileName: string) {
       console.error('   ❌ AI Instructors not found');
       return false;
     }
-    console.log(`   ✅ AI Instructors: ${instructors.length} found`);
 
-    console.log('\n✅ Program seeded successfully!');
-    console.log('\n📋 Next Steps:');
-    console.log(`   1. Visit: /programs/${programData.program.slug}`);
-    console.log('   2. Test enrollment flow');
-    console.log('   3. Verify modules display correctly');
-    console.log('\n🔗 Program ID:', programData.program.id);
 
     return true;
   } catch (error) {

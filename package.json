@@ -87,7 +87,7 @@
     "lucide-react": "0.471.2",
     "marked": "17.0.1",
     "multer": "2.0.2",
-    "next": "16.0.8",
+    "next": "16.0.10",
     "next-auth": "5.0.0-beta.30",
     "next-intl": "4.5.2",
     "openai": "6.9.1",

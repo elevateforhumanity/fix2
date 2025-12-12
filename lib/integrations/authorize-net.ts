@@ -217,7 +217,6 @@ export function createAuthorizeNetClient(): AuthorizeNetClient | null {
 
   if (!apiLoginId || !transactionKey) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Authorize.Net not configured');
     }
     return null;
   }

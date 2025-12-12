@@ -99,14 +99,12 @@ export async function authenticateWithBiometrics(): Promise<boolean> {
   try {
     // Check if Web Authentication API is available
     if (!window.PublicKeyCredential) {
-      console.warn('[Biometrics] Web Authentication API not available');
       return false;
     }
 
     // Check if biometric authentication is available
     const available = await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable();
     if (!available) {
-      console.warn('[Biometrics] Platform authenticator not available');
       return false;
     }
 
@@ -194,7 +192,6 @@ export interface GeolocationPosition {
 export async function getCurrentLocation(): Promise<GeolocationPosition | null> {
   return new Promise((resolve) => {
     if (!navigator.geolocation) {
-      console.warn('[Geolocation] Not available');
       resolve(null);
       return;
     }
@@ -276,7 +273,6 @@ export async function shareContent(data: {
 }): Promise<boolean> {
   try {
     if (!navigator.share) {
-      console.warn('[Share] Web Share API not available');
       return false;
     }
 

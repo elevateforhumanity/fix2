@@ -77,7 +77,6 @@ async function walkAndCopy() {
   }
   await ensureDir(DIST);
   await walk(ROOT);
-  console.log(`[copy-static] Copied ${copied} files into dist`);
 }
 
 walkAndCopy().catch((err) => {

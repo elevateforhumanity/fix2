@@ -46,7 +46,6 @@ export function useOfflineData<T>(
               }
             }
           } catch (cacheError) {
-            console.warn('[useOfflineData] Cache read failed:', cacheError);
           }
         }
 
@@ -82,7 +81,6 @@ export function useOfflineData<T>(
             ...(freshData as any),
           });
         } catch (cacheError) {
-          console.warn('[useOfflineData] Cache write failed:', cacheError);
         }
       } catch (err) {
         if (mounted) {

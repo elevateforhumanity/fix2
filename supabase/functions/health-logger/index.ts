@@ -91,7 +91,6 @@ serve(async (req) => {
         throw error;
       }
 
-      console.log(
         `Health event logged: ${source}/${kind}/${status} (id: ${data})`
       );
 

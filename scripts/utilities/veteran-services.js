@@ -757,7 +757,6 @@ class VeteranServicesSystem {
       };
 
       // Log the request (in production, save to database)
-      console.log('Veteran service request received:', request);
 
       res.json({
         success: true,

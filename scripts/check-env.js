@@ -29,5 +29,4 @@ if (missing.length > 0) {
     'For Cloudflare Pages: https://dash.cloudflare.com/YOUR_ACCOUNT/pages/view/YOUR_PROJECT/settings/environment-variables\n'
   );
 } else {
-  console.log('✅ All required environment variables are set');
 }

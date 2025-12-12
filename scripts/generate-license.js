@@ -128,13 +128,6 @@ Examples:
     licenseData.features = tierFeatures[licenseData.tier];
   }
 
-  console.log('🔐 Generating license for:');
-  console.log(`   Licensee: ${licenseData.licensee}`);
-  console.log(`   Domain: ${licenseData.domain}`);
-  console.log(`   Tier: ${licenseData.tier}`);
-  console.log(`   Features: ${licenseData.features.join(', ')}`);
-  console.log(`   Duration: ${licenseData.duration} days`);
-  console.log('');
 
   try {
     // Generate license token
@@ -146,11 +139,6 @@ Examples:
       throw new Error(`Generated token validation failed: ${validation.error}`);
     }
 
-    console.log('✅ License token generated successfully!');
-    console.log('');
-    console.log('LICENSE TOKEN:');
-    console.log(token);
-    console.log('');
 
     // Generate certificate
     const certificate = generateLicenseCertificate(licenseData, token);
@@ -159,7 +147,6 @@ Examples:
     if (options.output) {
       const outputPath = path.resolve(options.output);
       fs.writeFileSync(outputPath, certificate);
-      console.log(`📄 License certificate saved to: ${outputPath}`);
     } else {
       // Save to default location
       const filename = `license-${licenseData.domain.replace(/[^a-zA-Z0-9]/g, '-')}-${Date.now()}.txt`;
@@ -172,7 +159,6 @@ Examples:
       }
 
       fs.writeFileSync(outputPath, certificate);
-      console.log(`📄 License certificate saved to: ${outputPath}`);
     }
 
     // Generate .env template
@@ -194,14 +180,7 @@ LICENSE_FEATURES=${licenseData.features.join(',')}
       `env-${licenseData.domain.replace(/[^a-zA-Z0-9]/g, '-')}.txt`
     );
     fs.writeFileSync(envPath, envTemplate);
-    console.log(`⚙️  Environment template saved to: ${envPath}`);
 
-    console.log('');
-    console.log('🚀 Next steps:');
-    console.log('1. Send the license certificate to the client');
-    console.log('2. Client should add LICENSE_TOKEN to their .env file');
-    console.log('3. Client should implement license validation in their app');
-    console.log('4. Monitor usage via the license server dashboard');
   } catch (error) {
     console.error('❌ Error generating license:', error.message);
     process.exit(1);

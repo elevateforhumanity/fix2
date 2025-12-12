@@ -200,7 +200,6 @@ async function processQueueMessage(
  */
 async function sendEmail(data: any, env: Env): Promise<void> {
   // Implement email sending logic
-  console.log('Sending email:', data);
 }
 
 /**
@@ -208,7 +207,6 @@ async function sendEmail(data: any, env: Env): Promise<void> {
  */
 async function trackAnalytics(data: any, env: Env): Promise<void> {
   // Implement analytics tracking
-  console.log('Tracking analytics:', data);
 }
 
 /**
@@ -216,14 +214,12 @@ async function trackAnalytics(data: any, env: Env): Promise<void> {
  */
 async function processWebhook(data: any, env: Env): Promise<void> {
   // Implement webhook processing
-  console.log('Processing webhook:', data);
 }
 
 /**
  * Cleanup old data (daily cron)
  */
 async function cleanupOldData(env: Env): Promise<void> {
-  console.log('Running daily cleanup...');
   // Implement cleanup logic
 }
 
@@ -231,7 +227,6 @@ async function cleanupOldData(env: Env): Promise<void> {
  * Sync analytics (every 6 hours)
  */
 async function syncAnalytics(env: Env): Promise<void> {
-  console.log('Syncing analytics...');
   // Implement analytics sync
 }
 
@@ -239,7 +234,6 @@ async function syncAnalytics(env: Env): Promise<void> {
  * Process pending jobs (every 15 minutes)
  */
 async function processPendingJobs(env: Env): Promise<void> {
-  console.log('Processing pending jobs...');
   // Implement job processing
 }
 

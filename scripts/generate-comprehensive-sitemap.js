@@ -63,7 +63,6 @@ const excludePages = [
 ];
 
 function generateSitemap() {
-  console.log(
     '🗺️  Generating comprehensive sitemap for www.elevateforhumanity.org...'
   );
 
@@ -122,15 +121,10 @@ function generateSitemap() {
   // Write the sitemap
   fs.writeFileSync('sitemap.xml', sitemap);
 
-  console.log(`✅ Generated sitemap with ${htmlFiles.length + 2} URLs`);
-  console.log(`📍 Domain: ${CANONICAL_DOMAIN}`);
-  console.log(`📅 Last modified: ${currentDate}`);
-  console.log('\n📋 Pages included:');
   htmlFiles.forEach((file) => {
     const config = pageConfig[file] || { priority: 0.5, changefreq: 'monthly' };
     const urlPath =
       file === 'index.html' ? '/' : `/${file.replace('.html', '')}`;
-    console.log(
       `   • ${urlPath} (priority: ${config.priority}, freq: ${config.changefreq})`
     );
   });
@@ -152,7 +146,6 @@ function updateRobotsTxt() {
     );
 
     fs.writeFileSync('robots.txt', robots);
-    console.log('✅ Updated robots.txt with canonical domain');
   } catch (error) {
     console.error('⚠️  Could not update robots.txt:', error.message);
   }

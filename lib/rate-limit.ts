@@ -16,7 +16,6 @@ interface RateLimitConfig {
 
 export async function checkRateLimit(config: RateLimitConfig) {
   if (!redis) {
-    console.warn('Redis not configured, skipping rate limit');
     return { ok: true, remaining: config.limit, current: 0 };
   }
 

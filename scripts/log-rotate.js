@@ -8,7 +8,6 @@ const retentionDays = parseInt(process.env.LOG_RETENTION_DAYS || '7', 10);
 const today = new Date().toISOString().slice(0, 10);
 
 if (!fs.existsSync(logDir)) {
-  console.log('[log-rotate] no logs dir');
   process.exit(0);
 }
 
@@ -24,7 +23,6 @@ for (const f of fs.readdirSync(logDir)) {
   if (f.endsWith('.gz')) {
     if (ageDays(full) > retentionDays) {
       fs.unlinkSync(full);
-      console.log('[log-rotate] deleted', f);
     }
     continue;
   }
@@ -33,10 +31,8 @@ for (const f of fs.readdirSync(logDir)) {
     const buf = fs.readFileSync(full);
     fs.writeFileSync(gz, zlib.gzipSync(buf));
     fs.unlinkSync(full);
-    console.log('[log-rotate] compressed', f);
   } catch (e) {
     console.warn('[log-rotate] failed', f, e.message);
   }
 }
 
-console.log('[log-rotate] done');

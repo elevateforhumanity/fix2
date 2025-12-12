@@ -59,11 +59,9 @@ function processHtml(filePath) {
         html.slice(headCloseIdx);
     }
     fs.writeFileSync(filePath, html);
-    console.log(`[stripe:inject-pk] Updated ${path.relative(ROOT, filePath)}`);
   } catch (e) {
     console.warn(`[stripe:inject-pk] Skipped ${filePath}: ${e.message}`);
   }
 }
 
 walk(ROOT);
-console.log('[stripe:inject-pk] Done.');

@@ -83,7 +83,6 @@ app.post('/api/checkout', async (req, res) => {
     const { productId, amount } = req.body;
 
     // Placeholder for actual SMS handler or logging
-    // console.log(`💰 Purchase attempt: ${productId} - $${amount}`);
 
     // Return success URL for demo
     res.json({
@@ -100,7 +99,6 @@ app.post('/api/track-view', async (req, res) => {
   try {
     const { page, source } = req.body;
     // Placeholder for actual SMS handler or logging
-    // console.log(`👀 Emergency sale view: ${page} from ${source}`);
     res.json({ success: true });
   } catch (error) {
     res.json({ success: false });
@@ -152,18 +150,11 @@ app.use((error, req, res, next) => {
 
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
-  // console.log('🚀 EFH Production Server running on port', PORT);
-  // console.log('💰 Emergency sale active - 72 hours remaining');
-  // console.log('📱 SMS alerts configured for phone:', '3177607908');
-  // console.log('💳 Stripe payment system ready');
-  // console.log('🔗 Sister sites:', sisterSites.join(', '));
 
   // Placeholder for startup alert
-  // console.log('🚀 EFH Emergency Sale Server LIVE - Ready for traffic!');
 });
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
-  // console.log('💤 Server shutting down gracefully');
   process.exit(0);
 });

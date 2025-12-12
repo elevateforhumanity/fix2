@@ -26,7 +26,6 @@ class StripePartnerProductsManager {
     for (const [partnerId, partnerData] of Object.entries(
       this.catalog.credentialing_partners
     )) {
-      console.log(`\n🏢 Creating products for ${partnerData.partner_name}...`);
 
       for (const program of partnerData.programs) {
         try {
@@ -37,7 +36,6 @@ class StripePartnerProductsManager {
           );
           results.created.push(product);
           results.total_revenue_potential += program.student_price;
-          console.log(
             `✅ Created: ${program.name} - $${program.student_price}`
           );
         } catch (error) {
@@ -137,7 +135,6 @@ class StripePartnerProductsManager {
           onboarding_url: await this.createAccountLink(account.id),
         };
 
-        console.log(
           `✅ Created Connect account for ${partnerData.partner_name}`
         );
       } catch (error) {
@@ -276,40 +273,28 @@ if (require.main === module) {
   const manager = new StripePartnerProductsManager();
 
   async function main() {
-    console.log('🚀 ELEVATE FOR HUMANITY - PARTNER PROGRAMS SETUP\n');
 
     // Generate pricing report
-    console.log('📊 PRICING ANALYSIS:');
     const report = manager.generatePricingReport();
-    console.log(`Total Programs: ${report.total_programs}`);
-    console.log(
       `Total Revenue Potential: $${report.total_revenue_potential.toLocaleString()}`
     );
-    console.log(
       `Average Price per Program: $${Math.round(report.total_revenue_potential / report.total_programs)}`
     );
 
-    console.log('\n🏢 PARTNER BREAKDOWN:');
     for (const [partnerId, stats] of Object.entries(report.partner_breakdown)) {
-      console.log(
         `${stats.partner_name}: ${stats.program_count} programs, $${Math.round(stats.avg_price)} avg price`
       );
     }
 
-    console.log('\n📈 PRICING TIERS:');
     for (const [tier, data] of Object.entries(report.pricing_tiers)) {
       if (data.count > 0) {
-        console.log(
           `${tier.toUpperCase()}: ${data.count} programs, $${Math.round(data.avg_price)} avg price`
         );
       }
     }
 
     // Uncomment to actually create products (requires valid Stripe keys)
-    // console.log('\n🔧 Creating Stripe products...');
     // const results = await manager.createAllPartnerProducts();
-    // console.log(`\n✅ Created ${results.created.length} products`);
-    // console.log(`❌ ${results.errors.length} errors`);
   }
 
   main().catch(console.error);

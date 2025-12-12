@@ -74,7 +74,6 @@ export class LocalStorage {
     const metadataPath = path.join(this.basePath, 'videos', `${jobId}.json`);
     await fs.writeFile(metadataPath, JSON.stringify(metadata, null, 2));
 
-    console.log(`Video saved to local storage: ${destination}`);
     return destination;
   }
 
@@ -116,7 +115,6 @@ export class LocalStorage {
         fs.unlink(thumbnailPath).catch(() => {}),
       ]);
 
-      console.log(`Video deleted: ${jobId}`);
       return true;
     } catch (error) {
       console.error(`Error deleting video ${jobId}:`, error);
@@ -218,7 +216,6 @@ export async function exportVideo(
   // This would use FFmpeg to convert/export video
   // For now, just copy the file
   await fs.copyFile(inputPath, outputPath);
-  console.log(`Video exported to: ${outputPath}`);
   return outputPath;
 }
 
@@ -232,7 +229,6 @@ export async function generateThumbnail(
 ): Promise<string> {
   // This would use FFmpeg to extract a frame
   // For now, return a placeholder
-  console.log(`Thumbnail generation for ${videoPath} - to be implemented`);
   return outputPath;
 }
 
@@ -319,7 +315,6 @@ export async function cleanupOldVideos(
       }
     }
 
-    console.log(`Cleaned up ${deletedCount} old videos`);
     return deletedCount;
   } catch (error) {
     console.error('Error cleaning up old videos:', error);
@@ -358,7 +353,6 @@ export class CloudflareR2Storage {
   }
 
   async initialize(): Promise<void> {
-    console.log('Cloudflare R2 storage initialized');
   }
 
   async saveVideo(
@@ -404,7 +398,6 @@ export class CloudflareR2Storage {
         ? `${this.publicUrl}/${fileName}`
         : `https://${this.bucket}.r2.cloudflarestorage.com/${fileName}`;
 
-      console.log(`Video uploaded to R2: ${url}`);
       return url;
     } catch (error) {
       console.error('Error uploading to R2:', error);
@@ -496,7 +489,6 @@ export class CloudflareR2Storage {
           .catch(() => {}),
       ]);
 
-      console.log(`Video deleted from R2: ${jobId}`);
       return true;
     } catch (error) {
       console.error(`Error deleting video from R2: ${jobId}`, error);
@@ -677,7 +669,6 @@ export class CloudflareStreamStorage {
 
   async initialize(): Promise<void> {
     await this.localCache.initialize();
-    console.log('Cloudflare Stream storage initialized');
   }
 
   async saveVideo(
@@ -690,7 +681,6 @@ export class CloudflareStreamStorage {
         throw new Error('Cloudflare Stream service not initialized');
       }
 
-      console.log(`Uploading video to Cloudflare Stream: ${jobId}`);
 
       // Upload to Cloudflare Stream
       const streamVideo = await this.streamService.uploadVideo(videoPath, {
@@ -715,7 +705,6 @@ export class CloudflareStreamStorage {
 
       await this.localCache.saveVideo(videoPath, jobId, extendedMetadata);
 
-      console.log(`Video uploaded to Cloudflare Stream: ${streamVideo.uid}`);
       return streamVideo.uid;
     } catch (error) {
       console.error('Error uploading to Cloudflare Stream:', error);
@@ -837,7 +826,6 @@ export function createStorage(
       process.env.CLOUDFLARE_API_TOKEN;
 
     if (!accountId || !apiToken) {
-      console.warn(
         'Cloudflare Stream credentials not configured, falling back to local storage'
       );
       return new LocalStorage(config?.localPath);
@@ -859,7 +847,6 @@ export function createStorage(
     const publicUrl = config?.publicUrl || process.env.CLOUDFLARE_R2_PUBLIC_URL;
 
     if (!accountId || !bucket || !accessKeyId || !secretAccessKey) {
-      console.warn(
         'Cloudflare R2 credentials not configured, falling back to local storage'
       );
       return new LocalStorage(config?.localPath);

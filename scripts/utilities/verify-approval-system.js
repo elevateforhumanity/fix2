@@ -8,7 +8,6 @@
 const express = require('express');
 const http = require('http');
 
-console.log('🔄 Starting approval system verification...');
 
 // Create test app
 const app = express();
@@ -24,7 +23,6 @@ try {
   // Load and register approval routes
   const { registerApprovalRoutes } = require('./approval-integration');
   registerApprovalRoutes(app);
-  console.log('✅ Approval routes loaded successfully');
 } catch (e) {
   console.error('❌ Failed to load approval routes:', e.message);
   process.exit(1);
@@ -32,7 +30,6 @@ try {
 
 // Start test server
 const server = app.listen(3000, 'localhost', async () => {
-  console.log('✅ Test server started on port 3000');
 
   try {
     // Test endpoints
@@ -75,7 +72,6 @@ const server = app.listen(3000, 'localhost', async () => {
       },
     ];
 
-    console.log('\n🧪 Testing endpoints...');
 
     for (const test of tests) {
       try {
@@ -108,23 +104,14 @@ const server = app.listen(3000, 'localhost', async () => {
         });
 
         if (response.status === 404) {
-          console.log(`❌ ${test.description}: Route not found (404)`);
         } else {
-          console.log(
             `✅ ${test.description}: Route exists (${response.status})`
           );
         }
       } catch (e) {
-        console.log(`❌ ${test.description}: Error - ${e.message}`);
       }
     }
 
-    console.log('\n🎉 Verification complete!');
-    console.log('\n📋 Summary:');
-    console.log('- Approval routes are integrated into the main server');
-    console.log('- All expected endpoints are accessible');
-    console.log('- System gracefully handles missing Supabase configuration');
-    console.log('- The approval system can now "proceed" successfully!');
   } catch (e) {
     console.error('❌ Verification failed:', e.message);
   }

@@ -14,7 +14,6 @@ export function getStripeServerConfig() {
     if (process.env.NODE_ENV === 'production') {
       throw new Error('STRIPE_SECRET_KEY must be set in Vercel environment variables');
     }
-    console.warn('⚠️  STRIPE_SECRET_KEY not set - payment processing will not work');
     return null;
   }
 
@@ -59,7 +58,6 @@ export function getStripeWebhookSecret(): string | null {
   
   if (!webhookSecret) {
     if (process.env.NODE_ENV === 'production') {
-      console.warn('⚠️  STRIPE_WEBHOOK_SECRET not set - webhook verification will fail');
     }
     return null;
   }

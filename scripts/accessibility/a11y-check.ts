@@ -8,7 +8,6 @@ async function run() {
 
   const url =
     process.env.A11Y_URL || "https://elevateforhumanity.org";
-  console.log(`Running accessibility check on: ${url}`);
 
   await page.goto(url, { waitUntil: "networkidle" });
 
@@ -63,23 +62,12 @@ async function run() {
   fs.writeFileSync(path.join(outDir, "report.html"), html);
 
   // Console output
-  console.log("\n=== Accessibility Check Results ===");
-  console.log(`Violations: ${results.violations.length}`);
-  console.log(`Passes: ${results.passes.length}`);
-  console.log(`Incomplete: ${results.incomplete.length}`);
-  console.log(`Inapplicable: ${results.inapplicable.length}`);
 
   if (results.violations.length > 0) {
-    console.log("\n=== Violations ===");
     results.violations.forEach((v: any) => {
-      console.log(`\n[${v.impact.toUpperCase()}] ${v.id}`);
-      console.log(`  ${v.description}`);
-      console.log(`  Help: ${v.helpUrl}`);
-      console.log(`  Affected nodes: ${v.nodes.length}`);
     });
   }
 
-  console.log(`\nFull report saved to: ${outDir}`);
 
   await browser.close();
 

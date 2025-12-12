@@ -176,7 +176,6 @@ export interface DMCANotice {
 export async function submitDMCATakedown(notice: DMCANotice): Promise<boolean> {
   try {
     // In production, integrate with DMCA service providers
-    console.log('DMCA Takedown Notice:', notice);
     
     // Send to legal team
     await fetch('/api/legal/dmca', {

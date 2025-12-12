@@ -85,7 +85,6 @@ class UnifiedNavigation {
 
   initializeNavigation() {
     // Temporarily disabled - user doesn't like "All Sites" approach
-    console.log('🚫 Unified navigation disabled by user preference');
     return;
 
     this.injectNavigationCSS();
@@ -540,9 +539,6 @@ class UnifiedNavigation {
 // Initialize unified navigation when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   window.unifiedNav = new UnifiedNavigation();
-  console.log('🌟 Unified Navigation System Loaded');
-  console.log('🔗 All sister sites connected');
-  console.log('🧠 AI Brain integration active');
 });
 
 // Export for module use

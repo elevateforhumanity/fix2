@@ -33,16 +33,13 @@ const largest = files
   .slice(0, 10);
 
 let fail = false;
-console.log(
   `[size-check] total bytes=${total} (~${totalKB}KB) budget=${budgetKB}KB singleFileMax=${singleKB}KB`
 );
-console.log('[size-check] top largest assets:');
 for (const f of largest) {
   const kb = Math.round(f.size / 1024);
   const rel = f.file.replace(process.cwd(), '').slice(1);
   const over = kb > singleKB ? '  << OVER SINGLE FILE LIMIT' : '';
   if (over) fail = true;
-  console.log('-', rel, kb, 'KB' + over);
 }
 
 if (totalKB > budgetKB) {
@@ -74,10 +71,8 @@ try {
       2
     )
   );
-  console.log('[size-check] wrote artifact', artifactFile);
 } catch (e) {
   console.warn('[size-check] WARN could not write artifact:', e.message);
 }
 
 if (fail) process.exit(1);
-console.log('[size-check] PASS within budgets');

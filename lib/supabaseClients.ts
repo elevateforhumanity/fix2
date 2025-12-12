@@ -8,7 +8,6 @@ const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
 // 👇 For client-side components (React hooks, etc.)
 export function getClientSupabase() {
   if (!supabaseUrl || !supabaseAnonKey) {
-    console.warn("Supabase client env vars missing");
     return null;
   }
   return createClient(supabaseUrl, supabaseAnonKey);
@@ -17,7 +16,6 @@ export function getClientSupabase() {
 // 👇 For server components (App Router `async` page components)
 export function getServerSupabase() {
   if (!supabaseUrl || !supabaseAnonKey) {
-    console.warn("Supabase server env vars missing");
     return null;
   }
   return createClient(supabaseUrl, supabaseAnonKey);

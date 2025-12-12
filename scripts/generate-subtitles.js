@@ -72,13 +72,5 @@ Or use professional services:
 `;
 
   fs.writeFileSync(vttPath, vttContent);
-  console.log(`✅ Created: ${vttFilename}`);
 });
 
-console.log(`\n✨ Generated ${videos.length} VTT subtitle files in ${subtitlesDir}`);
-console.log('\n📝 Next steps:');
-console.log('1. Upload videos to YouTube (unlisted)');
-console.log('2. Enable auto-captions');
-console.log('3. Download .srt files');
-console.log('4. Convert to .vtt and replace placeholders');
-console.log('\nOr use: https://www.rev.com for professional transcription');

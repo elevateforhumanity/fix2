@@ -16,7 +16,6 @@ function ensureDir(dir) {
 function getImageFiles(dir) {
   const files = [];
   if (!fs.existsSync(dir)) {
-    console.log(`📁 Images directory ${dir} not found. Creating it...`);
     ensureDir(dir);
     return files;
   }
@@ -36,18 +35,14 @@ function getImageFiles(dir) {
 }
 
 function optimizeImages() {
-  console.log('🖼️  Starting image optimization...');
 
   ensureDir(OUTPUT_DIR);
   const imageFiles = getImageFiles(IMAGES_DIR);
 
   if (imageFiles.length === 0) {
-    console.log('📷 No images found to optimize.');
-    console.log('💡 Add images to the ./images/ directory for optimization.');
     return;
   }
 
-  console.log(`📸 Found ${imageFiles.length} images to process:`);
 
   imageFiles.forEach((file) => {
     const fileName = path.basename(file);
@@ -56,18 +51,12 @@ function optimizeImages() {
     try {
       // Copy file to optimized directory (placeholder for actual optimization)
       fs.copyFileSync(file, outputPath);
-      console.log(`   ✅ ${fileName} → optimized`);
     } catch (error) {
-      console.log(`   ❌ ${fileName} → failed: ${error.message}`);
     }
   });
 
-  console.log('\n🎉 Image optimization complete!');
-  console.log('\n💡 For advanced optimization, install imagemin:');
-  console.log(
     '   npm install imagemin imagemin-webp imagemin-mozjpeg imagemin-pngquant'
   );
-  console.log(
     '\n📝 Then this script will automatically use advanced compression.'
   );
 }
@@ -79,7 +68,6 @@ try {
   const imageminMozjpeg = require('imagemin-mozjpeg');
   const imageminPngquant = require('imagemin-pngquant');
 
-  console.log('🚀 Advanced optimization libraries detected!');
 
   (async () => {
     const files = await imagemin([`${IMAGES_DIR}/*.{jpg,jpeg,png}`], {
@@ -91,11 +79,9 @@ try {
       ],
     });
 
-    console.log(
       `✅ Advanced optimization complete! Processed ${files.length} images.`
     );
     files.forEach((file) => {
-      console.log(
         `   📦 ${path.basename(file.sourcePath)} → ${path.basename(file.destinationPath)}`
       );
     });

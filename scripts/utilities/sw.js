@@ -1,5 +1,4 @@
 self.addEventListener('install', function (e) {
-  console.log('📦 Service Worker Installed');
   e.waitUntil(
     caches.open('elevate-store-v1').then(function (cache) {
       return cache.addAll(['/', '/index.html']);

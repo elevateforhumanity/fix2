@@ -41,9 +41,6 @@ app.get('/ecosystem-status', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Ecosystem Status Server running on http://localhost:${PORT}`);
-  console.log(`📊 Status Dashboard: http://localhost:${PORT}/ecosystem-status`);
-  console.log(`🔧 API Endpoint: http://localhost:${PORT}/api/ecosystem/status`);
 });
 
 module.exports = app;

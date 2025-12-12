@@ -20,12 +20,6 @@ Because when you rise, we all rise.
 Elevate for Humanity. Your partner in career transformation.`;
 
 async function generateTTS() {
-  console.log('🎙️  Generating voiceover...\n');
-  console.log('Script:');
-  console.log('─'.repeat(60));
-  console.log(SCRIPT);
-  console.log('─'.repeat(60));
-  console.log('\n');
   
   try {
     // Import edge-tts dynamically
@@ -40,9 +34,6 @@ async function generateTTS() {
     // Using a professional, warm voice
     const voice = 'en-US-GuyNeural'; // Professional male voice
     
-    console.log(`Voice: ${voice}`);
-    console.log(`Output: ${outputPath}\n`);
-    console.log('Generating audio...\n');
     
     // Create TTS instance
     const tts = new edgeTTS.default();
@@ -50,12 +41,6 @@ async function generateTTS() {
     // Generate audio
     await tts.ttsToFile(outputPath, SCRIPT, voice);
     
-    console.log('✅ Audio generated successfully!\n');
-    console.log(`File: ${outputPath}`);
-    console.log('\nNext steps:');
-    console.log('1. Add background music (optional)');
-    console.log('2. Combine with logo video');
-    console.log('3. Add to website homepage with autoplay');
     
   } catch (error) {
     console.error('❌ Error:', error);

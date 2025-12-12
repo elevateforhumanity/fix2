@@ -183,7 +183,6 @@ class SocialMediaAutomation {
 
   async postToFacebook(pageConfig, content) {
     if (!pageConfig.accessToken || !pageConfig.pageId) {
-      console.log(`⚠️  Facebook ${pageConfig.name}: Not configured`);
       return { status: 'skipped', reason: 'not_configured' };
     }
 
@@ -208,7 +207,6 @@ class SocialMediaAutomation {
 
       const response = await axios.post(url, postData);
 
-      console.log(
         `✅ Posted to Facebook ${pageConfig.name}: ${response.data.id}`
       );
 
@@ -231,7 +229,6 @@ class SocialMediaAutomation {
 
   async postToYouTube(content) {
     if (!this.config.youtube.apiKey) {
-      console.log('⚠️  YouTube: Not configured');
       return { status: 'skipped', reason: 'not_configured' };
     }
 
@@ -254,7 +251,6 @@ class SocialMediaAutomation {
         },
       });
 
-      console.log(`✅ Posted to YouTube Community: ${response.data.id}`);
 
       return {
         status: 'success',
@@ -274,7 +270,6 @@ class SocialMediaAutomation {
 
   async postToLinkedIn(content) {
     if (!this.config.linkedin.accessToken) {
-      console.log('⚠️  LinkedIn: Not configured');
       return { status: 'skipped', reason: 'not_configured' };
     }
 
@@ -315,7 +310,6 @@ class SocialMediaAutomation {
         },
       });
 
-      console.log(`✅ Posted to LinkedIn: ${response.data.id}`);
 
       return {
         status: 'success',
@@ -335,7 +329,6 @@ class SocialMediaAutomation {
 
   async postToDurableBlog(content) {
     if (!this.config.durable.apiKey) {
-      console.log('⚠️  Durable Blog: Not configured');
       return { status: 'skipped', reason: 'not_configured' };
     }
 
@@ -357,7 +350,6 @@ class SocialMediaAutomation {
         },
       });
 
-      console.log(`✅ Posted to Durable Blog: ${response.data.slug}`);
 
       return {
         status: 'success',
@@ -398,7 +390,6 @@ class SocialMediaAutomation {
         webhookData
       );
 
-      console.log('✅ Zapier webhook triggered successfully');
 
       return { status: 'success', response: response.data };
     } catch (error) {
@@ -437,9 +428,6 @@ class SocialMediaAutomation {
   // ============================================
 
   async executeScheduledPost(content) {
-    console.log(`\n🚀 Executing scheduled post at ${content.time}`);
-    console.log(`   Type: ${content.type}`);
-    console.log(`   Platforms: ${content.platforms.join(', ')}`);
 
     const results = {};
 
@@ -542,12 +530,8 @@ class SocialMediaAutomation {
   // ============================================
 
   startScheduler() {
-    console.log('\n📅 Starting Social Media Automation Scheduler');
-    console.log(
       `   Schedule: ${this.config.schedule.times.join(', ')} ${this.config.schedule.timezone}`
     );
-    console.log(`   Platforms: Facebook (2), YouTube, LinkedIn, Durable Blog`);
-    console.log(
       `   Zapier: ${this.config.zapier.enabled ? 'Enabled' : 'Disabled'}\n`
     );
 
@@ -576,7 +560,6 @@ class SocialMediaAutomation {
         this.executeScheduledPost(content);
       }, delay);
 
-      console.log(
         `⏰ Scheduled ${content.type} for ${scheduledTime.toLocaleString()}`
       );
     });
@@ -595,18 +578,12 @@ if (require.main === module) {
   if (command === 'start') {
     automation.startScheduler();
   } else if (command === 'test') {
-    console.log('🧪 Testing social media connections...\n');
     const testContent = automation.generateDailyContent()[0];
     automation.executeScheduledPost(testContent).then((results) => {
-      console.log('\n📊 Test Results:');
-      console.log(JSON.stringify(results, null, 2));
     });
   } else if (command === 'report') {
     const report = automation.generateDailyReport();
-    console.log('\n📊 Daily Report:');
-    console.log(JSON.stringify(report, null, 2));
   } else {
-    console.log(`
 Social Media Automation System
 ==============================
 

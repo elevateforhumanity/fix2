@@ -145,9 +145,7 @@ const BARBER_MODULES = [
 
 function log(message: string, data?: any) {
   const timestamp = new Date().toISOString();
-  console.log(`[${timestamp}] ${message}`);
   if (data) {
-    console.log(JSON.stringify(data, null, 2));
   }
 }
 
@@ -159,7 +157,6 @@ function logError(message: string, error: any) {
 
 function logSuccess(message: string) {
   const timestamp = new Date().toISOString();
-  console.log(`[${timestamp}] ✅ ${message}`);
 }
 
 // ============================================================================
@@ -381,8 +378,6 @@ async function verifySeeding() {
 // ============================================================================
 
 async function main() {
-  console.log('\n🚀 Starting Barber Apprenticeship Program Seeder\n');
-  console.log('=' .repeat(60));
 
   try {
     // Check environment variables
@@ -400,52 +395,26 @@ async function main() {
 
     // Step 1: Seed funding programs
     await seedFundingPrograms();
-    console.log('');
 
     // Step 2: Seed Barber program
     const program = await seedBarberProgram();
-    console.log('');
 
     // Step 3: Seed modules and SCORM packages
     await seedBarberModules(program.id);
-    console.log('');
 
     // Step 4: Link funding options
     await linkFundingOptions(program.id);
-    console.log('');
 
     // Step 5: Verify everything
     const verified = await verifySeeding();
-    console.log('');
 
     if (verified) {
-      console.log('=' .repeat(60));
-      console.log('✅ Barber Apprenticeship Program seeded successfully!\n');
-      console.log('📋 Next Steps:');
-      console.log('   1. Update ETPL code: IN-BARBER-XXXX → your real code');
-      console.log('   2. Update RAPIDS ID: RAPIDS-PROG-ID-XXXX → your real ID');
-      console.log('   3. Update SCORM storage paths to match your setup');
-      console.log('   4. Update Milady external URL with your partner link');
-      console.log('   5. Test enrollment flow: /admin/enrollments/new');
-      console.log('   6. Test student view: /programs/barber-apprenticeship\n');
-      console.log('🔗 Program ID:', program.id);
-      console.log('🔗 Program Slug: barber-apprenticeship');
-      console.log('');
       process.exit(0);
     } else {
       throw new Error('Verification failed');
     }
   } catch (error) {
-    console.log('');
-    console.log('=' .repeat(60));
     logError('Seeding failed', error);
-    console.log('');
-    console.log('💡 Troubleshooting:');
-    console.log('   1. Check that all tables exist (run migration first)');
-    console.log('   2. Verify SUPABASE_SERVICE_ROLE_KEY is correct');
-    console.log('   3. Check Supabase logs for detailed errors');
-    console.log('   4. Ensure enums are created (program_delivery_mode, etc.)');
-    console.log('');
     process.exit(1);
   }
 }

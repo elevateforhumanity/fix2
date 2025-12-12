@@ -120,7 +120,6 @@ export function createMicrosoftOAuthClient(): MicrosoftOAuthClient | null {
 
   if (!clientId || !clientSecret) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Microsoft OAuth not configured');
     }
     return null;
   }

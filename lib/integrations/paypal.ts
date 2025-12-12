@@ -172,7 +172,6 @@ export function createPayPalClient(): PayPalClient | null {
 
   if (!clientId || !clientSecret) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('PayPal not configured');
     }
     return null;
   }

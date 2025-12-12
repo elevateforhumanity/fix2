@@ -50,7 +50,6 @@ Sentry.init({
   beforeSend(event, hint) {
     // Filter out development errors
     if (process.env.NODE_ENV === 'development') {
-      console.log('Sentry Event:', event);
       return null; // Don't send in development
     }
     return event;

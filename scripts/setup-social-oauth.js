@@ -60,10 +60,6 @@ YOUTUBE_REFRESH_TOKEN=${response.data.refresh_token}
       <p>You can close this window.</p>
     `);
 
-    console.log('\n✅ YouTube OAuth successful!');
-    console.log('Add to .env:');
-    console.log(`YOUTUBE_ACCESS_TOKEN=${response.data.access_token}`);
-    console.log(`YOUTUBE_REFRESH_TOKEN=${response.data.refresh_token}`);
   } catch (error) {
     res.send(`<h1>❌ Error</h1><pre>${error.message}</pre>`);
     console.error('YouTube OAuth error:', error.message);
@@ -118,10 +114,6 @@ LINKEDIN_ACCESS_TOKEN=${response.data.access_token}
       <p>You can close this window.</p>
     `);
 
-    console.log('\n✅ LinkedIn OAuth successful!');
-    console.log('Add to .env:');
-    console.log(`LINKEDIN_ACCESS_TOKEN=${response.data.access_token}`);
-    console.log(
       `Expires in: ${Math.floor(response.data.expires_in / 86400)} days`
     );
   } catch (error) {
@@ -177,9 +169,6 @@ FACEBOOK_PAGE_1_TOKEN=${response.data.access_token}
       <p>You can close this window.</p>
     `);
 
-    console.log('\n✅ Facebook long-lived token generated!');
-    console.log('Add to .env:');
-    console.log(`FACEBOOK_PAGE_1_TOKEN=${response.data.access_token}`);
   } catch (error) {
     res.send(`<h1>❌ Error</h1><pre>${error.message}</pre>`);
     console.error('Facebook token exchange error:', error.message);
@@ -279,14 +268,6 @@ LINKEDIN_CLIENT_SECRET=your_client_secret
 // ============================================
 
 app.listen(PORT, () => {
-  console.log(`\n🔐 Social Media OAuth Setup Server`);
-  console.log(`   Running on: http://localhost:${PORT}`);
-  console.log(`\n📋 Setup Instructions:`);
-  console.log(`   1. Make sure .env file has required credentials`);
-  console.log(`   2. Open http://localhost:${PORT} in your browser`);
-  console.log(`   3. Follow the OAuth flows for each platform`);
-  console.log(`   4. Copy the generated tokens to .env`);
-  console.log(`\n⏹️  Press Ctrl+C to stop\n`);
 
   // Auto-open browser
   setTimeout(() => {

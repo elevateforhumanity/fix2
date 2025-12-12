@@ -171,18 +171,10 @@ Object.entries(pageConfigs).forEach(([filename, pageConfig]) => {
       const newContent = newHead + '\n</head>\n' + bodyContent;
 
       fs.writeFileSync(filename, newContent);
-      console.log(`✅ Enhanced meta tags added to ${filename}`);
     }
   } catch (error) {
-    console.log(`❌ Error updating ${filename}: ${error.message}`);
   }
 });
 
-console.log('\n🎉 Meta tags update complete!');
-console.log('\n📋 Next Steps:');
-console.log('1. Replace GA_MEASUREMENT_ID with your Google Analytics ID');
-console.log(
   '2. Replace YOUR_BING_VERIFICATION_CODE with Bing verification code'
 );
-console.log('3. Submit updated sitemap to Google Search Console');
-console.log('4. Verify meta tags with Google Rich Results Test');

@@ -115,7 +115,6 @@ router.post('/log-download', async (req, res) => {
       }
     }
 
-    console.log(
       `📥 Download tracked: ${email} - ${productId} - ${fileName || 'unknown'}`
     );
 
@@ -192,7 +191,6 @@ router.post('/log-download-complete', async (req, res) => {
       JSON.stringify(completionEntry) + '\n'
     );
 
-    console.log(
       `✅ Download ${success ? 'completed' : 'failed'}: ${email} - ${productId}`
     );
 
@@ -245,7 +243,6 @@ router.post('/log-download-error', async (req, res) => {
       severity: 'LOW',
     });
 
-    console.log(`❌ Download error: ${email} - ${productId} - ${error}`);
 
     res.json({ success: true });
   } catch (trackingError) {

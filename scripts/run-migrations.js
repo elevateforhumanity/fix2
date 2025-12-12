@@ -53,14 +53,11 @@ async function runMigration(filename) {
   const filePath = path.join(__dirname, '../supabase/migrations', filename);
   
   if (!fs.existsSync(filePath)) {
-    console.log(`⚠️  Skipping ${filename} (file not found)`);
     return { success: false, skipped: true };
   }
 
   const sql = fs.readFileSync(filePath, 'utf8');
   
-  console.log(`\n📄 Running: ${filename}`);
-  console.log(`   Size: ${(sql.length / 1024).toFixed(1)} KB`);
   
   try {
     // Execute the SQL
@@ -78,7 +75,6 @@ async function runMigration(filename) {
       }
     }
     
-    console.log(`   ✅ Success`);
     return { success: true };
   } catch (error) {
     // Check if it's a "already exists" error (which is OK)
@@ -86,7 +82,6 @@ async function runMigration(filename) {
       error.message.includes('already exists') ||
       error.message.includes('duplicate key')
     )) {
-      console.log(`   ⚠️  Already exists (skipping)`);
       return { success: true, skipped: true };
     }
     
@@ -96,7 +91,6 @@ async function runMigration(filename) {
 }
 
 async function verifyData() {
-  console.log('\n\n📊 Verifying Data...\n');
   
   try {
     // Check courses
@@ -105,9 +99,7 @@ async function verifyData() {
       .select('id', { count: 'exact', head: true });
     
     if (coursesError) {
-      console.log('⚠️  Courses table: Not accessible (may need to create schema first)');
     } else {
-      console.log(`✅ Courses: ${courses?.length || 0} courses`);
     }
     
     // Check programs
@@ -116,9 +108,7 @@ async function verifyData() {
       .select('id', { count: 'exact', head: true });
     
     if (programsError) {
-      console.log('⚠️  Programs table: Not accessible (may need to create schema first)');
     } else {
-      console.log(`✅ Programs: ${programs?.length || 0} programs`);
     }
     
     // Check modules
@@ -127,22 +117,14 @@ async function verifyData() {
       .select('id', { count: 'exact', head: true });
     
     if (modulesError) {
-      console.log('⚠️  Modules table: Not accessible (may need to create schema first)');
     } else {
-      console.log(`✅ Modules: ${modules?.length || 0} modules`);
     }
     
   } catch (error) {
-    console.log('⚠️  Could not verify data:', error.message);
   }
 }
 
 async function main() {
-  console.log('🚀 Elevate for Humanity - Database Migration Tool\n');
-  console.log('================================================\n');
-  console.log(`📍 Supabase URL: ${supabaseUrl}`);
-  console.log(`🔑 Using Service Role Key: ${supabaseKey.substring(0, 20)}...`);
-  console.log(`📁 Migrations to run: ${migrations.length}`);
   
   let successCount = 0;
   let skipCount = 0;
@@ -165,26 +147,12 @@ async function main() {
     await new Promise(resolve => setTimeout(resolve, 500));
   }
   
-  console.log('\n\n================================================');
-  console.log('📊 Migration Summary\n');
-  console.log(`✅ Successful: ${successCount}`);
-  console.log(`⚠️  Skipped: ${skipCount}`);
-  console.log(`❌ Errors: ${errorCount}`);
   
   await verifyData();
   
   if (errorCount > 0) {
-    console.log('\n⚠️  Some migrations failed. Check errors above.');
-    console.log('💡 Tip: You may need to run the base schema migration first.');
-    console.log('   See ACTIVATE_COURSES_NOW.md for manual migration steps.');
     process.exit(1);
   } else {
-    console.log('\n\n🎉 All migrations completed successfully!');
-    console.log('\n📋 Next Steps:');
-    console.log('   1. Visit /admin/courses to see all courses');
-    console.log('   2. Visit /admin/dashboard for statistics');
-    console.log('   3. Test enrollment at /student/courses');
-    console.log('');
   }
 }
 

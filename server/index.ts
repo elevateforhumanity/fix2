@@ -70,8 +70,6 @@ app.use(
 
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🎬 Video Generation API running on port ${PORT}`);
-  console.log(`📍 Health check: http://localhost:${PORT}/api/video/health`);
 });
 
 export default app;

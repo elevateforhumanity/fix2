@@ -57,8 +57,4 @@ const server = http.createServer((req, res) => {
 
 const PORT = process.env.PORT || 8000;
 server.listen(PORT, () => {
-  console.log(`🚀 Elevate Platform running on port ${PORT}`);
-  console.log(`📊 Main Platform: http://localhost:${PORT}/`);
-  console.log(`🔐 License Manager: http://localhost:${PORT}/license-manager`);
-  console.log(`🧠 Elevate Brain: http://localhost:${PORT}/elevate-brain`);
 });

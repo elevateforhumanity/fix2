@@ -127,7 +127,6 @@ exports.handler = async (event, context) => {
 
     try {
       await processSuccessfulPayment(session);
-      console.log('✅ Payment processed successfully:', session.id);
     } catch (error) {
       console.error('❌ Payment processing failed:', error);
       return {
@@ -188,7 +187,6 @@ async function processSuccessfulPayment(session) {
 // 💾 Store license in database (implement with your preferred DB)
 async function storeLicense(license) {
   // Example: Store in Supabase, Firebase, or your database
-  console.log('📝 Storing license:', license.key);
 
   // Uncomment and implement with your database:
   /*
@@ -294,7 +292,6 @@ async function sendLicenseEmail(email, name, licenses, session) {
 
   try {
     await emailTransporter.sendMail(mailOptions);
-    console.log('✅ License email sent to:', email);
   } catch (error) {
     console.error('❌ Email sending failed:', error);
     throw error;
@@ -323,7 +320,6 @@ exports.trackUsage = async (event, context) => {
   const { licenseKey, action, metadata } = JSON.parse(event.body);
 
   // Track license usage for analytics
-  console.log('📊 Usage tracked:', { licenseKey, action, metadata });
 
   return {
     statusCode: 200,

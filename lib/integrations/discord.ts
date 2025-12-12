@@ -143,7 +143,6 @@ export function createDiscordClient(): DiscordClient | null {
 
   if (!webhookUrl) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Discord not configured');
     }
     return null;
   }

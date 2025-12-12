@@ -215,7 +215,6 @@ export function createYouTubeClient(): YouTubeClient | null {
 
   if (!apiKey) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('YouTube not configured');
     }
     return null;
   }

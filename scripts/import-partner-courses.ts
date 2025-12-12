@@ -67,7 +67,6 @@ async function importCoursesFromJSON(
   providerType: string,
   filePath: string
 ): Promise<void> {
-  console.log(`Importing courses from JSON: ${filePath}`);
 
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const courses: CourseData[] = JSON.parse(fileContent);
@@ -79,7 +78,6 @@ async function importCoursesFromCSV(
   providerType: string,
   filePath: string
 ): Promise<void> {
-  console.log(`Importing courses from CSV: ${filePath}`);
 
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const records = parse(fileContent, {
@@ -111,8 +109,6 @@ async function importCourses(
 ): Promise<void> {
   const providerId = await getProviderId(providerType);
 
-  console.log(`Found provider ID: ${providerId}`);
-  console.log(`Importing ${courses.length} courses...`);
 
   const coursesToInsert = courses.map((course) => ({
     provider_id: providerId,
@@ -149,10 +145,8 @@ async function importCourses(
     }
 
     imported += batch.length;
-    console.log(`Imported ${imported}/${coursesToInsert.length} courses`);
   }
 
-  console.log(`✅ Successfully imported ${imported} courses for ${providerType}`);
 }
 
 async function main() {
@@ -198,7 +192,6 @@ async function main() {
       process.exit(1);
     }
 
-    console.log('✅ Import complete!');
   } catch (error) {
     console.error('❌ Import failed:', error);
     process.exit(1);

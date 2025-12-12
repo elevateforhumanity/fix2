@@ -45,7 +45,6 @@ export async function syncStudentMiladyProgress(
     .single();
 
   if (!enrollment) {
-    console.log(`No active enrollment for student ${studentId}`);
     return null;
   }
 
@@ -57,7 +56,6 @@ export async function syncStudentMiladyProgress(
     .single();
 
   if (!miladyProvider) {
-    console.log('Milady provider not configured');
     return null;
   }
 
@@ -74,7 +72,6 @@ export async function syncStudentMiladyProgress(
     .eq('provider_id', miladyProvider.id);
 
   if (!miladyEnrollments || miladyEnrollments.length === 0) {
-    console.log(`No Milady enrollments for student ${studentId}`);
     return null;
   }
 

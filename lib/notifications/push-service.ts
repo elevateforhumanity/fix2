@@ -45,7 +45,6 @@ export class PushNotificationService {
     notification: PushNotification
   ): Promise<boolean> {
     if (!VAPID_PUBLIC_KEY || !VAPID_PRIVATE_KEY) {
-      console.warn('[Push] VAPID keys not configured');
       return false;
     }
     try {

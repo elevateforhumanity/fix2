@@ -30,7 +30,6 @@ const supabase = createClient(url, serviceKey, {
 });
 
 async function ensureRoles() {
-  console.log('👥 Ensuring core LMS roles exist…');
   const roles = ['student', 'admin', 'program_holder', 'delegate'];
 
   for (const role of roles) {
@@ -43,13 +42,11 @@ async function ensureRoles() {
 
     if (error && error.code !== '42P01') {
       // 42P01 = table does not exist – silently skip if your schema names are different
-      console.warn(`   ⚠️ Could not upsert role "${role}":`, error.message);
     }
   }
 }
 
 async function ensurePrograms() {
-  console.log('📚 Ensuring flagship programs are present…');
 
   const programs = [
     {
@@ -92,7 +89,6 @@ async function ensurePrograms() {
     );
 
     if (error && error.code !== '42P01') {
-      console.warn(
         `   ⚠️ Could not upsert program "${program.code}":`,
         error.message
       );
@@ -101,7 +97,6 @@ async function ensurePrograms() {
 }
 
 async function flagDemoCourses() {
-  console.log('🧹 Flagging obvious demo courses so UI can hide them…');
 
   const demoKeywords = ['Demo', 'Sample', 'Test Course', 'Playground', 'Fake'];
 
@@ -113,12 +108,10 @@ async function flagDemoCourses() {
 
     if (error && error.code !== '42703') {
       // 42703 = column does not exist
-      console.warn(
         `   ⚠️ Could not update demo flag for keyword "${keyword}":`,
         error.message
       );
     } else if (!error && data && data.length > 0) {
-      console.log(
         `   ✅ Marked ${data.length} course(s) as demo for keyword "${keyword}".`
       );
     }
@@ -126,13 +119,11 @@ async function flagDemoCourses() {
 }
 
 async function main() {
-  console.log('🚀 Running Elevate LMS setup (LMS-FIRST)…');
 
   await ensureRoles();
   await ensurePrograms();
   await flagDemoCourses();
 
-  console.log(
     '✅ LMS setup complete. You can now run pnpm dev or pnpm lms:build.'
   );
 }

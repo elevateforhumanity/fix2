@@ -175,7 +175,6 @@ function injectMeta(html, route, config) {
  * Main function
  */
 function main() {
-  console.log('🚀 Injecting SEO meta tags into built HTML...\n');
 
   const baseHTML = getBaseHTML();
   let processed = 0;
@@ -195,12 +194,9 @@ function main() {
 
     // Write file
     fs.writeFileSync(filePath, html);
-    console.log(`✅ ${route} -> ${filePath}`);
     processed++;
   }
 
-  console.log(`\n🎉 Processed ${processed} routes successfully!`);
-  console.log(
     '\n📝 Note: These are static HTML shells. The React app will hydrate them on load.'
   );
 }

@@ -165,7 +165,6 @@ export function createSegmentClient(): SegmentClient | null {
 
   if (!writeKey) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Segment not configured');
     }
     return null;
   }

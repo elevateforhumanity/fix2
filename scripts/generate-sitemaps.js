@@ -91,7 +91,6 @@ function cleanLegacySitemaps(allowedBasenames) {
     if (!allowedBasenames.has(f)) {
       try {
         fs.unlinkSync(path.join(dir, f));
-        console.log(`[sitemaps] Removed legacy sitemap: ${f}`);
       } catch (e) {
         console.warn(`[sitemaps] Could not remove ${f}:`, e.message);
       }
@@ -148,12 +147,10 @@ function run() {
   generateGroupSitemaps();
   generateIndex();
   if (EXCLUDED_ROUTES.size) {
-    console.log(
       '[sitemaps] Excluded routes:',
       Array.from(EXCLUDED_ROUTES).join(', ')
     );
   }
-  console.log(
     'Sitemaps generated: stable + group shards and sitemap-index.xml updated.'
   );
 }

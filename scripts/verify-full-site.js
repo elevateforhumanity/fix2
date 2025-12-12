@@ -7,7 +7,6 @@ function verifyFullSite() {
   const distPath = path.join(process.cwd(), 'dist');
   const indexPath = path.join(distPath, 'index.html');
 
-  console.log('🔍 Verifying full site deployment...');
 
   if (!fs.existsSync(indexPath)) {
     console.error('❌ index.html not found in dist directory');
@@ -53,24 +52,19 @@ function verifyFullSite() {
   let allPassed = true;
   checks.forEach((check) => {
     if (check.test) {
-      console.log(`✅ ${check.name}`);
     } else {
-      console.log(`❌ ${check.name}`);
       allPassed = false;
     }
   });
 
   if (allPassed) {
-    console.log(
       '🎉 Full site verification PASSED - site is ready for deployment!'
     );
   } else {
-    console.log('⚠️  Full site verification FAILED - check the issues above');
   }
 
   // Report file sizes for monitoring
   const stats = fs.statSync(indexPath);
-  console.log(`📊 index.html size: ${Math.round(stats.size / 1024)}KB`);
 
   return allPassed;
 }

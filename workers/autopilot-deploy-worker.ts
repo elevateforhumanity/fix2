@@ -197,7 +197,6 @@ async function triggerGitHubWorkflow(env: Env, workflow: string) {
 
 // Add custom domain to Netlify
 async function addCustomDomain(env: Env, domain: string) {
-  console.log(`Adding custom domain: ${domain}`);
 
   const response = await fetch(
     `https://api.netlify.com/api/v1/sites/${env.NETLIFY_SITE_ID}/domains`,
@@ -236,7 +235,6 @@ async function addCustomDomain(env: Env, domain: string) {
 
 // Check SSL certificate status
 async function checkSSLStatus(env: Env, domain: string) {
-  console.log(`Checking SSL status for: ${domain}`);
 
   const response = await fetch(
     `https://api.netlify.com/api/v1/sites/${env.NETLIFY_SITE_ID}`,
@@ -265,7 +263,6 @@ async function checkSSLStatus(env: Env, domain: string) {
 
 // Complete Netlify configuration
 async function configureNetlifyComplete(env: Env, domain: string) {
-  console.log(`Starting complete Netlify configuration for: ${domain}`);
 
   const results: any = {
     steps: [],

@@ -15,7 +15,6 @@ export async function reportTenantUsage() {
     .not("stripe_price_id", "is", null);
 
   if (!tenants || tenants.length === 0) {
-    console.log("No tenants with billing configured");
     return;
   }
 
@@ -32,7 +31,6 @@ export async function reportTenantUsage() {
       );
 
     if (!activeCount || activeCount === 0) {
-      console.log(`Tenant ${t.name}: No active learners`);
       continue;
     }
 
@@ -47,7 +45,6 @@ export async function reportTenantUsage() {
         timestamp: Math.floor(Date.now() / 1000),
       });
 
-      console.log(
         `Tenant ${t.name}: Reported ${activeCount} active learners`
       );
     } catch (error) {
@@ -60,7 +57,6 @@ export async function reportTenantUsage() {
 if (require.main === module) {
   reportTenantUsage()
     .then(() => {
-      console.log("Usage reporting complete");
       process.exit(0);
     })
     .catch((error) => {

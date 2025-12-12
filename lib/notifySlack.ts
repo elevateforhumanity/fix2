@@ -13,7 +13,6 @@ export async function notifySlack(
   }
 ): Promise<void> {
   if (!SLACK_WEBHOOK_URL) {
-    console.warn('SLACK_WEBHOOK_URL is not set, skipping Slack notification');
     return;
   }
 
@@ -89,7 +88,6 @@ export async function notifyTeams(
   const TEAMS_WEBHOOK_URL = process.env.TEAMS_WEBHOOK_URL;
 
   if (!TEAMS_WEBHOOK_URL) {
-    console.warn('TEAMS_WEBHOOK_URL is not set, skipping Teams notification');
     return;
   }
 

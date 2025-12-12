@@ -105,7 +105,6 @@ const SUBSCRIPTION_PLANS = {
 
 class SubscriptionManager {
   async createSubscriptionPlans() {
-    console.log('🔄 Creating Stripe subscription plans...');
 
     for (const [planId, plan] of Object.entries(SUBSCRIPTION_PLANS)) {
       try {
@@ -137,7 +136,6 @@ class SubscriptionManager {
           metadata: { plan_id: planId, billing_period: 'yearly' },
         });
 
-        console.log(
           `✅ Created ${plan.name} - Monthly: ${monthlyPrice.id}, Yearly: ${yearlyPrice.id}`
         );
 
@@ -232,7 +230,6 @@ class SubscriptionManager {
         created_at: new Date(),
       });
 
-    console.log(`✅ Subscription activated for ${customerData.email}`);
   }
 
   async getUserSubscription(email) {

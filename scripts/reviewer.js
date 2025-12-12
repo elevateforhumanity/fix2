@@ -153,16 +153,11 @@ class BrandReviewer {
   }
 
   generateReport() {
-    console.log('\n🎨 Brand Color Review Report\n');
-    console.log(`Files checked: ${this.filesChecked}`);
-    console.log(`Violations found: ${this.violations.length}\n`);
 
     if (this.violations.length === 0) {
-      console.log('✅ No brand color violations found!\n');
       return 0;
     }
 
-    console.log('❌ Brand color violations detected:\n');
 
     // Group violations by file
     const violationsByFile = {};
@@ -174,21 +169,14 @@ class BrandReviewer {
     });
 
     Object.entries(violationsByFile).forEach(([file, violations]) => {
-      console.log(`\n📄 ${file}`);
       violations.forEach((v) => {
-        console.log(`  Line ${v.line}: ${v.color}`);
-        console.log(`    ${v.context}`);
       });
     });
 
-    console.log('\n💡 Suggestions:');
-    console.log(
       '  - Use brand color variables: var(--brand-primary), var(--brand-success), etc.'
     );
-    console.log(
       '  - Use Tailwind brand classes: bg-brand-primary, text-brand-success, etc.'
     );
-    console.log('  - See src/styles/brand.css for available brand colors\n');
 
     return 1;
   }
@@ -196,7 +184,6 @@ class BrandReviewer {
   run(targetPath) {
     const rootPath = path.resolve(targetPath || process.cwd());
 
-    console.log(`🔍 Scanning for brand color violations in: ${rootPath}\n`);
 
     const stats = fs.statSync(rootPath);
     if (stats.isDirectory()) {

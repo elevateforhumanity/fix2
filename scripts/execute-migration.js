@@ -11,17 +11,11 @@ if (!SUPABASE_KEY) {
   process.exit(1);
 }
 
-console.log('🚀 Executing Database Migrations');
-console.log('================================\n');
 
 // Read migration file
 const migrationPath = path.join(__dirname, '../supabase/COMPLETE_MIGRATION.sql');
 const sql = fs.readFileSync(migrationPath, 'utf8');
 
-console.log(`📄 Migration file: ${migrationPath}`);
-console.log(`📊 Size: ${(sql.length / 1024).toFixed(1)} KB`);
-console.log(`📝 Lines: ${sql.split('\n').length}`);
-console.log('');
 
 // Split SQL into individual statements (simple approach)
 const statements = sql
@@ -29,7 +23,6 @@ const statements = sql
   .map(s => s.trim())
   .filter(s => s.length > 0 && !s.startsWith('--') && !s.startsWith('\\echo'));
 
-console.log(`🔄 Executing ${statements.length} SQL statements...\n`);
 
 async function executeSQL(statement) {
   const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/exec_sql`, {
@@ -82,9 +75,6 @@ async function runMigrations() {
     }
   }
 
-  console.log(`\n\n✅ Migration complete!`);
-  console.log(`   Success: ${successCount}`);
-  console.log(`   Errors: ${errorCount}`);
 }
 
 // Simple approach: Just verify we can connect
@@ -99,7 +89,6 @@ async function verifyConnection() {
     });
 
     if (response.ok) {
-      console.log('✅ Supabase connection verified\n');
       return true;
     }
   } catch (error) {
@@ -112,22 +101,10 @@ async function main() {
   const connected = await verifyConnection();
   
   if (!connected) {
-    console.log('\n⚠️  Cannot execute via API. Please run manually in Supabase SQL Editor:');
-    console.log('   1. Open: https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new');
-    console.log('   2. Copy: supabase/COMPLETE_MIGRATION.sql');
-    console.log('   3. Paste and Run');
     process.exit(1);
   }
 
-  console.log('⚠️  Note: Complex migrations are best run in Supabase SQL Editor');
-  console.log('   This script will guide you through manual execution.\n');
   
-  console.log('📋 Manual Execution Steps:');
-  console.log('   1. Open: https://app.supabase.com/project/cuxzzpsyufcewtmicszk/sql/new');
-  console.log('   2. Copy contents of: supabase/COMPLETE_MIGRATION.sql');
-  console.log('   3. Paste into SQL Editor');
-  console.log('   4. Click "Run" button');
-  console.log('   5. Wait 30 seconds\n');
 }
 
 main();

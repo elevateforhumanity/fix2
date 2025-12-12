@@ -69,7 +69,6 @@ interface ProgramData {
 }
 
 async function seedAIInstructors() {
-  console.log('\n📚 Seeding AI Instructors...');
 
   const instructors = [
     {
@@ -98,13 +97,11 @@ async function seedAIInstructors() {
     if (error) {
       console.error(`   ❌ Failed to seed ${instructor.name}:`, error.message);
     } else {
-      console.log(`   ✅ ${instructor.name}`);
     }
   }
 }
 
 async function seedProgram(programData: ProgramData) {
-  console.log('\n🎓 Seeding Barber Program...');
 
   const program = {
     id: BARBER_PROGRAM_ID,
@@ -126,11 +123,9 @@ async function seedProgram(programData: ProgramData) {
     throw error;
   }
 
-  console.log(`   ✅ ${program.name}`);
 }
 
 async function seedModules(programData: ProgramData) {
-  console.log('\n📦 Seeding Course Modules...');
 
   // Delete existing modules for this program (clean slate)
   const { error: deleteError } = await supabase
@@ -139,7 +134,6 @@ async function seedModules(programData: ProgramData) {
     .eq('program_id', BARBER_PROGRAM_ID);
 
   if (deleteError) {
-    console.warn('   ⚠️  Could not delete existing modules:', deleteError.message);
   }
 
   for (const module of programData.modules) {
@@ -178,13 +172,11 @@ async function seedModules(programData: ProgramData) {
     if (error) {
       console.error(`   ❌ Failed to seed ${module.short_code}:`, error.message);
     } else {
-      console.log(`   ✅ ${module.short_code}: ${module.title}`);
     }
   }
 }
 
 async function verifySeeding() {
-  console.log('\n🔍 Verifying Seeded Data...');
 
   // Check program
   const { data: program, error: programError } = await supabase
@@ -197,7 +189,6 @@ async function verifySeeding() {
     console.error('   ❌ Program not found');
     return false;
   }
-  console.log(`   ✅ Program: ${program.name}`);
 
   // Check modules
   const { data: modules, error: modulesError } = await supabase
@@ -210,7 +201,6 @@ async function verifySeeding() {
     console.error('   ❌ Modules not found');
     return false;
   }
-  console.log(`   ✅ Modules: ${modules.length} found`);
 
   // Check AI instructors
   const { data: instructors, error: instructorsError } = await supabase
@@ -222,23 +212,17 @@ async function verifySeeding() {
     console.error('   ❌ AI Instructors not found');
     return false;
   }
-  console.log(`   ✅ AI Instructors: ${instructors.length} found`);
 
   return true;
 }
 
 async function main() {
-  console.log('🚀 Starting Barber Apprenticeship (Indiana) Seed Script\n');
-  console.log('📍 Supabase URL:', SUPABASE_URL);
 
   try {
     // Load program data
     const jsonPath = join(process.cwd(), 'data/programs/barber-apprenticeship-indiana.json');
     const programData: ProgramData = JSON.parse(readFileSync(jsonPath, 'utf-8'));
 
-    console.log(`📄 Loaded program data: ${programData.name}`);
-    console.log(`   Total Hours: ${programData.total_hours}`);
-    console.log(`   Modules: ${programData.modules.length}`);
 
     // Seed in order
     await seedAIInstructors();
@@ -249,12 +233,6 @@ async function main() {
     const success = await verifySeeding();
 
     if (success) {
-      console.log('\n✅ Barber Apprenticeship (Indiana) seeded successfully!');
-      console.log('\n📋 Next Steps:');
-      console.log('   1. Visit your Supabase dashboard to verify tables');
-      console.log('   2. Test the program page: /programs/barber-apprenticeship-in');
-      console.log('   3. Clone this pattern for other programs (Healthcare, CDL, etc.)');
-      console.log('\n🔗 Program ID:', BARBER_PROGRAM_ID);
       process.exit(0);
     } else {
       console.error('\n❌ Verification failed. Check Supabase logs.');

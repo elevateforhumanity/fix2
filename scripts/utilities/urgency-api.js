@@ -146,7 +146,6 @@ const io = socketIo(server, {
 
 // Real-time inventory updates
 io.on('connection', (socket) => {
-  console.log('Client connected for real-time updates');
 
   // Send initial inventory status
   socket.emit('inventory-update', {
@@ -175,23 +174,11 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     clearInterval(updateInterval);
-    console.log('Client disconnected');
   });
 });
 
 const PORT = process.env.PORT || 3003;
 server.listen(PORT, () => {
-  console.log(`🚨 Urgency & Scarcity API running on port ${PORT}`);
-  console.log(`📊 Real-time updates enabled via WebSocket`);
-  console.log(`⚡ Available endpoints:`);
-  console.log(`   GET  /api/urgency/:packageId`);
-  console.log(`   POST /api/reserve-inventory`);
-  console.log(`   POST /api/complete-purchase`);
-  console.log(`   POST /api/cancel-reservation`);
-  console.log(`   GET  /api/sales-dashboard`);
-  console.log(`   GET  /api/inventory-status`);
-  console.log(`   POST /api/track-action`);
-  console.log(`   GET  /api/social-proof`);
 });
 
 module.exports = { app, server, io };

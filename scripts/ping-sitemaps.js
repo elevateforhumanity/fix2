@@ -16,7 +16,6 @@ function ping(label, url) {
         res.on('data', (c) => chunks.push(c));
         res.on('end', () => {
           const body = Buffer.concat(chunks).toString();
-          console.log(`[sitemap-ping] ${label} ${res.statusCode} (${url})`);
           resolve({ label, status: res.statusCode, body: body.slice(0, 200) });
         });
       })
@@ -28,7 +27,6 @@ function ping(label, url) {
 }
 
 (async () => {
-  console.log(`[sitemap-ping] Pinging search engines with ${INDEX_URL}`);
   const targets = [
     {
       label: 'Google',

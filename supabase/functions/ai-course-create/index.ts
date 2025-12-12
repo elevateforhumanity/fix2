@@ -344,11 +344,9 @@ serve(async (req) => {
     }
 
     // Generate course outline
-    console.log('Generating course outline for:', request.topic);
     const outline = await generateCourseOutline(request);
 
     // Create course in database
-    console.log('Creating course in database...');
     const courseId = await createCourseInDatabase(outline, request);
 
     return new Response(

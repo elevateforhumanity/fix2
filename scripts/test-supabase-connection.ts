@@ -12,7 +12,6 @@ if (!url || !anon) {
 const supabase = createClient(url, anon);
 
 async function main() {
-  console.log('🔍 Testing Supabase connection...');
   
   // Test programs table
   const { data: programs, error } = await supabase
@@ -22,9 +21,7 @@ async function main() {
 
   if (error) {
     console.error('❌ Error querying programs:', error.message);
-    console.log('⚠️  This is expected if migrations haven\'t run yet');
   } else {
-    console.log('✅ Connected! Sample programs:');
     console.table(programs);
   }
 
@@ -36,9 +33,7 @@ async function main() {
 
   if (courseErr) {
     console.error('❌ Error querying courses:', courseErr.message);
-    console.log('⚠️  This is expected if migrations haven\'t run yet');
   } else {
-    console.log('✅ Courses:');
     console.table(courses);
   }
 
@@ -50,13 +45,10 @@ async function main() {
 
   if (productErr) {
     console.error('❌ Error querying products:', productErr.message);
-    console.log('⚠️  This is expected if migrations haven\'t run yet');
   } else {
-    console.log('✅ Products:');
     console.table(products);
   }
 
-  console.log('\n✅ Supabase connection test complete');
 }
 
 main().catch((e) => {

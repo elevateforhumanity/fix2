@@ -297,15 +297,12 @@ export async function renderScene(
         ])
         .output(outputPath)
         .on('start', (commandLine) => {
-          console.log('FFmpeg command:', commandLine);
         })
         .on('progress', (progress) => {
-          console.log(
             `Rendering scene ${scene.id}: ${progress.percent?.toFixed(2)}%`
           );
         })
         .on('end', () => {
-          console.log(`Scene ${scene.id} rendered successfully`);
           resolve(outputPath);
         })
         .on('error', (err) => {
@@ -342,17 +339,14 @@ export async function concatenateVideos(
         .outputOptions(['-c', 'copy'])
         .output(outputPath)
         .on('start', (commandLine) => {
-          console.log('Concatenating videos:', commandLine);
         })
         .on('progress', (progress) => {
-          console.log(
             `Concatenation progress: ${progress.percent?.toFixed(2)}%`
           );
         })
         .on('end', async () => {
           // Clean up concat file
           await fs.unlink(concatFilePath).catch(() => {});
-          console.log('Videos concatenated successfully');
           resolve(outputPath);
         })
         .on('error', (err) => {
@@ -397,10 +391,8 @@ export async function addBackgroundMusic(
       ])
       .output(outputPath)
       .on('start', (commandLine) => {
-        console.log('Adding background music:', commandLine);
       })
       .on('end', () => {
-        console.log('Background music added successfully');
         resolve(outputPath);
       })
       .on('error', (err) => {
@@ -432,7 +424,6 @@ export async function getVideoMetadata(videoPath: string): Promise<any> {
 export async function cleanupTempFiles(tempDir: string): Promise<void> {
   try {
     await fs.rm(tempDir, { recursive: true, force: true });
-    console.log(`Cleaned up temp directory: ${tempDir}`);
   } catch (error) {
     console.error('Error cleaning up temp files:', error);
   }

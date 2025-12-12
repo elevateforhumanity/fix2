@@ -49,8 +49,6 @@ const SAFE_TO_DELETE_FILE = path.join(
 const COMPLETE_FILE = path.join(OUTPUT_DIR, 'VERCEL_CLEANUP_COMPLETE.md');
 
 async function main() {
-  console.log('🤖 Puppeteer Vercel Cleanup Automation');
-  console.log('=====================================\n');
 
   if (!VERCEL_EMAIL || !VERCEL_PASSWORD) {
     console.error('❌ Missing credentials!');
@@ -70,19 +68,15 @@ async function main() {
 
   try {
     // Step 1: Login to Vercel
-    console.log('📝 Step 1: Logging into Vercel...');
     await loginToVercel(page);
 
     // Step 2: List all projects
-    console.log('\n📝 Step 2: Listing all projects...');
     const projects = await listAllProjects(page);
     await createInventoryFile(projects);
 
     // Step 3: Audit environment variables for each project
-    console.log('\n📝 Step 3: Auditing environment variables...');
     const projectEnvVars = {};
     for (const project of projects) {
-      console.log(`  Auditing ${project.name}...`);
       projectEnvVars[project.name] = await auditProjectEnvVars(
         page,
         project.name
@@ -91,12 +85,10 @@ async function main() {
     await createAuditFile(projectEnvVars);
 
     // Step 4: Compare and verify fix2-1c7w has everything
-    console.log('\n📝 Step 4: Comparing environment variables...');
     const comparison = compareEnvVars(projectEnvVars);
     await createComparisonFile(comparison, projectEnvVars);
 
     // Step 5: Check if safe to delete
-    console.log('\n📝 Step 5: Verifying safety before deletion...');
     const safeToDelete = verifySafeToDelete(projectEnvVars, comparison);
     await createSafeToDeleteFile(safeToDelete, projectEnvVars);
 
@@ -104,7 +96,6 @@ async function main() {
       console.error('\n❌ NOT SAFE TO DELETE!');
       console.error('Missing variables in fix2-1c7w:');
       safeToDelete.missing.forEach((v) => console.error(`  - ${v}`));
-      console.log(
         '\n⚠️  Please add missing variables manually before deleting projects.'
       );
       await browser.close();
@@ -112,38 +103,25 @@ async function main() {
     }
 
     // Step 6: Delete unused projects
-    console.log('\n📝 Step 6: Deleting unused projects...');
     const projectsToDelete = projects.filter(
       (p) => p.name !== CORRECT_PROJECT && p.name.startsWith('fix2')
     );
 
     for (const project of projectsToDelete) {
-      console.log(`  Deleting ${project.name}...`);
       await deleteProject(page, project.name);
     }
 
     // Step 7: Trigger deployment on fix2-1c7w
-    console.log('\n📝 Step 7: Triggering deployment on fix2-1c7w...');
     await triggerDeployment(page, CORRECT_PROJECT);
 
     // Step 8: Create completion report
-    console.log('\n📝 Step 8: Creating completion report...');
     await createCompletionReport(projects, projectsToDelete, projectEnvVars);
 
-    console.log('\n✅ AUTOMATION COMPLETE!');
-    console.log('\nFiles created:');
-    console.log(`  - ${INVENTORY_FILE}`);
-    console.log(`  - ${AUDIT_FILE}`);
-    console.log(`  - ${COMPARISON_FILE}`);
-    console.log(`  - ${SAFE_TO_DELETE_FILE}`);
-    console.log(`  - ${COMPLETE_FILE}`);
-    console.log(
       '\nNext: Monitor deployment at https://vercel.com/gitpod/fix2-1c7w'
     );
   } catch (error) {
     console.error('\n❌ Error:', error.message);
     await page.screenshot({ path: 'vercel-error.png' });
-    console.log('Screenshot saved: vercel-error.png');
     throw error;
   } finally {
     await browser.close();
@@ -161,7 +139,6 @@ async function loginToVercel(page) {
   await page.click('button[type="submit"]');
 
   await page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 30000 });
-  console.log('  ✓ Logged in successfully');
 }
 
 async function listAllProjects(page) {
@@ -178,7 +155,6 @@ async function listAllProjects(page) {
     }));
   });
 
-  console.log(`  ✓ Found ${projects.length} projects`);
   return projects;
 }
 
@@ -247,7 +223,6 @@ async function deleteProject(page, projectName) {
   await page.click('button:has-text("Delete")');
 
   await page.waitForTimeout(2000);
-  console.log(`  ✓ Deleted ${projectName}`);
 }
 
 async function triggerDeployment(page, projectName) {
@@ -265,7 +240,6 @@ async function triggerDeployment(page, projectName) {
 
   await page.click('button:has-text("Redeploy")');
   await page.waitForTimeout(2000);
-  console.log('  ✓ Deployment triggered');
 }
 
 // File creation functions

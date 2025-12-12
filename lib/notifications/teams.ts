@@ -7,7 +7,6 @@ export async function sendTeamsMessage(
   context?: Record<string, any>
 ) {
   if (!TEAMS_WEBHOOK_URL) {
-    console.warn('TEAMS_WEBHOOK_URL not set, skipping Teams message');
     return;
   }
   const sections: unknown[] = [

@@ -107,125 +107,38 @@ const HSI_COURSES = [
 ];
 
 async function main() {
-  console.log('\n🚀 Stripe Auto-Enrollment Setup\n');
-  console.log('This script will guide you through setting up Stripe for automatic enrollment.\n');
 
   // Check for Stripe key
   const stripeKey = process.env.STRIPE_SECRET_KEY;
   
   if (!stripeKey || stripeKey.includes('sk_test_...') || stripeKey.includes('sk_live_...')) {
-    console.log('❌ STRIPE_SECRET_KEY not found in environment variables.\n');
-    console.log('Please set your Stripe secret key:');
-    console.log('1. Go to https://dashboard.stripe.com/apikeys');
-    console.log('2. Copy your Secret key (starts with sk_test_ or sk_live_)');
-    console.log('3. Add to Vercel environment variables:');
-    console.log('   - Go to Vercel Dashboard → Project → Settings → Environment Variables');
-    console.log('   - Add: STRIPE_SECRET_KEY = your_key_here');
-    console.log('   - Add: STRIPE_PUBLIC_KEY = your_publishable_key_here');
-    console.log('   - Redeploy your project\n');
     
     const continueAnyway = await question('Continue with manual setup instructions? (y/n): ');
     if (continueAnyway.toLowerCase() !== 'y') {
-      console.log('\nSetup cancelled. Please configure Stripe keys and try again.\n');
       rl.close();
       return;
     }
   }
 
-  console.log('\n📋 MANUAL SETUP INSTRUCTIONS\n');
-  console.log('Since Stripe keys need to be configured in Vercel, follow these steps:\n');
 
-  console.log('═══════════════════════════════════════════════════════════════\n');
-  console.log('STEP 1: Configure Environment Variables in Vercel\n');
-  console.log('═══════════════════════════════════════════════════════════════\n');
-  console.log('1. Go to: https://vercel.com/elevate-48e460c9/fix2-gpql/settings/environment-variables');
-  console.log('2. Add these variables:\n');
-  console.log('   STRIPE_SECRET_KEY = sk_live_... (from Stripe Dashboard)');
-  console.log('   STRIPE_PUBLIC_KEY = pk_live_... (from Stripe Dashboard)');
-  console.log('   STRIPE_WEBHOOK_SECRET = whsec_... (will get this in Step 3)\n');
-  console.log('3. Click "Save" for each variable\n');
 
   await question('Press Enter when environment variables are configured...');
 
-  console.log('\n═══════════════════════════════════════════════════════════════\n');
-  console.log('STEP 2: Create Products and Payment Links in Stripe\n');
-  console.log('═══════════════════════════════════════════════════════════════\n');
-  console.log('Go to: https://dashboard.stripe.com/payment-links\n');
-  console.log('For each program below, create a payment link:\n');
 
   for (const program of PROGRAMS) {
-    console.log(`\n📦 ${program.name}`);
-    console.log(`   Price: $${(program.price / 100).toFixed(2)}`);
-    console.log(`   Description: ${program.description}`);
-    console.log(`   \n   IMPORTANT - Add this metadata:`);
-    console.log(`   ┌─────────────────────────────────────┐`);
-    console.log(`   │ Key: programId                      │`);
-    console.log(`   │ Value: ${program.id.padEnd(28)} │`);
-    console.log(`   └─────────────────────────────────────┘\n`);
   }
 
-  console.log('\n💉 HSI Partner Courses:\n');
 
   for (const course of HSI_COURSES) {
-    console.log(`\n📦 ${course.name}`);
-    console.log(`   Price: $${(course.price / 100).toFixed(2)}`);
-    console.log(`   Description: ${course.description}`);
-    console.log(`   \n   IMPORTANT - Add this metadata:`);
-    console.log(`   ┌─────────────────────────────────────┐`);
-    console.log(`   │ Key: courseId                       │`);
-    console.log(`   │ Value: ${course.id.padEnd(28)} │`);
-    console.log(`   │                                     │`);
-    console.log(`   │ Key: partnerId                      │`);
-    console.log(`   │ Value: ${course.partnerId.padEnd(28)} │`);
-    console.log(`   └─────────────────────────────────────┘\n`);
   }
 
   await question('Press Enter when all payment links are created...');
 
-  console.log('\n═══════════════════════════════════════════════════════════════\n');
-  console.log('STEP 3: Configure Webhook Endpoint\n');
-  console.log('═══════════════════════════════════════════════════════════════\n');
-  console.log('1. Go to: https://dashboard.stripe.com/webhooks');
-  console.log('2. Click "Add endpoint"');
-  console.log('3. Enter endpoint URL:');
-  console.log('   https://fix2-gpql-git-main-elevate-48e460c9.vercel.app/api/stripe/webhook');
-  console.log('4. Select events to listen to:');
-  console.log('   ✓ checkout.session.completed');
-  console.log('5. Click "Add endpoint"');
-  console.log('6. Copy the "Signing secret" (starts with whsec_)');
-  console.log('7. Add to Vercel environment variables:');
-  console.log('   STRIPE_WEBHOOK_SECRET = whsec_...\n');
 
   await question('Press Enter when webhook is configured...');
 
-  console.log('\n═══════════════════════════════════════════════════════════════\n');
-  console.log('STEP 4: Test the System\n');
-  console.log('═══════════════════════════════════════════════════════════════\n');
-  console.log('1. Redeploy your Vercel project to apply environment variables');
-  console.log('2. Use a test payment link with test card: 4242 4242 4242 4242');
-  console.log('3. Complete checkout');
-  console.log('4. Check Stripe webhook logs: https://dashboard.stripe.com/webhooks');
-  console.log('5. Verify enrollment created in Supabase database');
-  console.log('6. Check student can access courses\n');
 
-  console.log('═══════════════════════════════════════════════════════════════\n');
-  console.log('✅ SETUP COMPLETE!\n');
-  console.log('═══════════════════════════════════════════════════════════════\n');
-  console.log('Your Stripe auto-enrollment system is now configured.\n');
-  console.log('When students pay via Stripe:');
-  console.log('  ✓ Enrollment record created automatically');
-  console.log('  ✓ Courses assigned automatically');
-  console.log('  ✓ Partner enrollments processed automatically');
-  console.log('  ✓ Welcome emails sent automatically\n');
-  console.log('No manual work required! 🎉\n');
 
-  console.log('═══════════════════════════════════════════════════════════════\n');
-  console.log('📚 DOCUMENTATION\n');
-  console.log('═══════════════════════════════════════════════════════════════\n');
-  console.log('For detailed information, see:');
-  console.log('  - STRIPE_AUTO_ENROLLMENT_STATUS.md');
-  console.log('  - STRIPE_HSI_AUTO_ENROLLMENT.md');
-  console.log('  - app/api/stripe/webhook/route.ts (webhook handler code)\n');
 
   rl.close();
 }

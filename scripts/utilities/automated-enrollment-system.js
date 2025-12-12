@@ -36,7 +36,6 @@ class AutomatedEnrollmentSystem {
       enrollmentRequest;
 
     try {
-      console.log(
         `🚀 Starting enrollment for ${studentData.email} in ${programId}`
       );
 
@@ -73,7 +72,6 @@ class AutomatedEnrollmentSystem {
       // Step 6: Schedule progress tracking
       await this.scheduleProgressTracking(enrollment);
 
-      console.log(`✅ Enrollment completed for ${studentData.email}`);
 
       return {
         success: true,
@@ -165,7 +163,6 @@ class AutomatedEnrollmentSystem {
 
     // Store enrollment
     this.enrollments.set(enrollment.id, enrollment);
-    console.log(`📝 Enrollment record created: ${enrollment.id}`);
 
     return enrollment;
   }
@@ -197,7 +194,6 @@ class AutomatedEnrollmentSystem {
       enrollment.access.login_credentials = partnerResult.credentials;
       enrollment.partner.enrollment_id = partnerResult.partnerEnrollmentId;
 
-      console.log(
         `🤝 Partner enrollment completed: ${partnerResult.partnerEnrollmentId}`
       );
       return partnerResult;
@@ -236,7 +232,6 @@ class AutomatedEnrollmentSystem {
       },
     };
 
-    console.log(
       `🔑 Access credentials generated for ${enrollment.student.email}`
     );
     return credentials;
@@ -278,7 +273,6 @@ class AutomatedEnrollmentSystem {
     };
 
     // Send welcome email
-    console.log(`📧 Sending welcome package to ${enrollment.student.email}`);
 
     // Send SMS notification
     await this.sendSMSNotification(enrollment.student.phone, {
@@ -328,7 +322,6 @@ class AutomatedEnrollmentSystem {
       ],
     };
 
-    console.log(`📅 Progress tracking scheduled for ${enrollment.id}`);
     return trackingSchedule;
   }
 
@@ -357,7 +350,6 @@ class AutomatedEnrollmentSystem {
     // Update partner revenue (if completion-based bonuses)
     await this.processCompletionBonus(enrollment);
 
-    console.log(`🏆 Certification completed for ${enrollment.student.email}`);
     return certificates;
   }
 
@@ -387,7 +379,6 @@ class AutomatedEnrollmentSystem {
       },
     };
 
-    console.log(
       `📜 Dual certificates generated for ${enrollment.student.email}`
     );
     return certificates;
@@ -412,7 +403,6 @@ class AutomatedEnrollmentSystem {
   }
 
   async sendSMSNotification(phone, data) {
-    console.log(`📱 SMS sent to ${phone}: ${data.message}`);
     // Would integrate with Twilio or similar
   }
 }
@@ -530,10 +520,4 @@ module.exports = AutomatedEnrollmentSystem;
 if (require.main === module) {
   const enrollmentSystem = new AutomatedEnrollmentSystem();
 
-  console.log('🎓 AUTOMATED ENROLLMENT SYSTEM READY');
-  console.log('✅ Partner integrations initialized');
-  console.log('💳 Payment processing with revenue splits');
-  console.log('📧 Automated welcome packages');
-  console.log('📊 Progress tracking scheduled');
-  console.log('🏆 Dual certification delivery');
 }

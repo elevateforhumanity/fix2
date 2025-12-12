@@ -74,7 +74,6 @@ export async function cloneRepository(sourceRepo: string, newRepoName: string) {
     });
   } catch (error) {
     // If template method fails, the empty repo is still created
-    console.warn("Template cloning failed, empty repo created:", error);
   }
 
   return newRepo.data.full_name;

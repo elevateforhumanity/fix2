@@ -23,15 +23,6 @@ export async function logSecurityEvent(event: SecurityEvent): Promise<void> {
     events.shift();
   }
   
-  // Log to console
-  console.warn('Security Event:', {
-    type: event.type,
-    severity: event.severity,
-    ip: event.ip,
-    endpoint: event.endpoint,
-    time: event.timestamp.toISOString(),
-  });
-  
   // Check for patterns
   await analyzePatterns(event);
   
@@ -100,7 +91,6 @@ export async function blacklistIP(
 ): Promise<void> {
   blacklist.add(ip);
   
-  console.warn(`IP blacklisted: ${ip} - Reason: ${reason}`);
   
   // In production, store in database
   // await db.blacklist.create({ ip, reason, timestamp: new Date() });

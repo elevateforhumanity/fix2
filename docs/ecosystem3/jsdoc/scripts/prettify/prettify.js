@@ -469,7 +469,6 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
         e >= c && (a += 2);
       }
     } catch (w) {
-      'console' in window && console.log(w && w.stack ? w.stack : w);
     }
   }
   let v = ['break,continue,do,else,for,if,return,while'],

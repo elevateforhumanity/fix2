@@ -3,7 +3,6 @@ import { Resend } from 'resend';
 let resendClient: Resend | null = null;
 export function getResendClient(): Resend | null {
   if (!process.env.RESEND_API_KEY) {
-    console.warn('RESEND_API_KEY not configured');
     return null;
   }
   if (!resendClient) {

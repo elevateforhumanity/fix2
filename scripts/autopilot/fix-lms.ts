@@ -467,7 +467,6 @@ function writeFileAggressive(targetPath: string, content: string) {
 }
 
 function auditAndFixTemplates() {
-  console.log('🔍 Running aggressive LMS autopilot fixer...\n');
   ensureAppDir();
 
   templates.forEach((tpl) => {
@@ -475,25 +474,21 @@ function auditAndFixTemplates() {
     const exists = fs.existsSync(full);
 
     if (!exists) {
-      console.log(`📄 CREATING: ${tpl.filePath} (${tpl.description})`);
       writeFileAggressive(tpl.filePath, tpl.content);
       return;
     }
 
     const current = fs.readFileSync(full, 'utf8');
     if (isSkeleton(current)) {
-      console.log(
         `🧹 OVERWRITING SKELETON: ${tpl.filePath} (${tpl.description})`
       );
       writeFileAggressive(tpl.filePath, tpl.content);
     } else {
-      console.log(`✅ OK: ${tpl.filePath}`);
     }
   });
 }
 
 function scanForSkeletons() {
-  console.log('\n🔍 Scanning for other skeleton pages...\n');
 
   function walk(dir: string) {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -505,7 +500,6 @@ function scanForSkeletons() {
         const rel = path.relative(ROOT, full);
         const content = fs.readFileSync(full, 'utf8');
         if (isSkeleton(content)) {
-          console.log(`⚠️  Skeleton detected: ${rel}`);
         }
       }
     }
@@ -515,7 +509,6 @@ function scanForSkeletons() {
 }
 
 function scanForAuthUsersQueries() {
-  console.log('\n🔍 Scanning for dangerous auth.users queries...\n');
 
   const badMatches: string[] = [];
 
@@ -544,10 +537,7 @@ function scanForAuthUsersQueries() {
   walk(path.join(ROOT, 'app'));
 
   if (badMatches.length === 0) {
-    console.log('✅ No direct auth.users queries found');
   } else {
-    console.log('🚨 WARNING: auth.users queries found in:');
-    badMatches.forEach((m) => console.log(`   - ${m}`));
   }
 }
 
@@ -556,7 +546,6 @@ function main() {
   auditAndFixTemplates();
   scanForSkeletons();
   scanForAuthUsersQueries();
-  console.log(
     '\n✨ Autopilot complete! Core LMS pages are production-ready.\n'
   );
 }

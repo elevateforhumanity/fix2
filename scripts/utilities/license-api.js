@@ -79,12 +79,6 @@ app.post('/api/license-info', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🔐 License API Server running on port ${PORT}`);
-  console.log(`📋 Endpoints:`);
-  console.log(`   POST /api/validate-license`);
-  console.log(`   POST /api/generate-license`);
-  console.log(`   POST /api/renew-license`);
-  console.log(`   POST /api/license-info`);
 });
 
 module.exports = app;

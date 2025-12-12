@@ -9,7 +9,6 @@ import * as Sentry from '@sentry/nextjs';
  */
 export function initSentry() {
   if (!process.env.NEXT_PUBLIC_SENTRY_DSN) {
-    console.warn('Sentry DSN not configured - error tracking disabled');
     return;
   }
 

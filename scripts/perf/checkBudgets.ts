@@ -57,7 +57,6 @@ function fetchMetrics(path: string): Promise<{ ttfb: number; bytes: number }> {
     passed: boolean;
   }> = [];
 
-  console.log(`\n🔍 Checking performance budgets for ${BASE_URL}\n`);
 
   for (const [key, budget] of Object.entries(budgets)) {
     const path = key === "home" ? "/" : `/${key}`;
@@ -72,14 +71,10 @@ function fetchMetrics(path: string): Promise<{ ttfb: number; bytes: number }> {
 
       results.push({ page: key, ttfb, bytes, passed });
 
-      console.log(`📄 ${key.toUpperCase()}`);
-      console.log(
         `   TTFB: ${ttfb}ms ${ttfbPassed ? "✅" : "❌"} (budget: ${budget.ttfb_ms}ms)`
       );
-      console.log(
         `   Size: ${kb.toFixed(1)}kb ${sizePassed ? "✅" : "❌"} (budget: ${budget.total_bytes_kb}kb)`
       );
-      console.log();
 
       if (!passed) {
         failed = true;
@@ -94,15 +89,11 @@ function fetchMetrics(path: string): Promise<{ ttfb: number; bytes: number }> {
   const passedCount = results.filter((r) => r.passed).length;
   const totalCount = results.length;
 
-  console.log(`\n${"=".repeat(50)}`);
-  console.log(`📊 Summary: ${passedCount}/${totalCount} pages passed budgets`);
-  console.log(`${"=".repeat(50)}\n`);
 
   if (failed) {
     console.error("❌ Performance budget check FAILED");
     process.exit(1);
   } else {
-    console.log("✅ All performance budgets passed!");
     process.exit(0);
   }
 })();

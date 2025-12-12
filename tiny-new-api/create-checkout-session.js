@@ -90,7 +90,6 @@ export default async function handler(req, res) {
       });
     }
 
-    console.log(`🛒 Creating checkout session for ${email} - ${product.name}`);
 
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
@@ -121,7 +120,6 @@ export default async function handler(req, res) {
       },
     });
 
-    console.log(`✅ Checkout session created: ${session.id}`);
 
     // Return session ID to frontend
     res.status(200).json({

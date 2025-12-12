@@ -39,7 +39,6 @@ app.post(
         process.env.STRIPE_WEBHOOK_SECRET
       );
     } catch (err) {
-      // console.log(`❌ Webhook signature verification failed:`, err.message);
       return response.status(400).send(`Webhook Error: ${err.message}`);
     }
 
@@ -47,7 +46,6 @@ app.post(
     switch (event.type) {
       case 'checkout.session.completed': {
         const session = event.data.object;
-        // console.log(`✅ Checkout completed: ${session.id}`);
         const paymentIntent = await stripe.paymentIntents.retrieve(
           session.payment_intent
         );
@@ -56,7 +54,6 @@ app.post(
       }
       case 'payment_intent.succeeded': {
         const payment = event.data.object;
-        // console.log(
           `💰 Payment succeeded: ${payment.id} - $${payment.amount / 100}`
         );
         if (!payment.metadata.processed) {
@@ -66,13 +63,11 @@ app.post(
       }
       case 'transfer.created': {
         const transfer = event.data.object;
-        // console.log(
           `📤 Transfer created: $${transfer.amount / 100} to ${transfer.destination}`
         );
         break;
       }
       default: {
-        // console.log(`🔔 Unhandled event type ${event.type}`);
       }
     }
 
@@ -91,7 +86,6 @@ app.get('/webhook/health', (req, res) => {
 
 const PORT = process.env.WEBHOOK_PORT || 3001;
 app.listen(PORT, () => {
-  // console.log(`🎣 Webhook server running on port ${PORT}`);
 });
 
 module.exports = app;

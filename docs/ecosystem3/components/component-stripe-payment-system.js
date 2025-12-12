@@ -58,7 +58,6 @@ class StripePaymentSystem {
 
   async createProducts(req, res) {
     try {
-      // console.log('🏗️ Creating Stripe products for emergency sale...');
 
       const products = [
         {
@@ -117,7 +116,6 @@ class StripePaymentSystem {
           slug: productData.slug,
         });
 
-        // console.log(
           `✅ Created: ${productData.name} - $${(productData.price / 100).toFixed(2)}`
         );
       }
@@ -159,7 +157,6 @@ class StripePaymentSystem {
         });
       }
 
-      // console.log(
         `💳 Creating checkout session for: ${product_name || price_id}`
       );
 
@@ -191,7 +188,6 @@ class StripePaymentSystem {
         },
       });
 
-      // console.log(`✅ Checkout session created: ${session.id}`);
 
       res.json({
         success: true,
@@ -222,15 +218,10 @@ class StripePaymentSystem {
         event = JSON.parse(req.body.toString());
       }
 
-      // console.log(`🔔 Webhook received: ${event.type}`);
 
       if (event.type === 'checkout.session.completed') {
         const session = event.data.object;
 
-        // console.log('💰 PAYMENT SUCCESSFUL!');
-        // console.log(`💵 Amount: $${(session.amount_total / 100).toFixed(2)}`);
-        // console.log(`📧 Customer: ${session.customer_details?.email}`);
-        // console.log(`🏷️ Session: ${session.id}`);
 
         // Send SMS alert to your phone
         await this.sendPaymentAlert({
@@ -256,7 +247,6 @@ class StripePaymentSystem {
       const message = `🎉 PAYMENT RECEIVED! $${amount.toFixed(2)} from ${email}. Session: ${session_id}`;
 
       // Log the SMS that would be sent
-      // console.log(`📱 SMS Alert to ${phone}: ${message}`);
 
       // In production, you'd use Twilio or similar service here
       // For now, just log it
@@ -292,7 +282,6 @@ class StripePaymentSystem {
 
       fs.writeFileSync(enrollmentLog, JSON.stringify(enrollments, null, 2));
 
-      // console.log('✅ Enrollment processed and logged');
 
       return true;
     } catch (error) {
@@ -331,7 +320,6 @@ class StripePaymentSystem {
 
   async testPayments(req, res) {
     try {
-      // console.log('🧪 Testing Stripe payment system...');
 
       const tests = {
         stripe_connection: false,
@@ -344,9 +332,7 @@ class StripePaymentSystem {
       try {
         await stripe.products.list({ limit: 1 });
         tests.stripe_connection = true;
-        // console.log('✅ Stripe connection working');
       } catch (error) {
-        // console.log('❌ Stripe connection failed:', error.message);
       }
 
       // Test 2: Check if products exist
@@ -355,19 +341,16 @@ class StripePaymentSystem {
         const products = JSON.parse(fs.readFileSync(productsFile, 'utf8'));
         if (products.length > 0) {
           tests.products_created = true;
-          // console.log(`✅ ${products.length} products configured`);
         }
       }
 
       // Test 3: Test checkout creation capability
       if (tests.stripe_connection && tests.products_created) {
         tests.checkout_creation = true;
-        // console.log('✅ Checkout creation ready');
       }
 
       // Test 4: Webhook endpoint
       tests.webhook_ready = true;
-      // console.log('✅ Webhook endpoint ready');
 
       const allPassed = Object.values(tests).every((test) => test === true);
 

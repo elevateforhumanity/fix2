@@ -24,20 +24,11 @@ const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!OPENAI_API_KEY) {
   console.error('❌ OPENAI_API_KEY not set!');
-  console.log('\nTo fix:');
-  console.log('1. Get your API key from https://platform.openai.com/api-keys');
-  console.log('2. Add to .env.local: OPENAI_API_KEY=sk-your-key-here');
-  console.log('3. Run: source .env.local');
-  console.log('4. Run this script again\n');
   process.exit(1);
 }
 
 if (!SUPABASE_URL || !SUPABASE_KEY) {
   console.error('❌ Supabase credentials not set!');
-  console.log('\nTo fix:');
-  console.log('Add to .env.local:');
-  console.log('NEXT_PUBLIC_SUPABASE_URL=your_supabase_url');
-  console.log('SUPABASE_SERVICE_ROLE_KEY=your_service_role_key\n');
   process.exit(1);
 }
 
@@ -121,7 +112,6 @@ const videoScripts = [
 
 async function generateThumbnail(title: string): Promise<string | null> {
   try {
-    console.log(`  🎨 Generating thumbnail for: ${title}`);
     
     const response = await fetch('http://localhost:3000/api/ai/generate-asset', {
       method: 'POST',
@@ -139,7 +129,6 @@ async function generateThumbnail(title: string): Promise<string | null> {
     }
 
     const data = await response.json();
-    console.log(`  ✅ Thumbnail generated: ${data.url}`);
     return data.url;
   } catch (error) {
     console.error(`  ❌ Error generating thumbnail:`, error);
@@ -148,8 +137,6 @@ async function generateThumbnail(title: string): Promise<string | null> {
 }
 
 async function main() {
-  console.log('🎬 Generating Video Content for Elevate for Humanity\n');
-  console.log(`📁 Found ${videoScripts.length} video scripts\n`);
 
   // Check if server is running
   try {
@@ -159,11 +146,6 @@ async function main() {
     }
   } catch (error) {
     console.error('❌ Next.js dev server not running!');
-    console.log('\nTo fix:');
-    console.log('1. Open a new terminal');
-    console.log('2. Run: npm run dev');
-    console.log('3. Wait for server to start');
-    console.log('4. Run this script again\n');
     process.exit(1);
   }
 
@@ -171,9 +153,6 @@ async function main() {
   let failCount = 0;
 
   for (const script of videoScripts) {
-    console.log(`\n📹 Processing: ${script.title}`);
-    console.log(`   File: ${script.file}`);
-    console.log(`   Page: ${script.page}`);
 
     // Read script content
     const scriptPath = path.join(process.cwd(), 'content/video-scripts', script.file);
@@ -183,7 +162,6 @@ async function main() {
     const thumbnailUrl = await generateThumbnail(script.title);
 
     if (!thumbnailUrl) {
-      console.log(`  ⚠️  Skipping ${script.title} - thumbnail generation failed`);
       failCount++;
       continue;
     }
@@ -194,10 +172,6 @@ async function main() {
 
     // Save to database (create a video_content table if needed)
     // For now, just log the results
-    console.log(`  📝 Script length: ${scriptContent.length} characters`);
-    console.log(`  🎨 Thumbnail: ${thumbnailUrl}`);
-    console.log(`  🎥 Video URL: ${videoUrl}`);
-    console.log(`  ⏱️  Duration: ${script.duration}s`);
     
     successCount++;
 
@@ -205,18 +179,6 @@ async function main() {
     await new Promise(resolve => setTimeout(resolve, 2000));
   }
 
-  console.log('\n' + '='.repeat(60));
-  console.log('📊 SUMMARY');
-  console.log('='.repeat(60));
-  console.log(`✅ Success: ${successCount}`);
-  console.log(`❌ Failed: ${failCount}`);
-  console.log(`📁 Total: ${videoScripts.length}`);
-  console.log('\n💡 Next Steps:');
-  console.log('1. Review generated thumbnails');
-  console.log('2. Record actual videos using the scripts in content/video-scripts/');
-  console.log('3. Upload videos to YouTube/Vimeo');
-  console.log('4. Update database with real video URLs');
-  console.log('5. Use VideoPlaceholder component until videos are ready\n');
 }
 
 main().catch(console.error);

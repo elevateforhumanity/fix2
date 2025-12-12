@@ -75,7 +75,6 @@ const supabaseAuthAdapter: AuthAdapter = {
  */
 const oidcAuthAdapter: AuthAdapter = {
   async getCurrentUser() {
-    console.warn("[EFH AUTH] OIDC adapter not implemented yet.");
     return null;
   },
   async requireUser() {
@@ -96,7 +95,6 @@ const oidcAuthAdapter: AuthAdapter = {
  */
 const azureAdAuthAdapter: AuthAdapter = {
   async getCurrentUser() {
-    console.warn("[EFH AUTH] Azure AD adapter not implemented yet.");
     return null;
   },
   async requireUser() {
@@ -117,7 +115,6 @@ const azureAdAuthAdapter: AuthAdapter = {
  */
 const customJwtAuthAdapter: AuthAdapter = {
   async getCurrentUser() {
-    console.warn("[EFH AUTH] Custom JWT adapter not implemented yet.");
     const h = headers();
     const authHeader = h.get("authorization");
     if (!authHeader) return null;

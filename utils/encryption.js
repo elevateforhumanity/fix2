@@ -10,7 +10,6 @@ const crypto = require('crypto');
 if (!process.env.ENCRYPTION_KEY) {
   console.error('FATAL: ENCRYPTION_KEY environment variable is required');
   console.error(
-    // 'Generate a key with: node -e "console.log(crypto.randomBytes(32).toString(\'hex\'))"'
   );
   process.exit(1);
 }

@@ -31,7 +31,6 @@ export class SCORMAPIWrapper {
         break;
       }
     }
-    console.warn('[SCORM] API not found');
     return null;
   }
   // Detect SCORM version
@@ -49,7 +48,6 @@ export class SCORMAPIWrapper {
   // Initialize the SCORM session
   initialize(): boolean {
     if (this.initialized) {
-      console.warn('[SCORM] Already initialized');
       return true;
     }
     if (!this.lmsAPI) {
@@ -76,7 +74,6 @@ export class SCORMAPIWrapper {
   // Get a value from the LMS
   getValue(element: string): string {
     if (!this.initialized) {
-      console.warn('[SCORM] Not initialized');
       return '';
     }
     try {
@@ -93,7 +90,6 @@ export class SCORMAPIWrapper {
   // Set a value in the LMS
   setValue(element: string, value: string): boolean {
     if (!this.initialized) {
-      console.warn('[SCORM] Not initialized');
       return false;
     }
     try {
@@ -110,7 +106,6 @@ export class SCORMAPIWrapper {
   // Commit data to the LMS
   commit(): boolean {
     if (!this.initialized) {
-      console.warn('[SCORM] Not initialized');
       return false;
     }
     try {
@@ -127,7 +122,6 @@ export class SCORMAPIWrapper {
   // Terminate the SCORM session
   terminate(): boolean {
     if (!this.initialized) {
-      console.warn('[SCORM] Not initialized');
       return false;
     }
     try {

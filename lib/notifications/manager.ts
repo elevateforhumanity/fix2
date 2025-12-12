@@ -25,14 +25,12 @@ export class NotificationManager {
   }
   async requestPermission(): Promise<boolean> {
     if (!('Notification' in window)) {
-      console.warn('[Notifications] Not supported in this browser');
       return false;
     }
     if (Notification.permission === 'granted') {
       return true;
     }
     if (Notification.permission === 'denied') {
-      console.warn('[Notifications] Permission denied');
       return false;
     }
     try {
@@ -45,7 +43,6 @@ export class NotificationManager {
   }
   async subscribeToPush(): Promise<PushSubscription | null> {
     if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
-      console.warn('[Notifications] Push notifications not supported');
       return null;
     }
     try {
@@ -56,7 +53,6 @@ export class NotificationManager {
         // Subscribe to push notifications
         const vapidPublicKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
         if (!vapidPublicKey) {
-          console.warn('[Notifications] VAPID public key not configured');
           return null;
         }
         subscription = await registration.pushManager.subscribe({
@@ -98,7 +94,6 @@ export class NotificationManager {
   ): Promise<void> {
     const permission = await this.getPermissionStatus();
     if (!permission.granted) {
-      console.warn('[Notifications] Permission not granted');
       return;
     }
     if ('serviceWorker' in navigator) {

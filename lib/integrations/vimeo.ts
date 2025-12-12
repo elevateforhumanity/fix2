@@ -109,7 +109,6 @@ export function createVimeoClient(): VimeoClient | null {
 
   if (!accessToken) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Vimeo not configured');
     }
     return null;
   }

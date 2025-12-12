@@ -210,7 +210,6 @@ export async function webhookHandler(req, res) {
       await handlePaymentExpired(event.data.object);
       break;
     default:
-      console.log(`Unhandled event type ${event.type}`);
   }
 
   res.status(200).json({ received: true });
@@ -248,7 +247,6 @@ async function handlePaymentSuccess(session) {
     // Send delivery email with download links
     await sendDeliveryEmail(order, licenses);
 
-    console.log(`Order ${order.id} completed successfully`);
   } catch (error) {
     console.error('Payment success handling error:', error);
   }
@@ -264,7 +262,6 @@ async function handlePaymentExpired(session) {
       })
       .eq('stripe_session_id', session.id);
 
-    console.log(`Order expired for session ${session.id}`);
   } catch (error) {
     console.error('Payment expiry handling error:', error);
   }
@@ -341,7 +338,6 @@ async function sendDeliveryEmail(order, licenses) {
   };
 
   // Send email (implement with your preferred service)
-  console.log('Email would be sent:', emailData);
 }
 
 function generateDeliveryEmailHTML(order, licenses) {

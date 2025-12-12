@@ -18,14 +18,10 @@ const sdk = new NodeSDK({
 sdk
   .start()
   .then(() => {
-    console.log('OpenTelemetry SDK started');
   })
-  .catch((error) => console.log('Error starting OpenTelemetry:', error));
 
 process.on('SIGTERM', () => {
   sdk
     .shutdown()
-    .then(() => console.log('OpenTelemetry SDK shut down'))
-    .catch((error) => console.log('Error shutting down OpenTelemetry', error))
     .finally(() => process.exit(0));
 });

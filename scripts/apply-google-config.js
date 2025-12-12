@@ -67,7 +67,6 @@ function replacePlaceholders(content) {
       const matches = (updatedContent.match(regex) || []).length;
       updatedContent = updatedContent.replace(regex, value);
       replacementsMade += matches;
-      console.log(
         `  ✓ Replaced ${matches} occurrence(s) of "${placeholder}" with "${value}"`
       );
     }
@@ -87,12 +86,10 @@ function processFile(filePath) {
 
     if (replacementsMade > 0) {
       fs.writeFileSync(filePath, updatedContent, 'utf8');
-      console.log(
         `✅ Updated ${path.basename(filePath)} (${replacementsMade} replacements)`
       );
       return true;
     } else {
-      console.log(`ℹ️  No changes needed for ${path.basename(filePath)}`);
       return false;
     }
   } catch (error) {
@@ -107,30 +104,18 @@ function processFile(filePath) {
  * Main execution function
  */
 function main() {
-  console.log('🔧 Google Configuration Application Script');
-  console.log('==========================================\n');
 
   // Check if we have the required environment variables
   if (!GOOGLE_ANALYTICS_ID && !GOOGLE_SITE_VERIFICATION) {
-    console.log('⚠️  No Google configuration found in environment variables.');
-    console.log(
       'Set GOOGLE_ANALYTICS_ID and/or GOOGLE_SITE_VERIFICATION to apply configurations.\n'
     );
-    console.log('Example:');
-    console.log('  export GOOGLE_ANALYTICS_ID="G-XXXXXXXXXX"');
-    console.log('  export GOOGLE_SITE_VERIFICATION="your-verification-code"');
-    console.log('  npm run google:apply\n');
     return;
   }
 
-  console.log('Configuration values:');
-  console.log(`  Google Analytics ID: ${GOOGLE_ANALYTICS_ID || 'Not set'}`);
-  console.log(
     `  Google Site Verification: ${GOOGLE_SITE_VERIFICATION || 'Not set'}\n`
   );
 
   const htmlFiles = getHtmlFiles();
-  console.log(`Found ${htmlFiles.length} HTML files to process:\n`);
 
   let totalFilesUpdated = 0;
   htmlFiles.forEach((file) => {
@@ -139,15 +124,8 @@ function main() {
     }
   });
 
-  console.log(`\n🎉 Google configuration application complete!`);
-  console.log(`   Files updated: ${totalFilesUpdated}/${htmlFiles.length}\n`);
 
   if (totalFilesUpdated > 0) {
-    console.log('📋 Next Steps:');
-    console.log('1. Test the pages to ensure Google Analytics is tracking');
-    console.log('2. Verify Google Search Console verification is working');
-    console.log('3. Regenerate and submit sitemaps: npm run sitemaps:submit');
-    console.log('4. Check Google Rich Results Test for meta tag validation');
   }
 }
 

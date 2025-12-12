@@ -137,7 +137,6 @@ class SocialMediaIntegration {
 
     try {
       // Simulate Twitter posting for now
-      console.log('📱 Twitter post:', content.substring(0, 100) + '...');
 
       return {
         status: 'success',
@@ -157,7 +156,6 @@ class SocialMediaIntegration {
     }
 
     try {
-      console.log('📘 Facebook post:', content.substring(0, 100) + '...');
 
       return {
         status: 'success',
@@ -177,7 +175,6 @@ class SocialMediaIntegration {
     }
 
     try {
-      console.log('💼 LinkedIn post:', content.substring(0, 100) + '...');
 
       return {
         status: 'success',
@@ -198,7 +195,6 @@ class SocialMediaIntegration {
     }
 
     try {
-      console.log('📸 Instagram post:', content.substring(0, 100) + '...');
 
       return {
         status: 'success',
@@ -227,7 +223,6 @@ class SocialMediaIntegration {
         createdAt: new Date(),
       };
 
-      console.log('📅 Post scheduled:', scheduledPost);
 
       res.json({
         success: true,

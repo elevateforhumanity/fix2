@@ -62,23 +62,18 @@ async function createBucket(bucket) {
     const data = await response.json();
 
     if (response.ok) {
-      console.log(`✅ Created bucket: ${bucket.name}`);
       return true;
     } else if (response.status === 409) {
-      console.log(`⚠️  Bucket already exists: ${bucket.name}`);
       return true;
     } else {
-      console.log(`❌ Failed to create bucket ${bucket.name}:`, data);
       return false;
     }
   } catch (error) {
-    console.log(`❌ Error creating bucket ${bucket.name}:`, error.message);
     return false;
   }
 }
 
 async function main() {
-  console.log('🪣 Creating Supabase Storage Buckets...\n');
 
   let successCount = 0;
 
@@ -88,15 +83,12 @@ async function main() {
     await new Promise((resolve) => setTimeout(resolve, 500)); // Rate limiting
   }
 
-  console.log(
     `\n✅ Bucket creation complete: ${successCount}/${buckets.length} successful`
   );
 
   if (successCount === buckets.length) {
-    console.log('🎉 All buckets ready!');
     process.exit(0);
   } else {
-    console.log('⚠️  Some buckets may need manual creation');
     process.exit(0); // Don't fail - buckets might already exist
   }
 }

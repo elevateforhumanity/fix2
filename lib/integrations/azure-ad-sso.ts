@@ -181,7 +181,6 @@ export function createAzureADSSOClient(): AzureADSSOClient | null {
 
   if (!clientId || !clientSecret || !tenantId) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Azure AD SSO not configured');
     }
     return null;
   }

@@ -110,7 +110,6 @@ class DualCertificateSystem {
    */
   async generateDualCertificates(enrollmentData, completionData) {
     try {
-      console.log(
         `🏆 Generating dual certificates for ${enrollmentData.student.email}`
       );
 
@@ -152,7 +151,6 @@ class DualCertificateSystem {
         ),
       };
 
-      console.log(`✅ Dual certificates generated successfully`);
       return certificatePackage;
     } catch (error) {
       console.error('Certificate generation error:', error);
@@ -531,7 +529,6 @@ class DualCertificateSystem {
    */
   async generatePDFCertificate(htmlContent) {
     // Would use puppeteer or similar to convert HTML to PDF
-    console.log('📄 Generating PDF certificate...');
     return Buffer.from('Mock PDF content'); // Placeholder
   }
 
@@ -555,7 +552,6 @@ class DualCertificateSystem {
     // Store in verification database
     this.verificationDatabase.set(verificationRecord.id, verificationRecord);
 
-    console.log(`🔍 Verification records created: ${verificationRecord.id}`);
     return verificationRecord;
   }
 
@@ -735,7 +731,6 @@ class BlockchainVerification {
       immutable_record: true,
     };
 
-    console.log(
       `⛓️ Blockchain verification created: ${blockchainRecord.transaction_hash}`
     );
     return blockchainRecord;
@@ -748,10 +743,4 @@ module.exports = DualCertificateSystem;
 if (require.main === module) {
   const certificateSystem = new DualCertificateSystem();
 
-  console.log('🏆 DUAL CERTIFICATE SYSTEM READY');
-  console.log('📜 Elevate for Humanity certificates');
-  console.log('🤝 Partner certification integration');
-  console.log('🔍 Blockchain verification');
-  console.log('📱 Digital wallet integration');
-  console.log('🌐 Social media sharing');
 }

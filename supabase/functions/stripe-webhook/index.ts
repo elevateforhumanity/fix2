@@ -98,7 +98,6 @@ serve(async (req) => {
       return new Response(`Webhook Error: ${err.message}`, { status: 400 });
     }
 
-    console.log(`Processing event: ${event.type}`);
 
     // Handle different event types
     switch (event.type) {
@@ -124,7 +123,6 @@ serve(async (req) => {
         break;
 
       default:
-        console.log(`Unhandled event type: ${event.type}`);
     }
 
     return new Response(JSON.stringify({ received: true }), {
@@ -210,7 +208,6 @@ async function handleSubscriptionUpdate(subscription: Stripe.Subscription) {
     console.error('Failed to update org tier:', orgError);
   }
 
-  console.log(`Updated subscription for org ${orgId}: ${plan.plan}`);
 }
 
 async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
@@ -257,7 +254,6 @@ async function handleSubscriptionDeleted(subscription: Stripe.Subscription) {
     })
     .eq('id', billing.org_id);
 
-  console.log(`Subscription cancelled for org ${billing.org_id}`);
 }
 
 async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
@@ -290,7 +286,6 @@ async function handlePaymentSucceeded(invoice: Stripe.Invoice) {
     })
     .eq('id', billing.org_id);
 
-  console.log(`Payment succeeded for org ${billing.org_id}`);
 }
 
 async function handlePaymentFailed(invoice: Stripe.Invoice) {
@@ -314,5 +309,4 @@ async function handlePaymentFailed(invoice: Stripe.Invoice) {
     })
     .eq('org_id', billing.org_id);
 
-  console.log(`Payment failed for org ${billing.org_id}`);
 }

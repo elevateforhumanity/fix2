@@ -206,15 +206,6 @@ app.use('*', (req, res) => {
 
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Backend API running on http://localhost:${PORT}`);
-  console.log('📋 Available endpoints:');
-  console.log(`   POST http://localhost:${PORT}/api/auth/login`);
-  console.log(`   POST http://localhost:${PORT}/api/auth/validate`);
-  console.log(`   GET  http://localhost:${PORT}/api/users/profile`);
-  console.log(`   GET  http://localhost:${PORT}/api/enrollments`);
-  console.log(`   POST http://localhost:${PORT}/api/enrollments`);
-  console.log(`   GET  http://localhost:${PORT}/api/programs`);
-  console.log(`🔗 Health check: http://localhost:${PORT}/api/health`);
 });
 
 module.exports = app;

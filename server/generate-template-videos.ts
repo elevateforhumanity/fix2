@@ -11,8 +11,6 @@ import path from 'path';
 import fs from 'fs/promises';
 
 async function generateTemplateVideos() {
-  console.log('🎬 Generating Sample Videos from Templates\n');
-  console.log(`Found ${videoTemplates.length} templates to process\n`);
 
   const results: Array<{
     template: string;
@@ -23,15 +21,8 @@ async function generateTemplateVideos() {
 
   for (let i = 0; i < videoTemplates.length; i++) {
     const template = videoTemplates[i];
-    console.log(`\n${'='.repeat(60)}`);
-    console.log(
       `Processing ${i + 1}/${videoTemplates.length}: ${template.name}`
     );
-    console.log(`${'='.repeat(60)}`);
-    console.log(`Category: ${template.category}`);
-    console.log(`Duration: ${template.duration}s`);
-    console.log(`Scenes: ${template.scenes.length}`);
-    console.log('');
 
     try {
       // Convert template to video generation request
@@ -59,14 +50,9 @@ async function generateTemplateVideos() {
         userId: 'template-generator',
       };
 
-      console.log('Starting video generation...');
       const result = await generateVideo(request);
 
       if (result.status === 'completed' && result.videoPath) {
-        console.log('✅ Video generated successfully!');
-        console.log(`   Job ID: ${result.jobId}`);
-        console.log(`   Duration: ${result.duration}s`);
-        console.log(`   Path: ${result.videoPath}`);
 
         // Copy to samples directory
         const samplesDir = path.join(process.cwd(), 'samples');
@@ -75,7 +61,6 @@ async function generateTemplateVideos() {
         const samplePath = path.join(samplesDir, `${template.id}.mp4`);
         await fs.copyFile(result.videoPath, samplePath);
 
-        console.log(`   Sample: ${samplePath}`);
 
         results.push({
           template: template.name,
@@ -104,45 +89,26 @@ async function generateTemplateVideos() {
 
     // Add delay between generations to avoid overwhelming the system
     if (i < videoTemplates.length - 1) {
-      console.log('\nWaiting 5 seconds before next generation...');
       await new Promise((resolve) => setTimeout(resolve, 5000));
     }
   }
 
   // Print summary
-  console.log('\n\n' + '='.repeat(60));
-  console.log('GENERATION SUMMARY');
-  console.log('='.repeat(60));
-  console.log('');
 
   const successful = results.filter((r) => r.status === 'success');
   const failed = results.filter((r) => r.status === 'failed');
 
-  console.log(`Total Templates: ${videoTemplates.length}`);
-  console.log(`✅ Successful: ${successful.length}`);
-  console.log(`❌ Failed: ${failed.length}`);
-  console.log('');
 
   if (successful.length > 0) {
-    console.log('Successful Generations:');
     successful.forEach((r) => {
-      console.log(`  ✅ ${r.template}`);
-      console.log(`     ${r.videoPath}`);
     });
-    console.log('');
   }
 
   if (failed.length > 0) {
-    console.log('Failed Generations:');
     failed.forEach((r) => {
-      console.log(`  ❌ ${r.template}`);
-      console.log(`     Error: ${r.error}`);
     });
-    console.log('');
   }
 
-  console.log('All sample videos saved to: ./samples/');
-  console.log('');
 
   // Create index file
   const indexPath = path.join(process.cwd(), 'samples', 'README.md');
@@ -191,25 +157,13 @@ pnpm video:generate-samples
 `;
 
   await fs.writeFile(indexPath, indexContent);
-  console.log('Index file created: ./samples/README.md');
 }
 
 // Run generation
-console.log('='.repeat(60));
-console.log('TEMPLATE VIDEO GENERATOR');
-console.log('='.repeat(60));
-console.log('');
-console.log('This will generate sample videos for all templates.');
-console.log('This may take 30-60 minutes depending on your system.');
-console.log('');
-console.log('Press Ctrl+C to cancel, or wait 5 seconds to continue...');
-console.log('');
 
 setTimeout(() => {
   generateTemplateVideos()
     .then(() => {
-      console.log('');
-      console.log('✅ Template video generation complete!');
       process.exit(0);
     })
     .catch((error) => {

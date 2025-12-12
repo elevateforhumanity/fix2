@@ -11,7 +11,6 @@ export async function sendSlackMessage(message: SlackMessage) {
   const webhookUrl = process.env.SLACK_WEBHOOK_URL;
   
   if (!webhookUrl) {
-    console.warn('SLACK_WEBHOOK_URL not configured');
     return { success: false, error: 'Slack not configured' };
   }
 

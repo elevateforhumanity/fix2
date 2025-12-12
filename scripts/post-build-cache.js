@@ -3,7 +3,6 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🔄 Running post-build cache optimization...');
 
 // 1. Copy cache-buster.js to dist
 const sourcePath = './cache-buster.js';
@@ -11,7 +10,6 @@ const destPath = './dist/cache-buster.js';
 
 try {
   fs.copyFileSync(sourcePath, destPath);
-  console.log('✅ Copied cache-buster.js to dist');
 } catch (error) {
   console.error('❌ Failed to copy cache-buster.js:', error.message);
   process.exit(1);
@@ -88,7 +86,6 @@ const keyFiles = [
   './dist/employers.html',
 ];
 
-console.log(`🔄 Adding cache version ${cacheVersion} to key HTML files...`);
 let cacheVersionUpdated = 0;
 let cacheBusterAdded = 0;
 
@@ -104,15 +101,9 @@ for (const file of keyFiles) {
       cacheBusterAdded++;
     }
 
-    console.log(
       `✅ Processed ${path.basename(file)}: cache ${cacheResult}, script ${scriptResult}`
     );
   } else {
-    console.log(`⚠️  File not found: ${file}`);
   }
 }
 
-console.log(`\n🎉 Post-build optimization complete:`);
-console.log(`   - Cache version updated in ${cacheVersionUpdated} files`);
-console.log(`   - Cache-buster script added to ${cacheBusterAdded} files`);
-console.log(`   - Cache version: ${cacheVersion}`);

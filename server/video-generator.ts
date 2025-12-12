@@ -52,7 +52,6 @@ export class VideoGenerator {
   async generateVideo(config: VideoConfig): Promise<string> {
     await this.initialize();
 
-    console.log(`Generating video: ${config.id}`);
 
     // Get video dimensions based on format
     const dimensions = this.getDimensions(config.format, config.resolution);
@@ -62,7 +61,6 @@ export class VideoGenerator {
 
     for (let i = 0; i < config.scenes.length; i++) {
       const scene = config.scenes[i];
-      console.log(`Processing scene ${i + 1}/${config.scenes.length}`);
 
       const sceneVideo = await this.generateScene(scene, dimensions, i);
       sceneVideos.push(sceneVideo);
@@ -76,7 +74,6 @@ export class VideoGenerator {
       await this.addBackgroundMusic(finalVideo);
     }
 
-    console.log(`Video generated: ${finalVideo}`);
     return finalVideo;
   }
 
@@ -248,7 +245,6 @@ export class VideoGenerator {
   private async addBackgroundMusic(videoPath: string): Promise<void> {
     // Add background music at low volume
     // This would integrate with a music library
-    console.log('Background music feature - to be implemented');
   }
 
   async cleanup(videoId: string) {

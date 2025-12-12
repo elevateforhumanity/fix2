@@ -8,8 +8,6 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🤖 AUTO-GENERATING ALL 67 PAGES');
-console.log('=================================\n');
 
 // Page template with Durable design
 const pageTemplate = (
@@ -135,7 +133,6 @@ let skipped = 0;
 pages.forEach((page) => {
   if (page.skip) {
     skipped++;
-    console.log(`⏭️  Skipping ${page.path} (already exists)`);
     return;
   }
 
@@ -158,11 +155,5 @@ pages.forEach((page) => {
   // Write file
   fs.writeFileSync(fullPath, pageContent);
   generated++;
-  console.log(`✅ Generated ${page.path}`);
 });
 
-console.log(`\n📊 Summary:`);
-console.log(`   Generated: ${generated} pages`);
-console.log(`   Skipped: ${skipped} pages`);
-console.log(`   Total: ${generated + skipped} pages`);
-console.log(`\n✅ ALL PAGES GENERATED!`);

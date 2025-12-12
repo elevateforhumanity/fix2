@@ -104,7 +104,6 @@ export default {
 
 // Trigger Vercel deployment via GitHub push
 async function triggerVercelDeploy(env: Env) {
-  console.log('Triggering Vercel deployment via GitHub push');
 
   // Create a deployment trigger file
   const timestamp = new Date().toISOString();
@@ -178,7 +177,6 @@ async function getRecentDeployments(env: Env) {
 
 // Add custom domain to Vercel
 async function addCustomDomain(env: Env, domain: string) {
-  console.log(`Adding custom domain: ${domain}`);
 
   const url = `https://api.vercel.com/v9/projects/${env.VERCEL_PROJECT_ID}/domains`;
 
@@ -216,7 +214,6 @@ async function addCustomDomain(env: Env, domain: string) {
 
 // Check domain status
 async function checkDomainStatus(env: Env, domain: string) {
-  console.log(`Checking domain status: ${domain}`);
 
   const url = `https://api.vercel.com/v9/projects/${env.VERCEL_PROJECT_ID}/domains/${domain}`;
 
@@ -246,7 +243,6 @@ async function addEnvironmentVariables(
   env: Env,
   variables: Record<string, string>
 ) {
-  console.log(`Adding ${Object.keys(variables).length} environment variables`);
 
   const url = `https://api.vercel.com/v10/projects/${env.VERCEL_PROJECT_ID}/env`;
 

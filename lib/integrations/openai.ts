@@ -4,7 +4,6 @@ let openaiClient: OpenAI | null = null;
 
 export function getOpenAIClient(): OpenAI | null {
   if (!process.env.OPENAI_API_KEY) {
-    console.warn('OPENAI_API_KEY not configured');
     return null;
   }
 

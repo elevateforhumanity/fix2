@@ -17,7 +17,6 @@
 */
 
 // Cache Buster for EFH Development
-console.log('🔄 Cache Buster loaded');
 
 // Force reload assets if cache version changes
 function checkCacheVersion() {
@@ -27,7 +26,6 @@ function checkCacheVersion() {
   const storedVersion = localStorage.getItem('efh-cache-version');
 
   if (storedVersion && storedVersion !== currentVersion) {
-    console.log('🔄 Cache version changed, clearing cache');
     if ('caches' in window) {
       caches.keys().then((names) => {
         names.forEach((name) => caches.delete(name));

@@ -334,38 +334,28 @@ class BrandColorFixer {
   }
 
   generateReport() {
-    console.log('\n🎨 Brand Color Auto-Fix Report\n');
 
     if (this.dryRun) {
-      console.log('🔍 DRY RUN MODE - No files were modified\n');
     }
 
-    console.log(`Files modified: ${this.filesModified}`);
-    console.log(`Total replacements: ${this.replacements}\n`);
 
     if (this.changes.length === 0) {
-      console.log('✅ No changes needed!\n');
       return 0;
     }
 
     if (this.dryRun) {
-      console.log('📝 Changes that would be made:\n');
     } else {
-      console.log('✅ Changes applied:\n');
     }
 
     this.changes.forEach((change) => {
-      console.log(`  ${change.file}: ${change.replacements} replacements`);
     });
 
-    console.log('');
     return 0;
   }
 
   run(targetPath) {
     const rootPath = path.resolve(targetPath || process.cwd());
 
-    console.log(
       `🔧 ${this.dryRun ? 'Analyzing' : 'Fixing'} brand color violations in: ${rootPath}\n`
     );
 

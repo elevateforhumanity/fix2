@@ -9,7 +9,6 @@ async function runSqlFile(client: Client, filePath: string) {
   const sql = fs.readFileSync(filePath, 'utf8');
   if (!sql.trim()) return;
 
-  console.log(`📝 Running SQL: ${path.basename(filePath)}`);
   await client.query(sql);
 }
 
@@ -23,7 +22,6 @@ async function main() {
   const client = new Client({ connectionString: dbUrl });
 
   try {
-    console.log('🔌 Connecting to Supabase Postgres…');
     await client.connect();
 
     // Optional: simple migrations tracking table (so we don't double-run)
@@ -37,14 +35,12 @@ async function main() {
 
     const migrationsDir = path.join(process.cwd(), 'supabase/migrations');
     if (!fs.existsSync(migrationsDir)) {
-      console.log('⚠️ No migrations directory found at /supabase/migrations, skipping migrations.');
     } else {
       const files = fs
         .readdirSync(migrationsDir)
         .filter((f) => f.endsWith('.sql'))
         .sort(); // run in filename order
 
-      console.log(`📂 Found ${files.length} migration(s).`);
 
       for (const file of files) {
         const filePath = path.join(migrationsDir, file);
@@ -55,7 +51,6 @@ async function main() {
           [file],
         );
         if (rows.length > 0) {
-          console.log(`✅ Already applied: ${file}`);
           continue;
         }
 
@@ -68,7 +63,6 @@ async function main() {
             [file],
           );
           await client.query('COMMIT');
-          console.log(`✅ Applied: ${file}`);
         } catch (err) {
           await client.query('ROLLBACK');
           console.error(`❌ Failed on: ${file}`);
@@ -82,14 +76,10 @@ async function main() {
     const seedFile = path.join(process.cwd(), 'supabase/seed.sql');
 
     if (fs.existsSync(seedFile)) {
-      console.log('🌱 Running seed file supabase/seed.sql…');
       await runSqlFile(client, seedFile);
-      console.log('✅ Seed completed.');
     } else {
-      console.log('⚠️ No seed file at /supabase/seed.sql, skipping seeding.');
     }
 
-    console.log('🎉 Database migrations + seed complete.');
   } finally {
     await client.end();
   }

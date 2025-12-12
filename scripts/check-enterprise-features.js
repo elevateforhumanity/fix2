@@ -127,10 +127,6 @@ function fileExists(relativePath) {
 }
 
 function main() {
-  console.log("=".repeat(60));
-  console.log("Elevate Enterprise Feature Check");
-  console.log("=".repeat(60));
-  console.log("");
 
   const results = featureChecks.map((feature) => {
     const missing = [];
@@ -182,55 +178,31 @@ function main() {
   };
 
   // Human-readable log
-  console.log("📋 Feature Status:");
-  console.log("-".repeat(60));
   
   let allOk = true;
   for (const r of results) {
     if (r.status === "OK") {
-      console.log(`✅ ${r.feature}`);
     } else {
-      console.log(`❌ ${r.feature}`);
-      r.missingFiles.forEach((f) => console.log(`   - missing: ${f}`));
       allOk = false;
     }
   }
 
-  console.log("");
-  console.log("🔐 Environment Variables:");
-  console.log("-".repeat(60));
   
   if (summary.env.status === "OK") {
-    console.log("✅ All required environment variables are set");
   } else {
-    console.log("❌ Missing required environment variables:");
-    summary.env.missing.forEach((k) => console.log(`   - ${k}`));
     allOk = false;
   }
 
   if (summary.env.optional_missing.length > 0) {
-    console.log("⚠️  Missing optional environment variables:");
-    summary.env.optional_missing.forEach((k) => console.log(`   - ${k}`));
   }
 
-  console.log("");
-  console.log("=".repeat(60));
   
   if (allOk) {
-    console.log("✅ ALL ENTERPRISE FEATURES VERIFIED!");
-    console.log("Your platform is ready for deployment.");
   } else {
-    console.log("❌ SOME FEATURES ARE MISSING");
-    console.log("Please review the errors above and fix them.");
   }
   
-  console.log("=".repeat(60));
-  console.log("");
 
   // JSON output for AI agents
-  console.log("JSON_RESULT_START");
-  console.log(JSON.stringify(summary, null, 2));
-  console.log("JSON_RESULT_END");
 
   // Exit with error code if not all OK
   process.exit(allOk ? 0 : 1);

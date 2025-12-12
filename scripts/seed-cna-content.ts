@@ -181,6 +181,3 @@ export const cnaModule1QuizQuestions = [
   },
 ];
 
-console.log('CNA Module 1 content ready for seeding');
-console.log(`Lessons: ${cnaModule1Lessons.length}`);
-console.log(`Quiz Questions: ${cnaModule1QuizQuestions.length}`);

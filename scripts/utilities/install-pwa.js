@@ -11,7 +11,6 @@ function installPWA() {
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
-        console.log('✅ PWA Installed');
       }
       deferredPrompt = null;
     });

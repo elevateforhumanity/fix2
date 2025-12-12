@@ -187,7 +187,6 @@ export function createS3Client(): S3Client | null {
 
   if (!accessKeyId || !secretAccessKey || !bucket) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('AWS S3 not configured');
     }
     return null;
   }

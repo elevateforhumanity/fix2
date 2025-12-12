@@ -300,17 +300,6 @@ app.post('/api/generate-bulk-licenses', async (req, res) => {
 
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
-  console.log(`🔐 License Management API running on port ${PORT}`);
-  console.log(`📊 Available endpoints:`);
-  console.log(`   POST /api/generate-tiered-license`);
-  console.log(`   POST /api/validate-tiered-license`);
-  console.log(`   POST /api/check-feature-access`);
-  console.log(`   POST /api/track-download`);
-  console.log(`   POST /api/register-deployment`);
-  console.log(`   POST /api/license-usage-stats`);
-  console.log(`   POST /api/upgrade-license`);
-  console.log(`   GET  /api/license-tiers`);
-  console.log(`   POST /api/generate-bulk-licenses`);
 });
 
 module.exports = app;

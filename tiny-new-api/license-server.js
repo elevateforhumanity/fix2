@@ -292,7 +292,6 @@ async function sendViolationAlert(violationData, req) {
       text: emailContent
     });
 
-    console.log('Violation alert sent to:', process.env.VIOLATION_ALERT_EMAIL);
 
   } catch (error) {
     console.error('Failed to send violation alert:', error);
@@ -358,8 +357,6 @@ app.get('/health', (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`🛡️  License server running on port ${PORT}`);
-  console.log(`📊 Admin dashboard: http://localhost:${PORT}/api/admin/usage`);
 });
 
 module.exports = app;

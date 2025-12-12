@@ -51,9 +51,6 @@ class PaymentProcessor {
       const efhAmount = Math.round(amount_cents * 0.5);
       const partnerAmount = amount_cents - efhAmount;
 
-      console.log(`💰 Processing payment: $${amount_cents / 100}`);
-      console.log(`📊 EFH gets: $${efhAmount / 100} (50% - paid first)`);
-      console.log(`🤝 Partner gets: $${partnerAmount / 100} (50% - after EFH)`);
 
       // Create payment intent - EFH receives payment first
       const paymentIntent = await stripe.paymentIntents.create({
@@ -89,7 +86,6 @@ class PaymentProcessor {
 
     try {
       // Step 1: EFH gets paid first (already happened via Stripe)
-      console.log(`✅ EFH received: $${metadata.efh_amount_cents / 100} (50%)`);
 
       // Step 2: Transfer to partner (if connect account exists)
       if (metadata.partner_connect_acc && metadata.partner_connect_acc !== '') {
@@ -99,7 +95,6 @@ class PaymentProcessor {
           program_slug: metadata.program_slug,
           customer_email: metadata.customer_email,
         });
-        console.log(
           `💸 Partner receives: $${metadata.partner_amount_cents / 100} (50%)`
         );
       }
@@ -143,7 +138,6 @@ class PaymentProcessor {
         },
       });
 
-      console.log(
         `💸 Transferred $${amount / 100} to partner: ${connect_account}`
       );
       return transfer;
@@ -211,7 +205,6 @@ class PaymentProcessor {
         html: emailContent,
       });
 
-      console.log(`📧 Partner notification sent to: ${partner.supportEmail}`);
     } catch (error) {
       console.error('Failed to send partner notification:', error);
     }
@@ -282,7 +275,6 @@ class PaymentProcessor {
         html: emailContent,
       });
 
-      console.log(`📧 Student confirmation sent to: ${customer_email}`);
     } catch (error) {
       console.error('Failed to send student confirmation:', error);
     }

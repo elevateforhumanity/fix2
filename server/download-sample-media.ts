@@ -16,7 +16,6 @@ const VIDEOS_DIR = path.join(MEDIA_DIR, 'videos');
 
 async function downloadFile(url: string, outputPath: string): Promise<boolean> {
   try {
-    console.log(`  Downloading: ${url}`);
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -29,7 +28,6 @@ async function downloadFile(url: string, outputPath: string): Promise<boolean> {
 
     const stats = await fs.stat(outputPath);
     const sizeMB = (stats.size / 1024 / 1024).toFixed(2);
-    console.log(`  ✅ Downloaded: ${sizeMB} MB`);
 
     return true;
   } catch (error) {
@@ -41,7 +39,6 @@ async function downloadFile(url: string, outputPath: string): Promise<boolean> {
 }
 
 async function downloadImages() {
-  console.log('\n📸 Downloading Stock Images...\n');
 
   await fs.mkdir(IMAGES_DIR, { recursive: true });
 
@@ -50,9 +47,6 @@ async function downloadImages() {
 
   for (let i = 0; i < stockImages.length; i++) {
     const image = stockImages[i];
-    console.log(`\n[${i + 1}/${stockImages.length}] ${image.id}`);
-    console.log(`  Category: ${image.category}`);
-    console.log(`  Photographer: ${image.photographer}`);
 
     const filename = `${image.id}.jpg`;
     const outputPath = path.join(IMAGES_DIR, filename);
@@ -60,7 +54,6 @@ async function downloadImages() {
     // Check if already exists
     try {
       await fs.access(outputPath);
-      console.log(`  ⏭️  Already exists, skipping`);
       downloaded++;
       continue;
     } catch {
@@ -80,12 +73,10 @@ async function downloadImages() {
     }
   }
 
-  console.log(`\n✅ Images: ${downloaded} downloaded, ${failed} failed`);
   return { downloaded, failed };
 }
 
 async function downloadVideos() {
-  console.log('\n🎥 Downloading Stock Videos...\n');
 
   await fs.mkdir(VIDEOS_DIR, { recursive: true });
 
@@ -94,10 +85,6 @@ async function downloadVideos() {
 
   for (let i = 0; i < stockVideos.length; i++) {
     const video = stockVideos[i];
-    console.log(`\n[${i + 1}/${stockVideos.length}] ${video.id}`);
-    console.log(`  Category: ${video.category}`);
-    console.log(`  Creator: ${video.creator}`);
-    console.log(`  Duration: ${video.duration}s`);
 
     const filename = `${video.id}.mp4`;
     const outputPath = path.join(VIDEOS_DIR, filename);
@@ -105,7 +92,6 @@ async function downloadVideos() {
     // Check if already exists
     try {
       await fs.access(outputPath);
-      console.log(`  ⏭️  Already exists, skipping`);
       downloaded++;
       continue;
     } catch {
@@ -125,12 +111,10 @@ async function downloadVideos() {
     }
   }
 
-  console.log(`\n✅ Videos: ${downloaded} downloaded, ${failed} failed`);
   return { downloaded, failed };
 }
 
 async function updateMediaPaths() {
-  console.log('\n📝 Updating media paths in templates...\n');
 
   // Create updated stock media file with local paths
   const updatedStockMediaPath = path.join(
@@ -190,7 +174,6 @@ export const useLocalMedia = true;
 `;
 
   await fs.writeFile(updatedStockMediaPath, content);
-  console.log(`✅ Created: ${updatedStockMediaPath}`);
 
   // Create README
   const readmePath = path.join(MEDIA_DIR, 'README.md');
@@ -252,23 +235,9 @@ This will:
 `;
 
   await fs.writeFile(readmePath, readmeContent);
-  console.log(`✅ Created: ${readmePath}`);
 }
 
 async function downloadSampleMedia() {
-  console.log('='.repeat(60));
-  console.log('DOWNLOAD SAMPLE MEDIA');
-  console.log('='.repeat(60));
-  console.log('');
-  console.log('This will download free stock media for offline use.');
-  console.log(`Images: ${stockImages.length} files`);
-  console.log(`Videos: ${stockVideos.length} files`);
-  console.log('');
-  console.log('Estimated download size: ~500MB - 1GB');
-  console.log('Estimated time: 10-20 minutes');
-  console.log('');
-  console.log('All media is free for commercial use (CC0/Public Domain)');
-  console.log('');
 
   try {
     // Create directories
@@ -284,35 +253,18 @@ async function downloadSampleMedia() {
     await updateMediaPaths();
 
     // Summary
-    console.log('\n' + '='.repeat(60));
-    console.log('DOWNLOAD COMPLETE');
-    console.log('='.repeat(60));
-    console.log('');
-    console.log(
       `📸 Images: ${imageResults.downloaded}/${stockImages.length} downloaded`
     );
-    console.log(
       `🎥 Videos: ${videoResults.downloaded}/${stockVideos.length} downloaded`
     );
-    console.log('');
-    console.log(`📁 Media directory: ${MEDIA_DIR}`);
-    console.log(`📝 Local paths: src/data/stock-media-local.ts`);
-    console.log('');
 
     if (imageResults.failed > 0 || videoResults.failed > 0) {
-      console.log(
         '⚠️  Some downloads failed. You can re-run this script to retry.'
       );
-      console.log('');
     }
 
-    console.log('✅ All media downloaded and ready to use!');
-    console.log('');
-    console.log('To use local media in templates:');
-    console.log(
       '  import { localStockImages, localStockVideos } from "./stock-media-local"'
     );
-    console.log('');
   } catch (error) {
     console.error('\n❌ Download failed:', error);
     throw error;
@@ -322,7 +274,6 @@ async function downloadSampleMedia() {
 // Run download
 downloadSampleMedia()
   .then(() => {
-    console.log('Download completed successfully.');
     process.exit(0);
   })
   .catch((error) => {

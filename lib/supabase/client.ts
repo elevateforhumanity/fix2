@@ -7,9 +7,6 @@ export function createClient() {
   if (!supabaseUrl || !supabaseAnonKey) {
     // During build time, return a mock client
     if (typeof window === 'undefined') {
-      console.warn(
-        '[Supabase Client] Missing env vars during build - returning mock'
-      );
       return {
         auth: {
           signInWithPassword: async () => ({

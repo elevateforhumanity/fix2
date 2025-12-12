@@ -39,7 +39,6 @@ class DownloadTracker {
       });
 
       if (response.ok) {
-        console.log('✅ Download tracked successfully');
         this.showTrackingNotification('Download started - tracking enabled');
         return true;
       } else {

@@ -17,6 +17,7 @@ import MainFooter from '@/components/layout/MainFooter';
 import { SiteFooter } from '@/components/layout/Footer';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
+import AILiveChat from '@/components/chat/AILiveChat';
 import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
 // import PWAInstallPrompt from '@/components/PWAInstallPrompt'; // Disabled - causing issues
@@ -153,7 +154,7 @@ sizes="192x192" />
         <Breadcrumbs />
         <main id="main-content" className="min-h-screen">{children}</main>
         <SiteFooter />
-        {/* <ElevateChatWidget /> */}
+        <AILiveChat />
         <CookieBanner />
         {/* <PWAInstallPrompt /> */}
         <Toaster

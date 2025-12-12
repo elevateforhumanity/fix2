@@ -52,7 +52,6 @@ export async function generateTextToSpeech(
     // Normal speed is 175 WPM, adjust based on speed multiplier
     const wpm = Math.round(175 * speed);
 
-    console.log(
       `Generating TTS: "${text.substring(0, 50)}..." with voice: ${espeakVoice}, speed: ${wpm} WPM`
     );
 
@@ -86,7 +85,6 @@ export async function generateTextToSpeech(
     await fs.unlink(tempWav).catch(() => {});
     await fs.unlink(tempMp3).catch(() => {});
 
-    console.log(`TTS generated: ${buffer.length} bytes`);
 
     return buffer;
   } catch (error) {
@@ -117,7 +115,6 @@ export async function generateAndSaveAudio(
     // Write file
     await fs.writeFile(outputPath, audioBuffer);
 
-    console.log(`Audio saved to: ${outputPath}`);
 
     return outputPath;
   } catch (error) {
@@ -237,12 +234,10 @@ export async function testTTSService(): Promise<boolean> {
       return false;
     }
 
-    console.log('Testing espeak-ng TTS service...');
     const testText = 'This is a test of the text to speech service.';
     const buffer = await generateTextToSpeech(testText, 'alloy', 1.0);
 
     if (buffer.length > 0) {
-      console.log('✅ espeak-ng TTS service test passed');
       return true;
     }
 

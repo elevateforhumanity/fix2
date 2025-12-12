@@ -20,7 +20,6 @@ class LicenseSystemValidator {
   }
 
   async validateSystem() {
-    console.log('🔐 Starting license system validation...\n');
 
     // Core validations
     await this.validateLicenseFiles();
@@ -37,7 +36,6 @@ class LicenseSystemValidator {
   }
 
   async validateLicenseFiles() {
-    console.log('📁 Validating license files...');
 
     const requiredFiles = [
       'middleware/license.js',
@@ -52,7 +50,6 @@ class LicenseSystemValidator {
       if (!fs.existsSync(file)) {
         this.errors.push(`Missing required file: ${file}`);
       } else {
-        console.log(`  ✅ ${file}`);
       }
     }
 
@@ -60,7 +57,6 @@ class LicenseSystemValidator {
   }
 
   async validateWatermarks() {
-    console.log('\n🧬 Validating digital watermarks...');
 
     const sourceFiles = this.getSourceFiles();
     let watermarkCount = 0;
@@ -82,7 +78,6 @@ class LicenseSystemValidator {
         `Only ${watermarkCount}/${sourceFiles.length} files contain watermarks`
       );
     } else {
-      console.log(
         `  ✅ ${watermarkCount}/${sourceFiles.length} files watermarked`
       );
     }
@@ -91,7 +86,6 @@ class LicenseSystemValidator {
   }
 
   async validateSecurityMeasures() {
-    console.log('\n🛡️ Validating security measures...');
 
     // Check for environment variables
     const envFile = 'config/license.env';
@@ -108,7 +102,6 @@ class LicenseSystemValidator {
         if (!envContent.includes(envVar)) {
           this.errors.push(`Missing environment variable: ${envVar}`);
         } else {
-          console.log(`  ✅ ${envVar} configured`);
         }
       }
     }
@@ -117,7 +110,6 @@ class LicenseSystemValidator {
   }
 
   async validateDatabaseSchema() {
-    console.log('\n🗄️ Validating database schema...');
 
     const schemaFile = 'supabase/schema.sql';
     if (fs.existsSync(schemaFile)) {
@@ -133,7 +125,6 @@ class LicenseSystemValidator {
 
       for (const table of requiredTables) {
         if (schema.includes(`CREATE TABLE public.${table}`)) {
-          console.log(`  ✅ Table: ${table}`);
         } else {
           this.errors.push(`Missing database table: ${table}`);
         }
@@ -146,7 +137,6 @@ class LicenseSystemValidator {
   }
 
   async validateAPIEndpoints() {
-    console.log('\n📡 Validating API endpoints...');
 
     const apiFile = 'api/license-server.js';
     if (fs.existsSync(apiFile)) {
@@ -161,7 +151,6 @@ class LicenseSystemValidator {
 
       for (const endpoint of requiredEndpoints) {
         if (apiContent.includes(endpoint)) {
-          console.log(`  ✅ Endpoint: ${endpoint}`);
         } else {
           this.warnings.push(`Missing API endpoint: ${endpoint}`);
         }
@@ -206,27 +195,17 @@ class LicenseSystemValidator {
   }
 
   generateReport() {
-    console.log('\n📊 VALIDATION REPORT');
-    console.log('='.repeat(50));
 
-    console.log(
       `\n✅ Passed: ${Object.values(this.validationResults).filter(Boolean).length}`
     );
-    console.log(`❌ Failed: ${this.errors.length}`);
-    console.log(`⚠️  Warnings: ${this.warnings.length}`);
 
     if (this.errors.length > 0) {
-      console.log('\n❌ ERRORS:');
-      this.errors.forEach((error) => console.log(`  - ${error}`));
     }
 
     if (this.warnings.length > 0) {
-      console.log('\n⚠️  WARNINGS:');
-      this.warnings.forEach((warning) => console.log(`  - ${warning}`));
     }
 
     if (this.errors.length === 0 && this.warnings.length === 0) {
-      console.log('\n🎉 License system validation passed!');
     }
   }
 }

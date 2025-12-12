@@ -10,7 +10,6 @@ export class ServiceWorkerManager {
    */
   async register(): Promise<ServiceWorkerRegistration | null> {
     if (!('serviceWorker' in navigator)) {
-      console.warn('Service Workers not supported');
       return null;
     }
     try {
@@ -95,11 +94,9 @@ export class ServiceWorkerManager {
    */
   async requestSync(tag: string = 'sync-offline-actions'): Promise<void> {
     if (!this.registration) {
-      console.warn('Service Worker not registered');
       return;
     }
     if (!('sync' in this.registration)) {
-      console.warn('Background Sync not supported');
       // Fallback: trigger sync manually
       await this.manualSync();
       return;

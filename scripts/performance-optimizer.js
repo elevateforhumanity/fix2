@@ -231,7 +231,6 @@ class PerformanceOptimizer {
         new PerformanceObserver((entryList) => {
           const entries = entryList.getEntries();
           const lastEntry = entries[entries.length - 1];
-          console.log('LCP:', lastEntry.startTime);
           
           // Send to analytics
           if (typeof gtag !== 'undefined') {
@@ -246,7 +245,6 @@ class PerformanceOptimizer {
         // First Input Delay
         new PerformanceObserver((entryList) => {
           const firstInput = entryList.getEntries()[0];
-          console.log('FID:', firstInput.processingStart - firstInput.startTime);
           
           if (typeof gtag !== 'undefined') {
             gtag('event', 'web_vitals', {
@@ -265,7 +263,6 @@ class PerformanceOptimizer {
               clsValue += entry.value;
             }
           }
-          console.log('CLS:', clsValue);
           
           if (typeof gtag !== 'undefined') {
             gtag('event', 'web_vitals', {
@@ -288,7 +285,6 @@ class PerformanceOptimizer {
 
   // Optimize all files
   optimizeAll() {
-    console.log('🚀 Starting performance optimization...');
 
     // Optimize main HTML file
     if (fs.existsSync('index.html')) {
@@ -310,22 +306,12 @@ class PerformanceOptimizer {
         .replace('</body>', performanceScript + '</body>');
 
       fs.writeFileSync('index-optimized.html', finalHTML);
-      console.log('✅ HTML optimization complete');
     }
 
     // Create video loading strategy file
     const videoStrategy = this.createVideoLoadingStrategy();
     fs.writeFileSync('video-loading-strategy.html', videoStrategy);
-    console.log('✅ Video loading strategy created');
 
-    console.log('🎉 Performance optimization complete!');
-    console.log('📊 Optimizations applied:');
-    console.log('   - Video lazy loading with intersection observer');
-    console.log('   - Progressive video loading queue');
-    console.log('   - Critical resource preloading');
-    console.log('   - Structured data for rich snippets');
-    console.log('   - Core Web Vitals monitoring');
-    console.log('   - Fine-grained sitemap optimization');
   }
 }
 

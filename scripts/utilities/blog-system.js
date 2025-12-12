@@ -522,7 +522,6 @@ class BlogSystem {
   // Durable injection handler - triggered via Zapier
   async handleDurableInjection(req, res) {
     try {
-      console.log('[Blog Worker] Triggering Durable injection...');
 
       // Call Netlify function to inject enrollment script
       const netlifyFunctionUrl =
@@ -541,7 +540,6 @@ class BlogSystem {
 
       const data = await response.json();
 
-      console.log('[Blog Worker] Injection result:', data);
 
       res.json({
         success: data.success || false,
@@ -561,7 +559,6 @@ class BlogSystem {
   // Check if enrollment script is present on Durable site
   async checkDurableStatus(req, res) {
     try {
-      console.log('[Blog Worker] Checking Durable site status...');
 
       const siteResponse = await fetch('https://www.elevateforhumanity.org');
       const html = await siteResponse.text();

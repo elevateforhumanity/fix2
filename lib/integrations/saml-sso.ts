@@ -218,7 +218,6 @@ export function createSAMLSSOClient(): SAMLSSOClient | null {
 
   if (!entryPoint || !issuer || !cert) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('SAML SSO not configured');
     }
     return null;
   }

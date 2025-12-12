@@ -56,7 +56,6 @@ export default function AffirmCheckout({
       locale: 'en_US',
       country_code: 'USA',
     };
-    console.log('[Affirm] Config initialized:', window._affirm_config);
 
     // Load Affirm script dynamically to avoid hydration issues
     const script = document.createElement('script');
@@ -64,9 +63,7 @@ export default function AffirmCheckout({
     script.async = true;
     script.onload = () => {
       setIsScriptLoaded(true);
-      console.log('[Affirm] ✅ Script loaded successfully');
       if (window.affirm) {
-        console.log('[Affirm] ✅ Window.affirm available');
         window.affirm.ui.refresh();
       } else {
         console.error('[Affirm] ❌ Window.affirm not found after load');
@@ -118,7 +115,6 @@ export default function AffirmCheckout({
 
       // Convert amount to cents (Affirm requires cents)
       const amountInCents = Math.round(amount * 100);
-      console.log('[Affirm] Amount:', { dollars: amount, cents: amountInCents });
 
       // Configure Affirm checkout
       const checkoutConfig = {
@@ -164,7 +160,6 @@ export default function AffirmCheckout({
         total: amountInCents, // Total amount in cents
       };
 
-      console.log('[Affirm] Checkout config:', checkoutConfig);
       window.affirm.checkout(checkoutConfig);
 
       // Open Affirm checkout modal

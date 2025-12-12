@@ -2,7 +2,6 @@ const http = require('http');
 const fs = require('fs');
 
 const server = http.createServer((req, res) => {
-  console.log('Request:', req.url);
 
   res.setHeader('Access-Control-Allow-Origin', '*');
 
@@ -127,5 +126,4 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(9000, '0.0.0.0', () => {
-  console.log('✅ Instant preview server running on port 9000');
 });

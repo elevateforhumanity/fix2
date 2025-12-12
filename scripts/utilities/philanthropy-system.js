@@ -596,7 +596,6 @@ class PhilanthropySystem {
       };
 
       // Log the application (in production, save to database)
-      console.log('Grant application received:', application);
 
       res.json({
         success: true,

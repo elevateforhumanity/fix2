@@ -8,8 +8,6 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🤖 Autopilot: Generating Complete Router');
-console.log('==========================================\n');
 
 // Get all page components
 const pagesDir = path.join(__dirname, '../src/pages');
@@ -54,7 +52,6 @@ function scanDirectory(dir) {
 // Scan for components
 scanDirectory(pagesDir);
 
-console.log(`✅ Found ${components.size} page components\n`);
 
 // Sort routes
 const sortedRoutes = Array.from(components.entries()).sort((a, b) => {
@@ -107,12 +104,10 @@ const backupPath = path.join(__dirname, '../src/router.jsx.backup');
 // Backup existing router
 if (fs.existsSync(routerPath)) {
   fs.copyFileSync(routerPath, backupPath);
-  console.log('✅ Backed up existing router to router.jsx.backup\n');
 }
 
 // Write new router
 fs.writeFileSync(routerPath, routerContent);
-console.log('✅ Generated new router with all components\n');
 
 // Generate route list for reference
 const routeList = sortedRoutes
@@ -131,29 +126,12 @@ ${routeList}
 `;
 
 fs.writeFileSync(path.join(__dirname, '../ROUTE_LIST.txt'), routeListContent);
-console.log('✅ Generated ROUTE_LIST.txt for reference\n');
 
 // Summary
-console.log('📊 Summary:');
-console.log(`   Routes Generated: ${components.size}`);
-console.log(`   Imports: ${uniqueImports.length}`);
-console.log(`   Backup: router.jsx.backup`);
-console.log(`   Output: src/router.jsx`);
-console.log(`   Reference: ROUTE_LIST.txt`);
-console.log('\n✅ Autopilot: Router generation complete!\n');
 
 // Show sample routes
-console.log('📋 Sample Routes (first 20):');
 sortedRoutes.slice(0, 20).forEach(([route, component]) => {
-  console.log(`   ${route.padEnd(40)} → ${component}`);
 });
-console.log(`   ... and ${components.size - 20} more routes\n`);
 
-console.log('🚀 Next Steps:');
-console.log('   1. Review generated router: src/router.jsx');
-console.log('   2. Test routes: npm run dev');
-console.log('   3. Update sitemap: npm run sitemap:generate');
-console.log(
   '   4. Commit changes: git add . && git commit -m "Add complete router"'
 );
-console.log('');

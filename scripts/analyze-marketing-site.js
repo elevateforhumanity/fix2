@@ -17,7 +17,6 @@ const MARKETING_SITE = 'https://www.elevateforhumanity.org';
 const OUTPUT_DIR = './analysis';
 
 async function analyzeSite() {
-  console.log('🚀 Starting marketing site analysis...\n');
 
   const browser = await puppeteer.launch({
     headless: 'new',
@@ -41,7 +40,6 @@ async function analyzeSite() {
   };
 
   try {
-    console.log(`📍 Navigating to ${MARKETING_SITE}...`);
     await page.goto(MARKETING_SITE, {
       waitUntil: 'networkidle2',
       timeout: 30000,
@@ -50,7 +48,6 @@ async function analyzeSite() {
     // ============================================
     // 1. ANALYZE SEO SETUP
     // ============================================
-    console.log('\n🔍 Analyzing SEO setup...');
 
     analysis.seo = await page.evaluate(() => {
       const getMetaContent = (name) => {
@@ -91,7 +88,6 @@ async function analyzeSite() {
     });
 
     // Check for sitemap
-    console.log('📄 Checking for sitemap...');
     try {
       const sitemapResponse = await page.goto(`${MARKETING_SITE}/sitemap.xml`, {
         waitUntil: 'networkidle2',
@@ -102,7 +98,6 @@ async function analyzeSite() {
     }
 
     // Check for robots.txt
-    console.log('🤖 Checking for robots.txt...');
     try {
       const robotsResponse = await page.goto(`${MARKETING_SITE}/robots.txt`, {
         waitUntil: 'networkidle2',
@@ -118,7 +113,6 @@ async function analyzeSite() {
     // ============================================
     // 2. DETECT SOCIAL MEDIA LINKS
     // ============================================
-    console.log('\n🔗 Detecting social media links...');
 
     analysis.socialMedia = await page.evaluate(() => {
       const links = Array.from(document.querySelectorAll('a[href]'));
@@ -148,7 +142,6 @@ async function analyzeSite() {
     // ============================================
     // 3. DISCOVER PAGES
     // ============================================
-    console.log('\n📑 Discovering pages...');
 
     const discoveredLinks = await page.evaluate(() => {
       const links = Array.from(document.querySelectorAll('a[href]'));
@@ -165,7 +158,6 @@ async function analyzeSite() {
     // ============================================
     // 4. CHECK FOR ANALYTICS
     // ============================================
-    console.log('\n📊 Checking for analytics...');
 
     analysis.analytics = await page.evaluate(() => {
       return {
@@ -189,7 +181,6 @@ async function analyzeSite() {
     // ============================================
     // 5. TAKE SCREENSHOT
     // ============================================
-    console.log('\n📸 Taking screenshot...');
     await fs.mkdir(OUTPUT_DIR, { recursive: true });
     await page.screenshot({
       path: path.join(OUTPUT_DIR, 'homepage-screenshot.png'),
@@ -199,7 +190,6 @@ async function analyzeSite() {
     // ============================================
     // 6. GENERATE RECOMMENDATIONS
     // ============================================
-    console.log('\n💡 Generating recommendations...');
 
     // SEO Recommendations
     if (!analysis.seo.hasSitemap) {
@@ -269,7 +259,6 @@ async function analyzeSite() {
     // ============================================
     // 7. GENERATE DURABLE SETUP INSTRUCTIONS
     // ============================================
-    console.log('\n📋 Generating Durable setup instructions...');
 
     analysis.durableInstructions = [
       {
@@ -387,7 +376,6 @@ async function analyzeSite() {
     // ============================================
     // 8. GENERATE CANVA ANIMATION RECOMMENDATIONS
     // ============================================
-    console.log('\n🎨 Generating Canva animation recommendations...');
 
     analysis.canvaAnimations = [
       {
@@ -545,7 +533,6 @@ async function analyzeSite() {
     // ============================================
     // 9. SAVE ANALYSIS REPORT
     // ============================================
-    console.log('\n💾 Saving analysis report...');
 
     const reportPath = path.join(OUTPUT_DIR, 'marketing-site-analysis.json');
     await fs.writeFile(reportPath, JSON.stringify(analysis, null, 2));
@@ -555,10 +542,6 @@ async function analyzeSite() {
     const mdPath = path.join(OUTPUT_DIR, 'DURABLE_SETUP_INSTRUCTIONS.md');
     await fs.writeFile(mdPath, markdownReport);
 
-    console.log('\n✅ Analysis complete!');
-    console.log(`📄 JSON Report: ${reportPath}`);
-    console.log(`📄 Markdown Report: ${mdPath}`);
-    console.log(
       `📸 Screenshot: ${path.join(OUTPUT_DIR, 'homepage-screenshot.png')}`
     );
   } catch (error) {

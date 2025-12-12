@@ -205,7 +205,6 @@ class RevenueSplitSystem {
           },
         });
 
-        console.log(
           `✅ Created new Connect account for ${partnerData.partner_name}`
         );
       }
@@ -228,7 +227,6 @@ class RevenueSplitSystem {
 
     if (metadata.enrollment_type === 'partner_program') {
       // Step 1: EFH has already received payment
-      console.log(`✅ EFH received payment: ${paymentIntent.amount / 100}`);
 
       // Step 2: Transfer 50% to partner
       if (metadata.partner_account_id) {
@@ -273,7 +271,6 @@ class RevenueSplitSystem {
         },
       });
 
-      console.log(
         `💸 Transferred $${amount / 100} to partner: ${partnerAccountId}`
       );
       return transfer;
@@ -317,7 +314,6 @@ class RevenueSplitSystem {
     };
 
     // Store enrollment (would integrate with database)
-    console.log('📚 Enrollment created:', enrollment);
 
     return enrollment;
   }
@@ -379,7 +375,6 @@ class RevenueSplitSystem {
       },
     };
 
-    console.log('📧 Sending enrollment confirmation:', emailData);
     // Would integrate with email service (SendGrid, etc.)
   }
 
@@ -398,7 +393,6 @@ class RevenueSplitSystem {
    */
   async recordTransaction(transactionData) {
     // Would store in database
-    console.log('💰 Transaction recorded:', transactionData);
     return transactionData;
   }
 
@@ -427,17 +421,4 @@ module.exports = RevenueSplitSystem;
 if (require.main === module) {
   const revenueSplit = new RevenueSplitSystem();
 
-  console.log('🏦 REVENUE SPLIT SYSTEM INITIALIZED');
-  console.log('');
-  console.log('💰 SELF-PAY PROGRAMS:');
-  console.log('  - 50% to Elevate for Humanity (paid first)');
-  console.log('  - 50% to Credentialing Partners');
-  console.log('  - Instructors: NO payment (credentialing only)');
-  console.log('');
-  console.log('🎓 GOVERNMENT PROGRAMS (WIOA/WRG/OJT):');
-  console.log('  - FREE to students');
-  console.log('  - 100% to EFH');
-  console.log('  - NO revenue split');
-  console.log('');
-  console.log('⚡ Automated enrollment and dual certification');
 }

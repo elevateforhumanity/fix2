@@ -28,8 +28,6 @@ class WorkflowTester {
    * Run complete workflow test
    */
   async runCompleteWorkflowTest() {
-    console.log('🧪 STARTING COMPLETE WORKFLOW TEST\n');
-    console.log('='.repeat(60));
 
     try {
       // Test 1: Product Catalog Validation
@@ -65,7 +63,6 @@ class WorkflowTester {
    * Test 1: Product Catalog Validation
    */
   async testProductCatalog() {
-    console.log('\n📋 TEST 1: Product Catalog Validation');
 
     try {
       const report = this.stripeManager.generatePricingReport();
@@ -100,14 +97,10 @@ class WorkflowTester {
         );
       }
 
-      console.log('✅ Product catalog validation passed');
-      console.log(
         `   - ${report.total_programs} programs across ${actualPartners.length} partners`
       );
-      console.log(
         `   - Total revenue potential: $${report.total_revenue_potential.toLocaleString()}`
       );
-      console.log(
         `   - Average price: $${Math.round(report.total_revenue_potential / report.total_programs)}`
       );
 
@@ -122,7 +115,6 @@ class WorkflowTester {
    * Test 2: Stripe Integration
    */
   async testStripeIntegration() {
-    console.log('\n💳 TEST 2: Stripe Integration');
 
     try {
       // Test product creation (mock)
@@ -146,10 +138,6 @@ class WorkflowTester {
         throw new Error('Elevate revenue calculation incorrect');
       }
 
-      console.log('✅ Stripe integration test passed');
-      console.log(`   - Product price: $${mockProduct.price}`);
-      console.log(`   - Partner revenue: $${mockProduct.partner_revenue}`);
-      console.log(`   - Elevate revenue: $${mockProduct.elevate_revenue}`);
 
       this.recordTest('Stripe Integration', true);
     } catch (error) {
@@ -162,7 +150,6 @@ class WorkflowTester {
    * Test 3: Revenue Split Calculation
    */
   async testRevenueSplitCalculation() {
-    console.log('\n💰 TEST 3: Revenue Split Calculation');
 
     try {
       const testPrices = [149, 300, 450, 525, 750];
@@ -176,12 +163,10 @@ class WorkflowTester {
           throw new Error(`Revenue split calculation error for $${price}`);
         }
 
-        console.log(
           `   $${price} → Partner: $${partnerRevenue}, Elevate: $${elevateRevenue}`
         );
       }
 
-      console.log('✅ Revenue split calculation test passed');
       this.recordTest('Revenue Split Calculation', true);
     } catch (error) {
       console.error('❌ Revenue split calculation test failed:', error.message);
@@ -193,7 +178,6 @@ class WorkflowTester {
    * Test 4: Enrollment Process
    */
   async testEnrollmentProcess() {
-    console.log('\n📝 TEST 4: Enrollment Process');
 
     try {
       const mockEnrollmentRequest = {
@@ -233,12 +217,8 @@ class WorkflowTester {
         throw new Error('Program ID mismatch');
       }
 
-      console.log('✅ Enrollment process test passed');
-      console.log(`   - Enrollment ID: ${enrollmentResult.id}`);
-      console.log(
         `   - Student: ${enrollmentResult.student.firstName} ${enrollmentResult.student.lastName}`
       );
-      console.log(`   - Program: ${enrollmentResult.program.name}`);
 
       this.recordTest('Enrollment Process', true);
     } catch (error) {
@@ -251,7 +231,6 @@ class WorkflowTester {
    * Test 5: Partner Integration
    */
   async testPartnerIntegration() {
-    console.log('\n🤝 TEST 5: Partner Integration');
 
     try {
       const partners = [
@@ -288,10 +267,8 @@ class WorkflowTester {
           );
         }
 
-        console.log(`   ✅ ${partnerId}: ${partnerResult.partnerEnrollmentId}`);
       }
 
-      console.log('✅ Partner integration test passed');
       this.recordTest('Partner Integration', true);
     } catch (error) {
       console.error('❌ Partner integration test failed:', error.message);
@@ -303,7 +280,6 @@ class WorkflowTester {
    * Test 6: Certificate Generation
    */
   async testCertificateGeneration() {
-    console.log('\n🏆 TEST 6: Certificate Generation');
 
     try {
       const mockEnrollmentData = {
@@ -357,14 +333,10 @@ class WorkflowTester {
         throw new Error('Certificate IDs not generated');
       }
 
-      console.log('✅ Certificate generation test passed');
-      console.log(
         `   - Elevate certificate: ${certificates.elevate_certificate.id}`
       );
-      console.log(
         `   - Partner certificate: ${certificates.partner_certificate.id}`
       );
-      console.log(`   - Verification records created`);
 
       this.recordTest('Certificate Generation', true);
     } catch (error) {
@@ -377,19 +349,10 @@ class WorkflowTester {
    * Test 7: Complete End-to-End Flow
    */
   async testCompleteFlow() {
-    console.log('\n🔄 TEST 7: Complete End-to-End Flow');
 
     try {
-      console.log('   Step 1: Student selects CompTIA Security+ ($525)');
-      console.log('   Step 2: Payment processed via Stripe');
-      console.log(
         '   Step 3: Revenue split: $262.50 to CompTIA, $262.50 to Elevate'
       );
-      console.log('   Step 4: Enrollment created in both systems');
-      console.log('   Step 5: Student receives course access links');
-      console.log('   Step 6: Progress tracking begins');
-      console.log('   Step 7: Upon completion, dual certificates issued');
-      console.log('   Step 8: Certificates delivered via email and portal');
 
       // Simulate complete flow timing
       const flowSteps = [
@@ -403,12 +366,9 @@ class WorkflowTester {
       ];
 
       for (let i = 0; i < flowSteps.length; i++) {
-        console.log(`   ⏳ ${flowSteps[i]}...`);
         await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate processing time
-        console.log(`   ✅ ${flowSteps[i]} complete`);
       }
 
-      console.log('✅ Complete end-to-end flow test passed');
       this.recordTest('Complete End-to-End Flow', true);
     } catch (error) {
       console.error('❌ Complete flow test failed:', error.message);
@@ -438,37 +398,17 @@ class WorkflowTester {
    * Generate comprehensive test report
    */
   generateTestReport() {
-    console.log('\n' + '='.repeat(60));
-    console.log('📊 WORKFLOW TEST REPORT');
-    console.log('='.repeat(60));
 
-    console.log(`\n🎯 SUMMARY:`);
-    console.log(`   Total Tests: ${this.testResults.tests.length}`);
-    console.log(`   Passed: ${this.testResults.passed} ✅`);
-    console.log(`   Failed: ${this.testResults.failed} ❌`);
-    console.log(
       `   Success Rate: ${Math.round((this.testResults.passed / this.testResults.tests.length) * 100)}%`
     );
 
-    console.log(`\n📋 DETAILED RESULTS:`);
     this.testResults.tests.forEach((test, index) => {
       const status = test.passed ? '✅' : '❌';
-      console.log(`   ${index + 1}. ${status} ${test.name}`);
       if (test.error) {
-        console.log(`      Error: ${test.error}`);
       }
     });
 
-    console.log(`\n🎓 SYSTEM CAPABILITIES VERIFIED:`);
-    console.log(`   ✅ 20 partner programs across 6 organizations`);
-    console.log(`   ✅ $9,570 total revenue potential`);
-    console.log(`   ✅ Automated 50/50 revenue splitting`);
-    console.log(`   ✅ Seamless partner platform integration`);
-    console.log(`   ✅ Dual certificate generation and delivery`);
-    console.log(`   ✅ Complete enrollment workflow automation`);
 
-    console.log(`\n🚀 READY FOR PRODUCTION DEPLOYMENT`);
-    console.log('='.repeat(60));
   }
 }
 

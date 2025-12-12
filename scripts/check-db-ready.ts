@@ -14,7 +14,6 @@ if (!url || !key) {
 const supabase = createClient(url, key);
 
 async function main() {
-  console.log('🔍 Checking database health...\n');
 
   // Check programs table
   const { data: programs, error: programsError } = await supabase
@@ -25,7 +24,6 @@ async function main() {
   if (programsError) {
     console.error('❌ Programs table not ready:', programsError.message);
   } else {
-    console.log('✅ Programs table ready. Sample programs:');
     console.table(programs);
   }
 
@@ -38,7 +36,6 @@ async function main() {
   if (coursesError) {
     console.error('❌ Courses table not ready:', coursesError.message);
   } else {
-    console.log('✅ Courses table ready. Sample courses:');
     console.table(courses);
   }
 
@@ -51,7 +48,6 @@ async function main() {
   if (productsError) {
     console.error('❌ Products table not ready:', productsError.message);
   } else {
-    console.log('✅ Products table ready. Sample products:');
     console.table(products);
   }
 
@@ -64,7 +60,6 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('\n✅ Database is ready and healthy!');
 }
 
 main().catch((err) => {

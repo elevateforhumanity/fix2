@@ -181,7 +181,6 @@ export default {
       const job = message.body;
 
       try {
-        console.log(`Processing job: ${job.id}`);
 
         // Update status to processing
         job.status = 'processing';
@@ -197,7 +196,6 @@ export default {
 
         await env.VIDEO_KV.put(`job:${job.id}`, JSON.stringify(job));
 
-        console.log(`Job completed: ${job.id}`);
         message.ack();
       } catch (error) {
         console.error(`Job failed: ${job.id}`, error);
@@ -219,13 +217,11 @@ export default {
     ctx: ExecutionContext
   ): Promise<void> {
     // Scheduled task: Generate template videos weekly
-    console.log('Running scheduled video generation');
 
     try {
       // Get all templates from KV
       const templatesData = await env.TEMPLATES_KV.get('video-templates');
       if (!templatesData) {
-        console.log('No templates found');
         return;
       }
 
@@ -252,10 +248,8 @@ export default {
         await env.VIDEO_KV.put(`job:${jobId}`, JSON.stringify(job));
         await env.VIDEO_QUEUE.send(job);
 
-        console.log(`Queued template: ${template.name}`);
       }
 
-      console.log(
         `Scheduled generation complete: ${templates.length} templates queued`
       );
     } catch (error) {
@@ -268,7 +262,6 @@ export default {
  * Generate video from job
  */
 async function generateVideo(job: VideoJob, env: Env): Promise<string> {
-  console.log(`Generating video: ${job.id}`);
 
   // Step 1: Generate TTS audio for each scene
   const audioFiles: string[] = [];
@@ -276,7 +269,6 @@ async function generateVideo(job: VideoJob, env: Env): Promise<string> {
     const scene = job.scenes[i];
 
     if (scene.voiceOver && scene.script) {
-      console.log(`Generating TTS for scene ${i + 1}`);
       const audioBuffer = await generateTTS(
         scene.script,
         job.settings.voice || 'alloy',
@@ -306,7 +298,6 @@ async function generateVideo(job: VideoJob, env: Env): Promise<string> {
   // In production, this would render the actual video
   const streamVideoId = await uploadToCloudflareStream(job, metadata, env);
 
-  console.log(`Video generated: ${streamVideoId}`);
 
   return `https://customer-${env.CLOUDFLARE_ACCOUNT_ID.substring(0, 32)}.cloudflarestream.com/${streamVideoId}/manifest/video.m3u8`;
 }

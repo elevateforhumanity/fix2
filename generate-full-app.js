@@ -48,8 +48,6 @@ const routes = pages
   })
   .join('\n');
 
-console.log(`Found ${pages.length} pages`);
-console.log('Generating App.tsx...');
 
 const appContent = `import { Component, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -139,5 +137,3 @@ ${routes}
 `;
 
 fs.writeFileSync('src/App-Generated.tsx', appContent);
-console.log('✅ Generated src/App-Generated.tsx');
-console.log(`✅ ${pages.length} pages routed`);

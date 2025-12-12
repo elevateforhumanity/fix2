@@ -211,12 +211,10 @@ const FULL_COURSE_CATALOG = {
 };
 
 async function main() {
-  console.log('Starting full course catalog import...\n');
   
   let totalImported = 0;
   
   for (const [providerType, courses] of Object.entries(FULL_COURSE_CATALOG)) {
-    console.log(`\nImporting ${courses.length} courses for ${providerType}...`);
     
     // Get provider ID
     const { data: provider } = await supabase
@@ -269,17 +267,14 @@ async function main() {
     }
     
     totalImported += courses.length;
-    console.log(`✅ Imported ${courses.length} ${provider.provider_name} courses`);
   }
   
-  console.log(`\n✅ Total courses imported: ${totalImported}`);
   
   // Verify
   const { count } = await supabase
     .from('partner_courses_catalog')
     .select('*', { count: 'exact', head: true });
   
-  console.log(`\n📊 Total courses in database: ${count}`);
 }
 
 main().catch(console.error);

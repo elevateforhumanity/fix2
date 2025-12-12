@@ -129,7 +129,6 @@ app.post(
         process.env.STRIPE_WEBHOOK_SECRET
       );
     } catch (err) {
-      console.log(`Webhook signature verification failed.`, err.message);
       return res.status(400).send(`Webhook Error: ${err.message}`);
     }
 
@@ -165,7 +164,6 @@ app.post(
           certificatePath
         );
 
-        console.log(`✅ Flash sale license delivered to ${customerEmail}`);
       } catch (error) {
         console.error('License generation error:', error);
       }
@@ -211,7 +209,6 @@ async function sendFlashSaleLicense(
   `;
 
   // Here you would integrate with your email service
-  console.log(`📧 Email sent to ${email}:`, emailTemplate);
 
   return true;
 }
@@ -237,8 +234,6 @@ app.get('/api/flash-sale-success/:sessionId', async (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`🔥 Flash Sale Server running on port ${PORT}`);
-  console.log(`💰 Emergency packages ready for immediate revenue`);
 });
 
 module.exports = app;

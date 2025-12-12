@@ -14,7 +14,6 @@ export interface EmailOptions {
 export async function sendEmail(options: EmailOptions): Promise<{ success: boolean; messageId?: string; error?: string }> {
   try {
     if (!process.env.RESEND_API_KEY) {
-      console.warn('[Email] RESEND_API_KEY not configured, email not sent');
       return { success: false, error: 'Email service not configured' };
     }
     const { data, error } = await resend.emails.send({

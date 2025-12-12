@@ -11,9 +11,6 @@ async function main() {
     process.stdout.write(textPart);
   }
 
-  console.log();
-  console.log('Token usage:', await result.usage);
-  console.log('Finish reason:', await result.finishReason);
 }
 
 main().catch(console.error);

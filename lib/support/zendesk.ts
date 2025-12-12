@@ -10,7 +10,6 @@ export async function createZendeskTicket(params: {
   tags?: string[];
 }) {
   if (!ZENDESK_SUBDOMAIN || !ZENDESK_EMAIL || !ZENDESK_API_TOKEN) {
-    console.warn('Zendesk not configured, skip creating ticket');
     return;
   }
 

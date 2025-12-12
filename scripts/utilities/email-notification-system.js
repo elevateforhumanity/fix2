@@ -80,7 +80,6 @@ class EFHNotificationSystem {
         this.revenueData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
       }
     } catch (error) {
-      console.log('Starting with fresh revenue data');
     }
 
     // Set up daily summary email
@@ -461,7 +460,6 @@ class EFHNotificationSystem {
         subject,
         html,
       });
-      console.log(`✅ Email sent: ${subject}`);
     } catch (error) {
       console.error('❌ Email send failed:', error.message);
     }
@@ -490,7 +488,6 @@ class EFHNotificationSystem {
 
   async sendSMSNotification(message) {
     if (!this.twilioClient) {
-      console.log('📱 SMS notification (Twilio not configured):', message);
       return;
     }
 
@@ -500,13 +497,11 @@ class EFHNotificationSystem {
         from: process.env.TWILIO_PHONE_NUMBER,
         to: `+1${this.notificationSettings.phone}`,
       });
-      console.log(
         `📱 SMS sent to ${this.notificationSettings.phone}: ${message.substring(0, 50)}...`
       );
     } catch (error) {
       console.error('❌ SMS send failed:', error.message);
       // Fallback: log to console for debugging
-      console.log('📱 SMS notification (failed):', message);
     }
   }
 

@@ -112,7 +112,6 @@ export function createWistiaClient(): WistiaClient | null {
 
   if (!apiToken) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Wistia not configured');
     }
     return null;
   }

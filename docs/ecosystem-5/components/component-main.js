@@ -51,11 +51,8 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, '0.0.0.0', () => {
-  // console.log(`🚀 EFH Ecosystem running on http://localhost:${PORT}`);
-  // console.log(
     '🔒 Security Status: XSS vulnerability fixed in all universal scripts'
   );
-  // console.log('📄 Sister Sites: /hub /programs /lms /connect /compliance');
 });
 
 module.exports = app;

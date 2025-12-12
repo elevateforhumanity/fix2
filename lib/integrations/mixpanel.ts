@@ -143,7 +143,6 @@ export function createMixpanelClient(): MixpanelClient | null {
 
   if (!token) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Mixpanel not configured');
     }
     return null;
   }

@@ -131,7 +131,6 @@ export default {
         }
 
         if (shouldSync) {
-          console.log('Templates/media updated, syncing...');
           await syncTemplates(env);
           await syncStockMedia(env);
         }
@@ -177,12 +176,10 @@ export default {
     ctx: ExecutionContext
   ): Promise<void> {
     // Sync templates daily
-    console.log('Running scheduled template sync');
 
     try {
       await syncTemplates(env);
       await syncStockMedia(env);
-      console.log('Scheduled sync complete');
     } catch (error) {
       console.error('Scheduled sync failed:', error);
     }
@@ -193,7 +190,6 @@ export default {
  * Sync templates from GitHub
  */
 async function syncTemplates(env: Env): Promise<void> {
-  console.log('Syncing templates from GitHub...');
 
   const url = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/src/data/video-templates.ts`;
 
@@ -225,14 +221,12 @@ async function syncTemplates(env: Env): Promise<void> {
   await env.TEMPLATES_KV.put('video-templates-raw', content);
   await env.TEMPLATES_KV.put('last-sync', new Date().toISOString());
 
-  console.log('Templates synced successfully');
 }
 
 /**
  * Sync stock media from GitHub
  */
 async function syncStockMedia(env: Env): Promise<void> {
-  console.log('Syncing stock media from GitHub...');
 
   const url = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/src/data/stock-media.ts`;
 
@@ -272,5 +266,4 @@ async function syncStockMedia(env: Env): Promise<void> {
   await env.STOCK_MEDIA_KV.put('stock-media-raw', content);
   await env.STOCK_MEDIA_KV.put('last-sync', new Date().toISOString());
 
-  console.log('Stock media synced successfully');
 }

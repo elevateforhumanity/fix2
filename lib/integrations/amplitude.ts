@@ -158,7 +158,6 @@ export function createAmplitudeClient(): AmplitudeClient | null {
 
   if (!apiKey) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Amplitude not configured');
     }
     return null;
   }

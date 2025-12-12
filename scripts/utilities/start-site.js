@@ -293,8 +293,4 @@ app.get('/*', (req, res) => {
 });
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`✅ Elevate for Humanity site running on port ${PORT}`);
-  console.log(`🌐 Government services: http://localhost:${PORT}/government`);
-  console.log(`💜 Philanthropy: http://localhost:${PORT}/philanthropy`);
-  console.log(`♿ Accessibility: http://localhost:${PORT}/accessibility`);
 });

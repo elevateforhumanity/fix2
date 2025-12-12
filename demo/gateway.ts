@@ -14,15 +14,11 @@ async function main() {
     prompt: 'Invent a new holiday and describe its traditions.',
   });
 
-  console.log('Streaming response from AI Gateway:\n');
 
   for await (const textPart of result.textStream) {
     process.stdout.write(textPart);
   }
 
-  console.log('\n');
-  console.log('Token usage:', await result.usage);
-  console.log('Finish reason:', await result.finishReason);
 }
 
 main().catch(console.error);

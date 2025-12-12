@@ -18,5 +18,4 @@ app.get('/api/health', (_req, res) =>
 app.get('/', (_req, res) => res.send('EFH API is running ✅'));
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`[EFH] API listening on :${PORT}`);
 });

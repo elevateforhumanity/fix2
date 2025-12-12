@@ -16,7 +16,6 @@ export function measurePageLoad() {
     }
     // Log to console in development
     if (process.env.NODE_ENV === 'development') {
-      console.log('Performance metrics:', {
         pageLoad: `${pageLoadTime}ms`,
         connect: `${connectTime}ms`,
         render: `${renderTime}ms`,
@@ -96,12 +95,10 @@ export function trackAPIPerformance(endpoint: string, duration: number) {
   }
   // Log slow API calls
   if (duration > 1000 && process.env.NODE_ENV === 'development') {
-    console.warn(`Slow API call: ${endpoint} took ${duration}ms`);
   }
 }
 export function trackComponentRender(componentName: string, duration: number) {
   if (process.env.NODE_ENV === 'development' && duration > 100) {
-    console.warn(`Slow component render: ${componentName} took ${duration}ms`);
   }
 }
 // Resource timing
@@ -110,7 +107,6 @@ export function analyzeResourceTiming() {
   const resources = performance.getEntriesByType('resource') as PerformanceResourceTiming[];
   const slowResources = resources.filter(r => r.duration > 1000);
   if (slowResources.length > 0 && process.env.NODE_ENV === 'development') {
-    console.warn('Slow resources detected:', slowResources.map(r => ({
       name: r.name,
       duration: `${Math.round(r.duration)}ms`,
       size: r.transferSize,
@@ -141,7 +137,6 @@ export function trackMemoryUsage() {
     const totalMemory = memory.totalJSHeapSize / 1048576; // MB
     
     if (process.env.NODE_ENV === 'development') {
-      console.log('Memory usage:', {
         used: `${usedMemory.toFixed(2)}MB`,
         total: `${totalMemory.toFixed(2)}MB`,
         percentage: `${((usedMemory / totalMemory) * 100).toFixed(1)}%`,

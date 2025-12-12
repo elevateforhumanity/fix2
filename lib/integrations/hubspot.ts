@@ -145,7 +145,6 @@ export function createHubSpotClient(): HubSpotClient | null {
 
   if (!apiKey) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('HubSpot not configured');
     }
     return null;
   }

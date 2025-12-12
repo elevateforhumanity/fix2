@@ -12,11 +12,9 @@ const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 async function main() {
   if (!OPENAI_API_KEY || !SUPABASE_URL || !SUPABASE_KEY) {
-    console.log("⚠️  Autopilot video generation disabled (missing env).");
     process.exit(0);
   }
   // TODO: your real generation logic lives here
-  console.log("✅ Env present. (Generation implementation intentionally noop here.)");
 }
 
 main().catch((err) => {

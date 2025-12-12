@@ -435,7 +435,6 @@ Rise Foundation Licensing Team
       text: emailContent,
     });
 
-    console.log(`License email sent to: ${email}`);
   } catch (error) {
     console.error('Failed to send license email:', error);
   }
@@ -456,9 +455,6 @@ app.get('/health', (req, res) => {
 
 const PORT = process.env.DASHBOARD_PORT || 3002;
 app.listen(PORT, () => {
-  console.log(`🛡️  License dashboard running on port ${PORT}`);
-  console.log(`📊 Dashboard URL: http://localhost:${PORT}/api/admin/dashboard`);
-  console.log(
     `🔑 Admin API key required: ${process.env.ADMIN_API_KEY ? 'Set' : 'NOT SET'}`
   );
 });

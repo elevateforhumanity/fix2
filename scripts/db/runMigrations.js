@@ -16,7 +16,6 @@ async function runMigrations() {
   const client = new Client({ connectionString });
 
   try {
-    console.log('🚀 Connecting to Supabase database...');
     await client.connect();
 
     const migrationsDir = path.join(process.cwd(), 'supabase', 'migrations');
@@ -32,12 +31,9 @@ async function runMigrations() {
       .sort();
 
     if (files.length === 0) {
-      console.log('ℹ️ No migration files found.');
       return;
     }
 
-    console.log(`📂 Found ${files.length} migration files:`);
-    files.forEach((f) => console.log(`  • ${f}`));
 
     // optional: create a table to track which migrations ran
     await client.query(`
@@ -57,11 +53,9 @@ async function runMigrations() {
         [file]
       );
       if (rows.length > 0) {
-        console.log(`⏭  Skipping already applied migration: ${file}`);
         continue;
       }
 
-      console.log(`📝 Running migration: ${file}`);
       const sql = fs.readFileSync(filePath, 'utf8');
 
       try {
@@ -72,7 +66,6 @@ async function runMigrations() {
           [file]
         );
         await client.query('COMMIT');
-        console.log(`✅ Migration applied: ${file}`);
       } catch (err) {
         await client.query('ROLLBACK');
         console.error(`❌ Migration failed: ${file}`);
@@ -81,7 +74,6 @@ async function runMigrations() {
       }
     }
 
-    console.log('🎉 All migrations processed.');
   } catch (err) {
     console.error('❌ Migration runner error:', err.message);
     process.exit(1);

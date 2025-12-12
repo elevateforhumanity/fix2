@@ -158,12 +158,10 @@ export default {
       const job = message.body;
 
       try {
-        console.log(`Downloading: ${job.filename}`);
 
         // Check if already exists
         const existing = await env.MEDIA_R2.head(job.filename);
         if (existing) {
-          console.log(`Already exists: ${job.filename}`);
           message.ack();
           continue;
         }
@@ -192,7 +190,6 @@ export default {
           },
         });
 
-        console.log(`Downloaded: ${job.filename} (${body.byteLength} bytes)`);
         message.ack();
       } catch (error) {
         console.error(`Download failed: ${job.filename}`, error);
@@ -207,11 +204,9 @@ export default {
     ctx: ExecutionContext
   ): Promise<void> {
     // Download all media monthly
-    console.log('Running scheduled media download');
 
     try {
       await downloadAllMedia(env);
-      console.log('Scheduled download complete');
     } catch (error) {
       console.error('Scheduled download failed:', error);
     }

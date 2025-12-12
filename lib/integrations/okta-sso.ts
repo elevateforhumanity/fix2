@@ -117,7 +117,6 @@ export function createOktaSSOClient(): OktaSSOClient | null {
 
   if (!clientId || !clientSecret || !issuer) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Okta SSO not configured');
     }
     return null;
   }

@@ -16,7 +16,6 @@ function scrubInFile(file) {
     });
     if (out !== src) {
       fs.writeFileSync(file, out);
-      console.log(`✏️  Scrubbed: ${path.relative(process.cwd(), file)}`);
     }
   } catch (e) {
     console.error(`Failed to scrub ${file}:`, e.message);

@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 
 const server = http.createServer((req, res) => {
-  console.log(`${req.method} ${req.url}`);
 
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -64,6 +63,4 @@ const server = http.createServer((req, res) => {
 
 const PORT = 8000;
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`✅ Server running on port ${PORT}`);
-  console.log(`🌐 View site at: http://localhost:${PORT}`);
 });

@@ -179,7 +179,6 @@ export function createCloudinaryClient(): CloudinaryClient | null {
 
   if (!cloudName || !apiKey || !apiSecret) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Cloudinary not configured');
     }
     return null;
   }

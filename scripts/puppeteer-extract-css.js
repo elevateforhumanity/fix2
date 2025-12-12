@@ -17,13 +17,6 @@ const TARGET_URL = 'https://www.elevateforhumanity.org';
 const OUTPUT_DIR = path.join(process.cwd(), 'extracted-styles');
 
 async function extractAllCSS() {
-  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('🤖 Puppeteer Worker - CSS Extraction Autopilot');
-  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('');
-  console.log(`Target: ${TARGET_URL}`);
-  console.log(`Output: ${OUTPUT_DIR}`);
-  console.log('');
 
   let browser;
 
@@ -32,7 +25,6 @@ async function extractAllCSS() {
     await fs.mkdir(OUTPUT_DIR, { recursive: true });
 
     // Launch browser
-    console.log('[1/8] Launching headless browser...');
     browser = await puppeteer.launch({
       headless: 'new',
       args: [
@@ -46,20 +38,14 @@ async function extractAllCSS() {
 
     const page = await browser.newPage();
     await page.setViewport({ width: 1920, height: 1080 });
-    console.log('✅ Browser launched');
-    console.log('');
 
     // Navigate to target site
-    console.log('[2/8] Loading target website...');
     await page.goto(TARGET_URL, {
       waitUntil: 'networkidle2',
       timeout: 60000,
     });
-    console.log('✅ Website loaded');
-    console.log('');
 
     // Extract all CSS from stylesheets
-    console.log('[3/8] Extracting CSS from stylesheets...');
     const stylesheets = await page.evaluate(() => {
       const sheets = [];
       for (const sheet of document.styleSheets) {
@@ -96,11 +82,8 @@ async function extractAllCSS() {
       allCSS,
       'utf-8'
     );
-    console.log(`✅ Extracted ${stylesheets.length} stylesheets`);
-    console.log('');
 
     // Extract computed styles for all elements
-    console.log('[4/8] Extracting computed styles...');
     const computedStyles = await page.evaluate(() => {
       const elements = document.querySelectorAll('*');
       const styles = {};
@@ -154,11 +137,8 @@ async function extractAllCSS() {
       JSON.stringify(computedStyles, null, 2),
       'utf-8'
     );
-    console.log('✅ Extracted computed styles');
-    console.log('');
 
     // Extract design tokens (colors, fonts, spacing)
-    console.log('[5/8] Extracting design tokens...');
     const designTokens = await page.evaluate(() => {
       const tokens = {
         colors: new Set(),
@@ -223,15 +203,8 @@ async function extractAllCSS() {
       JSON.stringify(designTokens, null, 2),
       'utf-8'
     );
-    console.log('✅ Extracted design tokens:');
-    console.log(`   - ${designTokens.colors.length} colors`);
-    console.log(`   - ${designTokens.fonts.length} font families`);
-    console.log(`   - ${designTokens.fontSizes.length} font sizes`);
-    console.log(`   - ${designTokens.spacing.length} spacing values`);
-    console.log('');
 
     // Extract CSS variables
-    console.log('[6/8] Extracting CSS variables...');
     const cssVariables = await page.evaluate(() => {
       const vars = {};
       const root = document.documentElement;
@@ -252,13 +225,10 @@ async function extractAllCSS() {
       JSON.stringify(cssVariables, null, 2),
       'utf-8'
     );
-    console.log(
       `✅ Extracted ${Object.keys(cssVariables).length} CSS variables`
     );
-    console.log('');
 
     // Extract component structure
-    console.log('[7/8] Extracting component structure...');
     const components = await page.evaluate(() => {
       const comps = [];
 
@@ -328,28 +298,20 @@ async function extractAllCSS() {
       JSON.stringify(components, null, 2),
       'utf-8'
     );
-    console.log(`✅ Extracted ${components.length} components`);
-    console.log('');
 
     // Take full page screenshot
-    console.log('[8/8] Taking full page screenshot...');
     await page.screenshot({
       path: path.join(OUTPUT_DIR, 'full-page.png'),
       fullPage: true,
     });
-    console.log('✅ Screenshot saved');
-    console.log('');
 
     // Generate Tailwind config
-    console.log('Generating Tailwind config...');
     const tailwindConfig = generateTailwindConfig(designTokens);
     await fs.writeFile(
       path.join(OUTPUT_DIR, 'tailwind.config.js'),
       tailwindConfig,
       'utf-8'
     );
-    console.log('✅ Tailwind config generated');
-    console.log('');
 
     // Generate summary report
     const summary = {
@@ -379,25 +341,8 @@ async function extractAllCSS() {
       'utf-8'
     );
 
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('✅ CSS Extraction Complete!');
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('');
-    console.log('📊 Summary:');
-    console.log(`   - Stylesheets: ${summary.stats.stylesheets}`);
-    console.log(`   - CSS Variables: ${summary.stats.cssVariables}`);
-    console.log(`   - Colors: ${summary.stats.colors}`);
-    console.log(`   - Fonts: ${summary.stats.fonts}`);
-    console.log(`   - Components: ${summary.stats.components}`);
-    console.log('');
-    console.log('📁 Output directory:');
-    console.log(`   ${OUTPUT_DIR}`);
-    console.log('');
-    console.log('📄 Generated files:');
     summary.files.forEach((file) => {
-      console.log(`   - ${file}`);
     });
-    console.log('');
   } catch (error) {
     console.error('❌ Error:', error.message);
     console.error(error.stack);

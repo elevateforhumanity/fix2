@@ -101,7 +101,6 @@ export class CloudflareStreamService {
     }
   ): Promise<StreamVideo> {
     try {
-      console.log(`Uploading video to Cloudflare Stream: ${videoPath}`);
 
       const form = new FormData();
       form.append('file', createReadStream(videoPath));
@@ -147,7 +146,6 @@ export class CloudflareStreamService {
         );
       }
 
-      console.log(`Video uploaded successfully: ${data.result.uid}`);
       return data.result;
     } catch (error) {
       console.error('Error uploading to Cloudflare Stream:', error);
@@ -169,7 +167,6 @@ export class CloudflareStreamService {
     }
   ): Promise<StreamVideo> {
     try {
-      console.log(`Uploading video from URL to Cloudflare Stream: ${url}`);
 
       const meta: Record<string, string> = {
         name: metadata.name,
@@ -199,7 +196,6 @@ export class CloudflareStreamService {
         );
       }
 
-      console.log(`Video uploaded successfully: ${data.result.uid}`);
       return data.result;
     } catch (error) {
       console.error('Error uploading from URL to Cloudflare Stream:', error);
@@ -297,7 +293,6 @@ export class CloudflareStreamService {
         return false;
       }
 
-      console.log(`Video deleted: ${videoId}`);
       return true;
     } catch (error) {
       console.error('Error deleting video from Cloudflare Stream:', error);
@@ -490,11 +485,9 @@ export class CloudflareStreamService {
       const isReady = await this.isVideoReady(videoId);
 
       if (isReady) {
-        console.log(`Video ${videoId} is ready to stream`);
         return true;
       }
 
-      console.log(`Waiting for video ${videoId} to be ready...`);
       await new Promise((resolve) => setTimeout(resolve, pollInterval));
     }
 
@@ -512,7 +505,6 @@ export function createCloudflareStream(): CloudflareStreamService | null {
     process.env.CLOUDFLARE_STREAM_API_TOKEN || process.env.CLOUDFLARE_API_TOKEN;
 
   if (!accountId || !apiToken) {
-    console.warn('Cloudflare Stream credentials not configured');
     return null;
   }
 

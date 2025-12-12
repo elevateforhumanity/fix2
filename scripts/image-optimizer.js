@@ -29,11 +29,8 @@ const config = {
 
 // Ensure directories exist
 if (!fs.existsSync(config.inputDir)) {
-  console.log(`📁 Creating input directory: ${config.inputDir}`);
   fs.mkdirSync(config.inputDir, { recursive: true });
 
-  console.log(`ℹ️  Place your raw images in ${config.inputDir}/`);
-  console.log('   Supported formats: jpg, jpeg, png, webp');
   process.exit(0);
 }
 
@@ -50,13 +47,11 @@ async function optimizeImage(inputPath, filename) {
     return;
   }
 
-  console.log(`🖼️  Processing: ${filename}`);
 
   try {
     const image = sharp(inputPath);
     const metadata = await image.metadata();
 
-    console.log(
       `   Original: ${metadata.width}x${metadata.height} (${(fs.statSync(inputPath).size / 1024).toFixed(1)}KB)`
     );
 
@@ -94,7 +89,6 @@ async function optimizeImage(inputPath, filename) {
       const outputSize = fs.statSync(outputPath).size;
       const outputMeta = await sharp(outputPath).metadata();
 
-      console.log(
         `   → ${outputFilename}: ${outputMeta.width}x${outputMeta.height} (${(outputSize / 1024).toFixed(1)}KB)`
       );
     }
@@ -104,12 +98,6 @@ async function optimizeImage(inputPath, filename) {
 }
 
 async function optimizeAll() {
-  console.log('🚀 Starting image optimization...');
-  console.log(`📁 Input: ${config.inputDir}`);
-  console.log(`📁 Output: ${config.outputDir}`);
-  console.log(`🎯 Max width: ${config.maxWidth}px`);
-  console.log(`📋 Formats: ${config.formats.join(', ')}`);
-  console.log('');
 
   const files = fs.readdirSync(config.inputDir);
   const imageFiles = files.filter((file) => {
@@ -118,55 +106,28 @@ async function optimizeAll() {
   });
 
   if (imageFiles.length === 0) {
-    console.log(`ℹ️  No images found in ${config.inputDir}`);
-    console.log('   Add some .jpg, .png, or .webp files and run again');
     return;
   }
 
-  console.log(`📊 Found ${imageFiles.length} images to process`);
-  console.log('');
 
   for (const file of imageFiles) {
     const inputPath = path.join(config.inputDir, file);
     await optimizeImage(inputPath, file);
-    console.log('');
   }
 
-  console.log('✅ Image optimization complete!');
-  console.log('');
-  console.log('💡 Usage in HTML:');
-  console.log('   <picture>');
-  console.log(
     '     <source srcset="/assets/images/hero.webp" type="image/webp">'
   );
-  console.log(
     '     <img src="/assets/images/hero.jpeg" alt="Description" loading="lazy">'
   );
-  console.log('   </picture>');
 }
 
 // Handle command line arguments
 const args = process.argv.slice(2);
 if (args.includes('--help') || args.includes('-h')) {
-  console.log('Image Optimizer for Elevate for Humanity');
-  console.log('');
-  console.log('Usage: node scripts/image-optimizer.js [options]');
-  console.log('');
-  console.log('Options:');
-  console.log('  --help, -h     Show this help message');
-  console.log('  --config       Show current configuration');
-  console.log('');
-  console.log('Configuration:');
-  console.log(`  Input directory:  ${config.inputDir}`);
-  console.log(`  Output directory: ${config.outputDir}`);
-  console.log(`  Max width:        ${config.maxWidth}px`);
-  console.log(`  Output formats:   ${config.formats.join(', ')}`);
   process.exit(0);
 }
 
 if (args.includes('--config')) {
-  console.log('Current Configuration:');
-  console.log(JSON.stringify(config, null, 2));
   process.exit(0);
 }
 

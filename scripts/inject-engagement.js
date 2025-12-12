@@ -89,7 +89,6 @@ function processFile(file) {
     ensureInfoBox($);
 
     fs.writeFileSync(file, $.html());
-    console.log(
       `✅ Engagement injected: ${path.relative(process.cwd(), file)}`
     );
   } catch (e) {

@@ -61,7 +61,6 @@ function wrapRouteWithErrorHandling(content: string): string {
 }
 
 async function main() {
-  console.log('🔧 Wrapping all API routes with error handling...\n');
   
   const files = await glob(`${API_DIR}/**/route.{ts,tsx}`, { ignore: '**/node_modules/**' });
   
@@ -81,17 +80,12 @@ async function main() {
     
     if (wrapped !== content) {
       fs.writeFileSync(file, wrapped);
-      console.log(`✅ Fixed: ${file.replace(process.cwd(), '')}`);
       fixed++;
     } else {
       skipped++;
     }
   }
   
-  console.log(`\n📊 Summary:`);
-  console.log(`✅ Fixed: ${fixed} routes`);
-  console.log(`⏭️  Skipped: ${skipped} routes (already have error handling)`);
-  console.log(`📁 Total: ${files.length} API routes`);
 }
 
 main().catch(console.error);

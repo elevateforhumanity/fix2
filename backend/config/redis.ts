@@ -24,7 +24,6 @@ export const redis = new Redis(redisConfig);
  * Redis connection event handlers
  */
 redis.on('connect', () => {
-  console.log('✅ Redis connected');
 });
 
 redis.on('error', (err) => {
@@ -32,7 +31,6 @@ redis.on('error', (err) => {
 });
 
 redis.on('close', () => {
-  console.log('⚠️  Redis connection closed');
 });
 
 /**
@@ -81,7 +79,6 @@ export const clearCache = async (pattern: string = '*') => {
     const keys = await redis.keys(`cache:${pattern}`);
     if (keys.length > 0) {
       await redis.del(...keys);
-      console.log(`✅ Cleared ${keys.length} cache keys`);
     }
   } catch (error) {
     console.error('Error clearing cache:', error);

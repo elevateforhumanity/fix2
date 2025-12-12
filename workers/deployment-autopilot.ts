@@ -62,7 +62,6 @@ async function monitorAndFix(env: Env): Promise<Response> {
 
   try {
     // 1. Check GitHub Actions status
-    console.log('🔍 Checking GitHub Actions...');
     const workflowStatus = await checkGitHubActions(env);
     
     if (workflowStatus.failed) {
@@ -80,7 +79,6 @@ async function monitorAndFix(env: Env): Promise<Response> {
     }
 
     // 2. Check Vercel deployment status
-    console.log('🔍 Checking Vercel deployments...');
     const vercelStatus = await checkVercelDeployments(env);
     
     if (vercelStatus.issues.length > 0) {
@@ -92,7 +90,6 @@ async function monitorAndFix(env: Env): Promise<Response> {
     }
 
     // 3. Check if www.elevateforhumanity.org is accessible
-    console.log('🔍 Checking production site...');
     const siteStatus = await checkProductionSite();
     
     if (!siteStatus.accessible) {
@@ -312,7 +309,6 @@ async function triggerDeployment(env: Env): Promise<void> {
 }
 
 async function promoteToProduction(env: Env): Promise<Response> {
-  console.log('🚀 Promoting latest deployment to production');
 
   // 1. Get latest deployment from main branch
   const deploymentsResponse = await fetch(
@@ -338,7 +334,6 @@ async function promoteToProduction(env: Env): Promise<Response> {
     });
   }
 
-  console.log(`Found latest deployment: ${latestMainDeployment.uid}`);
 
   // 2. Promote to production by setting alias
   const aliasResponse = await fetch(

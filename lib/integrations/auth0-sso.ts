@@ -191,7 +191,6 @@ export function createAuth0SSOClient(): Auth0SSOClient | null {
 
   if (!domain || !clientId || !clientSecret) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('Auth0 SSO not configured');
     }
     return null;
   }

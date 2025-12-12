@@ -13,7 +13,6 @@ export async function sendSlackMessage(params: {
   color?: string;
 }) {
   if (!SLACK_WEBHOOK_URL) {
-    console.warn('SLACK_WEBHOOK_URL not set, skipping Slack message');
     return;
   }
 

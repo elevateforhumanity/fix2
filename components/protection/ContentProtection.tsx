@@ -64,7 +64,6 @@ export default function ContentProtection({
 
     if (isBotDetected || hasWebDriver || hasAutomation || hasPhantom || hasPuppeteer) {
       setIsBot(true);
-      console.warn("Automated access detected - content protection active");
     }
   }, [blockAIScrapers]);
   useEffect(() => {
@@ -127,14 +126,12 @@ export default function ContentProtection({
     const handleKeyUp = (e: KeyboardEvent) => {
       if (e.key === "PrintScreen" && !allowScreenshot) {
         navigator.clipboard.writeText("");
-        console.warn("Screenshot attempt detected and blocked");
       }
     };
 
     // Blur detection - warn if user switches tabs/windows
     const handleVisibilityChange = () => {
       if (document.hidden && level === "maximum") {
-        console.warn("User navigated away from protected content");
       }
     };
 

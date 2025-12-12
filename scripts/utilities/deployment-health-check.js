@@ -86,8 +86,6 @@ class DeploymentHealthCheck {
   }
 
   async runHealthCheck() {
-    console.log('🏥 DEPLOYMENT HEALTH CHECK STARTING...\n');
-    console.log('='.repeat(60));
 
     const results = {
       deployed: [],
@@ -98,29 +96,23 @@ class DeploymentHealthCheck {
 
     // Check each system
     for (const [systemName, system] of Object.entries(this.expectedFeatures)) {
-      console.log(`\n🔍 CHECKING: ${systemName}`);
 
       const systemStatus = await this.checkSystem(systemName, system);
 
       if (systemStatus.allFilesPresent && systemStatus.allFeaturesWorking) {
         results.working.push(systemName);
-        console.log(`✅ ${systemName}: FULLY OPERATIONAL`);
       } else if (systemStatus.someFilesPresent) {
         results.deployed.push(systemName);
-        console.log(`⚠️ ${systemName}: PARTIALLY DEPLOYED`);
       } else {
         results.missing.push(systemName);
-        console.log(`❌ ${systemName}: NOT DEPLOYED`);
       }
 
       // List specific issues
       if (systemStatus.missingFiles.length > 0) {
-        console.log(
           `   Missing files: ${systemStatus.missingFiles.join(', ')}`
         );
       }
       if (systemStatus.brokenFeatures.length > 0) {
-        console.log(
           `   Broken features: ${systemStatus.brokenFeatures.join(', ')}`
         );
       }
@@ -229,20 +221,10 @@ class DeploymentHealthCheck {
   }
 
   generateHealthReport(results) {
-    console.log('\n' + '='.repeat(60));
-    console.log('📊 DEPLOYMENT HEALTH REPORT');
-    console.log('='.repeat(60));
 
-    console.log(`\n✅ FULLY OPERATIONAL (${results.working.length}):`);
-    results.working.forEach((system) => console.log(`   • ${system}`));
 
-    console.log(`\n⚠️ PARTIALLY DEPLOYED (${results.deployed.length}):`);
-    results.deployed.forEach((system) => console.log(`   • ${system}`));
 
-    console.log(`\n❌ NOT DEPLOYED (${results.missing.length}):`);
-    results.missing.forEach((system) => console.log(`   • ${system}`));
 
-    console.log('\n🔧 SPECIFIC ISSUES FOUND:');
 
     const issues = [
       'AI brain integration may not be loading on all pages',
@@ -255,9 +237,7 @@ class DeploymentHealthCheck {
       'Mobile responsiveness needs cross-device testing',
     ];
 
-    issues.forEach((issue) => console.log(`   ❌ ${issue}`));
 
-    console.log('\n🎯 PRIORITY FIXES NEEDED:');
     const priorities = [
       '1. Ensure unified-navigation.js loads on all pages',
       '2. Test sister sites dropdown functionality',
@@ -269,26 +249,15 @@ class DeploymentHealthCheck {
       '8. Verify student portal functionality',
     ];
 
-    priorities.forEach((priority) => console.log(`   ${priority}`));
 
-    console.log('\n📈 DEPLOYMENT SUCCESS RATE:');
     const totalSystems = Object.keys(this.expectedFeatures).length;
     const successRate = Math.round(
       (results.working.length / totalSystems) * 100
     );
-    console.log(`   ${successRate}% of systems fully operational`);
-    console.log(
       `   ${results.working.length}/${totalSystems} systems working correctly`
     );
 
-    console.log('\n🚀 NEXT STEPS:');
-    console.log('   1. Commit and push all remaining files');
-    console.log('   2. Test unified navigation on live site');
-    console.log('   3. Verify sister sites integration');
-    console.log('   4. Test partner marketplace functionality');
-    console.log('   5. Validate AI brain integration');
 
-    console.log('\n' + '='.repeat(60));
   }
 }
 

@@ -345,7 +345,6 @@ class MarketplaceAutomation {
   }
 
   async createReplitBounty() {
-    // console.log('🎯 Creating Replit Bounty...');
 
     // For Replit Bounties, we'll create a comprehensive post template
     const bountyPost = {
@@ -375,12 +374,10 @@ class MarketplaceAutomation {
       this.formatBountyTemplate(bountyPost)
     );
 
-    // console.log('✅ Replit Bounty template created: replit-bounty-template.md');
     return bountyPost;
   }
 
   async createFlippaListing() {
-    // console.log('🏪 Creating Flippa Listing...');
 
     const flippaListing = {
       title: this.listings.flippa.title,
@@ -405,14 +402,12 @@ class MarketplaceAutomation {
       this.formatFlippaTemplate(flippaListing)
     );
 
-    // console.log(
       '✅ Flippa listing template created: flippa-listing-template.md'
     );
     return flippaListing;
   }
 
   async createGumroadProducts() {
-    // console.log('🛒 Creating Gumroad Products...');
 
     const products = [];
 
@@ -435,14 +430,12 @@ class MarketplaceAutomation {
       JSON.stringify(products, null, 2)
     );
 
-    // console.log(
       '✅ Gumroad products template created: gumroad-products-template.json'
     );
     return products;
   }
 
   async createLinkedInOutreach() {
-    // console.log('💼 Creating LinkedIn Outreach Templates...');
 
     const templates = {
       community_colleges: `
@@ -500,14 +493,12 @@ class MarketplaceAutomation {
       JSON.stringify(templates, null, 2)
     );
 
-    // console.log(
       '✅ LinkedIn outreach templates created: linkedin-outreach-templates.json'
     );
     return templates;
   }
 
   async createRedditPosts() {
-    // console.log('📱 Creating Reddit Post Templates...');
 
     const posts = {
       entrepreneur: `
@@ -612,7 +603,6 @@ class MarketplaceAutomation {
       JSON.stringify(posts, null, 2)
     );
 
-    // console.log(
       '✅ Reddit post templates created: reddit-posts-templates.json'
     );
     return posts;
@@ -689,7 +679,6 @@ Please include your background and acquisition experience in your inquiry.
   }
 
   async generateAllListings() {
-    // console.log('🚀 Generating all marketplace listings...');
 
     const results = await Promise.all([
       this.createReplitBounty(),
@@ -699,18 +688,11 @@ Please include your background and acquisition experience in your inquiry.
       this.createRedditPosts(),
     ]);
 
-    // console.log('✅ All marketplace listings generated!');
-    // console.log('\n📋 Next Steps:');
-    // console.log('1. Review generated templates in project files');
-    // console.log('2. Customize with your specific details');
-    // console.log('3. Post to respective platforms');
-    // console.log('4. Track performance with revenue dashboard');
 
     return results;
   }
 
   async trackListingPerformance() {
-    // console.log('📊 Setting up aggressive traffic tracking...');
 
     const trackingData = {
       platforms: {
@@ -763,7 +745,6 @@ Please include your background and acquisition experience in your inquiry.
   }
 
   async setupSMSAlerts() {
-    // console.log('📱 Setting up SMS alerts for instant notifications...');
 
     const smsConfig = {
       phone: '3177607908',
@@ -793,7 +774,6 @@ const express = require('express');
 
 function sendSMSAlert(phone, message) {
   // Using Twilio or similar service
-  // console.log(\`📱 SMS Alert to \${phone}: \${message}\`);
 
   // Placeholder for actual SMS service integration
   // You'd replace this with Twilio, AWS SNS, or similar
@@ -839,7 +819,6 @@ module.exports = { sendSMSAlert, trackDemoVisit, alertPaymentReceived };
   }
 
   async setupEmailNotifications() {
-    // console.log(
       '📧 Setting up email notifications for marketplace activity...'
     );
 
@@ -860,6 +839,5 @@ module.exports = MarketplaceAutomation;
 if (require.main === module) {
   const automation = new MarketplaceAutomation();
   automation.generateAllListings().then(() => {
-    // console.log('🎉 Ready to start selling!');
   });
 }

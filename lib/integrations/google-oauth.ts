@@ -5,7 +5,6 @@ let googleClient: OAuth2Client | null = null;
 
 export function getGoogleOAuthClient(): OAuth2Client | null {
   if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET) {
-    console.warn('Google OAuth not configured');
     return null;
   }
 

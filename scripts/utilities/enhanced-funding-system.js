@@ -540,7 +540,6 @@ if (typeof module !== 'undefined' && module.exports) {
 // Global functions for frontend integration
 function contactEnrollment(programId) {
   // Integration point for enrollment contact system
-  console.log(`Contact enrollment for program: ${programId}`);
   // This would integrate with your existing contact/enrollment system
 }
 

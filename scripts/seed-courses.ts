@@ -806,7 +806,6 @@ const programToTemplate: Record<string, string> = {
 // ---------- SEED LOGIC ----------
 
 async function main() {
-  console.log("🚀 Seeding modules & lessons for programs...");
 
   // 1. Load all programs so we can match by slug
   const { data: programs, error: programsError } = await supabase
@@ -823,26 +822,22 @@ async function main() {
     process.exit(1);
   }
 
-  console.log(`📦 Found ${programs.length} programs total.`);
 
   // 2. For each program that has a template mapping, create modules + lessons
   for (const program of programs) {
     const templateCode = programToTemplate[program.slug];
 
     if (!templateCode) {
-      console.log(`ℹ️ Skipping program "${program.title}" (slug: ${program.slug}) — no template mapping set.`);
       continue;
     }
 
     const template = templates[templateCode];
     if (!template) {
-      console.log(
         `⚠️ No template found for code "${templateCode}" — skipping program "${program.title}".`
       );
       continue;
     }
 
-    console.log(`\n📚 Seeding course for program: ${program.title} (${program.slug}) using template "${templateCode}"`);
 
     // Optional: check if modules already exist (to avoid duplicates)
     const { data: existingModules, error: modulesError } = await supabase
@@ -857,7 +852,6 @@ async function main() {
     }
 
     if (existingModules && existingModules.length > 0) {
-      console.log(`   ⏭ Modules already exist for "${program.title}" — skipping to avoid duplicates.`);
       continue;
     }
 
@@ -884,7 +878,6 @@ async function main() {
         continue;
       }
 
-      console.log(`   ✅ Module created: ${mod.title}`);
 
       // 2b. Insert lessons for this module
       for (let lIndex = 0; lIndex < mod.lessons.length; lIndex++) {
@@ -904,13 +897,11 @@ async function main() {
             insertLessonError.message
           );
         } else {
-          console.log(`      📘 Lesson added: ${lesson.title}`);
         }
       }
     }
   }
 
-  console.log("\n✅ Seeding complete.");
 }
 
 main().catch((err) => {

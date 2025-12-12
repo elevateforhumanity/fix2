@@ -36,7 +36,6 @@ Allow: /
 Sitemap: ${DOMAIN}/sitemap-index.xml
 `;
   writeFileSync(resolve(outDir, 'robots.txt'), robotsTxt, 'utf8');
-  console.log('Sitemaps + robots.txt generated in dist/');
 }
 
 main().catch((e) => {

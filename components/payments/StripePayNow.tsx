@@ -28,7 +28,6 @@ export default function StripePayNow({
 
   const handlePay = async () => {
     setLoading(true);
-    console.log('[Stripe] Starting checkout:', { amount, courseId, courseName });
 
     try {
       const response = await fetch('/api/checkout', {
@@ -49,7 +48,6 @@ export default function StripePayNow({
       }
 
       const { sessionId, url } = await response.json();
-      console.log('[Stripe] ✅ Checkout session created:', sessionId);
 
       if (url) {
         // Redirect to Stripe Checkout

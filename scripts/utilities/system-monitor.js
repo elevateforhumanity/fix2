@@ -87,7 +87,6 @@ class EFHMonitor {
       this.metrics.pageViews[page] = this.metrics.pageViews[page].slice(-1000);
     }
 
-    console.log(`📊 Page View: ${page} | IP: ${ip}`);
   }
 
   // Track user enrollments
@@ -106,7 +105,6 @@ class EFHMonitor {
 
     this.metrics.enrollments[courseId].push(enrollment);
 
-    console.log(
       `🎓 New Enrollment: Course ${courseId} | User: ${userId} | Amount: $${amount}`
     );
 
@@ -135,7 +133,6 @@ class EFHMonitor {
 
     this.metrics.payments[status].push(payment);
 
-    console.log(
       `💳 Payment ${status}: ${transactionId} | $${amount} | ${method}`
     );
 
@@ -243,7 +240,6 @@ class EFHMonitor {
         html: emailContent,
       });
 
-      console.log(`📧 Notification sent: ${subject}`);
     } catch (error) {
       console.error('Failed to send notification:', error);
     }
@@ -270,7 +266,6 @@ class EFHMonitor {
         priority: 'high',
       });
 
-      console.log(`🚨 ALERT sent: ${subject}`);
     } catch (error) {
       console.error('Failed to send alert:', error);
     }
@@ -287,7 +282,6 @@ class EFHMonitor {
       this.metrics.systemHealth.uptime =
         Date.now() - this.metrics.systemHealth.uptime;
 
-      console.log(
         `🔍 System Health: Memory: ${this.metrics.systemHealth.memory}MB | Uptime: ${Math.round(this.metrics.systemHealth.uptime / 1000 / 60)}min`
       );
     }, 60000);

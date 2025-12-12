@@ -82,7 +82,6 @@ const supabaseApiAdapter: ApiAdapter = {
 const externalRestApiAdapter: ApiAdapter = {
   async listPrograms() {
     if (!integrations.externalApiBaseUrl) {
-      console.warn("[EFH API] externalRestApiAdapter used but externalApiBaseUrl not configured.");
       return [];
     }
     try {
@@ -103,7 +102,6 @@ const externalRestApiAdapter: ApiAdapter = {
 
   async getProgramBySlug(slug: string) {
     if (!integrations.externalApiBaseUrl) {
-      console.warn("[EFH API] externalRestApiAdapter used but externalApiBaseUrl not configured.");
       return null;
     }
     try {

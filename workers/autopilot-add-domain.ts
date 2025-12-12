@@ -90,7 +90,6 @@ export default {
 
 // Add custom domain to Netlify
 async function addCustomDomain(env: Env, domain: string) {
-  console.log(`Adding custom domain: ${domain}`);
 
   const response = await fetch(
     `https://api.netlify.com/api/v1/sites/${env.NETLIFY_SITE_ID}/domains`,
@@ -130,7 +129,6 @@ async function addCustomDomain(env: Env, domain: string) {
 
 // Check SSL certificate status
 async function checkSSLStatus(env: Env, domain: string) {
-  console.log(`Checking SSL status for: ${domain}`);
 
   const response = await fetch(
     `https://api.netlify.com/api/v1/sites/${env.NETLIFY_SITE_ID}`,
@@ -162,7 +160,6 @@ async function checkSSLStatus(env: Env, domain: string) {
 
 // List all domains
 async function listDomains(env: Env) {
-  console.log('Listing all domains');
 
   const response = await fetch(
     `https://api.netlify.com/api/v1/sites/${env.NETLIFY_SITE_ID}`,
@@ -190,7 +187,6 @@ async function listDomains(env: Env) {
 
 // Purge all caches
 async function purgeCacheAll(env: Env) {
-  console.log('Purging all caches');
 
   // Trigger a new build with cache clear
   const response = await fetch(
@@ -222,7 +218,6 @@ async function purgeCacheAll(env: Env) {
 
 // Full domain setup (add domain + wait for SSL + purge cache)
 async function fullDomainSetup(env: Env, domain: string) {
-  console.log(`Starting full domain setup for: ${domain}`);
 
   const results: any = {
     steps: [],

@@ -166,17 +166,11 @@ app.get('/', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Elevate License Server running on port ${PORT}`);
-  console.log(`💰 Revenue system ready for immediate sales`);
-  console.log(`🔐 Enterprise license management operational`);
-  console.log(`📊 Dashboard: http://localhost:${PORT}`);
-  console.log(`🏥 Health check: http://localhost:${PORT}/health`);
 
   // Ensure certificates directory exists
   const fs = require('fs');
   if (!fs.existsSync('./certificates')) {
     fs.mkdirSync('./certificates', { recursive: true });
-    console.log('📁 Created certificates directory');
   }
 });
 

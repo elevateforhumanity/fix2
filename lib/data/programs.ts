@@ -26,7 +26,6 @@ export async function getProgram(slug: string): Promise<Program | null> {
       return mapSupabaseProgramToProgram(supabaseProgram);
     }
   } catch (error) {
-    console.warn("Supabase query failed, falling back to static data:", error);
   }
 
   // Fallback to static programs.ts
@@ -53,7 +52,6 @@ export async function getAllPrograms(): Promise<Program[]> {
       return supabasePrograms.map(mapSupabaseProgramToProgram);
     }
   } catch (error) {
-    console.warn("Supabase query failed, falling back to static data:", error);
   }
 
   // Fallback to static programs.ts

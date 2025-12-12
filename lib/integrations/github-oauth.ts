@@ -103,7 +103,6 @@ export function createGitHubOAuthClient(): GitHubOAuthClient | null {
 
   if (!clientId || !clientSecret) {
     if (process.env.NODE_ENV === 'development') {
-      console.warn('GitHub OAuth not configured');
     }
     return null;
   }

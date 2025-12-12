@@ -21,7 +21,6 @@ export default function LiveChat() {
     const widgetId = process.env.NEXT_PUBLIC_TAWK_WIDGET_ID;
 
     if (!propertyId || !widgetId) {
-      console.warn('Tawk.to not configured. Add NEXT_PUBLIC_TAWK_PROPERTY_ID and NEXT_PUBLIC_TAWK_WIDGET_ID to environment variables.');
       return;
     }
 

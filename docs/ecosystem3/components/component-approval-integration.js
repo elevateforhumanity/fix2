@@ -118,7 +118,6 @@ async function markEnrollmentActive({ student_email, program_slug }) {
       .single();
 
     if (!appUser) {
-      // console.log(`User not found for email: ${student_email}`);
       return;
     }
 
@@ -134,7 +133,6 @@ async function markEnrollmentActive({ student_email, program_slug }) {
       }
     );
 
-    // console.log(
       `✅ Enrollment activated via approval: ${program_slug} for ${student_email}`
     );
   } catch (e) {
@@ -203,17 +201,12 @@ async function sendCaseManagerEmail({
   `;
 
   // Note: Replace with your email provider
-  // console.log(`📧 Email would be sent to ${to}:`);
-  // console.log(`Subject: ${subject}`);
-  // console.log(`Approve: ${approveUrl}`);
-  // console.log(`Decline: ${declineUrl}`);
 }
 
 /**
  * Register approval routes with the Express app
  */
 function registerApprovalRoutes(app) {
-  // console.log('🔄 Registering approval routes...');
 
   /**
    * Student requests approval (from any site).
@@ -488,7 +481,6 @@ function registerApprovalRoutes(app) {
     }
   });
 
-  // console.log('✅ Approval routes registered successfully');
 }
 
 module.exports = { registerApprovalRoutes };

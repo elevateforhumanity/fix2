@@ -75,14 +75,12 @@ const fetchHtml = (route) =>
       const safe = route === '/' ? 'index' : route.replace(/\//g, '_');
       const outFile = path.join(OUT_DIR, `${safe}.html`);
       fs.writeFileSync(outFile, html, 'utf-8');
-      console.log(
         'Prerendered',
         route,
         '->',
         path.relative(process.cwd(), outFile)
       );
     }
-    console.log('Prerender complete. Files in dist/prerender');
   } catch (e) {
     console.error('Prerender failed:', e);
     process.exitCode = 1;

@@ -189,7 +189,6 @@ class HealthCheckService {
    */
   async sendAlert(status: HealthStatus): Promise<void> {
     if (!this.slackWebhook) {
-      console.log('No Slack webhook configured');
       return;
     }
 
@@ -263,7 +262,6 @@ class HealthCheckService {
    * Run all health checks
    */
   async runAllChecks(): Promise<void> {
-    console.log('🏥 Running health checks...\n');
 
     const checks = [
       this.checkOpenLMS(),
@@ -282,24 +280,20 @@ class HealthCheckService {
           : status.status === 'degraded'
             ? '⚠️'
             : '❌';
-      console.log(
         `${emoji} ${status.service}: ${status.status} (${status.responseTime}ms)`
       );
-      console.log(`   ${status.message}\n`);
     });
 
     // Send alerts for unhealthy services
     const unhealthyServices = results.filter((s) => s.status !== 'healthy');
 
     if (unhealthyServices.length > 0) {
-      console.log('⚠️  Unhealthy services detected, sending alerts...\n');
 
       for (const status of unhealthyServices) {
         await this.sendAlert(status);
         await this.logStatus(status);
       }
     } else {
-      console.log('✅ All services healthy!\n');
     }
 
     // Calculate overall health
@@ -309,7 +303,6 @@ class HealthCheckService {
         ? 'critical'
         : 'degraded';
 
-    console.log(`Overall System Health: ${overallHealth.toUpperCase()}`);
 
     // Exit with error code if critical
     if (overallHealth === 'critical') {
