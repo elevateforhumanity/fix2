@@ -138,6 +138,7 @@ export default function HomePage() {
                     muted
                     loop
                     playsInline
+                    preload="auto"
                     poster="/images/barber-professional.jpg"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
@@ -177,7 +178,7 @@ export default function HomePage() {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                     poster="/images/healthcare/cna-poster.jpg"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
@@ -217,6 +218,7 @@ export default function HomePage() {
                     muted
                     loop
                     playsInline
+                    preload="auto"
                     poster="/images/hvac-highlight.png"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
