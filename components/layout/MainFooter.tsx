@@ -16,24 +16,6 @@ export function MainFooter() {
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <Link href="/programs" className="hover:text-red-600">
-            Programs
-          </Link>
-          <Link href="/funding" className="hover:text-red-600">
-            Funding Options
-          </Link>
-          <Link href="/employers" className="hover:text-red-600">
-            Employers
-          </Link>
-          <Link href="/about" className="hover:text-red-600">
-            About
-          </Link>
-          <Link href="/contact" className="hover:text-red-600">
-            Contact
-          </Link>
-        </div>
-
-        <div className="flex flex-wrap gap-4">
           <Link href="/privacy" className="hover:text-red-600">
             Privacy Policy
           </Link>
@@ -42,6 +24,12 @@ export function MainFooter() {
           </Link>
           <Link href="/refund-policy" className="hover:text-red-600">
             Refund Policy
+          </Link>
+          <Link href="/accessibility" className="hover:text-red-600">
+            Accessibility
+          </Link>
+          <Link href="/sitemap" className="hover:text-red-600">
+            Sitemap
           </Link>
         </div>
       </div>

@@ -109,27 +109,10 @@ export function SiteFooter() {
             </div>
           </div>
 
-          {/* Programs */}
+          {/* Quick Actions */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-900">
-              Programs
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/programs"
-                  className="text-orange-600 hover:text-orange-700 transition text-sm font-bold"
-                >
-                  View All Programs →
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-900">
-              Quick Links
+              Get Started
             </h3>
             <ul className="space-y-2">
               <li>
@@ -142,53 +125,29 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href="/schedule-tour"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  About Us
+                  Schedule a Tour
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/request-info"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/success-stories"
-                  className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
-                >
-                  Success Stories
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
-                >
-                  FAQ
+                  Request Information
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Community */}
+          {/* Get Involved */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-900">
-              Community
+              Get Involved
             </h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/employers"
-                  className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
-                >
-                  For Employers
-                </Link>
-              </li>
               <li>
                 <Link
                   href="/volunteer"
@@ -218,7 +177,15 @@ export function SiteFooter() {
                   href="/news"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  News & Blog
+                  News
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/careers"
+                  className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
+                >
+                  Careers
                 </Link>
               </li>
             </ul>
@@ -281,107 +248,58 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Partner Organizations */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-900">
-              Company
+              Partner Organizations
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/about"
+                  href="/rise-foundation"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  About Us
+                  RISE Foundation
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/founder"
-                  className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
+                  href="/rise-foundation/about"
+                  className="text-slate-600 hover:text-orange-600 transition text-xs"
                 >
-                  Our Founder
+                  About RISE
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/team"
-                  className="text-slate-700 hover:text-teal-600 transition text-sm font-medium"
+                  href="/rise-foundation/programs"
+                  className="text-slate-600 hover:text-orange-600 transition text-xs"
                 >
-                  Our Team
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/success-stories"
-                  className="text-slate-700 hover:text-teal-600 transition text-sm font-medium"
-                >
-                  Success Stories
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-slate-700 hover:text-teal-600 transition text-sm font-medium"
-                >
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-900">
-              Resources
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/student/dashboard"
-                  className="text-slate-700 hover:text-teal-600 transition text-sm font-medium"
-                >
-                  Student Portal
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="text-slate-700 hover:text-teal-600 transition text-sm font-medium"
-                >
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-slate-700 hover:text-teal-600 transition text-sm font-medium"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/accessibility"
-                  className="text-slate-700 hover:text-teal-600 transition text-sm font-medium"
-                >
-                  Accessibility
+                  RISE Programs
                 </Link>
               </li>
               <li className="pt-2 mt-1 border-t border-slate-200">
                 <Link
-                  href="/privacy-policy"
-                  className="text-slate-600 hover:text-teal-600 transition text-xs"
+                  href="/supersonic-fast-cash"
+                  className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Privacy Policy
+                  Supersonic Fast Cash
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/terms-of-service"
-                  className="text-slate-600 hover:text-teal-600 transition text-xs"
+                  href="/supersonic-fast-cash/how-it-works"
+                  className="text-slate-600 hover:text-orange-600 transition text-xs"
                 >
-                  Terms of Service
+                  How It Works
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/supersonic-fast-cash/services"
+                  className="text-slate-600 hover:text-orange-600 transition text-xs"
+                >
+                  Services
                 </Link>
               </li>
             </ul>

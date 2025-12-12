@@ -115,24 +115,6 @@ export const headerNav: NavSection[] = [
       { label: "Contact Us", href: "/contact" },
     ],
   },
-  {
-    label: "RISE Foundation",
-    href: "/rise-foundation",
-    items: [
-      { label: "About RISE", href: "/rise-foundation/about" },
-      { label: "Our Programs", href: "/rise-foundation/programs" },
-      { label: "Get Involved", href: "/rise-foundation/get-involved" },
-    ],
-  },
-  {
-    label: "Supersonic Fast Cash",
-    href: "/supersonic-fast-cash",
-    items: [
-      { label: "How It Works", href: "/supersonic-fast-cash/how-it-works" },
-      { label: "Our Services", href: "/supersonic-fast-cash/services" },
-      { label: "Apply Now", href: "/supersonic-fast-cash/apply" },
-    ],
-  },
 ];
 
 /**

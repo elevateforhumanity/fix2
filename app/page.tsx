@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { WelcomeAudio } from "@/components/WelcomeAudio";
+import PWAInstallSection from "@/components/PWAInstallSection";
 
 export default function HomePage() {
   const [isMuted, setIsMuted] = React.useState(true);
@@ -20,7 +21,7 @@ export default function HomePage() {
     <main className="bg-white overflow-x-hidden">
       <WelcomeAudio />
       {/* VIDEO HERO WITH TEXT OVERLAY */}
-      <section className="relative w-full overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center">
+      <section className="relative w-full overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center bg-slate-900">
         {/* Background Video */}
         <video
           ref={videoRef}
@@ -28,7 +29,7 @@ export default function HomePage() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/videos/hero-home.mp4" type="video/mp4" />
@@ -132,14 +133,15 @@ export default function HomePage() {
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src="/images/barber-professional.jpg"
-                    alt="Barber Apprenticeship - Professional barber training"
-                    fill
-                    quality={90}
-                    priority
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  >
+                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-570a7e55-792e-4ad3-bbd1-72ca89a61f2d.mp4?Expires=2080924478&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=lJclF2elhC7zl9M1V8PutfwBpdobo6~Qy~EJMrZgIEbfcUEeEGZJgwFB~4uSdvqU933Gz7YdTSs~hsqqeSzgBdspriI8RxZ8VVlimBpxb3AC2ijVdMKdJ-r~kZ2FvmYqfk7wqVjemgng3T7pQJQmV7bBP-TIDjZDyzwCFU2URhxrUHvuza06-dHnoVKAcsRoXQIRhqYizQ6sAxlo2qo06k3wufViF3x66U~jLKmw55AQ57El~n5HcKkFZiYRlKaR60SI2ydO-7RlLepp987ApV8cntAQqZI1I4M50pD7nndlDBiW0iMa-b8y-j4JzeiLWZgBSDDHQQtursDYT0cZAw__" type="video/mp4" />
+                  </video>
                   {/* Dark overlay for better text contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -179,7 +181,7 @@ export default function HomePage() {
                       target.parentElement?.appendChild(img);
                     }}
                   >
-                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__8/generated-video-2a104343-e6a7-4bd8-88c8-367de1f111b5.mp4?Expires=2080924435&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=0jh2Q6YasOiEYKsMLsHnO8-IxuDZSqIViWwCAY7gaOPqU9ZOVcEUPXk~1fmm1DMUxHWDL0vyigwSBNgAOnadT-kd3nbs~15itdd9nEr4jQdbwi5RA2MbgicP5RcAE4MUpsgphyjlR7cvYq7AmALH6eeRSqlPGGSGQEpk5fB9yo02LevHzlhg4KAktAxMmTZfe8HbPATZc8BIWOBu5-oTsohbZMPWThG7A6ZIt9AqNCXGvIcGEb-suOLDAtyTkaVgrmJue1OOx3guDvOi0KaLBSKgzq3717ItPpu9dxnXxuvwe1XxCxq5StyLZptxVAi5FpRRVPwkxDNNyDqLNlglgg__" type="video/mp4" />
+                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__8/generated-video-2a104343-e6a7-4bd8-88c8-367de1f111b5.mp4?Expires=2080924478&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=VDbMoeXvqCg1lE~yE5KwWa68jY7-KjRZgTkJ1xGSneC-50gWZiTucrrMivPYl8RC~aST-zYco4R5rtGInzy-52hejNzZ3ujUmhl4FhkCBXyxJYXP1IfKXmHThQYPG-ig5hOUintkIHs8C56A3Qr~GBtndR4coM01NURlWOTQuJiiYILAMBPQZb5dRI6LBHBX-tO1pLOB4aGptE6ud4Vyx6ZeyyYKE5ZpwThpw3AN~81WEWnTMHoXWv58Uy6XdkW3JEdXHV81Ny5zlTZtf2riODwPfWgzdWrxOl93H7qOP7UCyBNkT-suiDviwgRuw8KVEsC~e26GsR8KgXxbsVzKZg__" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -201,14 +203,15 @@ export default function HomePage() {
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src="/images/hvac-highlight.png"
-                    alt="HVAC Technician - Heating and Cooling Training"
-                    fill
-                    quality={90}
-                    priority
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  >
+                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-dc9558de-f94b-43f1-8e4a-5f45d019895f.mp4?Expires=2080924478&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=evbvLLELi4p-lAanFSPFiU0Dlx8N55HZ5V0wkF6MzFuoWPXO9T6atBo-jTyTmfMZw4J4b6Nm8ty40OWrg4V87XOuX~H5iw8bz2xWA0WQ34~3lcUDj9aNMIntxS7pVH0aX40lSafVs4ujdEec8ONdlzpSPUhc9wsduZEl8jXfqxip~j1AJAYNlpTNSx419QDRB04g7p8Anfd84~MKWsy9VpdKz3zsViFOfjrv4cF-nQkrIwx8phUoEH7O5hQkH2pIT3TPaVFyQphQyHfZusVoDm7nZcR1bjCa~GhGnCKhOElJ8e5zS2SYlKsB84Uj1axBGFhDeS7eifvEUd0CzmkMJQ__" type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
@@ -263,7 +266,14 @@ export default function HomePage() {
             </div>
 
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-              <div className="text-3xl mb-3">👨‍👩‍👧‍👦</div>
+              <div className="mb-3 relative w-full h-32 rounded-lg overflow-hidden">
+                <Image
+                  src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__3/generated-image-490c99f8-5b92-43d9-b250-d9e0737d9317.png?Expires=2080924478&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=v3QMnx8aJGuSYZtAGmbfHfEzVi95DBWi3ob3iwWiuAe0bROgg8OSQodp9VHjPnu1CWtGu-5tYwmk50uP2xUUaCrsvJyjCH8DxUrSIfR-5LHD3uiP~qmXKJ80EpLTQ~XIxCoRqz9dmGosf2zfZXjhs19NCWbNo0xi1JUaEbyu66HyV25tzPSUFn0X5Y9aDcL9tLJXxyl-gVaIYdOPMlIX0WM3ZVrN0~tgA5XgcoCKwdeR5Y3zjHHZbBG6Uh2bmtbusigFgI2uHd~nu~qLVTkLGPZy1GGXZOYDf-Xm2Dm37XTspUIifLQN6FQ96dexvaqL4vGJfaYE4AyG5s0vE-LKDA__"
+                  alt="Parents & Caregivers"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">Parents & Caregivers</h3>
               <p className="text-sm text-slate-700">
                 Our hybrid programs let you train online at your own pace and complete hands-on 
@@ -272,7 +282,17 @@ export default function HomePage() {
             </div>
 
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-              <div className="text-3xl mb-3">🔄</div>
+              <div className="mb-3 relative w-full h-32 rounded-lg overflow-hidden">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__7/generated-video-79ee190a-1c7a-4c96-9acc-f2eb06ffc61c.mp4?Expires=2080931868&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=1bQ6JmHYtm0imcET1KwGtbx0npzi-9MZQGPi3K0S228Vit69ibZwXj58OHCpyH4Yzk3yI81xnIa6CRrDsC5j6AZiuU4CZ2eP6Nq2mMSplv51B9CKntY6XJVedVgYUHWdFvDgP5-tinnsffqmh~d17hz0B3CakSPqS8pAOprPpa5JzidK7HogLKHXgKqzDTXwtva8dTT~e~DGPLZnKa3oAB5WrnAaPkd6teKi9ZckkxirYC8Y1CCEH2uXuuzQFN1dhXQQuFkfzcnw0apdroqIWZCMYKc9YuU9iTFAt3NwXl6KjC5dE89krgClUDn57Nuttwy6wEP6lTVjg62iUuAthw__" type="video/mp4" />
+                </video>
+              </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">Career Changers</h3>
               <p className="text-sm text-slate-700">
                 Stuck in a dead-end job? Starting completely over? Our short-term programs 
@@ -447,8 +467,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* PWA Install Section */}
+      <PWAInstallSection />
+
       {/* CTA - Talk to an Advisor */}
-      <section className="py-16 bg-gradient-to-br from-blue-600 to-purple-600">
+      <section className="py-16 bg-gradient-to-br from-blue-600 to-orange-600">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Video */}

@@ -18,7 +18,7 @@ export default function MainHeader() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   return (
-    <header className="bg-white z-50 sticky top-0 shadow-sm border-b border-slate-100">
+    <header className="bg-white/95 backdrop-blur-md z-50 sticky top-0 border-b border-slate-200/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo Only */}
@@ -70,14 +70,14 @@ export default function MainHeader() {
                   {/* Dropdown panel */}
                   <div
                     className={classNames(
-                      'absolute left-0 mt-2 w-64 rounded-xl border border-blue-100 bg-white shadow-xl shadow-blue-500/10 py-2 z-50',
+                      'absolute left-0 mt-2 w-64 rounded-lg border border-slate-200 bg-white shadow-lg py-2 z-50',
                       !isOpen && 'hidden'
                     )}
                   >
                     {section.href && (
                       <Link
                         href={section.href}
-                        className="block px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500 hover:text-orange-600"
+                        className="block px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500 hover:text-blue-600 transition-colors"
                       >
                         Overview
                       </Link>
@@ -87,9 +87,9 @@ export default function MainHeader() {
                         key={item.label}
                         href={item.href}
                         className={classNames(
-                          'block px-4 py-2 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-700',
+                          'block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors rounded-md mx-1',
                           pathname === item.href &&
-                            'bg-orange-50 text-orange-700'
+                            'bg-blue-50 text-blue-700 font-semibold'
                         )}
                       >
                         {item.label}
@@ -102,17 +102,17 @@ export default function MainHeader() {
           </nav>
 
           {/* Right side CTAs */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-4">
             <SiteSearch />
             <Link
               href="/login"
-              className="text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors"
+              className="text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors px-3 py-2"
             >
               Login
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-lg bg-orange-600 px-6 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-orange-700 transition-all hover:shadow-md"
+              className="inline-flex items-center justify-center rounded-lg bg-orange-600 px-6 py-2.5 text-sm font-bold text-white hover:bg-orange-700 transition-colors"
             >
               Contact Us
             </Link>
@@ -137,7 +137,7 @@ export default function MainHeader() {
 
       {/* Mobile nav panel - Enhanced scrollable with better spacing */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white max-h-[calc(100vh-4rem)] overflow-y-auto shadow-lg">
+        <div className="lg:hidden border-t border-slate-200 bg-white max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="mx-auto max-w-6xl px-4 py-6 space-y-2">
             {headerNav.map((section) => {
               const hasChildren = section.items && section.items.length > 0;

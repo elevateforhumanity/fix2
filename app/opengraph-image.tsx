@@ -13,47 +13,23 @@ export default async function Image() {
     (
       <div
         style={{
-          fontSize: 60,
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-          padding: '80px',
+          position: 'relative',
         }}
       >
-        <div
+        <img
+          src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__8/image-96fb9850-11b3-4a4b-b272-f2318aa47c8b.png?Expires=2080931577&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=wxuR4n47Ur6YnSL5Uzd8kTRC7t1mXA6YCvDzHziBqwsENTQIGBkXkLcMcp2~QBXUaZgmxrS~a1II8ygKorH5O6IRf-IAXg8bRGFN8qKCG-YI7ucStQDIdoOgkBGb4GbK4qYFgSMsXiF6rtWHli3fun~73aehkCIirR49Y-zQKmI7lIV6qoNz1f61vk~YblxBF8pQWJhbdqTIl9sQTEgLHEN7fnzCkA3-yc0fydrTlV~k7oVfQfoMiQN6KZ4VvnVLxYouzwHjoMeqa8O91H4wrcAWh26RdR4mq4DwWXksKEwqrsnZMIKnFUQDfC6MVaYw6gtdaQBdaiyHd9TVMMHMkQ__"
+          alt="Elevate for Humanity"
+          width="1200"
+          height="630"
           style={{
-            fontSize: 80,
-            fontWeight: 'bold',
-            marginBottom: 20,
-            textAlign: 'center',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
           }}
-        >
-          Elevate for Humanity
-        </div>
-        <div
-          style={{
-            fontSize: 40,
-            textAlign: 'center',
-            opacity: 0.9,
-          }}
-        >
-          Workforce Training & Career Development
-        </div>
-        <div
-          style={{
-            fontSize: 30,
-            marginTop: 40,
-            textAlign: 'center',
-            opacity: 0.8,
-          }}
-        >
-          FREE Programs • WIOA Funded • Career Ready
-        </div>
+        />
       </div>
     ),
     {

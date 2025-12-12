@@ -14,31 +14,17 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="bg-white">
-      {/* Hero Section with Text Overlay */}
+      {/* Hero Section - Clean Image Only */}
       <section className="relative h-[500px] overflow-hidden">
         <Image
-          src="/images/heroes/hero-students.jpg"
-          alt="Students succeeding"
+          src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__1/generated-image-76ea4a68-9d0c-4075-8ca3-751c9bbe9343.png?Expires=2080932211&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=NrpdhDLgfSAkPpPz6risOCDn983VSzofzVn9miv~CiTY55m93dNC6TywrCYLYZsjWfD8JEy6sdrWeNTp5ApKGGvPksT~RzmTGe5HCBU~W6GQuFPgTq6Gin9EqzAPtPElB9intIGuTCXVS1kgPi6pZSGYUxQ4~Nv9hRDtV8rfrKEnnkcoGyzLLN0KYe6dY8Es~VYzgCXj3LbTk9Z4W4jfLKJyVsPSCPG3vTp1izFEgMA41W2gqgwXlE~xjnAhnOatlPE7k-kkDiN~a1iiy133g1-5aSoSAJVtexduiO8cB7GvlQKJv5qUfU4eMl-hNvr5A8w8MTMH20EbUCn~-g1F8w__"
+          alt="About Elevate For Humanity"
           fill
-          className="object-cover brightness-50"
+          className="object-cover"
           priority
           quality={95}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
-        <div className="relative h-full flex items-center">
-          <div className="max-w-7xl mx-auto px-6 text-white">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              About Elevate For Humanity
-            </h1>
-            <p className="text-2xl md:text-3xl mb-4 max-w-3xl">
-              Transforming Lives Through Free Career Training
-            </p>
-            <p className="text-xl text-white/90 max-w-2xl">
-              We believe your past doesn't define your future. Everyone deserves a chance to build a better life.
-            </p>
-          </div>
-        </div>
       </section>
 
       {/* Story Section */}

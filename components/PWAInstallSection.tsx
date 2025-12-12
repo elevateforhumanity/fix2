@@ -46,7 +46,7 @@ export default function PWAInstallSection() {
               Progressive Web App
             </div>
             <h2 className="text-3xl font-bold text-slate-900">
-              Install Our Web App
+              Download the App
             </h2>
             <p className="mt-4 text-lg text-slate-700">
               Access Elevate for Humanity directly from your home screen. No app store needed - 
@@ -55,9 +55,9 @@ export default function PWAInstallSection() {
             
             <button
               onClick={handleInstall}
-              className="mt-8 inline-flex items-center justify-center gap-3 rounded-full bg-orange-500 px-8 py-4 text-white font-semibold hover:bg-orange-600 transition-all shadow-lg"
+              className="mt-8 inline-flex items-center justify-center gap-3 rounded-full bg-orange-600 px-8 py-4 text-white font-bold text-lg hover:bg-orange-700 transition-all shadow-lg"
             >
-              Add App
+              📱 Download the App
             </button>
 
             <p className="mt-6 text-sm text-slate-600">
@@ -68,13 +68,12 @@ export default function PWAInstallSection() {
             </p>
           </div>
 
-          <div className="relative aspect-square max-w-sm mx-auto bg-white rounded-3xl shadow-2xl p-8 flex items-center justify-center">
+          <div className="relative aspect-square max-w-sm mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
             <Image
-              src="/assets/logo-efh.svg"
-              alt="Elevate for Humanity Logo"
-              width={300}
-              height={300}
-              className="object-contain"
+              src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__8/image-96fb9850-11b3-4a4b-b272-f2318aa47c8b.png?Expires=2080931577&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=wxuR4n47Ur6YnSL5Uzd8kTRC7t1mXA6YCvDzHziBqwsENTQIGBkXkLcMcp2~QBXUaZgmxrS~a1II8ygKorH5O6IRf-IAXg8bRGFN8qKCG-YI7ucStQDIdoOgkBGb4GbK4qYFgSMsXiF6rtWHli3fun~73aehkCIirR49Y-zQKmI7lIV6qoNz1f61vk~YblxBF8pQWJhbdqTIl9sQTEgLHEN7fnzCkA3-yc0fydrTlV~k7oVfQfoMiQN6KZ4VvnVLxYouzwHjoMeqa8O91H4wrcAWh26RdR4mq4DwWXksKEwqrsnZMIKnFUQDfC6MVaYw6gtdaQBdaiyHd9TVMMHMkQ__"
+              alt="Elevate for Humanity App"
+              fill
+              className="object-cover"
             />
           </div>
         </div>
