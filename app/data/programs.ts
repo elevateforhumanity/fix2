@@ -281,7 +281,7 @@ Career Outcomes:
     ],
     ctaPrimary: {
       label: "Start CNA Application",
-      href: "/apply?program=cna",
+      href: "/contact?topic=cna",
     },
     ctaSecondary: {
       label: "Talk to Healthcare Career Coach",
@@ -364,7 +364,7 @@ Career Outcomes:
     ],
     ctaPrimary: {
       label: "Apply for CDL Training",
-      href: "/apply?program=cdl",
+      href: "/contact?topic=cdl",
     },
     ctaSecondary: {
       label: "Request CDL Info Session",
@@ -454,7 +454,7 @@ CIP Code: 15.0501 - Heating, Ventilation, Air Conditioning and Refrigeration Eng
     ],
     ctaPrimary: {
       label: "Apply Now",
-      href: "/apply?program=building-maintenance",
+      href: "/contact?topic=building-maintenance",
     },
     ctaSecondary: {
       label: "Learn More",
@@ -531,7 +531,7 @@ Career Outcomes:
     ],
     ctaPrimary: {
       label: "Apply for Building Technician",
-      href: "/apply?program=building-technician",
+      href: "/contact?topic=building-technician",
     },
     ctaSecondary: {
       label: "Talk to a Career Coach",
@@ -605,7 +605,7 @@ Career Outcomes:
     ],
     ctaPrimary: {
       label: "Apply for Workforce Readiness",
-      href: "/apply?program=workforce-readiness",
+      href: "/contact?topic=workforce-readiness",
     },
     ctaSecondary: {
       label: "Talk to a Career Coach",
@@ -696,7 +696,7 @@ CIP Code: 51.0801 - Medical/Clinical Assistant`,
     ],
     ctaPrimary: {
       label: "Apply Now",
-      href: "/apply",
+      href: "/contact",
     },
     ctaSecondary: {
       label: "Learn More",
@@ -768,7 +768,7 @@ CIP Code: 13.1319 - Technical Teacher Education`,
     ],
     ctaPrimary: {
       label: "Apply Now",
-      href: "/apply",
+      href: "/contact",
     },
     ctaSecondary: {
       label: "Learn More",
@@ -849,7 +849,7 @@ CIP Code: 52.0701 - Entrepreneurship/Entrepreneurial Studies`,
     ],
     ctaPrimary: {
       label: "Apply Now",
-      href: "/apply",
+      href: "/contact",
     },
     ctaSecondary: {
       label: "Learn More",
@@ -929,7 +929,7 @@ CIP Code: 51.0999 - Allied Health Diagnostic, Intervention, and Treatment Profes
     ],
     ctaPrimary: {
       label: "Apply Now",
-      href: "/apply",
+      href: "/contact",
     },
     ctaSecondary: {
       label: "Learn More",
@@ -988,7 +988,7 @@ CIP Code: 51.0999 - Allied Health Diagnostic, Intervention, and Treatment Profes
     ],
     ctaPrimary: {
       label: "Apply Now",
-      href: "/apply",
+      href: "/contact",
     },
     ctaSecondary: {
       label: "Learn More",
@@ -1076,7 +1076,7 @@ CIP Code: 12.0409 - Aesthetician/Esthetician and Skin Care Specialist`,
     ],
     ctaPrimary: {
       label: "Apply Now",
-      href: "/apply",
+      href: "/contact",
     },
     ctaSecondary: {
       label: "Learn More",
@@ -1164,7 +1164,7 @@ CIP Code: 43.0112 - Securities Services Administration/Management`,
     ],
     ctaPrimary: {
       label: "Apply Now",
-      href: "/apply",
+      href: "/contact",
     },
     ctaSecondary: {
       label: "Learn More",
@@ -1250,7 +1250,7 @@ CIP Code: 52.0302 - Accounting Technology/Technician and Bookkeeping`,
     ],
     ctaPrimary: {
       label: "Apply Now",
-      href: "/apply",
+      href: "/contact",
     },
     ctaSecondary: {
       label: "Learn More",
@@ -1320,7 +1320,7 @@ CIP Code: 51.0810 - Emergency Care Attendant (EMT Ambulance)`,
     ],
     ctaPrimary: {
       label: "Apply Now",
-      href: "/apply",
+      href: "/contact",
     },
     ctaSecondary: {
       label: "View Class Schedule",
