@@ -378,51 +378,69 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA - Talk to an Advisor */}
-      <section className="py-16 bg-gradient-to-br from-blue-600 to-purple-600">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Image */}
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/talk-to-advisor.jpg"
-                alt="Talk to an advisor - Get personalized guidance"
-                fill
-                className="object-cover"
-                quality={90}
-              />
-            </div>
-            
-            {/* Content */}
-            <div className="text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Start?
-              </h2>
-              <p className="text-xl text-white/90 mb-6 leading-relaxed">
-                Most students qualify for 100% free training through WIOA, WRG, or apprenticeships. 
-                Let's find the right path for you.
-              </p>
-              <div className="flex flex-col gap-4 mb-6">
-                <Link
-                  href="/apply"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg hover:shadow-xl"
-                >
-                  Apply Now
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-sm border-2 border-white rounded-lg hover:bg-white/20 transition"
-                >
-                  Talk to an Advisor
-                </Link>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                <p className="text-sm text-white/90 mb-2">
-                  <span className="font-semibold">Call us directly:</span>
+      {/* GET STARTED HERO BANNER */}
+      <section className="relative overflow-hidden">
+        <div className="relative h-[500px] md:h-[600px] lg:h-[700px]">
+          {/* Hero Banner Image */}
+          <Image
+            src="/images/talk-to-advisor.jpg"
+            alt="Ready to start your career transformation - Talk to an advisor"
+            fill
+            quality={95}
+            priority={false}
+            className="object-cover"
+          />
+          
+          {/* Gradient Overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+          
+          {/* Content Overlay */}
+          <div className="relative z-10 h-full flex items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+              <div className="max-w-3xl">
+                {/* Badge */}
+                <div className="inline-block px-6 py-2 bg-red-600 rounded-full text-white font-bold text-sm mb-6 shadow-lg">
+                  🚀 Ready to Start?
+                </div>
+                
+                {/* Heading */}
+                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                  Your Future<br />Starts Today
+                </h2>
+                
+                {/* Subheading */}
+                <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-8 leading-relaxed font-light">
+                  Most students qualify for <span className="font-bold text-white">100% free training</span> through WIOA, WRG, or apprenticeships.
                 </p>
-                <a href="tel:317-314-3757" className="text-2xl font-bold text-white hover:text-white/90 transition">
-                  📞 317-314-3757
-                </a>
+                
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                  <Link
+                    href="/apply"
+                    className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-red-600 rounded-xl hover:bg-red-700 transition-all shadow-2xl hover:shadow-red-600/50 hover:scale-105"
+                  >
+                    Apply Now →
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-white/10 backdrop-blur-md border-2 border-white rounded-xl hover:bg-white/20 transition-all shadow-xl"
+                  >
+                    Talk to an Advisor
+                  </Link>
+                </div>
+                
+                {/* Phone Number Card */}
+                <div className="inline-block bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/30 shadow-2xl">
+                  <p className="text-sm text-white/90 mb-2 font-semibold">
+                    Or call us directly:
+                  </p>
+                  <a 
+                    href="tel:317-314-3757" 
+                    className="text-3xl md:text-4xl font-bold text-white hover:text-red-400 transition-colors flex items-center gap-3"
+                  >
+                    📞 317-314-3757
+                  </a>
+                </div>
               </div>
             </div>
           </div>
