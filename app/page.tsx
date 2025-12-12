@@ -263,7 +263,14 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
-              <div className="text-3xl mb-3">🔓</div>
+              <div className="mb-3 relative w-full h-32 rounded-lg overflow-hidden">
+                <Image
+                  src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__5/generated-image-5ad8936e-e731-44e0-9fb9-459e8166f672.png?Expires=2080939134&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=NRIcy~TEuP1KHxghgJhRfV6TasR2~TYYzH7VPil1mMmPuqO5pvX9R8or-qCmm3r6caPRndtvSlHIAeWU2Ki6Xhsw4df3c86hoBhPrXwKVZ5e3LTzGXBu-vaT7giFPbgSIVIZNCKOOer6LzznxUHHxfnVMa8~8CAq6-8v9RGOxvr54mA2sOv~VRjRBQs~iH~vBk6mm5O2NYUMvneHcpM1x1pm-Lx0yN6S0Fe2Gf9ec8cPa1JnyDN4EOqqn2yuhSAwe3qRqZsa6b58zfaHB7oXSLVjiwEqYQiLnQU5YoBl9ZGuqZ7faq70qFfv2ze7Wob-5MHkS1jqhvlm-Qjqyu1NDA__"
+                  alt="Second Chances"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">Second Chances</h3>
               <p className="text-sm text-slate-700">
                 Through our JRI partnership, justice-involved individuals get free training, 
