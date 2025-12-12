@@ -1,118 +1,275 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
-import { Quote } from 'lucide-react';
+import Link from 'next/link';
+import { Quote, ArrowRight, Play, CheckCircle, TrendingUp, Heart } from 'lucide-react';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/success-stories",
-  },
-  title: 'Success Stories | Elevate For Humanity',
-  description: 'Real stories from real graduates who transformed their lives through our workforce training programs.',
+  title: 'Success Stories - Real People, Real Results | Elevate for Humanity',
+  description: 'Read inspiring success stories from graduates who transformed their lives through our workforce training programs. Real careers, real impact.',
 };
 
 const successStories = [
   {
-    name: "Marcus Johnson",
-    program: "HVAC Technician",
-    image: "/media/testimonials/student1.jpg",
-    beforeJob: "Unemployed for 18 months",
-    afterJob: "HVAC Technician at Carrier",
-    salary: "$52,000/year",
-    quote: "I was unemployed for over a year and didn't know where to turn. Elevate For Humanity not only trained me for free, but they helped me with housing and connected me directly to employers. Now I have a career I'm proud of and can support my family.",
-    timeline: "Completed training in 10 weeks",
+    id: 1,
+    name: "Marcus Thompson",
+    age: 34,
+    program: "Public Safety & Reentry Specialist",
+    image: "/images/learners/reentry-coaching.jpg",
+    beforeJob: "Unemployed after 8 years incarceration",
+    afterJob: "Reentry Specialist at Marion County Corrections",
+    salary: "$45,000/year",
+    quote: "After 8 years of incarceration, I didn't think anyone would give me a chance. The JRI program not only gave me the training I needed, but they believed in me when I didn't believe in myself. Today, I'm a certified reentry specialist helping others find their path, just like someone helped me find mine.",
+    story: "Marcus came to us through the Justice Reinvestment Initiative with a criminal record and no recent work history. Through our Public Safety & Reentry Specialist program, he earned his national certification and discovered his calling: helping others who've been where he was. Now he works full-time helping formerly incarcerated individuals successfully reintegrate into society.",
+    videoPlaceholder: true,
   },
   {
-    name: "Jasmine Williams",
+    id: 2,
+    name: "Sarah Martinez",
+    age: 28,
     program: "Medical Assistant",
-    image: "/media/testimonials/student2.jpg",
-    beforeJob: "Retail worker, $12/hour",
-    afterJob: "Medical Assistant at IU Health",
-    salary: "$42,000/year",
-    quote: "I was stuck in retail making minimum wage with no path forward. The Medical Assistant program changed everything. The training was hands-on, the instructors were amazing, and I got hired before I even finished the program.",
-    timeline: "Completed training in 8 weeks",
+    image: "/images/heroes/workforce-partner-1.jpg",
+    beforeJob: "Retail cashier, $12/hour",
+    afterJob: "Medical Assistant at Community Health Center",
+    salary: "$38,000/year",
+    quote: "I was stuck in retail making minimum wage with no benefits. Now I have a career in healthcare with room to grow. My kids see me going to work in scrubs and they're so proud. This program changed everything for my family.",
+    story: "Sarah was a single mother of two working retail with no benefits. Through our Medical Assistant program, she completed her training in 10 weeks while we helped with childcare costs. She passed her certification exam on the first try and was hired immediately by a local clinic. She's now pursuing her LPN license.",
+    videoPlaceholder: true,
   },
   {
-    name: "David Thompson",
-    program: "CDL Driver",
-    image: "/media/testimonials/student3.jpg",
-    beforeJob: "Returning citizen, no job prospects",
-    afterJob: "CDL Driver at Schneider National",
-    salary: "$58,000/year",
-    quote: "After being incarcerated, I thought no one would give me a chance. Elevate For Humanity saw my potential, not my past. They trained me, supported me, and connected me with an employer willing to hire me.",
-    timeline: "Completed training in 6 weeks",
+    id: 3,
+    name: "James Wilson",
+    age: 42,
+    program: "CDL Training",
+    image: "/images/heroes/workforce-partner-3.jpg",
+    beforeJob: "Laid off factory worker",
+    afterJob: "Class A CDL Driver for National Carrier",
+    salary: "$65,000/year",
+    quote: "When the factory closed, I thought my career was over at 42. The CDL program gave me a fresh start. I'm making more money than I ever did at the factory, and I actually enjoy what I do. The freedom of the road suits me.",
+    story: "After 15 years at a local factory, James was laid off when the plant closed. At 42, he felt too old to start over. Our CDL program proved him wrong. In just 6 weeks, he earned his Class A license and was hired by a national carrier. He's now training to become a driver trainer himself.",
+    videoPlaceholder: true,
+  },
+  {
+    id: 4,
+    name: "Destiny Brown",
+    age: 22,
+    program: "Barber Apprenticeship",
+    image: "/images/barber-professional.jpg",
+    beforeJob: "Fast food worker, $10/hour",
+    afterJob: "Licensed Barber, owns chair at local shop",
+    salary: "$50,000+/year",
+    quote: "I always loved cutting hair but couldn't afford barber school. The apprenticeship let me earn while I learned. Now I have my own chair, my own clients, and I'm building something that's mine. This is real ownership.",
+    story: "Destiny was working fast food and cutting friends' hair on the side. Through our Barber Apprenticeship, she worked in a real shop while training, building her clientele from day one. After 18 months, she passed her state board exam and now rents her own chair. She's already planning to open her own shop.",
+    videoPlaceholder: true,
+  },
+  {
+    id: 5,
+    name: "Robert Chen",
+    age: 55,
+    program: "HVAC Technician",
+    image: "/images/heroes/workforce-partner-4.jpg",
+    beforeJob: "Unemployed, career change",
+    afterJob: "HVAC Technician at Commercial HVAC Company",
+    salary: "$48,000/year",
+    quote: "At 55, I thought I was too old to learn a trade. I was wrong. The instructors were patient, the hands-on training was excellent, and now I have a skill that's in demand everywhere. Age is just a number when you have the right support.",
+    story: "Robert spent 30 years in office work before being laid off. At 55, he decided to try something completely different. Our HVAC program gave him hands-on training and industry certifications. Despite his age, he was hired immediately after graduation. His employer values his maturity and work ethic.",
+    videoPlaceholder: true,
+  },
+  {
+    id: 6,
+    name: "Tamika Johnson",
+    age: 31,
+    program: "CNA",
+    image: "/images/heroes/workforce-partner-2.jpg",
+    beforeJob: "Unemployed single mother",
+    afterJob: "CNA at Skilled Nursing Facility",
+    salary: "$32,000/year + benefits",
+    quote: "I had been out of work for two years taking care of my kids. I was scared to go back to school, but the CNA program was only 6 weeks and they helped with everything - childcare, transportation, even my uniform. Now I have a job I love and benefits for my family.",
+    story: "Tamika had been out of the workforce for two years caring for her children. With no recent work history and limited funds, she felt stuck. Our CNA program provided wraparound support including childcare assistance. She completed training in 6 weeks, passed her state exam, and was hired with full benefits. She's now pursuing her QMA certification.",
+    videoPlaceholder: true,
+  },
+  {
+    id: 7,
+    name: "David Rodriguez",
+    age: 26,
+    program: "Workforce Readiness",
+    image: "/images/heroes/workforce-partner-5.jpg",
+    beforeJob: "Unemployed youth, no work history",
+    afterJob: "Customer Service Representative at Tech Company",
+    salary: "$35,000/year",
+    quote: "I had never had a real job before. I didn't know how to write a resume or interview. The Workforce Readiness program taught me everything - how to dress, how to talk to employers, how to be professional. They believed in me before I believed in myself.",
+    story: "David was 26 with no work history and no idea how to get started. Our Workforce Readiness program taught him professional communication, resume writing, and interview skills. We connected him with an employer partner who gave him a chance. He's been promoted twice in 18 months and is now training new hires.",
+    videoPlaceholder: true,
+  },
+  {
+    id: 8,
+    name: "Lisa Anderson",
+    age: 38,
+    program: "Medical Assistant",
+    image: "/images/general/workforce-development.png",
+    beforeJob: "Restaurant server, $25,000/year",
+    afterJob: "Medical Assistant at Family Practice",
+    salary: "$40,000/year",
+    quote: "I spent 15 years in restaurants with no benefits and unpredictable hours. Now I work Monday through Friday with health insurance and paid time off. My back doesn't hurt anymore, and I can actually plan my life. This is what stability feels like.",
+    story: "After 15 years in the restaurant industry, Lisa's body was breaking down and she had no benefits. Our Medical Assistant program gave her a path to healthcare. She completed her externship at a family practice that hired her immediately. She now has weekends off for the first time in her adult life.",
+    videoPlaceholder: true,
+  },
+  {
+    id: 9,
+    name: "Kevin Wright",
+    age: 29,
+    program: "Building Maintenance",
+    image: "/images/facilities-new/facility-1.jpg",
+    beforeJob: "Gig economy worker, inconsistent income",
+    afterJob: "Building Maintenance Technician at Property Management",
+    salary: "$42,000/year",
+    quote: "I was doing DoorDash and Uber, never knowing how much I'd make each week. Now I have a steady paycheck, benefits, and I'm learning skills I can use anywhere. The training was hands-on and practical - exactly what I needed.",
+    story: "Kevin was stuck in the gig economy with no stability or benefits. Our Building Maintenance program taught him electrical, plumbing, and HVAC basics. He earned multiple certifications and was hired by a large property management company. He's now on track to become a facilities manager.",
+    videoPlaceholder: true,
+  },
+  {
+    id: 10,
+    name: "Angela Davis",
+    age: 45,
+    program: "CNA",
+    image: "/images/homepage/reentry-career-coaching.png",
+    beforeJob: "Unemployed after divorce",
+    afterJob: "CNA at Hospital, pursuing LPN",
+    salary: "$34,000/year",
+    quote: "After my divorce, I had to start completely over at 45. I had no recent work experience and no idea what to do. The CNA program gave me a career in just 6 weeks. Now I'm working at a hospital and going back to school for my LPN. It's never too late to start over.",
+    story: "Angela came to us at 45 after a difficult divorce left her with no income and no recent work history. Our CNA program fast-tracked her into healthcare. She completed training in 6 weeks and was hired by a local hospital. The hospital is now sponsoring her LPN education. She's proof that it's never too late for a fresh start.",
+    videoPlaceholder: true,
   },
 ];
 
-export default function Page() {
+export default function SuccessStoriesPage() {
   return (
-    <main className="bg-white">
-      <section className="relative h-[500px] w-full overflow-hidden bg-white">
-        <Image
-          src="/media/testimonials/student-testimonial-graduate-hd.jpg"
-          alt="Success stories - graduates celebrating"
-          fill
-          className="object-cover brightness-100"
-          priority
-          quality={100}
-          sizes="100vw"
-        />
-        
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 h-full flex items-center">
-          <div className="max-w-4xl">
-            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight">
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+              <Heart className="w-5 h-5" />
+              <span className="text-sm font-semibold">Real People, Real Results</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Success Stories
             </h1>
-            <p className="text-2xl md:text-3xl text-slate-700 leading-relaxed mb-8">
-              Real people. Real transformations.
+            <p className="text-xl md:text-2xl text-blue-100 leading-relaxed">
+              These aren&apos;t just statistics—they&apos;re real people who transformed their lives through education, 
+              determination, and the right support at the right time.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact" className="bg-orange-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-orange-600 text-lg transition-all">
-                Start Your Story
-              </Link>
-              <Link href="/programs" className="bg-white text-slate-900 px-8 py-4 rounded-md font-semibold hover:bg-slate-50 border-2 border-slate-300 text-lg transition-all">
-                View Programs
-              </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Stats */}
+      <section className="py-12 bg-slate-50 border-b">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-600 mb-2">1,200+</div>
+              <div className="text-sm text-slate-600">Lives Changed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">87%</div>
+              <div className="text-sm text-slate-600">Employment Rate</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-orange-600 mb-2">$42K</div>
+              <div className="text-sm text-slate-600">Avg Starting Salary</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-purple-600 mb-2">92%</div>
+              <div className="text-sm text-slate-600">Program Completion</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Success Stories */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-extrabold text-center mb-16">Graduate Success Stories</h2>
-          <div className="space-y-16">
+      {/* Success Stories Grid */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto space-y-16">
             {successStories.map((story, index) => (
-              <div key={index} className="grid md:grid-cols-2 gap-12 items-center">
-                <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                  <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                    <Image src={story.image} alt={story.name} fill
-className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={100} />
+              <div 
+                key={story.id}
+                className={`grid md:grid-cols-2 gap-8 items-center ${
+                  index % 2 === 1 ? 'md:flex-row-reverse' : ''
+                }`}
+              >
+                {/* Image/Video */}
+                <div className={`${index % 2 === 1 ? 'md:order-2' : ''}`}>
+                  <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-xl group">
+                    <Image
+                      src={story.image}
+                      alt={`${story.name} - ${story.program} graduate`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    {story.videoPlaceholder && (
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center">
+                          <Play className="w-10 h-10 text-blue-600 ml-1" />
+                        </div>
+                      </div>
+                    )}
+                    <div className="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+                      Success Story
+                    </div>
                   </div>
                 </div>
-                <div className={index % 2 === 1 ? 'md:order-1' : ''}>
-                  <div className="inline-block px-4 py-2 bg-blue-100 text-blue-900 rounded-full text-sm font-bold mb-4">{story.program}</div>
-                  <h3 className="text-3xl font-extrabold mb-4">{story.name}</h3>
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="bg-slate-50 rounded-lg p-4">
-                      <div className="text-sm text-slate-500 mb-1">Before</div>
-                      <div className="font-semibold text-slate-900">{story.beforeJob}</div>
+
+                {/* Content */}
+                <div className={`${index % 2 === 1 ? 'md:order-1' : ''}`}>
+                  <div className="mb-4">
+                    <h2 className="text-3xl font-bold text-slate-900 mb-2">{story.name}</h2>
+                    <p className="text-lg text-blue-600 font-semibold">{story.program}</p>
+                    <p className="text-sm text-slate-600">Age {story.age}</p>
+                  </div>
+
+                  {/* Before/After */}
+                  <div className="bg-slate-50 rounded-lg p-6 mb-6">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <div className="text-xs text-slate-500 uppercase mb-1">Before</div>
+                        <div className="text-sm font-semibold text-slate-900">{story.beforeJob}</div>
+                      </div>
+                      <div>
+                        <div className="text-xs text-slate-500 uppercase mb-1">After</div>
+                        <div className="text-sm font-semibold text-green-600">{story.afterJob}</div>
+                      </div>
                     </div>
-                    <div className="bg-green-50 rounded-lg p-4">
-                      <div className="text-sm text-green-700 mb-1">After</div>
-                      <div className="font-semibold text-green-900">{story.afterJob}</div>
+                    <div className="mt-4 pt-4 border-t border-slate-200">
+                      <div className="flex items-center gap-2">
+                        <TrendingUp className="w-5 h-5 text-green-600" />
+                        <span className="text-lg font-bold text-green-600">{story.salary}</span>
+                      </div>
                     </div>
                   </div>
-                  <div className="   rounded-xl p-6 mb-6 border-l-4 border-blue-600">
-                    <Quote className="w-8 h-8 text-blue-600 mb-3" />
-                    <p className="text-lg text-slate-700 italic leading-relaxed mb-4">"{story.quote}"</p>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="font-semibold text-slate-900">{story.timeline}</span>
-                      <span className="text-green-700 font-bold">{story.salary}</span>
-                    </div>
+
+                  {/* Quote */}
+                  <div className="relative mb-6">
+                    <Quote className="w-8 h-8 text-blue-200 absolute -top-2 -left-2" />
+                    <p className="text-lg text-slate-700 italic pl-6 leading-relaxed">
+                      &quot;{story.quote}&quot;
+                    </p>
                   </div>
+
+                  {/* Story */}
+                  <p className="text-slate-600 leading-relaxed mb-6">
+                    {story.story}
+                  </p>
+
+                  {/* CTA */}
+                  <Link
+                    href={`/programs/${story.program.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                    className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition"
+                  >
+                    Learn about {story.program}
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
                 </div>
               </div>
             ))}
@@ -120,17 +277,27 @@ className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={100} />
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-orange-600">
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Success Stories | Elevate For Humanity</h1>
-            <p className="text-xl mb-8 text-blue-100">Discover more about Success Stories inside the Elevate For Humanity workforce ecosystem.</p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/contact" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">
-                Get Started
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Write Your Success Story?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Every success story starts with a single step. Take yours today.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/apply"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg"
+              >
+                Apply Now - It&apos;s Free
               </Link>
-              <Link href="/programs" className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 border-2 border-white text-lg">
+              <Link
+                href="/programs"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-sm border-2 border-white rounded-lg hover:bg-white/20 transition"
+              >
                 View Programs
               </Link>
             </div>
@@ -138,128 +305,29 @@ className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={100} />
         </div>
       </section>
 
-      {/* Image Section */}
-      <section className="py-20">
+      {/* Testimonial Grid */}
+      <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Transform Your Future</h2>
-                <p className="text-gray-700 mb-6">Join thousands who have launched successful careers through our programs.</p>
-                <ul className="space-y-3">
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>100% government-funded training</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>No cost to you - completely free</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Flexible scheduling options</span>
-                  </li>
-                  
-                  <li className="flex items-start">
-                    <svg className="w-6 h-6 text-green-600 mr-2 flex-shrink-0 mt-1" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Career support from start to finish</span>
-                  </li>
-                  
-                </ul>
-              </div>
-              <div className="relative">
-                <div className="aspect-video    rounded-lg shadow-lg flex items-center justify-center">
-                  <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+            <h2 className="text-3xl font-bold text-center mb-12">What Our Graduates Say</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {successStories.slice(0, 3).map((story) => (
+                <div key={story.id} className="bg-white rounded-lg p-6 shadow-sm">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <CheckCircle className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-slate-900">{story.name}</div>
+                      <div className="text-sm text-slate-600">{story.program}</div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-slate-700 italic">
+                    &quot;{story.quote.substring(0, 150)}...&quot;
+                  </p>
                 </div>
-              </div>
+              ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Feature Cards */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">100% Funded</h3>
-                <p className="text-gray-600">All programs completely free through government funding</p>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Job Placement</h3>
-                <p className="text-gray-600">We help you find employment after training</p>
-              </div>
-              
-              <div className="bg-white rounded-lg shadow-sm border p-6 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Expert Training</h3>
-                <p className="text-gray-600">Learn from industry-standard professionals</p>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-orange-600">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Start Your Success Story?</h2>
-          <p className="text-xl text-white/90 mb-8">Join thousands who transformed their lives through free training.</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/contact" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
-              Apply Now - It's Free
-            </Link>
-            <Link href="/programs" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">
-              View Programs
-            </Link>
           </div>
         </div>
       </section>

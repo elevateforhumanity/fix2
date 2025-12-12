@@ -1,172 +1,382 @@
 'use client';
 
 import { useState } from 'react';
-import { Metadata } from 'next';
+import Link from 'next/link';
+import { ChevronDown, Search, HelpCircle, Phone, Mail } from 'lucide-react';
 
-const faqs = [
+const faqCategories = [
   {
-    category: 'Getting Started',
+    id: 'getting-started',
+    name: 'Getting Started',
+    icon: '🚀',
     questions: [
       {
-        q: 'How do I apply for training?',
-        a: 'Call us at 317-314-3757 or fill out our contact form. An advisor will discuss your goals and help you find the right program and funding options.'
+        q: 'How do I apply for a program?',
+        a: 'You can apply online through our website by visiting the Apply page, calling us at 317-314-3757, or visiting our office. The application takes about 5-10 minutes to complete. You\'ll need basic information about yourself, your education history, and your career goals.',
       },
       {
-        q: 'Is training really free?',
-        a: 'Yes! Most students qualify for 100% free training through WIOA, WRG, JRI, or apprenticeship programs. We help you navigate the funding process.'
+        q: 'Are your programs really 100% free?',
+        a: 'Yes! Most students pay nothing out of pocket. Our programs are funded through WIOA (Workforce Innovation and Opportunity Act), WRG (Workforce Ready Grant), JRI (Justice Reinvestment Initiative), and registered apprenticeships. We help you determine which funding source you qualify for during the application process.',
       },
+      {
+        q: 'What are the eligibility requirements?',
+        a: 'Requirements vary by program and funding source, but generally you must be: 18 years or older (16+ for some youth programs), legally authorized to work in the US, and meet income guidelines for WIOA funding. We help you determine eligibility during your initial consultation.',
+      },
+      {
+        q: 'How long does the application process take?',
+        a: 'From application to starting class typically takes 1-3 weeks. This includes: submitting your application (5-10 minutes), meeting with an advisor (within 1-2 days), completing any required paperwork, and enrolling in the next available class.',
+      },
+      {
+        q: 'Do I need a high school diploma or GED?',
+        a: 'Most programs require a high school diploma or GED, but we also offer GED preparation services if you need them. Some programs may accept students currently working toward their GED. Contact us to discuss your specific situation.',
+      },
+    ],
+  },
+  {
+    id: 'programs',
+    name: 'Programs & Training',
+    icon: '📚',
+    questions: [
       {
         q: 'What programs do you offer?',
-        a: 'We offer training in Barber/Cosmetology, CNA, Medical Assistant, HVAC, CDL, Tax Preparation, Business Startup, and more. All programs lead to industry certifications.'
+        a: 'We offer 8 career training programs: HVAC Technician, Barber Apprenticeship, CNA (Certified Nursing Assistant), CDL (Commercial Driver\'s License), Medical Assistant, Building Maintenance, Building Technician, and Workforce Readiness. Each program is designed to get you job-ready in weeks, not years.',
       },
       {
-        q: 'How long does training take?',
-        a: 'Most programs are 4-12 weeks. Some apprenticeships run longer but you get paid while you train.'
-      }
-    ]
+        q: 'How long are the programs?',
+        a: 'Program lengths vary: CNA (4-8 weeks), CDL (4-6 weeks), Medical Assistant (8-12 weeks), HVAC (12-16 weeks), Barber Apprenticeship (12-18 months), Building Maintenance (8-12 weeks), Workforce Readiness (1-4 weeks). All programs are designed to get you working as quickly as possible.',
+      },
+      {
+        q: 'Are classes online or in-person?',
+        a: 'Most programs are hybrid - combining online theory with hands-on, in-person training. Some programs like CDL and Barber Apprenticeship are primarily hands-on. We offer flexible schedules including day, evening, and weekend options for most programs.',
+      },
+      {
+        q: 'What certifications will I earn?',
+        a: 'You\'ll earn industry-recognized certifications specific to your program: CNA State Certification, CDL Class A License, EPA 608 Certification (HVAC), State Barber License, Medical Assistant Certification, and more. These are the same certifications employers require.',
+      },
+      {
+        q: 'Can I work while in the program?',
+        a: 'Yes! Many students work while training. We offer flexible schedules to accommodate working students. The Barber Apprenticeship actually requires you to work in a shop while training - you earn while you learn.',
+      },
+    ],
   },
   {
-    category: 'Eligibility & Funding',
+    id: 'funding',
+    name: 'Funding & Costs',
+    icon: '💰',
     questions: [
       {
-        q: 'Who qualifies for WIOA funding?',
-        a: 'WIOA serves adults, dislocated workers, and youth who need training to get or keep employment. Income requirements vary. We help you determine eligibility.'
+        q: 'What is WIOA funding?',
+        a: 'WIOA (Workforce Innovation and Opportunity Act) is federal funding that pays for job training for eligible individuals. If you meet income guidelines or face barriers to employment, WIOA can cover your entire training cost including tuition, books, supplies, and sometimes transportation and childcare.',
       },
       {
-        q: 'What is WRG?',
-        a: 'Workforce Ready Grant covers tuition for high-demand careers in Indiana. No income limits. We help with the application process.'
+        q: 'What if I don\'t qualify for WIOA?',
+        a: 'We have multiple funding options: WRG (Workforce Ready Grant), JRI (Justice Reinvestment Initiative) for those with justice involvement, registered apprenticeships, employer sponsorship, and payment plans. We help you find the right funding source during your consultation.',
       },
       {
-        q: 'Can I get training if I have a criminal record?',
-        a: 'Yes! We work with JRI (Justice Reinvestment Initiative) and other programs specifically designed to help people with criminal backgrounds get training and jobs.'
+        q: 'Do you help with transportation costs?',
+        a: 'Yes! For WIOA-eligible students, we can provide gas cards, bus passes, or mileage reimbursement. We understand transportation is often a barrier to training, and we work to remove that barrier.',
       },
       {
-        q: 'Do I need a high school diploma?',
-        a: 'Not always. Some programs accept GED or equivalent. We can help you get your GED while training.'
-      }
-    ]
+        q: 'What about childcare while I\'m in class?',
+        a: 'WIOA funding can cover childcare costs for eligible students. We work with local childcare providers and can help arrange and pay for childcare so you can focus on your training.',
+      },
+      {
+        q: 'Are there any hidden fees?',
+        a: 'No hidden fees! If you\'re funded through WIOA, WRG, or JRI, everything is covered: tuition, books, supplies, certification exam fees, and support services. You pay nothing out of pocket.',
+      },
+    ],
   },
   {
-    category: 'Support Services',
+    id: 'support',
+    name: 'Student Support',
+    icon: '🤝',
     questions: [
       {
-        q: 'What if I need childcare during training?',
-        a: 'We can help connect you with childcare assistance programs. This is one of the barriers we help students overcome.'
+        q: 'Do you help with job placement?',
+        a: 'Absolutely! Job placement assistance is included in all programs. We have partnerships with local employers, help with resume writing and interview prep, connect you with job openings, and support you through your first 90 days of employment.',
       },
       {
-        q: 'Do you help with transportation?',
-        a: 'Yes. We can help with gas cards, bus passes, or connecting you with transportation resources.'
+        q: 'What if I need help with my resume?',
+        a: 'We provide one-on-one resume writing assistance, interview coaching, and professional development training. Our career coaches work with you to create a strong resume and practice interviewing until you feel confident.',
       },
       {
-        q: 'What if I need housing assistance?',
-        a: 'Our Director of Housing Stability works with students facing eviction or housing instability to keep them housed while they complete training.'
+        q: 'Can I get help with work clothes or uniforms?',
+        a: 'Yes! WIOA funding can cover work clothes, uniforms, tools, and equipment needed for your program or job. We want to make sure you have everything you need to succeed.',
       },
       {
-        q: 'Do you offer mental health support?',
-        a: 'Yes. We partner with licensed mental health professionals who provide assessment and support services to students.'
-      }
-    ]
+        q: 'What if I\'m struggling in class?',
+        a: 'We provide tutoring, one-on-one support, and flexible scheduling if you need extra help. Our instructors are committed to your success and will work with you to ensure you understand the material and pass your certification exams.',
+      },
+      {
+        q: 'Do you offer mental health or counseling services?',
+        a: 'We have partnerships with local mental health providers and can connect you with counseling services, substance abuse support, and other wraparound services. We understand that life challenges can affect your training, and we\'re here to help.',
+      },
+    ],
   },
   {
-    category: 'After Training',
+    id: 'special-populations',
+    name: 'Special Populations',
+    icon: '🌟',
     questions: [
       {
-        q: 'Will I get a job after training?',
-        a: 'We connect you with employers who are hiring. Many of our programs have direct employer partnerships and job placement assistance.'
+        q: 'I have a criminal record. Can I still enroll?',
+        a: 'Yes! We welcome individuals with criminal records. Our JRI (Justice Reinvestment Initiative) program specifically serves people with justice involvement. Some programs like CNA and Medical Assistant may have background check requirements, but we\'ll work with you to find the right program.',
       },
       {
-        q: 'What kind of salary can I expect?',
-        a: 'Most of our programs lead to jobs paying $35K-$60K+ annually. Specific salaries vary by field and experience.'
+        q: 'I\'m over 50. Am I too old for training?',
+        a: 'Absolutely not! We serve students of all ages. Many of our most successful graduates are over 50. Age brings maturity, work ethic, and life experience that employers value. It\'s never too late for a career change.',
       },
       {
-        q: 'Do you help with job applications and interviews?',
-        a: 'Yes! We provide resume help, interview prep, and direct connections to employers who are actively hiring.'
+        q: 'I don\'t speak English well. Can you help?',
+        a: 'We offer ESL (English as a Second Language) support and can connect you with language learning resources. Some programs may require a certain English proficiency level, but we\'ll work with you to build those skills.',
       },
       {
-        q: 'What if I need help after I get hired?',
-        a: 'We provide ongoing support even after you start working. Our goal is your long-term success, not just job placement.'
-      }
-    ]
-  }
+        q: 'I have a disability. Are your programs accessible?',
+        a: 'Yes! We provide reasonable accommodations for students with disabilities. This may include assistive technology, modified schedules, or additional support services. Contact us to discuss your specific needs.',
+      },
+      {
+        q: 'I\'m a veteran. Do you have special programs?',
+        a: 'We welcome veterans and can help you use your VA benefits for training. We also have partnerships with veteran service organizations and understand the unique needs of transitioning service members.',
+      },
+    ],
+  },
+  {
+    id: 'technical',
+    name: 'Technical Questions',
+    icon: '💻',
+    questions: [
+      {
+        q: 'Do I need a computer for online classes?',
+        a: 'For programs with online components, you\'ll need access to a computer or tablet with internet. If you don\'t have one, we can help you access computers at our facility or connect you with programs that provide devices.',
+      },
+      {
+        q: 'What if I\'m not good with technology?',
+        a: 'We provide technology training and support. Our staff will help you learn to use our online learning platform, email, and any other technology needed for your program. You don\'t need to be tech-savvy to succeed.',
+      },
+      {
+        q: 'How do I access my student portal?',
+        a: 'After enrollment, you\'ll receive login credentials for your student portal. You can access it at elevateforhumanity.org/student/dashboard. Contact support if you have trouble logging in.',
+      },
+      {
+        q: 'Can I use my phone for online classes?',
+        a: 'While our platform is mobile-friendly, we recommend using a computer or tablet for the best learning experience. Some activities and assessments work better on larger screens.',
+      },
+      {
+        q: 'What if I have technical problems during class?',
+        a: 'We have IT support available during class hours. You can also email support@elevateforhumanity.org or call our main number for technical assistance.',
+      },
+    ],
+  },
 ];
 
 export default function FAQPage() {
-  const [openIndex, setOpenIndex] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [openQuestions, setOpenQuestions] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
-  const toggleQuestion = (categoryIndex: number, questionIndex: number) => {
-    const key = `${categoryIndex}-${questionIndex}`;
-    setOpenIndex(openIndex === key ? null : key);
+  const toggleQuestion = (categoryId: string, questionIndex: number) => {
+    const key = `${categoryId}-${questionIndex}`;
+    setOpenQuestions(prev =>
+      prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]
+    );
   };
 
+  const filteredCategories = faqCategories.filter(category => {
+    if (selectedCategory !== 'all' && category.id !== selectedCategory) return false;
+    if (!searchQuery) return true;
+    
+    const query = searchQuery.toLowerCase();
+    return category.questions.some(
+      q => q.q.toLowerCase().includes(query) || q.a.toLowerCase().includes(query)
+    );
+  });
+
   return (
-    <div className="min-h-screen bg-slate-50">
-      {/* Header */}
-      <section className="bg-white border-b border-slate-200 py-12">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Frequently Asked Questions
-          </h1>
-          <p className="text-xl text-slate-600">
-            Get answers to common questions about our training programs, funding, and support services.
-          </p>
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+              <HelpCircle className="w-5 h-5" />
+              <span className="text-sm font-semibold">We&apos;re Here to Help</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Frequently Asked Questions
+            </h1>
+            <p className="text-xl text-blue-100 mb-8">
+              Find answers to common questions about our programs, funding, and support services.
+            </p>
+
+            {/* Search Bar */}
+            <div className="relative max-w-2xl mx-auto">
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+              <input
+                type="text"
+                placeholder="Search for answers..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-4 rounded-lg text-slate-900 text-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Category Filter */}
+      <section className="py-8 bg-slate-50 border-b sticky top-0 z-10">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap gap-3 justify-center">
+            <button
+              onClick={() => setSelectedCategory('all')}
+              className={`px-6 py-2 rounded-full font-semibold transition ${
+                selectedCategory === 'all'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-white text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              All Questions
+            </button>
+            {faqCategories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-6 py-2 rounded-full font-semibold transition ${
+                  selectedCategory === category.id
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-white text-slate-700 hover:bg-slate-100'
+                }`}
+              >
+                {category.icon} {category.name}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* FAQ Content */}
-      <section className="py-12">
-        <div className="max-w-4xl mx-auto px-4">
-          {faqs.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-12">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-orange-600">
-                {category.category}
-              </h2>
-              <div className="space-y-4">
-                {category.questions.map((faq, questionIndex) => {
-                  const key = `${categoryIndex}-${questionIndex}`;
-                  const isOpen = openIndex === key;
-                  
-                  return (
-                    <div key={questionIndex} className="bg-white rounded-lg border border-slate-200 overflow-hidden">
-                      <button
-                        onClick={() => toggleQuestion(categoryIndex, questionIndex)}
-                        className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-slate-50 transition"
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto space-y-12">
+            {filteredCategories.map((category) => (
+              <div key={category.id}>
+                <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                  <span className="text-4xl">{category.icon}</span>
+                  {category.name}
+                </h2>
+                <div className="space-y-4">
+                  {category.questions.map((question, index) => {
+                    const key = `${category.id}-${index}`;
+                    const isOpen = openQuestions.includes(key);
+                    
+                    return (
+                      <div
+                        key={index}
+                        className="bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-md transition"
                       >
-                        <span className="font-semibold text-slate-900 pr-4">{faq.q}</span>
-                        <span className={`text-2xl text-orange-600 transition-transform ${isOpen ? 'rotate-45' : ''}`}>
-                          +
-                        </span>
-                      </button>
-                      {isOpen && (
-                        <div className="px-6 pb-4 text-slate-700">
-                          {faq.a}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+                        <button
+                          onClick={() => toggleQuestion(category.id, index)}
+                          className="w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-slate-50 transition"
+                        >
+                          <span className="font-semibold text-slate-900 text-lg">
+                            {question.q}
+                          </span>
+                          <ChevronDown
+                            className={`w-5 h-5 text-slate-400 flex-shrink-0 transition-transform ${
+                              isOpen ? 'transform rotate-180' : ''
+                            }`}
+                          />
+                        </button>
+                        {isOpen && (
+                          <div className="px-6 pb-4 text-slate-600 leading-relaxed">
+                            {question.a}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <section className="py-16 bg-orange-600">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Still Have Questions?
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Call us at <a href="tel:3173143757" className="font-bold underline">317-314-3757</a> or send us a message.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block px-8 py-4 bg-white text-orange-600 font-bold rounded-lg hover:bg-slate-50 transition text-lg"
-          >
-            Contact Us
-          </a>
+      {/* Still Have Questions CTA */}
+      <section className="py-16 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              Still Have Questions?
+            </h2>
+            <p className="text-xl text-slate-600 mb-8">
+              We&apos;re here to help! Contact us and we&apos;ll get you the answers you need.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-lg p-8 shadow-sm">
+                <Phone className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Call Us</h3>
+                <p className="text-slate-600 mb-4">
+                  Speak with an advisor Monday-Friday, 8am-5pm
+                </p>
+                <a
+                  href="tel:317-314-3757"
+                  className="inline-block px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition"
+                >
+                  317-314-3757
+                </a>
+              </div>
+              <div className="bg-white rounded-lg p-8 shadow-sm">
+                <Mail className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Email Us</h3>
+                <p className="text-slate-600 mb-4">
+                  Send us a message and we&apos;ll respond within 24 hours
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-block px-6 py-3 bg-purple-600 text-white font-bold rounded-lg hover:bg-purple-700 transition"
+                >
+                  Contact Form
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-    </div>
+
+      {/* Quick Links */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 text-center">
+              Quick Links
+            </h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <Link
+                href="/programs"
+                className="bg-blue-50 hover:bg-blue-100 rounded-lg p-6 text-center transition"
+              >
+                <div className="text-3xl mb-2">📚</div>
+                <div className="font-semibold text-slate-900">View Programs</div>
+              </Link>
+              <Link
+                href="/apply"
+                className="bg-green-50 hover:bg-green-100 rounded-lg p-6 text-center transition"
+              >
+                <div className="text-3xl mb-2">✍️</div>
+                <div className="font-semibold text-slate-900">Apply Now</div>
+              </Link>
+              <Link
+                href="/getstarted"
+                className="bg-purple-50 hover:bg-purple-100 rounded-lg p-6 text-center transition"
+              >
+                <div className="text-3xl mb-2">🚀</div>
+                <div className="font-semibold text-slate-900">Get Started</div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
