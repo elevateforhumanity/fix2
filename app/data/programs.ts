@@ -373,79 +373,91 @@ Career Outcomes:
   },
   {
     slug: "building-maintenance",
-    name: "Building Maintenance Technician",
-    heroTitle: "Building Maintenance Technician",
+    name: "2Exclusive Apprenticeship Program - Sanitation & Infection Control",
+    heroTitle: "2Exclusive Apprenticeship Program - Advanced Sanitation & Infection Control",
     heroSubtitle:
-      "Hands-on training for individuals seeking roles in building repair, maintenance, and facility operations.",
+      "Specialized training for sanitation and infection control in high-risk environments: hospitals, military bases, and government facilities",
     shortDescription:
-      "Hands-on training for individuals seeking roles in building repair, maintenance, and facility operations.",
-    longDescription: `The Building Maintenance Technician program prepares students for practical, real-world maintenance work across residential and commercial facilities. Students learn core repair skills, safety standards, and the fundamentals of electrical, plumbing, HVAC support, carpentry, and customer service. This is a strong entry-level pathway into the skilled trades.
+      "Hands-on apprenticeship in OSHA compliance, holistic wellness cleaning, hazardous waste management, and infection control for critical sectors",
+    longDescription: `The 2Exclusive Apprenticeship Program is a specialized training initiative focused on equipping participants with the advanced skills required for sanitation and infection control in high-risk environments such as hospitals, military bases, and government facilities. This program offers hands-on experience and in-depth training in areas such as OSHA compliance, holistic wellness cleaning, hazardous waste management, and infection control protocols.
 
-What You'll Learn:
-- Basic electrical troubleshooting
-- Plumbing repair and safety
-- HVAC support skills
-- Carpentry and preventative maintenance
-- Work order systems and customer communication
+Apprentices will gain expertise in safely handling hazardous materials, implementing eco-friendly cleaning practices, and ensuring regulatory compliance, all while promoting healthier and safer environments. With a strong emphasis on both technical proficiency and holistic well-being, this apprenticeship prepares participants to meet the unique demands of critical sectors, ensuring a highly skilled workforce ready to tackle the challenges of modern sanitation and safety.
 
-Who This Program Is For:
-- Individuals who enjoy hands-on, tool-based work
-- Career changers entering the skilled trades
-- Adults seeking facility or apartment maintenance roles
+All faculty members possess at least three to five years of professional experience in military or institutional cleaning. Instructors hold valid safety and compliance certifications such as OSHA 10/30, HAZMAT, or Certified Environmental Technician credentials, and demonstrate strong expertise in infection control, regulatory compliance, and holistic wellness cleaning practices.
 
-Program Format:
-- Hybrid or in-person
-- Length: 8–20 weeks
-- Schedule: Day or evening options
+Credentialing Partners:
+• CareerSafe - OSHA 10/30 Safety Certification (https://careersafeonline.com)
+• U.S. Department of Labor - OSHA Training (https://osha.gov)
+• Certified Environmental Technician Programs
+• HAZMAT Certification Bodies
 
-Funding & Approvals:
-- Workforce funding may be available
-
-Career Outcomes:
-- Building Maintenance Technician
-- Apartment Maintenance
-- Facilities Support Roles`,
+CIP Code: 15.0501 - Heating, Ventilation, Air Conditioning and Refrigeration Engineering Technology/Technician`,
     heroImage: "/images/programs/building-maintenance-hero.jpg",
-    heroImageAlt: "Building maintenance technician working on facility systems",
-    duration: "8–20 weeks",
-    schedule: "Day or evening options",
-    delivery: "Hybrid or in-person",
-    credential: "Building Maintenance Technician certificate",
+    heroImageAlt: "Sanitation technician in protective equipment working in healthcare facility",
+    duration: "Varies by apprenticeship track",
+    schedule: "Quarterly cohorts (January, April, July, October)",
+    delivery: "Hands-on apprenticeship with classroom instruction",
+    credential: "OSHA 10/30, HAZMAT, Certified Environmental Technician, Infection Control Specialist",
     approvals: [
-      "Workforce funding may be available",
+      "ETPL Approved",
+      "WIOA Eligible",
+      "Workforce Ready Grant Eligible",
+      "CIP Code: 15.0501",
+      "Registered Apprenticeship Program",
     ],
     fundingOptions: [
-      "Workforce funding may be available",
+      "100% FREE through WIOA",
+      "Workforce Ready Grant",
+      "Employer-sponsored apprenticeship",
     ],
     highlights: [
-      "Multi-trade skills in one program",
-      "Hands-on training with real equipment",
-      "Career coaching and job placement support",
-      "Pathways to facilities management and specialized trades",
+      "Specialized training for high-risk environments",
+      "OSHA 10/30 safety certifications",
+      "HAZMAT and hazardous waste management",
+      "Infection control protocols for hospitals and military",
+      "Holistic wellness cleaning practices",
+      "Eco-friendly and sustainable cleaning techniques",
+      "Regulatory compliance expertise",
+      "Quarterly cohort start dates",
+      "Hands-on experience in critical sectors",
     ],
     whatYouLearn: [
-      "Basic electrical troubleshooting",
-      "Plumbing repair and safety",
-      "HVAC support skills",
-      "Carpentry and preventative maintenance",
-      "Work order systems and customer communication",
+      "OSHA compliance and workplace safety standards",
+      "Infection control protocols and procedures",
+      "Hazardous materials handling and disposal",
+      "HAZMAT safety and emergency response",
+      "Holistic wellness cleaning practices",
+      "Eco-friendly and sustainable cleaning techniques",
+      "Regulatory compliance for healthcare and government facilities",
+      "Bloodborne pathogens and biohazard management",
+      "Personal protective equipment (PPE) usage",
+      "Documentation and reporting requirements",
     ],
     outcomes: [
-      "Building Maintenance Technician",
-      "Apartment Maintenance",
-      "Facilities Support Roles",
+      "Sanitation Specialist in hospitals and healthcare",
+      "Military base environmental services",
+      "Government facility cleaning and maintenance",
+      "Infection control technician",
+      "Environmental services supervisor",
+      "HAZMAT response team member",
+      "Certified Environmental Technician",
+      "Average salary: $35,000-$55,000/year",
     ],
     requirements: [
-      "Individuals who enjoy hands-on, tool-based work",
-      "Career changers entering the skilled trades",
-      "Adults seeking facility or apartment maintenance roles",
+      "High school diploma or equivalent required",
+      "Willingness to learn infection control and sanitation procedures",
+      "Interest in eco-friendly cleaning techniques",
+      "Prior experience in janitorial, environmental services, or healthcare cleaning preferred but not required",
+      "Background check required",
+      "OSHA 10 or OSHA 30 certification completed during program",
+      "Application deadline: Apply at least 30 days before desired start date",
     ],
     ctaPrimary: {
-      label: "Apply for Building Maintenance",
+      label: "Apply Now",
       href: "/apply?program=building-maintenance",
     },
     ctaSecondary: {
-      label: "Talk to a Career Coach",
+      label: "Learn More",
       href: "/contact?topic=building-maintenance",
     },
   },
