@@ -614,84 +614,85 @@ Career Outcomes:
   },
   {
     slug: "medical-assistant",
-    name: "Medical Assistant",
-    heroTitle: "Medical Assistant — Clinical & Administrative Healthcare",
+    name: "Direct Support Professional (DSP) Training",
+    heroTitle: "Direct Support Professional (DSP) Training Program",
     heroSubtitle:
-      "Comprehensive medical assistant training that prepares you for both clinical and administrative roles in healthcare settings.",
+      "Compassionate care training for meaningful work supporting individuals with developmental, physical, or emotional needs",
     shortDescription:
-      "Comprehensive medical assistant training that prepares you for both clinical and administrative roles in healthcare settings.",
-    longDescription: `The Medical Assistant program provides training in both clinical and administrative healthcare skills. Students learn patient care, medical procedures, office management, and healthcare technology. This program is ideal for individuals seeking a versatile healthcare career with opportunities in clinics, hospitals, and medical offices.
+      "Hands-on DSP training with real-world scenarios preparing you for rewarding careers in behavioral health, direct support, and caregiving",
+    longDescription: `Our Direct Support Professional (DSP) training program is built to prepare compassionate individuals for meaningful work in the care and support field. This program offers hands-on instruction, real-world scenarios, and practical skills that help students feel confident working with individuals who have developmental, physical, or emotional needs. Whether you're starting a new career or looking to grow in the healthcare field, this training gives you the tools to make a real difference in someone's life while also building a rewarding future for yourself.
 
-What You'll Learn:
-- Patient intake and vital signs
-- Medical terminology and documentation
-- Clinical procedures and lab basics
-- Electronic health records (EHR)
-- Medical office administration
-- Insurance and billing fundamentals
-- Professional communication and patient care
+All instructors possess a minimum of a High School Diploma or GED and have at least two years of hands-on experience in behavioral health, direct support, or caregiving. Preference is given to faculty with credentials such as Certified Direct Support Professional (CDSP), CNA licensure, QIDP designation, or completion of state-approved Train-the-Trainer programs. Faculty complete ongoing professional development annually.
 
-Who This Program Is For:
-- Individuals interested in healthcare careers
-- Career changers seeking stable employment
-- Students wanting versatile medical skills
-- Adults looking for quick entry into healthcare
+This comprehensive program provides training in patient care, behavioral health support, person-centered planning, and professional communication. Students learn to work effectively with individuals with disabilities, mental health needs, and other support requirements in residential, community, and healthcare settings.
 
-Program Format:
-- Classroom instruction + clinical externship
-- Length: 8-12 weeks
-- Schedule: Day or evening options
+Credentialing Partners:
+• National Alliance for Direct Support Professionals (NADSP) - CDSP Certification (https://nadsp.org)
+• Certified Community Healthcare Worker (CCHW) Programs
+• CPR/First Aid Certification Bodies
+• Rise Up - Career Readiness Certification (https://riseup.com)
 
-Funding & Approvals:
-- Workforce funding options may be available
-- Partner-delivered through approved training providers
-
-Career Outcomes:
-- Medical Assistant (clinical or administrative)
-- Patient Care Coordinator
-- Medical Office Specialist
-- Pathway to nursing or other healthcare roles`,
+CIP Code: 51.0801 - Medical/Clinical Assistant`,
     heroImage: "/images/programs/medical-assistant-hero.jpg",
-    heroImageAlt: "Medical assistant working with patients in a clinical setting",
-    duration: "8-12 weeks",
-    schedule: "Day or evening options",
-    delivery: "Classroom + clinical externship",
-    credential: "Medical Assistant certification eligibility",
+    heroImageAlt: "Direct support professional providing compassionate care",
+    duration: "21 days (3 weeks)",
+    schedule: "Cohorts start 1st and 15th of each month",
+    delivery: "Hands-on instruction with real-world scenarios",
+    credential: "Certified Community Healthcare Worker (CCHW), CPR, Rise Up Certificate",
     approvals: [
-      "Partner-delivered through approved training providers",
-      "Workforce funding may be available",
+      "ETPL Approved - Program ID #10004639",
+      "WIOA Eligible",
+      "Workforce Ready Grant Eligible",
+      "CIP Code: 51.0801",
     ],
     fundingOptions: [
-      "WIOA funding available for eligible students",
-      "Workforce funding options",
-      "Employer reimbursement programs",
+      "100% FREE through WIOA",
+      "Workforce Ready Grant",
+      "Employer-sponsored enrollment",
+      "Self-Pay: $4,325",
     ],
     highlights: [
-      "Dual training in clinical and administrative skills",
-      "Hands-on clinical externship experience",
-      "Electronic health records (EHR) training",
-      "Job placement assistance with healthcare partners",
+      "Certified Community Healthcare Worker (CCHW) credential",
+      "CPR and First Aid certification",
+      "Rise Up career readiness certificate",
+      "Hands-on training with real-world scenarios",
+      "Fast 21-day completion",
+      "Cohorts start twice monthly (1st and 15th)",
+      "Meaningful work supporting individuals with disabilities",
+      "Pathways to behavioral health and healthcare careers",
     ],
     whatYouLearn: [
-      "Patient intake and vital signs",
-      "Medical terminology and documentation",
-      "Clinical procedures and lab basics",
-      "Electronic health records (EHR)",
-      "Medical office administration",
-      "Insurance and billing fundamentals",
-      "Professional communication and patient care",
+      "Person-centered care and support planning",
+      "Working with individuals with developmental disabilities",
+      "Behavioral health support techniques",
+      "Communication and relationship building",
+      "CPR and First Aid emergency response",
+      "Medication administration basics",
+      "Documentation and reporting",
+      "Professional boundaries and ethics",
+      "Crisis intervention and de-escalation",
+      "Activities of daily living (ADL) assistance",
     ],
     outcomes: [
-      "Medical Assistant in clinics, hospitals, or medical offices",
-      "Patient Care Coordinator",
-      "Medical Office Specialist",
+      "Direct Support Professional in residential settings",
+      "Behavioral health support specialist",
+      "Community support worker",
+      "Personal care assistant",
+      "Group home staff",
+      "Day program facilitator",
+      "Average salary: $30,000-$42,000/year",
       "Foundation for nursing or advanced healthcare careers",
     ],
     requirements: [
-      "High school diploma or equivalent",
-      "Background check may be required for clinical placement",
-      "Immunizations required for clinical externship",
-      "Commitment to professional healthcare standards",
+      "18 years or older",
+      "High school diploma or GED",
+      "Pass background check",
+      "Reliable transportation encouraged",
+      "No prior healthcare experience required",
+      "Willingness to complete all required training hours",
+      "Interest in supporting individuals with disabilities or behavioral health needs",
+      "Legally authorized to work in the U.S.",
+      "Application deadline: Apply at least 7 days before cohort start date",
     ],
     ctaPrimary: {
       label: "Apply Now",
@@ -701,6 +702,7 @@ Career Outcomes:
       label: "Learn More",
       href: "/contact?topic=medical-assistant",
     },
+    price: 4325,
   },
   {
     slug: "beauty-career-educator",
