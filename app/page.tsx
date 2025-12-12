@@ -227,13 +227,13 @@ export default function HomePage() {
           {/* Story 1: Tax Preparation */}
           <div className="mb-16">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl bg-slate-100">
                 <Image
                   src="/images/gallery/image3.jpg"
                   alt="Tax preparation training"
                   fill
                   quality={80}
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <div>
@@ -304,13 +304,13 @@ export default function HomePage() {
                   Explore HVAC Training →
                 </Link>
               </div>
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2 bg-slate-100">
                 <Image
                   src="/images/gallery/image5.jpg"
                   alt="HVAC training"
                   fill
                   quality={80}
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             </div>
@@ -319,13 +319,13 @@ export default function HomePage() {
           {/* Story 3: Healthcare */}
           <div className="mb-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl bg-slate-100">
                 <Image
                   src="/images/gallery/image7.jpg"
                   alt="Healthcare training"
                   fill
                   quality={80}
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
               <div>
