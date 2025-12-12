@@ -18,10 +18,13 @@
    - Configures SAP monitoring
    - Enables auto-enrollment
 
-3. **20251212_test_data.sql** (319 lines) - OPTIONAL
-   - Creates test student
-   - Sample enrollment data
-   - Test for development only
+3. **20251212_production_programs.sql** (REQUIRED)
+   - Creates 5 real programs
+   - Barbering/Cosmetology
+   - CNA
+   - HVAC Technician
+   - Tax Preparation
+   - CDL
 
 ---
 
