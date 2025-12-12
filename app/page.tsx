@@ -289,15 +289,12 @@ export default function HomePage() {
 
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
               <div className="mb-3 relative w-full h-32 rounded-lg overflow-hidden">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__7/generated-video-79ee190a-1c7a-4c96-9acc-f2eb06ffc61c.mp4?Expires=2080931868&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=1bQ6JmHYtm0imcET1KwGtbx0npzi-9MZQGPi3K0S228Vit69ibZwXj58OHCpyH4Yzk3yI81xnIa6CRrDsC5j6AZiuU4CZ2eP6Nq2mMSplv51B9CKntY6XJVedVgYUHWdFvDgP5-tinnsffqmh~d17hz0B3CakSPqS8pAOprPpa5JzidK7HogLKHXgKqzDTXwtva8dTT~e~DGPLZnKa3oAB5WrnAaPkd6teKi9ZckkxirYC8Y1CCEH2uXuuzQFN1dhXQQuFkfzcnw0apdroqIWZCMYKc9YuU9iTFAt3NwXl6KjC5dE89krgClUDn57Nuttwy6wEP6lTVjg62iUuAthw__" type="video/mp4" />
-                </video>
+                <Image
+                  src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__7/generated-image-fc4dd113-8a89-4b1a-9bd6-afcac7ac3402.png?Expires=2080939098&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=Rjgc85nThSEZvNbZ02eeQxDxRNWPuoE3E2KKXPQW8Lc3tyQ1sHu010c2Kk28qMLvZ52AgC3Og30m07DkWXJc8ohPpxmuM8rp70gPlMB~nfRFLx78lxZ-gcDBhHUQ5xEQKJ~K1PIHsmdPS3XhAyMdryD04QLOfrton9ZkWfHJ1ApQzXlbE~xgFTxMMtiVusrVqNYpen1NwJhGnnB7OPmU8vYkFtxbao8o51OaUFx8iRUmY~SHYWvEwG-OW5FrFxBUeusvKkx2INqgUQpATKWCAzx0GrSasTilN49UsZARQUBcumMWf7sVGwN6L2RelRvUNu-oHs013UiYBE4qbXtAgg__"
+                  alt="Career Changers"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">Career Changers</h3>
               <p className="text-sm text-slate-700">
