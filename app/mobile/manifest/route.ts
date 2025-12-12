@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { mobileAppConfig } from "@/lms-data/mobileAppConfig";
 
-export const runtime = "edge";
+// Using nodejs runtime for better compatibility
+export const runtime = "nodejs";
 
 export async function GET() {
   // In the future you can:
