@@ -765,47 +765,73 @@ CIP Code: 13.1319 - Technical Teacher Education`,
   {
     slug: "business-startup-marketing",
     name: "Business Start-up & Marketing",
-    heroTitle: "Business Start-up & Marketing Program",
-    heroSubtitle: "5-week intensive program to launch and market your business",
-    shortDescription: "Learn retail fundamentals, marketing strategies, and business operations in 5 weeks",
-    longDescription: `The Business Start-up & Marketing Program is designed for aspiring entrepreneurs who want to launch their own business or advance in retail management. In just 5 weeks, you'll gain industry-recognized certifications in retail operations and marketing, learn how to create a business plan, develop marketing strategies, and understand the fundamentals of running a successful business.`,
+    heroTitle: "Business Start-up & Marketing Program with Rise Forward",
+    heroSubtitle: "5-week intensive program to launch your business with mentorship, stipend, and laptop kit",
+    shortDescription: "Hands-on entrepreneurship training with LLC formation, digital marketing, and real-world startup support",
+    longDescription: `The Business Start-Up & Marketing Program with Rise Forward equips participants with hands-on skills to launch their own business ventures. Students will learn the fundamentals of entrepreneurship, digital marketing, LLC formation, business planning, customer service, and resume development. The program includes guided startup support, mentorship, and ends with a business match stipend and laptop kit to empower real-world implementation. Ideal for youth ready to explore self-employment and leadership pathways in today's economy.
+
+In just 5 weeks, you'll gain industry-recognized certifications in retail operations and marketing, learn how to create a business plan, develop marketing strategies, form an LLC, and build your professional image and online presence. This program is designed for aspiring entrepreneurs ages 16+ who want to launch their own business or advance in retail management.
+
+Credentialing Partners:
+• National Retail Federation (NRF) - Business of Retail Certified Specialist (https://nrf.com)
+• National Retail Federation (NRF) - Retail Industry Fundamentals Specialist (https://nrf.com)
+• Rise Forward Foundation - Business Development Support (https://riseforwardfoundation.org)
+
+Program Benefits:
+• Business match stipend upon completion
+• Laptop kit for business operations
+• One-on-one mentorship
+• LLC formation guidance
+• Professional resume development
+
+CIP Code: 52.0701 - Entrepreneurship/Entrepreneurial Studies`,
     heroImage: "/images/programs/business-startup.jpg",
-    heroImageAlt: "Entrepreneur planning business strategy",
+    heroImageAlt: "Young entrepreneur planning business strategy",
     duration: "5 weeks",
-    schedule: "Full-time or Part-time options available",
-    delivery: "Hybrid - Online coursework + In-person workshops",
-    credential: "Business of Retail Certified Specialist, Retail Industry Fundamentals Specialist, Certificate of Completion",
-    approvals: ["ETPL Approved - Program ID #10004645", "WIOA Eligible", "Workforce Ready Grant Eligible"],
-    fundingOptions: ["100% FREE through WIOA", "Workforce Ready Grant", "Self-Pay: $4,550"],
+    schedule: "Quarterly cohorts - Flexible scheduling options",
+    delivery: "Hybrid - Online coursework + In-person workshops and mentorship",
+    credential: "Business of Retail Certified Specialist (NRF), Retail Industry Fundamentals Specialist (NRF), Certificate of Completion",
+    approvals: ["ETPL Approved - Program ID #10004645", "WIOA Eligible", "Workforce Ready Grant Eligible", "CIP Code: 52.0701", "Rise Forward Partnership"],
+    fundingOptions: ["100% FREE through WIOA", "Workforce Ready Grant", "Self-Pay: $4,550", "Includes business match stipend and laptop kit"],
     highlights: [
-      "Industry-recognized retail certifications",
-      "Business plan development",
-      "Marketing and social media strategies",
-      "Financial management basics",
+      "Industry-recognized NRF retail certifications",
+      "LLC formation and business registration",
+      "Digital marketing and social media strategies",
+      "Business match stipend upon completion",
+      "Free laptop kit for business operations",
+      "One-on-one mentorship and startup support",
+      "Resume and professional image development",
       "Fast 5-week completion",
     ],
     whatYouLearn: [
-      "Business planning and strategy",
+      "Business planning and strategy development",
+      "LLC formation and business registration",
       "Retail operations and management",
-      "Marketing fundamentals",
-      "Social media marketing",
+      "Digital marketing fundamentals",
+      "Social media marketing and content creation",
       "Customer service excellence",
       "Financial planning and budgeting",
-      "Sales techniques",
-      "Inventory management",
+      "Sales techniques and customer acquisition",
+      "Resume building and professional branding",
+      "Online presence and website basics",
     ],
     outcomes: [
-      "Launch your own business",
+      "Launch your own business with LLC",
       "Retail management positions",
       "Marketing coordinator roles",
-      "Small business owner",
+      "Small business owner/entrepreneur",
+      "E-commerce business operator",
       "Average salary: $35,000-$60,000/year",
+      "Self-employment income potential varies",
     ],
     requirements: [
-      "High school diploma or GED",
-      "Basic computer skills",
-      "Entrepreneurial mindset",
-      "Commitment to business success",
+      "Ages 16 and up",
+      "No previous business experience required",
+      "Basic reading and writing skills",
+      "Comfortable using a computer",
+      "Entrepreneurial mindset and eagerness to learn",
+      "Complete short intake interview",
+      "Application deadline: Apply at least 2 weeks before cohort start date",
     ],
     ctaPrimary: {
       label: "Apply Now",
