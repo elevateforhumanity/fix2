@@ -104,14 +104,16 @@ export default function HomePage() {
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src="https://i.imgur.com/0LzYTV5.jpg"
-                    alt="CNA Healthcare Training - Certified Nursing Assistant"
-                    fill
-                    quality={90}
-                    priority
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  >
+                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__8/generated-video-2a104343-e6a7-4bd8-88c8-367de1f111b5.mp4?Expires=2080924435&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=0jh2Q6YasOiEYKsMLsHnO8-IxuDZSqIViWwCAY7gaOPqU9ZOVcEUPXk~1fmm1DMUxHWDL0vyigwSBNgAOnadT-kd3nbs~15itdd9nEr4jQdbwi5RA2MbgicP5RcAE4MUpsgphyjlR7cvYq7AmALH6eeRSqlPGGSGQEpk5fB9yo02LevHzlhg4KAktAxMmTZfe8HbPATZc8BIWOBu5-oTsohbZMPWThG7A6ZIt9AqNCXGvIcGEb-suOLDAtyTkaVgrmJue1OOx3guDvOi0KaLBSKgzq3717ItPpu9dxnXxuvwe1XxCxq5StyLZptxVAi5FpRRVPwkxDNNyDqLNlglgg__" type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
