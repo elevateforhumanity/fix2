@@ -189,7 +189,7 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden bg-slate-100">
                   <Image
-                    src="/images/hvac-highlight.png"
+                    src="/images/hvac-highlight.jpg"
                     alt="HVAC Technician"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
