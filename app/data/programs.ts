@@ -197,11 +197,11 @@ You don't need perfect circumstances. You just need to show up, put in the work,
     ],
     ctaPrimary: {
       label: "Apply Now",
-      href: "/apply",
+      href: "/contact?topic=barber-apprenticeship",
     },
     ctaSecondary: {
-      label: "Contact Us",
-      href: "/contact?topic=barber-apprenticeship",
+      label: "Learn More",
+      href: "/programs/barber-apprenticeship",
     },
     price: 4980, // Self-pay option price
   },
