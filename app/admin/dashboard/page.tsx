@@ -42,12 +42,6 @@ export default async function AdminDashboard() {
     .select('*', { count: 'exact', head: true })
     .eq('status', 'active');
 
-  
-
-  if (profile?.role !== 'admin' && profile?.role !== 'super_admin') {
-    redirect('/unauthorized');
-  }
-
   // Fetch real statistics
   const { count: totalStudents } = await supabase
     .from('profiles')

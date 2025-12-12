@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+import DiscussionForums from '@/components/forums/DiscussionForums';
 
 export const metadata = {
   title: 'Discussion Forums | Elevate for Humanity',
@@ -6,6 +6,5 @@ export const metadata = {
 };
 
 export default function ForumsPage() {
-  // Redirect to LMS forums
-  redirect('/lms/forums');
+  return <DiscussionForums />;
 }

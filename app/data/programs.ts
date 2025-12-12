@@ -196,12 +196,12 @@ You don't need perfect circumstances. You just need to show up, put in the work,
       "Youth or adults seeking a hands-on trade",
     ],
     ctaPrimary: {
-      label: "Contact Us",
-      href: "/contact",
+      label: "Apply Now",
+      href: "/programs/barber-apprenticeship/enroll",
     },
     ctaSecondary: {
-      label: "Pay Now",
-      href: "/pay",
+      label: "Learn More",
+      href: "/contact",
     },
     price: 4980, // Self-pay option price
   },
