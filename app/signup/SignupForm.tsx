@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { createBrowserClient } from '@supabase/ssr';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function SignupForm() {
+function SignupFormContent() {
+  const searchParams = useSearchParams();
+  const next = searchParams.get('next') || '/student/dashboard';
   const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',

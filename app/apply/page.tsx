@@ -15,24 +15,25 @@ export default function TalkToAdvisorPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('loading');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', phone: '', program: '', message: '' });
-      } else {
-        setStatus('error');
-      }
-    } catch (error) {
-      setStatus('error');
-    }
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Application Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone}\n` +
+      `Program Interest: ${formData.program}\n\n` +
+      `Message:\n${formData.message}`
+    );
+    
+    window.location.href = `mailto:elevate4humanityedu@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Show success message
+    setStatus('success');
+    setTimeout(() => {
+      setFormData({ name: '', email: '', phone: '', program: '', message: '' });
+      setStatus('idle');
+    }, 3000);
   };
 
   return (
