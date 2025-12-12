@@ -846,48 +846,72 @@ CIP Code: 52.0701 - Entrepreneurship/Entrepreneurial Studies`,
   {
     slug: "emergency-health-safety-tech",
     name: "Emergency Health & Safety Technician",
-    heroTitle: "Emergency Health & Safety Technician",
-    heroSubtitle: "4-week fast-track program to become an Emergency Medical Responder",
-    shortDescription: "Comprehensive emergency response training with CPR, EMR, and OSHA 10 certifications",
-    longDescription: `The Emergency Health & Safety Technician program prepares you for a career in emergency medical services and workplace safety. In just 4 weeks, you'll earn multiple industry-recognized certifications including Emergency Medical Responder (EMR), CPR, and OSHA 10. This fast-paced program combines classroom instruction with hands-on emergency response training, preparing you to save lives and ensure workplace safety.`,
+    heroTitle: "Emergency Health & Safety Technician Registered Apprenticeship",
+    heroSubtitle: "4-week hybrid program preparing life-saving responders for schools, workplaces, and emergency settings",
+    shortDescription: "Comprehensive training with CPR/AED, First Aid, EMR, and OSHA 10 certifications for healthcare and public safety careers",
+    longDescription: `The Emergency Health and Safety Technician Registered Apprenticeship program prepares individuals for life-saving response roles in schools, workplaces and emergency settings. This hybrid training includes CPR/AED, First Aid, OSHA-aligned safety education, and public health emergency awareness. Students graduate with nationally recognized certifications and are equipped for careers in healthcare, public safety, community response, and entry-level emergency technician pathways.
+
+In just 4 weeks, you'll earn multiple industry-recognized certifications including Emergency Medical Responder (EMR), CPR/AED, First Aid, and OSHA 10. This fast-paced program combines classroom instruction with hands-on emergency response training, preparing you to save lives and ensure workplace safety.
+
+All instructors hold CPR/AED & First Aid Instructor certification from the American Heart Association, Red Cross, or equivalent nationally recognized body. Instructors have a minimum of 2 years of experience in occupational safety, healthcare, or public safety.
+
+Credentialing Partners:
+• American Heart Association (AHA) - CPR/AED/First Aid (https://cpr.heart.org)
+• American Red Cross - CPR/AED/First Aid (https://redcross.org)
+• National Registry of Emergency Medical Technicians (NREMT) - EMR Certification (https://nremt.org)
+• CareerSafe - OSHA 10 Safety Certification (https://careersafeonline.com)
+
+CIP Code: 51.0999 - Allied Health Diagnostic, Intervention, and Treatment Professions`,
     heroImage: "/images/programs/emergency-health.jpg",
-    heroImageAlt: "Emergency medical responder in action",
+    heroImageAlt: "Emergency medical responder providing care",
     duration: "4 weeks",
-    schedule: "Full-time intensive",
-    delivery: "Hybrid - Online theory + In-person skills training",
-    credential: "Emergency Medical Responder (EMR), CPR Certification, OSHA 10 - Career Safe",
-    approvals: ["ETPL Approved - Program ID #10004621", "WIOA Eligible", "Workforce Ready Grant Eligible"],
+    schedule: "Monthly cohorts - Full-time intensive",
+    delivery: "Hybrid - Online theory + In-person hands-on skills training",
+    credential: "Emergency Medical Responder (EMR), CPR/AED/First Aid, OSHA 10 - Career Safe",
+    approvals: ["ETPL Approved - Program ID #10004621", "WIOA Eligible", "Workforce Ready Grant Eligible", "CIP Code: 51.0999", "Registered Apprenticeship Program"],
     fundingOptions: ["100% FREE through WIOA", "Workforce Ready Grant", "Self-Pay: $4,950"],
     highlights: [
-      "Emergency Medical Responder certification",
-      "CPR and First Aid certified",
-      "OSHA 10 workplace safety",
+      "Registered Apprenticeship program",
+      "Emergency Medical Responder (EMR) certification",
+      "CPR/AED and First Aid certified",
+      "OSHA 10 workplace safety certification",
+      "Public health emergency awareness training",
       "Fast 4-week completion",
+      "Monthly cohort start dates",
       "High-demand career field",
+      "Pathways to healthcare and public safety careers",
     ],
     whatYouLearn: [
       "Emergency medical response procedures",
-      "CPR and AED operation",
+      "CPR and AED operation for all ages",
       "First aid and trauma care",
       "Patient assessment and triage",
-      "OSHA workplace safety standards",
-      "Emergency scene management",
-      "Medical terminology",
+      "OSHA 10 workplace safety standards",
+      "Emergency scene management and safety",
+      "Public health emergency response",
+      "Medical terminology and documentation",
       "Communication with EMS professionals",
+      "Infection control and bloodborne pathogens",
     ],
     outcomes: [
-      "Emergency Medical Responder",
-      "Workplace safety coordinator",
+      "Emergency Medical Responder (EMR)",
+      "School safety coordinator",
+      "Workplace safety officer",
       "First responder positions",
+      "Community health worker",
       "Security and safety roles",
+      "Entry-level emergency technician",
+      "Healthcare support positions",
       "Average salary: $35,000-$45,000/year",
     ],
     requirements: [
-      "High school diploma or GED",
+      "High school diploma or GED required for national certification",
       "18 years or older",
+      "Able to read and follow written and verbal instructions",
       "Physical ability to perform emergency response duties",
+      "No previous medical training required",
       "Background check required",
-      "Valid driver's license preferred",
+      "Application deadline: Apply 2 weeks prior to preferred start date",
     ],
     ctaPrimary: {
       label: "Apply Now",
