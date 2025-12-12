@@ -1,13 +1,21 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle, DollarSign, Clock, Shield, Award, TrendingUp } from 'lucide-react';
+import {
+  CheckCircle,
+  DollarSign,
+  Clock,
+  Shield,
+  Award,
+  TrendingUp,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/supersonic-fast-cash",
+    canonical: 'https://www.elevateforhumanity.org/supersonic-fast-cash',
   },
   title: 'Tax Refund Advance - Get Up to $6,000 Fast | Supersonic Fast Cash',
-  description: 'Get your tax refund advance in minutes. Professional tax preparation with fast cash advances up to $6,000. No credit check required.',
+  description:
+    'Get your tax refund advance in minutes. Professional tax preparation with fast cash advances up to $6,000. No credit check required.',
 };
 
 export default function SupersonicFastCashPage() {
@@ -25,7 +33,8 @@ export default function SupersonicFastCashPage() {
                 Get Your Refund Fast
               </h1>
               <p className="text-2xl mb-8 text-green-100">
-                Tax refund advance up to $6,000 in minutes. Professional tax preparation included.
+                Tax refund advance up to $6,000 in minutes. Professional tax
+                preparation included.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -49,7 +58,9 @@ export default function SupersonicFastCashPage() {
                   <CheckCircle className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-semibold">Fast Approval</div>
-                    <div className="text-green-100">Get approved in minutes</div>
+                    <div className="text-green-100">
+                      Get approved in minutes
+                    </div>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -63,7 +74,9 @@ export default function SupersonicFastCashPage() {
                   <CheckCircle className="w-6 h-6 text-yellow-400 flex-shrink-0 mt-1" />
                   <div>
                     <div className="font-semibold">Professional Service</div>
-                    <div className="text-green-100">Certified tax preparers</div>
+                    <div className="text-green-100">
+                      Certified tax preparers
+                    </div>
                   </div>
                 </li>
               </ul>
@@ -99,7 +112,8 @@ export default function SupersonicFastCashPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Get Approved</h3>
               <p className="text-gray-600">
-                Instant approval for your refund advance - no credit check needed
+                Instant approval for your refund advance - no credit check
+                needed
               </p>
             </div>
             <div className="bg-white p-8 rounded-xl shadow-lg text-center">
@@ -110,6 +124,114 @@ export default function SupersonicFastCashPage() {
               <p className="text-gray-600">
                 Walk out with cash in hand - up to $6,000 in minutes
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Refund Advance Amounts */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Refund Advance Amounts
+            </h2>
+            <p className="text-xl text-gray-600">
+              Get your money fast - no credit check required
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-slate-50 border-2 border-green-500 rounded-xl p-8 text-center">
+              <div className="text-5xl font-bold text-green-600 mb-2">$500</div>
+              <div className="text-sm text-gray-600 mb-4">Advance Amount</div>
+              <div className="text-gray-700">Perfect for quick cash needs</div>
+            </div>
+            <div className="bg-slate-50 border-2 border-blue-500 rounded-xl p-8 text-center">
+              <div className="text-5xl font-bold text-blue-600 mb-2">
+                $1,500
+              </div>
+              <div className="text-sm text-gray-600 mb-4">Advance Amount</div>
+              <div className="text-gray-700">Most popular option</div>
+            </div>
+            <div className="bg-slate-50 border-2 border-purple-500 rounded-xl p-8 text-center">
+              <div className="text-5xl font-bold text-purple-600 mb-2">
+                $6,000
+              </div>
+              <div className="text-sm text-gray-600 mb-4">Advance Amount</div>
+              <div className="text-gray-700">Maximum advance available</div>
+            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-600">
+              *Advance amounts based on expected refund. Subject to approval. No
+              credit check required.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Tax Software - Drake/EPS Style */}
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Professional Tax Software
+            </h2>
+            <p className="text-xl text-gray-600">
+              We use industry-leading Drake Tax Software with EPS Tax
+              integration
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h3 className="text-2xl font-bold mb-4">Drake Tax Software</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>IRS-approved e-file provider</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Handles all tax forms and schedules</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Maximum refund calculations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Error checking and validation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span>Fast e-file transmission</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white p-8 rounded-xl shadow-lg">
+              <h3 className="text-2xl font-bold mb-4">EPS Tax Integration</h3>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Instant refund advance processing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Bank product integration</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Secure payment processing</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Same-day funding available</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <span>Multiple disbursement options</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -223,22 +345,30 @@ export default function SupersonicFastCashPage() {
             <div>
               <Shield className="w-12 h-12 text-green-700 mx-auto mb-3" />
               <h3 className="font-bold mb-2">IRS Certified</h3>
-              <p className="text-sm text-gray-600">All preparers are IRS certified</p>
+              <p className="text-sm text-gray-600">
+                All preparers are IRS certified
+              </p>
             </div>
             <div>
               <Award className="w-12 h-12 text-green-700 mx-auto mb-3" />
               <h3 className="font-bold mb-2">Maximum Refund</h3>
-              <p className="text-sm text-gray-600">Guaranteed or your money back</p>
+              <p className="text-sm text-gray-600">
+                Guaranteed or your money back
+              </p>
             </div>
             <div>
               <Clock className="w-12 h-12 text-green-700 mx-auto mb-3" />
               <h3 className="font-bold mb-2">Fast Service</h3>
-              <p className="text-sm text-gray-600">Most returns done same day</p>
+              <p className="text-sm text-gray-600">
+                Most returns done same day
+              </p>
             </div>
             <div>
               <DollarSign className="w-12 h-12 text-green-700 mx-auto mb-3" />
               <h3 className="font-bold mb-2">Best Prices</h3>
-              <p className="text-sm text-gray-600">Competitive rates guaranteed</p>
+              <p className="text-sm text-gray-600">
+                Competitive rates guaranteed
+              </p>
             </div>
           </div>
         </div>
@@ -247,9 +377,7 @@ export default function SupersonicFastCashPage() {
       {/* Final CTA */}
       <section className="py-20 bg-green-700 text-white text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-6">
-            Ready to Get Your Refund?
-          </h2>
+          <h2 className="text-4xl font-bold mb-6">Ready to Get Your Refund?</h2>
           <p className="text-xl mb-8">
             Visit us today or call to schedule your appointment
           </p>
@@ -268,7 +396,8 @@ export default function SupersonicFastCashPage() {
             </Link>
           </div>
           <p className="mt-8 text-green-100">
-            Walk-ins welcome • Open 7 days a week • Evening appointments available
+            Walk-ins welcome • Open 7 days a week • Evening appointments
+            available
           </p>
         </div>
       </section>
