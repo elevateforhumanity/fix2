@@ -21,7 +21,7 @@ export default function HomePage() {
     <main className="bg-white overflow-x-hidden">
       <WelcomeAudio />
       {/* VIDEO HERO WITH TEXT OVERLAY */}
-      <section className="relative w-full overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center bg-black">
+      <section className="relative w-full overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center">
         {/* Background Video */}
         <video
           ref={videoRef}
@@ -132,7 +132,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden bg-slate-100">
+                <div className="relative h-40 overflow-hidden bg-slate-100">
                   <video
                     autoPlay
                     muted
@@ -172,7 +172,7 @@ export default function HomePage() {
 
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden bg-teal-100">
+                <div className="relative h-40 overflow-hidden bg-teal-100">
                   <video
                     autoPlay
                     muted
@@ -211,7 +211,7 @@ export default function HomePage() {
 
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden bg-slate-100">
+                <div className="relative h-40 overflow-hidden bg-slate-100">
                   <video
                     autoPlay
                     muted
