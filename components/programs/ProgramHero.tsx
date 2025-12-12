@@ -6,7 +6,8 @@ import type { Program } from '@/app/data/programs';
 export function ProgramHero({ program }: { program: Program }) {
   const isBarberProgram = program.slug === 'barber-apprenticeship';
   const isHVACProgram = program.slug === 'hvac-technician';
-  const hasVideo = isBarberProgram || isHVACProgram;
+  const isCDLProgram = program.slug === 'cdl';
+  const hasVideo = isBarberProgram || isHVACProgram || isCDLProgram;
 
   // Get icon for program
   const getIcon = () => {
@@ -39,6 +40,8 @@ export function ProgramHero({ program }: { program: Program }) {
                 src={
                   isBarberProgram
                     ? '/videos/barber-hero-final.mp4'
+                    : isCDLProgram
+                    ? '/videos/cdl-hero.mp4'
                     : '/videos/hvac-hero-final.mp4'
                 }
                 type="video/mp4"
