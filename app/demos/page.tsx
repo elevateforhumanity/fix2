@@ -47,7 +47,7 @@ export default function DemosPage() {
       {/* Interactive Demos */}
       <section className="py-20 px-4 bg-slate-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4">Interactive Demos</h2>
+          <h2 className="text-4xl font-bold text-center mb-4 text-2xl md:text-3xl lg:text-4xl">Interactive Demos</h2>
           <p className="text-xl text-slate-600 text-center mb-16 max-w-3xl mx-auto">
             Explore our platform features and see how we support your learning journey from enrollment to certification.
           </p>

@@ -101,7 +101,7 @@ export default function StudentDemoPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Welcome, Demo Student</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2 text-2xl md:text-3xl lg:text-4xl">Welcome, Demo Student</h1>
           <p className="text-gray-600">Continue your learning journey</p>
         </div>
 
@@ -147,7 +147,7 @@ export default function StudentDemoPage() {
                 {courses.map((course) => (
                   <div key={course.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
                     <div className="flex items-start gap-4">
-                      <div className="text-4xl">{course.image}</div>
+                      <div className="text-4xl text-2xl md:text-3xl lg:text-4xl">{course.image}</div>
                       <div className="flex-1">
                         <h3 className="font-semibold text-lg mb-1">{course.title}</h3>
                         <p className="text-sm text-gray-600 mb-2">Instructor: {course.instructor}</p>

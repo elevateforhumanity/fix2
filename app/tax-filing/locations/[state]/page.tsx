@@ -131,7 +131,7 @@ export default function StatePage() {
               <span className="mx-2">/</span>
               <span>{state.name}</span>
             </nav>
-            <h1 className="text-5xl font-extrabold mb-4">
+            <h1 className="text-5xl font-extrabold mb-4 text-3xl md:text-4xl lg:text-5xl">
               Tax Filing in {state.name}
             </h1>
             <p className="text-xl text-blue-100 mb-6">
@@ -159,19 +159,19 @@ export default function StatePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-extrabold text-blue-600 mb-2">{state.preparers}+</div>
+                <div className="text-4xl font-extrabold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">{state.preparers}+</div>
                 <div className="text-gray-600">Tax Preparers</div>
               </div>
               <div>
-                <div className="text-4xl font-extrabold text-green-600 mb-2">{state.cities.length}</div>
+                <div className="text-4xl font-extrabold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">{state.cities.length}</div>
                 <div className="text-gray-600">Cities Covered</div>
               </div>
               <div>
-                <div className="text-4xl font-extrabold text-purple-600 mb-2">$100</div>
+                <div className="text-4xl font-extrabold text-purple-600 mb-2 text-2xl md:text-3xl lg:text-4xl">$100</div>
                 <div className="text-gray-600">Flat Fee</div>
               </div>
               <div>
-                <div className="text-4xl font-extrabold text-orange-600 mb-2">4.9★</div>
+                <div className="text-4xl font-extrabold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">4.9★</div>
                 <div className="text-gray-600">Average Rating</div>
               </div>
             </div>
@@ -181,7 +181,7 @@ export default function StatePage() {
         {/* Cities */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-extrabold mb-12">Tax Preparers by City in {state.name}</h2>
+            <h2 className="text-4xl font-extrabold mb-12 text-2xl md:text-3xl lg:text-4xl">Tax Preparers by City in {state.name}</h2>
             
             <div className="grid md:grid-cols-3 gap-6">
               {state.cities.map((city: any) => (
@@ -218,7 +218,7 @@ export default function StatePage() {
         {/* State Tax Info */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-extrabold mb-12">{state.name} Tax Information</h2>
+            <h2 className="text-4xl font-extrabold mb-12 text-2xl md:text-3xl lg:text-4xl">{state.name} Tax Information</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl shadow-lg p-8">
@@ -266,7 +266,7 @@ export default function StatePage() {
         {/* Why Choose Us */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-extrabold mb-12 text-center">
+            <h2 className="text-4xl font-extrabold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
               Why Choose Us for {state.name} Tax Filing?
             </h2>
             
@@ -307,7 +307,7 @@ export default function StatePage() {
         {/* Reviews */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-extrabold mb-12 text-center">
+            <h2 className="text-4xl font-extrabold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
               What {state.name} Residents Say
             </h2>
             
@@ -366,7 +366,7 @@ export default function StatePage() {
         {/* CTA */}
         <section className="py-20    text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-extrabold mb-6">
+            <h2 className="text-4xl font-extrabold mb-6 text-2xl md:text-3xl lg:text-4xl">
               Ready to File Your {state.name} Taxes?
             </h2>
             <p className="text-xl text-blue-100 mb-8">

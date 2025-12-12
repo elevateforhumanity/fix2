@@ -46,7 +46,7 @@ export default function EmployersPage() {
       {/* Why Partner With Us */}
       <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4 text-center">
+          <h2 className="text-4xl font-bold text-slate-900 mb-4 text-center text-2xl md:text-3xl lg:text-4xl">
             Why Become an Employer Partner?
           </h2>
           <p className="text-xl text-slate-600 mb-12 text-center max-w-3xl mx-auto">
@@ -173,7 +173,7 @@ export default function EmployersPage() {
       {/* Funding Programs */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center">
+          <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
             Employer Funding Programs
           </h2>
 
@@ -373,7 +373,7 @@ export default function EmployersPage() {
       {/* How It Works */}
       <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center">
+          <h2 className="text-4xl font-bold text-slate-900 mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
             How to Become a Partner
           </h2>
 
@@ -416,7 +416,7 @@ export default function EmployersPage() {
       {/* CTA */}
       <section className="   text-white py-20">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">
+          <h2 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">
             Ready to Save on Hiring Costs?
           </h2>
           <p className="text-xl text-orange-100 mb-8">

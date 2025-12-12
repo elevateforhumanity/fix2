@@ -285,19 +285,19 @@ export default function VideoTestimonials() {
           className="mt-16 grid md:grid-cols-4 gap-8"
         >
           <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2">94%</div>
+            <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">94%</div>
             <div className="text-gray-600">Graduate Employment Rate</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-green-600 mb-2">$15K+</div>
+            <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">$15K+</div>
             <div className="text-gray-600">Average Salary Increase</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-purple-600 mb-2">2,500+</div>
+            <div className="text-4xl font-bold text-purple-600 mb-2 text-2xl md:text-3xl lg:text-4xl">2,500+</div>
             <div className="text-gray-600">Success Stories</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-orange-600 mb-2">4.9★</div>
+            <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">4.9★</div>
             <div className="text-gray-600">Student Satisfaction</div>
           </div>
         </motion.div>

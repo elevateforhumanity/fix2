@@ -198,7 +198,7 @@ export function SubscriptionManager() {
               <CardHeader>
                 <CardTitle>{plan.name}</CardTitle>
                 <div className="mt-4">
-                  <span className="text-4xl font-bold">
+                  <span className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">
                     ${(plan.price / 100).toFixed(0)}
                   </span>
                   <span className="text-gray-600">/{plan.interval}</span>

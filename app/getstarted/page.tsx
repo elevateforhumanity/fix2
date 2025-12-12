@@ -59,7 +59,7 @@ export default function Page() {
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Your Path to a New Career</h2>
+            <h2 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">Your Path to a New Career</h2>
             <p className="text-xl text-slate-700">Three simple steps. No hidden costs. No complicated process. Just you and your future.</p>
           </div>
           

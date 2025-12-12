@@ -112,7 +112,7 @@ export default function LocationsPage() {
       {/* Hero */}
       <section className="   text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl font-extrabold mb-4">Find Tax Preparers Near You</h1>
+          <h1 className="text-5xl font-extrabold mb-4 text-3xl md:text-4xl lg:text-5xl">Find Tax Preparers Near You</h1>
           <p className="text-xl text-blue-100 mb-6">
             {totalPreparers.toLocaleString()}+ certified tax preparers in all 50 states. Drake Software certified. $100 flat fee.
           </p>
@@ -134,19 +134,19 @@ export default function LocationsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-extrabold text-blue-600 mb-2">{totalPreparers.toLocaleString()}+</div>
+              <div className="text-4xl font-extrabold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">{totalPreparers.toLocaleString()}+</div>
               <div className="text-gray-600">Tax Preparers</div>
             </div>
             <div>
-              <div className="text-4xl font-extrabold text-green-600 mb-2">50</div>
+              <div className="text-4xl font-extrabold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">50</div>
               <div className="text-gray-600">States Covered</div>
             </div>
             <div>
-              <div className="text-4xl font-extrabold text-purple-600 mb-2">$100</div>
+              <div className="text-4xl font-extrabold text-purple-600 mb-2 text-2xl md:text-3xl lg:text-4xl">$100</div>
               <div className="text-gray-600">Flat Fee</div>
             </div>
             <div>
-              <div className="text-4xl font-extrabold text-orange-600 mb-2">4.9★</div>
+              <div className="text-4xl font-extrabold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">4.9★</div>
               <div className="text-gray-600">Average Rating</div>
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function LocationsPage() {
       {/* States Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold mb-12">Browse by State</h2>
+          <h2 className="text-4xl font-extrabold mb-12 text-2xl md:text-3xl lg:text-4xl">Browse by State</h2>
           
           <div className="grid md:grid-cols-4 gap-6">
             {states.map((state) => (
@@ -184,7 +184,7 @@ export default function LocationsPage() {
       {/* Popular Cities */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold mb-12">Popular Cities</h2>
+          <h2 className="text-4xl font-extrabold mb-12 text-2xl md:text-3xl lg:text-4xl">Popular Cities</h2>
           
           <div className="grid md:grid-cols-5 gap-4">
             {[
@@ -210,7 +210,7 @@ export default function LocationsPage() {
       {/* CTA */}
       <section className="py-20    text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-extrabold mb-6">Can't Find a Location Near You?</h2>
+          <h2 className="text-4xl font-extrabold mb-6 text-2xl md:text-3xl lg:text-4xl">Can't Find a Location Near You?</h2>
           <p className="text-xl text-blue-100 mb-8">
             We offer virtual tax filing nationwide. File from anywhere!
           </p>

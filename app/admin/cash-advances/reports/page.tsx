@@ -82,7 +82,7 @@ export default async function CashAdvanceReportsPage() {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white p-6 rounded-lg shadow">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Approval Rate</h2>
-            <div className="text-4xl font-bold text-green-600 mb-2">
+            <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
               {allAdvances?.length ? Math.round((approvedAdvances?.length || 0) / allAdvances.length * 100) : 0}%
             </div>
             <p className="text-gray-600">
@@ -92,7 +92,7 @@ export default async function CashAdvanceReportsPage() {
 
           <div className="bg-white p-6 rounded-lg shadow">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Average Amount</h2>
-            <div className="text-4xl font-bold text-blue-600 mb-2">
+            <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
               ${allAdvances?.length ? (totalAmount / allAdvances.length).toFixed(2) : '0.00'}
             </div>
             <p className="text-gray-600">

@@ -39,7 +39,7 @@ export default async function DevAdmin() {
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900">
+              <h1 className="text-4xl font-bold text-gray-900 text-2xl md:text-3xl lg:text-4xl">
                 🔧 Dev Admin Panel
               </h1>
               <p className="text-gray-600 mt-2">

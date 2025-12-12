@@ -144,7 +144,7 @@ export default function ProgramEnrollment({ program, userId, onEnrollmentComplet
       <div className="mb-6">
         {program.isFree || program.price === 0 ? (
           <div className="bg-green-50 border-2 border-green-500 rounded-lg p-6 text-center">
-            <p className="text-4xl font-bold text-green-700 mb-2">FREE</p>
+            <p className="text-4xl font-bold text-green-700 mb-2 text-2xl md:text-3xl lg:text-4xl">FREE</p>
             <p className="text-green-600">No payment required</p>
           </div>
         ) : (

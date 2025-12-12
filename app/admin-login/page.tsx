@@ -63,7 +63,7 @@ export default function AdminLoginPage() {
       <div className="max-w-md w-full">
         {/* Logo/Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2">Admin Login</h1>
+          <h1 className="text-4xl font-bold text-white mb-2 text-2xl md:text-3xl lg:text-4xl">Admin Login</h1>
           <p className="text-slate-400">Elevate For Humanity</p>
         </div>
 

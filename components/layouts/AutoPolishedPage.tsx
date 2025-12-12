@@ -552,7 +552,7 @@ export function AutoPolishedPage({ route, label, section }: AutoPolishedPageProp
               <p className="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-3">
                 {config.categoryLabel}
               </p>
-              <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight">
+              <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight text-2xl md:text-3xl lg:text-4xl">
                 Built for: {config.audience}
               </h2>
               <p className="text-lg text-slate-600 leading-relaxed mb-6">

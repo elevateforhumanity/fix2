@@ -49,7 +49,7 @@ export function AutomatedCertificateWorkflow() {
     <div className="min-h-screen bg-gray-50">
       <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">Certificate Generation</h1>
+          <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">Certificate Generation</h1>
           <p className="text-red-100">Automated workflow for issuing certificates</p>
         </div>
       </div>

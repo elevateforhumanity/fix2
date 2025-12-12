@@ -95,7 +95,7 @@ export default function HsiPage() {
             <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
               <span className="text-sm font-semibold">Powered by HSI</span>
             </div>
-            <h1 className="text-5xl font-bold mb-6">Safety Training Courses</h1>
+            <h1 className="text-5xl font-bold mb-6 text-3xl md:text-4xl lg:text-5xl">Safety Training Courses</h1>
             <p className="text-xl text-red-100 mb-8">
               Access 1,200+ OSHA-compliant safety training courses. All courses are 100% free through WIOA funding.
             </p>
@@ -122,19 +122,19 @@ export default function HsiPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-red-600 mb-2">1,200+</div>
+              <div className="text-4xl font-bold text-red-600 mb-2 text-2xl md:text-3xl lg:text-4xl">1,200+</div>
               <div className="text-gray-600">Safety Courses</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-red-600 mb-2">100%</div>
+              <div className="text-4xl font-bold text-red-600 mb-2 text-2xl md:text-3xl lg:text-4xl">100%</div>
               <div className="text-gray-600">OSHA Compliant</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-red-600 mb-2">24/7</div>
+              <div className="text-4xl font-bold text-red-600 mb-2 text-2xl md:text-3xl lg:text-4xl">24/7</div>
               <div className="text-gray-600">Online Access</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-red-600 mb-2">Free</div>
+              <div className="text-4xl font-bold text-red-600 mb-2 text-2xl md:text-3xl lg:text-4xl">Free</div>
               <div className="text-gray-600">WIOA Funded</div>
             </div>
           </div>
@@ -153,7 +153,7 @@ export default function HsiPage() {
                   href={`/courses/hsi/${category.name.toLowerCase().replace(/\s+/g, '-')}/enroll`}
                   className="bg-white rounded-lg shadow-sm border hover:shadow-lg transition-shadow p-6 group"
                 >
-                  <div className="text-4xl mb-4">{category.icon}</div>
+                  <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">{category.icon}</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">
                     {category.name}
                   </h3>

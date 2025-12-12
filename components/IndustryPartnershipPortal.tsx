@@ -79,7 +79,7 @@ export default function IndustryPartnershipPortal() {
     <div className="min-h-screen bg-gray-50">
       <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">Industry Partnership Portal</h1>
+          <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">Industry Partnership Portal</h1>
           <p className="text-red-100">Collaborate with industry leaders</p>
         </div>
       </div>
@@ -125,7 +125,7 @@ export default function IndustryPartnershipPortal() {
             {partners.map((partner) => (
               <Card key={partner.id} className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="text-4xl">{partner.logo}</div>
+                  <div className="text-4xl text-2xl md:text-3xl lg:text-4xl">{partner.logo}</div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold">{partner.name}</h3>
                     <p className="text-gray-600">{partner.industry}</p>

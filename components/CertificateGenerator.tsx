@@ -29,7 +29,7 @@ export default function CertificateGenerator({
           <div className="mb-8">
             <Award className="mx-auto text-red-600" size={64} />
           </div>
-          <h1 className="text-4xl font-bold mb-4 text-gray-900">
+          <h1 className="text-4xl font-bold mb-4 text-gray-900 text-2xl md:text-3xl lg:text-4xl">
             Certificate of Completion
           </h1>
           <div className="text-lg text-gray-600 mb-8">

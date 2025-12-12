@@ -99,7 +99,7 @@ export function CourseReviews({ courseId }: CourseReviewsProps) {
       {/* Rating Summary */}
       <div className="grid md:grid-cols-2 gap-8 mb-8 pb-8 border-b border-slate-200">
         <div className="text-center">
-          <div className="text-5xl font-bold text-slate-900 mb-2">
+          <div className="text-5xl font-bold text-slate-900 mb-2 text-3xl md:text-4xl lg:text-5xl">
             {averageRating.toFixed(1)}
           </div>
           <div className="flex items-center justify-center gap-1 mb-2">

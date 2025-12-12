@@ -208,7 +208,7 @@ export default function CourseLeaderboardPage() {
             <Link href={`/courses/${courseId}`} className="text-white/80 hover:text-white text-sm mb-4 inline-block">
               ← Back to Course
             </Link>
-            <h1 className="text-4xl font-bold mb-4">{course?.title}</h1>
+            <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">{course?.title}</h1>
             <p className="text-xl text-purple-100">Course Leaderboard</p>
           </div>
         </div>

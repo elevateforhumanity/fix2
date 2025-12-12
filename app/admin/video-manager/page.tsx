@@ -25,7 +25,7 @@ export default function VideoManagerPage() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">
+            <h1 className="text-4xl font-bold text-slate-900 mb-2 text-2xl md:text-3xl lg:text-4xl">
               Video Manager
             </h1>
             <p className="text-lg text-slate-600">

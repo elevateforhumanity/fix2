@@ -131,7 +131,7 @@ export default function Page() {
       <section className="bg-blue-700 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Marketplace | Elevate For Humanity</h1>
+            <h1 className="text-5xl font-bold mb-6 text-3xl md:text-4xl lg:text-5xl">Marketplace | Elevate For Humanity</h1>
             <p className="text-xl mb-8 text-blue-100">Discover more about Marketplace inside the Elevate For Humanity workforce ecosystem.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/contact" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 text-lg">

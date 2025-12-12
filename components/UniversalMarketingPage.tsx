@@ -128,7 +128,7 @@ export default function UniversalMarketingPage({
               {section.imagePosition === "right" ? (
                 <>
                   <div>
-                    <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight">
+                    <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight text-2xl md:text-3xl lg:text-4xl">
                       {section.title}
                     </h2>
                     <div
@@ -162,7 +162,7 @@ export default function UniversalMarketingPage({
                     </div>
                   )}
                   <div>
-                    <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight">
+                    <h2 className="text-4xl font-light text-slate-900 mb-6 leading-tight text-2xl md:text-3xl lg:text-4xl">
                       {section.title}
                     </h2>
                     <div

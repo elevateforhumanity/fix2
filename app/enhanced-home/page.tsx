@@ -125,15 +125,15 @@ export default function EnhancedHomePage() {
             {/* Key Stats */}
             <div className="grid grid-cols-3 gap-6 mb-8">
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center">
-                <div className="text-4xl font-bold text-orange-400 mb-1">$0</div>
+                <div className="text-4xl font-bold text-orange-400 mb-1 text-2xl md:text-3xl lg:text-4xl">$0</div>
                 <div className="text-sm text-blue-200">Out of Pocket</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center">
-                <div className="text-4xl font-bold text-orange-400 mb-1">500+</div>
+                <div className="text-4xl font-bold text-orange-400 mb-1 text-2xl md:text-3xl lg:text-4xl">500+</div>
                 <div className="text-sm text-blue-200">Graduates</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 text-center">
-                <div className="text-4xl font-bold text-orange-400 mb-1">85%</div>
+                <div className="text-4xl font-bold text-orange-400 mb-1 text-2xl md:text-3xl lg:text-4xl">85%</div>
                 <div className="text-sm text-blue-200">Job Placement</div>
               </div>
             </div>
@@ -189,7 +189,7 @@ export default function EnhancedHomePage() {
             <div className="inline-block px-4 py-2 bg-orange-100 text-orange-600 rounded-full text-sm font-semibold mb-4">
               Popular Programs
             </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl font-bold text-gray-900 mb-4 text-3xl md:text-4xl lg:text-5xl">
               Choose Your Career Path
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -266,7 +266,7 @@ export default function EnhancedHomePage() {
       <section className="py-20   ">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl font-bold text-gray-900 mb-4 text-3xl md:text-4xl lg:text-5xl">
               Why Choose Elevate for Humanity?
             </h2>
             <p className="text-xl text-gray-600">
@@ -366,7 +366,7 @@ export default function EnhancedHomePage() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">
+          <h2 className="text-5xl font-bold text-white mb-6 text-3xl md:text-4xl lg:text-5xl">
             Ready to Start Your New Career?
           </h2>
           <p className="text-2xl text-orange-100 mb-8">
@@ -401,7 +401,7 @@ export default function EnhancedHomePage() {
             <div className="inline-block px-4 py-2 bg-green-100 text-green-600 rounded-full text-sm font-semibold mb-4">
               Success Stories
             </div>
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl font-bold text-gray-900 mb-4 text-3xl md:text-4xl lg:text-5xl">
               Real People, Real Results
             </h2>
             <p className="text-xl text-gray-600">
@@ -520,7 +520,7 @@ export default function EnhancedHomePage() {
               <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-6">
                 📱 Mobile App Available
               </div>
-              <h2 className="text-5xl font-bold mb-6">
+              <h2 className="text-5xl font-bold mb-6 text-3xl md:text-4xl lg:text-5xl">
                 Learn Anywhere with Our Mobile App
               </h2>
               <p className="text-xl text-purple-100 mb-8">
@@ -608,7 +608,7 @@ export default function EnhancedHomePage() {
       <section className="py-20   ">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl font-bold text-gray-900 mb-4 text-3xl md:text-4xl lg:text-5xl">
               Follow Our Journey
             </h2>
             <p className="text-xl text-gray-600">

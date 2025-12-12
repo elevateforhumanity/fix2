@@ -130,7 +130,7 @@ export function HourTracker({ programName, requiredHours, studentId }: HourTrack
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 Currently Clocked In
               </div>
-              <div className="text-5xl font-bold text-slate-900 font-mono">
+              <div className="text-5xl font-bold text-slate-900 font-mono text-3xl md:text-4xl lg:text-5xl">
                 {formatTime(elapsedTime)}
               </div>
               <button

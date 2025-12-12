@@ -167,7 +167,7 @@ export default function JRIPage() {
                   <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                     <Users className="w-8 h-8 text-blue-600" />
                   </div>
-                  <CardTitle className="text-4xl font-bold text-blue-600">
+                  <CardTitle className="text-4xl font-bold text-blue-600 text-2xl md:text-3xl lg:text-4xl">
                     85%
                   </CardTitle>
                 </CardHeader>
@@ -183,7 +183,7 @@ export default function JRIPage() {
                   <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                     <TrendingUp className="w-8 h-8 text-green-600" />
                   </div>
-                  <CardTitle className="text-4xl font-bold text-green-600">
+                  <CardTitle className="text-4xl font-bold text-green-600 text-2xl md:text-3xl lg:text-4xl">
                     $18+
                   </CardTitle>
                 </CardHeader>
@@ -199,7 +199,7 @@ export default function JRIPage() {
                   <div className="mx-auto w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
                     <Award className="w-8 h-8 text-purple-600" />
                   </div>
-                  <CardTitle className="text-4xl font-bold text-purple-600">
+                  <CardTitle className="text-4xl font-bold text-purple-600 text-2xl md:text-3xl lg:text-4xl">
                     92%
                   </CardTitle>
                 </CardHeader>
@@ -215,7 +215,7 @@ export default function JRIPage() {
                   <div className="mx-auto w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
                     <Shield className="w-8 h-8 text-orange-600" />
                   </div>
-                  <CardTitle className="text-4xl font-bold text-orange-600">
+                  <CardTitle className="text-4xl font-bold text-orange-600 text-2xl md:text-3xl lg:text-4xl">
                     73%
                   </CardTitle>
                 </CardHeader>

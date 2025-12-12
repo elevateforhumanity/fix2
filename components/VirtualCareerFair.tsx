@@ -87,7 +87,7 @@ export default function VirtualCareerFair() {
     <div className="min-h-screen bg-gray-50">
       <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">Virtual Career Fair 2024</h1>
+          <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">Virtual Career Fair 2024</h1>
           <p className="text-red-100">Connect with top employers from anywhere</p>
           <div className="mt-4 flex gap-4">
             <div className="bg-white/20 px-4 py-2 rounded">
@@ -127,7 +127,7 @@ export default function VirtualCareerFair() {
             {employers.map((employer) => (
               <Card key={employer.id} className="p-6">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="text-5xl">{employer.logo}</div>
+                  <div className="text-5xl text-3xl md:text-4xl lg:text-5xl">{employer.logo}</div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold">{employer.name}</h3>
                     <p className="text-sm text-gray-600">{employer.industry}</p>
@@ -182,7 +182,7 @@ export default function VirtualCareerFair() {
 
         {activeTab === 'networking' && (
           <div className="text-center py-12">
-            <div className="text-6xl mb-4">💬</div>
+            <div className="text-6xl mb-4 text-4xl md:text-5xl lg:text-6xl">💬</div>
             <h2 className="text-2xl font-bold mb-4">Networking Lounge</h2>
             <p className="text-gray-600 mb-6">Connect with other attendees and employers</p>
             <div className="flex gap-4 justify-center">

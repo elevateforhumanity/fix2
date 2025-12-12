@@ -91,25 +91,25 @@ export default function SupersonicFastCashPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-green-600 mb-2">
+              <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 <CountUp end={50} suffix="+" />
               </div>
               <div className="text-sm text-slate-600">Years Experience</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-600 mb-2">
+              <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 <CountUp end={10000} suffix="+" />
               </div>
               <div className="text-sm text-slate-600">Returns Filed</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-600 mb-2">
+              <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 <CountUp end={100} suffix="%" />
               </div>
               <div className="text-sm text-slate-600">Accuracy Rate</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-600 mb-2">
+              <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
                 $<CountUp end={3500} />
               </div>
               <div className="text-sm text-slate-600">Avg Refund</div>
@@ -122,7 +122,7 @@ export default function SupersonicFastCashPage() {
       <ScrollReveal>
         <section className="py-20 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-16">
+            <h2 className="text-4xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-4xl">
               Choose Your Tax Preparation Service
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -292,7 +292,7 @@ d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 
                     Try Self-Prep (Free to Start) →
                   </Link>
                 </div>
-                <div className="hidden md:block text-6xl">
+                <div className="hidden md:block text-6xl text-4xl md:text-5xl lg:text-6xl">
                   💻
                 </div>
               </div>
@@ -305,7 +305,7 @@ d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 
       <ScrollReveal>
         <section className="py-20 px-4 bg-slate-50">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-16">
+            <h2 className="text-4xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-4xl">
               Why Choose SupersonicFastCash?
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -358,7 +358,7 @@ d="M13 10V3L4 14h7v7l9-11h-7z" />
       {/* CTA */}
       <section className="py-20 bg-green-700 text-white px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">
+          <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
             Ready to Get Your Maximum Refund?
           </h2>
           <p className="text-xl mb-8">

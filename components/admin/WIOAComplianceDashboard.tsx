@@ -396,7 +396,7 @@ export default function WIOAComplianceDashboard() {
             </p>
           </div>
           <div className="text-right">
-            <div className="text-4xl font-bold text-brand-success">
+            <div className="text-4xl font-bold text-brand-success text-2xl md:text-3xl lg:text-4xl">
               {metrics.complianceStatus.overallScore}%
             </div>
             <div className="text-sm text-brand-text-light">

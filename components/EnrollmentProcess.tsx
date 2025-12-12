@@ -180,7 +180,7 @@ d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
         {/* Quick Links */}
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           <div className="bg-white rounded-lg shadow p-6 text-center">
-            <div className="text-4xl mb-3">📋</div>
+            <div className="text-4xl mb-3 text-2xl md:text-3xl lg:text-4xl">📋</div>
             <h4 className="font-bold text-slate-900 mb-2">Eligibility Requirements</h4>
             <p className="text-sm text-slate-600 mb-4">Check if you qualify for WIOA funding</p>
             <Link href="/wioa-eligibility" className="text-orange-600 font-semibold hover:underline">
@@ -188,7 +188,7 @@ d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </Link>
           </div>
           <div className="bg-white rounded-lg shadow p-6 text-center">
-            <div className="text-4xl mb-3">🏢</div>
+            <div className="text-4xl mb-3 text-2xl md:text-3xl lg:text-4xl">🏢</div>
             <h4 className="font-bold text-slate-900 mb-2">Find WorkOne Center</h4>
             <p className="text-sm text-slate-600 mb-4">Locate your nearest WorkOne office</p>
             <a 
@@ -201,7 +201,7 @@ d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </a>
           </div>
           <div className="bg-white rounded-lg shadow p-6 text-center">
-            <div className="text-4xl mb-3">💰</div>
+            <div className="text-4xl mb-3 text-2xl md:text-3xl lg:text-4xl">💰</div>
             <h4 className="font-bold text-slate-900 mb-2">Funding Options</h4>
             <p className="text-sm text-slate-600 mb-4">Learn about WIOA, WRG, and JRI funding</p>
             <Link href="/funding" className="text-orange-600 font-semibold hover:underline">

@@ -121,7 +121,7 @@ export default function VideoInterview() {
     return (
       <div className="max-w-3xl mx-auto p-6 text-center">
         <div className="bg-green-50 border-2 border-green-500 rounded-lg p-8">
-          <div className="text-6xl mb-4">✅</div>
+          <div className="text-6xl mb-4 text-4xl md:text-5xl lg:text-6xl">✅</div>
           <h2 className="text-3xl font-bold text-brand-success mb-4">
             Interview Complete!
           </h2>

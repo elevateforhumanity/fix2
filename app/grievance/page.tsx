@@ -50,7 +50,7 @@ export default function GrievancePage() {
       </section>
 
       <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">
+        <h1 className="text-4xl font-bold text-gray-900 mb-8 text-2xl md:text-3xl lg:text-4xl">
           Grievance Procedure
         </h1>
 

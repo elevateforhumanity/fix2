@@ -248,7 +248,7 @@ export default async function AccreditationPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="text-6xl font-bold">{readinessScore}%</div>
+              <div className="text-6xl font-bold text-4xl md:text-5xl lg:text-6xl">{readinessScore}%</div>
               <div className="text-blue-100 mt-2">
                 {readinessScore >= 95
                   ? '✅ Ready'

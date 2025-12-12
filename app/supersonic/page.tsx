@@ -337,7 +337,7 @@ d="M5 13l4 4L19 7" />
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-slate-900 mb-8 text-center">
+            <h2 className="text-4xl font-bold text-slate-900 mb-8 text-center text-2xl md:text-3xl lg:text-4xl">
               Who Qualifies for Refund Advance Loans?
             </h2>
             <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-8 mb-8">

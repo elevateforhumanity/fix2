@@ -22,7 +22,7 @@ export default function AcademicIntegrityPage() {
         <div className="max-w-4xl mx-auto px-6 py-12">
           <div className="flex items-center gap-4 mb-4">
             <Shield className="w-12 h-12" />
-            <h1 className="text-4xl font-bold">Academic Integrity Policy</h1>
+            <h1 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">Academic Integrity Policy</h1>
           </div>
           <p className="text-xl text-blue-100">
             Upholding honesty, ethics, and professional standards in education

@@ -79,7 +79,7 @@ export default function DashboardPage() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">My Purchases</h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-2 text-2xl md:text-3xl lg:text-4xl">My Purchases</h1>
           <p className="text-lg text-slate-600">
             Access your digital products, license keys, and order history
           </p>

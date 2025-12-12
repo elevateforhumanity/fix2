@@ -79,7 +79,7 @@ export default async function PartnerCoursesPage() {
       <section className="bg-blue-700 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Partner Course Catalog</h1>
+            <h1 className="text-5xl font-bold mb-6 text-3xl md:text-4xl lg:text-5xl">Partner Course Catalog</h1>
             <p className="text-xl mb-8 text-blue-100">
               Access 1200+ professional courses from industry-standard-leading partners
             </p>

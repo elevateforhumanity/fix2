@@ -89,7 +89,7 @@ export default function AdminDashboard() {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-4xl font-bold tracking-tight">Admin Dashboard</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-2xl md:text-3xl lg:text-4xl">Admin Dashboard</h1>
           <p className="text-muted-foreground mt-2">
             System-wide analytics and performance metrics
           </p>

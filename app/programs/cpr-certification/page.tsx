@@ -88,7 +88,7 @@ export default function CprCertificationPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6">
+              <h2 className="text-4xl font-bold text-slate-900 mb-6 text-2xl md:text-3xl lg:text-4xl">
                 Why Choose Cpr Certification?
               </h2>
               <div className="space-y-4">
@@ -147,7 +147,7 @@ export default function CprCertificationPage() {
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
               Your Personal AI Instructor
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
@@ -184,7 +184,7 @@ export default function CprCertificationPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
               Your Learning Journey
             </h2>
             <p className="text-xl text-slate-600">
@@ -253,7 +253,7 @@ export default function CprCertificationPage() {
         />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-5xl font-bold text-white mb-6">
+          <h2 className="text-5xl font-bold text-white mb-6 text-3xl md:text-4xl lg:text-5xl">
             Ready to Start Your New Career?
           </h2>
           <p className="text-2xl text-white mb-8">

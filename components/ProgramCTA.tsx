@@ -240,21 +240,21 @@ export default function ProgramCTA({ programName = "this program" }: ProgramCTAP
           
           <div className="grid sm:grid-cols-3 gap-6 mb-8">
             <div className="bg-blue-800 rounded-lg p-6">
-              <div className="text-4xl mb-3">📞</div>
+              <div className="text-4xl mb-3 text-2xl md:text-3xl lg:text-4xl">📞</div>
               <h3 className="font-bold mb-2">Call Us</h3>
               <a href="tel:317-314-3757" className="text-blue-100 hover:text-white">
                 317-314-3757
               </a>
             </div>
             <div className="bg-blue-800 rounded-lg p-6">
-              <div className="text-4xl mb-3">✉️</div>
+              <div className="text-4xl mb-3 text-2xl md:text-3xl lg:text-4xl">✉️</div>
               <h3 className="font-bold mb-2">Email Us</h3>
               <a href="mailto:info@elevateforhumanity.org" className="text-blue-100 hover:text-white">
                 info@elevateforhumanity.org
               </a>
             </div>
             <div className="bg-blue-800 rounded-lg p-6">
-              <div className="text-4xl mb-3">📍</div>
+              <div className="text-4xl mb-3 text-2xl md:text-3xl lg:text-4xl">📍</div>
               <h3 className="font-bold mb-2">Visit Us</h3>
               <p className="text-blue-100 text-sm">
                 8888 Keystone Crossing<br/>Suite 1300<br/>Indianapolis, IN 46240

@@ -139,7 +139,7 @@ export default function SchedulePage() {
                   key={meeting.title}
                   className="bg-white rounded-xl shadow-sm border p-6 hover:shadow-lg transition"
                 >
-                  <div className="text-5xl mb-4">{meeting.icon}</div>
+                  <div className="text-5xl mb-4 text-3xl md:text-4xl lg:text-5xl">{meeting.icon}</div>
                   <h3 className="text-xl font-bold mb-2 text-gray-900">{meeting.title}</h3>
                   <p className="text-sm text-blue-600 font-semibold mb-3">{meeting.duration}</p>
                   <p className="text-gray-600 mb-4 text-sm">{meeting.description}</p>
@@ -243,7 +243,7 @@ export default function SchedulePage() {
             
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-                <div className="text-4xl mb-4">📞</div>
+                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">📞</div>
                 <h3 className="font-bold mb-2">Call Us</h3>
                 <p className="text-gray-600 text-sm mb-3">Speak with our team directly</p>
                 <a
@@ -255,7 +255,7 @@ export default function SchedulePage() {
               </div>
 
               <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-                <div className="text-4xl mb-4">✉️</div>
+                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">✉️</div>
                 <h3 className="font-bold mb-2">Email Us</h3>
                 <p className="text-gray-600 text-sm mb-3">Send us your questions</p>
                 <a
@@ -267,7 +267,7 @@ export default function SchedulePage() {
               </div>
 
               <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-                <div className="text-4xl mb-4">💬</div>
+                <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">💬</div>
                 <h3 className="font-bold mb-2">Live Chat</h3>
                 <p className="text-gray-600 text-sm mb-3">Chat with us online</p>
                 <button className="text-blue-600 hover:text-blue-700 font-semibold">

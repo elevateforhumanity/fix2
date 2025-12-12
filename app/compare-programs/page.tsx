@@ -278,19 +278,19 @@ export default function CompareProgramsPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">28+</div>
+              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">28+</div>
               <div className="text-slate-600">Programs Available</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">$0</div>
+              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">$0</div>
               <div className="text-slate-600">Tuition Cost</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">95%</div>
+              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">95%</div>
               <div className="text-slate-600">Employment Rate</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">$45K</div>
+              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">$45K</div>
               <div className="text-slate-600">Average Starting Salary</div>
             </div>
           </div>
@@ -301,7 +301,7 @@ export default function CompareProgramsPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">How to Choose Your Program</h2>
+            <h2 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">How to Choose Your Program</h2>
             <p className="text-xl text-slate-600">Watch this 3-minute guide to find your perfect career path</p>
           </div>
           <div className="max-w-4xl mx-auto">
@@ -330,7 +330,7 @@ export default function CompareProgramsPage() {
       <section id="comparison" className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Side-by-Side Comparison</h2>
+            <h2 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">Side-by-Side Comparison</h2>
             <p className="text-xl text-slate-600">Compare programs by salary, duration, and requirements</p>
           </div>
 
@@ -469,7 +469,7 @@ export default function CompareProgramsPage() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Real Success Stories</h2>
+            <h2 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">Real Success Stories</h2>
             <p className="text-xl text-slate-600">See how our graduates transformed their careers</p>
           </div>
 
@@ -521,7 +521,7 @@ export default function CompareProgramsPage() {
       {/* CTA */}
       <section className="py-16    text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Start Your Career?</h2>
+          <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">Ready to Start Your Career?</h2>
           <p className="text-2xl mb-8 text-orange-100">
             Apply now and get started with 100% free training
           </p>

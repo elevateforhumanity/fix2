@@ -68,7 +68,7 @@ export default function JoinTeamPage() {
               <div className="inline-block bg-yellow-400 text-purple-900 px-4 py-2 rounded-full mb-4 font-bold">
                 🔥 NOW HIRING IN ALL 50 STATES
               </div>
-              <h1 className="text-5xl font-extrabold mb-6">
+              <h1 className="text-5xl font-extrabold mb-6 text-3xl md:text-4xl lg:text-5xl">
                 Become a Certified Tax Preparer
               </h1>
               <p className="text-xl text-blue-100 mb-8">
@@ -114,7 +114,7 @@ export default function JoinTeamPage() {
       <section id="how-it-works" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold mb-4">Free Tax Preparation Training</h2>
+            <h2 className="text-4xl font-extrabold mb-4 text-2xl md:text-3xl lg:text-4xl">Free Tax Preparation Training</h2>
             <p className="text-xl text-gray-600">Get certified in 6-8 weeks. No experience required.</p>
           </div>
 
@@ -186,13 +186,13 @@ export default function JoinTeamPage() {
       {/* Business Models */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-center mb-12">Choose Your Business Model</h2>
+          <h2 className="text-4xl font-extrabold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">Choose Your Business Model</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             {/* Work From Home */}
             <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200">
               <h3 className="text-2xl font-bold mb-4">Work From Home</h3>
-              <div className="text-4xl font-extrabold text-green-600 mb-4">$0</div>
+              <div className="text-4xl font-extrabold text-green-600 mb-4 text-2xl md:text-3xl lg:text-4xl">$0</div>
               <p className="text-gray-600 mb-6">Start-up cost</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
@@ -221,7 +221,7 @@ export default function JoinTeamPage() {
                 MOST POPULAR
               </div>
               <h3 className="text-2xl font-bold mb-4">Mobile Tax Service</h3>
-              <div className="text-4xl font-extrabold mb-4">$2,500</div>
+              <div className="text-4xl font-extrabold mb-4 text-2xl md:text-3xl lg:text-4xl">$2,500</div>
               <p className="text-blue-100 mb-6">Start-up cost</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
@@ -247,7 +247,7 @@ export default function JoinTeamPage() {
             {/* Storefront Office */}
             <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200">
               <h3 className="text-2xl font-bold mb-4">Storefront Office</h3>
-              <div className="text-4xl font-extrabold text-purple-600 mb-4">$10K+</div>
+              <div className="text-4xl font-extrabold text-purple-600 mb-4 text-2xl md:text-3xl lg:text-4xl">$10K+</div>
               <p className="text-gray-600 mb-6">Start-up cost</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
@@ -276,7 +276,7 @@ export default function JoinTeamPage() {
       {/* State Availability */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-center mb-4">Available in All 50 States</h2>
+          <h2 className="text-4xl font-extrabold text-center mb-4 text-2xl md:text-3xl lg:text-4xl">Available in All 50 States</h2>
           <p className="text-xl text-gray-600 text-center mb-12">
             Join tax preparers nationwide. We're expanding in every state.
           </p>
@@ -314,7 +314,7 @@ export default function JoinTeamPage() {
       {/* Benefits */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-center mb-12">Why Join Our Network?</h2>
+          <h2 className="text-4xl font-extrabold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">Why Join Our Network?</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex items-start space-x-4">
@@ -395,7 +395,7 @@ export default function JoinTeamPage() {
       {/* Success Stories */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-center mb-12">Success Stories</h2>
+          <h2 className="text-4xl font-extrabold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">Success Stories</h2>
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl shadow-lg p-6">
@@ -452,7 +452,7 @@ export default function JoinTeamPage() {
       {/* CTA */}
       <section className="py-20     text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-extrabold mb-6">Ready to Start Your Tax Business?</h2>
+          <h2 className="text-4xl font-extrabold mb-6 text-2xl md:text-3xl lg:text-4xl">Ready to Start Your Tax Business?</h2>
           <p className="text-xl text-blue-100 mb-8">
             Join thousands of tax preparers earning $50K-$100K+ per season
           </p>

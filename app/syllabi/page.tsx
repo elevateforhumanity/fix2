@@ -446,7 +446,7 @@ export default function SyllabiPage() {
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex items-center gap-3 mb-2">
             <BookOpen className="w-10 h-10 text-blue-600" />
-            <h1 className="text-4xl font-bold text-slate-900">
+            <h1 className="text-4xl font-bold text-slate-900 text-2xl md:text-3xl lg:text-4xl">
               Course Syllabi
             </h1>
           </div>

@@ -187,7 +187,7 @@ export default async function LmsPage() {
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600">
-                        <span className="text-4xl">📚</span>
+                        <span className="text-4xl text-2xl md:text-3xl lg:text-4xl">📚</span>
                       </div>
                     )}
                     <div className="absolute top-2 right-2">
@@ -227,7 +227,7 @@ export default async function LmsPage() {
             </div>
           ) : (
             <div className="text-center py-12">
-              <div className="text-6xl mb-4">📚</div>
+              <div className="text-6xl mb-4 text-4xl md:text-5xl lg:text-6xl">📚</div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">No Courses Yet</h3>
               <p className="text-slate-600 mb-6">
                 Browse our course catalog to get started with your learning journey.

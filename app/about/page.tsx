@@ -118,15 +118,15 @@ export default function AboutPage() {
           
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-5xl font-bold text-orange-600 mb-2">10,000+</div>
+              <div className="text-5xl font-bold text-orange-600 mb-2 text-3xl md:text-4xl lg:text-5xl">10,000+</div>
               <div className="text-slate-600">Students Trained</div>
             </div>
             <div>
-              <div className="text-5xl font-bold text-green-600 mb-2">85%</div>
+              <div className="text-5xl font-bold text-green-600 mb-2 text-3xl md:text-4xl lg:text-5xl">85%</div>
               <div className="text-slate-600">Job Placement Rate</div>
             </div>
             <div>
-              <div className="text-5xl font-bold text-blue-600 mb-2">$45K</div>
+              <div className="text-5xl font-bold text-blue-600 mb-2 text-3xl md:text-4xl lg:text-5xl">$45K</div>
               <div className="text-slate-600">Average Starting Salary</div>
             </div>
           </div>
