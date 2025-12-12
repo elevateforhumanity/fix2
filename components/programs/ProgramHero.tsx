@@ -44,7 +44,7 @@ export function ProgramHero({ program }: { program: Program }) {
                     : isCDLProgram
                     ? '/videos/cdl-hero.mp4'
                     : isCNAProgram
-                    ? '/videos/medical-assistant-hero.mp4'
+                    ? '/videos/cna-hero.mp4'
                     : '/videos/hvac-hero-final.mp4'
                 }
                 type="video/mp4"
