@@ -155,12 +155,10 @@ export default function RootLayout({
         </a>
         <GoogleAnalytics />
         <FacebookPixel />
-        {/* Disabled for performance */}
-        {/* <PerformanceMonitor /> */}
-        {/* <CopyrightProtection /> */}
-        {/* <InvisibleWatermark owner="Elizabeth L. Greene / Elevate for Humanity" siteId="EFH-ORIGINAL-2024" /> */}
-        {/* <DMCATrackingPixel /> */}
-        {/* <ScraperDetection /> */}
+        <CopyrightProtection />
+        <InvisibleWatermark owner="Elizabeth L. Greene / Elevate for Humanity" siteId="EFH-ORIGINAL-2024" />
+        <DMCATrackingPixel />
+        <ScraperDetection />
         <MainHeader />
         <Breadcrumbs />
         <main id="main-content" className="min-h-screen">
