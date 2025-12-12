@@ -74,7 +74,7 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/images/barber-highlight-1.jpg"
+                    src="/images/barber-highlight-2.jpg"
                     alt="Barber Apprenticeship"
                     fill
                     quality={70}
@@ -205,75 +205,163 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* MORE PROGRAMS */}
-      <section className="py-16 bg-slate-50">
+      {/* MORE PATHWAYS - STORYTELLING */}
+      <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              More Ways to Build Your Future
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              More Ways to Change Your Future
             </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Real people. Real transformations. Real opportunities waiting for you.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-              <Image
-                src="/images/tax-business-highlight.jpg"
-                alt="Tax Business Training"
-                fill
-                quality={70}
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black/70 flex items-end">
-                <div className="p-8 text-white w-full bg-black/80">
-                  <h3 className="text-4xl font-black mb-4 text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}>
-                    Tax & Finance
-                  </h3>
-                  <p className="text-lg mb-5 font-semibold leading-relaxed" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}>
-                    Launch your own tax prep business. Work from home. Earn $40k-$100k+ per year. 
-                    Tax season is busy, but the rest of the year is yours.
-                  </p>
-                  <Link
-                    href="/programs/tax-preparation"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition"
-                  >
-                    Learn More →
-                  </Link>
-                </div>
+          {/* Story 1: Tax Preparation */}
+          <div className="mb-16">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/gallery/image3.jpg"
+                  alt="Tax preparation training"
+                  fill
+                  quality={80}
+                  className="object-cover"
+                />
               </div>
-            </div>
-
-            <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg group">
-              <Image
-                src="/images/business-highlight.jpg"
-                alt="Business & Entrepreneurship"
-                fill
-                quality={70}
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-black/70 flex items-end">
-                <div className="p-8 text-white w-full bg-black/80">
-                  <h3 className="text-4xl font-black mb-4 text-white" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.9)' }}>
-                    Business Startup
-                  </h3>
-                  <p className="text-lg mb-5 font-semibold leading-relaxed" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.9)' }}>
-                    Turn your idea into a real business. Learn marketing, branding, finances, 
-                    and how to actually make money doing what you love.
-                  </p>
-                  <Link
-                    href="/programs/business-startup"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition"
-                  >
-                    Learn More →
-                  </Link>
+              <div>
+                <div className="inline-block px-4 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-4">
+                  Tax & Finance
                 </div>
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">
+                  "I went from working retail to running my own tax business"
+                </h3>
+                <p className="text-lg text-slate-700 mb-4 leading-relaxed">
+                  Sarah was tired of minimum wage and unpredictable hours. After 8 weeks of tax prep training, 
+                  she started her own business from home. Now she earns $60k+ during tax season and has her 
+                  summers free to spend with her kids.
+                </p>
+                <div className="bg-slate-50 p-6 rounded-xl mb-6">
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div>
+                      <div className="text-2xl font-bold text-orange-500">8 Weeks</div>
+                      <div className="text-sm text-slate-600">Training Time</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-orange-500">$60k+</div>
+                      <div className="text-sm text-slate-600">First Year Income</div>
+                    </div>
+                  </div>
+                </div>
+                <Link
+                  href="/programs/tax-preparation"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition"
+                >
+                  Start Your Tax Business →
+                </Link>
               </div>
             </div>
           </div>
 
-          <div className="text-center mt-8">
+          {/* Story 2: HVAC */}
+          <div className="mb-16">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="order-2 md:order-1">
+                <div className="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
+                  Skilled Trades
+                </div>
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">
+                  "I was unemployed. Now I'm making $55k with benefits"
+                </h3>
+                <p className="text-lg text-slate-700 mb-4 leading-relaxed">
+                  Marcus lost his job during the pandemic. He enrolled in HVAC training, got certified in 
+                  10 weeks, and landed a union job with full benefits. Companies are desperate for skilled 
+                  technicians—he had three job offers before he even finished.
+                </p>
+                <div className="bg-slate-50 p-6 rounded-xl mb-6">
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div>
+                      <div className="text-2xl font-bold text-blue-500">10 Weeks</div>
+                      <div className="text-sm text-slate-600">To Certification</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-blue-500">3 Offers</div>
+                      <div className="text-sm text-slate-600">Before Graduation</div>
+                    </div>
+                  </div>
+                </div>
+                <Link
+                  href="/programs/hvac"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition"
+                >
+                  Explore HVAC Training →
+                </Link>
+              </div>
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2">
+                <Image
+                  src="/images/gallery/image5.jpg"
+                  alt="HVAC training"
+                  fill
+                  quality={80}
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Story 3: Healthcare */}
+          <div className="mb-12">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/gallery/image7.jpg"
+                  alt="Healthcare training"
+                  fill
+                  quality={80}
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <div className="inline-block px-4 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
+                  Healthcare
+                </div>
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">
+                  "I wanted to help people. Now I do—and I get paid for it"
+                </h3>
+                <p className="text-lg text-slate-700 mb-4 leading-relaxed">
+                  Jennifer always wanted to work in healthcare but thought she needed years of school. 
+                  She became a CNA in just 4 weeks and now works at a hospital making $18/hour with 
+                  room to grow into nursing.
+                </p>
+                <div className="bg-slate-50 p-6 rounded-xl mb-6">
+                  <div className="grid grid-cols-2 gap-4 text-center">
+                    <div>
+                      <div className="text-2xl font-bold text-green-500">4 Weeks</div>
+                      <div className="text-sm text-slate-600">To CNA License</div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-green-500">$18/hr</div>
+                      <div className="text-sm text-slate-600">Starting Pay</div>
+                    </div>
+                  </div>
+                </div>
+                <Link
+                  href="/programs/cna"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white font-bold text-lg rounded-lg hover:bg-green-700 transition"
+                >
+                  Start Healthcare Career →
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12 pt-8 border-t border-slate-200">
+            <p className="text-lg text-slate-600 mb-6">
+              These are real pathways. Real timelines. Real outcomes.
+            </p>
             <Link
               href="/programs"
-              className="inline-flex items-center gap-2 text-orange-500 font-semibold hover:text-orange-600 text-lg"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-bold text-lg rounded-lg hover:bg-slate-800 transition"
             >
               View All Programs →
             </Link>
