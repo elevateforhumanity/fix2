@@ -10,18 +10,19 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Banner with Image */}
+      {/* Hero Banner with Video */}
       <section className="relative min-h-[500px] flex items-center">
         <div className="absolute inset-0">
-          <Image
-            src="/images/heroes/success-story-1.jpg"
-            alt="Get Started with Free Training"
-            fill
-            className="object-cover"
-            priority 
-            quality={90} 
-            sizes="100vw"
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover"
+          >
+            <source src="/videos/getting-started-hero.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-slate-900/60" />
         </div>
         
