@@ -82,7 +82,7 @@ export default function HomePage() {
       </section>
 
       {/* MISSION & STORY */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             We See Your Potential, Not Your Past
@@ -91,7 +91,7 @@ export default function HomePage() {
             At Elevate for Humanity, we believe everyone deserves a shot at a better future. 
             Whether you're starting over, breaking barriers, or building something new—we're here to help you get there.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
             <div>
               <div className="text-4xl font-bold text-orange-500 mb-2">100%</div>
               <div className="text-sm text-slate-600">Free Training</div>
@@ -118,7 +118,7 @@ export default function HomePage() {
       </section>
 
       {/* FEATURED PROGRAMS */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-12 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -129,10 +129,10 @@ export default function HomePage() {
               Train online at your pace, practice hands-on, and step into a career that's waiting for you.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-40 overflow-hidden bg-slate-100">
+                <div className="relative h-48 overflow-hidden bg-slate-100">
                   <video
                     autoPlay
                     muted
@@ -155,7 +155,7 @@ export default function HomePage() {
                   {/* Dark overlay for better text contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <div className="p-6">
+                <div className="p-5">
                   <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
                     Barber Apprenticeship
                   </h3>
@@ -172,7 +172,7 @@ export default function HomePage() {
 
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-40 overflow-hidden bg-teal-100">
+                <div className="relative h-48 overflow-hidden bg-teal-100">
                   <video
                     autoPlay
                     muted
@@ -194,7 +194,7 @@ export default function HomePage() {
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <div className="p-6">
+                <div className="p-5">
                   <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
                     CNA Healthcare
                   </h3>
@@ -211,7 +211,7 @@ export default function HomePage() {
 
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-40 overflow-hidden bg-slate-100">
+                <div className="relative h-48 overflow-hidden bg-slate-100">
                   <video
                     autoPlay
                     muted
@@ -233,7 +233,7 @@ export default function HomePage() {
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <div className="p-6">
+                <div className="p-5">
                   <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
                     HVAC Technician
                   </h3>
@@ -262,7 +262,7 @@ export default function HomePage() {
 
 
       {/* WHO WE SERVE */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -275,7 +275,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+            <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200">
               <div className="mb-3 relative w-full h-32 rounded-lg overflow-hidden">
                 <Image
                   src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__5/generated-image-5ad8936e-e731-44e0-9fb9-459e8166f672.png?Expires=2080939134&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=NRIcy~TEuP1KHxghgJhRfV6TasR2~TYYzH7VPil1mMmPuqO5pvX9R8or-qCmm3r6caPRndtvSlHIAeWU2Ki6Xhsw4df3c86hoBhPrXwKVZ5e3LTzGXBu-vaT7giFPbgSIVIZNCKOOer6LzznxUHHxfnVMa8~8CAq6-8v9RGOxvr54mA2sOv~VRjRBQs~iH~vBk6mm5O2NYUMvneHcpM1x1pm-Lx0yN6S0Fe2Gf9ec8cPa1JnyDN4EOqqn2yuhSAwe3qRqZsa6b58zfaHB7oXSLVjiwEqYQiLnQU5YoBl9ZGuqZ7faq70qFfv2ze7Wob-5MHkS1jqhvlm-Qjqyu1NDA__"
@@ -291,7 +291,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+            <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200">
               <div className="mb-3 relative w-full h-32 rounded-lg overflow-hidden">
                 <Image
                   src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__3/generated-image-490c99f8-5b92-43d9-b250-d9e0737d9317.png?Expires=2080924478&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=v3QMnx8aJGuSYZtAGmbfHfEzVi95DBWi3ob3iwWiuAe0bROgg8OSQodp9VHjPnu1CWtGu-5tYwmk50uP2xUUaCrsvJyjCH8DxUrSIfR-5LHD3uiP~qmXKJ80EpLTQ~XIxCoRqz9dmGosf2zfZXjhs19NCWbNo0xi1JUaEbyu66HyV25tzPSUFn0X5Y9aDcL9tLJXxyl-gVaIYdOPMlIX0WM3ZVrN0~tgA5XgcoCKwdeR5Y3zjHHZbBG6Uh2bmtbusigFgI2uHd~nu~qLVTkLGPZy1GGXZOYDf-Xm2Dm37XTspUIifLQN6FQ96dexvaqL4vGJfaYE4AyG5s0vE-LKDA__"
@@ -307,7 +307,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+            <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200">
               <div className="mb-3 relative w-full h-32 rounded-lg overflow-hidden">
                 <Image
                   src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__7/generated-image-fc4dd113-8a89-4b1a-9bd6-afcac7ac3402.png?Expires=2080939098&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=Rjgc85nThSEZvNbZ02eeQxDxRNWPuoE3E2KKXPQW8Lc3tyQ1sHu010c2Kk28qMLvZ52AgC3Og30m07DkWXJc8ohPpxmuM8rp70gPlMB~nfRFLx78lxZ-gcDBhHUQ5xEQKJ~K1PIHsmdPS3XhAyMdryD04QLOfrton9ZkWfHJ1ApQzXlbE~xgFTxMMtiVusrVqNYpen1NwJhGnnB7OPmU8vYkFtxbao8o51OaUFx8iRUmY~SHYWvEwG-OW5FrFxBUeusvKkx2INqgUQpATKWCAzx0GrSasTilN49UsZARQUBcumMWf7sVGwN6L2RelRvUNu-oHs013UiYBE4qbXtAgg__"
@@ -327,7 +327,7 @@ export default function HomePage() {
       </section>
 
       {/* MORE PATHWAYS - STORYTELLING */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
@@ -362,7 +362,7 @@ export default function HomePage() {
                   she started her own business from home. Now she earns $60k+ during tax season and has her 
                   summers free to spend with her kids.
                 </p>
-                <div className="bg-slate-50 p-6 rounded-xl mb-6">
+                <div className="bg-slate-50 p-5 rounded-xl mb-6">
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
                       <div className="text-2xl font-bold text-orange-500">8 Weeks</div>
@@ -399,7 +399,7 @@ export default function HomePage() {
                   10 weeks, and landed a union job with full benefits. Companies are desperate for skilled 
                   technicians—he had three job offers before he even finished.
                 </p>
-                <div className="bg-slate-50 p-6 rounded-xl mb-6">
+                <div className="bg-slate-50 p-5 rounded-xl mb-6">
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
                       <div className="text-2xl font-bold text-blue-500">10 Weeks</div>
@@ -454,7 +454,7 @@ export default function HomePage() {
                   She became a CNA in just 4 weeks and now works at a hospital making $18/hour with 
                   room to grow into nursing.
                 </p>
-                <div className="bg-slate-50 p-6 rounded-xl mb-6">
+                <div className="bg-slate-50 p-5 rounded-xl mb-6">
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
                       <div className="text-2xl font-bold text-green-500">4 Weeks</div>
@@ -494,7 +494,7 @@ export default function HomePage() {
       <PWAInstallSection />
 
       {/* CTA - Talk to an Advisor */}
-      <section className="py-16 bg-gradient-to-br from-blue-600 to-orange-600">
+      <section className="py-12 bg-gradient-to-br from-blue-600 to-orange-600">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Image */}
