@@ -61,19 +61,19 @@ export default function HomePage() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">100%</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2">100%</div>
               <div className="text-sm text-slate-600">Free Training</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">4-12</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2">4-12</div>
               <div className="text-sm text-slate-600">Weeks</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">$0</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2">$0</div>
               <div className="text-sm text-slate-600">Debt</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">Real</div>
+              <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2">Real</div>
               <div className="text-sm text-slate-600">Jobs Waiting</div>
             </div>
           </div>
