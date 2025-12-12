@@ -105,7 +105,7 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/images/healthcare/program-cna-training.jpg"
+                    src="https://i.imgur.com/0LzYTV5.jpg"
                     alt="CNA Healthcare Training - Certified Nursing Assistant"
                     fill
                     quality={90}

@@ -63,6 +63,9 @@ const nextConfig = {
       { protocol: 'https', hostname: '**.cloudflareusercontent.com' },
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'unsplash.com' },
+      { protocol: 'https', hostname: 'i.imgur.com' },
+      { protocol: 'https', hostname: 'imgur.com' },
+      { protocol: 'https', hostname: 'cms-artifacts.artlist.io' },
     ],
   },
   typescript: {
