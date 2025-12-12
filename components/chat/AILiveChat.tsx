@@ -25,7 +25,16 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState<string | null>(null);
   const [agentConnected, setAgentConnected] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Auto-popup after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (isOpen && messages.length === 0) {
@@ -157,14 +166,49 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
 
   if (!isOpen) {
     return (
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all hover:scale-110 flex items-center justify-center z-50"
-        aria-label="Open chat"
-      >
-        <MessageCircle className="w-8 h-8" />
-        <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-pulse" />
-      </button>
+      <>
+        {/* Chat Button */}
+        <button
+          onClick={() => setIsOpen(true)}
+          className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-orange-600 to-orange-700 text-white rounded-full shadow-2xl hover:from-orange-700 hover:to-orange-800 transition-all hover:scale-110 flex items-center justify-center z-50 animate-bounce"
+          aria-label="Open chat"
+        >
+          <MessageCircle className="w-8 h-8" />
+          <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full animate-pulse border-2 border-white" />
+        </button>
+
+        {/* Popup Message */}
+        {showPopup && (
+          <div className="fixed bottom-24 right-6 bg-white rounded-xl shadow-2xl p-4 z-50 max-w-xs animate-slide-up border-2 border-orange-500">
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-orange-600 to-orange-700 rounded-full flex items-center justify-center flex-shrink-0">
+                <Bot className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <p className="font-bold text-slate-900 mb-1">Need Help?</p>
+                <p className="text-sm text-slate-600 mb-3">
+                  Hi! I'm here to answer questions about our programs. Click to chat!
+                </p>
+                <button
+                  onClick={() => {
+                    setIsOpen(true);
+                    setShowPopup(false);
+                  }}
+                  className="w-full bg-gradient-to-r from-orange-600 to-orange-700 text-white px-4 py-2 rounded-lg font-semibold hover:from-orange-700 hover:to-orange-800 transition"
+                >
+                  Start Chat
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 
