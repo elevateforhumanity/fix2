@@ -14,17 +14,18 @@ export const metadata: Metadata = {
 export default function CprCertificationPage() {
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Hero Section with Video */}
       <section className="relative h-[500px] sm:h-[600px] md:h-[700px] w-full overflow-hidden">
-        <Image
-          src="/images/gallery/image6.jpg"
-          alt="Cpr Certification Training"
-          fill
-          className="object-cover"
-          priority
-          quality={100}
-          sizes="100vw"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/cpr-hero.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
