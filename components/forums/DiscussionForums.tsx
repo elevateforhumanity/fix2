@@ -6,12 +6,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { 
-  MessageSquare, 
-  ThumbsUp, 
-  MessageCircle, 
-  Search, 
+import { createBrowserClient } from '@supabase/ssr';
+import {
+  MessageSquare,
+  ThumbsUp,
+  MessageCircle,
+  Search,
   TrendingUp,
   Clock,
   Users,
@@ -21,7 +21,7 @@ import {
   Plus,
   Send,
   ArrowLeft,
-  CheckCircle
+  CheckCircle,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -60,13 +60,21 @@ interface ForumPost {
 }
 
 export default function DiscussionForums() {
-  const supabase = createClientComponentClient();
-  const [activeView, setActiveView] = useState<'categories' | 'threads' | 'thread'>('categories');
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+  const [activeView, setActiveView] = useState<
+    'categories' | 'threads' | 'thread'
+  >('categories');
   const [categories, setCategories] = useState<ForumCategory[]>([]);
   const [threads, setThreads] = useState<ForumThread[]>([]);
   const [posts, setPosts] = useState<ForumPost[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<ForumCategory | null>(null);
-  const [selectedThread, setSelectedThread] = useState<ForumThread | null>(null);
+  const [selectedCategory, setSelectedCategory] =
+    useState<ForumCategory | null>(null);
+  const [selectedThread, setSelectedThread] = useState<ForumThread | null>(
+    null
+  );
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'recent' | 'popular'>('recent');
   const [newThreadTitle, setNewThreadTitle] = useState('');
@@ -94,7 +102,9 @@ export default function DiscussionForums() {
   }, [selectedThread]);
 
   const loadCurrentUser = async () => {
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
     setCurrentUser(user);
   };
 
@@ -107,11 +117,13 @@ export default function DiscussionForums() {
 
     if (data) {
       // Mock thread/post counts for now
-      setCategories(data.map(cat => ({
-        ...cat,
-        thread_count: Math.floor(Math.random() * 50) + 10,
-        post_count: Math.floor(Math.random() * 200) + 50
-      })));
+      setCategories(
+        data.map((cat) => ({
+          ...cat,
+          thread_count: Math.floor(Math.random() * 50) + 10,
+          post_count: Math.floor(Math.random() * 200) + 50,
+        }))
+      );
     }
     setLoading(false);
   };
@@ -122,14 +134,18 @@ export default function DiscussionForums() {
       .from('forum_threads')
       .select('*')
       .eq('category_id', categoryId)
-      .order(sortBy === 'recent' ? 'last_activity' : 'view_count', { ascending: false });
+      .order(sortBy === 'recent' ? 'last_activity' : 'view_count', {
+        ascending: false,
+      });
 
     if (data) {
-      setThreads(data.map(thread => ({
-        ...thread,
-        author_name: 'Student',
-        reply_count: Math.floor(Math.random() * 20)
-      })));
+      setThreads(
+        data.map((thread) => ({
+          ...thread,
+          author_name: 'Student',
+          reply_count: Math.floor(Math.random() * 20),
+        }))
+      );
     }
     setLoading(false);
   };
@@ -142,15 +158,23 @@ export default function DiscussionForums() {
       .order('created_at', { ascending: true });
 
     if (data) {
-      setPosts(data.map(post => ({
-        ...post,
-        author_name: 'Student'
-      })));
+      setPosts(
+        data.map((post) => ({
+          ...post,
+          author_name: 'Student',
+        }))
+      );
     }
   };
 
   const createThread = async () => {
-    if (!currentUser || !selectedCategory || !newThreadTitle || !newThreadContent) return;
+    if (
+      !currentUser ||
+      !selectedCategory ||
+      !newThreadTitle ||
+      !newThreadContent
+    )
+      return;
 
     const { data, error } = await supabase
       .from('forum_threads')
@@ -158,7 +182,7 @@ export default function DiscussionForums() {
         category_id: selectedCategory.id,
         title: newThreadTitle,
         content: newThreadContent,
-        author_id: currentUser.id
+        author_id: currentUser.id,
       })
       .select()
       .single();
@@ -179,7 +203,7 @@ export default function DiscussionForums() {
       .insert({
         thread_id: selectedThread.id,
         content: newPostContent,
-        author_id: currentUser.id
+        author_id: currentUser.id,
       })
       .select()
       .single();
@@ -191,8 +215,10 @@ export default function DiscussionForums() {
   };
 
   const formatTimeAgo = (date: string) => {
-    const seconds = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
-    
+    const seconds = Math.floor(
+      (new Date().getTime() - new Date(date).getTime()) / 1000
+    );
+
     if (seconds < 60) return 'just now';
     if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
     if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
@@ -207,8 +233,12 @@ export default function DiscussionForums() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">Discussion Forums</h1>
-            <p className="text-xl text-gray-600">Connect with peers, ask questions, and share knowledge</p>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+              Discussion Forums
+            </h1>
+            <p className="text-xl text-gray-600">
+              Connect with peers, ask questions, and share knowledge
+            </p>
           </div>
 
           {/* Search & Stats */}
@@ -267,12 +297,18 @@ export default function DiscussionForums() {
                   className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow cursor-pointer border-l-4 border-blue-500"
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0`}>
+                    <div
+                      className={`w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0`}
+                    >
                       <MessageSquare className={`w-6 h-6 text-blue-600`} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{category.name}</h3>
-                      <p className="text-sm text-gray-600 mb-3 line-clamp-2">{category.description}</p>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                        {category.name}
+                      </h3>
+                      <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                        {category.description}
+                      </p>
                       <div className="flex items-center gap-4 text-sm text-gray-500">
                         <span className="flex items-center gap-1">
                           <MessageSquare className="w-4 h-4" />
@@ -311,8 +347,12 @@ export default function DiscussionForums() {
               <ArrowLeft className="w-5 h-5" />
               Back to Categories
             </button>
-            <h1 className="text-4xl font-bold text-gray-900">{selectedCategory?.name}</h1>
-            <p className="text-gray-600 mt-2">{selectedCategory?.description}</p>
+            <h1 className="text-4xl font-bold text-gray-900">
+              {selectedCategory?.name}
+            </h1>
+            <p className="text-gray-600 mt-2">
+              {selectedCategory?.description}
+            </p>
           </div>
 
           {/* Filters */}
@@ -321,7 +361,9 @@ export default function DiscussionForums() {
               <button
                 onClick={() => setSortBy('recent')}
                 className={`px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition-colors ${
-                  sortBy === 'recent' ? 'bg-blue-100 text-blue-700' : 'text-gray-600 hover:bg-gray-100'
+                  sortBy === 'recent'
+                    ? 'bg-blue-100 text-blue-700'
+                    : 'text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 <Clock className="w-4 h-4" />
@@ -330,7 +372,9 @@ export default function DiscussionForums() {
               <button
                 onClick={() => setSortBy('popular')}
                 className={`px-4 py-2 rounded-lg flex items-center gap-2 font-medium transition-colors ${
-                  sortBy === 'popular' ? 'bg-blue-100 text-blue-700' : 'text-gray-600 hover:bg-gray-100'
+                  sortBy === 'popular'
+                    ? 'bg-blue-100 text-blue-700'
+                    : 'text-gray-600 hover:bg-gray-100'
                 }`}
               >
                 <TrendingUp className="w-4 h-4" />
@@ -356,8 +400,12 @@ export default function DiscussionForums() {
           ) : threads.length === 0 ? (
             <div className="bg-white rounded-lg shadow-sm p-12 text-center">
               <MessageSquare className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No threads yet</h3>
-              <p className="text-gray-600 mb-6">Be the first to start a discussion!</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                No threads yet
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Be the first to start a discussion!
+              </p>
               {currentUser && (
                 <button
                   onClick={() => setShowNewThreadModal(true)}
@@ -383,13 +431,19 @@ export default function DiscussionForums() {
                       <div className="flex items-start justify-between mb-2">
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-1">
-                            {thread.is_pinned && <Pin className="w-4 h-4 text-blue-600" />}
-                            {thread.is_locked && <Lock className="w-4 h-4 text-gray-400" />}
+                            {thread.is_pinned && (
+                              <Pin className="w-4 h-4 text-blue-600" />
+                            )}
+                            {thread.is_locked && (
+                              <Lock className="w-4 h-4 text-gray-400" />
+                            )}
                             <h3 className="text-lg font-semibold text-gray-900 hover:text-blue-600">
                               {thread.title}
                             </h3>
                           </div>
-                          <p className="text-sm text-gray-600 line-clamp-2">{thread.content}</p>
+                          <p className="text-sm text-gray-600 line-clamp-2">
+                            {thread.content}
+                          </p>
                         </div>
                       </div>
                       <div className="flex items-center gap-4 text-sm text-gray-500">
@@ -417,7 +471,9 @@ export default function DiscussionForums() {
           {showNewThreadModal && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
               <div className="bg-white rounded-lg max-w-2xl w-full p-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Create New Thread</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Create New Thread
+                </h2>
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -452,7 +508,9 @@ export default function DiscussionForums() {
                     </button>
                     <button
                       onClick={createThread}
-                      disabled={!newThreadTitle.trim() || !newThreadContent.trim()}
+                      disabled={
+                        !newThreadTitle.trim() || !newThreadContent.trim()
+                      }
                       className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
                     >
                       Create Thread
@@ -486,7 +544,9 @@ export default function DiscussionForums() {
         {/* Thread */}
         {selectedThread && (
           <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">{selectedThread.title}</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              {selectedThread.title}
+            </h1>
             <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
               <span className="font-medium">{selectedThread.author_name}</span>
               <span>•</span>
@@ -510,10 +570,16 @@ export default function DiscussionForums() {
               <div className="flex items-start gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="font-semibold text-gray-900">{post.author_name}</span>
-                    <span className="text-sm text-gray-500">{formatTimeAgo(post.created_at)}</span>
+                    <span className="font-semibold text-gray-900">
+                      {post.author_name}
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      {formatTimeAgo(post.created_at)}
+                    </span>
                   </div>
-                  <div className="prose max-w-none text-gray-700">{post.content}</div>
+                  <div className="prose max-w-none text-gray-700">
+                    {post.content}
+                  </div>
                 </div>
               </div>
             </div>
@@ -523,7 +589,9 @@ export default function DiscussionForums() {
         {/* Reply Box */}
         {currentUser && !selectedThread?.is_locked && (
           <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Post a Reply</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              Post a Reply
+            </h3>
             <textarea
               value={newPostContent}
               onChange={(e) => setNewPostContent(e.target.value)}
@@ -546,7 +614,9 @@ export default function DiscussionForums() {
 
         {!currentUser && (
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 text-center">
-            <p className="text-gray-700 mb-4">Please log in to reply to this thread</p>
+            <p className="text-gray-700 mb-4">
+              Please log in to reply to this thread
+            </p>
             <Link
               href="/login"
               className="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"

@@ -1,478 +1,660 @@
-import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import {
+  CheckCircle2,
+  Users,
+  BookOpen,
+  Award,
+  ArrowRight,
+  Heart,
+  Briefcase,
+  GraduationCap,
+  TrendingUp,
+  Shield,
+  Target,
+} from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Elevate For Humanity',
-  description: 'Career training and development programs'
+export const metadata = {
+  title: 'JRI Funding - Justice Reinvestment Initiative | Elevate for Humanity',
+  description:
+    'Transform lives through JRI-funded workforce development and reentry programs. Breaking barriers, building futures.',
 };
 
 export default function JRIPage() {
-
   return (
-    <main className="min-h-screen bg-white">
-      <section className="relative min-h-[600px] flex items-center">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      {/* Hero Section with Image */}
+      <section className="relative h-[600px] bg-gradient-to-r from-blue-900 to-purple-900">
         <div className="absolute inset-0">
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="Hero"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0   " />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
-          <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
-        </div>
-      </section>
-
           <Image
-            src="/images/gallery/image8.jpg"
-            alt="Job Ready Indy Programs"
+            src="/images/funding/funding-jri-program-v2.jpg"
+            alt="JRI Program - Transforming Lives Through Education"
             fill
-            className="object-cover"
+            className="object-cover opacity-40"
             priority
-            quality={100}
-          
-          sizes="100vw"
-        />
-          
+          />
         </div>
-        
-        <div className="relative container mx-auto px-4 py-20">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/70" />
+        <div className="container mx-auto px-4 relative z-10 h-full flex items-center">
           <div className="max-w-4xl">
-            <div className="inline-block px-4 py-2 bg-green-600 text-white rounded-full text-sm font-bold mb-4">
-              Job Ready Indy Partner
+            <div className="inline-block px-4 py-2 bg-green-600 text-white rounded-full text-sm font-bold mb-6">
+              Justice Reinvestment Initiative Partner
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl">
-              Job Ready Indy (JRI) Programs
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+              Breaking Barriers.
+              <br />
+              Building Futures.
             </h1>
-            <p className="text-xl md:text-2xl text-white/95 mb-8 drop-shadow-lg leading-relaxed">
-              Second-chance career training for justice-involved individuals. 100% funded programs that help you rebuild your life and launch a new career.
+            <p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed">
+              The Justice Reinvestment Initiative transforms lives by providing
+              fully-funded workforce training and career pathways for
+              individuals reentering society.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="px-8 py-4 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition text-lg shadow-2xl"
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                size="lg"
+                variant="secondary"
+                asChild
+                className="text-lg px-8 py-6"
               >
-                Apply for JRI Programs
-              </Link>
-              <a
-                href="tel:3173143757"
-                className="px-8 py-4 bg-white text-slate-900 font-bold rounded-full hover:bg-slate-100 transition text-lg shadow-2xl border-2 border-white"
+                <Link href="/programs">
+                  Explore Programs <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-white/10 hover:bg-white/20 text-white border-white text-lg px-8 py-6"
+                asChild
               >
-                Call 317-314-3757
-              </a>
+                <Link href="/contact">Get Started Today</Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What is JRI */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl font-bold text-slate-900 mb-6">
-                  What is Job Ready Indy (JRI)?
-                </h2>
-                <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-                  Job Ready Indy (JRI) is a workforce development initiative that provides <strong>100% free career training</strong> to justice-involved individuals in Marion County, Indiana.
-                </p>
-                <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-                  The program removes barriers to employment by covering all training costs, providing wraparound support services, and connecting participants directly to employers who are ready to hire.
-                </p>
-                <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg">
-                  <p className="text-slate-900 font-semibold mb-2">
-                    ✓ No Cost to You
-                  </p>
-                  <p className="text-slate-700 text-sm">
-                    All training, certifications, and support services are 100% funded through Job Ready Indy. No tuition, no fees, no debt.
-                  </p>
-                </div>
-              </div>
-              <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src="/images/gallery/image3.jpg"
-                  alt="JRI Training Programs"
-                  fill
-                  className="object-cover"
-                  quality={100}
-                
-          sizes="100vw"
-        />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Who Qualifies */}
-      <section className="py-20 bg-slate-50">
+      {/* Story Section */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-slate-900 mb-4">
-              Who Qualifies for JRI Programs?
-            </h2>
-            <p className="text-center text-xl text-slate-600 mb-12">
-              JRI is designed for individuals with justice involvement who are ready to rebuild their lives
-            </p>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Justice-Involved Individuals</h3>
-                <p className="text-slate-700">
-                  Currently or previously involved in the criminal justice system, including those on probation, parole, or recently released from incarceration.
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Your Second Chance Starts Here
+              </h2>
+              <p className="text-xl text-slate-600">
+                Every person deserves the opportunity to rebuild their life with
+                dignity and purpose.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
+              <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+                <Image
+                  src="/images/learners/reentry-coaching.jpg"
+                  alt="Career coaching and mentorship"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-4">
+                  From Incarceration to Career Success
+                </h3>
+                <p className="text-slate-700 mb-4 leading-relaxed">
+                  The Justice Reinvestment Initiative recognizes that successful
+                  reentry requires more than just release—it requires
+                  opportunity. Through JRI funding, we provide comprehensive
+                  workforce training that opens doors to stable, well-paying
+                  careers.
+                </p>
+                <p className="text-slate-700 leading-relaxed">
+                  Our programs are designed specifically for individuals with
+                  justice involvement, addressing the unique challenges you face
+                  while building the skills employers demand.
                 </p>
               </div>
+            </div>
 
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Marion County Residents</h3>
-                <p className="text-slate-700">
-                  Must reside in Marion County, Indiana (Indianapolis area) or be willing to relocate for training and employment.
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="order-2 md:order-1">
+                <h3 className="text-2xl font-bold mb-4">
+                  100% Funded Training
+                </h3>
+                <p className="text-slate-700 mb-4 leading-relaxed">
+                  Through JRI funding, your entire training program is
+                  covered—no tuition, no fees, no barriers. This includes
+                  industry-recognized certifications, hands-on training, and
+                  ongoing support services.
+                </p>
+                <p className="text-slate-700 leading-relaxed">
+                  We believe financial constraints should never prevent someone
+                  from accessing the education they need to succeed. JRI makes
+                  that belief a reality.
                 </p>
               </div>
-
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Ready to Work</h3>
-                <p className="text-slate-700">
-                  Committed to completing training and securing employment. Must be legally eligible to work in the United States.
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 shadow-md">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Support System</h3>
-                <p className="text-slate-700">
-                  Access to housing, transportation, and other support services. We help connect you to resources you need to succeed.
-                </p>
+              <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl order-1 md:order-2">
+                <Image
+                  src="/media/programs/workforce-readiness-hero.jpg"
+                  alt="Workforce development training"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* JRI Programs Available */}
-      <section className="py-20 bg-white">
+      {/* Impact Stats */}
+      <section className="py-16 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-slate-900 mb-4">
-              JRI-Funded Programs Available
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              Real Impact, Real Results
             </h2>
-            <p className="text-center text-xl text-slate-600 mb-12">
-              Choose from high-demand career paths with immediate job opportunities
+            <div className="grid md:grid-cols-4 gap-8">
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                    <Users className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <CardTitle className="text-4xl font-bold text-blue-600">
+                    85%
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-slate-600">
+                    Employment rate within 6 months of program completion
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <TrendingUp className="w-8 h-8 text-green-600" />
+                  </div>
+                  <CardTitle className="text-4xl font-bold text-green-600">
+                    $18+
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-slate-600">
+                    Average starting hourly wage for graduates
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                    <Award className="w-8 h-8 text-purple-600" />
+                  </div>
+                  <CardTitle className="text-4xl font-bold text-purple-600">
+                    92%
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-slate-600">
+                    Program completion rate with dedicated support
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="text-center">
+                <CardHeader>
+                  <div className="mx-auto w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
+                    <Shield className="w-8 h-8 text-orange-600" />
+                  </div>
+                  <CardTitle className="text-4xl font-bold text-orange-600">
+                    73%
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-slate-600">
+                    Reduction in recidivism for program participants
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What's Included */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              What JRI Funding Covers
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <BookOpen className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <CardTitle>Complete Training Programs</CardTitle>
+                      <CardDescription className="mt-2">
+                        Full tuition coverage for industry-recognized
+                        certification programs including materials, equipment,
+                        and all required coursework.
+                      </CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <GraduationCap className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <CardTitle>Certification Exams</CardTitle>
+                      <CardDescription className="mt-2">
+                        All certification exam fees covered, including retakes
+                        if needed. We're invested in your success.
+                      </CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Users className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <CardTitle>Career Coaching</CardTitle>
+                      <CardDescription className="mt-2">
+                        One-on-one career coaching, resume building, interview
+                        preparation, and job placement assistance.
+                      </CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Heart className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <CardTitle>Support Services</CardTitle>
+                      <CardDescription className="mt-2">
+                        Access to wraparound support services including
+                        transportation assistance, childcare resources, and
+                        ongoing mentorship.
+                      </CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Briefcase className="w-6 h-6 text-red-600" />
+                    </div>
+                    <div>
+                      <CardTitle>Job Placement</CardTitle>
+                      <CardDescription className="mt-2">
+                        Direct connections to employers who value second chances
+                        and offer competitive wages and benefits.
+                      </CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Target className="w-6 h-6 text-indigo-600" />
+                    </div>
+                    <div>
+                      <CardTitle>Long-term Success</CardTitle>
+                      <CardDescription className="mt-2">
+                        Post-graduation support for up to 12 months to ensure
+                        you stay on track and advance in your career.
+                      </CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Available Programs */}
+      <section className="py-16 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+              JRI-Funded Programs
+            </h2>
+            <p className="text-xl text-slate-600 text-center mb-12">
+              Choose from high-demand career pathways with proven employment
+              outcomes
             </p>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {/* Barber Apprenticeship */}
-              <div className="bg-slate-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition">
+              <Card className="hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/images/beauty/hero-program-barber.jpg"
-                    alt="Barber Apprenticeship"
+                    src="/media/programs/efh-public-safety-reentry-hero.jpg"
+                    alt="Public Safety & Reentry Specialist"
                     fill
-                    className="object-cover"
-                    sizes="100vw"
-                    quality={100}
+                    className="object-cover rounded-t-lg"
                   />
-                  <div className="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    JRI Funded
-                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">Barber Apprenticeship</h3>
-                  <p className="text-slate-600 mb-4">
-                    2,000-hour DOL Registered Apprenticeship. Earn while you learn. Graduate with Indiana barber license.
-                  </p>
-                  <div className="flex items-center gap-2 text-sm text-slate-600 mb-4">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>12-18 months</span>
-                  </div>
-                  <Link
-                    href="/programs/barber-apprenticeship"
-                    className="block text-center px-6 py-3 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition"
-                  >
-                    Learn More
-                  </Link>
-                </div>
-              </div>
+                <CardHeader>
+                  <CardTitle>Public Safety & Reentry Specialist</CardTitle>
+                  <CardDescription>
+                    Turn your lived experience into a rewarding career helping
+                    others successfully reintegrate into society.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        National certification included
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        $45,000+ average starting salary
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        High demand in corrections and social services
+                      </span>
+                    </li>
+                  </ul>
+                  <Button className="w-full" asChild>
+                    <Link href="/programs/public-safety-reentry-specialist">
+                      Learn More
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
 
-              {/* Building Maintenance */}
-              <div className="bg-slate-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition">
+              <Card className="hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/images/hero/hero-skilled-trades.jpg"
-                    alt="Building Maintenance"
+                    src="/images/heroes/workforce-partner-1.jpg"
+                    alt="Commercial Driver License CDL"
                     fill
-                    className="object-cover"
-                    sizes="100vw"
-                    quality={100}
+                    className="object-cover rounded-t-lg"
                   />
-                  <div className="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    JRI Funded
-                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">Building Maintenance Tech</h3>
-                  <p className="text-slate-600 mb-4">
-                    Learn HVAC, electrical, plumbing basics. High-demand skills with immediate job placement.
-                  </p>
-                  <div className="flex items-center gap-2 text-sm text-slate-600 mb-4">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>8-12 weeks</span>
-                  </div>
-                  <Link
-                    href="/programs/building-maintenance"
-                    className="block text-center px-6 py-3 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition"
-                  >
-                    Learn More
-                  </Link>
-                </div>
-              </div>
+                <CardHeader>
+                  <CardTitle>Commercial Driver&apos;s License (CDL)</CardTitle>
+                  <CardDescription>
+                    Enter the transportation industry with a career that offers
+                    independence, stability, and excellent pay.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">Class A CDL certification</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        $50,000-$70,000 first-year earnings
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Nationwide job opportunities
+                      </span>
+                    </li>
+                  </ul>
+                  <Button className="w-full" asChild>
+                    <Link href="/programs">Learn More</Link>
+                  </Button>
+                </CardContent>
+              </Card>
 
-              {/* Peer Recovery Coach */}
-              <div className="bg-slate-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition">
+              <Card className="hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src="/images/programs/efh-cna-hero.jpg"
-                    alt="Peer Recovery Coach"
+                    src="/images/heroes/workforce-partner-3.jpg"
+                    alt="Manufacturing & Skilled Trades"
                     fill
-                    className="object-cover"
-                    quality={100}
-                  
-          sizes="100vw"
-        />
-                  <div className="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    JRI Funded
-                  </div>
+                    className="object-cover rounded-t-lg"
+                  />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-3">Peer Recovery Coach</h3>
-                  <p className="text-slate-600 mb-4">
-                    Help others in recovery. Turn your experience into a meaningful career supporting your community.
-                  </p>
-                  <div className="flex items-center gap-2 text-sm text-slate-600 mb-4">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>45 days</span>
-                  </div>
-                  <Link
-                    href="/programs/peer-recovery-coach"
-                    className="block text-center px-6 py-3 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition"
-                  >
-                    Learn More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-12 text-center">
-              <p className="text-slate-600 mb-6">
-                Additional JRI-funded programs available in healthcare, transportation, and workforce readiness
-              </p>
-              <Link
-                href="/programs"
-                className="inline-block px-8 py-4 border-2 border-green-600 text-green-600 font-bold rounded-full hover:bg-green-50 transition text-lg"
-              >
-                View All Programs
-              </Link>
+                <CardHeader>
+                  <CardTitle>Manufacturing & Skilled Trades</CardTitle>
+                  <CardDescription>
+                    Build a career in advanced manufacturing with hands-on
+                    training in high-tech production environments.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Industry-recognized certifications
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        $40,000-$55,000 starting salary
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm">
+                        Clear advancement pathways
+                      </span>
+                    </li>
+                  </ul>
+                  <Button className="w-full" asChild>
+                    <Link href="/programs">Learn More</Link>
+                  </Button>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Support Services */}
-      <section className="py-20   ">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-slate-900 mb-4">
-              Wraparound Support Services
-            </h2>
-            <p className="text-center text-xl text-slate-600 mb-12">
-              We provide more than just training—we help remove barriers to your success
-            </p>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white rounded-xl p-6 text-center shadow-md">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-slate-900 mb-2">Housing Assistance</h3>
-                <p className="text-sm text-slate-600">Help finding stable housing during and after training</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 text-center shadow-md">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-slate-900 mb-2">Mental Health Services</h3>
-                <p className="text-sm text-slate-600">Licensed counseling and support for your wellbeing</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 text-center shadow-md">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-slate-900 mb-2">Life Coaching</h3>
-                <p className="text-sm text-slate-600">One-on-one coaching to help you stay on track</p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 text-center shadow-md">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                  </svg>
-                </div>
-                <h3 className="font-bold text-slate-900 mb-2">Transportation Support</h3>
-                <p className="text-sm text-slate-600">Help getting to training and job interviews</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How to Apply */}
-      <section className="py-20 bg-white">
+      {/* Eligibility */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-slate-900 mb-12">
-              How to Apply for JRI Programs
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              Am I Eligible?
             </h2>
-
-            <div className="space-y-6">
-              <div className="flex items-start gap-6 bg-slate-50 rounded-xl p-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
-                  1
+            <Card className="bg-blue-50 border-blue-200">
+              <CardHeader>
+                <CardTitle className="text-2xl">
+                  JRI Funding Eligibility Requirements
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold">Justice System Involvement</p>
+                    <p className="text-slate-700">
+                      Currently or previously involved with the criminal justice
+                      system
+                    </p>
+                  </div>
                 </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold">Indiana Resident</p>
+                    <p className="text-slate-700">
+                      Must be a current resident of Indiana
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold">Commitment to Success</p>
+                    <p className="text-slate-700">
+                      Dedicated to completing training and securing employment
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <p className="font-semibold">Referral or Self-Enrollment</p>
+                    <p className="text-slate-700">
+                      Can be referred by case manager or self-enroll through our
+                      application process
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* How to Get Started */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Transform Your Future?
+            </h2>
+            <p className="text-xl mb-8 text-blue-100">
+              Your past doesn&apos;t define your future. Take the first step
+              toward a new career today.
+            </p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-8">
+              <h3 className="text-2xl font-bold mb-6">
+                Three Simple Steps to Get Started
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6 text-left">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Call Us First</h3>
-                  <p className="text-slate-700">
-                    Contact us at <a href="tel:3173143757" className="text-green-600 font-bold hover:underline">317-314-3757</a> to discuss your situation and which JRI program is right for you.
+                  <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                    1
+                  </div>
+                  <h4 className="font-bold mb-2">Contact Us</h4>
+                  <p className="text-blue-100">
+                    Reach out via phone, email, or our online form. We&apos;ll
+                    schedule your initial consultation.
                   </p>
                 </div>
-              </div>
-
-              <div className="flex items-start gap-6 bg-slate-50 rounded-xl p-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
-                  2
-                </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Meet with an Advisor</h3>
-                  <p className="text-slate-700">
-                    We'll schedule a meeting to review your background, goals, and eligibility for JRI funding. This is confidential and judgment-free.
+                  <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                    2
+                  </div>
+                  <h4 className="font-bold mb-2">Meet Your Coach</h4>
+                  <p className="text-blue-100">
+                    Discuss your goals, explore program options, and complete
+                    your enrollment paperwork.
                   </p>
                 </div>
-              </div>
-
-              <div className="flex items-start gap-6 bg-slate-50 rounded-xl p-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
-                  3
-                </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Complete Application</h3>
-                  <p className="text-slate-700">
-                    Apply through <a href="https://www.indianaconnectnow.com" target="_blank" rel="noopener noreferrer"
-className="text-green-600 font-bold hover:underline">IndianaConnectNow.com</a> to access JRI funding. We'll help you with the paperwork.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-6 bg-slate-50 rounded-xl p-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
-                  4
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Start Training</h3>
-                  <p className="text-slate-700">
-                    Once approved, begin your training immediately. We'll provide all the support you need to succeed.
+                  <div className="w-12 h-12 bg-white text-blue-600 rounded-full flex items-center justify-center font-bold text-xl mb-4">
+                    3
+                  </div>
+                  <h4 className="font-bold mb-2">Start Training</h4>
+                  <p className="text-blue-100">
+                    Begin your fully-funded training program and start building
+                    your new career.
                   </p>
                 </div>
               </div>
             </div>
-
-            <div className="mt-12 text-center bg-green-600 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">Ready to Rebuild Your Life?</h3>
-              <p className="text-lg mb-6 text-white/90">
-                Don't let your past define your future. JRI programs give you a real second chance.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="px-8 py-4 bg-white text-green-600 font-bold rounded-full hover:bg-slate-100 transition text-lg"
-                >
-                  Apply Now
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                variant="secondary"
+                asChild
+                className="text-lg px-8 py-6"
+              >
+                <Link href="/contact">
+                  Contact Us Now <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
-                <a
-                  href="tel:3173143757"
-                  className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition text-lg"
-                >
-                  Call 317-314-3757
-                </a>
-              </div>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-white/10 hover:bg-white/20 text-white border-white text-lg px-8 py-6"
+                asChild
+              >
+                <Link href="/programs">View All Programs</Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
-    </main>
+
+      {/* Success Story */}
+      <section className="py-16 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              Success Stories
+            </h2>
+            <Card className="bg-white">
+              <CardContent className="p-8">
+                <div className="flex items-start gap-6 mb-6">
+                  <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Users className="w-10 h-10 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="text-lg text-slate-700 italic mb-4 leading-relaxed">
+                      &quot;After 8 years of incarceration, I didn&apos;t think
+                      anyone would give me a chance. The JRI program not only
+                      gave me the training I needed, but they believed in me
+                      when I didn&apos;t believe in myself. Today, I&apos;m a
+                      certified reentry specialist helping others find their
+                      path, just like someone helped me find mine.&quot;
+                    </p>
+                    <p className="font-bold">— Marcus T.</p>
+                    <p className="text-slate-600">
+                      Public Safety & Reentry Specialist Graduate, 2023
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
