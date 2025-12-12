@@ -1130,6 +1130,76 @@ CIP Code: 52.0701 - Entrepreneurship/Entrepreneurial Studies`,
     },
     price: 4750,
   },
+  {
+    slug: "cpr-certification",
+    name: "CPR, AED & First Aid Certification",
+    heroTitle: "CPR, AED & First Aid Certification",
+    heroSubtitle: "One-day hands-on training to earn your American Heart Association CPR certification",
+    shortDescription: "Essential life-saving skills training with AHA CPR card valid for 2 years",
+    longDescription: `This hands-on CPR Certification course provides participants with essential life-saving skills through instructor-led training in adult, child, and infant CPR, AED usage, and basic first aid. Students will practice on industry-approved equipment and complete the course with an American Heart Association (or equivalent) CPR card valid for two years. This one-day, in-person program is ideal for aspiring healthcare workers, caregivers, and anyone seeking life-saving credentials.
+
+All instructors are certified American Heart Association (AHA) BLS Instructors or equivalent through nationally recognized organizations such as the Red Cross. Instructors maintain current credentials and hands-on skills testing ability in compliance with training center protocols.
+
+This certification is required for many healthcare positions and is valuable for anyone who wants to be prepared to respond in an emergency. The course combines video instruction, hands-on practice, and skills testing to ensure you're confident and competent in performing CPR and using an AED.
+
+Credentialing Partners:
+• American Heart Association (AHA) - CPR/AED/First Aid Certification (https://cpr.heart.org)
+• American Red Cross - CPR/AED/First Aid Certification (https://redcross.org)
+
+CIP Code: 51.0810 - Emergency Care Attendant (EMT Ambulance)`,
+    heroImage: "/images/programs/cpr-certification.jpg",
+    heroImageAlt: "Student practicing CPR on training manikin",
+    duration: "1 day (4-6 hours)",
+    schedule: "Multiple dates available monthly - Rolling admissions",
+    delivery: "In-person hands-on training",
+    credential: "American Heart Association CPR/AED/First Aid Certification (valid 2 years)",
+    approvals: ["ETPL Approved - Program ID #10004674", "WIOA Eligible", "Workforce Ready Grant Eligible", "CIP Code: 51.0810", "AHA Training Center"],
+    fundingOptions: ["100% FREE through WIOA", "Workforce Ready Grant", "Self-Pay: $575"],
+    highlights: [
+      "American Heart Association certification",
+      "Valid for 2 years",
+      "One-day completion",
+      "Hands-on practice with industry equipment",
+      "Adult, child, and infant CPR training",
+      "AED usage and basic first aid",
+      "Required for many healthcare jobs",
+      "Certified AHA instructors",
+    ],
+    whatYouLearn: [
+      "Adult CPR techniques and compressions",
+      "Child CPR procedures",
+      "Infant CPR and special considerations",
+      "AED (Automated External Defibrillator) operation",
+      "Choking relief for all ages",
+      "Basic first aid for common emergencies",
+      "Recognition of cardiac arrest and stroke",
+      "Emergency response protocols",
+      "Scene safety and infection control",
+    ],
+    outcomes: [
+      "AHA CPR/AED/First Aid certification card",
+      "Qualify for healthcare positions requiring CPR",
+      "Confidence to respond in emergencies",
+      "Meet employment requirements for CNA, Medical Assistant, EMT, and other healthcare roles",
+      "Valuable skill for childcare, education, and public safety positions",
+    ],
+    requirements: [
+      "No prior medical experience required",
+      "Physically able to perform CPR compressions on a manikin",
+      "Able to kneel and perform floor-based skills",
+      "Basic reading and comprehension of safety protocols",
+      "Application deadline: Apply at least 2 weeks before class date for availability",
+    ],
+    ctaPrimary: {
+      label: "Apply Now",
+      href: "/apply",
+    },
+    ctaSecondary: {
+      label: "View Class Schedule",
+      href: "/contact?topic=cpr-certification",
+    },
+    price: 575,
+  },
 ];
 
 /**
