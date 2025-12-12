@@ -133,25 +133,13 @@ export default function HomePage() {
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden bg-slate-100">
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
-                    poster="/images/barber-professional.jpg"
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    onError={(e) => {
-                      const target = e.target as HTMLVideoElement;
-                      target.style.display = 'none';
-                      const img = document.createElement('img');
-                      img.src = '/images/barber-professional.jpg';
-                      img.className = 'w-full h-full object-cover';
-                      target.parentElement?.appendChild(img);
-                    }}
-                  >
-                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-570a7e55-792e-4ad3-bbd1-72ca89a61f2d.mp4?Expires=2080939134&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=YX4tPvFdQvV3dTNtSKDHiTaNnFqIn43LU5FcBe4wvNdMHD-tukv6qORiOg63quad-JOF-~ftStH5n3kz0NYEPMLVlkbabGTdQeGwWBHMifz2n~-A5Ankz4PLMiPZ~Ez5U8txzjDLzli-PPpjHejTf4PGefHKfULmbXJFTb7wVTughr5paMtlHXbEaZgbBLx5MnMLGu5r2kDlI29YltVvjOORaSHFIV06Sk6TeD35oQAKh2mpk7Ooh-mS4B85FPcLKeAqr6XZ5MQ0TDVkReNPkzzPtFS7XhCTyqo~4ZICtFnug66OSFWKYpE9q2UBfXkzqxPeajhoO1ExTmgOQE5pfg__" type="video/mp4" />
-                  </video>
+                  <Image
+                    src="/images/barber-professional.jpg"
+                    alt="Barber Apprenticeship"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    priority
+                  />
                   {/* Dark overlay for better text contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -173,25 +161,13 @@ export default function HomePage() {
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden bg-teal-100">
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
-                    poster="/images/healthcare/cna-poster.jpg"
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    onError={(e) => {
-                      const target = e.target as HTMLVideoElement;
-                      target.style.display = 'none';
-                      const img = document.createElement('img');
-                      img.src = '/images/healthcare/program-cna-training.jpg';
-                      img.className = 'w-full h-full object-cover';
-                      target.parentElement?.appendChild(img);
-                    }}
-                  >
-                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__6/generated-video-4c168f2c-7481-46bb-83ae-e96aec7ac321.mp4?Expires=2080939134&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=Bow2gLHMYTBJQYLYlpkDiVrya8YQazceohI17KgB2QiHPM4oOw9S0e1Su-wlvg7qaOJcn~d5LX0jvNMzP1XgxqItKLgotwK2FsqEaq8RZ6QWpSWreuIHTpbJ-zJE6zRKp4lLZrhdkfEj-7R48LK4MllXMUyXe7Qv8~FuPKczL4F5~6GKO69YAOMve2RWD0uI1H76MSv6vyNN~6Az8n6qeoU4tMJ4kMtikNYZyPMpr-GP7uNhGUvhKuN4sK-jIkg93hxV5fOYxQSnhtCoQi2WX6SaNyF5H5Hriof~C0izDspLsd78yF~klB1oVlLtBOI-3N1qQvy16ohHoK1EZb0PYQ__" type="video/mp4" />
-                  </video>
+                  <Image
+                    src="/images/healthcare/cna-poster.jpg"
+                    alt="CNA Healthcare"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    priority
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-5">
@@ -212,25 +188,13 @@ export default function HomePage() {
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden bg-slate-100">
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
-                    poster="/images/hvac-highlight.png"
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    onError={(e) => {
-                      const target = e.target as HTMLVideoElement;
-                      target.style.display = 'none';
-                      const img = document.createElement('img');
-                      img.src = '/images/hvac-highlight.png';
-                      img.className = 'w-full h-full object-cover';
-                      target.parentElement?.appendChild(img);
-                    }}
-                  >
-                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-dc9558de-f94b-43f1-8e4a-5f45d019895f.mp4?Expires=2080939134&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=ILsMPwvdOl93iuFm-qXAN4v0-oaCCzHlXgXrYUmKrjWFh5giEYFHEOzoTLCTA6YvXlzS-gIeQoVomBCkbq4nHvUrTs31T-nfPszVHt6HWnC-2EUYM4QsOVMfB~S3Nrdm9t~WCgmu3exqasf42d7jbFVtad8yjqyC7pKQDCPq5192Lk~lJLWnvpwZ7iJpdduYPag-mvvzM0Ne9Qm5Z8WMKpktpVrkteIH7Ki2~JAwcLm5iGsCQpAV6GhIEnfB8sGjFfDO~ghClkbIot8luIULqeLIQNqL1zPPY-mxjNr7Xe4rRN5Q1iuX--vCqxZBTkN4Wevzg-E6WuroVaZwB319Fw__" type="video/mp4" />
-                  </video>
+                  <Image
+                    src="/images/hvac-highlight.png"
+                    alt="HVAC Technician"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    priority
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-5">
