@@ -362,11 +362,11 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl bg-slate-100">
                 <Image
-                  src="/images/gallery/image7.jpg"
-                  alt="Healthcare training"
+                  src="https://i.imgur.com/4JkhUSO.jpg"
+                  alt="Healthcare training - helping people"
                   fill
-                  quality={80}
-                  className="object-contain"
+                  quality={90}
+                  className="object-cover"
                 />
               </div>
               <div>
