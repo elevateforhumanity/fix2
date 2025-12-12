@@ -72,13 +72,13 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="/images/barber-highlight-2.jpg"
+                    src="/images/general/program-barber.jpg"
                     alt="Barber Apprenticeship"
                     fill
-                    quality={70}
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    quality={95}
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6">
@@ -98,13 +98,13 @@ export default function HomePage() {
 
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src="/images/healthcare/program-cna-training.jpg"
                     alt="CNA Healthcare Training"
                     fill
-                    quality={70}
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    quality={95}
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6">
@@ -124,13 +124,13 @@ export default function HomePage() {
 
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
                   <Image
                     src="/images/hvac-highlight.png"
                     alt="HVAC Technician"
                     fill
-                    quality={70}
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    quality={95}
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6">
