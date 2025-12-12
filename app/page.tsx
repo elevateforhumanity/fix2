@@ -501,7 +501,7 @@ export default function HomePage() {
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="auto"
                 poster="/images/talk-to-advisor.jpg"
                 className="w-full h-full object-cover"
                 onError={(e) => {
