@@ -3,14 +3,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import { WelcomeAudio } from "@/components/WelcomeAudio";
+import { useState, useRef } from "react";
+import { Volume2, VolumeX } from "lucide-react";
 
 export default function HomePage() {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
     <main className="bg-white">
       <WelcomeAudio />
       {/* VIDEO HERO */}
       <section className="relative overflow-hidden">
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
@@ -21,6 +34,19 @@ export default function HomePage() {
         >
           <source src="/videos/hero-home.mp4" type="video/mp4" />
         </video>
+        
+        {/* Mute/Unmute Button */}
+        <button
+          onClick={toggleMute}
+          className="absolute bottom-6 right-6 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-4 rounded-full transition-all shadow-lg hover:scale-110"
+          aria-label={isMuted ? "Unmute video" : "Mute video"}
+        >
+          {isMuted ? (
+            <VolumeX className="w-6 h-6" />
+          ) : (
+            <Volume2 className="w-6 h-6" />
+          )}
+        </button>
       </section>
 
       {/* MISSION & STORY */}
