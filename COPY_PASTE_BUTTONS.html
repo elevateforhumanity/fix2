@@ -172,16 +172,16 @@
         <!-- STEP 1 -->
         <div class="step">
             <div class="step-number">1</div>
-            <h2>Create Tables & Programs</h2>
-            <p>This creates all 16 tables, indexes, functions, and inserts 5 real production programs.</p>
+            <h2>Create Accreditation Tables</h2>
+            <p>This creates all 16 accreditation tables and indexes. <strong>Use this simpler version if you get errors.</strong></p>
             
             <div class="file-info">
-                <div class="file-name">📄 COPY_PASTE_SQL.sql</div>
-                <div class="file-desc">602 lines • Creates: student_records, attendance_records, grade_records, hour_tracking, sap_records, complaints, refunds, withdrawals, ecr_snapshots, welcome_packets, onboarding_checklist, email_notifications, mou_signatures, academic_integrity_violations, makeup_work_requests, course_syllabi</div>
+                <div class="file-name">📄 SIMPLE_ACCREDITATION_TABLES.sql</div>
+                <div class="file-desc">350 lines • Creates: student_records, attendance_records, grade_records, hour_tracking, sap_records, complaints, refunds, withdrawals, ecr_snapshots, welcome_packets, onboarding_checklist, email_notifications, mou_signatures, academic_integrity_violations, makeup_work_requests, course_syllabi</div>
             </div>
             
             <button class="copy-button" id="copy-sql" onclick="copySQLFile()">
-                📋 Copy COPY_PASTE_SQL.sql
+                📋 Copy SIMPLE_ACCREDITATION_TABLES.sql
             </button>
             <div class="success-message" id="success-sql">
                 ✅ Copied! Now paste into Supabase SQL Editor and click "Run"
@@ -228,7 +228,7 @@
     <script>
         async function copySQLFile() {
             try {
-                const response = await fetch('COPY_PASTE_SQL.sql');
+                const response = await fetch('SIMPLE_ACCREDITATION_TABLES.sql');
                 const text = await response.text();
                 await navigator.clipboard.writeText(text);
                 
@@ -241,10 +241,10 @@
                 
                 setTimeout(() => {
                     button.classList.remove('copied');
-                    button.textContent = '📋 Copy COPY_PASTE_SQL.sql';
+                    button.textContent = '📋 Copy SIMPLE_ACCREDITATION_TABLES.sql';
                 }, 3000);
             } catch (error) {
-                alert('Error copying file. Please copy manually from COPY_PASTE_SQL.sql');
+                alert('Error copying file. Please copy manually from SIMPLE_ACCREDITATION_TABLES.sql');
             }
         }
         
