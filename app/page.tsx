@@ -8,19 +8,46 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       <WelcomeAudio />
-      {/* VIDEO HERO */}
-      <section className="relative overflow-hidden">
+      {/* VIDEO HERO WITH TEXT OVERLAY */}
+      <section className="relative overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center">
+        {/* Background Video */}
         <video
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-          className="w-full h-auto"
-          style={{ display: 'block', maxHeight: '600px', objectFit: 'cover' }}
+          className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/videos/hero-home.mp4" type="video/mp4" />
         </video>
+        
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
+        
+        {/* Hero Text Content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg">
+            Transform Your Future
+          </h1>
+          <p className="text-xl md:text-2xl lg:text-3xl mb-8 drop-shadow-lg">
+            Free Career Training • Real Jobs • No Debt
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/programs"
+              className="inline-flex items-center justify-center bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-700 transition shadow-xl"
+            >
+              Explore Programs
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center bg-white text-blue-700 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition shadow-xl"
+            >
+              Get Started Today
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* MISSION & STORY */}
@@ -103,14 +130,24 @@ export default function HomePage() {
 
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-48 overflow-hidden bg-teal-100">
                   <video
                     autoPlay
                     muted
                     loop
                     playsInline
-                    preload="auto"
+                    preload="metadata"
+                    poster="/images/healthcare/cna-poster.jpg"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      // Fallback to image if video fails
+                      const target = e.target as HTMLVideoElement;
+                      target.style.display = 'none';
+                      const img = document.createElement('img');
+                      img.src = '/images/healthcare/program-cna-training.jpg';
+                      img.className = 'w-full h-full object-cover';
+                      target.parentElement?.appendChild(img);
+                    }}
                   >
                     <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__8/generated-video-2a104343-e6a7-4bd8-88c8-367de1f111b5.mp4?Expires=2080924435&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=0jh2Q6YasOiEYKsMLsHnO8-IxuDZSqIViWwCAY7gaOPqU9ZOVcEUPXk~1fmm1DMUxHWDL0vyigwSBNgAOnadT-kd3nbs~15itdd9nEr4jQdbwi5RA2MbgicP5RcAE4MUpsgphyjlR7cvYq7AmALH6eeRSqlPGGSGQEpk5fB9yo02LevHzlhg4KAktAxMmTZfe8HbPATZc8BIWOBu5-oTsohbZMPWThG7A6ZIt9AqNCXGvIcGEb-suOLDAtyTkaVgrmJue1OOx3guDvOi0KaLBSKgzq3717ItPpu9dxnXxuvwe1XxCxq5StyLZptxVAi5FpRRVPwkxDNNyDqLNlglgg__" type="video/mp4" />
                   </video>
@@ -385,14 +422,24 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Video */}
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl bg-blue-800">
               <video
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
+                poster="/images/talk-to-advisor.jpg"
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Fallback to image if video fails
+                  const target = e.target as HTMLVideoElement;
+                  target.style.display = 'none';
+                  const img = document.createElement('img');
+                  img.src = '/images/talk-to-advisor.jpg';
+                  img.className = 'w-full h-full object-cover';
+                  target.parentElement?.appendChild(img);
+                }}
               >
                 <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__3/generated-video-0ce1b0b1-bda4-4d15-9273-07ecb6c6db95.mp4?Expires=2080921205&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=JyATfTsZJOOLU4l0s0ItqbI2OfJ8C6FQhZFgqFZtLCkO1OyWmCoN3Xbbe868S0bQy5Wc5z-KboQkBLrf~5QqharYpOZrRPQrDNbpJWvQZfExNKsPGh1PvUJHXS6giGquuWYxoMQ2BEMgPh1~637ouAreipdoyZRUW0JehIBaJG8IatSZ3w2ObSr2Zfp8iRwrEOotkBELxT2rrO8eSuOLZ7qjoEW1Vqx-~28FniYxBPAlM4g2~iX6IGD3HFg7V1JFmrkN638Ndv5Hc8DFDaGmJL3C7CEopgy7QXDMf42sb0cny14gUNPtxDK3WkLXjzHz9Cxyt5omzNTnxz4OiN1yvg__" type="video/mp4" />
               </video>

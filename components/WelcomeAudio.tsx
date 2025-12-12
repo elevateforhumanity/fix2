@@ -1,30 +1,64 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { Volume2, VolumeX } from 'lucide-react';
+
 export function WelcomeAudio() {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [hasPlayed, setHasPlayed] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showButton, setShowButton] = useState(false);
   
   useEffect(() => {
-    // Play on every visit (removed session storage check)
+    // Try to autoplay
     if (audioRef.current) {
-      // Small delay to ensure page is loaded
       const timer = setTimeout(() => {
-        audioRef.current?.play().catch((error) => {
-          // Autoplay might be blocked by browser
-          console.log('Autoplay blocked - user interaction required');
-        });
-        setHasPlayed(true);
-      }, 500);
+        audioRef.current?.play()
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch(() => {
+            // Autoplay blocked - show button
+            setShowButton(true);
+          });
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, []);
   
+  const toggleAudio = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        audioRef.current.play();
+        setIsPlaying(true);
+      }
+    }
+  };
+  
   return (
-    <audio
-      ref={audioRef}
-      src="/videos/voiceover.mp3"
-      preload="auto"
-      // No loop - plays once per page load
-    />
+    <>
+      <audio
+        ref={audioRef}
+        src="/videos/voiceover.mp3"
+        preload="auto"
+        onEnded={() => setIsPlaying(false)}
+      />
+      
+      {/* Audio Control Button */}
+      {showButton && (
+        <button
+          onClick={toggleAudio}
+          className="fixed bottom-6 right-6 z-50 bg-orange-600 text-white p-4 rounded-full shadow-2xl hover:bg-orange-700 transition-all hover:scale-110 animate-pulse"
+          aria-label={isPlaying ? 'Pause audio' : 'Play welcome message'}
+        >
+          {isPlaying ? (
+            <VolumeX className="w-6 h-6" />
+          ) : (
+            <Volume2 className="w-6 h-6" />
+          )}
+        </button>
+      )}
+    </>
   );
 }
