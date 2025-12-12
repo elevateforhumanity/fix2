@@ -21,7 +21,7 @@ export default function HomePage() {
     <main className="bg-white overflow-x-hidden">
       <WelcomeAudio />
       {/* VIDEO HERO WITH TEXT OVERLAY */}
-      <section className="relative w-full overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center bg-slate-900">
+      <section className="relative w-full overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center bg-black">
         {/* Background Video */}
         <video
           ref={videoRef}
@@ -29,7 +29,7 @@ export default function HomePage() {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/videos/hero-home.mp4" type="video/mp4" />
@@ -132,13 +132,22 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-48 overflow-hidden bg-slate-100">
                   <video
                     autoPlay
                     muted
                     loop
                     playsInline
+                    poster="/images/barber-professional.jpg"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLVideoElement;
+                      target.style.display = 'none';
+                      const img = document.createElement('img');
+                      img.src = '/images/barber-professional.jpg';
+                      img.className = 'w-full h-full object-cover';
+                      target.parentElement?.appendChild(img);
+                    }}
                   >
                     <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-570a7e55-792e-4ad3-bbd1-72ca89a61f2d.mp4?Expires=2080924478&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=lJclF2elhC7zl9M1V8PutfwBpdobo6~Qy~EJMrZgIEbfcUEeEGZJgwFB~4uSdvqU933Gz7YdTSs~hsqqeSzgBdspriI8RxZ8VVlimBpxb3AC2ijVdMKdJ-r~kZ2FvmYqfk7wqVjemgng3T7pQJQmV7bBP-TIDjZDyzwCFU2URhxrUHvuza06-dHnoVKAcsRoXQIRhqYizQ6sAxlo2qo06k3wufViF3x66U~jLKmw55AQ57El~n5HcKkFZiYRlKaR60SI2ydO-7RlLepp987ApV8cntAQqZI1I4M50pD7nndlDBiW0iMa-b8y-j4JzeiLWZgBSDDHQQtursDYT0cZAw__" type="video/mp4" />
                   </video>
@@ -202,13 +211,22 @@ export default function HomePage() {
 
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-48 overflow-hidden bg-slate-100">
                   <video
                     autoPlay
                     muted
                     loop
                     playsInline
+                    poster="/images/hvac-highlight.png"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLVideoElement;
+                      target.style.display = 'none';
+                      const img = document.createElement('img');
+                      img.src = '/images/hvac-highlight.png';
+                      img.className = 'w-full h-full object-cover';
+                      target.parentElement?.appendChild(img);
+                    }}
                   >
                     <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-dc9558de-f94b-43f1-8e4a-5f45d019895f.mp4?Expires=2080924478&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=evbvLLELi4p-lAanFSPFiU0Dlx8N55HZ5V0wkF6MzFuoWPXO9T6atBo-jTyTmfMZw4J4b6Nm8ty40OWrg4V87XOuX~H5iw8bz2xWA0WQ34~3lcUDj9aNMIntxS7pVH0aX40lSafVs4ujdEec8ONdlzpSPUhc9wsduZEl8jXfqxip~j1AJAYNlpTNSx419QDRB04g7p8Anfd84~MKWsy9VpdKz3zsViFOfjrv4cF-nQkrIwx8phUoEH7O5hQkH2pIT3TPaVFyQphQyHfZusVoDm7nZcR1bjCa~GhGnCKhOElJ8e5zS2SYlKsB84Uj1axBGFhDeS7eifvEUd0CzmkMJQ__" type="video/mp4" />
                   </video>
