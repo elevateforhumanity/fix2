@@ -173,12 +173,25 @@ export default function HomePage() {
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden bg-teal-100">
-                  <Image
-                    src="https://i.imgur.com/Kt6ka8p.png"
-                    alt="CNA Healthcare Training"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    poster="/images/healthcare/cna-poster.jpg"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLVideoElement;
+                      target.style.display = 'none';
+                      const img = document.createElement('img');
+                      img.src = '/images/healthcare/program-cna-training.jpg';
+                      img.className = 'w-full h-full object-cover';
+                      target.parentElement?.appendChild(img);
+                    }}
+                  >
+                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__6/generated-video-4c168f2c-7481-46bb-83ae-e96aec7ac321.mp4?Expires=2080939134&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=Bow2gLHMYTBJQYLYlpkDiVrya8YQazceohI17KgB2QiHPM4oOw9S0e1Su-wlvg7qaOJcn~d5LX0jvNMzP1XgxqItKLgotwK2FsqEaq8RZ6QWpSWreuIHTpbJ-zJE6zRKp4lLZrhdkfEj-7R48LK4MllXMUyXe7Qv8~FuPKczL4F5~6GKO69YAOMve2RWD0uI1H76MSv6vyNN~6Az8n6qeoU4tMJ4kMtikNYZyPMpr-GP7uNhGUvhKuN4sK-jIkg93hxV5fOYxQSnhtCoQi2WX6SaNyF5H5Hriof~C0izDspLsd78yF~klB1oVlLtBOI-3N1qQvy16ohHoK1EZb0PYQ__" type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
