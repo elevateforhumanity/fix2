@@ -1,5 +1,8 @@
 # How to Create Natural-Sounding Voiceover
 
+## Current Status
+❌ **VOICEOVER DISABLED** - The robot voiceover has been temporarily disabled in `/components/WelcomeAudio.tsx`
+
 ## Current Issue
 The current voiceover (`/public/videos/voiceover.mp3`) sounds robotic and generic.
 
