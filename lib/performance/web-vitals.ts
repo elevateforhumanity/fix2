@@ -9,6 +9,7 @@ export function initWebVitalsDebug() {
         if (entry?.hadRecentInput) continue;
         if (process.env.NODE_ENV === "development") {
           // Safe logging
+          console.log('Layout shift:', {
             value: entry?.value,
             sources: entry?.sources,
           });
@@ -29,6 +30,7 @@ export function initWebVitalsDebug() {
           const t = r.initiatorType || "other";
           byType[t] = (byType[t] || 0) + (r.transferSize || 0);
         }
+        console.log(
           "Resource Breakdown:",
           Object.entries(byType).map(([type, size]) => ({
             type,
