@@ -72,12 +72,12 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6">
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <Image
                     src="/images/general/program-barber.jpg"
                     alt="Barber Apprenticeship"
                     fill
-                    quality={95}
+                    quality={85}
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -89,21 +89,21 @@ export default function HomePage() {
                     Work in a real barbershop. Get paid while you train. Build your clientele. 
                     Own your chair or open your own shop. 12-18 months.
                   </p>
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-md hover:bg-orange-700 transition-colors">
                     Learn More →
-                  </span>
+                  </div>
                 </div>
               </div>
             </Link>
 
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <Image
                     src="/images/healthcare/program-cna-training.jpg"
                     alt="CNA Healthcare Training"
                     fill
-                    quality={95}
+                    quality={85}
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -115,21 +115,21 @@ export default function HomePage() {
                     Get certified fast. Work in hospitals, nursing homes, or home health. 
                     Stable income, flexible schedules, room to grow. 4-8 weeks.
                   </p>
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-md hover:bg-orange-700 transition-colors">
                     Learn More →
-                  </span>
+                  </div>
                 </div>
               </div>
             </Link>
 
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
                   <Image
                     src="/images/hvac-highlight.png"
                     alt="HVAC Technician"
                     fill
-                    quality={95}
+                    quality={85}
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -141,9 +141,9 @@ export default function HomePage() {
                     Learn heating, cooling, and refrigeration. High demand, good pay, job security. 
                     Start your own business or work for a company. 8-12 weeks.
                   </p>
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-white font-bold text-base rounded-lg">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-md hover:bg-orange-700 transition-colors">
                     Learn More →
-                  </span>
+                  </div>
                 </div>
               </div>
             </Link>
