@@ -92,7 +92,7 @@ export default function HomePage() {
                     Work in a real barbershop. Get paid while you train. Build your clientele. 
                     Own your chair or open your own shop. 12-18 months.
                   </p>
-                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-extrabold text-lg rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all tracking-wide antialiased">
                     Learn More →
                   </div>
                 </div>
@@ -120,7 +120,7 @@ export default function HomePage() {
                     Get certified fast. Work in hospitals, nursing homes, or home health. 
                     Stable income, flexible schedules, room to grow. 4-8 weeks.
                   </p>
-                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-extrabold text-lg rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all tracking-wide antialiased">
                     Learn More →
                   </div>
                 </div>
@@ -148,7 +148,7 @@ export default function HomePage() {
                     Learn heating, cooling, and refrigeration. High demand, good pay, job security. 
                     Start your own business or work for a company. 8-12 weeks.
                   </p>
-                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-extrabold text-lg rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all tracking-wide antialiased">
                     Learn More →
                   </div>
                 </div>
