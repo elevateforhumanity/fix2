@@ -236,23 +236,33 @@ CREATE TABLE IF NOT EXISTS withdrawals (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
--- Add columns to enrollments
-ALTER TABLE enrollments 
-ADD COLUMN IF NOT EXISTS theory_hours_completed DECIMAL(10,2) DEFAULT 0,
-ADD COLUMN IF NOT EXISTS practical_hours_completed DECIMAL(10,2) DEFAULT 0,
-ADD COLUMN IF NOT EXISTS total_hours_completed DECIMAL(10,2) DEFAULT 0,
-ADD COLUMN IF NOT EXISTS last_progress_update TIMESTAMPTZ,
-ADD COLUMN IF NOT EXISTS sap_status TEXT DEFAULT 'good_standing',
-ADD COLUMN IF NOT EXISTS gpa DECIMAL(3,2) DEFAULT 0,
-ADD COLUMN IF NOT EXISTS attendance_percentage DECIMAL(5,2) DEFAULT 100;
+-- Add columns to enrollments (only if table exists)
+DO $$
+BEGIN
+  IF EXISTS (SELECT FROM information_schema.tables WHERE table_name = 'enrollments') THEN
+    ALTER TABLE enrollments 
+    ADD COLUMN IF NOT EXISTS theory_hours_completed DECIMAL(10,2) DEFAULT 0,
+    ADD COLUMN IF NOT EXISTS practical_hours_completed DECIMAL(10,2) DEFAULT 0,
+    ADD COLUMN IF NOT EXISTS total_hours_completed DECIMAL(10,2) DEFAULT 0,
+    ADD COLUMN IF NOT EXISTS last_progress_update TIMESTAMPTZ,
+    ADD COLUMN IF NOT EXISTS sap_status TEXT DEFAULT 'good_standing',
+    ADD COLUMN IF NOT EXISTS gpa DECIMAL(3,2) DEFAULT 0,
+    ADD COLUMN IF NOT EXISTS attendance_percentage DECIMAL(5,2) DEFAULT 100;
+  END IF;
+END $$;
 
--- Add columns to partner_lms_enrollments
-ALTER TABLE partner_lms_enrollments
-ADD COLUMN IF NOT EXISTS hours_completed DECIMAL(10,2) DEFAULT 0,
-ADD COLUMN IF NOT EXISTS last_synced_at TIMESTAMPTZ,
-ADD COLUMN IF NOT EXISTS certificate_url TEXT,
-ADD COLUMN IF NOT EXISTS certificate_number TEXT,
-ADD COLUMN IF NOT EXISTS certificate_issued_at TIMESTAMPTZ;
+-- Add columns to partner_lms_enrollments (only if table exists)
+DO $$
+BEGIN
+  IF EXISTS (SELECT FROM information_schema.tables WHERE table_name = 'partner_lms_enrollments') THEN
+    ALTER TABLE partner_lms_enrollments
+    ADD COLUMN IF NOT EXISTS hours_completed DECIMAL(10,2) DEFAULT 0,
+    ADD COLUMN IF NOT EXISTS last_synced_at TIMESTAMPTZ,
+    ADD COLUMN IF NOT EXISTS certificate_url TEXT,
+    ADD COLUMN IF NOT EXISTS certificate_number TEXT,
+    ADD COLUMN IF NOT EXISTS certificate_issued_at TIMESTAMPTZ;
+  END IF;
+END $$;
 
 -- ============================================
 -- STEP 2: CREATE INDEXES
@@ -294,9 +304,17 @@ CREATE INDEX IF NOT EXISTS idx_refunds_status ON refunds(status);
 CREATE INDEX IF NOT EXISTS idx_withdrawals_student ON withdrawals(student_id);
 CREATE INDEX IF NOT EXISTS idx_withdrawals_enrollment ON withdrawals(enrollment_id);
 CREATE INDEX IF NOT EXISTS idx_withdrawals_status ON withdrawals(status);
-CREATE INDEX IF NOT EXISTS idx_enrollments_student_status ON enrollments(student_id, status);
-CREATE INDEX IF NOT EXISTS idx_enrollments_program_status ON enrollments(program_id, status);
-CREATE INDEX IF NOT EXISTS idx_enrollments_sap_status ON enrollments(sap_status);
+-- Only create these indexes if enrollments table exists
+DO $$
+BEGIN
+  IF EXISTS (SELECT FROM information_schema.tables WHERE table_name = 'enrollments') THEN
+    CREATE INDEX IF NOT EXISTS idx_enrollments_student_status ON enrollments(student_id, status);
+    CREATE INDEX IF NOT EXISTS idx_enrollments_program_status ON enrollments(program_id, status);
+    IF EXISTS (SELECT FROM information_schema.columns WHERE table_name = 'enrollments' AND column_name = 'sap_status') THEN
+      CREATE INDEX IF NOT EXISTS idx_enrollments_sap_status ON enrollments(sap_status);
+    END IF;
+  END IF;
+END $$;
 
 -- ============================================
 -- STEP 3: CREATE SQL FUNCTIONS
