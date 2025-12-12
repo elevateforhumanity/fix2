@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { BookOpen, Users, Briefcase, Award, TrendingUp, Heart } from "lucide-react";
 
 export const metadata: Metadata = {
   alternates: {
@@ -13,17 +14,31 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="bg-white">
-      {/* Hero Section - Image Only */}
-      <section className="relative h-[400px] overflow-hidden">
+      {/* Hero Section with Text Overlay */}
+      <section className="relative h-[500px] overflow-hidden">
         <Image
           src="/images/heroes/hero-students.jpg"
           alt="Students succeeding"
           fill
-          className="object-cover"
+          className="object-cover brightness-50"
           priority
           quality={95}
           sizes="100vw"
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
+        <div className="relative h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-6 text-white">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              About Elevate For Humanity
+            </h1>
+            <p className="text-2xl md:text-3xl mb-4 max-w-3xl">
+              Transforming Lives Through Free Career Training
+            </p>
+            <p className="text-xl text-white/90 max-w-2xl">
+              We believe your past doesn't define your future. Everyone deserves a chance to build a better life.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Story Section */}
@@ -65,7 +80,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-3xl">📚</span>
+                <BookOpen className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="text-xl font-bold mb-3">Free Training</h3>
               <p className="text-slate-600">
@@ -75,7 +90,7 @@ export default function AboutPage() {
 
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-3xl">🤝</span>
+                <Heart className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold mb-3">Support Services</h3>
               <p className="text-slate-600">
@@ -85,7 +100,7 @@ export default function AboutPage() {
 
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-3xl">💼</span>
+                <Briefcase className="w-8 h-8 text-orange-600" />
               </div>
               <h3 className="text-xl font-bold mb-3">Job Placement</h3>
               <p className="text-slate-600">
