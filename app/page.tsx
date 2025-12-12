@@ -74,12 +74,15 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/images/general/program-barber.jpg"
-                    alt="Barber Apprenticeship"
+                    src="/media/programs/efh-barber-card.jpg"
+                    alt="Barber Apprenticeship - Professional barber training"
                     fill
-                    quality={85}
+                    quality={90}
+                    priority
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
+                  {/* Dark overlay for better text contrast */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
@@ -89,7 +92,7 @@ export default function HomePage() {
                     Work in a real barbershop. Get paid while you train. Build your clientele. 
                     Own your chair or open your own shop. 12-18 months.
                   </p>
-                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-md hover:bg-orange-700 transition-colors">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all">
                     Learn More →
                   </div>
                 </div>
@@ -101,11 +104,13 @@ export default function HomePage() {
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src="/images/healthcare/program-cna-training.jpg"
-                    alt="CNA Healthcare Training"
+                    alt="CNA Healthcare Training - Certified Nursing Assistant"
                     fill
-                    quality={85}
+                    quality={90}
+                    priority
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
@@ -115,7 +120,7 @@ export default function HomePage() {
                     Get certified fast. Work in hospitals, nursing homes, or home health. 
                     Stable income, flexible schedules, room to grow. 4-8 weeks.
                   </p>
-                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-md hover:bg-orange-700 transition-colors">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all">
                     Learn More →
                   </div>
                 </div>
@@ -127,11 +132,13 @@ export default function HomePage() {
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src="/images/hvac-highlight.png"
-                    alt="HVAC Technician"
+                    alt="HVAC Technician - Heating and Cooling Training"
                     fill
-                    quality={85}
+                    quality={90}
+                    priority
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
@@ -141,7 +148,7 @@ export default function HomePage() {
                     Learn heating, cooling, and refrigeration. High demand, good pay, job security. 
                     Start your own business or work for a company. 8-12 weeks.
                   </p>
-                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-md hover:bg-orange-700 transition-colors">
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all">
                     Learn More →
                   </div>
                 </div>
