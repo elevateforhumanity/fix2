@@ -1,5 +1,6 @@
 // app/team/page.tsx
 import Image from "next/image";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: {
@@ -82,6 +83,19 @@ const team: TeamMember[] = [
 export default function TeamPage() {
   return (
     <main className="min-h-screen bg-white">
+      {/* Hero Banner */}
+      <section className="relative h-[300px] w-full overflow-hidden">
+        <Image
+          src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__1/generated-image-76ea4a68-9d0c-4075-8ca3-751c9bbe9343.png?Expires=2080938929&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=ErR79kKxF2n2B4rTMfYOnPi29epaa2XwFAzIMC5pYbluSId9KuK1zBI1VfhJn18W2ud1bW68qEHArWsiT9yuoq9IZtfapB95LgnI~WynYvm4Or2E~iG0zF6exzBW7ilbq1onTgXqTHdGaXiJ52qXTFrPmae0Qqxlffe4qwVclCzRRE4tZR21rL9~PnPFMOZh0gg4gN8o9tth0OgtIq2G3EO3I4bW-CyqvpI284fmcOOHOKNO3Lgz81w5kLJ7GvIKcv04bGpOC~Paaq0WO6Z0ElVvWpsnhzDB6XsjrP0xm53Grp8UTIowRq~4EZmcdON15f7lR-E7hZhkBOBv1X28Wg__"
+          alt="Meet Our Team"
+          fill
+          className="object-cover"
+          priority
+          quality={95}
+          sizes="100vw"
+        />
+      </section>
+
       <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
