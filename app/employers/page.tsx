@@ -1,308 +1,514 @@
-import EnrollmentProcess from '@/components/EnrollmentProcess';
 import { Metadata } from 'next';
-import { createClient } from '@/lib/supabase/server';
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
+import { Briefcase, Users, TrendingUp, DollarSign, CheckCircle, Calendar, FileText, Award, Target, Handshake } from 'lucide-react';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/employers",
-  },
-  title: 'Employers | Elevate For Humanity',
-  description: 'Discover more about Employers inside the Elevate For Humanity workforce ecosystem.',
+  title: 'Employer Services - Hire Qualified Talent | Elevate for Humanity',
+  description: 'Partner with us to access pre-screened, trained candidates. No recruitment fees, tax incentives available, and customized training programs.',
 };
 
-export default async function Page() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
-
+export default function EmployersPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <section className="relative h-[500px] w-full overflow-hidden bg-white">
-        <Image
-          src="/media/employers-hero.jpg"
-          alt="Business team collaboration"
-          fill
-          className="object-cover brightness-100"
-          priority
-          quality={100}
-          sizes="100vw"
-        />
-        
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 h-full flex items-center">
-          <div className="max-w-4xl">
-            <h1 className="text-6xl md:text-8xl font-bold text-slate-900 mb-8 tracking-tight">
-              Partner With Us
-            </h1>
-            <p className="text-2xl md:text-3xl text-slate-700 mb-8 leading-relaxed">
-              Build your workforce with job-ready talent
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/employer/jobs/new" className="bg-orange-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-orange-600 text-lg transition-all">
-                Post a Job
-              </Link>
-              <Link href="/employer/candidates" className="bg-white text-slate-900 px-8 py-4 rounded-md font-semibold hover:bg-slate-50 border-2 border-slate-300 text-lg transition-all">
-                Find Candidates
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Work Experience (WEX) & OJT Section */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-extrabold mb-6">Work Experience (WEX) & On-the-Job Training (OJT)</h2>
-            <p className="text-xl text-slate-700 mb-8 leading-relaxed">
-              Elevate For Humanity works with workforce boards and employers to create paid work experiences and on-the-job training (OJT) tied to our programs in healthcare, trades, CDL, technology, beauty, and customer service.
-            </p>
-            
-            <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 rounded-r-lg">
-              <p className="text-lg text-slate-700 leading-relaxed">
-                As an approved <strong>ETP</strong>, <strong>WRG</strong>, <strong>JRI provider</strong> and <strong>DOL Registered Apprenticeship sponsor</strong>, we help employers:
-              </p>
-              <ul className="mt-4 space-y-2 text-slate-700">
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 font-bold">✓</span>
-                  <span>Build enstart-level talent pipelines</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 font-bold">✓</span>
-                  <span>Access wage reimbursements and training incentives</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-600 font-bold">✓</span>
-                  <span>Connect with WEX, internships, and OJT programs through EmployIndy and WorkOne</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-              <h3 className="text-2xl font-bold mb-6">How It Works</h3>
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
-                    1
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">Design a Role</h4>
-                    <p className="text-slate-700">
-                      We help you define a WEX/OJT role that fits your business (e.g., Health & Safety Tech Apprentice, Logistics Assistant, Customer Service Representative, Barber Apprentice).
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
-                    2
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">Match Candidates</h4>
-                    <p className="text-slate-700">
-                      We match students and jobseekers coming through our programs and workforce partners.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
-                    3
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">Leverage Funding</h4>
-                    <p className="text-slate-700">
-                      We coordinate with workforce partners to explore WEX, OJT, apprenticeship, or WRG support where available.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-orange-600 text-white rounded-2xl p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Interested in WEX or OJT?</h3>
-              <p className="text-lg mb-6">
-                Email us at <a href="mailto:info@elevateforhumanity.org" className="underline font-semibold">info@elevateforhumanity.org</a> or call <a href="tel:317-314-3757" className="underline font-semibold">317-314-3757</a> and ask for our Employer Workforce Partnership Packet.
-              </p>
-              <Link 
-                href="/contact" 
-                className="inline-block bg-white text-orange-600 px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition-all shadow-lg"
-              >
-                Contact Us Today
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Partner With Us */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-center mb-4">Why Partner With Elevate For Humanity?</h2>
-          <p className="text-xl text-slate-600 text-center mb-16 max-w-3xl mx-auto">
-            We connect you with job-ready talent while reducing your hiring costs and training time.
-          </p>
-          
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <div className="   rounded-xl p-8 shadow-lg">
-              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Pre-Screened Candidates" fill
-className="object-cover" sizes="80px" quality={100} />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">Pre-Screened, Job-Ready Talent</h3>
-              <p className="text-slate-700 leading-relaxed">
-                All our graduates are pre-screened, background-checked, and trained to industry-standard standards. They arrive on day one ready to contribute, reducing your onboarding time and training costs.
-              </p>
-            </div>
-
-            <div className="   rounded-xl p-8 shadow-lg">
-              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Zero Recruitment Costs" fill
-className="object-cover" sizes="80px" quality={100} />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">Zero Recruitment Costs</h3>
-              <p className="text-slate-700 leading-relaxed">
-                No placement fees, no recruiting costs. We connect you directly with qualified candidates at no charge. Our funding comes from government workforce programs, not employer fees.
-              </p>
-            </div>
-
-            <div className="   rounded-xl p-8 shadow-lg">
-              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Indusstart-Specific Training" fill
-className="object-cover" sizes="80px" quality={100} />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">Indusstart-Specific Training</h3>
-              <p className="text-slate-700 leading-relaxed">
-                Our programs are designed with employer input. Students learn the exact skills, tools, and processes your industry-standard requires—not outdated textbook curriculum.
-              </p>
-            </div>
-
-            <div className="   rounded-xl p-8 shadow-lg">
-              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Wage Reimbursement Programs" fill
-className="object-cover" sizes="80px" quality={100} />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">Wage Reimbursement Programs</h3>
-              <p className="text-slate-700 leading-relaxed">
-                Access WEX, OJT, and apprenticeship programs that reimburse up to 50% of wages during training periods. We handle all the paperwork and coordination with workforce boards.
-              </p>
-            </div>
-
-            <div className="   rounded-xl p-8 shadow-lg">
-              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Ongoing Support" fill
-className="object-cover" sizes="80px" quality={100} />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">Ongoing Support</h3>
-              <p className="text-slate-700 leading-relaxed">
-                We don't disappear after placement. Our team provides ongoing support to both employers and employees, addressing any issues that arise and ensuring long-term success.
-              </p>
-            </div>
-
-            <div className="   rounded-xl p-8 shadow-lg">
-              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden">
-                <Image src="/media-backup-20251128-043832/hero-slide-employers.jpg" alt="Diverse Talent Pool" fill
-className="object-cover" sizes="80px" quality={100} />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-center">Diverse Talent Pool</h3>
-              <p className="text-slate-700 leading-relaxed">
-                We serve diverse populations including returning citizens, veterans, single parents, and career changers. Build a workforce that reflects your community while meeting diversity goals.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries We Serve */}
-      <section className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-center mb-16">Industries We Serve</h2>
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <h3 className="text-xl font-bold mb-2">Healthcare</h3>
-              <p className="text-slate-600 text-sm">CNAs, Medical Assistants, Phlebotomists, Dental Assistants</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <h3 className="text-xl font-bold mb-2">Skilled Trades</h3>
-              <p className="text-slate-600 text-sm">HVAC, Electrical, Plumbing, Welding, Construction</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <h3 className="text-xl font-bold mb-2">Transportation</h3>
-              <p className="text-slate-600 text-sm">CDL Drivers, Logistics, Warehouse, Forklift Operators</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <h3 className="text-xl font-bold mb-2">Technology</h3>
-              <p className="text-slate-600 text-sm">IT Support, Cybersecurity, Web Development, Data Analytics</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <h3 className="text-xl font-bold mb-2">Beauty & Wellness</h3>
-              <p className="text-slate-600 text-sm">Barbers, Cosmetologists, Estheticians, Nail Technicians</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <h3 className="text-xl font-bold mb-2">Business Services</h3>
-              <p className="text-slate-600 text-sm">Customer Service, Administrative, Bookkeeping, Sales</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <h3 className="text-xl font-bold mb-2">Manufacturing</h3>
-              <p className="text-slate-600 text-sm">Production Workers, Quality Control, Machine Operators</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-md text-center">
-              <h3 className="text-xl font-bold mb-2">Hospitality</h3>
-              <p className="text-slate-600 text-sm">Culinary, Hotel Management, Event Planning</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-blue-700">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Build Your Workforce?</h2>
-          <p className="text-xl text-white/90 mb-8">
-            Join over 100 employers who trust Elevate For Humanity to connect them with job-ready talent.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/contact" className="px-10 py-5 bg-white text-blue-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">
-              Contact Us Today
-            </Link>
-            <Link href="/employer/jobs/new" className="px-10 py-5 bg-white/10 backdrop-blur-sm text-white font-bold rounded-full hover:bg-white/20 border-2 border-white transition-all shadow-2xl text-lg">
-              Post a Job
-            </Link>
-          </div>
-        </div>
-      </section>
-      
-      <EnrollmentProcess />
-    
-      {/* CTA Section */}
-      <section className="py-16    text-white">
-        <div className="container mx-auto px-4">
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-xl mb-8 text-blue-100">
-              Take the first step toward a better career today.
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+              <Briefcase className="w-5 h-5" />
+              <span className="text-sm font-semibold">Employer Services</span>
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Find Qualified Talent.<br />Build Your Team.
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+              Access pre-screened, trained candidates ready to work. No recruitment fees. 
+              Tax incentives available. Customized training programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 text-lg"
+                href="#post-job"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg"
               >
-                Apply Now
+                Post a Job Opening
               </Link>
               <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-900 border-2 border-white text-lg"
+                href="#contact"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-sm border-2 border-white rounded-lg hover:bg-white/20 transition"
               >
-                View Programs
+                Schedule a Meeting
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-  </div>
+      {/* Benefits Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              Why Partner with Elevate for Humanity?
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Pre-Screened Candidates</h3>
+                <p className="text-slate-600">
+                  All candidates are vetted, trained, and certified. They&apos;re job-ready from day one with industry-recognized credentials.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <DollarSign className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Zero Recruitment Fees</h3>
+                <p className="text-slate-600">
+                  No placement fees, no hidden costs. Access qualified candidates at no charge to your organization.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Award className="w-8 h-8 text-purple-600" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Tax Incentives</h3>
+                <p className="text-slate-600">
+                  Qualify for WOTC (Work Opportunity Tax Credit) and other incentives when hiring our graduates.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-8 h-8 text-orange-600" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Customized Training</h3>
+                <p className="text-slate-600">
+                  Need specific skills? We can customize training programs to meet your exact hiring needs.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Handshake className="w-8 h-8 text-red-600" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Ongoing Support</h3>
+                <p className="text-slate-600">
+                  We support both you and your new hires through the first 90 days to ensure successful placement.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="w-8 h-8 text-indigo-600" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Reduced Turnover</h3>
+                <p className="text-slate-600">
+                  Our graduates have 85% retention rates after one year—significantly higher than industry average.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+              How It Works
+            </h2>
+            <div className="space-y-8">
+              <div className="flex gap-6 items-start">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">Post Your Job Opening</h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    Submit your job requirements through our simple form. Include position details, required skills, 
+                    schedule, and compensation. We&apos;ll match you with qualified candidates from our current students 
+                    and recent graduates.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-6 items-start">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">We Match Qualified Candidates</h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    Our career services team reviews your requirements and matches you with candidates who have the 
+                    right skills, certifications, and work ethic. We pre-screen all candidates and send you only the 
+                    best matches.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-6 items-start">
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">Interview & Hire with Confidence</h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    Interview candidates and make your hiring decision. We provide ongoing support during onboarding 
+                    and the first 90 days of employment to ensure success for both you and your new hire.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Available Talent */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
+              Available Talent Pools
+            </h2>
+            <p className="text-xl text-slate-600 text-center mb-12">
+              Access trained, certified candidates across multiple industries
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-slate-50 rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">Healthcare</h3>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li>• Certified Nursing Assistants (CNA)</li>
+                  <li>• Medical Assistants</li>
+                  <li>• CPR Certified Staff</li>
+                </ul>
+              </div>
+              <div className="bg-slate-50 rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">Transportation</h3>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li>• CDL Class A Drivers</li>
+                  <li>• CDL Class B Drivers</li>
+                  <li>• Delivery Drivers</li>
+                </ul>
+              </div>
+              <div className="bg-slate-50 rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">Skilled Trades</h3>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li>• HVAC Technicians</li>
+                  <li>• Building Maintenance</li>
+                  <li>• Building Technicians</li>
+                </ul>
+              </div>
+              <div className="bg-slate-50 rounded-lg p-6">
+                <h3 className="font-bold text-lg mb-2">Other Services</h3>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li>• Licensed Barbers</li>
+                  <li>• Customer Service</li>
+                  <li>• Entry-Level Positions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tax Incentives */}
+      <section className="py-16 bg-blue-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
+              Tax Incentives & Credits
+            </h2>
+            <p className="text-xl text-slate-600 text-center mb-12">
+              Hiring our graduates may qualify you for significant tax benefits
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                  <CheckCircle className="w-6 h-6 text-green-600" />
+                  Work Opportunity Tax Credit (WOTC)
+                </h3>
+                <p className="text-slate-600 mb-4">
+                  Receive up to $9,600 per eligible hire. Many of our graduates qualify as WOTC-eligible, 
+                  including veterans, ex-felons, and long-term unemployed individuals.
+                </p>
+                <Link href="#contact" className="text-blue-600 font-semibold hover:text-blue-700">
+                  Learn More →
+                </Link>
+              </div>
+              <div className="bg-white rounded-lg p-6 shadow-sm">
+                <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                  <CheckCircle className="w-6 h-6 text-green-600" />
+                  Federal Bonding Program
+                </h3>
+                <p className="text-slate-600 mb-4">
+                  Free fidelity bonding coverage for at-risk job applicants. Protects employers against theft, 
+                  forgery, larceny, and embezzlement for the first 6 months of employment.
+                </p>
+                <Link href="#contact" className="text-blue-600 font-semibold hover:text-blue-700">
+                  Learn More →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hiring Events */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <Calendar className="w-16 h-16 text-blue-600 mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Hiring Events
+            </h2>
+            <p className="text-xl text-slate-600 mb-8">
+              Meet multiple qualified candidates in one convenient location. We host quarterly hiring events 
+              where you can interview pre-screened candidates on-site.
+            </p>
+            <div className="bg-slate-50 rounded-lg p-8 mb-8">
+              <h3 className="text-2xl font-bold mb-4">Next Hiring Event</h3>
+              <p className="text-lg text-slate-700 mb-2">
+                <strong>Date:</strong> Third Thursday of each month
+              </p>
+              <p className="text-lg text-slate-700 mb-2">
+                <strong>Time:</strong> 10:00 AM - 2:00 PM
+              </p>
+              <p className="text-lg text-slate-700 mb-6">
+                <strong>Location:</strong> Elevate for Humanity Training Center
+              </p>
+              <Link
+                href="#contact"
+                className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition"
+              >
+                Register for Next Event
+              </Link>
+            </div>
+            <p className="text-slate-600">
+              Can&apos;t make our scheduled event? We can arrange a private hiring event for your organization.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Job Posting Form */}
+      <section id="post-job" className="py-16 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <FileText className="w-16 h-16 text-blue-600 mx-auto mb-6" />
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Post a Job Opening
+              </h2>
+              <p className="text-xl text-slate-600">
+                Fill out the form below and we&apos;ll match you with qualified candidates
+              </p>
+            </div>
+            <form className="bg-white rounded-lg shadow-lg p-8 space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Company Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Contact Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Phone *
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  Job Title *
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  Industry/Field *
+                </label>
+                <select
+                  required
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Select Industry</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="transportation">Transportation/Logistics</option>
+                  <option value="trades">Skilled Trades</option>
+                  <option value="manufacturing">Manufacturing</option>
+                  <option value="hospitality">Hospitality</option>
+                  <option value="retail">Retail</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Number of Positions *
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    required
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Salary Range *
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g., $15-18/hour"
+                    required
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  Job Description *
+                </label>
+                <textarea
+                  rows={6}
+                  required
+                  placeholder="Describe the position, responsibilities, and requirements..."
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  Required Certifications/Skills
+                </label>
+                <textarea
+                  rows={3}
+                  placeholder="e.g., CNA certification, CDL Class A, HVAC EPA 608..."
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div>
+              <div>
+                <label className="flex items-center gap-2">
+                  <input type="checkbox" className="w-5 h-5" />
+                  <span className="text-sm text-slate-700">
+                    I&apos;m interested in learning about tax incentives (WOTC)
+                  </span>
+                </label>
+              </div>
+              <button
+                type="submit"
+                className="w-full px-8 py-4 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition"
+              >
+                Submit Job Posting
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-12">What Employers Say</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-slate-50 rounded-lg p-6">
+                <p className="text-slate-700 italic mb-4">
+                  &quot;We&apos;ve hired 15 graduates from Elevate for Humanity over the past year. Every single one has been 
+                  professional, skilled, and ready to work. This partnership has been invaluable.&quot;
+                </p>
+                <div className="font-bold">— Sarah Johnson</div>
+                <div className="text-sm text-slate-600">HR Director, Community Health Network</div>
+              </div>
+              <div className="bg-slate-50 rounded-lg p-6">
+                <p className="text-slate-700 italic mb-4">
+                  &quot;The WOTC tax credits alone saved us over $50,000 last year. Plus, we got great employees who 
+                  are loyal and hardworking. Win-win.&quot;
+                </p>
+                <div className="font-bold">— Mike Rodriguez</div>
+                <div className="text-sm text-slate-600">Owner, Rodriguez Trucking</div>
+              </div>
+              <div className="bg-slate-50 rounded-lg p-6">
+                <p className="text-slate-700 italic mb-4">
+                  &quot;Finding qualified HVAC techs is tough. Elevate for Humanity provides us with certified technicians 
+                  who are ready to work from day one. Highly recommend.&quot;
+                </p>
+                <div className="font-bold">— Tom Williams</div>
+                <div className="text-sm text-slate-600">Operations Manager, Comfort Systems</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact CTA */}
+      <section id="contact" className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Build Your Team?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8">
+              Let&apos;s discuss your hiring needs and how we can help you find the right talent.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 className="font-bold text-xl mb-2">Call Us</h3>
+                <a href="tel:317-314-3757" className="text-2xl font-bold hover:text-blue-200 transition">
+                  317-314-3757
+                </a>
+                <p className="text-sm text-blue-100 mt-2">Monday-Friday, 8am-5pm</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 className="font-bold text-xl mb-2">Email Us</h3>
+                <a href="mailto:employers@elevateforhumanity.org" className="text-xl font-bold hover:text-blue-200 transition break-all">
+                  employers@elevateforhumanity.org
+                </a>
+                <p className="text-sm text-blue-100 mt-2">We respond within 24 hours</p>
+              </div>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-block px-8 py-4 bg-white text-blue-600 font-bold text-lg rounded-lg hover:bg-slate-50 transition shadow-lg"
+            >
+              Schedule a Meeting
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
