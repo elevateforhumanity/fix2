@@ -600,6 +600,96 @@ Career Outcomes:
       href: "/contact?topic=workforce-readiness",
     },
   },
+  {
+    slug: "medical-assistant",
+    name: "Medical Assistant",
+    heroTitle: "Medical Assistant — Clinical & Administrative Healthcare",
+    heroSubtitle:
+      "Comprehensive medical assistant training that prepares you for both clinical and administrative roles in healthcare settings.",
+    shortDescription:
+      "Comprehensive medical assistant training that prepares you for both clinical and administrative roles in healthcare settings.",
+    longDescription: `The Medical Assistant program provides training in both clinical and administrative healthcare skills. Students learn patient care, medical procedures, office management, and healthcare technology. This program is ideal for individuals seeking a versatile healthcare career with opportunities in clinics, hospitals, and medical offices.
+
+What You'll Learn:
+- Patient intake and vital signs
+- Medical terminology and documentation
+- Clinical procedures and lab basics
+- Electronic health records (EHR)
+- Medical office administration
+- Insurance and billing fundamentals
+- Professional communication and patient care
+
+Who This Program Is For:
+- Individuals interested in healthcare careers
+- Career changers seeking stable employment
+- Students wanting versatile medical skills
+- Adults looking for quick entry into healthcare
+
+Program Format:
+- Classroom instruction + clinical externship
+- Length: 8-12 weeks
+- Schedule: Day or evening options
+
+Funding & Approvals:
+- Workforce funding options may be available
+- Partner-delivered through approved training providers
+
+Career Outcomes:
+- Medical Assistant (clinical or administrative)
+- Patient Care Coordinator
+- Medical Office Specialist
+- Pathway to nursing or other healthcare roles`,
+    heroImage: "/images/programs/medical-assistant-hero.jpg",
+    heroImageAlt: "Medical assistant working with patients in a clinical setting",
+    duration: "8-12 weeks",
+    schedule: "Day or evening options",
+    delivery: "Classroom + clinical externship",
+    credential: "Medical Assistant certification eligibility",
+    approvals: [
+      "Partner-delivered through approved training providers",
+      "Workforce funding may be available",
+    ],
+    fundingOptions: [
+      "WIOA funding available for eligible students",
+      "Workforce funding options",
+      "Employer reimbursement programs",
+    ],
+    highlights: [
+      "Dual training in clinical and administrative skills",
+      "Hands-on clinical externship experience",
+      "Electronic health records (EHR) training",
+      "Job placement assistance with healthcare partners",
+    ],
+    whatYouLearn: [
+      "Patient intake and vital signs",
+      "Medical terminology and documentation",
+      "Clinical procedures and lab basics",
+      "Electronic health records (EHR)",
+      "Medical office administration",
+      "Insurance and billing fundamentals",
+      "Professional communication and patient care",
+    ],
+    outcomes: [
+      "Medical Assistant in clinics, hospitals, or medical offices",
+      "Patient Care Coordinator",
+      "Medical Office Specialist",
+      "Foundation for nursing or advanced healthcare careers",
+    ],
+    requirements: [
+      "High school diploma or equivalent",
+      "Background check may be required for clinical placement",
+      "Immunizations required for clinical externship",
+      "Commitment to professional healthcare standards",
+    ],
+    ctaPrimary: {
+      label: "Apply Now",
+      href: "/apply",
+    },
+    ctaSecondary: {
+      label: "Learn More",
+      href: "/contact?topic=medical-assistant",
+    },
+  },
 ];
 
 /**

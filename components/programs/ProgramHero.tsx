@@ -9,7 +9,8 @@ export function ProgramHero({ program }: { program: Program }) {
   const isCDLProgram = program.slug === 'cdl';
   const isCNAProgram = program.slug === 'cna';
   const isWorkforceProgram = program.slug === 'workforce-readiness';
-  const hasVideo = isBarberProgram || isHVACProgram || isCDLProgram || isCNAProgram || isWorkforceProgram;
+  const isMedicalAssistant = program.slug === 'medical-assistant';
+  const hasVideo = isBarberProgram || isHVACProgram || isCDLProgram || isCNAProgram || isWorkforceProgram || isMedicalAssistant;
 
   // Get icon for program
   const getIcon = () => {
@@ -48,6 +49,8 @@ export function ProgramHero({ program }: { program: Program }) {
                     ? '/videos/cna-hero.mp4'
                     : isWorkforceProgram
                     ? '/videos/business-hero.mp4'
+                    : isMedicalAssistant
+                    ? '/videos/medical-assistant-hero.mp4'
                     : '/videos/hvac-hero-final.mp4'
                 }
                 type="video/mp4"
