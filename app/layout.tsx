@@ -28,7 +28,6 @@ import {
 } from '@/components/InvisibleWatermark';
 import { ScraperDetection } from '@/components/ScraperDetection';
 import { CopyrightProtection } from '@/components/CopyrightProtection';
-import Newsletter from '@/components/Newsletter';
 
 // Professional serif font for government/institutional compliance
 const libreBaskerville = Libre_Baskerville({
@@ -167,7 +166,6 @@ export default function RootLayout({
         <main id="main-content" className="min-h-screen">
           {children}
         </main>
-        <Newsletter />
         <SiteFooter />
         <AILiveChat />
         <CookieBanner />
