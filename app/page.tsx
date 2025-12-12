@@ -216,7 +216,7 @@ export default function HomePage() {
                       target.parentElement?.appendChild(img);
                     }}
                   >
-                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-dc9558de-f94b-43f1-8e4a-5f45d019895f.mp4?Expires=2080924478&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=evbvLLELi4p-lAanFSPFiU0Dlx8N55HZ5V0wkF6MzFuoWPXO9T6atBo-jTyTmfMZw4J4b6Nm8ty40OWrg4V87XOuX~H5iw8bz2xWA0WQ34~3lcUDj9aNMIntxS7pVH0aX40lSafVs4ujdEec8ONdlzpSPUhc9wsduZEl8jXfqxip~j1AJAYNlpTNSx419QDRB04g7p8Anfd84~MKWsy9VpdKz3zsViFOfjrv4cF-nQkrIwx8phUoEH7O5hQkH2pIT3TPaVFyQphQyHfZusVoDm7nZcR1bjCa~GhGnCKhOElJ8e5zS2SYlKsB84Uj1axBGFhDeS7eifvEUd0CzmkMJQ__" type="video/mp4" />
+                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-dc9558de-f94b-43f1-8e4a-5f45d019895f.mp4?Expires=2080939134&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=ILsMPwvdOl93iuFm-qXAN4v0-oaCCzHlXgXrYUmKrjWFh5giEYFHEOzoTLCTA6YvXlzS-gIeQoVomBCkbq4nHvUrTs31T-nfPszVHt6HWnC-2EUYM4QsOVMfB~S3Nrdm9t~WCgmu3exqasf42d7jbFVtad8yjqyC7pKQDCPq5192Lk~lJLWnvpwZ7iJpdduYPag-mvvzM0Ne9Qm5Z8WMKpktpVrkteIH7Ki2~JAwcLm5iGsCQpAV6GhIEnfB8sGjFfDO~ghClkbIot8luIULqeLIQNqL1zPPY-mxjNr7Xe4rRN5Q1iuX--vCqxZBTkN4Wevzg-E6WuroVaZwB319Fw__" type="video/mp4" />
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
