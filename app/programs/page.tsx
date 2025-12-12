@@ -69,16 +69,39 @@ export default function ProgramsPage() {
 
   return (
     <main className="bg-slate-50 min-h-screen">
-      {/* Hero Section - Image Only */}
-      <section className="relative h-[400px] overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative h-[500px] overflow-hidden flex items-center justify-center">
         <Image
-          src="/images/heroes/programs-hero.jpg"
+          src="/images/heroes/programs.jpg"
           alt="Career Training Programs"
           fill
           className="object-cover"
           priority
           quality={90}
         />
+        <div className="absolute inset-0 bg-slate-900/40" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center text-white">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            Career Training Programs
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-100 mb-8">
+            Short-term training, industry certifications, and career pathways that fit your life
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/apply"
+              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Apply Now
+            </Link>
+            <Link
+              href="/contact"
+              className="bg-white hover:bg-slate-100 text-slate-900 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+            >
+              Talk to an Advisor
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Search & Filter */}
