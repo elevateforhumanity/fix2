@@ -148,8 +148,6 @@ export async function proxy(request: NextRequest) {
     }
   }
 
-  const ip = getClientIp(request);
-
   // Tight limits for auth endpoints
   if (
     pathname.startsWith('/api/auth/login') ||
