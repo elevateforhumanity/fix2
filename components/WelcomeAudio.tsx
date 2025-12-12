@@ -5,15 +5,14 @@ export function WelcomeAudio() {
   const [hasPlayed, setHasPlayed] = useState(false);
   
   useEffect(() => {
-    // Only play once per session
-    const hasPlayedBefore = sessionStorage.getItem('welcomeAudioPlayed');
-    if (!hasPlayedBefore && audioRef.current) {
+    // Play on every visit (removed session storage check)
+    if (audioRef.current) {
       // Small delay to ensure page is loaded
       const timer = setTimeout(() => {
         audioRef.current?.play().catch((error) => {
           // Autoplay might be blocked by browser
+          console.log('Autoplay blocked - user interaction required');
         });
-        sessionStorage.setItem('welcomeAudioPlayed', 'true');
         setHasPlayed(true);
       }, 500);
       return () => clearTimeout(timer);
@@ -24,8 +23,8 @@ export function WelcomeAudio() {
     <audio
       ref={audioRef}
       src="/videos/voiceover.mp3"
-      preload="none"
-      // No loop - plays once
+      preload="auto"
+      // No loop - plays once per page load
     />
   );
 }
