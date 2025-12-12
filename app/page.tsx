@@ -74,7 +74,7 @@ export default function HomePage() {
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/media/programs/efh-barber-card.jpg"
+                    src="/images/barber-professional.jpg"
                     alt="Barber Apprenticeship - Professional barber training"
                     fill
                     quality={90}
