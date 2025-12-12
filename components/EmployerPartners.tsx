@@ -130,19 +130,19 @@ export default function EmployerPartners() {
           className="grid md:grid-cols-4 gap-6 mb-16"
         >
           <div className="bg-white rounded-xl p-6 shadow-lg text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2">50+</div>
+            <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">50+</div>
             <div className="text-gray-700 font-semibold">Employer Partners</div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-lg text-center">
-            <div className="text-4xl font-bold text-green-600 mb-2">94%</div>
+            <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">94%</div>
             <div className="text-gray-700 font-semibold">Placement Rate</div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-lg text-center">
-            <div className="text-4xl font-bold text-purple-600 mb-2">2,500+</div>
+            <div className="text-4xl font-bold text-purple-600 mb-2 text-2xl md:text-3xl lg:text-4xl">2,500+</div>
             <div className="text-gray-700 font-semibold">Graduates Hired</div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-lg text-center">
-            <div className="text-4xl font-bold text-orange-600 mb-2">$52K</div>
+            <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">$52K</div>
             <div className="text-gray-700 font-semibold">Avg. Starting Salary</div>
           </div>
         </motion.div>

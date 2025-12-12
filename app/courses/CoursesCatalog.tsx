@@ -53,7 +53,7 @@ export default function CoursesCatalog({ courses, categories, levels }: CoursesC
       <section className="bg-blue-700 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Course Catalog</h1>
+            <h1 className="text-5xl font-bold mb-6 text-3xl md:text-4xl lg:text-5xl">Course Catalog</h1>
             <p className="text-xl text-blue-100 mb-8">
               Explore our complete catalog of workforce development courses. All programs are 100% free through WIOA funding.
             </p>
@@ -80,19 +80,19 @@ export default function CoursesCatalog({ courses, categories, levels }: CoursesC
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">{courses.length}</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">{courses.length}</div>
               <div className="text-gray-600">Courses Available</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">100%</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">100%</div>
               <div className="text-gray-600">Free Training</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">{categories.length}</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">{categories.length}</div>
               <div className="text-gray-600">Categories</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">24/7</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">24/7</div>
               <div className="text-gray-600">Access</div>
             </div>
           </div>

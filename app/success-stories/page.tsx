@@ -169,19 +169,19 @@ export default function SuccessStoriesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">1,200+</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">1,200+</div>
               <div className="text-sm text-slate-600">Lives Changed</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2">87%</div>
+              <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">87%</div>
               <div className="text-sm text-slate-600">Employment Rate</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2">$42K</div>
+              <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">$42K</div>
               <div className="text-sm text-slate-600">Avg Starting Salary</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-600 mb-2">92%</div>
+              <div className="text-4xl font-bold text-purple-600 mb-2 text-2xl md:text-3xl lg:text-4xl">92%</div>
               <div className="text-sm text-slate-600">Program Completion</div>
             </div>
           </div>

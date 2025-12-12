@@ -41,7 +41,7 @@ export default async function BlogSearchPage({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         {/* Search Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">
+          <h1 className="text-4xl font-bold text-slate-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
             Search Blog
           </h1>
           

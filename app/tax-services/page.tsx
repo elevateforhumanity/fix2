@@ -172,7 +172,7 @@ export default function TaxServicesPage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
               Our Tax Services Office
             </h2>
             <p className="text-xl text-slate-600">
@@ -220,7 +220,7 @@ export default function TaxServicesPage() {
                       href={service.link}
                       className="bg-white rounded-xl shadow-sm border p-6 hover:shadow-lg transition group"
                     >
-                      <div className="text-4xl mb-4">{service.icon}</div>
+                      <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">{service.icon}</div>
                       <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600">
                         {service.name}
                       </h3>
@@ -254,7 +254,7 @@ export default function TaxServicesPage() {
             <h2 className="text-3xl font-bold text-center mb-12">Which Service is Right for You?</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center p-6 border-2 border-green-200 rounded-xl">
-                <div className="text-5xl mb-4">🆓</div>
+                <div className="text-5xl mb-4 text-3xl md:text-4xl lg:text-5xl">🆓</div>
                 <h3 className="text-2xl font-bold mb-4 text-green-700">Free VITA</h3>
                 <p className="text-gray-600 mb-4">Best for:</p>
                 <ul className="text-left space-y-2 text-gray-700">
@@ -272,7 +272,7 @@ export default function TaxServicesPage() {
               </div>
 
               <div className="text-center p-6 border-2 border-blue-200 rounded-xl">
-                <div className="text-5xl mb-4">⚡</div>
+                <div className="text-5xl mb-4 text-3xl md:text-4xl lg:text-5xl">⚡</div>
                 <h3 className="text-2xl font-bold mb-4 text-blue-700">Professional</h3>
                 <p className="text-gray-600 mb-4">Best for:</p>
                 <ul className="text-left space-y-2 text-gray-700">
@@ -290,7 +290,7 @@ export default function TaxServicesPage() {
               </div>
 
               <div className="text-center p-6 border-2 border-purple-200 rounded-xl">
-                <div className="text-5xl mb-4">🎓</div>
+                <div className="text-5xl mb-4 text-3xl md:text-4xl lg:text-5xl">🎓</div>
                 <h3 className="text-2xl font-bold mb-4 text-purple-700">Training</h3>
                 <p className="text-gray-600 mb-4">Best for:</p>
                 <ul className="text-left space-y-2 text-gray-700">

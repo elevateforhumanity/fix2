@@ -106,7 +106,7 @@ export default function SkillsGapAnalysis() {
     <div className="min-h-screen bg-gray-50">
       <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">Skills Gap Analysis</h1>
+          <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">Skills Gap Analysis</h1>
           <p className="text-red-100">Identify and close skill gaps in your workforce</p>
         </div>
       </div>
@@ -114,7 +114,7 @@ export default function SkillsGapAnalysis() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <Card className="p-6 mb-8   ">
           <div className="flex items-start gap-4">
-            <div className="text-5xl">📊</div>
+            <div className="text-5xl text-3xl md:text-4xl lg:text-5xl">📊</div>
             <div>
               <h3 className="text-xl font-bold mb-2">Automated Skills Assessment</h3>
               <p className="text-gray-700 mb-3">

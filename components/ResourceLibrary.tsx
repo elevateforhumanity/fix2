@@ -85,7 +85,7 @@ export function ResourceLibrary() {
     <div className="min-h-screen bg-gray-50">
       <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">Resource Library</h1>
+          <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">Resource Library</h1>
           <p className="text-red-100">Access learning materials and resources</p>
         </div>
       </div>
@@ -122,7 +122,7 @@ export function ResourceLibrary() {
           {filteredResources.map((resource) => (
             <Card key={resource.id} className="p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-start gap-3 mb-3">
-                <div className="text-4xl">{getTypeIcon(resource.type)}</div>
+                <div className="text-4xl text-2xl md:text-3xl lg:text-4xl">{getTypeIcon(resource.type)}</div>
                 <div className="flex-1">
                   <h3 className="text-lg font-bold mb-1">{resource.title}</h3>
                   <span className="px-2 py-1 bg-orange-100 text-orange-700 text-xs rounded capitalize">

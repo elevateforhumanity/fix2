@@ -63,7 +63,7 @@ export default function RiseFoundationPage() {
       <section className="py-40 px-12">
         <div className="mx-auto max-w-7xl">
           <div className="text-center mb-24">
-            <h2 className="text-5xl font-light text-slate-900 mb-6">Our Mission</h2>
+            <h2 className="text-5xl font-light text-slate-900 mb-6 text-3xl md:text-4xl lg:text-5xl">Our Mission</h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               To empower individuals and communities through accessible education,
               workforce training, and comprehensive support services.
@@ -120,7 +120,7 @@ d="M13 10V3L4 14h7v7l9-11h-7z" />
       <section className="py-40 px-12 bg-slate-50">
         <div className="mx-auto max-w-7xl">
           <div className="text-center mb-24">
-            <h2 className="text-5xl font-light text-slate-900 mb-6">Our Programs</h2>
+            <h2 className="text-5xl font-light text-slate-900 mb-6 text-3xl md:text-4xl lg:text-5xl">Our Programs</h2>
             <p className="text-xl text-slate-600">
               Comprehensive training and support services
             </p>
@@ -177,7 +177,7 @@ d="M13 10V3L4 14h7v7l9-11h-7z" />
       {/* CTA Section */}
       <section className="py-40 px-12 bg-slate-900 text-white">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-5xl font-light mb-6">
+          <h2 className="text-5xl font-light mb-6 text-3xl md:text-4xl lg:text-5xl">
             Support Our Mission
           </h2>
           <p className="text-xl text-slate-300 mb-12">

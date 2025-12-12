@@ -207,7 +207,7 @@ export default async function RiseFoundationPage() {
               <h3 className="text-2xl font-bold mb-6">VITA Services Are:</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white p-6 rounded-xl shadow-sm border">
-                  <div className="text-4xl mb-4">✓</div>
+                  <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">✓</div>
                   <h4 className="font-bold text-lg mb-2">100% Free</h4>
                   <p className="text-gray-600">
                     No fees, no hidden costs. Completely free tax preparation
@@ -215,14 +215,14 @@ export default async function RiseFoundationPage() {
                   </p>
                 </div>
                 <div className="bg-white p-6 rounded-xl shadow-sm border">
-                  <div className="text-4xl mb-4">🎓</div>
+                  <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">🎓</div>
                   <h4 className="font-bold text-lg mb-2">IRS-Certified</h4>
                   <p className="text-gray-600">
                     All volunteers are IRS-certified and trained in tax law.
                   </p>
                 </div>
                 <div className="bg-white p-6 rounded-xl shadow-sm border">
-                  <div className="text-4xl mb-4">🔒</div>
+                  <div className="text-4xl mb-4 text-2xl md:text-3xl lg:text-4xl">🔒</div>
                   <h4 className="font-bold text-lg mb-2">Confidential</h4>
                   <p className="text-gray-600">
                     Your information is kept private and secure.

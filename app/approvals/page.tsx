@@ -41,7 +41,7 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Shield className="w-12 h-12 text-blue-600" />
-            <h2 className="text-4xl font-extrabold">State & Workforce Approvals</h2>
+            <h2 className="text-4xl font-extrabold text-2xl md:text-3xl lg:text-4xl">State & Workforce Approvals</h2>
           </div>
 
           <div className="space-y-8">
@@ -119,7 +119,7 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Building2 className="w-12 h-12 text-red-600" />
-            <h2 className="text-4xl font-extrabold">Federal Approvals & Registration</h2>
+            <h2 className="text-4xl font-extrabold text-2xl md:text-3xl lg:text-4xl">Federal Approvals & Registration</h2>
           </div>
 
           <div className="space-y-8">
@@ -159,7 +159,7 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Award className="w-12 h-12 text-orange-600" />
-            <h2 className="text-4xl font-extrabold">Certification & Testing Partnerships</h2>
+            <h2 className="text-4xl font-extrabold text-2xl md:text-3xl lg:text-4xl">Certification & Testing Partnerships</h2>
           </div>
 
           <div className="space-y-8">
@@ -231,7 +231,7 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Users className="w-12 h-12 text-purple-600" />
-            <h2 className="text-4xl font-extrabold">Nonprofit & Diversity Certifications</h2>
+            <h2 className="text-4xl font-extrabold text-2xl md:text-3xl lg:text-4xl">Nonprofit & Diversity Certifications</h2>
           </div>
 
           <div className="space-y-8">
@@ -282,7 +282,7 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <FileCheck className="w-12 h-12 text-white" />
-            <h2 className="text-4xl font-extrabold text-white">Why This Matters</h2>
+            <h2 className="text-4xl font-extrabold text-white text-2xl md:text-3xl lg:text-4xl">Why This Matters</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -313,7 +313,7 @@ export default function ApprovalsPage() {
       {/* CTA Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-extrabold mb-6">Ready to Get Started?</h2>
+          <h2 className="text-4xl font-extrabold mb-6 text-2xl md:text-3xl lg:text-4xl">Ready to Get Started?</h2>
           <p className="text-xl text-slate-600 mb-8 leading-relaxed">
             Join thousands of students who have transformed their careers through our state-approved, federally recognized training programs.
           </p>

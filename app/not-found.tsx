@@ -25,7 +25,7 @@ export default function NotFound() {
       <div className="text-center px-4 max-w-2xl">
         <div className="mb-8">
           <h1 className="text-9xl font-bold text-red-600 mb-4">404</h1>
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl font-bold text-slate-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
             Page Not Found
           </h2>
           <p className="text-xl text-slate-600 mb-8">

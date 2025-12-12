@@ -53,7 +53,7 @@ export default function CertificateDownload({
             Certificate of Completion
           </div>
           <div className="mt-8 text-lg text-slate-600">This certifies that</div>
-          <div className="mt-4 text-4xl font-bold text-brand-700">
+          <div className="mt-4 text-4xl font-bold text-brand-700 text-2xl md:text-3xl lg:text-4xl">
             {student}
           </div>
           <div className="mt-4 text-lg text-slate-600">

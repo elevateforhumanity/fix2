@@ -59,7 +59,7 @@ export default function SupersonicDemoPage() {
 
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">Supersonic Fast Cash</h1>
+          <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">Supersonic Fast Cash</h1>
           <p className="text-gray-600">Tax refund advances and financial services</p>
         </div>
 

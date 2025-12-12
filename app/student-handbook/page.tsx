@@ -21,7 +21,7 @@ export default function StudentHandbook() {
       {/* Header */}
       <div className="bg-white border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-6 py-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">
+          <h1 className="text-4xl font-bold text-slate-900 mb-2 text-2xl md:text-3xl lg:text-4xl">
             Student Handbook
           </h1>
           <p className="text-lg text-slate-600">Academic Year 2025-2026</p>

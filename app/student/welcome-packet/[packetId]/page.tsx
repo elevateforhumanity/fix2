@@ -136,7 +136,7 @@ export default async function WelcomePacketPage({ params }: PageProps) {
               </p>
             </div>
             <div className="text-center">
-              <div className="text-6xl font-bold">{completionPercentage}%</div>
+              <div className="text-6xl font-bold text-4xl md:text-5xl lg:text-6xl">{completionPercentage}%</div>
               <div className="text-blue-100 mt-2">Complete</div>
             </div>
           </div>

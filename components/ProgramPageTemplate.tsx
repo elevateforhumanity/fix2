@@ -179,7 +179,7 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       {/* Program Highlights */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-slate-900 mb-16">
+          <h2 className="text-4xl font-bold text-center text-slate-900 mb-16 text-2xl md:text-3xl lg:text-4xl">
             Program Highlights
           </h2>
           
@@ -210,7 +210,7 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       <section className="py-20   ">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-slate-900 mb-4">
+            <h2 className="text-4xl font-bold text-center text-slate-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
               How to Get Started
             </h2>
             <p className="text-center text-xl text-slate-600 mb-12">
@@ -273,7 +273,7 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 />
               </div>
               <div>
-                <h2 className="text-4xl font-bold text-slate-900 mb-6">
+                <h2 className="text-4xl font-bold text-slate-900 mb-6 text-2xl md:text-3xl lg:text-4xl">
                   {ctaTitle}
                 </h2>
                 <p className="text-xl text-slate-600 mb-8 leading-relaxed">

@@ -129,7 +129,7 @@ export default function ExternalModuleLauncher({
           </h3>
           {uploadSuccess ? (
             <div className="text-center py-8">
-              <div className="text-green-500 text-5xl mb-4">✓</div>
+              <div className="text-green-500 text-5xl mb-4 text-3xl md:text-4xl lg:text-5xl">✓</div>
               <p className="text-white font-medium mb-2">Certificate Uploaded!</p>
               <p className="text-slate-400 text-sm">
                 Your instructor will review and approve your completion.
@@ -153,7 +153,7 @@ export default function ExternalModuleLauncher({
                     </div>
                   ) : (
                     <div>
-                      <div className="text-4xl mb-2">📄</div>
+                      <div className="text-4xl mb-2 text-2xl md:text-3xl lg:text-4xl">📄</div>
                       <p className="text-white font-medium mb-1">
                         Click to upload certificate
                       </p>

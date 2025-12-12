@@ -160,7 +160,7 @@ export default function ScormPlayer({
     return (
       <div className="scorm-container flex items-center justify-center">
         <div className="text-center max-w-md">
-          <div className="text-red-500 text-5xl mb-4">⚠️</div>
+          <div className="text-red-500 text-5xl mb-4 text-3xl md:text-4xl lg:text-5xl">⚠️</div>
           <h2 className="text-xl font-bold text-white mb-2">Failed to Load Module</h2>
           <p className="text-slate-400 mb-4">{error}</p>
           <button 

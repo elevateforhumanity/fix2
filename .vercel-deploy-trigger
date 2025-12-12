@@ -1,6 +1,2 @@
-# Vercel Deployment Trigger
-# This file triggers automatic deployment when pushed to GitHub
-
-Deployment triggered at: 2024-12-10T01:48:00Z
-Reason: Manual redeploy requested
-Changes: Upstash Redis configuration added
+Deployment triggered at: 2025-12-12T18:43:36Z
+Reason: Store page title update and voiceover fixes

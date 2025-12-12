@@ -157,7 +157,7 @@ export default function BookingPage() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">Book a Live Session</h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-2 text-2xl md:text-3xl lg:text-4xl">Book a Live Session</h1>
           <p className="text-lg text-slate-600">
             Schedule one-on-one time with expert instructors via Zoom or Microsoft Teams
           </p>

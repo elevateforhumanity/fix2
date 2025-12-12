@@ -96,7 +96,7 @@ export default function AffirmPromo({ amount, className = '' }: AffirmPromoProps
       {/* Payment Display */}
       <div className="bg-white rounded-lg p-6 shadow-sm mb-4">
         <div className="text-center mb-4">
-          <div className="text-4xl font-bold text-gray-900 mb-1">
+          <div className="text-4xl font-bold text-gray-900 mb-1 text-2xl md:text-3xl lg:text-4xl">
             ${currentPlan.payment}
             <span className="text-lg text-gray-600 font-normal">/{currentPlan.frequency.split(' ')[1] || 'payment'}</span>
           </div>

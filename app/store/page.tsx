@@ -4,8 +4,8 @@ import { allProducts } from '@/lib/store/products';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Elevate For Humanity',
-  description: 'Career training and development programs'
+  title: 'Elevate Digital Products Store | Training Resources',
+  description: 'Professional workbooks, study guides, and digital training materials for career development'
 };
 
 export default function StorePage() {
@@ -30,11 +30,11 @@ export default function StorePage() {
       {/* Title Section - Below Hero */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 mb-4">
-            Training Resources
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4">
+            Elevate Digital Products Store
           </h1>
           <p className="text-xl sm:text-2xl text-slate-700">
-            Professional workbooks, study guides, and materials to support your training and certification.
+            Professional workbooks, study guides, and digital materials to support your training and certification.
           </p>
         </div>
       </section>

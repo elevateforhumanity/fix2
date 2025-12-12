@@ -171,7 +171,7 @@ export default function AutomaticCourseBuilder() {
     <div className="max-w-6xl mx-auto p-6">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-slate-900 mb-2">
+        <h1 className="text-4xl font-bold text-slate-900 mb-2 text-2xl md:text-3xl lg:text-4xl">
           AI Course Builder
         </h1>
         <p className="text-lg text-slate-600">

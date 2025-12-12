@@ -94,7 +94,7 @@ export default function ProductPage({ params }: Props) {
               </div>
 
               {/* Title */}
-              <h1 className="text-4xl font-bold text-slate-900 mb-4">
+              <h1 className="text-4xl font-bold text-slate-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
                 {product.name}
               </h1>
 
@@ -114,14 +114,14 @@ export default function ProductPage({ params }: Props) {
               <div className="mb-8">
                 {product.salePrice ? (
                   <div className="flex items-center gap-3">
-                    <span className="text-4xl font-bold text-slate-900">${product.salePrice.toFixed(2)}</span>
+                    <span className="text-4xl font-bold text-slate-900 text-2xl md:text-3xl lg:text-4xl">${product.salePrice.toFixed(2)}</span>
                     <span className="text-2xl text-slate-400 line-through">${product.price.toFixed(2)}</span>
                     <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-bold">
                       SAVE {Math.round((1 - product.salePrice / product.price) * 100)}%
                     </span>
                   </div>
                 ) : (
-                  <span className="text-4xl font-bold text-slate-900">${product.price.toFixed(2)}</span>
+                  <span className="text-4xl font-bold text-slate-900 text-2xl md:text-3xl lg:text-4xl">${product.price.toFixed(2)}</span>
                 )}
               </div>
 

@@ -141,7 +141,7 @@ export default function EnrollmentCounter() {
               <Users className="w-8 h-8 text-white/80" />
               <div className="text-xs text-white/60 font-semibold">ALL TIME</div>
             </div>
-            <motion.div className="text-5xl font-bold text-white mb-2">
+            <motion.div className="text-5xl font-bold text-white mb-2 text-3xl md:text-4xl lg:text-5xl">
               {formatNumber(totalCount.get())}
             </motion.div>
             <div className="text-white/80 font-semibold">Total Enrollments</div>
@@ -163,7 +163,7 @@ export default function EnrollmentCounter() {
               <TrendingUp className="w-8 h-8 text-white/80" />
               <div className="text-xs text-white/60 font-semibold">THIS MONTH</div>
             </div>
-            <motion.div className="text-5xl font-bold text-white mb-2">
+            <motion.div className="text-5xl font-bold text-white mb-2 text-3xl md:text-4xl lg:text-5xl">
               {formatNumber(monthCount.get())}
             </motion.div>
             <div className="text-white/80 font-semibold">New Students</div>
@@ -192,7 +192,7 @@ export default function EnrollmentCounter() {
               <Zap className="w-8 h-8 text-white/80" />
               <div className="text-xs text-white/60 font-semibold">TODAY</div>
             </div>
-            <motion.div className="text-5xl font-bold text-white mb-2">
+            <motion.div className="text-5xl font-bold text-white mb-2 text-3xl md:text-4xl lg:text-5xl">
               {formatNumber(todayCount.get())}
             </motion.div>
             <div className="text-white/80 font-semibold">Enrolled Today</div>
@@ -214,7 +214,7 @@ export default function EnrollmentCounter() {
               <Users className="w-8 h-8 text-white/80" />
               <div className="text-xs text-white/60 font-semibold">ACTIVE NOW</div>
             </div>
-            <motion.div className="text-5xl font-bold text-white mb-2">
+            <motion.div className="text-5xl font-bold text-white mb-2 text-3xl md:text-4xl lg:text-5xl">
               {formatNumber(activeCount.get())}
             </motion.div>
             <div className="text-white/80 font-semibold">Current Students</div>

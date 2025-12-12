@@ -61,7 +61,7 @@ export default function ApplyPage() {
         </div>
       </section>
       <div className="container mx-auto px-4 py-16">
-        <h1 className="text-5xl font-bold text-center mb-8 text-green-900">
+        <h1 className="text-5xl font-bold text-center mb-8 text-green-900 text-3xl md:text-4xl lg:text-5xl">
           Apply for Fast Cash
         </h1>
         <p className="text-xl text-center mb-12 text-gray-700 max-w-3xl mx-auto">

@@ -186,7 +186,7 @@ export function StudentPortfolio() {
               className="w-32 h-32 rounded-full border-4 border-white shadow-lg"
             />
             <div className="flex-1 text-center md:text-left">
-              <h1 className="text-4xl font-bold mb-2">{student.name}</h1>
+              <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">{student.name}</h1>
               <p className="text-xl text-red-100 mb-4">{student.title}</p>
               <p className="text-red-50 max-w-2xl mb-6">{student.bio}</p>
               <div className="flex flex-wrap gap-4 justify-center md:justify-start">

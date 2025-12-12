@@ -233,7 +233,7 @@ export default function DiscussionForums() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-4xl font-bold text-gray-900 mb-2 text-2xl md:text-3xl lg:text-4xl">
               Discussion Forums
             </h1>
             <p className="text-xl text-gray-600">
@@ -347,7 +347,7 @@ export default function DiscussionForums() {
               <ArrowLeft className="w-5 h-5" />
               Back to Categories
             </button>
-            <h1 className="text-4xl font-bold text-gray-900">
+            <h1 className="text-4xl font-bold text-gray-900 text-2xl md:text-3xl lg:text-4xl">
               {selectedCategory?.name}
             </h1>
             <p className="text-gray-600 mt-2">

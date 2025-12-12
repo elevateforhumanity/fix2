@@ -259,7 +259,7 @@ export const StatCard: React.FC<StatCardProps> = ({
           {icon}
         </div>
       )}
-      <div className="text-4xl font-bold text-red-600 mb-2">{number}</div>
+      <div className="text-4xl font-bold text-red-600 mb-2 text-2xl md:text-3xl lg:text-4xl">{number}</div>
       <div className="text-sm font-semibold text-slate-600 uppercase tracking-wide">{label}</div>
       {trend && (
         <div className={`text-xs mt-2 ${trend.direction === 'up' ? 'text-green-600' : 'text-red-600'}`}>

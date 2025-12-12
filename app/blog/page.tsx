@@ -119,7 +119,7 @@ export default async function Page() {
       {/* Blog Posts */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-extrabold mb-12 text-center">Latest Articles</h2>
+          <h2 className="text-4xl font-extrabold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">Latest Articles</h2>
           {blogPosts.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogPosts.map((post: any) => {
@@ -183,7 +183,7 @@ className="object-cover group-hover:scale-110 transition-transform duration-300"
       {/* Social Feed */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-extrabold mb-4 text-center">Follow Us on Social Media</h2>
+          <h2 className="text-4xl font-extrabold mb-4 text-center text-2xl md:text-3xl lg:text-4xl">Follow Us on Social Media</h2>
           <p className="text-xl text-slate-600 text-center mb-12">Stay connected with our community</p>
           {socialPosts.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -220,7 +220,7 @@ className="px-6 py-3 bg-blue-700 text-white font-semibold rounded-full hover:bg-
       {/* CTA */}
       <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Start Your Success Story?</h2>
+          <h2 className="text-4xl font-extrabold text-white mb-6 text-2xl md:text-3xl lg:text-4xl">Ready to Start Your Success Story?</h2>
           <p className="text-xl text-white/90 mb-8">Join thousands who transformed their lives through free workforce training.</p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact" className="px-10 py-5 bg-white text-orange-600 font-bold rounded-full hover:bg-slate-100 transition-all shadow-2xl text-lg">Apply Now - It's Free</Link>

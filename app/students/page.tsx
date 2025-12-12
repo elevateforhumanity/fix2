@@ -79,7 +79,7 @@ export default async function Page() {
       {/* What We Offer Students */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-center mb-4">What We Offer You</h2>
+          <h2 className="text-4xl font-extrabold text-center mb-4 text-2xl md:text-3xl lg:text-4xl">What We Offer You</h2>
           <p className="text-xl text-slate-600 text-center mb-16 max-w-3xl mx-auto">
             We provide everything you need to launch a successful career—at absolutely no cost to you.
           </p>
@@ -151,7 +151,7 @@ export default async function Page() {
       {/* Your Journey */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-extrabold text-center mb-16">Your Journey to Career Success</h2>
+          <h2 className="text-4xl font-extrabold text-center mb-16 text-2xl md:text-3xl lg:text-4xl">Your Journey to Career Success</h2>
           <div className="max-w-5xl mx-auto space-y-8">
             <div className="flex gap-6 items-start">
               <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl">1</div>
@@ -209,7 +209,7 @@ export default async function Page() {
       {/* CTA */}
       <section className="py-20   ">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-extrabold text-white mb-6">Ready to Start Your Career Journey?</h2>
+          <h2 className="text-4xl font-extrabold text-white mb-6 text-2xl md:text-3xl lg:text-4xl">Ready to Start Your Career Journey?</h2>
           <p className="text-xl text-white/90 mb-8">
             Join thousands of students who transformed their lives through free workforce training.
           </p>

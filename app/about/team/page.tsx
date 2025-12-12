@@ -137,7 +137,7 @@ export default function TeamPage() {
 
                 {/* Bio */}
                 <div className="lg:w-2/3">
-                  <h2 className="text-4xl font-extrabold text-gray-900 mb-2">
+                  <h2 className="text-4xl font-extrabold text-gray-900 mb-2 text-2xl md:text-3xl lg:text-4xl">
                     {member.name}
                   </h2>
                   <p className="text-xl text-blue-600 font-semibold mb-6">
@@ -160,7 +160,7 @@ export default function TeamPage() {
       {/* Join Our Team CTA */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-extrabold mb-6">Join Our Team</h2>
+          <h2 className="text-4xl font-extrabold mb-6 text-2xl md:text-3xl lg:text-4xl">Join Our Team</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             We're always looking for passionate professionals who share our mission to transform lives through education and opportunity.
           </p>

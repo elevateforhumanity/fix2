@@ -86,7 +86,7 @@ export default function CartPage() {
   return (
     <main className="min-h-screen bg-slate-50 py-12">
       <div className="max-w-7xl mx-auto px-6">
-        <h1 className="text-4xl font-bold text-slate-900 mb-8">Shopping Cart</h1>
+        <h1 className="text-4xl font-bold text-slate-900 mb-8 text-2xl md:text-3xl lg:text-4xl">Shopping Cart</h1>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Cart Items */}

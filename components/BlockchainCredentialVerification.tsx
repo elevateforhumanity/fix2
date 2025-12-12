@@ -91,7 +91,7 @@ export function BlockchainCredentialVerification() {
     <div className="min-h-screen bg-gray-50">
       <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">Blockchain Credential Verification</h1>
+          <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">Blockchain Credential Verification</h1>
           <p className="text-red-100">Secure, tamper-proof credential verification</p>
         </div>
       </div>
@@ -99,7 +99,7 @@ export function BlockchainCredentialVerification() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <Card className="p-6 mb-8   ">
           <div className="flex items-start gap-4">
-            <div className="text-5xl">🔐</div>
+            <div className="text-5xl text-3xl md:text-4xl lg:text-5xl">🔐</div>
             <div>
               <h3 className="text-xl font-bold mb-2">Blockchain-Secured Credentials</h3>
               <p className="text-gray-700 mb-3">
@@ -168,7 +168,7 @@ export function BlockchainCredentialVerification() {
               {verificationResult && (
                 <div className="mt-8 p-6 bg-green-50 border-2 border-green-500 rounded-lg">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="text-4xl">✅</div>
+                    <div className="text-4xl text-2xl md:text-3xl lg:text-4xl">✅</div>
                     <div>
                       <h3 className="text-xl font-bold text-green-900">Credential Verified</h3>
                       <p className="text-sm text-green-700">This credential is authentic and valid</p>
@@ -273,7 +273,7 @@ export function BlockchainCredentialVerification() {
               {myCredentials.map((credential) => (
                 <Card key={credential.id} className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <div className="text-4xl">
+                    <div className="text-4xl text-2xl md:text-3xl lg:text-4xl">
                       {credential.type === 'certificate' ? '📜' :
                        credential.type === 'badge' ? '🏆' : '🎓'}
                     </div>

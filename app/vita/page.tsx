@@ -55,7 +55,7 @@ export default function VITAPage() {
       <ScrollReveal>
         <section className="py-20 px-4 bg-white">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-8">
+            <h2 className="text-4xl font-bold text-center mb-8 text-2xl md:text-3xl lg:text-4xl">
               What is the IRS VITA Program?
             </h2>
             <div className="prose prose-lg max-w-none">
@@ -82,7 +82,7 @@ export default function VITAPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <ScrollReveal delay={0}>
               <div>
-                <div className="text-5xl font-bold text-blue-600 mb-2">
+                <div className="text-5xl font-bold text-blue-600 mb-2 text-3xl md:text-4xl lg:text-5xl">
                   <CountUp end={50} suffix="+" />
                 </div>
                 <div className="text-slate-700">Years of Service</div>
@@ -90,7 +90,7 @@ export default function VITAPage() {
             </ScrollReveal>
             <ScrollReveal delay={100}>
               <div>
-                <div className="text-5xl font-bold text-blue-600 mb-2">
+                <div className="text-5xl font-bold text-blue-600 mb-2 text-3xl md:text-4xl lg:text-5xl">
                   $<CountUp end={67000} />
                 </div>
                 <div className="text-slate-700">Income Limit</div>
@@ -98,7 +98,7 @@ export default function VITAPage() {
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <div>
-                <div className="text-5xl font-bold text-blue-600 mb-2">
+                <div className="text-5xl font-bold text-blue-600 mb-2 text-3xl md:text-4xl lg:text-5xl">
                   <CountUp end={100} suffix="%" />
                 </div>
                 <div className="text-slate-700">Free Service</div>
@@ -112,7 +112,7 @@ export default function VITAPage() {
       <ScrollReveal>
         <section className="py-20 px-4 bg-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-16">
+            <h2 className="text-4xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-4xl">
               Choose Your Path
             </h2>
             <div className="grid md:grid-cols-2 gap-12">
@@ -207,7 +207,7 @@ export default function VITAPage() {
       {/* Resources */}
       <section className="py-20 bg-slate-50 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">
+          <h2 className="text-4xl font-bold text-center mb-16 text-2xl md:text-3xl lg:text-4xl">
             Official IRS Resources
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -285,7 +285,7 @@ export default function VITAPage() {
         {/* CTA */}
         <section className="py-20    text-white px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
               Ready to Get Started?
             </h2>
             <p className="text-xl mb-8">

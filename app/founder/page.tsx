@@ -29,7 +29,7 @@ export default function Page() {
               />
             </div>
             <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6">Visionary Leader & Community Builder</h2>
+              <h2 className="text-4xl font-bold text-slate-900 mb-6 text-2xl md:text-3xl lg:text-4xl">Visionary Leader & Community Builder</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-6">
                 Elizabeth Greene is a visionary leader, workforce innovator, and community builder dedicated to transforming lives through education, opportunity, and equitable access. As the Chief Executive Officer of Elevate for Humanity Technical & Career Institute, she drives the organization's mission to uplift individuals, strengthen families, and create sustainable career pathways across Indiana and beyond.
               </p>

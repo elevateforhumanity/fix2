@@ -261,7 +261,7 @@ export default function FAQPage() {
             {filteredCategories.map((category) => (
               <div key={category.id}>
                 <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                  <span className="text-4xl">{category.icon}</span>
+                  <span className="text-4xl text-2xl md:text-3xl lg:text-4xl">{category.icon}</span>
                   {category.name}
                 </h2>
                 <div className="space-y-4">

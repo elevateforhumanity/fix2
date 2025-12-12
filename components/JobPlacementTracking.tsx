@@ -82,7 +82,7 @@ export function JobPlacementTracking() {
     <div className="min-h-screen bg-gray-50">
       <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">Job Placement Tracking</h1>
+          <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">Job Placement Tracking</h1>
           <p className="text-red-100">Monitor student success and employment outcomes</p>
         </div>
       </div>

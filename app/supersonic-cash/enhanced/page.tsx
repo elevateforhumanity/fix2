@@ -56,7 +56,7 @@ export default function SupersonicCashEnhancedPage() {
                 <span className="text-white text-sm font-semibold">Powered by EPS Financial</span>
               </div>
 
-              <h1 className="text-6xl font-bold mb-6 text-white leading-tight">
+              <h1 className="text-6xl font-bold mb-6 text-white leading-tight text-4xl md:text-5xl lg:text-6xl">
                 Get Cash
                 <span className="block text-yellow-300">Supersonic Fast</span>
               </h1>
@@ -187,7 +187,7 @@ d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618
                 <div className="relative z-10 bg-white rounded-3xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-300">
                   <div className="mb-6">
                     <div className="text-sm text-gray-500 mb-2">Available Amount</div>
-                    <div className="text-5xl font-bold text-green-600 mb-1">$3,500</div>
+                    <div className="text-5xl font-bold text-green-600 mb-1 text-3xl md:text-4xl lg:text-5xl">$3,500</div>
                     <div className="text-sm text-gray-600">Instant approval available</div>
                   </div>
                   
@@ -248,7 +248,7 @@ className="w-full">
       <section id="how-it-works" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
               Get Cash in 3 Simple Steps
             </h2>
             <p className="text-xl text-gray-600">

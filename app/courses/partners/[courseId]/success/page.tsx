@@ -89,7 +89,7 @@ export default async function EnrollmentSuccessPage({ params }: { params: { cour
                 />
               </svg>
             </div>
-            <h1 className="text-4xl font-bold mb-4">Enrollment Successful!</h1>
+            <h1 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">Enrollment Successful!</h1>
             <p className="text-xl text-green-100">
               You're all set to start learning
             </p>

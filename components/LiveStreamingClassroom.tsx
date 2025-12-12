@@ -116,7 +116,7 @@ export function LiveStreamingClassroom() {
             {/* Video Stream */}
             <div className="flex-1 relative bg-gray-900 flex items-center justify-center">
               <div className="text-center text-white">
-                <div className="text-6xl mb-4">🎥</div>
+                <div className="text-6xl mb-4 text-4xl md:text-5xl lg:text-6xl">🎥</div>
                 <p className="text-xl">Live Stream Active</p>
                 <p className="text-sm text-gray-400 mt-2">Dr. Emily Rodriguez is presenting</p>
               </div>

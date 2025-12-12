@@ -20,7 +20,7 @@ export default function Error({
       <div className="text-center px-4 max-w-2xl">
         <div className="mb-8">
           <AlertCircle className="h-24 w-24 text-red-600 mx-auto mb-6" />
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">
+          <h1 className="text-4xl font-bold text-slate-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
             Something Went Wrong
           </h1>
           <p className="text-xl text-slate-600 mb-4">

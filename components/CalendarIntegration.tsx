@@ -56,7 +56,7 @@ export function CalendarIntegration() {
     <div className="min-h-screen bg-gray-50">
       <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">Calendar</h1>
+          <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">Calendar</h1>
           <p className="text-red-100">Manage your schedule and events</p>
         </div>
       </div>

@@ -52,7 +52,7 @@ function SuccessContent() {
           </div>
 
           {/* Success Message */}
-          <h1 className="text-4xl font-bold text-slate-900 text-center mb-4">
+          <h1 className="text-4xl font-bold text-slate-900 text-center mb-4 text-2xl md:text-3xl lg:text-4xl">
             Payment Successful!
           </h1>
           <p className="text-xl text-slate-600 text-center mb-8">

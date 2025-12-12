@@ -75,7 +75,7 @@ export function ProgramHero({ program }: { program: Program }) {
             <div className="container mx-auto px-4 pb-12">
               <div className="max-w-4xl">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-5xl">{getIcon()}</span>
+                  <span className="text-5xl text-3xl md:text-4xl lg:text-5xl">{getIcon()}</span>
                   <p className="text-sm uppercase tracking-wide text-orange-400 font-semibold">
                     Elevate Workforce Pathway
                   </p>

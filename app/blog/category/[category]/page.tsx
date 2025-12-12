@@ -65,7 +65,7 @@ export default async function CategoryPage({ params }: { params: { category: str
             <span className="mx-2">/</span>
             <span className="text-slate-900 font-semibold capitalize">{categoryName}</span>
           </nav>
-          <h1 className="text-4xl font-bold text-slate-900 mb-4 capitalize">
+          <h1 className="text-4xl font-bold text-slate-900 mb-4 capitalize text-2xl md:text-3xl lg:text-4xl">
             {categoryName}
           </h1>
           <p className="text-slate-600">

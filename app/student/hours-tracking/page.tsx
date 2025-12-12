@@ -170,7 +170,7 @@ export default async function HoursTrackingPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="text-6xl font-bold">{progressPercentage}%</div>
+              <div className="text-6xl font-bold text-4xl md:text-5xl lg:text-6xl">{progressPercentage}%</div>
               <div className="text-blue-100 mt-2">Complete</div>
             </div>
           </div>

@@ -62,7 +62,7 @@ export default function TaxFilingEnhancedPage() {
                 </div>
               </div>
 
-              <h1 className="text-6xl font-bold mb-6 text-white leading-tight">
+              <h1 className="text-6xl font-bold mb-6 text-white leading-tight text-4xl md:text-5xl lg:text-6xl">
                 File Your Taxes
                 <span className="block text-orange-400">For Just $100</span>
               </h1>
@@ -144,7 +144,7 @@ d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618
                     <div className="inline-block px-4 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-semibold mb-4">
                       Most Popular
                     </div>
-                    <div className="text-5xl font-bold text-gray-900 mb-2">
+                    <div className="text-5xl font-bold text-gray-900 mb-2 text-3xl md:text-4xl lg:text-5xl">
                       $100
                     </div>
                     <div className="text-gray-600">Federal + State Included</div>
@@ -244,7 +244,7 @@ className="w-full">
             <div className="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
               Powered by EPS Financial
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 text-2xl md:text-3xl lg:text-4xl">
               Get Your Refund Faster
             </h2>
             <p className="text-xl text-gray-600">

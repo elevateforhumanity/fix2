@@ -46,7 +46,7 @@ export default async function AuthorPage({ params }: { params: { author: string 
           <div className="w-24 h-24    rounded-full mx-auto mb-4 flex items-center justify-center text-white text-3xl font-bold">
             {authorName.split(' ').map(n => n[0]).join('')}
           </div>
-          <h1 className="text-4xl font-bold text-slate-900 mb-2 capitalize">
+          <h1 className="text-4xl font-bold text-slate-900 mb-2 capitalize text-2xl md:text-3xl lg:text-4xl">
             {authorName}
           </h1>
           <p className="text-slate-600">

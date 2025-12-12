@@ -124,7 +124,7 @@ export function ARTrainingModules() {
     <div className="min-h-screen bg-gray-50">
       <div className="   text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-4xl font-bold mb-2">AR Training Modules</h1>
+          <h1 className="text-4xl font-bold mb-2 text-2xl md:text-3xl lg:text-4xl">AR Training Modules</h1>
           <p className="text-red-100">Immersive hands-on learning with augmented reality</p>
         </div>
       </div>
@@ -132,7 +132,7 @@ export function ARTrainingModules() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <Card className="p-6 mb-8   ">
           <div className="flex items-start gap-4">
-            <div className="text-5xl">🥽</div>
+            <div className="text-5xl text-3xl md:text-4xl lg:text-5xl">🥽</div>
             <div>
               <h3 className="text-xl font-bold mb-2">Experience Learning in 3D</h3>
               <p className="text-gray-700 mb-3">
@@ -164,7 +164,7 @@ export function ARTrainingModules() {
               {modules.map((module) => (
                 <Card key={module.id} className="p-6 hover:shadow-lg transition-shadow">
                   <div className="text-center mb-4">
-                    <div className="text-6xl mb-3">{module.thumbnail}</div>
+                    <div className="text-6xl mb-3 text-4xl md:text-5xl lg:text-6xl">{module.thumbnail}</div>
                     <h3 className="text-xl font-bold mb-2">{module.title}</h3>
                     <span className="px-3 py-1 bg-orange-100 text-orange-700 text-xs rounded">
                       {module.category}
