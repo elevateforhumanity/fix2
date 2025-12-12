@@ -111,19 +111,25 @@ export function Hero() {
                 <div className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center text-sm font-bold">
                   1
                 </div>
-                <h3 className="font-semibold text-slate-900">Call WorkOne</h3>
+                <h3 className="font-semibold text-slate-900">Schedule Your Appointment</h3>
               </div>
-              <p className="text-sm text-slate-600">
-                Visit your local WorkOne office or call to schedule an appointment. 
-                You can also try{" "}
+              <p className="text-sm text-slate-600 mb-3">
+                <strong>Option 1:</strong> Visit{" "}
                 <a 
                   href="https://www.indianacareerconnect.com" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="text-red-600 underline hover:text-red-700"
+                  className="text-red-600 underline hover:text-red-700 font-semibold"
                 >
-                  IndianaCareerConnect.com
+                  www.IndianaCareerConnect.com
                 </a>
+                {" "}to create an account and schedule your appointment online.
+              </p>
+              <p className="text-sm text-slate-600 mb-3">
+                <strong>Option 2:</strong> Call your local WorkOne office directly to schedule an appointment with a career counselor.
+              </p>
+              <p className="text-xs text-slate-500 italic">
+                💡 Tip: Have your ID, proof of income, and employment history ready for your appointment.
               </p>
             </div>
             <div className="bg-white rounded-lg p-4 shadow-sm">
@@ -131,11 +137,19 @@ export function Hero() {
                 <div className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center text-sm font-bold">
                   2
                 </div>
-                <h3 className="font-semibold text-slate-900">Get Approved</h3>
+                <h3 className="font-semibold text-slate-900">Get Approved for Free Training</h3>
               </div>
-              <p className="text-sm text-slate-600">
-                WorkOne handles all intake, eligibility checks, and funding paperwork 
-                (WIOA, WRG, JRI). They verify your eligibility.
+              <p className="text-sm text-slate-600 mb-2">
+                Your WorkOne counselor will:
+              </p>
+              <ul className="text-sm text-slate-600 space-y-1 ml-4 mb-2">
+                <li>• Complete your intake and eligibility assessment</li>
+                <li>• Process all funding paperwork (WIOA, WRG, or JRI)</li>
+                <li>• Verify your eligibility for 100% free training</li>
+                <li>• Enroll you in your chosen program</li>
+              </ul>
+              <p className="text-xs text-slate-500 italic">
+                💡 Most appointments take 30-60 minutes. Same-day approval is common!
               </p>
             </div>
             <div className="bg-white rounded-lg p-4 shadow-sm">
@@ -143,11 +157,20 @@ export function Hero() {
                 <div className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center text-sm font-bold">
                   3
                 </div>
-                <h3 className="font-semibold text-slate-900">Start Training</h3>
+                <h3 className="font-semibold text-slate-900">Start Your Training</h3>
               </div>
-              <p className="text-sm text-slate-600">
-                Once approved, we provide the training structure and connect you 
-                to real shops, clinics, and job sites across Indiana.
+              <p className="text-sm text-slate-600 mb-2">
+                Once approved, you'll:
+              </p>
+              <ul className="text-sm text-slate-600 space-y-1 ml-4 mb-2">
+                <li>• Begin training immediately (most programs start within 1-2 weeks)</li>
+                <li>• Get connected to real shops, clinics, and job sites</li>
+                <li>• Receive hands-on training from industry professionals</li>
+                <li>• Earn certifications and credentials</li>
+                <li>• Get job placement assistance upon completion</li>
+              </ul>
+              <p className="text-xs text-slate-500 italic">
+                💡 100% free. No tuition. No debt. Just training and a career!
               </p>
             </div>
           </div>
