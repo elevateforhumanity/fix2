@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { WelcomeAudio } from "@/components/WelcomeAudio";
 
 export default function HomePage() {
   return (
     <main className="bg-white">
+      <WelcomeAudio />
       {/* VIDEO HERO */}
       <section className="relative overflow-hidden">
         <video
@@ -368,7 +370,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/programs"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-bold text-lg rounded-lg hover:bg-slate-800 transition"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-orange-600 text-white font-bold text-lg rounded-lg hover:bg-orange-700 transition shadow-lg hover:shadow-xl"
             >
               View All Programs →
             </Link>
