@@ -20,6 +20,52 @@ const ADMIN_ROUTES = [
   '/dev-admin',
 ];
 
+// Security headers configuration
+const securityHeaders = {
+  'X-Frame-Options': 'SAMEORIGIN',
+  'X-Content-Type-Options': 'nosniff',
+  'X-XSS-Protection': '1; mode=block',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(self), payment=(self)',
+  'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
+  'Content-Security-Policy': [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://js.stripe.com https://cms-artifacts.artlist.io",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "img-src 'self' data: https: blob: https://i.imgur.com https://cms-artifacts.artlist.io",
+    "font-src 'self' data: https://fonts.gstatic.com",
+    "connect-src 'self' https://*.supabase.co https://www.google-analytics.com https://api.stripe.com wss://*.supabase.co https://cms-artifacts.artlist.io",
+    "frame-src 'self' https://www.youtube.com https://player.vimeo.com https://js.stripe.com",
+    "media-src 'self' https: blob: https://cms-artifacts.artlist.io",
+    "worker-src 'self' blob:",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'self'",
+    "upgrade-insecure-requests"
+  ].join('; '),
+};
+
+// Suspicious patterns to block
+const suspiciousPatterns = [
+  /\.\.\//g,
+  /<script/gi,
+  /union.*select/gi,
+  /javascript:/gi,
+  /on\w+\s*=/gi,
+];
+
+// Bot detection patterns
+const botPatterns = [
+  /bot/i,
+  /crawler/i,
+  /spider/i,
+  /scraper/i,
+  /curl/i,
+  /wget/i,
+  /python/i,
+];
+
 function getClientIp(req: NextRequest): string {
   return (
     req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
@@ -28,8 +74,18 @@ function getClientIp(req: NextRequest): string {
   );
 }
 
+function isBot(userAgent: string): boolean {
+  return botPatterns.some(pattern => pattern.test(userAgent));
+}
+
+function isSuspiciousRequest(url: string): boolean {
+  return suspiciousPatterns.some(pattern => pattern.test(url));
+}
+
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const userAgent = request.headers.get('user-agent') || '';
+  const ip = getClientIp(request);
 
   // Exclude static assets and Next internals
   if (
@@ -40,6 +96,26 @@ export async function proxy(request: NextRequest) {
     pathname.startsWith('/videos')
   ) {
     return NextResponse.next();
+  }
+
+  // Block suspicious requests
+  if (isSuspiciousRequest(pathname)) {
+    console.warn(`[SECURITY] Blocked suspicious request from ${ip}: ${pathname}`);
+    return new NextResponse('Forbidden', { status: 403 });
+  }
+
+  // Bot detection (allow legitimate bots, block scrapers)
+  const isLegitimateBot = /googlebot|bingbot|slurp|duckduckbot/i.test(userAgent);
+  if (isBot(userAgent) && !isLegitimateBot) {
+    console.log(`[SECURITY] Bot detected: ${userAgent} from ${ip}`);
+    
+    // Block bots from sensitive areas
+    if (pathname.startsWith('/admin') || 
+        pathname.startsWith('/api') || 
+        pathname.startsWith('/student') ||
+        pathname.startsWith('/portal')) {
+      return new NextResponse('Forbidden', { status: 403 });
+    }
   }
 
   // === AUTHENTICATION & AUTHORIZATION ===
@@ -116,13 +192,29 @@ export async function proxy(request: NextRequest) {
     return NextResponse.rewrite(new URL('/admin', request.url));
   }
 
-  // Add security headers to response
+  // Add comprehensive security headers to response
   const response = NextResponse.next();
-  response.headers.set('X-Content-Type-Options', 'nosniff');
-  response.headers.set('X-Frame-Options', 'SAMEORIGIN');
-  response.headers.set('X-XSS-Protection', '1; mode=block');
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  
+  Object.entries(securityHeaders).forEach(([key, value]) => {
+    response.headers.set(key, value);
+  });
+
+  // Add cache control for static assets
+  if (pathname.startsWith('/_next/static') || 
+      pathname.startsWith('/images') || 
+      pathname.startsWith('/videos')) {
+    response.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+  }
+
+  // Prevent caching of sensitive pages
+  if (pathname.startsWith('/admin') || 
+      pathname.startsWith('/student') || 
+      pathname.startsWith('/portal')) {
+    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    response.headers.set('Pragma', 'no-cache');
+    response.headers.set('Expires', '0');
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  }
 
   return response;
 }
