@@ -378,32 +378,54 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-orange-600">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Start?
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Most students qualify for 100% free training through WIOA, WRG, or apprenticeships.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/apply"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-orange-600 bg-white rounded-lg hover:bg-slate-50 transition"
-            >
-              Apply Now
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-sm border-2 border-white rounded-lg hover:bg-white/20 transition"
-            >
-              Talk to an Advisor
-            </Link>
+      {/* CTA - Talk to an Advisor */}
+      <section className="py-16 bg-gradient-to-br from-blue-600 to-purple-600">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Image */}
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="/images/talk-to-advisor.jpg"
+                alt="Talk to an advisor - Get personalized guidance"
+                fill
+                className="object-cover"
+                quality={90}
+              />
+            </div>
+            
+            {/* Content */}
+            <div className="text-white">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Ready to Start?
+              </h2>
+              <p className="text-xl text-white/90 mb-6 leading-relaxed">
+                Most students qualify for 100% free training through WIOA, WRG, or apprenticeships. 
+                Let's find the right path for you.
+              </p>
+              <div className="flex flex-col gap-4 mb-6">
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-blue-600 bg-white rounded-lg hover:bg-slate-50 transition shadow-lg hover:shadow-xl"
+                >
+                  Apply Now
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-white/10 backdrop-blur-sm border-2 border-white rounded-lg hover:bg-white/20 transition"
+                >
+                  Talk to an Advisor
+                </Link>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                <p className="text-sm text-white/90 mb-2">
+                  <span className="font-semibold">Call us directly:</span>
+                </p>
+                <a href="tel:317-314-3757" className="text-2xl font-bold text-white hover:text-white/90 transition">
+                  📞 317-314-3757
+                </a>
+              </div>
+            </div>
           </div>
-          <p className="mt-6 text-sm text-white/90">
-            📞 Call us at <span className="font-semibold text-white">317-314-3757</span>
-          </p>
         </div>
       </section>
     </main>
