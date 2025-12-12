@@ -126,10 +126,10 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          {/* Get Started */}
+          {/* Quick Links */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-900">
-              Get Started
+              Quick Links
             </h3>
             <ul className="space-y-2">
               <li>
@@ -142,83 +142,83 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/getstarted"
+                  href="/about"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  How to Get Started
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/funding"
+                  href="/contact"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Funding Options
+                  Contact
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/jri"
+                  href="/success-stories"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  JRI Funding
+                  Success Stories
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/advising"
+                  href="/faq"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Talk to an Advisor
+                  FAQ
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Portals */}
+          {/* Community */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-900">
-              Portals
+              Community
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/student/dashboard"
+                  href="/employers"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Student Portal
+                  For Employers
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/lms"
+                  href="/volunteer"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  LMS
+                  Volunteer
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/staff-portal"
+                  href="/donate"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Staff Portal
+                  Donate
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/admin/dashboard"
+                  href="/events"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Admin Portal
+                  Events
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/workforce-board/dashboard"
+                  href="/news"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Workforce Board
+                  News & Blog
                 </Link>
               </li>
             </ul>
