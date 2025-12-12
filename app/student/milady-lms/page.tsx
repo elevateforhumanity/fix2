@@ -2,22 +2,27 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
+import {
+  ExternalLink,
+  BookOpen,
+  Award,
+  Clock,
+  CheckCircle,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
-  alternates: {
-    canonical: "https://www.elevateforhumanity.org/student/milady-lms",
-  },
-  title: 'Milady Lms | Elevate For Humanity',
-  description: 'Explore Milady Lms and discover opportunities for career growth and development.',
+  title: 'Milady RISE Courses | Elevate For Humanity',
+  description: 'Access your Milady RISE certification courses',
 };
 
 export default async function MiladyLmsPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
-    redirect('/login');
+    redirect('/login?next=/student/milady-lms');
   }
 
   const { data: profile } = await supabase
@@ -25,129 +30,272 @@ export default async function MiladyLmsPage() {
     .select('*')
     .eq('id', user.id)
     .single();
-  
-  
-  
-  // Fetch relevant data
-  const { data: items, count } = await supabase
-    .from('profiles')
-    .select('*', { count: 'exact' })
-    .order('created_at', { ascending: false })
-    .limit(20);
-  
+
+  // Get student's enrollment
+  const { data: enrollment } = await supabase
+    .from('enrollments')
+    .select('*, program:programs(*)')
+    .eq('student_id', user.id)
+    .eq('status', 'active')
+    .single();
+
+  // Milady RISE courses available
+  const miladyCourses = [
+    {
+      id: 'rise-wellbeing',
+      title: 'RISE Client Well-Being & Safety',
+      description:
+        'Human Trafficking Awareness, Domestic Abuse Awareness, and Practical Infection Control',
+      duration: '3.5 hours',
+      price: '$29.95',
+      url: 'https://www.miladytraining.com/bundles/client-well-being-safety-certification',
+      certificate: 'RISE Certification',
+      required: true,
+    },
+    {
+      id: 'rise-finance',
+      title: 'RISE Finance Fundamentals',
+      description:
+        'Profit & Loss 101, Understanding Cash Flow, Increase Top Line Sales, How to Raise Prices',
+      duration: '4 hours',
+      price: '$99.95',
+      url: 'https://www.miladytraining.com/bundles/rise-certification-finance-fundamentals',
+      certificate: 'RISE Finance Certification',
+      required: false,
+    },
+    {
+      id: 'rise-educator',
+      title: 'RISE Educator Program',
+      description:
+        'Instructor-led blended learning with self-paced content and live Q&A sessions',
+      duration: '6 months',
+      price: '$599.99',
+      url: 'https://www.miladytraining.com/courses/rise-educator-program',
+      certificate: 'RISE Educator Certification',
+      required: false,
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/hero/portal-hero.jpg"
-          alt="Milady Lms"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0   " />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Milady Lms
+    <div className="min-h-screen bg-slate-50">
+      {/* Header */}
+      <div className="bg-white border-b border-slate-200">
+        <div className="max-w-6xl mx-auto px-6 py-6">
+          <Link
+            href="/student/dashboard"
+            className="text-blue-600 hover:text-blue-700 font-semibold mb-4 inline-block"
+          >
+            ← Back to Dashboard
+          </Link>
+          <h1 className="text-3xl font-bold text-slate-900">
+            Milady RISE Courses
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100">
-            Explore Milady Lms and discover opportunities for career growth and development.
+          <p className="text-slate-600 mt-1">
+            Professional development and certification courses
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            
-            
-            <Link
-              href="/student/dashboard"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 py-12">
+        {/* Welcome Message */}
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+          <div className="flex items-start gap-3">
+            <BookOpen className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+            <div>
+              <h2 className="text-lg font-semibold text-blue-900 mb-2">
+                Welcome to Milady RISE
+              </h2>
+              <p className="text-blue-800 text-sm">
+                RISE (Reimagine, Inspire, Succeed, Elevate) courses provide
+                industry-recognized certifications to enhance your professional
+                skills. All courses are 100% online and self-paced.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Login Info */}
+        <div className="bg-white rounded-xl shadow-sm border p-6 mb-8">
+          <h2 className="text-xl font-bold text-slate-900 mb-4">
+            Your Milady Account
+          </h2>
+          <div className="space-y-3">
+            <div>
+              <p className="text-sm text-slate-600 mb-1">Login URL:</p>
+              <a
+                href="https://login.cengagebrain.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 font-semibold flex items-center gap-2"
+              >
+                https://login.cengagebrain.com
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-1">Your Email:</p>
+              <p className="font-semibold text-slate-900">{profile?.email}</p>
+            </div>
+            <div>
+              <p className="text-sm text-slate-600 mb-1">Support:</p>
+              <a
+                href="https://www.milady.com/support"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 font-semibold"
+              >
+                Milady Support Center
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Available Courses */}
+        <div className="space-y-6">
+          <h2 className="text-2xl font-bold text-slate-900">
+            Available Courses
+          </h2>
+
+          {miladyCourses.map((course) => (
+            <div
+              key={course.id}
+              className="bg-white rounded-xl shadow-sm border overflow-hidden"
             >
-              Back to Dashboard
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Content Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            
-            {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="text-sm font-medium text-gray-600 mb-2">Total Items</h3>
-                <p className="text-3xl font-bold text-blue-600">{count || 0}</p>
-              </div>
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="text-sm font-medium text-gray-600 mb-2">Active</h3>
-                <p className="text-3xl font-bold text-green-600">
-                  {items?.filter(i => i.status === 'active').length || 0}
-                </p>
-              </div>
-              <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h3 className="text-sm font-medium text-gray-600 mb-2">Recent</h3>
-                <p className="text-3xl font-bold text-purple-600">
-                  {items?.filter(i => {
-                    const created = new Date(i.created_at);
-                    const weekAgo = new Date();
-                    weekAgo.setDate(weekAgo.getDate() - 7);
-                    return created > weekAgo;
-                  }).length || 0}
-                </p>
-              </div>
-            </div>
-
-            {/* Data Display */}
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <h2 className="text-2xl font-bold mb-4">Items</h2>
-              {items && items.length > 0 ? (
-                <div className="space-y-4">
-                  {items.map((item) => (
-                    <div key={item.id} className="p-4 border rounded-lg hover:bg-gray-50">
-                      <p className="font-semibold">{item.title || item.name || item.id}</p>
-                      <p className="text-sm text-gray-600">
-                        {new Date(item.created_at).toLocaleDateString()}
-                      </p>
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h3 className="text-xl font-bold text-slate-900">
+                        {course.title}
+                      </h3>
+                      {course.required && (
+                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full font-semibold">
+                          Required
+                        </span>
+                      )}
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-gray-500 text-center py-8">No items found</p>
-              )}
-            </div>
-            
-          </div>
-        </div>
-      </section>
+                    <p className="text-slate-600 mb-4">{course.description}</p>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-700 text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Join thousands who have launched successful careers through our programs.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
+                    <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-4 h-4" />
+                        <span>{course.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Award className="w-4 h-4" />
+                        <span>{course.certificate}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-right ml-6">
+                    <div className="text-2xl font-bold text-slate-900 mb-2">
+                      {course.price}
+                    </div>
+                    <p className="text-xs text-green-600 font-semibold">
+                      100% Funded
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-3">
+                  <a
+                    href={course.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+                  >
+                    <span>Launch Course</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="https://www.milady.com/support"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-6 py-3 bg-white text-slate-700 border-2 border-slate-300 rounded-lg hover:bg-slate-50 transition-colors font-semibold"
+                  >
+                    Get Help
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Instructions */}
+        <div className="mt-8 bg-slate-100 rounded-xl p-6">
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            How to Access Your Courses
+          </h3>
+          <ol className="space-y-3 text-slate-700">
+            <li className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                1
+              </span>
+              <span>Click "Launch Course" on any course above</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                2
+              </span>
+              <span>
+                Log in with your email: <strong>{profile?.email}</strong>
+              </span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                3
+              </span>
+              <span>Complete the course at your own pace</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                4
+              </span>
+              <span>Download your certificate upon completion</span>
+            </li>
+          </ol>
+        </div>
+
+        {/* Support */}
+        <div className="mt-8 bg-white rounded-xl shadow-sm border p-6">
+          <h3 className="text-lg font-semibold text-slate-900 mb-4">
+            Need Help?
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-semibold text-slate-900 mb-2">
+                Milady Support
+              </h4>
+              <p className="text-sm text-slate-600 mb-2">
+                For course content and technical issues
+              </p>
+              <a
+                href="https://www.milady.com/support"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
               >
-                Apply Now
-              </Link>
-              <Link
-                href="/programs"
-                className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
+                Visit Milady Support →
+              </a>
+            </div>
+            <div>
+              <h4 className="font-semibold text-slate-900 mb-2">
+                Elevate for Humanity
+              </h4>
+              <p className="text-sm text-slate-600 mb-2">
+                For enrollment and program questions
+              </p>
+              <a
+                href="mailto:support@elevateforhumanity.org"
+                className="text-blue-600 hover:text-blue-700 font-semibold text-sm"
               >
-                Browse Programs
-              </Link>
+                support@elevateforhumanity.org
+              </a>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

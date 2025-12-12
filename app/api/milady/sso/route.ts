@@ -5,13 +5,12 @@ import { MiladyAPI } from '@/lib/partners/milady';
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     const { enrollmentId } = await request.json();
@@ -26,11 +25,13 @@ export async function POST(request: NextRequest) {
     // Get enrollment details
     const { data: enrollment, error: enrollmentError } = await supabase
       .from('partner_lms_enrollments')
-      .select(`
+      .select(
+        `
         *,
         course:partner_lms_courses(*),
         provider:partner_lms_providers(*)
-      `)
+      `
+      )
       .eq('id', enrollmentId)
       .eq('student_id', user.id)
       .single();
@@ -44,10 +45,7 @@ export async function POST(request: NextRequest) {
 
     // Verify this is a Milady enrollment
     if (enrollment.provider?.provider_type !== 'milady') {
-      return NextResponse.json(
-        { error: 'Invalid provider' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Invalid provider' }, { status: 400 });
     }
 
     // Get student profile
@@ -61,20 +59,16 @@ export async function POST(request: NextRequest) {
     const miladyAPI = new MiladyAPI({
       apiKey: process.env.MILADY_API_KEY || '',
       apiSecret: process.env.MILADY_API_SECRET || '',
-      baseUrl: process.env.MILADY_API_URL || 'https://api.miladytraining.com/v1',
+      baseUrl:
+        process.env.MILADY_API_URL || 'https://api.miladytraining.com/v1',
     });
 
     // Generate SSO launch URL
-    const ssoUrl = await miladyAPI.getSsoLaunchUrl(
-      enrollment.external_student_id || user.id,
-      enrollment.external_course_id || enrollment.course_id,
-      {
-        email: user.email || '',
-        firstName: profile?.full_name?.split(' ')[0] || '',
-        lastName: profile?.full_name?.split(' ').slice(1).join(' ') || '',
-        returnUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard`,
-      }
-    );
+    const ssoUrl = await miladyAPI.getSsoLaunchUrl({
+      accountExternalId: enrollment.external_student_id || user.id,
+      externalEnrollmentId: enrollment.external_enrollment_id || enrollment.id,
+      returnTo: `${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard`,
+    });
 
     // Update last accessed timestamp
     await supabase
@@ -87,7 +81,6 @@ export async function POST(request: NextRequest) {
       ssoUrl,
       courseName: enrollment.course_name,
     });
-
   } catch (error) {
     return NextResponse.json(
       { error: 'Failed to generate SSO URL' },
