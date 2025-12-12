@@ -382,15 +382,18 @@ export default function HomePage() {
       <section className="py-16 bg-gradient-to-br from-blue-600 to-purple-600">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* Image */}
+            {/* Video */}
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/talk-to-advisor.jpg"
-                alt="Talk to an advisor - Get personalized guidance"
-                fill
-                className="object-cover"
-                quality={90}
-              />
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="w-full h-full object-cover"
+              >
+                <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__3/generated-video-0ce1b0b1-bda4-4d15-9273-07ecb6c6db95.mp4?Expires=2080921205&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=JyATfTsZJOOLU4l0s0ItqbI2OfJ8C6FQhZFgqFZtLCkO1OyWmCoN3Xbbe868S0bQy5Wc5z-KboQkBLrf~5QqharYpOZrRPQrDNbpJWvQZfExNKsPGh1PvUJHXS6giGquuWYxoMQ2BEMgPh1~637ouAreipdoyZRUW0JehIBaJG8IatSZ3w2ObSr2Zfp8iRwrEOotkBELxT2rrO8eSuOLZ7qjoEW1Vqx-~28FniYxBPAlM4g2~iX6IGD3HFg7V1JFmrkN638Ndv5Hc8DFDaGmJL3C7CEopgy7QXDMf42sb0cny14gUNPtxDK3WkLXjzHz9Cxyt5omzNTnxz4OiN1yvg__" type="video/mp4" />
+              </video>
             </div>
             
             {/* Content */}

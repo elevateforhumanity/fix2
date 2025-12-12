@@ -3,7 +3,8 @@
 /* Ensure proper viewport on mobile */
 @media (max-width: 768px) {
   /* Prevent horizontal scroll */
-  html, body {
+  html,
+  body {
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
@@ -39,19 +40,84 @@
     height: auto;
   }
 
+  /* Video players - Mobile optimized */
+  video {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  iframe[src*='youtube'],
+  iframe[src*='vimeo'],
+  iframe[src*='video'] {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+  }
+
+  /* Video containers */
+  .video-container,
+  .video-wrapper,
+  [class*='video'] {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-container iframe,
+  .video-container video,
+  .video-wrapper iframe,
+  .video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Video controls - Larger for touch */
+  video::-webkit-media-controls-panel {
+    padding: 12px;
+  }
+
+  video::-webkit-media-controls-play-button,
+  video::-webkit-media-controls-pause-button {
+    width: 44px;
+    height: 44px;
+  }
+
   /* Fix grid layouts */
   .grid {
     grid-template-columns: 1fr !important;
   }
 
-  /* Fix buttons - ensure minimum touch target size */
+  /* Fix buttons - ensure minimum touch target size (WCAG 2.5.5) */
   button,
   .btn,
-  a.btn {
+  a.btn,
+  [role='button'] {
     min-height: 44px;
     min-width: 44px;
-    padding: 0.75rem 1rem;
+    padding: 12px 20px;
     text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  /* Touch feedback */
+  button:active,
+  .btn:active,
+  a.btn:active {
+    transform: scale(0.98);
+    opacity: 0.9;
   }
 
   /* Touch-friendly links */
@@ -59,6 +125,51 @@
     min-height: 44px;
     display: inline-flex;
     align-items: center;
+    padding: 8px 4px;
+  }
+
+  /* Navigation links */
+  nav a {
+    min-height: 48px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Icon buttons */
+  button[aria-label],
+  .icon-button {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 12px;
+  }
+
+  /* CTA buttons - Extra prominent */
+  .cta-button,
+  [class*='cta'],
+  button[type='submit'] {
+    min-height: 52px;
+    font-size: 18px;
+    padding: 14px 24px;
+    font-weight: 700;
+  }
+
+  /* Spacing between touch targets */
+  button + button,
+  a.btn + a.btn {
+    margin-left: 12px;
+  }
+
+  .flex.gap-2 {
+    gap: 12px !important;
+  }
+
+  .flex.gap-3 {
+    gap: 16px !important;
+  }
+
+  .flex.gap-4 {
+    gap: 20px !important;
   }
 
   /* Fix navigation */
@@ -68,23 +179,82 @@
 
   /* Fix hero sections */
   .hero,
-  [class*="hero"] {
+  [class*='hero'] {
     padding: 2rem 1rem;
     min-height: auto;
   }
 
   /* Fix cards */
   .card,
-  [class*="card"] {
+  [class*='card'] {
     margin-bottom: 1rem;
   }
 
-  /* Fix forms */
+  /* Fix forms - Enhanced for mobile */
   input,
   select,
   textarea {
     width: 100%;
     font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 44px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  /* Form labels */
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* Form groups */
+  .form-group,
+  .space-y-4 > div {
+    margin-bottom: 20px;
+  }
+
+  /* Submit buttons */
+  button[type='submit'],
+  input[type='submit'] {
+    width: 100%;
+    min-height: 48px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-top: 16px;
+  }
+
+  /* Checkbox and radio */
+  input[type='checkbox'],
+  input[type='radio'] {
+    min-width: 20px;
+    min-height: 20px;
+    margin-right: 12px;
+  }
+
+  /* Error messages */
+  .error-message,
+  [class*='error'] {
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* Form validation */
+  input:invalid,
+  select:invalid,
+  textarea:invalid {
+    border-color: #ef4444;
+  }
+
+  input:valid,
+  select:valid,
+  textarea:valid {
+    border-color: #10b981;
   }
 
   /* Fix tables */
@@ -96,7 +266,7 @@
 
   /* Fix modals */
   .modal,
-  [role="dialog"] {
+  [role='dialog'] {
     width: 95vw;
     max-width: 95vw;
     margin: 1rem auto;
@@ -109,7 +279,10 @@
   }
 
   /* Improve touch targets */
-  a, button, input, select {
+  a,
+  button,
+  input,
+  select {
     min-height: 44px;
     min-width: 44px;
   }
@@ -155,11 +328,11 @@
 
 /* Prevent zoom on input focus (iOS) */
 @media (max-width: 768px) {
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="number"],
-  input[type="password"],
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'],
+  input[type='number'],
+  input[type='password'],
   select,
   textarea {
     font-size: 16px !important;

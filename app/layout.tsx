@@ -22,9 +22,13 @@ import { CookieBanner } from '@/components/CookieBanner';
 import { Toaster } from 'react-hot-toast';
 // import PWAInstallPrompt from '@/components/PWAInstallPrompt'; // Disabled - causing issues
 import { PerformanceMonitor } from '@/components/PerformanceMonitor';
-import { InvisibleWatermark, DMCATrackingPixel } from '@/components/InvisibleWatermark';
+import {
+  InvisibleWatermark,
+  DMCATrackingPixel,
+} from '@/components/InvisibleWatermark';
 import { ScraperDetection } from '@/components/ScraperDetection';
 import { CopyrightProtection } from '@/components/CopyrightProtection';
+import Newsletter from '@/components/Newsletter';
 
 // Professional serif font for government/institutional compliance
 const libreBaskerville = Libre_Baskerville({
@@ -44,7 +48,9 @@ export const viewport: Viewport = {
 
 // Cache bust: 2025-11-22T09:14:55Z
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://www.elevateforhumanity.org'
+  ),
   title: 'Elevate for Humanity | Workforce Training & Career Development',
   description:
     'Career & Technical training that elevates communities. FREE workforce development programs through WIOA funding.',
@@ -129,13 +135,19 @@ export default function RootLayout({
     <html lang="en" className={libreBaskerville.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="icon" href="/favicon.png" type="image/png"
-sizes="192x192" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
+        <link
+          rel="apple-touch-icon"
+          href="/apple-touch-icon.png"
+          sizes="180x180"
+        />
         <meta name="theme-color" content="#10b981" />
         <StructuredData />
       </head>
-      <body className={`${libreBaskerville.className} antialiased bg-white`} style={{ fontSize: '16px' }}>
+      <body
+        className={`${libreBaskerville.className} antialiased bg-white`}
+        style={{ fontSize: '16px' }}
+      >
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brandPrimary focus:text-white focus:rounded-md focus:shadow-lg"
@@ -152,7 +164,10 @@ sizes="192x192" />
         {/* <ScraperDetection /> */}
         <MainHeader />
         <Breadcrumbs />
-        <main id="main-content" className="min-h-screen">{children}</main>
+        <main id="main-content" className="min-h-screen">
+          {children}
+        </main>
+        <Newsletter />
         <SiteFooter />
         <AILiveChat />
         <CookieBanner />
@@ -161,20 +176,20 @@ sizes="192x192" />
           position="top-right"
           toastOptions={{
             style: {
-              borderRadius: "12px",
-              fontSize: "0.875rem",
-              padding: "12px 16px",
+              borderRadius: '12px',
+              fontSize: '0.875rem',
+              padding: '12px 16px',
             },
             success: {
               iconTheme: {
-                primary: "#22c55e",
-                secondary: "#fff",
+                primary: '#22c55e',
+                secondary: '#fff',
               },
             },
             error: {
               iconTheme: {
-                primary: "#ef4444",
-                secondary: "#fff",
+                primary: '#ef4444',
+                secondary: '#fff',
               },
             },
           }}
