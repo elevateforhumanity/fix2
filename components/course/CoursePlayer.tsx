@@ -151,24 +151,24 @@ export function CoursePlayer() {
         <div className="elevate-card">
           <h3 className="font-bold text-gray-900 mb-4">Lesson Resources</h3>
           <div className="space-y-2">
-            <a
-              href="#"
-              className="flex items-center gap-2 text-red-600 hover:text-blue-700 text-sm"
+            <button
+              onClick={() => alert('Resource download coming soon!')}
+              className="flex items-center gap-2 text-red-600 hover:text-blue-700 text-sm w-full text-left"
             >
               📄 Cutting Techniques Guide.pdf
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-2 text-red-600 hover:text-blue-700 text-sm"
+            </button>
+            <button
+              onClick={() => alert('Resource download coming soon!')}
+              className="flex items-center gap-2 text-red-600 hover:text-blue-700 text-sm w-full text-left"
             >
               📊 Practice Worksheet.pdf
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-2 text-red-600 hover:text-blue-700 text-sm"
+            </button>
+            <button
+              onClick={() => alert('Resource download coming soon!')}
+              className="flex items-center gap-2 text-red-600 hover:text-blue-700 text-sm w-full text-left"
             >
               🎥 Bonus: Advanced Tips Video
-            </a>
+            </button>
           </div>
         </div>
       </div>
