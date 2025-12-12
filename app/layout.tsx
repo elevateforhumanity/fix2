@@ -28,6 +28,7 @@ import {
 } from '@/components/InvisibleWatermark';
 import { ScraperDetection } from '@/components/ScraperDetection';
 import { CopyrightProtection } from '@/components/CopyrightProtection';
+import { SecurityMonitor, SecurityBadge } from '@/components/SecurityMonitor';
 
 // Professional serif font for government/institutional compliance
 const libreBaskerville = Libre_Baskerville({
@@ -155,10 +156,12 @@ export default function RootLayout({
         </a>
         <GoogleAnalytics />
         <FacebookPixel />
+        <SecurityMonitor />
         <CopyrightProtection />
         <InvisibleWatermark owner="Elizabeth L. Greene / Elevate for Humanity" siteId="EFH-ORIGINAL-2024" />
         <DMCATrackingPixel />
         <ScraperDetection />
+        <SecurityBadge />
         <MainHeader />
         <Breadcrumbs />
         <main id="main-content" className="min-h-screen">
