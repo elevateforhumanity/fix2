@@ -106,7 +106,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/heroes/student-career.jpg"
+                  src="https://i.imgur.com/NK9RJzf.png"
                   alt="Students training"
                   fill
                   className="object-cover"
