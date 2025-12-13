@@ -43,7 +43,13 @@ export default function HomePage() {
             Apply in minutes, explore funding options, train with support, and track your progress toward employment.
           </p>
 
-
+          <div className="mt-8">
+            <HeroVideo
+              src="/videos/success-stories-video-with-narration.mp4"
+              poster="/images/hero-poster.jpg"
+              className="mx-auto max-w-[720px]"
+            />
+          </div>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
             <Link className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-extrabold hover:bg-zinc-800 transition" href="/apply">
