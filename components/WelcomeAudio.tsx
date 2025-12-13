@@ -41,7 +41,7 @@ export function WelcomeAudio() {
     <>
       <audio
         ref={audioRef}
-        src="/videos/voiceover.mp3?v=2"
+        src="/videos/voiceover.mp3?v=3"
         preload="auto"
         onEnded={() => setIsPlaying(false)}
       />
