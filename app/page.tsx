@@ -55,6 +55,7 @@ export default function HomePage() {
               poster="/images/hero-poster.jpg"
               className="mx-auto max-w-[720px]"
               autoplay={true}
+              audioTrack="/videos/voiceover.mp3"
             />
           </div>
 
