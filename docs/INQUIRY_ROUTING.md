@@ -77,22 +77,26 @@ The program slug is passed as a query parameter to pre-populate the program fiel
 
 ## Program Slug Reference
 
-All program slugs that can be passed via URL parameter:
+All canonical program slugs that can be passed via URL parameter:
 
 - `barber-apprenticeship`
 - `cna`
 - `hvac-technician`
+- `building-maintenance`
 - `building-technician`
 - `cdl`
-- `medical-assistant`
-- `direct-support-professional`
-- `tax-prep-financial-services`
-- `esthetician-beauty-services`
-- `life-coach-certification`
-- `peer-recovery-specialist`
+- `direct-support-professional` (formerly medical-assistant)
 - `workforce-readiness`
-- `business-fundamentals`
-- `health-wellness-coaching`
+- `beauty-career-educator`
+- `business-startup-marketing`
+- `emergency-health-safety-tech`
+- `home-health-aide`
+- `professional-esthetician`
+- `peer-recovery-coach`
+- `tax-prep-financial-services`
+- `cpr-certification`
+
+**Note**: See `docs/CANONICAL_SLUGS.md` for the complete authoritative list with redirect mappings.
 
 ## Testing Checklist
 
