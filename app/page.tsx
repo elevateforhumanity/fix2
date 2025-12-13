@@ -52,6 +52,9 @@ export default function HomePage() {
           playsInline
           preload="auto"
           controls={false}
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
+          style={{ pointerEvents: 'none' }}
         />
 
         {/* Optional overlay */}
