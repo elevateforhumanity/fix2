@@ -28,7 +28,6 @@ const navigation = [
     name: 'Marketing',
     icon: Sparkles,
     children: [
-      { name: 'Elevate AI Marketing', href: '/admin/elevate-ai' },
       { name: 'Email Marketing', href: '/admin/email-marketing' },
       { name: 'Social Media', href: '/admin/social-media' },
       { name: 'Automation', href: '/admin/email-marketing/automation' },
@@ -64,7 +63,7 @@ const navigation = [
     children: [
       { name: 'All Students', href: '/admin/students' },
       { name: 'Onboarding', href: '/onboarding' },
-      { name: 'Attendance', href: '/lms/attendance' },
+      { name: 'Attendance', href: '/lms/(app)/attendance' },
       { name: 'Progress Tracking', href: '/admin/analytics/learning' },
     ]
   },
@@ -72,7 +71,7 @@ const navigation = [
     name: 'Staff Management',
     icon: UserCheck,
     children: [
-      { name: 'Staff Directory', href: '/admin/staff' },
+      { name: 'Staff Directory', href: '/admin/hr/employees' },
       { name: 'Staff Onboarding', href: '/onboarding/staff' },
       { name: 'Performance', href: '/admin/instructors/performance' },
     ]
