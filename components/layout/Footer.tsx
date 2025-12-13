@@ -109,6 +109,55 @@ export function SiteFooter() {
             </div>
           </div>
 
+          {/* Portals */}
+          <div>
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-900">
+              Portals
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/student/dashboard"
+                  className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
+                >
+                  Student Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/instructor/dashboard"
+                  className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
+                >
+                  Instructor Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/admin"
+                  className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
+                >
+                  Admin Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/lms"
+                  className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
+                >
+                  LMS Portal
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/login"
+                  className="text-blue-600 hover:text-blue-700 transition text-sm font-bold"
+                >
+                  Login →
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Quick Actions */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-900">
@@ -117,7 +166,7 @@ export function SiteFooter() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/apply"
+                  href="/contact"
                   className="text-orange-600 hover:text-orange-700 transition text-sm font-bold"
                 >
                   Apply Now →
@@ -125,18 +174,18 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/schedule-tour"
+                  href="/programs"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Schedule a Tour
+                  View Programs
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/request-info"
+                  href="/funding"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Request Information
+                  Funding Options
                 </Link>
               </li>
             </ul>
