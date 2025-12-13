@@ -2,6 +2,16 @@
 
 import type { Program } from '@/app/data/programs';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+const AffirmButton = dynamic(() => import('@/components/AffirmButton'), {
+  ssr: false,
+  loading: () => (
+    <button className="w-full rounded-lg bg-purple-600 px-6 py-3 text-sm font-bold text-white opacity-50 cursor-not-allowed">
+      Loading Affirm...
+    </button>
+  ),
+});
 
 export function ProgramDetails({ program }: { program: Program }) {
   const isBarberProgram = program.slug === 'barber-apprenticeship';
@@ -289,6 +299,16 @@ export function ProgramDetails({ program }: { program: Program }) {
                   * Payment plans subject to credit approval. 0% APR for 3-24
                   months available for qualified buyers.
                 </p>
+              </div>
+
+              {/* Affirm Button */}
+              <div className="mt-4">
+                <AffirmButton
+                  programId={program.slug}
+                  programName={program.name}
+                  price={6500}
+                  fullWidth={true}
+                />
               </div>
             </div>
           )}
