@@ -16,11 +16,9 @@ export function WelcomeAudio() {
           .then(() => {
             setIsPlaying(true);
             setShowButton(false);
-            console.log('Voiceover playing');
           })
-          .catch((err) => {
+          .catch(() => {
             // Autoplay blocked - show button
-            console.log('Voiceover autoplay blocked:', err);
             setShowButton(true);
           });
       }

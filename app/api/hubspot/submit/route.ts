@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { logger } from "@/lib/logger";
 
 export const runtime = "nodejs";
 
@@ -28,7 +29,7 @@ export async function POST(req: Request) {
     const token = process.env.HUBSPOT_PRIVATE_APP_TOKEN || process.env.HUBSPOT_API_KEY;
 
     if (!portalId || !formGuid || !token) {
-      console.error("HubSpot configuration missing");
+      logger.error("HubSpot configuration missing");
       // Fallback to email if HubSpot not configured
       return NextResponse.json({
         ok: true,
@@ -68,7 +69,7 @@ export async function POST(req: Request) {
     const data = await res.json().catch(() => ({}));
 
     if (!res.ok) {
-      console.error("HubSpot submission failed:", data);
+      logger.error("HubSpot submission failed", { data });
       return NextResponse.json(
         {
           ok: false,
@@ -81,7 +82,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true, data });
   } catch (error: any) {
-    console.error("HubSpot API error:", error);
+    logger.error("HubSpot API error", error as Error);
     return NextResponse.json(
       {
         ok: false,

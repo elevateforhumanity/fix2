@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe/client';
 import Stripe from 'stripe';
+import { logger } from '@/lib/logger';
 
 export const runtime = 'nodejs';
 
@@ -44,7 +45,7 @@ export async function POST(req: Request) {
       const appsIncluded = session.metadata?.appsIncluded;
       const customerEmail = session.customer_details?.email;
 
-      console.log('✅ Purchase completed:', {
+      logger.info('Purchase completed', {
         sessionId: session.id,
         customerEmail,
         productId,
@@ -93,7 +94,7 @@ export async function POST(req: Request) {
     case 'customer.subscription.deleted': {
       const subscription = event.data.object as Stripe.Subscription;
       
-      console.log(`Subscription ${event.type}:`, {
+      logger.info(`Subscription ${event.type}`, {
         subscriptionId: subscription.id,
         customerId: subscription.customer,
         status: subscription.status,
@@ -106,7 +107,7 @@ export async function POST(req: Request) {
     case 'invoice.payment_succeeded': {
       const invoice = event.data.object as Stripe.Invoice;
       
-      console.log('Invoice paid:', {
+      logger.info('Invoice paid', {
         invoiceId: invoice.id,
         customerId: invoice.customer,
         amountPaid: invoice.amount_paid,
@@ -119,7 +120,7 @@ export async function POST(req: Request) {
     case 'invoice.payment_failed': {
       const invoice = event.data.object as Stripe.Invoice;
       
-      console.log('Invoice payment failed:', {
+      logger.warn('Invoice payment failed', {
         invoiceId: invoice.id,
         customerId: invoice.customer,
       });
@@ -129,7 +130,7 @@ export async function POST(req: Request) {
     }
 
     default:
-      console.log(`Unhandled event type: ${event.type}`);
+      logger.debug(`Unhandled event type: ${event.type}`);
   }
 
   return NextResponse.json({ received: true });
