@@ -188,6 +188,14 @@ export function SiteFooter() {
                   Funding Options
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/store"
+                  className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
+                >
+                  Store
+                </Link>
+              </li>
             </ul>
           </div>
 
