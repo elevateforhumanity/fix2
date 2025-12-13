@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import Link from 'next/link';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const nav = [
-  { href: "/programs", label: "Programs" },
-  { href: "/funding", label: "Funding" },
-  { href: "/platform", label: "Platform" },
-  { href: "/store", label: "Store" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: '/programs', label: 'Programs' },
+  { href: '/funding', label: 'Funding' },
+  { href: '/platform', label: 'Platform' },
+  { href: '/store', label: 'Store' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function SiteHeader() {
@@ -26,7 +26,11 @@ export default function SiteHeader() {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-6">
           {nav.map((i) => (
-            <Link key={i.href} href={i.href} className="font-bold text-zinc-800 hover:text-zinc-950 transition">
+            <Link
+              key={i.href}
+              href={i.href}
+              className="font-bold text-zinc-800 hover:text-zinc-950 transition"
+            >
               {i.label}
             </Link>
           ))}
@@ -58,38 +62,47 @@ export default function SiteHeader() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Full Screen Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed top-16 left-0 right-0 bg-white border-t border-zinc-100 shadow-lg z-40 max-h-[calc(100vh-4rem)] overflow-y-auto">
-          <nav className="px-4 py-4 space-y-2">
-            {nav.map((i) => (
-              <Link
-                key={i.href}
-                href={i.href}
-                className="block px-4 py-3 rounded-lg font-bold text-zinc-800 hover:bg-zinc-50 transition"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {i.label}
-              </Link>
-            ))}
-            <div className="pt-4 space-y-2">
-              <Link
-                href="/platform/licensing"
-                className="block text-center rounded-xl border border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                License
-              </Link>
-              <Link
-                href="/apply"
-                className="block text-center rounded-xl bg-zinc-900 text-white px-4 py-3 font-extrabold hover:bg-zinc-800 transition"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Apply
-              </Link>
-            </div>
-          </nav>
-        </div>
+        <>
+          {/* Backdrop */}
+          <div
+            className="lg:hidden fixed inset-0 bg-black/40 z-40"
+            onClick={() => setMobileMenuOpen(false)}
+          />
+
+          {/* Menu Panel */}
+          <div className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white z-50 overflow-y-auto">
+            <nav className="px-4 py-6 space-y-2">
+              {nav.map((i) => (
+                <Link
+                  key={i.href}
+                  href={i.href}
+                  className="block px-4 py-3 rounded-lg font-bold text-zinc-800 hover:bg-zinc-50 transition"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {i.label}
+                </Link>
+              ))}
+              <div className="pt-4 space-y-2">
+                <Link
+                  href="/platform/licensing"
+                  className="block text-center rounded-xl border border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  License
+                </Link>
+                <Link
+                  href="/apply"
+                  className="block text-center rounded-xl bg-zinc-900 text-white px-4 py-3 font-extrabold hover:bg-zinc-800 transition"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Apply
+                </Link>
+              </div>
+            </nav>
+          </div>
+        </>
       )}
     </header>
   );
