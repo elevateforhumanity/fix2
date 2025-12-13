@@ -53,7 +53,7 @@ export default function HomePage() {
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
             <Link className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-extrabold hover:bg-zinc-800 transition" href="/apply">
-              Start an Application
+              Start Inquiry
             </Link>
             <Link className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-extrabold hover:bg-zinc-50 transition" href="/funding">
               See Funding Options

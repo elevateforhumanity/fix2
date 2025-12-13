@@ -1,39 +1,79 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
 export default function TalkToAdvisorPage() {
+  const searchParams = useSearchParams();
+  const programParam = searchParams.get('program');
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    program: '',
+    program: programParam || '',
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
+  // Update program field when URL parameter changes
+  useEffect(() => {
+    if (programParam && !formData.program) {
+      setFormData(prev => ({ ...prev, program: programParam }));
+    }
+  }, [programParam, formData.program]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus('loading');
     
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`Application Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Phone: ${formData.phone}\n` +
-      `Program Interest: ${formData.program}\n\n` +
-      `Message:\n${formData.message}`
-    );
-    
-    window.location.href = `mailto:elevate4humanityedu@gmail.com?subject=${subject}&body=${body}`;
-    
-    // Show success message
-    setStatus('success');
-    setTimeout(() => {
-      setFormData({ name: '', email: '', phone: '', program: '', message: '' });
-      setStatus('idle');
-    }, 3000);
+    try {
+      // Split name into first and last
+      const nameParts = formData.name.trim().split(' ');
+      const firstname = nameParts[0] || '';
+      const lastname = nameParts.slice(1).join(' ') || '';
+
+      const response = await fetch('/api/hubspot/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstname,
+          lastname,
+          email: formData.email,
+          phone: formData.phone,
+          program: formData.program,
+          message: formData.message,
+          source: 'website-inquiry',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.ok) {
+        setStatus('success');
+        setTimeout(() => {
+          setFormData({ name: '', email: '', phone: '', program: programParam || '', message: '' });
+          setStatus('idle');
+        }, 3000);
+      } else {
+        // Fallback to mailto if HubSpot fails
+        const subject = encodeURIComponent(`Application Inquiry from ${formData.name}`);
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n` +
+          `Phone: ${formData.phone}\n` +
+          `Program Interest: ${formData.program}\n\n` +
+          `Message:\n${formData.message}`
+        );
+        window.location.href = `mailto:elevate4humanityedu@gmail.com?subject=${subject}&body=${body}`;
+        setStatus('success');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+    }
   };
 
   return (
