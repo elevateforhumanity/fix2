@@ -38,20 +38,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* HEALTHCARE FEATURE */}
-      <section className="px-4 sm:px-6 lg:px-10 py-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="relative w-full h-[400px] rounded-2xl overflow-hidden border border-zinc-200 shadow-sm">
-            <Image
-              src="https://i.imgur.com/Kt6ka8p.png"
-              alt="Healthcare training"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* HOW IT WORKS */}
       <section className="px-4 sm:px-6 lg:px-10 py-12 bg-zinc-50 border-y border-zinc-100">
         <div className="mx-auto max-w-4xl text-center">
@@ -65,9 +51,10 @@ export default function HomePage() {
 
           <div className="mt-8">
             <HeroVideo
-              src="/videos/success-stories-video-with-narration.mp4"
+              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081015965&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=fwtxvsJ3fGCiy7h-WVThfMnTuXKQtpc9LWM~kg0TsaHYrn6L1E7JAMIDWzOITL5hadnTgit7SsnNIGYpRDHrEPRBFE57NVrnkLerXFSp0u5ndhF6a9AKPUbn4gz1p-tD2EL~TYBqANxs8NFxr9~nZyJZ5q6U4AK4ud5c9HT5UIwXRiffDKihpeaWE3TVjWZlqHH~DeNcDvwYwqFV8dGkNTeimlQeodAW-CKcO1-2Sa1hWpkf2FSqrAWESFqm1nXf4R2C8Ienk1XjHB2GDcERkC2foaNVSiMWTzEUT~xsAMwXVI0NFa1pJWsAE6IvafyshwE~k~add1c1dJw6DAtfSw__"
               poster="/images/hero-poster.jpg"
               className="mx-auto max-w-[720px]"
+              autoplay={true}
             />
           </div>
 
