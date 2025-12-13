@@ -53,18 +53,6 @@ export default function HomePage() {
             track your progress toward employment.
           </p>
 
-          <div className="mt-8 mx-auto max-w-[720px]">
-            <video
-              src="/videos/success-stories-video-with-narration.mp4"
-              poster="/images/hero-poster.jpg"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full rounded-2xl shadow-sm border border-zinc-200 bg-black"
-            />
-          </div>
-
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-bold hover:bg-zinc-800 transition"
