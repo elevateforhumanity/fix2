@@ -1,61 +1,78 @@
 // components/layout/MainNav.tsx
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { Menu, X, ChevronDown, Search } from "lucide-react";
-import clsx from "clsx";
-import { PremiumMobileNav } from "./PremiumMobileNav";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { Menu, X, ChevronDown, Search } from 'lucide-react';
+import clsx from 'clsx';
+import { PremiumMobileNav } from './PremiumMobileNav';
 
 // Student Portal URL
-const STUDENT_PORTAL_URL = "/portal";
+const STUDENT_PORTAL_URL = '/portal';
 
 // Main Programs dropdown items (Elevate-run programs)
 const programsLinks = [
-  { href: "/programs/medical-assistant", label: "Medical Assistant" },
-  { href: "/programs/barber-apprenticeship", label: "Barber Apprenticeship" },
-  { href: "/programs/hvac", label: "HVAC Technician" },
-  { href: "/programs/building-tech", label: "Building Maintenance Tech" },
-  { href: "/programs/cdl", label: "CDL / Transportation" },
-  { href: "/programs/workforce-readiness", label: "Workforce Readiness" },
-  { href: "/programs", label: "View All Programs →" },
+  { href: '/programs/medical-assistant', label: 'Medical Assistant' },
+  { href: '/programs/barber-apprenticeship', label: 'Barber Apprenticeship' },
+  { href: '/programs/hvac-technician', label: 'HVAC Technician' },
+  {
+    href: '/programs/building-maintenance',
+    label: 'Building Maintenance Tech',
+  },
+  { href: '/programs/cdl', label: 'CDL / Transportation' },
+  { href: '/programs/workforce-readiness', label: 'Workforce Readiness' },
+  { href: '/programs', label: 'View All Programs →' },
 ];
 
 // Micro Classes dropdown items (Partner programs)
 const microClassesLinks = [
-  { href: "/micro-classes#cpr-certification", label: "CPR Certification" },
-  { href: "/micro-classes#phlebotomy", label: "Phlebotomy Technician" },
-  { href: "/micro-classes#ekg-technician", label: "EKG Technician" },
-  { href: "/micro-classes#pharmacy-technician", label: "Pharmacy Technician" },
-  { href: "/micro-classes#dental-assistant", label: "Dental Assistant" },
-  { href: "/micro-classes#patient-care-technician", label: "Patient Care Technician" },
-  { href: "/micro-classes#sterile-processing", label: "Sterile Processing" },
-  { href: "/micro-classes#healthcare-administration", label: "Healthcare Administration" },
-  { href: "/micro-classes", label: "View All Micro Classes →" },
+  { href: '/micro-classes#cpr-certification', label: 'CPR Certification' },
+  { href: '/micro-classes#phlebotomy', label: 'Phlebotomy Technician' },
+  { href: '/micro-classes#ekg-technician', label: 'EKG Technician' },
+  { href: '/micro-classes#pharmacy-technician', label: 'Pharmacy Technician' },
+  { href: '/micro-classes#dental-assistant', label: 'Dental Assistant' },
+  {
+    href: '/micro-classes#patient-care-technician',
+    label: 'Patient Care Technician',
+  },
+  { href: '/micro-classes#sterile-processing', label: 'Sterile Processing' },
+  {
+    href: '/micro-classes#healthcare-administration',
+    label: 'Healthcare Administration',
+  },
+  { href: '/micro-classes', label: 'View All Micro Classes →' },
 ];
 
 // Funding dropdown items
 const fundingLinks = [
-  { href: "/funding/state-programs", label: "State Programs" },
-  { href: "/funding/federal-programs", label: "Federal Programs" },
+  { href: '/funding/state-programs', label: 'State Programs' },
+  { href: '/funding/federal-programs', label: 'Federal Programs' },
 ];
 
 const mainLinks = [
-  { href: "/students", label: "For Students" },
-  { href: "/employers", label: "For Employers" },
-  { href: "/store", label: "Store" },
-  { href: "/demos", label: "Demos" },
-  { href: "https://elevateforhumanityeducation.com", label: "LMS", external: true },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-  { href: "/blog", label: "Blog" },
+  { href: '/students', label: 'For Students' },
+  { href: '/employers', label: 'For Employers' },
+  { href: '/store', label: 'Store' },
+  { href: '/demos', label: 'Demos' },
+  {
+    href: 'https://elevateforhumanityeducation.com',
+    label: 'LMS',
+    external: true,
+  },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/blog', label: 'Blog' },
 ];
 
 const portalLinks = [
-  { href: "/student/dashboard", label: "Student Portal" },
-  { href: "/admin", label: "Admin Dashboard" },
-  { href: "https://elevateforhumanityeducation.com", label: "LMS", external: true },
+  { href: '/student/dashboard', label: 'Student Portal' },
+  { href: '/admin', label: 'Admin Dashboard' },
+  {
+    href: 'https://elevateforhumanityeducation.com',
+    label: 'LMS',
+    external: true,
+  },
 ];
 
 export function MainNav() {
@@ -69,18 +86,21 @@ export function MainNav() {
   const [mobileFundingOpen, setMobileFundingOpen] = useState(false);
   const [portalsOpen, setPortalsOpen] = useState(false);
   const [mobilePortalsOpen, setMobilePortalsOpen] = useState(false);
-  
+
   // Timeout refs for delayed closing - use useRef instead of useState
-  const [programsTimeoutRef, setProgramsTimeoutRef] = useState<NodeJS.Timeout | null>(null);
-  const [microClassesTimeoutRef, setMicroClassesTimeoutRef] = useState<NodeJS.Timeout | null>(null);
-  const [fundingTimeoutRef, setFundingTimeoutRef] = useState<NodeJS.Timeout | null>(null);
+  const [programsTimeoutRef, setProgramsTimeoutRef] =
+    useState<NodeJS.Timeout | null>(null);
+  const [microClassesTimeoutRef, setMicroClassesTimeoutRef] =
+    useState<NodeJS.Timeout | null>(null);
+  const [fundingTimeoutRef, setFundingTimeoutRef] =
+    useState<NodeJS.Timeout | null>(null);
 
   // Helper functions for delayed dropdown closing
   const handleProgramsEnter = () => {
     if (programsTimeoutRef) clearTimeout(programsTimeoutRef);
     setProgramsOpen(true);
   };
-  
+
   const handleProgramsLeave = () => {
     const timeout = setTimeout(() => setProgramsOpen(false), 500);
     setProgramsTimeoutRef(timeout);
@@ -90,7 +110,7 @@ export function MainNav() {
     if (microClassesTimeoutRef) clearTimeout(microClassesTimeoutRef);
     setMicroClassesOpen(true);
   };
-  
+
   const handleMicroClassesLeave = () => {
     const timeout = setTimeout(() => setMicroClassesOpen(false), 500);
     setMicroClassesTimeoutRef(timeout);
@@ -100,7 +120,7 @@ export function MainNav() {
     if (fundingTimeoutRef) clearTimeout(fundingTimeoutRef);
     setFundingOpen(true);
   };
-  
+
   const handleFundingLeave = () => {
     const timeout = setTimeout(() => setFundingOpen(false), 500);
     setFundingTimeoutRef(timeout);
@@ -128,11 +148,21 @@ export function MainNav() {
 
   return (
     <>
-      <header className="border-b border-slate-200 bg-white/95 backdrop-blur sticky top-0 z-40" role="banner">
+      <header
+        className="border-b border-slate-200 bg-white/95 backdrop-blur sticky top-0 z-40"
+        role="banner"
+      >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-3 md:px-10">
           {/* Logo / Brand */}
-          <Link href="/" className="flex items-center gap-2" aria-label="Elevate For Humanity Home">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-red-500 text-white text-xs font-black uppercase" aria-hidden="true">
+          <Link
+            href="/"
+            className="flex items-center gap-2"
+            aria-label="Elevate For Humanity Home"
+          >
+            <div
+              className="flex h-9 w-9 items-center justify-center rounded-xl bg-red-500 text-white text-xs font-black uppercase"
+              aria-hidden="true"
+            >
               EFH
             </div>
             <div className="flex flex-col leading-tight">
@@ -146,27 +176,37 @@ export function MainNav() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-6 text-xs md:flex" role="navigation" aria-label="Main navigation">
+          <nav
+            className="hidden items-center gap-6 text-xs md:flex"
+            role="navigation"
+            aria-label="Main navigation"
+          >
             {/* Programs Dropdown */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={handleProgramsEnter}
               onMouseLeave={handleProgramsLeave}
             >
               <button
                 className={clsx(
-                  "flex items-center gap-1 transition hover:text-red-600",
-                  pathname?.startsWith("/programs")
-                    ? "text-red-600 font-semibold"
-                    : "text-slate-700"
+                  'flex items-center gap-1 transition hover:text-red-600',
+                  pathname?.startsWith('/programs')
+                    ? 'text-red-600 font-semibold'
+                    : 'text-slate-700'
                 )}
                 aria-expanded={programsOpen}
                 aria-haspopup="true"
               >
                 Programs
-                <ChevronDown size={14} className={clsx("transition-transform", programsOpen && "rotate-180")} />
+                <ChevronDown
+                  size={14}
+                  className={clsx(
+                    'transition-transform',
+                    programsOpen && 'rotate-180'
+                  )}
+                />
               </button>
-              
+
               {programsOpen && (
                 <div className="absolute top-full left-0 pt-2 z-50">
                   <div className="w-64 bg-white rounded-lg shadow-xl border border-slate-200 py-2">
@@ -175,10 +215,10 @@ export function MainNav() {
                         key={link.href}
                         href={link.href}
                         className={clsx(
-                          "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
+                          'block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600',
                           pathname === link.href
-                            ? "text-red-600 font-semibold bg-red-50"
-                            : "text-slate-700"
+                            ? 'text-red-600 font-semibold bg-red-50'
+                            : 'text-slate-700'
                         )}
                       >
                         {link.label}
@@ -190,25 +230,31 @@ export function MainNav() {
             </div>
 
             {/* Micro Classes Dropdown */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={handleMicroClassesEnter}
               onMouseLeave={handleMicroClassesLeave}
             >
               <button
                 className={clsx(
-                  "flex items-center gap-1 transition hover:text-red-600",
-                  pathname?.startsWith("/micro-classes")
-                    ? "text-red-600 font-semibold"
-                    : "text-slate-700"
+                  'flex items-center gap-1 transition hover:text-red-600',
+                  pathname?.startsWith('/micro-classes')
+                    ? 'text-red-600 font-semibold'
+                    : 'text-slate-700'
                 )}
                 aria-expanded={microClassesOpen}
                 aria-haspopup="true"
               >
                 Micro Classes
-                <ChevronDown size={14} className={clsx("transition-transform", microClassesOpen && "rotate-180")} />
+                <ChevronDown
+                  size={14}
+                  className={clsx(
+                    'transition-transform',
+                    microClassesOpen && 'rotate-180'
+                  )}
+                />
               </button>
-              
+
               {microClassesOpen && (
                 <div className="absolute top-full left-0 pt-2 z-50">
                   <div className="w-64 bg-white rounded-lg shadow-xl border border-slate-200 py-2">
@@ -217,10 +263,10 @@ export function MainNav() {
                         key={link.href}
                         href={link.href}
                         className={clsx(
-                          "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
+                          'block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600',
                           pathname === link.href
-                            ? "text-red-600 font-semibold bg-red-50"
-                            : "text-slate-700"
+                            ? 'text-red-600 font-semibold bg-red-50'
+                            : 'text-slate-700'
                         )}
                       >
                         {link.label}
@@ -232,25 +278,31 @@ export function MainNav() {
             </div>
 
             {/* Funding Dropdown */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={() => setFundingOpen(true)}
               onMouseLeave={() => setFundingOpen(false)}
             >
               <button
                 className={clsx(
-                  "flex items-center gap-1 transition hover:text-red-600",
-                  pathname?.startsWith("/funding")
-                    ? "text-red-600 font-semibold"
-                    : "text-slate-700"
+                  'flex items-center gap-1 transition hover:text-red-600',
+                  pathname?.startsWith('/funding')
+                    ? 'text-red-600 font-semibold'
+                    : 'text-slate-700'
                 )}
                 aria-expanded={fundingOpen}
                 aria-haspopup="true"
               >
                 Funding
-                <ChevronDown size={14} className={clsx("transition-transform", fundingOpen && "rotate-180")} />
+                <ChevronDown
+                  size={14}
+                  className={clsx(
+                    'transition-transform',
+                    fundingOpen && 'rotate-180'
+                  )}
+                />
               </button>
-              
+
               {fundingOpen && (
                 <div className="absolute top-full left-0 pt-2 z-50">
                   <div className="w-56 bg-white rounded-lg shadow-xl border border-slate-200 py-2">
@@ -259,10 +311,10 @@ export function MainNav() {
                         key={link.href}
                         href={link.href}
                         className={clsx(
-                          "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
+                          'block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600',
                           pathname === link.href
-                            ? "text-red-600 font-semibold bg-red-50"
-                            : "text-slate-700"
+                            ? 'text-red-600 font-semibold bg-red-50'
+                            : 'text-slate-700'
                         )}
                       >
                         {link.label}
@@ -274,25 +326,33 @@ export function MainNav() {
             </div>
 
             {/* Portals Dropdown */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={() => setPortalsOpen(true)}
               onMouseLeave={() => setPortalsOpen(false)}
             >
               <button
                 className={clsx(
-                  "flex items-center gap-1 transition hover:text-red-600",
-                  (pathname?.startsWith("/portal") || pathname?.startsWith("/lms") || pathname?.startsWith("/admin"))
-                    ? "text-red-600 font-semibold"
-                    : "text-slate-700"
+                  'flex items-center gap-1 transition hover:text-red-600',
+                  pathname?.startsWith('/portal') ||
+                    pathname?.startsWith('/lms') ||
+                    pathname?.startsWith('/admin')
+                    ? 'text-red-600 font-semibold'
+                    : 'text-slate-700'
                 )}
                 aria-expanded={portalsOpen}
                 aria-haspopup="true"
               >
                 Portals
-                <ChevronDown size={14} className={clsx("transition-transform", portalsOpen && "rotate-180")} />
+                <ChevronDown
+                  size={14}
+                  className={clsx(
+                    'transition-transform',
+                    portalsOpen && 'rotate-180'
+                  )}
+                />
               </button>
-              
+
               {portalsOpen && (
                 <div className="absolute top-full left-0 pt-2 z-50">
                   <div className="w-48 bg-white rounded-lg shadow-xl border border-slate-200 py-2">
@@ -301,10 +361,10 @@ export function MainNav() {
                         key={link.href}
                         href={link.href}
                         className={clsx(
-                          "block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600",
+                          'block px-4 py-2 text-xs transition hover:bg-red-50 hover:text-red-600',
                           pathname === link.href
-                            ? "text-red-600 font-semibold bg-red-50"
-                            : "text-slate-700"
+                            ? 'text-red-600 font-semibold bg-red-50'
+                            : 'text-slate-700'
                         )}
                       >
                         {link.label}
@@ -320,14 +380,18 @@ export function MainNav() {
               <Link
                 key={link.href}
                 href={link.href}
-                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...(link.external
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
                 className={clsx(
-                  "transition hover:text-red-600",
+                  'transition hover:text-red-600',
                   pathname?.startsWith(link.href)
-                    ? "text-red-600 font-semibold"
-                    : "text-slate-700"
+                    ? 'text-red-600 font-semibold'
+                    : 'text-slate-700'
                 )}
-                aria-current={pathname?.startsWith(link.href) ? "page" : undefined}
+                aria-current={
+                  pathname?.startsWith(link.href) ? 'page' : undefined
+                }
               >
                 {link.label}
               </Link>
@@ -343,7 +407,8 @@ export function MainNav() {
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') {
                     const query = (e.target as HTMLInputElement).value;
-                    if (query) window.location.href = `/search?q=${encodeURIComponent(query)}`;
+                    if (query)
+                      window.location.href = `/search?q=${encodeURIComponent(query)}`;
                   }
                 }}
               />
@@ -382,7 +447,7 @@ export function MainNav() {
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
-          
+
           {/* Drawer */}
           <div
             className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white z-50 md:hidden overflow-y-auto shadow-2xl"
@@ -397,7 +462,9 @@ export function MainNav() {
                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-500 text-white text-xs font-black uppercase">
                     EFH
                   </div>
-                  <span className="text-sm font-semibold text-slate-900">Menu</span>
+                  <span className="text-sm font-semibold text-slate-900">
+                    Menu
+                  </span>
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
@@ -407,9 +474,13 @@ export function MainNav() {
                   <X size={24} />
                 </button>
               </div>
-              
+
               {/* Navigation Links */}
-              <nav className="flex-1 p-6 space-y-2 overflow-y-auto" role="navigation" aria-label="Mobile navigation">
+              <nav
+                className="flex-1 p-6 space-y-2 overflow-y-auto"
+                role="navigation"
+                aria-label="Mobile navigation"
+              >
                 {/* Programs Section */}
                 <div className="space-y-1">
                   <button
@@ -417,7 +488,13 @@ export function MainNav() {
                     className="w-full flex items-center justify-between py-3 px-4 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 transition touch-manipulation"
                   >
                     <span>Programs</span>
-                    <ChevronDown size={16} className={clsx("transition-transform", mobileProgramsOpen && "rotate-180")} />
+                    <ChevronDown
+                      size={16}
+                      className={clsx(
+                        'transition-transform',
+                        mobileProgramsOpen && 'rotate-180'
+                      )}
+                    />
                   </button>
                   {mobileProgramsOpen && (
                     <div className="pl-4 space-y-1">
@@ -426,10 +503,10 @@ export function MainNav() {
                           key={link.href}
                           href={link.href}
                           className={clsx(
-                            "block py-2 px-4 rounded-lg text-sm transition touch-manipulation",
+                            'block py-2 px-4 rounded-lg text-sm transition touch-manipulation',
                             pathname === link.href
-                              ? "bg-red-50 text-red-600 font-medium"
-                              : "text-slate-600 hover:bg-slate-50"
+                              ? 'bg-red-50 text-red-600 font-medium'
+                              : 'text-slate-600 hover:bg-slate-50'
                           )}
                           onClick={() => setMobileMenuOpen(false)}
                         >
@@ -443,11 +520,19 @@ export function MainNav() {
                 {/* Micro Classes Section */}
                 <div className="space-y-1">
                   <button
-                    onClick={() => setMobileMicroClassesOpen(!mobileMicroClassesOpen)}
+                    onClick={() =>
+                      setMobileMicroClassesOpen(!mobileMicroClassesOpen)
+                    }
                     className="w-full flex items-center justify-between py-3 px-4 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 transition touch-manipulation"
                   >
                     <span>Micro Classes</span>
-                    <ChevronDown size={16} className={clsx("transition-transform", mobileMicroClassesOpen && "rotate-180")} />
+                    <ChevronDown
+                      size={16}
+                      className={clsx(
+                        'transition-transform',
+                        mobileMicroClassesOpen && 'rotate-180'
+                      )}
+                    />
                   </button>
                   {mobileMicroClassesOpen && (
                     <div className="pl-4 space-y-1">
@@ -456,10 +541,10 @@ export function MainNav() {
                           key={link.href}
                           href={link.href}
                           className={clsx(
-                            "block py-2 px-4 rounded-lg text-sm transition touch-manipulation",
+                            'block py-2 px-4 rounded-lg text-sm transition touch-manipulation',
                             pathname === link.href
-                              ? "bg-red-50 text-red-600 font-medium"
-                              : "text-slate-600 hover:bg-slate-50"
+                              ? 'bg-red-50 text-red-600 font-medium'
+                              : 'text-slate-600 hover:bg-slate-50'
                           )}
                           onClick={() => setMobileMenuOpen(false)}
                         >
@@ -477,7 +562,13 @@ export function MainNav() {
                     className="w-full flex items-center justify-between py-3 px-4 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 transition touch-manipulation"
                   >
                     <span>Funding</span>
-                    <ChevronDown size={16} className={clsx("transition-transform", mobileFundingOpen && "rotate-180")} />
+                    <ChevronDown
+                      size={16}
+                      className={clsx(
+                        'transition-transform',
+                        mobileFundingOpen && 'rotate-180'
+                      )}
+                    />
                   </button>
                   {mobileFundingOpen && (
                     <div className="pl-4 space-y-1">
@@ -486,10 +577,10 @@ export function MainNav() {
                           key={link.href}
                           href={link.href}
                           className={clsx(
-                            "block py-2 px-4 rounded-lg text-sm transition touch-manipulation",
+                            'block py-2 px-4 rounded-lg text-sm transition touch-manipulation',
                             pathname === link.href
-                              ? "bg-red-50 text-red-600 font-medium"
-                              : "text-slate-600 hover:bg-slate-50"
+                              ? 'bg-red-50 text-red-600 font-medium'
+                              : 'text-slate-600 hover:bg-slate-50'
                           )}
                           onClick={() => setMobileMenuOpen(false)}
                         >
@@ -505,12 +596,14 @@ export function MainNav() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    {...(link.external
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : {})}
                     className={clsx(
-                      "block py-3 px-4 rounded-lg text-sm font-medium transition touch-manipulation",
+                      'block py-3 px-4 rounded-lg text-sm font-medium transition touch-manipulation',
                       pathname?.startsWith(link.href)
-                        ? "bg-red-50 text-red-600 border border-red-200"
-                        : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
+                        ? 'bg-red-50 text-red-600 border border-red-200'
+                        : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -518,7 +611,7 @@ export function MainNav() {
                   </Link>
                 ))}
               </nav>
-              
+
               {/* Bottom Actions */}
               <div className="p-6 border-t border-slate-200 space-y-3">
                 <Link
