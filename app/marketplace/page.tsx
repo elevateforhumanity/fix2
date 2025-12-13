@@ -9,11 +9,14 @@ export const metadata = {
   description: 'Discover digital products from our community of creators.',
 };
 
+// Revalidate every 60 seconds for better performance
+export const revalidate = 60;
+
 export default async function MarketplacePage() {
   const supabase = await createClient();
 
-  // Fetch approved products
-  const { data: products } = await supabase
+  // Fetch approved products with error handling
+  const { data: products, error: productsError } = await supabase
     .from('marketplace_products')
     .select(
       `
@@ -25,12 +28,48 @@ export default async function MarketplacePage() {
     .order('created_at', { ascending: false })
     .limit(12);
 
-  // Fetch featured creators
-  const { data: creators } = await supabase
+  // Fetch featured creators with error handling
+  const { data: creators, error: creatorsError } = await supabase
     .from('marketplace_creators')
     .select('*')
     .eq('status', 'approved')
     .limit(6);
+
+  // If tables don't exist yet, show setup message
+  if (productsError || creatorsError) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+        <div className="max-w-2xl w-full bg-white rounded-lg shadow-lg p-8 text-center">
+          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h1 className="text-3xl font-bold mb-4">Marketplace Setup Required</h1>
+          <p className="text-gray-600 mb-6">
+            The marketplace database tables need to be created. Please run the database migrations.
+          </p>
+          <div className="bg-gray-100 rounded-lg p-4 mb-6 text-left">
+            <code className="text-sm">supabase db push</code>
+          </div>
+          <div className="flex gap-4 justify-center">
+            <Link
+              href="/"
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+            >
+              Return Home
+            </Link>
+            <Link
+              href="/programs"
+              className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition"
+            >
+              View Programs
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -45,7 +84,7 @@ export default async function MarketplacePage() {
           </p>
           <Link
             href="/marketplace/apply"
-            className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
+            className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg shadow-lg hover:bg-gray-100 hover:shadow-xl transition-all"
           >
             Become a Creator
           </Link>
@@ -88,7 +127,7 @@ export default async function MarketplacePage() {
             </p>
             <Link
               href="/marketplace/apply"
-              className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+              className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all"
             >
               Apply to Sell
             </Link>
@@ -151,7 +190,7 @@ export default async function MarketplacePage() {
           </p>
           <Link
             href="/marketplace/apply"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+            className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all"
           >
             Apply Now
           </Link>
