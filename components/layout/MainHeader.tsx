@@ -27,6 +27,21 @@ export default function MainHeader() {
     };
   }, [mobileOpen]);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    if (!openMenu) return;
+    
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('[data-dropdown]')) {
+        setOpenMenu(null);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [openMenu]);
+
   return (
     <header className="bg-white/95 backdrop-blur-md z-50 sticky top-0 border-b border-slate-200 shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -63,42 +78,47 @@ export default function MainHeader() {
                 <div
                   key={section.label}
                   className="relative"
-                  onMouseEnter={() => setOpenMenu(section.label)}
-                  onMouseLeave={() => setOpenMenu(null)}
+                  data-dropdown
                 >
                   <button
                     type="button"
                     onClick={() => setOpenMenu(isOpen ? null : section.label)}
                     className={classNames(
-                      'inline-flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors',
-                      isActive && 'text-blue-600'
+                      'inline-flex items-center gap-1 px-3 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors',
+                      isActive && 'text-blue-600',
+                      isOpen && 'bg-slate-50 text-blue-600'
                     )}
                   >
                     {section.label}
-                    <ChevronDown className="h-4 w-4" />
+                    <ChevronDown className={classNames(
+                      'h-4 w-4 transition-transform',
+                      isOpen && 'rotate-180'
+                    )} />
                   </button>
 
                   {/* Dropdown panel */}
                   <div
                     className={classNames(
-                      'absolute left-0 mt-2 w-64 rounded-lg border border-slate-200 bg-white shadow-lg py-2 z-50',
+                      'absolute left-0 mt-2 w-72 rounded-lg border border-slate-200 bg-white shadow-xl py-2 z-50',
                       !isOpen && 'hidden'
                     )}
                   >
                     {section.href && (
                       <Link
                         href={section.href}
-                        className="block px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500 hover:text-blue-600 transition-colors"
+                        onClick={() => setOpenMenu(null)}
+                        className="block px-4 py-3 text-xs font-bold uppercase tracking-wide text-blue-600 hover:bg-blue-50 transition-colors border-b border-slate-100"
                       >
-                        Overview
+                        View All {section.label}
                       </Link>
                     )}
                     {section.items.map((item) => (
                       <Link
                         key={item.label}
                         href={item.href}
+                        onClick={() => setOpenMenu(null)}
                         className={classNames(
-                          'block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors rounded-md mx-1',
+                          'block px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors',
                           pathname === item.href &&
                             'bg-blue-50 text-blue-700 font-semibold'
                         )}
