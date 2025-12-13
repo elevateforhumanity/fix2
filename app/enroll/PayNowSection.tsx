@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const PROGRAMS = [
   { id: 'barber', label: 'Barber Apprenticeship', slug: 'barber-apprentice', price: 4890 },
-  { id: 'ma', label: 'Medical Assistant', slug: 'medical-assistant', price: 4325 },
+  { id: 'dsp', label: 'Direct Support Professional (DSP)', slug: 'direct-support-professional', price: 4325 },
   { id: 'hvac', label: 'HVAC Technician', slug: 'hvac-technician', price: 5000 },
   { id: 'cpr', label: 'CPR Certification', slug: 'cpr-certification', price: 575 },
   { id: 'ehst', label: 'Emergency Health & Safety Tech', slug: 'emergency-health-safety', price: 4950 },

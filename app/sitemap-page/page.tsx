@@ -35,7 +35,7 @@ const sitemapSections = [
     links: [
       { href: '/programs/barber-apprenticeship', label: 'Barber Apprenticeship' },
       { href: '/programs/cna', label: 'CNA Training' },
-      { href: '/programs/medical-assistant', label: 'Medical Assistant' },
+      { href: '/programs/direct-support-professional', label: 'Direct Support Professional (DSP)' },
       { href: '/programs/hvac-technician', label: 'HVAC Technician' },
       { href: '/programs/cdl', label: 'CDL Training' },
       { href: '/programs/tax-preparation', label: 'Tax Preparation' },

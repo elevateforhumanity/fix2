@@ -17,7 +17,7 @@ export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-zinc-100">
+    <header className="sticky top-0 z-50 bg-white border-b border-zinc-100">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
         <Link href="/" className="font-black text-zinc-900 tracking-tight">
           Elevate for Humanity
@@ -60,7 +60,7 @@ export default function SiteHeader() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-zinc-100 bg-white absolute top-16 left-0 right-0 shadow-lg z-40">
+        <div className="lg:hidden fixed top-16 left-0 right-0 bg-white border-t border-zinc-100 shadow-lg z-40 max-h-[calc(100vh-4rem)] overflow-y-auto">
           <nav className="px-4 py-4 space-y-2">
             {nav.map((i) => (
               <Link

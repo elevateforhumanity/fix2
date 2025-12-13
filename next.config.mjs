@@ -178,6 +178,18 @@ const nextConfig = {
         destination: '/programs/direct-support-professional',
         permanent: true,
       },
+      // Fix peer support professional broken route
+      {
+        source: '/programs/peer-support-professional',
+        destination: '/programs/peer-recovery-coach',
+        permanent: true,
+      },
+      // Fix orphan IT route
+      {
+        source: '/programs/it',
+        destination: '/programs/workforce-readiness',
+        permanent: false, // Temporary until confirmed
+      },
       // Blog redirect to Durable (uncomment and update URL when ready)
       // {
       //   source: '/blog',

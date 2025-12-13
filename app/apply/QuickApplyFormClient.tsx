@@ -6,7 +6,7 @@ import { useState } from 'react';
 type ProgramOption =
   | 'barber'
   | 'cna'
-  | 'medical-assistant'
+  | 'direct-support-professional'
   | 'hvac'
   | 'cdl'
   | 'building-technician'
@@ -209,7 +209,7 @@ export default function QuickApplyFormClient() {
           <option value="">Select a program</option>
           <option value="barber">Barber Apprenticeship</option>
           <option value="cna">CNA / Healthcare</option>
-          <option value="medical-assistant">Medical Assistant</option>
+          <option value="direct-support-professional">Direct Support Professional (DSP)</option>
           <option value="hvac">HVAC / Building Trades</option>
           <option value="cdl">CDL / Transportation</option>
           <option value="building-technician">Building Technician</option>

@@ -10,7 +10,7 @@ const PROGRAM_INFO = {
   cdl: "Commercial Driver's License Class A. 4-6 weeks. $50K-70K/year. High demand. WIOA-funded.",
   hvac: "HVAC Technician. EPA 608 certification. 6-12 months. $45K-65K/year. ETPL-approved.",
   welding: "Welding Certification (AWS). 6-12 months. $40K-60K/year. High demand in manufacturing.",
-  'medical-assistant': "Medical Assistant. 8-12 weeks. $35K-45K/year. Clinical + administrative. WIOA-funded.",
+  'direct-support-professional': "Direct Support Professional (DSP). 8-12 weeks. $35K-45K/year. Behavioral health + caregiving. WIOA-funded.",
   phlebotomy: "Phlebotomy Technician. 4-6 weeks. $30K-40K/year. High demand in healthcare.",
   'dental-assistant': "Dental Assistant. 8-12 weeks. $35K-45K/year. Clinical + front office.",
   all: "14+ workforce training programs. 100% free (WIOA-funded). Earn while you learn. Job placement assistance.",

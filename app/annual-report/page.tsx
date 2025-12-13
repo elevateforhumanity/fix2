@@ -356,7 +356,7 @@ export default function AnnualReportPage() {
                   First cohort of 25 students begins January 2025.
                 </p>
                 <Link
-                  href="/programs/medical-assistant"
+                  href="/programs/direct-support-professional"
                   className="text-blue-600 font-semibold hover:text-blue-700"
                 >
                   Learn More →

@@ -50,9 +50,9 @@ async function generateCourseOutline(prompt: string) {
     courseType = 'barber';
     title = 'Professional Barber Apprenticeship';
     duration = '1500 hours';
-  } else if (promptLower.includes('medical assistant')) {
-    courseType = 'medical-assistant';
-    title = 'Medical Assistant Certification Program';
+  } else if (promptLower.includes('medical assistant') || promptLower.includes('direct support professional') || promptLower.includes('dsp')) {
+    courseType = 'direct-support-professional';
+    title = 'Direct Support Professional (DSP) Training Program';
     duration = '720 hours';
   }
 

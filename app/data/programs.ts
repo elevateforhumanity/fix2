@@ -773,7 +773,7 @@ Career Outcomes:
     },
   },
   {
-    slug: 'medical-assistant',
+    slug: 'direct-support-professional',
     name: 'Direct Support Professional (DSP) Training',
     heroTitle: 'Direct Support Professional (DSP) Training Program',
     heroSubtitle:
@@ -793,7 +793,7 @@ Credentialing Partners:
 • Rise Up - Career Readiness Certification (https://riseup.com)
 
 CIP Code: 51.0801 - Medical/Clinical Assistant`,
-    heroImage: '/images/programs/medical-assistant-hero.jpg',
+    heroImage: '/images/programs/dsp-hero.jpg',
     heroImageAlt: 'Direct support professional providing compassionate care',
     duration: '21 days (3 weeks)',
     schedule: 'Cohorts start 1st and 15th of each month',
@@ -861,7 +861,7 @@ CIP Code: 51.0801 - Medical/Clinical Assistant`,
     },
     ctaSecondary: {
       label: 'Learn More',
-      href: '/contact?topic=medical-assistant',
+      href: '/contact?topic=direct-support-professional',
     },
     price: 4325,
   },

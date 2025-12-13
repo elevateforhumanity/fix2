@@ -182,7 +182,7 @@ function ApplyForm() {
                   <option value="">Select a program...</option>
                   <option value="barber">Barber Apprenticeship</option>
                   <option value="cna">CNA Training</option>
-                  <option value="medical-assistant">Medical Assistant</option>
+                  <option value="direct-support-professional">Direct Support Professional (DSP)</option>
                   <option value="hvac">HVAC Technician</option>
                   <option value="cdl">CDL Training</option>
                   <option value="tax-prep">Tax Preparation</option>

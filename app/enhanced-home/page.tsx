@@ -46,12 +46,12 @@ export default function EnhancedHomePage() {
       href: "/programs/cdl"
     },
     {
-      title: "Medical Assistant",
+      title: "Direct Support Professional (DSP)",
       image: "/media-backup-20251128-043832/programs/webp/medical.webp",
       duration: "8-10 weeks",
-      salary: "$38,000-$48,000",
+      salary: "$35,000-$45,000",
       jobs: "Growing Field",
-      href: "/programs/medical-assistant"
+      href: "/programs/direct-support-professional"
     },
     {
       title: "Welding",

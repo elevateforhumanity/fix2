@@ -57,23 +57,23 @@ const programs = [
     videoUrl: 'https://www.youtube.com/embed/cna-program-overview'
   },
   {
-    id: 'medical-assistant',
-    name: 'Medical Assistant',
+    id: 'direct-support-professional',
+    name: 'Direct Support Professional (DSP)',
     category: 'Healthcare',
     duration: '8-12 weeks',
     hours: 240,
     cost: '$0 (100% funded)',
     salary: { min: 35000, max: 45000, avg: 40000 },
-    certifications: ['CCMA (Certified Clinical Medical Assistant)', 'CPR/BLS', 'EKG Certification'],
-    jobTitles: ['Clinical Medical Assistant', 'Administrative Medical Assistant', 'Phlebotomist'],
+    certifications: ['CDSP (Certified Direct Support Professional)', 'CPR/BLS', 'First Aid'],
+    jobTitles: ['Direct Support Professional', 'Behavioral Health Technician', 'Residential Support Specialist'],
     employmentRate: 92,
     prerequisites: ['High school diploma or GED', '18 years or older'],
-    topEmployers: ['IU Health', 'Community Health Network', 'Private Practices', 'Urgent Care Centers'],
+    topEmployers: ['Community Health Network', 'Residential Care Facilities', 'Behavioral Health Centers'],
     weeklyHours: 35,
     difficulty: 'Intermediate',
     physicalDemand: 'Medium',
     image: '/media-backup-20251128-043832/programs/medical-hd.jpg',
-    videoUrl: 'https://www.youtube.com/embed/medical-assistant-overview'
+    videoUrl: 'https://www.youtube.com/embed/dsp-program-overview'
   },
   {
     id: 'welding',

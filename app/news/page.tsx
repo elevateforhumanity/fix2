@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 const newsArticles = [
   {
     id: 1,
-    title: 'New Medical Assistant Program Launches January 2025',
-    slug: 'medical-assistant-program-launch',
+    title: 'New Direct Support Professional (DSP) Program Launches January 2025',
+    slug: 'dsp-program-launch',
     excerpt:
-      "We're excited to announce our newest program: Medical Assistant training. This 10-week program prepares students for careers in healthcare with 100% funding available.",
+      "We're excited to announce our newest program: Direct Support Professional (DSP) training. This 10-week program prepares students for careers in behavioral health and caregiving with 100% funding available.",
     content: 'Full article content here...',
     image: '/images/heroes/workforce-partner-1.jpg',
     category: 'Program Updates',
