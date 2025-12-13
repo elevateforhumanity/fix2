@@ -1,82 +1,85 @@
-"use client";
+'use client';
 
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { WelcomeAudio } from "@/components/WelcomeAudio";
-import PWAInstallSection from "@/components/PWAInstallSection";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { WelcomeAudio } from '@/components/WelcomeAudio';
+import PWAInstallSection from '@/components/PWAInstallSection';
 
 export default function HomePage() {
-  const [isMuted, setIsMuted] = React.useState(true);
   const videoRef = React.useRef<HTMLVideoElement>(null);
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
+  const [soundOn, setSoundOn] = React.useState(false);
 
   return (
     <main className="bg-white overflow-x-hidden">
       <WelcomeAudio />
       {/* VIDEO HERO WITH TEXT OVERLAY */}
-      <section className="relative w-full overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center">
-        {/* Background Video */}
+      <section className="relative w-full min-h-[75vh] md:min-h-[90vh] overflow-hidden bg-black">
+        {/* Poster fallback to avoid "frame flash" */}
+        <img
+          src="/images/hero-poster.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          aria-hidden
+        />
+
         <video
           ref={videoRef}
+          className="absolute inset-0 h-full w-full object-cover"
+          src="/videos/hero-home.mp4"
           autoPlay
-          muted
           loop
+          muted
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/hero-home.mp4" type="video/mp4" />
-        </video>
+          controls={false}
+        />
 
-        {/* Unmute Button */}
-        <button
-          onClick={toggleMute}
-          className="absolute top-4 right-4 z-20 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all backdrop-blur-sm"
-          aria-label={isMuted ? "Unmute video" : "Mute video"}
-        >
-          {isMuted ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-            </svg>
-          )}
-        </button>
-        
-        {/* Dark Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
-        
-        {/* Hero Text Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg">
-            Transform Your Future
-          </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl mb-8 drop-shadow-lg">
-            Free Career Training • Real Jobs • No Debt
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/programs"
-              className="inline-flex items-center justify-center bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-700 transition shadow-xl"
-            >
-              Explore Programs
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center bg-white text-blue-700 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition shadow-xl"
-            >
-              Get Started Today
-            </Link>
+        {/* Optional overlay */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* Tap for sound button */}
+        {!soundOn && (
+          <button
+            className="absolute bottom-6 right-6 z-20 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold"
+            onClick={async () => {
+              const v = videoRef.current;
+              if (!v) return;
+              v.muted = false;
+              v.volume = 1;
+              try {
+                await v.play();
+              } catch {}
+              setSoundOn(true);
+            }}
+          >
+            Tap for sound
+          </button>
+        )}
+
+        {/* Your hero text/buttons */}
+        <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 text-white">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg">
+              Transform Your Future
+            </h1>
+            <p className="text-xl md:text-2xl lg:text-3xl mb-8 drop-shadow-lg">
+              Free Career Training • Real Jobs • No Debt
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/programs"
+                className="inline-flex items-center justify-center bg-orange-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-700 transition shadow-xl"
+              >
+                Explore Programs
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center bg-white text-blue-700 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition shadow-xl"
+              >
+                Get Started Today
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -88,16 +91,21 @@ export default function HomePage() {
             We See Your Potential, Not Your Past
           </h1>
           <p className="text-xl text-slate-700 leading-relaxed mb-8">
-            At Elevate for Humanity, we believe everyone deserves a shot at a better future. 
-            Whether you're starting over, breaking barriers, or building something new—we're here to help you get there.
+            At Elevate for Humanity, we believe everyone deserves a shot at a
+            better future. Whether you're starting over, breaking barriers, or
+            building something new—we're here to help you get there.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">100%</div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">
+                100%
+              </div>
               <div className="text-sm text-slate-600">Free Training</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">4-12</div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">
+                4-12
+              </div>
               <div className="text-sm text-slate-600">Weeks</div>
             </div>
             <div>
@@ -105,14 +113,19 @@ export default function HomePage() {
               <div className="text-sm text-slate-600">Debt</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">Real</div>
+              <div className="text-4xl font-bold text-orange-500 mb-2">
+                Real
+              </div>
               <div className="text-sm text-slate-600">Jobs Waiting</div>
             </div>
           </div>
           <p className="text-lg text-slate-600">
-            Through partnerships with WIOA, WRG, JRI, and registered apprenticeships, 
-            most students pay <span className="font-bold text-slate-900">nothing out of pocket</span>. 
-            No loans. No debt. Just real training and real opportunity.
+            Through partnerships with WIOA, WRG, JRI, and registered
+            apprenticeships, most students pay{' '}
+            <span className="font-bold text-slate-900">
+              nothing out of pocket
+            </span>
+            . No loans. No debt. Just real training and real opportunity.
           </p>
         </div>
       </section>
@@ -125,8 +138,9 @@ export default function HomePage() {
               Real Skills. Real Careers. Real Fast.
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our programs are designed for people with real lives—parents, workers, people starting over. 
-              Train online at your pace, practice hands-on, and step into a career that's waiting for you.
+              Our programs are designed for people with real lives—parents,
+              workers, people starting over. Train online at your pace, practice
+              hands-on, and step into a career that's waiting for you.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -150,8 +164,9 @@ export default function HomePage() {
                     Barber Apprenticeship
                   </h3>
                   <p className="text-sm text-slate-600 mb-4">
-                    Work in a real barbershop. Get paid while you train. Build your clientele. 
-                    Own your chair or open your own shop. 12-18 months.
+                    Work in a real barbershop. Get paid while you train. Build
+                    your clientele. Own your chair or open your own shop. 12-18
+                    months.
                   </p>
                   <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-extrabold text-lg rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all tracking-wide antialiased">
                     Learn More →
@@ -179,8 +194,9 @@ export default function HomePage() {
                     CNA Healthcare
                   </h3>
                   <p className="text-sm text-slate-600 mb-4">
-                    Get certified fast. Work in hospitals, nursing homes, or home health. 
-                    Stable income, flexible schedules, room to grow. 4-8 weeks.
+                    Get certified fast. Work in hospitals, nursing homes, or
+                    home health. Stable income, flexible schedules, room to
+                    grow. 4-8 weeks.
                   </p>
                   <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-extrabold text-lg rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all tracking-wide antialiased">
                     Learn More →
@@ -208,8 +224,9 @@ export default function HomePage() {
                     HVAC Technician
                   </h3>
                   <p className="text-sm text-slate-600 mb-4">
-                    Learn heating, cooling, and refrigeration. High demand, good pay, job security. 
-                    Start your own business or work for a company. 8-12 weeks.
+                    Learn heating, cooling, and refrigeration. High demand, good
+                    pay, job security. Start your own business or work for a
+                    company. 8-12 weeks.
                   </p>
                   <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-extrabold text-lg rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all tracking-wide antialiased">
                     Learn More →
@@ -229,8 +246,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
       {/* WHO WE SERVE */}
       <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4">
@@ -239,8 +254,9 @@ export default function HomePage() {
               You Don't Need Perfect. You Just Need to Start.
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              We work with people who've been told "no" their whole lives. Justice-involved individuals. 
-              Parents juggling childcare. People with gaps in their work history. You're welcome here.
+              We work with people who've been told "no" their whole lives.
+              Justice-involved individuals. Parents juggling childcare. People
+              with gaps in their work history. You're welcome here.
             </p>
           </div>
 
@@ -254,10 +270,13 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Second Chances</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
+                Second Chances
+              </h3>
               <p className="text-sm text-slate-700">
-                Through our JRI partnership, justice-involved individuals get free training, 
-                certifications, and wrap-around support. Everyone deserves a path forward.
+                Through our JRI partnership, justice-involved individuals get
+                free training, certifications, and wrap-around support. Everyone
+                deserves a path forward.
               </p>
             </div>
 
@@ -270,10 +289,13 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Parents & Caregivers</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
+                Parents & Caregivers
+              </h3>
               <p className="text-sm text-slate-700">
-                Our hybrid programs let you train online at your own pace and complete hands-on 
-                requirements on a flexible schedule. We get it—life is complicated.
+                Our hybrid programs let you train online at your own pace and
+                complete hands-on requirements on a flexible schedule. We get
+                it—life is complicated.
               </p>
             </div>
 
@@ -286,10 +308,13 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Career Changers</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
+                Career Changers
+              </h3>
               <p className="text-sm text-slate-700">
-                Stuck in a dead-end job? Starting completely over? Our short-term programs 
-                (4-12 weeks) get you into a new career fast—no years wasted.
+                Stuck in a dead-end job? Starting completely over? Our
+                short-term programs (4-12 weeks) get you into a new career
+                fast—no years wasted.
               </p>
             </div>
           </div>
@@ -304,7 +329,8 @@ export default function HomePage() {
               More Ways to Change Your Future
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Real people. Real transformations. Real opportunities waiting for you.
+              Real people. Real transformations. Real opportunities waiting for
+              you.
             </p>
           </div>
 
@@ -328,19 +354,28 @@ export default function HomePage() {
                   "I went from working retail to running my own tax business"
                 </h3>
                 <p className="text-lg text-slate-700 mb-4 leading-relaxed">
-                  Sarah was tired of minimum wage and unpredictable hours. After 8 weeks of tax prep training, 
-                  she started her own business from home. Now she earns $60k+ during tax season and has her 
+                  Sarah was tired of minimum wage and unpredictable hours. After
+                  8 weeks of tax prep training, she started her own business
+                  from home. Now she earns $60k+ during tax season and has her
                   summers free to spend with her kids.
                 </p>
                 <div className="bg-slate-50 p-5 rounded-xl mb-6">
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
-                      <div className="text-2xl font-bold text-orange-500">8 Weeks</div>
-                      <div className="text-sm text-slate-600">Training Time</div>
+                      <div className="text-2xl font-bold text-orange-500">
+                        8 Weeks
+                      </div>
+                      <div className="text-sm text-slate-600">
+                        Training Time
+                      </div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-orange-500">$60k+</div>
-                      <div className="text-sm text-slate-600">First Year Income</div>
+                      <div className="text-2xl font-bold text-orange-500">
+                        $60k+
+                      </div>
+                      <div className="text-sm text-slate-600">
+                        First Year Income
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -365,19 +400,28 @@ export default function HomePage() {
                   "I was unemployed. Now I'm making $55k with benefits"
                 </h3>
                 <p className="text-lg text-slate-700 mb-4 leading-relaxed">
-                  Marcus lost his job during the pandemic. He enrolled in HVAC training, got certified in 
-                  10 weeks, and landed a union job with full benefits. Companies are desperate for skilled 
+                  Marcus lost his job during the pandemic. He enrolled in HVAC
+                  training, got certified in 10 weeks, and landed a union job
+                  with full benefits. Companies are desperate for skilled
                   technicians—he had three job offers before he even finished.
                 </p>
                 <div className="bg-slate-50 p-5 rounded-xl mb-6">
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
-                      <div className="text-2xl font-bold text-blue-500">10 Weeks</div>
-                      <div className="text-sm text-slate-600">To Certification</div>
+                      <div className="text-2xl font-bold text-blue-500">
+                        10 Weeks
+                      </div>
+                      <div className="text-sm text-slate-600">
+                        To Certification
+                      </div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-blue-500">3 Offers</div>
-                      <div className="text-sm text-slate-600">Before Graduation</div>
+                      <div className="text-2xl font-bold text-blue-500">
+                        3 Offers
+                      </div>
+                      <div className="text-sm text-slate-600">
+                        Before Graduation
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -420,18 +464,25 @@ export default function HomePage() {
                   "I wanted to help people. Now I do—and I get paid for it"
                 </h3>
                 <p className="text-lg text-slate-700 mb-4 leading-relaxed">
-                  Jennifer always wanted to work in healthcare but thought she needed years of school. 
-                  She became a CNA in just 4 weeks and now works at a hospital making $18/hour with 
-                  room to grow into nursing.
+                  Jennifer always wanted to work in healthcare but thought she
+                  needed years of school. She became a CNA in just 4 weeks and
+                  now works at a hospital making $18/hour with room to grow into
+                  nursing.
                 </p>
                 <div className="bg-slate-50 p-5 rounded-xl mb-6">
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
-                      <div className="text-2xl font-bold text-green-500">4 Weeks</div>
-                      <div className="text-sm text-slate-600">To CNA License</div>
+                      <div className="text-2xl font-bold text-green-500">
+                        4 Weeks
+                      </div>
+                      <div className="text-sm text-slate-600">
+                        To CNA License
+                      </div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-green-500">$18/hr</div>
+                      <div className="text-2xl font-bold text-green-500">
+                        $18/hr
+                      </div>
                       <div className="text-sm text-slate-600">Starting Pay</div>
                     </div>
                   </div>
@@ -476,15 +527,15 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            
+
             {/* Content */}
             <div className="text-white">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Ready to Start?
               </h2>
               <p className="text-xl text-white/90 mb-6 leading-relaxed">
-                Most students qualify for 100% free training through WIOA, WRG, or apprenticeships. 
-                Let's find the right path for you.
+                Most students qualify for 100% free training through WIOA, WRG,
+                or apprenticeships. Let's find the right path for you.
               </p>
               <div className="flex flex-col gap-4 mb-6">
                 <Link
@@ -504,7 +555,10 @@ export default function HomePage() {
                 <p className="text-sm text-white/90 mb-2">
                   <span className="font-semibold">Call us directly:</span>
                 </p>
-                <a href="tel:317-314-3757" className="text-2xl font-bold text-white hover:text-white/90 transition">
+                <a
+                  href="tel:317-314-3757"
+                  className="text-2xl font-bold text-white hover:text-white/90 transition"
+                >
                   📞 317-314-3757
                 </a>
               </div>

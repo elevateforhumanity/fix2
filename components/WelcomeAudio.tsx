@@ -6,12 +6,13 @@ export function WelcomeAudio() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showButton, setShowButton] = useState(false);
-  
+
   useEffect(() => {
     // Try to autoplay
     if (audioRef.current) {
       const timer = setTimeout(() => {
-        audioRef.current?.play()
+        audioRef.current
+          ?.play()
           .then(() => {
             setIsPlaying(true);
           })
@@ -23,7 +24,7 @@ export function WelcomeAudio() {
       return () => clearTimeout(timer);
     }
   }, []);
-  
+
   const toggleAudio = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -35,16 +36,16 @@ export function WelcomeAudio() {
       }
     }
   };
-  
+
   return (
     <>
       <audio
         ref={audioRef}
-        src="/videos/voiceover.mp3"
+        src="/videos/voiceover.mp3?v=2"
         preload="auto"
         onEnded={() => setIsPlaying(false)}
       />
-      
+
       {/* Audio Control Button */}
       {showButton && (
         <button

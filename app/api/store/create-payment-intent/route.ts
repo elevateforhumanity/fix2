@@ -1,20 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2024-11-20.acacia',
-});
+const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2024-11-20.acacia',
+    })
+  : null;
 
 export async function POST(request: NextRequest) {
   try {
+    if (!stripe) {
+      return NextResponse.json(
+        { error: 'Payment processing is not configured' },
+        { status: 503 }
+      );
+    }
+
     const { items, total } = await request.json();
 
     // Validate request
     if (!items || !Array.isArray(items) || items.length === 0) {
-      return NextResponse.json(
-        { error: 'Invalid items' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Invalid items' }, { status: 400 });
     }
 
     // Create payment intent
@@ -25,10 +31,12 @@ export async function POST(request: NextRequest) {
         enabled: true,
       },
       metadata: {
-        items: JSON.stringify(items.map((item: any) => ({
-          id: item.id,
-          quantity: item.quantity,
-        }))),
+        items: JSON.stringify(
+          items.map((item: any) => ({
+            id: item.id,
+            quantity: item.quantity,
+          }))
+        ),
       },
     });
 
