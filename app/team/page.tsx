@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/team",
   },
-  title: 'Team | Elevate For Humanity',
-  description: 'Explore Team and discover opportunities for career growth and development at Elevate For Humanity.',
+  title: 'Our Team | Elevate For Humanity',
+  description: 'Meet the dedicated team behind Elevate for Humanity - experienced professionals committed to providing free career training and support to help you succeed.',
 };
 
 type TeamMember = {
@@ -109,36 +109,39 @@ export default function TeamPage() {
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
 
-        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
             <article
               key={member.name}
-              className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200"
+              className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow ring-1 ring-slate-200"
             >
-              <div className="h-32 w-full overflow-hidden bg-slate-100">
-                <img
+              <div className="relative h-80 w-full overflow-hidden bg-slate-100">
+                <Image
                   src={member.image}
                   alt={member.name}
-                  className="h-full w-full object-cover"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
                 />
               </div>
-              <div className="flex flex-1 flex-col p-4">
-                <h2 className="text-sm font-semibold text-slate-900">
+              <div className="flex flex-1 flex-col p-6">
+                <h2 className="text-lg font-bold text-slate-900">
                   {member.name}
                 </h2>
-                <p className="mt-1 text-[0.8rem] font-medium text-indigo-700">
+                <p className="mt-2 text-sm font-semibold text-blue-600">
                   {member.title}
                 </p>
-                <p className="mt-2 text-xs text-slate-700 leading-relaxed">
+                <p className="mt-4 text-sm text-slate-700 leading-relaxed">
                   {member.blurb}
                 </p>
                 {member.link && (
-                  <div className="mt-3">
+                  <div className="mt-4 pt-4 border-t border-slate-200">
                     <a
                       href={member.link}
-                      className="text-[0.75rem] font-semibold text-indigo-600 hover:text-indigo-700"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition"
                     >
-                      View Profile →
+                      View Full Profile →
                     </a>
                   </div>
                 )}
