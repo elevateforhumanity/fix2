@@ -24,7 +24,7 @@ const team: TeamMember[] = [
     title: "Founder, Chief Executive Officer & Executive Director",
     image: "/images/elizabeth-greene-founder.jpg",
     blurb:
-      "Visionary founder of Elevate for Humanity, leading a fully integrated workforce, apprenticeship, and community support ecosystem.",
+      "Elizabeth founded Elevate for Humanity because she believes everyone deserves a real shot at a better life—regardless of their past, their circumstances, or how many times they've been told no. With a background in workforce development, community organizing, and a deep understanding of the barriers that keep people stuck, she built an organization that doesn't just train people—it removes the obstacles that prevent them from succeeding. Under her leadership, Elevate has become a fully integrated ecosystem of workforce training, apprenticeships, housing stability, mental health support, and career placement. Elizabeth doesn't lead from a desk—she's in the field, meeting with students, partnering with employers, and fighting for policies that create real pathways out of poverty. Her approach is simple: meet people where they are, give them the tools they need, and get out of their way.",
     link: "/founder",
   },
   {
