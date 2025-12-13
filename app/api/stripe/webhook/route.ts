@@ -1,137 +1,114 @@
-import { NextResponse } from 'next/server';
-import { stripe } from '@/lib/stripe/client';
-import Stripe from 'stripe';
-import { logger } from '@/lib/logger';
+import { NextResponse } from "next/server";
+import Stripe from "stripe";
 
-export const runtime = 'nodejs';
+export const runtime = "nodejs";
+
+function tierFromPrice(priceId?: string | null): 'free' | 'student' | 'career' {
+  if (!priceId) return "free";
+  if (priceId === process.env.STRIPE_PRICE_STUDENT) return "student";
+  if (priceId === process.env.STRIPE_PRICE_CAREER) return "career";
+  return "free";
+}
+
+async function upsertAccess(payload: {
+  user_id: string;
+  tier: string;
+  stripe_customer_id?: string | null;
+  stripe_subscription_id?: string | null;
+  stripe_price_id?: string | null;
+  status?: string | null;
+  current_period_end?: number | null;
+}) {
+  const url = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/rest/v1/user_access`;
+  
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      apikey: process.env.SUPABASE_SERVICE_ROLE_KEY!,
+      Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY!}`,
+      "Content-Type": "application/json",
+      Prefer: "resolution=merge-duplicates",
+    },
+    body: JSON.stringify({
+      user_id: payload.user_id,
+      tier: payload.tier,
+      stripe_customer_id: payload.stripe_customer_id ?? null,
+      stripe_subscription_id: payload.stripe_subscription_id ?? null,
+      stripe_price_id: payload.stripe_price_id ?? null,
+      status: payload.status ?? null,
+      current_period_end: payload.current_period_end
+        ? new Date(payload.current_period_end * 1000).toISOString()
+        : null,
+      updated_at: new Date().toISOString(),
+    }),
+  });
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`Supabase upsert failed: ${res.status} ${text}`);
+  }
+}
 
 export async function POST(req: Request) {
-  // Check if Stripe is configured
-  if (!process.env.STRIPE_SECRET_KEY) {
-    return NextResponse.json({ 
-      error: 'Payment system not configured' 
-    }, { status: 503 });
+  if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_WEBHOOK_SECRET) {
+    return NextResponse.json({ error: "Stripe not configured" }, { status: 503 });
   }
 
-  const sig = req.headers.get('stripe-signature');
-  const rawBody = await req.text();
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: "2024-12-18.acacia",
+  });
 
+  const sig = req.headers.get("stripe-signature");
   if (!sig) {
-    return NextResponse.json({ error: 'Missing stripe-signature' }, { status: 400 });
+    return NextResponse.json({ error: "Missing stripe-signature" }, { status: 400 });
   }
 
-  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
-  if (!webhookSecret) {
-    console.error('STRIPE_WEBHOOK_SECRET not configured');
-    return NextResponse.json({ error: 'Webhook not configured' }, { status: 500 });
-  }
+  const body = await req.text();
 
   let event: Stripe.Event;
+  try {
+    event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET);
+  } catch (err: any) {
+    return NextResponse.json({ error: err.message }, { status: 400 });
+  }
 
   try {
-    event = stripe.webhooks.constructEvent(rawBody, sig, webhookSecret);
-  } catch (err: any) {
-    console.error(`Webhook signature verification failed: ${err.message}`);
-    return NextResponse.json({ error: `Webhook Error: ${err.message}` }, { status: 400 });
-  }
+    // Handle subscription lifecycle (created/updated/deleted)
+    if (event.type.startsWith("customer.subscription.")) {
+      const sub = event.data.object as Stripe.Subscription;
+      const userId = (sub.metadata?.user_id || "") as string;
 
-  // Handle the event
-  switch (event.type) {
-    case 'checkout.session.completed': {
-      const session = event.data.object as Stripe.Checkout.Session;
-      
-      const productId = session.metadata?.productId;
-      const licenseType = session.metadata?.licenseType;
-      const appsIncluded = session.metadata?.appsIncluded;
-      const customerEmail = session.customer_details?.email;
-
-      logger.info('Purchase completed', {
-        sessionId: session.id,
-        customerEmail,
-        productId,
-        licenseType,
-        appsIncluded,
-        amountTotal: session.amount_total,
-      });
-
-      // TODO: Implement post-purchase logic:
-      // 1. Create/lookup user in Supabase by email
-      // 2. Create organization record
-      // 3. Assign license type to organization
-      // 4. Enable apps from appsIncluded array
-      // 5. Store Stripe customer ID and session ID
-      // 6. Send welcome email with onboarding link
-      // 7. Trigger any webhooks or integrations
-
-      // Example Supabase integration (uncomment when ready):
-      /*
-      const { createClient } = await import('@/lib/supabase/server');
-      const supabase = await createClient();
-      
-      const { data: user } = await supabase
-        .from('users')
-        .select('id')
-        .eq('email', customerEmail)
-        .single();
-
-      if (user) {
-        await supabase.from('licenses').insert({
-          user_id: user.id,
-          product_id: productId,
-          license_type: licenseType,
-          stripe_session_id: session.id,
-          stripe_customer_id: session.customer,
-          status: 'active',
-          apps_enabled: JSON.parse(appsIncluded || '[]'),
-        });
+      // If user_id isn't stamped, we can't activate (safe no-op)
+      if (!userId) {
+        return NextResponse.json({ ok: true, skipped: "missing user_id metadata" });
       }
-      */
 
-      break;
-    }
+      const customerId = typeof sub.customer === "string" ? sub.customer : sub.customer.id;
+      const priceId = sub.items.data[0]?.price?.id ?? null;
+      const tier = tierFromPrice(priceId);
+      const status = sub.status;
+      const periodEnd = sub.current_period_end ?? null;
 
-    case 'customer.subscription.updated':
-    case 'customer.subscription.deleted': {
-      const subscription = event.data.object as Stripe.Subscription;
-      
-      logger.info(`Subscription ${event.type}`, {
-        subscriptionId: subscription.id,
-        customerId: subscription.customer,
-        status: subscription.status,
+      // If deleted, downgrade to free
+      const finalTier = event.type === "customer.subscription.deleted" ? "free" : tier;
+      const finalStatus = event.type === "customer.subscription.deleted" ? "canceled" : status;
+
+      await upsertAccess({
+        user_id: userId,
+        tier: finalTier,
+        stripe_customer_id: customerId,
+        stripe_subscription_id: sub.id,
+        stripe_price_id: priceId,
+        status: finalStatus,
+        current_period_end: periodEnd,
       });
 
-      // TODO: Update subscription status in database
-      break;
+      console.log(`[Webhook] ${event.type}: user=${userId}, tier=${finalTier}, status=${finalStatus}`);
     }
 
-    case 'invoice.payment_succeeded': {
-      const invoice = event.data.object as Stripe.Invoice;
-      
-      logger.info('Invoice paid', {
-        invoiceId: invoice.id,
-        customerId: invoice.customer,
-        amountPaid: invoice.amount_paid,
-      });
-
-      // TODO: Handle recurring payment success
-      break;
-    }
-
-    case 'invoice.payment_failed': {
-      const invoice = event.data.object as Stripe.Invoice;
-      
-      logger.warn('Invoice payment failed', {
-        invoiceId: invoice.id,
-        customerId: invoice.customer,
-      });
-
-      // TODO: Handle payment failure (send email, suspend access, etc.)
-      break;
-    }
-
-    default:
-      logger.debug(`Unhandled event type: ${event.type}`);
+    return NextResponse.json({ ok: true });
+  } catch (err: any) {
+    console.error("[Webhook Error]", err);
+    return NextResponse.json({ error: err.message }, { status: 500 });
   }
-
-  return NextResponse.json({ received: true });
 }

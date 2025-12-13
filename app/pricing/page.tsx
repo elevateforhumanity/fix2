@@ -80,7 +80,7 @@ export default function PricingPage() {
 
               {product.tier === 'student' && (
                 <Link
-                  href="/apply"
+                  href="/checkout/student"
                   className="block w-full text-center bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition"
                 >
                   Get Started
@@ -89,7 +89,7 @@ export default function PricingPage() {
 
               {product.tier === 'career' && (
                 <Link
-                  href="/apply"
+                  href="/checkout/career"
                   className="block w-full text-center bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition"
                 >
                   Get Started
