@@ -52,41 +52,50 @@ export default function DemosPage() {
             Explore our platform features and see how we support your learning journey from enrollment to certification.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
-            <Link href="/lms" className="group block">
+            <Link href="/demo/student" className="group block">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div className="relative h-64 overflow-hidden bg-blue-50">
-                  <Image src="/images/gallery/image3.jpg" alt="Learning Management System" fill className="object-cover group-hover:scale-105 transition-transform duration-500" quality={100} sizes="100vw" />
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                  <div className="text-white text-center">
+                    <div className="text-6xl mb-4">🎓</div>
+                    <div className="text-2xl font-bold">Student Portal</div>
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2">LMS Platform</h3>
-                  <p className="text-slate-600 mb-4">Explore our learning management system with interactive courses, progress tracking, and certification.</p>
-                  <span className="inline-block text-blue-700 font-bold">Explore Platform →</span>
+                  <h3 className="text-2xl font-bold mb-2">Student Dashboard Demo</h3>
+                  <p className="text-slate-600 mb-4">Experience the student portal with interactive courses, progress tracking, assignments, and achievements.</p>
+                  <span className="inline-block text-blue-700 font-bold">Try Interactive Demo →</span>
                 </div>
               </div>
             </Link>
 
-            <Link href="/programs" className="group block">
+            <Link href="/demo/admin" className="group block">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div className="relative h-64 overflow-hidden bg-blue-50">
-                  <Image src="/images/gallery/image6.jpg" alt="Training Programs" fill className="object-cover group-hover:scale-105 transition-transform duration-500" quality={100} sizes="100vw" />
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-red-500 to-red-700 flex items-center justify-center">
+                  <div className="text-white text-center">
+                    <div className="text-6xl mb-4">⚙️</div>
+                    <div className="text-2xl font-bold">Admin Portal</div>
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2">Course Preview</h3>
-                  <p className="text-slate-600 mb-4">Browse our 30+ career training programs and see what you'll learn in each certification path.</p>
-                  <span className="inline-block text-blue-700 font-bold">View Programs →</span>
+                  <h3 className="text-2xl font-bold mb-2">Admin Dashboard Demo</h3>
+                  <p className="text-slate-600 mb-4">Explore the admin interface with student management, analytics, program oversight, and reporting tools.</p>
+                  <span className="inline-block text-red-700 font-bold">Try Interactive Demo →</span>
                 </div>
               </div>
             </Link>
 
-            <Link href="/contact" className="group block">
+            <Link href="/demo/grants" className="group block">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div className="relative h-64 overflow-hidden bg-blue-50">
-                  <Image src="/images/gallery/image5.jpg" alt="Application Process" fill className="object-cover group-hover:scale-105 transition-transform duration-500" quality={100} sizes="100vw" />
+                <div className="relative h-64 overflow-hidden bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
+                  <div className="text-white text-center">
+                    <div className="text-6xl mb-4">💰</div>
+                    <div className="text-2xl font-bold">Grants System</div>
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2">Application Process</h3>
-                  <p className="text-slate-600 mb-4">See how easy it is to apply, get approved for funding, and start your training in just days.</p>
-                  <span className="inline-block text-blue-700 font-bold">Contact Us →</span>
+                  <h3 className="text-2xl font-bold mb-2">Funding Application Demo</h3>
+                  <p className="text-slate-600 mb-4">See how students apply for WIOA, WRG, and other funding sources with our streamlined application process.</p>
+                  <span className="inline-block text-green-700 font-bold">Try Interactive Demo →</span>
                 </div>
               </div>
             </Link>
