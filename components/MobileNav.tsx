@@ -1,135 +1,146 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Home, BookOpen, Users, Award, Settings, LogOut, User } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import { usePathname } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 
-export function MobileNav() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+const NAV = [
+  { label: 'Home', href: '/' },
+  { label: 'Programs', href: '/programs' },
+  { label: 'Store', href: '/store' },
+  { label: 'Marketplace', href: '/marketplace' },
+  { label: 'Apply', href: '/inquiry' },
+  { label: 'Login', href: '/login' },
+];
 
+export default function MobileNav() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const lastScrollY = useRef(0);
+
+  // Close on route change
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    setOpen(false);
+  }, [pathname]);
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  // Close on Escape (helps Android keyboards + accessibility)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
   }, []);
 
+  // Proper scroll lock: prevents iOS "page stuck" + restores exactly
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
+    if (!open) {
+      // restore
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, lastScrollY.current || 0);
+      return;
     }
-  }, [isOpen]);
 
-  const menuItems = [
-    { icon: Home, label: 'Dashboard', href: '/dashboard' },
-    { icon: BookOpen, label: 'My Courses', href: '/lms/courses' },
-    { icon: Users, label: 'Study Groups', href: '/study-groups' },
-    { icon: Award, label: 'Achievements', href: '/achievements' },
-    { icon: User, label: 'Profile', href: '/profile' },
-    { icon: Settings, label: 'Settings', href: '/settings' },
-  ];
+    // lock
+    lastScrollY.current = window.scrollY || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${lastScrollY.current}px`;
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      // safety cleanup (if component unmounts)
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, lastScrollY.current || 0);
+    };
+  }, [open]);
 
   return (
-    <>
-      {/* Mobile Header */}
-      <header
-        className={`lg:hidden fixed top-0 left-0 right-0 z-50 transition-all ${
-          scrolled ? 'bg-white shadow-md' : 'bg-white'
-        }`}
+    <div className="md:hidden">
+      <button
+        type="button"
+        aria-label="Open menu"
+        onClick={() => setOpen(true)}
+        className="inline-flex items-center justify-center rounded-xl border border-gray-300 px-3 py-2 font-bold hover:bg-gray-50"
       >
-        <div className="flex items-center justify-between px-4 py-3">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8    rounded-lg" />
-            <span className="font-bold text-lg">Elevate</span>
-          </Link>
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
 
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 hover:bg-gray-100 rounded-lg transition"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </header>
+      {/* Mount overlay ONLY when open (prevents ghost overlay touch lock) */}
+      {open && (
+        <div className="fixed inset-0 z-50">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/40"
+            onClick={() => setOpen(false)}
+          />
 
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div
-          className="lg:hidden fixed inset-0 bg-black/50 z-40"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
-      {/* Mobile Menu Drawer */}
-      <div
-        className={`lg:hidden fixed top-0 right-0 bottom-0 w-80 bg-white z-50 transform transition-transform duration-300 ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className="flex flex-col h-full">
-          {/* User Profile Section */}
-          <div className="p-6    text-white">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                <User size={32} />
-              </div>
-              <div>
-                <div className="font-semibold text-lg">John Doe</div>
-                <div className="text-sm text-white/80">Student</div>
-              </div>
-            </div>
-            <div className="flex gap-4 text-sm">
-              <div>
-                <div className="font-semibold">Level 5</div>
-                <div className="text-white/80">1,250 pts</div>
-              </div>
-              <div>
-                <div className="font-semibold">3 Courses</div>
-                <div className="text-white/80">In Progress</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Menu Items */}
-          <nav className="flex-1 overflow-y-auto py-4">
-            {menuItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-3 px-6 py-3 hover:bg-gray-50 transition"
+          {/* Drawer (scrollable) */}
+          <div className="absolute right-0 top-0 h-[100dvh] w-80 max-w-[85vw] bg-white shadow-xl p-5 overflow-y-auto overscroll-contain">
+            <div className="flex items-center justify-between mb-6">
+              <div className="font-black text-lg">Elevate</div>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="rounded-xl border border-gray-300 px-3 py-2 font-bold hover:bg-gray-50"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <Icon size={20} className="text-gray-600" />
-                  <span className="font-medium">{item.label}</span>
-                </Link>
-              );
-            })}
-          </nav>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
 
-          {/* Bottom Actions */}
-          <div className="p-4 border-t">
-            <Button
-              variant="outline"
-              className="w-full justify-start gap-3 text-red-600 border-red-600 hover:bg-red-50"
-            >
-              <LogOut size={20} />
-              Sign Out
-            </Button>
+            <nav className="flex flex-col gap-2">
+              {NAV.map((item) => {
+                const active = pathname === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className={[
+                      'rounded-xl px-4 py-3 font-semibold transition',
+                      active
+                        ? 'bg-blue-600 text-white'
+                        : 'border border-gray-300 hover:bg-gray-50',
+                    ].join(' ')}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
         </div>
-      </div>
-
-      {/* Spacer for fixed header */}
-      <div className="lg:hidden h-16" />
-    </>
+      )}
+    </div>
   );
 }

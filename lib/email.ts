@@ -13,7 +13,8 @@ interface EmailOptions {
 }
 
 const FROM_EMAIL = process.env.EMAIL_FROM || 'noreply@elevateforhumanity.org';
-const REPLY_TO_EMAIL = process.env.REPLY_TO_EMAIL || 'info@elevateforhumanity.org';
+const REPLY_TO_EMAIL =
+  process.env.REPLY_TO_EMAIL || 'info@elevateforhumanity.org';
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
 export async function sendEmail({
@@ -25,7 +26,12 @@ export async function sendEmail({
 }: EmailOptions) {
   // If no API key, log (development mode)
   if (!RESEND_API_KEY) {
-    logger.info('Email (dev mode)', { to, subject, from, htmlPreview: html.substring(0, 200) });
+    logger.info('Email (dev mode)', {
+      to,
+      subject,
+      from,
+      htmlPreview: html.substring(0, 200),
+    });
     return { success: true, messageId: 'dev-mode' };
   }
 
