@@ -44,22 +44,22 @@ export default function PWAInstallSection() {
   }
 
   return (
-    <section className="py-12">
+    <section className="py-16 bg-gradient-to-br from-blue-50 to-orange-50">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid gap-8 lg:grid-cols-2 items-center">
+        <div className="grid gap-12 lg:grid-cols-2 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 px-4 py-2 text-xs font-semibold text-orange-700 mb-4">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <div className="inline-flex items-center gap-2 rounded-full bg-orange-600 px-4 py-2 text-sm font-bold text-white mb-6">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
               </svg>
-              Progressive Web App
+              Download Our App
             </div>
-            <h2 className="text-3xl font-bold text-slate-900">
-              Download the App
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+              Take Your Training Anywhere
             </h2>
-            <p className="mt-4 text-lg text-slate-700">
-              Access Elevate for Humanity directly from your home screen. No app store needed - 
-              works on any device with offline access and push notifications.
+            <p className="text-xl text-slate-700 mb-8 leading-relaxed">
+              Access your courses, track progress, and stay connected—right from your phone. 
+              No app store required. Works on iPhone, Android, and desktop.
             </p>
             
             <button
@@ -77,12 +77,13 @@ export default function PWAInstallSection() {
             </p>
           </div>
 
-          <div className="relative aspect-square max-w-sm mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
+          <div className="relative aspect-video max-w-lg mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-white">
             <Image
-              src="https://cms-artifacts.artlist.io/content/generated-image-v1/image__8/image-96fb9850-11b3-4a4b-b272-f2318aa47c8b.png?Expires=2080931577&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=wxuR4n47Ur6YnSL5Uzd8kTRC7t1mXA6YCvDzHziBqwsENTQIGBkXkLcMcp2~QBXUaZgmxrS~a1II8ygKorH5O6IRf-IAXg8bRGFN8qKCG-YI7ucStQDIdoOgkBGb4GbK4qYFgSMsXiF6rtWHli3fun~73aehkCIirR49Y-zQKmI7lIV6qoNz1f61vk~YblxBF8pQWJhbdqTIl9sQTEgLHEN7fnzCkA3-yc0fydrTlV~k7oVfQfoMiQN6KZ4VvnVLxYouzwHjoMeqa8O91H4wrcAWh26RdR4mq4DwWXksKEwqrsnZMIKnFUQDfC6MVaYw6gtdaQBdaiyHd9TVMMHMkQ__"
+              src="/images/og-cover.jpg"
               alt="Elevate for Humanity App"
               fill
               className="object-cover"
+              quality={95}
             />
           </div>
         </div>
