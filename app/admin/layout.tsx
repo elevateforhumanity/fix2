@@ -7,14 +7,23 @@ import AdminHeader from '@/components/AdminHeader';
 import { SiteFooter } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: "Admin Portal - Manage Programs & Operations",
-  description: "Manage programs, students, certificates, compliance, and workforce development operations. Admin dashboard for Elevate for Humanity.",
-  keywords: ["admin portal", "program management", "workforce administration", "compliance", "operations"],
+  title: 'Admin Portal - Manage Programs & Operations',
+  description:
+    'Manage programs, students, certificates, compliance, and workforce development operations. Admin dashboard for Elevate for Humanity.',
+  keywords: [
+    'admin portal',
+    'program management',
+    'workforce administration',
+    'compliance',
+    'operations',
+  ],
+  manifest: '/manifest-admin.json',
   openGraph: {
-    title: "Admin Portal | Elevate for Humanity",
-    description: "Manage programs, students, certificates, and workforce development operations.",
-    images: ["/images/hero-banner-new.png"],
-    type: "website",
+    title: 'Admin Portal | Elevate for Humanity',
+    description:
+      'Manage programs, students, certificates, and workforce development operations.',
+    images: ['/images/hero-banner-new.png'],
+    type: 'website',
   },
 };
 
@@ -38,16 +47,14 @@ export default async function AdminLayout({
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar Navigation */}
       <AdminNav />
-      
+
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col">
         {/* Top Header with Sign Out */}
         <AdminHeader />
-        
+
         {/* Page Content */}
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
       </div>
     </div>
   );
