@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 const stateData: Record<string, any> = {
-  'indiana': {
+  indiana: {
     name: 'Indiana',
     abbreviation: 'IN',
     capital: 'Indianapolis',
@@ -22,18 +22,26 @@ const stateData: Record<string, any> = {
       stateTaxRate: '3.23%',
       filingDeadline: 'April 15',
       standardDeduction: '$1,000 - $2,000',
-      specialCredits: ['Renter\'s Deduction', 'Unified Tax Credit', 'College Choice 529 Credit']
-    }
+      specialCredits: [
+        "Renter's Deduction",
+        'Unified Tax Credit',
+        'College Choice 529 Credit',
+      ],
+    },
   },
   // Add more states as needed
 };
 
-export async function generateMetadata({ params }: { params: { state: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { state: string };
+}): Promise<Metadata> {
   const stateInfo = stateData[params.state];
-  
+
   if (!stateInfo) {
     return {
-      title: 'State Not Found'
+      title: 'State Not Found',
     };
   }
 
@@ -44,37 +52,35 @@ export async function generateMetadata({ params }: { params: { state: string } }
       title: `Tax Filing in ${stateInfo.name} - $100 Flat Fee`,
       description: `${stateInfo.preparers}+ certified tax preparers across ${stateInfo.name}`,
       url: `https://elevateforhumanity.org/tax-filing/locations/${params.state}`,
-      type: 'website'
+      type: 'website',
     },
     alternates: {
-      canonical: `https://elevateforhumanity.org/tax-filing/locations/${params.state}`
-    }
+      canonical: `https://elevateforhumanity.org/tax-filing/locations/${params.state}`,
+    },
   };
 }
 
 export default function StatePage() {
-
-  
   if (!state) {
     notFound();
   }
 
   const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": `Elevate Tax Filing - ${state.name}`,
-    "description": `Professional tax preparation services in ${state.name}`,
-    "areaServed": {
-      "@type": "State",
-      "name": state.name
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: `Elevate Tax Filing - ${state.name}`,
+    description: `Professional tax preparation services in ${state.name}`,
+    areaServed: {
+      '@type': 'State',
+      name: state.name,
     },
-    "priceRange": "$100",
-    "telephone": "+1-317-314-3757",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": state.preparers * 12
-    }
+    priceRange: '$100',
+    telephone: '+1-317-314-3757',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: state.preparers * 12,
+    },
   };
 
   return (
@@ -85,57 +91,62 @@ export default function StatePage() {
       />
 
       <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="[state]"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0   " />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
-            [state]
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
-            Transform your career with free training and industry certifications
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
-            >
-              Get Started Free
-            </Link>
-            <Link
-              href="/programs"
-              className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
-            >
-              View Programs
-            </Link>
+        {/* Hero Section */}
+        <section className="relative h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center text-white overflow-hidden">
+          <Image
+            src="/images/gallery/image8.jpg"
+            alt="[state]"
+            fill
+            className="object-cover"
+            quality={100}
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0   " />
+          <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-2xl">
+              [state]
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg">
+              Transform your career with free training and industry
+              certifications
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              >
+                Get Started Free
+              </Link>
+              <Link
+                href="/programs"
+                className="bg-white hover:bg-gray-100 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-2xl"
+              >
+                View Programs
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
         {/* Hero */}
         <section className="   text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav className="text-sm mb-4">
-              <Link href="/tax-filing/locations" className="text-blue-200 hover:text-white">
+              <Link
+                href="/tax-filing/locations"
+                className="text-blue-200 hover:text-white"
+              >
                 All Locations
               </Link>
               <span className="mx-2">/</span>
               <span>{state.name}</span>
             </nav>
-            <h1 className="text-5xl font-extrabold mb-4 text-3xl md:text-4xl lg:text-5xl">
+            <h1 className="text-5xl font-bold mb-4 text-3xl md:text-4xl lg:text-5xl">
               Tax Filing in {state.name}
             </h1>
             <p className="text-xl text-blue-100 mb-6">
-              {state.preparers}+ certified tax preparers across {state.name}. Drake Software certified. $100 flat fee for federal + state.
+              {state.preparers}+ certified tax preparers across {state.name}.
+              Drake Software certified. $100 flat fee for federal + state.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -159,19 +170,27 @@ export default function StatePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-extrabold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">{state.preparers}+</div>
+                <div className="text-4xl font-bold text-blue-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                  {state.preparers}+
+                </div>
                 <div className="text-gray-600">Tax Preparers</div>
               </div>
               <div>
-                <div className="text-4xl font-extrabold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">{state.cities.length}</div>
+                <div className="text-4xl font-bold text-green-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                  {state.cities.length}
+                </div>
                 <div className="text-gray-600">Cities Covered</div>
               </div>
               <div>
-                <div className="text-4xl font-extrabold text-purple-600 mb-2 text-2xl md:text-3xl lg:text-4xl">$100</div>
+                <div className="text-4xl font-bold text-purple-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                  $100
+                </div>
                 <div className="text-gray-600">Flat Fee</div>
               </div>
               <div>
-                <div className="text-4xl font-extrabold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">4.9★</div>
+                <div className="text-4xl font-bold text-orange-600 mb-2 text-2xl md:text-3xl lg:text-4xl">
+                  4.9★
+                </div>
                 <div className="text-gray-600">Average Rating</div>
               </div>
             </div>
@@ -181,18 +200,24 @@ export default function StatePage() {
         {/* Cities */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-extrabold mb-12 text-2xl md:text-3xl lg:text-4xl">Tax Preparers by City in {state.name}</h2>
-            
+            <h2 className="text-4xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
+              Tax Preparers by City in {state.name}
+            </h2>
+
             <div className="grid md:grid-cols-3 gap-6">
               {state.cities.map((city: any) => (
                 <div
                   key={city.name}
                   className="bg-white rounded-lg shadow-lg p-6 border-2 border-gray-100 hover:border-blue-500 transition-all"
                 >
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{city.name}, {state.abbreviation}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    {city.name}, {state.abbreviation}
+                  </h3>
                   <div className="flex items-center mb-3">
                     <span className="text-yellow-400 mr-1">★★★★★</span>
-                    <span className="text-sm text-gray-600">4.9 ({city.preparers * 12} reviews)</span>
+                    <span className="text-sm text-gray-600">
+                      4.9 ({city.preparers * 12} reviews)
+                    </span>
                   </div>
                   <p className="text-gray-600 mb-4">
                     {city.preparers} certified tax preparers in {city.name}
@@ -218,33 +243,49 @@ export default function StatePage() {
         {/* State Tax Info */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-extrabold mb-12 text-2xl md:text-3xl lg:text-4xl">{state.name} Tax Information</h2>
-            
+            <h2 className="text-4xl font-bold mb-12 text-2xl md:text-3xl lg:text-4xl">
+              {state.name} Tax Information
+            </h2>
+
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold mb-6">State Tax Rates & Deadlines</h3>
+                <h3 className="text-2xl font-bold mb-6">
+                  State Tax Rates & Deadlines
+                </h3>
                 <div className="space-y-4">
                   <div className="flex justify-between border-b pb-3">
-                    <span className="font-semibold">State Income Tax Rate:</span>
-                    <span className="text-blue-600 font-bold">{state.taxInfo.stateTaxRate}</span>
+                    <span className="font-semibold">
+                      State Income Tax Rate:
+                    </span>
+                    <span className="text-blue-600 font-bold">
+                      {state.taxInfo.stateTaxRate}
+                    </span>
                   </div>
                   <div className="flex justify-between border-b pb-3">
                     <span className="font-semibold">Filing Deadline:</span>
-                    <span className="text-blue-600 font-bold">{state.taxInfo.filingDeadline}</span>
+                    <span className="text-blue-600 font-bold">
+                      {state.taxInfo.filingDeadline}
+                    </span>
                   </div>
                   <div className="flex justify-between border-b pb-3">
                     <span className="font-semibold">Standard Deduction:</span>
-                    <span className="text-blue-600 font-bold">{state.taxInfo.standardDeduction}</span>
+                    <span className="text-blue-600 font-bold">
+                      {state.taxInfo.standardDeduction}
+                    </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="font-semibold">Population:</span>
-                    <span className="text-blue-600 font-bold">{state.population}</span>
+                    <span className="text-blue-600 font-bold">
+                      {state.population}
+                    </span>
                   </div>
                 </div>
               </div>
 
               <div className="bg-white rounded-xl shadow-lg p-8">
-                <h3 className="text-2xl font-bold mb-6">{state.name} Tax Credits & Deductions</h3>
+                <h3 className="text-2xl font-bold mb-6">
+                  {state.name} Tax Credits & Deductions
+                </h3>
                 <ul className="space-y-3">
                   {state.taxInfo.specialCredits.map((credit: string) => (
                     <li key={credit} className="flex items-start">
@@ -255,7 +296,9 @@ export default function StatePage() {
                 </ul>
                 <div className="mt-6 p-4 bg-blue-50 rounded-lg">
                   <p className="text-sm text-blue-900">
-                    <strong>Our {state.name} tax experts</strong> know all state-specific credits and deductions to maximize your refund.
+                    <strong>Our {state.name} tax experts</strong> know all
+                    state-specific credits and deductions to maximize your
+                    refund.
                   </p>
                 </div>
               </div>
@@ -266,18 +309,21 @@ export default function StatePage() {
         {/* Why Choose Us */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-extrabold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-4xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
               Why Choose Us for {state.name} Tax Filing?
             </h2>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">🏆</span>
                 </div>
-                <h3 className="text-xl font-bold mb-3">Local {state.name} Experts</h3>
+                <h3 className="text-xl font-bold mb-3">
+                  Local {state.name} Experts
+                </h3>
                 <p className="text-gray-600">
-                  Our tax preparers live and work in {state.name}. They know state tax laws inside and out.
+                  Our tax preparers live and work in {state.name}. They know
+                  state tax laws inside and out.
                 </p>
               </div>
 
@@ -287,7 +333,8 @@ export default function StatePage() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">$100 Flat Fee</h3>
                 <p className="text-gray-600">
-                  Federal + {state.name} state return included. No hidden fees or surprises.
+                  Federal + {state.name} state return included. No hidden fees
+                  or surprises.
                 </p>
               </div>
 
@@ -297,7 +344,8 @@ export default function StatePage() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Drake Software</h3>
                 <p className="text-gray-600">
-                  Professional-grade software used by CPAs. Maximum refund guaranteed.
+                  Professional-grade software used by CPAs. Maximum refund
+                  guaranteed.
                 </p>
               </div>
             </div>
@@ -307,10 +355,10 @@ export default function StatePage() {
         {/* Reviews */}
         <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-extrabold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-4xl font-bold mb-12 text-center text-2xl md:text-3xl lg:text-4xl">
               What {state.name} Residents Say
             </h2>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white rounded-xl shadow-lg p-6">
                 <div className="flex items-center mb-4">
@@ -319,12 +367,16 @@ export default function StatePage() {
                   </div>
                   <div>
                     <div className="font-bold">John D.</div>
-                    <div className="text-sm text-gray-600">{state.capital}, {state.abbreviation}</div>
+                    <div className="text-sm text-gray-600">
+                      {state.capital}, {state.abbreviation}
+                    </div>
                     <div className="text-yellow-400">★★★★★</div>
                   </div>
                 </div>
                 <p className="text-gray-700">
-                  "Best tax service in {state.name}! Got my refund in 10 days. The preparer knew all the {state.name} tax credits I qualified for."
+                  "Best tax service in {state.name}! Got my refund in 10 days.
+                  The preparer knew all the {state.name} tax credits I qualified
+                  for."
                 </p>
               </div>
 
@@ -335,12 +387,15 @@ export default function StatePage() {
                   </div>
                   <div>
                     <div className="font-bold">Sarah M.</div>
-                    <div className="text-sm text-gray-600">{state.cities[1].name}, {state.abbreviation}</div>
+                    <div className="text-sm text-gray-600">
+                      {state.cities[1].name}, {state.abbreviation}
+                    </div>
                     <div className="text-yellow-400">★★★★★</div>
                   </div>
                 </div>
                 <p className="text-gray-700">
-                  "Only $100 for federal AND state! Saved so much compared to TurboTax. Drake Software is amazing."
+                  "Only $100 for federal AND state! Saved so much compared to
+                  TurboTax. Drake Software is amazing."
                 </p>
               </div>
 
@@ -351,12 +406,15 @@ export default function StatePage() {
                   </div>
                   <div>
                     <div className="font-bold">Mike T.</div>
-                    <div className="text-sm text-gray-600">{state.cities[2].name}, {state.abbreviation}</div>
+                    <div className="text-sm text-gray-600">
+                      {state.cities[2].name}, {state.abbreviation}
+                    </div>
                     <div className="text-yellow-400">★★★★★</div>
                   </div>
                 </div>
                 <p className="text-gray-700">
-                  "Filed my {state.name} taxes in 20 minutes. Expert reviewed everything. Got $500 more back than last year!"
+                  "Filed my {state.name} taxes in 20 minutes. Expert reviewed
+                  everything. Got $500 more back than last year!"
                 </p>
               </div>
             </div>
@@ -366,11 +424,12 @@ export default function StatePage() {
         {/* CTA */}
         <section className="py-20    text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-4xl font-extrabold mb-6 text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
               Ready to File Your {state.name} Taxes?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Join thousands of {state.name} residents who've saved money with our $100 flat-fee tax filing
+              Join thousands of {state.name} residents who've saved money with
+              our $100 flat-fee tax filing
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -391,5 +450,4 @@ export default function StatePage() {
       </div>
     </>
   );
-
 }

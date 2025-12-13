@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 // Image asset: /images/programs-new/program-11.jpg
-import { Libre_Baskerville } from 'next/font/google';
 import './globals.css';
 import './ui-fixes.css';
 import './print.css';
@@ -32,14 +31,7 @@ import { ScraperDetection } from '@/components/ScraperDetection';
 import { CopyrightProtection } from '@/components/CopyrightProtection';
 import { SecurityMonitor, SecurityBadge } from '@/components/SecurityMonitor';
 
-// Professional serif font for government/institutional compliance
-const libreBaskerville = Libre_Baskerville({
-  subsets: ['latin'],
-  display: 'optional', // Changed from 'swap' to 'optional' to prevent FOUC
-  weight: ['400', '700'],
-  variable: '--font-serif',
-  fallback: ['Georgia', 'serif'], // Add fallback fonts
-});
+// Using Times New Roman as the site-wide font
 
 // Viewport configuration (separate from metadata in Next.js 14+)
 export const viewport: Viewport = {
@@ -135,11 +127,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={libreBaskerville.variable}>
+    <html lang="en">
       <head>
         {/* Preload critical assets to prevent FOUC */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
         <link
@@ -151,8 +141,11 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body
-        className={`${libreBaskerville.className} antialiased bg-white`}
-        style={{ fontSize: '16px' }}
+        className="antialiased bg-white"
+        style={{
+          fontFamily: '"Times New Roman", Times, serif',
+          fontSize: '16px',
+        }}
       >
         <a
           href="#main-content"
@@ -164,7 +157,10 @@ export default function RootLayout({
         <FacebookPixel />
         <SecurityMonitor />
         <CopyrightProtection />
-        <InvisibleWatermark owner="Elizabeth L. Greene / Elevate for Humanity" siteId="EFH-ORIGINAL-2024" />
+        <InvisibleWatermark
+          owner="Elizabeth L. Greene / Elevate for Humanity"
+          siteId="EFH-ORIGINAL-2024"
+        />
         <DMCATrackingPixel />
         <ScraperDetection />
         <SecurityBadge />

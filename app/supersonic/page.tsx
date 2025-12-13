@@ -3,12 +3,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Supersonic Tax Service - Tax Refund Advance Indianapolis | Same Day Cash Advance',
-  description: 'Get your tax refund advance in Indianapolis TODAY! Same-day cash advances on your tax return. No waiting for IRS. Fast tax refund loans and anticipation loans in Indianapolis, IN. Walk in, walk out with cash!',
-  keywords: 'tax refund advance Indianapolis, tax refund loan Indianapolis, fast cash advance, same day tax refund, tax anticipation loan, Indianapolis tax services, quick tax refund, refund advance Indiana, tax cash advance near me, Indianapolis IN',
+  title:
+    'Supersonic Tax Service - Tax Refund Advance Indianapolis | Same Day Cash Advance',
+  description:
+    'Get your tax refund advance in Indianapolis TODAY! Same-day cash advances on your tax return. No waiting for IRS. Fast tax refund loans and anticipation loans in Indianapolis, IN. Walk in, walk out with cash!',
+  keywords:
+    'tax refund advance Indianapolis, tax refund loan Indianapolis, fast cash advance, same day tax refund, tax anticipation loan, Indianapolis tax services, quick tax refund, refund advance Indiana, tax cash advance near me, Indianapolis IN',
   openGraph: {
     title: 'Supersonic Tax Service - Same Day Tax Refund Advance Indianapolis',
-    description: 'Get cash TODAY! Tax refund advances in Indianapolis. No waiting for IRS. Fast, reliable service.',
+    description:
+      'Get cash TODAY! Tax refund advances in Indianapolis. No waiting for IRS. Fast, reliable service.',
     type: 'website',
     locale: 'en_US',
     siteName: 'Supersonic Tax Service',
@@ -17,7 +21,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Supersonic Tax Service - Tax Refund Advance Indianapolis',
-    description: 'Get your tax refund advance TODAY in Indianapolis. Fast cash, no waiting!',
+    description:
+      'Get your tax refund advance TODAY in Indianapolis. Fast cash, no waiting!',
   },
   alternates: {
     canonical: 'https://elevateforhumanity.org/supersonic',
@@ -26,41 +31,40 @@ export const metadata: Metadata = {
 
 export default function SupersonicFastCashPage() {
   const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "FinancialService",
-    "name": "Supersonic Tax Service",
-    "description": "Tax refund advance and cash advance services in Indianapolis. Same-day refund anticipation loans from $250 to $7,500.",
-    "url": "https://elevateforhumanity.org/supersonic",
-    "telephone": "+1-317-314-3757",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "8888 Keystone Crossing Suite 1300",
-      "addressLocality": "Indianapolis",
-      "addressRegion": "IN",
-      "postalCode": "46240",
-      "addressCounstart": "US"
+    '@context': 'https://schema.org',
+    '@type': 'FinancialService',
+    name: 'Supersonic Tax Service',
+    description:
+      'Tax refund advance and cash advance services in Indianapolis. Same-day refund anticipation loans from $250 to $7,500.',
+    url: 'https://elevateforhumanity.org/supersonic',
+    telephone: '+1-317-314-3757',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '8888 Keystone Crossing Suite 1300',
+      addressLocality: 'Indianapolis',
+      addressRegion: 'IN',
+      postalCode: '46240',
+      addressCounstart: 'US',
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "39.9186",
-      "longitude": "-86.1139"
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '39.9186',
+      longitude: '-86.1139',
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Indianapolis"
+    areaServed: {
+      '@type': 'City',
+      name: 'Indianapolis',
     },
-    "priceRange": "$$",
-    "openingHoursSpecification": [
+    priceRange: '$$',
+    openingHoursSpecification: [
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      }
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '18:00',
+      },
     ],
-    "sameAs": [
-      "https://www.facebook.com/share/14NGKwHMrdq/"
-    ]
+    sameAs: ['https://www.facebook.com/share/14NGKwHMrdq/'],
   };
 
   return (
@@ -71,31 +75,33 @@ export default function SupersonicFastCashPage() {
       />
       <section className="relative min-h-[700px] flex items-center    ">
         <div className="absolute inset-0 opacity-10">
-      {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
-        <Image
-          src="/images/gallery/image8.jpg"
-          alt="Hero"
-          fill
-          className="object-cover"
-          quality={100}
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0   " />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
-          <p className="text-xl mb-8 text-gray-100">Transform your career with free training</p>
-        </div>
-      </section>
+          {/* Hero Section */}
+          <section className="relative h-[400px] md:h-[500px] flex items-center justify-center text-white overflow-hidden">
+            <Image
+              src="/images/gallery/image8.jpg"
+              alt="Hero"
+              fill
+              className="object-cover"
+              quality={100}
+              priority
+              sizes="100vw"
+            />
+            <div className="absolute inset-0   " />
+            <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Welcome</h1>
+              <p className="text-xl mb-8 text-gray-100">
+                Transform your career with free training
+              </p>
+            </div>
+          </section>
 
           <div className="absolute inset-0 bg-[url('/images/pattern-dots.svg')] bg-repeat" />
         </div>
-        
+
         <div className="relative container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center text-white">
             <div className="mb-8">
-              <h1 className="text-6xl md:text-8xl font-black mb-4 tracking-tight">
+              <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight">
                 SUPERSONIC
                 <span className="block text-yellow-400">FAST CASH</span>
               </h1>
@@ -103,23 +109,27 @@ export default function SupersonicFastCashPage() {
                 Tax Refund Cash Advance - Same Day!
               </p>
             </div>
-            
+
             <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed max-w-3xl mx-auto">
-              <strong className="text-yellow-400">Get Cash TODAY!</strong> Tax refund advances and anticipation loans in Indianapolis. Don't wait for the IRS - walk in with your documents, walk out with cash. Professional tax preparation with instant refund advances available!
+              <strong className="text-yellow-400">Get Cash TODAY!</strong> Tax
+              refund advances and anticipation loans in Indianapolis. Don't wait
+              for the IRS - walk in with your documents, walk out with cash.
+              Professional tax preparation with instant refund advances
+              available!
             </p>
-            
+
             <div className="flex flex-wrap gap-4 justify-center mb-8">
               <a
                 href="https://calendly.com/supersonicfastcash/tax-appointment"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-5 bg-yellow-400 text-blue-900 font-black rounded-full hover:bg-yellow-300 transition text-xl shadow-2xl"
+                className="px-10 py-5 bg-yellow-400 text-blue-900 font-bold rounded-full hover:bg-yellow-300 transition text-xl shadow-2xl"
               >
                 BOOK APPOINTMENT NOW
               </a>
               <Link
                 href="/supersonic/upload"
-                className="px-10 py-5 bg-white text-blue-900 font-black rounded-full hover:bg-slate-100 transition text-xl shadow-2xl"
+                className="px-10 py-5 bg-white text-blue-900 font-bold rounded-full hover:bg-slate-100 transition text-xl shadow-2xl"
               >
                 UPLOAD DOCUMENTS
               </Link>
@@ -127,7 +137,7 @@ export default function SupersonicFastCashPage() {
                 href="https://www.facebook.com/share/14NGKwHMrdq/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-5 bg-blue-600 text-white font-black rounded-full hover:bg-blue-700 transition text-xl shadow-2xl"
+                className="px-10 py-5 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition text-xl shadow-2xl"
               >
                 VISIT US ON FACEBOOK
               </a>
@@ -135,26 +145,50 @@ export default function SupersonicFastCashPage() {
 
             <div className="flex flex-wrap gap-6 justify-center text-sm">
               <div className="flex items-center gap-2">
-                <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3}
-d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-6 h-6 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={3}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
                 <span className="font-bold">IRS E-File Approved</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3}
-d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-6 h-6 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={3}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
                 <span className="font-bold">Same-Day Service</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3}
-d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-6 h-6 text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={3}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
                 <span className="font-bold">Refund in 24-48 Hours</span>
               </div>
@@ -168,14 +202,18 @@ d="M5 13l4 4L19 7" />
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
                 Tax Refund Cash Advances - Get Money TODAY!
               </h2>
               <p className="text-xl text-slate-600 mb-4">
-                Powered by EPS Financial & Pathward Bank - Over $2 Billion in Taxpayer Advances
+                Powered by EPS Financial & Pathward Bank - Over $2 Billion in
+                Taxpayer Advances
               </p>
               <p className="text-lg text-slate-700 max-w-3xl mx-auto">
-                <strong>Don't wait weeks for the IRS!</strong> Get a cash advance on your tax refund the same day. Loans from $250 to $7,500 available to qualified taxpayers. Walk in, get approved, walk out with cash!
+                <strong>Don't wait weeks for the IRS!</strong> Get a cash
+                advance on your tax refund the same day. Loans from $250 to
+                $7,500 available to qualified taxpayers. Walk in, get approved,
+                walk out with cash!
               </p>
             </div>
 
@@ -186,39 +224,73 @@ d="M5 13l4 4L19 7" />
                   <div className="inline-block px-4 py-2 bg-blue-600 text-white font-bold rounded-full text-sm mb-4">
                     LOW COST
                   </div>
-                  <h3 className="text-3xl font-black text-slate-900 mb-2">E-Collect</h3>
+                  <h3 className="text-3xl font-bold text-slate-900 mb-2">
+                    E-Collect
+                  </h3>
                   <p className="text-lg font-bold text-blue-600">Only $20</p>
                 </div>
                 <ul className="space-y-3 text-slate-700 mb-6">
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Simple, low-cost refund transfer</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Pay tax prep fees from your refund</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Get refund in 24-48 hours</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Direct deposit or prepaid card</span>
                   </li>
@@ -231,47 +303,93 @@ d="M5 13l4 4L19 7" />
                   <div className="inline-block px-4 py-2 bg-green-600 text-white font-bold rounded-full text-sm mb-4">
                     💰 CASH ADVANCE - MOST POPULAR
                   </div>
-                  <h3 className="text-3xl font-black text-slate-900 mb-2">Refund Advance Loan</h3>
-                  <p className="text-lg font-bold text-green-600">$250 - $7,500 Same Day!</p>
+                  <h3 className="text-3xl font-bold text-slate-900 mb-2">
+                    Refund Advance Loan
+                  </h3>
+                  <p className="text-lg font-bold text-green-600">
+                    $250 - $7,500 Same Day!
+                  </p>
                 </div>
                 <ul className="space-y-3 text-slate-700 mb-6">
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span><strong>CASH ADVANCE on your tax refund</strong></span>
+                    <span>
+                      <strong>CASH ADVANCE on your tax refund</strong>
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Get money TODAY - don't wait for IRS</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Loans: $250, $500, $1,000, or up to $7,500</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>0% APR on $250-$1,000 loans</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Subject to approval - high approval rates</span>
                   </li>
@@ -284,39 +402,77 @@ d="M5 13l4 4L19 7" />
                   <div className="inline-block px-4 py-2 bg-purple-600 text-white font-bold rounded-full text-sm mb-4">
                     FASTEST
                   </div>
-                  <h3 className="text-3xl font-black text-slate-900 mb-2">FasterMoney®</h3>
-                  <p className="text-lg font-bold text-purple-600">Visa® Prepaid Card</p>
+                  <h3 className="text-3xl font-bold text-slate-900 mb-2">
+                    FasterMoney®
+                  </h3>
+                  <p className="text-lg font-bold text-purple-600">
+                    Visa® Prepaid Card
+                  </p>
                 </div>
                 <ul className="space-y-3 text-slate-700 mb-6">
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
-                    <span><strong>Refund up to 4 days early</strong></span>
+                    <span>
+                      <strong>Refund up to 4 days early</strong>
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Use anywhere Visa is accepted</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>No bank account needed</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     <span>Secure and convenient</span>
                   </li>
@@ -326,7 +482,8 @@ d="M5 13l4 4L19 7" />
 
             <div className="mt-12 text-center">
               <p className="text-sm text-slate-600 mb-4">
-                Powered by <strong>EPS Financial</strong> and <strong>Pathward®, N.A.</strong> - Member FDIC
+                Powered by <strong>EPS Financial</strong> and{' '}
+                <strong>Pathward®, N.A.</strong> - Member FDIC
               </p>
             </div>
           </div>
@@ -341,53 +498,111 @@ d="M5 13l4 4L19 7" />
               Who Qualifies for Refund Advance Loans?
             </h2>
             <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-8 mb-8">
-              <h3 className="text-2xl font-bold text-blue-800 mb-6">Loan Qualification Requirements</h3>
+              <h3 className="text-2xl font-bold text-blue-800 mb-6">
+                Loan Qualification Requirements
+              </h3>
               <ul className="space-y-4 text-slate-700">
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
-                  <span><strong>Expected Tax Refund:</strong> Must have an expected federal tax refund. Loan amounts based on refund size.</span>
+                  <span>
+                    <strong>Expected Tax Refund:</strong> Must have an expected
+                    federal tax refund. Loan amounts based on refund size.
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
-                  <span><strong>Valid ID:</strong> Government-issued photo identification required</span>
+                  <span>
+                    <strong>Valid ID:</strong> Government-issued photo
+                    identification required
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
-                  <span><strong>Tax Documents:</strong> W-2s, 1099s, and other income documents</span>
+                  <span>
+                    <strong>Tax Documents:</strong> W-2s, 1099s, and other
+                    income documents
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
-                  <span><strong>Subject to Approval:</strong> Underwriting standards apply. High approval rates for qualified applicants.</span>
+                  <span>
+                    <strong>Subject to Approval:</strong> Underwriting standards
+                    apply. High approval rates for qualified applicants.
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <svg className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor"
-viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
-                  <span><strong>Loan Options:</strong> $250, $500, $1,000 (0% APR) or 25%, 50%, 75% of expected refund up to $7,500 (36% APR)</span>
+                  <span>
+                    <strong>Loan Options:</strong> $250, $500, $1,000 (0% APR)
+                    or 25%, 50%, 75% of expected refund up to $7,500 (36% APR)
+                  </span>
                 </li>
               </ul>
             </div>
             <div className="text-center">
               <p className="text-lg text-slate-700 mb-6">
-                <strong>Ready to get your cash advance?</strong> Book an appointment or upload your documents to start now today!
+                <strong>Ready to get your cash advance?</strong> Book an
+                appointment or upload your documents to start now today!
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a
@@ -414,13 +629,15 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-center text-slate-900 mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-slate-900 mb-12">
               Our Services
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Tax Preparation</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Tax Preparation
+                </h3>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 font-bold">•</span>
@@ -446,7 +663,9 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </div>
 
               <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">Financial Services</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
+                  Financial Services
+                </h3>
                 <ul className="space-y-3 text-slate-700">
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 font-bold">•</span>
@@ -484,15 +703,21 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </h3>
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-center p-8 bg-slate-50 rounded-xl">
-                <h4 className="text-xl font-bold text-slate-900 mb-2">EPS Financial</h4>
+                <h4 className="text-xl font-bold text-slate-900 mb-2">
+                  EPS Financial
+                </h4>
                 <p className="text-slate-600 text-sm">
-                  Trusted by 44,000+ tax offices nationwide. Indusstart-leading refund transfer programs and taxpayer advance loans.
+                  Trusted by 44,000+ tax offices nationwide. Indusstart-leading
+                  refund transfer programs and taxpayer advance loans.
                 </p>
               </div>
               <div className="text-center p-8 bg-slate-50 rounded-xl">
-                <h4 className="text-xl font-bold text-slate-900 mb-2">Drake Software</h4>
+                <h4 className="text-xl font-bold text-slate-900 mb-2">
+                  Drake Software
+                </h4>
                 <p className="text-slate-600 text-sm">
-                  Professional tax preparation software trusted by tax professionals across America.
+                  Professional tax preparation software trusted by tax
+                  professionals across America.
                 </p>
               </div>
             </div>
@@ -504,55 +729,67 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       <section className="py-20    text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
               How It Works
             </h2>
 
             <div className="space-y-6">
               <div className="flex items-start gap-6 bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-yellow-400 text-blue-900 rounded-full flex items-center justify-center font-black text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-yellow-400 text-blue-900 rounded-full flex items-center justify-center font-bold text-xl">
                   1
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Book Your Appointment</h3>
+                  <h3 className="text-xl font-bold mb-2">
+                    Book Your Appointment
+                  </h3>
                   <p className="text-white/90">
-                    Schedule online or call us. Same-day appointments available during tax season.
+                    Schedule online or call us. Same-day appointments available
+                    during tax season.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-6 bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-yellow-400 text-blue-900 rounded-full flex items-center justify-center font-black text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-yellow-400 text-blue-900 rounded-full flex items-center justify-center font-bold text-xl">
                   2
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Upload Your Documents</h3>
+                  <h3 className="text-xl font-bold mb-2">
+                    Upload Your Documents
+                  </h3>
                   <p className="text-white/90">
-                    Securely upload your W-2s, 1099s, and other tax documents before your appointment.
+                    Securely upload your W-2s, 1099s, and other tax documents
+                    before your appointment.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-6 bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-yellow-400 text-blue-900 rounded-full flex items-center justify-center font-black text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-yellow-400 text-blue-900 rounded-full flex items-center justify-center font-bold text-xl">
                   3
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">We Prepare Your Return</h3>
+                  <h3 className="text-xl font-bold mb-2">
+                    We Prepare Your Return
+                  </h3>
                   <p className="text-white/90">
-                    Our certified tax professionals prepare your return accurately and maximize your refund.
+                    Our certified tax professionals prepare your return
+                    accurately and maximize your refund.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-6 bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="flex-shrink-0 w-12 h-12 bg-yellow-400 text-blue-900 rounded-full flex items-center justify-center font-black text-xl">
+                <div className="flex-shrink-0 w-12 h-12 bg-yellow-400 text-blue-900 rounded-full flex items-center justify-center font-bold text-xl">
                   4
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Get Your Money FAST</h3>
+                  <h3 className="text-xl font-bold mb-2">
+                    Get Your Money FAST
+                  </h3>
                   <p className="text-white/90">
-                    Choose rapid refund, advance loan, or prepaid card. Get your money in 24-48 hours!
+                    Choose rapid refund, advance loan, or prepaid card. Get your
+                    money in 24-48 hours!
                   </p>
                 </div>
               </div>
@@ -565,24 +802,25 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       <section className="py-20 bg-yellow-400">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-black text-blue-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
               Ready to Get Your Money?
             </h2>
             <p className="text-xl text-blue-900 mb-8">
-              Don't wait weeks for your refund. Get it in days with Supersonic Tax Service!
+              Don't wait weeks for your refund. Get it in days with Supersonic
+              Tax Service!
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a
                 href="https://calendly.com/supersonicfastcash/tax-appointment"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-5 bg-blue-900 text-white font-black rounded-full hover:bg-blue-800 transition text-xl shadow-2xl"
+                className="px-10 py-5 bg-blue-900 text-white font-bold rounded-full hover:bg-blue-800 transition text-xl shadow-2xl"
               >
                 BOOK APPOINTMENT
               </a>
               <a
                 href="tel:3173143757"
-                className="px-10 py-5 bg-white text-blue-900 font-black rounded-full hover:bg-slate-100 transition text-xl shadow-2xl"
+                className="px-10 py-5 bg-white text-blue-900 font-bold rounded-full hover:bg-slate-100 transition text-xl shadow-2xl"
               >
                 CALL 317-314-3757
               </a>
@@ -596,12 +834,20 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl font-bold mb-4">Supersonic Tax Service</h3>
-            <p className="text-slate-300 mb-2">8888 Keystone Crossing Suite 1300</p>
+            <p className="text-slate-300 mb-2">
+              8888 Keystone Crossing Suite 1300
+            </p>
             <p className="text-slate-300 mb-4">Indianapolis, IN 46240</p>
             <p className="text-slate-300 mb-4">
-              Phone: <a href="tel:3173143757" className="text-yellow-400 font-bold hover:underline">317-314-3757</a>
+              Phone:{' '}
+              <a
+                href="tel:3173143757"
+                className="text-yellow-400 font-bold hover:underline"
+              >
+                317-314-3757
+              </a>
             </p>
-            
+
             <div className="flex justify-center gap-4 mb-4">
               <a
                 href="https://www.facebook.com/share/14NGKwHMrdq/"
@@ -609,13 +855,17 @@ d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
                 Follow Us on Facebook
               </a>
             </div>
-            
+
             <p className="text-slate-300 text-sm">
               Tax Season Hours: Monday-Saturday 9AM-7PM | Sunday 12PM-5PM
             </p>

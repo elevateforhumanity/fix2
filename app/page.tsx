@@ -7,14 +7,14 @@ export default function HomePage() {
   return (
     <main className="w-full">
       {/* HERO */}
-      <section className="px-4 sm:px-6 lg:px-10 pt-10 pb-10">
-        <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-900">
+      <section className="px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 pb-6 sm:pb-10">
+        <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-6 sm:gap-10 items-center">
+          <div className="order-2 lg:order-1">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-900">
               Workforce training that leads to real careers — with funding
               pathways built in.
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-zinc-700 max-w-xl">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-zinc-700 max-w-xl">
               Elevate for Humanity helps people enroll in career programs and
               helps partners deliver training through a platform built for
               workforce, reentry, and community impact.
@@ -22,52 +22,66 @@ export default function HomePage() {
 
             <PrimaryCtas />
 
-            <div className="mt-5 text-sm text-zinc-600">
+            <div className="mt-4 sm:mt-5 text-xs sm:text-sm text-zinc-600">
               Serving individuals, schools, employers, and community partners
               across Indiana and beyond.
             </div>
           </div>
 
-          <div className="w-full">
+          <div className="w-full order-1 lg:order-2">
             <video
-              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081016552&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=JVWqZ0RhLxGgc5oN5b-yukrvFfLOqtLB7Rwba8uuLiAqBWa1NlkfQTO7Gp8eTHbZkWJ-dWxQ4AL3whiDXT8FOiww~6pCWe2wCmEAaGlVAHN9jXvJ9hM04L-N~pI8huHBsjytyBupDAJIYOOCseGUtZskeCgn-iAy6-m51D38E0tSTOy1AcPWKzafmqd3UhBAWnIcwYN6r6UH-Dac5cC6panzKtMT3YBl2LRKXxp43KeKib3hdxqR90ljO9b96zjA7uYuTxKhsxWMuR9E5JHhqpycA9ql3kEypT~WTmB2Co37fxAiE45Fn~OYHLF-NT6c2Vx0NC7I9RPEfVGmWXLBUA__"
+              src="/videos/success-stories-video-with-narration.mp4"
               poster="/images/hero-poster.jpg"
               autoPlay
               muted
               loop
               playsInline
-              className="max-h-[480px] w-full rounded-2xl shadow-sm border border-zinc-200 bg-black"
+              className="w-full h-auto max-h-[300px] sm:max-h-[400px] lg:max-h-[480px] rounded-xl sm:rounded-2xl shadow-sm border border-zinc-200 bg-black object-cover"
             />
           </div>
         </div>
       </section>
 
+      {/* SECOND HERO - "It's Not Graduation, It's Elevation" */}
+      <section className="px-4 sm:px-6 lg:px-10 py-8 sm:py-12 bg-zinc-900">
+        <div className="mx-auto max-w-4xl">
+          <video
+            src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081016552&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=JVWqZ0RhLxGgc5oN5b-yukrvFfLOqtLB7Rwba8uuLiAqBWa1NlkfQTO7Gp8eTHbZkWJ-dWxQ4AL3whiDXT8FOiww~6pCWe2wCmEAaGlVAHN9jXvJ9hM04L-N~pI8huHBsjytyBupDAJIYOOCseGUtZskeCgn-iAy6-m51D38E0tSTOy1AcPWKzafmqd3UhBAWnIcwYN6r6UH-Dac5cC6panzKtMT3YBl2LRKXxp43KeKib3hdxqR90ljO9b96zjA7uYuTxKhsxWMuR9E5JHhqpycA9ql3kEypT~WTmB2Co37fxAiE45Fn~OYHLF-NT6c2Vx0NC7I9RPEfVGmWXLBUA__"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-auto rounded-xl sm:rounded-2xl shadow-lg"
+          />
+        </div>
+      </section>
+
       {/* HOW IT WORKS */}
-      <section className="px-4 sm:px-6 lg:px-10 py-12 bg-zinc-50 border-y border-zinc-100">
+      <section className="px-4 sm:px-6 lg:px-10 py-8 sm:py-12 bg-zinc-50 border-y border-zinc-100">
         <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-zinc-900">
             How Elevate for Humanity Works
           </h2>
-          <p className="mt-3 text-zinc-700">
+          <p className="mt-2 sm:mt-3 text-sm sm:text-base text-zinc-700 px-4">
             Apply in minutes, explore funding options, train with support, and
             track your progress toward employment.
           </p>
 
-          <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center max-w-2xl mx-auto">
             <Link
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-bold hover:bg-zinc-800 transition"
+              className="rounded-lg sm:rounded-xl bg-zinc-900 text-white px-4 sm:px-5 py-2.5 sm:py-3 font-sans font-bold hover:bg-zinc-800 transition text-sm sm:text-base text-center"
               href="/apply"
             >
               Start Inquiry
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-bold hover:bg-zinc-50 transition"
+              className="rounded-lg sm:rounded-xl border border-zinc-300 bg-white px-4 sm:px-5 py-2.5 sm:py-3 font-sans font-bold hover:bg-zinc-50 transition text-sm sm:text-base text-center"
               href="/funding"
             >
               See Funding Options
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-bold hover:bg-zinc-50 transition"
+              className="rounded-lg sm:rounded-xl border border-zinc-300 bg-white px-4 sm:px-5 py-2.5 sm:py-3 font-sans font-bold hover:bg-zinc-50 transition text-sm sm:text-base text-center"
               href="/programs"
             >
               View Programs
@@ -77,16 +91,16 @@ export default function HomePage() {
       </section>
 
       {/* THREE LANES */}
-      <section className="px-4 sm:px-6 lg:px-10 py-12">
+      <section className="px-4 sm:px-6 lg:px-10 py-8 sm:py-12">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-zinc-900">
             Choose your path
           </h2>
 
-          <div className="mt-7 grid md:grid-cols-3 gap-6">
+          <div className="mt-4 sm:mt-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {/* Students */}
-            <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-              <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
+            <div className="rounded-xl sm:rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 shadow-sm">
+              <div className="relative w-full h-[200px] sm:h-[280px] md:h-[320px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
                 <Image
                   src="https://i.imgur.com/NK9RJzf.png"
                   alt="Students training"
@@ -94,15 +108,15 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="mt-4 text-xl font-black text-zinc-900">
+              <h3 className="mt-3 sm:mt-4 text-lg sm:text-xl font-bold text-zinc-900">
                 For Students
               </h3>
-              <p className="mt-2 text-zinc-700">
+              <p className="mt-2 text-sm sm:text-base text-zinc-700">
                 Explore training programs, get help with enrollment, and review
                 funding options that may reduce or cover tuition.
               </p>
               <Link
-                className="mt-4 inline-flex font-bold text-zinc-900 hover:underline"
+                className="mt-3 sm:mt-4 inline-flex font-bold text-zinc-900 hover:underline text-sm sm:text-base"
                 href="/students"
               >
                 Explore Programs →
@@ -110,8 +124,8 @@ export default function HomePage() {
             </div>
 
             {/* Partners */}
-            <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-              <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
+            <div className="rounded-xl sm:rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 shadow-sm">
+              <div className="relative w-full h-[200px] sm:h-[280px] md:h-[320px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
                 <Image
                   src="https://i.imgur.com/0ERBaW6.png"
                   alt="Platform and partners"
@@ -119,7 +133,7 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="mt-4 text-xl font-black text-zinc-900">
+              <h3 className="mt-3 sm:mt-4 text-lg sm:text-xl font-bold text-zinc-900">
                 For Schools & Training Providers
               </h3>
               <p className="mt-2 text-zinc-700">
@@ -136,8 +150,8 @@ export default function HomePage() {
             </div>
 
             {/* Community */}
-            <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-              <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
+            <div className="rounded-xl sm:rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 shadow-sm">
+              <div className="relative w-full h-[200px] sm:h-[280px] md:h-[320px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
                 <Image
                   src="https://i.imgur.com/maxIuYA.png"
                   alt="Community impact"
@@ -145,7 +159,7 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="mt-4 text-xl font-black text-zinc-900">
+              <h3 className="mt-3 sm:mt-4 text-lg sm:text-xl font-bold text-zinc-900">
                 For Employers & Community Partners
               </h3>
               <p className="mt-2 text-zinc-700">
@@ -164,22 +178,22 @@ export default function HomePage() {
       </section>
 
       {/* PLATFORM SNAPSHOT */}
-      <section className="px-4 sm:px-6 lg:px-10 py-12 bg-zinc-50 border-y border-zinc-100">
-        <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-start">
+      <section className="px-4 sm:px-6 lg:px-10 py-8 sm:py-12 bg-zinc-50 border-y border-zinc-100">
+        <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-6 sm:gap-10 items-start">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-zinc-900">
               One platform. Multiple apps. Built to scale.
             </h2>
-            <ul className="mt-4 space-y-2 text-zinc-700">
+            <ul className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2 text-sm sm:text-base text-zinc-700">
               <li>• LMS (courses, tracking, completions)</li>
               <li>• Enrollment & intake workflow</li>
               <li>• Roles & permissions (students, staff, partners)</li>
               <li>• Payments powered by Stripe + flexible options</li>
               <li>• Partner dashboards and licensing-ready structure</li>
             </ul>
-            <div className="mt-6">
+            <div className="mt-4 sm:mt-6">
               <Link
-                className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-bold hover:bg-zinc-800 inline-flex transition"
+                className="rounded-lg sm:rounded-xl bg-zinc-900 text-white px-4 sm:px-5 py-2.5 sm:py-3 font-sans font-bold hover:bg-zinc-800 inline-flex transition text-sm sm:text-base"
                 href="/platform/apps"
               >
                 See Apps & Licensing
@@ -187,8 +201,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="relative h-[140px] sm:h-[200px] md:h-[240px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-200 bg-white">
               <Image
                 src="https://i.imgur.com/Lvty4ct.png"
                 alt="Platform screenshot 1"
@@ -196,7 +210,7 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
+            <div className="relative h-[140px] sm:h-[200px] md:h-[240px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-200 bg-white">
               <Image
                 src="https://i.imgur.com/nxWQwY9.png"
                 alt="Platform screenshot 2"
@@ -204,7 +218,7 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
+            <div className="relative h-[140px] sm:h-[200px] md:h-[240px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-200 bg-white">
               <Image
                 src="https://i.imgur.com/t4e5S07.png"
                 alt="Platform screenshot 3"
@@ -212,7 +226,7 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
+            <div className="relative h-[140px] sm:h-[200px] md:h-[240px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-200 bg-white">
               <Image
                 src="https://i.imgur.com/7QrL7kQ.png"
                 alt="Platform screenshot 4"
@@ -225,27 +239,27 @@ export default function HomePage() {
       </section>
 
       {/* PROGRAM PREVIEW */}
-      <section className="px-4 sm:px-6 lg:px-10 py-12">
+      <section className="px-4 sm:px-6 lg:px-10 py-8 sm:py-12">
         <div className="mx-auto max-w-6xl">
-          <div className="flex items-end justify-between gap-6">
+          <div className="flex items-end justify-between gap-4 sm:gap-6">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-zinc-900">
                 Popular programs
               </h2>
-              <p className="mt-2 text-zinc-700">
+              <p className="mt-2 text-sm sm:text-base text-zinc-700">
                 Start with a program that matches your goals. We'll help you
                 understand eligibility, timelines, and support options.
               </p>
             </div>
             <Link
-              className="hidden sm:inline-flex font-bold text-zinc-900 hover:underline"
+              className="hidden sm:inline-flex font-bold text-zinc-900 hover:underline text-sm sm:text-base whitespace-nowrap"
               href="/programs"
             >
               View all →
             </Link>
           </div>
 
-          <div className="mt-7 grid md:grid-cols-3 gap-6">
+          <div className="mt-4 sm:mt-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {[
               {
                 title: 'Barber Apprenticeship',
@@ -272,7 +286,7 @@ export default function HomePage() {
               <Link
                 key={p.title}
                 href={p.href}
-                className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm hover:shadow-md transition"
+                className="rounded-xl sm:rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 shadow-sm hover:shadow-md transition"
               >
                 <div className="relative w-full h-[220px] rounded-xl overflow-hidden border border-zinc-100">
                   {p.video ? (
@@ -294,7 +308,7 @@ export default function HomePage() {
                     />
                   )}
                 </div>
-                <div className="mt-4 text-lg font-black text-zinc-900">
+                <div className="mt-4 text-lg font-bold text-zinc-900">
                   {p.title}
                 </div>
                 <div className="mt-2 text-sm text-zinc-700">
@@ -322,7 +336,7 @@ export default function HomePage() {
       <section className="px-4 sm:px-6 lg:px-10 py-12 bg-zinc-50 border-y border-zinc-100">
         <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
+            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900">
               Simple, secure payments when needed
             </h2>
             <p className="mt-3 text-zinc-700">
@@ -354,7 +368,7 @@ export default function HomePage() {
       {/* FINAL CTA */}
       <section className="px-4 sm:px-6 lg:px-10 py-12">
         <div className="mx-auto max-w-6xl rounded-3xl border border-zinc-200 bg-white p-8 sm:p-10 shadow-sm">
-          <h2 className="text-2xl sm:text-3xl font-black text-zinc-900">
+          <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900">
             Ready to get started?
           </h2>
           <p className="mt-2 text-zinc-700">

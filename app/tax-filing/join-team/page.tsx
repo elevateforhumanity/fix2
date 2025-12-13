@@ -4,14 +4,18 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/tax-filing/join-team",
+    canonical: 'https://www.elevateforhumanity.org/tax-filing/join-team',
   },
-  title: 'Become a Tax Preparer | Join Our Team | Earn $50K-$100K+ | Elevate for Humanity',
-  description: 'Start your own tax preparation business. Free training with Drake Software. Earn $50K-$100K+ per season. Work from home. No experience required.',
-  keywords: 'tax preparer jobs, tax preparation training, Drake software training, become tax preparer, tax business opportunity, work from home, tax franchise',
+  title:
+    'Become a Tax Preparer | Join Our Team | Earn $50K-$100K+ | Elevate for Humanity',
+  description:
+    'Start your own tax preparation business. Free training with Drake Software. Earn $50K-$100K+ per season. Work from home. No experience required.',
+  keywords:
+    'tax preparer jobs, tax preparation training, Drake software training, become tax preparer, tax business opportunity, work from home, tax franchise',
   openGraph: {
     title: 'Become a Tax Preparer - Earn $50K-$100K+ Per Season',
-    description: 'Free training. Drake Software certification. Start your own tax business.',
+    description:
+      'Free training. Drake Software certification. Start your own tax business.',
     url: 'https://elevateforhumanity.org/tax-filing/join-team',
     type: 'website',
   },
@@ -68,11 +72,12 @@ export default function JoinTeamPage() {
               <div className="inline-block bg-yellow-400 text-purple-900 px-4 py-2 rounded-full mb-4 font-bold">
                 🔥 NOW HIRING IN ALL 50 STATES
               </div>
-              <h1 className="text-5xl font-extrabold mb-6 text-3xl md:text-4xl lg:text-5xl">
+              <h1 className="text-5xl font-bold mb-6 text-3xl md:text-4xl lg:text-5xl">
                 Become a Certified Tax Preparer
               </h1>
               <p className="text-xl text-blue-100 mb-8">
-                Free training with Drake Software. Earn $50K-$100K+ per tax season. Work from home or open your own office.
+                Free training with Drake Software. Earn $50K-$100K+ per tax
+                season. Work from home or open your own office.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -98,11 +103,15 @@ export default function JoinTeamPage() {
                 </div>
                 <div className="bg-white/20 rounded-lg p-4">
                   <div className="text-3xl font-bold mb-1">$50K-$100K+</div>
-                  <p className="text-sm text-blue-100">Per tax season (Jan-Apr)</p>
+                  <p className="text-sm text-blue-100">
+                    Per tax season (Jan-Apr)
+                  </p>
                 </div>
                 <div className="bg-white/20 rounded-lg p-4">
                   <div className="text-3xl font-bold mb-1">$150K+</div>
-                  <p className="text-sm text-blue-100">Top earners with own office</p>
+                  <p className="text-sm text-blue-100">
+                    Top earners with own office
+                  </p>
                 </div>
               </div>
             </div>
@@ -114,8 +123,12 @@ export default function JoinTeamPage() {
       <section id="how-it-works" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold mb-4 text-2xl md:text-3xl lg:text-4xl">Free Tax Preparation Training</h2>
-            <p className="text-xl text-gray-600">Get certified in 6-8 weeks. No experience required.</p>
+            <h2 className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">
+              Free Tax Preparation Training
+            </h2>
+            <p className="text-xl text-gray-600">
+              Get certified in 6-8 weeks. No experience required.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -123,9 +136,12 @@ export default function JoinTeamPage() {
               <div className="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center mb-4 text-xl font-bold">
                 1
               </div>
-              <h3 className="text-xl font-bold mb-3">Enroll in Tax Prep Class</h3>
+              <h3 className="text-xl font-bold mb-3">
+                Enroll in Tax Prep Class
+              </h3>
               <p className="text-gray-600 mb-4">
-                Sign up for our comprehensive tax preparation course. 100% online, self-paced.
+                Sign up for our comprehensive tax preparation course. 100%
+                online, self-paced.
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>• 40 hours of training</li>
@@ -141,7 +157,8 @@ export default function JoinTeamPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Get Certified</h3>
               <p className="text-gray-600 mb-4">
-                Pass the certification exam and get your IRS PTIN (Preparer Tax Identification Number).
+                Pass the certification exam and get your IRS PTIN (Preparer Tax
+                Identification Number).
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>• Practice exams included</li>
@@ -157,7 +174,8 @@ export default function JoinTeamPage() {
               </div>
               <h3 className="text-xl font-bold mb-3">Start Earning</h3>
               <p className="text-gray-600 mb-4">
-                Join our network and start preparing taxes. We provide clients, software, and support.
+                Join our network and start preparing taxes. We provide clients,
+                software, and support.
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>• Drake Software license</li>
@@ -169,9 +187,12 @@ export default function JoinTeamPage() {
           </div>
 
           <div className="   rounded-2xl p-8 text-white text-center">
-            <h3 className="text-2xl font-bold mb-4">Training Cost: $499 (Refunded After 10 Returns)</h3>
+            <h3 className="text-2xl font-bold mb-4">
+              Training Cost: $499 (Refunded After 10 Returns)
+            </h3>
             <p className="text-lg text-blue-100 mb-6">
-              Pay $499 for training. We refund it after you file your first 10 tax returns. Essentially FREE training!
+              Pay $499 for training. We refund it after you file your first 10
+              tax returns. Essentially FREE training!
             </p>
             <a
               href="/tax-filing/join-team/apply"
@@ -186,13 +207,17 @@ export default function JoinTeamPage() {
       {/* Business Models */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">Choose Your Business Model</h2>
-          
+          <h2 className="text-4xl font-bold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">
+            Choose Your Business Model
+          </h2>
+
           <div className="grid md:grid-cols-3 gap-8">
             {/* Work From Home */}
             <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200">
               <h3 className="text-2xl font-bold mb-4">Work From Home</h3>
-              <div className="text-4xl font-extrabold text-green-600 mb-4 text-2xl md:text-3xl lg:text-4xl">$0</div>
+              <div className="text-4xl font-bold text-green-600 mb-4 text-2xl md:text-3xl lg:text-4xl">
+                $0
+              </div>
               <p className="text-gray-600 mb-6">Start-up cost</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
@@ -221,7 +246,9 @@ export default function JoinTeamPage() {
                 MOST POPULAR
               </div>
               <h3 className="text-2xl font-bold mb-4">Mobile Tax Service</h3>
-              <div className="text-4xl font-extrabold mb-4 text-2xl md:text-3xl lg:text-4xl">$2,500</div>
+              <div className="text-4xl font-bold mb-4 text-2xl md:text-3xl lg:text-4xl">
+                $2,500
+              </div>
               <p className="text-blue-100 mb-6">Start-up cost</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
@@ -247,7 +274,9 @@ export default function JoinTeamPage() {
             {/* Storefront Office */}
             <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200">
               <h3 className="text-2xl font-bold mb-4">Storefront Office</h3>
-              <div className="text-4xl font-extrabold text-purple-600 mb-4 text-2xl md:text-3xl lg:text-4xl">$10K+</div>
+              <div className="text-4xl font-bold text-purple-600 mb-4 text-2xl md:text-3xl lg:text-4xl">
+                $10K+
+              </div>
               <p className="text-gray-600 mb-6">Start-up cost</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
@@ -276,26 +305,73 @@ export default function JoinTeamPage() {
       {/* State Availability */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-center mb-4 text-2xl md:text-3xl lg:text-4xl">Available in All 50 States</h2>
+          <h2 className="text-4xl font-bold text-center mb-4 text-2xl md:text-3xl lg:text-4xl">
+            Available in All 50 States
+          </h2>
           <p className="text-xl text-gray-600 text-center mb-12">
             Join tax preparers nationwide. We're expanding in every state.
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
             {[
-              'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-              'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
-              'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa',
-              'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-              'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-              'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-              'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-              'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-              'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-              'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+              'Alabama',
+              'Alaska',
+              'Arizona',
+              'Arkansas',
+              'California',
+              'Colorado',
+              'Connecticut',
+              'Delaware',
+              'Florida',
+              'Georgia',
+              'Hawaii',
+              'Idaho',
+              'Illinois',
+              'Indiana',
+              'Iowa',
+              'Kansas',
+              'Kentucky',
+              'Louisiana',
+              'Maine',
+              'Maryland',
+              'Massachusetts',
+              'Michigan',
+              'Minnesota',
+              'Mississippi',
+              'Missouri',
+              'Montana',
+              'Nebraska',
+              'Nevada',
+              'New Hampshire',
+              'New Jersey',
+              'New Mexico',
+              'New York',
+              'North Carolina',
+              'North Dakota',
+              'Ohio',
+              'Oklahoma',
+              'Oregon',
+              'Pennsylvania',
+              'Rhode Island',
+              'South Carolina',
+              'South Dakota',
+              'Tennessee',
+              'Texas',
+              'Utah',
+              'Vermont',
+              'Virginia',
+              'Washington',
+              'West Virginia',
+              'Wisconsin',
+              'Wyoming',
             ].map((state) => (
-              <div key={state} className="bg-white rounded-lg p-3 shadow hover:shadow-lg transition-shadow">
-                <span className="text-sm font-medium text-gray-700">{state}</span>
+              <div
+                key={state}
+                className="bg-white rounded-lg p-3 shadow hover:shadow-lg transition-shadow"
+              >
+                <span className="text-sm font-medium text-gray-700">
+                  {state}
+                </span>
               </div>
             ))}
           </div>
@@ -314,17 +390,22 @@ export default function JoinTeamPage() {
       {/* Benefits */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">Why Join Our Network?</h2>
-          
+          <h2 className="text-4xl font-bold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">
+            Why Join Our Network?
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex items-start space-x-4">
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-2xl">💰</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">High Earning Potential</h3>
+                <h3 className="text-xl font-bold mb-2">
+                  High Earning Potential
+                </h3>
                 <p className="text-gray-600">
-                  Earn $50-$150 per return. File 500-1000 returns per season = $50K-$100K+
+                  Earn $50-$150 per return. File 500-1000 returns per season =
+                  $50K-$100K+
                 </p>
               </div>
             </div>
@@ -336,7 +417,8 @@ export default function JoinTeamPage() {
               <div>
                 <h3 className="text-xl font-bold mb-2">Work From Anywhere</h3>
                 <p className="text-gray-600">
-                  Home, office, or mobile. You choose. Flexible schedule during tax season.
+                  Home, office, or mobile. You choose. Flexible schedule during
+                  tax season.
                 </p>
               </div>
             </div>
@@ -346,9 +428,12 @@ export default function JoinTeamPage() {
                 <span className="text-2xl">📊</span>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Professional Software</h3>
+                <h3 className="text-xl font-bold mb-2">
+                  Professional Software
+                </h3>
                 <p className="text-gray-600">
-                  Drake Software license included. Same software used by CPAs nationwide.
+                  Drake Software license included. Same software used by CPAs
+                  nationwide.
                 </p>
               </div>
             </div>
@@ -360,7 +445,8 @@ export default function JoinTeamPage() {
               <div>
                 <h3 className="text-xl font-bold mb-2">Client Referrals</h3>
                 <p className="text-gray-600">
-                  We send clients to you. No need to find your own customers initially.
+                  We send clients to you. No need to find your own customers
+                  initially.
                 </p>
               </div>
             </div>
@@ -372,7 +458,8 @@ export default function JoinTeamPage() {
               <div>
                 <h3 className="text-xl font-bold mb-2">Ongoing Training</h3>
                 <p className="text-gray-600">
-                  Annual tax law updates. Continuing education. Expert support team.
+                  Annual tax law updates. Continuing education. Expert support
+                  team.
                 </p>
               </div>
             </div>
@@ -384,7 +471,8 @@ export default function JoinTeamPage() {
               <div>
                 <h3 className="text-xl font-bold mb-2">E&O Insurance</h3>
                 <p className="text-gray-600">
-                  Errors & Omissions insurance included. Protection for you and clients.
+                  Errors & Omissions insurance included. Protection for you and
+                  clients.
                 </p>
               </div>
             </div>
@@ -395,8 +483,10 @@ export default function JoinTeamPage() {
       {/* Success Stories */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">Success Stories</h2>
-          
+          <h2 className="text-4xl font-bold text-center mb-12 text-2xl md:text-3xl lg:text-4xl">
+            Success Stories
+          </h2>
+
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl shadow-lg p-6">
               <div className="flex items-center mb-4">
@@ -409,9 +499,12 @@ export default function JoinTeamPage() {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                "I earned $78,000 in my first tax season working from home. The training was excellent and Drake Software is so easy to use!"
+                "I earned $78,000 in my first tax season working from home. The
+                training was excellent and Drake Software is so easy to use!"
               </p>
-              <div className="text-sm text-gray-500">Filed 650 returns • Year 1</div>
+              <div className="text-sm text-gray-500">
+                Filed 650 returns • Year 1
+              </div>
             </div>
 
             <div className="bg-white rounded-xl shadow-lg p-6">
@@ -425,9 +518,12 @@ export default function JoinTeamPage() {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                "Started mobile, now have 2 offices. Made $185,000 last season. Best career decision I ever made!"
+                "Started mobile, now have 2 offices. Made $185,000 last season.
+                Best career decision I ever made!"
               </p>
-              <div className="text-sm text-gray-500">Filed 1,200 returns • Year 3</div>
+              <div className="text-sm text-gray-500">
+                Filed 1,200 returns • Year 3
+              </div>
             </div>
 
             <div className="bg-white rounded-xl shadow-lg p-6">
@@ -441,9 +537,12 @@ export default function JoinTeamPage() {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                "No experience needed! I was a teacher before this. Now I make more in 4 months than I did all year teaching."
+                "No experience needed! I was a teacher before this. Now I make
+                more in 4 months than I did all year teaching."
               </p>
-              <div className="text-sm text-gray-500">Filed 520 returns • Year 1</div>
+              <div className="text-sm text-gray-500">
+                Filed 520 returns • Year 1
+              </div>
             </div>
           </div>
         </div>
@@ -452,7 +551,9 @@ export default function JoinTeamPage() {
       {/* CTA */}
       <section className="py-20     text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-extrabold mb-6 text-2xl md:text-3xl lg:text-4xl">Ready to Start Your Tax Business?</h2>
+          <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
+            Ready to Start Your Tax Business?
+          </h2>
           <p className="text-xl text-blue-100 mb-8">
             Join thousands of tax preparers earning $50K-$100K+ per season
           </p>

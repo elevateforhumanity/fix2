@@ -2,17 +2,18 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { 
-  BookOpen, 
-  Clock, 
-  Award, 
-  TrendingUp, 
+import {
+  BookOpen,
+  Clock,
+  Award,
+  TrendingUp,
   Calendar,
   ExternalLink,
   CheckCircle,
   PlayCircle,
   Scissors,
-  GraduationCap
+  GraduationCap,
+  MessageCircle,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -22,8 +23,10 @@ export const metadata: Metadata = {
 
 export default async function DashboardPage() {
   const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   if (!user) {
     redirect('/login?next=/student/dashboard');
   }
@@ -38,10 +41,12 @@ export default async function DashboardPage() {
   // Get enrollments with program details
   const { data: enrollments, error: enrollmentsError } = await supabase
     .from('enrollments')
-    .select(`
+    .select(
+      `
       *,
       program:programs(*)
-    `)
+    `
+    )
     .eq('student_id', user.id)
     .order('created_at', { ascending: false });
 
@@ -57,19 +62,21 @@ export default async function DashboardPage() {
       .select('id')
       .eq('provider_type', 'milady')
       .single();
-    
+
     const miladyProviderId = providerData?.id;
 
     if (miladyProviderId) {
       const { data } = await supabase
         .from('partner_lms_enrollments')
-        .select(`
+        .select(
+          `
           *,
           course:partner_lms_courses(*)
-        `)
+        `
+        )
         .eq('student_id', user.id)
         .eq('provider_id', miladyProviderId);
-      
+
       miladyEnrollments = data;
     }
   } catch (error) {
@@ -90,7 +97,9 @@ export default async function DashboardPage() {
                 Welcome back, {profile?.full_name || 'Student'}!
               </h1>
               <p className="text-slate-600 mt-1">
-                {activeEnrollment ? `${activeEnrollment.program?.name}` : 'Your Learning Dashboard'}
+                {activeEnrollment
+                  ? `${activeEnrollment.program?.name}`
+                  : 'Your Learning Dashboard'}
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -121,11 +130,15 @@ export default async function DashboardPage() {
               <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <span className="text-3xl font-bold text-blue-600">{programProgress}%</span>
+              <span className="text-3xl font-bold text-blue-600">
+                {programProgress}%
+              </span>
             </div>
-            <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">Overall Progress</h3>
+            <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">
+              Overall Progress
+            </h3>
             <div className="mt-3 bg-slate-100 rounded-full h-2 overflow-hidden">
-              <div 
+              <div
                 className="bg-blue-600 h-full transition-all duration-500"
                 style={{ width: `${programProgress}%` }}
               />
@@ -139,10 +152,14 @@ export default async function DashboardPage() {
                 <Clock className="w-6 h-6 text-white" />
               </div>
               <span className="text-3xl font-bold text-green-600">
-                {miladyEnrollments?.reduce((sum, e) => sum + (e.time_spent_hours || 0), 0).toFixed(0) || 0}
+                {miladyEnrollments
+                  ?.reduce((sum, e) => sum + (e.time_spent_hours || 0), 0)
+                  .toFixed(0) || 0}
               </span>
             </div>
-            <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">Theory Hours</h3>
+            <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">
+              Theory Hours
+            </h3>
             <p className="text-xs text-slate-500 mt-2">
               Tracked by Milady CIMA
             </p>
@@ -155,15 +172,17 @@ export default async function DashboardPage() {
                 <Calendar className="w-6 h-6 text-white" />
               </div>
               <span className="text-sm font-bold text-purple-600">
-                {miladyEnrollments?.[0]?.last_accessed_at 
-                  ? new Date(miladyEnrollments[0].last_accessed_at).toLocaleDateString()
+                {miladyEnrollments?.[0]?.last_accessed_at
+                  ? new Date(
+                      miladyEnrollments[0].last_accessed_at
+                    ).toLocaleDateString()
                   : 'Never'}
               </span>
             </div>
-            <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">Last Active</h3>
-            <p className="text-xs text-slate-500 mt-2">
-              In Milady CIMA
-            </p>
+            <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">
+              Last Active
+            </h3>
+            <p className="text-xs text-slate-500 mt-2">In Milady CIMA</p>
           </div>
 
           {/* Certificates */}
@@ -173,10 +192,13 @@ export default async function DashboardPage() {
                 <Award className="w-6 h-6 text-white" />
               </div>
               <span className="text-3xl font-bold text-orange-600">
-                {miladyEnrollments?.filter(e => e.status === 'completed').length || 0}
+                {miladyEnrollments?.filter((e) => e.status === 'completed')
+                  .length || 0}
               </span>
             </div>
-            <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">Certificates Earned</h3>
+            <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">
+              Certificates Earned
+            </h3>
             <p className="text-xs text-slate-500 mt-2">
               {miladyEnrollments?.length || 0} courses enrolled
             </p>
@@ -197,7 +219,7 @@ export default async function DashboardPage() {
               <div className="p-6 space-y-4">
                 {enrollments && enrollments.length > 0 ? (
                   enrollments.map((enrollment) => (
-                    <div 
+                    <div
                       key={enrollment.id}
                       className="border border-slate-200 rounded-lg p-5 hover:shadow-lg transition-all hover:border-blue-300"
                     >
@@ -209,13 +231,20 @@ export default async function DashboardPage() {
                           <div className="flex items-center gap-4 text-sm text-slate-600">
                             <span className="flex items-center gap-1">
                               <Calendar className="w-4 h-4" />
-                              Started {new Date(enrollment.enrolled_at).toLocaleDateString()}
+                              Started{' '}
+                              {new Date(
+                                enrollment.enrolled_at
+                              ).toLocaleDateString()}
                             </span>
-                            <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                              enrollment.status === 'active' ? 'bg-green-100 text-green-700' :
-                              enrollment.status === 'completed' ? 'bg-blue-100 text-blue-700' :
-                              'bg-slate-100 text-slate-700'
-                            }`}>
+                            <span
+                              className={`px-2 py-1 rounded-full text-xs font-semibold ${
+                                enrollment.status === 'active'
+                                  ? 'bg-green-100 text-green-700'
+                                  : enrollment.status === 'completed'
+                                    ? 'bg-blue-100 text-blue-700'
+                                    : 'bg-slate-100 text-slate-700'
+                              }`}
+                            >
                               {enrollment.status}
                             </span>
                           </div>
@@ -228,17 +257,23 @@ export default async function DashboardPage() {
                           Continue
                         </Link>
                       </div>
-                      
+
                       {/* Progress Bar */}
                       <div className="mt-4">
                         <div className="flex items-center justify-between text-sm mb-2">
-                          <span className="text-slate-600 font-medium">Progress</span>
-                          <span className="text-blue-600 font-bold">{enrollment.progress_percentage || 0}%</span>
+                          <span className="text-slate-600 font-medium">
+                            Progress
+                          </span>
+                          <span className="text-blue-600 font-bold">
+                            {enrollment.progress_percentage || 0}%
+                          </span>
                         </div>
                         <div className="bg-slate-100 rounded-full h-3 overflow-hidden">
-                          <div 
+                          <div
                             className="bg-blue-600 h-full transition-all duration-500"
-                            style={{ width: `${enrollment.progress_percentage || 0}%` }}
+                            style={{
+                              width: `${enrollment.progress_percentage || 0}%`,
+                            }}
                           />
                         </div>
                       </div>
@@ -247,7 +282,9 @@ export default async function DashboardPage() {
                 ) : (
                   <div className="text-center py-12">
                     <GraduationCap className="w-16 h-16 text-slate-300 mx-auto mb-4" />
-                    <p className="text-slate-600 mb-4">You're not enrolled in any courses yet</p>
+                    <p className="text-slate-600 mb-4">
+                      You're not enrolled in any courses yet
+                    </p>
                     <Link
                       href="/programs"
                       className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold transition-all"
@@ -270,14 +307,15 @@ export default async function DashboardPage() {
                 </div>
                 <div className="p-6 space-y-4">
                   {miladyEnrollments.map((enrollment) => (
-                    <div 
+                    <div
                       key={enrollment.id}
                       className="border border-slate-200 rounded-lg p-5 hover:shadow-lg transition-all hover:border-orange-300"
                     >
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex-1">
                           <h3 className="text-lg font-bold text-slate-900 mb-1">
-                            {enrollment.course_name || enrollment.course?.course_name}
+                            {enrollment.course_name ||
+                              enrollment.course?.course_name}
                           </h3>
                           <div className="flex items-center gap-4 text-sm text-slate-600">
                             <span className="flex items-center gap-1">
@@ -286,7 +324,10 @@ export default async function DashboardPage() {
                             </span>
                             {enrollment.last_accessed_at && (
                               <span className="text-slate-500">
-                                Last accessed {new Date(enrollment.last_accessed_at).toLocaleDateString()}
+                                Last accessed{' '}
+                                {new Date(
+                                  enrollment.last_accessed_at
+                                ).toLocaleDateString()}
                               </span>
                             )}
                           </div>
@@ -299,33 +340,42 @@ export default async function DashboardPage() {
                           Launch Course
                         </Link>
                       </div>
-                      
+
                       {/* Progress Bar */}
                       <div className="mt-4">
                         <div className="flex items-center justify-between text-sm mb-2">
-                          <span className="text-slate-600 font-medium">Progress</span>
-                          <span className="text-orange-600 font-bold">{enrollment.progress_percentage || 0}%</span>
+                          <span className="text-slate-600 font-medium">
+                            Progress
+                          </span>
+                          <span className="text-orange-600 font-bold">
+                            {enrollment.progress_percentage || 0}%
+                          </span>
                         </div>
                         <div className="bg-slate-100 rounded-full h-3 overflow-hidden">
-                          <div 
+                          <div
                             className="bg-orange-600 h-full transition-all duration-500"
-                            style={{ width: `${enrollment.progress_percentage || 0}%` }}
+                            style={{
+                              width: `${enrollment.progress_percentage || 0}%`,
+                            }}
                           />
                         </div>
                       </div>
 
-                      {enrollment.status === 'completed' && enrollment.certificate_id && (
-                        <div className="mt-4 flex items-center gap-2 text-green-600">
-                          <CheckCircle className="w-5 h-5" />
-                          <span className="font-semibold">Certificate Available</span>
-                          <Link
-                            href={`/student/certificates/${enrollment.certificate_id}`}
-                            className="ml-auto text-blue-600 hover:text-blue-700 font-semibold"
-                          >
-                            Download →
-                          </Link>
-                        </div>
-                      )}
+                      {enrollment.status === 'completed' &&
+                        enrollment.certificate_id && (
+                          <div className="mt-4 flex items-center gap-2 text-green-600">
+                            <CheckCircle className="w-5 h-5" />
+                            <span className="font-semibold">
+                              Certificate Available
+                            </span>
+                            <Link
+                              href={`/student/certificates/${enrollment.certificate_id}`}
+                              className="ml-auto text-blue-600 hover:text-blue-700 font-semibold"
+                            >
+                              Download →
+                            </Link>
+                          </div>
+                        )}
                     </div>
                   ))}
                 </div>
@@ -346,7 +396,7 @@ export default async function DashboardPage() {
                   Access your training platform
                 </p>
               </div>
-              
+
               {miladyEnrollments && miladyEnrollments.length > 0 ? (
                 <div className="space-y-3">
                   {miladyEnrollments.map((enrollment) => (
@@ -372,10 +422,11 @@ export default async function DashboardPage() {
                   </Link>
                 </div>
               )}
-              
+
               <div className="mt-6 pt-6 border-t border-white/20 text-center">
                 <p className="text-orange-100 text-xs">
-                  All training, time tracking, and service logging<br />
+                  All training, time tracking, and service logging
+                  <br />
                   happens in Milady CIMA
                 </p>
               </div>
@@ -383,8 +434,24 @@ export default async function DashboardPage() {
 
             {/* Quick Links */}
             <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6">
-              <h3 className="text-lg font-bold text-slate-900 mb-4">Quick Links</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-4">
+                Quick Links
+              </h3>
               <div className="space-y-3">
+                <Link
+                  href="/student/hours-tracking"
+                  className="block w-full px-4 py-3 bg-orange-50 text-orange-700 rounded-lg hover:bg-orange-100 font-semibold transition-all text-center border border-orange-200"
+                >
+                  <Clock className="w-4 h-4 inline mr-2" />
+                  Log Hours
+                </Link>
+                <Link
+                  href="/student/ai-tutor"
+                  className="block w-full px-4 py-3 bg-green-50 text-green-700 rounded-lg hover:bg-green-100 font-semibold transition-all text-center border border-green-200"
+                >
+                  <MessageCircle className="w-4 h-4 inline mr-2" />
+                  AI Tutor - Ask Questions
+                </Link>
                 <Link
                   href="/student/certificates"
                   className="block w-full px-4 py-3 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 font-semibold transition-all text-center border border-blue-200"

@@ -1,13 +1,21 @@
-import Link from "next/link";
-import Image from "next/image";
-import { CheckCircle, Award, Building2, Shield, Users, FileCheck } from "lucide-react";
+import Link from 'next/link';
+import Image from 'next/image';
+import {
+  CheckCircle,
+  Award,
+  Building2,
+  Shield,
+  Users,
+  FileCheck,
+} from 'lucide-react';
 
 export const metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.orgrovals",
+    canonical: 'https://www.elevateforhumanity.orgrovals',
   },
-  title: "Approvals, Credentials & Partnerships | Elevate For Humanity",
-  description: "State-approved, federally recognized workforce training institute. View our official approvals, certifications, and partnerships.",
+  title: 'Approvals, Credentials & Partnerships | Elevate For Humanity',
+  description:
+    'State-approved, federally recognized workforce training institute. View our official approvals, certifications, and partnerships.',
 };
 
 export default function ApprovalsPage() {
@@ -20,17 +28,22 @@ export default function ApprovalsPage() {
           alt="Official documents and certifications"
           fill
           className="object-cover"
-          priority quality={100} sizes="100vw"
+          priority
+          quality={100}
+          sizes="100vw"
         />
-        
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex items-center">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl">
               Approvals, Credentials & Partnerships
             </h1>
             <p className="text-xl md:text-2xl text-slate-200 leading-relaxed drop-shadow-lg">
-              Elevate For Humanity operates under Selfish Inc, a 501(c)(3) nonprofit and registered federal contractor. Together, our entities form a multi-industry-standard workforce ecosystem that is approved by state and federal agencies to deliver training, apprenticeships, and workforce services.
+              Elevate For Humanity operates under Selfish Inc, a 501(c)(3)
+              nonprofit and registered federal contractor. Together, our
+              entities form a multi-industry-standard workforce ecosystem that
+              is approved by state and federal agencies to deliver training,
+              apprenticeships, and workforce services.
             </p>
           </div>
         </div>
@@ -41,7 +54,9 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Shield className="w-12 h-12 text-blue-600" />
-            <h2 className="text-4xl font-extrabold text-2xl md:text-3xl lg:text-4xl">State & Workforce Approvals</h2>
+            <h2 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">
+              State & Workforce Approvals
+            </h2>
           </div>
 
           <div className="space-y-8">
@@ -50,10 +65,18 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">INTraining Approved Provider – Indiana Department of Workforce Development</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    INTraining Approved Provider – Indiana Department of
+                    Workforce Development
+                  </h3>
                   <div className="space-y-2 text-lg text-slate-700">
-                    <p><strong>Program:</strong> Emergency Health & Safety Technician</p>
-                    <p><strong>Program Location ID:</strong> 10004621</p>
+                    <p>
+                      <strong>Program:</strong> Emergency Health & Safety
+                      Technician
+                    </p>
+                    <p>
+                      <strong>Program Location ID:</strong> 10004621
+                    </p>
                   </div>
                 </div>
               </div>
@@ -64,9 +87,12 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">Eligible Training Provider (ETP) – WIOA-funded training</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    Eligible Training Provider (ETP) – WIOA-funded training
+                  </h3>
                   <p className="text-lg text-slate-700">
-                    Approved to serve participants funded through the Workforce Innovation and Opportunity Act (WIOA)
+                    Approved to serve participants funded through the Workforce
+                    Innovation and Opportunity Act (WIOA)
                   </p>
                 </div>
               </div>
@@ -77,9 +103,12 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">Workforce Ready Grant (WRG) Training Provider</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    Workforce Ready Grant (WRG) Training Provider
+                  </h3>
                   <p className="text-lg text-slate-700">
-                    Selected programs available at no cost to eligible adults through Indiana's Workforce Ready Grant
+                    Selected programs available at no cost to eligible adults
+                    through Indiana's Workforce Ready Grant
                   </p>
                 </div>
               </div>
@@ -90,9 +119,12 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">Job Ready Indy (JRI) Training Partner – Marion County</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    Job Ready Indy (JRI) Training Partner – Marion County
+                  </h3>
                   <p className="text-lg text-slate-700">
-                    Approved partner for Job Ready Indy workforce readiness training in Marion County
+                    Approved partner for Job Ready Indy workforce readiness
+                    training in Marion County
                   </p>
                 </div>
               </div>
@@ -103,9 +135,12 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">ITAP / INDOT Registration</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    ITAP / INDOT Registration
+                  </h3>
                   <p className="text-lg text-slate-700">
-                    2Exclusive LLC-S registered with INDOT's ITAP for transportation and construction-aligned workforce services
+                    2Exclusive LLC-S registered with INDOT's ITAP for
+                    transportation and construction-aligned workforce services
                   </p>
                 </div>
               </div>
@@ -119,7 +154,9 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Building2 className="w-12 h-12 text-red-600" />
-            <h2 className="text-4xl font-extrabold text-2xl md:text-3xl lg:text-4xl">Federal Approvals & Registration</h2>
+            <h2 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">
+              Federal Approvals & Registration
+            </h2>
           </div>
 
           <div className="space-y-8">
@@ -128,10 +165,17 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">U.S. Department of Labor Registered Apprenticeship Sponsor</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    U.S. Department of Labor Registered Apprenticeship Sponsor
+                  </h3>
                   <div className="space-y-2 text-lg text-slate-700">
-                    <p><strong>Program:</strong> Emergency Health & Safety Technician</p>
-                    <p><strong>RAPIDS Program ID:</strong> 2025-IN-132301</p>
+                    <p>
+                      <strong>Program:</strong> Emergency Health & Safety
+                      Technician
+                    </p>
+                    <p>
+                      <strong>RAPIDS Program ID:</strong> 2025-IN-132301
+                    </p>
                   </div>
                 </div>
               </div>
@@ -142,10 +186,16 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">SAM.gov Active Federal Contractor (Selfish Inc)</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    SAM.gov Active Federal Contractor (Selfish Inc)
+                  </h3>
                   <div className="space-y-2 text-lg text-slate-700">
-                    <p><strong>UEI:</strong> VX2GK5S8SZH8</p>
-                    <p><strong>CAGE:</strong> 0Q856</p>
+                    <p>
+                      <strong>UEI:</strong> VX2GK5S8SZH8
+                    </p>
+                    <p>
+                      <strong>CAGE:</strong> 0Q856
+                    </p>
                   </div>
                 </div>
               </div>
@@ -159,7 +209,9 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Award className="w-12 h-12 text-orange-600" />
-            <h2 className="text-4xl font-extrabold text-2xl md:text-3xl lg:text-4xl">Certification & Testing Partnerships</h2>
+            <h2 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">
+              Certification & Testing Partnerships
+            </h2>
           </div>
 
           <div className="space-y-8">
@@ -168,26 +220,37 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">Certiport Authorized Testing Center</h3>
-                  <p className="text-lg text-slate-700 mb-4">Authorized to administer industry-standard-recognized certification exams for:</p>
+                  <h3 className="text-2xl font-bold mb-3">
+                    Certiport Authorized Testing Center
+                  </h3>
+                  <p className="text-lg text-slate-700 mb-4">
+                    Authorized to administer industry-standard-recognized
+                    certification exams for:
+                  </p>
                   <ul className="grid md:grid-cols-2 gap-3">
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> Microsoft Office Specialist (MOS)
+                      <span className="text-green-600">✓</span> Microsoft Office
+                      Specialist (MOS)
                     </li>
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> IC3 Digital Literacy
+                      <span className="text-green-600">✓</span> IC3 Digital
+                      Literacy
                     </li>
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> IT Specialist (Networking, Security, Python, Databases, HTML/CSS/JS)
+                      <span className="text-green-600">✓</span> IT Specialist
+                      (Networking, Security, Python, Databases, HTML/CSS/JS)
                     </li>
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> Adobe Certified Professional
+                      <span className="text-green-600">✓</span> Adobe Certified
+                      Professional
                     </li>
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> Entrepreneurship & Small Business (ESB)
+                      <span className="text-green-600">✓</span> Entrepreneurship
+                      & Small Business (ESB)
                     </li>
                     <li className="flex items-center gap-2 text-slate-700">
-                      <span className="text-green-600">✓</span> Communication Skills for Business (CSB)
+                      <span className="text-green-600">✓</span> Communication
+                      Skills for Business (CSB)
                     </li>
                   </ul>
                 </div>
@@ -199,12 +262,20 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">Milady RISE Partner School – Client Well-Being & Safety Certification</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    Milady RISE Partner School – Client Well-Being & Safety
+                    Certification
+                  </h3>
                   <p className="text-lg text-slate-700 mb-3">
-                    Training in domestic violence awareness, human trafficking awareness, and infection control (2-hour course)
+                    Training in domestic violence awareness, human trafficking
+                    awareness, and infection control (2-hour course)
                   </p>
                   <p className="text-slate-700">
-                    <strong>School promo code:</strong> <code className="bg-slate-200 px-2 py-1 rounded">efhcti-rise295</code> (for enrolled students and staff)
+                    <strong>School promo code:</strong>{' '}
+                    <code className="bg-slate-200 px-2 py-1 rounded">
+                      efhcti-rise295
+                    </code>{' '}
+                    (for enrolled students and staff)
                   </p>
                 </div>
               </div>
@@ -215,9 +286,12 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">CareerSafe / OSHA-aligned Safety Training</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    CareerSafe / OSHA-aligned Safety Training
+                  </h3>
                   <p className="text-lg text-slate-700">
-                    Integrated into trades and safety pathways for workplace safety certification
+                    Integrated into trades and safety pathways for workplace
+                    safety certification
                   </p>
                 </div>
               </div>
@@ -231,7 +305,9 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <Users className="w-12 h-12 text-purple-600" />
-            <h2 className="text-4xl font-extrabold text-2xl md:text-3xl lg:text-4xl">Nonprofit & Diversity Certifications</h2>
+            <h2 className="text-4xl font-bold text-2xl md:text-3xl lg:text-4xl">
+              Nonprofit & Diversity Certifications
+            </h2>
           </div>
 
           <div className="space-y-8">
@@ -240,7 +316,9 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">501(c)(3) Nonprofit – Selfish Inc</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    501(c)(3) Nonprofit – Selfish Inc
+                  </h3>
                   <p className="text-lg text-slate-700">
                     IRS-recognized tax-exempt charitable organization
                   </p>
@@ -253,9 +331,12 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">Candid/Guidestar Registered Nonprofit</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    Candid/Guidestar Registered Nonprofit
+                  </h3>
                   <p className="text-lg text-slate-700">
-                    Verified nonprofit profile on the nation's leading nonprofit information platform
+                    Verified nonprofit profile on the nation's leading nonprofit
+                    information platform
                   </p>
                 </div>
               </div>
@@ -266,7 +347,9 @@ export default function ApprovalsPage() {
               <div className="flex items-start gap-4">
                 <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-2xl font-bold mb-3">ByBlack Certified Black-Owned Business</h3>
+                  <h3 className="text-2xl font-bold mb-3">
+                    ByBlack Certified Black-Owned Business
+                  </h3>
                   <p className="text-lg text-slate-700">
                     Certified by U.S. Black Chambers & ByBlack.us
                   </p>
@@ -282,28 +365,42 @@ export default function ApprovalsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-12">
             <FileCheck className="w-12 h-12 text-white" />
-            <h2 className="text-4xl font-extrabold text-white text-2xl md:text-3xl lg:text-4xl">Why This Matters</h2>
+            <h2 className="text-4xl font-bold text-white text-2xl md:text-3xl lg:text-4xl">
+              Why This Matters
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-4">For Students</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">
+                For Students
+              </h3>
               <p className="text-white/90 text-lg leading-relaxed">
-                Our students can access funded training through WRG, WIOA, JRI, and apprenticeships. Your training is legitimate, recognized, and leads to real employment.
+                Our students can access funded training through WRG, WIOA, JRI,
+                and apprenticeships. Your training is legitimate, recognized,
+                and leads to real employment.
               </p>
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-4">For Employers</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">
+                For Employers
+              </h3>
               <p className="text-white/90 text-lg leading-relaxed">
-                Our employers can trust that our programs are standards-aligned and reportable. Graduates meet industry-standard requirements and are job-ready from day one.
+                Our employers can trust that our programs are standards-aligned
+                and reportable. Graduates meet industry-standard requirements
+                and are job-ready from day one.
               </p>
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-4">For Partners</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">
+                For Partners
+              </h3>
               <p className="text-white/90 text-lg leading-relaxed">
-                Workforce boards, schools, reenstart programs, and community partners can confidently refer people to Elevate For Humanity knowing we meet state and federal quality benchmarks.
+                Workforce boards, schools, reenstart programs, and community
+                partners can confidently refer people to Elevate For Humanity
+                knowing we meet state and federal quality benchmarks.
               </p>
             </div>
           </div>
@@ -313,9 +410,12 @@ export default function ApprovalsPage() {
       {/* CTA Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-extrabold mb-6 text-2xl md:text-3xl lg:text-4xl">Ready to Get Started?</h2>
+          <h2 className="text-4xl font-bold mb-6 text-2xl md:text-3xl lg:text-4xl">
+            Ready to Get Started?
+          </h2>
           <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-            Join thousands of students who have transformed their careers through our state-approved, federally recognized training programs.
+            Join thousands of students who have transformed their careers
+            through our state-approved, federally recognized training programs.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link

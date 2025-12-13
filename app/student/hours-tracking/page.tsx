@@ -10,6 +10,7 @@ import {
   AlertCircle,
   RefreshCw,
 } from 'lucide-react';
+import ServiceLoggingForm from '@/components/student/ServiceLoggingForm';
 
 export const metadata: Metadata = {
   title: 'Hour Tracking | Student Dashboard',
@@ -170,7 +171,9 @@ export default async function HoursTrackingPage() {
               </p>
             </div>
             <div className="text-center">
-              <div className="text-6xl font-bold text-4xl md:text-5xl lg:text-6xl">{progressPercentage}%</div>
+              <div className="text-6xl font-bold text-4xl md:text-5xl lg:text-6xl">
+                {progressPercentage}%
+              </div>
               <div className="text-blue-100 mt-2">Complete</div>
             </div>
           </div>
@@ -391,13 +394,9 @@ export default async function HoursTrackingPage() {
               </div>
 
               <div className="mt-6 pt-6 border-t">
-                <Link
-                  href="/student/log-hours"
-                  className="flex items-center justify-center gap-2 w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-                >
-                  <Clock className="w-4 h-4" />
-                  <span>Log Practical Hours</span>
-                </Link>
+                <div className="mb-6">
+                  <ServiceLoggingForm enrollmentId={enrollment.id} />
+                </div>
               </div>
             </div>
           </div>
