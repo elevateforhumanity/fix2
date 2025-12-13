@@ -53,6 +53,7 @@ const fundingLinks = [
 const mainLinks = [
   { href: '/students', label: 'For Students' },
   { href: '/employers', label: 'For Employers' },
+  { href: '/platform', label: 'Platform' },
   { href: '/store', label: 'Store' },
   { href: '/demos', label: 'Demos' },
   {

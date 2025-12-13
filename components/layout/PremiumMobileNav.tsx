@@ -76,6 +76,8 @@ export function PremiumMobileNav() {
       links: [
         { href: "/students", label: "For Students" },
         { href: "/employers", label: "For Employers" },
+        { href: "/platform", label: "Platform Licenses" },
+        { href: "/store", label: "Store" },
         { href: "/about", label: "About Us" },
         { href: "/success-stories", label: "Success Stories" },
         { href: "/faq", label: "FAQ" },

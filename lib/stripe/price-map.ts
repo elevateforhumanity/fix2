@@ -1,0 +1,19 @@
+// Stripe Price ID Mapping
+// After creating products in Stripe Dashboard, copy the Price IDs here
+// Format: StoreProduct.id -> Stripe Price ID
+
+export const STRIPE_PRICE_IDS: Record<string, string> = {
+  // TODO: Replace with actual Stripe Price IDs from Dashboard
+  // Go to: Stripe Dashboard → Products → [Product] → Copy Price ID
+  
+  "efh-core": process.env.STRIPE_PRICE_EFH_CORE || "price_PLACEHOLDER_CORE",
+  "efh-school-license": process.env.STRIPE_PRICE_SCHOOL || "price_PLACEHOLDER_SCHOOL",
+  "efh-enterprise": process.env.STRIPE_PRICE_ENTERPRISE || "price_PLACEHOLDER_ENTERPRISE",
+  "efh-monthly": process.env.STRIPE_PRICE_MONTHLY || "price_PLACEHOLDER_MONTHLY",
+};
+
+// Helper to check if price IDs are configured
+export function isPriceConfigured(productId: string): boolean {
+  const priceId = STRIPE_PRICE_IDS[productId];
+  return priceId !== undefined && !priceId.startsWith('price_PLACEHOLDER');
+}
