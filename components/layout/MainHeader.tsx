@@ -58,6 +58,7 @@ export default function MainHeader() {
                 >
                   <button
                     type="button"
+                    onClick={() => setOpenMenu(isOpen ? null : section.label)}
                     className={classNames(
                       'inline-flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors',
                       isActive && 'text-blue-600'
@@ -112,7 +113,7 @@ export default function MainHeader() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-lg bg-orange-600 px-6 py-2.5 text-sm font-bold text-white hover:bg-orange-700 transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-bold text-white hover:bg-blue-700 transition-colors"
             >
               Contact Us
             </Link>
@@ -171,7 +172,7 @@ export default function MainHeader() {
                   {section.href && (
                     <Link
                       href={section.href}
-                      className="mt-2 block text-sm text-orange-600 font-semibold py-2 px-2 rounded-lg hover:bg-orange-50 active:bg-orange-100 transition min-h-[44px] flex items-center"
+                      className="mt-2 block text-sm text-blue-600 font-semibold py-2 px-2 rounded-lg hover:bg-blue-50 active:bg-blue-100 transition min-h-[44px] flex items-center"
                       onClick={() => setMobileOpen(false)}
                     >
                       Go to {section.label} overview
@@ -207,7 +208,7 @@ export default function MainHeader() {
               <Link
                 href="/apply"
                 onClick={() => setMobileOpen(false)}
-                className="w-full text-center rounded-full bg-orange-600 px-4 py-2 text-xs font-semibold text-white"
+                className="w-full text-center rounded-full bg-blue-600 px-4 py-2 text-xs font-semibold text-white"
               >
                 Apply Now – It&apos;s Free
               </Link>

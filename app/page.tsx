@@ -21,7 +21,7 @@ export default function HomePage() {
     <main className="bg-white overflow-x-hidden">
       <WelcomeAudio />
       {/* VIDEO HERO WITH TEXT OVERLAY */}
-      <section className="relative w-full overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center bg-slate-900">
+      <section className="relative w-full overflow-hidden min-h-[500px] md:min-h-[600px] flex items-center justify-center">
         {/* Background Video */}
         <video
           ref={videoRef}
@@ -133,13 +133,15 @@ export default function HomePage() {
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden bg-slate-100">
-                  <Image
-                    src="/images/barber-professional.jpg"
-                    alt="Barber Apprenticeship"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    priority
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  >
+                    <source src="/videos/barber.mp4" type="video/mp4" />
+                  </video>
                   {/* Dark overlay for better text contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -161,13 +163,15 @@ export default function HomePage() {
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden bg-teal-100">
-                  <Image
-                    src="/images/healthcare/cna-poster.jpg"
-                    alt="CNA Healthcare"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    priority
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  >
+                    <source src="/videos/cna.mp4" type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-5">
@@ -188,13 +192,15 @@ export default function HomePage() {
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden bg-slate-100">
-                  <Image
-                    src="/images/hvac-highlight.jpg"
-                    alt="HVAC Technician"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    priority
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  >
+                    <source src="/videos/hvac.mp4" type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-5">
@@ -462,7 +468,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Image */}
-            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl bg-blue-800">
+            <div className="relative h-[300px] rounded-2xl overflow-hidden shadow-lg bg-blue-800">
               <Image
                 src="https://i.imgur.com/vCYOioP.png"
                 alt="Ready to Start"
