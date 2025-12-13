@@ -3,15 +3,16 @@ import { NextResponse } from 'next/server';
 
 export async function GET(
   request: Request,
-  { params }: { params: { courseId: string; lessonId: string } }
+  { params }: { params: Promise<{ courseId: string; lessonId: string }> }
 ) {
   try {
     const supabase = await createClient();
+    const { lessonId } = await params;
 
     const { data: resources, error } = await supabase
       .from('course_materials')
       .select('*')
-      .eq('lesson_id', params.lessonId)
+      .eq('lesson_id', lessonId)
       .order('order', { ascending: true });
 
     if (error) {
@@ -20,6 +21,9 @@ export async function GET(
 
     return NextResponse.json({ resources: resources || [] });
   } catch (error) {
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

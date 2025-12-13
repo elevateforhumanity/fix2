@@ -2,7 +2,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { createServerClient } from '@supabase/ssr';
-import type { AuthedUser, UserRole, AuthHandler, WithAuthOptions } from '@/types/auth';
+import type {
+  AuthedUser,
+  UserRole,
+  AuthHandler,
+  WithAuthOptions,
+} from '@/types/auth';
 
 // Get the current user + role from Supabase
 async function getAuthedUser(req: NextRequest): Promise<AuthedUser | null> {
@@ -49,7 +54,7 @@ export function withAuth<TParams = Record<string, string>>(
   handler: AuthHandler<TParams>,
   options: WithAuthOptions = {}
 ) {
-  return async (req: NextRequest, context: { params: TParams }) => {
+  return async (req: NextRequest, context: { params: Promise<TParams> }) => {
     const user = await getAuthedUser(req);
 
     if (!user) {
@@ -62,6 +67,8 @@ export function withAuth<TParams = Record<string, string>>(
       }
     }
 
-    return handler(req, { ...context, user });
+    // Await params for Next.js 15
+    const params = await context.params;
+    return handler(req, { params, user });
   };
 }

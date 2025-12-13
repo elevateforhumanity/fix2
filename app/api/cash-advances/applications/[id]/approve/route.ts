@@ -5,10 +5,11 @@ import { logger } from '@/lib/logger';
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const supabase = supabaseServer();
+    const { id } = await params;
     const body = await request.json();
     const { approved_amount, notes } = body;
 
@@ -21,15 +22,12 @@ export async function POST(
         approval_notes: notes,
         approved_at: new Date().toISOString(),
       })
-      .eq('id', params.id)
+      .eq('id', id)
       .select()
       .single();
 
     if (error) {
-      return NextResponse.json(
-        { error: error.message },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
     // Send approval email to applicant
@@ -63,9 +61,6 @@ export async function POST(
       message: 'Application approved successfully',
     });
   } catch (error: unknown) {
-    return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

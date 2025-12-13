@@ -4,11 +4,14 @@ import { generateCertificatePDF } from '@/lib/certificates/generator';
 
 export async function GET(
   request: Request,
-  { params }: { params: { certificateId: string } }
+  { params }: { params: Promise<{ certificateId: string }> }
 ) {
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const { certificateId } = await params;
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -17,12 +20,15 @@ export async function GET(
     const { data: certificate } = await supabase
       .from('certificates')
       .select('*, profiles(full_name), courses(title, program_hours)')
-      .eq('id', params.certificateId)
+      .eq('id', certificateId)
       .eq('user_id', user.id)
       .single();
 
     if (!certificate) {
-      return NextResponse.json({ error: 'Certificate not found' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'Certificate not found' },
+        { status: 404 }
+      );
     }
 
     const pdfBlob = await generateCertificatePDF({
@@ -40,6 +46,9 @@ export async function GET(
       },
     });
   } catch (error) {
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }

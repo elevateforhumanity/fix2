@@ -4,11 +4,14 @@ import { logger } from '@/lib/logger';
 
 export async function GET(
   request: Request,
-  { params }: { params: { enrollmentId: string } }
+  { params }: { params: Promise<{ enrollmentId: string }> }
 ) {
   try {
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const { enrollmentId } = await params;
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -16,16 +19,21 @@ export async function GET(
 
     const { data: enrollment, error } = await supabase
       .from('scorm_enrollments')
-      .select(`
+      .select(
+        `
         *,
         scorm_package:scorm_packages(*)
-      `)
-      .eq('id', params.enrollmentId)
+      `
+      )
+      .eq('id', enrollmentId)
       .single();
 
     if (error) {
       logger.error('Error fetching SCORM enrollment:', error);
-      return NextResponse.json({ error: 'Enrollment not found' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'Enrollment not found' },
+        { status: 404 }
+      );
     }
 
     // Verify user has access
@@ -44,6 +52,9 @@ export async function GET(
     return NextResponse.json(enrollment);
   } catch (error) {
     logger.error('SCORM enrollment GET error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }
