@@ -201,23 +201,34 @@ export default function MainHeader() {
                     className="border-b border-slate-100 pb-4"
                   >
                     {hasChildren ? (
-                      <button
-                        type="button"
-                        className="flex w-full items-center justify-between text-left text-base font-semibold text-slate-800 py-3 px-2 rounded-lg hover:bg-slate-50 active:bg-slate-100 transition min-h-[44px]"
-                        onClick={() =>
-                          setOpenMenu((current) =>
-                            current === section.label ? null : section.label
-                          )
-                        }
-                      >
-                        <span>{section.label}</span>
-                        <ChevronDown
-                          className={classNames(
-                            'h-5 w-5 transition-transform',
-                            expanded && 'rotate-180'
-                          )}
-                        />
-                      </button>
+                      <>
+                        <button
+                          type="button"
+                          className="flex w-full items-center justify-between text-left text-base font-semibold text-slate-800 py-3 px-2 rounded-lg hover:bg-slate-50 active:bg-slate-100 transition min-h-[44px]"
+                          onClick={() =>
+                            setOpenMenu((current) =>
+                              current === section.label ? null : section.label
+                            )
+                          }
+                        >
+                          <span>{section.label}</span>
+                          <ChevronDown
+                            className={classNames(
+                              'h-5 w-5 transition-transform',
+                              expanded && 'rotate-180'
+                            )}
+                          />
+                        </button>
+                        {section.href && (
+                          <Link
+                            href={section.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="block mt-2 text-sm text-blue-600 font-semibold py-2 px-2 rounded-lg hover:bg-blue-50 active:bg-blue-100 transition"
+                          >
+                            → Go to {section.label}
+                          </Link>
+                        )}
+                      </>
                     ) : (
                       <Link
                         href={section.href || '#'}
