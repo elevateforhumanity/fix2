@@ -8,20 +8,41 @@ export function WelcomeAudio() {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    // Try to autoplay immediately
-    if (audioRef.current) {
-      audioRef.current
-        .play()
-        .then(() => {
-          setIsPlaying(true);
-          console.log('Voiceover playing');
-        })
-        .catch((err) => {
-          // Autoplay blocked - show button
-          console.log('Voiceover autoplay blocked:', err);
-          setShowButton(true);
-        });
-    }
+    // Try to autoplay immediately and repeatedly
+    const tryPlay = () => {
+      if (audioRef.current) {
+        audioRef.current
+          .play()
+          .then(() => {
+            setIsPlaying(true);
+            setShowButton(false);
+            console.log('Voiceover playing');
+          })
+          .catch((err) => {
+            // Autoplay blocked - show button
+            console.log('Voiceover autoplay blocked:', err);
+            setShowButton(true);
+          });
+      }
+    };
+
+    // Try immediately
+    tryPlay();
+
+    // Try again after user interaction
+    const handleInteraction = () => {
+      tryPlay();
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+    };
+
+    document.addEventListener('click', handleInteraction, { once: true });
+    document.addEventListener('touchstart', handleInteraction, { once: true });
+
+    return () => {
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+    };
   }, []);
 
   const toggleAudio = () => {
