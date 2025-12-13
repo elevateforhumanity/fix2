@@ -21,21 +21,32 @@ export default function AffirmButton({ programId, programName, price, fullWidth 
     try {
       // Initialize Affirm if not already loaded
       if (typeof window !== 'undefined' && !(window as any).affirm) {
+        // Configure Affirm BEFORE loading script
+        (window as any)._affirm_config = {
+          public_api_key: 'aGax1GLWFexjLyW7PCf23rfznLl6YGyI', // Sandbox key
+          script: 'https://cdn1-sandbox.affirm.com/js/v2/affirm.js'
+        };
+
         // Load Affirm script
         const script = document.createElement('script');
-        script.src = 'https://cdn1.affirm.com/js/v2/affirm.js';
+        script.src = 'https://cdn1-sandbox.affirm.com/js/v2/affirm.js';
         script.async = true;
         document.head.appendChild(script);
 
-        await new Promise((resolve) => {
+        await new Promise((resolve, reject) => {
           script.onload = resolve;
+          script.onerror = reject;
         });
 
-        // Configure Affirm
-        (window as any)._affirm_config = {
-          public_api_key: process.env.NEXT_PUBLIC_AFFIRM_PUBLIC_KEY || 'aGax1GLWFexjLyW7PCf23rfznLl6YGyI',
-          script: 'https://cdn1.affirm.com/js/v2/affirm.js'
-        };
+        // Wait for affirm object to be available
+        await new Promise((resolve) => {
+          const checkAffirm = setInterval(() => {
+            if ((window as any).affirm && (window as any).affirm.checkout) {
+              clearInterval(checkAffirm);
+              resolve(true);
+            }
+          }, 100);
+        });
       }
 
       // Create checkout data
@@ -68,11 +79,12 @@ export default function AffirmButton({ programId, programName, price, fullWidth 
 
       // Open Affirm checkout
       const affirm = (window as any).affirm;
-      if (affirm && affirm.checkout) {
+      if (affirm && affirm.checkout && affirm.checkout.open) {
         affirm.checkout(checkoutData);
         affirm.checkout.open();
       } else {
-        throw new Error('Affirm failed to load. Please try again.');
+        console.error('Affirm object:', affirm);
+        throw new Error('Affirm checkout not available. Please refresh and try again.');
       }
 
     } catch (err: any) {
