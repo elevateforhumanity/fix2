@@ -8,20 +8,19 @@ export function WelcomeAudio() {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    // Try to autoplay
+    // Try to autoplay immediately
     if (audioRef.current) {
-      const timer = setTimeout(() => {
-        audioRef.current
-          ?.play()
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch(() => {
-            // Autoplay blocked - show button
-            setShowButton(true);
-          });
-      }, 1000);
-      return () => clearTimeout(timer);
+      audioRef.current
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+          console.log('Voiceover playing');
+        })
+        .catch((err) => {
+          // Autoplay blocked - show button
+          console.log('Voiceover autoplay blocked:', err);
+          setShowButton(true);
+        });
     }
   }, []);
 
@@ -41,9 +40,13 @@ export function WelcomeAudio() {
     <>
       <audio
         ref={audioRef}
-        src="/videos/voiceover.mp3?v=3"
+        src="/videos/voiceover.mp3?v=4"
         preload="auto"
         onEnded={() => setIsPlaying(false)}
+        onError={(e) => {
+          console.error('Audio error:', e);
+          setShowButton(true);
+        }}
       />
 
       {/* Audio Control Button */}
