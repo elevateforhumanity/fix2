@@ -200,33 +200,31 @@ export default function MainHeader() {
                     key={section.label}
                     className="border-b border-slate-100 pb-4"
                   >
-                    <button
-                      type="button"
-                      className="flex w-full items-center justify-between text-left text-base font-semibold text-slate-800 py-3 px-2 rounded-lg hover:bg-slate-50 active:bg-slate-100 transition min-h-[44px]"
-                      onClick={() =>
-                        setOpenMenu((current) =>
-                          current === section.label ? null : section.label
-                        )
-                      }
-                    >
-                      <span>{section.label}</span>
-                      {hasChildren && (
+                    {hasChildren ? (
+                      <button
+                        type="button"
+                        className="flex w-full items-center justify-between text-left text-base font-semibold text-slate-800 py-3 px-2 rounded-lg hover:bg-slate-50 active:bg-slate-100 transition min-h-[44px]"
+                        onClick={() =>
+                          setOpenMenu((current) =>
+                            current === section.label ? null : section.label
+                          )
+                        }
+                      >
+                        <span>{section.label}</span>
                         <ChevronDown
                           className={classNames(
                             'h-5 w-5 transition-transform',
                             expanded && 'rotate-180'
                           )}
                         />
-                      )}
-                    </button>
-
-                    {section.href && (
+                      </button>
+                    ) : (
                       <Link
-                        href={section.href}
-                        className="mt-2 block text-sm text-blue-600 font-semibold py-2 px-2 rounded-lg hover:bg-blue-50 active:bg-blue-100 transition min-h-[44px] flex items-center"
+                        href={section.href || '#'}
+                        className="flex w-full items-center justify-between text-left text-base font-semibold text-slate-800 py-3 px-2 rounded-lg hover:bg-slate-50 active:bg-slate-100 transition min-h-[44px]"
                         onClick={() => setMobileOpen(false)}
                       >
-                        Go to {section.label} overview
+                        <span>{section.label}</span>
                       </Link>
                     )}
 

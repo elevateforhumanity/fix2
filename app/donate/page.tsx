@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import DonationForm from '@/components/DonationForm';
 import {
   Heart,
   Users,
@@ -201,11 +202,13 @@ export default function DonatePage() {
               Make Your Donation Today
             </h2>
             <p className="text-lg text-slate-600">
-              Choose your donation amount and payment method
+              Secure payment powered by Stripe. 100% tax-deductible.
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-xl p-8 md:p-12 border border-slate-200">
+          <DonationForm />
+
+          <div className="hidden bg-gradient-to-br from-slate-50 to-white rounded-2xl shadow-xl p-8 md:p-12 border border-slate-200">
             {/* Donation Amount Selection */}
             <div className="mb-8">
               <label className="block text-sm font-bold text-slate-900 mb-4">
