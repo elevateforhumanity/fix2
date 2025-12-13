@@ -35,9 +35,10 @@ import { SecurityMonitor, SecurityBadge } from '@/components/SecurityMonitor';
 // Professional serif font for government/institutional compliance
 const libreBaskerville = Libre_Baskerville({
   subsets: ['latin'],
-  display: 'swap',
+  display: 'optional', // Changed from 'swap' to 'optional' to prevent FOUC
   weight: ['400', '700'],
   variable: '--font-serif',
+  fallback: ['Georgia', 'serif'], // Add fallback fonts
 });
 
 // Viewport configuration (separate from metadata in Next.js 14+)
@@ -136,6 +137,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={libreBaskerville.variable}>
       <head>
+        {/* Preload critical assets to prevent FOUC */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
         <link

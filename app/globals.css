@@ -4,6 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent FOUC (Flash of Unstyled Content) */
+html {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Ensure smooth font loading without flash */
+body {
+  font-display: optional;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* ============================================================================
    EFH AI DASHBOARD THEME - High-Tech / Futuristic LMS
    ============================================================================ */
