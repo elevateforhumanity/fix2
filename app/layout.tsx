@@ -15,6 +15,8 @@ import { MainNav } from '@/components/layout/MainNav';
 import MainHeader from '@/components/layout/MainHeader';
 import MainFooter from '@/components/layout/MainFooter';
 import { SiteFooter } from '@/components/layout/Footer';
+import SiteHeader from '@/components/site/SiteHeader';
+import NewSiteFooter from '@/components/site/SiteFooter';
 import { Breadcrumbs } from '@/components/seo/Breadcrumbs';
 import { ElevateChatWidget } from '@/components/ElevateChatWidget';
 import AILiveChat from '@/components/chat/AILiveChat';
@@ -162,12 +164,12 @@ export default function RootLayout({
         <DMCATrackingPixel />
         <ScraperDetection />
         <SecurityBadge />
-        <MainHeader />
+        <SiteHeader />
         <Breadcrumbs />
         <main id="main-content" className="min-h-screen">
           {children}
         </main>
-        <SiteFooter />
+        <NewSiteFooter />
         <AILiveChat />
         <CookieBanner />
         {/* <PWAInstallPrompt /> */}

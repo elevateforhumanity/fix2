@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const nav = [
   { href: "/programs", label: "Programs" },
@@ -10,6 +14,8 @@ const nav = [
 ];
 
 export default function SiteHeader() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-zinc-100">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between">
@@ -17,6 +23,7 @@ export default function SiteHeader() {
           Elevate for Humanity
         </Link>
 
+        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-6">
           {nav.map((i) => (
             <Link key={i.href} href={i.href} className="font-bold text-zinc-800 hover:text-zinc-950 transition">
@@ -25,7 +32,8 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        {/* Desktop CTAs */}
+        <div className="hidden lg:flex items-center gap-2">
           <Link
             href="/platform/licensing"
             className="hidden sm:inline-flex rounded-xl border border-zinc-300 bg-white px-4 py-2 font-extrabold hover:bg-zinc-50 transition"
@@ -39,7 +47,50 @@ export default function SiteHeader() {
             Apply
           </Link>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden p-2 rounded-lg hover:bg-zinc-100 transition"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden border-t border-zinc-100 bg-white">
+          <nav className="px-4 py-4 space-y-2">
+            {nav.map((i) => (
+              <Link
+                key={i.href}
+                href={i.href}
+                className="block px-4 py-3 rounded-lg font-bold text-zinc-800 hover:bg-zinc-50 transition"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {i.label}
+              </Link>
+            ))}
+            <div className="pt-4 space-y-2">
+              <Link
+                href="/platform/licensing"
+                className="block text-center rounded-xl border border-zinc-300 bg-white px-4 py-3 font-extrabold hover:bg-zinc-50 transition"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                License
+              </Link>
+              <Link
+                href="/apply"
+                className="block text-center rounded-xl bg-zinc-900 text-white px-4 py-3 font-extrabold hover:bg-zinc-800 transition"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Apply
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
