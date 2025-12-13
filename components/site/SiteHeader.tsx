@@ -51,7 +51,7 @@ export default function SiteHeader() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-lg hover:bg-zinc-100 transition"
+          className="lg:hidden p-2 rounded-lg hover:bg-zinc-100 transition relative z-50"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -60,7 +60,7 @@ export default function SiteHeader() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-zinc-100 bg-white">
+        <div className="lg:hidden border-t border-zinc-100 bg-white absolute top-16 left-0 right-0 shadow-lg z-40">
           <nav className="px-4 py-4 space-y-2">
             {nav.map((i) => (
               <Link
