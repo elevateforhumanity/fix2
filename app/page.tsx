@@ -437,11 +437,11 @@ export default function HomePage() {
               </div>
               <div className="relative h-96 rounded-2xl overflow-hidden shadow-xl order-1 md:order-2 bg-slate-100">
                 <Image
-                  src="/images/gallery/image5.jpg"
-                  alt="HVAC training"
+                  src="https://i.imgur.com/9KxZm8L.jpg"
+                  alt="HVAC technician training"
                   fill
-                  quality={80}
-                  className="object-contain"
+                  quality={90}
+                  className="object-cover"
                 />
               </div>
             </div>
