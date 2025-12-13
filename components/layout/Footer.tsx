@@ -231,10 +231,10 @@ export function SiteFooter() {
               </li>
               <li>
                 <Link
-                  href="/careers"
+                  href="/about"
                   className="text-slate-700 hover:text-orange-600 transition text-sm font-medium"
                 >
-                  Careers
+                  About Us
                 </Link>
               </li>
             </ul>
