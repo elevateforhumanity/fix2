@@ -157,7 +157,7 @@ export default function HomePage() {
             <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
               <div className="relative w-full h-[320px] rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="/images/learners/reentry-coaching.jpg"
+                  src="https://i.imgur.com/maxIuYA.png"
                   alt="Community impact"
                   fill
                   className="object-cover"
