@@ -10,15 +10,20 @@ export const metadata: Metadata = {
   title: 'Mobile App | Elevate For Humanity',
   description:
     'Install our mobile app directly from your browser. Access programs, track progress, and stay connected on the go.',
+  openGraph: {
+    title: 'Mobile App | Elevate For Humanity',
+    description: 'Install our mobile app directly from your browser. Access programs, track progress, and stay connected on the go.',
+    images: ['/images/heroes/hero-homepage.jpg'],
+  },
 };
 
 export default async function MobileAppPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center text-white overflow-hidden">
+      <section className="relative h-[400px] md:h-[450px] flex items-center justify-center text-white overflow-hidden">
         <Image
-          src="/images/gallery/image8.jpg"
+          src="/images/heroes/hero-homepage.jpg"
           alt="Mobile App"
           fill
           className="object-cover"
