@@ -30,7 +30,7 @@ export default function HomePage() {
 
           <div className="w-full">
             <video
-              src="/videos/success-stories-video-with-narration.mp4"
+              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081016552&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=JVWqZ0RhLxGgc5oN5b-yukrvFfLOqtLB7Rwba8uuLiAqBWa1NlkfQTO7Gp8eTHbZkWJ-dWxQ4AL3whiDXT8FOiww~6pCWe2wCmEAaGlVAHN9jXvJ9hM04L-N~pI8huHBsjytyBupDAJIYOOCseGUtZskeCgn-iAy6-m51D38E0tSTOy1AcPWKzafmqd3UhBAWnIcwYN6r6UH-Dac5cC6panzKtMT3YBl2LRKXxp43KeKib3hdxqR90ljO9b96zjA7uYuTxKhsxWMuR9E5JHhqpycA9ql3kEypT~WTmB2Co37fxAiE45Fn~OYHLF-NT6c2Vx0NC7I9RPEfVGmWXLBUA__"
               poster="/images/hero-poster.jpg"
               autoPlay
               muted
@@ -55,19 +55,13 @@ export default function HomePage() {
 
           <div className="mt-8 mx-auto max-w-[720px]">
             <video
-              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081016552&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=JVWqZ0RhLxGgc5oN5b-yukrvFfLOqtLB7Rwba8uuLiAqBWa1NlkfQTO7Gp8eTHbZkWJ-dWxQ4AL3whiDXT8FOiww~6pCWe2wCmEAaGlVAHN9jXvJ9hM04L-N~pI8huHBsjytyBupDAJIYOOCseGUtZskeCgn-iAy6-m51D38E0tSTOy1AcPWKzafmqd3UhBAWnIcwYN6r6UH-Dac5cC6panzKtMT3YBl2LRKXxp43KeKib3hdxqR90ljO9b96zjA7uYuTxKhsxWMuR9E5JHhqpycA9ql3kEypT~WTmB2Co37fxAiE45Fn~OYHLF-NT6c2Vx0NC7I9RPEfVGmWXLBUA__"
+              src="/videos/success-stories-video-with-narration.mp4"
               poster="/images/hero-poster.jpg"
               autoPlay
               muted
               loop
               playsInline
               className="w-full rounded-2xl shadow-sm border border-zinc-200 bg-black"
-            />
-            <audio
-              src="/videos/voiceover.mp3"
-              autoPlay
-              loop
-              className="hidden"
             />
           </div>
 

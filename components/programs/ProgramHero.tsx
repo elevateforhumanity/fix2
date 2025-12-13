@@ -53,7 +53,7 @@ export function ProgramHero({ program }: { program: Program }) {
               <source
                 src={
                   isBarberProgram
-                    ? '/videos/barber-hero-final.mp4'
+                    ? 'https://cms-artifacts.artlist.io/content/generated-video-v1/video__3/video-7b329d1f-3f92-4ec5-acdf-9d2d7ff6de5f.mp4?Expires=2081016552&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=tetTT60qcPy4Ml9-YOFqrRrK2xKXg7tkZeHRt7YDETbRLt5cINR88xZg72-O0JWABm-BafL12W2cN6MMcTK7R5-j21exoIVkFERTwMFebBfyNmXgJoH8zsLawD9Zclq9yLXnad~8Qe11F8Kt6YN7bykNnZ0Bo~yrHcDUJwcZQ1Y7prswGDTbyZubeZPaMXB7UkZDHkwGjQhfryZUeM9uiRArBaEfH5bFch9YQI797p98tAsNKJtmLVaLSuDLZe0ZaFLf2-w908DchRcPK4TYEzy3FXJ-YJ4Yk8TcYE78RQZ-ZJIDGsmhP9Ef-5LNLAh8nVyF~ZVL3G3Z0QGS60aYvQ__'
                     : isCDLProgram
                       ? '/videos/cdl-hero.mp4'
                       : isCNAProgram
