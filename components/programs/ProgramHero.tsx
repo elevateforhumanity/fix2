@@ -11,17 +11,27 @@ export function ProgramHero({ program }: { program: Program }) {
   const isWorkforceProgram = program.slug === 'workforce-readiness';
   const isMedicalAssistant = program.slug === 'medical-assistant';
   const isBuildingTech = program.slug === 'building-technician';
-  const hasVideo = isBarberProgram || isHVACProgram || isCDLProgram || isCNAProgram || isWorkforceProgram || isMedicalAssistant || isBuildingTech;
+  const hasVideo =
+    isBarberProgram ||
+    isHVACProgram ||
+    isCDLProgram ||
+    isCNAProgram ||
+    isWorkforceProgram ||
+    isMedicalAssistant ||
+    isBuildingTech;
 
   // Get icon for program
   const getIcon = () => {
     if (program.slug.includes('barber')) return '✂️';
-    if (program.slug.includes('cna') || program.slug.includes('health')) return '🏥';
+    if (program.slug.includes('cna') || program.slug.includes('health'))
+      return '🏥';
     if (program.slug.includes('medical')) return '🩺';
     if (program.slug.includes('hvac')) return '🛠️';
     if (program.slug.includes('cdl')) return '🚚';
-    if (program.slug.includes('tax') || program.slug.includes('business')) return '💼';
-    if (program.slug.includes('beauty') || program.slug.includes('esthetician')) return '💅';
+    if (program.slug.includes('tax') || program.slug.includes('business'))
+      return '💼';
+    if (program.slug.includes('beauty') || program.slug.includes('esthetician'))
+      return '💅';
     if (program.slug.includes('building')) return '🏗️';
     return '📚';
   };
@@ -45,16 +55,16 @@ export function ProgramHero({ program }: { program: Program }) {
                   isBarberProgram
                     ? '/videos/barber-hero-final.mp4'
                     : isCDLProgram
-                    ? '/videos/cdl-hero.mp4'
-                    : isCNAProgram
-                    ? '/videos/cna-hero.mp4'
-                    : isWorkforceProgram
-                    ? '/videos/business-hero.mp4'
-                    : isMedicalAssistant
-                    ? '/videos/medical-assistant-hero.mp4'
-                    : isBuildingTech
-                    ? '/videos/building-technician-hero.mp4'
-                    : '/videos/hvac-hero-final.mp4'
+                      ? '/videos/cdl-hero.mp4'
+                      : isCNAProgram
+                        ? '/videos/cna-hero.mp4'
+                        : isWorkforceProgram
+                          ? '/videos/business-hero.mp4'
+                          : isMedicalAssistant
+                            ? '/videos/medical-assistant-hero.mp4'
+                            : isBuildingTech
+                              ? '/videos/building-technician-hero.mp4'
+                              : '/videos/hvac-hero-final.mp4'
                 }
                 type="video/mp4"
               />
@@ -69,13 +79,15 @@ export function ProgramHero({ program }: { program: Program }) {
               priority
             />
           )}
-          
+
           {/* Overlay Content */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end">
+          <div className="absolute inset-0 bg-black/50 flex items-end">
             <div className="container mx-auto px-4 pb-12">
               <div className="max-w-4xl">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-5xl text-3xl md:text-4xl lg:text-5xl">{getIcon()}</span>
+                  <span className="text-5xl text-3xl md:text-4xl lg:text-5xl">
+                    {getIcon()}
+                  </span>
                   <p className="text-sm uppercase tracking-wide text-orange-400 font-semibold">
                     Elevate Workforce Pathway
                   </p>

@@ -259,7 +259,7 @@ export function ProgramDetails({ program }: { program: Program }) {
                 </p>
               </div>
 
-              <div className="mt-3 bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-200 rounded-lg p-3">
+              <div className="mt-3 bg-slate-50 border border-slate-200 rounded-lg p-3">
                 <div className="flex items-center gap-2 mb-2">
                   <svg
                     className="w-4 h-4 text-purple-600"
