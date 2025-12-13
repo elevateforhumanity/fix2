@@ -30,6 +30,7 @@ export default function HomePage() {
               src="/videos/success-stories-video-with-narration.mp4"
               poster="/images/hero-poster.jpg"
               className="max-h-[480px]"
+              autoplay={true}
             />
           </div>
         </div>
@@ -48,6 +49,7 @@ export default function HomePage() {
               src="/videos/success-stories-video-with-narration.mp4"
               poster="/images/hero-poster.jpg"
               className="mx-auto max-w-[720px]"
+              autoplay={true}
             />
           </div>
 
