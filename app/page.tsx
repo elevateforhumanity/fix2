@@ -29,10 +29,14 @@ export default function HomePage() {
           </div>
 
           <div className="w-full">
-            <HeroVideo
+            <video
               src="/videos/success-stories-video-with-narration.mp4"
               poster="/images/hero-poster.jpg"
-              className="max-h-[480px]"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="max-h-[480px] w-full rounded-2xl shadow-sm border border-zinc-200 bg-black"
             />
           </div>
         </div>
@@ -49,31 +53,39 @@ export default function HomePage() {
             track your progress toward employment.
           </p>
 
-          <div className="mt-8">
-            <HeroVideo
-              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081015965&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=fwtxvsJ3fGCiy7h-WVThfMnTuXKQtpc9LWM~kg0TsaHYrn6L1E7JAMIDWzOITL5hadnTgit7SsnNIGYpRDHrEPRBFE57NVrnkLerXFSp0u5ndhF6a9AKPUbn4gz1p-tD2EL~TYBqANxs8NFxr9~nZyJZ5q6U4AK4ud5c9HT5UIwXRiffDKihpeaWE3TVjWZlqHH~DeNcDvwYwqFV8dGkNTeimlQeodAW-CKcO1-2Sa1hWpkf2FSqrAWESFqm1nXf4R2C8Ienk1XjHB2GDcERkC2foaNVSiMWTzEUT~xsAMwXVI0NFa1pJWsAE6IvafyshwE~k~add1c1dJw6DAtfSw__"
+          <div className="mt-8 mx-auto max-w-[720px]">
+            <video
+              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081016552&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=JVWqZ0RhLxGgc5oN5b-yukrvFfLOqtLB7Rwba8uuLiAqBWa1NlkfQTO7Gp8eTHbZkWJ-dWxQ4AL3whiDXT8FOiww~6pCWe2wCmEAaGlVAHN9jXvJ9hM04L-N~pI8huHBsjytyBupDAJIYOOCseGUtZskeCgn-iAy6-m51D38E0tSTOy1AcPWKzafmqd3UhBAWnIcwYN6r6UH-Dac5cC6panzKtMT3YBl2LRKXxp43KeKib3hdxqR90ljO9b96zjA7uYuTxKhsxWMuR9E5JHhqpycA9ql3kEypT~WTmB2Co37fxAiE45Fn~OYHLF-NT6c2Vx0NC7I9RPEfVGmWXLBUA__"
               poster="/images/hero-poster.jpg"
-              className="mx-auto max-w-[720px]"
-              autoplay={true}
-              audioTrack="/videos/voiceover.mp3"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full rounded-2xl shadow-sm border border-zinc-200 bg-black"
+            />
+            <audio
+              src="/videos/voiceover.mp3"
+              autoPlay
+              loop
+              className="hidden"
             />
           </div>
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-800 transition"
+              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-bold hover:bg-zinc-800 transition"
               href="/apply"
             >
               Start Inquiry
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-50 transition"
+              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-bold hover:bg-zinc-50 transition"
               href="/funding"
             >
               See Funding Options
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-50 transition"
+              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-bold hover:bg-zinc-50 transition"
               href="/programs"
             >
               View Programs
@@ -108,7 +120,7 @@ export default function HomePage() {
                 funding options that may reduce or cover tuition.
               </p>
               <Link
-                className="mt-4 inline-flex font-extrabold text-zinc-900 hover:underline"
+                className="mt-4 inline-flex font-bold text-zinc-900 hover:underline"
                 href="/students"
               >
                 Explore Programs →
@@ -134,7 +146,7 @@ export default function HomePage() {
                 licensing.
               </p>
               <Link
-                className="mt-4 inline-flex font-extrabold text-zinc-900 hover:underline"
+                className="mt-4 inline-flex font-bold text-zinc-900 hover:underline"
                 href="/platform"
               >
                 View the Platform →
@@ -159,7 +171,7 @@ export default function HomePage() {
                 and connect people to real opportunities.
               </p>
               <Link
-                className="mt-4 inline-flex font-extrabold text-zinc-900 hover:underline"
+                className="mt-4 inline-flex font-bold text-zinc-900 hover:underline"
                 href="/employers"
               >
                 Partner With EFH →
@@ -185,7 +197,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-6">
               <Link
-                className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-800 inline-flex transition"
+                className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-bold hover:bg-zinc-800 inline-flex transition"
                 href="/platform/apps"
               >
                 See Apps & Licensing
@@ -244,7 +256,7 @@ export default function HomePage() {
               </p>
             </div>
             <Link
-              className="hidden sm:inline-flex font-extrabold text-zinc-900 hover:underline"
+              className="hidden sm:inline-flex font-bold text-zinc-900 hover:underline"
               href="/programs"
             >
               View all →
@@ -306,7 +318,7 @@ export default function HomePage() {
                 <div className="mt-2 text-sm text-zinc-700">
                   Hybrid options • Clear milestones • Enrollment support
                 </div>
-                <div className="mt-4 font-extrabold text-zinc-900">
+                <div className="mt-4 font-bold text-zinc-900">
                   View details →
                 </div>
               </Link>
@@ -315,7 +327,7 @@ export default function HomePage() {
 
           <div className="mt-8 sm:hidden">
             <Link
-              className="inline-flex font-extrabold text-zinc-900 hover:underline"
+              className="inline-flex font-bold text-zinc-900 hover:underline"
               href="/programs"
             >
               View all programs →
@@ -342,13 +354,13 @@ export default function HomePage() {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 justify-start lg:justify-end">
             <Link
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-800 inline-flex justify-center transition"
+              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-bold hover:bg-zinc-800 inline-flex justify-center transition"
               href="/apply"
             >
               Enroll Now
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
+              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-bold hover:bg-zinc-50 inline-flex justify-center transition"
               href="/platform"
             >
               View Licenses
@@ -369,19 +381,19 @@ export default function HomePage() {
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-800 inline-flex justify-center transition"
+              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-bold hover:bg-zinc-800 inline-flex justify-center transition"
               href="/apply"
             >
               Apply Today
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
+              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-bold hover:bg-zinc-50 inline-flex justify-center transition"
               href="/contact"
             >
               Talk to Our Team
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
+              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-bold hover:bg-zinc-50 inline-flex justify-center transition"
               href="/platform/licensing"
             >
               Partner / License the Platform
