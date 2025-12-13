@@ -180,13 +180,6 @@ export default function MainHeader() {
           <div className="absolute right-0 top-0 h-full w-[90%] max-w-sm bg-white shadow-xl">
             <div className="flex items-center justify-between p-4 border-b border-slate-200">
               <div className="font-semibold text-slate-900">Menu</div>
-              <button
-                className="rounded-lg px-3 py-2 ring-1 ring-slate-200 hover:bg-slate-50"
-                onClick={() => setMobileOpen(false)}
-                aria-label="Close menu"
-              >
-                <span className="text-xl font-bold">✕</span>
-              </button>
             </div>
 
             {/* Scrollable content */}

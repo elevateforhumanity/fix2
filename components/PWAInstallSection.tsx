@@ -6,8 +6,12 @@ import Image from 'next/image';
 export default function PWAInstallSection() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [showButton, setShowButton] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    // Wait for page to fully load before showing PWA prompt
+    setIsLoaded(true);
+
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e);
@@ -34,8 +38,13 @@ export default function PWAInstallSection() {
     }
   };
 
+  // Don't render until page is loaded
+  if (!isLoaded) {
+    return null;
+  }
+
   return (
-    <section className="py-12   ">
+    <section className="py-12">
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid gap-8 lg:grid-cols-2 items-center">
           <div>
