@@ -8,7 +8,6 @@ import PWAInstallSection from '@/components/PWAInstallSection';
 
 export default function HomePage() {
   const videoRef = React.useRef<HTMLVideoElement>(null);
-  const [soundOn, setSoundOn] = React.useState(false);
 
   React.useEffect(() => {
     const video = videoRef.current;
@@ -57,25 +56,6 @@ export default function HomePage() {
 
         {/* Optional overlay */}
         <div className="absolute inset-0 bg-black/40" />
-
-        {/* Tap for sound button */}
-        {!soundOn && (
-          <button
-            className="absolute bottom-6 right-6 z-20 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold"
-            onClick={async () => {
-              const v = videoRef.current;
-              if (!v) return;
-              v.muted = false;
-              v.volume = 1;
-              try {
-                await v.play();
-              } catch {}
-              setSoundOn(true);
-            }}
-          >
-            Tap for sound
-          </button>
-        )}
 
         {/* Your hero text/buttons */}
         <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 text-white">
