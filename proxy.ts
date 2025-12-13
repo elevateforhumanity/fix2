@@ -12,7 +12,7 @@ const PROTECTED_ROUTES = [
   '/instructor',
   '/program-holder',
   '/delegate',
-  '/lms',
+  '/lms/', // Note: /lms itself is public, only /lms/* is protected
 ];
 
 // Admin-only routes
@@ -120,10 +120,25 @@ export async function proxy(request: NextRequest) {
   }
 
   // === AUTHENTICATION & AUTHORIZATION ===
-  const isProtectedRoute = PROTECTED_ROUTES.some(route => pathname.startsWith(route));
+  // Special handling for /lms: public page, but /lms/* is protected
+  const isLmsPublic = pathname === '/lms';
+  const isLmsProtected = pathname.startsWith('/lms/') && !pathname.startsWith('/login');
+  
+  const isProtectedRoute = PROTECTED_ROUTES.some(route => pathname.startsWith(route)) || isLmsProtected;
   const isAdminRoute = ADMIN_ROUTES.some(route => pathname.startsWith(route));
   
-  if (isProtectedRoute || isAdminRoute) {
+  if ((isProtectedRoute || isAdminRoute) && !isLmsPublic) {
+    // Check for Supabase SSR cookies first (fast check)
+    const cookieNames = Array.from(request.cookies.getAll()).map(c => c.name);
+    const hasSupabaseCookie = cookieNames.some(n => n.startsWith('sb-'));
+    
+    if (!hasSupabaseCookie) {
+      // No auth cookie, redirect immediately
+      const loginUrl = new URL('/login', request.url);
+      loginUrl.searchParams.set('next', pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+    
     // Verify authentication
     const supabase = await createClient();
     const { data: { user }, error } = await supabase.auth.getUser();
