@@ -38,6 +38,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* HEALTHCARE FEATURE */}
+      <section className="px-4 sm:px-6 lg:px-10 py-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="relative w-full h-[400px] rounded-2xl overflow-hidden border border-zinc-200 shadow-sm">
+            <Image
+              src="https://i.imgur.com/Kt6ka8p.png"
+              alt="Healthcare training"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* HOW IT WORKS */}
       <section className="px-4 sm:px-6 lg:px-10 py-12 bg-zinc-50 border-y border-zinc-100">
         <div className="mx-auto max-w-4xl text-center">
@@ -59,19 +73,19 @@ export default function HomePage() {
 
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
             <Link
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-extrabold hover:bg-zinc-800 transition"
+              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-800 transition"
               href="/apply"
             >
               Start Inquiry
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-extrabold hover:bg-zinc-50 transition"
+              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-50 transition"
               href="/funding"
             >
               See Funding Options
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-extrabold hover:bg-zinc-50 transition"
+              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-50 transition"
               href="/programs"
             >
               View Programs
@@ -183,7 +197,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-6">
               <Link
-                className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-extrabold hover:bg-zinc-800 inline-flex transition"
+                className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-800 inline-flex transition"
                 href="/platform/apps"
               >
                 See Apps & Licensing
@@ -194,7 +208,7 @@ export default function HomePage() {
           <div className="grid grid-cols-2 gap-4">
             <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
               <Image
-                src="/images/gallery/image3.jpg"
+                src="https://i.imgur.com/Lvty4ct.png"
                 alt="Platform screenshot 1"
                 fill
                 className="object-cover"
@@ -202,7 +216,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
               <Image
-                src="/images/gallery/image6.jpg"
+                src="https://i.imgur.com/nxWQwY9.png"
                 alt="Platform screenshot 2"
                 fill
                 className="object-cover"
@@ -210,7 +224,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
               <Image
-                src="/images/gallery/image8.jpg"
+                src="https://i.imgur.com/t4e5S07.png"
                 alt="Platform screenshot 3"
                 fill
                 className="object-cover"
@@ -218,7 +232,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[240px] rounded-xl overflow-hidden border border-zinc-200 bg-white">
               <Image
-                src="/images/heroes/programs.jpg"
+                src="https://i.imgur.com/7QrL7kQ.png"
                 alt="Platform screenshot 4"
                 fill
                 className="object-cover"
@@ -340,13 +354,13 @@ export default function HomePage() {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 justify-start lg:justify-end">
             <Link
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-extrabold hover:bg-zinc-800 inline-flex justify-center transition"
+              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-800 inline-flex justify-center transition"
               href="/apply"
             >
               Enroll Now
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
+              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
               href="/platform"
             >
               View Licenses
@@ -367,19 +381,19 @@ export default function HomePage() {
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link
-              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-extrabold hover:bg-zinc-800 inline-flex justify-center transition"
+              className="rounded-xl bg-zinc-900 text-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-800 inline-flex justify-center transition"
               href="/apply"
             >
               Apply Today
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
+              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
               href="/contact"
             >
               Talk to Our Team
             </Link>
             <Link
-              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
+              className="rounded-xl border border-zinc-300 bg-white px-5 py-3 font-sans font-extrabold hover:bg-zinc-50 inline-flex justify-center transition"
               href="/platform/licensing"
             >
               Partner / License the Platform
