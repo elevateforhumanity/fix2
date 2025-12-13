@@ -10,6 +10,26 @@ export default function HomePage() {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [soundOn, setSoundOn] = React.useState(false);
 
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const playVideo = async () => {
+      try {
+        await video.play();
+        console.log('Video playing');
+      } catch (err) {
+        console.error('Video autoplay failed:', err);
+      }
+    };
+
+    if (video.readyState >= 3) {
+      playVideo();
+    } else {
+      video.addEventListener('canplay', playVideo, { once: true });
+    }
+  }, []);
+
   return (
     <main className="bg-white overflow-x-hidden">
       <WelcomeAudio />
