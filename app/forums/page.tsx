@@ -5,6 +5,9 @@ export const metadata = {
   description: 'Connect with peers, ask questions, and share knowledge in our student community forums.',
 };
 
+// Force dynamic rendering since this uses Supabase client
+export const dynamic = 'force-dynamic';
+
 export default function ForumsPage() {
   return <DiscussionForums />;
 }

@@ -88,10 +88,10 @@ export function ProgramHero({ program }: { program: Program }) {
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <a
-                    href={program.ctaPrimary.href}
+                    href={`/apply?program=${program.slug}`}
                     className="inline-flex items-center justify-center bg-orange-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg"
                   >
-                    {program.ctaPrimary.label}
+                    Apply Now
                   </a>
                   {program.ctaSecondary && (
                     <a

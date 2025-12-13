@@ -5,6 +5,13 @@ import Stripe from 'stripe';
 export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
+  // Check if Stripe is configured
+  if (!process.env.STRIPE_SECRET_KEY) {
+    return NextResponse.json({ 
+      error: 'Payment system not configured' 
+    }, { status: 503 });
+  }
+
   const sig = req.headers.get('stripe-signature');
   const rawBody = await req.text();
 

@@ -112,10 +112,10 @@ export function ProgramDetails({ program }: { program: Program }) {
               Ready to Apply?
             </h4>
             <a
-              href={program.ctaPrimary.href}
+              href={`/apply?program=${program.slug}`}
               className="block text-center rounded-lg bg-orange-500 px-6 py-3 text-sm font-bold text-white hover:bg-orange-600 transition-colors"
             >
-              {program.ctaPrimary.label}
+              Apply Now
             </a>
           </div>
 

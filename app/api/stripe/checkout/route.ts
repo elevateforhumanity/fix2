@@ -1,12 +1,19 @@
 import { NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe/client';
-import { getProductById } from '@/app/data/store-products';
+import { getProductBySlug } from '@/app/data/store-products';
 import { STRIPE_PRICE_IDS, isPriceConfigured } from '@/lib/stripe/price-map';
 
 export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
   try {
+    // Check if Stripe is configured
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return NextResponse.json({ 
+        error: 'Payment system not configured. Please contact support.' 
+      }, { status: 503 });
+    }
+
     const contentType = req.headers.get('content-type') || '';
     let productId: string | null = null;
     let customerEmail: string | null = null;
@@ -26,7 +33,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Missing productId' }, { status: 400 });
     }
 
-    const product = getProductById(productId);
+    const product = getProductBySlug(productId);
     if (!product) {
       return NextResponse.json({ error: 'Invalid productId' }, { status: 400 });
     }

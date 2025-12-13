@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 
-export default function TalkToAdvisorPage() {
+function ApplyForm() {
   const searchParams = useSearchParams();
   const programParam = searchParams.get('program');
   
@@ -229,5 +229,19 @@ export default function TalkToAdvisorPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function TalkToAdvisorPage() {
+  return (
+    <Suspense fallback={
+      <main className="min-h-screen bg-slate-50 py-12">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <div className="text-center">Loading...</div>
+        </div>
+      </main>
+    }>
+      <ApplyForm />
+    </Suspense>
   );
 }
