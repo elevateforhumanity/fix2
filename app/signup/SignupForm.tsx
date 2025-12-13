@@ -232,11 +232,11 @@ function SignupFormContent() {
           />
           <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
             I agree to the{' '}
-            <Link href="/legal/terms" className="text-blue-600 hover:text-blue-700 underline">
+            <Link href="/terms-of-service" className="text-blue-600 hover:text-blue-700 underline">
               Terms of Service
             </Link>{' '}
             and{' '}
-            <Link href="/legal/privacy" className="text-blue-600 hover:text-blue-700 underline">
+            <Link href="/privacy-policy" className="text-blue-600 hover:text-blue-700 underline">
               Privacy Policy
             </Link>
           </label>

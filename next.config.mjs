@@ -190,6 +190,29 @@ const nextConfig = {
         destination: '/programs/workforce-readiness',
         permanent: false, // Temporary until confirmed
       },
+      // Fix tax prep slug
+      {
+        source: '/programs/tax-prep',
+        destination: '/programs/tax-prep-financial-services',
+        permanent: true,
+      },
+      // Fix reentry specialist slug
+      {
+        source: '/programs/public-safety-reentry-specialist',
+        destination: '/programs/peer-recovery-coach',
+        permanent: true,
+      },
+      // Fix legal routes
+      {
+        source: '/legal/terms',
+        destination: '/terms-of-service',
+        permanent: true,
+      },
+      {
+        source: '/legal/privacy',
+        destination: '/privacy-policy',
+        permanent: true,
+      },
       // Blog redirect to Durable (uncomment and update URL when ready)
       // {
       //   source: '/blog',

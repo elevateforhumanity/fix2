@@ -397,7 +397,7 @@ export default function JRIPage() {
                     </li>
                   </ul>
                   <Button className="w-full" asChild>
-                    <Link href="/programs/public-safety-reentry-specialist">
+                    <Link href="/programs/peer-recovery-coach">
                       Learn More
                     </Link>
                   </Button>

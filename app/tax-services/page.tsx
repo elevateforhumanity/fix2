@@ -300,7 +300,7 @@ export default function TaxServicesPage() {
                   <li>• Job placement</li>
                 </ul>
                 <Link
-                  href="/programs/tax-prep"
+                  href="/programs/tax-prep-financial-services"
                   className="mt-6 inline-block bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700"
                 >
                   Start Training
