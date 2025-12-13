@@ -12,6 +12,7 @@ const PROTECTED_ROUTES = [
   '/instructor',
   '/program-holder',
   '/delegate',
+  '/lms',
 ];
 
 // Admin-only routes
@@ -130,7 +131,7 @@ export async function proxy(request: NextRequest) {
     if (error || !user) {
       // Redirect to login with return URL
       const loginUrl = new URL('/login', request.url);
-      loginUrl.searchParams.set('redirect', pathname);
+      loginUrl.searchParams.set('next', pathname);
       return NextResponse.redirect(loginUrl);
     }
 
