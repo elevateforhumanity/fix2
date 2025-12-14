@@ -1,13 +1,14 @@
 // app/team/page.tsx
-import Image from "next/image";
-import { Metadata } from "next";
+import Image from 'next/image';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.elevateforhumanity.org/team",
+    canonical: 'https://www.elevateforhumanity.org/team',
   },
   title: 'Our Team | Elevate For Humanity',
-  description: 'Meet the dedicated team behind Elevate for Humanity - experienced professionals committed to providing free career training and support to help you succeed.',
+  description:
+    'Meet the dedicated team behind Elevate for Humanity - experienced professionals committed to providing free career training and support to help you succeed.',
 };
 
 type TeamMember = {
@@ -20,63 +21,58 @@ type TeamMember = {
 
 const team: TeamMember[] = [
   {
-    name: "Elizabeth L. Greene",
-    title: "Founder, Chief Executive Officer & Executive Director",
-    image: "/images/elizabeth-greene-founder.jpg",
+    name: 'Elizabeth L. Greene',
+    title: 'Founder, Chief Executive Officer & Executive Director',
+    image: '/images/elizabeth-greene-founder.jpg',
     blurb:
       "Elizabeth founded Elevate for Humanity because she believes everyone deserves a real shot at a better life—regardless of their past, their circumstances, or how many times they've been told no. With a background in workforce development, community organizing, and a deep understanding of the barriers that keep people stuck, she built an organization that doesn't just train people—it removes the obstacles that prevent them from succeeding. Under her leadership, Elevate has become a fully integrated ecosystem of workforce training, apprenticeships, housing stability, mental health support, and career placement. Elizabeth doesn't lead from a desk—she's in the field, meeting with students, partnering with employers, and fighting for policies that create real pathways out of poverty. Her approach is simple: meet people where they are, give them the tools they need, and get out of their way.",
-    link: "/founder",
+    link: '/founder',
   },
   {
-    name: "Dr. Carlina Annette Wilkes",
-    title: "Executive Director of Financial Operations & Organizational Compliance",
-    image: "/images/carlina-wilkes.jpg",
+    name: 'Dr. Carlina Annette Wilkes',
+    title:
+      'Executive Director of Financial Operations & Organizational Compliance',
+    image: '/images/carlina-wilkes.jpg',
     blurb:
-      "Retired DFAS executive with 24+ years of federal service, specializing in financial management, organizational compliance, and strategic oversight.",
+      'Retired DFAS executive with 24+ years of federal service, specializing in financial management, organizational compliance, and strategic oversight.',
   },
   {
-    name: "Leslie Wafford",
-    title: "Director of Housing Stability & Eviction Prevention",
-    image: "/images/leslie-wafford.jpg",
+    name: 'Leslie Wafford',
+    title: 'Director of Housing Stability & Eviction Prevention',
+    image: '/images/leslie-wafford.jpg',
     blurb:
-      "Focused on low-barrier, eviction-prevention practices and educating residents about their rights so families can remain housed and stable.",
+      'Focused on low-barrier, eviction-prevention practices and educating residents about their rights so families can remain housed and stable.',
   },
+
   {
-    name: "Clystjah Woodley",
-    title: "Life Coach & Student Success Mentor",
-    image: "/images/clystjah-woodley.jpg",
-    blurb:
-      "Provides life coaching, mindset support, and accountability to help learners navigate real-life barriers while they complete training.",
-  },
-  {
-    name: "Delores Reynolds",
-    title: "Director of Social Media & Digital Engagement",
-    image: "/images/delores-reynolds.jpg",
+    name: 'Delores Reynolds',
+    title: 'Director of Social Media & Digital Engagement',
+    image: '/images/delores-reynolds.jpg',
     blurb:
       "Leads Elevate's online presence, storytelling, and engagement strategies to keep students and partners informed and inspired.",
   },
   {
-    name: "Johanna George",
-    title: "Director of Beauty & Esthetics Programs",
-    image: "/images/jozanna-george.jpg",
+    name: 'Johanna George',
+    title: 'Director of Beauty & Esthetics Programs',
+    image: '/images/jozanna-george.jpg',
     blurb:
-      "Licensed for over 20 years in nails and esthetics and former beauty school leader, overseeing enrollment and beauty-industry-standard pathways.",
+      'Licensed for over 20 years in nails and esthetics and former beauty school leader, overseeing enrollment and beauty-industry-standard pathways.',
   },
   {
-    name: "Sharon Douglass",
-    title: "Clinical Training & Healthcare Compliance Advisor",
-    image: "/images/sharon-douglas.jpg",
+    name: 'Sharon Douglass',
+    title: 'Clinical Training & Healthcare Compliance Advisor',
+    image: '/images/sharon-douglas.jpg',
     blurb:
-      "Respiratory therapist and health informatics professional with 30+ years of experience in patient safety, quality, and clinical operations.",
+      'Respiratory therapist and health informatics professional with 30+ years of experience in patient safety, quality, and clinical operations.',
   },
 
   {
-    name: "Alina Perfect, PMHNP",
-    title: "Psychiatric Mental Health Partner",
-    image: "/images/alina-smith.jpg",
+    name: 'Alina Perfect, PMHNP',
+    title: 'Psychiatric Mental Health Partner',
+    image: '/images/alina-smith.jpg',
     blurb:
-      "Board-certified Psychiatric Mental Health Nurse Practitioner partnering with Elevate to provide mental health assessment and medication management.",
-    link: "/team/alina-perfect",
+      'Board-certified Psychiatric Mental Health Nurse Practitioner partnering with Elevate to provide mental health assessment and medication management.',
+    link: '/team/alina-perfect',
   },
 ];
 
@@ -108,7 +104,6 @@ export default function TeamPage() {
       </section>
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
-
         <section className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
             <article

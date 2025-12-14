@@ -11,7 +11,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden shadow-lg border border-zinc-200 bg-black mb-6 sm:mb-8">
             <video
-              src="/videos/success-stories-video-with-narration.mp4"
+              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081093367&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=td32mzkbEAOLiCaYuy2bvh7fIHwp6fCyqklEkMOKrB-HylGvkEp87xGd5VEp5ipv7IKQgjImURhapXmq9BhcEIvGHlYH4rGeIX9P4ThM0ha7wZOH2kl8RIdUQEVSFKM6U9~Eel5Fwpgr5-MZh-YmCpZRG9Gw9KLNhFiWKlh6AjXYppVLz0rf1-FXx4dcGM6qWtmYo9WQOCCqRjzmWqtGkqF88rUy7YvU6XrxUpb9k9M3~biPVNpbErqRJxX8nPLkwvKEWOmfzC~cjQQGpkGJoFEOUxq8y0u6y73ekcECQJbHjkE3EYSsY-DshZZcDU6T9OhHrV6QbHJo85f4~r7mlA__"
               autoPlay
               muted
               loop
@@ -20,15 +20,16 @@ export default function HomePage() {
               style={{ maxWidth: '100%', height: 'auto' }}
             />
           </div>
-          
+
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900">
               Workforce training that leads to real careers — with funding
               pathways built in.
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-zinc-700">
-              A proprietary workforce training and apprenticeship platform built by Elevate for Humanity.
-              We help people enroll in career programs and help partners deliver training through systems built for
+              A proprietary workforce training and apprenticeship platform built
+              by Elevate for Humanity. We help people enroll in career programs
+              and help partners deliver training through systems built for
               workforce, reentry, and community impact.
             </p>
 
