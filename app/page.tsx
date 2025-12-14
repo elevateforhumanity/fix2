@@ -8,13 +8,24 @@ export default function HomePage() {
     <main className="w-full">
       {/* HERO */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 pb-6 sm:pb-10">
-        <div className="mx-auto max-w-6xl grid lg:grid-cols-2 gap-6 sm:gap-10 items-center">
-          <div className="order-2 lg:order-1">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-900">
+        <div className="mx-auto max-w-7xl">
+          <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-zinc-200 bg-black mb-8">
+            <video
+              src="/videos/success-stories-video-with-narration.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+          
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900">
               Workforce training that leads to real careers — with funding
               pathways built in.
             </h1>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg text-zinc-700 max-w-xl">
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-zinc-700">
               Elevate for Humanity helps people enroll in career programs and
               helps partners deliver training through a platform built for
               workforce, reentry, and community impact.
@@ -22,22 +33,9 @@ export default function HomePage() {
 
             <PrimaryCtas />
 
-            <div className="mt-4 sm:mt-5 text-xs sm:text-sm text-zinc-600">
+            <div className="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-600">
               Serving individuals, schools, employers, and community partners
               across Indiana and beyond.
-            </div>
-          </div>
-
-          <div className="w-full order-1 lg:order-2">
-            <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-zinc-200 bg-black">
-              <video
-                src="/videos/success-stories-video-with-narration.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              />
             </div>
           </div>
         </div>
