@@ -89,38 +89,58 @@ export default async function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Header */}
-      <div className="bg-white border-b border-slate-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-slate-900">
-                Welcome back, {profile?.full_name || 'Student'}!
-              </h1>
-              <p className="text-slate-600 mt-1">
-                {activeEnrollment
-                  ? `${activeEnrollment.program?.name}`
-                  : 'Your Learning Dashboard'}
-              </p>
-            </div>
-            <div className="flex items-center gap-4">
-              <Link
-                href="/student/profile"
-                className="px-4 py-2 text-slate-700 hover:text-slate-900 font-medium transition-colors"
-              >
-                Profile
-              </Link>
-              <Link
-                href="/student/certificates"
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold transition-all hover:scale-105 shadow-md"
-              >
-                <Award className="w-4 h-4 inline mr-2" />
-                Certificates
-              </Link>
+      {/* Hero Banner with Video */}
+      <section className="relative bg-slate-900">
+        <div className="relative w-full h-[300px] sm:h-[400px] overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source
+              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__3/video-7b329d1f-3f92-4ec5-acdf-9d2d7ff6de5f.mp4?Expires=2081035443&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=2KDgdkukV1l5tUykhY0SBZu0ZYxEp6Xp86bQjcsHKxNbWwEjUxfu5OSCKMrGG2~xv00hDGlPIxaSaE~zClb9YFcW6WXYwa1sWpZcuqovnSTb5HBs5Vv13W-uCiEqd9-UenNmOCUQAsx70OYANXHY4d6qQBaVtMl9XkB9~mNfUYbV0hognViSLyI~7uK~gpA-bSCss8NZAAlwASn8vmgi8HrY3NQNfAvXKp0GaVi5RSb5L58PuRfb0S5GPV-B5UeImUvIxTCNfDG9ZOsVAvl8J7FxmgQcxc8-M6BGHoJR~2DndDRStF272N8p7yOiJI6NEt-KZxym~WceY3RZ6jKjJQ__"
+              type="video/mp4"
+            />
+          </video>
+
+          {/* Overlay Content */}
+          <div className="absolute inset-0 bg-black/40 flex items-end">
+            <div className="w-full px-4 sm:px-6 pb-8">
+              <div className="max-w-7xl mx-auto">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div>
+                    <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+                      Welcome back, {profile?.full_name || 'Student'}!
+                    </h1>
+                    <p className="text-slate-200 text-lg">
+                      {activeEnrollment
+                        ? `${activeEnrollment.program?.name}`
+                        : 'Your Learning Dashboard'}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Link
+                      href="/student/profile"
+                      className="px-4 py-2 bg-white/10 backdrop-blur-sm text-white rounded-lg hover:bg-white/20 font-semibold transition-all border border-white/30"
+                    >
+                      Profile
+                    </Link>
+                    <Link
+                      href="/student/certificates"
+                      className="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold transition-all shadow-lg"
+                    >
+                      <Award className="w-4 h-4 inline mr-2" />
+                      Certificates
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Progress Overview */}

@@ -6,9 +6,14 @@
 
 import Stripe from 'stripe';
 import { config } from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
-// Load environment variables
-config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Load environment variables from .env.local
+config({ path: join(__dirname, '..', '.env.local') });
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2024-11-20.acacia',

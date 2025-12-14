@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
 import { logger } from '@/lib/logger';
 import { completeEnrollment } from '@/lib/enrollment/complete-enrollment';
 
@@ -19,20 +19,32 @@ export async function POST(req: NextRequest) {
   const supabase = await createClient();
 
   // Check authentication
-  const { data: { user }, error: authError } = await supabase.auth.getUser();
-  
+  const {
+    data: { user },
+    error: authError,
+  } = await supabase.auth.getUser();
+
   let body: EnrollRequestBody;
   try {
     body = (await req.json()) as EnrollRequestBody;
   } catch {
     return NextResponse.json(
-      { ok: false, error: "Invalid JSON payload." },
-      { status: 400 },
+      { ok: false, error: 'Invalid JSON payload.' },
+      { status: 400 }
     );
   }
 
-  const { firstName, lastName, email, phone, programCode, courseId, fundingInterest, referralSource, notes } =
-    body;
+  const {
+    firstName,
+    lastName,
+    email,
+    phone,
+    programCode,
+    courseId,
+    fundingInterest,
+    referralSource,
+    notes,
+  } = body;
 
   // If user is authenticated and enrolling in a course
   if (user && courseId) {
@@ -47,7 +59,7 @@ export async function POST(req: NextRequest) {
       if (!result.success) {
         return NextResponse.json(
           { ok: false, error: result.error },
-          { status: 400 },
+          { status: 400 }
         );
       }
 
@@ -56,71 +68,75 @@ export async function POST(req: NextRequest) {
           ok: true,
           enrollmentId: result.enrollmentId,
           courseAccessUrl: result.courseAccessUrl,
-          message: "Successfully enrolled! You can now access the course.",
+          message: 'Successfully enrolled! You can now access the course.',
         },
-        { status: 201 },
+        { status: 201 }
       );
     } catch (err: unknown) {
-      logger.error("Enrollment error", err);
+      logger.error('Enrollment error', err);
       return NextResponse.json(
-        { ok: false, error: "Failed to complete enrollment" },
-        { status: 500 },
+        { ok: false, error: 'Failed to complete enrollment' },
+        { status: 500 }
       );
     }
   }
 
-  // Otherwise, create application (for non-authenticated users)
+  // Otherwise, create checkout session for payment (for non-authenticated users)
   if (!firstName || !lastName || !email || !programCode) {
     return NextResponse.json(
       {
         ok: false,
         error:
-          "Missing required fields: firstName, lastName, email, programCode.",
+          'Missing required fields: firstName, lastName, email, programCode.',
       },
-      { status: 400 },
+      { status: 400 }
     );
   }
 
   try {
-    // Insert into applications table
-    const { data: application, error: appError } = await supabase
-      .from("applications")
-      .insert({
-        first_name: firstName,
-        last_name: lastName,
-        email: email.toLowerCase(),
-        phone: phone ?? null,
-        program_id: programCode,
-        heard_about_us: referralSource ?? null,
-        status: "submitted",
-      })
-      .select("id")
-      .single();
+    // Create Stripe checkout session
+    const checkoutResponse = await fetch(
+      `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/enroll/checkout`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          phone,
+          programSlug: programCode,
+        }),
+      }
+    );
 
-    if (appError) {
-      logger.error("Application insert error", appError);
-      throw appError;
+    if (!checkoutResponse.ok) {
+      const error = await checkoutResponse.json();
+      throw new Error(error.error || 'Failed to create checkout session');
     }
+
+    const { checkoutUrl, sessionId } = await checkoutResponse.json();
 
     return NextResponse.json(
       {
         ok: true,
-        applicationId: application?.id,
-        message:
-          "Application submitted! Elevate staff will follow up to finalize funding and start date.",
+        checkoutUrl,
+        sessionId,
+        message: 'Redirecting to payment...',
+        nextStep: 'payment',
       },
-      { status: 201 },
+      { status: 201 }
     );
   } catch (err: unknown) {
-    logger.error("Enrollment API error", err?.message ?? err);
+    logger.error('Enrollment API error', err?.message ?? err);
     return NextResponse.json(
       {
         ok: false,
         error:
           err?.message ??
-          "Unexpected error while creating application. Check server logs.",
+          'Unexpected error while creating checkout. Please try again.',
       },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

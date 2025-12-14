@@ -1,0 +1,139 @@
+import { NextResponse } from 'next/server';
+import { stripe } from '@/lib/stripe/client';
+import { createClient } from '@/lib/supabase/server';
+import { logger } from '@/lib/logger';
+
+export const runtime = 'nodejs';
+
+interface CheckoutRequest {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  programSlug: string;
+}
+
+export async function POST(req: Request) {
+  try {
+    // Check if Stripe is configured
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return NextResponse.json(
+        { error: 'Payment system not configured. Please contact support.' },
+        { status: 503 }
+      );
+    }
+
+    const body: CheckoutRequest = await req.json();
+    const { firstName, lastName, email, phone, programSlug } = body;
+
+    if (!firstName || !lastName || !email || !programSlug) {
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
+    }
+
+    const supabase = await createClient();
+
+    // Get program details
+    const { data: program, error: programError } = await supabase
+      .from('programs')
+      .select('id, name, slug, total_cost')
+      .eq('slug', programSlug)
+      .single();
+
+    if (programError || !program) {
+      return NextResponse.json({ error: 'Program not found' }, { status: 404 });
+    }
+
+    // Get or create Stripe price for this program
+    const amount = program.total_cost
+      ? Math.round(Number(program.total_cost) * 100)
+      : 489000; // Default $4,890
+
+    // Create application record
+    const { data: application, error: appError } = await supabase
+      .from('applications')
+      .insert({
+        first_name: firstName,
+        last_name: lastName,
+        email: email.toLowerCase(),
+        phone: phone ?? null,
+        program_id: programSlug,
+        status: 'pending_payment',
+      })
+      .select('id')
+      .single();
+
+    if (appError) {
+      logger.error('Application creation error', appError);
+      return NextResponse.json(
+        { error: 'Failed to create application' },
+        { status: 500 }
+      );
+    }
+
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+    // Create Stripe Checkout session
+    const session = await stripe.checkout.sessions.create({
+      mode: 'payment',
+      customer_email: email.toLowerCase(),
+      line_items: [
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: program.name,
+              description: `Enrollment in ${program.name} program`,
+            },
+            unit_amount: amount,
+          },
+          quantity: 1,
+        },
+      ],
+      success_url: `${siteUrl}/enroll/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${siteUrl}/apply?program=${programSlug}`,
+      metadata: {
+        applicationId: application.id,
+        programId: program.id,
+        programSlug: program.slug,
+        firstName,
+        lastName,
+        email: email.toLowerCase(),
+        phone: phone || '',
+      },
+      // Enable all payment methods including BNPL
+      payment_method_types: ['card', 'affirm', 'klarna', 'afterpay_clearpay'],
+      // Enable automatic tax if configured
+      automatic_tax: {
+        enabled: false,
+      },
+    });
+
+    if (!session.url) {
+      return NextResponse.json(
+        { error: 'Failed to create checkout session' },
+        { status: 500 }
+      );
+    }
+
+    logger.info('Checkout session created', {
+      sessionId: session.id,
+      applicationId: application.id,
+      email: email.toLowerCase(),
+    });
+
+    return NextResponse.json({
+      ok: true,
+      checkoutUrl: session.url,
+      sessionId: session.id,
+    });
+  } catch (error: any) {
+    logger.error('Checkout creation error', error);
+    return NextResponse.json(
+      { error: error.message || 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}

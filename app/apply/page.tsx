@@ -7,7 +7,7 @@ import Image from 'next/image';
 function ApplyForm() {
   const searchParams = useSearchParams();
   const programParam = searchParams.get('program');
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,31 +15,60 @@ function ApplyForm() {
     program: programParam || '',
     message: '',
   });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle');
 
   // Update program field when URL parameter changes
   useEffect(() => {
     if (programParam && !formData.program) {
-      setFormData(prev => ({ ...prev, program: programParam }));
+      setFormData((prev) => ({ ...prev, program: programParam }));
     }
   }, [programParam, formData.program]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-    
+
     try {
       // Split name into first and last
       const nameParts = formData.name.trim().split(' ');
-      const firstname = nameParts[0] || '';
-      const lastname = nameParts.slice(1).join(' ') || '';
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
 
+      // If program selected, auto-enroll and redirect to payment
+      if (formData.program) {
+        const response = await fetch('/api/enroll/auto', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email: formData.email,
+            phone: formData.phone,
+            programSlug: formData.program,
+            notes: formData.message,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (result.ok && result.checkoutUrl) {
+          // Redirect to Stripe checkout
+          window.location.href = result.checkoutUrl;
+          return;
+        } else {
+          throw new Error(result.error || 'Failed to process enrollment');
+        }
+      }
+
+      // No program - just inquiry
       const response = await fetch('/api/hubspot/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          firstname,
-          lastname,
+          firstname: firstName,
+          lastname: lastName,
           email: formData.email,
           phone: formData.phone,
           program: formData.program,
@@ -53,18 +82,26 @@ function ApplyForm() {
       if (result.ok) {
         setStatus('success');
         setTimeout(() => {
-          setFormData({ name: '', email: '', phone: '', program: programParam || '', message: '' });
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            program: programParam || '',
+            message: '',
+          });
           setStatus('idle');
         }, 3000);
       } else {
         // Fallback to mailto if HubSpot fails
-        const subject = encodeURIComponent(`Application Inquiry from ${formData.name}`);
+        const subject = encodeURIComponent(
+          `Application Inquiry from ${formData.name}`
+        );
         const body = encodeURIComponent(
           `Name: ${formData.name}\n` +
-          `Email: ${formData.email}\n` +
-          `Phone: ${formData.phone}\n` +
-          `Program Interest: ${formData.program}\n\n` +
-          `Message:\n${formData.message}`
+            `Email: ${formData.email}\n` +
+            `Phone: ${formData.phone}\n` +
+            `Program Interest: ${formData.program}\n\n` +
+            `Message:\n${formData.message}`
         );
         window.location.href = `mailto:elevate4humanityedu@gmail.com?subject=${subject}&body=${body}`;
         setStatus('success');
@@ -96,10 +133,18 @@ function ApplyForm() {
             Talk to an Advisor
           </h1>
           <p className="text-xl text-slate-700 mb-6">
-            Let's discuss your goals and find the right training program for you.
+            Let's discuss your goals and find the right training program for
+            you.
           </p>
           <p className="text-lg text-slate-600">
-            Call us at <a href="tel:3173143757" className="font-bold text-orange-600 hover:text-orange-700">317-314-3757</a> or fill out the form below.
+            Call us at{' '}
+            <a
+              href="tel:3173143757"
+              className="font-bold text-orange-600 hover:text-orange-700"
+            >
+              317-314-3757
+            </a>{' '}
+            or fill out the form below.
           </p>
         </div>
 
@@ -125,7 +170,10 @@ function ApplyForm() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-semibold text-slate-900 mb-2"
+                >
                   Full Name *
                 </label>
                 <input
@@ -133,14 +181,19 @@ function ApplyForm() {
                   id="name"
                   required
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-slate-900 mb-2"
+                >
                   Email Address *
                 </label>
                 <input
@@ -148,14 +201,19 @@ function ApplyForm() {
                   id="email"
                   required
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   placeholder="you@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-semibold text-slate-900 mb-2"
+                >
                   Phone Number *
                 </label>
                 <input
@@ -163,26 +221,35 @@ function ApplyForm() {
                   id="phone"
                   required
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   placeholder="(555) 123-4567"
                 />
               </div>
 
               <div>
-                <label htmlFor="program" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label
+                  htmlFor="program"
+                  className="block text-sm font-semibold text-slate-900 mb-2"
+                >
                   Program of Interest
                 </label>
                 <select
                   id="program"
                   value={formData.program}
-                  onChange={(e) => setFormData({ ...formData, program: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, program: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 >
                   <option value="">Select a program...</option>
                   <option value="barber">Barber Apprenticeship</option>
                   <option value="cna">CNA Training</option>
-                  <option value="direct-support-professional">Direct Support Professional (DSP)</option>
+                  <option value="direct-support-professional">
+                    Direct Support Professional (DSP)
+                  </option>
                   <option value="hvac">HVAC Technician</option>
                   <option value="cdl">CDL Training</option>
                   <option value="tax-prep">Tax Preparation</option>
@@ -192,14 +259,19 @@ function ApplyForm() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-semibold text-slate-900 mb-2"
+                >
                   Message
                 </label>
                 <textarea
                   id="message"
                   rows={4}
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   placeholder="Tell us about your goals and any questions you have..."
                 />
@@ -208,7 +280,8 @@ function ApplyForm() {
               {status === 'error' && (
                 <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
                   <p className="text-red-800">
-                    Something went wrong. Please try again or call us at 317-314-3757.
+                    Something went wrong. Please try again or call us at
+                    317-314-3757.
                   </p>
                 </div>
               )}
@@ -222,7 +295,8 @@ function ApplyForm() {
               </button>
 
               <p className="text-sm text-slate-600 text-center">
-                By submitting this form, you agree to be contacted by Elevate for Humanity about training programs.
+                By submitting this form, you agree to be contacted by Elevate
+                for Humanity about training programs.
               </p>
             </form>
           )}
@@ -234,13 +308,15 @@ function ApplyForm() {
 
 export default function TalkToAdvisorPage() {
   return (
-    <Suspense fallback={
-      <main className="min-h-screen bg-slate-50 py-12">
-        <div className="container mx-auto px-4 max-w-2xl">
-          <div className="text-center">Loading...</div>
-        </div>
-      </main>
-    }>
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-slate-50 py-12">
+          <div className="container mx-auto px-4 max-w-2xl">
+            <div className="text-center">Loading...</div>
+          </div>
+        </main>
+      }
+    >
       <ApplyForm />
     </Suspense>
   );
