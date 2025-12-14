@@ -1,17 +1,22 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
-import OpenAI from "openai";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
+import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+function getOpenAIClient() {
+  return new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+}
 
 export async function POST(req: Request) {
   try {
     const { message } = await req.json();
 
     if (!message || typeof message !== 'string') {
-      return NextResponse.json({ error: "Message is required" }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Message is required' },
+        { status: 400 }
+      );
     }
 
     const supabase = await createClient();
@@ -20,38 +25,40 @@ export async function POST(req: Request) {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     // Get AI assignment
     const { data: assignment, error: assignmentError } = await supabase
-      .from("student_ai_assignments")
-      .select(`
+      .from('student_ai_assignments')
+      .select(
+        `
         instructor_id,
         program_slug,
         ai_instructors(system_prompt, name)
-      `)
-      .eq("student_id", user.id)
+      `
+      )
+      .eq('student_id', user.id)
       .single();
 
     if (!assignment || assignmentError) {
       return NextResponse.json(
-        { error: "No AI instructor assigned. Please contact support." },
+        { error: 'No AI instructor assigned. Please contact support.' },
         { status: 400 }
       );
     }
 
     // Get or create chat session
     let { data: session } = await supabase
-      .from("ai_chat_sessions")
-      .select("*")
-      .eq("student_id", user.id)
-      .eq("program_slug", assignment.program_slug)
+      .from('ai_chat_sessions')
+      .select('*')
+      .eq('student_id', user.id)
+      .eq('program_slug', assignment.program_slug)
       .maybeSingle();
 
     if (!session) {
       const { data: newSession, error: sessionError } = await supabase
-        .from("ai_chat_sessions")
+        .from('ai_chat_sessions')
         .insert({
           student_id: user.id,
           instructor_id: assignment.instructor_id,
@@ -61,9 +68,9 @@ export async function POST(req: Request) {
         .single();
 
       if (sessionError) {
-        console.error("Session creation error:", sessionError);
+        console.error('Session creation error:', sessionError);
         return NextResponse.json(
-          { error: "Failed to create chat session" },
+          { error: 'Failed to create chat session' },
           { status: 500 }
         );
       }
@@ -72,42 +79,45 @@ export async function POST(req: Request) {
     }
 
     // Save user message
-    await supabase.from("ai_chat_messages").insert({
+    await supabase.from('ai_chat_messages').insert({
       session_id: session.id,
-      role: "user",
+      role: 'user',
       content: message,
     });
 
     // Mark AI instructor met on first message
     try {
       await supabase
-        .from("student_onboarding")
+        .from('student_onboarding')
         .update({ ai_instructor_met: true })
-        .eq("student_id", user.id)
-        .eq("ai_instructor_met", false);
+        .eq('student_id', user.id)
+        .eq('ai_instructor_met', false);
     } catch (onboardingError) {
-      console.error("Failed to mark AI instructor met:", onboardingError);
+      console.error('Failed to mark AI instructor met:', onboardingError);
       // Continue - not critical
     }
 
     // Pull recent history
     const { data: history } = await supabase
-      .from("ai_chat_messages")
-      .select("role, content")
-      .eq("session_id", session.id)
-      .order("created_at", { ascending: true })
+      .from('ai_chat_messages')
+      .select('role, content')
+      .eq('session_id', session.id)
+      .order('created_at', { ascending: true })
       .limit(20);
 
     // OpenAI call
+    const openai = getOpenAIClient();
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: 'gpt-4o-mini',
       messages: [
         {
-          role: "system",
-          content: assignment.ai_instructors.system_prompt || "You are a helpful instructor.",
+          role: 'system',
+          content:
+            assignment.ai_instructors.system_prompt ||
+            'You are a helpful instructor.',
         },
         ...(history || []).map((msg: any) => ({
-          role: msg.role as "user" | "assistant",
+          role: msg.role as 'user' | 'assistant',
           content: msg.content,
         })),
       ],
@@ -118,17 +128,17 @@ export async function POST(req: Request) {
     const reply = completion.choices[0].message.content || "I'm here to help!";
 
     // Save assistant message
-    await supabase.from("ai_chat_messages").insert({
+    await supabase.from('ai_chat_messages').insert({
       session_id: session.id,
-      role: "assistant",
+      role: 'assistant',
       content: reply,
     });
 
     return NextResponse.json({ reply });
   } catch (error: any) {
-    console.error("AI chat error:", error);
+    console.error('AI chat error:', error);
     return NextResponse.json(
-      { error: error.message || "Failed to process chat" },
+      { error: error.message || 'Failed to process chat' },
       { status: 500 }
     );
   }
@@ -143,14 +153,14 @@ export async function GET(req: Request) {
     } = await supabase.auth.getUser();
 
     if (!user) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     // Get session
     const { data: session } = await supabase
-      .from("ai_chat_sessions")
-      .select("id")
-      .eq("student_id", user.id)
+      .from('ai_chat_sessions')
+      .select('id')
+      .eq('student_id', user.id)
       .single();
 
     if (!session) {
@@ -159,16 +169,16 @@ export async function GET(req: Request) {
 
     // Get messages
     const { data: messages } = await supabase
-      .from("ai_chat_messages")
-      .select("role, content, created_at")
-      .eq("session_id", session.id)
-      .order("created_at", { ascending: true });
+      .from('ai_chat_messages')
+      .select('role, content, created_at')
+      .eq('session_id', session.id)
+      .order('created_at', { ascending: true });
 
     return NextResponse.json({ messages: messages || [] });
   } catch (error: any) {
-    console.error("Get chat history error:", error);
+    console.error('Get chat history error:', error);
     return NextResponse.json(
-      { error: "Failed to load chat history" },
+      { error: 'Failed to load chat history' },
       { status: 500 }
     );
   }
