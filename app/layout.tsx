@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/heroes/hero-homepage.jpg',
+        url: 'https://cms-artifacts.artlist.io/content/generated-image-v1/image__5/image-00bcede7-220e-4356-97d3-0589398400e5.png?Expires=2081092728&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=B7xMrqd~DJeJdGExjaz9WmPOcfDmIylaqW4jrhuCThzQr5LLYYi9~xKGX1qGjXbgIovrKwzJvvk~A7y9vIERR1Ld2WWA7EtIPJ1i6mviSGcYNJWYn1Qaj7s0UmNeRvm-gqvveiLCPmAdOKMeAJAdmj9hcTZMESrNadr~9FzKrYT4Z1oN3bHrwyTUdGE337vOAVq9keZAdHmZJKIrnbZvAOF8k8OB8L7EP32xgrUggFDY8Z9hEHFgqA5E7w0RIs7hJgiFokMkBW1prJ4qC0D5rrus2LjUhrOu7nI0FletpJDOuMDCXkrtd2b0RmYFR~TO5YbsWoNwSxyUHElskODOpQ__',
         width: 1200,
         height: 630,
         alt: 'Elevate for Humanity - 100% Free Career Training',
@@ -93,6 +93,15 @@ export const metadata: Metadata = {
     ],
   },
 
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Elevate for Humanity | 100% Free Career Training',
+    description:
+      '100% FREE career training through WIOA, WRG, and JRI funding. No tuition, no debt.',
+    images: [
+      'https://cms-artifacts.artlist.io/content/generated-image-v1/image__5/image-00bcede7-220e-4356-97d3-0589398400e5.png?Expires=2081092728&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=B7xMrqd~DJeJdGExjaz9WmPOcfDmIylaqW4jrhuCThzQr5LLYYi9~xKGX1qGjXbgIovrKwzJvvk~A7y9vIERR1Ld2WWA7EtIPJ1i6mviSGcYNJWYn1Qaj7s0UmNeRvm-gqvveiLCPmAdOKMeAJAdmj9hcTZMESrNadr~9FzKrYT4Z1oN3bHrwyTUdGE337vOAVq9keZAdHmZJKIrnbZvAOF8k8OB8L7EP32xgrUggFDY8Z9hEHFgqA5E7w0RIs7hJgiFokMkBW1prJ4qC0D5rrus2LjUhrOu7nI0FletpJDOuMDCXkrtd2b0RmYFR~TO5YbsWoNwSxyUHElskODOpQ__',
+    ],
+  },
   facebook: {
     appId: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID,
   },
