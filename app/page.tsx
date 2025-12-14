@@ -157,7 +157,7 @@ export default function HomePage() {
             <div className="rounded-xl sm:rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 shadow-sm">
               <div className="relative w-full h-[200px] sm:h-[280px] md:h-[320px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
                 <Image
-                  src="https://i.imgur.com/maxIuYA.png"
+                  src="https://i.imgur.com/BFc4Hgx.png"
                   alt="Community impact"
                   fill
                   className="object-cover"
