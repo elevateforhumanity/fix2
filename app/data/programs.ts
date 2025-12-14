@@ -1599,6 +1599,187 @@ CIP Code: 51.0810 - Emergency Care Attendant (EMT Ambulance)`,
     },
     price: 575,
   },
+  {
+    slug: 'phlebotomy-technician',
+    name: 'Phlebotomy Technician Certification',
+    heroTitle: 'Phlebotomy Technician Certification Program',
+    heroSubtitle: '6-week program to become a certified Phlebotomy Technician',
+    shortDescription:
+      'Comprehensive phlebotomy training with hands-on clinical experience, national certification, and job placement assistance',
+    longDescription: `The Phlebotomy Technician Certification program prepares you for a rewarding career in healthcare by teaching you the essential skills of blood collection and specimen processing. In just 6 weeks, you'll master venipuncture techniques, capillary puncture, specimen handling, and patient care. This program includes classroom instruction, hands-on lab practice, and a clinical externship at a real healthcare facility.
+
+You'll earn your Certified Phlebotomy Technician (CPT) credential, CPR certification, and complete OSHA-compliant safety training through our HSI partnership, including bloodborne pathogens and infection control. Our program meets all requirements for national certification and prepares you for immediate employment in hospitals, clinics, laboratories, and blood donation centers.
+
+With high demand for phlebotomists nationwide and excellent job growth projections, this is your opportunity to enter the healthcare field quickly with a valuable, portable credential. Our graduates work in diverse settings including hospitals, diagnostic laboratories, physician offices, blood banks, and mobile phlebotomy services.
+
+Partner Integration:
+• HSI (Health & Safety Institute) - Bloodborne Pathogens, Infection Control, CPR/AED
+• National Healthcareer Association (NHA) - CPT Certification Exam
+• Clinical externship sites - Local hospitals and laboratories
+
+CIP Code: 51.1009 - Phlebotomy Technician/Phlebotomist`,
+    heroImage: '/images/programs/phlebotomy.jpg',
+    heroImageAlt: 'Phlebotomy technician drawing blood from patient',
+    duration: '6 weeks (120 hours)',
+    schedule: 'Full-time: Mon-Fri 9am-3pm or Part-time: Evenings/Weekends',
+    delivery: 'Hybrid - Classroom instruction + Lab practice + Clinical externship',
+    credential:
+      'Certified Phlebotomy Technician (CPT), CPR/AED, Bloodborne Pathogens, Infection Control',
+    approvals: [
+      'ETPL Approved - Program ID #10004680',
+      'WIOA Eligible',
+      'Workforce Ready Grant Eligible',
+      'CIP Code: 51.1009',
+      'NHA Approved Training Program',
+    ],
+    fundingOptions: [
+      '100% FREE through WIOA',
+      'Workforce Ready Grant',
+      'Self-Pay: $2,800',
+      'Payment plans available',
+    ],
+    highlights: [
+      'National CPT certification',
+      'Clinical externship included',
+      'CPR and safety certifications',
+      'Job placement assistance',
+      'Fast 6-week completion',
+      'High-demand career',
+    ],
+    whatYouLearn: [
+      'Venipuncture techniques (blood draw from veins)',
+      'Capillary puncture (fingerstick)',
+      'Specimen collection and handling',
+      'Patient identification and safety',
+      'Infection control and bloodborne pathogens',
+      'Medical terminology',
+      'Laboratory equipment and procedures',
+      'Electronic health records',
+      'Professional communication',
+      'CPR and emergency response',
+    ],
+    outcomes: [
+      'Phlebotomy Technician positions',
+      'Hospital laboratory technician',
+      'Diagnostic laboratory phlebotomist',
+      'Blood bank technician',
+      'Mobile phlebotomy services',
+      'Average salary: $32,000-$42,000/year',
+      'Excellent benefits in healthcare settings',
+    ],
+    requirements: [
+      'High school diploma or GED',
+      '18 years or older',
+      'Background check required',
+      'Drug screening required',
+      'Immunizations required (Hepatitis B, TB test, COVID-19)',
+      'Physically able to stand for extended periods',
+      'Good manual dexterity and hand-eye coordination',
+    ],
+    ctaPrimary: {
+      label: 'Apply Now',
+      href: '/apply',
+    },
+    ctaSecondary: {
+      label: 'Learn More',
+      href: '/contact?topic=phlebotomy-technician',
+    },
+    price: 2800,
+  },
+  {
+    slug: 'drug-collector',
+    name: 'Drug & Alcohol Specimen Collector Certification',
+    heroTitle: 'Drug & Alcohol Specimen Collector Certification',
+    heroSubtitle: '2-week intensive program for DOT and non-DOT specimen collection',
+    shortDescription:
+      'Become a certified drug and alcohol specimen collector for DOT and workplace testing programs',
+    longDescription: `The Drug & Alcohol Specimen Collector Certification program trains you to perform urine drug testing, breath alcohol testing, and oral fluid collection for DOT-regulated and non-DOT workplace testing programs. This intensive 2-week program covers federal regulations, collection procedures, chain of custody, and quality assurance.
+
+You'll learn both DOT (Department of Transportation) and non-DOT collection procedures, making you qualified to work with transportation companies, employers, third-party administrators (TPAs), and drug testing facilities nationwide. The program includes hands-on training with actual collection devices and mock collections to ensure you're confident and compliant.
+
+Upon completion, you'll earn your Specimen Collector certification and be qualified to perform:
+• DOT urine drug testing
+• DOT breath alcohol testing  
+• Non-DOT urine drug testing
+• Oral fluid (saliva) drug testing
+• Instant and lab-based testing
+
+This is a high-demand career with flexible work options including full-time positions, part-time work, mobile collection services, and independent contractor opportunities. Many collectors earn $40,000-$60,000+ annually with the ability to set their own schedules.
+
+Partner Integration:
+• National Drug Screening - DOT compliance training and certification
+• Hands-on training with actual collection devices
+• Access to nationwide collector network
+
+CIP Code: 51.1004 - Clinical/Medical Laboratory Technician`,
+    heroImage: '/images/programs/drug-collector.jpg',
+    heroImageAlt: 'Drug collector performing specimen collection',
+    duration: '2 weeks (40 hours)',
+    schedule: 'Full-time: Mon-Fri 9am-5pm',
+    delivery: 'In-person hands-on training',
+    credential:
+      'Certified Specimen Collector (DOT & Non-DOT), Breath Alcohol Technician (BAT)',
+    approvals: [
+      'ETPL Approved - Program ID #10004681',
+      'WIOA Eligible',
+      'Workforce Ready Grant Eligible',
+      'CIP Code: 51.1004',
+      'DOT Compliant Training',
+    ],
+    fundingOptions: [
+      '100% FREE through WIOA',
+      'Workforce Ready Grant',
+      'Self-Pay: $1,500',
+      'Payment plans available',
+    ],
+    highlights: [
+      'DOT and non-DOT certified',
+      'Hands-on training with real devices',
+      'Flexible career options',
+      'High earning potential',
+      'Fast 2-week completion',
+      'Nationwide job opportunities',
+    ],
+    whatYouLearn: [
+      'DOT urine drug testing procedures',
+      'DOT breath alcohol testing',
+      'Non-DOT specimen collection',
+      'Oral fluid (saliva) testing',
+      'Chain of custody procedures',
+      'Federal regulations (49 CFR Part 40)',
+      'Specimen validity testing',
+      'Quality assurance and quality control',
+      'Donor rights and privacy',
+      'Problem collections and refusals',
+    ],
+    outcomes: [
+      'Drug testing facility collector',
+      'Mobile specimen collector',
+      'Third-party administrator (TPA) collector',
+      'Occupational health clinic collector',
+      'Independent contractor',
+      'Average salary: $40,000-$60,000/year',
+      'Flexible scheduling options',
+    ],
+    requirements: [
+      'High school diploma or GED',
+      '18 years or older',
+      'Background check required',
+      'Drug screening required',
+      'Valid driver\'s license (for mobile collection)',
+      'Reliable transportation',
+      'Professional demeanor and communication skills',
+    ],
+    ctaPrimary: {
+      label: 'Apply Now',
+      href: '/apply',
+    },
+    ctaSecondary: {
+      label: 'Learn More',
+      href: '/contact?topic=drug-collector',
+    },
+    price: 1500,
+  },
 ];
 
 /**
