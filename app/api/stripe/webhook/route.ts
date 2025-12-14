@@ -83,53 +83,123 @@ export async function POST(req: Request) {
   }
 
   try {
-    // Handle Milady RISE payment completion
+    // Handle funding payment completion - AUTOMATIC ENROLLMENT
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session;
 
-      // Check if this is a Milady RISE payment
-      if (
-        session.metadata?.userId &&
-        session.metadata?.paymentType === 'milady_rise'
-      ) {
-        console.log('[Webhook] Processing Milady RISE payment', {
-          sessionId: session.id,
-          userId: session.metadata.userId,
-          email: session.metadata.email,
-          amount: session.amount_total,
-        });
+      const studentId = session.metadata?.student_id;
+      const programId = session.metadata?.program_id;
+      const programSlug = session.metadata?.program_slug;
+      const fundingSource = session.metadata?.funding_source || 'WIOA';
 
-        // Import Supabase client
-        const { createClient } = await import('@/lib/supabase/server');
-        const supabaseClient = await createClient();
-
-        // Auto-enroll in Milady RISE courses
-        if (session.metadata.programSlug === 'barber-apprenticeship') {
-          try {
-            const miladyResponse = await fetch(
-              `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/milady/auto-enroll`,
-              {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  studentId: session.metadata.userId,
-                  programId: session.metadata.programId,
-                }),
-              }
-            );
-
-            if (miladyResponse.ok) {
-              console.log('[Webhook] Milady auto-enrollment successful');
-            } else {
-              console.warn('[Webhook] Milady auto-enrollment failed');
-            }
-          } catch (miladyError) {
-            console.warn('[Webhook] Milady auto-enrollment error', miladyError);
-          }
-        }
-
-        console.log('[Webhook] Enrollment completed successfully');
+      if (!studentId || !programId) {
+        console.log(
+          '[Webhook] Missing student/program metadata, skipping auto-enrollment'
+        );
+        return NextResponse.json({ received: true });
       }
+
+      console.log('[Webhook] Processing funding payment - AUTO-ENROLLMENT', {
+        sessionId: session.id,
+        studentId,
+        programId,
+        programSlug,
+        fundingSource,
+        amount: session.amount_total,
+      });
+
+      // Import Supabase client
+      const { createClient } = await import('@/lib/supabase/server');
+      const supabaseClient = await createClient();
+
+      // STEP 1: Mark funding payment as paid (audit trail)
+      await supabaseClient
+        .from('funding_payments')
+        .update({
+          status: 'paid',
+          stripe_payment_intent_id: session.payment_intent as string,
+          paid_at: new Date().toISOString(),
+        })
+        .eq('stripe_checkout_session_id', session.id);
+
+      console.log('[Webhook] Marked funding payment as paid');
+
+      // STEP 2: Create/activate enrollment (AUTO-ENROLL)
+      // Idempotency: don't double-enroll if webhook retries
+      const { data: existing } = await supabaseClient
+        .from('enrollments')
+        .select('id, status')
+        .eq('student_id', studentId)
+        .eq('program_id', programId)
+        .maybeSingle();
+
+      if (!existing) {
+        // Create new enrollment
+        await supabaseClient.from('enrollments').insert({
+          student_id: studentId,
+          program_id: programId,
+          status: 'active',
+          payment_status: 'paid',
+          enrolled_at: new Date().toISOString(),
+        });
+        console.log('[Webhook] ✅ Created new enrollment', {
+          studentId,
+          programId,
+        });
+      } else if (existing.status !== 'active') {
+        // Activate existing enrollment
+        await supabaseClient
+          .from('enrollments')
+          .update({
+            status: 'active',
+            payment_status: 'paid',
+            enrolled_at: new Date().toISOString(),
+          })
+          .eq('id', existing.id);
+        console.log('[Webhook] ✅ Activated existing enrollment', {
+          enrollmentId: existing.id,
+        });
+      } else {
+        console.log('[Webhook] Enrollment already active', {
+          enrollmentId: existing.id,
+        });
+      }
+
+      // STEP 3: Milady auto-provision (turn it on automatically)
+      if (programSlug === 'barber-apprenticeship') {
+        try {
+          console.log('[Webhook] Starting Milady auto-enrollment...');
+          const miladyResponse = await fetch(
+            `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/milady/auto-enroll`,
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                studentId,
+                programId,
+              }),
+            }
+          );
+
+          if (miladyResponse.ok) {
+            console.log('[Webhook] ✅ Milady auto-enrollment successful');
+          } else {
+            const errorText = await miladyResponse.text();
+            console.warn(
+              '[Webhook] ⚠️ Milady auto-enrollment failed',
+              errorText
+            );
+          }
+        } catch (miladyError) {
+          console.warn(
+            '[Webhook] ⚠️ Milady auto-enrollment error',
+            miladyError
+          );
+          // Don't fail the whole webhook - enrollment is still active
+        }
+      }
+
+      console.log('[Webhook] ✅ AUTO-ENROLLMENT COMPLETE');
     }
 
     // Handle subscription lifecycle (created/updated/deleted)
