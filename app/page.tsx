@@ -16,8 +16,8 @@ export default function HomePage() {
               muted
               loop
               playsInline
-              className="w-full h-full object-cover"
-              style={{ maxWidth: '100%', height: 'auto' }}
+              preload="metadata"
+              className="absolute top-0 left-0 w-full h-full object-cover"
             />
           </div>
 
@@ -53,8 +53,8 @@ export default function HomePage() {
               muted
               loop
               playsInline
-              className="w-full h-full object-cover"
-              style={{ maxWidth: '100%', height: 'auto' }}
+              preload="metadata"
+              className="absolute top-0 left-0 w-full h-full object-cover"
             />
           </div>
         </div>
