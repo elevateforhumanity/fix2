@@ -284,6 +284,44 @@ export default async function StudentDashboard() {
               </div>
             )}
 
+            {/* AI Instructor */}
+            <div className="bg-gradient-to-br from-green-600 to-emerald-700 rounded-xl shadow-lg p-6 text-white">
+              <div className="flex items-start gap-4">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <MessageCircle className="w-8 h-8 text-green-600" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold mb-2">AI Instructor</h2>
+                  <p className="text-green-100 mb-4">
+                    Get instant help with your coursework, practice questions, and study tips 24/7
+                  </p>
+                  <Link
+                    href="/student/ai-tutor"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-white text-green-600 rounded-lg hover:bg-green-50 font-bold transition-all shadow-lg"
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    Chat with AI Instructor
+                  </Link>
+                </div>
+              </div>
+              <div className="mt-4 pt-4 border-t border-white/20">
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <div className="text-2xl font-bold">24/7</div>
+                    <div className="text-xs text-green-100">Available</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold">∞</div>
+                    <div className="text-xs text-green-100">Questions</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold">⚡</div>
+                    <div className="text-xs text-green-100">Instant</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Recent Activity */}
             <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6">
               <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
