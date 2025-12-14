@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
-import { resend, notifyFrom } from "@/lib/email/resend";
-import { audit, AuditAction, AuditEntity } from "@/lib/audit";
+import { NextResponse } from 'next/server';
+import { createClient } from '@/lib/supabase/server';
+import { resend, notifyFrom } from '@/lib/email/resend';
+import { logAuditEvent, AuditActions } from '@/lib/audit';
 
 export async function POST(req: Request) {
   try {
@@ -9,123 +9,122 @@ export async function POST(req: Request) {
 
     const supabase = await createClient();
 
-    const {
-      first_name,
-      last_name,
-      email,
-      phone,
-      program_slug,
-    } = body;
+    const { first_name, last_name, email, phone, program_slug } = body;
 
     if (!email || !program_slug) {
       return NextResponse.json(
-        { error: "Missing required fields" },
+        { error: 'Missing required fields' },
         { status: 400 }
       );
     }
 
     // 1️⃣ Create or get auth user
-    const { data: authUser, error: authError } = await supabase.auth.admin.createUser({
-      email,
-      email_confirm: true,
-    });
+    const { data: authUser, error: authError } =
+      await supabase.auth.admin.createUser({
+        email,
+        email_confirm: true,
+      });
 
     const userId = authUser?.user?.id;
 
     if (!userId) {
-      console.error("User creation failed:", authError);
-      throw new Error("User creation failed");
+      console.error('User creation failed:', authError);
+      throw new Error('User creation failed');
     }
 
     // 2️⃣ Create student profile
-    const { error: profileError } = await supabase.from("user_profiles").upsert({
-      user_id: userId,
-      role: "student",
-      first_name,
-      last_name,
-      email,
-      phone,
-    });
+    const { error: profileError } = await supabase
+      .from('user_profiles')
+      .upsert({
+        user_id: userId,
+        role: 'student',
+        first_name,
+        last_name,
+        email,
+        phone,
+      });
 
     if (profileError) {
-      console.error("Profile creation failed:", profileError);
+      console.error('Profile creation failed:', profileError);
     }
 
     // 3️⃣ Get program
     const { data: program, error: programError } = await supabase
-      .from("programs")
-      .select("id")
-      .eq("slug", program_slug)
+      .from('programs')
+      .select('id')
+      .eq('slug', program_slug)
       .single();
 
     if (!program) {
-      console.error("Program not found:", programError);
-      throw new Error("Program not found");
+      console.error('Program not found:', programError);
+      throw new Error('Program not found');
     }
 
     // 4️⃣ Check for duplicate enrollment
     const { data: existing } = await supabase
-      .from("enrollments")
-      .select("id")
-      .eq("student_id", userId)
-      .eq("program_id", program.id)
+      .from('enrollments')
+      .select('id')
+      .eq('student_id', userId)
+      .eq('program_id', program.id)
       .maybeSingle();
 
     if (existing) {
       return NextResponse.json({
         success: true,
-        message: "Already enrolled",
+        message: 'Already enrolled',
         user_id: userId,
       });
     }
 
     // 5️⃣ Create enrollment (FREE – WIOA – Indiana RAPIDS)
-    const { error: enrollmentError } = await supabase.from("enrollments").insert({
-      student_id: userId,
-      program_id: program.id,
-      status: "active",
-      funding_source: "WIOA",
-      tuition_amount: 0,
-      paid_amount: 0,
-      enrolled_at: new Date().toISOString(),
-      state_code: "IN",
-      apprenticeship: true,
-      rapids_registered: true,
-    });
+    const { error: enrollmentError } = await supabase
+      .from('enrollments')
+      .insert({
+        student_id: userId,
+        program_id: program.id,
+        status: 'active',
+        funding_source: 'WIOA',
+        tuition_amount: 0,
+        paid_amount: 0,
+        enrolled_at: new Date().toISOString(),
+        state_code: 'IN',
+        apprenticeship: true,
+        rapids_registered: true,
+      });
 
     if (enrollmentError) {
-      console.error("Enrollment creation failed:", enrollmentError);
-      throw new Error("Enrollment failed");
+      console.error('Enrollment creation failed:', enrollmentError);
+      throw new Error('Enrollment failed');
     }
 
     // 6️⃣ Assign AI Instructor
     try {
       const { data: ai } = await supabase
-        .from("ai_instructors")
-        .select("id")
-        .eq("specialty", "Barber Apprenticeship")
-        .eq("active", true)
+        .from('ai_instructors')
+        .select('id')
+        .eq('specialty', 'Barber Apprenticeship')
+        .eq('active', true)
         .single();
 
       if (ai) {
-        await supabase.from("student_ai_assignments").insert({
+        await supabase.from('student_ai_assignments').insert({
           student_id: userId,
           instructor_id: ai.id,
           program_slug,
         });
       }
     } catch (aiError) {
-      console.error("AI instructor assignment failed:", aiError);
+      console.error('AI instructor assignment failed:', aiError);
       // Continue - not critical
     }
 
     // 6.5️⃣ Create onboarding record
     try {
-      await supabase.from("student_onboarding").insert({
+      await supabase.from('student_onboarding').insert({
         student_id: userId,
       });
     } catch (onboardingError) {
-      console.error("Onboarding record creation failed:", onboardingError);
+      console.error('Onboarding record creation failed:', onboardingError);
       // Continue - not critical
     }
 
@@ -134,7 +133,7 @@ export async function POST(req: Request) {
       await resend.emails.send({
         from: notifyFrom(),
         to: email,
-        subject: "Welcome to the Barber Apprenticeship – Elevate for Humanity",
+        subject: 'Welcome to the Barber Apprenticeship – Elevate for Humanity',
         text: `
 Welcome ${first_name},
 
@@ -156,33 +155,32 @@ Welcome to your next level.
 `,
       });
     } catch (emailError) {
-      console.error("Welcome email failed:", emailError);
+      console.error('Welcome email failed:', emailError);
       // Continue - not critical
     }
 
     // 8️⃣ Audit log
-    await audit({
-      action: AuditAction.ENROLLED_STUDENT,
-      entity: AuditEntity.ENROLLMENT,
-      entity_id: userId,
+    await logAuditEvent({
+      action: AuditActions.ENROLLMENT_CREATED,
+      resourceType: 'enrollment',
+      resourceId: userId,
       metadata: {
         program_slug,
         email,
-        funding_source: "WIOA",
+        funding_source: 'WIOA',
       },
     });
 
     return NextResponse.json({
       success: true,
-      message: "Student enrolled successfully",
+      message: 'Student enrolled successfully',
       user_id: userId,
       dashboard_url: `${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard`,
     });
-
   } catch (err: any) {
-    console.error("APPLY ERROR:", err);
+    console.error('APPLY ERROR:', err);
     return NextResponse.json(
-      { error: err.message || "Enrollment failed" },
+      { error: err.message || 'Enrollment failed' },
       { status: 500 }
     );
   }
