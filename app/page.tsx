@@ -29,15 +29,14 @@ export default function HomePage() {
           </div>
 
           <div className="w-full order-1 lg:order-2">
-            <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-zinc-200 bg-black">
-              <video
-                src="/videos/success-stories-video-with-narration.mp4"
-                poster="/images/hero-poster.jpg"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
+            <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-zinc-200">
+              <Image
+                src="/images/hero-poster.jpg"
+                alt="Elevate for Humanity - Workforce Training"
+                fill
+                className="object-cover"
+                priority
+                quality={90}
               />
             </div>
           </div>
