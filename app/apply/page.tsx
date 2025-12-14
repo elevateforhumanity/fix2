@@ -1,30 +1,31 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 function ApplyForm() {
-  const searchParams = useSearchParams();
-  const programParam = searchParams.get('program');
-
+  const [programParam, setProgramParam] = useState<string>('');
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    program: programParam || '',
+    program: '',
     message: '',
   });
   const [status, setStatus] = useState<
     'idle' | 'loading' | 'success' | 'error'
   >('idle');
 
-  // Update program field when URL parameter changes
+  // Get program from URL on mount (client-side only)
   useEffect(() => {
-    if (programParam && !formData.program) {
-      setFormData((prev) => ({ ...prev, program: programParam }));
+    const params = new URLSearchParams(window.location.search);
+    const program = params.get('program');
+    if (program) {
+      setProgramParam(program);
+      setFormData((prev) => ({ ...prev, program }));
     }
-  }, [programParam, formData.program]);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -307,9 +308,5 @@ function ApplyForm() {
 }
 
 export default function TalkToAdvisorPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="text-xl">Loading application...</div></div>}>
-      <ApplyForm />
-    </Suspense>
-  );
+  return <ApplyForm />;
 }
