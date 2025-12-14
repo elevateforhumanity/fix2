@@ -29,15 +29,17 @@ export default function HomePage() {
           </div>
 
           <div className="w-full order-1 lg:order-2">
-            <video
-              src="/videos/success-stories-video-with-narration.mp4"
-              poster="/images/hero-poster.jpg"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-auto max-h-[300px] sm:max-h-[400px] lg:max-h-[480px] rounded-xl sm:rounded-2xl shadow-sm border border-zinc-200 bg-black object-cover"
-            />
+            <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-sm border border-zinc-200 bg-black">
+              <video
+                src="/videos/success-stories-video-with-narration.mp4"
+                poster="/images/hero-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -45,14 +47,16 @@ export default function HomePage() {
       {/* SECOND HERO - "It's Not Graduation, It's Elevation" */}
       <section className="px-4 sm:px-6 lg:px-10 py-8 sm:py-12 bg-zinc-900">
         <div className="mx-auto max-w-4xl">
-          <video
-            src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081016552&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=JVWqZ0RhLxGgc5oN5b-yukrvFfLOqtLB7Rwba8uuLiAqBWa1NlkfQTO7Gp8eTHbZkWJ-dWxQ4AL3whiDXT8FOiww~6pCWe2wCmEAaGlVAHN9jXvJ9hM04L-N~pI8huHBsjytyBupDAJIYOOCseGUtZskeCgn-iAy6-m51D38E0tSTOy1AcPWKzafmqd3UhBAWnIcwYN6r6UH-Dac5cC6panzKtMT3YBl2LRKXxp43KeKib3hdxqR90ljO9b96zjA7uYuTxKhsxWMuR9E5JHhqpycA9ql3kEypT~WTmB2Co37fxAiE45Fn~OYHLF-NT6c2Vx0NC7I9RPEfVGmWXLBUA__"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-auto rounded-xl sm:rounded-2xl shadow-lg"
-          />
+          <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+            <video
+              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081016552&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=JVWqZ0RhLxGgc5oN5b-yukrvFfLOqtLB7Rwba8uuLiAqBWa1NlkfQTO7Gp8eTHbZkWJ-dWxQ4AL3whiDXT8FOiww~6pCWe2wCmEAaGlVAHN9jXvJ9hM04L-N~pI8huHBsjytyBupDAJIYOOCseGUtZskeCgn-iAy6-m51D38E0tSTOy1AcPWKzafmqd3UhBAWnIcwYN6r6UH-Dac5cC6panzKtMT3YBl2LRKXxp43KeKib3hdxqR90ljO9b96zjA7uYuTxKhsxWMuR9E5JHhqpycA9ql3kEypT~WTmB2Co37fxAiE45Fn~OYHLF-NT6c2Vx0NC7I9RPEfVGmWXLBUA__"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
@@ -69,19 +73,19 @@ export default function HomePage() {
 
           <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center max-w-2xl mx-auto">
             <Link
-              className="rounded-lg sm:rounded-xl bg-zinc-900 text-white px-4 sm:px-5 py-2.5 sm:py-3 font-sans font-bold hover:bg-zinc-800 transition text-sm sm:text-base text-center"
+              className="rounded-lg sm:rounded-xl bg-zinc-900 text-white px-4 sm:px-5 py-2.5 sm:py-3 font-sans font-bold hover:bg-zinc-800 transition text-sm sm:text-base text-center whitespace-nowrap"
               href="/apply"
             >
               Start Inquiry
             </Link>
             <Link
-              className="rounded-lg sm:rounded-xl border border-zinc-300 bg-white px-4 sm:px-5 py-2.5 sm:py-3 font-sans font-bold hover:bg-zinc-50 transition text-sm sm:text-base text-center"
+              className="rounded-lg sm:rounded-xl border border-zinc-300 bg-white px-4 sm:px-5 py-2.5 sm:py-3 font-sans font-bold hover:bg-zinc-50 transition text-sm sm:text-base text-center whitespace-nowrap"
               href="/funding"
             >
-              See Funding Options
+              Funding Options
             </Link>
             <Link
-              className="rounded-lg sm:rounded-xl border border-zinc-300 bg-white px-4 sm:px-5 py-2.5 sm:py-3 font-sans font-bold hover:bg-zinc-50 transition text-sm sm:text-base text-center"
+              className="rounded-lg sm:rounded-xl border border-zinc-300 bg-white px-4 sm:px-5 py-2.5 sm:py-3 font-sans font-bold hover:bg-zinc-50 transition text-sm sm:text-base text-center whitespace-nowrap"
               href="/programs"
             >
               View Programs

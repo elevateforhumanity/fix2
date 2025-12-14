@@ -40,7 +40,7 @@ export function ProgramHero({ program }: { program: Program }) {
     <>
       {/* Hero with Image/Video Background */}
       <section className="relative bg-slate-900">
-        <div className="relative w-full min-h-[500px] md:min-h-[600px] overflow-hidden">
+        <div className="relative w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] overflow-hidden">
           {hasVideo ? (
             <>
               <video
@@ -92,33 +92,33 @@ export function ProgramHero({ program }: { program: Program }) {
 
           {/* Overlay Content */}
           <div className="absolute inset-0 bg-black/50 flex items-end">
-            <div className="container mx-auto px-4 pb-12">
+            <div className="container mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
               <div className="max-w-4xl">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-5xl text-3xl md:text-4xl lg:text-5xl">
+                <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+                  <span className="text-3xl sm:text-4xl md:text-5xl">
                     {getIcon()}
                   </span>
-                  <p className="text-sm uppercase tracking-wide text-orange-400 font-semibold">
+                  <p className="text-xs sm:text-sm uppercase tracking-wide text-orange-400 font-semibold">
                     Elevate Workforce Pathway
                   </p>
                 </div>
-                <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
                   {program.name}
                 </h1>
-                <p className="text-xl md:text-2xl mb-8 text-slate-200 max-w-3xl">
+                <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-slate-200 max-w-3xl">
                   {program.heroSubtitle}
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                   <a
                     href={`/apply?program=${program.slug}`}
-                    className="inline-flex items-center justify-center bg-orange-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg"
+                    className="inline-flex items-center justify-center bg-orange-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-orange-600 transition shadow-lg text-center whitespace-nowrap text-sm sm:text-base"
                   >
                     Apply Now
                   </a>
                   {program.ctaSecondary && (
                     <a
                       href={program.ctaSecondary.href}
-                      className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-bold hover:bg-white/20 transition border-2 border-white/30"
+                      className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-white/20 transition border-2 border-white/30 text-center whitespace-nowrap text-sm sm:text-base"
                     >
                       {program.ctaSecondary.label}
                     </a>
