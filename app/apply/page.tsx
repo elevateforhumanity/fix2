@@ -245,7 +245,7 @@ function ApplyForm() {
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 >
                   <option value="">Select a program...</option>
-                  <option value="barber">Barber Apprenticeship</option>
+                  <option value="barber-apprenticeship">Barber Apprenticeship</option>
                   <option value="cna">CNA Training</option>
                   <option value="direct-support-professional">
                     Direct Support Professional (DSP)
@@ -308,15 +308,7 @@ function ApplyForm() {
 
 export default function TalkToAdvisorPage() {
   return (
-    <Suspense
-      fallback={
-        <main className="min-h-screen bg-slate-50 py-12">
-          <div className="container mx-auto px-4 max-w-2xl">
-            <div className="text-center">Loading...</div>
-          </div>
-        </main>
-      }
-    >
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="text-xl">Loading application...</div></div>}>
       <ApplyForm />
     </Suspense>
   );
