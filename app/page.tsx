@@ -13,9 +13,9 @@ export default function HomePage() {
             <video
               src="/videos/success-stories-video-with-narration.mp4"
               autoPlay
-              muted
               loop
               playsInline
+              controls
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
