@@ -176,9 +176,73 @@ export async function POST(req: Request) {
       }
     }
 
-    // STEP 8: Enrollment complete - completely FREE for students
-    // Note: Elevate pays $295 Milady fee separately from their Stripe account
-    // Students self-enroll in Milady RISE using promo code: efhcti-rise295
+    // STEP 8: For barber program, create Stripe checkout for Elevate to pay $295
+    // Note: Student doesn't pay - this is for Elevate's internal payment tracking
+    if (programSlug === 'barber-apprenticeship') {
+      const siteUrl =
+        process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+      const session = await stripe.checkout.sessions.create({
+        mode: 'payment',
+        customer_email: 'accounting@elevateforhumanity.org', // Elevate pays, not student
+        line_items: [
+          {
+            price_data: {
+              currency: 'usd',
+              product_data: {
+                name: `Milady RISE Fee - ${firstName} ${lastName}`,
+                description: `Student: ${emailLower} | Program: Barber Apprenticeship`,
+              },
+              unit_amount: 29500, // $295.00
+            },
+            quantity: 1,
+          },
+        ],
+        success_url: `${siteUrl}/enroll/success?session_id={CHECKOUT_SESSION_ID}&student=${userId}`,
+        cancel_url: `${siteUrl}/enroll/success?enrolled=true&student=${userId}`,
+        metadata: {
+          userId,
+          enrollmentId,
+          applicationId: application?.id || '',
+          programId: program.id,
+          programSlug: program.slug,
+          studentFirstName: firstName,
+          studentLastName: lastName,
+          studentEmail: emailLower,
+          paymentType: 'milady_rise_elevate_pays',
+          paidBy: 'elevate',
+        },
+        payment_method_types: ['card'],
+        automatic_tax: { enabled: false },
+      });
+
+      if (!session.url) {
+        return NextResponse.json(
+          { error: 'Failed to create checkout session' },
+          { status: 500 }
+        );
+      }
+
+      logger.info(
+        'Enrollment complete, Stripe checkout created for Elevate payment',
+        {
+          userId,
+          enrollmentId,
+          sessionId: session.id,
+        }
+      );
+
+      return NextResponse.json({
+        ok: true,
+        userId,
+        enrollmentId,
+        checkoutUrl: session.url,
+        sessionId: session.id,
+        message: 'Enrollment successful! Processing Milady RISE payment...',
+      });
+    }
+
+    // STEP 9: For non-barber programs, enrollment is complete
     logger.info('FREE enrollment complete', {
       userId,
       enrollmentId,
@@ -186,10 +250,6 @@ export async function POST(req: Request) {
     });
 
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-
-    // Note: No Milady API auto-enrollment - students use manual login
-    // They will self-enroll at: https://www.miladytraining.com/bundles/client-well-being-safety-certification
-    // Using promo code: efhcti-rise295
 
     return NextResponse.json({
       ok: true,

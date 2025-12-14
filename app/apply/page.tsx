@@ -53,9 +53,9 @@ function ApplyForm() {
 
         const result = await response.json();
 
-        if (result.ok && result.redirectUrl) {
-          // Redirect to success page
-          window.location.href = result.redirectUrl;
+        if (result.ok) {
+          // Redirect to Stripe checkout (for Elevate to pay) or success page
+          window.location.href = result.checkoutUrl || result.redirectUrl;
           return;
         } else {
           throw new Error(result.error || 'Failed to process enrollment');
