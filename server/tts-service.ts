@@ -52,7 +52,7 @@ export async function generateTextToSpeech(
     // Normal speed is 175 WPM, adjust based on speed multiplier
     const wpm = Math.round(175 * speed);
 
-      `Generating TTS: "${text.substring(0, 50)}..." with voice: ${espeakVoice}, speed: ${wpm} WPM`
+    console.log(`Generating TTS: "${text.substring(0, 50)}..." with voice: ${espeakVoice}, speed: ${wpm} WPM`
     );
 
     // Create temp file for output

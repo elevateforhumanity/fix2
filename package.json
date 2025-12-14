@@ -286,7 +286,12 @@
     "video:test": "ts-node server/test-video-generation.ts",
     "video:generate-samples": "ts-node server/generate-template-videos.ts",
     "video:download-media": "ts-node server/download-sample-media.ts",
-    "generate-covers": "node scripts/generate-course-covers.mjs"
+    "generate-covers": "node scripts/generate-course-covers.mjs",
+    "test:enrollment": "node scripts/test-enrollment-autopilot.mjs",
+    "migrate:ai": "node scripts/run-ai-instructor-migration.mjs",
+    "test:affirm": "node scripts/test-affirm-payment.mjs",
+    "env:pull": "vercel env pull .env.local --yes",
+    "check:stripe": "bash scripts/pull-and-check-stripe.sh"
   },
   "overrides": {
     "inflight": "npm:lru-cache@^10.0.0"

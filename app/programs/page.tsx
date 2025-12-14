@@ -178,6 +178,11 @@ export default function ProgramsPage() {
             </div>
           </div>
         ))}
+
+        {/* Platform Notice */}
+        <div className="text-center text-xs text-slate-500 pt-8 border-t border-slate-200">
+          <p>This is a proprietary instructional and workforce development platform operated by Elevate for Humanity. Access is limited to authorized participants.</p>
+        </div>
       </section>
     </main>
   );

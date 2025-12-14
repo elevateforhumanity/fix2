@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { ApprenticeshipBadge } from '@/components/programs/ApprenticeshipBadge';
 
 function ApplyForm() {
   const [programParam, setProgramParam] = useState<string>('');
@@ -12,6 +13,7 @@ function ApplyForm() {
     phone: '',
     program: '',
     message: '',
+    state_code: 'IN', // Indiana-locked
   });
   const [status, setStatus] = useState<
     'idle' | 'loading' | 'success' | 'error'
@@ -37,17 +39,17 @@ function ApplyForm() {
       const firstName = nameParts[0] || '';
       const lastName = nameParts.slice(1).join(' ') || '';
 
-      // If program selected, auto-enroll and redirect to payment
+      // If program selected, auto-enroll and redirect to dashboard
       if (formData.program) {
-        const response = await fetch('/api/enroll/auto', {
+        const response = await fetch('/api/apply', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            firstName,
-            lastName,
+            first_name: firstName,
+            last_name: lastName,
             email: formData.email,
             phone: formData.phone,
-            programSlug: formData.program,
+            program_slug: formData.program,
             notes: formData.message,
           }),
         });
@@ -149,6 +151,13 @@ function ApplyForm() {
           </p>
         </div>
 
+        {/* Show RAPIDS badge for barber program */}
+        {(programParam === 'barber-apprenticeship' || formData.program === 'barber') && (
+          <div className="mb-8">
+            <ApprenticeshipBadge />
+          </div>
+        )}
+
         <div className="bg-white border border-slate-200 rounded-2xl shadow-sm p-8">
           {status === 'success' ? (
             <div className="text-center py-12">
@@ -246,15 +255,24 @@ function ApplyForm() {
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 >
                   <option value="">Select a program...</option>
-                  <option value="barber-apprenticeship">Barber Apprenticeship</option>
-                  <option value="cna">CNA Training</option>
-                  <option value="direct-support-professional">
-                    Direct Support Professional (DSP)
-                  </option>
-                  <option value="hvac">HVAC Technician</option>
-                  <option value="cdl">CDL Training</option>
-                  <option value="tax-prep">Tax Preparation</option>
-                  <option value="business">Business Startup</option>
+                  <optgroup label="Main Programs">
+                    <option value="barber">Barber Apprenticeship</option>
+                    <option value="dsp">Direct Support Professional (DSP)</option>
+                    <option value="hvac">HVAC Technician</option>
+                    <option value="ehst">Emergency Health & Safety Tech</option>
+                    <option value="esth">Professional Esthetician</option>
+                    <option value="prc">Peer Recovery Coach</option>
+                    <option value="tax">Tax Prep & Financial Services</option>
+                    <option value="biz">Business Startup & Marketing</option>
+                  </optgroup>
+                  
+                  <optgroup label="Micro Courses (Partner Programs)">
+                    <option value="cpr">CPR Certification</option>
+                    <option value="osha-10">OSHA 10-Hour Safety</option>
+                    <option value="forklift">Forklift Operator</option>
+                    <option value="first-aid">First Aid Certification</option>
+                  </optgroup>
+                  
                   <option value="other">Other / Not Sure</option>
                 </select>
               </div>
@@ -278,6 +296,9 @@ function ApplyForm() {
                 />
               </div>
 
+              {/* Hidden Indiana lock */}
+              <input type="hidden" name="state_code" value="IN" />
+
               {status === 'error' && (
                 <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
                   <p className="text-red-800">
@@ -296,8 +317,7 @@ function ApplyForm() {
               </button>
 
               <p className="text-sm text-slate-600 text-center">
-                By submitting this form, you agree to be contacted by Elevate
-                for Humanity about training programs.
+                By submitting an application, you acknowledge that all platform systems, program structures, and instructional workflows are the intellectual property of Elevate for Humanity.
               </p>
             </form>
           )}

@@ -3,6 +3,7 @@
 import type { Program } from '@/app/data/programs';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { ApprenticeshipBadge } from '@/components/programs/ApprenticeshipBadge';
 
 const AffirmButton = dynamic(() => import('@/components/AffirmButton'), {
   ssr: false,
@@ -21,7 +22,10 @@ export function ProgramDetails({ program }: { program: Program }) {
     <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
       <div className="grid gap-10 md:grid-cols-[2fr,1fr]">
         <div>
-          <h2 className="text-xl font-bold text-slate-900">
+          {/* Indiana RAPIDS Badge for Barber Program */}
+          {isBarberProgram && <ApprenticeshipBadge />}
+
+          <h2 className="text-xl font-bold text-slate-900 mt-8">
             What You&apos;ll Learn
           </h2>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">

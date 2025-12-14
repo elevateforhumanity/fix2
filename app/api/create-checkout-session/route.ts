@@ -20,11 +20,10 @@ export async function POST(request: NextRequest) {
   try {
     const { programName, programSlug, price, paymentType = 'full' } = await request.json();
 
-    // Enable ALL payment methods - let Stripe determine eligibility
+    // Enable payment methods (Affirm removed per request)
     // Students can combine methods or choose what they qualify for
     const paymentMethods = [
       'card',                 // Credit/debit cards
-      'affirm',               // Affirm financing (3, 6, 12 months)
       'klarna',               // Klarna (4 payments, up to $1,000)
       'afterpay_clearpay',    // Afterpay (4 payments, up to $1,000)
       'us_bank_account',      // ACH Direct Debit (lowest fees)

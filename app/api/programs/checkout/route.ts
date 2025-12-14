@@ -84,11 +84,10 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Configure payment methods - Affirm, Klarna, Afterpay, etc.
+    // Configure payment methods - Klarna, Afterpay, etc.
     const paymentMethodTypes: Stripe.Checkout.SessionCreateParams.PaymentMethodType[] =
       [
         'card',
-        'affirm',
         'klarna',
         'afterpay_clearpay',
         'us_bank_account',

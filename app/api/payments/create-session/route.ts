@@ -140,9 +140,7 @@ export async function POST(request: NextRequest) {
       ['card', 'link'];
 
     // Add BNPL options based on amount
-    if (price >= 50) {
-      paymentMethodTypes.push('affirm');
-    }
+    // Affirm removed - using standalone Affirm merchant integration
     if (price >= 35 && price <= 1000) {
       paymentMethodTypes.push('klarna', 'afterpay_clearpay');
     }

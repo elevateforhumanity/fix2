@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { AffirmPaymentButton } from '@/components/payments/AffirmPaymentButton';
 
 const PROGRAMS = [
   { id: 'barber', label: 'Barber Apprenticeship', slug: 'barber-apprentice', price: 4890 },
@@ -114,13 +115,40 @@ export function PayNowSection() {
         </p>
       </div>
 
-      <button
-        onClick={handlePayNow}
-        disabled={isProcessing}
-        className="block w-full text-center px-6 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {isProcessing ? 'Loading Stripe...' : 'Pay Now'}
-      </button>
+      {/* Payment Buttons */}
+      <div className="space-y-4">
+        {/* Affirm Payment Button */}
+        <AffirmPaymentButton
+          amount={selectedProgram.price}
+          programName={selectedProgram.label}
+          programSlug={selectedProgram.slug}
+          onError={(error) => alert(error)}
+        />
+
+        {/* Divider */}
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-slate-300"></div>
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="px-2 bg-white text-slate-500">or</span>
+          </div>
+        </div>
+
+        {/* Stripe Payment Button */}
+        <button
+          onClick={handlePayNow}
+          disabled={isProcessing}
+          className="block w-full text-center px-6 py-4 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isProcessing ? 'Loading...' : 'Pay with Card/Klarna/Afterpay'}
+        </button>
+      </div>
+
+      {/* Payment info */}
+      <p className="mt-4 text-xs text-center text-slate-500">
+        Secure payment processing. Your information is protected.
+      </p>
     </section>
   );
 }

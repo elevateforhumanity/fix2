@@ -165,7 +165,27 @@ export async function POST(req: Request) {
         });
       }
 
-      // STEP 3: Milady auto-provision (turn it on automatically)
+      // STEP 3: Assign AI Instructor
+      if (programSlug) {
+        try {
+          console.log('[Webhook] Assigning AI instructor...');
+          const { assignAIInstructorForProgram } = await import('@/lib/ai/assign');
+          const assignResult = await assignAIInstructorForProgram({
+            studentId,
+            programSlug,
+          });
+
+          if (assignResult.ok) {
+            console.log('[Webhook] ✅ AI instructor assigned:', assignResult.instructorSlug);
+          } else {
+            console.warn('[Webhook] ⚠️ AI instructor assignment failed:', assignResult.reason);
+          }
+        } catch (aiError) {
+          console.warn('[Webhook] ⚠️ AI instructor assignment error', aiError);
+        }
+      }
+
+      // STEP 4: Milady auto-provision (turn it on automatically)
       if (programSlug === 'barber-apprenticeship') {
         try {
           console.log('[Webhook] Starting Milady auto-enrollment...');

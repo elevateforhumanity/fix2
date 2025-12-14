@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
     // Create Stripe checkout session with Buy Now Pay Later options
     const session = await stripe.checkout.sessions.create({
       // Enable multiple payment methods including BNPL and ACH
-      payment_method_types: ['card', 'affirm', 'afterpay_clearpay', 'klarna', 'us_bank_account'],
+      payment_method_types: ['card', 'afterpay_clearpay', 'klarna', 'us_bank_account'],
       line_items: [
         {
           price_data: {
@@ -81,9 +81,6 @@ export async function POST(request: NextRequest) {
       
       // Enable Buy Now Pay Later options
       payment_method_options: {
-        affirm: {
-          enabled: true,
-        },
         afterpay_clearpay: {
           enabled: true,
         },

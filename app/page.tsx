@@ -9,20 +9,16 @@ export default function HomePage() {
       {/* HERO */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 pb-6 sm:pb-10">
         <div className="mx-auto max-w-7xl">
-          <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-zinc-200 bg-black mb-8">
+          <div className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden shadow-lg border border-zinc-200 bg-black mb-6 sm:mb-8">
             <video
+              src="/videos/success-stories-video-with-narration.mp4"
               autoPlay
+              muted
               loop
               playsInline
-              controls
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source src="/videos/hero-video-with-audio.mp4" type="video/mp4" />
-              <track kind="metadata" src="/videos/voiceover.mp3" />
-            </video>
-            <audio autoPlay loop>
-              <source src="/videos/voiceover.mp3" type="audio/mpeg" />
-            </audio>
+              className="w-full h-full object-cover"
+              style={{ maxWidth: '100%', height: 'auto' }}
+            />
           </div>
           
           <div className="text-center max-w-4xl mx-auto">
@@ -31,8 +27,8 @@ export default function HomePage() {
               pathways built in.
             </h1>
             <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-zinc-700">
-              Elevate for Humanity helps people enroll in career programs and
-              helps partners deliver training through a platform built for
+              A proprietary workforce training and apprenticeship platform built by Elevate for Humanity.
+              We help people enroll in career programs and help partners deliver training through systems built for
               workforce, reentry, and community impact.
             </p>
 
@@ -49,14 +45,15 @@ export default function HomePage() {
       {/* SECOND HERO - "It's Not Graduation, It's Elevation" */}
       <section className="px-4 sm:px-6 lg:px-10 py-8 sm:py-12 bg-zinc-900">
         <div className="mx-auto max-w-4xl">
-          <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
+          <div className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden shadow-lg">
             <video
               src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081016552&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=JVWqZ0RhLxGgc5oN5b-yukrvFfLOqtLB7Rwba8uuLiAqBWa1NlkfQTO7Gp8eTHbZkWJ-dWxQ4AL3whiDXT8FOiww~6pCWe2wCmEAaGlVAHN9jXvJ9hM04L-N~pI8huHBsjytyBupDAJIYOOCseGUtZskeCgn-iAy6-m51D38E0tSTOy1AcPWKzafmqd3UhBAWnIcwYN6r6UH-Dac5cC6panzKtMT3YBl2LRKXxp43KeKib3hdxqR90ljO9b96zjA7uYuTxKhsxWMuR9E5JHhqpycA9ql3kEypT~WTmB2Co37fxAiE45Fn~OYHLF-NT6c2Vx0NC7I9RPEfVGmWXLBUA__"
               autoPlay
               muted
               loop
               playsInline
-              className="absolute inset-0 w-full h-full object-cover"
+              className="w-full h-full object-cover"
+              style={{ maxWidth: '100%', height: 'auto' }}
             />
           </div>
         </div>
@@ -294,7 +291,7 @@ export default function HomePage() {
                 href={p.href}
                 className="rounded-xl sm:rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 shadow-sm hover:shadow-md transition"
               >
-                <div className="relative w-full h-[220px] rounded-xl overflow-hidden border border-zinc-100">
+                <div className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
                   {p.video ? (
                     <video
                       src={p.video}
@@ -304,6 +301,7 @@ export default function HomePage() {
                       loop
                       playsInline
                       className="w-full h-full object-cover"
+                      style={{ maxWidth: '100%' }}
                     />
                   ) : (
                     <Image

@@ -28,6 +28,8 @@ import {
   BarChart3,
 } from 'lucide-react';
 import MiladyAppDownload from '@/components/student/MiladyAppDownload';
+import { StudentDashboardAISection } from '@/components/student/StudentDashboardAISection';
+import { OnboardingChecklist } from '@/components/student/OnboardingChecklist';
 
 export const metadata: Metadata = {
   title: 'Student Dashboard | Elevate For Humanity',
@@ -74,6 +76,23 @@ export default async function StudentDashboard() {
     )
     .eq('student_id', user.id);
 
+  // Get AI instructor assignment
+  const { data: aiAssignment } = await supabase
+    .from('student_ai_assignments')
+    .select(`
+      *,
+      ai_instructors(name, role, specialty)
+    `)
+    .eq('student_id', user.id)
+    .single();
+
+  // Get onboarding status
+  const { data: onboarding } = await supabase
+    .from('student_onboarding')
+    .select('*')
+    .eq('student_id', user.id)
+    .single();
+
   // Get total hours logged
   const { data: hoursData } = await supabase
     .from('student_hours')
@@ -110,9 +129,16 @@ export default async function StudentDashboard() {
                     <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
                       Welcome back, {profile?.full_name || profile?.first_name || 'Student'}!
                     </h1>
-                    <p className="text-slate-200 text-lg">
-                      {activeEnrollment?.program?.name || 'Your Learning Dashboard'}
-                    </p>
+                    <div className="flex items-center gap-3">
+                      <p className="text-slate-200 text-lg">
+                        {activeEnrollment?.program?.name || 'Your Learning Dashboard'}
+                      </p>
+                      {activeEnrollment?.state_code === 'IN' && (
+                        <span className="px-3 py-1 text-xs font-semibold bg-blue-600 text-white rounded-full">
+                          Indiana Apprenticeship
+                        </span>
+                      )}
+                    </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Link
@@ -142,6 +168,9 @@ export default async function StudentDashboard() {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Left Column - Main Content */}
           <div className="lg:col-span-2 space-y-6">
+            {/* Onboarding Checklist */}
+            {onboarding && <OnboardingChecklist onboarding={onboarding} />}
+
             {/* Progress Overview */}
             <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6">
               <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
@@ -285,42 +314,12 @@ export default async function StudentDashboard() {
             )}
 
             {/* AI Instructor */}
-            <div className="bg-gradient-to-br from-green-600 to-emerald-700 rounded-xl shadow-lg p-6 text-white">
-              <div className="flex items-start gap-4">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                  <MessageCircle className="w-8 h-8 text-green-600" />
-                </div>
-                <div className="flex-1">
-                  <h2 className="text-2xl font-bold mb-2">AI Instructor</h2>
-                  <p className="text-green-100 mb-4">
-                    Get instant help with your coursework, practice questions, and study tips 24/7
-                  </p>
-                  <Link
-                    href="/student/ai-tutor"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-white text-green-600 rounded-lg hover:bg-green-50 font-bold transition-all shadow-lg"
-                  >
-                    <MessageCircle className="w-5 h-5" />
-                    Chat with AI Instructor
-                  </Link>
-                </div>
-              </div>
-              <div className="mt-4 pt-4 border-t border-white/20">
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold">24/7</div>
-                    <div className="text-xs text-green-100">Available</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold">∞</div>
-                    <div className="text-xs text-green-100">Questions</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold">⚡</div>
-                    <div className="text-xs text-green-100">Instant</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {activeEnrollment?.program?.slug && (
+              <StudentDashboardAISection
+                programSlug={activeEnrollment.program.slug}
+                programName={activeEnrollment.program.name}
+              />
+            )}
 
             {/* Recent Activity */}
             <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6">

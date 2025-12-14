@@ -21,23 +21,138 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 
 const PROGRAMS = [
   {
-    name: 'Barber Apprenticeship Program - Milady RISE',
-    description: 'Milady RISE certification course fee for Barber Apprenticeship. Includes Client Well-Being & Safety certification.',
-    price: 29500, // $295.00 (in cents)
+    name: 'Barber Apprenticeship',
+    description: 'Complete barber training with Milady RISE certification',
+    price: 489000, // $4,890.00 (in cents)
     paymentPlans: [
-      { name: 'Full Payment', amount: 29500, installments: 1 },
-      { name: '2-Month Plan', amount: 15000, installments: 2 },
+      { name: 'Full Payment', amount: 489000, installments: 1 },
+      { name: '3-Month Plan', amount: 163000, installments: 3 },
+      { name: '6-Month Plan', amount: 81500, installments: 6 },
     ],
     metadata: {
-      program_slug: 'barber-apprenticeship',
-      duration_hours: '1500',
-      includes_milady: 'true',
-      wioa_eligible: 'true',
-      apprenticeship_registered: 'true',
-      course_fee_only: 'true',
+      program_slug: 'barber',
+      vendor_name: 'milady',
+      vendor_cost: '295',
     },
   },
-  // Add other programs here as needed with their course fees only
+  {
+    name: 'Direct Support Professional (DSP)',
+    description: 'Become a certified Direct Support Professional',
+    price: 432500, // $4,325.00 (in cents)
+    paymentPlans: [
+      { name: 'Full Payment', amount: 432500, installments: 1 },
+      { name: '3-Month Plan', amount: 144200, installments: 3 },
+      { name: '6-Month Plan', amount: 72100, installments: 6 },
+    ],
+    metadata: {
+      program_slug: 'dsp',
+      vendor_name: 'null',
+      vendor_cost: '0',
+    },
+  },
+  {
+    name: 'HVAC Technician',
+    description: 'HVAC installation and repair certification',
+    price: 500000, // $5,000.00 (in cents)
+    paymentPlans: [
+      { name: 'Full Payment', amount: 500000, installments: 1 },
+      { name: '3-Month Plan', amount: 166700, installments: 3 },
+      { name: '6-Month Plan', amount: 83400, installments: 6 },
+    ],
+    metadata: {
+      program_slug: 'hvac',
+      vendor_name: 'null',
+      vendor_cost: '0',
+    },
+  },
+  {
+    name: 'CPR Certification',
+    description: 'American Heart Association CPR certification',
+    price: 57500, // $575.00 (in cents)
+    paymentPlans: [
+      { name: 'Full Payment', amount: 57500, installments: 1 },
+    ],
+    metadata: {
+      program_slug: 'cpr',
+      vendor_name: 'null',
+      vendor_cost: '0',
+    },
+  },
+  {
+    name: 'Emergency Health & Safety Tech',
+    description: 'Emergency medical and safety technician training',
+    price: 495000, // $4,950.00 (in cents)
+    paymentPlans: [
+      { name: 'Full Payment', amount: 495000, installments: 1 },
+      { name: '3-Month Plan', amount: 165000, installments: 3 },
+      { name: '6-Month Plan', amount: 82500, installments: 6 },
+    ],
+    metadata: {
+      program_slug: 'ehst',
+      vendor_name: 'null',
+      vendor_cost: '0',
+    },
+  },
+  {
+    name: 'Professional Esthetician',
+    description: 'Licensed esthetician training and certification',
+    price: 457500, // $4,575.00 (in cents)
+    paymentPlans: [
+      { name: 'Full Payment', amount: 457500, installments: 1 },
+      { name: '3-Month Plan', amount: 152500, installments: 3 },
+      { name: '6-Month Plan', amount: 76300, installments: 6 },
+    ],
+    metadata: {
+      program_slug: 'esth',
+      vendor_name: 'null',
+      vendor_cost: '0',
+    },
+  },
+  {
+    name: 'Peer Recovery Coach',
+    description: 'Certified peer recovery specialist training',
+    price: 475000, // $4,750.00 (in cents)
+    paymentPlans: [
+      { name: 'Full Payment', amount: 475000, installments: 1 },
+      { name: '3-Month Plan', amount: 158400, installments: 3 },
+      { name: '6-Month Plan', amount: 79200, installments: 6 },
+    ],
+    metadata: {
+      program_slug: 'prc',
+      vendor_name: 'null',
+      vendor_cost: '0',
+    },
+  },
+  {
+    name: 'Tax Prep & Financial Services',
+    description: 'IRS-certified tax preparer training',
+    price: 495000, // $4,950.00 (in cents)
+    paymentPlans: [
+      { name: 'Full Payment', amount: 495000, installments: 1 },
+      { name: '3-Month Plan', amount: 165000, installments: 3 },
+      { name: '6-Month Plan', amount: 82500, installments: 6 },
+    ],
+    metadata: {
+      program_slug: 'tax',
+      vendor_name: 'null',
+      vendor_cost: '0',
+    },
+  },
+  {
+    name: 'Business Startup & Marketing',
+    description: 'Launch and grow your business',
+    price: 455000, // $4,550.00 (in cents)
+    paymentPlans: [
+      { name: 'Full Payment', amount: 455000, installments: 1 },
+      { name: '3-Month Plan', amount: 151700, installments: 3 },
+      { name: '6-Month Plan', amount: 75900, installments: 6 },
+    ],
+    metadata: {
+      program_slug: 'biz',
+      vendor_name: 'null',
+      vendor_cost: '0',
+    },
+  },
 ];
 
 async function createProduct(programData) {
@@ -103,7 +218,8 @@ async function createProduct(programData) {
     };
   } catch (error) {
     console.error(`❌ Error creating product: ${error.message}`);
-    throw error;
+    console.error(`   Full error:`, error);
+    return null;
   }
 }
 
@@ -120,8 +236,8 @@ async function main() {
   const results = [];
 
   for (const program of PROGRAMS) {
-    try {
-      const result = await createProduct(program);
+    const result = await createProduct(program);
+    if (result) {
       results.push({
         program: program.name,
         slug: program.metadata.program_slug,
@@ -129,8 +245,6 @@ async function main() {
         defaultPriceId: result.product.default_price,
         paymentPlans: result.prices,
       });
-    } catch (error) {
-      console.error(`Failed to create ${program.name}`);
     }
   }
 

@@ -37,10 +37,10 @@ export default async function CoursesPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
+              href="/courses/catalog"
               className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors"
             >
-              Get Started
+              Browse Course Catalog
             </Link>
             <Link
               href="/programs"
@@ -48,8 +48,6 @@ export default async function CoursesPage() {
             >
               View Programs
             </Link>
-            
-            
           </div>
         </div>
       </section>
@@ -144,16 +142,16 @@ export default async function CoursesPage() {
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
-                href="/contact"
+                href="/courses/catalog"
                 className="bg-white text-blue-700 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 text-lg"
               >
-                Apply Now
+                Browse 130+ Courses
               </Link>
               <Link
-                href="/programs"
+                href="/apply"
                 className="bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-900 border-2 border-white text-lg"
               >
-                Browse Programs
+                Apply Now
               </Link>
             </div>
           </div>
