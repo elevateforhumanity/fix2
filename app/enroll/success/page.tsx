@@ -1,98 +1,192 @@
-import { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Mail, Smartphone, ExternalLink } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Payment Successful | Elevate For Humanity',
-  description: 'Your enrollment payment was successful',
-};
-
-export default function EnrollmentSuccessPage() {
+export default function EnrollSuccessPage() {
   return (
-    <div className="min-h-screen bg-slate-50 py-12">
-      <div className="max-w-2xl mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-          {/* Success Icon */}
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="w-12 h-12 text-green-600" />
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center px-4 py-12">
+      <div className="max-w-2xl w-full">
+        {/* Success Icon */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-green-600 rounded-full mb-6">
+            <CheckCircle className="w-12 h-12 text-white" />
           </div>
-
-          {/* Success Message */}
-          <h1 className="text-3xl font-bold text-slate-900 mb-4">
-            Payment Successful!
+          <h1 className="text-4xl font-bold text-slate-900 mb-4">
+            🎉 Enrollment Successful!
           </h1>
-          <p className="text-xl text-slate-600 mb-8">
-            Thank you for enrolling in our program.
+          <p className="text-xl text-slate-700">
+            Welcome to the Barber Apprenticeship Program
           </p>
+        </div>
 
-          {/* Details */}
-          <div className="bg-slate-50 rounded-lg p-6 mb-8 text-left">
-            <h2 className="font-bold text-lg mb-4">What Happens Next:</h2>
-            <ul className="space-y-3 text-slate-700">
-              <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold">1.</span>
-                <span>You'll receive a confirmation email within 24 hours with your enrollment details</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold">2.</span>
-                <span>Our team will contact you to schedule your start date</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold">3.</span>
-                <span>You'll receive login credentials for the student portal</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold">4.</span>
-                <span>Training materials will be sent before your start date</span>
-              </li>
-            </ul>
-          </div>
+        {/* What's Next */}
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-6">
+          <h2 className="text-2xl font-bold text-slate-900 mb-6">
+            What Happens Next:
+          </h2>
 
-          {/* Contact Info */}
-          <div className="border-t border-slate-200 pt-6 mb-6">
-            <p className="text-slate-600 mb-4">
-              Questions about your enrollment?
-            </p>
-            <div className="space-y-2">
-              <p className="text-lg">
-                <strong>Call:</strong>{' '}
-                <a href="tel:3173143757" className="text-orange-600 font-bold hover:text-orange-700">
-                  317-314-3757
-                </a>
-              </p>
-              <p className="text-lg">
-                <strong>Email:</strong>{' '}
-                <a href="mailto:info@elevateforhumanity.org" className="text-orange-600 font-bold hover:text-orange-700">
-                  info@elevateforhumanity.org
-                </a>
-              </p>
+          <div className="space-y-6">
+            {/* Step 1 */}
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                1
+              </div>
+              <div>
+                <h3 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                  <Mail className="w-5 h-5 text-blue-600" />
+                  Check Your Email
+                </h3>
+                <p className="text-slate-600">
+                  We've sent you an email to set your password. Check your inbox
+                  and spam folder.
+                </p>
+              </div>
             </div>
-          </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/lms/dashboard"
-              className="px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"
-            >
-              Go to Student Portal
-            </Link>
-            <Link
-              href="/programs"
-              className="px-8 py-3 bg-slate-200 text-slate-900 font-bold rounded-lg hover:bg-slate-300 transition-all"
-            >
-              View Programs
-            </Link>
+            {/* Step 2 */}
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                2
+              </div>
+              <div>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Set Your Password
+                </h3>
+                <p className="text-slate-600">
+                  Click the link in the email to create your password and access
+                  your dashboard.
+                </p>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                3
+              </div>
+              <div>
+                <h3 className="font-bold text-slate-900 mb-2">
+                  Enroll in Milady RISE (FREE)
+                </h3>
+                <p className="text-slate-600 mb-3">
+                  Get your FREE Client Well-Being & Safety Certification:
+                </p>
+                <a
+                  href="https://www.miladytraining.com/bundles/client-well-being-safety-certification"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold transition-all"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Enroll in Milady RISE
+                </a>
+                <div className="mt-3 p-3 bg-orange-50 border border-orange-200 rounded-lg">
+                  <p className="text-sm text-orange-900 font-semibold">
+                    Use promo code:{' '}
+                    <code className="bg-orange-100 px-2 py-1 rounded">
+                      efhcti-rise295
+                    </code>
+                  </p>
+                  <p className="text-xs text-orange-700 mt-1">
+                    ⚠️ No spaces before or after the code
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 4 */}
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                4
+              </div>
+              <div>
+                <h3 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                  <Smartphone className="w-5 h-5 text-blue-600" />
+                  Download Mobile App (Optional)
+                </h3>
+                <p className="text-slate-600 mb-3">
+                  Access your training on the go:
+                </p>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <a
+                    href="https://apps.apple.com/us/app/thinkific/id1471012001"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 font-semibold text-center text-sm"
+                  >
+                    📱 Download for iPhone
+                  </a>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.thinkific.mobile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold text-center text-sm"
+                  >
+                    📱 Download for Android
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Additional Info */}
-        <div className="mt-8 text-center text-sm text-slate-600">
-          <p>
-            Your payment receipt has been sent to your email address.
-          </p>
-          <p className="mt-2">
-            If you don't receive an email within 24 hours, please contact us.
+        {/* Important Info */}
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-6">
+          <h3 className="font-bold text-blue-900 mb-3">
+            📋 Important Information:
+          </h3>
+          <ul className="space-y-2 text-blue-800 text-sm">
+            <li>
+              ✅ Your enrollment is <strong>100% FREE</strong>
+            </li>
+            <li>
+              ✅ Milady RISE certification is <strong>FREE</strong> with promo
+              code
+            </li>
+            <li>✅ Elevate pays the $295 Milady fee on your behalf</li>
+            <li>
+              ✅ You'll receive login instructions via email within 5 minutes
+            </li>
+            <li>✅ Check spam folder if you don't see the email</li>
+          </ul>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link
+            href="/student/dashboard"
+            className="flex-1 px-6 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold text-center transition-all shadow-lg"
+          >
+            Go to Dashboard
+          </Link>
+          <Link
+            href="/contact"
+            className="flex-1 px-6 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-lg hover:bg-blue-50 font-bold text-center transition-all"
+          >
+            Contact Support
+          </Link>
+        </div>
+
+        {/* Support Info */}
+        <div className="text-center mt-8 text-slate-600">
+          <p className="mb-2">Need help? We're here for you!</p>
+          <p className="font-semibold">
+            📞{' '}
+            <a
+              href="tel:317-314-3757"
+              className="text-blue-600 hover:underline"
+            >
+              317-314-3757
+            </a>
+            {' | '}
+            📧{' '}
+            <a
+              href="mailto:elevate4humanityedu@gmail.com"
+              className="text-blue-600 hover:underline"
+            >
+              elevate4humanityedu@gmail.com
+            </a>
           </p>
         </div>
       </div>

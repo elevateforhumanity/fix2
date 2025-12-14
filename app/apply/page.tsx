@@ -53,9 +53,9 @@ function ApplyForm() {
 
         const result = await response.json();
 
-        if (result.ok && result.checkoutUrl) {
-          // Redirect to Stripe checkout
-          window.location.href = result.checkoutUrl;
+        if (result.ok && result.redirectUrl) {
+          // Redirect to success page
+          window.location.href = result.redirectUrl;
           return;
         } else {
           throw new Error(result.error || 'Failed to process enrollment');
