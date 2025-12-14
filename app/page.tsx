@@ -11,7 +11,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-zinc-200 bg-black mb-8">
             <video
-              src="/videos/success-stories-video-with-narration.mp4"
+              src="/videos/hero-video-with-audio.mp4"
               autoPlay
               loop
               playsInline
