@@ -83,64 +83,27 @@ export async function POST(req: Request) {
   }
 
   try {
-    // Handle enrollment payment completion
+    // Handle Milady RISE payment completion
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session;
 
-      // Check if this is an enrollment payment
-      if (session.metadata?.userId && session.metadata?.enrollmentId) {
-        console.log('[Webhook] Processing enrollment payment', {
+      // Check if this is a Milady RISE payment
+      if (
+        session.metadata?.userId &&
+        session.metadata?.paymentType === 'milady_rise'
+      ) {
+        console.log('[Webhook] Processing Milady RISE payment', {
           sessionId: session.id,
           userId: session.metadata.userId,
           email: session.metadata.email,
-        });
-
-        const supabase = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-          apiVersion: '2024-12-18.acacia',
+          amount: session.amount_total,
         });
 
         // Import Supabase client
         const { createClient } = await import('@/lib/supabase/server');
         const supabaseClient = await createClient();
 
-        // Update enrollment status to active and paid
-        await supabaseClient
-          .from('enrollments')
-          .update({
-            status: 'active',
-            payment_status: 'paid',
-          })
-          .eq('id', session.metadata.enrollmentId);
-
-        // Update application status
-        if (session.metadata.applicationId) {
-          await supabaseClient
-            .from('applications')
-            .update({ status: 'approved' })
-            .eq('id', session.metadata.applicationId);
-        }
-
-        // Send password reset email for new users
-        if (session.metadata.isNewUser === 'true' && session.metadata.email) {
-          const { error: resetError } =
-            await supabaseClient.auth.resetPasswordForEmail(
-              session.metadata.email,
-              {
-                redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/reset-password`,
-              }
-            );
-
-          if (resetError) {
-            console.error('[Webhook] Password reset email failed', resetError);
-          } else {
-            console.log(
-              '[Webhook] Password reset email sent to',
-              session.metadata.email
-            );
-          }
-        }
-
-        // Auto-enroll in Milady RISE if barber program
+        // Auto-enroll in Milady RISE courses
         if (session.metadata.programSlug === 'barber-apprenticeship') {
           try {
             const miladyResponse = await fetch(

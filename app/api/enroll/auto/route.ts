@@ -108,7 +108,7 @@ export async function POST(req: Request) {
       logger.info('Created new user', { userId });
     }
 
-    // STEP 5: Create enrollment (pending payment)
+    // STEP 5: Create enrollment (FREE - no payment required)
     const { data: existingEnrollment } = await supabase
       .from('enrollments')
       .select('id')
@@ -127,9 +127,9 @@ export async function POST(req: Request) {
         .insert({
           student_id: userId,
           program_id: program.id,
-          status: 'pending',
+          status: 'active',
           enrolled_at: new Date().toISOString(),
-          payment_status: 'pending',
+          payment_status: 'waived', // Program is FREE
         })
         .select('id')
         .single();
@@ -143,7 +143,7 @@ export async function POST(req: Request) {
       }
 
       enrollmentId = enrollment.id;
-      logger.info('Created enrollment', { enrollmentId });
+      logger.info('Created FREE enrollment', { enrollmentId });
     }
 
     // STEP 6: Create application record
@@ -155,72 +155,100 @@ export async function POST(req: Request) {
         email: emailLower,
         phone: phone ?? null,
         program_id: programSlug,
-        status: 'pending_payment',
+        status: 'approved',
       })
       .select('id')
       .single();
 
-    // STEP 7: Create Stripe checkout session
-    const amount = program.total_cost
-      ? Math.round(Number(program.total_cost) * 100)
-      : 489000; // Default $4,890
-
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-
-    const session = await stripe.checkout.sessions.create({
-      mode: 'payment',
-      customer_email: emailLower,
-      line_items: [
+    // STEP 7: Send password reset email for new users
+    if (isNewUser) {
+      const { error: resetError } = await supabase.auth.resetPasswordForEmail(
+        emailLower,
         {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: program.name,
-              description: `Enrollment in ${program.name} program`,
-            },
-            unit_amount: amount,
-          },
-          quantity: 1,
-        },
-      ],
-      success_url: `${siteUrl}/enroll/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${siteUrl}/apply?program=${programSlug}`,
-      metadata: {
-        userId,
-        enrollmentId,
-        applicationId: application?.id || '',
-        programId: program.id,
-        programSlug: program.slug,
-        firstName,
-        lastName,
-        email: emailLower,
-        phone: phone || '',
-        isNewUser: isNewUser.toString(),
-      },
-      payment_method_types: ['card', 'affirm', 'klarna', 'afterpay_clearpay'],
-      automatic_tax: { enabled: false },
-    });
-
-    if (!session.url) {
-      return NextResponse.json(
-        { error: 'Failed to create checkout session' },
-        { status: 500 }
+          redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/reset-password`,
+        }
       );
+
+      if (resetError) {
+        logger.warn('Password reset email failed', resetError);
+      } else {
+        logger.info('Password reset email sent', { email: emailLower });
+      }
     }
 
-    logger.info('Auto-enrollment complete, redirecting to checkout', {
-      userId,
-      enrollmentId,
-      sessionId: session.id,
-    });
+    // STEP 8: For barber program, redirect to Milady RISE payment ($295)
+    if (programSlug === 'barber-apprenticeship') {
+      const siteUrl =
+        process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+      const session = await stripe.checkout.sessions.create({
+        mode: 'payment',
+        customer_email: emailLower,
+        line_items: [
+          {
+            price_data: {
+              currency: 'usd',
+              product_data: {
+                name: 'Milady RISE - Barber Certification',
+                description:
+                  'Client Well-Being & Safety Certification (16 courses)',
+              },
+              unit_amount: 29500, // $295.00
+            },
+            quantity: 1,
+          },
+        ],
+        success_url: `${siteUrl}/enroll/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${siteUrl}/student/dashboard`,
+        metadata: {
+          userId,
+          enrollmentId,
+          applicationId: application?.id || '',
+          programId: program.id,
+          programSlug: program.slug,
+          firstName,
+          lastName,
+          email: emailLower,
+          phone: phone || '',
+          isNewUser: isNewUser.toString(),
+          paymentType: 'milady_rise',
+        },
+        payment_method_types: ['card'],
+        automatic_tax: { enabled: false },
+      });
+
+      if (!session.url) {
+        return NextResponse.json(
+          { error: 'Failed to create checkout session' },
+          { status: 500 }
+        );
+      }
+
+      logger.info('Enrollment complete, redirecting to Milady RISE payment', {
+        userId,
+        enrollmentId,
+        sessionId: session.id,
+      });
+
+      return NextResponse.json({
+        ok: true,
+        userId,
+        enrollmentId,
+        checkoutUrl: session.url,
+        sessionId: session.id,
+        message: 'Enrolled! Redirecting to Milady RISE payment ($295)...',
+      });
+    }
+
+    // STEP 9: For non-barber programs, enrollment is complete
+    logger.info('FREE enrollment complete', { userId, enrollmentId });
 
     return NextResponse.json({
       ok: true,
       userId,
       enrollmentId,
-      checkoutUrl: session.url,
-      sessionId: session.id,
-      message: 'Account created! Redirecting to payment...',
+      redirectUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard`,
+      message: 'Enrollment successful! Check your email to set your password.',
     });
   } catch (error: any) {
     logger.error('Auto-enrollment error', error);
