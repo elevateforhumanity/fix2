@@ -7,16 +7,16 @@ export default function MiladyAppDownload() {
   return (
     <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl shadow-lg p-6 text-white">
       <div className="text-center mb-4">
-        <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 p-2">
+        <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 p-1.5">
           <Image
             src="/images/milady-logo.jpg"
             alt="Milady"
-            width={60}
-            height={60}
+            width={40}
+            height={40}
             className="object-contain"
           />
         </div>
-        <h3 className="text-xl font-bold mb-2">📱 Learn on the Go</h3>
+        <h3 className="text-lg font-bold mb-2">📱 Learn on the Go</h3>
         <p className="text-blue-100 text-sm">
           Download the Milady mobile app for iOS or Android
         </p>
