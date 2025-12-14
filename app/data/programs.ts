@@ -1145,7 +1145,7 @@ CIP Code: 51.0999 - Allied Health Diagnostic, Intervention, and Treatment Profes
     heroSubtitle: '4-week program to become a certified Home Health Aide',
     shortDescription:
       'Comprehensive training for in-home patient care with HHA licensure and CPR certification',
-    longDescription: `The Home Health Aide Certification program prepares you to provide compassionate, professional care to patients in their homes. In 4 weeks, you'll earn your Home Health Aide (HHA) license, Certified Community Healthcare Worker (CCHW) certification, CPR certification, and Rise Up career readiness credentials. This program combines medical knowledge with practical caregiving skills, preparing you for a rewarding career helping those who need it most.`,
+    longDescription: `The Home Health Aide Certification program prepares you to provide compassionate, professional care to patients in their homes. In 4 weeks, you'll earn your Home Health Aide (HHA) license, Certified Community Healthcare Worker (CCHW) certification, CPR certification, and Rise Up career readiness credentials. This program includes OSHA-compliant safety training through CareerSafe, covering bloodborne pathogens, infection control, and patient safety. This comprehensive training combines medical knowledge with practical caregiving skills, preparing you for a rewarding career helping those who need it most.`,
     heroImage: '/images/programs/home-health-aide.jpg',
     heroImageAlt: 'Home health aide caring for patient',
     duration: '4 weeks',
