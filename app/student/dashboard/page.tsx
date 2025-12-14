@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   BookOpen,
   Clock,
@@ -89,21 +90,17 @@ export default async function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Hero Banner with Video */}
+      {/* Hero Banner with Image */}
       <section className="relative bg-slate-900">
         <div className="relative w-full h-[300px] sm:h-[400px] overflow-hidden">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source
-              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__3/video-7b329d1f-3f92-4ec5-acdf-9d2d7ff6de5f.mp4?Expires=2081035443&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=2KDgdkukV1l5tUykhY0SBZu0ZYxEp6Xp86bQjcsHKxNbWwEjUxfu5OSCKMrGG2~xv00hDGlPIxaSaE~zClb9YFcW6WXYwa1sWpZcuqovnSTb5HBs5Vv13W-uCiEqd9-UenNmOCUQAsx70OYANXHY4d6qQBaVtMl9XkB9~mNfUYbV0hognViSLyI~7uK~gpA-bSCss8NZAAlwASn8vmgi8HrY3NQNfAvXKp0GaVi5RSb5L58PuRfb0S5GPV-B5UeImUvIxTCNfDG9ZOsVAvl8J7FxmgQcxc8-M6BGHoJR~2DndDRStF272N8p7yOiJI6NEt-KZxym~WceY3RZ6jKjJQ__"
-              type="video/mp4"
-            />
-          </video>
+          <Image
+            src="/images/beauty/hero-barber-training.jpg"
+            alt="Barber cutting hair"
+            fill
+            className="object-cover"
+            priority
+            quality={90}
+          />
 
           {/* Overlay Content */}
           <div className="absolute inset-0 bg-black/40 flex items-end">
