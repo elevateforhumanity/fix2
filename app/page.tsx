@@ -2,10 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import HeroVideo from '@/components/home/HeroVideo';
 import PrimaryCtas from '@/components/home/PrimaryCtas';
+import { WelcomeAudio } from '@/components/WelcomeAudio';
 
 export default function HomePage() {
   return (
     <main className="w-full">
+      {/* Welcome Audio - Plays on page load */}
+      <WelcomeAudio />
       {/* HERO */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 pb-6 sm:pb-10">
         <div className="mx-auto max-w-7xl">
