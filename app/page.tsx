@@ -11,13 +11,18 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-zinc-200 bg-black mb-8">
             <video
-              src="/videos/hero-video-with-audio.mp4"
               autoPlay
               loop
               playsInline
               controls
               className="absolute inset-0 w-full h-full object-cover"
-            />
+            >
+              <source src="/videos/hero-video-with-audio.mp4" type="video/mp4" />
+              <track kind="metadata" src="/videos/voiceover.mp3" />
+            </video>
+            <audio autoPlay loop>
+              <source src="/videos/voiceover.mp3" type="audio/mpeg" />
+            </audio>
           </div>
           
           <div className="text-center max-w-4xl mx-auto">
