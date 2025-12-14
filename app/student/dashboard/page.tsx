@@ -15,6 +15,7 @@ import {
   GraduationCap,
   MessageCircle,
 } from 'lucide-react';
+import MiladyAppDownload from '@/components/student/MiladyAppDownload';
 
 export const metadata: Metadata = {
   title: 'Student Dashboard | Elevate For Humanity',
@@ -432,6 +433,11 @@ export default async function DashboardPage() {
               </div>
             </div>
 
+            {/* Mobile App Download */}
+            {miladyEnrollments && miladyEnrollments.length > 0 && (
+              <MiladyAppDownload />
+            )}
+
             {/* Quick Links */}
             <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6">
               <h3 className="text-lg font-bold text-slate-900 mb-4">
@@ -466,6 +472,14 @@ export default async function DashboardPage() {
                   <Calendar className="w-4 h-4 inline mr-2" />
                   View Schedule
                 </Link>
+                {miladyEnrollments && miladyEnrollments.length > 0 && (
+                  <Link
+                    href="/student/mobile-app"
+                    className="block w-full px-4 py-3 bg-blue-50 text-blue-700 rounded-lg hover:bg-blue-100 font-semibold transition-all text-center border border-blue-200"
+                  >
+                    📱 Download Mobile App
+                  </Link>
+                )}
               </div>
             </div>
 

@@ -35,22 +35,12 @@ export default async function MiladyLaunchPage({ params }: { params: Params }) {
     .update({ last_accessed_at: new Date().toISOString() })
     .eq('id', enrollmentId);
 
-  // Generate SSO URL
-  try {
-    const ssoUrl = await getSsoLaunchUrl(
-      enrollment.external_student_id,
-      enrollment.external_course_id,
-      enrollment.provider.api_key
-    );
+  // Direct login flow - students use manual login
+  // No API/SSO integration - students login directly to Milady
+  const loginUrl =
+    enrollment.course?.enrollment_url ||
+    enrollment.provider?.login_url ||
+    'https://www.miladytraining.com/users/sign_in';
 
-    // Redirect to Milady course
-    redirect(ssoUrl);
-  } catch (error) {
-    console.error('SSO launch error:', error);
-
-    // Fallback to direct course URL
-    const courseUrl =
-      enrollment.course.enrollment_url || 'https://www.miladytraining.com';
-    redirect(courseUrl);
-  }
+  redirect(loginUrl);
 }
