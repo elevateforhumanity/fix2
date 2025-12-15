@@ -23,6 +23,7 @@ a.text-white {
 html {
   visibility: visible;
   opacity: 1;
+  font-size: 16px;
 }
 
 /* Ensure smooth font loading without flash */
@@ -30,6 +31,14 @@ body {
   font-display: optional;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Ensure images and videos don't overflow */
+img, video {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ============================================================================
