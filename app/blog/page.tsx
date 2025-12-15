@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
 
+export const dynamic = 'force-static';
+export const revalidate = 86400; // 24 hours
+
 import {
   fetchDurableBlogPosts,
   getDurableBlogPostUrl,
