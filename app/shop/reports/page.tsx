@@ -4,8 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FileText, Download, Calendar, Users, Clock } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
-
 type Report = {
   id: string;
   student_name: string;

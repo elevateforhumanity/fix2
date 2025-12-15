@@ -1,36 +1,45 @@
 'use client';
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { WelcomeAudio } from '@/components/WelcomeAudio';
 
-export const dynamic = 'force-dynamic';
+// Lazy load non-critical components
+const WelcomeAudio = dynamic(
+  () =>
+    import('@/components/WelcomeAudio').then((mod) => ({
+      default: mod.WelcomeAudio,
+    })),
+  {
+    ssr: false,
+    loading: () => null,
+  }
+);
 
 export default function HomePage() {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [isVisible, setIsVisible] = React.useState<Record<string, boolean>>({});
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [videoLoaded, setVideoLoaded] = React.useState(false);
 
   React.useEffect(() => {
-    const playVideo = async () => {
-      if (videoRef.current) {
-        try {
-          // Try to play with sound first
-          videoRef.current.muted = false;
-          videoRef.current.volume = 0.7; // 70% volume
-          await videoRef.current.play();
-        } catch (error) {
-          // If blocked, play muted
-          try {
-            videoRef.current.muted = true;
-            await videoRef.current.play();
-          } catch (e) {
-            console.log('Video autoplay blocked');
-          }
-        }
-      }
-    };
-    playVideo();
+    // Detect mobile
+    setIsMobile(window.innerWidth < 768);
+
+    // Only load video on desktop or after user interaction on mobile
+    if (!isMobile) {
+      setVideoLoaded(true);
+    }
   }, []);
+
+  React.useEffect(() => {
+    // Only play video on desktop
+    if (videoRef.current && videoLoaded && !isMobile) {
+      videoRef.current.play().catch(() => {
+        // Autoplay blocked, video will show poster/background
+      });
+    }
+  }, [videoLoaded, isMobile]);
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -89,20 +98,35 @@ export default function HomePage() {
 
       {/* Hero Video */}
       <section className="relative w-full overflow-hidden bg-slate-900">
-        <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            playsInline
-            preload="auto"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source
-              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081095427&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=XYAKfQTQtm1t~crb-eqoYGjNhW6OtDpmLV7aDSdfl-AY7Gmj5UcTwnRjGI8y~MBeFgfANbDXBLzgDgIiy9lIYq~qIafTofg9J5-dLlnPq0h0DC5cwxYMwcY9cOzLoumtClzCcEf6U4opibbDuxE6y7a3wZGl7mFlXMwcd7JHnJLuuq0Uw6mfFG4ROuJgqfnA7A97b2IM5nhw-AD-Nj6TsVbUdFhEaQETHHvWC~GucSzE8sUUQCbBpeFnH3SY8jJWAjXlM-E3cayy-unqJrw4EMP7kkAFLnR6xyD9mwHkXQjPnf2QlM574Fxhj7zNOsT9Q-ZNGN2kKGCII6Vui2lNug__"
-              type="video/mp4"
-            />
-          </video>
+        <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] bg-gradient-to-br from-blue-900 to-purple-900">
+          {/* Only load video on desktop */}
+          {videoLoaded && !isMobile && (
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="none"
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source
+                src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081095427&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=XYAKfQTQtm1t~crb-eqoYGjNhW6OtDpmLV7aDSdfl-AY7Gmj5UcTwnRjGI8y~MBeFgfANbDXBLzgDgIiy9lIYq~qIafTofg9J5-dLlnPq0h0DC5cwxYMwcY9cOzLoumtClzCcEf6U4opibbDuxE6y7a3wZGl7mFlXMwcd7JHnJLuuq0Uw6mfFG4ROuJgqfnA7A97b2IM5nhw-AD-Nj6TsVbUdFhEaQETHHvWC~GucSzE8sUUQCbBpeFnH3SY8jJWAjXlM-E3cayy-unqJrw4EMP7kkAFLnR6xyD9mwHkXQjPnf2QlM574Fxhj7zNOsT9Q-ZNGN2kKGCII6Vui2lNug__"
+                type="video/mp4"
+              />
+            </video>
+          )}
+          {/* Fallback gradient for mobile */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center text-white px-4">
+              <h2 className="text-4xl md:text-6xl font-bold mb-4">
+                Elevate For Humanity
+              </h2>
+              <p className="text-xl md:text-2xl">
+                100% Free Workforce Development
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -212,6 +236,8 @@ export default function HomePage() {
                       muted
                       loop
                       playsInline
+                      preload="none"
+                      loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     >
                       <source src={program.video} type="video/mp4" />

@@ -4,8 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { programs } from '@/app/data/programs';
 
-export const dynamic = 'force-dynamic';
-
 const grantFundedPrograms = programs.filter((p) =>
   p.fundingOptions.some(
     (f) =>

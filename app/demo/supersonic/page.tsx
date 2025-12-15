@@ -4,8 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Zap, DollarSign, Clock, TrendingUp } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
-
 export default function SupersonicDemoPage() {
   return (
     <div className="min-h-screen bg-gray-50">

@@ -3,8 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export const dynamic = 'force-dynamic';
-
 export default function MarketplaceApplyPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);

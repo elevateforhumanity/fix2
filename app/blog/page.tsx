@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
-export const dynamic = 'force-dynamic'; // Uses cookies, can't be static
 
 import {
   fetchDurableBlogPosts,

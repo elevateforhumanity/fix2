@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const nav = [
@@ -16,10 +16,27 @@ const nav = [
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Fix mobile nav overlay blocking clicks
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-zinc-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-16 flex items-center justify-between gap-8">
-        <Link href="/" className="font-black text-zinc-900 tracking-tight flex-shrink-0">
+        <Link
+          href="/"
+          className="font-black text-zinc-900 tracking-tight flex-shrink-0"
+        >
           Elevate for Humanity
         </Link>
 

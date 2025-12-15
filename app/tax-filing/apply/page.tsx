@@ -6,8 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-export const dynamic = 'force-dynamic';
-
 export default function TaxFilingApplicationPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);

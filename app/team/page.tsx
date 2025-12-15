@@ -2,8 +2,6 @@
 import Image from 'next/image';
 import { Metadata } from 'next';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/team',

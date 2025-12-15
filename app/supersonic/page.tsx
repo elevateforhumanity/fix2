@@ -4,8 +4,6 @@ import Image from 'next/image';
 
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title:
     'Supersonic Tax Service - Tax Refund Advance Indianapolis | Same Day Cash Advance',

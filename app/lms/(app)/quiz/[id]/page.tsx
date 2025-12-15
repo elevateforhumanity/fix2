@@ -5,8 +5,6 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Image from 'next/image';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.elevateforhumanity.org/lms/quiz/[id]',

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { Inter } from 'next/font/google';
 // Image asset: /images/programs-new/program-11.jpg
 import './globals.css';
 import './ui-fixes.css';
@@ -33,7 +34,12 @@ import { ScraperDetection } from '@/components/ScraperDetection';
 import { CopyrightProtection } from '@/components/CopyrightProtection';
 import { SecurityMonitor, SecurityBadge } from '@/components/SecurityMonitor';
 
-// Using Times New Roman as the site-wide font
+// Optimized font loading with Next.js
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 // Viewport configuration (separate from metadata in Next.js 14+)
 export const viewport: Viewport = {
@@ -138,7 +144,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         {/* Preload critical assets to prevent FOUC */}
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -152,9 +158,8 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body
-        className="antialiased bg-white"
+        className={`${inter.className} antialiased bg-white`}
         style={{
-          fontFamily: '"Times New Roman", Times, serif',
           fontSize: '16px',
         }}
       >

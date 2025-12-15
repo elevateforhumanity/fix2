@@ -2,8 +2,6 @@
 import type { Metadata } from 'next';
 import QuickApplyFormClient from './QuickApplyFormClient';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Quick Application | Elevate for Humanity',
   description:

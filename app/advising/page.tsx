@@ -3,8 +3,6 @@
 
 import { useState } from 'react';
 
-export const dynamic = 'force-dynamic';
-
 export default function AdvisingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);

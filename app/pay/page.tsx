@@ -2,8 +2,6 @@
 import type { Metadata } from 'next';
 import PaymentOptionsClient from './PaymentOptionsClient';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Payment Options | Elevate for Humanity',
   description:

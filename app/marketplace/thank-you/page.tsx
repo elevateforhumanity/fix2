@@ -4,8 +4,6 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
-
 export default function MarketplaceThankYouPage() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get('session_id');

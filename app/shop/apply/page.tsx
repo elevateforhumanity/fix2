@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Scissors, CheckCircle, ArrowRight } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
-
 export default function ShopApplyPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);

@@ -2,8 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata: Metadata = {
   title: 'Demos | Elevate For Humanity',
   description: 'Explore our training programs and opportunities',

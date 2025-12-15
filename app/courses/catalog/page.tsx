@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-export const dynamic = 'force-dynamic';
 
 import {
   Search,

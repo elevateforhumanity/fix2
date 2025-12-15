@@ -1,7 +1,5 @@
 import DiscussionForums from '@/components/forums/DiscussionForums';
 
-export const dynamic = 'force-dynamic';
-
 export const metadata = {
   title: 'Discussion Forums | Elevate for Humanity',
   description:

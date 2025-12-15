@@ -16,8 +16,6 @@ import {
 import { DiscussionForum } from '@/components/lms/DiscussionForum';
 import { QuizSystem } from '@/components/lms/QuizSystem';
 
-export const dynamic = 'force-dynamic';
-
 export default function LessonPage() {
   const params = useParams();
   const router = useRouter();

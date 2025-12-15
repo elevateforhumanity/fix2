@@ -4,8 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Shield, CheckCircle, AlertCircle } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
-
 export default function PartnerWithUsPage() {
   const [acknowledged, setAcknowledged] = useState(false);
   const [formData, setFormData] = useState({

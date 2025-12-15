@@ -1,5 +1,3 @@
-export const dynamicParams = true;
-
 // Root LMS layout - NO AUTH CHECKS HERE
 // Auth is handled in app/lms/(app)/layout.tsx
 // This layout wraps both public and protected routes
