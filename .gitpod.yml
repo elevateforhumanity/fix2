@@ -29,17 +29,29 @@ ports:
     description: Node.js debugging port
 
 tasks:
-  - name: What We Actually Have
+  - name: Automated Setup
     init: |
+      # Make scripts executable
+      chmod +x automated-setup.sh pull-vercel-env.sh setup-real-credentials.sh update-env.sh 2>/dev/null || true
+      chmod +x scripts/what-we-actually-have.sh 2>/dev/null || true
+      
+      # Run automated setup if VERCEL_TOKEN is available
+      if [ -n "$VERCEL_TOKEN" ]; then
+        echo "🤖 Running automated setup..."
+        ./automated-setup.sh || echo "⚠️  Automated setup failed, continuing anyway..."
+      else
+        echo "⚠️  VERCEL_TOKEN not set - skipping automated setup"
+        echo "   To enable automation: gp env VERCEL_TOKEN='your-token'"
+        echo "   See: AUTOMATED_VERCEL_SETUP.md"
+        pnpm install
+      fi
+    command: |
+      echo "🚀 Starting development server..."
+      pnpm dev
+  - name: What We Actually Have
+    command: |
       chmod +x scripts/what-we-actually-have.sh || true
       scripts/what-we-actually-have.sh
-    command: pnpm dev || npm run dev || yarn dev
-  - name: Setup
-    init: pnpm install || true
-    command: |
-      pnpm approve-builds --all
-      pnpm install
-      pnpm dev
   - name: LMS UX & Compliance Benchmark
     init: |
       mkdir -p docs
