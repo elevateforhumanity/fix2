@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
 
-export const dynamic = 'force-static';
+
+export const dynamic = "force-static";
 export const revalidate = 86400; // 24 hours
 
 import {
@@ -20,7 +21,6 @@ export const metadata: Metadata = {
     'Latest news, success stories, and workforce development insights from Elevate For Humanity.',
 };
 
-export const revalidate = 300; // Revalidate every 5 minutes
 
 async function getDurableBlogPosts() {
   try {

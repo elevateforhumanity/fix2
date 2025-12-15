@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
 
-export const dynamic = 'force-static';
-export const revalidate = 86400; // 24 hours
 
 import Image from 'next/image';
 
 import Link from 'next/link';
+
+export const dynamic = "force-static";
+export const revalidate = 86400; // 24 hours
 
 export const metadata: Metadata = {
   title:
