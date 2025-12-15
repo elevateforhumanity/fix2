@@ -3,11 +3,11 @@
 export const dynamic = "force-dynamic";
 
 import React from 'react';
-import dynamic from 'next/dynamic';
+import dynamicImport from 'next/dynamic';
 import Link from 'next/link';
 
 // Lazy load non-critical components
-const WelcomeAudio = dynamic(
+const WelcomeAudio = dynamicImport(
   () =>
     import('@/components/WelcomeAudio').then((mod) => ({
       default: mod.WelcomeAudio,
