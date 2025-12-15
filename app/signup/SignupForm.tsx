@@ -5,6 +5,8 @@ import { createBrowserClient } from '@supabase/ssr';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 function SignupFormContent() {
   const searchParams = useSearchParams();
   const next = searchParams.get('next') || '/student/dashboard';

@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description: 'Explore Curriculumupload and discover opportunities for career growth and development.',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function CurriculumuploadPage() {
   
 
