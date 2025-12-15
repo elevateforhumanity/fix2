@@ -174,13 +174,15 @@ export default function HomePage() {
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden bg-slate-100">
-                  <Image
-                    src="/images/hvac-highlight.jpg"
-                    alt="HVAC Technician"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    priority
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  >
+                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-dc9558de-f94b-43f1-8e4a-5f45d019895f.mp4?Expires=2081095426&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=p24tUX9stSgPWZKXrqx61Sgq6TOIIlZuwwU6232SsQcohIS-1JZXY3pk2OM8UgQRG7b06Xlr33hvipNaVz8l0qOarpOTLp7cmhAXPQAi3wtrutc3Y1kF95oP6ZM3paP8rDwuuB9iuH~LYdUbNK7Vo2Q3JzCazSVESwT8xTRzLTUBYBGyeRpSPPpHE1381y7a1wyGly35~cPxzNSg~1NBLKIX-08GAbheYi15rsht-U71b9YMc84K75yP0voTGrJoOrFA8P4oj8xMsHvKTv8bU6k5FZ9lgHxCPOv~weDq63sSxs0nHsKiKhbggmc0yHKSJ7vyrtDNWY3H2wiwfZX0ZA__" type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-5">
