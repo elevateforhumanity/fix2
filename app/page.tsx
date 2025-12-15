@@ -114,7 +114,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden bg-slate-100">
+                <div className="relative h-40 overflow-hidden bg-slate-100">
                   <video
                     autoPlay
                     muted
@@ -144,7 +144,7 @@ export default function HomePage() {
 
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden bg-teal-100">
+                <div className="relative h-40 overflow-hidden bg-teal-100">
                   <video
                     autoPlay
                     muted
@@ -173,7 +173,7 @@ export default function HomePage() {
 
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-48 overflow-hidden bg-slate-100">
+                <div className="relative h-40 overflow-hidden bg-slate-100">
                   <video
                     autoPlay
                     muted
