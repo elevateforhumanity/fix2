@@ -26,6 +26,7 @@ const securityHeaders = {
   'X-Frame-Options': 'SAMEORIGIN',
   'X-Content-Type-Options': 'nosniff',
   'X-XSS-Protection': '1; mode=block',
+  'X-Robots-Tag': 'noai, noimageai, nosnippet, noarchive',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=(self), payment=(self)',
   'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
@@ -56,7 +57,7 @@ const suspiciousPatterns = [
   /on\w+\s*=/gi,
 ];
 
-// Bot detection patterns
+// Bot detection patterns (enhanced anti-scrape)
 const botPatterns = [
   /bot/i,
   /crawler/i,
@@ -65,6 +66,14 @@ const botPatterns = [
   /curl/i,
   /wget/i,
   /python/i,
+  /httpclient/i,
+  /scrapy/i,
+  /selenium/i,
+  /playwright/i,
+  /puppeteer/i,
+  /axios/i,
+  /go-http-client/i,
+  /headless/i,
 ];
 
 function getClientIp(req: NextRequest): string {
