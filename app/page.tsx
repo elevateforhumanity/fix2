@@ -12,14 +12,27 @@ export default function HomePage() {
       {/* HERO */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 pb-6 sm:pb-10">
         <div className="mx-auto max-w-7xl">
-          <div className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden shadow-lg border border-zinc-200 bg-black mb-6 sm:mb-8">
+          <div className="relative w-full aspect-video rounded-lg sm:rounded-xl overflow-hidden shadow-lg border border-zinc-200 bg-gradient-to-br from-blue-900 to-blue-700 mb-6 sm:mb-8">
+            <Image
+              src="/images/heroes/programs.jpg"
+              alt="Workforce Training"
+              fill
+              className="object-cover"
+              priority
+              quality={90}
+            />
             <video
               src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081093367&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=td32mzkbEAOLiCaYuy2bvh7fIHwp6fCyqklEkMOKrB-HylGvkEp87xGd5VEp5ipv7IKQgjImURhapXmq9BhcEIvGHlYH4rGeIX9P4ThM0ha7wZOH2kl8RIdUQEVSFKM6U9~Eel5Fwpgr5-MZh-YmCpZRG9Gw9KLNhFiWKlh6AjXYppVLz0rf1-FXx4dcGM6qWtmYo9WQOCCqRjzmWqtGkqF88rUy7YvU6XrxUpb9k9M3~biPVNpbErqRJxX8nPLkwvKEWOmfzC~cjQQGpkGJoFEOUxq8y0u6y73ekcECQJbHjkE3EYSsY-DshZZcDU6T9OhHrV6QbHJo85f4~r7mlA__"
               muted
               loop
               playsInline
               preload="none"
-              className="absolute top-0 left-0 w-full h-full object-cover"
+              className="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-500"
+              onLoadedData={(e) => {
+                const video = e.target as HTMLVideoElement;
+                video.classList.remove('opacity-0');
+                video.play().catch(() => {});
+              }}
             />
           </div>
 
