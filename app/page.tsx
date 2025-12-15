@@ -7,15 +7,30 @@ import { WelcomeAudio } from "@/components/WelcomeAudio";
 import PWAInstallSection from "@/components/PWAInstallSection";
 
 export default function HomePage() {
-  const [isMuted, setIsMuted] = React.useState(true);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
+  // Attempt to play video with sound on mount
+  React.useEffect(() => {
+    const playVideo = async () => {
+      if (videoRef.current) {
+        try {
+          // Try to play with sound
+          videoRef.current.muted = false;
+          await videoRef.current.play();
+        } catch (error) {
+          // If blocked, try muted
+          try {
+            videoRef.current.muted = true;
+            await videoRef.current.play();
+          } catch (e) {
+            console.log('Video autoplay blocked');
+          }
+        }
+      }
+    };
+
+    playVideo();
+  }, []);
 
   return (
     <main className="bg-white overflow-x-hidden">
@@ -26,7 +41,6 @@ export default function HomePage() {
         <video
           ref={videoRef}
           autoPlay
-          muted
           loop
           playsInline
           preload="auto"
@@ -34,27 +48,6 @@ export default function HomePage() {
         >
           <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081095425&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=wJZrkaI9bPmzDocPutvmxgDObwlhr0K408zQfDrcdGzfsj4-XZFV5xx73m39AvX4h7M1t6tI3o~AweR5s1AL~l2Hxz3i~nh~AJQV0u4S4DcvX1BfjjIdJx51b1YUfPfUUe502kXA2fjn4kCKGm10JTlPzJI2bmLIa5qkFi7Q3e2b6oc7eOsIctMgBIpWSPIu9GawVYkkE95m2pMmOs1HZyXXMlXcF5IXlZ5XSOMwQM1PMag~yXT6YUxx5Gxx~5Z-9sW78sq8fhVB3m-ppnCZWvIZnwz0ajRnyMPOLT7vEbSJj6l2I2Umovwf9I2JFMUiXwn54VTcpjmpiusOqobrKw__" type="video/mp4" />
         </video>
-
-        {/* Unmute Button */}
-        <button
-          onClick={toggleMute}
-          className="absolute top-4 right-4 z-20 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all backdrop-blur-sm"
-          aria-label={isMuted ? "Unmute video" : "Mute video"}
-        >
-          {isMuted ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-            </svg>
-          )}
-        </button>
-        
-        {/* Dark Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
         
         {/* Hero Text Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white">
@@ -309,23 +302,11 @@ export default function HomePage() {
                 <h3 className="text-3xl font-bold text-slate-900 mb-4">
                   "I went from working retail to running my own tax business"
                 </h3>
-                <p className="text-lg text-slate-700 mb-4 leading-relaxed">
-                  Sarah was tired of minimum wage and unpredictable hours. After 8 weeks of tax prep training, 
-                  she started her own business from home. Now she earns $60k+ during tax season and has her 
-                  summers free to spend with her kids.
+                <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                  Sarah was tired of minimum wage and unpredictable hours. After completing tax prep training, 
+                  she started her own business from home. Now she has the flexibility and income she always wanted, 
+                  with summers free to spend with her kids.
                 </p>
-                <div className="bg-slate-50 p-5 rounded-xl mb-6">
-                  <div className="grid grid-cols-2 gap-4 text-center">
-                    <div>
-                      <div className="text-2xl font-bold text-orange-500">8 Weeks</div>
-                      <div className="text-sm text-slate-600">Training Time</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-orange-500">$60k+</div>
-                      <div className="text-sm text-slate-600">First Year Income</div>
-                    </div>
-                  </div>
-                </div>
                 <Link
                   href="/programs/tax-preparation"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition"
