@@ -19,15 +19,30 @@ const PWAInstallSection = dynamicImport(
 );
 
 export default function HomePage() {
-  const [isMuted, setIsMuted] = React.useState(true);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
+  // Attempt to play video with sound on mount
+  React.useEffect(() => {
+    const playVideo = async () => {
+      if (videoRef.current) {
+        try {
+          // Try to play with sound
+          videoRef.current.muted = false;
+          await videoRef.current.play();
+        } catch (error) {
+          // If blocked, try muted
+          try {
+            videoRef.current.muted = true;
+            await videoRef.current.play();
+          } catch (e) {
+            console.log('Video autoplay blocked');
+          }
+        }
+      }
+    };
+
+    playVideo();
+  }, []);
 
   return (
     <main className="bg-white overflow-x-hidden">
@@ -38,7 +53,6 @@ export default function HomePage() {
         <video
           ref={videoRef}
           autoPlay
-          muted
           loop
           playsInline
           preload="auto"
@@ -46,27 +60,6 @@ export default function HomePage() {
         >
           <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081095425&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=wJZrkaI9bPmzDocPutvmxgDObwlhr0K408zQfDrcdGzfsj4-XZFV5xx73m39AvX4h7M1t6tI3o~AweR5s1AL~l2Hxz3i~nh~AJQV0u4S4DcvX1BfjjIdJx51b1YUfPfUUe502kXA2fjn4kCKGm10JTlPzJI2bmLIa5qkFi7Q3e2b6oc7eOsIctMgBIpWSPIu9GawVYkkE95m2pMmOs1HZyXXMlXcF5IXlZ5XSOMwQM1PMag~yXT6YUxx5Gxx~5Z-9sW78sq8fhVB3m-ppnCZWvIZnwz0ajRnyMPOLT7vEbSJj6l2I2Umovwf9I2JFMUiXwn54VTcpjmpiusOqobrKw__" type="video/mp4" />
         </video>
-
-        {/* Unmute Button */}
-        <button
-          onClick={toggleMute}
-          className="absolute top-4 right-4 z-20 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all backdrop-blur-sm"
-          aria-label={isMuted ? "Unmute video" : "Mute video"}
-        >
-          {isMuted ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-            </svg>
-          )}
-        </button>
-        
-        {/* Dark Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
         
         {/* Hero Text Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white">
@@ -94,19 +87,30 @@ export default function HomePage() {
       </section>
 
       {/* MISSION & STORY */}
-      <section className="py-12 bg-white">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            We See Your Potential, Not Your Past
+            Real Careers. Real Fast. From Home.
           </h1>
-          <p className="text-xl text-slate-700 leading-relaxed mb-8">
-            At Elevate for Humanity, we believe everyone deserves a shot at a better future. 
-            Whether you're starting over, breaking barriers, or building something new—we're here to help you get there.
+          <p className="text-xl text-slate-700 leading-relaxed mb-6">
+            At Elevate for Humanity, we believe everyone deserves a shot at a better life—no matter where 
+            you've been or what obstacles you've faced. That's why we offer short-term career training programs 
+            you can complete from the comfort of your own home, in just weeks or months, not years.
           </p>
-          <p className="text-lg text-slate-600">
-            Through partnerships with WIOA, WRG, JRI, and registered apprenticeships, 
-            most students pay <span className="font-bold text-slate-900">nothing out of pocket</span>. 
-            No loans. No debt. Just real training and real opportunity.
+          <p className="text-xl text-slate-700 leading-relaxed mb-6">
+            Our programs are designed for real people with real lives—parents juggling kids, workers stuck in 
+            dead-end jobs, people starting over after setbacks. You don't need a college degree or perfect grades. 
+            You just need the drive to build something better.
+          </p>
+          <p className="text-lg text-slate-600 mb-8">
+            <span className="font-bold text-slate-900">Free training for those who qualify.</span> Through 
+            partnerships with WIOA, WRG, JRI, and registered apprenticeships, most of our students pay nothing 
+            out of pocket. No student loans. No debt. Just real training, real support, and a clear path to 
+            employment.
+          </p>
+          <p className="text-lg text-slate-700 italic">
+            We're not just teaching skills—we're opening doors to careers that pay well, offer stability, 
+            and give you the life you deserve.
           </p>
         </div>
       </section>
@@ -319,25 +323,16 @@ export default function HomePage() {
                   Tax & Finance
                 </div>
                 <h3 className="text-3xl font-bold text-slate-900 mb-4">
-                  "I went from working retail to running my own tax business"
+                  "I went from barely making ends meet to building my own future"
                 </h3>
-                <p className="text-lg text-slate-700 mb-4 leading-relaxed">
-                  Sarah was tired of minimum wage and unpredictable hours. After 8 weeks of tax prep training, 
-                  she started her own business from home. Now she earns $60k+ during tax season and has her 
-                  summers free to spend with her kids.
+                <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                  Sarah spent years working retail—minimum wage, unpredictable schedules, and no time for her family. 
+                  She knew there had to be something better, but didn't know where to start. Through our Tax & Finance 
+                  program, she learned everything from tax preparation to bookkeeping and financial planning. Today, 
+                  Sarah runs her own tax business from home. She sets her own hours, earns real income during tax season, 
+                  and finally has her summers free to be with her kids. "I never thought I could own a business," she says. 
+                  "But this program showed me I already had what it takes—I just needed the training and support."
                 </p>
-                <div className="bg-slate-50 p-5 rounded-xl mb-6">
-                  <div className="grid grid-cols-2 gap-4 text-center">
-                    <div>
-                      <div className="text-2xl font-bold text-orange-500">8 Weeks</div>
-                      <div className="text-sm text-slate-600">Training Time</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-orange-500">$60k+</div>
-                      <div className="text-sm text-slate-600">First Year Income</div>
-                    </div>
-                  </div>
-                </div>
                 <Link
                   href="/programs/tax-preparation"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition"
@@ -356,25 +351,17 @@ export default function HomePage() {
                   Skilled Trades
                 </div>
                 <h3 className="text-3xl font-bold text-slate-900 mb-4">
-                  "I was unemployed. Now I'm making $55k with benefits"
+                  "I went from unemployed to having companies compete for me"
                 </h3>
-                <p className="text-lg text-slate-700 mb-4 leading-relaxed">
-                  Marcus lost his job during the pandemic. He enrolled in HVAC training, got certified in 
-                  10 weeks, and landed a union job with full benefits. Companies are desperate for skilled 
-                  technicians—he had three job offers before he even finished.
+                <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                  When Marcus lost his job during the pandemic, he felt stuck. No degree, no specialized skills, 
+                  and bills piling up. A friend told him about our HVAC program, and he decided to take a chance. 
+                  The training was hands-on—real equipment, real scenarios, taught by people who'd actually worked 
+                  in the field. Within weeks, Marcus was troubleshooting systems and understanding the trade inside 
+                  and out. Before he even finished the program, three companies reached out with job offers. Today, 
+                  he works for a union shop with full benefits, steady income, and the respect that comes with being 
+                  a skilled tradesperson. "I didn't just get a job," Marcus says. "I got a career I'm proud of."
                 </p>
-                <div className="bg-slate-50 p-5 rounded-xl mb-6">
-                  <div className="grid grid-cols-2 gap-4 text-center">
-                    <div>
-                      <div className="text-2xl font-bold text-blue-500">10 Weeks</div>
-                      <div className="text-sm text-slate-600">To Certification</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-blue-500">3 Offers</div>
-                      <div className="text-sm text-slate-600">Before Graduation</div>
-                    </div>
-                  </div>
-                </div>
                 <Link
                   href="/programs/hvac"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition"
@@ -411,25 +398,18 @@ export default function HomePage() {
                   Healthcare
                 </div>
                 <h3 className="text-3xl font-bold text-slate-900 mb-4">
-                  "I wanted to help people. Now I do—and I get paid for it"
+                  "I always wanted to help people—now I wake up every day knowing I do"
                 </h3>
-                <p className="text-lg text-slate-700 mb-4 leading-relaxed">
-                  Jennifer always wanted to work in healthcare but thought she needed years of school. 
-                  She became a CNA in just 4 weeks and now works at a hospital making $18/hour with 
-                  room to grow into nursing.
+                <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                  Jennifer spent years feeling like healthcare was out of reach. She thought you needed years of 
+                  expensive schooling just to get started. When she learned about our CNA program, she was skeptical—
+                  could she really become a healthcare professional in just a few weeks? The answer was yes. The 
+                  training covered everything: patient care, medical terminology, hands-on clinical skills. Her 
+                  instructors were working nurses who understood what it takes to succeed in the field. Today, 
+                  Jennifer works at a local hospital, caring for patients and making a real difference in their lives. 
+                  She earns steady income with benefits, and she's already planning her next step toward becoming an RN. 
+                  "This isn't just a job," she says. "It's the life I was meant to live."
                 </p>
-                <div className="bg-slate-50 p-5 rounded-xl mb-6">
-                  <div className="grid grid-cols-2 gap-4 text-center">
-                    <div>
-                      <div className="text-2xl font-bold text-green-500">4 Weeks</div>
-                      <div className="text-sm text-slate-600">To CNA License</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-bold text-green-500">$18/hr</div>
-                      <div className="text-sm text-slate-600">Starting Pay</div>
-                    </div>
-                  </div>
-                </div>
                 <Link
                   href="/programs/cna"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white font-bold text-lg rounded-lg hover:bg-green-700 transition"
