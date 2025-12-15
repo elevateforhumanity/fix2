@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import HeroVideo from '@/components/home/HeroVideo';
+import FullWidthHeroVideo from '@/components/home/FullWidthHeroVideo';
 import PrimaryCtas from '@/components/home/PrimaryCtas';
 
 export default function HomePage() {
@@ -10,22 +10,7 @@ export default function HomePage() {
       <section className="px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 pb-6 sm:pb-10">
         <div className="mx-auto max-w-7xl">
           <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-zinc-200 bg-black mb-8">
-            <video
-              autoPlay
-              loop
-              playsInline
-              controls
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              <source
-                src="/videos/hero-video-with-audio.mp4"
-                type="video/mp4"
-              />
-              <track kind="metadata" src="/videos/voiceover.mp3" />
-            </video>
-            <audio autoPlay loop>
-              <source src="/videos/voiceover.mp3" type="audio/mpeg" />
-            </audio>
+            <FullWidthHeroVideo />
           </div>
 
           <div className="text-center max-w-4xl mx-auto">
