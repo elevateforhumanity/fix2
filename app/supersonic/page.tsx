@@ -1,6 +1,12 @@
 import { Metadata } from 'next';
+
+export const dynamic = 'force-dynamic';
 import Image from 'next/image';
+
+export const dynamic = 'force-dynamic';
 import Link from 'next/link';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title:

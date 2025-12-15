@@ -3,6 +3,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/onboarding/school",

@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
+
+export const dynamic = 'force-dynamic';
   ExternalLink,
   CheckCircle,
   Clock,

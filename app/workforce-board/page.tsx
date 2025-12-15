@@ -1,8 +1,18 @@
 import { Metadata } from 'next';
+
+export const dynamic = 'force-dynamic';
 import Link from 'next/link';
+
+export const dynamic = 'force-dynamic';
 import { Users, TrendingUp, FileText, Calendar, Award, Briefcase } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 import { createClient } from '@/lib/supabase/server';
+
+export const dynamic = 'force-dynamic';
 import { redirect } from 'next/navigation';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   alternates: {

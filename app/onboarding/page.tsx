@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Users, Building2, GraduationCap, CheckCircle, ArrowRight } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.elevateforhumanity.org/onboarding",
