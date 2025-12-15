@@ -1,9 +1,41 @@
 'use client';
 
 import Image from 'next/image';
+import { useEffect, useRef } from 'react';
 import type { Program } from '@/app/data/programs';
 
 export function ProgramHero({ program }: { program: Program }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  // Attempt to play video and audio with sound on mount
+  useEffect(() => {
+    const playMedia = async () => {
+      try {
+        // Try to play video with sound
+        if (videoRef.current) {
+          videoRef.current.muted = false;
+          await videoRef.current.play();
+        }
+        // Try to play voiceover
+        if (audioRef.current) {
+          await audioRef.current.play();
+        }
+      } catch (error) {
+        // If blocked, try muted
+        try {
+          if (videoRef.current) {
+            videoRef.current.muted = true;
+            await videoRef.current.play();
+          }
+        } catch (e) {
+          console.log('Autoplay blocked');
+        }
+      }
+    };
+
+    playMedia();
+  }, []);
   const isBarberProgram = program.slug === 'barber-apprenticeship';
   const isHVACProgram = program.slug === 'hvac-technician';
   const isCDLProgram = program.slug === 'cdl';
@@ -44,9 +76,9 @@ export function ProgramHero({ program }: { program: Program }) {
           {hasVideo ? (
             <>
               <video
+                ref={videoRef}
                 autoPlay
                 loop
-                muted
                 playsInline
                 preload="auto"
                 className="absolute inset-0 w-full h-full object-cover"
@@ -56,14 +88,13 @@ export function ProgramHero({ program }: { program: Program }) {
                   type="video/mp4"
                 />
               </video>
-              {isBarberProgram && (
-                <audio
-                  autoPlay
-                  loop
-                  src="/videos/barber-voiceover.mp3"
-                  className="hidden"
-                />
-              )}
+              <audio
+                ref={audioRef}
+                autoPlay
+                loop
+                src="/videos/voiceover.mp3"
+                className="hidden"
+              />
             </>
           ) : (
             <Image
