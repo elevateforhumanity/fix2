@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useState } from 'react';
 import VideoUploader from '@/components/admin/VideoUploader';
 import { Video, Copy, Check } from 'lucide-react';
