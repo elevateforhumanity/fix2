@@ -104,9 +104,9 @@ export default function HomePage() {
       </section>
 
       {/* FEATURED PROGRAMS */}
-      <section className="py-12 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
+      <section className="py-16 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
               Real Skills. Real Careers. Real Fast.
             </h2>
@@ -118,7 +118,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-40 overflow-hidden bg-slate-100">
+                <div className="relative h-64 md:h-80 overflow-hidden bg-slate-100">
                   <video
                     autoPlay
                     muted
@@ -131,15 +131,30 @@ export default function HomePage() {
                   {/* Dark overlay for better text contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <div className="p-5">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-500 transition">
                     Barber Apprenticeship
                   </h3>
-                  <p className="text-sm text-slate-600 mb-4">
-                    Work in a real barbershop. Get paid while you train. Build your clientele. 
-                    Own your chair or open your own shop. 12-18 months.
+                  <p className="text-base text-slate-700 mb-4 leading-relaxed">
+                    Get paid while you learn. Work in a real barbershop from day one, building your skills and your clientele. 
+                    Master cutting, styling, and customer service. Graduate ready to rent your own chair, work in a top shop, 
+                    or open your own business. 12-18 months to a career with unlimited earning potential.
                   </p>
-                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-extrabold text-lg rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all tracking-wide antialiased">
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start gap-2 text-sm text-slate-600">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Earn while you learn - get paid from day one</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-slate-600">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Build your clientele during training</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-slate-600">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Own your chair or start your own shop</span>
+                    </li>
+                  </ul>
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all">
                     Learn More →
                   </div>
                 </div>
@@ -148,7 +163,7 @@ export default function HomePage() {
 
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-40 overflow-hidden bg-teal-100">
+                <div className="relative h-64 md:h-80 overflow-hidden bg-teal-100">
                   <video
                     autoPlay
                     muted
@@ -160,15 +175,30 @@ export default function HomePage() {
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <div className="p-5">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-500 transition">
                     CNA Healthcare
                   </h3>
-                  <p className="text-sm text-slate-600 mb-4">
-                    Get certified fast. Work in hospitals, nursing homes, or home health. 
-                    Stable income, flexible schedules, room to grow. 4-8 weeks.
+                  <p className="text-base text-slate-700 mb-4 leading-relaxed">
+                    Start your healthcare career in just 4-8 weeks. Learn patient care, medical terminology, and clinical skills 
+                    from experienced nurses. Work in hospitals, nursing homes, assisted living, or home health. Enjoy stable income, 
+                    flexible schedules, and clear paths to advancement. Many CNAs go on to become LPNs or RNs.
                   </p>
-                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-extrabold text-lg rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all tracking-wide antialiased">
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start gap-2 text-sm text-slate-600">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Get certified in 4-8 weeks</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-slate-600">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Flexible schedules and stable income</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-slate-600">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Clear path to LPN or RN advancement</span>
+                    </li>
+                  </ul>
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all">
                     Learn More →
                   </div>
                 </div>
@@ -177,7 +207,7 @@ export default function HomePage() {
 
             <Link href="/programs/hvac-technician" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
-                <div className="relative h-40 overflow-hidden bg-slate-100">
+                <div className="relative h-64 md:h-80 overflow-hidden bg-slate-100">
                   <video
                     autoPlay
                     muted
@@ -189,15 +219,30 @@ export default function HomePage() {
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <div className="p-5">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-orange-500 transition">
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-500 transition">
                     HVAC Technician
                   </h3>
-                  <p className="text-sm text-slate-600 mb-4">
-                    Learn heating, cooling, and refrigeration. High demand, good pay, job security. 
-                    Start your own business or work for a company. 8-12 weeks.
+                  <p className="text-base text-slate-700 mb-4 leading-relaxed">
+                    Master heating, cooling, and refrigeration systems in 8-12 weeks. Learn installation, maintenance, and repair 
+                    from industry professionals. HVAC technicians are in high demand everywhere—companies are desperate for skilled workers. 
+                    Start your own business or work for an established company with excellent pay and benefits.
                   </p>
-                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-extrabold text-lg rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all tracking-wide antialiased">
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start gap-2 text-sm text-slate-600">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>High demand - companies need you now</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-slate-600">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Excellent pay and job security</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-slate-600">
+                      <span className="text-orange-500 font-bold">✓</span>
+                      <span>Start your own business or work for a company</span>
+                    </li>
+                  </ul>
+                  <div className="inline-flex items-center gap-2 px-6 py-3 bg-orange-600 text-white font-bold text-base rounded-lg shadow-lg hover:bg-orange-700 hover:shadow-xl transition-all">
                     Learn More →
                   </div>
                 </div>

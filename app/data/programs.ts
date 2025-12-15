@@ -33,9 +33,9 @@ export const programs: Program[] = [
     name: 'HVAC Technician',
     heroTitle: 'HVAC Technician Career Training',
     heroSubtitle:
-      'A hands-on HVAC training program that prepares you for real work in residential and light commercial heating, cooling, and refrigeration.',
+      'Master heating, cooling, and refrigeration in 16-24 weeks. HVAC technicians are in high demand everywhere—companies need skilled workers now. Get hands-on training with real equipment and graduate ready for a career with excellent pay and job security.',
     shortDescription:
-      'A hands-on HVAC training program that prepares you for real work in residential and light commercial heating, cooling, and refrigeration.',
+      'Master heating, cooling, and refrigeration in 16-24 weeks. HVAC technicians are in high demand everywhere—companies need skilled workers now. Get hands-on training with real equipment and graduate ready for a career with excellent pay and job security.',
     longDescription: `The HVAC Technician program is designed for individuals who enjoy working with their hands, solving problems, and building technical skill. This program teaches students how to diagnose, repair, and maintain HVAC systems while understanding safety, electrical fundamentals, and customer service. You will complete online theory and hands-on lab practice, giving you the confidence to enter the field ready to work. This pathway leads to in-demand roles, with strong long-term career growth.
 
 What You'll Learn:
@@ -81,10 +81,12 @@ Career Outcomes:
       'Employer OJT/sponsorship options may apply',
     ],
     highlights: [
-      'Hands-on labs with real HVAC equipment',
-      'Preparation for EPA 608 certification exam',
-      'Career coaching and job search support',
-      'Pathways to apprenticeship and on-the-job training',
+      'High demand - companies are desperate for skilled HVAC technicians',
+      'Excellent pay and benefits - start at $40-50k, experienced techs earn $60-80k+',
+      'Hands-on training with real HVAC equipment and systems',
+      'EPA 608 certification prep included - required for working with refrigerants',
+      'Job security - HVAC systems need maintenance and repair year-round',
+      'Start your own business or work for an established company',
     ],
     whatYouLearn: [
       'HVAC system components and operation',
@@ -374,9 +376,9 @@ Ready to start?`,
     name: 'Certified Nursing Assistant (CNA)',
     heroTitle: 'CNA — Certified Nursing Assistant',
     heroSubtitle:
-      'Fast-track CNA training that prepares you for entry-level roles in long-term care, hospitals, and home health.',
+      'Start your healthcare career in just 4-8 weeks. Learn patient care from experienced nurses and get certified to work in hospitals, nursing homes, assisted living, or home health. Enjoy stable income, flexible schedules, and a clear path to becoming an LPN or RN.',
     shortDescription:
-      'Fast-track CNA training that prepares you for entry-level roles in long-term care, hospitals, and home health.',
+      'Start your healthcare career in just 4-8 weeks. Learn patient care from experienced nurses and get certified to work in hospitals, nursing homes, assisted living, or home health. Enjoy stable income, flexible schedules, and a clear path to becoming an LPN or RN.',
     longDescription: `The CNA program provides foundational patient care training through structured instruction and supported clinical experiences. Students learn essential caregiving skills, communication, infection prevention, and daily living support. This program is ideal whether you are starting a healthcare career, returning to the workforce, or preparing for advanced roles such as QMA, LPN, or RN.
 
 What You'll Learn:
@@ -421,10 +423,12 @@ Career Outcomes:
       'Workforce funding may be available',
     ],
     highlights: [
-      'Small class sizes and supportive instructors',
-      'Hands-on skills practice before clinicals',
-      'Job placement support with local healthcare partners',
-      'Stepping stone to QMA, LPN, and RN pathways',
+      'Get certified in just 4-8 weeks - fastest path to healthcare',
+      'Stable income and flexible schedules - work the hours that fit your life',
+      'High demand - healthcare facilities are always hiring CNAs',
+      'Clear advancement path - many CNAs become LPNs or RNs',
+      'Hands-on clinical experience with real patients',
+      'Job placement support with local hospitals and care facilities',
     ],
     whatYouLearn: [
       'Vital signs and patient monitoring',
