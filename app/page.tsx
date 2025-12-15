@@ -32,7 +32,7 @@ export default function HomePage() {
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/videos/hero-home.mp4" type="video/mp4" />
+          <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081095425&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=wJZrkaI9bPmzDocPutvmxgDObwlhr0K408zQfDrcdGzfsj4-XZFV5xx73m39AvX4h7M1t6tI3o~AweR5s1AL~l2Hxz3i~nh~AJQV0u4S4DcvX1BfjjIdJx51b1YUfPfUUe502kXA2fjn4kCKGm10JTlPzJI2bmLIa5qkFi7Q3e2b6oc7eOsIctMgBIpWSPIu9GawVYkkE95m2pMmOs1HZyXXMlXcF5IXlZ5XSOMwQM1PMag~yXT6YUxx5Gxx~5Z-9sW78sq8fhVB3m-ppnCZWvIZnwz0ajRnyMPOLT7vEbSJj6l2I2Umovwf9I2JFMUiXwn54VTcpjmpiusOqobrKw__" type="video/mp4" />
         </video>
 
         {/* Unmute Button */}
@@ -59,7 +59,7 @@ export default function HomePage() {
         {/* Hero Text Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center text-white">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg">
-            Transform Your Future
+            It's Not Graduation, It's Elevation
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl mb-8 drop-shadow-lg">
             Free Career Training • Real Jobs • No Debt
@@ -91,24 +91,6 @@ export default function HomePage() {
             At Elevate for Humanity, we believe everyone deserves a shot at a better future. 
             Whether you're starting over, breaking barriers, or building something new—we're here to help you get there.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
-            <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">100%</div>
-              <div className="text-sm text-slate-600">Free Training</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">4-12</div>
-              <div className="text-sm text-slate-600">Weeks</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">$0</div>
-              <div className="text-sm text-slate-600">Debt</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-500 mb-2">Real</div>
-              <div className="text-sm text-slate-600">Jobs Waiting</div>
-            </div>
-          </div>
           <p className="text-lg text-slate-600">
             Through partnerships with WIOA, WRG, JRI, and registered apprenticeships, 
             most students pay <span className="font-bold text-slate-900">nothing out of pocket</span>. 
@@ -133,13 +115,15 @@ export default function HomePage() {
             <Link href="/programs/barber-apprenticeship" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden bg-slate-100">
-                  <Image
-                    src="/images/barber-professional.jpg"
-                    alt="Barber Apprenticeship"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    priority
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  >
+                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-570a7e55-792e-4ad3-bbd1-72ca89a61f2d.mp4?Expires=2081095426&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=O83IqG0r8dbMOyLHw8LVHa18JGjLwgnKmLPKL3me1H50K-ggwPoUB2KDX-7hUegt8jWpsQwNwnPd11xBUC-r05B~WCUUnUAf7dg~jN5f-o8IrS~ZfFJUitB6k35pOdipzeinpXe1wGieq-27GNJZgVHiAQRrGYGduuZ7iKmu93ujZNJSx-DEhiP255esVtvIiSCVYsR-t32~QyGosAMO7I17xeUs5LiMEjqDHljuq2L1letGmD4q2CosqToNFSFcPuvd4owNBMj9VQcaLb0AJ6mDgpuuDuCAfRWTznw4vp6fkUYxCXa3~kulDSi58QbwpOww3NXM0b6NaYcO~zu1EQ__" type="video/mp4" />
+                  </video>
                   {/* Dark overlay for better text contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -161,13 +145,15 @@ export default function HomePage() {
             <Link href="/programs/cna" className="group">
               <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition">
                 <div className="relative h-48 overflow-hidden bg-teal-100">
-                  <Image
-                    src="/images/healthcare/cna-poster.jpg"
-                    alt="CNA Healthcare"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    priority
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  >
+                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__8/generated-video-2a104343-e6a7-4bd8-88c8-367de1f111b5.mp4?Expires=2081095426&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=jLomOFu1gmLeArJIwD6os67ks1evH1p5TcFkDz-YJNodYobGuYPJriIwkeuEoLTnYoPRk5mt55rqPqvvZzkCED3b1hQbPyWrw~GCuDQ~y~zMkAjWDCb2zWSSLnoyAJrvfGCO45S5tYvhkYZvVjWk3nft8vNHVKeJIF2Odv4JJSRH4MzO8EPZbaRXTaIDqj0eX0DCA8EpfcGRQTuqGERMuUnOGS50vQKYhYNsWEsFlfpVtYqYf3wtS6aaOGsfwFOtBpVBHZqfFfFTix8QMB3lxMQ5f9SG6nnjXHCCDkT6ZZfVSEBWm9K7IChIkr0vPrrr6kaOcRw~B~3sVAjFBwjBSw__" type="video/mp4" />
+                  </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="p-5">
