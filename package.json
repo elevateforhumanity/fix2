@@ -212,7 +212,7 @@
     "supabase:test": "tsx scripts/test-supabase-connection.ts",
     "make:images": "python3 tools/make_brand_images.py",
     "make:logo": "python3 tools/make_logo_assets.py",
-    "prebuild": "node vercel-check.mjs",
+    "prebuild": "node vercel-check.mjs && node scripts/run-migrations-vercel.mjs",
     "build": "NODE_OPTIONS=--max-old-space-size=4096 next build",
     "postbuild": "echo 'Next.js build complete'",
     "verify:build": "bash scripts/verify-build.sh || true",
