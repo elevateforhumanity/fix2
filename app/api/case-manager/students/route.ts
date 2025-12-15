@@ -40,7 +40,7 @@ export async function GET() {
       .eq("role", "student");
 
     if (error) {
-      console.error("Get students error:", error);
+      // Error: $1
       return NextResponse.json(
         { error: "Failed to load students" },
         { status: 500 }
@@ -92,7 +92,7 @@ export async function GET() {
 
     return NextResponse.json({ students: studentsWithData });
   } catch (error: any) {
-    console.error("Case manager students error:", error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || "Failed to load students" },
       { status: 500 }

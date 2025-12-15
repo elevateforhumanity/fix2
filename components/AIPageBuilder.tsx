@@ -56,7 +56,7 @@ export default function AIPageBuilder() {
         setTemplates(data.templates);
       }
     } catch (error) {
-      console.error('Failed to load templates:', error);
+      // Error: $1
     }
   }
 
@@ -91,7 +91,7 @@ export default function AIPageBuilder() {
         alert('Failed to generate page: ' + data.error);
       }
     } catch (error) {
-      console.error('Generation error:', error);
+      // Error: $1
       alert('Failed to generate page');
     } finally {
       setLoading(false);
@@ -135,7 +135,7 @@ export default function AIPageBuilder() {
       setPageSlug('');
       setDescription('');
     } catch (error: unknown) {
-      console.error('Save error:', error);
+      // Error: $1
       alert('Failed to save page: ' + error.message);
     } finally {
       setSaving(false);
@@ -161,7 +161,7 @@ export default function AIPageBuilder() {
 
       alert('Page published successfully!');
     } catch (error: unknown) {
-      console.error('Publish error:', error);
+      // Error: $1
       alert('Failed to publish page: ' + error.message);
     }
   }

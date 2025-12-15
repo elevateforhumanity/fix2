@@ -23,7 +23,7 @@ export class SMSService {
       // :', notification);
       return true;
     } catch (error) {
-      console.error('SMS send error:', error);
+      // Error: $1
       return false;
     }
   }

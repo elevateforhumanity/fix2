@@ -46,7 +46,7 @@ export default function ReferralDashboard({ userId }: ReferralDashboardProps) {
       const referralsData = await referralsRes.json();
       setReferrals(referralsData.referrals || []);
     } catch (error) {
-      console.error('Failed to fetch referral data:', error);
+      // Error: $1
     } finally {
       setLoading(false);
     }
@@ -70,7 +70,7 @@ export default function ReferralDashboard({ userId }: ReferralDashboardProps) {
           url: shareUrl,
         });
       } catch (error) {
-        console.error('Share failed:', error);
+        // Error: $1
       }
     } else {
       navigator.clipboard.writeText(shareUrl);

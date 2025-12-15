@@ -12,7 +12,7 @@ export function ServiceWorkerInit() {
         }
       })
       .catch((error) => {
-        console.error('Service Worker initialization failed:', error);
+        // Error: $1
       });
     // Setup offline sync
     setupOfflineSync();

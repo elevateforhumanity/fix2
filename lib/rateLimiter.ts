@@ -23,7 +23,7 @@ async function getRedis() {
       });
       
       redisClient.on('error', (err) => {
-        console.error('Redis error:', err);
+        // Error: $1
         redisAvailable = false;
       });
       
@@ -33,7 +33,7 @@ async function getRedis() {
       
       await redisClient.connect();
     } catch (error) {
-      console.error('Failed to connect to Redis:', error);
+      // Error: $1
       redisClient = null;
       redisAvailable = false;
       return null;
@@ -113,7 +113,7 @@ export async function rateLimit(
 
       return null;
     } catch (error) {
-      console.error('Redis rate limit error:', error);
+      // Error: $1
       // Fall through to memory-based rate limiting
     }
   }
@@ -168,7 +168,7 @@ export async function cacheGet<T>(key: string): Promise<T | null> {
     const value = await client.get(key);
     return value ? JSON.parse(value as string) : null;
   } catch (error) {
-    console.error('Cache get error:', error);
+    // Error: $1
     return null;
   }
 }
@@ -184,7 +184,7 @@ export async function cacheSet(
   try {
     await client.set(key, JSON.stringify(value), { EX: ttlSeconds });
   } catch (error) {
-    console.error('Cache set error:', error);
+    // Error: $1
   }
 }
 
@@ -195,7 +195,7 @@ export async function cacheDel(key: string): Promise<void> {
   try {
     await client.del(key);
   } catch (error) {
-    console.error('Cache delete error:', error);
+    // Error: $1
   }
 }
 

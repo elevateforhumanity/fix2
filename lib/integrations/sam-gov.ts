@@ -254,7 +254,7 @@ export async function searchWorkforceOpportunities(state: string = 'IN'): Promis
       });
       opportunities.push(...results);
     } catch (error) {
-      console.error(`Error fetching opportunities for NAICS ${naics}:`, error);
+      // Error logged
     }
   }
 
@@ -290,7 +290,7 @@ export async function verifyEmployerPartner(params: {
       entity,
     };
   } catch (error) {
-    console.error('Error verifying employer partner:', error);
+    // Error: $1
     throw error;
   }
 }

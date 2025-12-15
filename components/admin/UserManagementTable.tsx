@@ -53,7 +53,7 @@ export default function UserManagementTable({ users }: Props) {
         window.location.reload();
       }
     } catch (error) {
-      console.error('Error updating role:', error);
+      // Error: $1
     }
   };
 
@@ -71,7 +71,7 @@ export default function UserManagementTable({ users }: Props) {
         window.location.reload();
       }
     } catch (error) {
-      console.error('Error updating status:', error);
+      // Error: $1
     }
   };
 

@@ -32,11 +32,11 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 }> {
   const results: TestResult[] = [];
   
-  console.log('🤖 Autopilot: Testing Enrollment Flow');
-  console.log('=====================================');
+
+
   console.log(`Student: ${config.studentEmail}`);
   console.log(`Program: ${config.programSlug}`);
-  console.log('');
+
 
   // Initialize Supabase client
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -59,7 +59,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
 
   // STEP 1: Create or get test student
   try {
-    console.log('📝 Step 1: Create/Get Test Student');
+
     
     // Try to sign in first
     const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
@@ -105,7 +105,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
     }
 
     // STEP 2: Get program details
-    console.log('📚 Step 2: Get Program Details');
+
     
     const { data: program, error: programError } = await supabase
       .from('programs')
@@ -125,7 +125,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
     });
 
     // STEP 3: Create enrollment
-    console.log('🎓 Step 3: Create Enrollment');
+
     
     const { data: existingEnrollment } = await supabase
       .from('enrollments')
@@ -184,7 +184,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
     }
 
     // STEP 4: Check AI instructor exists for program
-    console.log('🤖 Step 4: Check AI Instructor');
+
     
     const { data: instructor, error: instructorError } = await supabase
       .from('ai_instructors')
@@ -213,7 +213,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
     }
 
     // STEP 5: Assign AI instructor
-    console.log('👨‍🏫 Step 5: Assign AI Instructor');
+
     
     if (instructor) {
       const { data: existingAssignment } = await supabase
@@ -267,7 +267,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
     }
 
     // STEP 6: Verify assignment
-    console.log('✅ Step 6: Verify Assignment');
+
     
     const { data: verifyAssignment } = await supabase
       .from('ai_instructor_assignments')
@@ -299,7 +299,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
     }
 
     // STEP 7: Test chat conversation creation
-    console.log('💬 Step 7: Test Chat Conversation');
+
     
     if (instructor) {
       const { data: conversation, error: convError } = await supabase
@@ -358,7 +358,7 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
     }
 
     // STEP 8: Check audit log
-    console.log('📋 Step 8: Check Audit Log');
+
     
     const { data: auditLogs, error: auditError } = await supabase
       .from('ai_audit_log')
@@ -403,16 +403,15 @@ export async function testEnrollmentFlow(config: EnrollmentTestConfig): Promise<
   const success = summary.failed === 0 && summary.passed > 0;
 
   // Print summary
-  console.log('');
-  console.log('📊 Test Summary');
-  console.log('=====================================');
+
+
   console.log(`Total Steps: ${summary.total}`);
   console.log(`✅ Passed: ${summary.passed}`);
   console.log(`❌ Failed: ${summary.failed}`);
   console.log(`⏭️  Skipped: ${summary.skipped}`);
-  console.log('');
+
   console.log(success ? '✅ ALL TESTS PASSED' : '❌ SOME TESTS FAILED');
-  console.log('');
+
 
   return { success, results, summary };
 }
@@ -428,9 +427,8 @@ if (require.main === module) {
 
   testEnrollmentFlow(config)
     .then(result => {
-      console.log('');
-      console.log('📝 Detailed Results:');
-      console.log('=====================================');
+
+
       result.results.forEach((r, i) => {
         const icon = r.status === 'success' ? '✅' : r.status === 'failed' ? '❌' : '⏭️';
         console.log(`${icon} ${i + 1}. ${r.step}: ${r.message}`);
@@ -445,7 +443,7 @@ if (require.main === module) {
       process.exit(result.success ? 0 : 1);
     })
     .catch(error => {
-      console.error('❌ Autopilot failed:', error);
+      // Error: $1
       process.exit(1);
     });
 }

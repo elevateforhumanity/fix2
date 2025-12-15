@@ -75,7 +75,7 @@ export function DocumentEditor({
       setCollaborators(doc.collaborators || []);
       setComments(doc.comments || []);
     } catch (error) {
-      console.error('Failed to load document:', error);
+      // Error: $1
     }
   };
   const saveDocument = async () => {
@@ -90,7 +90,7 @@ export function DocumentEditor({
       });
       setLastSaved(new Date());
     } catch (error) {
-      console.error('Failed to save document:', error);
+      // Error: $1
     } finally {
       setIsSaving(false);
     }
@@ -125,7 +125,7 @@ export function DocumentEditor({
       a.download = `document.${format}`;
       a.click();
     } catch (error) {
-      console.error('Failed to export:', error);
+      // Error: $1
     }
   };
   return (

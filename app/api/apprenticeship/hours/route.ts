@@ -33,7 +33,7 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      console.error("Hour logging error:", error);
+      // Error: $1
       return NextResponse.json(
         { error: "Failed to log hours" },
         { status: 500 }
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error("Hour logging error:", error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || "Failed to log hours" },
       { status: 500 }
@@ -69,7 +69,7 @@ export async function GET(req: Request) {
       .order("date_worked", { ascending: false });
 
     if (error) {
-      console.error("Get hours error:", error);
+      // Error: $1
       return NextResponse.json(
         { error: "Failed to load hours" },
         { status: 500 }
@@ -92,7 +92,7 @@ export async function GET(req: Request) {
       },
     });
   } catch (error: any) {
-    console.error("Get hours error:", error);
+    // Error: $1
     return NextResponse.json(
       { error: "Failed to load hours" },
       { status: 500 }

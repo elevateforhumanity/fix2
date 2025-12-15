@@ -66,7 +66,7 @@ export default function ReportContentButton({
         alert('Failed to submit report. Please try again.');
       }
     } catch (error) {
-      console.error('Report submission error:', error);
+      // Error: $1
       alert('Failed to submit report. Please try again.');
     } finally {
       setIsSubmitting(false);

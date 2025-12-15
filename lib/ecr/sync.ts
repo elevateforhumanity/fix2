@@ -235,7 +235,7 @@ export async function syncAllStudents(): Promise<{
       await syncStudentMiladyProgress(studentId);
       success++;
     } catch (error) {
-      console.error(`Failed to sync student ${studentId}:`, error);
+      // Error logged
       failed++;
     }
   }

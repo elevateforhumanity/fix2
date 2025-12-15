@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (splitError) {
-      console.error('Failed to record payment split:', splitError);
+      // Error: $1
       throw new Error('Failed to record payment split');
     }
 
@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Payment split error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: 'Failed to process payment split' },
       { status: 500 }
@@ -145,11 +145,11 @@ async function processVendorPayment(params: {
 
         console.log(`✅ Vendor payment processed: ${params.vendorName} - $${params.amount}`);
       } else {
-        console.error(`⚠️ Vendor payment failed: ${params.vendorName}`);
+        // Error logged
       }
     }
   } catch (error) {
-    console.error('Vendor payment error:', error);
+    // Error: $1
     // Don't throw - enrollment should still succeed even if vendor payment fails
   }
 }

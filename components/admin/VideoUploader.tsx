@@ -62,7 +62,7 @@ export default function VideoUploader({
       }
 
     } catch (err: unknown) {
-      console.error('Upload error:', err);
+      // Error: $1
       setError(err.message || 'Failed to upload video');
     } finally {
       setUploading(false);

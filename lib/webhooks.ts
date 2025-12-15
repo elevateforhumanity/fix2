@@ -256,7 +256,7 @@ async function deliverWebhook(
     .single();
 
   if (deliveryError) {
-    console.error('Failed to create delivery record:', deliveryError);
+    // Error: $1
     return;
   }
 
@@ -299,7 +299,7 @@ async function deliverWebhook(
       throw new Error(`Webhook delivery failed with status ${response.status}`);
     }
   } catch (error) {
-    console.error('Webhook delivery error:', error);
+    // Error: $1
 
     // Update delivery record with error
     await supabase

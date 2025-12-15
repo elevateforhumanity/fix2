@@ -34,7 +34,7 @@ export function getStripePublishableKey(): string | null {
   
   if (!publishableKey) {
     if (process.env.NODE_ENV === 'production') {
-      console.error('❌ NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY not set');
+      // Error logged
     }
     return null;
   }

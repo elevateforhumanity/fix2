@@ -36,7 +36,7 @@ export function CalendarWidget({ userId }: CalendarWidgetProps) {
         setEvents(data.events || []);
       }
     } catch (error) {
-      console.error('Error loading events:', error);
+      // Error: $1
     } finally {
       setLoading(false);
     }

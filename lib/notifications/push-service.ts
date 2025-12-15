@@ -56,7 +56,7 @@ export class PushNotificationService {
       if (error.statusCode === 410 || error.statusCode === 404) {
         await this.removeSubscription(subscription.endpoint);
       } else {
-        console.error('[Push] Send error:', error);
+        // Error: $1
       }
       return false;
     }
@@ -110,12 +110,12 @@ export class PushNotificationService {
         .select('*')
         .eq('user_id', userId);
       if (error) {
-        console.error('[Push] Database error:', error);
+        // Error: $1
         return [];
       }
       return data || [];
     } catch (error) {
-      console.error('[Push] Get subscriptions error:', error);
+      // Error: $1
       return [];
     }
   }
@@ -129,12 +129,12 @@ export class PushNotificationService {
         .from('push_subscriptions')
         .select('*');
       if (error) {
-        console.error('[Push] Database error:', error);
+        // Error: $1
         return [];
       }
       return data || [];
     } catch (error) {
-      console.error('[Push] Get all subscriptions error:', error);
+      // Error: $1
       return [];
     }
   }
@@ -149,7 +149,7 @@ export class PushNotificationService {
         .delete()
         .eq('endpoint', endpoint);
     } catch (error) {
-      console.error('[Push] Remove subscription error:', error);
+      // Error: $1
     }
   }
   /**

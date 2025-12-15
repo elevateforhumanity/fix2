@@ -189,7 +189,7 @@ export async function checkEntityEligibility(
       checkedAt: new Date(),
     };
   } catch (error) {
-    console.error('Error checking entity eligibility:', error);
+    // Error: $1
     issues.push(`SAM.gov API error: ${(error as Error).message}`);
 
     return {

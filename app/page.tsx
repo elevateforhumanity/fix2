@@ -35,7 +35,7 @@ export default function HomePage() {
             videoRef.current.muted = true;
             await videoRef.current.play();
           } catch (e) {
-            console.log('Video autoplay blocked');
+
           }
         }
       }
@@ -226,7 +226,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
 
 
       {/* WHO WE SERVE */}

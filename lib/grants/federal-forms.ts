@@ -273,7 +273,7 @@ export async function generateSF424(
     try {
       samData = await getEntityByUEI(entity.uei);
     } catch (error) {
-      console.error('Error fetching SAM data:', error);
+      // Error: $1
     }
   }
 

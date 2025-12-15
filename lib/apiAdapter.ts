@@ -54,7 +54,7 @@ const supabaseApiAdapter: ApiAdapter = {
       .order("name", { ascending: true });
 
     if (error) {
-      console.error("[EFH API] listPrograms supabase error:", error);
+      // Error: $1
       return [];
     }
     return (data || []) as ProgramRecord[];
@@ -69,7 +69,7 @@ const supabaseApiAdapter: ApiAdapter = {
       .maybeSingle();
 
     if (error) {
-      console.error("[EFH API] getProgramBySlug supabase error:", error);
+      // Error: $1
       return null;
     }
     return (data as ProgramRecord) || null;
@@ -95,7 +95,7 @@ const externalRestApiAdapter: ApiAdapter = {
       const data = await res.json();
       return data as ProgramRecord[];
     } catch (err) {
-      console.error("[EFH API] listPrograms external-rest error:", err);
+      // Error: $1
       return [];
     }
   },
@@ -119,7 +119,7 @@ const externalRestApiAdapter: ApiAdapter = {
       const data = await res.json();
       return data as ProgramRecord;
     } catch (err) {
-      console.error("[EFH API] getProgramBySlug external-rest error:", err);
+      // Error: $1
       return null;
     }
   }

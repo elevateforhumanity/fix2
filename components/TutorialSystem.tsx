@@ -42,7 +42,7 @@ export function TutorialSystem({
           }
         }
       } catch (error) {
-        console.error('Failed to load progress:', error);
+        // Error: $1
       }
     }
     loadProgress();
@@ -62,7 +62,7 @@ export function TutorialSystem({
         }),
       });
     } catch (error) {
-      console.error('Failed to update progress:', error);
+      // Error: $1
     }
     
     setCompletedSteps([...completedSteps, currentStep.id]);
@@ -78,7 +78,7 @@ export function TutorialSystem({
           }),
         });
       } catch (error) {
-        console.error('Failed to complete tutorial:', error);
+        // Error: $1
       }
       setIsVisible(false);
       onComplete?.();

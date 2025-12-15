@@ -19,7 +19,7 @@ export async function provisionEnrollmentFromStripe(args: {
   const { programId, studentId, paymentMode, stripeRefId } = args;
   const program = getProgramById(programId);
   if (!program) {
-    console.error("Program not found:", programId);
+    // Error: $1
     return undefined;
   }
 
@@ -51,7 +51,7 @@ export async function provisionEnrollmentFromStripe(args: {
       .insert(seatOrders);
 
     if (error) {
-      console.error("Error creating seat orders:", error);
+      // Error: $1
     }
   }
 

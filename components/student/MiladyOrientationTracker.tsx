@@ -23,7 +23,7 @@ export function MiladyOrientationTracker({
         });
         setMarked(true);
       } catch (error) {
-        console.error('Failed to mark Milady orientation:', error);
+        // Error: $1
       }
     };
 

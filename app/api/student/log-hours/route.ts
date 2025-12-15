@@ -31,7 +31,7 @@ export async function POST(request: Request) {
       .single();
 
     if (error) {
-      console.error('Error logging hours:', error);
+      // Error: $1
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, data });
   } catch (error) {
-    console.error('Error in log-hours API:', error);
+    // Error: $1
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

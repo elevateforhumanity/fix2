@@ -43,7 +43,7 @@ export class PushService {
       }
       return false;
     } catch (error) {
-      console.error('Push notification error:', error);
+      // Error: $1
       return false;
     }
   }

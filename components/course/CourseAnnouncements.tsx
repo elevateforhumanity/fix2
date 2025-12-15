@@ -21,7 +21,7 @@ export function CourseAnnouncements({ courseId }: { courseId: string }) {
         const json = await res.json();
         setItems(json.announcements || []);
       } catch (e) {
-        console.error(e);
+        // Error logged
       } finally {
         setLoading(false);
       }

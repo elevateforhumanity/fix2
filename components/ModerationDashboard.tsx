@@ -48,7 +48,7 @@ export default function ModerationDashboard() {
       const data = await response.json();
       setReports(data.reports || []);
     } catch (error) {
-      console.error('Failed to fetch reports:', error);
+      // Error: $1
     } finally {
       setLoading(false);
     }
@@ -60,7 +60,7 @@ export default function ModerationDashboard() {
       const data = await response.json();
       setStats(data.stats);
     } catch (error) {
-      console.error('Failed to fetch stats:', error);
+      // Error: $1
     }
   };
 
@@ -84,7 +84,7 @@ export default function ModerationDashboard() {
         setSelectedReport(null);
       }
     } catch (error) {
-      console.error('Failed to review report:', error);
+      // Error: $1
       alert('Failed to process review');
     }
   };

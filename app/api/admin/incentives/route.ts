@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
       .order('created_at', { ascending: false });
 
     if (error) {
-      console.error('Fetch incentives error:', error);
+      // Error: $1
       throw error;
     }
 
@@ -58,7 +58,7 @@ export async function GET(req: NextRequest) {
     });
 
   } catch (err: any) {
-    console.error('Get incentives error:', err);
+    // Error: $1
     return NextResponse.json(
       { error: err.message || 'Failed to fetch incentives' },
       { status: 500 }
@@ -125,7 +125,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (error) {
-      console.error('Create incentive error:', error);
+      // Error: $1
       throw error;
     }
 
@@ -135,7 +135,7 @@ export async function POST(req: NextRequest) {
     });
 
   } catch (err: any) {
-    console.error('Create incentive error:', err);
+    // Error: $1
     return NextResponse.json(
       { error: err.message || 'Failed to create incentive' },
       { status: 500 }

@@ -42,7 +42,7 @@ export function ProgressDashboard({ userId }: { userId: string }) {
         setCourses(result.courses || []);
       }
     } catch (error) {
-      console.error('Error loading progress:', error);
+      // Error: $1
     } finally {
       setLoading(false);
     }

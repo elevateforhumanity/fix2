@@ -39,7 +39,7 @@ export function CourseReviews({ courseId }: CourseReviewsProps) {
         setTotalReviews(data.totalReviews || 0);
       }
     } catch (error) {
-      console.error('Error loading reviews:', error);
+      // Error: $1
     }
   }
 
@@ -63,7 +63,7 @@ export function CourseReviews({ courseId }: CourseReviewsProps) {
         loadReviews();
       }
     } catch (error) {
-      console.error('Error submitting review:', error);
+      // Error: $1
     } finally {
       setSubmitting(false);
     }
@@ -76,7 +76,7 @@ export function CourseReviews({ courseId }: CourseReviewsProps) {
       });
       loadReviews();
     } catch (error) {
-      console.error('Error marking helpful:', error);
+      // Error: $1
     }
   }
 

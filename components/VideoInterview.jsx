@@ -71,7 +71,7 @@ export default function VideoInterview() {
       setRecording(true);
       setTimeLeft(120);
     } catch (error) {
-      console.error('Error accessing camera:', error);
+      // Error: $1
       alert('Unable to access camera. Please check permissions.');
     }
   };
@@ -96,7 +96,7 @@ export default function VideoInterview() {
         // 
       }
     } catch (error) {
-      console.error('Upload error:', error);
+      // Error: $1
     }
   };
   const nextQuestion = () => {

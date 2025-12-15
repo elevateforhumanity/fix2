@@ -77,7 +77,7 @@ export class XAPIClient {
       }
       // 
     } catch (error) {
-      console.error('[xAPI] Failed to send statement:', error);
+      // Error: $1
       // Don't throw - we don't want tracking failures to break the app
     }
   }

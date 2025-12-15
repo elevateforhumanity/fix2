@@ -68,7 +68,7 @@ export function RightSidebar() {
       await loadNotifications(user.id);
       
     } catch (error) {
-      console.error('Error loading dashboard:', error);
+      // Error: $1
     } finally {
       setLoading(false);
     }

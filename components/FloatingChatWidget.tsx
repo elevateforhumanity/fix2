@@ -62,7 +62,7 @@ export default function FloatingChatWidget() {
 
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
-      console.error("Error:", error);
+      // Error: $1
       const errorMessage: Message = {
         role: "assistant",
         content: `I'm having trouble connecting. Please call us at ${CONTACT_INFO.phone.display} or try again.`,

@@ -65,7 +65,7 @@ export async function POST(req: Request) {
       salesUpdated: data?.length || 0,
     });
   } catch (error: any) {
-    console.error('Mark paid error:', error);
+    // Error: $1
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

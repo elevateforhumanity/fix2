@@ -36,7 +36,7 @@ export async function sendSecurityLog(event: {
       body: JSON.stringify(body),
     });
   } catch (error) {
-    console.error("Failed to send SIEM log:", error);
+    // Error: $1
   }
 }
 export async function logAuthAttempt(params: {

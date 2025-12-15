@@ -65,7 +65,7 @@ export async function POST(req: Request) {
       .eq("id", hour_id);
 
     if (error) {
-      console.error("Approval error:", error);
+      // Error: $1
       return NextResponse.json(
         { error: "Failed to approve hours" },
         { status: 500 }
@@ -74,7 +74,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error("Approval error:", error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || "Failed to approve hours" },
       { status: 500 }

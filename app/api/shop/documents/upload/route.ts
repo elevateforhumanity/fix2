@@ -47,7 +47,7 @@ export async function POST(req: Request) {
       .upload(path, file, { upsert: true });
 
     if (uploadError) {
-      console.error('Storage upload error:', uploadError);
+      // Error: $1
       return NextResponse.json(
         { error: uploadError.message },
         { status: 500 }
@@ -63,13 +63,13 @@ export async function POST(req: Request) {
     });
 
     if (dbError) {
-      console.error('Database insert error:', dbError);
+      // Error: $1
       return NextResponse.json({ error: dbError.message }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error('Document upload error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || 'Upload failed' },
       { status: 500 }

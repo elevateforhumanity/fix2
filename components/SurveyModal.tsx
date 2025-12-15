@@ -85,7 +85,7 @@ export default function SurveyModal({
         alert(data.error || 'Failed to submit survey');
       }
     } catch (error) {
-      console.error('Survey submission error:', error);
+      // Error: $1
       alert('Failed to submit survey');
     } finally {
       setIsSubmitting(false);

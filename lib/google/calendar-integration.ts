@@ -67,7 +67,7 @@ export async function addCourseToCalendar(
       eventLink: response.data.htmlLink,
     };
   } catch (error) {
-    console.error('Error adding to calendar:', error);
+    // Error: $1
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -135,7 +135,7 @@ export async function createRecurringClassSchedule(
       eventLink: response.data.htmlLink,
     };
   } catch (error) {
-    console.error('Error creating recurring schedule:', error);
+    // Error: $1
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -169,7 +169,7 @@ export async function getCalendarTokens(code: string) {
       tokens,
     };
   } catch (error) {
-    console.error('Error getting tokens:', error);
+    // Error: $1
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',

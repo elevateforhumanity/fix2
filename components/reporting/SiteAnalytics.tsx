@@ -41,7 +41,7 @@ export default function SiteAnalytics() {
       const data = await response.json();
       setMetrics(data);
     } catch (error) {
-      console.error('Failed to fetch site metrics:', error);
+      // Error: $1
     } finally {
       setLoading(false);
     }

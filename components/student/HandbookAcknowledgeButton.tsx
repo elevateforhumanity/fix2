@@ -23,7 +23,7 @@ export function HandbookAcknowledgeButton({ userId }: { userId: string }) {
         alert('Failed to acknowledge handbook. Please try again.');
       }
     } catch (error) {
-      console.error('Acknowledgment error:', error);
+      // Error: $1
       alert('An error occurred. Please try again.');
     } finally {
       setLoading(false);

@@ -29,7 +29,7 @@ export function SocialShare({ url, title, description }: SocialShareProps) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (error) {
-      console.error('Failed to copy:', error);
+      // Error: $1
     }
   }
 
@@ -42,7 +42,7 @@ export function SocialShare({ url, title, description }: SocialShareProps) {
           url: shareUrl,
         });
       } catch (error) {
-        console.error('Error sharing:', error);
+        // Error: $1
       }
     } else {
       setShowMenu(!showMenu);

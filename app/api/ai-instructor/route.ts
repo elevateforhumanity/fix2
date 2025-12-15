@@ -180,7 +180,7 @@ export async function POST(request: NextRequest) {
       conversationId: completion.id,
     });
   } catch (error) {
-    console.error('AI Instructor error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: 'Failed to process request' },
       { status: 500 }
@@ -217,7 +217,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ conversations });
   } catch (error) {
-    console.error('Failed to fetch conversations:', error);
+    // Error: $1
     return NextResponse.json(
       { error: 'Failed to fetch conversations' },
       { status: 500 }

@@ -1,0 +1,93 @@
+{
+  "task_id": "ENV-SETUP-001",
+  "name": "Automatic Environment Variable Setup",
+  "priority": "CRITICAL",
+  "autopilot": "env-setup-autopilot",
+  "status": "ready",
+  "description": "Automatically pull environment variables from Vercel and set up .env.local",
+  "worker": {
+    "name": "env-setup-autopilot",
+    "file": "workers/env-setup-autopilot.ts",
+    "config": "workers/wrangler-env-setup.toml",
+    "deployed": false,
+    "url": null
+  },
+  "steps": [
+    {
+      "step": 1,
+      "name": "Deploy Worker to Cloudflare",
+      "command": "cd workers && wrangler deploy --config wrangler-env-setup.toml",
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "name": "Set Secrets",
+      "commands": [
+        "wrangler secret put VERCEL_TOKEN --config workers/wrangler-env-setup.toml",
+        "wrangler secret put SUPABASE_ANON_KEY --config workers/wrangler-env-setup.toml",
+        "wrangler secret put SUPABASE_SERVICE_ROLE_KEY --config workers/wrangler-env-setup.toml",
+        "wrangler secret put GITHUB_TOKEN --config workers/wrangler-env-setup.toml"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "name": "Test Worker",
+      "command": "curl https://env-setup-autopilot.workers.dev/status",
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "name": "Pull Environment Variables",
+      "command": "curl -X POST https://env-setup-autopilot.workers.dev/pull",
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "name": "Setup Local Environment",
+      "command": "curl -X POST https://env-setup-autopilot.workers.dev/setup",
+      "status": "pending"
+    }
+  ],
+  "endpoints": {
+    "status": "/status",
+    "pull": "/pull",
+    "setup": "/setup",
+    "verify": "/verify",
+    "commit": "/commit"
+  },
+  "schedule": {
+    "enabled": true,
+    "cron": "0 * * * *",
+    "description": "Runs every hour to verify environment variables"
+  },
+  "dependencies": {
+    "required": [
+      "VERCEL_TOKEN",
+      "SUPABASE_ANON_KEY",
+      "SUPABASE_SERVICE_ROLE_KEY",
+      "GITHUB_TOKEN"
+    ],
+    "optional": [
+      "STRIPE_SECRET_KEY",
+      "RESEND_API_KEY",
+      "OPENAI_API_KEY"
+    ]
+  },
+  "outputs": {
+    "file": ".env.local",
+    "backup": ".env.local.backup.{timestamp}",
+    "template": ".env.local.template"
+  },
+  "verification": {
+    "checks": [
+      "SUPABASE_URL is valid",
+      "SUPABASE_ANON_KEY is valid",
+      "SUPABASE_SERVICE_ROLE_KEY is valid",
+      "Supabase connection successful",
+      "No placeholder values present"
+    ]
+  },
+  "created_at": "2025-12-15T17:34:00Z",
+  "updated_at": "2025-12-15T17:34:00Z"
+}

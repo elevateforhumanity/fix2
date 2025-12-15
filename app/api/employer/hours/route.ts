@@ -62,7 +62,7 @@ export async function GET() {
     const { data: hours } = await query;
     return NextResponse.json({ hours: hours || [] });
   } catch (error: any) {
-    console.error("Get employer hours error:", error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || "Failed to load hours" },
       { status: 500 }

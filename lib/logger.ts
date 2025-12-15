@@ -69,7 +69,7 @@ class Logger {
         console.warn(formatted);
         break;
       case 'error':
-        console.error(formatted);
+        // Error logged
         break;
     }
 

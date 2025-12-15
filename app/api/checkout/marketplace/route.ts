@@ -70,7 +70,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ url: session.url });
   } catch (error: any) {
-    console.error('Marketplace checkout error:', error);
+    // Error: $1
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

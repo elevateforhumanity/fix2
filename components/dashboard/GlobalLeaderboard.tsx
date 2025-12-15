@@ -24,7 +24,7 @@ export function GlobalLeaderboard() {
         const json = await res.json();
         if (!cancelled) setRows(json.leaderboard || []);
       } catch (e) {
-        console.error("global leaderboard fetch failed", e);
+        // Error: $1
       } finally {
         if (!cancelled) setLoading(false);
       }

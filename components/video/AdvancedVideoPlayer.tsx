@@ -106,7 +106,7 @@ export default function AdvancedVideoPlayer({
         }),
       });
     } catch (error) {
-      console.error('Failed to save progress:', error);
+      // Error: $1
     }
   };
 
@@ -121,7 +121,7 @@ export default function AdvancedVideoPlayer({
         videoRef.current.currentTime = data.currentTime;
       }
     } catch (error) {
-      console.error('Failed to load progress:', error);
+      // Error: $1
     }
   };
 

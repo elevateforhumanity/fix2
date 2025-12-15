@@ -13,13 +13,13 @@ export async function GET() {
       .order('created_at', { ascending: false });
 
     if (error) {
-      console.error('Error fetching students:', error);
+      // Error: $1
       return NextResponse.json({ students: [] });
     }
 
     return NextResponse.json({ students: students || [] });
   } catch (error) {
-    console.error('Error:', error);
+    // Error: $1
     return NextResponse.json({ students: [] });
   }
 }

@@ -154,7 +154,7 @@ export default function InteractiveVideoPlayer({
       //   body: JSON.stringify({ quizId: activeQuiz.id, answer: quizAnswer, isCorrect })
       // });
     } catch (error) {
-      console.error('Failed to save quiz result:', error);
+      // Error: $1
     }
 
     if (isCorrect) {

@@ -42,7 +42,7 @@ export function withAuth(handler: Handler, options?: { roles?: Role[] }) {
       .single();
 
     if (profileError) {
-      console.error('[withAuth] profile lookup failed', profileError);
+      // Error: $1
     }
 
     const role = (profile?.role as Role) ?? 'student';

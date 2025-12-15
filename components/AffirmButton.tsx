@@ -83,12 +83,12 @@ export default function AffirmButton({ programId, programName, price, fullWidth 
         affirm.checkout(checkoutData);
         affirm.checkout.open();
       } else {
-        console.error('Affirm object:', affirm);
+        // Error: $1
         throw new Error('Affirm checkout not available. Please refresh and try again.');
       }
 
     } catch (err: any) {
-      console.error('Affirm error:', err);
+      // Error: $1
       setError(err.message || 'Failed to initialize Affirm. Please try again.');
     } finally {
       setLoading(false);

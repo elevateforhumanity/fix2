@@ -24,7 +24,7 @@ export default function HomePage() {
             videoRef.current.muted = true;
             await videoRef.current.play();
           } catch (e) {
-            console.log('Video autoplay blocked');
+
           }
         }
       }

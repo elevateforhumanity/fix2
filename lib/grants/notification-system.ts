@@ -65,7 +65,7 @@ export async function createNotification(
     .single();
 
   if (error) {
-    console.error('Error creating notification:', error);
+    // Error: $1
     throw error;
   }
 
@@ -235,7 +235,7 @@ export async function sendGrantNotification(
           entityName
         );
       } catch (error) {
-        console.error('Error sending email notification:', error);
+        // Error: $1
       }
     }
 
@@ -243,7 +243,7 @@ export async function sendGrantNotification(
       try {
         await sendSMSNotification(recipient, createdNotification, grantTitle);
       } catch (error) {
-        console.error('Error sending SMS notification:', error);
+        // Error: $1
       }
     }
   }

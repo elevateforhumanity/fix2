@@ -98,7 +98,7 @@ export class ScormAPI {
         this.data = new Map(Object.entries(json.data || {}));
       }
     } catch (error) {
-      console.error('Failed to load SCORM data:', error);
+      // Error: $1
     }
   }
 
@@ -111,7 +111,7 @@ export class ScormAPI {
         body: JSON.stringify({ data: dataObj }),
       });
     } catch (error) {
-      console.error('Failed to save SCORM data:', error);
+      // Error: $1
     }
   }
 }

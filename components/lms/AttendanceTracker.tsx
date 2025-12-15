@@ -61,7 +61,7 @@ export default function AttendanceTracker({
         lastActivityRef.current = new Date();
       }
     } catch (error) {
-      console.error('Failed to start attendance session:', error);
+      // Error: $1
     }
   }, [supabase, courseId, activityType]);
 
@@ -83,7 +83,7 @@ export default function AttendanceTracker({
         })
         .eq('id', sessionIdRef.current);
     } catch (error) {
-      console.error('Failed to update attendance session:', error);
+      // Error: $1
     }
   }, [supabase]);
 
@@ -126,7 +126,7 @@ export default function AttendanceTracker({
           });
         }
       } catch (error) {
-        console.error('Failed to update weekly hours:', error);
+        // Error: $1
       }
     },
     [supabase]
@@ -158,7 +158,7 @@ export default function AttendanceTracker({
         await updateWeeklyHours(user.id, durationMinutes);
       }
     } catch (error) {
-      console.error('Failed to end attendance session:', error);
+      // Error: $1
     }
   }, [supabase, updateWeeklyHours]);
 

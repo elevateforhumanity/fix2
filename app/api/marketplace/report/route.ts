@@ -66,7 +66,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error('Product report error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || 'Failed to submit report' },
       { status: 500 }

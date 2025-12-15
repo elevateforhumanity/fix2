@@ -31,7 +31,7 @@ export function getCart(): Cart {
     const cart: Cart = JSON.parse(stored);
     return cart;
   } catch (error) {
-    console.error('Error loading cart:', error);
+    // Error: $1
     return { items: [], total: 0, itemCount: 0 };
   }
 }
@@ -46,7 +46,7 @@ export function saveCart(cart: Cart): void {
     // Dispatch custom event for cart updates
     window.dispatchEvent(new CustomEvent('cartUpdated', { detail: cart }));
   } catch (error) {
-    console.error('Error saving cart:', error);
+    // Error: $1
   }
 }
 

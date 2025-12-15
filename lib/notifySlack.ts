@@ -71,7 +71,7 @@ export async function notifySlack(
       body: JSON.stringify({ blocks }),
     });
   } catch (error) {
-    console.error('Failed to send Slack notification:', error);
+    // Error: $1
   }
 }
 
@@ -123,6 +123,6 @@ export async function notifyTeams(
       body: JSON.stringify(card),
     });
   } catch (error) {
-    console.error('Failed to send Teams notification:', error);
+    // Error: $1
   }
 }

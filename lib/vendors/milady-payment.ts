@@ -63,7 +63,7 @@ export async function processMiladyPayment(params: MiladyPaymentParams) {
       });
 
     if (paymentError) {
-      console.error('[Milady] Failed to record payment:', paymentError);
+      // Error: $1
       // Don't throw - enrollment should still succeed
     }
 
@@ -90,7 +90,7 @@ export async function processMiladyPayment(params: MiladyPaymentParams) {
     };
 
   } catch (error) {
-    console.error('[Milady] Payment processing error:', error);
+    // Error: $1
     
     // Log error but don't fail enrollment
     await supabase.from('ai_audit_log').insert({
@@ -127,7 +127,7 @@ export async function markMiladyPaymentPaid(enrollmentId: string, invoiceId: str
     .eq('vendor_name', 'milady');
 
   if (error) {
-    console.error('[Milady] Failed to mark payment as paid:', error);
+    // Error: $1
     return { success: false, error: error.message };
   }
 
@@ -156,7 +156,7 @@ export async function getPendingMiladyPayments() {
     .order('created_at', { ascending: false });
 
   if (error) {
-    console.error('[Milady] Failed to get pending payments:', error);
+    // Error: $1
     return { success: false, error: error.message, payments: [] };
   }
 

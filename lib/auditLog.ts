@@ -54,13 +54,13 @@ export async function logAuditEvent(entry: AuditLogEntry) {
     });
 
     if (error) {
-      console.error('Failed to log audit event:', error);
+      // Error: $1
       return { success: false, error: error.message };
     }
 
     return { success: true };
   } catch (error) {
-    console.error('Error logging audit event:', error);
+    // Error: $1
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -112,13 +112,13 @@ export async function getAuditLogs(filters?: {
     const { data, error } = await query;
 
     if (error) {
-      console.error('Error fetching audit logs:', error);
+      // Error: $1
       return { success: false, error: error.message, logs: [] };
     }
 
     return { success: true, logs: data || [] };
   } catch (error) {
-    console.error('Error fetching audit logs:', error);
+    // Error: $1
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -139,7 +139,7 @@ export async function getAuditLogStats(days: number = 30) {
       .gte('timestamp', startDate.toISOString());
 
     if (error) {
-      console.error('Error fetching audit log stats:', error);
+      // Error: $1
       return null;
     }
 
@@ -154,7 +154,7 @@ export async function getAuditLogStats(days: number = 30) {
 
     return stats;
   } catch (error) {
-    console.error('Error calculating audit log stats:', error);
+    // Error: $1
     return null;
   }
 }

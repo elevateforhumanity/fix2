@@ -27,7 +27,7 @@ export async function sendSlackMessage(message: SlackMessage) {
 
     return { success: true };
   } catch (error: unknown) {
-    console.error('Slack error:', error);
+    // Error: $1
     return { success: false, error: error.message };
   }
 }

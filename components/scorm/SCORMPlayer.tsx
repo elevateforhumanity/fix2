@@ -123,7 +123,7 @@ export function SCORMPlayer({
         }
       }
     } catch (error) {
-      console.error('Failed to load enrollment data:', error);
+      // Error: $1
       setError('Failed to load course data');
     }
   }
@@ -144,7 +144,7 @@ export function SCORMPlayer({
         }),
       });
     } catch (error) {
-      console.error('Failed to save SCORM data:', error);
+      // Error: $1
     }
   }
   async function handleRestart() {

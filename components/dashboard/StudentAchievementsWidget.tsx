@@ -38,7 +38,7 @@ export function StudentAchievementsWidget() {
         const json: ApiResponse = await res.json();
         setAchievements(json.achievements || []);
       } catch (e) {
-        console.error("StudentAchievementsWidget error", e);
+        // Error: $1
       } finally {
         setLoading(false);
       }

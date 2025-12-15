@@ -44,7 +44,7 @@ export async function capturePhoto(options: CameraOptions = {}): Promise<Blob | 
       canvas.toBlob((blob) => resolve(blob), 'image/jpeg', 0.9);
     });
   } catch (error) {
-    console.error('[Camera] Error:', error);
+    // Error: $1
     return null;
   }
 }
@@ -89,7 +89,7 @@ export async function scanQRCode(): Promise<string | null> {
 
     return null;
   } catch (error) {
-    console.error('[QR Scanner] Error:', error);
+    // Error: $1
     return null;
   }
 }
@@ -141,7 +141,7 @@ export async function authenticateWithBiometrics(): Promise<boolean> {
 
     return credential !== null;
   } catch (error) {
-    console.error('[Biometrics] Error:', error);
+    // Error: $1
     return false;
   }
 }
@@ -173,7 +173,7 @@ export async function verifyBiometrics(credentialId: string): Promise<boolean> {
 
     return assertion !== null;
   } catch (error) {
-    console.error('[Biometrics] Verification error:', error);
+    // Error: $1
     return false;
   }
 }
@@ -209,7 +209,7 @@ export async function getCurrentLocation(): Promise<GeolocationPosition | null> 
         });
       },
       (error) => {
-        console.error('[Geolocation] Error:', error);
+        // Error: $1
         resolve(null);
       },
       {
@@ -279,7 +279,7 @@ export async function shareContent(data: {
     await navigator.share(data);
     return true;
   } catch (error) {
-    console.error('[Share] Error:', error);
+    // Error: $1
     return false;
   }
 }
@@ -330,7 +330,7 @@ export async function getBatteryStatus(): Promise<{
     }
     return null;
   } catch (error) {
-    console.error('[Battery] Error:', error);
+    // Error: $1
     return null;
   }
 }
@@ -375,7 +375,7 @@ export async function requestWakeLock(): Promise<WakeLockSentinel | null> {
     }
     return null;
   } catch (error) {
-    console.error('[Wake Lock] Error:', error);
+    // Error: $1
     return null;
   }
 }
@@ -386,7 +386,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     await navigator.clipboard.writeText(text);
     return true;
   } catch (error) {
-    console.error('[Clipboard] Error:', error);
+    // Error: $1
     return false;
   }
 }
@@ -395,7 +395,7 @@ export async function readFromClipboard(): Promise<string | null> {
   try {
     return await navigator.clipboard.readText();
   } catch (error) {
-    console.error('[Clipboard] Error:', error);
+    // Error: $1
     return null;
   }
 }

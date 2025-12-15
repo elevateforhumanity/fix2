@@ -68,7 +68,7 @@ export default function ContentLibrary() {
       const data = await response.json();
       setItems(data.items || []);
     } catch (error) {
-      console.error('Error fetching content:', error);
+      // Error: $1
     }
   };
 
@@ -113,7 +113,7 @@ export default function ContentLibrary() {
         fetchContent();
       }
     } catch (error) {
-      console.error('Error uploading:', error);
+      // Error: $1
     }
   };
 
@@ -124,7 +124,7 @@ export default function ContentLibrary() {
       await fetch(`/api/content-library/${id}`, { method: 'DELETE' });
       fetchContent();
     } catch (error) {
-      console.error('Error deleting:', error);
+      // Error: $1
     }
   };
 

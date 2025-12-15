@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     .insert(payload);
 
   if (dbError) {
-    console.error('Database error:', dbError);
+    // Error: $1
   }
 
   // Send notification email
@@ -67,7 +67,7 @@ export async function POST(req: Request) {
         `— Elevate for Humanity\n`,
     });
   } catch (emailError) {
-    console.error('Email error:', emailError);
+    // Error: $1
   }
 
   return NextResponse.redirect(new URL("/licensing?submitted=true", req.url), {

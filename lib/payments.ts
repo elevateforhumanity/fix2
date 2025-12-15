@@ -276,7 +276,7 @@ export async function confirmPayment(
       try {
         await trackReferral(payment.metadata.referral_code, payment.user_id);
       } catch (error) {
-        console.error('Failed to track referral:', error);
+        // Error: $1
       }
     }
     return { success: true, enrollmentId: enrollment.id };

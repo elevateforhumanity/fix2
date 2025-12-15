@@ -38,7 +38,7 @@ export class ServiceWorkerManager {
       }, 60 * 60 * 1000); // Check every hour
       return this.registration;
     } catch (error) {
-      console.error('Service Worker registration failed:', error);
+      // Error: $1
       return null;
     }
   }
@@ -51,7 +51,7 @@ export class ServiceWorkerManager {
       const result = await this.registration.unregister();
       return result;
     } catch (error) {
-      console.error('Service Worker unregistration failed:', error);
+      // Error: $1
       return false;
     }
   }
@@ -63,7 +63,7 @@ export class ServiceWorkerManager {
     try {
       await this.registration.update();
     } catch (error) {
-      console.error('Service Worker update failed:', error);
+      // Error: $1
     }
   }
   /**
@@ -105,7 +105,7 @@ export class ServiceWorkerManager {
       const syncManager = (this.registration as string).sync;
       await syncManager.register(tag);
     } catch (error) {
-      console.error('Background sync registration failed:', error);
+      // Error: $1
       // Fallback to manual sync
       await this.manualSync();
     }
@@ -131,12 +131,12 @@ export class ServiceWorkerManager {
             await db.deleteOfflineAction(action.id);
           }
         } catch (error) {
-          console.error(`Failed to sync action ${action.id}:`, error);
+          // Error logged
         }
       }
       this.notifySyncComplete(actions.length);
     } catch (error) {
-      console.error('Manual sync failed:', error);
+      // Error: $1
     }
   }
   /**

@@ -41,7 +41,7 @@ export async function POST(req: Request) {
         .single();
 
       if (error) {
-        console.error('[TEST] Error creating enrollment:', error);
+        // Error: $1
         return NextResponse.json({ error: error.message }, { status: 500 });
       }
 
@@ -65,7 +65,7 @@ export async function POST(req: Request) {
         .eq('id', existing.id);
 
       if (error) {
-        console.error('[TEST] Error activating enrollment:', error);
+        // Error: $1
         return NextResponse.json({ error: error.message }, { status: 500 });
       }
 
@@ -88,7 +88,7 @@ export async function POST(req: Request) {
       });
     }
   } catch (error: any) {
-    console.error('[TEST] Error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

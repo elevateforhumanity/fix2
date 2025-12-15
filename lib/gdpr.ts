@@ -42,7 +42,7 @@ export async function exportUserData(userId: string) {
       data: userData,
     };
   } catch (error) {
-    console.error('Error exporting user data:', error);
+    // Error: $1
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -84,7 +84,7 @@ export async function deleteUserData(userId: string, options: { keepProfile?: bo
       deletedRecords: deletions.filter(d => !d.error).length,
     };
   } catch (error) {
-    console.error('Error deleting user data:', error);
+    // Error: $1
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -127,7 +127,7 @@ export async function anonymizeUserData(userId: string) {
 
     return { success: true };
   } catch (error) {
-    console.error('Error anonymizing user data:', error);
+    // Error: $1
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -175,7 +175,7 @@ export async function getGDPRRequests(userId?: string) {
   const { data, error } = await query;
 
   if (error) {
-    console.error('Error fetching GDPR requests:', error);
+    // Error: $1
     return [];
   }
 
@@ -200,7 +200,7 @@ export async function updateConsentPreferences(userId: string, preferences: {
     });
 
   if (error) {
-    console.error('Error updating consent preferences:', error);
+    // Error: $1
     return { success: false, error: error.message };
   }
 

@@ -201,7 +201,7 @@ export async function POST(request: NextRequest) {
       sessionId: session.id,
     });
   } catch (error: any) {
-    console.error('Stripe checkout error:', error);
+    // Error: $1
     return NextResponse.json(
       {
         error: 'Failed to create checkout session',

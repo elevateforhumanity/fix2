@@ -72,7 +72,7 @@ export async function GET(req: NextRequest) {
     const { data: students, error } = await query.order('created_at', { ascending: false });
 
     if (error) {
-      console.error('Export students error:', error);
+      // Error: $1
       throw error;
     }
 
@@ -198,7 +198,7 @@ export async function GET(req: NextRequest) {
     });
 
   } catch (err: any) {
-    console.error('Export students error:', err);
+    // Error: $1
     return NextResponse.json(
       { error: err.message || 'Failed to export students' },
       { status: 500 }

@@ -63,7 +63,7 @@ export async function enrollInExternalModule(
       try {
         return await enrollViaAPI(module, student, request);
       } catch (apiError) {
-        console.error("[HybridEnrollment] API enrollment failed:", apiError);
+        // Error: $1
         // Fall back to link mode if hybrid
         if (module.delivery_mode === "hybrid") {
           return await enrollViaLink(module, request);
@@ -75,7 +75,7 @@ export async function enrollInExternalModule(
     // Use link mode
     return await enrollViaLink(module, request);
   } catch (error: unknown) {
-    console.error("[HybridEnrollment] Error:", error);
+    // Error: $1
     return {
       success: false,
       mode: "link",
@@ -236,7 +236,7 @@ export async function syncExternalModuleProgress(
         updates.certificate_number = certificate.certificateNumber;
       }
     } catch (certError) {
-      console.error("[HybridEnrollment] Certificate fetch failed:", certError);
+      // Error: $1
     }
   }
 

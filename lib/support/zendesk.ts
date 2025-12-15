@@ -38,7 +38,7 @@ export async function createZendeskTicket(params: {
 
   if (!res.ok) {
     const text = await res.text();
-    console.error('Zendesk ticket error:', text);
+    // Error: $1
     throw new Error('Failed to create Zendesk ticket');
   }
 

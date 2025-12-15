@@ -81,7 +81,7 @@ export async function recordSubmission(
     .single();
 
   if (error) {
-    console.error('Error recording submission:', error);
+    // Error: $1
     throw error;
   }
 

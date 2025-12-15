@@ -34,7 +34,7 @@ export default function CookieConsentBanner() {
         setPreferences(saved);
         applyCookiePreferences(saved);
       } catch (e) {
-        console.error('Failed to parse cookie preferences');
+        // Error logged
       }
     }
   }, []);

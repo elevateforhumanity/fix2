@@ -67,7 +67,7 @@ This is an automated notification from your Elevate for Humanity LMS platform.
   try {
     await notifySendgrid(subject, message);
   } catch (error) {
-    console.error('Failed to send watermark notification:', error);
+    // Error: $1
   }
 }
 /**
@@ -110,6 +110,6 @@ Value: $2.5M - $8M
     await notifySendgrid('Build Deployment Alert', message);
     // 
   } catch (error) {
-    console.error('Failed to send build notification:', error);
+    // Error: $1
   }
 }

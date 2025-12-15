@@ -43,7 +43,7 @@ export default function ProgramAnalytics() {
         setSelectedProgram(data[0].programId);
       }
     } catch (error) {
-      console.error('Failed to fetch program metrics:', error);
+      // Error: $1
     } finally {
       setLoading(false);
     }

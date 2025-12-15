@@ -53,7 +53,7 @@ export default async function DashboardPage() {
     .order('created_at', { ascending: false });
 
   if (enrollmentsError) {
-    console.error('Enrollments error:', enrollmentsError);
+    // Error: $1
   }
 
   // Get Milady RISE enrollments (with error handling)
@@ -82,7 +82,7 @@ export default async function DashboardPage() {
       miladyEnrollments = data;
     }
   } catch (error) {
-    console.error('Milady enrollments error:', error);
+    // Error: $1
   }
 
   const activeEnrollment = enrollments?.[0];

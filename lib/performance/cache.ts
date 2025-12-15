@@ -11,7 +11,7 @@ export function getRedisClient(): Redis | null {
     try {
       redis = new Redis(process.env.REDIS_URL);
     } catch (error) {
-      console.error('❌ Redis connection failed:', error);
+      // Error: $1
       return null;
     }
   }
@@ -31,7 +31,7 @@ export async function getCache<T>(key: string, options: CacheOptions = {}): Prom
       const value = await client.get(fullKey);
       return value ? JSON.parse(value) : null;
     } catch (error) {
-      console.error('Redis get error:', error);
+      // Error: $1
     }
   }
   // Fallback to memory cache
@@ -55,7 +55,7 @@ export async function setCache<T>(
       await client.setex(fullKey, ttl, JSON.stringify(value));
       return;
     } catch (error) {
-      console.error('Redis set error:', error);
+      // Error: $1
     }
   }
   // Fallback to memory cache
@@ -72,7 +72,7 @@ export async function deleteCache(key: string, options: CacheOptions = {}): Prom
     try {
       await client.del(fullKey);
     } catch (error) {
-      console.error('Redis delete error:', error);
+      // Error: $1
     }
   }
   memoryCache.delete(fullKey);
@@ -87,7 +87,7 @@ export async function clearCacheByPrefix(prefix: string): Promise<void> {
         await client.del(...keys);
       }
     } catch (error) {
-      console.error('Redis clear error:', error);
+      // Error: $1
     }
   }
   // Clear memory cache

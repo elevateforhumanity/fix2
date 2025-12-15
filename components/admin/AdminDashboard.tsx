@@ -59,7 +59,7 @@ export default function AdminDashboard() {
       setMetrics(metricsData);
       setRecentActivity(activityData);
     } catch (error) {
-      console.error('Failed to fetch dashboard data:', error);
+      // Error: $1
     } finally {
       setLoading(false);
     }

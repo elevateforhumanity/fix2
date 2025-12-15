@@ -152,7 +152,7 @@ export async function autoEnrollPartnerCourse(
       launchUrl,
     };
   } catch (err: unknown) {
-    console.error("[autoEnrollPartnerCourse] Error", err);
+    // Error: $1
 
     const supabase2 = getSupabaseServerClient();
     await supabase2.from("partner_lms_enrollment_failures").insert({

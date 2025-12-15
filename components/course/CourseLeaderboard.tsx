@@ -23,7 +23,7 @@ export function CourseLeaderboard({ courseId }: { courseId: string }) {
         const json = await res.json();
         if (!cancelled) setRows(json.leaderboard || []);
       } catch (e) {
-        console.error("leaderboard fetch failed", e);
+        // Error: $1
       } finally {
         if (!cancelled) setLoading(false);
       }

@@ -38,7 +38,7 @@ export default function IncentivesPage() {
         setIncentives(data.incentives || []);
       }
     } catch (err) {
-      console.error('Failed to load incentives:', err);
+      // Error: $1
     } finally {
       setLoading(false);
     }

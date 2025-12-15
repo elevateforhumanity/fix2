@@ -222,7 +222,7 @@ export async function sendWelcomePacketEmail(
   });
 
   if (error) {
-    console.error('Failed to send welcome email:', error);
+    // Error: $1
     // Don't throw - email failure shouldn't block enrollment
   }
 

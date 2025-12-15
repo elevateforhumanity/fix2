@@ -56,7 +56,7 @@ export function UniversalCoursePlayer({
         alert('Failed to mark course as complete. Please try again.');
       }
     } catch (error) {
-      console.error('Completion error:', error);
+      // Error: $1
       alert('Error marking course as complete. Please try again.');
     } finally {
       setLoading(false);

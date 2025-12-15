@@ -21,7 +21,7 @@ export function getBranding(): BrandingConfig {
       logoPath: b.logoPath || defaultBranding.logoPath
     };
   } catch (err) {
-    console.error("[EFH BRANDING] Failed to load branding config:", err);
+    // Error: $1
     return defaultBranding;
   }
 }

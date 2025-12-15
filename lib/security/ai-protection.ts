@@ -186,7 +186,7 @@ export async function submitDMCATakedown(notice: DMCANotice): Promise<boolean> {
 
     return true;
   } catch (error) {
-    console.error('DMCA submission failed:', error);
+    // Error: $1
     return false;
   }
 }

@@ -48,7 +48,7 @@ export async function GET(req: Request) {
       .order("date_worked", { ascending: true });
 
     if (error) {
-      console.error("RAPIDS export error:", error);
+      // Error: $1
       return NextResponse.json(
         { error: "Failed to generate report" },
         { status: 500 }
@@ -79,7 +79,7 @@ export async function GET(req: Request) {
       },
     });
   } catch (error: any) {
-    console.error("RAPIDS export error:", error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || "Failed to generate report" },
       { status: 500 }

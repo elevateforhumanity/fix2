@@ -122,7 +122,6 @@ export async function POST(req: Request) {
         })
         .eq('stripe_checkout_session_id', session.id);
 
-      console.log('[Webhook] Marked funding payment as paid');
 
       // STEP 2: Create/activate enrollment (AUTO-ENROLL)
       // Idempotency: don't double-enroll if webhook retries
@@ -168,7 +167,7 @@ export async function POST(req: Request) {
       // STEP 3: Assign AI Instructor
       if (programSlug) {
         try {
-          console.log('[Webhook] Assigning AI instructor...');
+
           const { assignAIInstructorForProgram } = await import('@/lib/ai/assign');
           const assignResult = await assignAIInstructorForProgram({
             studentId,
@@ -188,7 +187,7 @@ export async function POST(req: Request) {
       // STEP 4: Milady auto-provision (turn it on automatically)
       if (programSlug === 'barber-apprenticeship') {
         try {
-          console.log('[Webhook] Starting Milady auto-enrollment...');
+
           const miladyResponse = await fetch(
             `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/milady/auto-enroll`,
             {
@@ -202,7 +201,7 @@ export async function POST(req: Request) {
           );
 
           if (miladyResponse.ok) {
-            console.log('[Webhook] ✅ Milady auto-enrollment successful');
+
           } else {
             const errorText = await miladyResponse.text();
             console.warn(
@@ -219,7 +218,7 @@ export async function POST(req: Request) {
         }
       }
 
-      console.log('[Webhook] ✅ AUTO-ENROLLMENT COMPLETE');
+
     }
 
     // Handle subscription lifecycle (created/updated/deleted)
@@ -265,7 +264,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (err: any) {
-    console.error('[Webhook Error]', err);
+    // Error: $1
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }

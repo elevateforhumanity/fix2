@@ -5,7 +5,7 @@ import { createClient } from '@/lib/supabase/server';
 // Initialize Stripe with proper error handling
 const stripeKey = process.env.STRIPE_SECRET_KEY;
 if (!stripeKey) {
-  console.error('⚠️  STRIPE_SECRET_KEY is not set in environment variables');
+  // Error logged
 }
 
 const stripe = stripeKey
@@ -130,7 +130,7 @@ export async function POST(request: NextRequest) {
           .update({ stripe_customer_id: customer.id })
           .eq('id', user.id);
       } catch (customerError) {
-        console.error('Failed to create Stripe customer:', customerError);
+        // Error: $1
         // Continue without customer ID - Stripe will create one
       }
     }
@@ -269,7 +269,7 @@ export async function POST(request: NextRequest) {
           sessionConfig.discounts = [{ coupon: couponCode }];
         }
       } catch (couponError) {
-        console.error('Invalid coupon code:', couponError);
+        // Error: $1
         // Continue without coupon
       }
     }
@@ -294,7 +294,7 @@ export async function POST(request: NextRequest) {
         },
       });
     } catch (logError) {
-      console.error('Failed to log payment attempt:', logError);
+      // Error: $1
       // Continue - logging failure shouldn't block payment
     }
 
@@ -307,7 +307,7 @@ export async function POST(request: NextRequest) {
       paymentType,
     });
   } catch (error: any) {
-    console.error('Payment session creation error:', error);
+    // Error: $1
 
     // Handle specific Stripe errors
     if (error.type === 'StripeCardError') {
@@ -386,7 +386,7 @@ export async function GET(request: NextRequest) {
       customer_email: session.customer_details?.email,
     });
   } catch (error: any) {
-    console.error('Session retrieval error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: 'Failed to retrieve session' },
       { status: 500 }

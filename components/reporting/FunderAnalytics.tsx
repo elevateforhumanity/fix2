@@ -61,7 +61,7 @@ export default function FunderAnalytics() {
         setSelectedFunder(data[0].funderType);
       }
     } catch (error) {
-      console.error('Failed to fetch funder metrics:', error);
+      // Error: $1
     } finally {
       setLoading(false);
     }
@@ -126,7 +126,7 @@ export default function FunderAnalytics() {
       a.download = `wioa-pirl-report-${new Date().toISOString().split('T')[0]}.csv`;
       a.click();
     } catch (error) {
-      console.error('Failed to export WIOA report:', error);
+      // Error: $1
     }
   };
 

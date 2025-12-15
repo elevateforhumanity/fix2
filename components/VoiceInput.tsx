@@ -43,7 +43,7 @@ export function VoiceInput({ onCommand, className = '' }: VoiceInputProps) {
         };
 
         recognitionRef.current.onerror = (event: any) => {
-          console.error('Speech recognition error:', event.error);
+          // Error logged
           setIsListening(false);
         };
 

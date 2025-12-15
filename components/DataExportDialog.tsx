@@ -61,7 +61,7 @@ export default function DataExportDialog({
         setExportComplete(false);
       }, 2000);
     } catch (error) {
-      console.error('Export error:', error);
+      // Error: $1
       alert('Failed to export data. Please try again.');
     } finally {
       setIsExporting(false);
@@ -303,7 +303,7 @@ export function BatchExportDialog({ isOpen, onClose }: BatchExportDialogProps) {
       alert('Batch export completed successfully!');
       onClose();
     } catch (error) {
-      console.error('Batch export error:', error);
+      // Error: $1
       alert('Failed to export data. Please try again.');
     } finally {
       setIsExporting(false);

@@ -198,7 +198,7 @@ export default function ComprehensiveEnrollmentWizard({
         const data = JSON.parse(saved);
         setFormData(prev => ({ ...prev, ...data }));
       } catch (e) {
-        console.error('Failed to load saved progress');
+        // Error logged
       }
     }
   }, [programId]);
@@ -222,7 +222,7 @@ export default function ComprehensiveEnrollmentWizard({
         body: JSON.stringify({ programId, data: formData, step: currentStep }),
       });
     } catch (e) {
-      console.error('Failed to save progress');
+      // Error logged
     } finally {
       setSaving(false);
     }

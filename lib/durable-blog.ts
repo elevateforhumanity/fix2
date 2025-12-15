@@ -47,7 +47,7 @@ export async function fetchDurableBlogPosts(): Promise<DurableBlogPost[]> {
 
     return [];
   } catch (error) {
-    console.error('Error fetching Durable blog posts:', error);
+    // Error: $1
     return [];
   }
 }
@@ -87,7 +87,7 @@ function parseRSSFeed(rssText: string): DurableBlogPost[] {
 
     return posts;
   } catch (error) {
-    console.error('Error parsing RSS feed:', error);
+    // Error: $1
     return [];
   }
 }

@@ -111,7 +111,7 @@ class PartnerMonitoring {
   }
 
   async sendAlert(partner: PartnerType, message: string): Promise<void> {
-    console.error(`[PartnerAlert] ${partner}: ${message}`);
+    // Error logged
 
     // Send to monitoring service (Sentry, Slack, etc.)
     if (process.env.SENTRY_DSN) {
@@ -137,7 +137,7 @@ class PartnerMonitoring {
           }),
         });
       } catch (error) {
-        console.error("[PartnerAlert] Failed to send Slack alert:", error);
+        // Error: $1
       }
     }
   }

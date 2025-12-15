@@ -33,7 +33,7 @@ export async function getAllProgramsStatic(): Promise<Program[]> {
     .order('title');
 
   if (error) {
-    console.error('Error fetching programs:', error);
+    // Error: $1
     return [];
   }
 
@@ -53,7 +53,7 @@ export async function getAllPrograms(): Promise<Program[]> {
     .order('title');
 
   if (error) {
-    console.error('Error fetching programs:', error);
+    // Error: $1
     return [];
   }
 
@@ -71,7 +71,7 @@ export async function getProgramBySlug(slug: string): Promise<Program | null> {
     .single();
 
   if (error) {
-    console.error('Error fetching program:', error);
+    // Error: $1
     return null;
   }
 

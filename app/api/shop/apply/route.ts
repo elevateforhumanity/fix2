@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     const userId = authUser?.user?.id;
 
     if (!userId) {
-      console.error('User creation failed:', authError);
+      // Error: $1
       throw new Error('User creation failed');
     }
 
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
       });
 
     if (profileError) {
-      console.error('Profile creation failed:', profileError);
+      // Error: $1
     }
 
     // Create shop record
@@ -80,7 +80,7 @@ export async function POST(req: Request) {
       .single();
 
     if (shopError) {
-      console.error('Shop creation failed:', shopError);
+      // Error: $1
       throw new Error('Shop creation failed');
     }
 
@@ -125,7 +125,7 @@ Welcome to the Elevate for Humanity network!
         `,
       });
     } catch (emailError) {
-      console.error('Welcome email failed:', emailError);
+      // Error: $1
       // Continue - not critical
     }
 
@@ -151,7 +151,7 @@ Welcome to the Elevate for Humanity network!
     });
 
   } catch (err: any) {
-    console.error('Shop application error:', err);
+    // Error: $1
     return NextResponse.json(
       { error: err.message || 'Application failed' },
       { status: 500 }

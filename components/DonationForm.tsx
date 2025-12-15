@@ -48,7 +48,7 @@ export default function DonationForm() {
         }
       }
     } catch (err: any) {
-      console.error('Donation error:', err);
+      // Error: $1
       setError(err.message || 'Failed to process donation. Please try again.');
     } finally {
       setLoading(false);

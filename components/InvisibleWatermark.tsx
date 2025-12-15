@@ -62,7 +62,7 @@ export function InvisibleWatermark({
     }
     // Method 5: Detect if site is being viewed in iframe (common scraping technique)
     if (window.self !== window.top) {
-      console.error('⚠️ This site is being displayed in an iframe. This may be unauthorized use.');
+      // Error logged
       // Optionally break out of iframe
       // window.top.location = window.self.location;
     }

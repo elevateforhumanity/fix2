@@ -97,7 +97,7 @@ Recent Activity:
     });
 
   } catch (err: any) {
-    console.error('Test email error:', err);
+    // Error: $1
     return NextResponse.json(
       { error: err.message || 'Failed to send test email' },
       { status: 500 }

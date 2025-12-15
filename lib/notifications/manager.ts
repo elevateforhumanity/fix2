@@ -37,7 +37,7 @@ export class NotificationManager {
       const permission = await Notification.requestPermission();
       return permission === 'granted';
     } catch (error) {
-      console.error('[Notifications] Permission request failed:', error);
+      // Error: $1
       return false;
     }
   }
@@ -65,7 +65,7 @@ export class NotificationManager {
       }
       return subscription;
     } catch (error) {
-      console.error('[Notifications] Push subscription failed:', error);
+      // Error: $1
       return null;
     }
   }
@@ -84,7 +84,7 @@ export class NotificationManager {
       }
       return false;
     } catch (error) {
-      console.error('[Notifications] Unsubscribe failed:', error);
+      // Error: $1
       return false;
     }
   }

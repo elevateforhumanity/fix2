@@ -39,14 +39,14 @@ export default function VoiceoverPlayer({ text, autoPlay = true }: VoiceoverPlay
         await audioRef.current.play();
       }
     } catch (error) {
-      console.error('Error playing voiceover, falling back to browser speech:', error);
+      // Error: $1
       useBrowserSpeech();
     }
   };
 
   const useBrowserSpeech = () => {
     if (!window.speechSynthesis) {
-      console.error('Speech synthesis not supported');
+      // Error logged
       setIsPlaying(false);
       return;
     }
@@ -151,7 +151,7 @@ export default function VoiceoverPlayer({ text, autoPlay = true }: VoiceoverPlay
         ref={audioRef}
         onEnded={() => setIsPlaying(false)}
         onError={() => {
-          console.error('Audio playback error, falling back to browser speech');
+          // Error logged
           useBrowserSpeech();
         }}
         className="hidden"

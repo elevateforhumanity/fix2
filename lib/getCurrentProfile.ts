@@ -48,7 +48,7 @@ export async function getCurrentProfile(): Promise<CurrentProfile> {
     .single();
 
   if (error || !profile) {
-    console.error('Error fetching profile', error);
+    // Error: $1
     return null;
   }
 

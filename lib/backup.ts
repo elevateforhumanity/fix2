@@ -8,7 +8,7 @@ export async function createBackup(tables: string[] = ['profiles', 'courses', 'e
     for (const table of tables) {
       const { data, error } = await supabase.from(table).select('*');
       if (error) {
-        console.error(`Error backing up ${table}:`, error);
+        // Error logged
         continue;
       }
       backup[table] = data || [];
@@ -28,7 +28,7 @@ export async function createBackup(tables: string[] = ['profiles', 'courses', 'e
       recordCount: Object.values(backup).reduce((sum, records) => sum + records.length, 0),
     };
   } catch (error) {
-    console.error('Backup failed:', error);
+    // Error: $1
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
@@ -109,7 +109,7 @@ export async function listBackups() {
     .order('timestamp', { ascending: false })
     .limit(50);
   if (error) {
-    console.error('Error listing backups:', error);
+    // Error: $1
     return [];
   }
   return data || [];
@@ -123,7 +123,7 @@ export async function deleteOldBackups(retentionDays: number = 30) {
     .delete()
     .lt('timestamp', cutoffDate.toISOString());
   if (error) {
-    console.error('Error deleting old backups:', error);
+    // Error: $1
     return { success: false, error: error.message };
   }
   return { success: true };

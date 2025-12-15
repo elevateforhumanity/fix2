@@ -126,7 +126,7 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
       .select()
       .single();
     if (enrollmentError || !enrollment) {
-      console.error('[createEnrollment] Failed to create enrollment', enrollmentError);
+      // Error: $1
       throw new Error(`Failed to create enrollment: ${enrollmentError?.message}`);
     }
     // 6. Get all required modules for this program
@@ -136,7 +136,7 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
       .eq('program_id', input.program_id)
       .order('order_index');
     if (modulesError) {
-      console.error('[createEnrollment] Failed to fetch modules', modulesError);
+      // Error: $1
       throw new Error(`Failed to fetch modules: ${modulesError.message}`);
     }
     // 7. Create module_progress rows for all required modules
@@ -152,7 +152,7 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
         .from('enrollment_module_progress')
         .insert(moduleProgressRows);
       if (progressError) {
-        console.error('[createEnrollment] Failed to create module progress', progressError);
+        // Error: $1
         // Don't fail the whole enrollment, but log it
       } else {
       }
@@ -172,7 +172,7 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
           transferred_ojt_hours: 0
         });
       if (apprenticeError) {
-        console.error('[createEnrollment] Failed to create apprenticeship record', apprenticeError);
+        // Error: $1
         // Don't fail the whole enrollment
       } else {
       }
@@ -187,7 +187,7 @@ export async function createEnrollment(input: CreateEnrollmentInput) {
       message: `Enrollment created successfully for ${student.first_name} ${student.last_name} in ${program.name}`
     };
   } catch (error: unknown) {
-    console.error('[createEnrollment] Error:', error);
+    // Error: $1
     return {
       success: false,
       error: error.message || 'Failed to create enrollment'
@@ -229,7 +229,7 @@ export async function addTransferHours(input: AddTransferHoursInput) {
       .select()
       .single();
     if (transferError || !transferHours) {
-      console.error('[addTransferHours] Failed to create transfer hours', transferError);
+      // Error: $1
       throw new Error(`Failed to create transfer hours: ${transferError?.message}`);
     }
     // 3. Revalidate paths
@@ -241,7 +241,7 @@ export async function addTransferHours(input: AddTransferHoursInput) {
       message: `Transfer hours from ${input.source_school_name} (${input.source_state}) added successfully. Status: Pending Review`
     };
   } catch (error: unknown) {
-    console.error('[addTransferHours] Error:', error);
+    // Error: $1
     return {
       success: false,
       error: error.message || 'Failed to add transfer hours'
@@ -291,7 +291,7 @@ export async function approveTransferHours(input: ApproveTransferHoursInput) {
       })
       .eq('id', input.transfer_hours_id);
     if (updateError) {
-      console.error('[approveTransferHours] Failed to update transfer hours', updateError);
+      // Error: $1
       throw new Error(`Failed to approve transfer hours: ${updateError.message}`);
     }
     // 4. If this is an apprenticeship, update apprenticeship_enrollments
@@ -325,7 +325,7 @@ export async function approveTransferHours(input: ApproveTransferHoursInput) {
       message: `Transfer hours approved: ${input.hours_theory_accepted} theory + ${input.hours_practical_accepted} practical hours`
     };
   } catch (error: unknown) {
-    console.error('[approveTransferHours] Error:', error);
+    // Error: $1
     return {
       success: false,
       error: error.message || 'Failed to approve transfer hours'
@@ -353,7 +353,7 @@ export async function rejectTransferHours(transfer_hours_id: string, reason: str
       message: 'Transfer hours rejected'
     };
   } catch (error: unknown) {
-    console.error('[rejectTransferHours] Error:', error);
+    // Error: $1
     return {
       success: false,
       error: error.message || 'Failed to reject transfer hours'
@@ -386,7 +386,7 @@ export async function updateFundingAmounts(input: UpdateFundingAmountsInput) {
       })
       .eq('id', input.enrollment_id);
     if (updateError) {
-      console.error('[updateFundingAmounts] Failed to update funding', updateError);
+      // Error: $1
       throw new Error(`Failed to update funding amounts: ${updateError.message}`);
     }
     // 3. Revalidate paths
@@ -397,7 +397,7 @@ export async function updateFundingAmounts(input: UpdateFundingAmountsInput) {
       message: 'Funding amounts updated successfully'
     };
   } catch (error: unknown) {
-    console.error('[updateFundingAmounts] Error:', error);
+    // Error: $1
     return {
       success: false,
       error: error.message || 'Failed to update funding amounts'
@@ -464,7 +464,7 @@ export async function getEnrollmentDetails(enrollment_id: string) {
       }
     };
   } catch (error: unknown) {
-    console.error('[getEnrollmentDetails] Error:', error);
+    // Error: $1
     return {
       success: false,
       error: error.message || 'Failed to fetch enrollment details'

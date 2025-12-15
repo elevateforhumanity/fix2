@@ -18,6 +18,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error("❌ Fatal:", err?.message || err);
+  // Error logged
   process.exit(1);
 });

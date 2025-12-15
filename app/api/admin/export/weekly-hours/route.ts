@@ -78,7 +78,7 @@ export async function GET(req: NextRequest) {
     const { data: hours, error } = await query;
 
     if (error) {
-      console.error('Export weekly hours error:', error);
+      // Error: $1
       throw error;
     }
 
@@ -171,7 +171,7 @@ export async function GET(req: NextRequest) {
     });
 
   } catch (err: any) {
-    console.error('Export weekly hours error:', err);
+    // Error: $1
     return NextResponse.json(
       { error: err.message || 'Failed to export weekly hours' },
       { status: 500 }

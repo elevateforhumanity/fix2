@@ -52,7 +52,7 @@ export function ProfessionalVideoPlayer({
           videoRef.current.currentTime = last_position_seconds;
         }
       } catch (e) {
-        console.error("fetchProgress error", e);
+        // Error: $1
       }
     }
 
@@ -79,7 +79,7 @@ export function ProfessionalVideoPlayer({
           lastPositionSeconds: video.currentTime,
           durationSeconds: video.duration,
         }),
-      }).catch((e) => console.error("save progress failed", e));
+      // Error: $1
 
       // 2) Log watch tick (for streaks & goals)
       // Assume interval is 8 seconds
@@ -87,7 +87,7 @@ export function ProfessionalVideoPlayer({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ seconds: 8 }),
-      }).catch((e) => console.error("watch-tick failed", e));
+      // Error: $1
     };
 
     const interval = window.setInterval(handler, 8000); // every 8 seconds
@@ -132,7 +132,7 @@ export function ProfessionalVideoPlayer({
         }
       }
     } catch (e) {
-      console.error("PiP error", e);
+      // Error: $1
     }
   };
 

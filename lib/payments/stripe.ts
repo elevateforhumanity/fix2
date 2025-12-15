@@ -52,7 +52,7 @@ export class StripeService {
         clientSecret: `pi_${Date.now()}_secret_${Math.random()}`,
       };
     } catch (error) {
-      console.error('Payment intent creation error:', error);
+      // Error: $1
       throw error;
     }
   }
@@ -69,7 +69,7 @@ export class StripeService {
         clientSecret: '',
       };
     } catch (error) {
-      console.error('Payment confirmation error:', error);
+      // Error: $1
       throw error;
     }
   }
@@ -80,7 +80,7 @@ export class StripeService {
       // Mock response
       return `cus_${Date.now()}`;
     } catch (error) {
-      console.error('Customer creation error:', error);
+      // Error: $1
       throw error;
     }
   }
@@ -101,7 +101,7 @@ export class StripeService {
         cancelAtPeriodEnd: false,
       };
     } catch (error) {
-      console.error('Subscription creation error:', error);
+      // Error: $1
       throw error;
     }
   }
@@ -119,7 +119,7 @@ export class StripeService {
         cancelAtPeriodEnd: true,
       };
     } catch (error) {
-      console.error('Subscription cancellation error:', error);
+      // Error: $1
       throw error;
     }
   }
@@ -137,7 +137,7 @@ export class StripeService {
         cancelAtPeriodEnd: false,
       };
     } catch (error) {
-      console.error('Get subscription error:', error);
+      // Error: $1
       return null;
     }
   }
@@ -180,7 +180,7 @@ export class StripeService {
       // 
       return true;
     } catch (error) {
-      console.error('Refund creation error:', error);
+      // Error: $1
       return false;
     }
   }
@@ -208,7 +208,7 @@ export class StripeService {
           // 
       }
     } catch (error) {
-      console.error('Webhook handling error:', error);
+      // Error: $1
       throw error;
     }
   }

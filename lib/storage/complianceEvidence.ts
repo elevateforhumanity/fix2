@@ -20,7 +20,7 @@ export async function uploadComplianceEvidenceFile(
     });
 
   if (error) {
-    console.error("Supabase upload error:", error);
+    // Error: $1
     throw error;
   }
 

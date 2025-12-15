@@ -47,7 +47,7 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
       role,
     };
   } catch (error) {
-    console.error("Error getting current user:", error);
+    // Error: $1
     return null;
   }
 }

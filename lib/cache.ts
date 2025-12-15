@@ -12,10 +12,10 @@ async function getClient() {
   if (!client) {
     try {
       client = createClient({ url: process.env.REDIS_URL });
-      client.on('error', (err) => console.error('Redis error', err));
+      // Error: $1
       await client.connect();
     } catch (error) {
-      console.error('Failed to connect to Redis:', error);
+      // Error: $1
       return null;
     }
   }
@@ -31,7 +31,7 @@ export async function cacheGet<T = any>(key: string): Promise<T | null> {
     if (!value) return null;
     return JSON.parse(value as string) as T;
   } catch (error) {
-    console.error('Cache get error:', error);
+    // Error: $1
     return null;
   }
 }
@@ -47,7 +47,7 @@ export async function cacheSet(
   try {
     await c.set(key, JSON.stringify(value), { EX: ttlSeconds });
   } catch (error) {
-    console.error('Cache set error:', error);
+    // Error: $1
   }
 }
 
@@ -58,7 +58,7 @@ export async function cacheDel(key: string): Promise<void> {
   try {
     await c.del(key);
   } catch (error) {
-    console.error('Cache delete error:', error);
+    // Error: $1
   }
 }
 
@@ -91,6 +91,6 @@ export async function cacheInvalidatePattern(pattern: string): Promise<void> {
       }
     }
   } catch (error) {
-    console.error('Cache invalidate pattern error:', error);
+    // Error: $1
   }
 }

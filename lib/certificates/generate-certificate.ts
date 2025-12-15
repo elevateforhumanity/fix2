@@ -156,7 +156,7 @@ export async function generateCertificate(data: CertificateData): Promise<Buffer
     doc.setTextColor(100, 100, 100);
     doc.text('Scan to verify', pageWidth - 1.1, 1.6, { align: 'center' });
   } catch (error) {
-    console.error('QR code generation failed:', error);
+    // Error: $1
   }
 
   // Footer - Repository Reference

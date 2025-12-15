@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     const userId = authUser?.user?.id;
 
     if (!userId) {
-      console.error('User creation failed:', authError);
+      // Error: $1
       throw new Error('User creation failed');
     }
 
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
       });
 
     if (profileError) {
-      console.error('Profile creation failed:', profileError);
+      // Error: $1
     }
 
     // 3️⃣ Get program
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
       .single();
 
     if (!program) {
-      console.error('Program not found:', programError);
+      // Error: $1
       throw new Error('Program not found');
     }
 
@@ -93,7 +93,7 @@ export async function POST(req: Request) {
       });
 
     if (enrollmentError) {
-      console.error('Enrollment creation failed:', enrollmentError);
+      // Error: $1
       throw new Error('Enrollment failed');
     }
 
@@ -114,7 +114,7 @@ export async function POST(req: Request) {
         });
       }
     } catch (aiError) {
-      console.error('AI instructor assignment failed:', aiError);
+      // Error: $1
       // Continue - not critical
     }
 
@@ -124,7 +124,7 @@ export async function POST(req: Request) {
         student_id: userId,
       });
     } catch (onboardingError) {
-      console.error('Onboarding record creation failed:', onboardingError);
+      // Error: $1
       // Continue - not critical
     }
 
@@ -155,7 +155,7 @@ Welcome to your next level.
 `,
       });
     } catch (emailError) {
-      console.error('Welcome email failed:', emailError);
+      // Error: $1
       // Continue - not critical
     }
 
@@ -178,7 +178,7 @@ Welcome to your next level.
       dashboard_url: `${process.env.NEXT_PUBLIC_SITE_URL}/student/dashboard`,
     });
   } catch (err: any) {
-    console.error('APPLY ERROR:', err);
+    // Error: $1
     return NextResponse.json(
       { error: err.message || 'Enrollment failed' },
       { status: 500 }

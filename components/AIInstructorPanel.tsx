@@ -81,7 +81,7 @@ export function AIInstructorPanel({ instructor, programTitle }: AIInstructorPane
       };
       setMessages((prev) => [...prev, instructorMsg]);
     } catch (err: unknown) {
-      console.error(err);
+      // Error logged
       setError(
         err?.message ||
           "Something went wrong contacting the AI instructor. Please try again later."

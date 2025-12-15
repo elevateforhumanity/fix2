@@ -103,7 +103,7 @@ export default function ServiceLoggingForm({
         alert('Failed to log hours. Please try again.');
       }
     } catch (error) {
-      console.error('Error logging hours:', error);
+      // Error: $1
       alert('An error occurred. Please try again.');
     } finally {
       setLoading(false);

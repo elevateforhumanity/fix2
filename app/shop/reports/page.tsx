@@ -33,7 +33,7 @@ export default function ShopReportsPage() {
         setReports(data.reports || []);
       }
     } catch (err) {
-      console.error('Failed to load reports:', err);
+      // Error: $1
     } finally {
       setLoading(false);
     }
@@ -59,7 +59,7 @@ export default function ShopReportsPage() {
         document.body.removeChild(a);
       }
     } catch (err) {
-      console.error('Download failed:', err);
+      // Error: $1
     }
   };
 

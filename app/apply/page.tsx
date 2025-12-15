@@ -70,7 +70,7 @@ function ApplyForm() {
         setStatus('idle');
       }, 3000);
     } catch (error) {
-      console.error('Submission error:', error);
+      // Error: $1
       setStatus('error');
       setTimeout(() => setStatus('idle'), 3000);
     }

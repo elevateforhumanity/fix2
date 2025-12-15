@@ -43,13 +43,11 @@ export async function sendEmail(
       replyTo: options.replyTo,
     });
     if (error) {
-      console.error('[Email] Send error:', error);
       return { success: false, error: error.message };
     }
     return { success: true, messageId: data?.id };
   } catch (error: unknown) {
-    console.error('[Email] Exception:', error);
-    return { success: false, error: error.message };
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
   }
 }
 // Email templates

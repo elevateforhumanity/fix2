@@ -27,7 +27,7 @@ export default function AddToCartButton({ product, quantity = 1, className }: Ad
         setShowSuccess(false);
       }, 2000);
     } catch (error) {
-      console.error('Error adding to cart:', error);
+      // Error: $1
     } finally {
       setIsAdding(false);
     }

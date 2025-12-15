@@ -51,7 +51,7 @@ export async function POST(req: Request) {
       );
 
     if (placementError) {
-      console.error('Shop placement error:', placementError);
+      // Error: $1
       return NextResponse.json(
         { error: placementError.message },
         { status: 500 }
@@ -65,13 +65,13 @@ export async function POST(req: Request) {
       .eq('student_id', studentId);
 
     if (onboardingError) {
-      console.error('Onboarding update error:', onboardingError);
+      // Error: $1
       // Continue - placement was successful
     }
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error('Shop placement error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || 'Failed to assign shop placement' },
       { status: 500 }

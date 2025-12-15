@@ -19,7 +19,7 @@ export class SyncManager {
         await (registration as string).sync.register('sync-progress');
         // 
       } catch (error) {
-        console.error('[Sync] Background sync registration failed:', error);
+        // Error: $1
         // Fallback to periodic sync
         this.startPeriodicSync();
       }
@@ -86,7 +86,7 @@ export class SyncManager {
             );
           }
         } catch (error) {
-          console.error('[Sync] Error syncing progress item:', error);
+          // Error: $1
         }
       }
       // Sync queue items
@@ -104,14 +104,14 @@ export class SyncManager {
             // 
           }
         } catch (error) {
-          console.error('[Sync] Error syncing queue item:', error);
+          // Error: $1
         }
       }
       // 
       this.syncing = false;
       return true;
     } catch (error) {
-      console.error('[Sync] Sync failed:', error);
+      // Error: $1
       this.syncing = false;
       return false;
     }

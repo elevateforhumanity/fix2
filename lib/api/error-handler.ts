@@ -15,7 +15,7 @@ export function withErrorHandling(handler: ApiHandler): ApiHandler {
     try {
       return await handler(req);
     } catch (error) {
-      console.error('API Error:', error);
+      // Error: $1
       
       // Handle specific error types
       if (error instanceof Error) {

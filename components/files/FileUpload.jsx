@@ -83,7 +83,7 @@ export function FileUpload({
         setProgress(0);
       }, 1000);
     } catch (error) {
-      console.error('Upload error:', error);
+      // Error: $1
       alert('Failed to upload file');
       setUploading(false);
       setProgress(0);

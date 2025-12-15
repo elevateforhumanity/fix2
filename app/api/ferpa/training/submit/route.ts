@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (trainingError) {
-      console.error('Training record error:', trainingError);
+      // Error: $1
       return NextResponse.json(
         { error: 'Failed to save training record' },
         { status: 500 }
@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
         })
       });
     } catch (emailError) {
-      console.error('Email notification failed:', emailError);
+      // Error: $1
       // Don't fail the request if email fails
     }
 
@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('FERPA training submission error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

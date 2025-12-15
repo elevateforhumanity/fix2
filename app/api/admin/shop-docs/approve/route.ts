@@ -43,7 +43,7 @@ export async function POST(req: Request) {
       .eq('id', shop_document_id);
 
     if (error) {
-      console.error('Document approval error:', error);
+      // Error: $1
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
@@ -80,7 +80,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error('Document approval error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || 'Approval failed' },
       { status: 500 }

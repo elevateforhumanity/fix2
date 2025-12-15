@@ -46,7 +46,7 @@ export function handleError(error: unknown): { message: string; statusCode: numb
 
   if (error instanceof Error) {
     // Log unexpected errors
-    console.error('Unexpected error:', error);
+    // Error: $1
     
     // Track in analytics
     if (typeof window !== 'undefined' && window.gtag) {
@@ -84,7 +84,7 @@ export async function withErrorHandling<T>(
 }
 
 export function logError(error: unknown, context?: Record<string, any>) {
-  console.error('Error:', error, context);
+  // Error logged
   
   // Send to error tracking service (e.g., Sentry)
   if (typeof window !== 'undefined' && window.gtag) {

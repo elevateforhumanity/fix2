@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
       });
 
     if (dbError) {
-      console.error('Database error:', dbError);
+      // Error: $1
       // Continue even if DB fails - we'll send email
     }
 
@@ -60,13 +60,13 @@ export async function POST(request: NextRequest) {
           `— Elevate for Humanity\n`,
       });
     } catch (emailError) {
-      console.error('Email error:', emailError);
+      // Error: $1
       // Continue - inquiry is saved
     }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Partner inquiry error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: 'Failed to process inquiry' },
       { status: 500 }

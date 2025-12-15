@@ -76,7 +76,7 @@ export function AffirmPaymentButton({
         throw new Error('No checkout token received');
       }
     } catch (error) {
-      console.error('Affirm error:', error);
+      // Error: $1
       const errorMessage = error instanceof Error ? error.message : 'Payment error. Please try again.';
       
       if (onError) {

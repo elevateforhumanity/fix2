@@ -43,7 +43,7 @@ export default function AuditLogsPage() {
         setLogs(data.logs || []);
       }
     } catch (err) {
-      console.error('Failed to load audit logs:', err);
+      // Error: $1
     } finally {
       setLoading(false);
     }

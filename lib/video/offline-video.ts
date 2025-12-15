@@ -61,7 +61,7 @@ export class OfflineVideoManager {
       // 
       return true;
     } catch (error) {
-      console.error('[OfflineVideo] Download failed:', error);
+      // Error: $1
       return false;
     }
   }
@@ -78,7 +78,7 @@ export class OfflineVideoManager {
       // Create object URL from blob
       return URL.createObjectURL(video.blob);
     } catch (error) {
-      console.error('[OfflineVideo] Failed to get offline video:', error);
+      // Error: $1
       return null;
     }
   }
@@ -104,7 +104,7 @@ export class OfflineVideoManager {
       // 
       return true;
     } catch (error) {
-      console.error('[OfflineVideo] Delete failed:', error);
+      // Error: $1
       return false;
     }
   }
@@ -121,7 +121,7 @@ export class OfflineVideoManager {
         sizeMB: Math.round((estimate.usage / 1024 / 1024) * 100) / 100,
       };
     } catch (error) {
-      console.error('[OfflineVideo] Failed to get storage usage:', error);
+      // Error: $1
       return { count: 0, sizeMB: 0 };
     }
   }
@@ -135,7 +135,7 @@ export class OfflineVideoManager {
       // 
       return true;
     } catch (error) {
-      console.error('[OfflineVideo] Clear failed:', error);
+      // Error: $1
       return false;
     }
   }

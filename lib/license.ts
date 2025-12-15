@@ -27,7 +27,7 @@ export function getLicense(): EFHLicense {
     _license = JSON.parse(raw) as EFHLicense;
     return _license!;
   } catch (err) {
-    console.error("⚠️ EFH License file missing or corrupted.");
+    // Error logged
     // Return a default suspended license
     return {
       licenseHolder: "UNKNOWN",

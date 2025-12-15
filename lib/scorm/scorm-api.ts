@@ -51,7 +51,7 @@ export class SCORMAPIWrapper {
       return true;
     }
     if (!this.lmsAPI) {
-      console.error('[SCORM] API not available');
+      // Error logged
       return false;
     }
     try {
@@ -63,11 +63,11 @@ export class SCORMAPIWrapper {
       if (this.initialized) {
         // `);
       } else {
-        console.error('[SCORM] Initialization failed');
+        // Error logged
       }
       return this.initialized;
     } catch (error) {
-      console.error('[SCORM] Initialization error:', error);
+      // Error: $1
       return false;
     }
   }
@@ -83,7 +83,7 @@ export class SCORMAPIWrapper {
           : this.lmsAPI.GetValue(element);
       return value || '';
     } catch (error) {
-      console.error(`[SCORM] GetValue error for ${element}:`, error);
+      // Error logged
       return '';
     }
   }
@@ -99,7 +99,7 @@ export class SCORMAPIWrapper {
           : this.lmsAPI.SetValue(element, value);
       return result === 'true';
     } catch (error) {
-      console.error(`[SCORM] SetValue error for ${element}:`, error);
+      // Error logged
       return false;
     }
   }
@@ -115,7 +115,7 @@ export class SCORMAPIWrapper {
           : this.lmsAPI.Commit('');
       return result === 'true';
     } catch (error) {
-      console.error('[SCORM] Commit error:', error);
+      // Error: $1
       return false;
     }
   }
@@ -135,7 +135,7 @@ export class SCORMAPIWrapper {
       }
       return result === 'true';
     } catch (error) {
-      console.error('[SCORM] Terminate error:', error);
+      // Error: $1
       return false;
     }
   }

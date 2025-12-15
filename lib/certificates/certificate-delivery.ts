@@ -24,7 +24,7 @@ async function sendCertificateEmail(emailData: EmailData) {
       body: JSON.stringify(emailData)
     });
   } catch (error) {
-    console.error('Failed to send certificate email:', error);
+    // Error: $1
   }
 }
 export async function deliverModuleCertificate(
@@ -133,7 +133,7 @@ export async function deliverModuleCertificate(
     });
     return certificateNumber;
   } catch (error) {
-    console.error('Error delivering module certificate:', error);
+    // Error: $1
     throw error;
   }
 }
@@ -248,7 +248,7 @@ export async function deliverProgramCertificate(
     });
     return certificateNumber;
   } catch (error) {
-    console.error('Error delivering program certificate:', error);
+    // Error: $1
     throw error;
   }
 }
@@ -267,7 +267,7 @@ export async function onModuleComplete(enrollmentId: string, moduleId: string) {
       })
       .eq('id', enrollmentId);
     if (updateError) {
-      console.error('Error updating module completion:', updateError);
+      // Error: $1
     }
     // Deliver certificate
     await deliverModuleCertificate(enrollmentId, moduleId);
@@ -326,7 +326,7 @@ export async function onModuleComplete(enrollmentId: string, moduleId: string) {
       }
     }
   } catch (error) {
-    console.error('Error in onModuleComplete:', error);
+    // Error: $1
     throw error;
   }
 }

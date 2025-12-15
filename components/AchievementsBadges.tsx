@@ -46,7 +46,7 @@ export function AchievementsBadges({ userId }: AchievementsBadgesProps) {
         setBadges(data.badges || []);
       }
     } catch (error) {
-      console.error('Error loading badges:', error);
+      // Error: $1
     } finally {
       setLoading(false);
     }

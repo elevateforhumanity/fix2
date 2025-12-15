@@ -118,7 +118,7 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
         }
       }
     } catch (error) {
-      console.error('Chat error:', error);
+      // Error: $1
       setMessages(prev => prev.filter(m => m.id !== 'typing'));
       setMessages(prev => [...prev, {
         id: Date.now().toString(),
@@ -158,7 +158,7 @@ export default function AILiveChat({ userId, userName, userEmail }: AILiveChatPr
         }]);
       }
     } catch (error) {
-      console.error('Agent request error:', error);
+      // Error: $1
     } finally {
       setIsLoading(false);
     }

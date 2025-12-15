@@ -68,7 +68,7 @@ export async function POST(req: Request) {
         .single();
 
       if (sessionError) {
-        console.error('Session creation error:', sessionError);
+        // Error: $1
         return NextResponse.json(
           { error: 'Failed to create chat session' },
           { status: 500 }
@@ -93,7 +93,7 @@ export async function POST(req: Request) {
         .eq('student_id', user.id)
         .eq('ai_instructor_met', false);
     } catch (onboardingError) {
-      console.error('Failed to mark AI instructor met:', onboardingError);
+      // Error: $1
       // Continue - not critical
     }
 
@@ -136,7 +136,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ reply });
   } catch (error: any) {
-    console.error('AI chat error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || 'Failed to process chat' },
       { status: 500 }
@@ -176,7 +176,7 @@ export async function GET(req: Request) {
 
     return NextResponse.json({ messages: messages || [] });
   } catch (error: any) {
-    console.error('Get chat history error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: 'Failed to load chat history' },
       { status: 500 }

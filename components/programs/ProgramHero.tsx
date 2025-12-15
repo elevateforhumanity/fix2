@@ -29,7 +29,7 @@ export function ProgramHero({ program }: { program: Program }) {
             await videoRef.current.play();
           }
         } catch (e) {
-          console.log('Autoplay blocked');
+
         }
       }
     };

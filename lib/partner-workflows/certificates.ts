@@ -123,7 +123,7 @@ export async function createCertificate(
       certificateId: certificate.id,
     };
   } catch (error: unknown) {
-    console.error('Certificate creation error:', error);
+    // Error: $1
     return {
       success: false,
       error: error.message,
@@ -202,7 +202,7 @@ export async function generateCertificatePDF(
       pdfUrl: data.pdf_url,
     };
   } catch (error: unknown) {
-    console.error('PDF generation error:', error);
+    // Error: $1
     return {
       success: false,
       error: error.message,
@@ -259,7 +259,7 @@ export async function verifyCertificate(
       },
     };
   } catch (error: unknown) {
-    console.error('Certificate verification error:', error);
+    // Error: $1
     return {
       valid: false,
       error: error.message,
@@ -318,7 +318,7 @@ export async function revokeCertificate(
 
     return { success: true };
   } catch (error: unknown) {
-    console.error('Certificate revocation error:', error);
+    // Error: $1
     return {
       success: false,
       error: error.message,

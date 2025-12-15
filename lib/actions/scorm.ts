@@ -41,7 +41,7 @@ export async function trackScormProgress(data: {
     .single();
 
   if (enrollmentError) {
-    console.error('Error updating SCORM enrollment:', enrollmentError);
+    // Error: $1
     throw new Error('Failed to update enrollment');
   }
 
@@ -92,7 +92,7 @@ export async function getScormEnrollment(scormPackageId: string, userId: string)
     .single();
 
   if (error && error.code !== 'PGRST116') {
-    console.error('Error fetching SCORM enrollment:', error);
+    // Error: $1
     throw new Error('Failed to fetch enrollment');
   }
 
@@ -160,7 +160,7 @@ export async function enrollInPartnerCourse(data: {
     .single();
 
   if (enrollmentError) {
-    console.error('Error creating partner enrollment:', enrollmentError);
+    // Error: $1
     throw new Error('Failed to create enrollment');
   }
 
@@ -237,7 +237,7 @@ export async function getPartnerEnrollments(userId?: string) {
     .order('enrolled_at', { ascending: false });
 
   if (error) {
-    console.error('Error fetching partner enrollments:', error);
+    // Error: $1
     throw new Error('Failed to fetch enrollments');
   }
 
@@ -269,7 +269,7 @@ export async function syncPartnerProgress(enrollmentId: string, progressData: {
     .eq('student_id', user.id);
 
   if (error) {
-    console.error('Error updating partner progress:', error);
+    // Error: $1
     throw new Error('Failed to update progress');
   }
 

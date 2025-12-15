@@ -76,7 +76,7 @@ export async function POST(request: Request) {
           .update({ external_lms_id: externalStudentId })
           .eq('id', studentId);
       } catch (error) {
-        console.error('Error creating Milady account:', error);
+        // Error: $1
         return NextResponse.json(
           { error: 'Failed to create Milady account' },
           { status: 500 }
@@ -131,7 +131,7 @@ export async function POST(request: Request) {
           status: 'enrolled',
         });
       } catch (error) {
-        console.error(`Error enrolling in course ${course.id}:`, error);
+        // Error logged
         enrollments.push({
           courseId: course.id,
           status: 'error',
@@ -146,7 +146,7 @@ export async function POST(request: Request) {
       enrollments,
     });
   } catch (error) {
-    console.error('Auto-enroll error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

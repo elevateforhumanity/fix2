@@ -29,7 +29,7 @@ export async function createProgramEnrollment(
     .single();
 
   if (error) {
-    console.error("Error creating enrollment:", error);
+    // Error: $1
     throw error;
   }
 
@@ -59,7 +59,7 @@ export async function updateEnrollmentStatus(
     .eq("id", id);
 
   if (error) {
-    console.error("Error updating enrollment status:", error);
+    // Error: $1
     throw error;
   }
 }
@@ -75,7 +75,7 @@ export async function listEnrollments(): Promise<ProgramEnrollment[]> {
     .order("created_at", { ascending: false });
 
   if (error) {
-    console.error("Error listing enrollments:", error);
+    // Error: $1
     return [];
   }
 

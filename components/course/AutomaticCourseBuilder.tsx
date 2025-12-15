@@ -151,7 +151,7 @@ export default function AutomaticCourseBuilder() {
       }, 2000);
 
     } catch (error) {
-      console.error('Course generation failed:', error);
+      // Error: $1
       alert('Failed to generate course. Please try again.');
       setGenerating(false);
       setProgress(0);

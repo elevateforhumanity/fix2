@@ -72,7 +72,7 @@ export default function FeedbackWidget({ userId }: FeedbackWidgetProps) {
         }, 2000);
       }
     } catch (error) {
-      console.error('Feedback submission error:', error);
+      // Error: $1
       alert('Failed to submit feedback');
     } finally {
       setIsSubmitting(false);

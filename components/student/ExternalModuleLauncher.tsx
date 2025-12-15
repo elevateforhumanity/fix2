@@ -59,7 +59,7 @@ export default function ExternalModuleLauncher({
       setUploadSuccess(true);
       alert('Certificate uploaded successfully! Your instructor will review it soon.');
     } catch (err: unknown) {
-      console.error('[ExternalModuleLauncher] Upload error:', err);
+      // Error: $1
       alert(`Upload failed: ${err.message}`);
     } finally {
       setUploading(false);

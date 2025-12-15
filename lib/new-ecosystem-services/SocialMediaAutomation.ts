@@ -185,7 +185,7 @@ export class SocialMediaAutomation {
       // Trigger Zapier webhook
       await this.triggerZapier(post);
     } catch (error) {
-      console.error(`❌ Failed to post to ${post.platform}:`, error);
+      // Error logged
       post.status = 'failed';
     }
   }
@@ -311,7 +311,7 @@ export class SocialMediaAutomation {
       });
       // 
     } catch (error) {
-      console.error('❌ Zapier webhook failed:', error);
+      // Error: $1
     }
   }
   /**

@@ -18,7 +18,7 @@ export function OfflineIndicator() {
     try {
       await syncOfflineActions();
     } catch (error) {
-      console.error('Sync failed:', error);
+      // Error: $1
     } finally {
       setSyncing(false);
     }

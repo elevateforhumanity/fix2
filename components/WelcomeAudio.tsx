@@ -63,7 +63,7 @@ export function WelcomeAudio() {
         preload="auto"
         onEnded={() => setIsPlaying(false)}
         onError={(e) => {
-          console.error('Audio error:', e);
+          // Error: $1
           setShowButton(true);
         }}
       />

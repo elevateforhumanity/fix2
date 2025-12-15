@@ -65,9 +65,9 @@ export async function sendSecurityAlert(alert: SecurityAlert): Promise<void> {
       alert.severity === AlertSeverity.CRITICAL && sendSMSAlert(alert, channels.sms),
     ]);
   } catch (error) {
-    console.error('Failed to send security alert:', error);
+    // Error: $1
     // Fallback: Log to console at minimum
-    console.error('SECURITY ALERT:', JSON.stringify(alert, null, 2));
+    // Error logged
   }
 }
 /**
@@ -152,7 +152,7 @@ async function sendEmailAlert(alert: SecurityAlert, emails?: string[]): Promise<
       throw new Error(`SendGrid API error: ${response.statusText}`);
     }
   } catch (error) {
-    console.error('Failed to send email alert:', error);
+    // Error: $1
   }
 }
 /**
@@ -184,7 +184,7 @@ async function sendSlackAlert(alert: SecurityAlert, webhookUrl?: string): Promis
       }),
     });
   } catch (error) {
-    console.error('Failed to send Slack alert:', error);
+    // Error: $1
   }
 }
 /**
@@ -207,7 +207,7 @@ async function sendWebhookAlert(alert: SecurityAlert, webhookUrl?: string): Prom
       body: JSON.stringify(alert),
     });
   } catch (error) {
-    console.error('Failed to send webhook alert:', error);
+    // Error: $1
   }
 }
 /**

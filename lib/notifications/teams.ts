@@ -37,6 +37,6 @@ export async function sendTeamsMessage(
     });
     // 
   } catch (error) {
-    console.error('Failed to send Teams message:', error);
+    // Error: $1
   }
 }

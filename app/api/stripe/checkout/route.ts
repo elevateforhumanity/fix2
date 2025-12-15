@@ -44,7 +44,7 @@ export async function POST(req: Request) {
 
     // Check if Stripe Price ID is configured
     if (!isPriceConfigured(productId)) {
-      console.error(`Stripe Price ID not configured for product: ${productId}`);
+      // Error logged
       return NextResponse.json({ 
         error: 'Product not available for purchase. Please contact support.' 
       }, { status: 500 });
@@ -85,7 +85,7 @@ export async function POST(req: Request) {
     // Redirect to Stripe Checkout
     return NextResponse.redirect(session.url, 303);
   } catch (error: any) {
-    console.error('Stripe checkout error:', error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || 'Internal server error' },
       { status: 500 }

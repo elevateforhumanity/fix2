@@ -39,6 +39,6 @@ export async function sendSlackMessage(params: {
       body: JSON.stringify(body),
     });
   } catch (error) {
-    console.error('Failed to send Slack message:', error);
+    // Error: $1
   }
 }

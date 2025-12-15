@@ -44,7 +44,7 @@ export default function OrchestratorAdmin() {
       const data = await response.json();
       setAutopilots(data.autopilots || []);
     } catch (error) {
-      console.error('Failed to load autopilots:', error);
+      // Error: $1
     }
   }
 
@@ -55,7 +55,7 @@ export default function OrchestratorAdmin() {
       const data = await response.json();
       setDiagnose(data);
     } catch (error) {
-      console.error('Failed to diagnose:', error);
+      // Error: $1
     } finally {
       setLoading(false);
     }
@@ -86,7 +86,7 @@ export default function OrchestratorAdmin() {
       alert(JSON.stringify(data, null, 2));
       runDiagnose();
     } catch (error) {
-      console.error('Failed to ensure infra:', error);
+      // Error: $1
       alert('Failed to ensure infrastructure');
     } finally {
       setLoading(false);
@@ -108,7 +108,7 @@ export default function OrchestratorAdmin() {
       const data = await response.json();
       setTaskResult(data);
     } catch (error) {
-      console.error('Failed to run task:', error);
+      // Error: $1
       setTaskResult({ error: error.message });
     } finally {
       setLoading(false);

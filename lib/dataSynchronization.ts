@@ -130,7 +130,7 @@ class DataSynchronizationManager {
     const supabase = createClient();
     const state = this.syncState.get(table);
     if (!state) {
-      console.error(`[Sync] No sync state for table: ${table}`);
+      // Error logged
       return false;
     }
     if (!state.isOnline) {
@@ -162,7 +162,7 @@ class DataSynchronizationManager {
       this.updateSyncState(table);
       return true;
     } catch (error) {
-      console.error(`[Sync] Error during ${operation} on ${table}:`, error);
+      // Error logged
       await this.retrySync(table, data, operation);
       return false;
     } finally {

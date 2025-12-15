@@ -81,7 +81,7 @@ export class PushNotificationClient {
       await this.saveSubscription(subscription);
       return subscription;
     } catch (error) {
-      console.error('[Push Client] Subscribe error:', error);
+      // Error: $1
       throw error;
     }
   }
@@ -105,7 +105,7 @@ export class PushNotificationClient {
       }
       return success;
     } catch (error) {
-      console.error('[Push Client] Unsubscribe error:', error);
+      // Error: $1
       return false;
     }
   }
@@ -119,7 +119,7 @@ export class PushNotificationClient {
     try {
       return await this.registration.pushManager.getSubscription();
     } catch (error) {
-      console.error('[Push Client] Get subscription error:', error);
+      // Error: $1
       return null;
     }
   }
@@ -139,7 +139,7 @@ export class PushNotificationClient {
         throw new Error('Failed to save subscription');
       }
     } catch (error) {
-      console.error('[Push Client] Save subscription error:', error);
+      // Error: $1
       throw error;
     }
   }
@@ -159,7 +159,7 @@ export class PushNotificationClient {
         throw new Error('Failed to remove subscription');
       }
     } catch (error) {
-      console.error('[Push Client] Remove subscription error:', error);
+      // Error: $1
       throw error;
     }
   }

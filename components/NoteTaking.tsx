@@ -39,7 +39,7 @@ export function NoteTaking({ courseId, lessonId, videoTimestamp }: NoteTakingPro
         setNotes(data.notes || []);
       }
     } catch (error) {
-      console.error('Error loading notes:', error);
+      // Error: $1
     }
   }
 
@@ -65,7 +65,7 @@ export function NoteTaking({ courseId, lessonId, videoTimestamp }: NoteTakingPro
         setCurrentNote('');
       }
     } catch (error) {
-      console.error('Error saving note:', error);
+      // Error: $1
     } finally {
       setSaving(false);
     }
@@ -76,7 +76,7 @@ export function NoteTaking({ courseId, lessonId, videoTimestamp }: NoteTakingPro
       await fetch(`/api/notes/${noteId}`, { method: 'DELETE' });
       setNotes(notes.filter(n => n.id !== noteId));
     } catch (error) {
-      console.error('Error deleting note:', error);
+      // Error: $1
     }
   }
 

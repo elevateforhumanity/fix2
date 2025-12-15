@@ -40,7 +40,7 @@ export function AIInstructorWidget({
         playAudio(data.audioUrl);
       }
     } catch (error) {
-      console.error('Failed to fetch AI message:', error);
+      // Error: $1
       setMessage('Hi! I\'m here to help you succeed in your training. Feel free to ask me anything!');
     }
   };

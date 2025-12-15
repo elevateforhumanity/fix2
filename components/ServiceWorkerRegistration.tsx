@@ -31,7 +31,7 @@ export default function ServiceWorkerRegistration() {
           });
         })
         .catch((error) => {
-          console.error('Service Worker registration failed:', error);
+          // Error: $1
         });
       // Handle controller change (new SW activated)
       navigator.serviceWorker.addEventListener('controllerchange', () => {

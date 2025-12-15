@@ -47,7 +47,7 @@ export default function ScormPlayer({
       setScormUrl(url);
       setLoading(false);
     } catch (err: unknown) {
-      console.error('[ScormPlayer] Error loading SCORM:', err);
+      // Error: $1
       setError(err.message || 'Failed to load SCORM package');
       setLoading(false);
     }
@@ -120,13 +120,13 @@ export default function ScormPlayer({
         })
         .eq('id', progressId);
       if (error) {
-        console.error('[ScormPlayer] Failed to update progress:', error);
+        // Error: $1
       } else {
         // Show success message
         alert('Module completed! Great job!');
       }
     } catch (err) {
-      console.error('[ScormPlayer] Error updating progress:', err);
+      // Error: $1
     }
   }
   async function handleScormScore(score: number) {
@@ -140,10 +140,10 @@ export default function ScormPlayer({
         })
         .eq('id', progressId);
       if (error) {
-        console.error('[ScormPlayer] Failed to update score:', error);
+        // Error: $1
       }
     } catch (err) {
-      console.error('[ScormPlayer] Error updating score:', err);
+      // Error: $1
     }
   }
   if (loading) {

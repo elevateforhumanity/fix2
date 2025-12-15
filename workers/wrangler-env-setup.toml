@@ -1,0 +1,26 @@
+name = "env-setup-autopilot"
+main = "env-setup-autopilot.ts"
+compatibility_date = "2024-01-01"
+workers_dev = true
+
+# Cron trigger - runs every hour to verify environment
+[triggers]
+crons = ["0 * * * *"]
+
+# Environment variables (set via wrangler secret)
+[vars]
+VERCEL_PROJECT_ID = "prj_iUns4lz1mbDP6kRIcukXFVsDWUAV"
+VERCEL_TEAM_ID = "team_Ae8f33vVYR36quLOS8HCeROs"
+SUPABASE_URL = "https://cuxzzpsyufcewtmicszk.supabase.co"
+GITHUB_REPO = "elevateforhumanity/fix2"
+
+# Secrets (set via: wrangler secret put SECRET_NAME)
+# - VERCEL_TOKEN
+# - SUPABASE_ANON_KEY
+# - SUPABASE_SERVICE_ROLE_KEY
+# - GITHUB_TOKEN
+
+# Routes
+[[routes]]
+pattern = "env-autopilot.elevateforhumanity.org/*"
+zone_name = "elevateforhumanity.org"

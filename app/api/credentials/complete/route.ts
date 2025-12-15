@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       .eq("provider", provider);
 
     if (error) {
-      console.error("Credential completion error:", error);
+      // Error: $1
       return NextResponse.json(
         { error: "Failed to mark credential complete" },
         { status: 500 }
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
-    console.error("Credential completion error:", error);
+    // Error: $1
     return NextResponse.json(
       { error: error.message || "Failed to mark credential complete" },
       { status: 500 }

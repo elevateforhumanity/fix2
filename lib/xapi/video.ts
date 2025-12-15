@@ -69,7 +69,7 @@ export async function sendVideoStatement(input: VideoStatementInput) {
 
     await client.sendStatement(statement);
   } catch (error) {
-    console.error("[xAPI Video] Failed to send statement:", error);
+    // Error: $1
     // Don't throw - we don't want tracking failures to break the app
   }
 }

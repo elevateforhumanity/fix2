@@ -66,11 +66,11 @@ export default function AffirmCheckout({
       if (window.affirm) {
         window.affirm.ui.refresh();
       } else {
-        console.error('[Affirm] ❌ Window.affirm not found after load');
+        // Error logged
       }
     };
     script.onerror = (e) => {
-      console.error('[Affirm] ❌ Failed to load script:', e);
+      // Error: $1
       setIsScriptLoaded(false);
     };
     document.body.appendChild(script);
@@ -172,7 +172,7 @@ export default function AffirmCheckout({
       });
 
     } catch (error) {
-      console.error('Affirm checkout error:', error);
+      // Error: $1
       const errorMessage = error instanceof Error ? error.message : 'Failed to start checkout';
       toast.error(errorMessage);
       if (onError) onError(errorMessage);

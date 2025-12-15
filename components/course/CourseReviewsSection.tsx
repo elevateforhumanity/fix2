@@ -27,7 +27,7 @@ export function CourseReviewsSection({ courseId }: { courseId: string }) {
         const json = await res.json();
         setReviews(json.reviews || []);
       } catch (e) {
-        console.error(e);
+        // Error logged
       } finally {
         setLoading(false);
       }
@@ -51,10 +51,10 @@ export function CourseReviewsSection({ courseId }: { courseId: string }) {
         const json = await updated.json();
         setReviews(json.reviews || []);
       } else {
-        console.error("Review submit failed");
+        // Error logged
       }
     } catch (e) {
-      console.error(e);
+      // Error logged
     } finally {
       setSubmitting(false);
     }

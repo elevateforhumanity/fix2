@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
       });
 
     if (error) {
-      console.error('Failed to log security event:', error);
+      // Error: $1
     }
 
     // Send alerts for critical events
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Security logging error:', error);
+    // Error: $1
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }
@@ -65,6 +65,6 @@ async function sendSecurityAlert(event: any) {
       }),
     });
   } catch (error) {
-    console.error('Failed to send security alert:', error);
+    // Error: $1
   }
 }

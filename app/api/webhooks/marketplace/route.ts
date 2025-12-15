@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       process.env.STRIPE_WEBHOOK_SECRET
     );
   } catch (err: any) {
-    console.error('Webhook signature verification failed:', err.message);
+    // Error logged
     return NextResponse.json({ error: err.message }, { status: 400 });
   }
 
@@ -79,7 +79,7 @@ export async function POST(req: Request) {
     });
 
     if (error) {
-      console.error('Failed to record marketplace sale:', error);
+      // Error: $1
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 

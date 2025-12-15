@@ -13,7 +13,7 @@ export default function LoginTracker() {
         });
       } catch (error) {
         // Silently fail - don't disrupt user experience
-        console.error('Failed to track login:', error);
+        // Error: $1
       }
     })();
   }, []);
