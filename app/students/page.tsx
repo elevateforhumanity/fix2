@@ -13,11 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) redirect('/login');
+  // Public page - no auth required
 
   return (
     <div className="min-h-screen bg-white">
@@ -42,10 +38,10 @@ export default async function Page() {
               Access free training, earn certifications, and launch your career
             </p>
             <Link
-              href="/student/courses"
+              href="/apply"
               className="bg-white text-green-600 px-8 py-4 rounded-full font-bold hover:bg-green-50 text-lg inline-block shadow-2xl transition-all"
             >
-              View My Courses
+              Start Your Application
             </Link>
           </div>
         </div>
