@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { WelcomeAudio } from "@/components/WelcomeAudio";
-import PWAInstallSection from "@/components/PWAInstallSection";
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { WelcomeAudio } from '@/components/WelcomeAudio';
+import PWAInstallSection from '@/components/PWAInstallSection';
 
 export default function HomePage() {
   const videoRef = React.useRef<HTMLVideoElement>(null);
@@ -46,7 +46,10 @@ export default function HomePage() {
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__4/generated-video-9491ff2d-bd5a-4570-83e7-05d99663557f.mp4?Expires=2081095425&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=wJZrkaI9bPmzDocPutvmxgDObwlhr0K408zQfDrcdGzfsj4-XZFV5xx73m39AvX4h7M1t6tI3o~AweR5s1AL~l2Hxz3i~nh~AJQV0u4S4DcvX1BfjjIdJx51b1YUfPfUUe502kXA2fjn4kCKGm10JTlPzJI2bmLIa5qkFi7Q3e2b6oc7eOsIctMgBIpWSPIu9GawVYkkE95m2pMmOs1HZyXXMlXcF5IXlZ5XSOMwQM1PMag~yXT6YUxx5Gxx~5Z-9sW78sq8fhVB3m-ppnCZWvIZnwz0ajRnyMPOLT7vEbSJj6l2I2Umovwf9I2JFMUiXwn54VTcpjmpiusOqobrKw__" type="video/mp4" />
+            <source
+              src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__9/video-5599b9e1-fe1f-4f31-a821-c5d9b2af60e8.mp4?Expires=2081095427&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=XYAKfQTQtm1t~crb-eqoYGjNhW6OtDpmLV7aDSdfl-AY7Gmj5UcTwnRjGI8y~MBeFgfANbDXBLzgDgIiy9lIYq~qIafTofg9J5-dLlnPq0h0DC5cwxYMwcY9cOzLoumtClzCcEf6U4opibbDuxE6y7a3wZGl7mFlXMwcd7JHnJLuuq0Uw6mfFG4ROuJgqfnA7A97b2IM5nhw-AD-Nj6TsVbUdFhEaQETHHvWC~GucSzE8sUUQCbBpeFnH3SY8jJWAjXlM-E3cayy-unqJrw4EMP7kkAFLnR6xyD9mwHkXQjPnf2QlM574Fxhj7zNOsT9Q-ZNGN2kKGCII6Vui2lNug__"
+              type="video/mp4"
+            />
           </video>
         </div>
       </section>
@@ -84,24 +87,30 @@ export default function HomePage() {
             Real Careers. Real Fast. From Home.
           </h1>
           <p className="text-xl text-slate-700 leading-relaxed mb-6">
-            At Elevate for Humanity, we believe everyone deserves a shot at a better life—no matter where 
-            you've been or what obstacles you've faced. That's why we offer short-term career training programs 
-            you can complete from the comfort of your own home, in just weeks or months, not years.
+            At Elevate for Humanity, we believe everyone deserves a shot at a
+            better life—no matter where you've been or what obstacles you've
+            faced. That's why we offer short-term career training programs you
+            can complete from the comfort of your own home, in just weeks or
+            months, not years.
           </p>
           <p className="text-xl text-slate-700 leading-relaxed mb-6">
-            Our programs are designed for real people with real lives—parents juggling kids, workers stuck in 
-            dead-end jobs, people starting over after setbacks. You don't need a college degree or perfect grades. 
+            Our programs are designed for real people with real lives—parents
+            juggling kids, workers stuck in dead-end jobs, people starting over
+            after setbacks. You don't need a college degree or perfect grades.
             You just need the drive to build something better.
           </p>
           <p className="text-lg text-slate-600 mb-8">
-            <span className="font-bold text-slate-900">Free training for those who qualify.</span> Through 
-            partnerships with WIOA, WRG, JRI, and registered apprenticeships, most of our students pay nothing 
-            out of pocket. No student loans. No debt. Just real training, real support, and a clear path to 
-            employment.
+            <span className="font-bold text-slate-900">
+              Free training for those who qualify.
+            </span>{' '}
+            Through partnerships with WIOA, WRG, JRI, and registered
+            apprenticeships, most of our students pay nothing out of pocket. No
+            student loans. No debt. Just real training, real support, and a
+            clear path to employment.
           </p>
           <p className="text-lg text-slate-700 italic">
-            We're not just teaching skills—we're opening doors to careers that pay well, offer stability, 
-            and give you the life you deserve.
+            We're not just teaching skills—we're opening doors to careers that
+            pay well, offer stability, and give you the life you deserve.
           </p>
         </div>
       </section>
@@ -114,8 +123,9 @@ export default function HomePage() {
               Real Skills. Real Careers. Real Fast.
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our programs are designed for people with real lives—parents, workers, people starting over. 
-              Train online at your pace, practice hands-on, and step into a career that's waiting for you.
+              Our programs are designed for people with real lives—parents,
+              workers, people starting over. Train online at your pace, practice
+              hands-on, and step into a career that's waiting for you.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -129,7 +139,10 @@ export default function HomePage() {
                     playsInline
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   >
-                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-570a7e55-792e-4ad3-bbd1-72ca89a61f2d.mp4?Expires=2081095426&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=O83IqG0r8dbMOyLHw8LVHa18JGjLwgnKmLPKL3me1H50K-ggwPoUB2KDX-7hUegt8jWpsQwNwnPd11xBUC-r05B~WCUUnUAf7dg~jN5f-o8IrS~ZfFJUitB6k35pOdipzeinpXe1wGieq-27GNJZgVHiAQRrGYGduuZ7iKmu93ujZNJSx-DEhiP255esVtvIiSCVYsR-t32~QyGosAMO7I17xeUs5LiMEjqDHljuq2L1letGmD4q2CosqToNFSFcPuvd4owNBMj9VQcaLb0AJ6mDgpuuDuCAfRWTznw4vp6fkUYxCXa3~kulDSi58QbwpOww3NXM0b6NaYcO~zu1EQ__" type="video/mp4" />
+                    <source
+                      src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-570a7e55-792e-4ad3-bbd1-72ca89a61f2d.mp4?Expires=2081095426&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=O83IqG0r8dbMOyLHw8LVHa18JGjLwgnKmLPKL3me1H50K-ggwPoUB2KDX-7hUegt8jWpsQwNwnPd11xBUC-r05B~WCUUnUAf7dg~jN5f-o8IrS~ZfFJUitB6k35pOdipzeinpXe1wGieq-27GNJZgVHiAQRrGYGduuZ7iKmu93ujZNJSx-DEhiP255esVtvIiSCVYsR-t32~QyGosAMO7I17xeUs5LiMEjqDHljuq2L1letGmD4q2CosqToNFSFcPuvd4owNBMj9VQcaLb0AJ6mDgpuuDuCAfRWTznw4vp6fkUYxCXa3~kulDSi58QbwpOww3NXM0b6NaYcO~zu1EQ__"
+                      type="video/mp4"
+                    />
                   </video>
                   {/* Dark overlay for better text contrast */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -139,9 +152,12 @@ export default function HomePage() {
                     Barber Apprenticeship
                   </h3>
                   <p className="text-base text-slate-700 mb-4 leading-relaxed">
-                    Get paid while you learn. Work in a real barbershop from day one, building your skills and your clientele. 
-                    Master cutting, styling, and customer service. Graduate ready to rent your own chair, work in a top shop, 
-                    or open your own business. 12-18 months to a career with unlimited earning potential.
+                    Get paid while you learn. Work in a real barbershop from day
+                    one, building your skills and your clientele. Master
+                    cutting, styling, and customer service. Graduate ready to
+                    rent your own chair, work in a top shop, or open your own
+                    business. 12-18 months to a career with unlimited earning
+                    potential.
                   </p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-start gap-2 text-sm text-slate-600">
@@ -174,7 +190,10 @@ export default function HomePage() {
                     playsInline
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   >
-                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__8/generated-video-2a104343-e6a7-4bd8-88c8-367de1f111b5.mp4?Expires=2081095426&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=jLomOFu1gmLeArJIwD6os67ks1evH1p5TcFkDz-YJNodYobGuYPJriIwkeuEoLTnYoPRk5mt55rqPqvvZzkCED3b1hQbPyWrw~GCuDQ~y~zMkAjWDCb2zWSSLnoyAJrvfGCO45S5tYvhkYZvVjWk3nft8vNHVKeJIF2Odv4JJSRH4MzO8EPZbaRXTaIDqj0eX0DCA8EpfcGRQTuqGERMuUnOGS50vQKYhYNsWEsFlfpVtYqYf3wtS6aaOGsfwFOtBpVBHZqfFfFTix8QMB3lxMQ5f9SG6nnjXHCCDkT6ZZfVSEBWm9K7IChIkr0vPrrr6kaOcRw~B~3sVAjFBwjBSw__" type="video/mp4" />
+                    <source
+                      src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__8/generated-video-2a104343-e6a7-4bd8-88c8-367de1f111b5.mp4?Expires=2081095426&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=jLomOFu1gmLeArJIwD6os67ks1evH1p5TcFkDz-YJNodYobGuYPJriIwkeuEoLTnYoPRk5mt55rqPqvvZzkCED3b1hQbPyWrw~GCuDQ~y~zMkAjWDCb2zWSSLnoyAJrvfGCO45S5tYvhkYZvVjWk3nft8vNHVKeJIF2Odv4JJSRH4MzO8EPZbaRXTaIDqj0eX0DCA8EpfcGRQTuqGERMuUnOGS50vQKYhYNsWEsFlfpVtYqYf3wtS6aaOGsfwFOtBpVBHZqfFfFTix8QMB3lxMQ5f9SG6nnjXHCCDkT6ZZfVSEBWm9K7IChIkr0vPrrr6kaOcRw~B~3sVAjFBwjBSw__"
+                      type="video/mp4"
+                    />
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -183,9 +202,12 @@ export default function HomePage() {
                     CNA Healthcare
                   </h3>
                   <p className="text-base text-slate-700 mb-4 leading-relaxed">
-                    Start your healthcare career in just 4-8 weeks. Learn patient care, medical terminology, and clinical skills 
-                    from experienced nurses. Work in hospitals, nursing homes, assisted living, or home health. Enjoy stable income, 
-                    flexible schedules, and clear paths to advancement. Many CNAs go on to become LPNs or RNs.
+                    Start your healthcare career in just 4-8 weeks. Learn
+                    patient care, medical terminology, and clinical skills from
+                    experienced nurses. Work in hospitals, nursing homes,
+                    assisted living, or home health. Enjoy stable income,
+                    flexible schedules, and clear paths to advancement. Many
+                    CNAs go on to become LPNs or RNs.
                   </p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-start gap-2 text-sm text-slate-600">
@@ -218,7 +240,10 @@ export default function HomePage() {
                     playsInline
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   >
-                    <source src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-dc9558de-f94b-43f1-8e4a-5f45d019895f.mp4?Expires=2081095426&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=p24tUX9stSgPWZKXrqx61Sgq6TOIIlZuwwU6232SsQcohIS-1JZXY3pk2OM8UgQRG7b06Xlr33hvipNaVz8l0qOarpOTLp7cmhAXPQAi3wtrutc3Y1kF95oP6ZM3paP8rDwuuB9iuH~LYdUbNK7Vo2Q3JzCazSVESwT8xTRzLTUBYBGyeRpSPPpHE1381y7a1wyGly35~cPxzNSg~1NBLKIX-08GAbheYi15rsht-U71b9YMc84K75yP0voTGrJoOrFA8P4oj8xMsHvKTv8bU6k5FZ9lgHxCPOv~weDq63sSxs0nHsKiKhbggmc0yHKSJ7vyrtDNWY3H2wiwfZX0ZA__" type="video/mp4" />
+                    <source
+                      src="https://cms-artifacts.artlist.io/content/generated-video-v1/video__5/generated-video-dc9558de-f94b-43f1-8e4a-5f45d019895f.mp4?Expires=2081095426&Key-Pair-Id=K2ZDLYDZI2R1DF&Signature=p24tUX9stSgPWZKXrqx61Sgq6TOIIlZuwwU6232SsQcohIS-1JZXY3pk2OM8UgQRG7b06Xlr33hvipNaVz8l0qOarpOTLp7cmhAXPQAi3wtrutc3Y1kF95oP6ZM3paP8rDwuuB9iuH~LYdUbNK7Vo2Q3JzCazSVESwT8xTRzLTUBYBGyeRpSPPpHE1381y7a1wyGly35~cPxzNSg~1NBLKIX-08GAbheYi15rsht-U71b9YMc84K75yP0voTGrJoOrFA8P4oj8xMsHvKTv8bU6k5FZ9lgHxCPOv~weDq63sSxs0nHsKiKhbggmc0yHKSJ7vyrtDNWY3H2wiwfZX0ZA__"
+                      type="video/mp4"
+                    />
                   </video>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -227,9 +252,12 @@ export default function HomePage() {
                     HVAC Technician
                   </h3>
                   <p className="text-base text-slate-700 mb-4 leading-relaxed">
-                    Master heating, cooling, and refrigeration systems in 8-12 weeks. Learn installation, maintenance, and repair 
-                    from industry professionals. HVAC technicians are in high demand everywhere—companies are desperate for skilled workers. 
-                    Start your own business or work for an established company with excellent pay and benefits.
+                    Master heating, cooling, and refrigeration systems in 8-12
+                    weeks. Learn installation, maintenance, and repair from
+                    industry professionals. HVAC technicians are in high demand
+                    everywhere—companies are desperate for skilled workers.
+                    Start your own business or work for an established company
+                    with excellent pay and benefits.
                   </p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-start gap-2 text-sm text-slate-600">
@@ -263,8 +291,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
       {/* WHO WE SERVE */}
       <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-4">
@@ -273,8 +299,9 @@ export default function HomePage() {
               You Don't Need Perfect. You Just Need to Start.
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              We work with people who've been told "no" their whole lives. Justice-involved individuals. 
-              Parents juggling childcare. People with gaps in their work history. You're welcome here.
+              We work with people who've been told "no" their whole lives.
+              Justice-involved individuals. Parents juggling childcare. People
+              with gaps in their work history. You're welcome here.
             </p>
           </div>
 
@@ -288,10 +315,13 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Second Chances</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
+                Second Chances
+              </h3>
               <p className="text-sm text-slate-700">
-                Through our JRI partnership, justice-involved individuals get free training, 
-                certifications, and wrap-around support. Everyone deserves a path forward.
+                Through our JRI partnership, justice-involved individuals get
+                free training, certifications, and wrap-around support. Everyone
+                deserves a path forward.
               </p>
             </div>
 
@@ -304,10 +334,13 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Parents & Caregivers</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
+                Parents & Caregivers
+              </h3>
               <p className="text-sm text-slate-700">
-                Our hybrid programs let you train online at your own pace and complete hands-on 
-                requirements on a flexible schedule. We get it—life is complicated.
+                Our hybrid programs let you train online at your own pace and
+                complete hands-on requirements on a flexible schedule. We get
+                it—life is complicated.
               </p>
             </div>
 
@@ -320,10 +353,13 @@ export default function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Career Changers</h3>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
+                Career Changers
+              </h3>
               <p className="text-sm text-slate-700">
-                Stuck in a dead-end job? Starting completely over? Our short-term programs 
-                (4-12 weeks) get you into a new career fast—no years wasted.
+                Stuck in a dead-end job? Starting completely over? Our
+                short-term programs (4-12 weeks) get you into a new career
+                fast—no years wasted.
               </p>
             </div>
           </div>
@@ -338,7 +374,8 @@ export default function HomePage() {
               More Ways to Change Your Future
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Real people. Real transformations. Real opportunities waiting for you.
+              Real people. Real transformations. Real opportunities waiting for
+              you.
             </p>
           </div>
 
@@ -360,15 +397,21 @@ export default function HomePage() {
                   Tax & Finance
                 </div>
                 <h3 className="text-3xl font-bold text-slate-900 mb-4">
-                  "I went from barely making ends meet to building my own future"
+                  "I went from barely making ends meet to building my own
+                  future"
                 </h3>
                 <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-                  Sarah spent years working retail—minimum wage, unpredictable schedules, and no time for her family. 
-                  She knew there had to be something better, but didn't know where to start. Through our Tax & Finance 
-                  program, she learned everything from tax preparation to bookkeeping and financial planning. Today, 
-                  Sarah runs her own tax business from home. She sets her own hours, earns real income during tax season, 
-                  and finally has her summers free to be with her kids. "I never thought I could own a business," she says. 
-                  "But this program showed me I already had what it takes—I just needed the training and support."
+                  Sarah spent years working retail—minimum wage, unpredictable
+                  schedules, and no time for her family. She knew there had to
+                  be something better, but didn't know where to start. Through
+                  our Tax & Finance program, she learned everything from tax
+                  preparation to bookkeeping and financial planning. Today,
+                  Sarah runs her own tax business from home. She sets her own
+                  hours, earns real income during tax season, and finally has
+                  her summers free to be with her kids. "I never thought I could
+                  own a business," she says. "But this program showed me I
+                  already had what it takes—I just needed the training and
+                  support."
                 </p>
                 <Link
                   href="/programs/tax-preparation"
@@ -391,13 +434,18 @@ export default function HomePage() {
                   "I went from unemployed to having companies compete for me"
                 </h3>
                 <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-                  When Marcus lost his job during the pandemic, he felt stuck. No degree, no specialized skills, 
-                  and bills piling up. A friend told him about our HVAC program, and he decided to take a chance. 
-                  The training was hands-on—real equipment, real scenarios, taught by people who'd actually worked 
-                  in the field. Within weeks, Marcus was troubleshooting systems and understanding the trade inside 
-                  and out. Before he even finished the program, three companies reached out with job offers. Today, 
-                  he works for a union shop with full benefits, steady income, and the respect that comes with being 
-                  a skilled tradesperson. "I didn't just get a job," Marcus says. "I got a career I'm proud of."
+                  When Marcus lost his job during the pandemic, he felt stuck.
+                  No degree, no specialized skills, and bills piling up. A
+                  friend told him about our HVAC program, and he decided to take
+                  a chance. The training was hands-on—real equipment, real
+                  scenarios, taught by people who'd actually worked in the
+                  field. Within weeks, Marcus was troubleshooting systems and
+                  understanding the trade inside and out. Before he even
+                  finished the program, three companies reached out with job
+                  offers. Today, he works for a union shop with full benefits,
+                  steady income, and the respect that comes with being a skilled
+                  tradesperson. "I didn't just get a job," Marcus says. "I got a
+                  career I'm proud of."
                 </p>
                 <Link
                   href="/programs/hvac"
@@ -435,17 +483,23 @@ export default function HomePage() {
                   Healthcare
                 </div>
                 <h3 className="text-3xl font-bold text-slate-900 mb-4">
-                  "I always wanted to help people—now I wake up every day knowing I do"
+                  "I always wanted to help people—now I wake up every day
+                  knowing I do"
                 </h3>
                 <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-                  Jennifer spent years feeling like healthcare was out of reach. She thought you needed years of 
-                  expensive schooling just to get started. When she learned about our CNA program, she was skeptical—
-                  could she really become a healthcare professional in just a few weeks? The answer was yes. The 
-                  training covered everything: patient care, medical terminology, hands-on clinical skills. Her 
-                  instructors were working nurses who understood what it takes to succeed in the field. Today, 
-                  Jennifer works at a local hospital, caring for patients and making a real difference in their lives. 
-                  She earns steady income with benefits, and she's already planning her next step toward becoming an RN. 
-                  "This isn't just a job," she says. "It's the life I was meant to live."
+                  Jennifer spent years feeling like healthcare was out of reach.
+                  She thought you needed years of expensive schooling just to
+                  get started. When she learned about our CNA program, she was
+                  skeptical— could she really become a healthcare professional
+                  in just a few weeks? The answer was yes. The training covered
+                  everything: patient care, medical terminology, hands-on
+                  clinical skills. Her instructors were working nurses who
+                  understood what it takes to succeed in the field. Today,
+                  Jennifer works at a local hospital, caring for patients and
+                  making a real difference in their lives. She earns steady
+                  income with benefits, and she's already planning her next step
+                  toward becoming an RN. "This isn't just a job," she says.
+                  "It's the life I was meant to live."
                 </p>
                 <Link
                   href="/programs/cna"
@@ -487,15 +541,15 @@ export default function HomePage() {
                 className="object-cover"
               />
             </div>
-            
+
             {/* Content */}
             <div className="text-white">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Ready to Start?
               </h2>
               <p className="text-xl text-white/90 mb-6 leading-relaxed">
-                Most students qualify for 100% free training through WIOA, WRG, or apprenticeships. 
-                Let's find the right path for you.
+                Most students qualify for 100% free training through WIOA, WRG,
+                or apprenticeships. Let's find the right path for you.
               </p>
               <div className="flex flex-col gap-4 mb-6">
                 <Link
@@ -515,7 +569,10 @@ export default function HomePage() {
                 <p className="text-sm text-white/90 mb-2">
                   <span className="font-semibold">Call us directly:</span>
                 </p>
-                <a href="tel:317-314-3757" className="text-2xl font-bold text-white hover:text-white/90 transition">
+                <a
+                  href="tel:317-314-3757"
+                  className="text-2xl font-bold text-white hover:text-white/90 transition"
+                >
                   📞 317-314-3757
                 </a>
               </div>
