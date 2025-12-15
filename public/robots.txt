@@ -120,6 +120,8 @@ Disallow: /api/
 Disallow: /portal/
 Disallow: /student/
 Disallow: /instructor/
+Disallow: /shop/
+Disallow: /platform/
 Disallow: /_next/
 Disallow: /private/
 Disallow: /checkout/

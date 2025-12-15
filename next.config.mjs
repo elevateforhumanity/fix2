@@ -137,6 +137,10 @@ const nextConfig = {
             value: 'origin-when-cross-origin',
           },
           {
+            key: 'X-Robots-Tag',
+            value: 'noai, noimageai, nosnippet, noarchive',
+          },
+          {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
