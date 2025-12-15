@@ -97,6 +97,23 @@ export async function proxy(request: NextRequest) {
   const userAgent = request.headers.get('user-agent') || '';
   const ip = getClientIp(request);
 
+  // Handle redirects for consolidated pages
+  const redirects: Record<string, string> = {
+    '/portal/student': '/student/dashboard',
+    '/student-portal': '/student/dashboard',
+    '/aitutor': '/ai-tutor',
+    '/forgotpassword': '/auth/forgot-password',
+    '/resetpassword': '/auth/reset-password',
+    '/refundpolicy': '/refund-policy',
+    '/refunds': '/refund-policy',
+    '/privacy-policy': '/privacy',
+    '/terms-of-service': '/terms',
+  };
+
+  if (redirects[pathname]) {
+    return NextResponse.redirect(new URL(redirects[pathname], request.url), 301);
+  }
+
   // Exclude static assets and Next internals
   if (
     pathname.startsWith('/_next') ||
