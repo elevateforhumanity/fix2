@@ -8,22 +8,36 @@ export default function HomePage() {
       {/* HERO */}
       <section className="px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 pb-6 sm:pb-10">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-4xl mx-auto mb-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900">
-              Workforce training that leads to real careers — with funding
-              pathways built in.
-            </h1>
-            <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-zinc-700">
-              Elevate for Humanity helps people enroll in career programs and
-              helps partners deliver training through a platform built for
-              workforce, reentry, and community impact.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+            <div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900">
+                Workforce training that leads to real careers — with funding
+                pathways built in.
+              </h1>
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl text-zinc-700">
+                Elevate for Humanity helps people enroll in career programs and
+                helps partners deliver training through a platform built for
+                workforce, reentry, and community impact.
+              </p>
 
-            <PrimaryCtas />
+              <PrimaryCtas />
 
-            <div className="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-600">
-              Serving individuals, schools, employers, and community partners
-              across Indiana and beyond.
+              <div className="mt-4 sm:mt-5 text-sm sm:text-base text-zinc-600">
+                Serving individuals, schools, employers, and community partners
+                across Indiana and beyond.
+              </div>
+            </div>
+
+            <div className="w-full">
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[480px] rounded-2xl overflow-hidden shadow-sm border border-zinc-200">
+                <Image 
+                  src="/images/heroes/hero-banner-main.png" 
+                  alt="Elevate for Humanity - Workforce Training" 
+                  fill 
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -73,7 +87,7 @@ export default function HomePage() {
           <div className="mt-4 sm:mt-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {/* Students */}
             <div className="rounded-xl sm:rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 shadow-sm">
-              <div className="relative w-full h-[200px] sm:h-[280px] md:h-[320px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
+              <div className="relative w-full h-[320px] sm:h-[400px] md:h-[480px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
                 <Image
                   src="https://i.imgur.com/NK9RJzf.png"
                   alt="Students training"
@@ -98,7 +112,7 @@ export default function HomePage() {
 
             {/* Partners */}
             <div className="rounded-xl sm:rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 shadow-sm">
-              <div className="relative w-full h-[200px] sm:h-[280px] md:h-[320px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
+              <div className="relative w-full h-[320px] sm:h-[400px] md:h-[480px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
                 <Image
                   src="https://i.imgur.com/0ERBaW6.png"
                   alt="Platform and partners"
@@ -124,7 +138,7 @@ export default function HomePage() {
 
             {/* Community */}
             <div className="rounded-xl sm:rounded-2xl border border-zinc-200 bg-white p-4 sm:p-5 shadow-sm">
-              <div className="relative w-full h-[200px] sm:h-[280px] md:h-[320px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
+              <div className="relative w-full h-[320px] sm:h-[400px] md:h-[480px] rounded-lg sm:rounded-xl overflow-hidden border border-zinc-100">
                 <Image
                   src="https://i.imgur.com/maxIuYA.png"
                   alt="Community impact"
