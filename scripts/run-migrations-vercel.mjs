@@ -18,6 +18,11 @@ const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 console.log('🚀 Running Supabase Migrations on Vercel\n');
 
+// TEMPORARY: Skip migrations until exec() function is created
+console.log('⚠️  Skipping migrations: Migrations require manual setup in Supabase dashboard');
+console.log('   Run migrations manually via Supabase SQL Editor');
+process.exit(0);
+
 // Check credentials
 if (!supabaseUrl || !supabaseKey) {
   console.log('⚠️  Skipping migrations: Missing Supabase credentials');
