@@ -1,11 +1,11 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { CheckCircle, Loader2 } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 function AffirmConfirmContent() {
   const searchParams = useSearchParams();

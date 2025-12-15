@@ -1,11 +1,11 @@
-export const dynamic = 'force-dynamic';
-
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { SignMOUForm } from './SignMOUForm';
 import { FileText, Shield, CheckCircle } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Sign MOU | Elevate For Humanity',

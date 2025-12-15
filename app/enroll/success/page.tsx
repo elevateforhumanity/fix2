@@ -1,9 +1,9 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import Link from 'next/link';
 import { CheckCircle, Mail, Smartphone, ExternalLink } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 export default function EnrollSuccessPage() {
   return (

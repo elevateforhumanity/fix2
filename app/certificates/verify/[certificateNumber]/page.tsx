@@ -1,11 +1,11 @@
-export const dynamic = 'force-dynamic';
-
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { notFound } from 'next/navigation';
 import { CheckCircle, XCircle, Download, Share2 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   alternates: {

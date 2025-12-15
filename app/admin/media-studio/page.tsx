@@ -1,7 +1,5 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -19,6 +17,8 @@ import {
   Sparkles,
 } from 'lucide-react';
 import Image from 'next/image';
+
+export const dynamic = 'force-dynamic';
 
 interface MediaFile {
   name: string;

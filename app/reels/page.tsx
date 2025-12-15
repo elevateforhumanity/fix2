@@ -1,10 +1,10 @@
-export const dynamic = 'force-dynamic';
-
 import { Metadata } from 'next';
 
 import { createClient } from '@/lib/supabase/server';
 
 import ReelsFeed from '@/components/reels/ReelsFeed';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Reels | Elevate For Humanity',

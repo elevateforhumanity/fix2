@@ -1,12 +1,12 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
+
+export const dynamic = 'force-dynamic';
 
 export default function AdminPayroll() {
   const router = useRouter();

@@ -1,10 +1,10 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { DollarSign, TrendingUp, Users, Award, Download } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 type Incentive = {
   id: string;

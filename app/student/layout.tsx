@@ -1,9 +1,9 @@
-export const dynamic = 'force-dynamic';
-
 import { redirect } from 'next/navigation';
 // Image asset: /images/success-new/success-14.jpg
 import { createServerSupabaseClient } from '@/lib/auth';
 import { Metadata } from 'next';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Student Portal - My Learning Journey',

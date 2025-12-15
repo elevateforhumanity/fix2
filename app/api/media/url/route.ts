@@ -1,17 +1,17 @@
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET(req: Request) {
-  const path = new URL(req.url).searchParams.get("path");
-  
+  const path = new URL(req.url).searchParams.get('path');
+
   if (!path) {
-    return Response.json({ error: "No path provided" }, { status: 400 });
+    return Response.json({ error: 'No path provided' }, { status: 400 });
   }
 
   const supabase = await createClient();
   const { data, error } = await supabase.storage
-    .from("media")
+    .from('media')
     .createSignedUrl(path, 3600);
 
   if (error) {

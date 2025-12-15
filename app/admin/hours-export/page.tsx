@@ -1,10 +1,10 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState } from 'react';
 import Link from 'next/link';
 import { Calendar, Download, Clock } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 export default function HoursExportPage() {
   const [loading, setLoading] = useState(false);

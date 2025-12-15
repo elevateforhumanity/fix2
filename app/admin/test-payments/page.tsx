@@ -1,10 +1,10 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { CreditCard, CheckCircle, XCircle, DollarSign } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 export default function TestPaymentsPage() {
   const [stripeConfigured, setStripeConfigured] = useState(false);

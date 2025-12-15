@@ -1,11 +1,11 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Star } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 interface Skill {
   id: string;

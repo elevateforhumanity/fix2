@@ -1,10 +1,10 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState } from 'react';
 import Link from 'next/link';
 import { ChevronDown, Search, HelpCircle, Phone, Mail } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 const faqCategories = [
   {

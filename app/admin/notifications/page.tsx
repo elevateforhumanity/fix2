@@ -1,12 +1,12 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Bell, Send, Users, CheckCircle, AlertCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+
+export const dynamic = 'force-dynamic';
 
 export default function NotificationsPage() {
   const router = useRouter();

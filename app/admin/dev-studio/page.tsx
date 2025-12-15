@@ -1,7 +1,5 @@
 'use client';
 
-export const dynamicParams = true;
-
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,6 +11,8 @@ import FileTree from '@/components/dev-studio/FileTree';
 import Terminal from '@/components/dev-studio/Terminal';
 import PreviewPanel from '@/components/dev-studio/PreviewPanel';
 import { Save, Play, GitBranch, Settings } from 'lucide-react';
+
+export const dynamicParams = true;
 
 // Lazy load Monaco to avoid SSR issues
 const CodeEditor = dynamic(() => import('@/components/dev-studio/CodeEditor'), {

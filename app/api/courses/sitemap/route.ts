@@ -1,14 +1,16 @@
-import { NextRequest, NextResponse } from "next/server";
-import { gh, parseRepo } from "@/lib/github";
+import { NextRequest, NextResponse } from 'next/server';
+import { gh, parseRepo } from '@/lib/github';
 import { logger } from '@/lib/logger';
 
-// Mark as dynamic route
 export const dynamic = 'force-dynamic';
+
+// Mark as dynamic route
 
 export async function GET(req: NextRequest) {
   try {
-    const repo = req.nextUrl.searchParams.get("repo") || "elevateforhumanity/fix2";
-    const branch = req.nextUrl.searchParams.get("branch") || "main";
+    const repo =
+      req.nextUrl.searchParams.get('repo') || 'elevateforhumanity/fix2';
+    const branch = req.nextUrl.searchParams.get('branch') || 'main';
 
     const client = gh();
     const { owner, name } = parseRepo(repo);
@@ -18,28 +20,28 @@ export async function GET(req: NextRequest) {
       owner,
       repo: name,
       tree_sha: branch,
-      recursive: "true",
+      recursive: 'true',
     });
 
     // Get all course-related files
-    const courseFiles = tree.tree
-      ?.filter((item) => 
-        item.path?.startsWith("courses/") && 
-        item.type === "blob"
-      )
-      .map((item) => ({
-        path: item.path,
-        type: item.path?.split('.').pop(),
-        size: item.size,
-      })) || [];
+    const courseFiles =
+      tree.tree
+        ?.filter(
+          (item) => item.path?.startsWith('courses/') && item.type === 'blob'
+        )
+        .map((item) => ({
+          path: item.path,
+          type: item.path?.split('.').pop(),
+          size: item.size,
+        })) || [];
 
     // Organize by course
     const sitemap: Record<string, any> = {};
-    
+
     courseFiles.forEach((file) => {
-      const parts = file.path!.split("/");
+      const parts = file.path!.split('/');
       const courseSlug = parts[1];
-      
+
       if (!sitemap[courseSlug]) {
         sitemap[courseSlug] = {
           slug: courseSlug,
@@ -48,14 +50,14 @@ export async function GET(req: NextRequest) {
           lessons: [],
         };
       }
-      
+
       sitemap[courseSlug].files.push(file.path);
-      
+
       // Track modules
-      if (parts.length > 3 && parts[2] === "modules") {
+      if (parts.length > 3 && parts[2] === 'modules') {
         sitemap[courseSlug].modules.add(parts[3]);
       }
-      
+
       // Track lessons
       if (file.path!.endsWith('.html') || file.path!.endsWith('.md')) {
         sitemap[courseSlug].lessons.push(file.path);
@@ -73,9 +75,9 @@ export async function GET(req: NextRequest) {
       totalFiles: courseFiles.length,
     });
   } catch (error: unknown) {
-    logger.error("Generate sitemap error:", error);
+    logger.error('Generate sitemap error:', error);
     return NextResponse.json(
-      { error: "Failed to generate sitemap", message: error.message },
+      { error: 'Failed to generate sitemap', message: error.message },
       { status: 500 }
     );
   }

@@ -1,7 +1,5 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -18,6 +16,8 @@ import {
   Play,
 } from 'lucide-react';
 import { emailTemplates, type EmailTemplateKey } from '@/lib/email-templates';
+
+export const dynamic = 'force-dynamic';
 
 interface EmailStep {
   id: string;

@@ -1,8 +1,8 @@
-export const dynamic = 'force-dynamic';
-
 import { redirect } from 'next/navigation';
 // Image asset: /images/location-1.jpg
 import { createServerSupabaseClient } from '@/lib/auth';
+
+export const dynamic = 'force-dynamic';
 
 export default async function OnboardingLayout({
   children,

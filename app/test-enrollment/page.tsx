@@ -1,8 +1,8 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState, useEffect } from 'react';
+
+export const dynamic = 'force-dynamic';
 
 export default function TestEnrollmentPage() {
   const [students, setStudents] = useState<any[]>([]);

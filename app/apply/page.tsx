@@ -1,10 +1,10 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ApprenticeshipBadge } from '@/components/programs/ApprenticeshipBadge';
+
+export const dynamic = 'force-dynamic';
 
 function ApplyForm() {
   const [programParam, setProgramParam] = useState<string>('');

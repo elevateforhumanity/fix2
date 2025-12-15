@@ -1,10 +1,10 @@
-export const dynamic = 'force-dynamic';
-
 import { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Students | Elevate For Humanity',

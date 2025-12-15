@@ -1,9 +1,9 @@
 // app/advising/page.tsx
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState } from 'react';
+
+export const dynamic = 'force-dynamic';
 
 export default function AdvisingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);

@@ -1,13 +1,13 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Building2, CheckCircle, AlertCircle } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 export default function ProgramHolderApplicationPage() {
   const [formData, setFormData] = useState({

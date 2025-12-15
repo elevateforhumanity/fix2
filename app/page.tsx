@@ -1,10 +1,10 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import React from 'react';
 import Link from 'next/link';
 import { WelcomeAudio } from '@/components/WelcomeAudio';
+
+export const dynamic = 'force-dynamic';
 
 export default function HomePage() {
   const videoRef = React.useRef<HTMLVideoElement>(null);

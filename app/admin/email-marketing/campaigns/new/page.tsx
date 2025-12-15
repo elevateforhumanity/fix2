@@ -1,7 +1,5 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,6 +15,8 @@ import {
   Mail,
 } from 'lucide-react';
 import { emailTemplates, type EmailTemplateKey } from '@/lib/email-templates';
+
+export const dynamic = 'force-dynamic';
 
 export default function NewCampaignPage() {
   const router = useRouter();

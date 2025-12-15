@@ -1,7 +1,5 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
@@ -17,6 +15,8 @@ import {
 } from 'lucide-react';
 import { DiscussionForum } from '@/components/lms/DiscussionForum';
 import { QuizSystem } from '@/components/lms/QuizSystem';
+
+export const dynamic = 'force-dynamic';
 
 export default function LessonPage() {
   const params = useParams();

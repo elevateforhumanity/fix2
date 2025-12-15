@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic';
-
 import { Metadata } from 'next';
 // Image asset: /images/success-new/success-8.jpg
 import { redirect } from 'next/navigation';
@@ -7,6 +5,8 @@ import { requireAdmin } from '@/lib/auth';
 import AdminNav from '@/components/AdminNav';
 import AdminHeader from '@/components/AdminHeader';
 import { SiteFooter } from '@/components/layout/Footer';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Admin Portal - Manage Programs & Operations',

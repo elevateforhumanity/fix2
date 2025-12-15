@@ -1,7 +1,5 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -10,6 +8,8 @@ import Split from 'react-split';
 import FileTree from '@/components/editor/FileTree';
 import CodeEditor from '@/components/editor/CodeEditor';
 import Terminal from '@/components/editor/Terminal';
+export const dynamic = 'force-dynamic';
+
 // Mock file structure
 const mockFiles = [
   {

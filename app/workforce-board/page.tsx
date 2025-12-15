@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic';
-
 import { Metadata } from 'next';
 
 import Link from 'next/link';
@@ -16,6 +14,8 @@ import {
 import { createClient } from '@/lib/supabase/server';
 
 import { redirect } from 'next/navigation';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   alternates: {

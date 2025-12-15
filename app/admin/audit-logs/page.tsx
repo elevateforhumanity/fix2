@@ -1,10 +1,10 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Shield, Filter, Download, Search } from 'lucide-react';
+
+export const dynamic = 'force-dynamic';
 
 type AuditLog = {
   id: string;
