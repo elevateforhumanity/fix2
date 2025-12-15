@@ -121,9 +121,9 @@ Career Outcomes:
     name: 'Barber Apprenticeship',
     heroTitle: 'Indiana Barber Apprenticeship - Earn While You Learn',
     heroSubtitle:
-      "Skip the $25,000 barber school debt. Get paid to train in a real shop. Indiana's new legislation makes it possible.",
+      "Get paid while you learn. Work in a real barbershop from day one, earning approximately $10/hour plus commissions while building your skills and clientele. Skip the $25,000 barber school debt. Graduate in 15-17 months ready to rent your own chair, work in a top shop, or open your own business.",
     shortDescription:
-      "Indiana's registered apprenticeship lets you bypass traditional barber school, earn money while training, and become a licensed barber in 15-17 months.",
+      "Get paid while you learn. Work in a real barbershop from day one, earning approximately $10/hour plus commissions while building your skills and clientele. Skip the $25,000 barber school debt. Graduate in 15-17 months ready to rent your own chair, work in a top shop, or open your own business.",
     longDescription: `## A New Path to Barbering in Indiana
 
 In 2024 and 2025, Indiana changed everything for aspiring barbers. House Bill 1135 and House Bill 1320 officially established federally registered apprenticeships as a valid pathway to barbering licensure. This "Earn While You Learn" model allows you to bypass traditional barber school—which costs approximately $25,000—and instead receive paid, hands-on training directly on a shop floor.
@@ -326,14 +326,14 @@ Ready to start?`,
       'Earn $10/hour + commissions while training',
     ],
     highlights: [
-      'Skip $25,000 barber school debt',
-      'Earn money while you train (~$10/hour + commissions)',
-      'Work with real clients from day one',
-      'Graduate with your own clientele',
-      '2,000 hours of hands-on experience',
-      '144 hours of technical instruction',
-      "Indiana's new 2024/2025 legislation pathway",
-      '73% own their chair or shop within 2 years',
+      'Earn while you learn - get paid $10/hour plus commissions from day one',
+      'Zero tuition - employers pay your $6,500 curriculum cost',
+      'Skip $25,000 barber school debt - graduate debt-free',
+      'Build your clientele during training - graduate with customers who know you',
+      'Real experience - 2,000 hours working with actual clients in professional shops',
+      'Own your future - 73% of graduates own their chair or shop within 2 years',
+      'Unlimited earning potential - licensed barbers earn $35k-$65k+ per year',
+      'Multiple career paths - rent a chair, work for a shop, or open your own business',
     ],
     whatYouLearn: [
       'Haircutting: fades, tapers, lineups, beard work',
@@ -462,9 +462,9 @@ Career Outcomes:
     name: "Commercial Driver's License (CDL)",
     heroTitle: 'CDL — Commercial Driver Training',
     heroSubtitle:
-      'Professional CDL training that prepares you for Class A or Class B licensing and entry-level commercial driving careers.',
+      'Get your Commercial Driver\'s License and start earning $50,000-$70,000+ per year. Professional CDL training prepares you for Class A or Class B licensing in just weeks. Trucking companies are desperate for drivers—many offer sign-on bonuses, benefits, and tuition reimbursement.',
     shortDescription:
-      'Professional CDL training that prepares you for Class A or Class B licensing and entry-level commercial driving careers.',
+      'Get your Commercial Driver\'s License and start earning $50,000-$70,000+ per year. Professional CDL training prepares you for Class A or Class B licensing in just weeks. Trucking companies are desperate for drivers—many offer sign-on bonuses, benefits, and tuition reimbursement.',
     longDescription: `The CDL program builds the knowledge and skills required to safely operate commercial vehicles. Students receive classroom instruction along with hands-on yard and road training. This pathway is ideal for adults seeking stable income, benefits, and long-term growth in logistics and transportation.
 
 What You'll Learn:
@@ -508,10 +508,14 @@ Career Outcomes:
       'Employer reimbursement programs may apply',
     ],
     highlights: [
-      'Behind-the-wheel training with experienced instructors',
-      'Preparation for CDL written and skills tests',
-      'Job placement assistance with local carriers',
-      'Pathways to regional and long-haul opportunities',
+      'High earning potential - start at $50k-$70k+ per year',
+      'Extreme demand - trucking companies are desperate for qualified drivers',
+      'Sign-on bonuses - many companies offer $5,000-$10,000 bonuses',
+      'Excellent benefits - health insurance, retirement, paid time off',
+      'Behind-the-wheel training with experienced professional drivers',
+      'Job placement assistance - we connect you with hiring carriers',
+      'Multiple career paths - local routes, regional, or long-haul',
+      'Tuition reimbursement - many employers will pay back your training costs',
     ],
     whatYouLearn: [
       'Vehicle inspection and safety',
@@ -1422,9 +1426,9 @@ CIP Code: 43.0112 - Securities Services Administration/Management`,
     name: 'Tax Preparation & Financial Services Certificate',
     heroTitle: 'Tax Preparation & Financial Services Certificate Program',
     heroSubtitle:
-      '10-week IRS VITA/TCE certified training for tax preparation, bookkeeping, and financial services careers',
+      'Start your own tax business or work for a firm in just 10 weeks. Get IRS VITA/TCE certified, learn QuickBooks and Microsoft 365, and gain real experience preparing taxes at an IRS-approved site. Earn $40,000-$60,000+ per year during tax season, with flexibility to work year-round or seasonally.',
     shortDescription:
-      'IRS-approved training with supervised practicum at VITA site, QuickBooks, Microsoft 365, and financial literacy certifications',
+      'Start your own tax business or work for a firm in just 10 weeks. Get IRS VITA/TCE certified, learn QuickBooks and Microsoft 365, and gain real experience preparing taxes at an IRS-approved site. Earn $40,000-$60,000+ per year during tax season, with flexibility to work year-round or seasonally.',
     longDescription: `The Tax Preparation & Financial Services Certificate prepares individuals to understand federal and state taxation concepts and apply them in real-world settings. Participants complete training in tax law, return preparation, bookkeeping, and financial literacy, culminating in the IRS VITA/TCE certification. The program combines classroom instruction, online modules, and supervised practicum hours at an IRS-approved VITA site. Graduates gain the skills required for employment as Tax Preparers, Bookkeeping Assistants, and Financial Service Specialists in both private and community-based environments.
 
 Through the IRS Link & Learn platform and Elevate for Humanity's financial training curriculum, students master key competencies in individual taxation, ethics, client intake, and electronic filing, while also building transferable skills in business communication, budgeting, and entrepreneurship.
