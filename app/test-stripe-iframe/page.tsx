@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = "force-dynamic";
+
 export default function TestStripeIframePage() {
   return (
     <main className="min-h-screen bg-slate-50 p-8">
