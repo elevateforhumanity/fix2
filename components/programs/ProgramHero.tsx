@@ -70,7 +70,7 @@ export function ProgramHero({ program }: { program: Program }) {
 
   return (
     <>
-      {/* Hero with Image/Video Background */}
+      {/* Hero with Image/Video Background - Top Hero Banner */}
       <section className="relative bg-slate-900">
         <div className="relative w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] overflow-hidden">
           {hasVideo ? (
